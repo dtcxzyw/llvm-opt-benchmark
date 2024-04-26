@@ -182047,7 +182047,7 @@ _ZNK5boost14dynamic_bitsetImSaImEE10find_firstEv.exit: ; preds = %_ZSt7find_ifIN
   %598 = add nuw i64 %595, 1
   %599 = lshr i64 %598, 6
   %600 = and i64 %598, 63
-  %601 = getelementptr i64, ptr %542, i64 %599
+  %601 = getelementptr inbounds i64, ptr %542, i64 %599
   %602 = load i64, ptr %601, align 8
   %603 = lshr i64 %602, %600
   %.not.i524 = icmp eq i64 %603, 0
@@ -182062,7 +182062,7 @@ _ZNK5boost14dynamic_bitsetImSaImEE10find_firstEv.exit: ; preds = %_ZSt7find_ifIN
   br label %_ZNK5boost14dynamic_bitsetImSaImEE9find_nextEm.exit
 
 609:                                              ; preds = %597
-  %610 = getelementptr i8, ptr %601, i64 8
+  %610 = getelementptr inbounds i8, ptr %601, i64 8
   %611 = ptrtoint ptr %610 to i64
   %612 = sub i64 %545, %611
   %613 = ashr i64 %612, 5
@@ -182278,7 +182278,7 @@ _ZNK5boost14dynamic_bitsetImSaImEE9find_nextEm.exit: ; preds = %604, %645
   %672 = add nuw i64 %.02772234, 1
   %673 = lshr i64 %672, 6
   %674 = and i64 %672, 63
-  %675 = getelementptr i64, ptr %542, i64 %673
+  %675 = getelementptr inbounds i64, ptr %542, i64 %673
   %676 = load i64, ptr %675, align 8
   %677 = lshr i64 %676, %674
   %.not.i555 = icmp eq i64 %677, 0
@@ -182293,7 +182293,7 @@ _ZNK5boost14dynamic_bitsetImSaImEE9find_nextEm.exit: ; preds = %604, %645
   br label %_ZNK5boost14dynamic_bitsetImSaImEE9find_nextEm.exit585
 
 683:                                              ; preds = %671
-  %684 = getelementptr i8, ptr %675, i64 8
+  %684 = getelementptr inbounds i8, ptr %675, i64 8
   %685 = ptrtoint ptr %684 to i64
   %686 = sub i64 %545, %685
   %687 = ashr i64 %686, 5
@@ -183082,7 +183082,7 @@ _ZNSt6vectorImSaImEE9push_backERKm.exit:          ; preds = %_ZNSt6vectorImSaImE
   %948 = add nuw i64 %storemerge2922264, 1
   %949 = lshr i64 %948, 6
   %950 = and i64 %948, 63
-  %951 = getelementptr i64, ptr %542, i64 %949
+  %951 = getelementptr inbounds i64, ptr %542, i64 %949
   %952 = load i64, ptr %951, align 8
   %953 = lshr i64 %952, %950
   %.not.i662 = icmp eq i64 %953, 0
@@ -183097,7 +183097,7 @@ _ZNSt6vectorImSaImEE9push_backERKm.exit:          ; preds = %_ZNSt6vectorImSaImE
   br label %_ZNK5boost14dynamic_bitsetImSaImEE9find_nextEm.exit692
 
 959:                                              ; preds = %947
-  %960 = getelementptr i8, ptr %951, i64 8
+  %960 = getelementptr inbounds i8, ptr %951, i64 8
   %961 = ptrtoint ptr %960 to i64
   %962 = sub i64 %545, %961
   %963 = ashr i64 %962, 5

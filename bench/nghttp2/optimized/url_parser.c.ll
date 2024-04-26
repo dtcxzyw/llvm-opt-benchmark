@@ -22,7 +22,7 @@ entry:
 declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #1
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @http_parser_parse_url(ptr noundef %buf, i64 noundef %buflen, i32 noundef %is_connect, ptr nocapture noundef %u) local_unnamed_addr #2 {
+define range(i32 0, 2) i32 @http_parser_parse_url(ptr noundef %buf, i64 noundef %buflen, i32 noundef %is_connect, ptr nocapture noundef %u) local_unnamed_addr #2 {
 entry:
   %cmp = icmp eq i64 %buflen, 0
   br i1 %cmp, label %return, label %if.end
@@ -319,10 +319,10 @@ if.end.i:                                         ; preds = %if.end31
   %19 = load i16, ptr %arrayidx.i40, align 2
   %conv.i = zext i16 %19 to i64
   store i16 0, ptr %len.i, align 2
-  %add.ptr.i = getelementptr i8, ptr %buf, i64 %conv.i
-  %add.ptr14.i = getelementptr i8, ptr %add.ptr.i, i64 %conv3.i
-  %cmp59.i = icmp ult ptr %add.ptr.i, %add.ptr14.i
-  br i1 %cmp59.i, label %for.body.lr.ph.i, label %for.end.i
+  %add.ptr.i = getelementptr inbounds i8, ptr %buf, i64 %conv.i
+  %add.ptr14.i = getelementptr inbounds i8, ptr %add.ptr.i, i64 %conv3.i
+  %cmp59.not.i = icmp eq i16 %18, 0
+  br i1 %cmp59.not.i, label %for.end.i, label %for.body.lr.ph.i
 
 for.body.lr.ph.i:                                 ; preds = %if.end.i
   %sub.ptr.rhs.cast57.i = ptrtoint ptr %buf to i64
@@ -566,8 +566,8 @@ sw.epilog.i:                                      ; preds = %if.end92.i, %if.end
   %44 = phi i16 [ %42, %if.end92.i ], [ %39, %if.end69.i ], [ %21, %sw.bb47.i ], [ %21, %if.end42.i ], [ %21, %if.end27.i ], [ %21, %sw.bb211.i.i ], [ %21, %sw.bb165.i.i ], [ %21, %sw.bb159.i.i ], [ %21, %sw.bb90.i.i ], [ %21, %sw.bb.i.i ]
   %retval.0.i37.i = phi i32 [ 3, %if.end92.i ], [ 12, %if.end69.i ], [ %retval.0.i.ph47.i, %sw.bb47.i ], [ 7, %if.end42.i ], [ 6, %if.end27.i ], [ 8, %sw.bb211.i.i ], [ 8, %sw.bb165.i.i ], [ 11, %sw.bb159.i.i ], [ 5, %sw.bb90.i.i ], [ 4, %sw.bb.i.i ]
   %incdec.ptr.i = getelementptr inbounds i8, ptr %p.060.i, i64 1
-  %exitcond.not.i = icmp eq ptr %incdec.ptr.i, %add.ptr14.i
-  br i1 %exitcond.not.i, label %for.end.i, label %for.body.i, !llvm.loop !6
+  %cmp.i = icmp ult ptr %incdec.ptr.i, %add.ptr14.i
+  br i1 %cmp.i, label %for.body.i, label %for.end.i, !llvm.loop !6
 
 for.end.i:                                        ; preds = %sw.epilog.i, %if.end.i
   %45 = phi i16 [ %13, %if.end.i ], [ %44, %sw.epilog.i ]

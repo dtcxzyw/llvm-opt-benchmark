@@ -1712,8 +1712,8 @@ define ptr @Bbl_ManObjNext(ptr nocapture noundef readonly %0, ptr noundef readon
   %4 = lshr i32 %.val, 2
   %5 = and i32 %4, 1073741820
   %6 = zext nneg i32 %5 to i64
-  %7 = getelementptr i8, ptr %1, i64 %6
-  %8 = getelementptr i8, ptr %7, i64 12
+  %7 = getelementptr inbounds i8, ptr %1, i64 %6
+  %8 = getelementptr inbounds i8, ptr %7, i64 12
   %9 = getelementptr inbounds i8, ptr %0, i64 8
   %10 = load ptr, ptr %9, align 8
   %11 = getelementptr inbounds i8, ptr %10, i64 8
@@ -1847,9 +1847,7 @@ define void @Bbl_ManDumpBlif(ptr nocapture noundef readonly %0, ptr nocapture no
   %25 = tail call i64 @fwrite(ptr nonnull @.str.22, i64 6, i64 1, ptr %3)
   %.val.i56 = load i32, ptr %14, align 4
   %.not.i = icmp ult i32 %.val.i56, 16
-  %.not5280 = icmp eq ptr %.04483, null
-  %or.cond = or i1 %.not.i, %.not5280
-  br i1 %or.cond, label %._crit_edge, label %.lr.ph
+  br i1 %.not.i, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %24
   %26 = getelementptr inbounds i8, ptr %.04483, i64 12
@@ -1857,10 +1855,10 @@ define void @Bbl_ManDumpBlif(ptr nocapture noundef readonly %0, ptr nocapture no
   br label %28
 
 28:                                               ; preds = %Bbl_ObjFaninNext.exit, %.lr.ph
-  %.pn109.in.in = phi ptr [ %26, %.lr.ph ], [ %42, %Bbl_ObjFaninNext.exit ]
-  %.pn109.in = load i32, ptr %.pn109.in.in, align 4
-  %.pn109 = sext i32 %.pn109.in to i64
-  %.pn = sub nsw i64 0, %.pn109
+  %.pn110.in.in = phi ptr [ %26, %.lr.ph ], [ %42, %Bbl_ObjFaninNext.exit ]
+  %.pn110.in = load i32, ptr %.pn110.in.in, align 4
+  %.pn110 = sext i32 %.pn110.in to i64
+  %.pn = sub nsw i64 0, %.pn110
   %.081 = getelementptr inbounds i8, ptr %.04483, i64 %.pn
   %29 = load i32, ptr %.081, align 4
   %30 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %3, ptr noundef nonnull @.str.23, i32 noundef %29) #25
@@ -1877,7 +1875,7 @@ define void @Bbl_ManDumpBlif(ptr nocapture noundef readonly %0, ptr nocapture no
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.split.preheader.i ], [ %indvars.iv.next.i, %36 ]
   %33 = getelementptr inbounds [0 x i32], ptr %27, i64 0, i64 %indvars.iv.i
   %34 = load i32, ptr %33, align 4
-  %35 = icmp eq i32 %.pn109.in, %34
+  %35 = icmp eq i32 %.pn110.in, %34
   br i1 %35, label %.critedge.loopexit.i, label %36
 
 36:                                               ; preds = %.lr.ph.split.i
@@ -1920,8 +1918,8 @@ select.unfold:                                    ; preds = %16, %._crit_edge, %
   %51 = lshr i32 %.val.i58, 2
   %52 = and i32 %51, 1073741820
   %53 = zext nneg i32 %52 to i64
-  %54 = getelementptr i8, ptr %.04483, i64 %53
-  %55 = getelementptr i8, ptr %54, i64 12
+  %54 = getelementptr inbounds i8, ptr %.04483, i64 %53
+  %55 = getelementptr inbounds i8, ptr %54, i64 12
   %56 = load ptr, ptr %9, align 8
   %57 = getelementptr inbounds i8, ptr %56, i64 8
   %58 = load ptr, ptr %57, align 8
@@ -1929,112 +1927,106 @@ select.unfold:                                    ; preds = %16, %._crit_edge, %
   %60 = load i32, ptr %59, align 4
   %61 = sext i32 %60 to i64
   %62 = getelementptr inbounds i8, ptr %58, i64 %61
-  %63 = icmp uge ptr %55, %62
-  %.not110 = icmp eq ptr %55, null
-  %.not = or i1 %63, %.not110
-  br i1 %.not, label %select.unfold._crit_edge, label %13
+  %.not = icmp ult ptr %55, %62
+  br i1 %.not, label %13, label %select.unfold._crit_edge
 
 select.unfold._crit_edge:                         ; preds = %select.unfold
   %.not4690 = icmp eq ptr %58, null
   br i1 %.not4690, label %select.unfold76._crit_edge, label %.lr.ph93
 
 .lr.ph93:                                         ; preds = %select.unfold._crit_edge, %select.unfold76
-  %64 = phi ptr [ %89, %select.unfold76 ], [ %56, %select.unfold._crit_edge ]
-  %.14591 = phi ptr [ %94, %select.unfold76 ], [ %58, %select.unfold._crit_edge ]
-  %65 = getelementptr i8, ptr %.14591, i64 8
-  %.val.i60 = load i32, ptr %65, align 4
-  %66 = and i32 %.val.i60, 2
-  %.not47 = icmp eq i32 %66, 0
-  br i1 %.not47, label %select.unfold76, label %67
+  %63 = phi ptr [ %88, %select.unfold76 ], [ %56, %select.unfold._crit_edge ]
+  %.14591 = phi ptr [ %93, %select.unfold76 ], [ %58, %select.unfold._crit_edge ]
+  %64 = getelementptr i8, ptr %.14591, i64 8
+  %.val.i60 = load i32, ptr %64, align 4
+  %65 = and i32 %.val.i60, 2
+  %.not47 = icmp eq i32 %65, 0
+  br i1 %.not47, label %select.unfold76, label %66
 
-67:                                               ; preds = %.lr.ph93
-  %68 = tail call i64 @fwrite(ptr nonnull @.str.22, i64 6, i64 1, ptr %3)
-  %.val.i61 = load i32, ptr %65, align 4
+66:                                               ; preds = %.lr.ph93
+  %67 = tail call i64 @fwrite(ptr nonnull @.str.22, i64 6, i64 1, ptr %3)
+  %.val.i61 = load i32, ptr %64, align 4
   %.not.i62 = icmp ult i32 %.val.i61, 16
-  %.not4886 = icmp eq ptr %.14591, null
-  %or.cond119 = or i1 %.not.i62, %.not4886
-  br i1 %or.cond119, label %._crit_edge89, label %.lr.ph88
+  br i1 %.not.i62, label %._crit_edge89, label %.lr.ph88
 
-.lr.ph88:                                         ; preds = %67
+.lr.ph88:                                         ; preds = %66
+  %68 = getelementptr inbounds i8, ptr %.14591, i64 12
   %69 = getelementptr inbounds i8, ptr %.14591, i64 12
-  %70 = getelementptr inbounds i8, ptr %.14591, i64 12
-  br label %71
+  br label %70
 
-71:                                               ; preds = %Bbl_ObjFaninNext.exit74, %.lr.ph88
-  %.pn112.in.in = phi ptr [ %69, %.lr.ph88 ], [ %85, %Bbl_ObjFaninNext.exit74 ]
+70:                                               ; preds = %Bbl_ObjFaninNext.exit74, %.lr.ph88
+  %.pn112.in.in = phi ptr [ %68, %.lr.ph88 ], [ %84, %Bbl_ObjFaninNext.exit74 ]
   %.pn112.in = load i32, ptr %.pn112.in.in, align 4
   %.pn112 = sext i32 %.pn112.in to i64
   %.pn111 = sub nsw i64 0, %.pn112
   %.187 = getelementptr inbounds i8, ptr %.14591, i64 %.pn111
-  %72 = load i32, ptr %.187, align 4
-  %73 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %3, ptr noundef nonnull @.str.23, i32 noundef %72) #25
-  %74 = load i32, ptr %65, align 4
-  %75 = lshr i32 %74, 4
-  %.not17.i64 = icmp ult i32 %74, 16
+  %71 = load i32, ptr %.187, align 4
+  %72 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %3, ptr noundef nonnull @.str.23, i32 noundef %71) #25
+  %73 = load i32, ptr %64, align 4
+  %74 = lshr i32 %73, 4
+  %.not17.i64 = icmp ult i32 %73, 16
   br i1 %.not17.i64, label %.critedge.i72, label %.lr.ph.split.preheader.i65
 
-.lr.ph.split.preheader.i65:                       ; preds = %71
-  %wide.trip.count.i66 = zext nneg i32 %75 to i64
+.lr.ph.split.preheader.i65:                       ; preds = %70
+  %wide.trip.count.i66 = zext nneg i32 %74 to i64
   br label %.lr.ph.split.i67
 
-.lr.ph.split.i67:                                 ; preds = %79, %.lr.ph.split.preheader.i65
-  %indvars.iv.i68 = phi i64 [ 0, %.lr.ph.split.preheader.i65 ], [ %indvars.iv.next.i69, %79 ]
-  %76 = getelementptr inbounds [0 x i32], ptr %70, i64 0, i64 %indvars.iv.i68
-  %77 = load i32, ptr %76, align 4
-  %78 = icmp eq i32 %.pn112.in, %77
-  br i1 %78, label %.critedge.loopexit.i71, label %79
+.lr.ph.split.i67:                                 ; preds = %78, %.lr.ph.split.preheader.i65
+  %indvars.iv.i68 = phi i64 [ 0, %.lr.ph.split.preheader.i65 ], [ %indvars.iv.next.i69, %78 ]
+  %75 = getelementptr inbounds [0 x i32], ptr %69, i64 0, i64 %indvars.iv.i68
+  %76 = load i32, ptr %75, align 4
+  %77 = icmp eq i32 %.pn112.in, %76
+  br i1 %77, label %.critedge.loopexit.i71, label %78
 
-79:                                               ; preds = %.lr.ph.split.i67
+78:                                               ; preds = %.lr.ph.split.i67
   %indvars.iv.next.i69 = add nuw nsw i64 %indvars.iv.i68, 1
   %exitcond.not.i70 = icmp eq i64 %indvars.iv.next.i69, %wide.trip.count.i66
   br i1 %exitcond.not.i70, label %._crit_edge89, label %.lr.ph.split.i67, !llvm.loop !16
 
 .critedge.loopexit.i71:                           ; preds = %.lr.ph.split.i67
-  %80 = trunc nuw nsw i64 %indvars.iv.i68 to i32
+  %79 = trunc nuw nsw i64 %indvars.iv.i68 to i32
   br label %.critedge.i72
 
-.critedge.i72:                                    ; preds = %.critedge.loopexit.i71, %71
-  %.0.lcssa.i73 = phi i32 [ 0, %71 ], [ %80, %.critedge.loopexit.i71 ]
-  %81 = add nsw i32 %75, -1
-  %82 = icmp slt i32 %.0.lcssa.i73, %81
-  br i1 %82, label %Bbl_ObjFaninNext.exit74, label %._crit_edge89
+.critedge.i72:                                    ; preds = %.critedge.loopexit.i71, %70
+  %.0.lcssa.i73 = phi i32 [ 0, %70 ], [ %79, %.critedge.loopexit.i71 ]
+  %80 = add nsw i32 %74, -1
+  %81 = icmp slt i32 %.0.lcssa.i73, %80
+  br i1 %81, label %Bbl_ObjFaninNext.exit74, label %._crit_edge89
 
 Bbl_ObjFaninNext.exit74:                          ; preds = %.critedge.i72
-  %83 = add nuw nsw i32 %.0.lcssa.i73, 1
-  %84 = zext nneg i32 %83 to i64
-  %85 = getelementptr inbounds [0 x i32], ptr %70, i64 0, i64 %84
-  br label %71, !llvm.loop !18
+  %82 = add nuw nsw i32 %.0.lcssa.i73, 1
+  %83 = zext nneg i32 %82 to i64
+  %84 = getelementptr inbounds [0 x i32], ptr %69, i64 0, i64 %83
+  br label %70, !llvm.loop !18
 
-._crit_edge89:                                    ; preds = %.critedge.i72, %79, %67
-  %86 = load i32, ptr %.14591, align 4
-  %87 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %3, ptr noundef nonnull @.str.24, i32 noundef %86) #25
-  %88 = tail call i64 @fwrite(ptr nonnull @.str.26, i64 4, i64 1, ptr %3)
-  %.val.i75.pre = load i32, ptr %65, align 4
+._crit_edge89:                                    ; preds = %.critedge.i72, %78, %66
+  %85 = load i32, ptr %.14591, align 4
+  %86 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %3, ptr noundef nonnull @.str.24, i32 noundef %85) #25
+  %87 = tail call i64 @fwrite(ptr nonnull @.str.26, i64 4, i64 1, ptr %3)
+  %.val.i75.pre = load i32, ptr %64, align 4
   %.pre = load ptr, ptr %9, align 8
   br label %select.unfold76
 
 select.unfold76:                                  ; preds = %.lr.ph93, %._crit_edge89
-  %89 = phi ptr [ %64, %.lr.ph93 ], [ %.pre, %._crit_edge89 ]
+  %88 = phi ptr [ %63, %.lr.ph93 ], [ %.pre, %._crit_edge89 ]
   %.val.i75 = phi i32 [ %.val.i60, %.lr.ph93 ], [ %.val.i75.pre, %._crit_edge89 ]
-  %90 = lshr i32 %.val.i75, 2
-  %91 = and i32 %90, 1073741820
-  %92 = zext nneg i32 %91 to i64
-  %93 = getelementptr i8, ptr %.14591, i64 %92
-  %94 = getelementptr i8, ptr %93, i64 12
-  %95 = getelementptr inbounds i8, ptr %89, i64 8
-  %96 = load ptr, ptr %95, align 8
-  %97 = getelementptr inbounds i8, ptr %89, i64 4
-  %98 = load i32, ptr %97, align 4
-  %99 = sext i32 %98 to i64
-  %100 = getelementptr inbounds i8, ptr %96, i64 %99
-  %101 = icmp uge ptr %94, %100
-  %.not46113 = icmp eq ptr %94, null
-  %.not46 = or i1 %101, %.not46113
-  br i1 %.not46, label %select.unfold76._crit_edge, label %.lr.ph93
+  %89 = lshr i32 %.val.i75, 2
+  %90 = and i32 %89, 1073741820
+  %91 = zext nneg i32 %90 to i64
+  %92 = getelementptr inbounds i8, ptr %.14591, i64 %91
+  %93 = getelementptr inbounds i8, ptr %92, i64 12
+  %94 = getelementptr inbounds i8, ptr %88, i64 8
+  %95 = load ptr, ptr %94, align 8
+  %96 = getelementptr inbounds i8, ptr %88, i64 4
+  %97 = load i32, ptr %96, align 4
+  %98 = sext i32 %97 to i64
+  %99 = getelementptr inbounds i8, ptr %95, i64 %98
+  %.not94 = icmp ult ptr %93, %99
+  br i1 %.not94, label %.lr.ph93, label %select.unfold76._crit_edge
 
 select.unfold76._crit_edge:                       ; preds = %select.unfold76, %2, %select.unfold._crit_edge
-  %102 = tail call i64 @fwrite(ptr nonnull @.str.27, i64 5, i64 1, ptr %3)
-  %103 = tail call i32 @fclose(ptr noundef %3)
+  %100 = tail call i64 @fwrite(ptr nonnull @.str.27, i64 5, i64 1, ptr %3)
+  %101 = tail call i32 @fclose(ptr noundef %3)
   ret void
 }
 

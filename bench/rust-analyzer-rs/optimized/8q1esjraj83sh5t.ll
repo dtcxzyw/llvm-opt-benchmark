@@ -9524,8 +9524,8 @@ define hidden void @"_ZN5alloc11collections5btree4node210Handle$LT$alloc..collec
   store i32 %.sroa.8.1, ptr %185, align 4, !alias.scope !2015, !noalias !2018
   %186 = getelementptr inbounds i8, ptr %149, i64 320
   %187 = getelementptr inbounds ptr, ptr %186, i64 %171
-  %188 = getelementptr ptr, ptr %186, i64 %157
-  %189 = getelementptr i8, ptr %188, i64 16
+  %188 = getelementptr inbounds ptr, ptr %186, i64 %157
+  %189 = getelementptr inbounds i8, ptr %188, i64 16
   %190 = sub nsw i64 %168, %157
   %191 = shl nsw i64 %190, 3
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %189, ptr nonnull align 8 %187, i64 %191, i1 false), !alias.scope !2027, !noalias !2018
@@ -10105,7 +10105,7 @@ define hidden void @"_ZN5alloc11collections5btree6append178_$LT$impl$u20$alloc..
   %50 = add i64 %.0410.i, -1
   %51 = icmp ult i16 %44, 12
   call void @llvm.assume(i1 %51)
-  %52 = getelementptr i8, ptr %48, i64 8
+  %52 = getelementptr inbounds i8, ptr %48, i64 8
   %53 = load ptr, ptr %52, align 8, !noalias !2092, !nonnull !4, !noundef !4
   %54 = getelementptr inbounds i8, ptr %53, i64 362
   %55 = load i16, ptr %54, align 2, !noundef !4

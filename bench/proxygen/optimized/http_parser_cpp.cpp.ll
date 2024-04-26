@@ -3859,14 +3859,14 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define noundef i32 @_ZN8proxygen21http_parser_parse_urlEPKcmiPNS_15http_parser_urlE(ptr noundef %buf, i64 noundef %buflen, i32 noundef %is_connect, ptr nocapture noundef %u) local_unnamed_addr #3 {
+define noundef range(i32 0, 2) i32 @_ZN8proxygen21http_parser_parse_urlEPKcmiPNS_15http_parser_urlE(ptr noundef %buf, i64 noundef %buflen, i32 noundef %is_connect, ptr nocapture noundef %u) local_unnamed_addr #3 {
 entry:
-  %call = tail call noundef i32 @_ZN8proxygen29http_parser_parse_url_optionsEPKcmiPNS_15http_parser_urlEh(ptr noundef %buf, i64 noundef %buflen, i32 noundef %is_connect, ptr noundef %u, i8 noundef zeroext 0), !range !6
+  %call = tail call noundef i32 @_ZN8proxygen29http_parser_parse_url_optionsEPKcmiPNS_15http_parser_urlEh(ptr noundef %buf, i64 noundef %buflen, i32 noundef %is_connect, ptr noundef %u, i8 noundef zeroext 0)
   ret i32 %call
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define noundef i32 @_ZN8proxygen29http_parser_parse_url_optionsEPKcmiPNS_15http_parser_urlEh(ptr noundef %buf, i64 noundef %buflen, i32 noundef %is_connect, ptr nocapture noundef %u, i8 noundef zeroext %options) local_unnamed_addr #3 {
+define noundef range(i32 0, 2) i32 @_ZN8proxygen29http_parser_parse_url_optionsEPKcmiPNS_15http_parser_urlEh(ptr noundef %buf, i64 noundef %buflen, i32 noundef %is_connect, ptr nocapture noundef %u, i8 noundef zeroext %options) local_unnamed_addr #3 {
 entry:
   store i16 0, ptr %u, align 2
   %port = getelementptr inbounds i8, ptr %u, i64 2
@@ -4107,7 +4107,7 @@ for.inc:                                          ; preds = %_ZN8proxygenL14pars
   %found_at.3 = phi i32 [ %found_at.2, %if.then ], [ %found_at.2, %if.end ], [ %found_at.078, %_ZN8proxygenL14parse_url_charENS_5stateEci.exit ], [ %found_at.078, %_ZN8proxygenL14parse_url_charENS_5stateEci.exit ], [ %found_at.078, %sw.bb54.i ], [ %found_at.078, %sw.bb49.i ], [ %found_at.078, %if.end44.i ], [ %found_at.078, %sw.bb64.i ], [ %found_at.078, %sw.bb59.i ], [ %found_at.078, %if.end161.i ]
   %incdec.ptr = getelementptr inbounds i8, ptr %p.079, i64 1
   %cmp = icmp ult ptr %incdec.ptr, %add.ptr
-  br i1 %cmp, label %for.body, label %for.end, !llvm.loop !7
+  br i1 %cmp, label %for.body, label %for.end, !llvm.loop !6
 
 for.end:                                          ; preds = %for.inc
   %14 = icmp eq i32 %found_at.3, 0
@@ -4124,10 +4124,10 @@ if.then24:                                        ; preds = %for.end
   %18 = load i16, ptr %len.i, align 2
   %conv3.i = zext i16 %18 to i64
   store i16 0, ptr %len.i, align 2
-  %add.ptr.i = getelementptr i8, ptr %buf, i64 %conv.i
-  %add.ptr12.i = getelementptr i8, ptr %add.ptr.i, i64 %conv3.i
-  %cmp53.i = icmp ult ptr %add.ptr.i, %add.ptr12.i
-  br i1 %cmp53.i, label %for.body.lr.ph.i, label %for.end.i
+  %add.ptr.i = getelementptr inbounds i8, ptr %buf, i64 %conv.i
+  %add.ptr12.i = getelementptr inbounds i8, ptr %add.ptr.i, i64 %conv3.i
+  %cmp53.not.i = icmp eq i16 %18, 0
+  br i1 %cmp53.not.i, label %for.end.i, label %for.body.lr.ph.i
 
 for.body.lr.ph.i:                                 ; preds = %if.then24
   %sub.ptr.rhs.cast43.i = ptrtoint ptr %buf to i64
@@ -4340,8 +4340,8 @@ sw.epilog.i:                                      ; preds = %if.end76.i37, %if.e
   %37 = phi i16 [ %20, %if.end76.i37 ], [ %20, %if.end54.i ], [ %inc38.i, %if.end34.i ], [ %inc.i, %if.end20.i ], [ %20, %sw.bb135.i.i ], [ %20, %sw.bb68.i.i ], [ %20, %sw.bb.i.i ], [ %20, %sw.bb130.i.i ], [ %20, %switch.early.test81.i.i ]
   %retval.0.i35.i = phi i32 [ 3, %if.end76.i37 ], [ 10, %if.end54.i ], [ 7, %if.end34.i ], [ 6, %if.end20.i ], [ 8, %sw.bb135.i.i ], [ 5, %sw.bb68.i.i ], [ 4, %sw.bb.i.i ], [ 9, %sw.bb130.i.i ], [ 9, %switch.early.test81.i.i ]
   %incdec.ptr.i = getelementptr inbounds i8, ptr %p.054.i, i64 1
-  %exitcond.not.i = icmp eq ptr %incdec.ptr.i, %add.ptr12.i
-  br i1 %exitcond.not.i, label %for.end.i, label %for.body.i, !llvm.loop !8
+  %cmp.i = icmp ult ptr %incdec.ptr.i, %add.ptr12.i
+  br i1 %cmp.i, label %for.body.i, label %for.end.i, !llvm.loop !7
 
 for.end.i:                                        ; preds = %sw.epilog.i, %if.then24
   %38 = phi i16 [ %13, %if.then24 ], [ %36, %sw.epilog.i ]
@@ -4382,7 +4382,7 @@ if.then40:                                        ; preds = %land.lhs.true, %if.
 for.cond57:                                       ; preds = %for.body59
   %incdec.ptr66 = getelementptr inbounds i8, ptr %portp.082, i64 1
   %cmp58 = icmp ult ptr %incdec.ptr66, %add.ptr53
-  br i1 %cmp58, label %for.body59, label %for.end67.loopexit, !llvm.loop !9
+  br i1 %cmp58, label %for.body59, label %for.end67.loopexit, !llvm.loop !8
 
 for.body59:                                       ; preds = %if.then40, %for.cond57
   %v.083 = phi i64 [ %add, %for.cond57 ], [ 0, %if.then40 ]
@@ -4456,7 +4456,6 @@ attributes #5 = { nocallback nofree nosync nounwind speculatable willreturn memo
 !3 = !{i32 7, !"frame-pointer", i32 2}
 !4 = distinct !{!4, !5}
 !5 = !{!"llvm.loop.mustprogress"}
-!6 = !{i32 0, i32 2}
+!6 = distinct !{!6, !5}
 !7 = distinct !{!7, !5}
 !8 = distinct !{!8, !5}
-!9 = distinct !{!9, !5}

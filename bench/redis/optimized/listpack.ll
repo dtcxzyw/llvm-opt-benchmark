@@ -37,7 +37,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @switch.table.lpRandomEntries.4 = private unnamed_addr constant [4 x i32] [i32 3, i32 4, i32 5, i32 9], align 4
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local i32 @lpSafeToAdd(ptr noundef readonly %lp, i64 noundef %add) local_unnamed_addr #0 {
+define dso_local range(i32 0, 2) i32 @lpSafeToAdd(ptr noundef readonly %lp, i64 noundef %add) local_unnamed_addr #0 {
 entry:
   %tobool.not = icmp eq ptr %lp, null
   br i1 %tobool.not, label %cond.end, label %cond.true
@@ -56,7 +56,7 @@ cond.end:                                         ; preds = %entry, %cond.true
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define dso_local noundef i32 @lpStringToInt64(ptr nocapture noundef readonly %s, i64 noundef %slen, ptr noundef writeonly %value) local_unnamed_addr #1 {
+define dso_local range(i32 0, 2) i32 @lpStringToInt64(ptr nocapture noundef readonly %s, i64 noundef %slen, ptr noundef writeonly %value) local_unnamed_addr #1 {
 entry:
   %0 = add i64 %slen, -21
   %or.cond = icmp ult i64 %0, -20
@@ -236,7 +236,7 @@ declare i64 @je_malloc_usable_size(ptr noundef) local_unnamed_addr #4
 declare ptr @zrealloc_usable(ptr noundef, i64 noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local ptr @lpSkip(ptr noundef readonly %p) local_unnamed_addr #0 {
+define dso_local nonnull ptr @lpSkip(ptr noundef readonly %p) local_unnamed_addr #0 {
 entry:
   %0 = load i8, ptr %p, align 1
   %conv.i = zext i8 %0 to i32
@@ -321,8 +321,8 @@ lpEncodeBacklen.exit:                             ; preds = %switch.lookup, %lpC
   %conv10.shrunk = phi i32 [ %retval.0.i, %lpCurrentEncodedSizeUnsafe.exit ], [ %retval.0.i, %if.else.i ], [ %retval.0.i, %if.else12.i ], [ %retval.0.i, %if.else31.i ], [ 1, %if.end59.i ], [ 2, %if.end11.i ], [ 1, %entry ], [ 0, %if.end88.i ], [ %add.i, %lpCurrentEncodedSizeUnsafe.exit.thread ], [ %switch.load, %switch.lookup ]
   %retval.0.i6 = phi i64 [ 1, %lpCurrentEncodedSizeUnsafe.exit ], [ 2, %if.else.i ], [ 3, %if.else12.i ], [ %spec.select, %if.else31.i ], [ 1, %if.end59.i ], [ 1, %if.end11.i ], [ 1, %entry ], [ 1, %if.end88.i ], [ 1, %lpCurrentEncodedSizeUnsafe.exit.thread ], [ 1, %switch.lookup ]
   %conv10 = zext i32 %conv10.shrunk to i64
-  %5 = getelementptr i8, ptr %p, i64 %retval.0.i6
-  %add.ptr = getelementptr i8, ptr %5, i64 %conv10
+  %5 = getelementptr inbounds i8, ptr %p, i64 %retval.0.i6
+  %add.ptr = getelementptr inbounds i8, ptr %5, i64 %conv10
   ret ptr %add.ptr
 }
 
@@ -422,8 +422,8 @@ lpSkip.exit:                                      ; preds = %switch.lookup, %con
   %conv10.shrunk.i = phi i32 [ %retval.0.i.i, %lpCurrentEncodedSizeUnsafe.exit.i ], [ %retval.0.i.i, %if.else.i.i ], [ %retval.0.i.i, %if.else12.i.i ], [ %retval.0.i.i, %if.else31.i.i ], [ 1, %if.end59.i.i ], [ 2, %if.end11.i.i ], [ 1, %cond.end ], [ 0, %if.end88.i.i ], [ %add.i.i, %lpCurrentEncodedSizeUnsafe.exit.thread.i ], [ %switch.load, %switch.lookup ]
   %retval.0.i6.i = phi i64 [ 1, %lpCurrentEncodedSizeUnsafe.exit.i ], [ 2, %if.else.i.i ], [ 3, %if.else12.i.i ], [ %spec.select.i, %if.else31.i.i ], [ 1, %if.end59.i.i ], [ 1, %if.end11.i.i ], [ 1, %cond.end ], [ 1, %if.end88.i.i ], [ 1, %lpCurrentEncodedSizeUnsafe.exit.thread.i ], [ 1, %switch.lookup ]
   %conv10.i = zext i32 %conv10.shrunk.i to i64
-  %5 = getelementptr i8, ptr %p, i64 %retval.0.i6.i
-  %add.ptr.i = getelementptr i8, ptr %5, i64 %conv10.i
+  %5 = getelementptr inbounds i8, ptr %p, i64 %retval.0.i6.i
+  %add.ptr.i = getelementptr inbounds i8, ptr %5, i64 %conv10.i
   %6 = load i8, ptr %add.ptr.i, align 1
   %cmp = icmp eq i8 %6, -1
   br i1 %cmp, label %return, label %if.end
@@ -433,7 +433,7 @@ if.end:                                           ; preds = %lpSkip.exit
   %8 = zext i32 %7 to i64
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %p.addr.i)
   store ptr %add.ptr.i, ptr %p.addr.i, align 8
-  %call.i = call i32 @lpValidateNext(ptr noundef nonnull %lp, ptr noundef nonnull %p.addr.i, i64 noundef %8), !range !7
+  %call.i = call i32 @lpValidateNext(ptr noundef nonnull %lp, ptr noundef nonnull %p.addr.i, i64 noundef %8)
   %tobool.not.i = icmp eq i32 %call.i, 0
   br i1 %tobool.not.i, label %cond.false.i, label %lpAssertValidEntry.exit
 
@@ -457,7 +457,7 @@ declare void @_serverAssert(ptr noundef, ptr noundef, i32 noundef) local_unnamed
 declare void @abort() local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local i64 @lpBytes(ptr nocapture noundef readonly %lp) local_unnamed_addr #0 {
+define dso_local range(i64 0, 4294967296) i64 @lpBytes(ptr nocapture noundef readonly %lp) local_unnamed_addr #0 {
 entry:
   %0 = load i32, ptr %lp, align 1
   %1 = zext i32 %0 to i64
@@ -527,7 +527,7 @@ lpEncodeBacklen.exit:                             ; preds = %if.end.i, %if.else3
   %3 = zext i32 %2 to i64
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %p.addr.i)
   store ptr %add.ptr, ptr %p.addr.i, align 8
-  %call.i = call i32 @lpValidateNext(ptr noundef nonnull %lp, ptr noundef nonnull %p.addr.i, i64 noundef %3), !range !7
+  %call.i = call i32 @lpValidateNext(ptr noundef nonnull %lp, ptr noundef nonnull %p.addr.i, i64 noundef %3)
   %tobool.not.i13 = icmp eq i32 %call.i, 0
   br i1 %tobool.not.i13, label %cond.false.i, label %lpAssertValidEntry.exit
 
@@ -559,7 +559,7 @@ if.end:                                           ; preds = %entry
   %2 = zext i32 %1 to i64
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %p.addr.i)
   store ptr %add.ptr, ptr %p.addr.i, align 8
-  %call.i = call i32 @lpValidateNext(ptr noundef nonnull %lp, ptr noundef nonnull %p.addr.i, i64 noundef %2), !range !7
+  %call.i = call i32 @lpValidateNext(ptr noundef nonnull %lp, ptr noundef nonnull %p.addr.i, i64 noundef %2)
   %tobool.not.i = icmp eq i32 %call.i, 0
   br i1 %tobool.not.i, label %cond.false.i, label %lpAssertValidEntry.exit
 
@@ -633,7 +633,7 @@ lpEncodeBacklen.exit.i:                           ; preds = %if.end.i.i, %if.els
   %add.ptr.i = getelementptr i8, ptr %add.ptr12, i64 %reass.sub.i
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %p.addr.i.i)
   store ptr %add.ptr.i, ptr %p.addr.i.i, align 8
-  %call.i.i = call i32 @lpValidateNext(ptr noundef nonnull %lp, ptr noundef nonnull %p.addr.i.i, i64 noundef %1), !range !7
+  %call.i.i = call i32 @lpValidateNext(ptr noundef nonnull %lp, ptr noundef nonnull %p.addr.i.i, i64 noundef %1)
   %tobool.not.i13.i = icmp eq i32 %call.i.i, 0
   br i1 %tobool.not.i13.i, label %cond.false.i.i, label %lpAssertValidEntry.exit.i
 
@@ -652,7 +652,7 @@ lpPrev.exit:                                      ; preds = %entry, %lpAssertVal
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i64 @lpLength(ptr noundef %lp) local_unnamed_addr #2 {
+define dso_local range(i64 0, 4294967296) i64 @lpLength(ptr noundef %lp) local_unnamed_addr #2 {
 entry:
   %p.addr.i.i = alloca ptr, align 8
   %arrayidx = getelementptr inbounds i8, ptr %lp, i64 4
@@ -677,7 +677,7 @@ if.end.i:                                         ; preds = %if.end
   %4 = zext i32 %3 to i64
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %p.addr.i.i)
   store ptr %add.ptr.i, ptr %p.addr.i.i, align 8
-  %call.i.i = call i32 @lpValidateNext(ptr noundef nonnull %lp, ptr noundef nonnull %p.addr.i.i, i64 noundef %4), !range !7
+  %call.i.i = call i32 @lpValidateNext(ptr noundef nonnull %lp, ptr noundef nonnull %p.addr.i.i, i64 noundef %4)
   %tobool.not.i.i = icmp eq i32 %call.i.i, 0
   br i1 %tobool.not.i.i, label %cond.false.i.i, label %while.body.preheader
 
@@ -696,7 +696,7 @@ while.body:                                       ; preds = %while.body.preheade
   %inc = add i32 %count.013, 1
   %call6 = tail call ptr @lpNext(ptr noundef nonnull %lp, ptr noundef nonnull %p.014)
   %tobool.not = icmp eq ptr %call6, null
-  br i1 %tobool.not, label %while.end, label %while.body, !llvm.loop !8
+  br i1 %tobool.not, label %while.end, label %while.body, !llvm.loop !7
 
 while.end:                                        ; preds = %while.body
   %cmp7 = icmp ult i32 %inc, 65535
@@ -1273,8 +1273,8 @@ lpSkip.exit:                                      ; preds = %switch.lookup, %if.
   %conv10.shrunk.i = phi i32 [ %retval.0.i.i, %lpCurrentEncodedSizeUnsafe.exit.i ], [ %retval.0.i.i, %if.else.i.i ], [ %retval.0.i.i, %if.else12.i.i ], [ %retval.0.i.i, %if.else31.i.i ], [ 1, %if.end59.i.i ], [ 2, %if.end11.i.i ], [ 1, %if.else58 ], [ 0, %if.end88.i.i ], [ %add.i.i, %lpCurrentEncodedSizeUnsafe.exit.thread.i ], [ %switch.load, %switch.lookup ]
   %retval.0.i6.i = phi i64 [ 1, %lpCurrentEncodedSizeUnsafe.exit.i ], [ 2, %if.else.i.i ], [ 3, %if.else12.i.i ], [ %spec.select.i, %if.else31.i.i ], [ 1, %if.end59.i.i ], [ 1, %if.end11.i.i ], [ 1, %if.else58 ], [ 1, %if.end88.i.i ], [ 1, %lpCurrentEncodedSizeUnsafe.exit.thread.i ], [ 1, %switch.lookup ]
   %conv10.i = zext i32 %conv10.shrunk.i to i64
-  %20 = getelementptr i8, ptr %p.addr.0, i64 %retval.0.i6.i
-  %add.ptr.i = getelementptr i8, ptr %20, i64 %conv10.i
+  %20 = getelementptr inbounds i8, ptr %p.addr.0, i64 %retval.0.i6.i
+  %add.ptr.i = getelementptr inbounds i8, ptr %20, i64 %conv10.i
   br label %if.end60
 
 if.end60:                                         ; preds = %lpSkip.exit, %if.end56
@@ -1289,7 +1289,7 @@ if.end60:                                         ; preds = %lpSkip.exit, %if.en
 if.then66:                                        ; preds = %if.end60
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %p.addr.i)
   store ptr %p.addr.1, ptr %p.addr.i, align 8
-  %call.i = call i32 @lpValidateNext(ptr noundef nonnull %lp, ptr noundef nonnull %p.addr.i, i64 noundef %1), !range !7
+  %call.i = call i32 @lpValidateNext(ptr noundef nonnull %lp, ptr noundef nonnull %p.addr.i, i64 noundef %1)
   %tobool.not.i = icmp eq i32 %call.i, 0
   br i1 %tobool.not.i, label %cond.false.i, label %lpAssertValidEntry.exit
 
@@ -1314,7 +1314,7 @@ cond.false85:                                     ; preds = %if.else68
 if.end87:                                         ; preds = %if.else68, %lpAssertValidEntry.exit
   %21 = load i8, ptr %p.addr.1, align 1
   %cmp89.not = icmp eq i8 %21, -1
-  br i1 %cmp89.not, label %return, label %while.body, !llvm.loop !9
+  br i1 %cmp89.not, label %return, label %while.body, !llvm.loop !8
 
 return:                                           ; preds = %if.end87, %land.lhs.true51, %land.lhs.true
   %retval.0 = phi ptr [ %p.addr.0, %land.lhs.true ], [ %p.addr.0, %land.lhs.true51 ], [ null, %if.end87 ]
@@ -1417,8 +1417,8 @@ lpSkip.exit:                                      ; preds = %switch.lookup, %if.
   %conv10.shrunk.i = phi i32 [ %retval.0.i.i, %lpCurrentEncodedSizeUnsafe.exit.i ], [ %retval.0.i.i, %if.else.i.i ], [ %retval.0.i.i, %if.else12.i.i ], [ %retval.0.i.i, %if.else31.i.i ], [ 1, %if.end59.i.i ], [ 2, %if.end11.i.i ], [ 1, %if.then3 ], [ 0, %if.end88.i.i ], [ %add.i.i, %lpCurrentEncodedSizeUnsafe.exit.thread.i ], [ %switch.load, %switch.lookup ]
   %retval.0.i6.i = phi i64 [ 1, %lpCurrentEncodedSizeUnsafe.exit.i ], [ 2, %if.else.i.i ], [ 3, %if.else12.i.i ], [ %spec.select.i, %if.else31.i.i ], [ 1, %if.end59.i.i ], [ 1, %if.end11.i.i ], [ 1, %if.then3 ], [ 1, %if.end88.i.i ], [ 1, %lpCurrentEncodedSizeUnsafe.exit.thread.i ], [ 1, %switch.lookup ]
   %conv10.i = zext i32 %conv10.shrunk.i to i64
-  %6 = getelementptr i8, ptr %p, i64 %retval.0.i6.i
-  %add.ptr.i = getelementptr i8, ptr %6, i64 %conv10.i
+  %6 = getelementptr inbounds i8, ptr %p, i64 %retval.0.i6.i
+  %add.ptr.i = getelementptr inbounds i8, ptr %6, i64 %conv10.i
   %add.ptr = getelementptr inbounds i8, ptr %lp, i64 6
   %cmp4.not = icmp ult ptr %add.ptr.i, %add.ptr
   br i1 %cmp4.not, label %cond.false, label %land.rhs5
@@ -2246,7 +2246,7 @@ entry:
 if.end.i:                                         ; preds = %entry
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %p.addr.i.i)
   store ptr %add.ptr.i, ptr %p.addr.i.i, align 8
-  %call.i.i = call i32 @lpValidateNext(ptr noundef nonnull %lp, ptr noundef nonnull %p.addr.i.i, i64 noundef %2), !range !7
+  %call.i.i = call i32 @lpValidateNext(ptr noundef nonnull %lp, ptr noundef nonnull %p.addr.i.i, i64 noundef %2)
   %tobool.not.i.i = icmp eq i32 %call.i.i, 0
   br i1 %tobool.not.i.i, label %cond.false.i.i, label %if.end
 
@@ -2295,7 +2295,7 @@ entry:
 if.end.i:                                         ; preds = %entry
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %p.addr.i.i)
   store ptr %add.ptr.i, ptr %p.addr.i.i, align 8
-  %call.i.i = call i32 @lpValidateNext(ptr noundef nonnull %lp, ptr noundef nonnull %p.addr.i.i, i64 noundef %2), !range !7
+  %call.i.i = call i32 @lpValidateNext(ptr noundef nonnull %lp, ptr noundef nonnull %p.addr.i.i, i64 noundef %2)
   %tobool.not.i.i = icmp eq i32 %call.i.i, 0
   br i1 %tobool.not.i.i, label %cond.false.i.i, label %if.end
 
@@ -2454,8 +2454,8 @@ lpSkip.exit:                                      ; preds = %switch.lookup, %whi
   %conv10.shrunk.i = phi i32 [ %retval.0.i.i, %lpCurrentEncodedSizeUnsafe.exit.i ], [ %retval.0.i.i, %if.else.i.i ], [ %retval.0.i.i, %if.else12.i.i ], [ %retval.0.i.i, %if.else31.i.i ], [ 1, %if.end59.i.i ], [ 2, %if.end11.i.i ], [ 1, %while.body ], [ 0, %if.end88.i.i ], [ %add.i.i, %lpCurrentEncodedSizeUnsafe.exit.thread.i ], [ %switch.load, %switch.lookup ]
   %retval.0.i6.i = phi i64 [ 1, %lpCurrentEncodedSizeUnsafe.exit.i ], [ 2, %if.else.i.i ], [ 3, %if.else12.i.i ], [ %spec.select.i, %if.else31.i.i ], [ 1, %if.end59.i.i ], [ 1, %if.end11.i.i ], [ 1, %while.body ], [ 1, %if.end88.i.i ], [ 1, %lpCurrentEncodedSizeUnsafe.exit.thread.i ], [ 1, %switch.lookup ]
   %conv10.i = zext i32 %conv10.shrunk.i to i64
-  %8 = getelementptr i8, ptr %tail.045, i64 %retval.0.i6.i
-  %add.ptr.i = getelementptr i8, ptr %8, i64 %conv10.i
+  %8 = getelementptr inbounds i8, ptr %tail.045, i64 %retval.0.i6.i
+  %add.ptr.i = getelementptr inbounds i8, ptr %8, i64 %conv10.i
   %9 = load i8, ptr %add.ptr.i, align 1
   %cmp3 = icmp eq i8 %9, -1
   br i1 %cmp3, label %while.end, label %if.end6
@@ -2463,7 +2463,7 @@ lpSkip.exit:                                      ; preds = %switch.lookup, %whi
 if.end6:                                          ; preds = %lpSkip.exit
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %p.addr.i)
   store ptr %add.ptr.i, ptr %p.addr.i, align 8
-  %call.i = call i32 @lpValidateNext(ptr noundef nonnull %lp, ptr noundef nonnull %p.addr.i, i64 noundef %1), !range !7
+  %call.i = call i32 @lpValidateNext(ptr noundef nonnull %lp, ptr noundef nonnull %p.addr.i, i64 noundef %1)
   %tobool.not.i = icmp eq i32 %call.i, 0
   br i1 %tobool.not.i, label %cond.false.i, label %lpAssertValidEntry.exit
 
@@ -2475,7 +2475,7 @@ cond.false.i:                                     ; preds = %if.end6
 lpAssertValidEntry.exit:                          ; preds = %if.end6
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %p.addr.i)
   %tobool.not = icmp eq i64 %dec47, 0
-  br i1 %tobool.not, label %while.end, label %while.body, !llvm.loop !10
+  br i1 %tobool.not, label %while.end, label %while.body, !llvm.loop !9
 
 while.end:                                        ; preds = %lpSkip.exit, %lpAssertValidEntry.exit
   %inc.lcssa = phi i64 [ %inc, %lpSkip.exit ], [ %num, %lpAssertValidEntry.exit ]
@@ -2680,7 +2680,7 @@ if.end.i:                                         ; preds = %if.then29
   %4 = zext i32 %3 to i64
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %p.addr.i.i)
   store ptr %add.ptr.i, ptr %p.addr.i.i, align 8
-  %call.i.i = call i32 @lpValidateNext(ptr noundef nonnull %lp, ptr noundef nonnull %p.addr.i.i, i64 noundef %4), !range !7
+  %call.i.i = call i32 @lpValidateNext(ptr noundef nonnull %lp, ptr noundef nonnull %p.addr.i.i, i64 noundef %4)
   %tobool.not.i.i = icmp eq i32 %call.i.i, 0
   br i1 %tobool.not.i.i, label %cond.false.i.i, label %lpFirst.exit
 
@@ -2702,7 +2702,7 @@ while.body:                                       ; preds = %lpFirst.exit, %whil
   %cmp30 = icmp ugt i64 %index.addr.245, 1
   %tobool32 = icmp ne ptr %call33, null
   %5 = and i1 %cmp30, %tobool32
-  br i1 %5, label %while.body, label %return, !llvm.loop !11
+  br i1 %5, label %while.body, label %return, !llvm.loop !10
 
 if.else34:                                        ; preds = %if.end17, %if.end28
   %index.addr.138 = phi i64 [ %sub, %if.end17 ], [ %index, %if.end28 ]
@@ -2758,7 +2758,7 @@ lpEncodeBacklen.exit.i.i:                         ; preds = %if.end.i.i.i, %if.e
   %add.ptr.i.i = getelementptr i8, ptr %add.ptr12.i, i64 %reass.sub.i.i
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %p.addr.i.i.i)
   store ptr %add.ptr.i.i, ptr %p.addr.i.i.i, align 8
-  %call.i.i.i = call i32 @lpValidateNext(ptr noundef nonnull %lp, ptr noundef nonnull %p.addr.i.i.i, i64 noundef %7), !range !7
+  %call.i.i.i = call i32 @lpValidateNext(ptr noundef nonnull %lp, ptr noundef nonnull %p.addr.i.i.i, i64 noundef %7)
   %tobool.not.i13.i.i = icmp eq i32 %call.i.i.i, 0
   br i1 %tobool.not.i13.i.i, label %cond.false.i.i.i, label %lpLast.exit
 
@@ -2824,7 +2824,7 @@ lpEncodeBacklen.exit.i:                           ; preds = %if.end.i.i, %if.els
   %add.ptr.i32 = getelementptr i8, ptr %ele35.050, i64 %reass.sub.i
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %p.addr.i.i28)
   store ptr %add.ptr.i32, ptr %p.addr.i.i28, align 8
-  %call.i.i33 = call i32 @lpValidateNext(ptr noundef nonnull %lp, ptr noundef nonnull %p.addr.i.i28, i64 noundef %7), !range !7
+  %call.i.i33 = call i32 @lpValidateNext(ptr noundef nonnull %lp, ptr noundef nonnull %p.addr.i.i28, i64 noundef %7)
   %tobool.not.i13.i = icmp eq i32 %call.i.i33, 0
   br i1 %tobool.not.i13.i, label %cond.false.i.i36, label %lpPrev.exit
 
@@ -2839,7 +2839,7 @@ lpPrev.exit:                                      ; preds = %lpEncodeBacklen.exi
   %cmp38 = icmp slt i64 %index.addr.349, -2
   %tobool41 = icmp ne ptr %add.ptr.i32, null
   %13 = select i1 %cmp38, i1 %tobool41, i1 false
-  br i1 %13, label %cond.end.i, label %return, !llvm.loop !12
+  br i1 %13, label %cond.end.i, label %return, !llvm.loop !11
 
 return:                                           ; preds = %while.body, %cond.end.i, %lpPrev.exit, %if.else34, %if.then29, %lpFirst.exit, %lpLast.exit, %if.then
   %retval.0 = phi ptr [ null, %if.then ], [ %add.ptr.i.i, %lpLast.exit ], [ %add.ptr.i, %lpFirst.exit ], [ null, %if.then29 ], [ null, %if.else34 ], [ null, %cond.end.i ], [ %add.ptr.i32, %lpPrev.exit ], [ %call33, %while.body ]
@@ -2977,8 +2977,8 @@ lpSkip.exit:                                      ; preds = %switch.lookup, %if.
   %conv10.shrunk.i = phi i32 [ %retval.0.i.i, %lpCurrentEncodedSizeUnsafe.exit.i ], [ %retval.0.i.i, %if.else.i.i ], [ %retval.0.i.i, %if.else12.i.i ], [ %retval.0.i.i, %if.else31.i.i ], [ 2, %if.end11.i.i ], [ 1, %cond.end37 ], [ %add.i.i, %lpCurrentEncodedSizeUnsafe.exit.thread.i ], [ 0, %if.end59.i.i ], [ %switch.load, %switch.lookup ]
   %retval.0.i6.i = phi i64 [ 1, %lpCurrentEncodedSizeUnsafe.exit.i ], [ 2, %if.else.i.i ], [ 3, %if.else12.i.i ], [ %spec.select.i, %if.else31.i.i ], [ 1, %if.end11.i.i ], [ 1, %cond.end37 ], [ 1, %lpCurrentEncodedSizeUnsafe.exit.thread.i ], [ 1, %if.end59.i.i ], [ 1, %switch.lookup ]
   %conv10.i = zext i32 %conv10.shrunk.i to i64
-  %12 = getelementptr i8, ptr %6, i64 %retval.0.i6.i
-  %add.ptr.i = getelementptr i8, ptr %12, i64 %conv10.i
+  %12 = getelementptr inbounds i8, ptr %6, i64 %retval.0.i6.i
+  %add.ptr.i = getelementptr inbounds i8, ptr %12, i64 %conv10.i
   %add = add nuw i64 %i.049, 1
   %cmp38 = icmp ult i64 %add, %count
   br i1 %cmp38, label %if.then40, label %if.end47
@@ -3003,14 +3003,14 @@ cond.end58:                                       ; preds = %if.end47
   %sub.ptr.lhs.cast = ptrtoint ptr %keep_end.0 to i64
   %sub.ptr.rhs.cast = ptrtoint ptr %add.ptr.i to i64
   %sub.ptr.sub = sub i64 %sub.ptr.lhs.cast, %sub.ptr.rhs.cast
-  tail call void @llvm.memmove.p0.p0.i64(ptr align 1 %dst.050, ptr align 1 %add.ptr.i, i64 %sub.ptr.sub, i1 false)
+  tail call void @llvm.memmove.p0.p0.i64(ptr align 1 %dst.050, ptr nonnull align 1 %add.ptr.i, i64 %sub.ptr.sub, i1 false)
   %add.ptr59 = getelementptr inbounds i8, ptr %dst.050, i64 %sub.ptr.sub
   br label %for.inc
 
 for.inc:                                          ; preds = %if.then40, %cond.end58
   %dst.1 = phi ptr [ %dst.050, %if.then40 ], [ %add.ptr59, %cond.end58 ]
   %exitcond.not = icmp eq i64 %add, %count
-  br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !13
+  br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !12
 
 for.end:                                          ; preds = %for.inc
   %sub.ptr.lhs.cast60 = ptrtoint ptr %add.ptr to i64
@@ -3124,7 +3124,7 @@ if.end.i:                                         ; preds = %if.end8
 if.end.i.i:                                       ; preds = %if.end.i
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %p.addr.i.i.i)
   store ptr %add.ptr.i.i, ptr %p.addr.i.i.i, align 8
-  %call.i.i.i = call i32 @lpValidateNext(ptr noundef nonnull %0, ptr noundef nonnull %p.addr.i.i.i, i64 noundef %3), !range !7
+  %call.i.i.i = call i32 @lpValidateNext(ptr noundef nonnull %0, ptr noundef nonnull %p.addr.i.i.i, i64 noundef %3)
   %tobool.not.i.i.i = icmp eq i32 %call.i.i.i, 0
   br i1 %tobool.not.i.i.i, label %cond.false.i.i.i, label %while.body.preheader.i
 
@@ -3143,7 +3143,7 @@ while.body.i:                                     ; preds = %while.body.i, %whil
   %inc.i = add i32 %count.013.i, 1
   %call6.i = tail call ptr @lpNext(ptr noundef nonnull %0, ptr noundef nonnull %p.014.i)
   %tobool.not.i = icmp eq ptr %call6.i, null
-  br i1 %tobool.not.i, label %while.end.i, label %while.body.i, !llvm.loop !8
+  br i1 %tobool.not.i, label %while.end.i, label %while.body.i, !llvm.loop !7
 
 while.end.i:                                      ; preds = %while.body.i
   %cmp7.i = icmp ult i32 %inc.i, 65535
@@ -3184,7 +3184,7 @@ if.end.i63:                                       ; preds = %lpLength.exit
 if.end.i.i66:                                     ; preds = %if.end.i63
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %p.addr.i.i.i53)
   store ptr %add.ptr.i.i64, ptr %p.addr.i.i.i53, align 8
-  %call.i.i.i67 = call i32 @lpValidateNext(ptr noundef nonnull %7, ptr noundef nonnull %p.addr.i.i.i53, i64 noundef %9), !range !7
+  %call.i.i.i67 = call i32 @lpValidateNext(ptr noundef nonnull %7, ptr noundef nonnull %p.addr.i.i.i53, i64 noundef %9)
   %tobool.not.i.i.i68 = icmp eq i32 %call.i.i.i67, 0
   br i1 %tobool.not.i.i.i68, label %cond.false.i.i.i83, label %while.body.preheader.i69
 
@@ -3203,7 +3203,7 @@ while.body.i70:                                   ; preds = %while.body.i70, %wh
   %inc.i73 = add i32 %count.013.i72, 1
   %call6.i74 = tail call ptr @lpNext(ptr noundef nonnull %7, ptr noundef nonnull %p.014.i71)
   %tobool.not.i75 = icmp eq ptr %call6.i74, null
-  br i1 %tobool.not.i75, label %while.end.i76, label %while.body.i70, !llvm.loop !8
+  br i1 %tobool.not.i75, label %while.end.i76, label %while.body.i70, !llvm.loop !7
 
 while.end.i76:                                    ; preds = %while.body.i70
   %cmp7.i77 = icmp ult i32 %inc.i73, 65535
@@ -3347,7 +3347,7 @@ entry:
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define dso_local noundef i32 @lpValidateNext(ptr noundef readnone %lp, ptr nocapture noundef %pp, i64 noundef %lpbytes) local_unnamed_addr #1 {
+define dso_local range(i32 0, 2) i32 @lpValidateNext(ptr noundef readnone %lp, ptr nocapture noundef %pp, i64 noundef %lpbytes) local_unnamed_addr #1 {
 entry:
   %0 = load ptr, ptr %pp, align 8
   %tobool.not = icmp eq ptr %0, null
@@ -3472,8 +3472,8 @@ lpEncodeBacklen.exit:                             ; preds = %switch.lookup, %lpC
   %conv2750.shrunk = phi i32 [ %retval.0.i35, %lpCurrentEncodedSizeUnsafe.exit ], [ %retval.0.i35, %if.else.i ], [ %retval.0.i35, %if.else12.i ], [ %retval.0.i35, %if.else31.i ], [ 2, %if.end11.i ], [ 1, %if.end25 ], [ 0, %if.end59.i ], [ %add.i, %lpCurrentEncodedSizeUnsafe.exit.thread ], [ %switch.load, %switch.lookup ]
   %retval.0.i37 = phi i64 [ 1, %lpCurrentEncodedSizeUnsafe.exit ], [ 2, %if.else.i ], [ 3, %if.else12.i ], [ %spec.select, %if.else31.i ], [ 1, %if.end11.i ], [ 1, %if.end25 ], [ 1, %if.end59.i ], [ 1, %lpCurrentEncodedSizeUnsafe.exit.thread ], [ 1, %switch.lookup ]
   %conv2750 = zext i32 %conv2750.shrunk to i64
-  %8 = getelementptr i8, ptr %0, i64 %retval.0.i37
-  %add.ptr29 = getelementptr i8, ptr %8, i64 %conv2750
+  %8 = getelementptr inbounds i8, ptr %0, i64 %retval.0.i37
+  %add.ptr29 = getelementptr inbounds i8, ptr %8, i64 %conv2750
   %cmp31 = icmp ult ptr %add.ptr29, %add.ptr
   %cmp37 = icmp ugt ptr %add.ptr29, %add.ptr2
   %or.cond30 = or i1 %cmp31, %cmp37
@@ -3512,7 +3512,7 @@ return:                                           ; preds = %if.end.i40, %return
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @lpValidateIntegrity(ptr noundef %lp, i64 noundef %size, i32 noundef %deep, ptr noundef readonly %entry_cb, ptr noundef %cb_userdata) local_unnamed_addr #2 {
+define dso_local range(i32 0, 2) i32 @lpValidateIntegrity(ptr noundef %lp, i64 noundef %size, i32 noundef %deep, ptr noundef readonly %entry_cb, ptr noundef %cb_userdata) local_unnamed_addr #2 {
 entry:
   %p = alloca ptr, align 8
   %cmp = icmp ult i64 %size, 7
@@ -3567,7 +3567,7 @@ land.rhs.us:                                      ; preds = %if.end24, %if.end39
   br i1 %cmp35.not.us, label %while.end, label %while.body.us
 
 while.body.us:                                    ; preds = %land.rhs.us
-  %call.us = call i32 @lpValidateNext(ptr noundef nonnull %lp, ptr noundef nonnull %p, i64 noundef %size), !range !7
+  %call.us = call i32 @lpValidateNext(ptr noundef nonnull %lp, ptr noundef nonnull %p, i64 noundef %size)
   %tobool37.not.us = icmp eq i32 %call.us, 0
   br i1 %tobool37.not.us, label %return, label %if.end39.us
 
@@ -3575,7 +3575,7 @@ if.end39.us:                                      ; preds = %while.body.us
   %inc.us = add i32 %count.020.us, 1
   %.pr.us = load ptr, ptr %p, align 8
   %tobool32.not.us = icmp eq ptr %.pr.us, null
-  br i1 %tobool32.not.us, label %while.end, label %land.rhs.us, !llvm.loop !14
+  br i1 %tobool32.not.us, label %while.end, label %land.rhs.us, !llvm.loop !13
 
 land.rhs:                                         ; preds = %if.end24, %if.end44
   %count.020 = phi i32 [ %inc, %if.end44 ], [ 0, %if.end24 ]
@@ -3585,7 +3585,7 @@ land.rhs:                                         ; preds = %if.end24, %if.end44
   br i1 %cmp35.not, label %while.end, label %while.body
 
 while.body:                                       ; preds = %land.rhs
-  %call = call i32 @lpValidateNext(ptr noundef nonnull %lp, ptr noundef nonnull %p, i64 noundef %size), !range !7
+  %call = call i32 @lpValidateNext(ptr noundef nonnull %lp, ptr noundef nonnull %p, i64 noundef %size)
   %tobool37.not = icmp eq i32 %call, 0
   br i1 %tobool37.not, label %return, label %if.end39
 
@@ -3598,7 +3598,7 @@ if.end44:                                         ; preds = %if.end39
   %inc = add i32 %count.020, 1
   %.pr = load ptr, ptr %p, align 8
   %tobool32.not = icmp eq ptr %.pr, null
-  br i1 %tobool32.not, label %while.end, label %land.rhs, !llvm.loop !14
+  br i1 %tobool32.not, label %while.end, label %land.rhs, !llvm.loop !13
 
 while.end:                                        ; preds = %land.rhs, %if.end44, %land.rhs.us, %if.end39.us
   %.us-phi = phi ptr [ null, %if.end39.us ], [ %8, %land.rhs.us ], [ null, %if.end44 ], [ %10, %land.rhs ]
@@ -3619,7 +3619,7 @@ return:                                           ; preds = %while.body, %if.end
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @lpCompare(ptr noundef %p, ptr nocapture noundef readonly %s, i32 noundef %slen) local_unnamed_addr #2 {
+define dso_local range(i32 0, 2) i32 @lpCompare(ptr noundef %p, ptr nocapture noundef readonly %s, i32 noundef %slen) local_unnamed_addr #2 {
 entry:
   %sz = alloca i64, align 8
   %0 = load i8, ptr %p, align 1
@@ -3869,7 +3869,7 @@ if.end.i.i:                                       ; preds = %if.end.i
   %4 = zext i32 %3 to i64
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %p.addr.i.i.i)
   store ptr %add.ptr.i.i, ptr %p.addr.i.i.i, align 8
-  %call.i.i.i = call i32 @lpValidateNext(ptr noundef nonnull %lp, ptr noundef nonnull %p.addr.i.i.i, i64 noundef %4), !range !7
+  %call.i.i.i = call i32 @lpValidateNext(ptr noundef nonnull %lp, ptr noundef nonnull %p.addr.i.i.i, i64 noundef %4)
   %tobool.not.i.i.i = icmp eq i32 %call.i.i.i, 0
   br i1 %tobool.not.i.i.i, label %cond.false.i.i.i, label %while.body.preheader.i
 
@@ -3888,7 +3888,7 @@ while.body.i:                                     ; preds = %while.body.i, %whil
   %inc.i = add i32 %count.013.i, 1
   %call6.i = tail call ptr @lpNext(ptr noundef nonnull %lp, ptr noundef nonnull %p.014.i)
   %tobool.not.i = icmp eq ptr %call6.i, null
-  br i1 %tobool.not.i, label %while.end.i, label %while.body.i, !llvm.loop !8
+  br i1 %tobool.not.i, label %while.end.i, label %while.body.i, !llvm.loop !7
 
 while.end.i:                                      ; preds = %while.body.i
   %cmp7.i = icmp ult i32 %inc.i, 65535
@@ -3929,7 +3929,7 @@ for.body:                                         ; preds = %for.cond.preheader,
   store i32 %5, ptr %order, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %conv
-  br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !15
+  br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !14
 
 for.end:                                          ; preds = %for.body, %for.cond.preheader
   tail call void @qsort(ptr noundef %call, i64 noundef %conv, i64 noundef 8, ptr noundef nonnull @uintCompare) #15
@@ -3943,7 +3943,7 @@ if.end.i21:                                       ; preds = %for.end
   %8 = zext i32 %7 to i64
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %p.addr.i.i)
   store ptr %add.ptr.i, ptr %p.addr.i.i, align 8
-  %call.i.i = call i32 @lpValidateNext(ptr noundef nonnull %lp, ptr noundef nonnull %p.addr.i.i, i64 noundef %8), !range !7
+  %call.i.i = call i32 @lpValidateNext(ptr noundef nonnull %lp, ptr noundef nonnull %p.addr.i.i, i64 noundef %8)
   %tobool.not.i.i = icmp eq i32 %call.i.i, 0
   br i1 %tobool.not.i.i, label %cond.false.i.i, label %lpAssertValidEntry.exit.i
 
@@ -4074,8 +4074,8 @@ lpSkip.exit.i:                                    ; preds = %switch.lookup, %if.
   %conv10.shrunk.i.i = phi i32 [ %retval.0.i.i.i, %lpCurrentEncodedSizeUnsafe.exit.i.i ], [ %retval.0.i.i.i, %if.else.i.i.i ], [ %retval.0.i.i.i, %if.else12.i.i.i ], [ %retval.0.i.i.i, %if.else31.i.i.i ], [ 1, %if.end59.i.i.i ], [ 2, %if.end11.i.i.i ], [ 1, %cond.end.i ], [ 0, %if.end88.i.i.i ], [ %add.i.i.i, %lpCurrentEncodedSizeUnsafe.exit.thread.i.i ], [ %switch.load, %switch.lookup ]
   %retval.0.i6.i.i = phi i64 [ 1, %lpCurrentEncodedSizeUnsafe.exit.i.i ], [ 2, %if.else.i.i.i ], [ 3, %if.else12.i.i.i ], [ %spec.select.i.i, %if.else31.i.i.i ], [ 1, %if.end59.i.i.i ], [ 1, %if.end11.i.i.i ], [ 1, %cond.end.i ], [ 1, %if.end88.i.i.i ], [ 1, %lpCurrentEncodedSizeUnsafe.exit.thread.i.i ], [ 1, %switch.lookup ]
   %conv10.i.i = zext i32 %conv10.shrunk.i.i to i64
-  %16 = getelementptr i8, ptr %p.163, i64 %retval.0.i6.i.i
-  %add.ptr.i.i25 = getelementptr i8, ptr %16, i64 %conv10.i.i
+  %16 = getelementptr inbounds i8, ptr %p.163, i64 %retval.0.i6.i.i
+  %add.ptr.i.i25 = getelementptr inbounds i8, ptr %16, i64 %conv10.i.i
   %17 = load i8, ptr %add.ptr.i.i25, align 1
   %cmp.i26 = icmp eq i8 %17, -1
   br i1 %cmp.i26, label %lpNext.exit, label %if.end.i38
@@ -4117,8 +4117,10 @@ if.end50.i.i:                                     ; preds = %if.end43.i.i
 if.end12.i:                                       ; preds = %if.end50.i.i, %if.end43.i.i, %if.end9.i
   %retval.0.i.ph.i = phi i64 [ 2, %if.end43.i.i ], [ 1, %if.end9.i ], [ 5, %if.end50.i.i ]
   %add.ptr13.i = getelementptr inbounds i8, ptr %add.ptr.i.i25, i64 %retval.0.i.ph.i
+  %cmp15.i = icmp ult ptr %add.ptr13.i, %add.ptr.i
   %cmp22.i = icmp ugt ptr %add.ptr13.i, %gep
-  br i1 %cmp22.i, label %cond.false.i.i32, label %if.end25.i
+  %or.cond.i = or i1 %cmp15.i, %cmp22.i
+  br i1 %or.cond.i, label %cond.false.i.i32, label %if.end25.i
 
 if.end25.i:                                       ; preds = %if.end12.i
   br i1 %cmp.i.i41, label %lpEncodeBacklen.exit.i, label %if.end.i.i43
@@ -4192,8 +4194,8 @@ lpEncodeBacklen.exit.i:                           ; preds = %switch.lookup89, %i
   %conv2750.shrunk.i = phi i32 [ %retval.0.i35.i, %lpCurrentEncodedSizeUnsafe.exit.i ], [ %retval.0.i35.i, %if.else.i.i ], [ %retval.0.i35.i, %if.else12.i.i ], [ %retval.0.i35.i, %if.else31.i.i ], [ 2, %if.end11.i.i ], [ 1, %if.end25.i ], [ 0, %if.end59.i.i ], [ %add.i.i, %lpCurrentEncodedSizeUnsafe.exit.thread.i ], [ %switch.load92, %switch.lookup89 ]
   %retval.0.i37.i = phi i64 [ 1, %lpCurrentEncodedSizeUnsafe.exit.i ], [ 2, %if.else.i.i ], [ 3, %if.else12.i.i ], [ %spec.select.i, %if.else31.i.i ], [ 1, %if.end11.i.i ], [ 1, %if.end25.i ], [ 1, %if.end59.i.i ], [ 1, %lpCurrentEncodedSizeUnsafe.exit.thread.i ], [ 1, %switch.lookup89 ]
   %conv2750.i = zext i32 %conv2750.shrunk.i to i64
-  %26 = getelementptr i8, ptr %add.ptr.i.i25, i64 %retval.0.i37.i
-  %add.ptr29.i = getelementptr i8, ptr %26, i64 %conv2750.i
+  %26 = getelementptr inbounds i8, ptr %add.ptr.i.i25, i64 %retval.0.i37.i
+  %add.ptr29.i = getelementptr inbounds i8, ptr %26, i64 %conv2750.i
   %cmp31.i = icmp ult ptr %add.ptr29.i, %add.ptr.i
   %cmp37.i = icmp ugt ptr %add.ptr29.i, %gep
   %or.cond30.i = or i1 %cmp31.i, %cmp37.i
@@ -4230,7 +4232,7 @@ lpNext.exit:                                      ; preds = %lpDecodeBacklen.exi
   %retval.0.i31 = phi ptr [ null, %lpSkip.exit.i ], [ %add.ptr.i.i25, %lpDecodeBacklen.exit.i ]
   %inc23 = add nuw i32 %j.162, 1
   %exitcond76.not = icmp eq i32 %inc23, %9
-  br i1 %exitcond76.not, label %while.end, label %while.body, !llvm.loop !16
+  br i1 %exitcond76.not, label %while.end, label %while.body, !llvm.loop !15
 
 while.end:                                        ; preds = %lpNext.exit, %while.cond.preheader
   %j.1.lcssa = phi i32 [ %j.070, %while.cond.preheader ], [ %umax, %lpNext.exit ]
@@ -4254,7 +4256,7 @@ while.end:                                        ; preds = %lpNext.exit, %while
   store i64 %spec.select47, ptr %lval1.i, align 8
   %indvars.iv.next78 = add nuw nsw i64 %indvars.iv77, 1
   %exitcond81.not = icmp eq i64 %indvars.iv.next78, %conv
-  br i1 %exitcond81.not, label %for.end32, label %while.cond.preheader, !llvm.loop !17
+  br i1 %exitcond81.not, label %for.end32, label %while.cond.preheader, !llvm.loop !16
 
 for.end32:                                        ; preds = %while.end, %lpFirst.exit
   tail call void @zfree(ptr noundef %call) #15
@@ -4304,7 +4306,7 @@ if.end.i.i:                                       ; preds = %if.end.i
   %4 = zext i32 %3 to i64
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %p.addr.i.i.i)
   store ptr %add.ptr.i.i, ptr %p.addr.i.i.i, align 8
-  %call.i.i.i = call i32 @lpValidateNext(ptr noundef nonnull %lp, ptr noundef nonnull %p.addr.i.i.i, i64 noundef %4), !range !7
+  %call.i.i.i = call i32 @lpValidateNext(ptr noundef nonnull %lp, ptr noundef nonnull %p.addr.i.i.i, i64 noundef %4)
   %tobool.not.i.i.i = icmp eq i32 %call.i.i.i, 0
   br i1 %tobool.not.i.i.i, label %cond.false.i.i.i, label %while.body.preheader.i
 
@@ -4323,7 +4325,7 @@ while.body.i:                                     ; preds = %while.body.i, %whil
   %inc.i = add i32 %count.013.i, 1
   %call6.i = tail call ptr @lpNext(ptr noundef nonnull %lp, ptr noundef nonnull %p.014.i)
   %tobool.not.i = icmp eq ptr %call6.i, null
-  br i1 %tobool.not.i, label %while.end.i, label %while.body.i, !llvm.loop !8
+  br i1 %tobool.not.i, label %while.end.i, label %while.body.i, !llvm.loop !7
 
 while.end.i:                                      ; preds = %while.body.i
   %cmp7.i = icmp ult i32 %inc.i, 65535
@@ -4366,7 +4368,7 @@ for.body:                                         ; preds = %for.cond.preheader,
   store i32 %6, ptr %order, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %conv
-  br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !18
+  br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !17
 
 for.end:                                          ; preds = %for.body, %for.cond.preheader
   tail call void @qsort(ptr noundef %call, i64 noundef %conv, i64 noundef 8, ptr noundef nonnull @uintCompare) #15
@@ -4422,7 +4424,7 @@ while.end.us:                                     ; preds = %while.body42.us.us,
   %tobool16.us = icmp ne ptr %call52.us, null
   %cmp17.us = icmp ult i32 %pickindex.1.lcssa.us, %count
   %12 = and i1 %cmp17.us, %tobool16.us
-  br i1 %12, label %while.body.us, label %while.end53, !llvm.loop !19
+  br i1 %12, label %while.body.us, label %while.end53, !llvm.loop !18
 
 land.rhs35.us.us:                                 ; preds = %land.rhs35.us.us.preheader, %while.body42.us.us
   %indvars.iv71 = phi i64 [ %10, %land.rhs35.us.us.preheader ], [ %indvars.iv.next72, %while.body42.us.us ]
@@ -4443,7 +4445,7 @@ while.body42.us.us:                               ; preds = %land.rhs35.us.us
   store i64 %spec.select45.us, ptr %lval1.i.us.us, align 8
   %indvars.iv.next72 = add nuw nsw i64 %indvars.iv71, 1
   %exitcond74.not = icmp eq i64 %indvars.iv.next72, %conv
-  br i1 %exitcond74.not, label %while.end.us, label %land.rhs35.us.us, !llvm.loop !20
+  br i1 %exitcond74.not, label %while.end.us, label %land.rhs35.us.us, !llvm.loop !19
 
 while.body:                                       ; preds = %while.body.lr.ph, %while.end
   %p.063 = phi ptr [ %call52, %while.end ], [ %call15, %while.body.lr.ph ]
@@ -4511,7 +4513,7 @@ while.body42:                                     ; preds = %land.rhs35
   store i64 %spec.select47, ptr %lval1.i44, align 8
   %indvars.iv.next68 = add nuw nsw i64 %indvars.iv67, 1
   %exitcond70.not = icmp eq i64 %indvars.iv.next68, %conv
-  br i1 %exitcond70.not, label %while.end, label %land.rhs35, !llvm.loop !20
+  br i1 %exitcond70.not, label %while.end, label %land.rhs35, !llvm.loop !19
 
 while.end.loopexit.split.loop.exit79:             ; preds = %land.rhs35
   %20 = trunc nuw i64 %indvars.iv67 to i32
@@ -4524,7 +4526,7 @@ while.end:                                        ; preds = %while.body42, %whil
   %tobool16 = icmp ne ptr %call52, null
   %cmp17 = icmp ult i32 %pickindex.1.lcssa, %count
   %21 = and i1 %cmp17, %tobool16
-  br i1 %21, label %while.body, label %while.end53, !llvm.loop !19
+  br i1 %21, label %while.body, label %while.end53, !llvm.loop !18
 
 while.end53:                                      ; preds = %while.end, %while.end.us, %for.end
   tail call void @zfree(ptr noundef nonnull %call) #15
@@ -4561,7 +4563,7 @@ if.end.i.i:                                       ; preds = %if.end.i
   %4 = zext i32 %3 to i64
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %p.addr.i.i.i)
   store ptr %add.ptr.i.i, ptr %p.addr.i.i.i, align 8
-  %call.i.i.i = call i32 @lpValidateNext(ptr noundef nonnull %lp, ptr noundef nonnull %p.addr.i.i.i, i64 noundef %4), !range !7
+  %call.i.i.i = call i32 @lpValidateNext(ptr noundef nonnull %lp, ptr noundef nonnull %p.addr.i.i.i, i64 noundef %4)
   %tobool.not.i.i.i = icmp eq i32 %call.i.i.i, 0
   br i1 %tobool.not.i.i.i, label %cond.false.i.i.i, label %while.body.preheader.i
 
@@ -4580,7 +4582,7 @@ while.body.i:                                     ; preds = %while.body.i, %whil
   %inc.i = add i32 %count.013.i, 1
   %call6.i = tail call ptr @lpNext(ptr noundef nonnull %lp, ptr noundef nonnull %p.014.i)
   %tobool.not.i = icmp eq ptr %call6.i, null
-  br i1 %tobool.not.i, label %while.end.i, label %while.body.i, !llvm.loop !8
+  br i1 %tobool.not.i, label %while.end.i, label %while.body.i, !llvm.loop !7
 
 while.end.i:                                      ; preds = %while.body.i
   %cmp7.i = icmp ult i32 %inc.i, 65535
@@ -4610,7 +4612,7 @@ if.end.i21:                                       ; preds = %lpLength.exit
   %8 = zext i32 %7 to i64
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %p.addr.i.i)
   store ptr %add.ptr.i, ptr %p.addr.i.i, align 8
-  %call.i.i = call i32 @lpValidateNext(ptr noundef nonnull %lp, ptr noundef nonnull %p.addr.i.i, i64 noundef %8), !range !7
+  %call.i.i = call i32 @lpValidateNext(ptr noundef nonnull %lp, ptr noundef nonnull %p.addr.i.i, i64 noundef %8)
   %tobool.not.i.i = icmp eq i32 %call.i.i, 0
   br i1 %tobool.not.i.i, label %cond.false.i.i, label %lpFirst.exit
 
@@ -4668,7 +4670,7 @@ cond.end21.us:                                    ; preds = %cond.end.us
   %cmp3.us = icmp ult i64 %indvars.iv.next57, %9
   %tobool.us = icmp ne ptr %call28.us, null
   %12 = and i1 %tobool.us, %cmp3.us
-  br i1 %12, label %while.body.us, label %while.end.loopexit, !llvm.loop !21
+  br i1 %12, label %while.body.us, label %while.end.loopexit, !llvm.loop !20
 
 while.body:                                       ; preds = %while.body.lr.ph, %cond.end21
   %indvars.iv = phi i64 [ %indvars.iv.next, %cond.end21 ], [ 0, %while.body.lr.ph ]
@@ -4733,7 +4735,7 @@ cond.end21:                                       ; preds = %cond.end
   %cmp3 = icmp ult i64 %indvars.iv.next, %9
   %tobool = icmp ne ptr %call28, null
   %16 = and i1 %tobool, %cmp3
-  br i1 %16, label %while.body, label %while.end.loopexit54, !llvm.loop !21
+  br i1 %16, label %while.body, label %while.end.loopexit54, !llvm.loop !20
 
 while.end.loopexit:                               ; preds = %cond.end21.us
   %17 = trunc nuw nsw i64 %indvars.iv.next57 to i32
@@ -4775,7 +4777,7 @@ if.end.i.i:                                       ; preds = %if.end.i
   %5 = zext i32 %4 to i64
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %p.addr.i.i.i)
   store ptr %add.ptr.i.i, ptr %p.addr.i.i.i, align 8
-  %call.i.i.i = call i32 @lpValidateNext(ptr noundef nonnull %lp, ptr noundef nonnull %p.addr.i.i.i, i64 noundef %5), !range !7
+  %call.i.i.i = call i32 @lpValidateNext(ptr noundef nonnull %lp, ptr noundef nonnull %p.addr.i.i.i, i64 noundef %5)
   %tobool.not.i.i.i = icmp eq i32 %call.i.i.i, 0
   br i1 %tobool.not.i.i.i, label %cond.false.i.i.i, label %while.body.preheader.i
 
@@ -4794,7 +4796,7 @@ while.body.i:                                     ; preds = %while.body.i, %whil
   %inc.i = add i32 %count.013.i, 1
   %call6.i = tail call ptr @lpNext(ptr noundef nonnull %lp, ptr noundef nonnull %p.014.i)
   %tobool.not.i = icmp eq ptr %call6.i, null
-  br i1 %tobool.not.i, label %while.end.i, label %while.body.i, !llvm.loop !8
+  br i1 %tobool.not.i, label %while.end.i, label %while.body.i, !llvm.loop !7
 
 while.end.i:                                      ; preds = %while.body.i
   %cmp7.i = icmp ult i32 %inc.i, 65535
@@ -4845,7 +4847,7 @@ if.end19.us:                                      ; preds = %while.body.us
   %cmp.us = icmp ult i32 %inc21.us, %retval.0.in.i
   %cmp2.us = icmp ne ptr %call20.us, null
   %13 = and i1 %cmp.us, %cmp2.us
-  br i1 %13, label %while.body.us, label %return, !llvm.loop !22
+  br i1 %13, label %while.body.us, label %return, !llvm.loop !21
 
 while.body:                                       ; preds = %while.body.lr.ph, %while.cond.backedge
   %p.addr.022 = phi ptr [ %p.addr.0.be, %while.cond.backedge ], [ %p, %while.body.lr.ph ]
@@ -4865,7 +4867,7 @@ while.cond.backedge:                              ; preds = %if.then, %if.end19
   %cmp = icmp ult i32 %i.0.be, %retval.0.in.i
   %cmp2 = icmp ne ptr %p.addr.0.be, null
   %14 = and i1 %cmp, %cmp2
-  br i1 %14, label %while.body, label %return, !llvm.loop !22
+  br i1 %14, label %while.body, label %return, !llvm.loop !21
 
 if.end:                                           ; preds = %while.body
   %sub = sub i32 %retval.0.in.i, %i.021
@@ -4927,7 +4929,7 @@ if.end.i:                                         ; preds = %entry
 if.end.i.i:                                       ; preds = %if.end.i
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %p.addr.i.i.i)
   store ptr %add.ptr.i.i, ptr %p.addr.i.i.i, align 8
-  %call.i.i.i = call i32 @lpValidateNext(ptr noundef nonnull %lp, ptr noundef nonnull %p.addr.i.i.i, i64 noundef %1), !range !7
+  %call.i.i.i = call i32 @lpValidateNext(ptr noundef nonnull %lp, ptr noundef nonnull %p.addr.i.i.i, i64 noundef %1)
   %tobool.not.i.i.i = icmp eq i32 %call.i.i.i, 0
   br i1 %tobool.not.i.i.i, label %cond.false.i.i.i, label %while.body.preheader.i
 
@@ -4946,7 +4948,7 @@ while.body.i:                                     ; preds = %while.body.i, %whil
   %inc.i = add i32 %count.013.i, 1
   %call6.i = tail call ptr @lpNext(ptr noundef nonnull %lp, ptr noundef nonnull %p.014.i)
   %tobool.not.i = icmp eq ptr %call6.i, null
-  br i1 %tobool.not.i, label %while.end.i, label %while.body.i, !llvm.loop !8
+  br i1 %tobool.not.i, label %while.end.i, label %while.body.i, !llvm.loop !7
 
 while.end.i:                                      ; preds = %while.body.i
   %cmp7.i = icmp ult i32 %inc.i, 65535
@@ -4975,7 +4977,7 @@ if.end.i23:                                       ; preds = %lpLength.exit
   %7 = zext i32 %6 to i64
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %p.addr.i.i)
   store ptr %add.ptr.i, ptr %p.addr.i.i, align 8
-  %call.i.i = call i32 @lpValidateNext(ptr noundef nonnull %lp, ptr noundef nonnull %p.addr.i.i, i64 noundef %7), !range !7
+  %call.i.i = call i32 @lpValidateNext(ptr noundef nonnull %lp, ptr noundef nonnull %p.addr.i.i, i64 noundef %7)
   %tobool.not.i.i = icmp eq i32 %call.i.i, 0
   br i1 %tobool.not.i.i, label %cond.false.i.i, label %while.body.lr.ph
 
@@ -5121,7 +5123,7 @@ for.body:                                         ; preds = %lpEncodeBacklen.exi
   %inc = add i32 %i.050, 1
   %conv10 = zext i32 %inc to i64
   %cmp = icmp ugt i64 %add, %conv10
-  br i1 %cmp, label %for.body, label %for.end, !llvm.loop !23
+  br i1 %cmp, label %for.body, label %for.end, !llvm.loop !22
 
 for.end:                                          ; preds = %for.body
   %putchar = call i32 @putchar(i32 10)
@@ -5159,7 +5161,7 @@ if.end31:                                         ; preds = %if.else, %if.then29
   %inc33 = add nuw nsw i32 %index.053, 1
   %call34 = call ptr @lpNext(ptr noundef nonnull %lp, ptr noundef nonnull %p.054)
   %tobool.not = icmp eq ptr %call34, null
-  br i1 %tobool.not, label %while.end, label %while.body, !llvm.loop !24
+  br i1 %tobool.not, label %while.end, label %while.body, !llvm.loop !23
 
 while.end:                                        ; preds = %if.end31, %lpLength.exit
   %puts = call i32 @puts(ptr nonnull dereferenceable(1) @str)
@@ -5235,7 +5237,7 @@ attributes #17 = { cold }
 !4 = !{i32 7, !"frame-pointer", i32 2}
 !5 = distinct !{!5, !6}
 !6 = !{!"llvm.loop.mustprogress"}
-!7 = !{i32 0, i32 2}
+!7 = distinct !{!7, !6}
 !8 = distinct !{!8, !6}
 !9 = distinct !{!9, !6}
 !10 = distinct !{!10, !6}
@@ -5252,4 +5254,3 @@ attributes #17 = { cold }
 !21 = distinct !{!21, !6}
 !22 = distinct !{!22, !6}
 !23 = distinct !{!23, !6}
-!24 = distinct !{!24, !6}

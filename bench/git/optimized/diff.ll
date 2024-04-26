@@ -605,7 +605,7 @@ for.end13:                                        ; preds = %for.inc11
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @git_config_rename(ptr noundef %var, ptr noundef %value) local_unnamed_addr #0 {
+define dso_local range(i32 0, 3) i32 @git_config_rename(ptr noundef %var, ptr noundef %value) local_unnamed_addr #0 {
 entry:
   %tobool.not = icmp eq ptr %value, null
   br i1 %tobool.not, label %return, label %if.end
@@ -637,7 +637,7 @@ declare i32 @strcasecmp(ptr nocapture noundef, ptr nocapture noundef) local_unna
 declare i32 @git_config_bool(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read) uwtable
-define dso_local i64 @parse_algorithm_value(ptr noundef readonly %value) local_unnamed_addr #3 {
+define dso_local range(i64 -1, 32769) i64 @parse_algorithm_value(ptr noundef readonly %value) local_unnamed_addr #3 {
 entry:
   %tobool.not = icmp eq ptr %value, null
   br i1 %tobool.not, label %return, label %if.else
@@ -722,7 +722,7 @@ if.end:                                           ; preds = %lor.lhs.false
   br i1 %tobool5.not, label %if.then6, label %if.end10
 
 if.then6:                                         ; preds = %if.end
-  %call7 = tail call fastcc i32 @parse_color_moved(ptr noundef %value), !range !7
+  %call7 = tail call fastcc i32 @parse_color_moved(ptr noundef %value)
   %cmp = icmp slt i32 %call7, 0
   br i1 %cmp, label %return, label %if.end9
 
@@ -927,7 +927,7 @@ if.then107:                                       ; preds = %if.then105
   br label %return
 
 if.end110:                                        ; preds = %if.then105
-  %call111 = tail call fastcc i32 @parse_submodule_params(ptr noundef nonnull @default_diff_options, ptr noundef nonnull %value), !range !8
+  %call111 = tail call fastcc i32 @parse_submodule_params(ptr noundef nonnull @default_diff_options, ptr noundef nonnull %value)
   %tobool112.not = icmp eq i32 %call111, 0
   br i1 %tobool112.not, label %return, label %if.then113
 
@@ -959,7 +959,7 @@ if.then121:                                       ; preds = %if.then119
   br label %return
 
 if.end124:                                        ; preds = %if.then119
-  %call125 = tail call i64 @parse_algorithm_value(ptr noundef nonnull %value), !range !9
+  %call125 = tail call i64 @parse_algorithm_value(ptr noundef nonnull %value)
   store i64 %call125, ptr @diff_algorithm, align 8
   %cmp126 = icmp slt i64 %call125, 0
   br i1 %cmp126, label %if.then127, label %return
@@ -995,7 +995,7 @@ return:                                           ; preds = %if.end132, %if.end1
 declare i32 @git_config_colorbool(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @parse_color_moved(ptr noundef %arg) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 5) i32 @parse_color_moved(ptr noundef %arg) unnamed_addr #0 {
 entry:
   %call = tail call i32 @git_parse_maybe_bool(ptr noundef %arg) #31
   switch i32 %call, label %sw.epilog [
@@ -1199,7 +1199,7 @@ declare i32 @git_config_pathname(ptr noundef, ptr noundef, ptr noundef) local_un
 declare void @handle_ignore_submodules_arg(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: readwrite) uwtable
-define internal fastcc noundef i32 @parse_submodule_params(ptr nocapture noundef writeonly %options, ptr nocapture noundef readonly %value) unnamed_addr #6 {
+define internal fastcc range(i32 -1, 1) i32 @parse_submodule_params(ptr nocapture noundef writeonly %options, ptr nocapture noundef readonly %value) unnamed_addr #6 {
 entry:
   %call = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %value, ptr noundef nonnull dereferenceable(4) @.str.288) #32
   %tobool.not = icmp eq i32 %call, 0
@@ -1289,7 +1289,7 @@ do.cond.i:                                        ; preds = %do.body.i
   %2 = load i8, ptr %str.addr.0.i, align 1
   %prefix.addr.0.i.add = add nuw nsw i64 %prefix.addr.0.i.idx, 1
   %cmp.i = icmp eq i8 %2, %1
-  br i1 %cmp.i, label %do.body.i, label %do.body.i31, !llvm.loop !10
+  br i1 %cmp.i, label %do.body.i, label %do.body.i31, !llvm.loop !7
 
 do.body.i31:                                      ; preds = %do.cond.i, %do.cond.i35
   %str.addr.0.i32 = phi ptr [ %incdec.ptr.i36, %do.cond.i35 ], [ %var, %do.cond.i ]
@@ -1304,7 +1304,7 @@ do.cond.i35:                                      ; preds = %do.body.i31
   %4 = load i8, ptr %str.addr.0.i32, align 1
   %prefix.addr.0.i33.add = add nuw nsw i64 %prefix.addr.0.i33.idx, 1
   %cmp.i38 = icmp eq i8 %4, %3
-  br i1 %cmp.i38, label %do.body.i31, label %if.end18, !llvm.loop !10
+  br i1 %cmp.i38, label %do.body.i31, label %if.end18, !llvm.loop !7
 
 if.then7:                                         ; preds = %do.body.i, %do.body.i31
   %call.i = tail call i32 @strcasecmp(ptr noundef %scevgep, ptr noundef nonnull @.str) #32
@@ -1465,7 +1465,7 @@ do.cond.i.i:                                      ; preds = %do.body.i.i
   %2 = load i8, ptr %str.addr.0.i.i, align 1
   %prefix.addr.0.i.i.add = add nuw nsw i64 %prefix.addr.0.i.i.idx, 1
   %cmp.i.i = icmp eq i8 %2, %1
-  br i1 %cmp.i.i, label %do.body.i.i, label %if.else, !llvm.loop !10
+  br i1 %cmp.i.i, label %do.body.i.i, label %if.else, !llvm.loop !7
 
 land.lhs.true.i:                                  ; preds = %do.body.i.i
   %3 = load i8, ptr %scevgep, align 1
@@ -1491,7 +1491,7 @@ do.cond.i.i8:                                     ; preds = %do.body.i.i4
   %5 = load i8, ptr %str.addr.0.i.i5, align 1
   %prefix.addr.0.i.i6.add = add nuw nsw i64 %prefix.addr.0.i.i6.idx, 1
   %cmp.i.i11 = icmp eq i8 %5, %4
-  br i1 %cmp.i.i11, label %do.body.i.i4, label %if.else5, !llvm.loop !10
+  br i1 %cmp.i.i11, label %do.body.i.i4, label %if.else5, !llvm.loop !7
 
 land.lhs.true.i13:                                ; preds = %do.body.i.i4
   %6 = load i8, ptr %scevgep121, align 1
@@ -1517,7 +1517,7 @@ do.cond.i.i20:                                    ; preds = %do.body.i.i16
   %8 = load i8, ptr %str.addr.0.i.i17, align 1
   %prefix.addr.0.i.i18.add = add nuw nsw i64 %prefix.addr.0.i.i18.idx, 1
   %cmp.i.i23 = icmp eq i8 %8, %7
-  br i1 %cmp.i.i23, label %do.body.i.i16, label %do.body.i.i28.preheader, !llvm.loop !10
+  br i1 %cmp.i.i23, label %do.body.i.i16, label %do.body.i.i28.preheader, !llvm.loop !7
 
 land.lhs.true.i25:                                ; preds = %do.body.i.i16
   %9 = load i8, ptr %scevgep123, align 1
@@ -1542,7 +1542,7 @@ do.cond.i.i32:                                    ; preds = %do.body.i.i28
   %11 = load i8, ptr %str.addr.0.i.i29, align 1
   %prefix.addr.0.i.i30.add = add nuw nsw i64 %prefix.addr.0.i.i30.idx, 1
   %cmp.i.i35 = icmp eq i8 %11, %10
-  br i1 %cmp.i.i35, label %do.body.i.i28, label %do.body.i.i40.preheader, !llvm.loop !10
+  br i1 %cmp.i.i35, label %do.body.i.i28, label %do.body.i.i40.preheader, !llvm.loop !7
 
 land.lhs.true.i37:                                ; preds = %do.body.i.i28
   %12 = load i8, ptr %scevgep123, align 1
@@ -1571,7 +1571,7 @@ do.cond.i.i44:                                    ; preds = %do.body.i.i40
   %14 = load i8, ptr %str.addr.0.i.i41, align 1
   %prefix.addr.0.i.i42.add = add nuw nsw i64 %prefix.addr.0.i.i42.idx, 1
   %cmp.i.i47 = icmp eq i8 %14, %13
-  br i1 %cmp.i.i47, label %do.body.i.i40, label %do.body.i.i52.preheader, !llvm.loop !10
+  br i1 %cmp.i.i47, label %do.body.i.i40, label %do.body.i.i52.preheader, !llvm.loop !7
 
 land.lhs.true.i49:                                ; preds = %do.body.i.i40
   %15 = load i8, ptr %scevgep123, align 1
@@ -1600,7 +1600,7 @@ do.cond.i.i56:                                    ; preds = %do.body.i.i52
   %17 = load i8, ptr %str.addr.0.i.i53, align 1
   %prefix.addr.0.i.i54.add = add nuw nsw i64 %prefix.addr.0.i.i54.idx, 1
   %cmp.i.i59 = icmp eq i8 %17, %16
-  br i1 %cmp.i.i59, label %do.body.i.i52, label %if.else23, !llvm.loop !10
+  br i1 %cmp.i.i59, label %do.body.i.i52, label %if.else23, !llvm.loop !7
 
 land.lhs.true.i61:                                ; preds = %do.body.i.i52
   %18 = load i8, ptr %scevgep121, align 1
@@ -1630,7 +1630,7 @@ if.end28:                                         ; preds = %if.then12, %if.then
   %spec.select = getelementptr inbounds i8, ptr %arg.addr.7, i64 %spec.select.idx
   %20 = load i8, ptr %spec.select, align 1
   %tobool.not = icmp eq i8 %20, 0
-  br i1 %tobool.not, label %return, label %do.body.i.i.preheader, !llvm.loop !11
+  br i1 %tobool.not, label %return, label %do.body.i.i.preheader, !llvm.loop !8
 
 return:                                           ; preds = %if.end28, %entry, %if.else23
   %retval.0 = phi i32 [ %sub, %if.else23 ], [ 0, %entry ], [ %val.1, %if.end28 ]
@@ -1761,7 +1761,7 @@ while.cond:                                       ; preds = %while.cond, %if.the
   %14 = load i8, ptr %arrayidx55, align 1
   %15 = and i8 %14, 2
   %cmp58.not = icmp eq i8 %15, 0
-  br i1 %cmp58.not, label %if.end60.loopexit, label %while.cond, !llvm.loop !12
+  br i1 %cmp58.not, label %if.end60.loopexit, label %while.cond, !llvm.loop !9
 
 if.end60.loopexit:                                ; preds = %while.cond
   %conv52 = sext i8 %10 to i32
@@ -1814,7 +1814,7 @@ for.inc:                                          ; preds = %if.then5, %if.then1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %19 = load i64, ptr %nr, align 8
   %cmp = icmp ugt i64 %19, %indvars.iv.next
-  br i1 %cmp, label %for.body, label %for.end, !llvm.loop !13
+  br i1 %cmp, label %for.body, label %for.end, !llvm.loop !10
 
 for.end:                                          ; preds = %for.inc, %entry, %if.end
   %ret.0.lcssa = phi i32 [ 0, %if.end ], [ 0, %entry ], [ %ret.1, %for.inc ]
@@ -2138,7 +2138,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   %6 = load i32, ptr %diffstat, align 8
   %7 = sext i32 %6 to i64
   %cmp = icmp slt i64 %indvars.iv.next, %7
-  br i1 %cmp, label %for.body, label %for.end, !llvm.loop !14
+  br i1 %cmp, label %for.body, label %for.end, !llvm.loop !11
 
 for.end:                                          ; preds = %for.body, %entry
   %files1 = getelementptr inbounds i8, ptr %diffstat, i64 8
@@ -2166,7 +2166,7 @@ entry:
 declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #11
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @diff_filespec_is_binary(ptr noundef %r, ptr noundef %one) local_unnamed_addr #0 {
+define dso_local range(i32 -2, 2) i32 @diff_filespec_is_binary(ptr noundef %r, ptr noundef %one) local_unnamed_addr #0 {
 entry:
   %dpf_options = alloca %struct.diff_populate_filespec_options, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %dpf_options, ptr noundef nonnull align 8 dereferenceable(24) @__const.diff_filespec_is_binary.dpf_options, i64 24, i1 false)
@@ -2233,7 +2233,7 @@ land.lhs.true:                                    ; preds = %if.else
   br i1 %cmp8.not, label %if.end, label %if.then10
 
 if.then10:                                        ; preds = %land.lhs.true
-  %call = call i32 @diff_populate_filespec(ptr noundef nonnull %r, ptr noundef nonnull %one, ptr noundef nonnull %dpf_options), !range !8
+  %call = call i32 @diff_populate_filespec(ptr noundef nonnull %r, ptr noundef nonnull %one, ptr noundef nonnull %dpf_options)
   br label %if.end
 
 if.end:                                           ; preds = %if.then10, %land.lhs.true, %if.else
@@ -2284,7 +2284,7 @@ if.end48:                                         ; preds = %if.end48.sink.split
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @diff_populate_filespec(ptr noundef %r, ptr noundef %s, ptr noundef readonly %options) local_unnamed_addr #0 {
+define dso_local range(i32 -1, 1) i32 @diff_populate_filespec(ptr noundef %r, ptr noundef %s, ptr noundef readonly %options) local_unnamed_addr #0 {
 entry:
   %buf.i = alloca %struct.strbuf, align 8
   %buf = alloca %struct.strbuf, align 8
@@ -2391,7 +2391,7 @@ lor.lhs.false:                                    ; preds = %if.end34
   %7 = load ptr, ptr %index, align 8
   %path = getelementptr inbounds i8, ptr %s, i64 40
   %8 = load ptr, ptr %path, align 8
-  %call39 = tail call fastcc i32 @reuse_worktree_file(ptr noundef %7, ptr noundef %8, ptr noundef nonnull %s, i32 noundef 0), !range !15
+  %call39 = tail call fastcc i32 @reuse_worktree_file(ptr noundef %7, ptr noundef %8, ptr noundef nonnull %s, i32 noundef 0)
   %tobool40.not = icmp eq i32 %call39, 0
   br i1 %tobool40.not, label %if.else, label %if.then41
 
@@ -2918,7 +2918,7 @@ if.end:                                           ; preds = %canon_mode.exit, %e
 declare void @die(ptr noundef, ...) local_unnamed_addr #14
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @reuse_worktree_file(ptr noundef %istate, ptr noundef %name, ptr nocapture noundef readonly %oid, i32 noundef %want_file) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @reuse_worktree_file(ptr noundef %istate, ptr noundef %name, ptr nocapture noundef readonly %oid, i32 noundef %want_file) unnamed_addr #0 {
 entry:
   %st = alloca %struct.stat, align 8
   %0 = load ptr, ptr %istate, align 8
@@ -3490,7 +3490,7 @@ land.lhs.true54:                                  ; preds = %if.end51
 land.lhs.true56:                                  ; preds = %land.lhs.true54
   %repo = getelementptr inbounds i8, ptr %options, i64 576
   %24 = load ptr, ptr %repo, align 8
-  %call57 = tail call fastcc i32 @diff_filespec_check_stat_unmatch(ptr noundef %24, ptr noundef nonnull %call.i77), !range !15
+  %call57 = tail call fastcc i32 @diff_filespec_check_stat_unmatch(ptr noundef %24, ptr noundef nonnull %call.i77)
   %tobool58.not = icmp eq i32 %call57, 0
   br i1 %tobool58.not, label %if.then59, label %if.end62
 
@@ -3896,7 +3896,7 @@ for.body.i:                                       ; preds = %entry, %for.body.i
   store i32 %shl.i, ptr %arrayidx5.i, align 4
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %tobool1.not.i = icmp eq i64 %indvars.iv.next.i, 10
-  br i1 %tobool1.not.i, label %prepare_filter_bits.exit, label %for.body.i, !llvm.loop !16
+  br i1 %tobool1.not.i, label %prepare_filter_bits.exit, label %for.body.i, !llvm.loop !12
 
 prepare_filter_bits.exit:                         ; preds = %for.body.i, %entry
   %idxprom = sext i8 %status to i64
@@ -3906,7 +3906,7 @@ prepare_filter_bits.exit:                         ; preds = %for.body.i, %entry
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @diff_check_follow_pathspec(ptr nocapture noundef readonly %ps, i32 noundef %die_on_error) local_unnamed_addr #0 {
+define dso_local range(i32 0, 2) i32 @diff_check_follow_pathspec(ptr nocapture noundef readonly %ps, i32 noundef %die_on_error) local_unnamed_addr #0 {
 entry:
   %sb = alloca %struct.strbuf, align 8
   %0 = load i32, ptr %ps, align 8
@@ -3974,7 +3974,7 @@ if.end:                                           ; preds = %if.then, %entry
   %output_format = getelementptr inbounds i8, ptr %options, i64 284
   %4 = load i32, ptr %output_format, align 4
   %and = and i32 %4, 3840
-  %5 = tail call i32 @llvm.ctpop.i32(i32 %and), !range !17
+  %5 = tail call range(i32 0, 5) i32 @llvm.ctpop.i32(i32 %and)
   %tobool6.not = icmp ult i32 %5, 2
   br i1 %tobool6.not, label %if.end8, label %if.then7
 
@@ -3987,7 +3987,7 @@ if.end8:                                          ; preds = %if.end
   %pickaxe_opts = getelementptr inbounds i8, ptr %options, i64 32
   %6 = load i32, ptr %pickaxe_opts, align 8
   %and9 = and i32 %6, 28
-  %7 = tail call i32 @llvm.ctpop.i32(i32 %and9), !range !18
+  %7 = tail call range(i32 0, 4) i32 @llvm.ctpop.i32(i32 %and9)
   %tobool14.not = icmp ult i32 %7, 2
   br i1 %tobool14.not, label %if.end17, label %if.then15
 
@@ -3998,7 +3998,7 @@ if.then15:                                        ; preds = %if.end8
 
 if.end17:                                         ; preds = %if.end8
   %and19 = and i32 %6, 10
-  %8 = tail call i32 @llvm.ctpop.i32(i32 %and19), !range !19
+  %8 = tail call range(i32 0, 3) i32 @llvm.ctpop.i32(i32 %and19)
   %tobool24.not = icmp ult i32 %8, 2
   br i1 %tobool24.not, label %if.end27, label %if.then25
 
@@ -4009,7 +4009,7 @@ if.then25:                                        ; preds = %if.end17
 
 if.end27:                                         ; preds = %if.end17
   %and29 = and i32 %6, 17
-  %9 = tail call i32 @llvm.ctpop.i32(i32 %and29), !range !19
+  %9 = tail call range(i32 0, 3) i32 @llvm.ctpop.i32(i32 %and29)
   %tobool34.not = icmp ult i32 %9, 2
   br i1 %tobool34.not, label %if.end37, label %if.then35
 
@@ -4250,7 +4250,7 @@ if.end126:                                        ; preds = %if.then117, %if.end
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @parse_long_opt(ptr noundef %opt, ptr nocapture noundef readonly %argv, ptr nocapture noundef writeonly %optarg) local_unnamed_addr #0 {
+define dso_local range(i32 0, 3) i32 @parse_long_opt(ptr noundef %opt, ptr nocapture noundef readonly %argv, ptr nocapture noundef writeonly %optarg) local_unnamed_addr #0 {
 entry:
   %0 = load ptr, ptr %argv, align 8
   %scevgep = getelementptr i8, ptr %0, i64 2
@@ -4269,7 +4269,7 @@ do.cond.i:                                        ; preds = %do.body.i
   %2 = load i8, ptr %str.addr.0.i, align 1
   %prefix.addr.0.i.add = add nuw nsw i64 %prefix.addr.0.i.idx, 1
   %cmp.i = icmp eq i8 %2, %1
-  br i1 %cmp.i, label %do.body.i, label %return, !llvm.loop !10
+  br i1 %cmp.i, label %do.body.i, label %return, !llvm.loop !7
 
 do.body.i5:                                       ; preds = %do.body.i, %do.cond.i9
   %str.addr.0.i6 = phi ptr [ %incdec.ptr.i10, %do.cond.i9 ], [ %scevgep, %do.body.i ]
@@ -4283,7 +4283,7 @@ do.cond.i9:                                       ; preds = %do.body.i5
   %4 = load i8, ptr %str.addr.0.i6, align 1
   %incdec.ptr1.i11 = getelementptr inbounds i8, ptr %prefix.addr.0.i7, i64 1
   %cmp.i12 = icmp eq i8 %4, %3
-  br i1 %cmp.i12, label %do.body.i5, label %return, !llvm.loop !10
+  br i1 %cmp.i12, label %do.body.i5, label %return, !llvm.loop !7
 
 if.end3:                                          ; preds = %do.body.i5
   %5 = load i8, ptr %str.addr.0.i6, align 1
@@ -5980,7 +5980,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @diff_opt_unified(ptr nocapture noundef readonly %opt, ptr noundef %arg, i32 noundef %unset) #0 {
+define internal range(i32 -1, 1) i32 @diff_opt_unified(ptr nocapture noundef readonly %opt, ptr noundef %arg, i32 noundef %unset) #0 {
 entry:
   %s = alloca ptr, align 8
   %value = getelementptr inbounds i8, ptr %opt, i64 16
@@ -6120,7 +6120,7 @@ parse_dirstat_opt.exit15:                         ; preds = %if.end12
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @diff_opt_stat(ptr nocapture noundef readonly %opt, ptr noundef %value, i32 noundef %unset) #0 {
+define internal range(i32 -1, 1) i32 @diff_opt_stat(ptr nocapture noundef readonly %opt, ptr noundef %value, i32 noundef %unset) #0 {
 entry:
   %end = alloca ptr, align 8
   %value1 = getelementptr inbounds i8, ptr %opt, i64 16
@@ -6399,7 +6399,7 @@ do.end5:                                          ; preds = %do.body1
 declare i32 @parse_opt_color_flag_cb(ptr noundef, ptr noundef, i32 noundef) #2
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @diff_opt_ws_error_highlight(ptr nocapture noundef readonly %option, ptr noundef %arg, i32 noundef %unset) #0 {
+define internal range(i32 -1, 1) i32 @diff_opt_ws_error_highlight(ptr nocapture noundef readonly %option, ptr noundef %arg, i32 noundef %unset) #0 {
 entry:
   %value = getelementptr inbounds i8, ptr %option, i64 16
   %0 = load ptr, ptr %value, align 8
@@ -6521,7 +6521,7 @@ do.end5:                                          ; preds = %do.body1
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @diff_opt_char(ptr nocapture noundef readonly %opt, ptr noundef %arg, i32 noundef %unset) #0 {
+define internal range(i32 -1, 1) i32 @diff_opt_char(ptr nocapture noundef readonly %opt, ptr noundef %arg, i32 noundef %unset) #0 {
 entry:
   %value1 = getelementptr inbounds i8, ptr %opt, i64 16
   %0 = load ptr, ptr %value1, align 8
@@ -6565,7 +6565,7 @@ return:                                           ; preds = %if.end6, %_.exit
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @diff_opt_break_rewrites(ptr nocapture noundef readonly %opt, ptr noundef readonly %arg, i32 noundef %unset) #0 {
+define internal range(i32 -1, 1) i32 @diff_opt_break_rewrites(ptr nocapture noundef readonly %opt, ptr noundef readonly %arg, i32 noundef %unset) #0 {
 entry:
   %value = getelementptr inbounds i8, ptr %opt, i64 16
   %0 = load ptr, ptr %value, align 8
@@ -6760,7 +6760,7 @@ return:                                           ; preds = %if.end25, %_.exit46
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @diff_opt_find_renames(ptr nocapture noundef readonly %opt, ptr noundef readonly %arg, i32 noundef %unset) #0 {
+define internal range(i32 -1, 1) i32 @diff_opt_find_renames(ptr nocapture noundef readonly %opt, ptr noundef readonly %arg, i32 noundef %unset) #0 {
 entry:
   %value = getelementptr inbounds i8, ptr %opt, i64 16
   %0 = load ptr, ptr %value, align 8
@@ -6869,7 +6869,7 @@ return:                                           ; preds = %if.end9, %_.exit
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @diff_opt_find_copies(ptr nocapture noundef readonly %opt, ptr noundef readonly %arg, i32 noundef %unset) #0 {
+define internal range(i32 -1, 1) i32 @diff_opt_find_copies(ptr nocapture noundef readonly %opt, ptr noundef readonly %arg, i32 noundef %unset) #0 {
 entry:
   %value = getelementptr inbounds i8, ptr %opt, i64 16
   %0 = load ptr, ptr %value, align 8
@@ -7083,7 +7083,7 @@ if.end8:                                          ; preds = %if.else13.i.i, %if.
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @diff_opt_ignore_regex(ptr nocapture noundef readonly %opt, ptr noundef %arg, i32 noundef %unset) #0 {
+define internal range(i32 -1, 1) i32 @diff_opt_ignore_regex(ptr nocapture noundef readonly %opt, ptr noundef %arg, i32 noundef %unset) #0 {
 entry:
   %value = getelementptr inbounds i8, ptr %opt, i64 16
   %0 = load ptr, ptr %value, align 8
@@ -7166,7 +7166,7 @@ return:                                           ; preds = %do.end30, %_.exit
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @diff_opt_patience(ptr nocapture noundef readonly %opt, ptr noundef readnone %arg, i32 noundef %unset) #0 {
+define internal range(i32 -1, 1) i32 @diff_opt_patience(ptr nocapture noundef readonly %opt, ptr noundef readnone %arg, i32 noundef %unset) #0 {
 entry:
   %value = getelementptr inbounds i8, ptr %opt, i64 16
   %0 = load ptr, ptr %value, align 8
@@ -7204,7 +7204,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %4 = load i64, ptr %anchors_nr, align 8
   %cmp = icmp ugt i64 %4, %indvars.iv.next
-  br i1 %cmp, label %for.body, label %for.end, !llvm.loop !20
+  br i1 %cmp, label %for.body, label %for.end, !llvm.loop !13
 
 for.end:                                          ; preds = %for.body, %for.cond.preheader
   store i64 0, ptr %anchors_nr, align 8
@@ -7249,7 +7249,7 @@ set_diff_algorithm.exit:                          ; preds = %if.else13.i.i, %if.
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @diff_opt_diff_algorithm(ptr nocapture noundef readonly %opt, ptr noundef readonly %arg, i32 noundef %unset) #0 {
+define internal range(i32 -1, 1) i32 @diff_opt_diff_algorithm(ptr nocapture noundef readonly %opt, ptr noundef readonly %arg, i32 noundef %unset) #0 {
 entry:
   %value = getelementptr inbounds i8, ptr %opt, i64 16
   %0 = load ptr, ptr %value, align 8
@@ -7379,7 +7379,7 @@ do.end23:                                         ; preds = %do.end, %st_mult.ex
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @diff_opt_word_diff(ptr nocapture noundef readonly %opt, ptr noundef %arg, i32 noundef %unset) #0 {
+define internal range(i32 -1, 1) i32 @diff_opt_word_diff(ptr nocapture noundef readonly %opt, ptr noundef %arg, i32 noundef %unset) #0 {
 entry:
   %value = getelementptr inbounds i8, ptr %opt, i64 16
   %0 = load ptr, ptr %value, align 8
@@ -7516,7 +7516,7 @@ do.end:                                           ; preds = %entry
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @diff_opt_color_moved(ptr nocapture noundef readonly %opt, ptr noundef %arg, i32 noundef %unset) #0 {
+define internal range(i32 -1, 1) i32 @diff_opt_color_moved(ptr nocapture noundef readonly %opt, ptr noundef %arg, i32 noundef %unset) #0 {
 entry:
   %value = getelementptr inbounds i8, ptr %opt, i64 16
   %0 = load ptr, ptr %value, align 8
@@ -7553,7 +7553,7 @@ if.then7:                                         ; preds = %if.end
   br label %return
 
 if.else10:                                        ; preds = %if.else
-  %call = tail call fastcc i32 @parse_color_moved(ptr noundef nonnull %arg), !range !7
+  %call = tail call fastcc i32 @parse_color_moved(ptr noundef nonnull %arg)
   %cmp11 = icmp slt i32 %call, 0
   br i1 %cmp11, label %if.then12, label %if.end16
 
@@ -7582,7 +7582,7 @@ return:                                           ; preds = %if.end.thread, %if.
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @diff_opt_color_moved_ws(ptr nocapture noundef readonly %opt, ptr noundef %arg, i32 noundef %unset) #0 {
+define internal range(i32 -1, 1) i32 @diff_opt_color_moved_ws(ptr nocapture noundef readonly %opt, ptr noundef %arg, i32 noundef %unset) #0 {
 entry:
   %value = getelementptr inbounds i8, ptr %opt, i64 16
   %0 = load ptr, ptr %value, align 8
@@ -7695,7 +7695,7 @@ do.end:                                           ; preds = %entry
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @diff_opt_submodule(ptr nocapture noundef readonly %opt, ptr noundef %arg, i32 noundef %unset) #0 {
+define internal range(i32 -1, 1) i32 @diff_opt_submodule(ptr nocapture noundef readonly %opt, ptr noundef %arg, i32 noundef %unset) #0 {
 entry:
   %tobool.not = icmp eq i32 %unset, 0
   br i1 %tobool.not, label %do.end, label %if.then
@@ -7818,7 +7818,7 @@ do.end:                                           ; preds = %entry
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @diff_opt_find_object(ptr nocapture noundef readonly %option, ptr noundef %arg, i32 noundef %unset) #0 {
+define internal range(i32 -1, 1) i32 @diff_opt_find_object(ptr nocapture noundef readonly %option, ptr noundef %arg, i32 noundef %unset) #0 {
 entry:
   %oid = alloca %struct.object_id, align 4
   %value = getelementptr inbounds i8, ptr %option, i64 16
@@ -7880,7 +7880,7 @@ return:                                           ; preds = %if.end11, %_.exit
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @diff_opt_diff_filter(ptr nocapture noundef readonly %option, ptr noundef %optarg, i32 noundef %unset) #0 {
+define internal range(i32 -1, 1) i32 @diff_opt_diff_filter(ptr nocapture noundef readonly %option, ptr noundef %optarg, i32 noundef %unset) #0 {
 entry:
   %value = getelementptr inbounds i8, ptr %option, i64 16
   %0 = load ptr, ptr %value, align 8
@@ -7907,7 +7907,7 @@ for.body.i:                                       ; preds = %do.end, %for.body.i
   store i32 %shl.i, ptr %arrayidx5.i, align 4
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %tobool1.not.i = icmp eq i64 %indvars.iv.next.i, 10
-  br i1 %tobool1.not.i, label %prepare_filter_bits.exit, label %for.body.i, !llvm.loop !16
+  br i1 %tobool1.not.i, label %prepare_filter_bits.exit, label %for.body.i, !llvm.loop !12
 
 prepare_filter_bits.exit:                         ; preds = %for.body.i, %do.end
   %4 = load i8, ptr %optarg, align 1
@@ -7987,7 +7987,7 @@ for.inc:                                          ; preds = %if.then27, %if.else
   %arrayidx = getelementptr inbounds i8, ptr %optarg, i64 %indvars.iv.next
   %14 = load i8, ptr %arrayidx, align 1
   %cmp.not = icmp eq i8 %14, 0
-  br i1 %cmp.not, label %return, label %for.body, !llvm.loop !21
+  br i1 %cmp.not, label %return, label %for.body, !llvm.loop !14
 
 return:                                           ; preds = %for.inc, %prepare_filter_bits.exit, %_.exit
   %retval.0 = phi i32 [ -1, %_.exit ], [ 0, %prepare_filter_bits.exit ], [ 0, %for.inc ]
@@ -8363,7 +8363,7 @@ for.body:                                         ; preds = %entry, %for.body
   %3 = load i32, ptr %nr, align 4
   %4 = sext i32 %3 to i64
   %cmp = icmp slt i64 %indvars.iv.next, %4
-  br i1 %cmp, label %for.body, label %for.end, !llvm.loop !22
+  br i1 %cmp, label %for.body, label %for.end, !llvm.loop !15
 
 for.end:                                          ; preds = %for.body, %entry
   %5 = load ptr, ptr %q, align 8
@@ -8474,7 +8474,7 @@ declare i32 @print_sha1_ellipsis() local_unnamed_addr #2
 declare i32 @xsnprintf(ptr noundef, i64 noundef, ptr noundef, ...) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define dso_local noundef i32 @diff_unmodified_pair(ptr nocapture noundef readonly %p) local_unnamed_addr #22 {
+define dso_local range(i32 0, 2) i32 @diff_unmodified_pair(ptr nocapture noundef readonly %p) local_unnamed_addr #22 {
 entry:
   %0 = load ptr, ptr %p, align 8
   %two2 = getelementptr inbounds i8, ptr %p, i64 8
@@ -8573,7 +8573,7 @@ return:                                           ; preds = %oideq.exit, %land.l
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define internal fastcc i32 @oideq(ptr nocapture noundef readonly %oid1, ptr nocapture noundef readonly %oid2) unnamed_addr #22 {
+define internal fastcc range(i32 0, 2) i32 @oideq(ptr nocapture noundef readonly %oid1, ptr nocapture noundef readonly %oid2) unnamed_addr #22 {
 entry:
   %algo = getelementptr inbounds i8, ptr %oid1, i64 32
   %0 = load i32, ptr %algo, align 4
@@ -8614,7 +8614,7 @@ hasheq_algop.exit:                                ; preds = %if.then.i, %if.end.
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @diff_queue_is_empty(ptr nocapture noundef readonly %o) local_unnamed_addr #0 {
+define dso_local range(i32 0, 2) i32 @diff_queue_is_empty(ptr nocapture noundef readonly %o) local_unnamed_addr #0 {
 entry:
   %additional_path_headers = getelementptr inbounds i8, ptr %o, i64 584
   %0 = load ptr, ptr %additional_path_headers, align 8
@@ -8669,13 +8669,13 @@ for.body.lr.ph:                                   ; preds = %if.end
 for.cond:                                         ; preds = %for.body
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %return, label %for.body, !llvm.loop !23
+  br i1 %exitcond.not, label %return, label %for.body, !llvm.loop !16
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.cond
   %indvars.iv = phi i64 [ 0, %for.body.lr.ph ], [ %indvars.iv.next, %for.cond ]
   %arrayidx = getelementptr inbounds ptr, ptr %6, i64 %indvars.iv
   %7 = load ptr, ptr %arrayidx, align 8
-  %call9 = tail call i32 @diff_unmodified_pair(ptr noundef %7), !range !15
+  %call9 = tail call i32 @diff_unmodified_pair(ptr noundef %7)
   %tobool10.not = icmp eq i32 %call9, 0
   br i1 %tobool10.not, label %return, label %for.cond
 
@@ -8729,14 +8729,14 @@ for.body:                                         ; preds = %entry, %for.body
   %rawsz = getelementptr inbounds i8, ptr %12, i64 16
   %13 = load i64, ptr %rawsz, align 8
   %cmp = icmp ugt i64 %13, %indvars.iv.next
-  br i1 %cmp, label %for.body, label %for.end, !llvm.loop !24
+  br i1 %cmp, label %for.body, label %for.end, !llvm.loop !17
 
 for.end:                                          ; preds = %for.body, %entry
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @diff_flush_patch_id(ptr nocapture noundef readonly %options, ptr nocapture noundef %oid, i32 noundef %diff_header_only) local_unnamed_addr #0 {
+define dso_local range(i32 -1, 1) i32 @diff_flush_patch_id(ptr nocapture noundef readonly %options, ptr nocapture noundef %oid, i32 noundef %diff_header_only) local_unnamed_addr #0 {
 entry:
   %hash.i.i = alloca [32 x i8], align 16
   %buf.i105.i = alloca [12 x i8], align 1
@@ -8806,7 +8806,7 @@ if.then.i:                                        ; preds = %for.body.i
   br label %diff_get_patch_id.exit
 
 if.end10.i:                                       ; preds = %for.body.i
-  %call11.i = call i32 @diff_unmodified_pair(ptr noundef nonnull %9), !range !15
+  %call11.i = call i32 @diff_unmodified_pair(ptr noundef nonnull %9)
   %tobool.not.i = icmp eq i32 %call11.i, 0
   br i1 %tobool.not.i, label %if.end13.i, label %for.inc.i
 
@@ -8877,7 +8877,7 @@ for.inc.i.i:                                      ; preds = %if.then.i.i, %for.b
   %dst.1.i.i = phi ptr [ %dst.07.i.i, %for.body.i.i ], [ %incdec.ptr.i.i, %if.then.i.i ]
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, %wide.trip.count.i.i
-  br i1 %exitcond.not.i.i, label %remove_space.exit.i, label %for.body.i.i, !llvm.loop !25
+  br i1 %exitcond.not.i.i, label %remove_space.exit.i, label %for.body.i.i, !llvm.loop !18
 
 remove_space.exit.i:                              ; preds = %for.inc.i.i, %if.end37.i
   %dst.0.lcssa.i.i = phi ptr [ %24, %if.end37.i ], [ %dst.1.i.i, %for.inc.i.i ]
@@ -8917,7 +8917,7 @@ for.inc.i66.i:                                    ; preds = %if.then.i70.i, %for
   %dst.1.i67.i = phi ptr [ %dst.07.i61.i, %for.body.i59.i ], [ %incdec.ptr.i71.i, %if.then.i70.i ]
   %indvars.iv.next.i68.i = add nuw nsw i64 %indvars.iv.i60.i, 1
   %exitcond.not.i69.i = icmp eq i64 %indvars.iv.next.i68.i, %wide.trip.count.i58.i
-  br i1 %exitcond.not.i69.i, label %remove_space.exit72.i, label %for.body.i59.i, !llvm.loop !25
+  br i1 %exitcond.not.i69.i, label %remove_space.exit72.i, label %for.body.i59.i, !llvm.loop !18
 
 remove_space.exit72.i:                            ; preds = %for.inc.i66.i, %remove_space.exit.i
   %dst.0.lcssa.i52.i = phi ptr [ %29, %remove_space.exit.i ], [ %dst.1.i67.i, %for.inc.i66.i ]
@@ -9076,14 +9076,14 @@ if.end100.i:                                      ; preds = %if.then91.i, %if.el
 if.else103.i:                                     ; preds = %if.end100.i
   %88 = load ptr, ptr %repo.i, align 8
   %89 = load ptr, ptr %9, align 8
-  %call106.i = call i32 @diff_filespec_is_binary(ptr noundef %88, ptr noundef %89), !range !26
+  %call106.i = call i32 @diff_filespec_is_binary(ptr noundef %88, ptr noundef %89)
   %tobool107.not.i = icmp eq i32 %call106.i, 0
   br i1 %tobool107.not.i, label %lor.lhs.false108.i, label %if.then113.i
 
 lor.lhs.false108.i:                               ; preds = %if.else103.i
   %90 = load ptr, ptr %repo.i, align 8
   %91 = load ptr, ptr %two.i, align 8
-  %call111.i = call i32 @diff_filespec_is_binary(ptr noundef %90, ptr noundef %91), !range !26
+  %call111.i = call i32 @diff_filespec_is_binary(ptr noundef %90, ptr noundef %91)
   %tobool112.not.i = icmp eq i32 %call111.i, 0
   br i1 %tobool112.not.i, label %if.else127.i, label %if.then113.i
 
@@ -9204,7 +9204,7 @@ if.then.i129.i:                                   ; preds = %if.end163.i
 
 if.else.i.i:                                      ; preds = %if.end163.i
   %139 = load ptr, ptr %repo.i, align 8
-  %call.i128.i = call i32 @diff_populate_filespec(ptr noundef %139, ptr noundef nonnull %137, ptr noundef null), !range !8
+  %call.i128.i = call i32 @diff_populate_filespec(ptr noundef %139, ptr noundef nonnull %137, ptr noundef null)
   %tobool.not.i.i = icmp eq i32 %call.i128.i, 0
   br i1 %tobool.not.i.i, label %if.end3.i.i, label %if.then175.i
 
@@ -9231,7 +9231,7 @@ if.then.i142.i:                                   ; preds = %lor.lhs.false169.i
 
 if.else.i132.i:                                   ; preds = %lor.lhs.false169.i
   %144 = load ptr, ptr %repo.i, align 8
-  %call.i133.i = call i32 @diff_populate_filespec(ptr noundef %144, ptr noundef nonnull %142, ptr noundef null), !range !8
+  %call.i133.i = call i32 @diff_populate_filespec(ptr noundef %144, ptr noundef nonnull %142, ptr noundef null)
   %tobool.not.i134.i = icmp eq i32 %call.i133.i, 0
   br i1 %tobool.not.i134.i, label %if.end3.i136.i, label %if.then175.i
 
@@ -9307,7 +9307,7 @@ for.body.i145.i:                                  ; preds = %if.end189.i, %for.b
   %rawsz.i.i = getelementptr inbounds i8, ptr %161, i64 16
   %162 = load i64, ptr %rawsz.i.i, align 8
   %cmp.i.i = icmp ugt i64 %162, %indvars.iv.next.i149.i
-  br i1 %cmp.i.i, label %for.body.i145.i, label %flush_one_hunk.exit.i, !llvm.loop !24
+  br i1 %cmp.i.i, label %for.body.i145.i, label %flush_one_hunk.exit.i, !llvm.loop !17
 
 flush_one_hunk.exit.i:                            ; preds = %for.body.i145.i, %if.end189.i
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %hash.i.i)
@@ -9319,7 +9319,7 @@ for.inc.i:                                        ; preds = %flush_one_hunk.exit
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %164 = sext i32 %163 to i64
   %cmp.i = icmp slt i64 %indvars.iv.next.i, %164
-  br i1 %cmp.i, label %for.body.i, label %diff_get_patch_id.exit, !llvm.loop !27
+  br i1 %cmp.i, label %for.body.i, label %diff_get_patch_id.exit, !llvm.loop !19
 
 diff_get_patch_id.exit:                           ; preds = %for.inc.i, %entry, %if.then.i, %if.then175.i, %if.then182.i
   %retval.0.i = phi i32 [ -1, %if.then.i ], [ -1, %if.then175.i ], [ -1, %if.then182.i ], [ 0, %entry ], [ 0, %for.inc.i ]
@@ -9343,7 +9343,7 @@ for.body.i4:                                      ; preds = %diff_get_patch_id.e
   %168 = load i32, ptr getelementptr inbounds (%struct.diff_queue_struct, ptr @diff_queued_diff, i64 0, i32 2), align 4
   %169 = sext i32 %168 to i64
   %cmp.i8 = icmp slt i64 %indvars.iv.next.i7, %169
-  br i1 %cmp.i8, label %for.body.i4, label %diff_free_queue.exit, !llvm.loop !22
+  br i1 %cmp.i8, label %for.body.i4, label %diff_free_queue.exit, !llvm.loop !15
 
 diff_free_queue.exit:                             ; preds = %for.body.i4, %diff_get_patch_id.exit
   %170 = load ptr, ptr @diff_queued_diff, align 8
@@ -9449,7 +9449,7 @@ for.body.i:                                       ; preds = %for.body.i, %for.bo
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %8 = load i64, ptr %ignore_regex_nr.i, align 8
   %cmp.i = icmp ugt i64 %8, %indvars.iv.next.i
-  br i1 %cmp.i, label %for.body.i, label %diff_free_ignore_regex.exit, !llvm.loop !28
+  br i1 %cmp.i, label %for.body.i, label %diff_free_ignore_regex.exit, !llvm.loop !20
 
 diff_free_ignore_regex.exit:                      ; preds = %for.body.i, %diff_free_file.exit
   %ignore_regex5.i = getelementptr inbounds i8, ptr %options, i64 40
@@ -9567,7 +9567,7 @@ if.then7:                                         ; preds = %for.body
   br i1 %tobool.not.i, label %if.else.i, label %if.then.i
 
 if.then.i:                                        ; preds = %if.then7
-  %call.i.i = call i32 @diff_unmodified_pair(ptr noundef nonnull %8), !range !15
+  %call.i.i = call i32 @diff_unmodified_pair(ptr noundef nonnull %8)
   %tobool.not.i.i = icmp eq i32 %call.i.i, 0
   br i1 %tobool.not.i.i, label %if.end.i.i, label %flush_one_pair.exit
 
@@ -9696,7 +9696,7 @@ if.then.i.i.i.i.i:                                ; preds = %if.end.i.i.i.i
 
 if.else.i.i.i.i.i:                                ; preds = %if.end.i.i.i.i
   %35 = load ptr, ptr %repo.i.i.i, align 8
-  %call.i.i.i.i.i = call i32 @diff_populate_filespec(ptr noundef %35, ptr noundef nonnull %28, ptr noundef null), !range !8
+  %call.i.i.i.i.i = call i32 @diff_populate_filespec(ptr noundef %35, ptr noundef nonnull %28, ptr noundef null)
   %tobool.not.i.i.i.i.i = icmp eq i32 %call.i.i.i.i.i, 0
   br i1 %tobool.not.i.i.i.i.i, label %if.end3.i.i.i.i.i, label %if.then11.i.i.i.i
 
@@ -9722,7 +9722,7 @@ if.then.i28.i.i.i.i:                              ; preds = %lor.lhs.false.i.i.i
 
 if.else.i18.i.i.i.i:                              ; preds = %lor.lhs.false.i.i.i.i
   %39 = load ptr, ptr %repo.i.i.i, align 8
-  %call.i19.i.i.i.i = call i32 @diff_populate_filespec(ptr noundef %39, ptr noundef nonnull %29, ptr noundef null), !range !8
+  %call.i19.i.i.i.i = call i32 @diff_populate_filespec(ptr noundef %39, ptr noundef nonnull %29, ptr noundef null)
   %tobool.not.i20.i.i.i.i = icmp eq i32 %call.i19.i.i.i.i, 0
   br i1 %tobool.not.i20.i.i.i.i, label %if.end3.i22.i.i.i.i, label %if.then11.i.i.i.i
 
@@ -9742,7 +9742,7 @@ if.end12.i.i.i.i:                                 ; preds = %if.end3.i22.i.i.i.i
   %.sink.i26.i.i.i.i = phi i64 [ %41, %if.end3.i22.i.i.i.i ], [ 0, %if.then.i28.i.i.i.i ]
   store i64 %.sink.i26.i.i.i.i, ptr %size6.i27.i.i.i.i, align 8
   %42 = load ptr, ptr %repo.i.i.i, align 8
-  %call14.i.i.i.i = call i32 @diff_filespec_is_binary(ptr noundef %42, ptr noundef nonnull %29), !range !26
+  %call14.i.i.i.i = call i32 @diff_filespec_is_binary(ptr noundef %42, ptr noundef nonnull %29)
   %tobool15.not.i.i.i.i = icmp eq i32 %call14.i.i.i.i, 0
   br i1 %tobool15.not.i.i.i.i, label %if.else.i.i.i.i, label %if.end.i.i.i.i.i
 
@@ -10125,7 +10125,7 @@ for.inc:                                          ; preds = %for.body, %flush_on
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %109 = sext i32 %108 to i64
   %cmp = icmp slt i64 %indvars.iv.next, %109
-  br i1 %cmp, label %for.body, label %if.end10, !llvm.loop !29
+  br i1 %cmp, label %for.body, label %if.end10, !llvm.loop !21
 
 if.end10:                                         ; preds = %for.inc, %if.end.thread, %for.cond.preheader, %if.end
   %separator.0 = phi i32 [ 0, %if.end ], [ 1, %for.cond.preheader ], [ %spec.select, %if.end.thread ], [ 1, %for.inc ]
@@ -10299,7 +10299,7 @@ for.inc.i:                                        ; preds = %if.end39.i, %if.els
   %144 = load i32, ptr %diffstat, align 8
   %145 = sext i32 %144 to i64
   %cmp2.i = icmp slt i64 %indvars.iv.next.i, %145
-  br i1 %cmp2.i, label %for.body.i, label %if.end25, !llvm.loop !30
+  br i1 %cmp2.i, label %for.body.i, label %if.end25, !llvm.loop !22
 
 if.end25:                                         ; preds = %for.inc.i, %if.then21
   %146 = phi i32 [ %111, %if.then21 ], [ %144, %for.inc.i ]
@@ -10472,7 +10472,7 @@ for.inc.i112:                                     ; preds = %if.end53.i, %if.the
   %indvars.iv.next.i113 = add nuw nsw i64 %indvars.iv.i103, 1
   %172 = sext i32 %count.1.i to i64
   %cmp9.i = icmp slt i64 %indvars.iv.next.i113, %172
-  br i1 %cmp9.i, label %land.rhs.i, label %for.end.loopexit.i, !llvm.loop !31
+  br i1 %cmp9.i, label %land.rhs.i, label %for.end.loopexit.i, !llvm.loop !23
 
 for.end.loopexit.i:                               ; preds = %for.inc.i112, %land.rhs.i
   %bin_width.0.lcssa.ph.i = phi i32 [ %bin_width.0261.i, %land.rhs.i ], [ %bin_width.1.i, %for.inc.i112 ]
@@ -10866,7 +10866,7 @@ for.inc284.sink.split.i:                          ; preds = %strbuf_addch.exit25
 for.inc284.i:                                     ; preds = %for.inc284.sink.split.i, %strbuf_addch.exit254.i, %if.then242.i, %if.end232.i, %strbuf_addch.exit.i, %for.body180.i
   %indvars.iv.next290.i = add nuw nsw i64 %indvars.iv289.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next290.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %for.cond287.preheader.i, label %for.body180.i, !llvm.loop !32
+  br i1 %exitcond.not.i, label %for.cond287.preheader.i, label %for.body180.i, !llvm.loop !24
 
 for.body291.i:                                    ; preds = %for.inc338.i, %for.body291.lr.ph.i
   %217 = phi i32 [ %184, %for.body291.lr.ph.i ], [ %226, %for.inc338.i ]
@@ -10930,7 +10930,7 @@ for.inc338.i:                                     ; preds = %if.then336.i, %if.e
   %indvars.iv.next294.i = add nuw nsw i64 %indvars.iv293.i, 1
   %227 = sext i32 %226 to i64
   %cmp289.i = icmp slt i64 %indvars.iv.next294.i, %227
-  br i1 %cmp289.i, label %for.body291.i, label %for.end340.i, !llvm.loop !33
+  br i1 %cmp289.i, label %for.body291.i, label %for.end340.i, !llvm.loop !25
 
 for.end340.i:                                     ; preds = %for.inc338.i, %for.cond287.preheader.i
   %total_files.0.lcssa.i = phi i32 [ %146, %for.cond287.preheader.i ], [ %total_files.1.i, %for.inc338.i ]
@@ -11013,7 +11013,7 @@ for.inc.i138:                                     ; preds = %if.then31.i, %if.el
   %adds.1.i141 = phi i32 [ %adds.04.i, %if.then22.i ], [ %adds.04.i, %if.else.i146 ], [ %add32.i, %if.then31.i ]
   %indvars.iv.next.i142 = add nuw nsw i64 %indvars.iv.i132, 1
   %exitcond.not.i143 = icmp eq i64 %indvars.iv.next.i142, %wide.trip.count.i130
-  br i1 %exitcond.not.i143, label %for.end.i126, label %for.body.i131, !llvm.loop !34
+  br i1 %exitcond.not.i143, label %for.end.i126, label %for.body.i131, !llvm.loop !26
 
 for.end.i126:                                     ; preds = %for.inc.i138, %for.cond.preheader.i
   %dels.0.lcssa.i127 = phi i32 [ 0, %for.cond.preheader.i ], [ %dels.1.i139, %for.inc.i138 ]
@@ -11118,7 +11118,7 @@ do.end.i:                                         ; preds = %st_mult.exit.i, %fo
   %248 = load i32, ptr %diffstat, align 8
   %249 = sext i32 %248 to i64
   %cmp3.i = icmp slt i64 %indvars.iv.next34.i, %249
-  br i1 %cmp3.i, label %for.body.i150, label %for.end.i165, !llvm.loop !35
+  br i1 %cmp3.i, label %for.body.i150, label %for.end.i165, !llvm.loop !27
 
 for.end.i165:                                     ; preds = %do.end.i
   %250 = trunc nsw i64 %indvars.iv.next34.i to i32
@@ -11180,7 +11180,7 @@ for.body.i176:                                    ; preds = %for.body.i176, %for
   %257 = load i32, ptr %diffstat, align 8
   %258 = sext i32 %257 to i64
   %cmp.i182 = icmp slt i64 %indvars.iv.next.i181, %258
-  br i1 %cmp.i182, label %for.body.i176, label %free_diffstat_info.exit, !llvm.loop !14
+  br i1 %cmp.i182, label %for.body.i176, label %free_diffstat_info.exit, !llvm.loop !11
 
 free_diffstat_info.exit:                          ; preds = %for.body.i176, %if.end33.thread, %if.end39
   %files1.i = getelementptr inbounds i8, ptr %diffstat, i64 8
@@ -11315,10 +11315,10 @@ land.lhs.true25.i:                                ; preds = %if.end21.i
   br i1 %cmp57.not.i, label %if.then48.i, label %if.then31.i225
 
 if.then31.i225:                                   ; preds = %land.lhs.true25.i
-  %call33.i = call i32 @diff_populate_filespec(ptr noundef %278, ptr noundef nonnull %.pre137.i, ptr noundef null), !range !8
+  %call33.i = call i32 @diff_populate_filespec(ptr noundef %278, ptr noundef nonnull %.pre137.i, ptr noundef null)
   %279 = load ptr, ptr %repo.i, align 8
   %280 = load ptr, ptr %two.i195, align 8
-  %call36.i = call i32 @diff_populate_filespec(ptr noundef %279, ptr noundef %280, ptr noundef null), !range !8
+  %call36.i = call i32 @diff_populate_filespec(ptr noundef %279, ptr noundef %280, ptr noundef null)
   %281 = load ptr, ptr %repo.i, align 8
   %282 = load ptr, ptr %267, align 8
   %283 = load ptr, ptr %two.i195, align 8
@@ -11411,7 +11411,7 @@ if.end8.i.i48.i:                                  ; preds = %if.then6.i.i58.i, %
   br i1 %or.cond.i.i50.i, label %if.end68.sink.split.i, label %if.end68.sink.split.sink.split.i
 
 if.then48.i:                                      ; preds = %land.lhs.true25.i
-  %call51.i = call i32 @diff_populate_filespec(ptr noundef %278, ptr noundef nonnull %.pre137.i, ptr noundef nonnull %dpf_options.i), !range !8
+  %call51.i = call i32 @diff_populate_filespec(ptr noundef %278, ptr noundef nonnull %.pre137.i, ptr noundef nonnull %dpf_options.i)
   store i64 0, ptr %added.i184, align 8
   store i64 0, ptr %copied.i, align 8
   %299 = load ptr, ptr %267, align 8
@@ -11455,7 +11455,7 @@ if.else53.i:                                      ; preds = %if.end21.i
 
 if.end.i86.i:                                     ; preds = %if.else53.i
   %306 = load ptr, ptr %repo.i, align 8
-  %call62.i234 = call i32 @diff_populate_filespec(ptr noundef %306, ptr noundef nonnull %268, ptr noundef nonnull %dpf_options.i), !range !8
+  %call62.i234 = call i32 @diff_populate_filespec(ptr noundef %306, ptr noundef nonnull %268, ptr noundef nonnull %dpf_options.i)
   store i64 0, ptr %copied.i, align 8
   %307 = load ptr, ptr %two.i195, align 8
   %size.i = getelementptr inbounds i8, ptr %307, i64 64
@@ -11567,7 +11567,7 @@ for.inc.i218:                                     ; preds = %do.end.i216, %if.el
   %indvars.iv.next.i219 = add nuw nsw i64 %indvars.iv.i193, 1
   %325 = sext i32 %321 to i64
   %cmp.i220 = icmp slt i64 %indvars.iv.next.i219, %325
-  br i1 %cmp.i220, label %for.body.i192, label %for.end.i221, !llvm.loop !36
+  br i1 %cmp.i220, label %for.body.i192, label %for.end.i221, !llvm.loop !28
 
 for.end.i221:                                     ; preds = %for.inc.i218
   store i32 %324, ptr %nr.i, align 4
@@ -11652,7 +11652,7 @@ land.lhs.true.i248:                               ; preds = %if.end.i245
 for.inc.i251:                                     ; preds = %land.lhs.true.i248, %if.end.i245
   %indvars.iv.next.i252 = add nuw nsw i64 %indvars.iv.i241, 1
   %exitcond.not.i253 = icmp eq i64 %indvars.iv.next.i252, %wide.trip.count.i239
-  br i1 %exitcond.not.i253, label %if.end65, label %for.body.i240, !llvm.loop !37
+  br i1 %exitcond.not.i253, label %if.end65, label %for.body.i240, !llvm.loop !29
 
 for.body57.lr.ph:                                 ; preds = %land.lhs.true.i248, %sw.default.i243, %for.body.i240, %for.body.i240, %for.body.i240, %for.body.i240
   %buf.i20.i = getelementptr inbounds i8, ptr %names.i16.i, i64 16
@@ -11799,7 +11799,7 @@ diff_summary.exit:                                ; preds = %sw.bb.i, %sw.bb1.i2
   %363 = load i32, ptr getelementptr inbounds (%struct.diff_queue_struct, ptr @diff_queued_diff, i64 0, i32 2), align 4
   %364 = sext i32 %363 to i64
   %cmp56 = icmp slt i64 %indvars.iv.next428, %364
-  br i1 %cmp56, label %for.body57, label %if.end65.thread, !llvm.loop !38
+  br i1 %cmp56, label %for.body57, label %if.end65.thread, !llvm.loop !30
 
 if.end65:                                         ; preds = %for.inc.i251, %land.lhs.true50, %if.end47
   %and66 = and i32 %0, 16
@@ -11886,7 +11886,7 @@ for.inc.i.i:                                      ; preds = %if.then.i.i336, %co
   %376 = load i32, ptr getelementptr inbounds (%struct.diff_queue_struct, ptr @diff_queued_diff, i64 0, i32 2), align 4
   %377 = sext i32 %376 to i64
   %cmp.i.i337 = icmp slt i64 %indvars.iv.next.i.i, %377
-  br i1 %cmp.i.i337, label %for.body.i.i, label %for.end.i.i, !llvm.loop !39
+  br i1 %cmp.i.i337, label %for.body.i.i, label %for.end.i.i, !llvm.loop !31
 
 for.end.i.i:                                      ; preds = %for.inc.i.i, %if.then2.i
   %378 = load ptr, ptr %additional_path_headers.i, align 8
@@ -12018,7 +12018,7 @@ diff_queue.exit.i.i:                              ; preds = %st_mult.exit.i.i.i.
 for.inc27.i.i:                                    ; preds = %diff_queue.exit.i.i, %for.body12.i.i
   %call28.i.i = call ptr @hashmap_iter_next(ptr noundef nonnull %iter.i.i) #31
   %tobool11.not.i.i = icmp eq ptr %call28.i.i, null
-  br i1 %tobool11.not.i.i, label %for.end30.i.i, label %for.body12.i.i, !llvm.loop !40
+  br i1 %tobool11.not.i.i, label %for.end30.i.i, label %for.body12.i.i, !llvm.loop !32
 
 for.end30.i.i:                                    ; preds = %for.inc27.i.i, %for.end.i.i
   %388 = load i32, ptr getelementptr inbounds (%struct.diff_queue_struct, ptr @diff_queued_diff, i64 0, i32 2), align 4
@@ -12039,16 +12039,16 @@ create_filepairs_for_header_only_notifications.exit.i: ; preds = %if.then.i.i34.
 
 if.end3.i:                                        ; preds = %create_filepairs_for_header_only_notifications.exit.i, %if.end.i278
   %390 = load i32, ptr getelementptr inbounds (%struct.diff_queue_struct, ptr @diff_queued_diff, i64 0, i32 2), align 4
-  %cmp103.i = icmp sgt i32 %390, 0
-  br i1 %cmp103.i, label %for.body.preheader.i313, label %for.end.i280
+  %cmp104.i = icmp sgt i32 %390, 0
+  br i1 %cmp104.i, label %for.body.preheader.i313, label %for.end.i280
 
 for.body.preheader.i313:                          ; preds = %if.end3.i
-  %.pre127.i = load ptr, ptr @diff_queued_diff, align 8
+  %.pre128.i = load ptr, ptr @diff_queued_diff, align 8
   br label %for.body.i314
 
 for.body.i314:                                    ; preds = %for.inc.i317, %for.body.preheader.i313
   %391 = phi i32 [ %390, %for.body.preheader.i313 ], [ %395, %for.inc.i317 ]
-  %392 = phi ptr [ %.pre127.i, %for.body.preheader.i313 ], [ %396, %for.inc.i317 ]
+  %392 = phi ptr [ %.pre128.i, %for.body.preheader.i313 ], [ %396, %for.inc.i317 ]
   %indvars.iv.i315 = phi i64 [ 0, %for.body.preheader.i313 ], [ %indvars.iv.next.i318, %for.inc.i317 ]
   %arrayidx.i316 = getelementptr inbounds ptr, ptr %392, i64 %indvars.iv.i315
   %393 = load ptr, ptr %arrayidx.i316, align 8
@@ -12066,16 +12066,16 @@ sw.bb1.i.i:                                       ; preds = %for.body.i314
 if.then5.i320:                                    ; preds = %for.body.i314
   call fastcc void @diff_flush_patch(ptr noundef nonnull %393, ptr noundef %options)
   %.pre.i321 = load ptr, ptr @diff_queued_diff, align 8
-  %.pre128.i = load i32, ptr getelementptr inbounds (%struct.diff_queue_struct, ptr @diff_queued_diff, i64 0, i32 2), align 4
+  %.pre129.i = load i32, ptr getelementptr inbounds (%struct.diff_queue_struct, ptr @diff_queued_diff, i64 0, i32 2), align 4
   br label %for.inc.i317
 
 for.inc.i317:                                     ; preds = %if.then5.i320, %for.body.i314
-  %395 = phi i32 [ %391, %for.body.i314 ], [ %.pre128.i, %if.then5.i320 ]
+  %395 = phi i32 [ %391, %for.body.i314 ], [ %.pre129.i, %if.then5.i320 ]
   %396 = phi ptr [ %392, %for.body.i314 ], [ %.pre.i321, %if.then5.i320 ]
   %indvars.iv.next.i318 = add nuw nsw i64 %indvars.iv.i315, 1
   %397 = sext i32 %395 to i64
   %cmp.i319 = icmp slt i64 %indvars.iv.next.i318, %397
-  br i1 %cmp.i319, label %for.body.i314, label %for.end.i280, !llvm.loop !41
+  br i1 %cmp.i319, label %for.body.i314, label %for.end.i280, !llvm.loop !33
 
 for.end.i280:                                     ; preds = %for.inc.i317, %if.end3.i
   %emitted_symbols7.i = getelementptr inbounds i8, ptr %options, i64 560
@@ -12163,7 +12163,7 @@ while.body16.preheader.i.i.i:                     ; preds = %lor.rhs.i.i.i
 
 while.body.i.i.i:                                 ; preds = %lor.rhs.i.i.i, %while.cond.i.i.i
   %inc.i.i.i = add i32 %off.0.i.i.i, 1
-  br label %while.cond.i.i.i, !llvm.loop !42
+  br label %while.cond.i.i.i, !llvm.loop !34
 
 while.body16.i.i.i:                               ; preds = %while.body16.i.i.i.backedge, %while.body16.preheader.i.i.i
   %410 = phi i8 [ %408, %while.body16.preheader.i.i.i ], [ %.be, %while.body16.i.i.i.backedge ]
@@ -12211,7 +12211,7 @@ while.cond31.i.i.i:                               ; preds = %while.cond31.i.i.i,
   %411 = load i8, ptr %arrayidx34.i.i.i, align 1
   %cmp36.i.i.i = icmp eq i8 %411, 9
   %add39.i.i.i = add nsw i32 %width.1.i.i.i, %and.i.i.i
-  br i1 %cmp36.i.i.i, label %while.cond31.i.i.i, label %while.body16.i.i.i.backedge, !llvm.loop !43
+  br i1 %cmp36.i.i.i, label %while.cond31.i.i.i, label %while.body16.i.i.i.backedge, !llvm.loop !35
 
 for.body.i.i.i:                                   ; preds = %for.inc.i.i.i, %for.body.i.preheader.i.i
   %indvars.iv.i.i.i = phi i64 [ %indvars.iv.next.i.i.i, %for.inc.i.i.i ], [ %idxprom17.le.i.i.i, %for.body.i.preheader.i.i ]
@@ -12228,7 +12228,7 @@ for.inc.i.i.i:                                    ; preds = %for.body.i.i.i
   %indvars.iv.next.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i, 1
   %lftr.wideiv.i.i.i = trunc i64 %indvars.iv.next.i.i.i to i32
   %exitcond.not.i.i.i = icmp eq i32 %.pre66.i.i, %lftr.wideiv.i.i.i
-  br i1 %exitcond.not.i.i.i, label %fill_es_indent_data.exit.i.i, label %for.body.i.i.i, !llvm.loop !44
+  br i1 %exitcond.not.i.i.i, label %fill_es_indent_data.exit.i.i, label %for.body.i.i.i, !llvm.loop !36
 
 for.end.loopexit.i.i.i:                           ; preds = %for.body.i.i.i
   %415 = trunc nuw i64 %indvars.iv.i.i.i to i32
@@ -12372,11 +12372,11 @@ if.else65.i.i:                                    ; preds = %if.end52.i.i
 for.inc.sink.split.i.i:                           ; preds = %if.else65.i.i, %if.then56.i.i
   %arrayidx63.sink.i.i = phi ptr [ %arrayidx63.i.i, %if.then56.i.i ], [ %del73.i.i, %if.else65.i.i ]
   store ptr %call41.i.i, ptr %arrayidx63.sink.i.i, align 8
-  %.pre129.i = load ptr, ptr %emitted_symbols7.i, align 8
+  %.pre130.i = load ptr, ptr %emitted_symbols7.i, align 8
   br label %for.inc.i30.i
 
 for.inc.i30.i:                                    ; preds = %for.inc.sink.split.i.i, %for.body.i27.i
-  %431 = phi ptr [ %402, %for.body.i27.i ], [ %.pre129.i, %for.inc.sink.split.i.i ]
+  %431 = phi ptr [ %402, %for.body.i27.i ], [ %.pre130.i, %for.inc.sink.split.i.i ]
   %id.2.i.i = phi i32 [ %id.057.i.i, %for.body.i27.i ], [ %id.1.i.i, %for.inc.sink.split.i.i ]
   %entry_list_alloc.4.i.i = phi i64 [ %entry_list_alloc.058.i.i, %for.body.i27.i ], [ %entry_list_alloc.3.i.i, %for.inc.sink.split.i.i ]
   %entry_list.3.i.i = phi ptr [ %entry_list.059.i.i, %for.body.i27.i ], [ %entry_list.2.i.i, %for.inc.sink.split.i.i ]
@@ -12386,7 +12386,7 @@ for.inc.i30.i:                                    ; preds = %for.inc.sink.split.
   %432 = load i32, ptr %nr.i.i, align 8
   %433 = sext i32 %432 to i64
   %cmp.i32.i = icmp slt i64 %indvars.iv.next.i31.i, %433
-  br i1 %cmp.i32.i, label %for.body.i27.i, label %add_lines_to_move_detection.exit.i, !llvm.loop !45
+  br i1 %cmp.i32.i, label %for.body.i27.i, label %add_lines_to_move_detection.exit.i, !llvm.loop !37
 
 add_lines_to_move_detection.exit.i:               ; preds = %for.inc.i30.i, %if.then12.i283
   %entry_list.0.lcssa.i.i = phi ptr [ null, %if.then12.i283 ], [ %entry_list.3.i.i, %for.inc.i30.i ]
@@ -12502,13 +12502,13 @@ for.inc.i.i50.i:                                  ; preds = %if.end9.i.i.i, %for
   %incdec.ptr.i.i.i = getelementptr inbounds i8, ptr %c.018.i.i.i, i64 1
   %449 = load i8, ptr %incdec.ptr.i.i.i, align 1
   %tobool.not.i.i.i289 = icmp eq i8 %449, 0
-  br i1 %tobool.not.i.i.i289, label %for.inc14.i.i.i, label %for.body3.i.i.i, !llvm.loop !46
+  br i1 %tobool.not.i.i.i289, label %for.inc14.i.i.i, label %for.body3.i.i.i, !llvm.loop !38
 
 for.inc14.i.i.i:                                  ; preds = %for.inc.i.i50.i, %for.body.i.i46.i
   %alnum_count.1.lcssa.i.i.i = phi i32 [ %alnum_count.021.i.i.i, %for.body.i.i46.i ], [ %alnum_count.2.i.i.i, %for.inc.i.i50.i ]
   %indvars.iv.next.i.i51.i = add nuw nsw i64 %indvars.iv.i.i47.i, 1
   %exitcond.not.i.i52.i = icmp eq i64 %indvars.iv.next.i.i51.i, %wide.trip.count.i.i.i
-  br i1 %exitcond.not.i.i52.i, label %for.body21.i.i.i, label %for.body.i.i46.i, !llvm.loop !47
+  br i1 %exitcond.not.i.i52.i, label %for.body21.i.i.i, label %for.body.i.i46.i, !llvm.loop !39
 
 for.body21.i.i.i:                                 ; preds = %for.inc14.i.i.i, %for.body21.i.i.i
   %indvars.iv27.i.i.i = phi i64 [ %indvars.iv.next28.i.i.i, %for.body21.i.i.i ], [ 1, %for.inc14.i.i.i ]
@@ -12521,7 +12521,7 @@ for.body21.i.i.i:                                 ; preds = %for.inc14.i.i.i, %f
   store i32 %and27.i.i.i, ptr %flags.i.i53.i, align 4
   %indvars.iv.next28.i.i.i = add nuw nsw i64 %indvars.iv27.i.i.i, 1
   %exitcond32.not.i.i.i = icmp eq i64 %indvars.iv.next28.i.i.i, %wide.trip.count.i.i.i
-  br i1 %exitcond32.not.i.i.i, label %adjust_last_block.exit.i.i, label %for.body21.i.i.i, !llvm.loop !48
+  br i1 %exitcond32.not.i.i.i, label %adjust_last_block.exit.i.i, label %for.body21.i.i.i, !llvm.loop !40
 
 adjust_last_block.exit.i.i:                       ; preds = %for.body21.i.i.i, %if.then.i44.i
   %retval.0.i.i.i290 = phi i32 [ %block_length.0249.i.i, %if.then.i44.i ], [ 0, %for.body21.i.i.i ]
@@ -12641,7 +12641,7 @@ for.inc.i47.i.i:                                  ; preds = %if.then16.i.i.i, %i
   %j.1.i.i.i = phi i32 [ %inc.i50.i.i, %if.then16.i.i.i ], [ %j.044.i.i.i, %if.end.i.i.i297 ], [ %j.044.i.i.i, %if.else.i.i.i296 ], [ %j.044.i.i.i, %if.then.i.i65.i ], [ %j.044.i.i.i, %cmp_in_block_with_wsd.exit.i.i.i ], [ %j.044.i.i.i, %land.rhs.i.i.i ], [ %j.044.i.i.i, %for.body.i43.i.i ]
   %indvars.iv.next.i48.i.i = add nuw nsw i64 %indvars.iv.i44.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i48.i.i, %459
-  br i1 %exitcond.not.i.i, label %pmb_advance_or_null.exit.i.i, label %for.body.i43.i.i, !llvm.loop !49
+  br i1 %exitcond.not.i.i, label %pmb_advance_or_null.exit.i.i, label %for.body.i43.i.i, !llvm.loop !41
 
 pmb_advance_or_null.exit.i.i:                     ; preds = %for.inc.i47.i.i
   %cmp22.i67.i = icmp eq i32 %j.1.i.i.i, 0
@@ -12697,13 +12697,13 @@ for.inc.i72.i.i:                                  ; preds = %if.end9.i69.i.i, %f
   %incdec.ptr.i74.i.i = getelementptr inbounds i8, ptr %c.018.i64.i.i, i64 1
   %478 = load i8, ptr %incdec.ptr.i74.i.i, align 1
   %tobool.not.i75.i.i = icmp eq i8 %478, 0
-  br i1 %tobool.not.i75.i.i, label %for.inc14.i76.i.i, label %for.body3.i63.i.i, !llvm.loop !46
+  br i1 %tobool.not.i75.i.i, label %for.inc14.i76.i.i, label %for.body3.i63.i.i, !llvm.loop !38
 
 for.inc14.i76.i.i:                                ; preds = %for.inc.i72.i.i, %for.body.i58.i.i
   %alnum_count.1.lcssa.i77.i.i = phi i32 [ %alnum_count.021.i60.i.i, %for.body.i58.i.i ], [ %alnum_count.2.i73.i.i, %for.inc.i72.i.i ]
   %indvars.iv.next.i78.i.i = add nuw nsw i64 %indvars.iv.i59.i.i, 1
   %exitcond.not.i79.i.i = icmp eq i64 %indvars.iv.next.i78.i.i, %wide.trip.count.i57.i.i
-  br i1 %exitcond.not.i79.i.i, label %for.body21.i84.i.i, label %for.body.i58.i.i, !llvm.loop !47
+  br i1 %exitcond.not.i79.i.i, label %for.body21.i84.i.i, label %for.body.i58.i.i, !llvm.loop !39
 
 for.body21.i84.i.i:                               ; preds = %for.inc14.i76.i.i, %for.body21.i84.i.i
   %indvars.iv27.i85.i.i = phi i64 [ %indvars.iv.next28.i88.i.i, %for.body21.i84.i.i ], [ 1, %for.inc14.i76.i.i ]
@@ -12716,7 +12716,7 @@ for.body21.i84.i.i:                               ; preds = %for.inc14.i76.i.i, 
   store i32 %and27.i87.i.i, ptr %flags.i86.i.i, align 4
   %indvars.iv.next28.i88.i.i = add nuw nsw i64 %indvars.iv27.i85.i.i, 1
   %exitcond32.not.i89.i.i = icmp eq i64 %indvars.iv.next28.i88.i.i, %wide.trip.count.i57.i.i
-  br i1 %exitcond32.not.i89.i.i, label %adjust_last_block.exit91.i.i, label %for.body21.i84.i.i, !llvm.loop !48
+  br i1 %exitcond32.not.i89.i.i, label %adjust_last_block.exit91.i.i, label %for.body21.i84.i.i, !llvm.loop !40
 
 adjust_last_block.exit91.i.i:                     ; preds = %for.body21.i84.i.i, %if.then23.i.i
   %flipped_block.2175267284.i.i = phi i32 [ %flipped_block.0253.i.i, %if.then23.i.i ], [ %flipped_block.2175267286.i.i, %for.body21.i84.i.i ]
@@ -12799,7 +12799,7 @@ if.end18.i.i.i:                                   ; preds = %if.then12.i.i.i, %d
   %next_match.i.i.i = getelementptr inbounds i8, ptr %match.addr.025.i.i.i, i64 16
   %492 = load ptr, ptr %next_match.i.i.i, align 8
   %tobool.not.i99.i.i = icmp eq ptr %492, null
-  br i1 %tobool.not.i99.i.i, label %if.end30.i.i, label %do.body.i.i.i, !llvm.loop !50
+  br i1 %tobool.not.i99.i.i, label %if.end30.i.i, label %do.body.i.i.i, !llvm.loop !42
 
 if.end30.i.i:                                     ; preds = %if.end18.i.i.i
   %493 = trunc nsw i64 %indvars.iv.next.i94.i.i to i32
@@ -12858,7 +12858,7 @@ for.inc.i59.i:                                    ; preds = %if.then55.i.i, %lan
   %nr.i60.i = getelementptr inbounds i8, ptr %498, i64 8
   %499 = load i32, ptr %nr.i60.i, align 8
   %cmp.i61.i = icmp slt i32 %inc60.i.i, %499
-  br i1 %cmp.i61.i, label %for.body.i41.i, label %for.end.i62.i, !llvm.loop !51
+  br i1 %cmp.i61.i, label %for.body.i41.i, label %for.end.i62.i, !llvm.loop !43
 
 for.end.i62.i:                                    ; preds = %for.inc.i59.i
   %500 = sext i32 %inc60.i.i to i64
@@ -12905,13 +12905,13 @@ for.inc.i121.i.i:                                 ; preds = %if.end9.i118.i.i, %
   %incdec.ptr.i123.i.i = getelementptr inbounds i8, ptr %c.018.i113.i.i, i64 1
   %510 = load i8, ptr %incdec.ptr.i123.i.i, align 1
   %tobool.not.i124.i.i = icmp eq i8 %510, 0
-  br i1 %tobool.not.i124.i.i, label %for.inc14.i125.i.i, label %for.body3.i112.i.i, !llvm.loop !46
+  br i1 %tobool.not.i124.i.i, label %for.inc14.i125.i.i, label %for.body3.i112.i.i, !llvm.loop !38
 
 for.inc14.i125.i.i:                               ; preds = %for.inc.i121.i.i, %for.body.i107.i.i
   %alnum_count.1.lcssa.i126.i.i = phi i32 [ %alnum_count.021.i109.i.i, %for.body.i107.i.i ], [ %alnum_count.2.i122.i.i, %for.inc.i121.i.i ]
   %indvars.iv.next.i127.i.i = add nuw nsw i64 %indvars.iv.i108.i.i, 1
   %exitcond.not.i128.i.i = icmp eq i64 %indvars.iv.next.i127.i.i, %wide.trip.count.i106.i.i
-  br i1 %exitcond.not.i128.i.i, label %for.body21.i133.i.i, label %for.body.i107.i.i, !llvm.loop !47
+  br i1 %exitcond.not.i128.i.i, label %for.body21.i133.i.i, label %for.body.i107.i.i, !llvm.loop !39
 
 for.body21.i133.i.i:                              ; preds = %for.inc14.i125.i.i, %for.body21.i133.i.i
   %indvars.iv27.i134.i.i = phi i64 [ %indvars.iv.next28.i137.i.i, %for.body21.i133.i.i ], [ 1, %for.inc14.i125.i.i ]
@@ -12924,7 +12924,7 @@ for.body21.i133.i.i:                              ; preds = %for.inc14.i125.i.i,
   store i32 %and27.i136.i.i, ptr %flags.i135.i.i, align 4
   %indvars.iv.next28.i137.i.i = add nuw nsw i64 %indvars.iv27.i134.i.i, 1
   %exitcond32.not.i138.i.i = icmp eq i64 %indvars.iv.next28.i137.i.i, %wide.trip.count.i106.i.i
-  br i1 %exitcond32.not.i138.i.i, label %mark_color_as_moved.exit.i, label %for.body21.i133.i.i, !llvm.loop !48
+  br i1 %exitcond32.not.i138.i.i, label %mark_color_as_moved.exit.i, label %for.body21.i133.i.i, !llvm.loop !40
 
 mark_color_as_moved.exit.i:                       ; preds = %if.end9.i118.i.i, %for.body21.i133.i.i, %for.end.i62.i, %add_lines_to_move_detection.exit.i
   %pmb.0.lcssa305.i.i = phi ptr [ %pmb.3.i.i, %for.end.i62.i ], [ null, %add_lines_to_move_detection.exit.i ], [ %pmb.3.i.i, %for.body21.i133.i.i ], [ %pmb.3.i.i, %if.end9.i118.i.i ]
@@ -12940,10 +12940,10 @@ if.then16.i:                                      ; preds = %mark_color_as_moved
   %cmp37.i.i = icmp sgt i32 %517, 0
   br i1 %cmp37.i.i, label %for.body.i72.i, label %if.end17.i
 
-for.body.i72.i:                                   ; preds = %if.then16.i, %for.inc.i79.i
-  %518 = phi ptr [ %534, %for.inc.i79.i ], [ %516, %if.then16.i ]
-  %indvars.iv.i73.i = phi i64 [ %indvars.iv.next.i80.i, %for.inc.i79.i ], [ 0, %if.then16.i ]
-  %519 = phi i32 [ %535, %for.inc.i79.i ], [ %517, %if.then16.i ]
+for.body.i72.i:                                   ; preds = %if.then16.i, %for.inc.i80.i
+  %518 = phi ptr [ %534, %for.inc.i80.i ], [ %516, %if.then16.i ]
+  %indvars.iv.i73.i = phi i64 [ %indvars.iv.next.i81.i, %for.inc.i80.i ], [ 0, %if.then16.i ]
+  %519 = phi i32 [ %535, %for.inc.i80.i ], [ %517, %if.then16.i ]
   %cmp1.not.i.i = icmp eq i64 %indvars.iv.i73.i, 0
   %.pre.i74.i = load ptr, ptr %518, align 8
   %520 = getelementptr %struct.emitted_diff_symbol, ptr %.pre.i74.i, i64 %indvars.iv.i73.i
@@ -12951,23 +12951,22 @@ for.body.i72.i:                                   ; preds = %if.then16.i, %for.i
   %cond.i76.i = select i1 %cmp1.not.i.i, ptr null, ptr %arrayidx.i75.i
   %sub9.i.i = add nsw i32 %519, -1
   %521 = sext i32 %sub9.i.i to i64
-  %cmp10.i.i = icmp slt i64 %indvars.iv.i73.i, %521
-  %arrayidx15.i.i = getelementptr i8, ptr %520, i64 32
-  %cond18.i.i = select i1 %cmp10.i.i, ptr %arrayidx15.i.i, ptr null
-  %s.i77.i = getelementptr inbounds i8, ptr %520, i64 28
-  %522 = load i32, ptr %s.i77.i, align 4
+  %cmp10.not.i77.i = icmp slt i64 %indvars.iv.i73.i, %521
+  %arrayidx15.i.i = getelementptr inbounds i8, ptr %520, i64 32
+  %s.i78.i = getelementptr inbounds i8, ptr %520, i64 28
+  %522 = load i32, ptr %s.i78.i, align 4
   %523 = and i32 %522, -2
-  %switch.i78.i = icmp eq i32 %523, 28
-  br i1 %switch.i78.i, label %if.end.i83.i, label %for.inc.i79.i
+  %switch.i79.i = icmp eq i32 %523, 28
+  br i1 %switch.i79.i, label %if.end.i84.i, label %for.inc.i80.i
 
-if.end.i83.i:                                     ; preds = %for.body.i72.i
-  %flags.i84.i = getelementptr inbounds i8, ptr %520, i64 12
-  %524 = load i32, ptr %flags.i84.i, align 4
-  %and.i85.i = and i32 %524, 131072
-  %tobool.not.i86.i = icmp eq i32 %and.i85.i, 0
-  br i1 %tobool.not.i86.i, label %for.inc.i79.i, label %if.end23.i.i
+if.end.i84.i:                                     ; preds = %for.body.i72.i
+  %flags.i85.i = getelementptr inbounds i8, ptr %520, i64 12
+  %524 = load i32, ptr %flags.i85.i, align 4
+  %and.i86.i = and i32 %524, 131072
+  %tobool.not.i87.i = icmp eq i32 %and.i86.i, 0
+  br i1 %tobool.not.i87.i, label %for.inc.i80.i, label %if.end23.i.i
 
-if.end23.i.i:                                     ; preds = %if.end.i83.i
+if.end23.i.i:                                     ; preds = %if.end.i84.i
   %tobool24.not.i.i = icmp eq ptr %cond.i76.i, null
   br i1 %tobool24.not.i.i, label %if.end32.i.i, label %land.lhs.true25.i.i
 
@@ -12984,18 +12983,17 @@ land.lhs.true28.i.i:                              ; preds = %land.lhs.true25.i.i
 
 if.end32.i.i:                                     ; preds = %land.lhs.true28.i.i, %land.lhs.true25.i.i, %if.end23.i.i
   %prev.0.i.i = phi ptr [ %spec.store.select.i.i, %land.lhs.true28.i.i ], [ %arrayidx.i75.i, %land.lhs.true25.i.i ], [ null, %if.end23.i.i ]
-  %tobool33.not.i.i = icmp eq ptr %cond18.i.i, null
-  br i1 %tobool33.not.i.i, label %if.end41.i.i, label %land.lhs.true34.i.i
+  br i1 %cmp10.not.i77.i, label %land.lhs.true34.i.i, label %if.end41.i.i
 
 land.lhs.true34.i.i:                              ; preds = %if.end32.i.i
-  %s35.i.i = getelementptr inbounds i8, ptr %cond18.i.i, i64 28
+  %s35.i.i = getelementptr inbounds i8, ptr %520, i64 60
   %526 = load i32, ptr %s35.i.i, align 4
   %cmp36.not.i.i = icmp eq i32 %526, 28
   br i1 %cmp36.not.i.i, label %if.end41.i.i, label %land.lhs.true37.i.i
 
 land.lhs.true37.i.i:                              ; preds = %land.lhs.true34.i.i
   %cmp39.not.i.i = icmp eq i32 %526, 29
-  %spec.store.select1.i.i = select i1 %cmp39.not.i.i, ptr %cond18.i.i, ptr null
+  %spec.store.select1.i.i = select i1 %cmp39.not.i.i, ptr %arrayidx15.i.i, ptr null
   br label %if.end41.i.i
 
 if.end41.i.i:                                     ; preds = %land.lhs.true37.i.i, %land.lhs.true34.i.i, %if.end32.i.i
@@ -13008,17 +13006,17 @@ land.lhs.true43.i.i:                              ; preds = %if.end41.i.i
   %527 = load i32, ptr %flags44.i.i, align 4
   %and45.i.i = and i32 %527, 393216
   %and47.i.i = and i32 %524, 393216
-  %cmp48.i87.i = icmp eq i32 %and45.i.i, %and47.i.i
+  %cmp48.i88.i = icmp eq i32 %and45.i.i, %and47.i.i
   %tobool50.i.i = icmp ne ptr %next.0.i.i, null
-  %or.cond.i88.i = select i1 %cmp48.i87.i, i1 %tobool50.i.i, i1 false
-  br i1 %or.cond.i88.i, label %land.lhs.true51.i.i, label %land.lhs.true61.i.i
+  %or.cond.i89.i = select i1 %cmp48.i88.i, i1 %tobool50.i.i, i1 false
+  br i1 %or.cond.i89.i, label %land.lhs.true51.i.i, label %land.lhs.true61.i.i
 
 land.lhs.true51.i.i:                              ; preds = %land.lhs.true43.i.i
   %flags52.i.i = getelementptr inbounds i8, ptr %next.0.i.i, i64 12
   %528 = load i32, ptr %flags52.i.i, align 4
   %and53.i.i = and i32 %528, 393216
   %cmp56.i.i = icmp eq i32 %and53.i.i, %and45.i.i
-  br i1 %cmp56.i.i, label %for.inc.sink.split.i89.i, label %land.lhs.true61.i.i
+  br i1 %cmp56.i.i, label %for.inc.sink.split.i90.i, label %land.lhs.true61.i.i
 
 land.lhs.true61.i.i:                              ; preds = %land.lhs.true51.i.i, %land.lhs.true43.i.i
   %and63.i.i = and i32 %527, 131072
@@ -13029,76 +13027,76 @@ land.lhs.true65.i.i:                              ; preds = %land.lhs.true61.i.i
   %529 = xor i32 %527, %524
   %530 = and i32 %529, 262144
   %cmp70.not.i.i = icmp eq i32 %530, 0
-  br i1 %cmp70.not.i.i, label %if.end72.i.i, label %for.inc.i79.i
+  br i1 %cmp70.not.i.i, label %if.end72.i.i, label %for.inc.i80.i
 
 if.end72.i.i:                                     ; preds = %land.lhs.true65.i.i, %land.lhs.true61.i.i, %if.end41.i.i
   %tobool73.not.i.i = icmp eq ptr %next.0.i.i, null
-  br i1 %tobool73.not.i.i, label %for.inc.sink.split.i89.i, label %land.lhs.true74.i.i
+  br i1 %tobool73.not.i.i, label %for.inc.sink.split.i90.i, label %land.lhs.true74.i.i
 
 land.lhs.true74.i.i:                              ; preds = %if.end72.i.i
   %flags75.i.i = getelementptr inbounds i8, ptr %next.0.i.i, i64 12
   %531 = load i32, ptr %flags75.i.i, align 4
   %and76.i.i = and i32 %531, 131072
   %tobool77.not.i.i = icmp eq i32 %and76.i.i, 0
-  br i1 %tobool77.not.i.i, label %for.inc.sink.split.i89.i, label %land.lhs.true78.i.i
+  br i1 %tobool77.not.i.i, label %for.inc.sink.split.i90.i, label %land.lhs.true78.i.i
 
 land.lhs.true78.i.i:                              ; preds = %land.lhs.true74.i.i
   %532 = xor i32 %531, %524
   %533 = and i32 %532, 262144
   %cmp83.not.i.i = icmp eq i32 %533, 0
-  br i1 %cmp83.not.i.i, label %for.inc.sink.split.i89.i, label %for.inc.i79.i
+  br i1 %cmp83.not.i.i, label %for.inc.sink.split.i90.i, label %for.inc.i80.i
 
-for.inc.sink.split.i89.i:                         ; preds = %land.lhs.true78.i.i, %land.lhs.true74.i.i, %if.end72.i.i, %land.lhs.true51.i.i
+for.inc.sink.split.i90.i:                         ; preds = %land.lhs.true78.i.i, %land.lhs.true74.i.i, %if.end72.i.i, %land.lhs.true51.i.i
   %or87.i.i = or i32 %524, 524288
-  store i32 %or87.i.i, ptr %flags.i84.i, align 4
-  %.pre130.i = load ptr, ptr %emitted_symbols7.i, align 8
-  br label %for.inc.i79.i
+  store i32 %or87.i.i, ptr %flags.i85.i, align 4
+  %.pre131.i = load ptr, ptr %emitted_symbols7.i, align 8
+  br label %for.inc.i80.i
 
-for.inc.i79.i:                                    ; preds = %for.inc.sink.split.i89.i, %land.lhs.true78.i.i, %land.lhs.true65.i.i, %if.end.i83.i, %for.body.i72.i
-  %534 = phi ptr [ %.pre130.i, %for.inc.sink.split.i89.i ], [ %518, %land.lhs.true78.i.i ], [ %518, %land.lhs.true65.i.i ], [ %518, %if.end.i83.i ], [ %518, %for.body.i72.i ]
-  %indvars.iv.next.i80.i = add nuw nsw i64 %indvars.iv.i73.i, 1
-  %nr.i81.i = getelementptr inbounds i8, ptr %534, i64 8
-  %535 = load i32, ptr %nr.i81.i, align 8
+for.inc.i80.i:                                    ; preds = %for.inc.sink.split.i90.i, %land.lhs.true78.i.i, %land.lhs.true65.i.i, %if.end.i84.i, %for.body.i72.i
+  %534 = phi ptr [ %.pre131.i, %for.inc.sink.split.i90.i ], [ %518, %land.lhs.true78.i.i ], [ %518, %land.lhs.true65.i.i ], [ %518, %if.end.i84.i ], [ %518, %for.body.i72.i ]
+  %indvars.iv.next.i81.i = add nuw nsw i64 %indvars.iv.i73.i, 1
+  %nr.i82.i = getelementptr inbounds i8, ptr %534, i64 8
+  %535 = load i32, ptr %nr.i82.i, align 8
   %536 = sext i32 %535 to i64
-  %cmp.i82.i = icmp slt i64 %indvars.iv.next.i80.i, %536
-  br i1 %cmp.i82.i, label %for.body.i72.i, label %if.end17.i, !llvm.loop !52
+  %cmp.i83.i = icmp slt i64 %indvars.iv.next.i81.i, %536
+  br i1 %cmp.i83.i, label %for.body.i72.i, label %if.end17.i, !llvm.loop !44
 
-if.end17.i:                                       ; preds = %for.inc.i79.i, %if.then16.i, %mark_color_as_moved.exit.i
+if.end17.i:                                       ; preds = %for.inc.i80.i, %if.then16.i, %mark_color_as_moved.exit.i
   call void @mem_pool_discard(ptr noundef nonnull %entry_pool.i, i32 noundef 0) #31
   call void @free(ptr noundef %entry_list.0.lcssa.i.i) #31
   br label %if.end18.i
 
 if.end18.i:                                       ; preds = %if.end17.i, %if.then9.i
   %537 = load i32, ptr getelementptr inbounds (%struct.emitted_diff_symbols, ptr @diff_flush_patch_all_file_pairs.esm, i64 0, i32 1), align 8
-  %cmp20105.i = icmp sgt i32 %537, 0
-  br i1 %cmp20105.i, label %for.body21.i, label %for.end34.i
+  %cmp20106.i = icmp sgt i32 %537, 0
+  br i1 %cmp20106.i, label %for.body21.i, label %for.end34.i
 
 for.cond27.preheader.i:                           ; preds = %for.body21.i
   %538 = icmp sgt i32 %540, 0
   br i1 %538, label %for.body29.i, label %for.end34.i
 
 for.body21.i:                                     ; preds = %if.end18.i, %for.body21.i
-  %indvars.iv121.i = phi i64 [ %indvars.iv.next122.i, %for.body21.i ], [ 0, %if.end18.i ]
+  %indvars.iv122.i = phi i64 [ %indvars.iv.next123.i, %for.body21.i ], [ 0, %if.end18.i ]
   %539 = load ptr, ptr @diff_flush_patch_all_file_pairs.esm, align 8
-  %arrayidx23.i = getelementptr inbounds %struct.emitted_diff_symbol, ptr %539, i64 %indvars.iv121.i
+  %arrayidx23.i = getelementptr inbounds %struct.emitted_diff_symbol, ptr %539, i64 %indvars.iv122.i
   call fastcc void @emit_diff_symbol_from_struct(ptr noundef %options, ptr noundef %arrayidx23.i)
-  %indvars.iv.next122.i = add nuw nsw i64 %indvars.iv121.i, 1
+  %indvars.iv.next123.i = add nuw nsw i64 %indvars.iv122.i, 1
   %540 = load i32, ptr getelementptr inbounds (%struct.emitted_diff_symbols, ptr @diff_flush_patch_all_file_pairs.esm, i64 0, i32 1), align 8
   %541 = sext i32 %540 to i64
-  %cmp20.i284 = icmp slt i64 %indvars.iv.next122.i, %541
-  br i1 %cmp20.i284, label %for.body21.i, label %for.cond27.preheader.i, !llvm.loop !53
+  %cmp20.i284 = icmp slt i64 %indvars.iv.next123.i, %541
+  br i1 %cmp20.i284, label %for.body21.i, label %for.cond27.preheader.i, !llvm.loop !45
 
 for.body29.i:                                     ; preds = %for.cond27.preheader.i, %for.body29.i
-  %indvars.iv124.i = phi i64 [ %indvars.iv.next125.i, %for.body29.i ], [ 0, %for.cond27.preheader.i ]
+  %indvars.iv125.i = phi i64 [ %indvars.iv.next126.i, %for.body29.i ], [ 0, %for.cond27.preheader.i ]
   %542 = load ptr, ptr @diff_flush_patch_all_file_pairs.esm, align 8
-  %arrayidx31.i = getelementptr inbounds %struct.emitted_diff_symbol, ptr %542, i64 %indvars.iv124.i
+  %arrayidx31.i = getelementptr inbounds %struct.emitted_diff_symbol, ptr %542, i64 %indvars.iv125.i
   %543 = load ptr, ptr %arrayidx31.i, align 8
   call void @free(ptr noundef %543) #31
-  %indvars.iv.next125.i = add nuw nsw i64 %indvars.iv124.i, 1
+  %indvars.iv.next126.i = add nuw nsw i64 %indvars.iv125.i, 1
   %544 = load i32, ptr getelementptr inbounds (%struct.emitted_diff_symbols, ptr @diff_flush_patch_all_file_pairs.esm, i64 0, i32 1), align 8
   %545 = sext i32 %544 to i64
-  %cmp28.i = icmp slt i64 %indvars.iv.next125.i, %545
-  br i1 %cmp28.i, label %for.body29.i, label %for.end34.i, !llvm.loop !54
+  %cmp28.i = icmp slt i64 %indvars.iv.next126.i, %545
+  br i1 %cmp28.i, label %for.body29.i, label %for.end34.i, !llvm.loop !46
 
 for.end34.i:                                      ; preds = %for.body29.i, %for.cond27.preheader.i, %if.end18.i
   store i32 0, ptr getelementptr inbounds (%struct.emitted_diff_symbols, ptr @diff_flush_patch_all_file_pairs.esm, i64 0, i32 1), align 8
@@ -13172,7 +13170,7 @@ for.cond90:                                       ; preds = %if.end101
   %553 = load i32, ptr getelementptr inbounds (%struct.diff_queue_struct, ptr @diff_queued_diff, i64 0, i32 2), align 4
   %554 = sext i32 %553 to i64
   %cmp92 = icmp slt i64 %indvars.iv.next431, %554
-  br i1 %cmp92, label %for.body93, label %free_queue, !llvm.loop !55
+  br i1 %cmp92, label %for.body93, label %free_queue, !llvm.loop !47
 
 for.body93:                                       ; preds = %for.body93.lr.ph, %for.cond90
   %555 = phi ptr [ %.pre436, %for.body93.lr.ph ], [ %558, %for.cond90 ]
@@ -13220,7 +13218,7 @@ for.body.i351:                                    ; preds = %free_queue, %for.bo
   %563 = load i32, ptr getelementptr inbounds (%struct.diff_queue_struct, ptr @diff_queued_diff, i64 0, i32 2), align 4
   %564 = sext i32 %563 to i64
   %cmp.i355 = icmp slt i64 %indvars.iv.next.i354, %564
-  br i1 %cmp.i355, label %for.body.i351, label %diff_free_queue.exit, !llvm.loop !22
+  br i1 %cmp.i355, label %for.body.i351, label %diff_free_queue.exit, !llvm.loop !15
 
 diff_free_queue.exit:                             ; preds = %for.body.i351, %diff_free_file.exit, %free_queue
   %565 = load ptr, ptr @diff_queued_diff, align 8
@@ -13266,7 +13264,7 @@ for.body.i.i362:                                  ; preds = %for.body.i.i362, %f
   %indvars.iv.next.i.i365 = add nuw nsw i64 %indvars.iv.i.i363, 1
   %574 = load i64, ptr %ignore_regex_nr.i.i, align 8
   %cmp.i.i366 = icmp ugt i64 %574, %indvars.iv.next.i.i365
-  br i1 %cmp.i.i366, label %for.body.i.i362, label %diff_free_ignore_regex.exit.i, !llvm.loop !28
+  br i1 %cmp.i.i366, label %for.body.i.i362, label %diff_free_ignore_regex.exit.i, !llvm.loop !20
 
 diff_free_ignore_regex.exit.i:                    ; preds = %for.body.i.i362, %diff_free_file.exit.i
   %ignore_regex5.i.i = getelementptr inbounds i8, ptr %options, i64 40
@@ -13328,7 +13326,7 @@ sw.bb1.i:                                         ; preds = %for.body
   unreachable
 
 if.then:                                          ; preds = %for.body
-  %call.i = tail call i32 @diff_unmodified_pair(ptr noundef nonnull %2), !range !15
+  %call.i = tail call i32 @diff_unmodified_pair(ptr noundef nonnull %2)
   %tobool.not.i = icmp eq i32 %call.i, 0
   br i1 %tobool.not.i, label %if.end.i, label %for.inc
 
@@ -13487,7 +13485,7 @@ for.inc:                                          ; preds = %for.body, %if.end22
   %31 = load i32, ptr %nr, align 4
   %32 = sext i32 %31 to i64
   %cmp = icmp slt i64 %indvars.iv.next, %32
-  br i1 %cmp, label %for.body, label %for.end.loopexit, !llvm.loop !56
+  br i1 %cmp, label %for.body, label %for.end.loopexit, !llvm.loop !48
 
 for.end.loopexit:                                 ; preds = %for.inc
   %.pre = load i32, ptr %diffstat, align 8
@@ -13541,7 +13539,7 @@ lor.rhs:                                          ; preds = %land.rhs
 
 land.end:                                         ; preds = %entry, %lor.rhs, %land.lhs.true, %additional_headers.exit
   %6 = phi i1 [ false, %land.lhs.true ], [ false, %additional_headers.exit ], [ %tobool4, %lor.rhs ], [ false, %entry ]
-  %call5 = tail call i32 @diff_unmodified_pair(ptr noundef nonnull %p), !range !15
+  %call5 = tail call i32 @diff_unmodified_pair(ptr noundef nonnull %p)
   %tobool6 = icmp eq i32 %call5, 0
   %or.cond = select i1 %tobool6, i1 true, i1 %6
   br i1 %or.cond, label %if.end, label %return
@@ -13939,7 +13937,7 @@ diff_add_if_missing.exit20:                       ; preds = %diff_add_if_missing
   %9 = load i32, ptr getelementptr inbounds (%struct.diff_queue_struct, ptr @diff_queued_diff, i64 0, i32 2), align 4
   %10 = sext i32 %9 to i64
   %cmp = icmp slt i64 %indvars.iv.next, %10
-  br i1 %cmp, label %for.body, label %for.end.loopexit, !llvm.loop !57
+  br i1 %cmp, label %for.body, label %for.end.loopexit, !llvm.loop !49
 
 for.end.loopexit:                                 ; preds = %diff_add_if_missing.exit20
   %.pre = load ptr, ptr %to_fetch, align 8
@@ -14029,7 +14027,7 @@ for.body.i:                                       ; preds = %for.inc.i, %for.bod
   %arrayidx.i = getelementptr inbounds ptr, ptr %7, i64 %indvars.iv.i
   %8 = load ptr, ptr %arrayidx.i, align 8
   %9 = load ptr, ptr %repo, align 8
-  %call.i = tail call fastcc i32 @diff_filespec_check_stat_unmatch(ptr noundef %9, ptr noundef %8), !range !15
+  %call.i = tail call fastcc i32 @diff_filespec_check_stat_unmatch(ptr noundef %9, ptr noundef %8)
   %tobool.not.i = icmp eq i32 %call.i, 0
   br i1 %tobool.not.i, label %if.else.i, label %if.then.i
 
@@ -14088,7 +14086,7 @@ for.inc.i:                                        ; preds = %if.end.i, %diff_q.e
   %13 = load i32, ptr getelementptr inbounds (%struct.diff_queue_struct, ptr @diff_queued_diff, i64 0, i32 2), align 4
   %14 = sext i32 %13 to i64
   %cmp.i = icmp slt i64 %indvars.iv.next.i, %14
-  br i1 %cmp.i, label %for.body.i, label %diffcore_skip_stat_unmatch.exit, !llvm.loop !58
+  br i1 %cmp.i, label %for.body.i, label %diffcore_skip_stat_unmatch.exit, !llvm.loop !50
 
 diffcore_skip_stat_unmatch.exit:                  ; preds = %for.inc.i, %if.then7
   %outq.sroa.8.0.lcssa.i = phi i32 [ 0, %if.then7 ], [ %outq.sroa.8.1.i, %for.inc.i ]
@@ -14335,7 +14333,7 @@ for.inc.i31:                                      ; preds = %if.else83.i, %is_nu
   %50 = load i32, ptr getelementptr inbounds (%struct.diff_queue_struct, ptr @diff_queued_diff, i64 0, i32 2), align 4
   %51 = sext i32 %50 to i64
   %cmp.i33 = icmp slt i64 %indvars.iv.next.i32, %51
-  br i1 %cmp.i33, label %for.body.i27, label %if.end39, !llvm.loop !59
+  br i1 %cmp.i33, label %for.body.i27, label %if.end39, !llvm.loop !51
 
 if.end39:                                         ; preds = %for.inc.i31, %if.end35
   %.pr = phi i32 [ %25, %if.end35 ], [ %50, %for.inc.i31 ]
@@ -14391,7 +14389,7 @@ match_filter.exit.us.us.i:                        ; preds = %for.body.us.us.i
 match_filter.exit.thread.us.us.i:                 ; preds = %match_filter.exit.us.us.i, %for.body.us.us.i
   %indvars.iv.next113.i = add nuw nsw i64 %indvars.iv112.i, 1
   %exitcond85.not = icmp eq i64 %indvars.iv.next113.i, %57
-  br i1 %exitcond85.not, label %for.body17.i.preheader, label %for.body.us.us.i, !llvm.loop !60
+  br i1 %exitcond85.not, label %for.body17.i.preheader, label %for.body.us.us.i, !llvm.loop !52
 
 for.body.us.i:                                    ; preds = %for.body.lr.ph.split.us.i, %match_filter.exit.thread.us.i
   %indvars.iv109.i = phi i64 [ %indvars.iv.next110.i, %match_filter.exit.thread.us.i ], [ 0, %for.body.lr.ph.split.us.i ]
@@ -14420,7 +14418,7 @@ land.lhs.true.i.us.i:                             ; preds = %for.body.us.i
 match_filter.exit.thread.us.i:                    ; preds = %land.lhs.true.i.us.i, %match_filter.exit.us.i
   %indvars.iv.next110.i = add nuw nsw i64 %indvars.iv109.i, 1
   %exitcond84.not = icmp eq i64 %indvars.iv.next110.i, %57
-  br i1 %exitcond84.not, label %for.body17.i.preheader, label %for.body.us.i, !llvm.loop !60
+  br i1 %exitcond84.not, label %for.body17.i.preheader, label %for.body.us.i, !llvm.loop !52
 
 for.body.lr.ph.split.i:                           ; preds = %for.body.lr.ph.i42
   br i1 %tobool9.not.i.i, label %for.body.us63.i, label %for.body.i43
@@ -14452,7 +14450,7 @@ land.lhs.true.i.us75.i:                           ; preds = %for.body.us63.i
 match_filter.exit.thread.us81.i:                  ; preds = %land.lhs.true.i.us75.i, %match_filter.exit.us69.i
   %indvars.iv.next107.i = add nuw nsw i64 %indvars.iv106.i, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next107.i, %57
-  br i1 %exitcond.not, label %for.body17.i.preheader, label %for.body.us63.i, !llvm.loop !60
+  br i1 %exitcond.not, label %for.body17.i.preheader, label %for.body.us63.i, !llvm.loop !52
 
 for.cond24.preheader.i:                           ; preds = %if.end.i41
   br i1 %cmp2692.i, label %for.body27.i, label %if.end39.i
@@ -14476,7 +14474,7 @@ match_filter.exit.thread.i:                       ; preds = %for.body.i43
   %indvars.iv.next.i48 = add nuw nsw i64 %indvars.iv.i44, 1
   %cmp.i49 = icmp ult i64 %indvars.iv.next.i48, %57
   %or.cond.i50 = select i1 %tobool16.i.not.not.i, i1 %cmp.i49, i1 false
-  br i1 %or.cond.i50, label %for.body.i43, label %for.end.i, !llvm.loop !60
+  br i1 %or.cond.i50, label %for.body.i43, label %for.end.i, !llvm.loop !52
 
 for.end.i:                                        ; preds = %match_filter.exit.thread.i
   br i1 %tobool16.i.not.not.i, label %for.body17.i.preheader, label %diffcore_apply_filter.exit
@@ -14494,7 +14492,7 @@ for.body17.i:                                     ; preds = %for.body17.i.prehea
   %74 = load i32, ptr getelementptr inbounds (%struct.diff_queue_struct, ptr @diff_queued_diff, i64 0, i32 2), align 4
   %75 = sext i32 %74 to i64
   %cmp16.i = icmp slt i64 %indvars.iv.next116.i, %75
-  br i1 %cmp16.i, label %for.body17.i, label %if.end39.i, !llvm.loop !61
+  br i1 %cmp16.i, label %for.body17.i, label %if.end39.i, !llvm.loop !53
 
 for.body27.i:                                     ; preds = %for.cond24.preheader.i, %for.inc36.i
   %indvars.iv118.i = phi i64 [ %indvars.iv.next119.i, %for.inc36.i ], [ 0, %for.cond24.preheader.i ]
@@ -14581,7 +14579,7 @@ for.inc36.i:                                      ; preds = %if.else34.i, %diff_
   %84 = load i32, ptr getelementptr inbounds (%struct.diff_queue_struct, ptr @diff_queued_diff, i64 0, i32 2), align 4
   %85 = sext i32 %84 to i64
   %cmp26.i = icmp slt i64 %indvars.iv.next119.i, %85
-  br i1 %cmp26.i, label %for.body27.i, label %if.end39.i, !llvm.loop !62
+  br i1 %cmp26.i, label %for.body27.i, label %if.end39.i, !llvm.loop !54
 
 if.end39.i:                                       ; preds = %for.body17.i, %for.inc36.i, %for.cond24.preheader.i, %for.cond.preheader.i
   %outq.sroa.8.2.i = phi i32 [ 0, %for.cond24.preheader.i ], [ 0, %for.cond.preheader.i ], [ %outq.sroa.8.1.i68, %for.inc36.i ], [ 0, %for.body17.i ]
@@ -14631,7 +14629,7 @@ declare void @diffcore_order(ptr noundef) local_unnamed_addr #2
 declare void @diffcore_rotate(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @diff_result_code(ptr nocapture noundef readonly %opt) local_unnamed_addr #0 {
+define dso_local range(i32 0, 4) i32 @diff_result_code(ptr nocapture noundef readonly %opt) local_unnamed_addr #0 {
 entry:
   %needed_rename_limit = getelementptr inbounds i8, ptr %opt, i64 296
   %0 = load i32, ptr %needed_rename_limit, align 8
@@ -14716,7 +14714,7 @@ if.end9:                                          ; preds = %land.lhs.true4, %if
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local i32 @diff_can_quit_early(ptr nocapture noundef readonly %opt) local_unnamed_addr #24 {
+define dso_local range(i32 0, 2) i32 @diff_can_quit_early(ptr nocapture noundef readonly %opt) local_unnamed_addr #24 {
 entry:
   %quick = getelementptr inbounds i8, ptr %opt, i64 144
   %0 = load i32, ptr %quick, align 8
@@ -14745,7 +14743,7 @@ land.end:                                         ; preds = %land.rhs, %land.lhs
 declare i32 @strncmp(ptr nocapture noundef, ptr nocapture noundef, i64 noundef) local_unnamed_addr #5
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @diff_filespec_check_stat_unmatch(ptr noundef %r, ptr nocapture noundef %p) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @diff_filespec_check_stat_unmatch(ptr noundef %r, ptr nocapture noundef %p) unnamed_addr #0 {
 entry:
   %dpf_options = alloca %struct.diff_populate_filespec_options, align 8
   store i8 1, ptr %dpf_options, align 8
@@ -14798,13 +14796,13 @@ lor.lhs.false35:                                  ; preds = %lor.lhs.false23
   br i1 %cmp42.not.old, label %lor.lhs.false44, label %if.then62
 
 lor.lhs.false44:                                  ; preds = %land.lhs.true, %lor.lhs.false35
-  %call = call i32 @diff_populate_filespec(ptr noundef %r, ptr noundef nonnull %1, ptr noundef nonnull %dpf_options), !range !8
+  %call = call i32 @diff_populate_filespec(ptr noundef %r, ptr noundef nonnull %1, ptr noundef nonnull %dpf_options)
   %tobool46.not = icmp eq i32 %call, 0
   br i1 %tobool46.not, label %lor.lhs.false47, label %if.then62
 
 lor.lhs.false47:                                  ; preds = %lor.lhs.false44
   %5 = load ptr, ptr %two, align 8
-  %call49 = call i32 @diff_populate_filespec(ptr noundef %r, ptr noundef %5, ptr noundef nonnull %dpf_options), !range !8
+  %call49 = call i32 @diff_populate_filespec(ptr noundef %r, ptr noundef %5, ptr noundef nonnull %dpf_options)
   %tobool50.not = icmp eq i32 %call49, 0
   br i1 %tobool50.not, label %lor.lhs.false51, label %if.then62
 
@@ -14819,7 +14817,7 @@ lor.lhs.false51:                                  ; preds = %lor.lhs.false47
   br i1 %cmp55.not, label %lor.lhs.false57, label %if.then62
 
 lor.lhs.false57:                                  ; preds = %lor.lhs.false51
-  %call60 = call fastcc i32 @diff_filespec_is_identical(ptr noundef %r, ptr noundef nonnull %6, ptr noundef nonnull %8), !range !15
+  %call60 = call fastcc i32 @diff_filespec_is_identical(ptr noundef %r, ptr noundef nonnull %6, ptr noundef nonnull %8)
   %tobool61.not = icmp eq i32 %call60, 0
   br i1 %tobool61.not, label %if.then62, label %lor.lhs.false57.if.end67_crit_edge
 
@@ -14992,7 +14990,7 @@ if.then2:                                         ; preds = %if.then
   br label %return
 
 if.end:                                           ; preds = %if.then
-  %call = tail call i32 @diff_populate_filespec(ptr noundef %r, ptr noundef nonnull %df, ptr noundef null), !range !8
+  %call = tail call i32 @diff_populate_filespec(ptr noundef %r, ptr noundef nonnull %df, ptr noundef null)
   %tobool3.not = icmp eq i32 %call, 0
   br i1 %tobool3.not, label %if.end5, label %if.then4
 
@@ -15080,7 +15078,7 @@ if.then.i.i:                                      ; preds = %for.body.i.i
 
 if.end.i.i:                                       ; preds = %if.then.i.i, %for.body.i.i
   store ptr null, ptr %arrayidx.i.i, align 16
-  br i1 %cmp.i.i, label %for.body.i.i, label %run_textconv.exit.thread, !llvm.loop !63
+  br i1 %cmp.i.i, label %for.body.i.i, label %run_textconv.exit.thread, !llvm.loop !55
 
 if.end.i:                                         ; preds = %if.end19
   %9 = load i32, ptr %out.i, align 4
@@ -15119,7 +15117,7 @@ if.then.i8.i:                                     ; preds = %for.body.i2.i
 
 if.end.i9.i:                                      ; preds = %if.then.i8.i, %for.body.i2.i
   store ptr null, ptr %arrayidx.i5.i, align 16
-  br i1 %cmp.i3.i, label %for.body.i2.i, label %run_textconv.exit.thread, !llvm.loop !63
+  br i1 %cmp.i3.i, label %for.body.i2.i, label %run_textconv.exit.thread, !llvm.loop !55
 
 for.body.i11.i:                                   ; preds = %if.end10.i, %if.end.i18.i
   %cmp.i12.i = phi i1 [ false, %if.end.i18.i ], [ true, %if.end10.i ]
@@ -15136,7 +15134,7 @@ if.then.i17.i:                                    ; preds = %for.body.i11.i
 
 if.end.i18.i:                                     ; preds = %if.then.i17.i, %for.body.i11.i
   store ptr null, ptr %arrayidx.i14.i, align 16
-  br i1 %cmp.i12.i, label %for.body.i11.i, label %run_textconv.exit, !llvm.loop !63
+  br i1 %cmp.i12.i, label %for.body.i11.i, label %run_textconv.exit, !llvm.loop !55
 
 run_textconv.exit.thread:                         ; preds = %if.end.i.i, %if.end.i9.i
   call void @llvm.lifetime.end.p0(i64 120, ptr nonnull %child.i)
@@ -15194,7 +15192,7 @@ declare i32 @notes_cache_put(ptr noundef, ptr noundef, ptr noundef, i64 noundef)
 declare i32 @notes_cache_write(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @textconv_object(ptr noundef %r, ptr nocapture noundef readonly %path, i32 noundef %mode, ptr nocapture noundef readonly %oid, i32 noundef %oid_valid, ptr nocapture noundef writeonly %buf, ptr nocapture noundef writeonly %buf_size) local_unnamed_addr #0 {
+define dso_local range(i32 0, 2) i32 @textconv_object(ptr noundef %r, ptr nocapture noundef readonly %path, i32 noundef %mode, ptr nocapture noundef readonly %oid, i32 noundef %oid_valid, ptr nocapture noundef writeonly %buf, ptr nocapture noundef writeonly %buf_size) local_unnamed_addr #0 {
 entry:
   %call.i = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %path) #32
   %cmp.i.i = icmp ugt i64 %call.i, -97
@@ -16415,7 +16413,7 @@ for.inc.i:                                        ; preds = %if.then.i, %for.bod
   %dst.1.i = phi ptr [ %dst.07.i, %for.body.i ], [ %incdec.ptr.i, %if.then.i ]
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %remove_space.exit, label %for.body.i, !llvm.loop !25
+  br i1 %exitcond.not.i, label %remove_space.exit, label %for.body.i, !llvm.loop !18
 
 remove_space.exit:                                ; preds = %for.inc.i, %if.end
   %dst.0.lcssa.i = phi ptr [ %line, %if.end ], [ %dst.1.i, %for.inc.i ]
@@ -16548,7 +16546,7 @@ for.body.preheader.i:                             ; preds = %sw.epilog.i
 for.cond.i:                                       ; preds = %for.body.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %is_conflict_marker.exit, label %for.body.i, !llvm.loop !64
+  br i1 %exitcond.not.i, label %is_conflict_marker.exit, label %for.body.i, !llvm.loop !56
 
 for.body.i:                                       ; preds = %for.cond.i, %for.body.preheader.i
   %indvars.iv.i = phi i64 [ 1, %for.body.preheader.i ], [ %indvars.iv.next.i, %for.cond.i ]
@@ -16655,7 +16653,7 @@ for.body.i:                                       ; preds = %for.inc.i, %for.con
 for.inc.i:                                        ; preds = %for.body.i
   %incdec.ptr17.i = getelementptr inbounds i8, ptr %prev_eol.017.i, i64 -1
   %cmp10.not.i = icmp ugt ptr %4, %incdec.ptr17.i
-  br i1 %cmp10.not.i, label %for.end.i, label %for.body.i, !llvm.loop !65
+  br i1 %cmp10.not.i, label %for.end.i, label %for.body.i, !llvm.loop !57
 
 for.end.i:                                        ; preds = %for.inc.i, %for.body.i
   %prev_eol.0.lcssa.i = phi ptr [ %prev_eol.017.i, %for.body.i ], [ %incdec.ptr17.i, %for.inc.i ]
@@ -16673,7 +16671,7 @@ if.end22.i:                                       ; preds = %for.end.i
   %add.ptr23.i = getelementptr inbounds i8, ptr %prev_eol.0.lcssa.i, i64 -1
   %6 = load ptr, ptr %mf1, align 8
   %cmp7.i = icmp ult ptr %6, %add.ptr23.i
-  br i1 %cmp7.i, label %for.cond.preheader.i, label %count_trailing_blank.exit, !llvm.loop !66
+  br i1 %cmp7.i, label %for.cond.preheader.i, label %count_trailing_blank.exit, !llvm.loop !58
 
 count_trailing_blank.exit:                        ; preds = %for.end.i, %if.end22.i, %entry, %if.end.i
   %retval.0.i = phi i32 [ 0, %entry ], [ 0, %if.end.i ], [ %inc.i, %if.end22.i ], [ %cnt.020.i, %for.end.i ]
@@ -16708,7 +16706,7 @@ for.body.i23:                                     ; preds = %for.inc.i26, %for.c
 for.inc.i26:                                      ; preds = %for.body.i23
   %incdec.ptr17.i27 = getelementptr inbounds i8, ptr %prev_eol.017.i24, i64 -1
   %cmp10.not.i28 = icmp ugt ptr %11, %incdec.ptr17.i27
-  br i1 %cmp10.not.i28, label %for.end.i29, label %for.body.i23, !llvm.loop !65
+  br i1 %cmp10.not.i28, label %for.end.i29, label %for.body.i23, !llvm.loop !57
 
 for.end.i29:                                      ; preds = %for.inc.i26, %for.body.i23
   %prev_eol.0.lcssa.i30 = phi ptr [ %prev_eol.017.i24, %for.body.i23 ], [ %incdec.ptr17.i27, %for.inc.i26 ]
@@ -16726,7 +16724,7 @@ if.end22.i38:                                     ; preds = %for.end.i29
   %add.ptr23.i40 = getelementptr inbounds i8, ptr %prev_eol.0.lcssa.i30, i64 -1
   %13 = load ptr, ptr %mf2, align 8
   %cmp7.i41 = icmp ult ptr %13, %add.ptr23.i40
-  br i1 %cmp7.i41, label %for.cond.preheader.i20, label %count_trailing_blank.exit42, !llvm.loop !66
+  br i1 %cmp7.i41, label %for.cond.preheader.i20, label %count_trailing_blank.exit42, !llvm.loop !58
 
 count_trailing_blank.exit42:                      ; preds = %for.end.i29, %if.end22.i38
   %retval.0.i19 = phi i32 [ %cnt.020.i21, %for.end.i29 ], [ %inc.i39, %if.end22.i38 ]
@@ -16759,7 +16757,7 @@ while.body.i:                                     ; preds = %while.body.i.prehea
   %inc.i45 = zext i1 %cmp1.i to i32
   %count.1.i = add nuw nsw i32 %count.06.i, %inc.i45
   %cmp.i = icmp ugt i32 %size.addr.05.i, 1
-  br i1 %cmp.i, label %while.body.i, label %while.cond.while.end_crit_edge.i, !llvm.loop !67
+  br i1 %cmp.i, label %while.body.i, label %while.cond.while.end_crit_edge.i, !llvm.loop !59
 
 while.cond.while.end_crit_edge.i:                 ; preds = %while.body.i
   %17 = xor i1 %cmp1.i, true
@@ -16793,7 +16791,7 @@ while.body.i48:                                   ; preds = %while.body.i48.preh
   %inc.i55 = zext i1 %cmp1.i54 to i32
   %count.1.i56 = add nuw nsw i32 %count.06.i49, %inc.i55
   %cmp.i57 = icmp ugt i32 %size.addr.05.i50, 1
-  br i1 %cmp.i57, label %while.body.i48, label %while.cond.while.end_crit_edge.i58, !llvm.loop !67
+  br i1 %cmp.i57, label %while.body.i48, label %while.cond.while.end_crit_edge.i58, !llvm.loop !59
 
 while.cond.while.end_crit_edge.i58:               ; preds = %while.body.i48
   %23 = xor i1 %cmp1.i54, true
@@ -16871,7 +16869,7 @@ while.body:                                       ; preds = %land.lhs.true
   %incdec.ptr23 = getelementptr inbounds i8, ptr %new_name.089, i64 1
   %6 = load i8, ptr %incdec.ptr, align 1
   %tobool11.not = icmp eq i8 %6, 0
-  br i1 %tobool11.not, label %while.end, label %land.lhs.true, !llvm.loop !68
+  br i1 %tobool11.not, label %while.end, label %land.lhs.true, !llvm.loop !60
 
 while.end:                                        ; preds = %while.body, %land.lhs.true, %while.cond.preheader
   %pfx_length.0.lcssa = phi i32 [ 0, %while.cond.preheader ], [ %pfx_length.088, %land.lhs.true ], [ %pfx_length.1, %while.body ]
@@ -16918,7 +16916,7 @@ while.body48:                                     ; preds = %land.rhs42
   %cmp32.not = icmp ugt ptr %add.ptr31, %incdec.ptr59
   %cmp40.not = icmp ugt ptr %add.ptr39, %incdec.ptr60
   %or.cond69 = select i1 %cmp32.not, i1 true, i1 %cmp40.not
-  br i1 %or.cond69, label %while.end61, label %land.rhs42, !llvm.loop !69
+  br i1 %or.cond69, label %while.end61, label %land.rhs42, !llvm.loop !61
 
 while.end61:                                      ; preds = %land.rhs42, %while.body48, %while.end
   %sfx_length.0.lcssa = phi i32 [ 0, %while.end ], [ %sfx_length.1, %while.body48 ], [ %sfx_length.095, %land.rhs42 ]
@@ -17112,7 +17110,7 @@ if.end21:                                         ; preds = %if.else, %if.then12
   %sources.1 = phi i32 [ %inc, %if.then12 ], [ %add, %if.else ]
   %add22 = add i64 %changes.0, %sum_changes.031
   %tobool.not = icmp eq i32 %8, 0
-  br i1 %tobool.not, label %while.end, label %while.body, !llvm.loop !70
+  br i1 %tobool.not, label %while.end, label %while.body, !llvm.loop !62
 
 while.end:                                        ; preds = %if.end21, %while.body, %if.end
   %sources.0.lcssa.ph = phi i32 [ %sources.1, %if.end21 ], [ %sources.030, %while.body ], [ %sources.030, %if.end ]
@@ -17344,7 +17342,7 @@ declare void @strmap_clear(ptr noundef, i32 noundef) local_unnamed_addr #2
 declare void @hashmap_init(ptr noundef, ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @interned_diff_symbol_cmp(ptr nocapture noundef readonly %hashmap_cmp_fn_data, ptr nocapture noundef readonly %eptr, ptr nocapture noundef readonly %entry_or_key, ptr nocapture readnone %keydata) #0 {
+define internal range(i32 0, 2) i32 @interned_diff_symbol_cmp(ptr nocapture noundef readonly %hashmap_cmp_fn_data, ptr nocapture noundef readonly %eptr, ptr nocapture noundef readonly %entry_or_key, ptr nocapture readnone %keydata) #0 {
 entry:
   %color_moved_ws_handling = getelementptr inbounds i8, ptr %hashmap_cmp_fn_data, i64 572
   %0 = load i32, ptr %color_moved_ws_handling, align 4
@@ -17587,7 +17585,7 @@ for.body.i.i.i:                                   ; preds = %for.body.i.i, %for.
   %spec.select.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i, i64 %spec.select.idx.i.i.i
   %25 = load i8, ptr %spec.select.i.i.i, align 1
   %tobool.not.i.i.i = icmp eq i8 %25, 0
-  br i1 %tobool.not.i.i.i, label %add_formatted_header.exit.loopexit.i.i, label %for.body.i.i.i, !llvm.loop !71
+  br i1 %tobool.not.i.i.i, label %add_formatted_header.exit.loopexit.i.i, label %for.body.i.i.i, !llvm.loop !63
 
 add_formatted_header.exit.loopexit.i.i:           ; preds = %for.body.i.i.i
   %.pre.i.i = load i64, ptr %nr.i.i, align 8
@@ -17597,7 +17595,7 @@ add_formatted_header.exit.i.i:                    ; preds = %add_formatted_heade
   %26 = phi i64 [ %.pre.i.i, %add_formatted_header.exit.loopexit.i.i ], [ %20, %for.body.i.i ]
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %cmp.i.i = icmp ugt i64 %26, %indvars.iv.next.i.i
-  br i1 %cmp.i.i, label %for.body.i.i, label %if.end15.i, !llvm.loop !72
+  br i1 %cmp.i.i, label %for.body.i.i, label %if.end15.i, !llvm.loop !64
 
 if.end15.i:                                       ; preds = %add_formatted_header.exit.i.i, %if.then14.i, %additional_headers.exit.i, %sw.epilog.i
   %must_show_header.1 = phi i32 [ %must_show_header.0, %sw.epilog.i ], [ %must_show_header.0, %additional_headers.exit.i ], [ 1, %if.then14.i ], [ 1, %add_formatted_header.exit.i.i ]
@@ -17673,13 +17671,13 @@ if.then33.i:                                      ; preds = %if.then22.i
 
 if.else.i99.i:                                    ; preds = %if.then33.i
   %39 = load ptr, ptr %repo.i, align 8
-  %call.i100.i = tail call i32 @diff_populate_filespec(ptr noundef %39, ptr noundef nonnull %one, ptr noundef null), !range !8
+  %call.i100.i = tail call i32 @diff_populate_filespec(ptr noundef %39, ptr noundef nonnull %one, ptr noundef null)
   %tobool.not.i101.i = icmp eq i32 %call.i100.i, 0
   br i1 %tobool.not.i101.i, label %land.lhs.true36.i, label %lor.lhs.false.i
 
 land.lhs.true36.i:                                ; preds = %if.else.i99.i, %if.then33.i
   %40 = load ptr, ptr %repo.i, align 8
-  %call38.i = tail call i32 @diff_filespec_is_binary(ptr noundef %40, ptr noundef nonnull %one), !range !26
+  %call38.i = tail call i32 @diff_filespec_is_binary(ptr noundef %40, ptr noundef nonnull %one)
   %tobool39.not.i = icmp eq i32 %call38.i, 0
   br i1 %tobool39.not.i, label %lor.lhs.false.i, label %if.then47.i
 
@@ -17691,13 +17689,13 @@ lor.lhs.false.i:                                  ; preds = %land.lhs.true36.i, 
 
 if.else.i106.i:                                   ; preds = %lor.lhs.false.i
   %42 = load ptr, ptr %repo.i, align 8
-  %call.i107.i = tail call i32 @diff_populate_filespec(ptr noundef %42, ptr noundef nonnull %two, ptr noundef null), !range !8
+  %call.i107.i = tail call i32 @diff_populate_filespec(ptr noundef %42, ptr noundef nonnull %two, ptr noundef null)
   %tobool.not.i108.i = icmp eq i32 %call.i107.i, 0
   br i1 %tobool.not.i108.i, label %land.lhs.true43.i, label %if.end49.i
 
 land.lhs.true43.i:                                ; preds = %if.else.i106.i, %lor.lhs.false.i
   %43 = load ptr, ptr %repo.i, align 8
-  %call45.i = tail call i32 @diff_filespec_is_binary(ptr noundef %43, ptr noundef nonnull %two), !range !26
+  %call45.i = tail call i32 @diff_filespec_is_binary(ptr noundef %43, ptr noundef nonnull %two)
   %tobool46.not.i = icmp eq i32 %call45.i, 0
   br i1 %tobool46.not.i, label %if.end49.i, label %if.then47.i
 
@@ -17989,7 +17987,7 @@ if.then.i.i49:                                    ; preds = %for.body.i.i45
 
 if.end.i37.i:                                     ; preds = %if.then.i.i49, %for.body.i.i45
   store ptr null, ptr %arrayidx.i.i48, align 16
-  br i1 %cmp.i.i46, label %for.body.i.i45, label %run_external_diff.exit, !llvm.loop !63
+  br i1 %cmp.i.i46, label %for.body.i.i45, label %run_external_diff.exit, !llvm.loop !55
 
 run_external_diff.exit:                           ; preds = %if.end.i37.i
   call void @llvm.lifetime.end.p0(i64 120, ptr nonnull %cmd.i)
@@ -18395,7 +18393,7 @@ land.lhs.true178.i:                               ; preds = %if.end176.i
 lor.lhs.false180.i:                               ; preds = %land.lhs.true178.i
   %repo181.i = getelementptr inbounds i8, ptr %o, i64 576
   %140 = load ptr, ptr %repo181.i, align 8
-  %call182.i = call i32 @diff_filespec_is_binary(ptr noundef %140, ptr noundef nonnull %one), !range !26
+  %call182.i = call i32 @diff_filespec_is_binary(ptr noundef %140, ptr noundef nonnull %one)
   %tobool183.not.i = icmp eq i32 %call182.i, 0
   br i1 %tobool183.not.i, label %land.lhs.true184.i, label %if.end195.i
 
@@ -18406,7 +18404,7 @@ land.lhs.true184.i:                               ; preds = %lor.lhs.false180.i,
 lor.lhs.false186.i:                               ; preds = %land.lhs.true184.i
   %repo187.i = getelementptr inbounds i8, ptr %o, i64 576
   %141 = load ptr, ptr %repo187.i, align 8
-  %call188.i = call i32 @diff_filespec_is_binary(ptr noundef %141, ptr noundef nonnull %two), !range !26
+  %call188.i = call i32 @diff_filespec_is_binary(ptr noundef %141, ptr noundef nonnull %two)
   %tobool189.not.i = icmp eq i32 %call188.i, 0
   br i1 %tobool189.not.i, label %if.then190.i, label %if.end195.i
 
@@ -18532,7 +18530,7 @@ while.body.i.i.i:                                 ; preds = %if.end22.i.i, %whil
   %inc.i.i.i = zext i1 %cmp1.i.i.i to i32
   %count.1.i.i.i = add nuw nsw i32 %count.06.i.i.i, %inc.i.i.i
   %cmp.i.i237.i = icmp ugt i32 %size.addr.05.i.i.i, 1
-  br i1 %cmp.i.i237.i, label %while.body.i.i.i, label %while.cond.while.end_crit_edge.i.i.i, !llvm.loop !67
+  br i1 %cmp.i.i237.i, label %while.body.i.i.i, label %while.cond.while.end_crit_edge.i.i.i, !llvm.loop !59
 
 while.cond.while.end_crit_edge.i.i.i:             ; preds = %while.body.i.i.i
   %159 = xor i1 %cmp1.i.i.i, true
@@ -18558,7 +18556,7 @@ while.body.i33.i.i:                               ; preds = %count_lines.exit.i.
   %inc.i40.i.i = zext i1 %cmp1.i39.i.i to i32
   %count.1.i41.i.i = add nuw nsw i32 %count.06.i34.i.i, %inc.i40.i.i
   %cmp.i42.i.i = icmp ugt i32 %size.addr.05.i35.i.i, 1
-  br i1 %cmp.i42.i.i, label %while.body.i33.i.i, label %while.cond.while.end_crit_edge.i43.i.i, !llvm.loop !67
+  br i1 %cmp.i42.i.i, label %while.body.i33.i.i, label %while.cond.while.end_crit_edge.i43.i.i, !llvm.loop !59
 
 while.cond.while.end_crit_edge.i43.i.i:           ; preds = %while.body.i33.i.i
   %164 = xor i1 %cmp1.i39.i.i, true
@@ -18669,7 +18667,7 @@ while.body.i52.i.i:                               ; preds = %while.body.i52.i.i,
   %idx.ext.i.i.i = ashr exact i64 %sext.i.i.i, 32
   %add.ptr.i.i.i = getelementptr inbounds i8, ptr %data.addr.021.i.i.i, i64 %idx.ext.i.i.i
   %cmp.i55.i.i = icmp sgt i32 %sub.i.i.i, 0
-  br i1 %cmp.i55.i.i, label %while.body.i52.i.i, label %while.end.i.i.i, !llvm.loop !73
+  br i1 %cmp.i55.i.i, label %while.body.i52.i.i, label %while.end.i.i.i, !llvm.loop !65
 
 while.end.i.i.i:                                  ; preds = %while.body.i52.i.i
   br i1 %tobool.not.i.i236.i, label %if.then7.i.i235.i, label %if.end40.i.i
@@ -18719,7 +18717,7 @@ while.body.us.i.us.i.i:                           ; preds = %while.body.lr.ph.i5
   %idx.ext.us.i.us.i.i = ashr exact i64 %sext.us.i.us.i.i, 32
   %add.ptr.us.i.us.i.i = getelementptr inbounds i8, ptr %data.addr.021.us.i.us.i.i, i64 %idx.ext.us.i.us.i.i
   %cmp.us.i.us.i.i = icmp sgt i32 %sub.us.i.us.i.i, 0
-  br i1 %cmp.us.i.us.i.i, label %while.body.us.i.us.i.i, label %while.end.i64.i.i, !llvm.loop !73
+  br i1 %cmp.us.i.us.i.i, label %while.body.us.i.us.i.i, label %while.end.i64.i.i, !llvm.loop !65
 
 while.body.lr.ph.i59.split.i.i:                   ; preds = %while.body.lr.ph.i59.i.i
   %tobool1.not.i.i.us.i.i.i = icmp eq i32 %179, 0
@@ -18747,7 +18745,7 @@ while.body.us.i.us68.i.i:                         ; preds = %while.body.lr.ph.i5
   %idx.ext.us.i.us86.i.i = ashr exact i64 %sext.us.i.us85.i.i, 32
   %add.ptr.us.i.us87.i.i = getelementptr inbounds i8, ptr %data.addr.021.us.i.us69.i.i, i64 %idx.ext.us.i.us86.i.i
   %cmp.us.i.us88.i.i = icmp sgt i32 %sub.us.i.us84.i.i, 0
-  br i1 %cmp.us.i.us88.i.i, label %while.body.us.i.us68.i.i, label %while.end.i64.i.i, !llvm.loop !73
+  br i1 %cmp.us.i.us88.i.i, label %while.body.us.i.us68.i.i, label %while.end.i64.i.i, !llvm.loop !65
 
 while.body.us.i.i.i:                              ; preds = %emit_add_line.exit.us.i.i.i, %while.body.us.i.preheader.i.i
   %182 = phi i32 [ %inc5.us.i.i.i, %emit_add_line.exit.us.i.i.i ], [ 1, %while.body.us.i.preheader.i.i ]
@@ -18784,7 +18782,7 @@ emit_add_line.exit.us.i.i.i:                      ; preds = %new_blank_line_at_e
   %idx.ext.us.i.i.i = ashr exact i64 %sext.us.i.i.i, 32
   %add.ptr.us.i.i.i = getelementptr inbounds i8, ptr %data.addr.021.us.i.i.i, i64 %idx.ext.us.i.i.i
   %cmp.us.i.i.i = icmp sgt i32 %sub.us.i.i.i, 0
-  br i1 %cmp.us.i.i.i, label %while.body.us.i.i.i, label %while.end.i64.i.i, !llvm.loop !73
+  br i1 %cmp.us.i.i.i, label %while.body.us.i.i.i, label %while.end.i64.i.i, !llvm.loop !65
 
 while.end.i64.i.i:                                ; preds = %emit_add_line.exit.us.i.i.i, %while.body.us.i.us68.i.i, %while.body.us.i.us.i.i
   %.us-phi67.i.i = phi i1 [ %tobool.not.us.i.us.i.i, %while.body.us.i.us.i.i ], [ %tobool.not.us.i.us73.i.i, %while.body.us.i.us68.i.i ], [ %tobool.not.us.i.i.i, %emit_add_line.exit.us.i.i.i ]
@@ -18871,7 +18869,7 @@ land.lhs.true210.i:                               ; preds = %if.else207.i
 land.lhs.true212.i:                               ; preds = %land.lhs.true210.i
   %repo213.i = getelementptr inbounds i8, ptr %o, i64 576
   %191 = load ptr, ptr %repo213.i, align 8
-  %call214.i = call i32 @diff_filespec_is_binary(ptr noundef %191, ptr noundef nonnull %one), !range !26
+  %call214.i = call i32 @diff_filespec_is_binary(ptr noundef %191, ptr noundef nonnull %one)
   %tobool215.not.i = icmp eq i32 %call214.i, 0
   br i1 %tobool215.not.i, label %lor.lhs.false216.i, label %if.then222.i
 
@@ -18882,7 +18880,7 @@ lor.lhs.false216.i:                               ; preds = %land.lhs.true212.i,
 land.lhs.true218.i:                               ; preds = %lor.lhs.false216.i
   %repo219.i = getelementptr inbounds i8, ptr %o, i64 576
   %192 = load ptr, ptr %repo219.i, align 8
-  %call220.i = call i32 @diff_filespec_is_binary(ptr noundef %192, ptr noundef nonnull %two), !range !26
+  %call220.i = call i32 @diff_filespec_is_binary(ptr noundef %192, ptr noundef nonnull %two)
   %tobool221.not.i = icmp eq i32 %call220.i, 0
   br i1 %tobool221.not.i, label %if.else308.i, label %if.then222.i
 
@@ -18920,7 +18918,7 @@ land.lhs.true239.i:                               ; preds = %land.lhs.true233.i
   br i1 %tobool241.not.i, label %if.then242.i, label %if.end264.thread.i
 
 if.then242.i:                                     ; preds = %land.lhs.true239.i
-  %call245.i = call fastcc i32 @oideq(ptr noundef nonnull %one, ptr noundef nonnull %two), !range !15
+  %call245.i = call fastcc i32 @oideq(ptr noundef nonnull %one, ptr noundef nonnull %two)
   %tobool246.not.i = icmp eq i32 %call245.i, 0
   br i1 %tobool246.not.i, label %if.end254.i, label %if.then247.i
 
@@ -18987,7 +18985,7 @@ if.then.i258.i:                                   ; preds = %if.end264.i
 if.else.i253.i:                                   ; preds = %if.end264.i, %if.end264.thread.i
   %repo265422.i = phi ptr [ %repo265419.i, %if.end264.thread.i ], [ %repo265.i, %if.end264.i ]
   %211 = load ptr, ptr %repo265422.i, align 8
-  %call.i254.i = call i32 @diff_populate_filespec(ptr noundef %211, ptr noundef nonnull %one, ptr noundef null), !range !8
+  %call.i254.i = call i32 @diff_populate_filespec(ptr noundef %211, ptr noundef nonnull %one, ptr noundef null)
   %tobool.not.i255.i = icmp eq i32 %call.i254.i, 0
   br i1 %tobool.not.i255.i, label %if.end3.i.i, label %if.then274.i
 
@@ -19014,7 +19012,7 @@ if.then.i271.i:                                   ; preds = %lor.lhs.false269.i
 
 if.else.i261.i:                                   ; preds = %lor.lhs.false269.i
   %216 = load ptr, ptr %repo265421.i, align 8
-  %call.i262.i = call i32 @diff_populate_filespec(ptr noundef %216, ptr noundef nonnull %two, ptr noundef null), !range !8
+  %call.i262.i = call i32 @diff_populate_filespec(ptr noundef %216, ptr noundef nonnull %two, ptr noundef null)
   %tobool.not.i263.i = icmp eq i32 %call.i262.i, 0
   br i1 %tobool.not.i263.i, label %if.end3.i265.i, label %if.then274.i
 
@@ -19337,7 +19335,7 @@ do.cond.i.i:                                      ; preds = %do.body.i.i
   %272 = load i8, ptr %str.addr.0.i.i, align 1
   %prefix.addr.0.i.add.i = add nuw nsw i64 %prefix.addr.0.i.idx.i, 1
   %cmp.i318.i = icmp eq i8 %272, %271
-  br i1 %cmp.i318.i, label %do.body.i.i, label %do.body.i320.preheader.i, !llvm.loop !10
+  br i1 %cmp.i318.i, label %do.body.i.i, label %do.body.i320.preheader.i, !llvm.loop !7
 
 do.body.i320.preheader.i:                         ; preds = %do.cond.i.i
   %scevgep414.i = getelementptr i8, ptr %call368.i, i64 2
@@ -19361,7 +19359,7 @@ do.cond.i324.i:                                   ; preds = %do.body.i320.i
   %274 = load i8, ptr %str.addr.0.i321.i, align 1
   %prefix.addr.0.i322.add.i = add nuw nsw i64 %prefix.addr.0.i322.idx.i, 1
   %cmp.i327.i = icmp eq i8 %274, %273
-  br i1 %cmp.i327.i, label %do.body.i320.i, label %if.end383.i, !llvm.loop !10
+  br i1 %cmp.i327.i, label %do.body.i320.i, label %if.end383.i, !llvm.loop !7
 
 if.then378.i:                                     ; preds = %do.body.i320.i
   %call379.i = call i64 @strtoul(ptr nocapture noundef nonnull %scevgep414.i, ptr noundef null, i32 noundef 10) #31
@@ -19502,7 +19500,7 @@ if.end38.i.i:                                     ; preds = %if.then26.i.i, %if.
 for.cond.i.i:                                     ; preds = %for.body.i.i103
   %indvars.iv.next.i.i106 = add nuw nsw i64 %indvars.iv.i.i104, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i106, 3
-  br i1 %exitcond.not.i.i, label %for.end.i.i, label %for.body.i.i103, !llvm.loop !74
+  br i1 %exitcond.not.i.i, label %for.end.i.i, label %for.body.i.i103, !llvm.loop !66
 
 for.body.i.i103:                                  ; preds = %for.cond.i.i, %if.end38.i.i
   %indvars.iv.i.i104 = phi i64 [ 0, %if.end38.i.i ], [ %indvars.iv.next.i.i106, %for.cond.i.i ]
@@ -19780,7 +19778,7 @@ entry:
   br label %for.body.i
 
 for.cond.i:                                       ; preds = %for.body.i
-  br i1 %cmp.i, label %for.body.i, label %for.end.i, !llvm.loop !75
+  br i1 %cmp.i, label %for.body.i, label %for.end.i, !llvm.loop !67
 
 for.body.i:                                       ; preds = %for.cond.i, %entry
   %cmp.i = phi i1 [ true, %entry ], [ false, %for.cond.i ]
@@ -19825,7 +19823,7 @@ lor.lhs.false:                                    ; preds = %land.lhs.true
   %3 = load ptr, ptr %index, align 8
   %path = getelementptr inbounds i8, ptr %one, i64 40
   %4 = load ptr, ptr %path, align 8
-  %call10 = tail call fastcc i32 @reuse_worktree_file(ptr noundef %3, ptr noundef %4, ptr noundef nonnull %one, i32 noundef 1), !range !15
+  %call10 = tail call fastcc i32 @reuse_worktree_file(ptr noundef %3, ptr noundef %4, ptr noundef nonnull %one, i32 noundef 1)
   %tobool11.not = icmp eq i32 %call10, 0
   br i1 %tobool11.not, label %if.else80, label %if.then12
 
@@ -19927,7 +19925,7 @@ if.end73:                                         ; preds = %if.else68, %if.then
   br label %return
 
 if.else80:                                        ; preds = %lor.lhs.false, %if.end
-  %call81 = tail call i32 @diff_populate_filespec(ptr noundef %r, ptr noundef nonnull %one, ptr noundef null), !range !8
+  %call81 = tail call i32 @diff_populate_filespec(ptr noundef %r, ptr noundef nonnull %one, ptr noundef null)
   %tobool82.not = icmp eq i32 %call81, 0
   br i1 %tobool82.not, label %if.end85, label %if.then83
 
@@ -20230,7 +20228,7 @@ while.body.i:                                     ; preds = %if.end46, %while.bo
   %16 = load i64, ptr %l.i, align 8
   %cmp.i = icmp ne i64 %16, 0
   %or.cond.i = select i1 %tobool.i, i1 %cmp.i, i1 false
-  br i1 %or.cond.i, label %while.body.i, label %sane_truncate_line.exit, !llvm.loop !76
+  br i1 %or.cond.i, label %while.body.i, label %sane_truncate_line.exit, !llvm.loop !68
 
 sane_truncate_line.exit:                          ; preds = %while.body.i, %if.end46
   %17 = phi i64 [ 0, %if.end46 ], [ %16, %while.body.i ]
@@ -20378,7 +20376,7 @@ for.inc.i:                                        ; preds = %if.then36.i, %for.b
   %len.addr.1.i = phi i32 [ %dec.i, %if.then36.i ], [ %len.addr.064.i, %for.body.i ]
   %inc.i = add nuw nsw i32 %i.065.i, 1
   %exitcond.not.i = icmp eq i32 %inc.i, 3
-  br i1 %exitcond.not.i, label %for.cond38.preheader.i, label %for.body.i, !llvm.loop !77
+  br i1 %exitcond.not.i, label %for.cond38.preheader.i, label %for.body.i, !llvm.loop !69
 
 for.body45.i:                                     ; preds = %for.inc54.i, %for.body45.preheader.i
   %sub.ptr.lhs.cast3972.i = phi i64 [ %sub.ptr.lhs.cast39.i, %for.inc54.i ], [ %sub.ptr.lhs.cast3967.i, %for.body45.preheader.i ]
@@ -20396,7 +20394,7 @@ for.inc54.i:                                      ; preds = %for.body45.i, %for.
   %sub.ptr.lhs.cast39.i = ptrtoint ptr %ep.0.ptr.i to i64
   %sub.ptr.sub41.i = sub i64 %sub.ptr.lhs.cast39.i, %sub.ptr.rhs.cast40.i
   %cmp43.i = icmp slt i64 %sub.ptr.sub41.i, %conv42.i
-  br i1 %cmp43.i, label %for.body45.i, label %for.end55.i, !llvm.loop !78
+  br i1 %cmp43.i, label %for.body45.i, label %for.end55.i, !llvm.loop !70
 
 for.end55.i:                                      ; preds = %for.inc54.i, %for.body45.i
   %ep.0.idx.lcssa.i = phi i64 [ %29, %for.inc54.i ], [ %ep.0.idx70.i, %for.body45.i ]
@@ -20732,7 +20730,7 @@ entry:
 while.cond.i:                                     ; preds = %while.cond.i, %entry
   %call4.i = call i32 @git_deflate(ptr noundef nonnull %stream.i, i32 noundef 4) #31
   %cmp.i = icmp eq i32 %call4.i, 0
-  br i1 %cmp.i, label %while.cond.i, label %deflate_it.exit, !llvm.loop !79
+  br i1 %cmp.i, label %while.cond.i, label %deflate_it.exit, !llvm.loop !71
 
 deflate_it.exit:                                  ; preds = %while.cond.i
   call void @git_deflate_end(ptr noundef nonnull %stream.i) #31
@@ -20784,7 +20782,7 @@ if.then10:                                        ; preds = %diff_delta.exit
 while.cond.i44:                                   ; preds = %while.cond.i44, %if.then10
   %call4.i45 = call i32 @git_deflate(ptr noundef nonnull %stream.i35, i32 noundef 4) #31
   %cmp.i46 = icmp eq i32 %call4.i45, 0
-  br i1 %cmp.i46, label %while.cond.i44, label %if.end12, !llvm.loop !79
+  br i1 %cmp.i46, label %while.cond.i44, label %if.end12, !llvm.loop !71
 
 if.end12:                                         ; preds = %while.cond.i44
   call void @git_deflate_end(ptr noundef nonnull %stream.i35) #31
@@ -20858,7 +20856,7 @@ while.body:                                       ; preds = %while.body.lr.ph, %
   store i8 0, ptr %arrayidx47, align 1
   call fastcc void @emit_diff_symbol(ptr noundef %o, i32 noundef 3, ptr noundef nonnull %line, i32 noundef %inc, i32 noundef 0)
   %tobool24.not = icmp eq i64 %sub, 0
-  br i1 %tobool24.not, label %while.end, label %while.body, !llvm.loop !80
+  br i1 %tobool24.not, label %while.end, label %while.body, !llvm.loop !72
 
 while.end:                                        ; preds = %while.body, %if.end23
   call fastcc void @emit_diff_symbol(ptr noundef %o, i32 noundef 4, ptr noundef null, i32 noundef 0, i32 noundef 0)
@@ -21129,7 +21127,7 @@ append_emitted_diff_symbol.exit:                  ; preds = %do.end.i, %cond.tru
   %50 = load i32, ptr %nr, align 8
   %51 = sext i32 %50 to i64
   %cmp = icmp slt i64 %indvars.iv.next, %51
-  br i1 %cmp, label %for.body, label %for.cond11.preheader, !llvm.loop !81
+  br i1 %cmp, label %for.body, label %for.cond11.preheader, !llvm.loop !73
 
 for.body14:                                       ; preds = %for.cond11.preheader, %for.body14
   %indvars.iv26 = phi i64 [ %indvars.iv.next27, %for.body14 ], [ 0, %for.cond11.preheader ]
@@ -21141,7 +21139,7 @@ for.body14:                                       ; preds = %for.cond11.preheade
   %54 = load i32, ptr %nr, align 8
   %55 = sext i32 %54 to i64
   %cmp13 = icmp slt i64 %indvars.iv.next27, %55
-  br i1 %cmp13, label %for.body14, label %for.end20, !llvm.loop !82
+  br i1 %cmp13, label %for.body14, label %for.end20, !llvm.loop !74
 
 for.end20:                                        ; preds = %for.body14, %if.then8, %for.cond11.preheader
   store i32 0, ptr %nr, align 8
@@ -21329,8 +21327,8 @@ do.end:                                           ; preds = %entry.do.end_crit_e
   store i32 1, ptr %orig_nr, align 8
   %size20 = getelementptr inbounds i8, ptr %buffer, i64 8
   %6 = load i64, ptr %size20, align 8
-  %cmp21105 = icmp sgt i64 %6, 0
-  br i1 %cmp21105, label %for.body.lr.ph, label %for.end
+  %cmp21104 = icmp sgt i64 %6, 0
+  br i1 %cmp21104, label %for.body.lr.ph, label %for.end
 
 for.body.lr.ph:                                   ; preds = %do.end
   %tobool.not.i = icmp eq ptr %word_regex, null
@@ -21339,21 +21337,21 @@ for.body.lr.ph:                                   ; preds = %do.end
 
 for.body:                                         ; preds = %for.body.lr.ph, %do.end114
   %7 = phi i64 [ %6, %for.body.lr.ph ], [ %51, %do.end114 ]
-  %conv18108 = phi i64 [ 0, %for.body.lr.ph ], [ %idx.ext69, %do.end114 ]
-  %alloc.0107 = phi i64 [ 0, %for.body.lr.ph ], [ %alloc.2, %do.end114 ]
-  %storemerge49106 = phi i32 [ 0, %for.body.lr.ph ], [ %j.386, %do.end114 ]
+  %conv18107 = phi i64 [ 0, %for.body.lr.ph ], [ %idx.ext69, %do.end114 ]
+  %alloc.0106 = phi i64 [ 0, %for.body.lr.ph ], [ %alloc.2, %do.end114 ]
+  %storemerge49105 = phi i32 [ 0, %for.body.lr.ph ], [ %j.385, %do.end114 ]
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %match.i)
   br i1 %tobool.not.i, label %while.end.i, label %while.body.i.preheader
 
 while.body.i.preheader:                           ; preds = %for.body
-  %.pre115 = load ptr, ptr %buffer, align 8
+  %.pre114 = load ptr, ptr %buffer, align 8
   br label %while.body.i
 
 while.body.i:                                     ; preds = %while.body.i.preheader, %if.then27.i
-  %8 = phi ptr [ %11, %if.then27.i ], [ %.pre115, %while.body.i.preheader ]
-  %i.0 = phi i32 [ %inc.i, %if.then27.i ], [ %storemerge49106, %while.body.i.preheader ]
+  %8 = phi ptr [ %11, %if.then27.i ], [ %.pre114, %while.body.i.preheader ]
+  %i.0 = phi i32 [ %inc.i, %if.then27.i ], [ %storemerge49105, %while.body.i.preheader ]
   %9 = phi i64 [ %14, %if.then27.i ], [ %7, %while.body.i.preheader ]
-  %conv39.i = phi i64 [ %conv.i, %if.then27.i ], [ %conv18108, %while.body.i.preheader ]
+  %conv39.i = phi i64 [ %conv.i, %if.then27.i ], [ %conv18107, %while.body.i.preheader ]
   %add.ptr.i = getelementptr inbounds i8, ptr %8, i64 %conv39.i
   store i32 0, ptr %match.i, align 4
   %10 = trunc i64 %9 to i32
@@ -21394,22 +21392,22 @@ if.then27.i:                                      ; preds = %if.then.i51
   br i1 %cmp.i, label %while.body.i, label %while.end.i
 
 while.end.i:                                      ; preds = %if.then27.i, %for.body
-  %i.1 = phi i32 [ %storemerge49106, %for.body ], [ %inc.i, %if.then27.i ]
-  %conv3340.pre-phi.i = phi i64 [ %conv18108, %for.body ], [ %conv.i, %if.then27.i ]
+  %i.1 = phi i32 [ %storemerge49105, %for.body ], [ %inc.i, %if.then27.i ]
+  %conv3340.pre-phi.i = phi i64 [ %conv18107, %for.body ], [ %conv.i, %if.then27.i ]
   %15 = phi i64 [ %7, %for.body ], [ %14, %if.then27.i ]
   %cmp3541.i = icmp sgt i64 %15, %conv3340.pre-phi.i
   br i1 %cmp3541.i, label %land.rhs37.i.preheader, label %find_word_boundaries.exit.thread
 
 land.rhs37.i.preheader:                           ; preds = %while.end.i
   %16 = load ptr, ptr %buffer, align 8
-  %arrayidx39.i98 = getelementptr inbounds i8, ptr %16, i64 %conv3340.pre-phi.i
-  %17 = load i8, ptr %arrayidx39.i98, align 1
-  %idxprom40.i99 = zext i8 %17 to i64
-  %arrayidx41.i100 = getelementptr inbounds [256 x i8], ptr @sane_ctype, i64 0, i64 %idxprom40.i99
-  %18 = load i8, ptr %arrayidx41.i100, align 1
+  %arrayidx39.i97 = getelementptr inbounds i8, ptr %16, i64 %conv3340.pre-phi.i
+  %17 = load i8, ptr %arrayidx39.i97, align 1
+  %idxprom40.i98 = zext i8 %17 to i64
+  %arrayidx41.i99 = getelementptr inbounds [256 x i8], ptr @sane_ctype, i64 0, i64 %idxprom40.i98
+  %18 = load i8, ptr %arrayidx41.i99, align 1
   %19 = and i8 %18, 1
-  %cmp43.not.i101 = icmp eq i8 %19, 0
-  br i1 %cmp43.not.i101, label %while.cond56.i.preheader, label %while.body46.i
+  %cmp43.not.i100 = icmp eq i8 %19, 0
+  br i1 %cmp43.not.i100, label %while.cond56.i.preheader, label %while.body46.i
 
 land.rhs37.i:                                     ; preds = %while.body46.i
   %arrayidx39.i = getelementptr inbounds i8, ptr %16, i64 %indvars.iv.next.i
@@ -21419,7 +21417,7 @@ land.rhs37.i:                                     ; preds = %while.body46.i
   %21 = load i8, ptr %arrayidx41.i, align 1
   %22 = and i8 %21, 1
   %cmp43.not.i = icmp eq i8 %22, 0
-  br i1 %cmp43.not.i, label %while.cond56.i.preheader.loopexit, label %while.body46.i, !llvm.loop !83
+  br i1 %cmp43.not.i, label %while.cond56.i.preheader.loopexit, label %while.body46.i, !llvm.loop !75
 
 while.cond56.i.preheader.loopexit:                ; preds = %land.rhs37.i
   %23 = trunc nsw i64 %indvars.iv.next.i to i32
@@ -21434,15 +21432,15 @@ while.cond56.i.preheader:                         ; preds = %while.cond56.i.preh
   br label %while.cond56.i
 
 while.body46.i:                                   ; preds = %land.rhs37.i.preheader, %land.rhs37.i
-  %indvars.iv.i102 = phi i64 [ %indvars.iv.next.i, %land.rhs37.i ], [ %conv3340.pre-phi.i, %land.rhs37.i.preheader ]
-  %indvars.iv.next.i = add nsw i64 %indvars.iv.i102, 1
+  %indvars.iv.i101 = phi i64 [ %indvars.iv.next.i, %land.rhs37.i ], [ %conv3340.pre-phi.i, %land.rhs37.i.preheader ]
+  %indvars.iv.next.i = add nsw i64 %indvars.iv.i101, 1
   %cmp35.i = icmp sgt i64 %15, %indvars.iv.next.i
-  br i1 %cmp35.i, label %land.rhs37.i, label %find_word_boundaries.exit.thread, !llvm.loop !83
+  br i1 %cmp35.i, label %land.rhs37.i, label %find_word_boundaries.exit.thread, !llvm.loop !75
 
 while.cond56.i:                                   ; preds = %while.cond56.i.preheader, %land.rhs61.i
   %indvars.iv51.i = phi i64 [ %indvars.iv.next52.i, %land.rhs61.i ], [ %indvars.iv.i.lcssa, %while.cond56.i.preheader ]
   %exitcond.not = icmp eq i64 %indvars.iv51.i, %25
-  br i1 %exitcond.not, label %find_word_boundaries.exit.thread80, label %land.rhs61.i
+  br i1 %exitcond.not, label %find_word_boundaries.exit.thread79, label %land.rhs61.i
 
 land.rhs61.i:                                     ; preds = %while.cond56.i
   %indvars.iv.next52.i = add nsw i64 %indvars.iv51.i, 1
@@ -21453,13 +21451,13 @@ land.rhs61.i:                                     ; preds = %while.cond56.i
   %27 = load i8, ptr %arrayidx66.i, align 1
   %28 = and i8 %27, 1
   %cmp69.not.i = icmp eq i8 %28, 0
-  br i1 %cmp69.not.i, label %while.cond56.i, label %find_word_boundaries.exit.thread80, !llvm.loop !84
+  br i1 %cmp69.not.i, label %while.cond56.i, label %find_word_boundaries.exit.thread79, !llvm.loop !76
 
 find_word_boundaries.exit.thread:                 ; preds = %while.end.i, %while.body.i, %while.body46.i
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %match.i)
   br label %for.end
 
-find_word_boundaries.exit.thread80:               ; preds = %while.cond56.i, %land.rhs61.i
+find_word_boundaries.exit.thread79:               ; preds = %while.cond56.i, %land.rhs61.i
   %indvars.iv.next52.i.lcssa = phi i64 [ %smax, %while.cond56.i ], [ %indvars.iv.next52.i, %land.rhs61.i ]
   %29 = trunc nsw i64 %indvars.iv.next52.i.lcssa to i32
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %match.i)
@@ -21470,17 +21468,17 @@ find_word_boundaries.exit:                        ; preds = %if.then.i51
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %match.i)
   br i1 %cmp28.i.not, label %for.end, label %do.body27
 
-do.body27:                                        ; preds = %find_word_boundaries.exit.thread80, %find_word_boundaries.exit
-  %30 = phi ptr [ %16, %find_word_boundaries.exit.thread80 ], [ %11, %find_word_boundaries.exit ]
-  %j.386 = phi i32 [ %29, %find_word_boundaries.exit.thread80 ], [ %conv21.i, %find_word_boundaries.exit ]
-  %i.385 = phi i32 [ %i.2.lcssa, %find_word_boundaries.exit.thread80 ], [ %add24.i, %find_word_boundaries.exit ]
+do.body27:                                        ; preds = %find_word_boundaries.exit.thread79, %find_word_boundaries.exit
+  %30 = phi ptr [ %16, %find_word_boundaries.exit.thread79 ], [ %11, %find_word_boundaries.exit ]
+  %j.385 = phi i32 [ %29, %find_word_boundaries.exit.thread79 ], [ %conv21.i, %find_word_boundaries.exit ]
+  %i.384 = phi i32 [ %i.2.lcssa, %find_word_boundaries.exit.thread79 ], [ %add24.i, %find_word_boundaries.exit ]
   %31 = load i32, ptr %orig_nr, align 8
   %32 = load i32, ptr %orig_alloc, align 4
   %cmp31.not = icmp slt i32 %31, %32
   br i1 %cmp31.not, label %do.body27.do.end60_crit_edge, label %if.then33
 
 do.body27.do.end60_crit_edge:                     ; preds = %do.body27
-  %.pre117 = load ptr, ptr %orig15, align 8
+  %.pre116 = load ptr, ptr %orig15, align 8
   br label %do.end60
 
 if.then33:                                        ; preds = %do.body27
@@ -21504,21 +21502,21 @@ st_mult.exit56:                                   ; preds = %if.then33
   %mul.i54 = shl nuw nsw i64 %conv55, 4
   %call57 = call ptr @xrealloc(ptr noundef %34, i64 noundef %mul.i54) #31
   store ptr %call57, ptr %orig15, align 8
-  %.pre116 = load ptr, ptr %buffer, align 8
-  %.pre118 = load i32, ptr %orig_nr, align 8
+  %.pre115 = load ptr, ptr %buffer, align 8
+  %.pre117 = load i32, ptr %orig_nr, align 8
   br label %do.end60
 
 do.end60:                                         ; preds = %do.body27.do.end60_crit_edge, %st_mult.exit56
-  %35 = phi i32 [ %31, %do.body27.do.end60_crit_edge ], [ %.pre118, %st_mult.exit56 ]
-  %36 = phi ptr [ %.pre117, %do.body27.do.end60_crit_edge ], [ %call57, %st_mult.exit56 ]
-  %37 = phi ptr [ %30, %do.body27.do.end60_crit_edge ], [ %.pre116, %st_mult.exit56 ]
-  %idx.ext = sext i32 %i.385 to i64
+  %35 = phi i32 [ %31, %do.body27.do.end60_crit_edge ], [ %.pre117, %st_mult.exit56 ]
+  %36 = phi ptr [ %.pre116, %do.body27.do.end60_crit_edge ], [ %call57, %st_mult.exit56 ]
+  %37 = phi ptr [ %30, %do.body27.do.end60_crit_edge ], [ %.pre115, %st_mult.exit56 ]
+  %idx.ext = sext i32 %i.384 to i64
   %add.ptr = getelementptr inbounds i8, ptr %37, i64 %idx.ext
   %idxprom = sext i32 %35 to i64
   %arrayidx65 = getelementptr inbounds %struct.diff_words_orig, ptr %36, i64 %idxprom
   store ptr %add.ptr, ptr %arrayidx65, align 8
   %38 = load ptr, ptr %buffer, align 8
-  %idx.ext69 = sext i32 %j.386 to i64
+  %idx.ext69 = sext i32 %j.385 to i64
   %add.ptr70 = getelementptr inbounds i8, ptr %38, i64 %idx.ext69
   %39 = load ptr, ptr %orig15, align 8
   %40 = load i32, ptr %orig_nr, align 8
@@ -21531,30 +21529,30 @@ do.end60:                                         ; preds = %do.body27.do.end60_
   %42 = load i64, ptr %size, align 8
   %add80 = sub nsw i64 %idx.ext69, %idx.ext
   %sub = add i64 %add80, %42
-  %cmp83.not = icmp slt i64 %sub, %alloc.0107
-  %.pre119 = load ptr, ptr %out, align 8
-  br i1 %cmp83.not, label %do.end114, label %st_mult.exit61
+  %cmp83.not = icmp slt i64 %sub, %alloc.0106
+  %.pre118 = load ptr, ptr %out, align 8
+  br i1 %cmp83.not, label %do.end114, label %st_mult.exit60
 
-st_mult.exit61:                                   ; preds = %do.end60
-  %43 = mul i64 %alloc.0107, 3
+st_mult.exit60:                                   ; preds = %do.end60
+  %43 = mul i64 %alloc.0106, 3
   %mul87 = add i64 %43, 48
   %div88 = sdiv i64 %mul87, 2
   %cmp95.not = icmp sgt i64 %div88, %sub
   %add82 = add nsw i64 %sub, 1
   %div88.add82 = select i1 %cmp95.not, i64 %div88, i64 %add82
-  %call111 = call ptr @xrealloc(ptr noundef %.pre119, i64 noundef %div88.add82) #31
+  %call111 = call ptr @xrealloc(ptr noundef %.pre118, i64 noundef %div88.add82) #31
   store ptr %call111, ptr %out, align 8
-  %.pre120 = load i64, ptr %size, align 8
+  %.pre119 = load i64, ptr %size, align 8
   br label %do.end114
 
-do.end114:                                        ; preds = %do.end60, %st_mult.exit61
-  %44 = phi i64 [ %.pre120, %st_mult.exit61 ], [ %42, %do.end60 ]
-  %45 = phi ptr [ %call111, %st_mult.exit61 ], [ %.pre119, %do.end60 ]
-  %alloc.2 = phi i64 [ %div88.add82, %st_mult.exit61 ], [ %alloc.0107, %do.end60 ]
+do.end114:                                        ; preds = %do.end60, %st_mult.exit60
+  %44 = phi i64 [ %.pre119, %st_mult.exit60 ], [ %42, %do.end60 ]
+  %45 = phi ptr [ %call111, %st_mult.exit60 ], [ %.pre118, %do.end60 ]
+  %alloc.2 = phi i64 [ %div88.add82, %st_mult.exit60 ], [ %alloc.0106, %do.end60 ]
   %add.ptr117 = getelementptr inbounds i8, ptr %45, i64 %44
   %46 = load ptr, ptr %buffer, align 8
   %add.ptr121 = getelementptr inbounds i8, ptr %46, i64 %idx.ext
-  %sub122 = sub nsw i32 %j.386, %i.385
+  %sub122 = sub nsw i32 %j.385, %i.384
   %conv123 = sext i32 %sub122 to i64
   call void @llvm.memcpy.p0.p0.i64(ptr align 1 %add.ptr117, ptr align 1 %add.ptr121, i64 %conv123, i1 false)
   %47 = load ptr, ptr %out, align 8
@@ -21569,7 +21567,7 @@ do.end114:                                        ; preds = %do.end60, %st_mult.
   store i64 %add135, ptr %size, align 8
   %51 = load i64, ptr %size20, align 8
   %cmp21 = icmp sgt i64 %51, %idx.ext69
-  br i1 %cmp21, label %for.body, label %for.end, !llvm.loop !85
+  br i1 %cmp21, label %for.body, label %for.end, !llvm.loop !77
 
 for.end:                                          ; preds = %do.end114, %find_word_boundaries.exit, %do.end, %find_word_boundaries.exit.thread
   ret void
@@ -21983,13 +21981,13 @@ land.end:                                         ; preds = %oideq.exit, %land.l
   %lnot = phi i1 [ true, %land.lhs.true32 ], [ true, %if.end27 ], [ %retval.0.in.i.i, %oideq.exit ]
   %repo = getelementptr inbounds i8, ptr %o, i64 576
   %29 = load ptr, ptr %repo, align 8
-  %call41 = tail call i32 @diff_filespec_is_binary(ptr noundef %29, ptr noundef nonnull %one), !range !26
+  %call41 = tail call i32 @diff_filespec_is_binary(ptr noundef %29, ptr noundef nonnull %one)
   %tobool42.not = icmp eq i32 %call41, 0
   br i1 %tobool42.not, label %lor.lhs.false43, label %if.then47
 
 lor.lhs.false43:                                  ; preds = %land.end
   %30 = load ptr, ptr %repo, align 8
-  %call45 = tail call i32 @diff_filespec_is_binary(ptr noundef %30, ptr noundef nonnull %two), !range !26
+  %call45 = tail call i32 @diff_filespec_is_binary(ptr noundef %30, ptr noundef nonnull %two)
   %tobool46.not = icmp eq i32 %call45, 0
   br i1 %tobool46.not, label %if.else60, label %if.then47
 
@@ -22014,7 +22012,7 @@ if.else:                                          ; preds = %if.then47
   br i1 %cmp.not.i71, label %diff_filespec_size.exit, label %if.end.i72
 
 if.end.i72:                                       ; preds = %if.else
-  %call.i73 = call i32 @diff_populate_filespec(ptr noundef %31, ptr noundef nonnull %two, ptr noundef nonnull %dpf_options.i), !range !8
+  %call.i73 = call i32 @diff_populate_filespec(ptr noundef %31, ptr noundef nonnull %two, ptr noundef nonnull %dpf_options.i)
   %size.i = getelementptr inbounds i8, ptr %two, i64 64
   %33 = load i64, ptr %size.i, align 8
   br label %diff_filespec_size.exit
@@ -22033,7 +22031,7 @@ diff_filespec_size.exit:                          ; preds = %if.else, %if.end.i7
   br i1 %cmp.not.i77, label %diff_filespec_size.exit82, label %if.end.i78
 
 if.end.i78:                                       ; preds = %diff_filespec_size.exit
-  %call.i79 = call i32 @diff_populate_filespec(ptr noundef %34, ptr noundef nonnull %one, ptr noundef nonnull %dpf_options.i75), !range !8
+  %call.i79 = call i32 @diff_populate_filespec(ptr noundef %34, ptr noundef nonnull %one, ptr noundef nonnull %dpf_options.i75)
   %size.i80 = getelementptr inbounds i8, ptr %one, i64 64
   %36 = load i64, ptr %size.i80, align 8
   br label %diff_filespec_size.exit82
@@ -22050,9 +22048,9 @@ if.else60:                                        ; preds = %lor.lhs.false43
 
 if.then62:                                        ; preds = %if.else60
   %37 = load ptr, ptr %repo, align 8
-  %call64 = tail call i32 @diff_populate_filespec(ptr noundef %37, ptr noundef nonnull %one, ptr noundef null), !range !8
+  %call64 = tail call i32 @diff_populate_filespec(ptr noundef %37, ptr noundef nonnull %one, ptr noundef null)
   %38 = load ptr, ptr %repo, align 8
-  %call66 = tail call i32 @diff_populate_filespec(ptr noundef %38, ptr noundef nonnull %two, ptr noundef null), !range !8
+  %call66 = tail call i32 @diff_populate_filespec(ptr noundef %38, ptr noundef nonnull %two, ptr noundef null)
   %size = getelementptr inbounds i8, ptr %one, i64 64
   %39 = load i64, ptr %size, align 8
   %conv68 = trunc i64 %39 to i32
@@ -22075,7 +22073,7 @@ while.body.i:                                     ; preds = %while.body.i.prehea
   %inc.i84 = zext i1 %cmp1.i to i32
   %count.1.i = add nuw nsw i32 %count.06.i, %inc.i84
   %cmp.i = icmp ugt i32 %size.addr.05.i, 1
-  br i1 %cmp.i, label %while.body.i, label %while.cond.while.end_crit_edge.i, !llvm.loop !67
+  br i1 %cmp.i, label %while.body.i, label %while.cond.while.end_crit_edge.i, !llvm.loop !59
 
 while.cond.while.end_crit_edge.i:                 ; preds = %while.body.i
   %42 = xor i1 %cmp1.i, true
@@ -22110,7 +22108,7 @@ while.body.i87:                                   ; preds = %while.body.i87.preh
   %inc.i94 = zext i1 %cmp1.i93 to i32
   %count.1.i95 = add nuw nsw i32 %count.06.i88, %inc.i94
   %cmp.i96 = icmp ugt i32 %size.addr.05.i89, 1
-  br i1 %cmp.i96, label %while.body.i87, label %while.cond.while.end_crit_edge.i97, !llvm.loop !67
+  br i1 %cmp.i96, label %while.body.i87, label %while.cond.while.end_crit_edge.i97, !llvm.loop !59
 
 while.cond.while.end_crit_edge.i97:               ; preds = %while.body.i87
   %49 = xor i1 %cmp1.i93, true
@@ -22134,7 +22132,7 @@ if.then.i105:                                     ; preds = %if.then80
 
 if.else.i101:                                     ; preds = %if.then80
   %54 = load ptr, ptr %repo, align 8
-  %call.i102 = tail call i32 @diff_populate_filespec(ptr noundef %54, ptr noundef nonnull %one, ptr noundef null), !range !8
+  %call.i102 = tail call i32 @diff_populate_filespec(ptr noundef %54, ptr noundef nonnull %one, ptr noundef null)
   %tobool.not.i103 = icmp eq i32 %call.i102, 0
   br i1 %tobool.not.i103, label %if.end3.i, label %if.then90
 
@@ -22161,7 +22159,7 @@ if.then.i118:                                     ; preds = %lor.lhs.false85
 
 if.else.i108:                                     ; preds = %lor.lhs.false85
   %58 = load ptr, ptr %repo, align 8
-  %call.i109 = tail call i32 @diff_populate_filespec(ptr noundef %58, ptr noundef nonnull %two, ptr noundef null), !range !8
+  %call.i109 = tail call i32 @diff_populate_filespec(ptr noundef %58, ptr noundef nonnull %two, ptr noundef null)
   %tobool.not.i110 = icmp eq i32 %call.i109, 0
   br i1 %tobool.not.i110, label %if.end3.i112, label %if.then90
 
@@ -22407,7 +22405,7 @@ if.end11:                                         ; preds = %if.end11.sink.split
 declare void @set_diffopt_flags_from_submodule_config(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @diff_filespec_is_identical(ptr noundef %r, ptr noundef %one, ptr noundef %two) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @diff_filespec_is_identical(ptr noundef %r, ptr noundef %one, ptr noundef %two) unnamed_addr #0 {
 entry:
   %mode = getelementptr inbounds i8, ptr %one, i64 80
   %0 = load i16, ptr %mode, align 8
@@ -22416,12 +22414,12 @@ entry:
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %call = tail call i32 @diff_populate_filespec(ptr noundef %r, ptr noundef nonnull %one, ptr noundef null), !range !8
+  %call = tail call i32 @diff_populate_filespec(ptr noundef %r, ptr noundef nonnull %one, ptr noundef null)
   %tobool.not = icmp eq i32 %call, 0
   br i1 %tobool.not, label %if.end3, label %return
 
 if.end3:                                          ; preds = %if.end
-  %call4 = tail call i32 @diff_populate_filespec(ptr noundef %r, ptr noundef %two, ptr noundef null), !range !8
+  %call4 = tail call i32 @diff_populate_filespec(ptr noundef %r, ptr noundef %two, ptr noundef null)
   %tobool5.not = icmp eq i32 %call4, 0
   br i1 %tobool5.not, label %if.end7, label %return
 
@@ -22523,26 +22521,26 @@ attributes #34 = { nounwind willreturn memory(none) }
 !4 = !{i32 7, !"frame-pointer", i32 2}
 !5 = distinct !{!5, !6}
 !6 = !{!"llvm.loop.mustprogress"}
-!7 = !{i32 -1, i32 5}
-!8 = !{i32 -1, i32 1}
-!9 = !{i64 -1, i64 32769}
+!7 = distinct !{!7, !6}
+!8 = distinct !{!8, !6}
+!9 = distinct !{!9, !6}
 !10 = distinct !{!10, !6}
 !11 = distinct !{!11, !6}
 !12 = distinct !{!12, !6}
 !13 = distinct !{!13, !6}
 !14 = distinct !{!14, !6}
-!15 = !{i32 0, i32 2}
+!15 = distinct !{!15, !6}
 !16 = distinct !{!16, !6}
-!17 = !{i32 0, i32 5}
-!18 = !{i32 0, i32 4}
-!19 = !{i32 0, i32 3}
+!17 = distinct !{!17, !6}
+!18 = distinct !{!18, !6}
+!19 = distinct !{!19, !6}
 !20 = distinct !{!20, !6}
 !21 = distinct !{!21, !6}
 !22 = distinct !{!22, !6}
 !23 = distinct !{!23, !6}
 !24 = distinct !{!24, !6}
 !25 = distinct !{!25, !6}
-!26 = !{i32 -2, i32 2}
+!26 = distinct !{!26, !6}
 !27 = distinct !{!27, !6}
 !28 = distinct !{!28, !6}
 !29 = distinct !{!29, !6}
@@ -22594,11 +22592,3 @@ attributes #34 = { nounwind willreturn memory(none) }
 !75 = distinct !{!75, !6}
 !76 = distinct !{!76, !6}
 !77 = distinct !{!77, !6}
-!78 = distinct !{!78, !6}
-!79 = distinct !{!79, !6}
-!80 = distinct !{!80, !6}
-!81 = distinct !{!81, !6}
-!82 = distinct !{!82, !6}
-!83 = distinct !{!83, !6}
-!84 = distinct !{!84, !6}
-!85 = distinct !{!85, !6}
