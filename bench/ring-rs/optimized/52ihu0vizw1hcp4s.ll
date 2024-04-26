@@ -788,7 +788,7 @@ define hidden void @_ZN4core5array5drain16drain_array_with17he4187106f211762fE(p
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define hidden noundef i64 @"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17haa4678cfcc20381dE.llvm.5814777820638942741"(i64 noundef returned %0, ptr noalias noundef readonly align 8 dereferenceable(24) %1) unnamed_addr #3 personality ptr @rust_eh_personality {
+define hidden noundef range(i64 1, 0) i64 @"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17haa4678cfcc20381dE.llvm.5814777820638942741"(i64 noundef returned %0, ptr noalias noundef readonly align 8 dereferenceable(24) %1) unnamed_addr #3 personality ptr @rust_eh_personality {
   %3 = alloca { {} }, align 1
   %4 = icmp eq i64 %0, 0
   br i1 %4, label %6, label %5
@@ -1578,7 +1578,7 @@ _ZN4ring2io10der_writer22write_positive_integer17h8e0f40f823e67712E.exit6: ; pre
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
-define noundef i64 @_ZN4ring3rsa10public_key9PublicKey11modulus_len17hb94b7274b4bb0598E(ptr noalias nocapture noundef readonly align 8 dereferenceable(80) %0) unnamed_addr #7 {
+define noundef range(i64 0, 2305843009213693953) i64 @_ZN4ring3rsa10public_key9PublicKey11modulus_len17hb94b7274b4bb0598E(ptr noalias nocapture noundef readonly align 8 dereferenceable(80) %0) unnamed_addr #7 {
   %2 = getelementptr inbounds i8, ptr %0, i64 32
   %3 = load i64, ptr %2, align 8, !alias.scope !425, !noundef !7
   %4 = and i64 %3, 7
@@ -1862,7 +1862,7 @@ define hidden { ptr, i64 } @_ZN4ring3rsa10public_key5Inner12exponentiate17hcd4c5
 66:                                               ; preds = %71, %65
   %.sroa.02.1 = phi ptr [ null, %71 ], [ %52, %65 ]
   %67 = insertvalue { ptr, i64 } poison, ptr %.sroa.02.1, 0
-  %68 = insertvalue { ptr, i64 } %67, i64 %21, 1
+  %68 = insertvalue { ptr, i64 } %67, i64 %2, 1
   ret { ptr, i64 } %68
 
 69:                                               ; preds = %.body

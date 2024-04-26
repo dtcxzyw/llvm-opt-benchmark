@@ -6603,7 +6603,7 @@ After_End_Of_Data.exit:                           ; preds = %17, %19
   %35 = load ptr, ptr %28, align 8
   %36 = tail call i32 @winsnstr(ptr noundef %35, ptr noundef nonnull %26, i32 noundef 1) #13
   tail call void @free(ptr noundef nonnull %26) #13
-  br label %105
+  br label %104
 
 37:                                               ; preds = %After_End_Of_Data.exit
   %38 = load i32, ptr %9, align 4
@@ -6615,7 +6615,7 @@ After_End_Of_Data.exit:                           ; preds = %17, %19
   %42 = load i16, ptr %6, align 8
   %43 = and i16 %42, 8
   %.not = icmp eq i16 %43, 0
-  br i1 %.not, label %53, label %44
+  br i1 %.not, label %.thread, label %44
 
 44:                                               ; preds = %41
   %45 = tail call fastcc zeroext i1 @Field_Grown(ptr noundef nonnull %6, i32 noundef 1)
@@ -6623,7 +6623,7 @@ After_End_Of_Data.exit:                           ; preds = %17, %19
 
 46:                                               ; preds = %44
   tail call void @free(ptr noundef nonnull %26) #13
-  br label %105
+  br label %104
 
 47:                                               ; preds = %44
   %48 = load ptr, ptr %7, align 8
@@ -6635,12 +6635,12 @@ After_End_Of_Data.exit:                           ; preds = %17, %19
   %.pre81 = add nsw i32 %.pre, -1
   br label %53
 
-53:                                               ; preds = %47, %41, %37
-  %.pre-phi = phi i32 [ %.pre81, %47 ], [ %39, %41 ], [ %39, %37 ]
-  %54 = phi i32 [ %49, %47 ], [ %11, %41 ], [ %11, %37 ]
-  %.071 = phi ptr [ %52, %47 ], [ %14, %41 ], [ %14, %37 ]
+53:                                               ; preds = %47, %37
+  %.pre-phi = phi i32 [ %.pre81, %47 ], [ %39, %37 ]
+  %54 = phi i32 [ %49, %47 ], [ %11, %37 ]
+  %.071 = phi ptr [ %52, %47 ], [ %14, %37 ]
   %55 = icmp sgt i32 %.pre-phi, %1
-  br i1 %55, label %56, label %104
+  br i1 %55, label %56, label %.thread
 
 56:                                               ; preds = %53
   %57 = sext i32 %54 to i64
@@ -6697,7 +6697,7 @@ After_Last_Whitespace_Character.exit:             ; preds = %77, %79
   %87 = add nsw i32 %1, 1
   %88 = tail call fastcc i32 @Insert_String(ptr noundef %0, i32 noundef %87, ptr noundef %.0.i77, i32 noundef %86)
   %89 = icmp eq i32 %88, 0
-  br i1 %89, label %90, label %104
+  br i1 %89, label %90, label %.thread
 
 90:                                               ; preds = %After_Last_Whitespace_Character.exit
   %91 = getelementptr inbounds i8, ptr %0, i64 56
@@ -6714,15 +6714,15 @@ After_Last_Whitespace_Character.exit:             ; preds = %77, %79
   %102 = load ptr, ptr %91, align 8
   %103 = tail call i32 @winsnstr(ptr noundef %102, ptr noundef nonnull %26, i32 noundef 1) #13
   tail call void @free(ptr noundef %26) #13
-  br label %105
+  br label %104
 
-104:                                              ; preds = %After_Last_Whitespace_Character.exit, %53
-  %.070 = phi i32 [ %88, %After_Last_Whitespace_Character.exit ], [ -12, %53 ]
+.thread:                                          ; preds = %41, %After_Last_Whitespace_Character.exit, %53
+  %.070 = phi i32 [ %88, %After_Last_Whitespace_Character.exit ], [ -12, %53 ], [ -12, %41 ]
   tail call void @free(ptr noundef %26) #13
-  br label %105
+  br label %104
 
-105:                                              ; preds = %104, %90, %46, %27
-  %.0 = phi i32 [ 0, %27 ], [ 0, %90 ], [ %.070, %104 ], [ -1, %46 ]
+104:                                              ; preds = %.thread, %90, %46, %27
+  %.0 = phi i32 [ 0, %27 ], [ 0, %90 ], [ %.070, %.thread ], [ -1, %46 ]
   ret i32 %.0
 }
 
