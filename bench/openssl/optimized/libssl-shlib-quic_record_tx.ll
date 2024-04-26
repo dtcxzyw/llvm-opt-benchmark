@@ -137,7 +137,7 @@ return:                                           ; preds = %entry, %if.end
 declare i32 @ossl_qrl_enc_level_set_provide_secret(ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef, ptr noundef, i64 noundef, i8 noundef zeroext, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @ossl_qtx_discard_enc_level(ptr noundef %qtx, i32 noundef %enc_level) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @ossl_qtx_discard_enc_level(ptr noundef %qtx, i32 noundef %enc_level) local_unnamed_addr #0 {
 entry:
   %cmp = icmp ugt i32 %enc_level, 3
   br i1 %cmp, label %return, label %if.end
@@ -153,7 +153,7 @@ return:                                           ; preds = %entry, %if.end
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @ossl_qtx_is_enc_level_provisioned(ptr noundef %qtx, i32 noundef %enc_level) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @ossl_qtx_is_enc_level_provisioned(ptr noundef %qtx, i32 noundef %enc_level) local_unnamed_addr #0 {
 entry:
   %el_set = getelementptr inbounds i8, ptr %qtx, i64 16
   %call = tail call ptr @ossl_qrl_enc_level_set_get(ptr noundef nonnull %el_set, i32 noundef %enc_level, i32 noundef 1) #11
@@ -165,7 +165,7 @@ entry:
 declare ptr @ossl_qrl_enc_level_set_get(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @ossl_qtx_calculate_ciphertext_payload_len(ptr noundef %qtx, i32 noundef %enc_level, i64 noundef %plaintext_len, ptr nocapture noundef writeonly %ciphertext_len) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @ossl_qtx_calculate_ciphertext_payload_len(ptr noundef %qtx, i32 noundef %enc_level, i64 noundef %plaintext_len, ptr nocapture noundef writeonly %ciphertext_len) local_unnamed_addr #0 {
 entry:
   %el_set = getelementptr inbounds i8, ptr %qtx, i64 16
   %call = tail call ptr @ossl_qrl_enc_level_set_get(ptr noundef nonnull %el_set, i32 noundef %enc_level, i32 noundef 1) #11
@@ -190,7 +190,7 @@ return:                                           ; preds = %entry, %if.end
 declare i32 @ossl_qrl_get_suite_cipher_tag_len(i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define i32 @ossl_qtx_calculate_plaintext_payload_len(ptr noundef %qtx, i32 noundef %enc_level, i64 noundef %ciphertext_len, ptr nocapture noundef writeonly %plaintext_len) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @ossl_qtx_calculate_plaintext_payload_len(ptr noundef %qtx, i32 noundef %enc_level, i64 noundef %ciphertext_len, ptr nocapture noundef writeonly %plaintext_len) local_unnamed_addr #0 {
 entry:
   %el_set = getelementptr inbounds i8, ptr %qtx, i64 16
   %call = tail call ptr @ossl_qrl_enc_level_set_get(ptr noundef nonnull %el_set, i32 noundef %enc_level, i32 noundef 1) #11
@@ -215,7 +215,7 @@ return:                                           ; preds = %if.end, %entry
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @ossl_qtx_write_pkt(ptr noundef %qtx, ptr nocapture noundef readonly %pkt) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @ossl_qtx_write_pkt(ptr noundef %qtx, ptr nocapture noundef readonly %pkt) local_unnamed_addr #0 {
 entry:
   %wpkt.i.i = alloca %struct.wpacket_st, align 8
   %l.i.i = alloca i64, align 8
@@ -926,12 +926,9 @@ if.end94.i:                                       ; preds = %if.end3.i.i, %if.en
   br i1 %cmp1.not22.i.i, label %if.end3.lr.ph.i.i, label %if.end106.i
 
 if.else100.i:                                     ; preds = %if.end84.i
-  %add.ptr87.i = getelementptr inbounds i8, ptr %add.ptr.i.i, i64 %add.i50.i
-  %sub.ptr.lhs.cast.i = ptrtoint ptr %add.ptr87.i to i64
-  %sub.ptr.rhs.cast.i = ptrtoint ptr %add.ptr.i to i64
-  %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
+  %gepdiff.i = sub nsw i64 %add.i50.i, %72
   %87 = load i64, ptr %pn.i, align 8
-  %call102.i = call fastcc i32 @qtx_encrypt_into_txe(ptr noundef nonnull %qtx, ptr noundef nonnull %cur.i, ptr noundef nonnull %retval.0.i91, i32 noundef %retval.0.i201235, i64 noundef %87, ptr noundef nonnull %add.ptr.i, i64 noundef %sub.ptr.sub.i, ptr noundef nonnull %ptrs.i), !range !8
+  %call102.i = call fastcc i32 @qtx_encrypt_into_txe(ptr noundef nonnull %qtx, ptr noundef nonnull %cur.i, ptr noundef nonnull %retval.0.i91, i32 noundef %retval.0.i201235, i64 noundef %87, ptr noundef nonnull %add.ptr.i, i64 noundef %gepdiff.i, ptr noundef nonnull %ptrs.i)
   %tobool103.not.i = icmp eq i32 %call102.i, 0
   br i1 %tobool103.not.i, label %err.i, label %if.end106.i
 
@@ -1248,7 +1245,7 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias
 declare void @BIO_ADDR_clear(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define i32 @ossl_qtx_flush_net(ptr nocapture noundef %qtx) local_unnamed_addr #0 {
+define range(i32 -2, 2) i32 @ossl_qtx_flush_net(ptr nocapture noundef %qtx) local_unnamed_addr #0 {
 entry:
   %msg = alloca [32 x %struct.bio_msg_st], align 16
   %wr = alloca i64, align 8
@@ -1310,7 +1307,7 @@ for.body:                                         ; preds = %for.body.preheader,
   %cmp7 = icmp ne ptr %txe.0, null
   %cmp8 = icmp ult i64 %i.029, 31
   %2 = and i1 %cmp7, %cmp8
-  br i1 %2, label %for.body, label %if.end11, !llvm.loop !9
+  br i1 %2, label %for.body, label %if.end11, !llvm.loop !8
 
 if.end11:                                         ; preds = %for.body
   %call12 = call i32 @ERR_set_mark() #11
@@ -1442,7 +1439,7 @@ qtx_pending_to_free.exit:                         ; preds = %if.end.i9.i, %if.th
   %inc43 = add nuw i64 %i.132, 1
   %23 = load i64, ptr %wr, align 8
   %cmp32 = icmp ult i64 %inc43, %23
-  br i1 %cmp32, label %for.body34, label %for.end44, !llvm.loop !10
+  br i1 %cmp32, label %for.body34, label %for.end44, !llvm.loop !9
 
 for.end44:                                        ; preds = %qtx_pending_to_free.exit, %if.end29
   %.lcssa = phi i64 [ 0, %if.end29 ], [ %23, %qtx_pending_to_free.exit ]
@@ -1475,7 +1472,7 @@ declare i64 @ERR_peek_last_error() local_unnamed_addr #1
 declare i32 @ERR_pop_to_mark() local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @ossl_qtx_pop_net(ptr nocapture noundef %qtx, ptr nocapture noundef writeonly %msg) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @ossl_qtx_pop_net(ptr nocapture noundef %qtx, ptr nocapture noundef writeonly %msg) local_unnamed_addr #0 {
 entry:
   %pending = getelementptr inbounds i8, ptr %qtx, i64 888
   %pending.val = load ptr, ptr %pending, align 8
@@ -1598,7 +1595,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define noundef i32 @ossl_qtx_set_mdpl(ptr nocapture noundef writeonly %qtx, i64 noundef %mdpl) local_unnamed_addr #2 {
+define range(i32 0, 2) i32 @ossl_qtx_set_mdpl(ptr nocapture noundef writeonly %qtx, i64 noundef %mdpl) local_unnamed_addr #2 {
 entry:
   %cmp = icmp ult i64 %mdpl, 1200
   br i1 %cmp, label %return, label %if.end
@@ -1760,7 +1757,7 @@ declare i32 @ossl_quic_wire_get_encoded_pkt_hdr_len(i64 noundef, ptr noundef) lo
 declare i32 @ossl_quic_wire_encode_pkt_hdr_pn(i64 noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @qtx_encrypt_into_txe(ptr noundef %qtx, ptr nocapture noundef %cur, ptr noundef %txe, i32 noundef %enc_level, i64 noundef %pn, ptr noundef %hdr, i64 noundef %hdr_len, ptr noundef %ptrs) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @qtx_encrypt_into_txe(ptr noundef %qtx, ptr nocapture noundef %cur, ptr noundef %txe, i32 noundef %enc_level, i64 noundef %pn, ptr noundef %hdr, i64 noundef %hdr_len, ptr noundef %ptrs) unnamed_addr #0 {
 entry:
   %l = alloca i32, align 4
   %l2 = alloca i32, align 4
@@ -1835,7 +1832,7 @@ for.body:                                         ; preds = %if.end35, %for.body
   store i8 %xor, ptr %arrayidx45, align 1
   %inc = add nuw nsw i64 %i.037, 1
   %exitcond.not = icmp eq i64 %inc, 8
-  br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !11
+  br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !10
 
 for.end:                                          ; preds = %for.body
   %call49 = call i32 @EVP_CipherInit_ex(ptr noundef nonnull %2, ptr noundef null, ptr noundef null, ptr noundef null, ptr noundef nonnull %nonce, i32 noundef 1) #11
@@ -2038,7 +2035,6 @@ attributes #11 = { nounwind }
 !5 = !{!"llvm.loop.mustprogress"}
 !6 = distinct !{!6, !5}
 !7 = distinct !{!7, !5}
-!8 = !{i32 0, i32 2}
+!8 = distinct !{!8, !5}
 !9 = distinct !{!9, !5}
 !10 = distinct !{!10, !5}
-!11 = distinct !{!11, !5}

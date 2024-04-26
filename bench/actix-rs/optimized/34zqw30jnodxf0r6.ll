@@ -233,7 +233,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @"switch.table._ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$GT$3fmt17h96a77f12c543d8f7E.45" = private unnamed_addr constant [12 x ptr] [ptr @anon.dd74362bd857f4caec9bddebb7ee75d1.34, ptr @anon.dd74362bd857f4caec9bddebb7ee75d1.35, ptr @anon.dd74362bd857f4caec9bddebb7ee75d1.36, ptr @anon.dd74362bd857f4caec9bddebb7ee75d1.37, ptr @anon.dd74362bd857f4caec9bddebb7ee75d1.38, ptr @anon.dd74362bd857f4caec9bddebb7ee75d1.39, ptr @anon.dd74362bd857f4caec9bddebb7ee75d1.40, ptr @anon.dd74362bd857f4caec9bddebb7ee75d1.41, ptr @anon.dd74362bd857f4caec9bddebb7ee75d1.42, ptr @anon.dd74362bd857f4caec9bddebb7ee75d1.43, ptr @anon.dd74362bd857f4caec9bddebb7ee75d1.44, ptr @anon.dd74362bd857f4caec9bddebb7ee75d1.45], align 8
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define internal fastcc noundef i8 @_ZN12tracing_core8callsite15DefaultCallsite8interest17hfb4783fc25b01e0cE(ptr noundef nonnull align 8 %0) unnamed_addr #0 {
+define internal fastcc noundef range(i8 0, 3) i8 @_ZN12tracing_core8callsite15DefaultCallsite8interest17hfb4783fc25b01e0cE(ptr noundef nonnull align 8 %0) unnamed_addr #0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 16
   %3 = load atomic i8, ptr %2 monotonic, align 8
   %4 = icmp ult i8 %3, 3
@@ -5955,7 +5955,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hfb4783fc25b01e0cE.exit331
 }
 
 ; Function Attrs: nonlazybind uwtable
-define noundef i16 @"_ZN114_$LT$actix_http..responses..response..Response$LT$$LP$$RP$$GT$$u20$as$u20$actix_http..h1..encoder..MessageType$GT$6status17hbc6783324a0419f3E"(ptr nocapture noundef nonnull readonly align 8 %0) unnamed_addr #2 {
+define noundef range(i16 1, 0) i16 @"_ZN114_$LT$actix_http..responses..response..Response$LT$$LP$$RP$$GT$$u20$as$u20$actix_http..h1..encoder..MessageType$GT$6status17hbc6783324a0419f3E"(ptr nocapture noundef nonnull readonly align 8 %0) unnamed_addr #2 {
   tail call void @llvm.experimental.noalias.scope.decl(metadata !755)
   %2 = load ptr, ptr %0, align 8, !alias.scope !755, !noundef !5
   %3 = icmp eq ptr %2, null

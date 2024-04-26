@@ -49,7 +49,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.35 = private unnamed_addr constant [3 x i8] c"ID\00", align 1
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef i32 @_Z25cmCommandArgument_yyparsePv(ptr noundef %0) local_unnamed_addr #0 {
+define dso_local noundef range(i32 0, 3) i32 @_Z25cmCommandArgument_yyparsePv(ptr noundef %0) local_unnamed_addr #0 {
   %2 = alloca %"struct.cmCommandArgumentParserHelper::ParserType", align 8
   %3 = alloca [10000 x i8], align 16
   %4 = alloca [10000 x %"struct.cmCommandArgumentParserHelper::ParserType"], align 16
@@ -67,7 +67,7 @@ define dso_local noundef i32 @_Z25cmCommandArgument_yyparsePv(ptr noundef %0) lo
   %.0154 = phi i32 [ %.5, %160 ], [ -2, %48 ]
   %.0173.add = add nsw i64 %.0173.idx, 1
   %.1174.ptr = getelementptr inbounds i8, ptr %3, i64 %.0173.add
-  %8 = trunc i32 %.0170 to i8
+  %8 = trunc nsw i32 %.0170 to i8
   store i8 %8, ptr %.1174.ptr, align 1
   %.not = icmp slt i64 %.0173.idx, 9998
   br i1 %.not, label %9, label %.loopexit
@@ -379,46 +379,46 @@ define dso_local noundef i32 @_Z25cmCommandArgument_yyparsePv(ptr noundef %0) lo
 171:                                              ; preds = %163, %165, %166
   %172 = phi i32 [ -2, %163 ], [ %170, %166 ], [ 2, %165 ]
   %173 = call fastcc noundef i32 @_ZL14yysyntax_errorPlPPcPK12yypcontext_t(ptr noundef nonnull %6, ptr nonnull %5, ptr nonnull %.1174.ptr.le, i32 %172)
-  switch i32 %173, label %181 [
+  switch i32 %173, label %182 [
     i32 0, label %174
     i32 -1, label %175
   ]
 
 174:                                              ; preds = %171
-  br label %181
+  br label %182
 
 175:                                              ; preds = %171
   %176 = load i64, ptr %6, align 8
   %177 = call noalias ptr @malloc(i64 noundef %176) #8
   %.not205 = icmp eq ptr %177, null
-  br i1 %.not205, label %180, label %178
+  br i1 %.not205, label %181, label %178
 
 178:                                              ; preds = %175
   %179 = call fastcc noundef i32 @_ZL14yysyntax_errorPlPPcPK12yypcontext_t(ptr noundef nonnull %6, ptr nonnull %177, ptr nonnull %.1174.ptr.le, i32 %172)
-  br label %181
+  %180 = icmp eq i32 %179, -2
+  br label %182
 
-180:                                              ; preds = %175
+181:                                              ; preds = %175
   store i64 128, ptr %6, align 8
-  br label %181
+  br label %182
 
-181:                                              ; preds = %171, %180, %178, %174
-  %.0220 = phi ptr [ %5, %171 ], [ %5, %180 ], [ %177, %178 ], [ %5, %174 ]
-  %.0153 = phi ptr [ @.str, %171 ], [ @.str, %180 ], [ %177, %178 ], [ %5, %174 ]
-  %.0 = phi i32 [ %173, %171 ], [ -2, %180 ], [ %179, %178 ], [ 0, %174 ]
-  %182 = call noundef ptr @_Z29cmCommandArgument_yyget_extraPv(ptr noundef %0)
-  call void @_ZN29cmCommandArgumentParserHelper5ErrorEPKc(ptr noundef nonnull align 8 dereferenceable(168) %182, ptr noundef nonnull %.0153)
-  %183 = icmp eq i32 %.0, -2
-  br i1 %183, label %.loopexit, label %.thread240
+182:                                              ; preds = %171, %181, %178, %174
+  %.0220 = phi ptr [ %5, %171 ], [ %5, %181 ], [ %177, %178 ], [ %5, %174 ]
+  %.0153 = phi ptr [ @.str, %171 ], [ @.str, %181 ], [ %177, %178 ], [ %5, %174 ]
+  %.0 = phi i1 [ true, %171 ], [ true, %181 ], [ %180, %178 ], [ false, %174 ]
+  %183 = call noundef ptr @_Z29cmCommandArgument_yyget_extraPv(ptr noundef %0)
+  call void @_ZN29cmCommandArgumentParserHelper5ErrorEPKc(ptr noundef nonnull align 8 dereferenceable(168) %183, ptr noundef nonnull %.0153)
+  br i1 %.0, label %.loopexit, label %.thread240
 
-.loopexit:                                        ; preds = %7, %181
-  %.3223 = phi ptr [ %.0220, %181 ], [ %5, %7 ]
+.loopexit:                                        ; preds = %7, %182
+  %.3223 = phi ptr [ %.0220, %182 ], [ %5, %7 ]
   %184 = call noundef ptr @_Z29cmCommandArgument_yyget_extraPv(ptr noundef %0)
   call void @_ZN29cmCommandArgumentParserHelper5ErrorEPKc(ptr noundef nonnull align 8 dereferenceable(168) %184, ptr noundef nonnull @.str.3)
   br label %.thread240
 
-.thread240:                                       ; preds = %181, %.loopexit
-  %.0162238 = phi i32 [ 2, %.loopexit ], [ 1, %181 ]
-  %.4224232 = phi ptr [ %.3223, %.loopexit ], [ %.0220, %181 ]
+.thread240:                                       ; preds = %182, %.loopexit
+  %.0162238 = phi i32 [ 2, %.loopexit ], [ 1, %182 ]
+  %.4224232 = phi ptr [ %.3223, %.loopexit ], [ %.0220, %182 ]
   %.not210 = icmp eq ptr %.4224232, %5
   br i1 %.not210, label %.thread240.thread, label %185
 
@@ -446,7 +446,7 @@ declare noundef ptr @_ZN29cmCommandArgumentParserHelper14ExpandVariableEPKc(ptr 
 declare noundef ptr @_ZN29cmCommandArgumentParserHelper19ExpandVariableForAtEPKc(ptr noundef nonnull align 8 dereferenceable(168), ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc noundef i32 @_ZL14yysyntax_errorPlPPcPK12yypcontext_t(ptr nocapture noundef %0, ptr %.0.val, ptr nocapture readonly %.0.val1, i32 %.8.val) unnamed_addr #2 {
+define internal fastcc noundef range(i32 -2, 1) i32 @_ZL14yysyntax_errorPlPPcPK12yypcontext_t(ptr nocapture noundef %0, ptr %.0.val, ptr nocapture readonly %.0.val1, i32 %.8.val) unnamed_addr #2 {
   %2 = alloca [5 x i32], align 16
   %.not.i = icmp eq i32 %.8.val, -2
   br i1 %.not.i, label %_ZL25yy_syntax_error_argumentsPK12yypcontext_tP15yysymbol_kind_ti.exit.thread8, label %3
@@ -493,7 +493,7 @@ define internal fastcc noundef i32 @_ZL14yysyntax_errorPlPPcPK12yypcontext_t(ptr
   %24 = add nsw i32 %.0333.i.i, 1
   %25 = sext i32 %.0333.i.i to i64
   %26 = getelementptr inbounds i32, ptr %4, i64 %25
-  %27 = trunc i64 %indvars.iv.i.i to i32
+  %27 = trunc nuw nsw i64 %indvars.iv.i.i to i32
   store i32 %27, ptr %26, align 4
   br label %28
 

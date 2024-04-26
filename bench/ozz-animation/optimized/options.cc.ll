@@ -524,13 +524,148 @@ define weak_odr dso_local void @_ZN3ozz7options8internal9RegistrerINS0_11TypedOp
   store ptr getelementptr inbounds inrange(-16, 48) ({ [8 x ptr] }, ptr @_ZTVN3ozz7options8internal9RegistrerINS0_11TypedOptionIbEEEE, i64 0, i32 0, i64 2), ptr %0, align 8
   %2 = load ptr, ptr @_ZN3ozz7options8internal12_GLOBAL__N_115GlobalRegistrer7parser_E, align 8
   %.not = icmp eq ptr %2, null
-  br i1 %.not, label %5, label %3
+  br i1 %.not, label %_ZN3ozz7options6Parser16UnregisterOptionEPNS0_6OptionE.exit, label %3
 
 3:                                                ; preds = %1
-  %4 = tail call noundef zeroext i1 @_ZN3ozz7options6Parser16UnregisterOptionEPNS0_6OptionE(ptr noundef nonnull align 8 dereferenceable(400) %2, ptr noundef nonnull %0)
-  br label %5
+  %4 = load i32, ptr getelementptr inbounds ([50 x ptr], ptr @_ZN3ozz7options8internal12_GLOBAL__N_115GlobalRegistrer12placeholder_E, i64 0, i64 32), align 16
+  %5 = sext i32 %4 to i64
+  %.idx6.i = shl nsw i64 %5, 3
+  %6 = getelementptr inbounds i8, ptr %2, i64 %.idx6.i
+  %7 = ashr i64 %5, 2
+  %8 = icmp sgt i64 %7, 0
+  br i1 %8, label %.lr.ph.i.i.i.i.i, label %._crit_edge.i.i.i.i.i
 
-5:                                                ; preds = %3, %1
+.lr.ph.i.i.i.i.i:                                 ; preds = %3
+  %9 = and i64 %.idx6.i, -32
+  %scevgep.i.i.i.i.i = getelementptr i8, ptr %2, i64 %9
+  br label %10
+
+10:                                               ; preds = %25, %.lr.ph.i.i.i.i.i
+  %.047.i.i.i.i.i = phi i64 [ %7, %.lr.ph.i.i.i.i.i ], [ %27, %25 ]
+  %.02946.i.i.i.i.i = phi ptr [ %2, %.lr.ph.i.i.i.i.i ], [ %26, %25 ]
+  %11 = load ptr, ptr %.02946.i.i.i.i.i, align 8
+  %12 = icmp eq ptr %11, %0
+  br i1 %12, label %_ZSt9__find_ifIPPN3ozz7options6OptionEN9__gnu_cxx5__ops16_Iter_equals_valIKS3_EEET_SA_SA_T0_.exit.i.i.i, label %13
+
+13:                                               ; preds = %10
+  %14 = getelementptr inbounds i8, ptr %.02946.i.i.i.i.i, i64 8
+  %15 = load ptr, ptr %14, align 8
+  %16 = icmp eq ptr %15, %0
+  br i1 %16, label %_ZSt9__find_ifIPPN3ozz7options6OptionEN9__gnu_cxx5__ops16_Iter_equals_valIKS3_EEET_SA_SA_T0_.exit.i.i.i.loopexit.split.loop.exit, label %17
+
+17:                                               ; preds = %13
+  %18 = getelementptr inbounds i8, ptr %.02946.i.i.i.i.i, i64 16
+  %19 = load ptr, ptr %18, align 8
+  %20 = icmp eq ptr %19, %0
+  br i1 %20, label %_ZSt9__find_ifIPPN3ozz7options6OptionEN9__gnu_cxx5__ops16_Iter_equals_valIKS3_EEET_SA_SA_T0_.exit.i.i.i.loopexit.split.loop.exit15, label %21
+
+21:                                               ; preds = %17
+  %22 = getelementptr inbounds i8, ptr %.02946.i.i.i.i.i, i64 24
+  %23 = load ptr, ptr %22, align 8
+  %24 = icmp eq ptr %23, %0
+  br i1 %24, label %_ZSt9__find_ifIPPN3ozz7options6OptionEN9__gnu_cxx5__ops16_Iter_equals_valIKS3_EEET_SA_SA_T0_.exit.i.i.i.loopexit.split.loop.exit17, label %25
+
+25:                                               ; preds = %21
+  %26 = getelementptr inbounds i8, ptr %.02946.i.i.i.i.i, i64 32
+  %27 = add nsw i64 %.047.i.i.i.i.i, -1
+  %28 = icmp sgt i64 %.047.i.i.i.i.i, 1
+  br i1 %28, label %10, label %._crit_edge.loopexit.i.i.i.i.i, !llvm.loop !9
+
+._crit_edge.loopexit.i.i.i.i.i:                   ; preds = %25
+  %29 = and i64 %5, 3
+  br label %._crit_edge.i.i.i.i.i
+
+._crit_edge.i.i.i.i.i:                            ; preds = %._crit_edge.loopexit.i.i.i.i.i, %3
+  %.pre-phi56.i.i.i.i.i = phi i64 [ %29, %._crit_edge.loopexit.i.i.i.i.i ], [ %5, %3 ]
+  %.029.lcssa.i.i.i.i.i = phi ptr [ %scevgep.i.i.i.i.i, %._crit_edge.loopexit.i.i.i.i.i ], [ %2, %3 ]
+  switch i64 %.pre-phi56.i.i.i.i.i, label %_ZSt6removeIPPN3ozz7options6OptionES3_ET_S5_S5_RKT0_.exit.i [
+    i64 3, label %30
+    i64 2, label %._crit_edge._crit_edge.i.i.i.i.i
+    i64 1, label %._crit_edge._crit_edge52.i.i.i.i.i
+  ]
+
+30:                                               ; preds = %._crit_edge.i.i.i.i.i
+  %31 = load ptr, ptr %.029.lcssa.i.i.i.i.i, align 8
+  %32 = icmp eq ptr %31, %0
+  br i1 %32, label %_ZSt9__find_ifIPPN3ozz7options6OptionEN9__gnu_cxx5__ops16_Iter_equals_valIKS3_EEET_SA_SA_T0_.exit.i.i.i, label %33
+
+33:                                               ; preds = %30
+  %34 = getelementptr inbounds i8, ptr %.029.lcssa.i.i.i.i.i, i64 8
+  br label %._crit_edge._crit_edge.i.i.i.i.i
+
+._crit_edge._crit_edge.i.i.i.i.i:                 ; preds = %33, %._crit_edge.i.i.i.i.i
+  %.1.i.i.i.i.i = phi ptr [ %34, %33 ], [ %.029.lcssa.i.i.i.i.i, %._crit_edge.i.i.i.i.i ]
+  %35 = load ptr, ptr %.1.i.i.i.i.i, align 8
+  %36 = icmp eq ptr %35, %0
+  br i1 %36, label %_ZSt9__find_ifIPPN3ozz7options6OptionEN9__gnu_cxx5__ops16_Iter_equals_valIKS3_EEET_SA_SA_T0_.exit.i.i.i, label %37
+
+37:                                               ; preds = %._crit_edge._crit_edge.i.i.i.i.i
+  %38 = getelementptr inbounds i8, ptr %.1.i.i.i.i.i, i64 8
+  br label %._crit_edge._crit_edge52.i.i.i.i.i
+
+._crit_edge._crit_edge52.i.i.i.i.i:               ; preds = %37, %._crit_edge.i.i.i.i.i
+  %.2.i.i.i.i.i = phi ptr [ %38, %37 ], [ %.029.lcssa.i.i.i.i.i, %._crit_edge.i.i.i.i.i ]
+  %39 = load ptr, ptr %.2.i.i.i.i.i, align 8
+  %40 = icmp eq ptr %39, %0
+  br i1 %40, label %_ZSt9__find_ifIPPN3ozz7options6OptionEN9__gnu_cxx5__ops16_Iter_equals_valIKS3_EEET_SA_SA_T0_.exit.i.i.i, label %_ZSt6removeIPPN3ozz7options6OptionES3_ET_S5_S5_RKT0_.exit.i
+
+_ZSt9__find_ifIPPN3ozz7options6OptionEN9__gnu_cxx5__ops16_Iter_equals_valIKS3_EEET_SA_SA_T0_.exit.i.i.i.loopexit.split.loop.exit: ; preds = %13
+  %41 = getelementptr inbounds i8, ptr %.02946.i.i.i.i.i, i64 8
+  br label %_ZSt9__find_ifIPPN3ozz7options6OptionEN9__gnu_cxx5__ops16_Iter_equals_valIKS3_EEET_SA_SA_T0_.exit.i.i.i
+
+_ZSt9__find_ifIPPN3ozz7options6OptionEN9__gnu_cxx5__ops16_Iter_equals_valIKS3_EEET_SA_SA_T0_.exit.i.i.i.loopexit.split.loop.exit15: ; preds = %17
+  %42 = getelementptr inbounds i8, ptr %.02946.i.i.i.i.i, i64 16
+  br label %_ZSt9__find_ifIPPN3ozz7options6OptionEN9__gnu_cxx5__ops16_Iter_equals_valIKS3_EEET_SA_SA_T0_.exit.i.i.i
+
+_ZSt9__find_ifIPPN3ozz7options6OptionEN9__gnu_cxx5__ops16_Iter_equals_valIKS3_EEET_SA_SA_T0_.exit.i.i.i.loopexit.split.loop.exit17: ; preds = %21
+  %43 = getelementptr inbounds i8, ptr %.02946.i.i.i.i.i, i64 24
+  br label %_ZSt9__find_ifIPPN3ozz7options6OptionEN9__gnu_cxx5__ops16_Iter_equals_valIKS3_EEET_SA_SA_T0_.exit.i.i.i
+
+_ZSt9__find_ifIPPN3ozz7options6OptionEN9__gnu_cxx5__ops16_Iter_equals_valIKS3_EEET_SA_SA_T0_.exit.i.i.i: ; preds = %10, %_ZSt9__find_ifIPPN3ozz7options6OptionEN9__gnu_cxx5__ops16_Iter_equals_valIKS3_EEET_SA_SA_T0_.exit.i.i.i.loopexit.split.loop.exit, %_ZSt9__find_ifIPPN3ozz7options6OptionEN9__gnu_cxx5__ops16_Iter_equals_valIKS3_EEET_SA_SA_T0_.exit.i.i.i.loopexit.split.loop.exit15, %_ZSt9__find_ifIPPN3ozz7options6OptionEN9__gnu_cxx5__ops16_Iter_equals_valIKS3_EEET_SA_SA_T0_.exit.i.i.i.loopexit.split.loop.exit17, %._crit_edge._crit_edge52.i.i.i.i.i, %._crit_edge._crit_edge.i.i.i.i.i, %30
+  %.028.i.i.i.i.i = phi ptr [ %.029.lcssa.i.i.i.i.i, %30 ], [ %.1.i.i.i.i.i, %._crit_edge._crit_edge.i.i.i.i.i ], [ %.2.i.i.i.i.i, %._crit_edge._crit_edge52.i.i.i.i.i ], [ %41, %_ZSt9__find_ifIPPN3ozz7options6OptionEN9__gnu_cxx5__ops16_Iter_equals_valIKS3_EEET_SA_SA_T0_.exit.i.i.i.loopexit.split.loop.exit ], [ %42, %_ZSt9__find_ifIPPN3ozz7options6OptionEN9__gnu_cxx5__ops16_Iter_equals_valIKS3_EEET_SA_SA_T0_.exit.i.i.i.loopexit.split.loop.exit15 ], [ %43, %_ZSt9__find_ifIPPN3ozz7options6OptionEN9__gnu_cxx5__ops16_Iter_equals_valIKS3_EEET_SA_SA_T0_.exit.i.i.i.loopexit.split.loop.exit17 ], [ %.02946.i.i.i.i.i, %10 ]
+  %44 = icmp eq ptr %.028.i.i.i.i.i, %6
+  %.01730.i.i.i = getelementptr inbounds i8, ptr %.028.i.i.i.i.i, i64 8
+  %.not31.i.i.i = icmp eq ptr %.01730.i.i.i, %6
+  %or.cond.i.i.i = select i1 %44, i1 true, i1 %.not31.i.i.i
+  br i1 %or.cond.i.i.i, label %_ZSt6removeIPPN3ozz7options6OptionES3_ET_S5_S5_RKT0_.exit.i, label %.lr.ph.i.i.i
+
+.lr.ph.i.i.i:                                     ; preds = %_ZSt9__find_ifIPPN3ozz7options6OptionEN9__gnu_cxx5__ops16_Iter_equals_valIKS3_EEET_SA_SA_T0_.exit.i.i.i, %49
+  %.01733.i.i.i = phi ptr [ %.017.i.i.i, %49 ], [ %.01730.i.i.i, %_ZSt9__find_ifIPPN3ozz7options6OptionEN9__gnu_cxx5__ops16_Iter_equals_valIKS3_EEET_SA_SA_T0_.exit.i.i.i ]
+  %.032.i.i.i = phi ptr [ %.1.i.i.i, %49 ], [ %.028.i.i.i.i.i, %_ZSt9__find_ifIPPN3ozz7options6OptionEN9__gnu_cxx5__ops16_Iter_equals_valIKS3_EEET_SA_SA_T0_.exit.i.i.i ]
+  %45 = load ptr, ptr %.01733.i.i.i, align 8
+  %46 = icmp eq ptr %45, %0
+  br i1 %46, label %49, label %47
+
+47:                                               ; preds = %.lr.ph.i.i.i
+  store ptr %45, ptr %.032.i.i.i, align 8
+  %48 = getelementptr inbounds i8, ptr %.032.i.i.i, i64 8
+  br label %49
+
+49:                                               ; preds = %47, %.lr.ph.i.i.i
+  %.1.i.i.i = phi ptr [ %.032.i.i.i, %.lr.ph.i.i.i ], [ %48, %47 ]
+  %.017.i.i.i = getelementptr inbounds i8, ptr %.01733.i.i.i, i64 8
+  %.not.i.i.i = icmp eq ptr %.017.i.i.i, %6
+  br i1 %.not.i.i.i, label %_ZSt6removeIPPN3ozz7options6OptionES3_ET_S5_S5_RKT0_.exit.loopexit.i, label %.lr.ph.i.i.i, !llvm.loop !10
+
+_ZSt6removeIPPN3ozz7options6OptionES3_ET_S5_S5_RKT0_.exit.loopexit.i: ; preds = %49
+  %.pre.i = load i32, ptr getelementptr inbounds ([50 x ptr], ptr @_ZN3ozz7options8internal12_GLOBAL__N_115GlobalRegistrer12placeholder_E, i64 0, i64 32), align 16
+  %.pre19.i = sext i32 %.pre.i to i64
+  br label %_ZSt6removeIPPN3ozz7options6OptionES3_ET_S5_S5_RKT0_.exit.i
+
+_ZSt6removeIPPN3ozz7options6OptionES3_ET_S5_S5_RKT0_.exit.i: ; preds = %_ZSt6removeIPPN3ozz7options6OptionES3_ET_S5_S5_RKT0_.exit.loopexit.i, %_ZSt9__find_ifIPPN3ozz7options6OptionEN9__gnu_cxx5__ops16_Iter_equals_valIKS3_EEET_SA_SA_T0_.exit.i.i.i, %._crit_edge._crit_edge52.i.i.i.i.i, %._crit_edge.i.i.i.i.i
+  %.pre-phi.i = phi i64 [ %.pre19.i, %_ZSt6removeIPPN3ozz7options6OptionES3_ET_S5_S5_RKT0_.exit.loopexit.i ], [ %5, %._crit_edge.i.i.i.i.i ], [ %5, %._crit_edge._crit_edge52.i.i.i.i.i ], [ %5, %_ZSt9__find_ifIPPN3ozz7options6OptionEN9__gnu_cxx5__ops16_Iter_equals_valIKS3_EEET_SA_SA_T0_.exit.i.i.i ]
+  %50 = phi i32 [ %.pre.i, %_ZSt6removeIPPN3ozz7options6OptionES3_ET_S5_S5_RKT0_.exit.loopexit.i ], [ %4, %._crit_edge.i.i.i.i.i ], [ %4, %._crit_edge._crit_edge52.i.i.i.i.i ], [ %4, %_ZSt9__find_ifIPPN3ozz7options6OptionEN9__gnu_cxx5__ops16_Iter_equals_valIKS3_EEET_SA_SA_T0_.exit.i.i.i ]
+  %.016.i.i.i = phi ptr [ %.1.i.i.i, %_ZSt6removeIPPN3ozz7options6OptionES3_ET_S5_S5_RKT0_.exit.loopexit.i ], [ %6, %._crit_edge.i.i.i.i.i ], [ %6, %._crit_edge._crit_edge52.i.i.i.i.i ], [ %.028.i.i.i.i.i, %_ZSt9__find_ifIPPN3ozz7options6OptionEN9__gnu_cxx5__ops16_Iter_equals_valIKS3_EEET_SA_SA_T0_.exit.i.i.i ]
+  %51 = getelementptr inbounds ptr, ptr %2, i64 %.pre-phi.i
+  %.not3.i = icmp eq ptr %.016.i.i.i, %51
+  br i1 %.not3.i, label %_ZN3ozz7options6Parser16UnregisterOptionEPNS0_6OptionE.exit, label %52
+
+52:                                               ; preds = %_ZSt6removeIPPN3ozz7options6OptionES3_ET_S5_S5_RKT0_.exit.i
+  %53 = add nsw i32 %50, -1
+  store i32 %53, ptr getelementptr inbounds ([50 x ptr], ptr @_ZN3ozz7options8internal12_GLOBAL__N_115GlobalRegistrer12placeholder_E, i64 0, i64 32), align 16
+  br label %_ZN3ozz7options6Parser16UnregisterOptionEPNS0_6OptionE.exit
+
+_ZN3ozz7options6Parser16UnregisterOptionEPNS0_6OptionE.exit: ; preds = %52, %_ZSt6removeIPPN3ozz7options6OptionES3_ET_S5_S5_RKT0_.exit.i, %1
   ret void
 }
 
@@ -548,171 +683,159 @@ declare void @_ZSt9terminatev() local_unnamed_addr
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
 define dso_local noundef zeroext i1 @_ZN3ozz7options6Parser16UnregisterOptionEPNS0_6OptionE(ptr noundef nonnull align 8 dereferenceable(400) %0, ptr noundef readnone %1) local_unnamed_addr #6 align 2 {
   %.not = icmp eq ptr %1, null
-  br i1 %.not, label %59, label %3
+  br i1 %.not, label %58, label %3
 
 3:                                                ; preds = %2
   %4 = getelementptr inbounds i8, ptr %0, i64 256
   %5 = load i32, ptr %4, align 8
   %6 = sext i32 %5 to i64
-  %7 = getelementptr inbounds ptr, ptr %0, i64 %6
-  %8 = ptrtoint ptr %7 to i64
-  %9 = ashr i64 %6, 2
-  %10 = icmp sgt i64 %9, 0
-  br i1 %10, label %.lr.ph.i.i.i.i, label %._crit_edge.i.i.i.i
+  %.idx6 = shl nsw i64 %6, 3
+  %7 = getelementptr inbounds i8, ptr %0, i64 %.idx6
+  %8 = ashr i64 %6, 2
+  %9 = icmp sgt i64 %8, 0
+  br i1 %9, label %.lr.ph.i.i.i.i, label %._crit_edge.i.i.i.i
 
 .lr.ph.i.i.i.i:                                   ; preds = %3
-  %.idx = shl nuw nsw i64 %6, 3
-  %11 = and i64 %.idx, 9223372036854775776
-  %scevgep.i.i.i.i = getelementptr i8, ptr %0, i64 %11
-  br label %12
+  %10 = and i64 %.idx6, -32
+  %scevgep.i.i.i.i = getelementptr i8, ptr %0, i64 %10
+  br label %11
 
-12:                                               ; preds = %27, %.lr.ph.i.i.i.i
-  %.047.i.i.i.i = phi i64 [ %9, %.lr.ph.i.i.i.i ], [ %29, %27 ]
-  %.02946.i.i.i.i = phi ptr [ %0, %.lr.ph.i.i.i.i ], [ %28, %27 ]
-  %13 = load ptr, ptr %.02946.i.i.i.i, align 8
-  %14 = icmp eq ptr %13, %1
-  br i1 %14, label %_ZSt9__find_ifIPPN3ozz7options6OptionEN9__gnu_cxx5__ops16_Iter_equals_valIKS3_EEET_SA_SA_T0_.exit.i.i, label %15
+11:                                               ; preds = %26, %.lr.ph.i.i.i.i
+  %.047.i.i.i.i = phi i64 [ %8, %.lr.ph.i.i.i.i ], [ %28, %26 ]
+  %.02946.i.i.i.i = phi ptr [ %0, %.lr.ph.i.i.i.i ], [ %27, %26 ]
+  %12 = load ptr, ptr %.02946.i.i.i.i, align 8
+  %13 = icmp eq ptr %12, %1
+  br i1 %13, label %_ZSt9__find_ifIPPN3ozz7options6OptionEN9__gnu_cxx5__ops16_Iter_equals_valIKS3_EEET_SA_SA_T0_.exit.i.i, label %14
 
-15:                                               ; preds = %12
-  %16 = getelementptr inbounds i8, ptr %.02946.i.i.i.i, i64 8
-  %17 = load ptr, ptr %16, align 8
-  %18 = icmp eq ptr %17, %1
-  br i1 %18, label %_ZSt9__find_ifIPPN3ozz7options6OptionEN9__gnu_cxx5__ops16_Iter_equals_valIKS3_EEET_SA_SA_T0_.exit.i.i.loopexit.split.loop.exit, label %19
+14:                                               ; preds = %11
+  %15 = getelementptr inbounds i8, ptr %.02946.i.i.i.i, i64 8
+  %16 = load ptr, ptr %15, align 8
+  %17 = icmp eq ptr %16, %1
+  br i1 %17, label %_ZSt9__find_ifIPPN3ozz7options6OptionEN9__gnu_cxx5__ops16_Iter_equals_valIKS3_EEET_SA_SA_T0_.exit.i.i.loopexit.split.loop.exit, label %18
 
-19:                                               ; preds = %15
-  %20 = getelementptr inbounds i8, ptr %.02946.i.i.i.i, i64 16
-  %21 = load ptr, ptr %20, align 8
-  %22 = icmp eq ptr %21, %1
-  br i1 %22, label %_ZSt9__find_ifIPPN3ozz7options6OptionEN9__gnu_cxx5__ops16_Iter_equals_valIKS3_EEET_SA_SA_T0_.exit.i.i.loopexit.split.loop.exit19, label %23
+18:                                               ; preds = %14
+  %19 = getelementptr inbounds i8, ptr %.02946.i.i.i.i, i64 16
+  %20 = load ptr, ptr %19, align 8
+  %21 = icmp eq ptr %20, %1
+  br i1 %21, label %_ZSt9__find_ifIPPN3ozz7options6OptionEN9__gnu_cxx5__ops16_Iter_equals_valIKS3_EEET_SA_SA_T0_.exit.i.i.loopexit.split.loop.exit20, label %22
 
-23:                                               ; preds = %19
-  %24 = getelementptr inbounds i8, ptr %.02946.i.i.i.i, i64 24
-  %25 = load ptr, ptr %24, align 8
-  %26 = icmp eq ptr %25, %1
-  br i1 %26, label %_ZSt9__find_ifIPPN3ozz7options6OptionEN9__gnu_cxx5__ops16_Iter_equals_valIKS3_EEET_SA_SA_T0_.exit.i.i.loopexit.split.loop.exit21, label %27
+22:                                               ; preds = %18
+  %23 = getelementptr inbounds i8, ptr %.02946.i.i.i.i, i64 24
+  %24 = load ptr, ptr %23, align 8
+  %25 = icmp eq ptr %24, %1
+  br i1 %25, label %_ZSt9__find_ifIPPN3ozz7options6OptionEN9__gnu_cxx5__ops16_Iter_equals_valIKS3_EEET_SA_SA_T0_.exit.i.i.loopexit.split.loop.exit22, label %26
 
-27:                                               ; preds = %23
-  %28 = getelementptr inbounds i8, ptr %.02946.i.i.i.i, i64 32
-  %29 = add nsw i64 %.047.i.i.i.i, -1
-  %30 = icmp sgt i64 %.047.i.i.i.i, 1
-  br i1 %30, label %12, label %._crit_edge.loopexit.i.i.i.i, !llvm.loop !9
+26:                                               ; preds = %22
+  %27 = getelementptr inbounds i8, ptr %.02946.i.i.i.i, i64 32
+  %28 = add nsw i64 %.047.i.i.i.i, -1
+  %29 = icmp sgt i64 %.047.i.i.i.i, 1
+  br i1 %29, label %11, label %._crit_edge.loopexit.i.i.i.i, !llvm.loop !9
 
-._crit_edge.loopexit.i.i.i.i:                     ; preds = %27
-  %.pre54.i.i.i.i = ptrtoint ptr %scevgep.i.i.i.i to i64
-  %.pre55.i.i.i.i = sub i64 %8, %.pre54.i.i.i.i
-  %31 = ashr exact i64 %.pre55.i.i.i.i, 3
+._crit_edge.loopexit.i.i.i.i:                     ; preds = %26
+  %30 = and i64 %6, 3
   br label %._crit_edge.i.i.i.i
 
 ._crit_edge.i.i.i.i:                              ; preds = %._crit_edge.loopexit.i.i.i.i, %3
-  %.pre-phi56.i.i.i.i = phi i64 [ %31, %._crit_edge.loopexit.i.i.i.i ], [ %6, %3 ]
+  %.pre-phi56.i.i.i.i = phi i64 [ %30, %._crit_edge.loopexit.i.i.i.i ], [ %6, %3 ]
   %.029.lcssa.i.i.i.i = phi ptr [ %scevgep.i.i.i.i, %._crit_edge.loopexit.i.i.i.i ], [ %0, %3 ]
   switch i64 %.pre-phi56.i.i.i.i, label %_ZSt6removeIPPN3ozz7options6OptionES3_ET_S5_S5_RKT0_.exit [
-    i64 3, label %32
+    i64 3, label %31
     i64 2, label %._crit_edge._crit_edge.i.i.i.i
     i64 1, label %._crit_edge._crit_edge52.i.i.i.i
   ]
 
-32:                                               ; preds = %._crit_edge.i.i.i.i
-  %33 = load ptr, ptr %.029.lcssa.i.i.i.i, align 8
-  %34 = icmp eq ptr %33, %1
-  br i1 %34, label %_ZSt9__find_ifIPPN3ozz7options6OptionEN9__gnu_cxx5__ops16_Iter_equals_valIKS3_EEET_SA_SA_T0_.exit.i.i, label %35
+31:                                               ; preds = %._crit_edge.i.i.i.i
+  %32 = load ptr, ptr %.029.lcssa.i.i.i.i, align 8
+  %33 = icmp eq ptr %32, %1
+  br i1 %33, label %_ZSt9__find_ifIPPN3ozz7options6OptionEN9__gnu_cxx5__ops16_Iter_equals_valIKS3_EEET_SA_SA_T0_.exit.i.i, label %34
 
-35:                                               ; preds = %32
-  %36 = getelementptr inbounds i8, ptr %.029.lcssa.i.i.i.i, i64 8
+34:                                               ; preds = %31
+  %35 = getelementptr inbounds i8, ptr %.029.lcssa.i.i.i.i, i64 8
   br label %._crit_edge._crit_edge.i.i.i.i
 
-._crit_edge._crit_edge.i.i.i.i:                   ; preds = %._crit_edge.i.i.i.i, %35
-  %.1.i.i.i.i = phi ptr [ %36, %35 ], [ %.029.lcssa.i.i.i.i, %._crit_edge.i.i.i.i ]
-  %37 = load ptr, ptr %.1.i.i.i.i, align 8
-  %38 = icmp eq ptr %37, %1
-  br i1 %38, label %_ZSt9__find_ifIPPN3ozz7options6OptionEN9__gnu_cxx5__ops16_Iter_equals_valIKS3_EEET_SA_SA_T0_.exit.i.i, label %39
+._crit_edge._crit_edge.i.i.i.i:                   ; preds = %._crit_edge.i.i.i.i, %34
+  %.1.i.i.i.i = phi ptr [ %35, %34 ], [ %.029.lcssa.i.i.i.i, %._crit_edge.i.i.i.i ]
+  %36 = load ptr, ptr %.1.i.i.i.i, align 8
+  %37 = icmp eq ptr %36, %1
+  br i1 %37, label %_ZSt9__find_ifIPPN3ozz7options6OptionEN9__gnu_cxx5__ops16_Iter_equals_valIKS3_EEET_SA_SA_T0_.exit.i.i, label %38
 
-39:                                               ; preds = %._crit_edge._crit_edge.i.i.i.i
-  %40 = getelementptr inbounds i8, ptr %.1.i.i.i.i, i64 8
+38:                                               ; preds = %._crit_edge._crit_edge.i.i.i.i
+  %39 = getelementptr inbounds i8, ptr %.1.i.i.i.i, i64 8
   br label %._crit_edge._crit_edge52.i.i.i.i
 
-._crit_edge._crit_edge52.i.i.i.i:                 ; preds = %._crit_edge.i.i.i.i, %39
-  %.2.i.i.i.i = phi ptr [ %40, %39 ], [ %.029.lcssa.i.i.i.i, %._crit_edge.i.i.i.i ]
-  %41 = load ptr, ptr %.2.i.i.i.i, align 8
-  %42 = icmp eq ptr %41, %1
-  br i1 %42, label %_ZSt9__find_ifIPPN3ozz7options6OptionEN9__gnu_cxx5__ops16_Iter_equals_valIKS3_EEET_SA_SA_T0_.exit.i.i, label %_ZSt6removeIPPN3ozz7options6OptionES3_ET_S5_S5_RKT0_.exit
+._crit_edge._crit_edge52.i.i.i.i:                 ; preds = %._crit_edge.i.i.i.i, %38
+  %.2.i.i.i.i = phi ptr [ %39, %38 ], [ %.029.lcssa.i.i.i.i, %._crit_edge.i.i.i.i ]
+  %40 = load ptr, ptr %.2.i.i.i.i, align 8
+  %41 = icmp eq ptr %40, %1
+  br i1 %41, label %_ZSt9__find_ifIPPN3ozz7options6OptionEN9__gnu_cxx5__ops16_Iter_equals_valIKS3_EEET_SA_SA_T0_.exit.i.i, label %_ZSt6removeIPPN3ozz7options6OptionES3_ET_S5_S5_RKT0_.exit
 
-_ZSt9__find_ifIPPN3ozz7options6OptionEN9__gnu_cxx5__ops16_Iter_equals_valIKS3_EEET_SA_SA_T0_.exit.i.i.loopexit.split.loop.exit: ; preds = %15
-  %43 = getelementptr inbounds i8, ptr %.02946.i.i.i.i, i64 8
+_ZSt9__find_ifIPPN3ozz7options6OptionEN9__gnu_cxx5__ops16_Iter_equals_valIKS3_EEET_SA_SA_T0_.exit.i.i.loopexit.split.loop.exit: ; preds = %14
+  %42 = getelementptr inbounds i8, ptr %.02946.i.i.i.i, i64 8
   br label %_ZSt9__find_ifIPPN3ozz7options6OptionEN9__gnu_cxx5__ops16_Iter_equals_valIKS3_EEET_SA_SA_T0_.exit.i.i
 
-_ZSt9__find_ifIPPN3ozz7options6OptionEN9__gnu_cxx5__ops16_Iter_equals_valIKS3_EEET_SA_SA_T0_.exit.i.i.loopexit.split.loop.exit19: ; preds = %19
-  %44 = getelementptr inbounds i8, ptr %.02946.i.i.i.i, i64 16
+_ZSt9__find_ifIPPN3ozz7options6OptionEN9__gnu_cxx5__ops16_Iter_equals_valIKS3_EEET_SA_SA_T0_.exit.i.i.loopexit.split.loop.exit20: ; preds = %18
+  %43 = getelementptr inbounds i8, ptr %.02946.i.i.i.i, i64 16
   br label %_ZSt9__find_ifIPPN3ozz7options6OptionEN9__gnu_cxx5__ops16_Iter_equals_valIKS3_EEET_SA_SA_T0_.exit.i.i
 
-_ZSt9__find_ifIPPN3ozz7options6OptionEN9__gnu_cxx5__ops16_Iter_equals_valIKS3_EEET_SA_SA_T0_.exit.i.i.loopexit.split.loop.exit21: ; preds = %23
-  %45 = getelementptr inbounds i8, ptr %.02946.i.i.i.i, i64 24
+_ZSt9__find_ifIPPN3ozz7options6OptionEN9__gnu_cxx5__ops16_Iter_equals_valIKS3_EEET_SA_SA_T0_.exit.i.i.loopexit.split.loop.exit22: ; preds = %22
+  %44 = getelementptr inbounds i8, ptr %.02946.i.i.i.i, i64 24
   br label %_ZSt9__find_ifIPPN3ozz7options6OptionEN9__gnu_cxx5__ops16_Iter_equals_valIKS3_EEET_SA_SA_T0_.exit.i.i
 
-_ZSt9__find_ifIPPN3ozz7options6OptionEN9__gnu_cxx5__ops16_Iter_equals_valIKS3_EEET_SA_SA_T0_.exit.i.i: ; preds = %12, %_ZSt9__find_ifIPPN3ozz7options6OptionEN9__gnu_cxx5__ops16_Iter_equals_valIKS3_EEET_SA_SA_T0_.exit.i.i.loopexit.split.loop.exit, %_ZSt9__find_ifIPPN3ozz7options6OptionEN9__gnu_cxx5__ops16_Iter_equals_valIKS3_EEET_SA_SA_T0_.exit.i.i.loopexit.split.loop.exit19, %_ZSt9__find_ifIPPN3ozz7options6OptionEN9__gnu_cxx5__ops16_Iter_equals_valIKS3_EEET_SA_SA_T0_.exit.i.i.loopexit.split.loop.exit21, %._crit_edge._crit_edge52.i.i.i.i, %._crit_edge._crit_edge.i.i.i.i, %32
-  %.028.i.i.i.i = phi ptr [ %.029.lcssa.i.i.i.i, %32 ], [ %.1.i.i.i.i, %._crit_edge._crit_edge.i.i.i.i ], [ %.2.i.i.i.i, %._crit_edge._crit_edge52.i.i.i.i ], [ %43, %_ZSt9__find_ifIPPN3ozz7options6OptionEN9__gnu_cxx5__ops16_Iter_equals_valIKS3_EEET_SA_SA_T0_.exit.i.i.loopexit.split.loop.exit ], [ %44, %_ZSt9__find_ifIPPN3ozz7options6OptionEN9__gnu_cxx5__ops16_Iter_equals_valIKS3_EEET_SA_SA_T0_.exit.i.i.loopexit.split.loop.exit19 ], [ %45, %_ZSt9__find_ifIPPN3ozz7options6OptionEN9__gnu_cxx5__ops16_Iter_equals_valIKS3_EEET_SA_SA_T0_.exit.i.i.loopexit.split.loop.exit21 ], [ %.02946.i.i.i.i, %12 ]
-  %46 = icmp eq ptr %.028.i.i.i.i, %7
+_ZSt9__find_ifIPPN3ozz7options6OptionEN9__gnu_cxx5__ops16_Iter_equals_valIKS3_EEET_SA_SA_T0_.exit.i.i: ; preds = %11, %_ZSt9__find_ifIPPN3ozz7options6OptionEN9__gnu_cxx5__ops16_Iter_equals_valIKS3_EEET_SA_SA_T0_.exit.i.i.loopexit.split.loop.exit, %_ZSt9__find_ifIPPN3ozz7options6OptionEN9__gnu_cxx5__ops16_Iter_equals_valIKS3_EEET_SA_SA_T0_.exit.i.i.loopexit.split.loop.exit20, %_ZSt9__find_ifIPPN3ozz7options6OptionEN9__gnu_cxx5__ops16_Iter_equals_valIKS3_EEET_SA_SA_T0_.exit.i.i.loopexit.split.loop.exit22, %._crit_edge._crit_edge52.i.i.i.i, %._crit_edge._crit_edge.i.i.i.i, %31
+  %.028.i.i.i.i = phi ptr [ %.029.lcssa.i.i.i.i, %31 ], [ %.1.i.i.i.i, %._crit_edge._crit_edge.i.i.i.i ], [ %.2.i.i.i.i, %._crit_edge._crit_edge52.i.i.i.i ], [ %42, %_ZSt9__find_ifIPPN3ozz7options6OptionEN9__gnu_cxx5__ops16_Iter_equals_valIKS3_EEET_SA_SA_T0_.exit.i.i.loopexit.split.loop.exit ], [ %43, %_ZSt9__find_ifIPPN3ozz7options6OptionEN9__gnu_cxx5__ops16_Iter_equals_valIKS3_EEET_SA_SA_T0_.exit.i.i.loopexit.split.loop.exit20 ], [ %44, %_ZSt9__find_ifIPPN3ozz7options6OptionEN9__gnu_cxx5__ops16_Iter_equals_valIKS3_EEET_SA_SA_T0_.exit.i.i.loopexit.split.loop.exit22 ], [ %.02946.i.i.i.i, %11 ]
+  %45 = icmp eq ptr %.028.i.i.i.i, %7
   %.01730.i.i = getelementptr inbounds i8, ptr %.028.i.i.i.i, i64 8
   %.not31.i.i = icmp eq ptr %.01730.i.i, %7
-  %or.cond.i.i = select i1 %46, i1 true, i1 %.not31.i.i
+  %or.cond.i.i = select i1 %45, i1 true, i1 %.not31.i.i
   br i1 %or.cond.i.i, label %_ZSt6removeIPPN3ozz7options6OptionES3_ET_S5_S5_RKT0_.exit, label %.lr.ph.i.i
 
-.lr.ph.i.i:                                       ; preds = %_ZSt9__find_ifIPPN3ozz7options6OptionEN9__gnu_cxx5__ops16_Iter_equals_valIKS3_EEET_SA_SA_T0_.exit.i.i, %51
-  %.01733.i.i = phi ptr [ %.017.i.i, %51 ], [ %.01730.i.i, %_ZSt9__find_ifIPPN3ozz7options6OptionEN9__gnu_cxx5__ops16_Iter_equals_valIKS3_EEET_SA_SA_T0_.exit.i.i ]
-  %.032.i.i = phi ptr [ %.1.i.i, %51 ], [ %.028.i.i.i.i, %_ZSt9__find_ifIPPN3ozz7options6OptionEN9__gnu_cxx5__ops16_Iter_equals_valIKS3_EEET_SA_SA_T0_.exit.i.i ]
-  %47 = load ptr, ptr %.01733.i.i, align 8
-  %48 = icmp eq ptr %47, %1
-  br i1 %48, label %51, label %49
+.lr.ph.i.i:                                       ; preds = %_ZSt9__find_ifIPPN3ozz7options6OptionEN9__gnu_cxx5__ops16_Iter_equals_valIKS3_EEET_SA_SA_T0_.exit.i.i, %50
+  %.01733.i.i = phi ptr [ %.017.i.i, %50 ], [ %.01730.i.i, %_ZSt9__find_ifIPPN3ozz7options6OptionEN9__gnu_cxx5__ops16_Iter_equals_valIKS3_EEET_SA_SA_T0_.exit.i.i ]
+  %.032.i.i = phi ptr [ %.1.i.i, %50 ], [ %.028.i.i.i.i, %_ZSt9__find_ifIPPN3ozz7options6OptionEN9__gnu_cxx5__ops16_Iter_equals_valIKS3_EEET_SA_SA_T0_.exit.i.i ]
+  %46 = load ptr, ptr %.01733.i.i, align 8
+  %47 = icmp eq ptr %46, %1
+  br i1 %47, label %50, label %48
 
-49:                                               ; preds = %.lr.ph.i.i
-  store ptr %47, ptr %.032.i.i, align 8
-  %50 = getelementptr inbounds i8, ptr %.032.i.i, i64 8
-  br label %51
+48:                                               ; preds = %.lr.ph.i.i
+  store ptr %46, ptr %.032.i.i, align 8
+  %49 = getelementptr inbounds i8, ptr %.032.i.i, i64 8
+  br label %50
 
-51:                                               ; preds = %49, %.lr.ph.i.i
-  %.1.i.i = phi ptr [ %.032.i.i, %.lr.ph.i.i ], [ %50, %49 ]
+50:                                               ; preds = %48, %.lr.ph.i.i
+  %.1.i.i = phi ptr [ %.032.i.i, %.lr.ph.i.i ], [ %49, %48 ]
   %.017.i.i = getelementptr inbounds i8, ptr %.01733.i.i, i64 8
   %.not.i.i = icmp eq ptr %.017.i.i, %7
   br i1 %.not.i.i, label %_ZSt6removeIPPN3ozz7options6OptionES3_ET_S5_S5_RKT0_.exit.loopexit, label %.lr.ph.i.i, !llvm.loop !10
 
-_ZSt6removeIPPN3ozz7options6OptionES3_ET_S5_S5_RKT0_.exit.loopexit: ; preds = %51
+_ZSt6removeIPPN3ozz7options6OptionES3_ET_S5_S5_RKT0_.exit.loopexit: ; preds = %50
   %.pre = load i32, ptr %4, align 8
-  %.pre18 = sext i32 %.pre to i64
+  %.pre19 = sext i32 %.pre to i64
   br label %_ZSt6removeIPPN3ozz7options6OptionES3_ET_S5_S5_RKT0_.exit
 
 _ZSt6removeIPPN3ozz7options6OptionES3_ET_S5_S5_RKT0_.exit: ; preds = %_ZSt6removeIPPN3ozz7options6OptionES3_ET_S5_S5_RKT0_.exit.loopexit, %._crit_edge.i.i.i.i, %._crit_edge._crit_edge52.i.i.i.i, %_ZSt9__find_ifIPPN3ozz7options6OptionEN9__gnu_cxx5__ops16_Iter_equals_valIKS3_EEET_SA_SA_T0_.exit.i.i
-  %.pre-phi = phi i64 [ %.pre18, %_ZSt6removeIPPN3ozz7options6OptionES3_ET_S5_S5_RKT0_.exit.loopexit ], [ %6, %._crit_edge.i.i.i.i ], [ %6, %._crit_edge._crit_edge52.i.i.i.i ], [ %6, %_ZSt9__find_ifIPPN3ozz7options6OptionEN9__gnu_cxx5__ops16_Iter_equals_valIKS3_EEET_SA_SA_T0_.exit.i.i ]
-  %52 = phi i32 [ %.pre, %_ZSt6removeIPPN3ozz7options6OptionES3_ET_S5_S5_RKT0_.exit.loopexit ], [ %5, %._crit_edge.i.i.i.i ], [ %5, %._crit_edge._crit_edge52.i.i.i.i ], [ %5, %_ZSt9__find_ifIPPN3ozz7options6OptionEN9__gnu_cxx5__ops16_Iter_equals_valIKS3_EEET_SA_SA_T0_.exit.i.i ]
+  %.pre-phi = phi i64 [ %.pre19, %_ZSt6removeIPPN3ozz7options6OptionES3_ET_S5_S5_RKT0_.exit.loopexit ], [ %6, %._crit_edge.i.i.i.i ], [ %6, %._crit_edge._crit_edge52.i.i.i.i ], [ %6, %_ZSt9__find_ifIPPN3ozz7options6OptionEN9__gnu_cxx5__ops16_Iter_equals_valIKS3_EEET_SA_SA_T0_.exit.i.i ]
+  %51 = phi i32 [ %.pre, %_ZSt6removeIPPN3ozz7options6OptionES3_ET_S5_S5_RKT0_.exit.loopexit ], [ %5, %._crit_edge.i.i.i.i ], [ %5, %._crit_edge._crit_edge52.i.i.i.i ], [ %5, %_ZSt9__find_ifIPPN3ozz7options6OptionEN9__gnu_cxx5__ops16_Iter_equals_valIKS3_EEET_SA_SA_T0_.exit.i.i ]
   %.016.i.i = phi ptr [ %.1.i.i, %_ZSt6removeIPPN3ozz7options6OptionES3_ET_S5_S5_RKT0_.exit.loopexit ], [ %7, %._crit_edge.i.i.i.i ], [ %7, %._crit_edge._crit_edge52.i.i.i.i ], [ %.028.i.i.i.i, %_ZSt9__find_ifIPPN3ozz7options6OptionEN9__gnu_cxx5__ops16_Iter_equals_valIKS3_EEET_SA_SA_T0_.exit.i.i ]
-  %53 = getelementptr inbounds ptr, ptr %0, i64 %.pre-phi
-  %.not3 = icmp eq ptr %.016.i.i, %53
-  br i1 %.not3, label %59, label %54
+  %52 = getelementptr inbounds ptr, ptr %0, i64 %.pre-phi
+  %.not3 = icmp eq ptr %.016.i.i, %52
+  br i1 %.not3, label %58, label %53
 
-54:                                               ; preds = %_ZSt6removeIPPN3ozz7options6OptionES3_ET_S5_S5_RKT0_.exit
-  %55 = add nsw i32 %52, -1
-  store i32 %55, ptr %4, align 8
-  %56 = getelementptr inbounds i8, ptr %0, i64 260
-  %57 = load i32, ptr %56, align 4
-  %58 = icmp eq i32 %55, %57
-  br label %59
+53:                                               ; preds = %_ZSt6removeIPPN3ozz7options6OptionES3_ET_S5_S5_RKT0_.exit
+  %54 = add nsw i32 %51, -1
+  store i32 %54, ptr %4, align 8
+  %55 = getelementptr inbounds i8, ptr %0, i64 260
+  %56 = load i32, ptr %55, align 4
+  %57 = icmp eq i32 %54, %56
+  br label %58
 
-59:                                               ; preds = %_ZSt6removeIPPN3ozz7options6OptionES3_ET_S5_S5_RKT0_.exit, %2, %54
-  %.0 = phi i1 [ %58, %54 ], [ false, %2 ], [ false, %_ZSt6removeIPPN3ozz7options6OptionES3_ET_S5_S5_RKT0_.exit ]
+58:                                               ; preds = %_ZSt6removeIPPN3ozz7options6OptionES3_ET_S5_S5_RKT0_.exit, %2, %53
+  %.0 = phi i1 [ %57, %53 ], [ false, %2 ], [ false, %_ZSt6removeIPPN3ozz7options6OptionES3_ET_S5_S5_RKT0_.exit ]
   ret i1 %.0
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define weak_odr dso_local void @_ZN3ozz7options8internal9RegistrerINS0_11TypedOptionIbEEED0Ev(ptr noundef nonnull align 8 dereferenceable(42) %0) unnamed_addr #4 comdat($_ZN3ozz7options8internal9RegistrerINS0_11TypedOptionIbEEED5Ev) align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 48) ({ [8 x ptr] }, ptr @_ZTVN3ozz7options8internal9RegistrerINS0_11TypedOptionIbEEEE, i64 0, i32 0, i64 2), ptr %0, align 8
-  %2 = load ptr, ptr @_ZN3ozz7options8internal12_GLOBAL__N_115GlobalRegistrer7parser_E, align 8
-  %.not.i = icmp eq ptr %2, null
-  br i1 %.not.i, label %_ZN3ozz7options8internal9RegistrerINS0_11TypedOptionIbEEED2Ev.exit, label %3
-
-3:                                                ; preds = %1
-  %4 = tail call noundef zeroext i1 @_ZN3ozz7options6Parser16UnregisterOptionEPNS0_6OptionE(ptr noundef nonnull align 8 dereferenceable(400) %2, ptr noundef nonnull %0)
-  br label %_ZN3ozz7options8internal9RegistrerINS0_11TypedOptionIbEEED2Ev.exit
-
-_ZN3ozz7options8internal9RegistrerINS0_11TypedOptionIbEEED2Ev.exit: ; preds = %1, %3
+define weak_odr dso_local void @_ZN3ozz7options8internal9RegistrerINS0_11TypedOptionIbEEED0Ev(ptr noundef nonnull align 8 dereferenceable(42) %0) unnamed_addr #4 comdat($_ZN3ozz7options8internal9RegistrerINS0_11TypedOptionIbEEED5Ev) align 2 {
+  tail call void @_ZN3ozz7options8internal9RegistrerINS0_11TypedOptionIbEEED2Ev(ptr noundef nonnull align 8 dereferenceable(42) %0) #28
   tail call void @_ZdlPv(ptr noundef nonnull %0) #30
   ret void
 }
@@ -823,28 +946,154 @@ define weak_odr dso_local void @_ZN3ozz7options8internal9RegistrerINS0_11TypedOp
   store ptr getelementptr inbounds inrange(-16, 48) ({ [8 x ptr] }, ptr @_ZTVN3ozz7options8internal9RegistrerINS0_11TypedOptionIiEEEE, i64 0, i32 0, i64 2), ptr %0, align 8
   %2 = load ptr, ptr @_ZN3ozz7options8internal12_GLOBAL__N_115GlobalRegistrer7parser_E, align 8
   %.not = icmp eq ptr %2, null
-  br i1 %.not, label %5, label %3
+  br i1 %.not, label %_ZN3ozz7options6Parser16UnregisterOptionEPNS0_6OptionE.exit, label %3
 
 3:                                                ; preds = %1
-  %4 = tail call noundef zeroext i1 @_ZN3ozz7options6Parser16UnregisterOptionEPNS0_6OptionE(ptr noundef nonnull align 8 dereferenceable(400) %2, ptr noundef nonnull %0)
-  br label %5
+  %4 = load i32, ptr getelementptr inbounds ([50 x ptr], ptr @_ZN3ozz7options8internal12_GLOBAL__N_115GlobalRegistrer12placeholder_E, i64 0, i64 32), align 16
+  %5 = sext i32 %4 to i64
+  %.idx6.i = shl nsw i64 %5, 3
+  %6 = getelementptr inbounds i8, ptr %2, i64 %.idx6.i
+  %7 = ashr i64 %5, 2
+  %8 = icmp sgt i64 %7, 0
+  br i1 %8, label %.lr.ph.i.i.i.i.i, label %._crit_edge.i.i.i.i.i
 
-5:                                                ; preds = %3, %1
+.lr.ph.i.i.i.i.i:                                 ; preds = %3
+  %9 = and i64 %.idx6.i, -32
+  %scevgep.i.i.i.i.i = getelementptr i8, ptr %2, i64 %9
+  br label %10
+
+10:                                               ; preds = %25, %.lr.ph.i.i.i.i.i
+  %.047.i.i.i.i.i = phi i64 [ %7, %.lr.ph.i.i.i.i.i ], [ %27, %25 ]
+  %.02946.i.i.i.i.i = phi ptr [ %2, %.lr.ph.i.i.i.i.i ], [ %26, %25 ]
+  %11 = load ptr, ptr %.02946.i.i.i.i.i, align 8
+  %12 = icmp eq ptr %11, %0
+  br i1 %12, label %_ZSt9__find_ifIPPN3ozz7options6OptionEN9__gnu_cxx5__ops16_Iter_equals_valIKS3_EEET_SA_SA_T0_.exit.i.i.i, label %13
+
+13:                                               ; preds = %10
+  %14 = getelementptr inbounds i8, ptr %.02946.i.i.i.i.i, i64 8
+  %15 = load ptr, ptr %14, align 8
+  %16 = icmp eq ptr %15, %0
+  br i1 %16, label %_ZSt9__find_ifIPPN3ozz7options6OptionEN9__gnu_cxx5__ops16_Iter_equals_valIKS3_EEET_SA_SA_T0_.exit.i.i.i.loopexit.split.loop.exit, label %17
+
+17:                                               ; preds = %13
+  %18 = getelementptr inbounds i8, ptr %.02946.i.i.i.i.i, i64 16
+  %19 = load ptr, ptr %18, align 8
+  %20 = icmp eq ptr %19, %0
+  br i1 %20, label %_ZSt9__find_ifIPPN3ozz7options6OptionEN9__gnu_cxx5__ops16_Iter_equals_valIKS3_EEET_SA_SA_T0_.exit.i.i.i.loopexit.split.loop.exit15, label %21
+
+21:                                               ; preds = %17
+  %22 = getelementptr inbounds i8, ptr %.02946.i.i.i.i.i, i64 24
+  %23 = load ptr, ptr %22, align 8
+  %24 = icmp eq ptr %23, %0
+  br i1 %24, label %_ZSt9__find_ifIPPN3ozz7options6OptionEN9__gnu_cxx5__ops16_Iter_equals_valIKS3_EEET_SA_SA_T0_.exit.i.i.i.loopexit.split.loop.exit17, label %25
+
+25:                                               ; preds = %21
+  %26 = getelementptr inbounds i8, ptr %.02946.i.i.i.i.i, i64 32
+  %27 = add nsw i64 %.047.i.i.i.i.i, -1
+  %28 = icmp sgt i64 %.047.i.i.i.i.i, 1
+  br i1 %28, label %10, label %._crit_edge.loopexit.i.i.i.i.i, !llvm.loop !9
+
+._crit_edge.loopexit.i.i.i.i.i:                   ; preds = %25
+  %29 = and i64 %5, 3
+  br label %._crit_edge.i.i.i.i.i
+
+._crit_edge.i.i.i.i.i:                            ; preds = %._crit_edge.loopexit.i.i.i.i.i, %3
+  %.pre-phi56.i.i.i.i.i = phi i64 [ %29, %._crit_edge.loopexit.i.i.i.i.i ], [ %5, %3 ]
+  %.029.lcssa.i.i.i.i.i = phi ptr [ %scevgep.i.i.i.i.i, %._crit_edge.loopexit.i.i.i.i.i ], [ %2, %3 ]
+  switch i64 %.pre-phi56.i.i.i.i.i, label %_ZSt6removeIPPN3ozz7options6OptionES3_ET_S5_S5_RKT0_.exit.i [
+    i64 3, label %30
+    i64 2, label %._crit_edge._crit_edge.i.i.i.i.i
+    i64 1, label %._crit_edge._crit_edge52.i.i.i.i.i
+  ]
+
+30:                                               ; preds = %._crit_edge.i.i.i.i.i
+  %31 = load ptr, ptr %.029.lcssa.i.i.i.i.i, align 8
+  %32 = icmp eq ptr %31, %0
+  br i1 %32, label %_ZSt9__find_ifIPPN3ozz7options6OptionEN9__gnu_cxx5__ops16_Iter_equals_valIKS3_EEET_SA_SA_T0_.exit.i.i.i, label %33
+
+33:                                               ; preds = %30
+  %34 = getelementptr inbounds i8, ptr %.029.lcssa.i.i.i.i.i, i64 8
+  br label %._crit_edge._crit_edge.i.i.i.i.i
+
+._crit_edge._crit_edge.i.i.i.i.i:                 ; preds = %33, %._crit_edge.i.i.i.i.i
+  %.1.i.i.i.i.i = phi ptr [ %34, %33 ], [ %.029.lcssa.i.i.i.i.i, %._crit_edge.i.i.i.i.i ]
+  %35 = load ptr, ptr %.1.i.i.i.i.i, align 8
+  %36 = icmp eq ptr %35, %0
+  br i1 %36, label %_ZSt9__find_ifIPPN3ozz7options6OptionEN9__gnu_cxx5__ops16_Iter_equals_valIKS3_EEET_SA_SA_T0_.exit.i.i.i, label %37
+
+37:                                               ; preds = %._crit_edge._crit_edge.i.i.i.i.i
+  %38 = getelementptr inbounds i8, ptr %.1.i.i.i.i.i, i64 8
+  br label %._crit_edge._crit_edge52.i.i.i.i.i
+
+._crit_edge._crit_edge52.i.i.i.i.i:               ; preds = %37, %._crit_edge.i.i.i.i.i
+  %.2.i.i.i.i.i = phi ptr [ %38, %37 ], [ %.029.lcssa.i.i.i.i.i, %._crit_edge.i.i.i.i.i ]
+  %39 = load ptr, ptr %.2.i.i.i.i.i, align 8
+  %40 = icmp eq ptr %39, %0
+  br i1 %40, label %_ZSt9__find_ifIPPN3ozz7options6OptionEN9__gnu_cxx5__ops16_Iter_equals_valIKS3_EEET_SA_SA_T0_.exit.i.i.i, label %_ZSt6removeIPPN3ozz7options6OptionES3_ET_S5_S5_RKT0_.exit.i
+
+_ZSt9__find_ifIPPN3ozz7options6OptionEN9__gnu_cxx5__ops16_Iter_equals_valIKS3_EEET_SA_SA_T0_.exit.i.i.i.loopexit.split.loop.exit: ; preds = %13
+  %41 = getelementptr inbounds i8, ptr %.02946.i.i.i.i.i, i64 8
+  br label %_ZSt9__find_ifIPPN3ozz7options6OptionEN9__gnu_cxx5__ops16_Iter_equals_valIKS3_EEET_SA_SA_T0_.exit.i.i.i
+
+_ZSt9__find_ifIPPN3ozz7options6OptionEN9__gnu_cxx5__ops16_Iter_equals_valIKS3_EEET_SA_SA_T0_.exit.i.i.i.loopexit.split.loop.exit15: ; preds = %17
+  %42 = getelementptr inbounds i8, ptr %.02946.i.i.i.i.i, i64 16
+  br label %_ZSt9__find_ifIPPN3ozz7options6OptionEN9__gnu_cxx5__ops16_Iter_equals_valIKS3_EEET_SA_SA_T0_.exit.i.i.i
+
+_ZSt9__find_ifIPPN3ozz7options6OptionEN9__gnu_cxx5__ops16_Iter_equals_valIKS3_EEET_SA_SA_T0_.exit.i.i.i.loopexit.split.loop.exit17: ; preds = %21
+  %43 = getelementptr inbounds i8, ptr %.02946.i.i.i.i.i, i64 24
+  br label %_ZSt9__find_ifIPPN3ozz7options6OptionEN9__gnu_cxx5__ops16_Iter_equals_valIKS3_EEET_SA_SA_T0_.exit.i.i.i
+
+_ZSt9__find_ifIPPN3ozz7options6OptionEN9__gnu_cxx5__ops16_Iter_equals_valIKS3_EEET_SA_SA_T0_.exit.i.i.i: ; preds = %10, %_ZSt9__find_ifIPPN3ozz7options6OptionEN9__gnu_cxx5__ops16_Iter_equals_valIKS3_EEET_SA_SA_T0_.exit.i.i.i.loopexit.split.loop.exit, %_ZSt9__find_ifIPPN3ozz7options6OptionEN9__gnu_cxx5__ops16_Iter_equals_valIKS3_EEET_SA_SA_T0_.exit.i.i.i.loopexit.split.loop.exit15, %_ZSt9__find_ifIPPN3ozz7options6OptionEN9__gnu_cxx5__ops16_Iter_equals_valIKS3_EEET_SA_SA_T0_.exit.i.i.i.loopexit.split.loop.exit17, %._crit_edge._crit_edge52.i.i.i.i.i, %._crit_edge._crit_edge.i.i.i.i.i, %30
+  %.028.i.i.i.i.i = phi ptr [ %.029.lcssa.i.i.i.i.i, %30 ], [ %.1.i.i.i.i.i, %._crit_edge._crit_edge.i.i.i.i.i ], [ %.2.i.i.i.i.i, %._crit_edge._crit_edge52.i.i.i.i.i ], [ %41, %_ZSt9__find_ifIPPN3ozz7options6OptionEN9__gnu_cxx5__ops16_Iter_equals_valIKS3_EEET_SA_SA_T0_.exit.i.i.i.loopexit.split.loop.exit ], [ %42, %_ZSt9__find_ifIPPN3ozz7options6OptionEN9__gnu_cxx5__ops16_Iter_equals_valIKS3_EEET_SA_SA_T0_.exit.i.i.i.loopexit.split.loop.exit15 ], [ %43, %_ZSt9__find_ifIPPN3ozz7options6OptionEN9__gnu_cxx5__ops16_Iter_equals_valIKS3_EEET_SA_SA_T0_.exit.i.i.i.loopexit.split.loop.exit17 ], [ %.02946.i.i.i.i.i, %10 ]
+  %44 = icmp eq ptr %.028.i.i.i.i.i, %6
+  %.01730.i.i.i = getelementptr inbounds i8, ptr %.028.i.i.i.i.i, i64 8
+  %.not31.i.i.i = icmp eq ptr %.01730.i.i.i, %6
+  %or.cond.i.i.i = select i1 %44, i1 true, i1 %.not31.i.i.i
+  br i1 %or.cond.i.i.i, label %_ZSt6removeIPPN3ozz7options6OptionES3_ET_S5_S5_RKT0_.exit.i, label %.lr.ph.i.i.i
+
+.lr.ph.i.i.i:                                     ; preds = %_ZSt9__find_ifIPPN3ozz7options6OptionEN9__gnu_cxx5__ops16_Iter_equals_valIKS3_EEET_SA_SA_T0_.exit.i.i.i, %49
+  %.01733.i.i.i = phi ptr [ %.017.i.i.i, %49 ], [ %.01730.i.i.i, %_ZSt9__find_ifIPPN3ozz7options6OptionEN9__gnu_cxx5__ops16_Iter_equals_valIKS3_EEET_SA_SA_T0_.exit.i.i.i ]
+  %.032.i.i.i = phi ptr [ %.1.i.i.i, %49 ], [ %.028.i.i.i.i.i, %_ZSt9__find_ifIPPN3ozz7options6OptionEN9__gnu_cxx5__ops16_Iter_equals_valIKS3_EEET_SA_SA_T0_.exit.i.i.i ]
+  %45 = load ptr, ptr %.01733.i.i.i, align 8
+  %46 = icmp eq ptr %45, %0
+  br i1 %46, label %49, label %47
+
+47:                                               ; preds = %.lr.ph.i.i.i
+  store ptr %45, ptr %.032.i.i.i, align 8
+  %48 = getelementptr inbounds i8, ptr %.032.i.i.i, i64 8
+  br label %49
+
+49:                                               ; preds = %47, %.lr.ph.i.i.i
+  %.1.i.i.i = phi ptr [ %.032.i.i.i, %.lr.ph.i.i.i ], [ %48, %47 ]
+  %.017.i.i.i = getelementptr inbounds i8, ptr %.01733.i.i.i, i64 8
+  %.not.i.i.i = icmp eq ptr %.017.i.i.i, %6
+  br i1 %.not.i.i.i, label %_ZSt6removeIPPN3ozz7options6OptionES3_ET_S5_S5_RKT0_.exit.loopexit.i, label %.lr.ph.i.i.i, !llvm.loop !10
+
+_ZSt6removeIPPN3ozz7options6OptionES3_ET_S5_S5_RKT0_.exit.loopexit.i: ; preds = %49
+  %.pre.i = load i32, ptr getelementptr inbounds ([50 x ptr], ptr @_ZN3ozz7options8internal12_GLOBAL__N_115GlobalRegistrer12placeholder_E, i64 0, i64 32), align 16
+  %.pre19.i = sext i32 %.pre.i to i64
+  br label %_ZSt6removeIPPN3ozz7options6OptionES3_ET_S5_S5_RKT0_.exit.i
+
+_ZSt6removeIPPN3ozz7options6OptionES3_ET_S5_S5_RKT0_.exit.i: ; preds = %_ZSt6removeIPPN3ozz7options6OptionES3_ET_S5_S5_RKT0_.exit.loopexit.i, %_ZSt9__find_ifIPPN3ozz7options6OptionEN9__gnu_cxx5__ops16_Iter_equals_valIKS3_EEET_SA_SA_T0_.exit.i.i.i, %._crit_edge._crit_edge52.i.i.i.i.i, %._crit_edge.i.i.i.i.i
+  %.pre-phi.i = phi i64 [ %.pre19.i, %_ZSt6removeIPPN3ozz7options6OptionES3_ET_S5_S5_RKT0_.exit.loopexit.i ], [ %5, %._crit_edge.i.i.i.i.i ], [ %5, %._crit_edge._crit_edge52.i.i.i.i.i ], [ %5, %_ZSt9__find_ifIPPN3ozz7options6OptionEN9__gnu_cxx5__ops16_Iter_equals_valIKS3_EEET_SA_SA_T0_.exit.i.i.i ]
+  %50 = phi i32 [ %.pre.i, %_ZSt6removeIPPN3ozz7options6OptionES3_ET_S5_S5_RKT0_.exit.loopexit.i ], [ %4, %._crit_edge.i.i.i.i.i ], [ %4, %._crit_edge._crit_edge52.i.i.i.i.i ], [ %4, %_ZSt9__find_ifIPPN3ozz7options6OptionEN9__gnu_cxx5__ops16_Iter_equals_valIKS3_EEET_SA_SA_T0_.exit.i.i.i ]
+  %.016.i.i.i = phi ptr [ %.1.i.i.i, %_ZSt6removeIPPN3ozz7options6OptionES3_ET_S5_S5_RKT0_.exit.loopexit.i ], [ %6, %._crit_edge.i.i.i.i.i ], [ %6, %._crit_edge._crit_edge52.i.i.i.i.i ], [ %.028.i.i.i.i.i, %_ZSt9__find_ifIPPN3ozz7options6OptionEN9__gnu_cxx5__ops16_Iter_equals_valIKS3_EEET_SA_SA_T0_.exit.i.i.i ]
+  %51 = getelementptr inbounds ptr, ptr %2, i64 %.pre-phi.i
+  %.not3.i = icmp eq ptr %.016.i.i.i, %51
+  br i1 %.not3.i, label %_ZN3ozz7options6Parser16UnregisterOptionEPNS0_6OptionE.exit, label %52
+
+52:                                               ; preds = %_ZSt6removeIPPN3ozz7options6OptionES3_ET_S5_S5_RKT0_.exit.i
+  %53 = add nsw i32 %50, -1
+  store i32 %53, ptr getelementptr inbounds ([50 x ptr], ptr @_ZN3ozz7options8internal12_GLOBAL__N_115GlobalRegistrer12placeholder_E, i64 0, i64 32), align 16
+  br label %_ZN3ozz7options6Parser16UnregisterOptionEPNS0_6OptionE.exit
+
+_ZN3ozz7options6Parser16UnregisterOptionEPNS0_6OptionE.exit: ; preds = %52, %_ZSt6removeIPPN3ozz7options6OptionES3_ET_S5_S5_RKT0_.exit.i, %1
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define weak_odr dso_local void @_ZN3ozz7options8internal9RegistrerINS0_11TypedOptionIiEEED0Ev(ptr noundef nonnull align 8 dereferenceable(48) %0) unnamed_addr #4 comdat($_ZN3ozz7options8internal9RegistrerINS0_11TypedOptionIiEEED5Ev) align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 48) ({ [8 x ptr] }, ptr @_ZTVN3ozz7options8internal9RegistrerINS0_11TypedOptionIiEEEE, i64 0, i32 0, i64 2), ptr %0, align 8
-  %2 = load ptr, ptr @_ZN3ozz7options8internal12_GLOBAL__N_115GlobalRegistrer7parser_E, align 8
-  %.not.i = icmp eq ptr %2, null
-  br i1 %.not.i, label %_ZN3ozz7options8internal9RegistrerINS0_11TypedOptionIiEEED2Ev.exit, label %3
-
-3:                                                ; preds = %1
-  %4 = tail call noundef zeroext i1 @_ZN3ozz7options6Parser16UnregisterOptionEPNS0_6OptionE(ptr noundef nonnull align 8 dereferenceable(400) %2, ptr noundef nonnull %0)
-  br label %_ZN3ozz7options8internal9RegistrerINS0_11TypedOptionIiEEED2Ev.exit
-
-_ZN3ozz7options8internal9RegistrerINS0_11TypedOptionIiEEED2Ev.exit: ; preds = %1, %3
+define weak_odr dso_local void @_ZN3ozz7options8internal9RegistrerINS0_11TypedOptionIiEEED0Ev(ptr noundef nonnull align 8 dereferenceable(48) %0) unnamed_addr #4 comdat($_ZN3ozz7options8internal9RegistrerINS0_11TypedOptionIiEEED5Ev) align 2 {
+  tail call void @_ZN3ozz7options8internal9RegistrerINS0_11TypedOptionIiEEED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %0) #28
   tail call void @_ZdlPv(ptr noundef nonnull %0) #30
   ret void
 }
@@ -952,28 +1201,154 @@ define weak_odr dso_local void @_ZN3ozz7options8internal9RegistrerINS0_11TypedOp
   store ptr getelementptr inbounds inrange(-16, 48) ({ [8 x ptr] }, ptr @_ZTVN3ozz7options8internal9RegistrerINS0_11TypedOptionIfEEEE, i64 0, i32 0, i64 2), ptr %0, align 8
   %2 = load ptr, ptr @_ZN3ozz7options8internal12_GLOBAL__N_115GlobalRegistrer7parser_E, align 8
   %.not = icmp eq ptr %2, null
-  br i1 %.not, label %5, label %3
+  br i1 %.not, label %_ZN3ozz7options6Parser16UnregisterOptionEPNS0_6OptionE.exit, label %3
 
 3:                                                ; preds = %1
-  %4 = tail call noundef zeroext i1 @_ZN3ozz7options6Parser16UnregisterOptionEPNS0_6OptionE(ptr noundef nonnull align 8 dereferenceable(400) %2, ptr noundef nonnull %0)
-  br label %5
+  %4 = load i32, ptr getelementptr inbounds ([50 x ptr], ptr @_ZN3ozz7options8internal12_GLOBAL__N_115GlobalRegistrer12placeholder_E, i64 0, i64 32), align 16
+  %5 = sext i32 %4 to i64
+  %.idx6.i = shl nsw i64 %5, 3
+  %6 = getelementptr inbounds i8, ptr %2, i64 %.idx6.i
+  %7 = ashr i64 %5, 2
+  %8 = icmp sgt i64 %7, 0
+  br i1 %8, label %.lr.ph.i.i.i.i.i, label %._crit_edge.i.i.i.i.i
 
-5:                                                ; preds = %3, %1
+.lr.ph.i.i.i.i.i:                                 ; preds = %3
+  %9 = and i64 %.idx6.i, -32
+  %scevgep.i.i.i.i.i = getelementptr i8, ptr %2, i64 %9
+  br label %10
+
+10:                                               ; preds = %25, %.lr.ph.i.i.i.i.i
+  %.047.i.i.i.i.i = phi i64 [ %7, %.lr.ph.i.i.i.i.i ], [ %27, %25 ]
+  %.02946.i.i.i.i.i = phi ptr [ %2, %.lr.ph.i.i.i.i.i ], [ %26, %25 ]
+  %11 = load ptr, ptr %.02946.i.i.i.i.i, align 8
+  %12 = icmp eq ptr %11, %0
+  br i1 %12, label %_ZSt9__find_ifIPPN3ozz7options6OptionEN9__gnu_cxx5__ops16_Iter_equals_valIKS3_EEET_SA_SA_T0_.exit.i.i.i, label %13
+
+13:                                               ; preds = %10
+  %14 = getelementptr inbounds i8, ptr %.02946.i.i.i.i.i, i64 8
+  %15 = load ptr, ptr %14, align 8
+  %16 = icmp eq ptr %15, %0
+  br i1 %16, label %_ZSt9__find_ifIPPN3ozz7options6OptionEN9__gnu_cxx5__ops16_Iter_equals_valIKS3_EEET_SA_SA_T0_.exit.i.i.i.loopexit.split.loop.exit, label %17
+
+17:                                               ; preds = %13
+  %18 = getelementptr inbounds i8, ptr %.02946.i.i.i.i.i, i64 16
+  %19 = load ptr, ptr %18, align 8
+  %20 = icmp eq ptr %19, %0
+  br i1 %20, label %_ZSt9__find_ifIPPN3ozz7options6OptionEN9__gnu_cxx5__ops16_Iter_equals_valIKS3_EEET_SA_SA_T0_.exit.i.i.i.loopexit.split.loop.exit15, label %21
+
+21:                                               ; preds = %17
+  %22 = getelementptr inbounds i8, ptr %.02946.i.i.i.i.i, i64 24
+  %23 = load ptr, ptr %22, align 8
+  %24 = icmp eq ptr %23, %0
+  br i1 %24, label %_ZSt9__find_ifIPPN3ozz7options6OptionEN9__gnu_cxx5__ops16_Iter_equals_valIKS3_EEET_SA_SA_T0_.exit.i.i.i.loopexit.split.loop.exit17, label %25
+
+25:                                               ; preds = %21
+  %26 = getelementptr inbounds i8, ptr %.02946.i.i.i.i.i, i64 32
+  %27 = add nsw i64 %.047.i.i.i.i.i, -1
+  %28 = icmp sgt i64 %.047.i.i.i.i.i, 1
+  br i1 %28, label %10, label %._crit_edge.loopexit.i.i.i.i.i, !llvm.loop !9
+
+._crit_edge.loopexit.i.i.i.i.i:                   ; preds = %25
+  %29 = and i64 %5, 3
+  br label %._crit_edge.i.i.i.i.i
+
+._crit_edge.i.i.i.i.i:                            ; preds = %._crit_edge.loopexit.i.i.i.i.i, %3
+  %.pre-phi56.i.i.i.i.i = phi i64 [ %29, %._crit_edge.loopexit.i.i.i.i.i ], [ %5, %3 ]
+  %.029.lcssa.i.i.i.i.i = phi ptr [ %scevgep.i.i.i.i.i, %._crit_edge.loopexit.i.i.i.i.i ], [ %2, %3 ]
+  switch i64 %.pre-phi56.i.i.i.i.i, label %_ZSt6removeIPPN3ozz7options6OptionES3_ET_S5_S5_RKT0_.exit.i [
+    i64 3, label %30
+    i64 2, label %._crit_edge._crit_edge.i.i.i.i.i
+    i64 1, label %._crit_edge._crit_edge52.i.i.i.i.i
+  ]
+
+30:                                               ; preds = %._crit_edge.i.i.i.i.i
+  %31 = load ptr, ptr %.029.lcssa.i.i.i.i.i, align 8
+  %32 = icmp eq ptr %31, %0
+  br i1 %32, label %_ZSt9__find_ifIPPN3ozz7options6OptionEN9__gnu_cxx5__ops16_Iter_equals_valIKS3_EEET_SA_SA_T0_.exit.i.i.i, label %33
+
+33:                                               ; preds = %30
+  %34 = getelementptr inbounds i8, ptr %.029.lcssa.i.i.i.i.i, i64 8
+  br label %._crit_edge._crit_edge.i.i.i.i.i
+
+._crit_edge._crit_edge.i.i.i.i.i:                 ; preds = %33, %._crit_edge.i.i.i.i.i
+  %.1.i.i.i.i.i = phi ptr [ %34, %33 ], [ %.029.lcssa.i.i.i.i.i, %._crit_edge.i.i.i.i.i ]
+  %35 = load ptr, ptr %.1.i.i.i.i.i, align 8
+  %36 = icmp eq ptr %35, %0
+  br i1 %36, label %_ZSt9__find_ifIPPN3ozz7options6OptionEN9__gnu_cxx5__ops16_Iter_equals_valIKS3_EEET_SA_SA_T0_.exit.i.i.i, label %37
+
+37:                                               ; preds = %._crit_edge._crit_edge.i.i.i.i.i
+  %38 = getelementptr inbounds i8, ptr %.1.i.i.i.i.i, i64 8
+  br label %._crit_edge._crit_edge52.i.i.i.i.i
+
+._crit_edge._crit_edge52.i.i.i.i.i:               ; preds = %37, %._crit_edge.i.i.i.i.i
+  %.2.i.i.i.i.i = phi ptr [ %38, %37 ], [ %.029.lcssa.i.i.i.i.i, %._crit_edge.i.i.i.i.i ]
+  %39 = load ptr, ptr %.2.i.i.i.i.i, align 8
+  %40 = icmp eq ptr %39, %0
+  br i1 %40, label %_ZSt9__find_ifIPPN3ozz7options6OptionEN9__gnu_cxx5__ops16_Iter_equals_valIKS3_EEET_SA_SA_T0_.exit.i.i.i, label %_ZSt6removeIPPN3ozz7options6OptionES3_ET_S5_S5_RKT0_.exit.i
+
+_ZSt9__find_ifIPPN3ozz7options6OptionEN9__gnu_cxx5__ops16_Iter_equals_valIKS3_EEET_SA_SA_T0_.exit.i.i.i.loopexit.split.loop.exit: ; preds = %13
+  %41 = getelementptr inbounds i8, ptr %.02946.i.i.i.i.i, i64 8
+  br label %_ZSt9__find_ifIPPN3ozz7options6OptionEN9__gnu_cxx5__ops16_Iter_equals_valIKS3_EEET_SA_SA_T0_.exit.i.i.i
+
+_ZSt9__find_ifIPPN3ozz7options6OptionEN9__gnu_cxx5__ops16_Iter_equals_valIKS3_EEET_SA_SA_T0_.exit.i.i.i.loopexit.split.loop.exit15: ; preds = %17
+  %42 = getelementptr inbounds i8, ptr %.02946.i.i.i.i.i, i64 16
+  br label %_ZSt9__find_ifIPPN3ozz7options6OptionEN9__gnu_cxx5__ops16_Iter_equals_valIKS3_EEET_SA_SA_T0_.exit.i.i.i
+
+_ZSt9__find_ifIPPN3ozz7options6OptionEN9__gnu_cxx5__ops16_Iter_equals_valIKS3_EEET_SA_SA_T0_.exit.i.i.i.loopexit.split.loop.exit17: ; preds = %21
+  %43 = getelementptr inbounds i8, ptr %.02946.i.i.i.i.i, i64 24
+  br label %_ZSt9__find_ifIPPN3ozz7options6OptionEN9__gnu_cxx5__ops16_Iter_equals_valIKS3_EEET_SA_SA_T0_.exit.i.i.i
+
+_ZSt9__find_ifIPPN3ozz7options6OptionEN9__gnu_cxx5__ops16_Iter_equals_valIKS3_EEET_SA_SA_T0_.exit.i.i.i: ; preds = %10, %_ZSt9__find_ifIPPN3ozz7options6OptionEN9__gnu_cxx5__ops16_Iter_equals_valIKS3_EEET_SA_SA_T0_.exit.i.i.i.loopexit.split.loop.exit, %_ZSt9__find_ifIPPN3ozz7options6OptionEN9__gnu_cxx5__ops16_Iter_equals_valIKS3_EEET_SA_SA_T0_.exit.i.i.i.loopexit.split.loop.exit15, %_ZSt9__find_ifIPPN3ozz7options6OptionEN9__gnu_cxx5__ops16_Iter_equals_valIKS3_EEET_SA_SA_T0_.exit.i.i.i.loopexit.split.loop.exit17, %._crit_edge._crit_edge52.i.i.i.i.i, %._crit_edge._crit_edge.i.i.i.i.i, %30
+  %.028.i.i.i.i.i = phi ptr [ %.029.lcssa.i.i.i.i.i, %30 ], [ %.1.i.i.i.i.i, %._crit_edge._crit_edge.i.i.i.i.i ], [ %.2.i.i.i.i.i, %._crit_edge._crit_edge52.i.i.i.i.i ], [ %41, %_ZSt9__find_ifIPPN3ozz7options6OptionEN9__gnu_cxx5__ops16_Iter_equals_valIKS3_EEET_SA_SA_T0_.exit.i.i.i.loopexit.split.loop.exit ], [ %42, %_ZSt9__find_ifIPPN3ozz7options6OptionEN9__gnu_cxx5__ops16_Iter_equals_valIKS3_EEET_SA_SA_T0_.exit.i.i.i.loopexit.split.loop.exit15 ], [ %43, %_ZSt9__find_ifIPPN3ozz7options6OptionEN9__gnu_cxx5__ops16_Iter_equals_valIKS3_EEET_SA_SA_T0_.exit.i.i.i.loopexit.split.loop.exit17 ], [ %.02946.i.i.i.i.i, %10 ]
+  %44 = icmp eq ptr %.028.i.i.i.i.i, %6
+  %.01730.i.i.i = getelementptr inbounds i8, ptr %.028.i.i.i.i.i, i64 8
+  %.not31.i.i.i = icmp eq ptr %.01730.i.i.i, %6
+  %or.cond.i.i.i = select i1 %44, i1 true, i1 %.not31.i.i.i
+  br i1 %or.cond.i.i.i, label %_ZSt6removeIPPN3ozz7options6OptionES3_ET_S5_S5_RKT0_.exit.i, label %.lr.ph.i.i.i
+
+.lr.ph.i.i.i:                                     ; preds = %_ZSt9__find_ifIPPN3ozz7options6OptionEN9__gnu_cxx5__ops16_Iter_equals_valIKS3_EEET_SA_SA_T0_.exit.i.i.i, %49
+  %.01733.i.i.i = phi ptr [ %.017.i.i.i, %49 ], [ %.01730.i.i.i, %_ZSt9__find_ifIPPN3ozz7options6OptionEN9__gnu_cxx5__ops16_Iter_equals_valIKS3_EEET_SA_SA_T0_.exit.i.i.i ]
+  %.032.i.i.i = phi ptr [ %.1.i.i.i, %49 ], [ %.028.i.i.i.i.i, %_ZSt9__find_ifIPPN3ozz7options6OptionEN9__gnu_cxx5__ops16_Iter_equals_valIKS3_EEET_SA_SA_T0_.exit.i.i.i ]
+  %45 = load ptr, ptr %.01733.i.i.i, align 8
+  %46 = icmp eq ptr %45, %0
+  br i1 %46, label %49, label %47
+
+47:                                               ; preds = %.lr.ph.i.i.i
+  store ptr %45, ptr %.032.i.i.i, align 8
+  %48 = getelementptr inbounds i8, ptr %.032.i.i.i, i64 8
+  br label %49
+
+49:                                               ; preds = %47, %.lr.ph.i.i.i
+  %.1.i.i.i = phi ptr [ %.032.i.i.i, %.lr.ph.i.i.i ], [ %48, %47 ]
+  %.017.i.i.i = getelementptr inbounds i8, ptr %.01733.i.i.i, i64 8
+  %.not.i.i.i = icmp eq ptr %.017.i.i.i, %6
+  br i1 %.not.i.i.i, label %_ZSt6removeIPPN3ozz7options6OptionES3_ET_S5_S5_RKT0_.exit.loopexit.i, label %.lr.ph.i.i.i, !llvm.loop !10
+
+_ZSt6removeIPPN3ozz7options6OptionES3_ET_S5_S5_RKT0_.exit.loopexit.i: ; preds = %49
+  %.pre.i = load i32, ptr getelementptr inbounds ([50 x ptr], ptr @_ZN3ozz7options8internal12_GLOBAL__N_115GlobalRegistrer12placeholder_E, i64 0, i64 32), align 16
+  %.pre19.i = sext i32 %.pre.i to i64
+  br label %_ZSt6removeIPPN3ozz7options6OptionES3_ET_S5_S5_RKT0_.exit.i
+
+_ZSt6removeIPPN3ozz7options6OptionES3_ET_S5_S5_RKT0_.exit.i: ; preds = %_ZSt6removeIPPN3ozz7options6OptionES3_ET_S5_S5_RKT0_.exit.loopexit.i, %_ZSt9__find_ifIPPN3ozz7options6OptionEN9__gnu_cxx5__ops16_Iter_equals_valIKS3_EEET_SA_SA_T0_.exit.i.i.i, %._crit_edge._crit_edge52.i.i.i.i.i, %._crit_edge.i.i.i.i.i
+  %.pre-phi.i = phi i64 [ %.pre19.i, %_ZSt6removeIPPN3ozz7options6OptionES3_ET_S5_S5_RKT0_.exit.loopexit.i ], [ %5, %._crit_edge.i.i.i.i.i ], [ %5, %._crit_edge._crit_edge52.i.i.i.i.i ], [ %5, %_ZSt9__find_ifIPPN3ozz7options6OptionEN9__gnu_cxx5__ops16_Iter_equals_valIKS3_EEET_SA_SA_T0_.exit.i.i.i ]
+  %50 = phi i32 [ %.pre.i, %_ZSt6removeIPPN3ozz7options6OptionES3_ET_S5_S5_RKT0_.exit.loopexit.i ], [ %4, %._crit_edge.i.i.i.i.i ], [ %4, %._crit_edge._crit_edge52.i.i.i.i.i ], [ %4, %_ZSt9__find_ifIPPN3ozz7options6OptionEN9__gnu_cxx5__ops16_Iter_equals_valIKS3_EEET_SA_SA_T0_.exit.i.i.i ]
+  %.016.i.i.i = phi ptr [ %.1.i.i.i, %_ZSt6removeIPPN3ozz7options6OptionES3_ET_S5_S5_RKT0_.exit.loopexit.i ], [ %6, %._crit_edge.i.i.i.i.i ], [ %6, %._crit_edge._crit_edge52.i.i.i.i.i ], [ %.028.i.i.i.i.i, %_ZSt9__find_ifIPPN3ozz7options6OptionEN9__gnu_cxx5__ops16_Iter_equals_valIKS3_EEET_SA_SA_T0_.exit.i.i.i ]
+  %51 = getelementptr inbounds ptr, ptr %2, i64 %.pre-phi.i
+  %.not3.i = icmp eq ptr %.016.i.i.i, %51
+  br i1 %.not3.i, label %_ZN3ozz7options6Parser16UnregisterOptionEPNS0_6OptionE.exit, label %52
+
+52:                                               ; preds = %_ZSt6removeIPPN3ozz7options6OptionES3_ET_S5_S5_RKT0_.exit.i
+  %53 = add nsw i32 %50, -1
+  store i32 %53, ptr getelementptr inbounds ([50 x ptr], ptr @_ZN3ozz7options8internal12_GLOBAL__N_115GlobalRegistrer12placeholder_E, i64 0, i64 32), align 16
+  br label %_ZN3ozz7options6Parser16UnregisterOptionEPNS0_6OptionE.exit
+
+_ZN3ozz7options6Parser16UnregisterOptionEPNS0_6OptionE.exit: ; preds = %52, %_ZSt6removeIPPN3ozz7options6OptionES3_ET_S5_S5_RKT0_.exit.i, %1
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define weak_odr dso_local void @_ZN3ozz7options8internal9RegistrerINS0_11TypedOptionIfEEED0Ev(ptr noundef nonnull align 8 dereferenceable(48) %0) unnamed_addr #4 comdat($_ZN3ozz7options8internal9RegistrerINS0_11TypedOptionIfEEED5Ev) align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 48) ({ [8 x ptr] }, ptr @_ZTVN3ozz7options8internal9RegistrerINS0_11TypedOptionIfEEEE, i64 0, i32 0, i64 2), ptr %0, align 8
-  %2 = load ptr, ptr @_ZN3ozz7options8internal12_GLOBAL__N_115GlobalRegistrer7parser_E, align 8
-  %.not.i = icmp eq ptr %2, null
-  br i1 %.not.i, label %_ZN3ozz7options8internal9RegistrerINS0_11TypedOptionIfEEED2Ev.exit, label %3
-
-3:                                                ; preds = %1
-  %4 = tail call noundef zeroext i1 @_ZN3ozz7options6Parser16UnregisterOptionEPNS0_6OptionE(ptr noundef nonnull align 8 dereferenceable(400) %2, ptr noundef nonnull %0)
-  br label %_ZN3ozz7options8internal9RegistrerINS0_11TypedOptionIfEEED2Ev.exit
-
-_ZN3ozz7options8internal9RegistrerINS0_11TypedOptionIfEEED2Ev.exit: ; preds = %1, %3
+define weak_odr dso_local void @_ZN3ozz7options8internal9RegistrerINS0_11TypedOptionIfEEED0Ev(ptr noundef nonnull align 8 dereferenceable(48) %0) unnamed_addr #4 comdat($_ZN3ozz7options8internal9RegistrerINS0_11TypedOptionIfEEED5Ev) align 2 {
+  tail call void @_ZN3ozz7options8internal9RegistrerINS0_11TypedOptionIfEEED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %0) #28
   tail call void @_ZdlPv(ptr noundef nonnull %0) #30
   ret void
 }
@@ -1081,28 +1456,154 @@ define weak_odr dso_local void @_ZN3ozz7options8internal9RegistrerINS0_11TypedOp
   store ptr getelementptr inbounds inrange(-16, 48) ({ [8 x ptr] }, ptr @_ZTVN3ozz7options8internal9RegistrerINS0_11TypedOptionIPKcEEEE, i64 0, i32 0, i64 2), ptr %0, align 8
   %2 = load ptr, ptr @_ZN3ozz7options8internal12_GLOBAL__N_115GlobalRegistrer7parser_E, align 8
   %.not = icmp eq ptr %2, null
-  br i1 %.not, label %5, label %3
+  br i1 %.not, label %_ZN3ozz7options6Parser16UnregisterOptionEPNS0_6OptionE.exit, label %3
 
 3:                                                ; preds = %1
-  %4 = tail call noundef zeroext i1 @_ZN3ozz7options6Parser16UnregisterOptionEPNS0_6OptionE(ptr noundef nonnull align 8 dereferenceable(400) %2, ptr noundef nonnull %0)
-  br label %5
+  %4 = load i32, ptr getelementptr inbounds ([50 x ptr], ptr @_ZN3ozz7options8internal12_GLOBAL__N_115GlobalRegistrer12placeholder_E, i64 0, i64 32), align 16
+  %5 = sext i32 %4 to i64
+  %.idx6.i = shl nsw i64 %5, 3
+  %6 = getelementptr inbounds i8, ptr %2, i64 %.idx6.i
+  %7 = ashr i64 %5, 2
+  %8 = icmp sgt i64 %7, 0
+  br i1 %8, label %.lr.ph.i.i.i.i.i, label %._crit_edge.i.i.i.i.i
 
-5:                                                ; preds = %3, %1
+.lr.ph.i.i.i.i.i:                                 ; preds = %3
+  %9 = and i64 %.idx6.i, -32
+  %scevgep.i.i.i.i.i = getelementptr i8, ptr %2, i64 %9
+  br label %10
+
+10:                                               ; preds = %25, %.lr.ph.i.i.i.i.i
+  %.047.i.i.i.i.i = phi i64 [ %7, %.lr.ph.i.i.i.i.i ], [ %27, %25 ]
+  %.02946.i.i.i.i.i = phi ptr [ %2, %.lr.ph.i.i.i.i.i ], [ %26, %25 ]
+  %11 = load ptr, ptr %.02946.i.i.i.i.i, align 8
+  %12 = icmp eq ptr %11, %0
+  br i1 %12, label %_ZSt9__find_ifIPPN3ozz7options6OptionEN9__gnu_cxx5__ops16_Iter_equals_valIKS3_EEET_SA_SA_T0_.exit.i.i.i, label %13
+
+13:                                               ; preds = %10
+  %14 = getelementptr inbounds i8, ptr %.02946.i.i.i.i.i, i64 8
+  %15 = load ptr, ptr %14, align 8
+  %16 = icmp eq ptr %15, %0
+  br i1 %16, label %_ZSt9__find_ifIPPN3ozz7options6OptionEN9__gnu_cxx5__ops16_Iter_equals_valIKS3_EEET_SA_SA_T0_.exit.i.i.i.loopexit.split.loop.exit, label %17
+
+17:                                               ; preds = %13
+  %18 = getelementptr inbounds i8, ptr %.02946.i.i.i.i.i, i64 16
+  %19 = load ptr, ptr %18, align 8
+  %20 = icmp eq ptr %19, %0
+  br i1 %20, label %_ZSt9__find_ifIPPN3ozz7options6OptionEN9__gnu_cxx5__ops16_Iter_equals_valIKS3_EEET_SA_SA_T0_.exit.i.i.i.loopexit.split.loop.exit15, label %21
+
+21:                                               ; preds = %17
+  %22 = getelementptr inbounds i8, ptr %.02946.i.i.i.i.i, i64 24
+  %23 = load ptr, ptr %22, align 8
+  %24 = icmp eq ptr %23, %0
+  br i1 %24, label %_ZSt9__find_ifIPPN3ozz7options6OptionEN9__gnu_cxx5__ops16_Iter_equals_valIKS3_EEET_SA_SA_T0_.exit.i.i.i.loopexit.split.loop.exit17, label %25
+
+25:                                               ; preds = %21
+  %26 = getelementptr inbounds i8, ptr %.02946.i.i.i.i.i, i64 32
+  %27 = add nsw i64 %.047.i.i.i.i.i, -1
+  %28 = icmp sgt i64 %.047.i.i.i.i.i, 1
+  br i1 %28, label %10, label %._crit_edge.loopexit.i.i.i.i.i, !llvm.loop !9
+
+._crit_edge.loopexit.i.i.i.i.i:                   ; preds = %25
+  %29 = and i64 %5, 3
+  br label %._crit_edge.i.i.i.i.i
+
+._crit_edge.i.i.i.i.i:                            ; preds = %._crit_edge.loopexit.i.i.i.i.i, %3
+  %.pre-phi56.i.i.i.i.i = phi i64 [ %29, %._crit_edge.loopexit.i.i.i.i.i ], [ %5, %3 ]
+  %.029.lcssa.i.i.i.i.i = phi ptr [ %scevgep.i.i.i.i.i, %._crit_edge.loopexit.i.i.i.i.i ], [ %2, %3 ]
+  switch i64 %.pre-phi56.i.i.i.i.i, label %_ZSt6removeIPPN3ozz7options6OptionES3_ET_S5_S5_RKT0_.exit.i [
+    i64 3, label %30
+    i64 2, label %._crit_edge._crit_edge.i.i.i.i.i
+    i64 1, label %._crit_edge._crit_edge52.i.i.i.i.i
+  ]
+
+30:                                               ; preds = %._crit_edge.i.i.i.i.i
+  %31 = load ptr, ptr %.029.lcssa.i.i.i.i.i, align 8
+  %32 = icmp eq ptr %31, %0
+  br i1 %32, label %_ZSt9__find_ifIPPN3ozz7options6OptionEN9__gnu_cxx5__ops16_Iter_equals_valIKS3_EEET_SA_SA_T0_.exit.i.i.i, label %33
+
+33:                                               ; preds = %30
+  %34 = getelementptr inbounds i8, ptr %.029.lcssa.i.i.i.i.i, i64 8
+  br label %._crit_edge._crit_edge.i.i.i.i.i
+
+._crit_edge._crit_edge.i.i.i.i.i:                 ; preds = %33, %._crit_edge.i.i.i.i.i
+  %.1.i.i.i.i.i = phi ptr [ %34, %33 ], [ %.029.lcssa.i.i.i.i.i, %._crit_edge.i.i.i.i.i ]
+  %35 = load ptr, ptr %.1.i.i.i.i.i, align 8
+  %36 = icmp eq ptr %35, %0
+  br i1 %36, label %_ZSt9__find_ifIPPN3ozz7options6OptionEN9__gnu_cxx5__ops16_Iter_equals_valIKS3_EEET_SA_SA_T0_.exit.i.i.i, label %37
+
+37:                                               ; preds = %._crit_edge._crit_edge.i.i.i.i.i
+  %38 = getelementptr inbounds i8, ptr %.1.i.i.i.i.i, i64 8
+  br label %._crit_edge._crit_edge52.i.i.i.i.i
+
+._crit_edge._crit_edge52.i.i.i.i.i:               ; preds = %37, %._crit_edge.i.i.i.i.i
+  %.2.i.i.i.i.i = phi ptr [ %38, %37 ], [ %.029.lcssa.i.i.i.i.i, %._crit_edge.i.i.i.i.i ]
+  %39 = load ptr, ptr %.2.i.i.i.i.i, align 8
+  %40 = icmp eq ptr %39, %0
+  br i1 %40, label %_ZSt9__find_ifIPPN3ozz7options6OptionEN9__gnu_cxx5__ops16_Iter_equals_valIKS3_EEET_SA_SA_T0_.exit.i.i.i, label %_ZSt6removeIPPN3ozz7options6OptionES3_ET_S5_S5_RKT0_.exit.i
+
+_ZSt9__find_ifIPPN3ozz7options6OptionEN9__gnu_cxx5__ops16_Iter_equals_valIKS3_EEET_SA_SA_T0_.exit.i.i.i.loopexit.split.loop.exit: ; preds = %13
+  %41 = getelementptr inbounds i8, ptr %.02946.i.i.i.i.i, i64 8
+  br label %_ZSt9__find_ifIPPN3ozz7options6OptionEN9__gnu_cxx5__ops16_Iter_equals_valIKS3_EEET_SA_SA_T0_.exit.i.i.i
+
+_ZSt9__find_ifIPPN3ozz7options6OptionEN9__gnu_cxx5__ops16_Iter_equals_valIKS3_EEET_SA_SA_T0_.exit.i.i.i.loopexit.split.loop.exit15: ; preds = %17
+  %42 = getelementptr inbounds i8, ptr %.02946.i.i.i.i.i, i64 16
+  br label %_ZSt9__find_ifIPPN3ozz7options6OptionEN9__gnu_cxx5__ops16_Iter_equals_valIKS3_EEET_SA_SA_T0_.exit.i.i.i
+
+_ZSt9__find_ifIPPN3ozz7options6OptionEN9__gnu_cxx5__ops16_Iter_equals_valIKS3_EEET_SA_SA_T0_.exit.i.i.i.loopexit.split.loop.exit17: ; preds = %21
+  %43 = getelementptr inbounds i8, ptr %.02946.i.i.i.i.i, i64 24
+  br label %_ZSt9__find_ifIPPN3ozz7options6OptionEN9__gnu_cxx5__ops16_Iter_equals_valIKS3_EEET_SA_SA_T0_.exit.i.i.i
+
+_ZSt9__find_ifIPPN3ozz7options6OptionEN9__gnu_cxx5__ops16_Iter_equals_valIKS3_EEET_SA_SA_T0_.exit.i.i.i: ; preds = %10, %_ZSt9__find_ifIPPN3ozz7options6OptionEN9__gnu_cxx5__ops16_Iter_equals_valIKS3_EEET_SA_SA_T0_.exit.i.i.i.loopexit.split.loop.exit, %_ZSt9__find_ifIPPN3ozz7options6OptionEN9__gnu_cxx5__ops16_Iter_equals_valIKS3_EEET_SA_SA_T0_.exit.i.i.i.loopexit.split.loop.exit15, %_ZSt9__find_ifIPPN3ozz7options6OptionEN9__gnu_cxx5__ops16_Iter_equals_valIKS3_EEET_SA_SA_T0_.exit.i.i.i.loopexit.split.loop.exit17, %._crit_edge._crit_edge52.i.i.i.i.i, %._crit_edge._crit_edge.i.i.i.i.i, %30
+  %.028.i.i.i.i.i = phi ptr [ %.029.lcssa.i.i.i.i.i, %30 ], [ %.1.i.i.i.i.i, %._crit_edge._crit_edge.i.i.i.i.i ], [ %.2.i.i.i.i.i, %._crit_edge._crit_edge52.i.i.i.i.i ], [ %41, %_ZSt9__find_ifIPPN3ozz7options6OptionEN9__gnu_cxx5__ops16_Iter_equals_valIKS3_EEET_SA_SA_T0_.exit.i.i.i.loopexit.split.loop.exit ], [ %42, %_ZSt9__find_ifIPPN3ozz7options6OptionEN9__gnu_cxx5__ops16_Iter_equals_valIKS3_EEET_SA_SA_T0_.exit.i.i.i.loopexit.split.loop.exit15 ], [ %43, %_ZSt9__find_ifIPPN3ozz7options6OptionEN9__gnu_cxx5__ops16_Iter_equals_valIKS3_EEET_SA_SA_T0_.exit.i.i.i.loopexit.split.loop.exit17 ], [ %.02946.i.i.i.i.i, %10 ]
+  %44 = icmp eq ptr %.028.i.i.i.i.i, %6
+  %.01730.i.i.i = getelementptr inbounds i8, ptr %.028.i.i.i.i.i, i64 8
+  %.not31.i.i.i = icmp eq ptr %.01730.i.i.i, %6
+  %or.cond.i.i.i = select i1 %44, i1 true, i1 %.not31.i.i.i
+  br i1 %or.cond.i.i.i, label %_ZSt6removeIPPN3ozz7options6OptionES3_ET_S5_S5_RKT0_.exit.i, label %.lr.ph.i.i.i
+
+.lr.ph.i.i.i:                                     ; preds = %_ZSt9__find_ifIPPN3ozz7options6OptionEN9__gnu_cxx5__ops16_Iter_equals_valIKS3_EEET_SA_SA_T0_.exit.i.i.i, %49
+  %.01733.i.i.i = phi ptr [ %.017.i.i.i, %49 ], [ %.01730.i.i.i, %_ZSt9__find_ifIPPN3ozz7options6OptionEN9__gnu_cxx5__ops16_Iter_equals_valIKS3_EEET_SA_SA_T0_.exit.i.i.i ]
+  %.032.i.i.i = phi ptr [ %.1.i.i.i, %49 ], [ %.028.i.i.i.i.i, %_ZSt9__find_ifIPPN3ozz7options6OptionEN9__gnu_cxx5__ops16_Iter_equals_valIKS3_EEET_SA_SA_T0_.exit.i.i.i ]
+  %45 = load ptr, ptr %.01733.i.i.i, align 8
+  %46 = icmp eq ptr %45, %0
+  br i1 %46, label %49, label %47
+
+47:                                               ; preds = %.lr.ph.i.i.i
+  store ptr %45, ptr %.032.i.i.i, align 8
+  %48 = getelementptr inbounds i8, ptr %.032.i.i.i, i64 8
+  br label %49
+
+49:                                               ; preds = %47, %.lr.ph.i.i.i
+  %.1.i.i.i = phi ptr [ %.032.i.i.i, %.lr.ph.i.i.i ], [ %48, %47 ]
+  %.017.i.i.i = getelementptr inbounds i8, ptr %.01733.i.i.i, i64 8
+  %.not.i.i.i = icmp eq ptr %.017.i.i.i, %6
+  br i1 %.not.i.i.i, label %_ZSt6removeIPPN3ozz7options6OptionES3_ET_S5_S5_RKT0_.exit.loopexit.i, label %.lr.ph.i.i.i, !llvm.loop !10
+
+_ZSt6removeIPPN3ozz7options6OptionES3_ET_S5_S5_RKT0_.exit.loopexit.i: ; preds = %49
+  %.pre.i = load i32, ptr getelementptr inbounds ([50 x ptr], ptr @_ZN3ozz7options8internal12_GLOBAL__N_115GlobalRegistrer12placeholder_E, i64 0, i64 32), align 16
+  %.pre19.i = sext i32 %.pre.i to i64
+  br label %_ZSt6removeIPPN3ozz7options6OptionES3_ET_S5_S5_RKT0_.exit.i
+
+_ZSt6removeIPPN3ozz7options6OptionES3_ET_S5_S5_RKT0_.exit.i: ; preds = %_ZSt6removeIPPN3ozz7options6OptionES3_ET_S5_S5_RKT0_.exit.loopexit.i, %_ZSt9__find_ifIPPN3ozz7options6OptionEN9__gnu_cxx5__ops16_Iter_equals_valIKS3_EEET_SA_SA_T0_.exit.i.i.i, %._crit_edge._crit_edge52.i.i.i.i.i, %._crit_edge.i.i.i.i.i
+  %.pre-phi.i = phi i64 [ %.pre19.i, %_ZSt6removeIPPN3ozz7options6OptionES3_ET_S5_S5_RKT0_.exit.loopexit.i ], [ %5, %._crit_edge.i.i.i.i.i ], [ %5, %._crit_edge._crit_edge52.i.i.i.i.i ], [ %5, %_ZSt9__find_ifIPPN3ozz7options6OptionEN9__gnu_cxx5__ops16_Iter_equals_valIKS3_EEET_SA_SA_T0_.exit.i.i.i ]
+  %50 = phi i32 [ %.pre.i, %_ZSt6removeIPPN3ozz7options6OptionES3_ET_S5_S5_RKT0_.exit.loopexit.i ], [ %4, %._crit_edge.i.i.i.i.i ], [ %4, %._crit_edge._crit_edge52.i.i.i.i.i ], [ %4, %_ZSt9__find_ifIPPN3ozz7options6OptionEN9__gnu_cxx5__ops16_Iter_equals_valIKS3_EEET_SA_SA_T0_.exit.i.i.i ]
+  %.016.i.i.i = phi ptr [ %.1.i.i.i, %_ZSt6removeIPPN3ozz7options6OptionES3_ET_S5_S5_RKT0_.exit.loopexit.i ], [ %6, %._crit_edge.i.i.i.i.i ], [ %6, %._crit_edge._crit_edge52.i.i.i.i.i ], [ %.028.i.i.i.i.i, %_ZSt9__find_ifIPPN3ozz7options6OptionEN9__gnu_cxx5__ops16_Iter_equals_valIKS3_EEET_SA_SA_T0_.exit.i.i.i ]
+  %51 = getelementptr inbounds ptr, ptr %2, i64 %.pre-phi.i
+  %.not3.i = icmp eq ptr %.016.i.i.i, %51
+  br i1 %.not3.i, label %_ZN3ozz7options6Parser16UnregisterOptionEPNS0_6OptionE.exit, label %52
+
+52:                                               ; preds = %_ZSt6removeIPPN3ozz7options6OptionES3_ET_S5_S5_RKT0_.exit.i
+  %53 = add nsw i32 %50, -1
+  store i32 %53, ptr getelementptr inbounds ([50 x ptr], ptr @_ZN3ozz7options8internal12_GLOBAL__N_115GlobalRegistrer12placeholder_E, i64 0, i64 32), align 16
+  br label %_ZN3ozz7options6Parser16UnregisterOptionEPNS0_6OptionE.exit
+
+_ZN3ozz7options6Parser16UnregisterOptionEPNS0_6OptionE.exit: ; preds = %52, %_ZSt6removeIPPN3ozz7options6OptionES3_ET_S5_S5_RKT0_.exit.i, %1
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define weak_odr dso_local void @_ZN3ozz7options8internal9RegistrerINS0_11TypedOptionIPKcEEED0Ev(ptr noundef nonnull align 8 dereferenceable(56) %0) unnamed_addr #4 comdat($_ZN3ozz7options8internal9RegistrerINS0_11TypedOptionIPKcEEED5Ev) align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 48) ({ [8 x ptr] }, ptr @_ZTVN3ozz7options8internal9RegistrerINS0_11TypedOptionIPKcEEEE, i64 0, i32 0, i64 2), ptr %0, align 8
-  %2 = load ptr, ptr @_ZN3ozz7options8internal12_GLOBAL__N_115GlobalRegistrer7parser_E, align 8
-  %.not.i = icmp eq ptr %2, null
-  br i1 %.not.i, label %_ZN3ozz7options8internal9RegistrerINS0_11TypedOptionIPKcEEED2Ev.exit, label %3
-
-3:                                                ; preds = %1
-  %4 = tail call noundef zeroext i1 @_ZN3ozz7options6Parser16UnregisterOptionEPNS0_6OptionE(ptr noundef nonnull align 8 dereferenceable(400) %2, ptr noundef nonnull %0)
-  br label %_ZN3ozz7options8internal9RegistrerINS0_11TypedOptionIPKcEEED2Ev.exit
-
-_ZN3ozz7options8internal9RegistrerINS0_11TypedOptionIPKcEEED2Ev.exit: ; preds = %1, %3
+define weak_odr dso_local void @_ZN3ozz7options8internal9RegistrerINS0_11TypedOptionIPKcEEED0Ev(ptr noundef nonnull align 8 dereferenceable(56) %0) unnamed_addr #4 comdat($_ZN3ozz7options8internal9RegistrerINS0_11TypedOptionIPKcEEED5Ev) align 2 {
+  tail call void @_ZN3ozz7options8internal9RegistrerINS0_11TypedOptionIPKcEEED2Ev(ptr noundef nonnull align 8 dereferenceable(56) %0) #28
   tail call void @_ZdlPv(ptr noundef nonnull %0) #30
   ret void
 }
@@ -1849,20 +2350,17 @@ define weak_odr dso_local noundef ptr @_ZNK3ozz7options11TypedOptionIPKcE10Forma
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @_ZN3ozz7options8internal12_GLOBAL__N_115GlobalRegistrerD2Ev(ptr nocapture nonnull readnone align 1 %0) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN3ozz7options8internal12_GLOBAL__N_115GlobalRegistrerD2Ev(ptr nocapture nonnull readnone align 1 %0) unnamed_addr #6 align 2 {
   %2 = load ptr, ptr @_ZN3ozz7options8internal12_GLOBAL__N_115GlobalRegistrer7parser_E, align 8
   %.not = icmp eq ptr %2, null
-  br i1 %.not, label %8, label %3
+  br i1 %.not, label %4, label %3
 
 3:                                                ; preds = %1
-  %4 = getelementptr inbounds i8, ptr %2, i64 304
-  %5 = tail call noundef zeroext i1 @_ZN3ozz7options6Parser16UnregisterOptionEPNS0_6OptionE(ptr noundef nonnull align 8 dereferenceable(400) %2, ptr noundef nonnull %4)
-  %6 = getelementptr inbounds i8, ptr %2, i64 352
-  %7 = tail call noundef zeroext i1 @_ZN3ozz7options6Parser16UnregisterOptionEPNS0_6OptionE(ptr noundef nonnull align 8 dereferenceable(400) %2, ptr noundef nonnull %6)
+  tail call void @_ZN3ozz7options6ParserD2Ev(ptr noundef nonnull align 8 dereferenceable(400) %2) #28
   store ptr null, ptr @_ZN3ozz7options8internal12_GLOBAL__N_115GlobalRegistrer7parser_E, align 8
-  br label %8
+  br label %4
 
-8:                                                ; preds = %3, %1
+4:                                                ; preds = %3, %1
   ret void
 }
 
@@ -2555,9 +3053,286 @@ define internal noundef zeroext i1 @_ZN3ozz7options12_GLOBAL__N_123ValidateExclu
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
 define dso_local void @_ZN3ozz7options6ParserD2Ev(ptr noundef nonnull align 8 dereferenceable(400) %0) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 304
-  %3 = tail call noundef zeroext i1 @_ZN3ozz7options6Parser16UnregisterOptionEPNS0_6OptionE(ptr noundef nonnull align 8 dereferenceable(400) %0, ptr noundef nonnull %2)
-  %4 = getelementptr inbounds i8, ptr %0, i64 352
-  %5 = tail call noundef zeroext i1 @_ZN3ozz7options6Parser16UnregisterOptionEPNS0_6OptionE(ptr noundef nonnull align 8 dereferenceable(400) %0, ptr noundef nonnull %4)
+  %3 = getelementptr inbounds i8, ptr %0, i64 256
+  %4 = load i32, ptr %3, align 8
+  %5 = sext i32 %4 to i64
+  %.idx6.i = shl nsw i64 %5, 3
+  %6 = getelementptr inbounds i8, ptr %0, i64 %.idx6.i
+  %7 = ashr i64 %5, 2
+  %8 = icmp sgt i64 %7, 0
+  br i1 %8, label %.lr.ph.i.i.i.i.i, label %._crit_edge.i.i.i.i.i
+
+.lr.ph.i.i.i.i.i:                                 ; preds = %1
+  %9 = and i64 %.idx6.i, -32
+  %scevgep.i.i.i.i.i = getelementptr i8, ptr %0, i64 %9
+  br label %10
+
+10:                                               ; preds = %25, %.lr.ph.i.i.i.i.i
+  %.047.i.i.i.i.i = phi i64 [ %7, %.lr.ph.i.i.i.i.i ], [ %27, %25 ]
+  %.02946.i.i.i.i.i = phi ptr [ %0, %.lr.ph.i.i.i.i.i ], [ %26, %25 ]
+  %11 = load ptr, ptr %.02946.i.i.i.i.i, align 8
+  %12 = icmp eq ptr %11, %2
+  br i1 %12, label %_ZSt9__find_ifIPPN3ozz7options6OptionEN9__gnu_cxx5__ops16_Iter_equals_valIKS3_EEET_SA_SA_T0_.exit.i.i.i, label %13
+
+13:                                               ; preds = %10
+  %14 = getelementptr inbounds i8, ptr %.02946.i.i.i.i.i, i64 8
+  %15 = load ptr, ptr %14, align 8
+  %16 = icmp eq ptr %15, %2
+  br i1 %16, label %_ZSt9__find_ifIPPN3ozz7options6OptionEN9__gnu_cxx5__ops16_Iter_equals_valIKS3_EEET_SA_SA_T0_.exit.i.i.i.loopexit.split.loop.exit, label %17
+
+17:                                               ; preds = %13
+  %18 = getelementptr inbounds i8, ptr %.02946.i.i.i.i.i, i64 16
+  %19 = load ptr, ptr %18, align 8
+  %20 = icmp eq ptr %19, %2
+  br i1 %20, label %_ZSt9__find_ifIPPN3ozz7options6OptionEN9__gnu_cxx5__ops16_Iter_equals_valIKS3_EEET_SA_SA_T0_.exit.i.i.i.loopexit.split.loop.exit61, label %21
+
+21:                                               ; preds = %17
+  %22 = getelementptr inbounds i8, ptr %.02946.i.i.i.i.i, i64 24
+  %23 = load ptr, ptr %22, align 8
+  %24 = icmp eq ptr %23, %2
+  br i1 %24, label %_ZSt9__find_ifIPPN3ozz7options6OptionEN9__gnu_cxx5__ops16_Iter_equals_valIKS3_EEET_SA_SA_T0_.exit.i.i.i.loopexit.split.loop.exit63, label %25
+
+25:                                               ; preds = %21
+  %26 = getelementptr inbounds i8, ptr %.02946.i.i.i.i.i, i64 32
+  %27 = add nsw i64 %.047.i.i.i.i.i, -1
+  %28 = icmp sgt i64 %.047.i.i.i.i.i, 1
+  br i1 %28, label %10, label %._crit_edge.loopexit.i.i.i.i.i, !llvm.loop !9
+
+._crit_edge.loopexit.i.i.i.i.i:                   ; preds = %25
+  %29 = and i64 %5, 3
+  br label %._crit_edge.i.i.i.i.i
+
+._crit_edge.i.i.i.i.i:                            ; preds = %._crit_edge.loopexit.i.i.i.i.i, %1
+  %.pre-phi56.i.i.i.i.i = phi i64 [ %29, %._crit_edge.loopexit.i.i.i.i.i ], [ %5, %1 ]
+  %.029.lcssa.i.i.i.i.i = phi ptr [ %scevgep.i.i.i.i.i, %._crit_edge.loopexit.i.i.i.i.i ], [ %0, %1 ]
+  switch i64 %.pre-phi56.i.i.i.i.i, label %_ZSt6removeIPPN3ozz7options6OptionES3_ET_S5_S5_RKT0_.exit.i [
+    i64 3, label %30
+    i64 2, label %._crit_edge._crit_edge.i.i.i.i.i
+    i64 1, label %._crit_edge._crit_edge52.i.i.i.i.i
+  ]
+
+30:                                               ; preds = %._crit_edge.i.i.i.i.i
+  %31 = load ptr, ptr %.029.lcssa.i.i.i.i.i, align 8
+  %32 = icmp eq ptr %31, %2
+  br i1 %32, label %_ZSt9__find_ifIPPN3ozz7options6OptionEN9__gnu_cxx5__ops16_Iter_equals_valIKS3_EEET_SA_SA_T0_.exit.i.i.i, label %33
+
+33:                                               ; preds = %30
+  %34 = getelementptr inbounds i8, ptr %.029.lcssa.i.i.i.i.i, i64 8
+  br label %._crit_edge._crit_edge.i.i.i.i.i
+
+._crit_edge._crit_edge.i.i.i.i.i:                 ; preds = %33, %._crit_edge.i.i.i.i.i
+  %.1.i.i.i.i.i = phi ptr [ %34, %33 ], [ %.029.lcssa.i.i.i.i.i, %._crit_edge.i.i.i.i.i ]
+  %35 = load ptr, ptr %.1.i.i.i.i.i, align 8
+  %36 = icmp eq ptr %35, %2
+  br i1 %36, label %_ZSt9__find_ifIPPN3ozz7options6OptionEN9__gnu_cxx5__ops16_Iter_equals_valIKS3_EEET_SA_SA_T0_.exit.i.i.i, label %37
+
+37:                                               ; preds = %._crit_edge._crit_edge.i.i.i.i.i
+  %38 = getelementptr inbounds i8, ptr %.1.i.i.i.i.i, i64 8
+  br label %._crit_edge._crit_edge52.i.i.i.i.i
+
+._crit_edge._crit_edge52.i.i.i.i.i:               ; preds = %37, %._crit_edge.i.i.i.i.i
+  %.2.i.i.i.i.i = phi ptr [ %38, %37 ], [ %.029.lcssa.i.i.i.i.i, %._crit_edge.i.i.i.i.i ]
+  %39 = load ptr, ptr %.2.i.i.i.i.i, align 8
+  %40 = icmp eq ptr %39, %2
+  br i1 %40, label %_ZSt9__find_ifIPPN3ozz7options6OptionEN9__gnu_cxx5__ops16_Iter_equals_valIKS3_EEET_SA_SA_T0_.exit.i.i.i, label %_ZSt6removeIPPN3ozz7options6OptionES3_ET_S5_S5_RKT0_.exit.i
+
+_ZSt9__find_ifIPPN3ozz7options6OptionEN9__gnu_cxx5__ops16_Iter_equals_valIKS3_EEET_SA_SA_T0_.exit.i.i.i.loopexit.split.loop.exit: ; preds = %13
+  %41 = getelementptr inbounds i8, ptr %.02946.i.i.i.i.i, i64 8
+  br label %_ZSt9__find_ifIPPN3ozz7options6OptionEN9__gnu_cxx5__ops16_Iter_equals_valIKS3_EEET_SA_SA_T0_.exit.i.i.i
+
+_ZSt9__find_ifIPPN3ozz7options6OptionEN9__gnu_cxx5__ops16_Iter_equals_valIKS3_EEET_SA_SA_T0_.exit.i.i.i.loopexit.split.loop.exit61: ; preds = %17
+  %42 = getelementptr inbounds i8, ptr %.02946.i.i.i.i.i, i64 16
+  br label %_ZSt9__find_ifIPPN3ozz7options6OptionEN9__gnu_cxx5__ops16_Iter_equals_valIKS3_EEET_SA_SA_T0_.exit.i.i.i
+
+_ZSt9__find_ifIPPN3ozz7options6OptionEN9__gnu_cxx5__ops16_Iter_equals_valIKS3_EEET_SA_SA_T0_.exit.i.i.i.loopexit.split.loop.exit63: ; preds = %21
+  %43 = getelementptr inbounds i8, ptr %.02946.i.i.i.i.i, i64 24
+  br label %_ZSt9__find_ifIPPN3ozz7options6OptionEN9__gnu_cxx5__ops16_Iter_equals_valIKS3_EEET_SA_SA_T0_.exit.i.i.i
+
+_ZSt9__find_ifIPPN3ozz7options6OptionEN9__gnu_cxx5__ops16_Iter_equals_valIKS3_EEET_SA_SA_T0_.exit.i.i.i: ; preds = %10, %_ZSt9__find_ifIPPN3ozz7options6OptionEN9__gnu_cxx5__ops16_Iter_equals_valIKS3_EEET_SA_SA_T0_.exit.i.i.i.loopexit.split.loop.exit, %_ZSt9__find_ifIPPN3ozz7options6OptionEN9__gnu_cxx5__ops16_Iter_equals_valIKS3_EEET_SA_SA_T0_.exit.i.i.i.loopexit.split.loop.exit61, %_ZSt9__find_ifIPPN3ozz7options6OptionEN9__gnu_cxx5__ops16_Iter_equals_valIKS3_EEET_SA_SA_T0_.exit.i.i.i.loopexit.split.loop.exit63, %._crit_edge._crit_edge52.i.i.i.i.i, %._crit_edge._crit_edge.i.i.i.i.i, %30
+  %.028.i.i.i.i.i = phi ptr [ %.029.lcssa.i.i.i.i.i, %30 ], [ %.1.i.i.i.i.i, %._crit_edge._crit_edge.i.i.i.i.i ], [ %.2.i.i.i.i.i, %._crit_edge._crit_edge52.i.i.i.i.i ], [ %41, %_ZSt9__find_ifIPPN3ozz7options6OptionEN9__gnu_cxx5__ops16_Iter_equals_valIKS3_EEET_SA_SA_T0_.exit.i.i.i.loopexit.split.loop.exit ], [ %42, %_ZSt9__find_ifIPPN3ozz7options6OptionEN9__gnu_cxx5__ops16_Iter_equals_valIKS3_EEET_SA_SA_T0_.exit.i.i.i.loopexit.split.loop.exit61 ], [ %43, %_ZSt9__find_ifIPPN3ozz7options6OptionEN9__gnu_cxx5__ops16_Iter_equals_valIKS3_EEET_SA_SA_T0_.exit.i.i.i.loopexit.split.loop.exit63 ], [ %.02946.i.i.i.i.i, %10 ]
+  %44 = icmp eq ptr %.028.i.i.i.i.i, %6
+  %.01730.i.i.i = getelementptr inbounds i8, ptr %.028.i.i.i.i.i, i64 8
+  %.not31.i.i.i = icmp eq ptr %.01730.i.i.i, %6
+  %or.cond.i.i.i = select i1 %44, i1 true, i1 %.not31.i.i.i
+  br i1 %or.cond.i.i.i, label %_ZSt6removeIPPN3ozz7options6OptionES3_ET_S5_S5_RKT0_.exit.i, label %.lr.ph.i.i.i
+
+.lr.ph.i.i.i:                                     ; preds = %_ZSt9__find_ifIPPN3ozz7options6OptionEN9__gnu_cxx5__ops16_Iter_equals_valIKS3_EEET_SA_SA_T0_.exit.i.i.i, %49
+  %.01733.i.i.i = phi ptr [ %.017.i.i.i, %49 ], [ %.01730.i.i.i, %_ZSt9__find_ifIPPN3ozz7options6OptionEN9__gnu_cxx5__ops16_Iter_equals_valIKS3_EEET_SA_SA_T0_.exit.i.i.i ]
+  %.032.i.i.i = phi ptr [ %.1.i.i.i, %49 ], [ %.028.i.i.i.i.i, %_ZSt9__find_ifIPPN3ozz7options6OptionEN9__gnu_cxx5__ops16_Iter_equals_valIKS3_EEET_SA_SA_T0_.exit.i.i.i ]
+  %45 = load ptr, ptr %.01733.i.i.i, align 8
+  %46 = icmp eq ptr %45, %2
+  br i1 %46, label %49, label %47
+
+47:                                               ; preds = %.lr.ph.i.i.i
+  store ptr %45, ptr %.032.i.i.i, align 8
+  %48 = getelementptr inbounds i8, ptr %.032.i.i.i, i64 8
+  br label %49
+
+49:                                               ; preds = %47, %.lr.ph.i.i.i
+  %.1.i.i.i = phi ptr [ %.032.i.i.i, %.lr.ph.i.i.i ], [ %48, %47 ]
+  %.017.i.i.i = getelementptr inbounds i8, ptr %.01733.i.i.i, i64 8
+  %.not.i.i.i = icmp eq ptr %.017.i.i.i, %6
+  br i1 %.not.i.i.i, label %_ZSt6removeIPPN3ozz7options6OptionES3_ET_S5_S5_RKT0_.exit.loopexit.i, label %.lr.ph.i.i.i, !llvm.loop !10
+
+_ZSt6removeIPPN3ozz7options6OptionES3_ET_S5_S5_RKT0_.exit.loopexit.i: ; preds = %49
+  %.pre.i = load i32, ptr %3, align 8
+  %.pre19.i = sext i32 %.pre.i to i64
+  br label %_ZSt6removeIPPN3ozz7options6OptionES3_ET_S5_S5_RKT0_.exit.i
+
+_ZSt6removeIPPN3ozz7options6OptionES3_ET_S5_S5_RKT0_.exit.i: ; preds = %_ZSt6removeIPPN3ozz7options6OptionES3_ET_S5_S5_RKT0_.exit.loopexit.i, %_ZSt9__find_ifIPPN3ozz7options6OptionEN9__gnu_cxx5__ops16_Iter_equals_valIKS3_EEET_SA_SA_T0_.exit.i.i.i, %._crit_edge._crit_edge52.i.i.i.i.i, %._crit_edge.i.i.i.i.i
+  %.pre-phi.i = phi i64 [ %.pre19.i, %_ZSt6removeIPPN3ozz7options6OptionES3_ET_S5_S5_RKT0_.exit.loopexit.i ], [ %5, %._crit_edge.i.i.i.i.i ], [ %5, %._crit_edge._crit_edge52.i.i.i.i.i ], [ %5, %_ZSt9__find_ifIPPN3ozz7options6OptionEN9__gnu_cxx5__ops16_Iter_equals_valIKS3_EEET_SA_SA_T0_.exit.i.i.i ]
+  %50 = phi i32 [ %.pre.i, %_ZSt6removeIPPN3ozz7options6OptionES3_ET_S5_S5_RKT0_.exit.loopexit.i ], [ %4, %._crit_edge.i.i.i.i.i ], [ %4, %._crit_edge._crit_edge52.i.i.i.i.i ], [ %4, %_ZSt9__find_ifIPPN3ozz7options6OptionEN9__gnu_cxx5__ops16_Iter_equals_valIKS3_EEET_SA_SA_T0_.exit.i.i.i ]
+  %.016.i.i.i = phi ptr [ %.1.i.i.i, %_ZSt6removeIPPN3ozz7options6OptionES3_ET_S5_S5_RKT0_.exit.loopexit.i ], [ %6, %._crit_edge.i.i.i.i.i ], [ %6, %._crit_edge._crit_edge52.i.i.i.i.i ], [ %.028.i.i.i.i.i, %_ZSt9__find_ifIPPN3ozz7options6OptionEN9__gnu_cxx5__ops16_Iter_equals_valIKS3_EEET_SA_SA_T0_.exit.i.i.i ]
+  %51 = getelementptr inbounds ptr, ptr %0, i64 %.pre-phi.i
+  %.not3.i = icmp eq ptr %.016.i.i.i, %51
+  br i1 %.not3.i, label %_ZN3ozz7options6Parser16UnregisterOptionEPNS0_6OptionE.exit, label %52
+
+52:                                               ; preds = %_ZSt6removeIPPN3ozz7options6OptionES3_ET_S5_S5_RKT0_.exit.i
+  %53 = add nsw i32 %50, -1
+  store i32 %53, ptr %3, align 8
+  br label %_ZN3ozz7options6Parser16UnregisterOptionEPNS0_6OptionE.exit
+
+_ZN3ozz7options6Parser16UnregisterOptionEPNS0_6OptionE.exit: ; preds = %52, %_ZSt6removeIPPN3ozz7options6OptionES3_ET_S5_S5_RKT0_.exit.i
+  %54 = phi i32 [ %53, %52 ], [ %50, %_ZSt6removeIPPN3ozz7options6OptionES3_ET_S5_S5_RKT0_.exit.i ]
+  %55 = getelementptr inbounds i8, ptr %0, i64 352
+  %56 = sext i32 %54 to i64
+  %.idx6.i1 = shl nsw i64 %56, 3
+  %57 = getelementptr inbounds i8, ptr %0, i64 %.idx6.i1
+  %58 = ashr i64 %56, 2
+  %59 = icmp sgt i64 %58, 0
+  br i1 %59, label %.lr.ph.i.i.i.i.i28, label %._crit_edge.i.i.i.i.i2
+
+.lr.ph.i.i.i.i.i28:                               ; preds = %_ZN3ozz7options6Parser16UnregisterOptionEPNS0_6OptionE.exit
+  %60 = and i64 %.idx6.i1, -32
+  %scevgep.i.i.i.i.i29 = getelementptr i8, ptr %0, i64 %60
+  br label %61
+
+61:                                               ; preds = %76, %.lr.ph.i.i.i.i.i28
+  %.047.i.i.i.i.i30 = phi i64 [ %58, %.lr.ph.i.i.i.i.i28 ], [ %78, %76 ]
+  %.02946.i.i.i.i.i31 = phi ptr [ %0, %.lr.ph.i.i.i.i.i28 ], [ %77, %76 ]
+  %62 = load ptr, ptr %.02946.i.i.i.i.i31, align 8
+  %63 = icmp eq ptr %62, %55
+  br i1 %63, label %_ZSt9__find_ifIPPN3ozz7options6OptionEN9__gnu_cxx5__ops16_Iter_equals_valIKS3_EEET_SA_SA_T0_.exit.i.i.i12, label %64
+
+64:                                               ; preds = %61
+  %65 = getelementptr inbounds i8, ptr %.02946.i.i.i.i.i31, i64 8
+  %66 = load ptr, ptr %65, align 8
+  %67 = icmp eq ptr %66, %55
+  br i1 %67, label %_ZSt9__find_ifIPPN3ozz7options6OptionEN9__gnu_cxx5__ops16_Iter_equals_valIKS3_EEET_SA_SA_T0_.exit.i.i.i12.loopexit.split.loop.exit, label %68
+
+68:                                               ; preds = %64
+  %69 = getelementptr inbounds i8, ptr %.02946.i.i.i.i.i31, i64 16
+  %70 = load ptr, ptr %69, align 8
+  %71 = icmp eq ptr %70, %55
+  br i1 %71, label %_ZSt9__find_ifIPPN3ozz7options6OptionEN9__gnu_cxx5__ops16_Iter_equals_valIKS3_EEET_SA_SA_T0_.exit.i.i.i12.loopexit.split.loop.exit69, label %72
+
+72:                                               ; preds = %68
+  %73 = getelementptr inbounds i8, ptr %.02946.i.i.i.i.i31, i64 24
+  %74 = load ptr, ptr %73, align 8
+  %75 = icmp eq ptr %74, %55
+  br i1 %75, label %_ZSt9__find_ifIPPN3ozz7options6OptionEN9__gnu_cxx5__ops16_Iter_equals_valIKS3_EEET_SA_SA_T0_.exit.i.i.i12.loopexit.split.loop.exit71, label %76
+
+76:                                               ; preds = %72
+  %77 = getelementptr inbounds i8, ptr %.02946.i.i.i.i.i31, i64 32
+  %78 = add nsw i64 %.047.i.i.i.i.i30, -1
+  %79 = icmp sgt i64 %.047.i.i.i.i.i30, 1
+  br i1 %79, label %61, label %._crit_edge.loopexit.i.i.i.i.i32, !llvm.loop !9
+
+._crit_edge.loopexit.i.i.i.i.i32:                 ; preds = %76
+  %80 = and i64 %56, 3
+  br label %._crit_edge.i.i.i.i.i2
+
+._crit_edge.i.i.i.i.i2:                           ; preds = %._crit_edge.loopexit.i.i.i.i.i32, %_ZN3ozz7options6Parser16UnregisterOptionEPNS0_6OptionE.exit
+  %.pre-phi56.i.i.i.i.i3 = phi i64 [ %80, %._crit_edge.loopexit.i.i.i.i.i32 ], [ %56, %_ZN3ozz7options6Parser16UnregisterOptionEPNS0_6OptionE.exit ]
+  %.029.lcssa.i.i.i.i.i4 = phi ptr [ %scevgep.i.i.i.i.i29, %._crit_edge.loopexit.i.i.i.i.i32 ], [ %0, %_ZN3ozz7options6Parser16UnregisterOptionEPNS0_6OptionE.exit ]
+  switch i64 %.pre-phi56.i.i.i.i.i3, label %_ZSt6removeIPPN3ozz7options6OptionES3_ET_S5_S5_RKT0_.exit.i7 [
+    i64 3, label %81
+    i64 2, label %._crit_edge._crit_edge.i.i.i.i.i26
+    i64 1, label %._crit_edge._crit_edge52.i.i.i.i.i5
+  ]
+
+81:                                               ; preds = %._crit_edge.i.i.i.i.i2
+  %82 = load ptr, ptr %.029.lcssa.i.i.i.i.i4, align 8
+  %83 = icmp eq ptr %82, %55
+  br i1 %83, label %_ZSt9__find_ifIPPN3ozz7options6OptionEN9__gnu_cxx5__ops16_Iter_equals_valIKS3_EEET_SA_SA_T0_.exit.i.i.i12, label %84
+
+84:                                               ; preds = %81
+  %85 = getelementptr inbounds i8, ptr %.029.lcssa.i.i.i.i.i4, i64 8
+  br label %._crit_edge._crit_edge.i.i.i.i.i26
+
+._crit_edge._crit_edge.i.i.i.i.i26:               ; preds = %84, %._crit_edge.i.i.i.i.i2
+  %.1.i.i.i.i.i27 = phi ptr [ %85, %84 ], [ %.029.lcssa.i.i.i.i.i4, %._crit_edge.i.i.i.i.i2 ]
+  %86 = load ptr, ptr %.1.i.i.i.i.i27, align 8
+  %87 = icmp eq ptr %86, %55
+  br i1 %87, label %_ZSt9__find_ifIPPN3ozz7options6OptionEN9__gnu_cxx5__ops16_Iter_equals_valIKS3_EEET_SA_SA_T0_.exit.i.i.i12, label %88
+
+88:                                               ; preds = %._crit_edge._crit_edge.i.i.i.i.i26
+  %89 = getelementptr inbounds i8, ptr %.1.i.i.i.i.i27, i64 8
+  br label %._crit_edge._crit_edge52.i.i.i.i.i5
+
+._crit_edge._crit_edge52.i.i.i.i.i5:              ; preds = %88, %._crit_edge.i.i.i.i.i2
+  %.2.i.i.i.i.i6 = phi ptr [ %89, %88 ], [ %.029.lcssa.i.i.i.i.i4, %._crit_edge.i.i.i.i.i2 ]
+  %90 = load ptr, ptr %.2.i.i.i.i.i6, align 8
+  %91 = icmp eq ptr %90, %55
+  br i1 %91, label %_ZSt9__find_ifIPPN3ozz7options6OptionEN9__gnu_cxx5__ops16_Iter_equals_valIKS3_EEET_SA_SA_T0_.exit.i.i.i12, label %_ZSt6removeIPPN3ozz7options6OptionES3_ET_S5_S5_RKT0_.exit.i7
+
+_ZSt9__find_ifIPPN3ozz7options6OptionEN9__gnu_cxx5__ops16_Iter_equals_valIKS3_EEET_SA_SA_T0_.exit.i.i.i12.loopexit.split.loop.exit: ; preds = %64
+  %92 = getelementptr inbounds i8, ptr %.02946.i.i.i.i.i31, i64 8
+  br label %_ZSt9__find_ifIPPN3ozz7options6OptionEN9__gnu_cxx5__ops16_Iter_equals_valIKS3_EEET_SA_SA_T0_.exit.i.i.i12
+
+_ZSt9__find_ifIPPN3ozz7options6OptionEN9__gnu_cxx5__ops16_Iter_equals_valIKS3_EEET_SA_SA_T0_.exit.i.i.i12.loopexit.split.loop.exit69: ; preds = %68
+  %93 = getelementptr inbounds i8, ptr %.02946.i.i.i.i.i31, i64 16
+  br label %_ZSt9__find_ifIPPN3ozz7options6OptionEN9__gnu_cxx5__ops16_Iter_equals_valIKS3_EEET_SA_SA_T0_.exit.i.i.i12
+
+_ZSt9__find_ifIPPN3ozz7options6OptionEN9__gnu_cxx5__ops16_Iter_equals_valIKS3_EEET_SA_SA_T0_.exit.i.i.i12.loopexit.split.loop.exit71: ; preds = %72
+  %94 = getelementptr inbounds i8, ptr %.02946.i.i.i.i.i31, i64 24
+  br label %_ZSt9__find_ifIPPN3ozz7options6OptionEN9__gnu_cxx5__ops16_Iter_equals_valIKS3_EEET_SA_SA_T0_.exit.i.i.i12
+
+_ZSt9__find_ifIPPN3ozz7options6OptionEN9__gnu_cxx5__ops16_Iter_equals_valIKS3_EEET_SA_SA_T0_.exit.i.i.i12: ; preds = %61, %_ZSt9__find_ifIPPN3ozz7options6OptionEN9__gnu_cxx5__ops16_Iter_equals_valIKS3_EEET_SA_SA_T0_.exit.i.i.i12.loopexit.split.loop.exit, %_ZSt9__find_ifIPPN3ozz7options6OptionEN9__gnu_cxx5__ops16_Iter_equals_valIKS3_EEET_SA_SA_T0_.exit.i.i.i12.loopexit.split.loop.exit69, %_ZSt9__find_ifIPPN3ozz7options6OptionEN9__gnu_cxx5__ops16_Iter_equals_valIKS3_EEET_SA_SA_T0_.exit.i.i.i12.loopexit.split.loop.exit71, %._crit_edge._crit_edge52.i.i.i.i.i5, %._crit_edge._crit_edge.i.i.i.i.i26, %81
+  %.028.i.i.i.i.i13 = phi ptr [ %.029.lcssa.i.i.i.i.i4, %81 ], [ %.1.i.i.i.i.i27, %._crit_edge._crit_edge.i.i.i.i.i26 ], [ %.2.i.i.i.i.i6, %._crit_edge._crit_edge52.i.i.i.i.i5 ], [ %92, %_ZSt9__find_ifIPPN3ozz7options6OptionEN9__gnu_cxx5__ops16_Iter_equals_valIKS3_EEET_SA_SA_T0_.exit.i.i.i12.loopexit.split.loop.exit ], [ %93, %_ZSt9__find_ifIPPN3ozz7options6OptionEN9__gnu_cxx5__ops16_Iter_equals_valIKS3_EEET_SA_SA_T0_.exit.i.i.i12.loopexit.split.loop.exit69 ], [ %94, %_ZSt9__find_ifIPPN3ozz7options6OptionEN9__gnu_cxx5__ops16_Iter_equals_valIKS3_EEET_SA_SA_T0_.exit.i.i.i12.loopexit.split.loop.exit71 ], [ %.02946.i.i.i.i.i31, %61 ]
+  %95 = icmp eq ptr %.028.i.i.i.i.i13, %57
+  %.01730.i.i.i14 = getelementptr inbounds i8, ptr %.028.i.i.i.i.i13, i64 8
+  %.not31.i.i.i15 = icmp eq ptr %.01730.i.i.i14, %57
+  %or.cond.i.i.i16 = select i1 %95, i1 true, i1 %.not31.i.i.i15
+  br i1 %or.cond.i.i.i16, label %_ZSt6removeIPPN3ozz7options6OptionES3_ET_S5_S5_RKT0_.exit.i7, label %.lr.ph.i.i.i17
+
+.lr.ph.i.i.i17:                                   ; preds = %_ZSt9__find_ifIPPN3ozz7options6OptionEN9__gnu_cxx5__ops16_Iter_equals_valIKS3_EEET_SA_SA_T0_.exit.i.i.i12, %100
+  %.01733.i.i.i18 = phi ptr [ %.017.i.i.i21, %100 ], [ %.01730.i.i.i14, %_ZSt9__find_ifIPPN3ozz7options6OptionEN9__gnu_cxx5__ops16_Iter_equals_valIKS3_EEET_SA_SA_T0_.exit.i.i.i12 ]
+  %.032.i.i.i19 = phi ptr [ %.1.i.i.i20, %100 ], [ %.028.i.i.i.i.i13, %_ZSt9__find_ifIPPN3ozz7options6OptionEN9__gnu_cxx5__ops16_Iter_equals_valIKS3_EEET_SA_SA_T0_.exit.i.i.i12 ]
+  %96 = load ptr, ptr %.01733.i.i.i18, align 8
+  %97 = icmp eq ptr %96, %55
+  br i1 %97, label %100, label %98
+
+98:                                               ; preds = %.lr.ph.i.i.i17
+  store ptr %96, ptr %.032.i.i.i19, align 8
+  %99 = getelementptr inbounds i8, ptr %.032.i.i.i19, i64 8
+  br label %100
+
+100:                                              ; preds = %98, %.lr.ph.i.i.i17
+  %.1.i.i.i20 = phi ptr [ %.032.i.i.i19, %.lr.ph.i.i.i17 ], [ %99, %98 ]
+  %.017.i.i.i21 = getelementptr inbounds i8, ptr %.01733.i.i.i18, i64 8
+  %.not.i.i.i22 = icmp eq ptr %.017.i.i.i21, %57
+  br i1 %.not.i.i.i22, label %_ZSt6removeIPPN3ozz7options6OptionES3_ET_S5_S5_RKT0_.exit.loopexit.i23, label %.lr.ph.i.i.i17, !llvm.loop !10
+
+_ZSt6removeIPPN3ozz7options6OptionES3_ET_S5_S5_RKT0_.exit.loopexit.i23: ; preds = %100
+  %.pre.i24 = load i32, ptr %3, align 8
+  %.pre19.i25 = sext i32 %.pre.i24 to i64
+  br label %_ZSt6removeIPPN3ozz7options6OptionES3_ET_S5_S5_RKT0_.exit.i7
+
+_ZSt6removeIPPN3ozz7options6OptionES3_ET_S5_S5_RKT0_.exit.i7: ; preds = %_ZSt6removeIPPN3ozz7options6OptionES3_ET_S5_S5_RKT0_.exit.loopexit.i23, %_ZSt9__find_ifIPPN3ozz7options6OptionEN9__gnu_cxx5__ops16_Iter_equals_valIKS3_EEET_SA_SA_T0_.exit.i.i.i12, %._crit_edge._crit_edge52.i.i.i.i.i5, %._crit_edge.i.i.i.i.i2
+  %.pre-phi.i8 = phi i64 [ %.pre19.i25, %_ZSt6removeIPPN3ozz7options6OptionES3_ET_S5_S5_RKT0_.exit.loopexit.i23 ], [ %56, %._crit_edge.i.i.i.i.i2 ], [ %56, %._crit_edge._crit_edge52.i.i.i.i.i5 ], [ %56, %_ZSt9__find_ifIPPN3ozz7options6OptionEN9__gnu_cxx5__ops16_Iter_equals_valIKS3_EEET_SA_SA_T0_.exit.i.i.i12 ]
+  %101 = phi i32 [ %.pre.i24, %_ZSt6removeIPPN3ozz7options6OptionES3_ET_S5_S5_RKT0_.exit.loopexit.i23 ], [ %54, %._crit_edge.i.i.i.i.i2 ], [ %54, %._crit_edge._crit_edge52.i.i.i.i.i5 ], [ %54, %_ZSt9__find_ifIPPN3ozz7options6OptionEN9__gnu_cxx5__ops16_Iter_equals_valIKS3_EEET_SA_SA_T0_.exit.i.i.i12 ]
+  %.016.i.i.i9 = phi ptr [ %.1.i.i.i20, %_ZSt6removeIPPN3ozz7options6OptionES3_ET_S5_S5_RKT0_.exit.loopexit.i23 ], [ %57, %._crit_edge.i.i.i.i.i2 ], [ %57, %._crit_edge._crit_edge52.i.i.i.i.i5 ], [ %.028.i.i.i.i.i13, %_ZSt9__find_ifIPPN3ozz7options6OptionEN9__gnu_cxx5__ops16_Iter_equals_valIKS3_EEET_SA_SA_T0_.exit.i.i.i12 ]
+  %102 = getelementptr inbounds ptr, ptr %0, i64 %.pre-phi.i8
+  %.not3.i10 = icmp eq ptr %.016.i.i.i9, %102
+  br i1 %.not3.i10, label %_ZN3ozz7options6Parser16UnregisterOptionEPNS0_6OptionE.exit36, label %103
+
+103:                                              ; preds = %_ZSt6removeIPPN3ozz7options6OptionES3_ET_S5_S5_RKT0_.exit.i7
+  %104 = add nsw i32 %101, -1
+  store i32 %104, ptr %3, align 8
+  br label %_ZN3ozz7options6Parser16UnregisterOptionEPNS0_6OptionE.exit36
+
+_ZN3ozz7options6Parser16UnregisterOptionEPNS0_6OptionE.exit36: ; preds = %103, %_ZSt6removeIPPN3ozz7options6OptionES3_ET_S5_S5_RKT0_.exit.i7
   ret void
 }
 
@@ -3616,14 +4391,14 @@ define linkonce_odr dso_local noundef ptr @_ZNSt3_V28__rotateIPPN3ozz7options6Op
 
 29:                                               ; preds = %27
   %30 = load ptr, ptr %.053, align 8
-  %.idx78 = shl nsw i64 %.076, 3
-  %31 = getelementptr inbounds i8, ptr %.053, i64 %.idx78
+  %.idx = shl nsw i64 %.076, 3
+  %31 = getelementptr inbounds i8, ptr %.053, i64 %.idx
   %.not.i.i.i.i.i = icmp eq i64 %.076, 1
   br i1 %.not.i.i.i.i.i, label %_ZSt4moveIPPN3ozz7options6OptionES4_ET0_T_S6_S5_.exit, label %32
 
 32:                                               ; preds = %29
   %33 = getelementptr inbounds i8, ptr %.053, i64 8
-  %gepdiff = add nsw i64 %.idx78, -8
+  %gepdiff = add nsw i64 %.idx, -8
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %.053, ptr nonnull align 8 %33, i64 %gepdiff, i1 false)
   br label %_ZSt4moveIPPN3ozz7options6OptionES4_ET0_T_S6_S5_.exit
 
@@ -3634,33 +4409,33 @@ _ZSt4moveIPPN3ozz7options6OptionES4_ET0_T_S6_S5_.exit: ; preds = %29, %32
 
 35:                                               ; preds = %27
   %36 = icmp sgt i64 %25, 0
-  br i1 %36, label %.lr.ph91.preheader, label %._crit_edge92
+  br i1 %36, label %.lr.ph90.preheader, label %._crit_edge91
 
-.lr.ph91.preheader:                               ; preds = %35
+.lr.ph90.preheader:                               ; preds = %35
   %37 = getelementptr ptr, ptr %.053, i64 %.074
-  br label %.lr.ph91
+  br label %.lr.ph90
 
-.lr.ph91:                                         ; preds = %.lr.ph91.preheader, %.lr.ph91
-  %.05189 = phi i64 [ %42, %.lr.ph91 ], [ 0, %.lr.ph91.preheader ]
-  %.05288 = phi ptr [ %41, %.lr.ph91 ], [ %37, %.lr.ph91.preheader ]
-  %.187 = phi ptr [ %40, %.lr.ph91 ], [ %.053, %.lr.ph91.preheader ]
-  %38 = load ptr, ptr %.187, align 8
-  %39 = load ptr, ptr %.05288, align 8
-  store ptr %39, ptr %.187, align 8
-  store ptr %38, ptr %.05288, align 8
-  %40 = getelementptr inbounds i8, ptr %.187, i64 8
-  %41 = getelementptr inbounds i8, ptr %.05288, i64 8
-  %42 = add nuw nsw i64 %.05189, 1
-  %exitcond100.not = icmp eq i64 %42, %25
-  br i1 %exitcond100.not, label %._crit_edge92, label %.lr.ph91, !llvm.loop !35
+.lr.ph90:                                         ; preds = %.lr.ph90.preheader, %.lr.ph90
+  %.05188 = phi i64 [ %42, %.lr.ph90 ], [ 0, %.lr.ph90.preheader ]
+  %.05287 = phi ptr [ %41, %.lr.ph90 ], [ %37, %.lr.ph90.preheader ]
+  %.186 = phi ptr [ %40, %.lr.ph90 ], [ %.053, %.lr.ph90.preheader ]
+  %38 = load ptr, ptr %.186, align 8
+  %39 = load ptr, ptr %.05287, align 8
+  store ptr %39, ptr %.186, align 8
+  store ptr %38, ptr %.05287, align 8
+  %40 = getelementptr inbounds i8, ptr %.186, i64 8
+  %41 = getelementptr inbounds i8, ptr %.05287, i64 8
+  %42 = add nuw nsw i64 %.05188, 1
+  %exitcond99.not = icmp eq i64 %42, %25
+  br i1 %exitcond99.not, label %._crit_edge91, label %.lr.ph90, !llvm.loop !35
 
-._crit_edge92:                                    ; preds = %.lr.ph91, %35
-  %.1.lcssa = phi ptr [ %.053, %35 ], [ %40, %.lr.ph91 ]
+._crit_edge91:                                    ; preds = %.lr.ph90, %35
+  %.1.lcssa = phi ptr [ %.053, %35 ], [ %40, %.lr.ph90 ]
   %43 = srem i64 %.076, %.074
   %44 = icmp eq i64 %43, 0
   br i1 %44, label %_ZSt11swap_rangesIPPN3ozz7options6OptionES4_ET0_T_S6_S5_.exit, label %45
 
-45:                                               ; preds = %._crit_edge92
+45:                                               ; preds = %._crit_edge91
   %46 = sub nsw i64 %.074, %43
   br label %.backedge
 
@@ -3696,16 +4471,16 @@ _ZSt13move_backwardIPPN3ozz7options6OptionES4_ET0_T_S6_S5_.exit: ; preds = %50, 
   br i1 %62, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %59, %.lr.ph
-  %.086 = phi i64 [ %67, %.lr.ph ], [ 0, %59 ]
-  %.04985 = phi ptr [ %64, %.lr.ph ], [ %49, %59 ]
-  %.284 = phi ptr [ %63, %.lr.ph ], [ %61, %59 ]
-  %63 = getelementptr inbounds i8, ptr %.284, i64 -8
-  %64 = getelementptr inbounds i8, ptr %.04985, i64 -8
+  %.085 = phi i64 [ %67, %.lr.ph ], [ 0, %59 ]
+  %.04984 = phi ptr [ %64, %.lr.ph ], [ %49, %59 ]
+  %.283 = phi ptr [ %63, %.lr.ph ], [ %61, %59 ]
+  %63 = getelementptr inbounds i8, ptr %.283, i64 -8
+  %64 = getelementptr inbounds i8, ptr %.04984, i64 -8
   %65 = load ptr, ptr %63, align 8
   %66 = load ptr, ptr %64, align 8
   store ptr %66, ptr %63, align 8
   store ptr %65, ptr %64, align 8
-  %67 = add nuw nsw i64 %.086, 1
+  %67 = add nuw nsw i64 %.085, 1
   %exitcond.not = icmp eq i64 %67, %.074
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !36
 
@@ -3721,8 +4496,8 @@ _ZSt13move_backwardIPPN3ozz7options6OptionES4_ET0_T_S6_S5_.exit: ; preds = %50, 
   %.053.be = phi ptr [ %.1.lcssa, %45 ], [ %.2.lcssa, %._crit_edge ]
   br label %24, !llvm.loop !37
 
-_ZSt11swap_rangesIPPN3ozz7options6OptionES4_ET0_T_S6_S5_.exit: ; preds = %._crit_edge, %._crit_edge92, %.lr.ph.i, %5, %3, %_ZSt13move_backwardIPPN3ozz7options6OptionES4_ET0_T_S6_S5_.exit, %_ZSt4moveIPPN3ozz7options6OptionES4_ET0_T_S6_S5_.exit
-  %.050 = phi ptr [ %23, %_ZSt4moveIPPN3ozz7options6OptionES4_ET0_T_S6_S5_.exit ], [ %23, %_ZSt13move_backwardIPPN3ozz7options6OptionES4_ET0_T_S6_S5_.exit ], [ %2, %3 ], [ %0, %5 ], [ %1, %.lr.ph.i ], [ %23, %._crit_edge92 ], [ %23, %._crit_edge ]
+_ZSt11swap_rangesIPPN3ozz7options6OptionES4_ET0_T_S6_S5_.exit: ; preds = %._crit_edge, %._crit_edge91, %.lr.ph.i, %5, %3, %_ZSt13move_backwardIPPN3ozz7options6OptionES4_ET0_T_S6_S5_.exit, %_ZSt4moveIPPN3ozz7options6OptionES4_ET0_T_S6_S5_.exit
+  %.050 = phi ptr [ %23, %_ZSt4moveIPPN3ozz7options6OptionES4_ET0_T_S6_S5_.exit ], [ %23, %_ZSt13move_backwardIPPN3ozz7options6OptionES4_ET0_T_S6_S5_.exit ], [ %2, %3 ], [ %0, %5 ], [ %1, %.lr.ph.i ], [ %23, %._crit_edge91 ], [ %23, %._crit_edge ]
   ret ptr %.050
 }
 

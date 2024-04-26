@@ -3305,7 +3305,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit8: ; preds = %if.t
 declare void @_ZN6duckdb7Printer5PrintERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef i64 @_ZN6duckdb3Bit19ComputeBitstringLenEm(i64 noundef %len) local_unnamed_addr #8 align 2 {
+define noundef range(i64 1, 2305843009213693954) i64 @_ZN6duckdb3Bit19ComputeBitstringLenEm(i64 noundef %len) local_unnamed_addr #8 align 2 {
 entry:
   %div5 = lshr i64 %len, 3
   %rem = and i64 %len, 7
@@ -4070,7 +4070,7 @@ lpad4:                                            ; preds = %if.then.i.i
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef i64 @_ZN6duckdb3Bit9BitLengthENS_8string_tE(i64 %bits.coerce0, ptr nocapture readonly %bits.coerce1) local_unnamed_addr #14 align 2 {
+define noundef range(i64 -263, 34359738353) i64 @_ZN6duckdb3Bit9BitLengthENS_8string_tE(i64 %bits.coerce0, ptr nocapture readonly %bits.coerce1) local_unnamed_addr #14 align 2 {
 entry:
   %bits.sroa.0.0.extract.trunc = trunc i64 %bits.coerce0 to i32
   %bits.sroa.3.0.extract.shift = lshr i64 %bits.coerce0, 32
@@ -6306,7 +6306,7 @@ _ZN6duckdb3Bit14SetBitInternalERNS_8string_tEmm.exit: ; preds = %if.else.i, %if.
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef i64 @_ZN6duckdb3Bit11OctetLengthENS_8string_tE(i64 %bits.coerce0, ptr nocapture readnone %bits.coerce1) local_unnamed_addr #8 align 2 {
+define noundef range(i64 -1, 4294967295) i64 @_ZN6duckdb3Bit11OctetLengthENS_8string_tE(i64 %bits.coerce0, ptr nocapture readnone %bits.coerce1) local_unnamed_addr #8 align 2 {
 entry:
   %conv.i = and i64 %bits.coerce0, 4294967295
   %sub = add nsw i64 %conv.i, -1
@@ -7507,7 +7507,7 @@ cleanup65:                                        ; preds = %for.inc55.7, %for.i
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define noundef i64 @_ZN6duckdb3Bit6GetBitENS_8string_tEm(i64 %bit_string.coerce0, ptr %bit_string.coerce1, i64 noundef %n) local_unnamed_addr #9 align 2 {
+define noundef range(i64 0, 2) i64 @_ZN6duckdb3Bit6GetBitENS_8string_tEm(i64 %bit_string.coerce0, ptr %bit_string.coerce1, i64 noundef %n) local_unnamed_addr #9 align 2 {
 entry:
   %bit_string.i = alloca %"struct.duckdb::string_t", align 8
   %bit_string.sroa.0.0.extract.trunc = trunc i64 %bit_string.coerce0 to i32
@@ -7546,7 +7546,7 @@ entry.cont:                                       ; preds = %entry.else, %entry
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define noundef i64 @_ZN6duckdb3Bit14GetBitInternalENS_8string_tEm(i64 %bit_string.coerce0, ptr %bit_string.coerce1, i64 noundef %n) local_unnamed_addr #9 align 2 {
+define noundef range(i64 0, 2) i64 @_ZN6duckdb3Bit14GetBitInternalENS_8string_tEm(i64 %bit_string.coerce0, ptr %bit_string.coerce1, i64 noundef %n) local_unnamed_addr #9 align 2 {
 entry:
   %bit_string = alloca %"struct.duckdb::string_t", align 8
   store i64 %bit_string.coerce0, ptr %bit_string, align 8
@@ -7571,7 +7571,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef i64 @_ZN6duckdb3Bit11GetBitIndexEm(i64 noundef %n) local_unnamed_addr #8 align 2 {
+define noundef range(i64 1, 2305843009213693953) i64 @_ZN6duckdb3Bit11GetBitIndexEm(i64 noundef %n) local_unnamed_addr #8 align 2 {
 entry:
   %div1 = lshr i64 %n, 3
   %add = add nuw nsw i64 %div1, 1
@@ -9757,7 +9757,7 @@ _ZNSt10unique_ptrIA_cSt14default_deleteIS0_EED2Ev.exit19: ; preds = %lpad6, %lpa
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef i64 @_ZN6duckdb4Blob12ToBase64SizeENS_8string_tE(i64 %blob.coerce0, ptr nocapture readnone %blob.coerce1) local_unnamed_addr #8 align 2 {
+define noundef range(i64 0, 5726623061) i64 @_ZN6duckdb4Blob12ToBase64SizeENS_8string_tE(i64 %blob.coerce0, ptr nocapture readnone %blob.coerce1) local_unnamed_addr #8 align 2 {
 entry:
   %conv.i = and i64 %blob.coerce0, 4294967295
   %add = add nuw nsw i64 %conv.i, 2
@@ -9892,7 +9892,7 @@ if.end87:                                         ; preds = %if.end, %for.end
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef i64 @_ZN6duckdb4Blob14FromBase64SizeENS_8string_tE(i64 %str.coerce0, ptr %str.coerce1) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define noundef range(i64 -2, 3221225470) i64 @_ZN6duckdb4Blob14FromBase64SizeENS_8string_tE(i64 %str.coerce0, ptr %str.coerce1) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %str = alloca %"struct.duckdb::string_t", align 8
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
@@ -10580,7 +10580,7 @@ unreachable:                                      ; preds = %invoke.cont18
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef i32 @_ZN6duckdb13NumericHelper14UnsignedLengthIhEEiT_(i8 noundef zeroext %value) local_unnamed_addr #8 align 2 {
+define noundef range(i32 1, 4) i32 @_ZN6duckdb13NumericHelper14UnsignedLengthIhEEiT_(i8 noundef zeroext %value) local_unnamed_addr #8 align 2 {
 entry:
   %cmp = icmp ugt i8 %value, 9
   %add = select i1 %cmp, i32 2, i32 1
@@ -10591,7 +10591,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef i32 @_ZN6duckdb13NumericHelper14UnsignedLengthItEEiT_(i16 noundef zeroext %value) local_unnamed_addr #8 align 2 {
+define noundef range(i32 1, 6) i32 @_ZN6duckdb13NumericHelper14UnsignedLengthItEEiT_(i16 noundef zeroext %value) local_unnamed_addr #8 align 2 {
 entry:
   %cmp = icmp ugt i16 %value, 9
   %add = select i1 %cmp, i32 2, i32 1
@@ -10608,7 +10608,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef i32 @_ZN6duckdb13NumericHelper14UnsignedLengthIjEEiT_(i32 noundef %value) local_unnamed_addr #8 align 2 {
+define noundef range(i32 1, 11) i32 @_ZN6duckdb13NumericHelper14UnsignedLengthIjEEiT_(i32 noundef %value) local_unnamed_addr #8 align 2 {
 entry:
   %cmp = icmp ugt i32 %value, 9999
   br i1 %cmp, label %if.then, label %if.else
@@ -10643,7 +10643,7 @@ return:                                           ; preds = %if.else, %if.then
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef i32 @_ZN6duckdb13NumericHelper14UnsignedLengthImEEiT_(i64 noundef %value) local_unnamed_addr #8 align 2 {
+define noundef range(i32 1, 21) i32 @_ZN6duckdb13NumericHelper14UnsignedLengthImEEiT_(i64 noundef %value) local_unnamed_addr #8 align 2 {
 entry:
   %cmp = icmp ugt i64 %value, 9999999999
   br i1 %cmp, label %if.then, label %if.else26
@@ -27498,7 +27498,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef i64 @_ZN6duckdb4Date5EpochENS_6date_tE(i32 %date.coerce) local_unnamed_addr #8 align 2 {
+define noundef range(i64 -185542587187200, 185542587100801) i64 @_ZN6duckdb4Date5EpochENS_6date_tE(i32 %date.coerce) local_unnamed_addr #8 align 2 {
 entry:
   %conv = sext i32 %date.coerce to i64
   %mul = mul nsw i64 %conv, 86400
@@ -28047,7 +28047,7 @@ _ZN6duckdb4Date11ExtractYearENS_6date_tEPi.exit:  ; preds = %_ZN6duckdb4Date17Ex
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define i32 @_ZN6duckdb9Timestamp7GetDateENS_11timestamp_tE(i64 %timestamp.coerce) local_unnamed_addr #8 align 2 {
+define range(i32 2147483647, 106751992) i32 @_ZN6duckdb9Timestamp7GetDateENS_11timestamp_tE(i64 %timestamp.coerce) local_unnamed_addr #8 align 2 {
 entry:
   switch i64 %timestamp.coerce, label %if.end12 [
     i64 9223372036854775807, label %return
@@ -28126,7 +28126,7 @@ _ZN6duckdb4Date17ExtractYearOffsetERiS1_S1_.exit: ; preds = %while.cond7.i
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef i32 @_ZN6duckdb4Date12ExtractMonthENS_6date_tE(i32 %date.coerce) local_unnamed_addr #8 align 2 {
+define noundef range(i32 -128, 128) i32 @_ZN6duckdb4Date12ExtractMonthENS_6date_tE(i32 %date.coerce) local_unnamed_addr #8 align 2 {
 entry:
   %date.coerce.fr = freeze i32 %date.coerce
   %cmp26.i.i = icmp slt i32 %date.coerce.fr, 0
@@ -28313,7 +28313,7 @@ _ZN6duckdb4Date17ExtractYearOffsetERiS1_S1_.exit: ; preds = %while.cond7.i
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef i64 @_ZN6duckdb4Date16ExtractJulianDayENS_6date_tE(i32 %date.coerce) local_unnamed_addr #8 align 2 {
+define noundef range(i64 -2145043060, 2149924236) i64 @_ZN6duckdb4Date16ExtractJulianDayENS_6date_tE(i32 %date.coerce) local_unnamed_addr #8 align 2 {
 entry:
   %conv = sext i32 %date.coerce to i64
   %sub = add nsw i64 %conv, 2440588
@@ -28321,7 +28321,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef i32 @_ZN6duckdb4Date22ExtractISODayOfTheWeekENS_6date_tE(i32 %date.coerce) local_unnamed_addr #8 align 2 {
+define noundef range(i32 1, 8) i32 @_ZN6duckdb4Date22ExtractISODayOfTheWeekENS_6date_tE(i32 %date.coerce) local_unnamed_addr #8 align 2 {
 entry:
   %cmp = icmp slt i32 %date.coerce, 0
   br i1 %cmp, label %if.then, label %if.else
@@ -28532,7 +28532,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @_ZN6duckdb4Date24ExtractWeekNumberRegularENS_6date_tEb(i32 %date.coerce, i1 noundef zeroext %monday_first) local_unnamed_addr #1 align 2 {
+define noundef range(i32 0, 306783380) i32 @_ZN6duckdb4Date24ExtractWeekNumberRegularENS_6date_tEb(i32 %date.coerce, i1 noundef zeroext %monday_first) local_unnamed_addr #1 align 2 {
 entry:
   %cmp26.i.i = icmp slt i32 %date.coerce, 0
   br i1 %cmp26.i.i, label %while.body.i.preheader.i, label %while.cond1.preheader.i.i
@@ -38459,7 +38459,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define i64 @_ZN6duckdb4Time8FromTimeEiiii(i32 noundef %hour, i32 noundef %minute, i32 noundef %second, i32 noundef %microseconds) local_unnamed_addr #8 align 2 {
+define range(i64 -7861937637475483648, 7861937633814483648) i64 @_ZN6duckdb4Time8FromTimeEiiii(i32 noundef %hour, i32 noundef %minute, i32 noundef %second, i32 noundef %microseconds) local_unnamed_addr #8 align 2 {
 entry:
   %conv = sext i32 %hour to i64
   %mul = mul nsw i64 %conv, 60
@@ -43661,12 +43661,9 @@ for.end:                                          ; preds = %for.inc, %switch.ea
   br i1 %tobool.not, label %if.end75, label %if.then70
 
 if.then70:                                        ; preds = %for.end
-  %add.ptr69 = getelementptr inbounds i8, ptr %str, i64 %inc68168.lcssa
-  %sub.ptr.rhs.cast = ptrtoint ptr %add.ptr64 to i64
-  %sub.ptr.lhs.cast = ptrtoint ptr %add.ptr69 to i64
-  %sub.ptr.sub = sub i64 %sub.ptr.lhs.cast, %sub.ptr.rhs.cast
+  %gepdiff = sub nsw i64 %inc68168.lcssa, %inc58
   call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %ref.tmp71.sroa.4)
-  %conv72 = trunc i64 %sub.ptr.sub to i32
+  %conv72 = trunc i64 %gepdiff to i32
   %cmp.i.i = icmp ult i32 %conv72, 13
   br i1 %cmp.i.i, label %if.then.i143, label %if.else.i
 
@@ -43676,7 +43673,7 @@ if.then.i143:                                     ; preds = %if.then70
   br i1 %cmp.i144, label %_ZN6duckdb8string_tC2EPKcj.exit, label %if.end.i145
 
 if.end.i145:                                      ; preds = %if.then.i143
-  %conv.i.i = and i64 %sub.ptr.sub, 15
+  %conv.i.i = and i64 %gepdiff, 15
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %ref.tmp71.sroa.4, ptr nonnull align 1 %add.ptr64, i64 %conv.i.i, i1 false)
   br label %_ZN6duckdb8string_tC2EPKcj.exit
 
@@ -43945,7 +43942,7 @@ cleanup60:                                        ; preds = %cleanup60.sink.spli
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef zeroext i8 @_ZN6duckdb9Timestamp19TryConvertTimestampEPKcmRNS_11timestamp_tE(ptr noundef %str, i64 noundef %len, ptr noundef nonnull align 8 dereferenceable(8) %result) local_unnamed_addr #1 align 2 {
+define noundef zeroext range(i8 0, 3) i8 @_ZN6duckdb9Timestamp19TryConvertTimestampEPKcmRNS_11timestamp_tE(ptr noundef %str, i64 noundef %len, ptr noundef nonnull align 8 dereferenceable(8) %result) local_unnamed_addr #1 align 2 {
 entry:
   %tz = alloca %"struct.duckdb::string_t", align 8
   %has_offset = alloca i8, align 1
@@ -45563,21 +45560,21 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef i64 @_ZN6duckdb9Timestamp20FromEpochNanoSecondsEl(i64 noundef %ns) local_unnamed_addr #8 align 2 {
+define noundef range(i64 -9223372036854775, 9223372036854776) i64 @_ZN6duckdb9Timestamp20FromEpochNanoSecondsEl(i64 noundef %ns) local_unnamed_addr #8 align 2 {
 entry:
   %div = sdiv i64 %ns, 1000
   ret i64 %div
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef i64 @_ZN6duckdb9Timestamp15GetEpochSecondsENS_11timestamp_tE(i64 %timestamp.coerce) local_unnamed_addr #8 align 2 {
+define noundef range(i64 -9223372036854, 9223372036855) i64 @_ZN6duckdb9Timestamp15GetEpochSecondsENS_11timestamp_tE(i64 %timestamp.coerce) local_unnamed_addr #8 align 2 {
 entry:
   %div = sdiv i64 %timestamp.coerce, 1000000
   ret i64 %div
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef i64 @_ZN6duckdb9Timestamp10GetEpochMsENS_11timestamp_tE(i64 %timestamp.coerce) local_unnamed_addr #8 align 2 {
+define noundef range(i64 -9223372036854775, 9223372036854776) i64 @_ZN6duckdb9Timestamp10GetEpochMsENS_11timestamp_tE(i64 %timestamp.coerce) local_unnamed_addr #8 align 2 {
 entry:
   %div = sdiv i64 %timestamp.coerce, 1000
   ret i64 %div
@@ -46937,7 +46934,7 @@ unreachable:                                      ; preds = %invoke.cont3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef i64 @_ZN6duckdb4Time10FromTimeNsEl(i64 noundef %time_ns) local_unnamed_addr #8 align 2 {
+define noundef range(i64 -9223372036854775, 9223372036854776) i64 @_ZN6duckdb4Time10FromTimeNsEl(i64 noundef %time_ns) local_unnamed_addr #8 align 2 {
 entry:
   %div = sdiv i64 %time_ns, 1000
   ret i64 %div
@@ -113143,7 +113140,7 @@ for.inc:                                          ; preds = %for.body, %_ZN6duck
 declare noundef i64 @_ZN6duckdb9UnionType14GetMemberCountERKNS_11LogicalTypeE(ptr noundef nonnull align 8 dereferenceable(24)) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress uwtable
-define noundef zeroext i8 @_ZN6duckdb11UnionVector18CheckUnionValidityERNS_6VectorEmRKNS_15SelectionVectorE(ptr noundef nonnull align 8 dereferenceable(104) %vector_p, i64 noundef %count, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %sel_p) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define noundef zeroext range(i8 0, 6) i8 @_ZN6duckdb11UnionVector18CheckUnionValidityERNS_6VectorEmRKNS_15SelectionVectorE(ptr noundef nonnull align 8 dereferenceable(104) %vector_p, i64 noundef %count, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %sel_p) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %owned_sel = alloca %"struct.duckdb::SelectionVector", align 8
   %vector_vdata = alloca %"struct.duckdb::UnifiedVectorFormat", align 8

@@ -6154,7 +6154,7 @@ define hidden void @_ZN4core9core_arch3x864sse214_mm_load_si12817h87d0fd68341479
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
-define hidden noundef i32 @_ZN4core9core_arch3x864sse217_mm_movemask_epi817h31f6d680f1d503c7E.llvm.13157132225597385975(ptr noalias nocapture noundef readonly align 16 dereferenceable(16) %0) unnamed_addr #13 {
+define hidden noundef range(i32 0, 65536) i32 @_ZN4core9core_arch3x864sse217_mm_movemask_epi817h31f6d680f1d503c7E.llvm.13157132225597385975(ptr noalias nocapture noundef readonly align 16 dereferenceable(16) %0) unnamed_addr #13 {
   %2 = load <16 x i8>, ptr %0, align 16
   %3 = icmp slt <16 x i8> %2, zeroinitializer
   %4 = bitcast <16 x i1> %3 to i16
@@ -13558,7 +13558,7 @@ declare void @_ZN3std6thread9yield_now17h7e18dd28aaaa5f53E() unnamed_addr #0
 declare hidden void @_ZN3std10sys_common9backtrace26__rust_end_short_backtrace17h1fcb82157fb79c1fE(ptr noalias nocapture noundef align 8 dereferenceable(24)) unnamed_addr #24
 
 ; Function Attrs: nonlazybind
-define hidden noundef i32 @__rust_try.llvm.13157132225597385975(ptr nocapture noundef nonnull readonly %0, ptr noundef %1, ptr nocapture noundef nonnull readonly %2) unnamed_addr #30 personality ptr @rust_eh_personality {
+define hidden noundef range(i32 0, 2) i32 @__rust_try.llvm.13157132225597385975(ptr nocapture noundef nonnull readonly %0, ptr noundef %1, ptr nocapture noundef nonnull readonly %2) unnamed_addr #30 personality ptr @rust_eh_personality {
   invoke void %0(ptr %1)
           to label %common.ret unwind label %4
 

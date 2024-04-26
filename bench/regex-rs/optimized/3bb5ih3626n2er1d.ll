@@ -629,7 +629,7 @@ define hidden void @_ZN3std9panicking3try8do_catch17ha4f66e06d91d2beaE.llvm.1518
 }
 
 ; Function Attrs: inlinehint mustprogress nofree nounwind nonlazybind willreturn memory(argmem: read) uwtable
-define hidden noundef i8 @"_ZN49_$LT$u8$u20$as$u20$core..slice..cmp..SliceOrd$GT$7compare17h1648ddddf73ccfc0E.llvm.15183607879373971598"(ptr noalias nocapture noundef nonnull readonly align 1 %0, i64 noundef %1, ptr noalias nocapture noundef nonnull readonly align 1 %2, i64 noundef %3) unnamed_addr #10 {
+define hidden noundef range(i8 -1, 2) i8 @"_ZN49_$LT$u8$u20$as$u20$core..slice..cmp..SliceOrd$GT$7compare17h1648ddddf73ccfc0E.llvm.15183607879373971598"(ptr noalias nocapture noundef nonnull readonly align 1 %0, i64 noundef %1, ptr noalias nocapture noundef nonnull readonly align 1 %2, i64 noundef %3) unnamed_addr #10 {
   %5 = sub i64 %1, %3
   %. = tail call i64 @llvm.umin.i64(i64 %1, i64 %3)
   %6 = tail call i32 @memcmp(ptr nonnull %0, ptr nonnull %2, i64 %.)
@@ -1526,7 +1526,7 @@ define hidden { ptr, i64 } @"_ZN55_$LT$$RF$T$u20$as$u20$core..convert..AsRef$LT$
 }
 
 ; Function Attrs: mustprogress nofree nounwind nonlazybind willreturn memory(argmem: read) uwtable
-define hidden noundef i8 @"_ZN55_$LT$A$u20$as$u20$core..slice..cmp..SlicePartialOrd$GT$15partial_compare17hc4df0fc08d59d31eE"(ptr noalias nocapture noundef nonnull readonly align 1 %0, i64 noundef %1, ptr noalias nocapture noundef nonnull readonly align 1 %2, i64 noundef %3) unnamed_addr #19 {
+define hidden noundef range(i8 -1, 2) i8 @"_ZN55_$LT$A$u20$as$u20$core..slice..cmp..SlicePartialOrd$GT$15partial_compare17hc4df0fc08d59d31eE"(ptr noalias nocapture noundef nonnull readonly align 1 %0, i64 noundef %1, ptr noalias nocapture noundef nonnull readonly align 1 %2, i64 noundef %3) unnamed_addr #19 {
   %5 = sub i64 %1, %3
   %..i = tail call i64 @llvm.umin.i64(i64 %1, i64 %3)
   %6 = tail call i32 @memcmp(ptr nonnull %0, ptr nonnull %2, i64 %..i), !alias.scope !459
@@ -1993,7 +1993,7 @@ define hidden void @"_ZN98_$LT$core..iter..adapters..rev..Rev$LT$I$GT$$u20$as$u2
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
-define hidden noundef i64 @_ZN14regex_automata3dfa8remapper11IndexMapper8to_index17hf9104990741f6fd9E(ptr noalias nocapture noundef readonly align 8 dereferenceable(8) %0, i32 noundef %1) unnamed_addr #28 {
+define hidden noundef range(i64 0, 4294967296) i64 @_ZN14regex_automata3dfa8remapper11IndexMapper8to_index17hf9104990741f6fd9E(ptr noalias nocapture noundef readonly align 8 dereferenceable(8) %0, i32 noundef %1) unnamed_addr #28 {
   %3 = zext i32 %1 to i64
   %4 = load i64, ptr %0, align 8, !noundef !20
   %5 = and i64 %4, 63
@@ -3961,7 +3961,7 @@ define noundef align 8 dereferenceable_or_null(24) ptr @_ZN14regex_automata4meta
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
-define noundef i8 @_ZN14regex_automata4meta5regex6Config18get_which_captures17h680c07ffc63985caE(ptr noalias nocapture noundef readonly align 8 dereferenceable(120) %0) unnamed_addr #28 {
+define noundef range(i8 0, 3) i8 @_ZN14regex_automata4meta5regex6Config18get_which_captures17h680c07ffc63985caE(ptr noalias nocapture noundef readonly align 8 dereferenceable(120) %0) unnamed_addr #28 {
   %2 = getelementptr inbounds i8, ptr %0, i64 114
   %3 = load i8, ptr %2, align 2, !range !227, !noundef !20
   %4 = icmp eq i8 %3, 3
@@ -7480,12 +7480,12 @@ _ZN14regex_automata4util4look11LookMatcher13is_word_ascii17hebbfd5d695ea5afaE.ex
 
 253:                                              ; preds = %159
   %254 = call fastcc noundef i8 @_ZN14regex_automata4util4look11LookMatcher15is_word_unicode17h28e987adb5fd19ebE(ptr noalias noundef nonnull readonly align 1 %121, i64 noundef %123, i64 noundef %164)
-  %255 = trunc i8 %254 to i1
+  %255 = trunc nuw i8 %254 to i1
   br i1 %255, label %.backedge, label %_ZN14regex_automata4util4look11LookMatcher14matches_inline17hfb6f75d19f1ee05cE.exit.thread
 
 256:                                              ; preds = %159
   %257 = call fastcc noundef i8 @_ZN14regex_automata4util4look11LookMatcher22is_word_unicode_negate17h6a9dc0ae3603c6c0E(ptr noalias noundef nonnull readonly align 1 %121, i64 noundef %123, i64 noundef %164)
-  %258 = trunc i8 %257 to i1
+  %258 = trunc nuw i8 %257 to i1
   br i1 %258, label %.backedge, label %_ZN14regex_automata4util4look11LookMatcher14matches_inline17hfb6f75d19f1ee05cE.exit.thread
 
 259:                                              ; preds = %159
@@ -7572,12 +7572,12 @@ _ZN14regex_automata4util4look11LookMatcher17is_word_end_ascii17h212097b5ac445074
 
 303:                                              ; preds = %159
   %304 = call fastcc noundef i8 @_ZN14regex_automata4util4look11LookMatcher21is_word_start_unicode17h3745011b0838a554E(ptr noalias noundef nonnull readonly align 1 %121, i64 noundef %123, i64 noundef %164)
-  %305 = trunc i8 %304 to i1
+  %305 = trunc nuw i8 %304 to i1
   br i1 %305, label %.backedge, label %_ZN14regex_automata4util4look11LookMatcher14matches_inline17hfb6f75d19f1ee05cE.exit.thread
 
 306:                                              ; preds = %159
   %307 = call fastcc noundef i8 @_ZN14regex_automata4util4look11LookMatcher19is_word_end_unicode17h002cdbea2055a55aE(ptr noalias noundef nonnull readonly align 1 %121, i64 noundef %123, i64 noundef %164)
-  %308 = trunc i8 %307 to i1
+  %308 = trunc nuw i8 %307 to i1
   br i1 %308, label %.backedge, label %_ZN14regex_automata4util4look11LookMatcher14matches_inline17hfb6f75d19f1ee05cE.exit.thread
 
 309:                                              ; preds = %159
@@ -7619,12 +7619,12 @@ _ZN14regex_automata4util4look11LookMatcher17is_word_end_ascii17h212097b5ac445074
 
 330:                                              ; preds = %159
   %331 = call fastcc noundef i8 @_ZN14regex_automata4util4look11LookMatcher26is_word_start_half_unicode17h7253f8c9b962d785E(ptr noalias noundef nonnull readonly align 1 %121, i64 noundef %123, i64 noundef %164)
-  %332 = trunc i8 %331 to i1
+  %332 = trunc nuw i8 %331 to i1
   br i1 %332, label %.backedge, label %_ZN14regex_automata4util4look11LookMatcher14matches_inline17hfb6f75d19f1ee05cE.exit.thread
 
 333:                                              ; preds = %159
   %334 = call fastcc noundef i8 @_ZN14regex_automata4util4look11LookMatcher24is_word_end_half_unicode17h16a78ff3235b7dc2E(ptr noalias noundef nonnull readonly align 1 %121, i64 noundef %123, i64 noundef %164)
-  %335 = trunc i8 %334 to i1
+  %335 = trunc nuw i8 %334 to i1
   br i1 %335, label %.backedge, label %_ZN14regex_automata4util4look11LookMatcher14matches_inline17hfb6f75d19f1ee05cE.exit.thread
 
 336:                                              ; preds = %170
@@ -8260,12 +8260,12 @@ _ZN14regex_automata4util4look11LookMatcher13is_word_ascii17hebbfd5d695ea5afaE.ex
 
 611:                                              ; preds = %517
   %612 = call fastcc noundef i8 @_ZN14regex_automata4util4look11LookMatcher15is_word_unicode17h28e987adb5fd19ebE(ptr noalias noundef nonnull readonly align 1 %89, i64 noundef %91, i64 noundef %522)
-  %613 = trunc i8 %612 to i1
+  %613 = trunc nuw i8 %612 to i1
   br i1 %613, label %.backedge292, label %_ZN14regex_automata4util4look11LookMatcher14matches_inline17hfb6f75d19f1ee05cE.exit71.thread
 
 614:                                              ; preds = %517
   %615 = call fastcc noundef i8 @_ZN14regex_automata4util4look11LookMatcher22is_word_unicode_negate17h6a9dc0ae3603c6c0E(ptr noalias noundef nonnull readonly align 1 %89, i64 noundef %91, i64 noundef %522)
-  %616 = trunc i8 %615 to i1
+  %616 = trunc nuw i8 %615 to i1
   br i1 %616, label %.backedge292, label %_ZN14regex_automata4util4look11LookMatcher14matches_inline17hfb6f75d19f1ee05cE.exit71.thread
 
 617:                                              ; preds = %517
@@ -8352,12 +8352,12 @@ _ZN14regex_automata4util4look11LookMatcher17is_word_end_ascii17h212097b5ac445074
 
 661:                                              ; preds = %517
   %662 = call fastcc noundef i8 @_ZN14regex_automata4util4look11LookMatcher21is_word_start_unicode17h3745011b0838a554E(ptr noalias noundef nonnull readonly align 1 %89, i64 noundef %91, i64 noundef %522)
-  %663 = trunc i8 %662 to i1
+  %663 = trunc nuw i8 %662 to i1
   br i1 %663, label %.backedge292, label %_ZN14regex_automata4util4look11LookMatcher14matches_inline17hfb6f75d19f1ee05cE.exit71.thread
 
 664:                                              ; preds = %517
   %665 = call fastcc noundef i8 @_ZN14regex_automata4util4look11LookMatcher19is_word_end_unicode17h002cdbea2055a55aE(ptr noalias noundef nonnull readonly align 1 %89, i64 noundef %91, i64 noundef %522)
-  %666 = trunc i8 %665 to i1
+  %666 = trunc nuw i8 %665 to i1
   br i1 %666, label %.backedge292, label %_ZN14regex_automata4util4look11LookMatcher14matches_inline17hfb6f75d19f1ee05cE.exit71.thread
 
 667:                                              ; preds = %517
@@ -8399,12 +8399,12 @@ _ZN14regex_automata4util4look11LookMatcher17is_word_end_ascii17h212097b5ac445074
 
 688:                                              ; preds = %517
   %689 = call fastcc noundef i8 @_ZN14regex_automata4util4look11LookMatcher26is_word_start_half_unicode17h7253f8c9b962d785E(ptr noalias noundef nonnull readonly align 1 %89, i64 noundef %91, i64 noundef %522)
-  %690 = trunc i8 %689 to i1
+  %690 = trunc nuw i8 %689 to i1
   br i1 %690, label %.backedge292, label %_ZN14regex_automata4util4look11LookMatcher14matches_inline17hfb6f75d19f1ee05cE.exit71.thread
 
 691:                                              ; preds = %517
   %692 = call fastcc noundef i8 @_ZN14regex_automata4util4look11LookMatcher24is_word_end_half_unicode17h16a78ff3235b7dc2E(ptr noalias noundef nonnull readonly align 1 %89, i64 noundef %91, i64 noundef %522)
-  %693 = trunc i8 %692 to i1
+  %693 = trunc nuw i8 %692 to i1
   br i1 %693, label %.backedge292, label %_ZN14regex_automata4util4look11LookMatcher14matches_inline17hfb6f75d19f1ee05cE.exit71.thread
 
 694:                                              ; preds = %528
@@ -9356,7 +9356,7 @@ _ZN14regex_automata4util4utf86decode17hd69cc87f474d359bE.exit.thread: ; preds = 
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define internal fastcc noundef i8 @_ZN14regex_automata4util4look11LookMatcher15is_word_unicode17h28e987adb5fd19ebE(ptr noalias noundef nonnull readonly align 1 %0, i64 noundef %1, i64 noundef %2) unnamed_addr #3 personality ptr @rust_eh_personality {
+define internal fastcc noundef range(i8 0, 2) i8 @_ZN14regex_automata4util4look11LookMatcher15is_word_unicode17h28e987adb5fd19ebE(ptr noalias noundef nonnull readonly align 1 %0, i64 noundef %1, i64 noundef %2) unnamed_addr #3 personality ptr @rust_eh_personality {
   %4 = alloca { {} }, align 1
   %5 = alloca { i64, [2 x i64] }, align 8
   %6 = alloca { i64, [2 x i64] }, align 8
@@ -9708,7 +9708,7 @@ _ZN14regex_automata4util4look12is_word_char3fwd17h9b311c8ef074a7d9E.exit: ; pred
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define internal fastcc noundef i8 @_ZN14regex_automata4util4look11LookMatcher22is_word_unicode_negate17h6a9dc0ae3603c6c0E(ptr noalias noundef nonnull readonly align 1 %0, i64 noundef %1, i64 noundef %2) unnamed_addr #3 personality ptr @rust_eh_personality {
+define internal fastcc noundef range(i8 0, 2) i8 @_ZN14regex_automata4util4look11LookMatcher22is_word_unicode_negate17h6a9dc0ae3603c6c0E(ptr noalias noundef nonnull readonly align 1 %0, i64 noundef %1, i64 noundef %2) unnamed_addr #3 personality ptr @rust_eh_personality {
   %4 = alloca { {} }, align 1
   %5 = alloca { ptr, ptr }, align 8
   %6 = alloca { i64, [2 x i64] }, align 8
@@ -10123,7 +10123,7 @@ _ZN14regex_automata4util4utf811decode_last17h4128c193d6e9ba16E.exit105.thread: ;
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define internal fastcc noundef i8 @_ZN14regex_automata4util4look11LookMatcher21is_word_start_unicode17h3745011b0838a554E(ptr noalias noundef nonnull readonly align 1 %0, i64 noundef %1, i64 noundef %2) unnamed_addr #3 personality ptr @rust_eh_personality {
+define internal fastcc noundef range(i8 0, 2) i8 @_ZN14regex_automata4util4look11LookMatcher21is_word_start_unicode17h3745011b0838a554E(ptr noalias noundef nonnull readonly align 1 %0, i64 noundef %1, i64 noundef %2) unnamed_addr #3 personality ptr @rust_eh_personality {
   %4 = alloca { {} }, align 1
   %5 = alloca { i64, [2 x i64] }, align 8
   %6 = alloca { i64, [2 x i64] }, align 8
@@ -10476,7 +10476,7 @@ _ZN14regex_automata4util4look12is_word_char3fwd17h9b311c8ef074a7d9E.exit: ; pred
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define internal fastcc noundef i8 @_ZN14regex_automata4util4look11LookMatcher19is_word_end_unicode17h002cdbea2055a55aE(ptr noalias noundef nonnull readonly align 1 %0, i64 noundef %1, i64 noundef %2) unnamed_addr #3 personality ptr @rust_eh_personality {
+define internal fastcc noundef range(i8 0, 2) i8 @_ZN14regex_automata4util4look11LookMatcher19is_word_end_unicode17h002cdbea2055a55aE(ptr noalias noundef nonnull readonly align 1 %0, i64 noundef %1, i64 noundef %2) unnamed_addr #3 personality ptr @rust_eh_personality {
   %4 = alloca { {} }, align 1
   %5 = alloca { i64, [2 x i64] }, align 8
   %6 = alloca { i64, [2 x i64] }, align 8
@@ -10830,7 +10830,7 @@ _ZN14regex_automata4util4look12is_word_char3fwd17h9b311c8ef074a7d9E.exit: ; pred
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define internal fastcc noundef i8 @_ZN14regex_automata4util4look11LookMatcher26is_word_start_half_unicode17h7253f8c9b962d785E(ptr noalias noundef nonnull readonly align 1 %0, i64 noundef %1, i64 noundef %2) unnamed_addr #3 personality ptr @rust_eh_personality {
+define internal fastcc noundef range(i8 0, 2) i8 @_ZN14regex_automata4util4look11LookMatcher26is_word_start_half_unicode17h7253f8c9b962d785E(ptr noalias noundef nonnull readonly align 1 %0, i64 noundef %1, i64 noundef %2) unnamed_addr #3 personality ptr @rust_eh_personality {
   %4 = alloca { {} }, align 1
   %5 = alloca { ptr, ptr }, align 8
   %6 = alloca { i64, [2 x i64] }, align 8
@@ -11094,7 +11094,7 @@ _ZN14regex_automata4util4look12is_word_char3rev17haa1e71ab59be6165E.exit: ; pred
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define internal fastcc noundef i8 @_ZN14regex_automata4util4look11LookMatcher24is_word_end_half_unicode17h16a78ff3235b7dc2E(ptr noalias noundef nonnull readonly align 1 %0, i64 noundef %1, i64 noundef %2) unnamed_addr #3 personality ptr @rust_eh_personality {
+define internal fastcc noundef range(i8 0, 2) i8 @_ZN14regex_automata4util4look11LookMatcher24is_word_end_half_unicode17h16a78ff3235b7dc2E(ptr noalias noundef nonnull readonly align 1 %0, i64 noundef %1, i64 noundef %2) unnamed_addr #3 personality ptr @rust_eh_personality {
   %4 = alloca { {} }, align 1
   %5 = alloca { ptr, ptr }, align 8
   %6 = alloca { i64, [2 x i64] }, align 8
@@ -11264,44 +11264,45 @@ define void @"_ZN113_$LT$regex_automata..util..prefilter..byteset..ByteSet$u20$a
   unreachable
 
 "_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h364e2176bd393ad4E.llvm.15183607879373971598.exit": ; preds = %8
-  %12 = getelementptr inbounds i8, ptr %2, i64 %4
-  %13 = getelementptr inbounds i8, ptr %2, i64 %5
+  %12 = getelementptr inbounds i8, ptr %2, i64 %5
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1839)
-  %14 = ptrtoint ptr %13 to i64
-  %15 = ptrtoint ptr %12 to i64
-  %16 = sub i64 %14, %15
-  %17 = icmp eq i64 %4, %5
-  br i1 %17, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8position17ha29f80b3ca56dfceE.llvm.15183607879373971598.exit.thread", label %.lr.ph.i
+  %gepdiff = sub nsw i64 %5, %4
+  %13 = icmp eq i64 %4, %5
+  br i1 %13, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8position17ha29f80b3ca56dfceE.llvm.15183607879373971598.exit.thread", label %.lr.ph.i.preheader
 
-.lr.ph.i:                                         ; preds = %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h364e2176bd393ad4E.llvm.15183607879373971598.exit", %23
-  %.012.i = phi i64 [ %25, %23 ], [ 0, %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h364e2176bd393ad4E.llvm.15183607879373971598.exit" ]
-  %18 = phi ptr [ %24, %23 ], [ %12, %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h364e2176bd393ad4E.llvm.15183607879373971598.exit" ]
-  %.val7.i = load i8, ptr %18, align 1, !noalias !1842, !noundef !20
-  %19 = zext i8 %.val7.i to i64
-  %20 = getelementptr inbounds [256 x i8], ptr %1, i64 0, i64 %19
-  %21 = load i8, ptr %20, align 1, !range !476, !alias.scope !1839, !noalias !1844, !noundef !20
-  %22 = trunc nuw i8 %21 to i1
-  br i1 %22, label %27, label %23
+.lr.ph.i.preheader:                               ; preds = %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h364e2176bd393ad4E.llvm.15183607879373971598.exit"
+  %14 = getelementptr inbounds i8, ptr %2, i64 %4
+  br label %.lr.ph.i
 
-23:                                               ; preds = %.lr.ph.i
-  %24 = getelementptr inbounds i8, ptr %18, i64 1
-  %25 = add nuw i64 %.012.i, 1
-  %26 = icmp eq ptr %24, %13
-  br i1 %26, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8position17ha29f80b3ca56dfceE.llvm.15183607879373971598.exit.thread", label %.lr.ph.i
+.lr.ph.i:                                         ; preds = %.lr.ph.i.preheader, %20
+  %.012.i = phi i64 [ %22, %20 ], [ 0, %.lr.ph.i.preheader ]
+  %15 = phi ptr [ %21, %20 ], [ %14, %.lr.ph.i.preheader ]
+  %.val7.i = load i8, ptr %15, align 1, !noalias !1842, !noundef !20
+  %16 = zext i8 %.val7.i to i64
+  %17 = getelementptr inbounds [256 x i8], ptr %1, i64 0, i64 %16
+  %18 = load i8, ptr %17, align 1, !range !476, !alias.scope !1839, !noalias !1844, !noundef !20
+  %19 = trunc nuw i8 %18 to i1
+  br i1 %19, label %24, label %20
 
-27:                                               ; preds = %.lr.ph.i
-  %28 = icmp ult i64 %.012.i, %16
-  tail call void @llvm.assume(i1 %28)
-  %29 = add i64 %.012.i, %4
-  %30 = add i64 %29, 1
-  %31 = getelementptr inbounds i8, ptr %0, i64 8
-  store i64 %29, ptr %31, align 8
-  %32 = getelementptr inbounds i8, ptr %0, i64 16
-  store i64 %30, ptr %32, align 8
+20:                                               ; preds = %.lr.ph.i
+  %21 = getelementptr inbounds i8, ptr %15, i64 1
+  %22 = add nuw i64 %.012.i, 1
+  %23 = icmp eq ptr %21, %12
+  br i1 %23, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8position17ha29f80b3ca56dfceE.llvm.15183607879373971598.exit.thread", label %.lr.ph.i
+
+24:                                               ; preds = %.lr.ph.i
+  %25 = icmp ult i64 %.012.i, %gepdiff
+  tail call void @llvm.assume(i1 %25)
+  %26 = add i64 %.012.i, %4
+  %27 = add i64 %26, 1
+  %28 = getelementptr inbounds i8, ptr %0, i64 8
+  store i64 %26, ptr %28, align 8
+  %29 = getelementptr inbounds i8, ptr %0, i64 16
+  store i64 %27, ptr %29, align 8
   br label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8position17ha29f80b3ca56dfceE.llvm.15183607879373971598.exit.thread"
 
-"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8position17ha29f80b3ca56dfceE.llvm.15183607879373971598.exit.thread": ; preds = %23, %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h364e2176bd393ad4E.llvm.15183607879373971598.exit", %27
-  %.sroa.0.0.i13 = phi i64 [ 1, %27 ], [ 0, %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h364e2176bd393ad4E.llvm.15183607879373971598.exit" ], [ 0, %23 ]
+"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8position17ha29f80b3ca56dfceE.llvm.15183607879373971598.exit.thread": ; preds = %20, %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h364e2176bd393ad4E.llvm.15183607879373971598.exit", %24
+  %.sroa.0.0.i13 = phi i64 [ 1, %24 ], [ 0, %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h364e2176bd393ad4E.llvm.15183607879373971598.exit" ], [ 0, %20 ]
   store i64 %.sroa.0.0.i13, ptr %0, align 8
   ret void
 }
@@ -11756,7 +11757,7 @@ declare void @_ZN4core9panicking5panic17hb837a5ebbbe5b188E(ptr noalias noundef n
 declare void @_ZN4core5slice5index26slice_start_index_len_fail17h0187bf4d120fc375E(i64 noundef, i64 noundef, ptr noalias noundef readonly align 8 dereferenceable(24)) unnamed_addr #38
 
 ; Function Attrs: nonlazybind
-define hidden noundef i32 @__rust_try.llvm.15183607879373971598(ptr nocapture noundef nonnull readonly %0, ptr noundef %1, ptr nocapture noundef nonnull readonly %2) unnamed_addr #39 personality ptr @rust_eh_personality {
+define hidden noundef range(i32 0, 2) i32 @__rust_try.llvm.15183607879373971598(ptr nocapture noundef nonnull readonly %0, ptr noundef %1, ptr nocapture noundef nonnull readonly %2) unnamed_addr #39 personality ptr @rust_eh_personality {
   invoke void %0(ptr %1)
           to label %common.ret unwind label %4
 

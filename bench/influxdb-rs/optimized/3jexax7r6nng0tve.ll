@@ -3940,7 +3940,7 @@ define hidden noundef i64 @_ZN4core3ptr12align_offset17hb3ac02b792c55581E(ptr no
 }
 
 ; Function Attrs: inlinehint nofree norecurse nosync nounwind nonlazybind memory(none) uwtable
-define hidden noundef i64 @_ZN4core3ptr12align_offset7mod_inv17h7e453795151a3400E.llvm.13054344295739906232(i64 noundef %0, i64 noundef %1) unnamed_addr #7 {
+define hidden noundef range(i64 0, -1) i64 @_ZN4core3ptr12align_offset7mod_inv17h7e453795151a3400E.llvm.13054344295739906232(i64 noundef %0, i64 noundef %1) unnamed_addr #7 {
   %3 = alloca [8 x i8], align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
   store <8 x i8> <i8 1, i8 11, i8 13, i8 7, i8 9, i8 3, i8 5, i8 15>, ptr %3, align 8
@@ -6571,7 +6571,7 @@ define hidden noundef zeroext i1 @"_ZN69_$LT$T$u20$as$u20$core..array..equality.
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
-define hidden noundef i8 @"_ZN76_$LT$log..Level$u20$as$u20$core..cmp..PartialOrd$LT$log..LevelFilter$GT$$GT$11partial_cmp17h46cfcdf9774c0094E.llvm.13054344295739906232"(ptr noalias nocapture noundef readonly align 8 dereferenceable(8) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(8) %1) unnamed_addr #11 {
+define hidden noundef range(i8 -1, 2) i8 @"_ZN76_$LT$log..Level$u20$as$u20$core..cmp..PartialOrd$LT$log..LevelFilter$GT$$GT$11partial_cmp17h46cfcdf9774c0094E.llvm.13054344295739906232"(ptr noalias nocapture noundef readonly align 8 dereferenceable(8) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(8) %1) unnamed_addr #11 {
   %3 = load i64, ptr %0, align 8, !range !816, !noundef !4
   %4 = load i64, ptr %1, align 8, !range !817, !noundef !4
   %5 = icmp ult i64 %3, %4
@@ -11406,7 +11406,7 @@ define noundef nonnull align 8 dereferenceable(24) ptr @_ZN15influxdb3_write7cat
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
-define noundef i8 @_ZN15influxdb3_write7catalog33column_type_to_influx_column_type17h21e15ddce960e530E(ptr noalias nocapture noundef readonly align 2 dereferenceable(2) %0) unnamed_addr #10 {
+define noundef range(i8 0, 8) i8 @_ZN15influxdb3_write7catalog33column_type_to_influx_column_type17h21e15ddce960e530E(ptr noalias nocapture noundef readonly align 2 dereferenceable(2) %0) unnamed_addr #10 {
 switch.lookup:
   %1 = load i16, ptr %0, align 2, !range !1477, !noundef !4
   %switch.tableidx = add nsw i16 %1, -1

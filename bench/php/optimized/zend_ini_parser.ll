@@ -111,7 +111,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.75 = private unnamed_addr constant [3 x i8] c"%s\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @zend_parse_ini_file(ptr noundef %0, i1 noundef zeroext %1, i32 noundef %2, ptr noundef %3, ptr noundef %4) local_unnamed_addr #0 {
+define dso_local range(i32 -1, 1) i32 @zend_parse_ini_file(ptr noundef %0, i1 noundef zeroext %1, i32 noundef %2, ptr noundef %3, ptr noundef %4) local_unnamed_addr #0 {
   %6 = alloca %struct._zend_ini_parser_param, align 8
   store ptr %3, ptr %6, align 8
   %7 = getelementptr inbounds i8, ptr %6, i64 8
@@ -124,7 +124,7 @@ define dso_local noundef i32 @zend_parse_ini_file(ptr noundef %0, i1 noundef zer
 10:                                               ; preds = %5
   %11 = zext i1 %1 to i8
   store i8 %11, ptr getelementptr inbounds (%struct._zend_compiler_globals, ptr @compiler_globals, i64 0, i32 12), align 4
-  %12 = call i32 @ini_parse(), !range !5
+  %12 = call i32 @ini_parse()
   call void @shutdown_ini_scanner() #17
   %13 = icmp ne i32 %12, 0
   %. = sext i1 %13 to i32
@@ -138,7 +138,7 @@ define dso_local noundef i32 @zend_parse_ini_file(ptr noundef %0, i1 noundef zer
 declare i32 @zend_ini_open_file_for_scanning(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @ini_parse() local_unnamed_addr #0 {
+define hidden range(i32 0, 3) i32 @ini_parse() local_unnamed_addr #0 {
   %1 = alloca %struct._zval_struct, align 8
   %2 = alloca i32, align 4
   %3 = alloca i64, align 8
@@ -1408,7 +1408,7 @@ zval_ini_dtor.exit:                               ; preds = %251, %convert_to_nu
 549:                                              ; preds = %541, %543, %544
   %550 = phi i32 [ -2, %541 ], [ %548, %544 ], [ 2, %543 ]
   %551 = call fastcc i32 @yysyntax_error(ptr noundef nonnull %10, ptr nonnull %9, ptr %.2357, i32 %550)
-  switch i32 %551, label %557 [
+  switch i32 %551, label %.thread [
     i32 0, label %.thread458
     i32 -1, label %552
   ]
@@ -1421,28 +1421,25 @@ zval_ini_dtor.exit:                               ; preds = %251, %convert_to_nu
   %553 = load i64, ptr %10, align 8
   %554 = call noalias ptr @malloc(i64 noundef %553) #18
   %.not416 = icmp eq ptr %554, null
-  br i1 %.not416, label %.thread, label %555
+  br i1 %.not416, label %555, label %556
 
 555:                                              ; preds = %552
-  %556 = call fastcc i32 @yysyntax_error(ptr noundef nonnull %10, ptr nonnull %554, ptr %.2357, i32 %550)
-  br label %557
-
-.thread:                                          ; preds = %552
   store i64 128, ptr %10, align 8
+  br label %.thread
+
+.thread:                                          ; preds = %555, %549
   call fastcc void @ini_error(ptr noundef nonnull @.str)
   br label %.loopexit501
 
-557:                                              ; preds = %549, %555
-  %.0450 = phi ptr [ %9, %549 ], [ %554, %555 ]
-  %.0321 = phi ptr [ @.str, %549 ], [ %554, %555 ]
-  %.0 = phi i32 [ %551, %549 ], [ %556, %555 ]
-  call fastcc void @ini_error(ptr noundef nonnull %.0321)
-  %558 = icmp eq i32 %.0, -2
+556:                                              ; preds = %552
+  %557 = call fastcc i32 @yysyntax_error(ptr noundef nonnull %10, ptr nonnull %554, ptr %.2357, i32 %550)
+  call fastcc void @ini_error(ptr noundef nonnull %554)
+  %558 = icmp eq i32 %557, -2
   br i1 %558, label %.loopexit501, label %.loopexit503
 
-.loopexit503:                                     ; preds = %55, %557, %.thread458
-  %.2452 = phi ptr [ %9, %.thread458 ], [ %.0450, %557 ], [ %9, %55 ]
-  %.6 = phi i32 [ %.4, %.thread458 ], [ %.4, %557 ], [ 257, %55 ]
+.loopexit503:                                     ; preds = %55, %556, %.thread458
+  %.2452 = phi ptr [ %9, %.thread458 ], [ %554, %556 ], [ %9, %55 ]
+  %.6 = phi i32 [ %.4, %.thread458 ], [ %.4, %556 ], [ 257, %55 ]
   %559 = icmp eq ptr %.2357, %.1336
   br i1 %559, label %.loopexit, label %.lr.ph
 
@@ -1462,12 +1459,12 @@ zval_ini_dtor.exit:                               ; preds = %251, %convert_to_nu
   %568 = icmp eq ptr %565, %.1336
   br i1 %568, label %.loopexit, label %.lr.ph
 
-.loopexit501:                                     ; preds = %26, %20, %.thread, %557
-  %.3453 = phi ptr [ %.0450, %557 ], [ %9, %.thread ], [ %9, %20 ], [ %9, %26 ]
-  %.5360 = phi ptr [ %.2357, %557 ], [ %.2357, %.thread ], [ %.1356, %20 ], [ %.1356, %26 ]
-  %.5350 = phi ptr [ %.2347, %557 ], [ %.2347, %.thread ], [ %.1346, %20 ], [ %.1346, %26 ]
-  %.3338 = phi ptr [ %.1336, %557 ], [ %.1336, %.thread ], [ %.0335, %20 ], [ %.0335, %26 ]
-  %.8 = phi i32 [ %.4, %557 ], [ %.4, %.thread ], [ %.1, %20 ], [ %.1, %26 ]
+.loopexit501:                                     ; preds = %26, %20, %.thread, %556
+  %.3453 = phi ptr [ %554, %556 ], [ %9, %.thread ], [ %9, %20 ], [ %9, %26 ]
+  %.5360 = phi ptr [ %.2357, %556 ], [ %.2357, %.thread ], [ %.1356, %20 ], [ %.1356, %26 ]
+  %.5350 = phi ptr [ %.2347, %556 ], [ %.2347, %.thread ], [ %.1346, %20 ], [ %.1346, %26 ]
+  %.3338 = phi ptr [ %.1336, %556 ], [ %.1336, %.thread ], [ %.0335, %20 ], [ %.0335, %26 ]
+  %.8 = phi i32 [ %.4, %556 ], [ %.4, %.thread ], [ %.1, %20 ], [ %.1, %26 ]
   call fastcc void @ini_error(ptr noundef nonnull @.str.3)
   br label %.loopexit
 
@@ -1538,7 +1535,7 @@ zval_ini_dtor.exit:                               ; preds = %251, %convert_to_nu
 declare void @shutdown_ini_scanner() local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @zend_parse_ini_string(ptr noundef %0, i1 noundef zeroext %1, i32 noundef %2, ptr noundef %3, ptr noundef %4) local_unnamed_addr #0 {
+define dso_local range(i32 -1, 1) i32 @zend_parse_ini_string(ptr noundef %0, i1 noundef zeroext %1, i32 noundef %2, ptr noundef %3, ptr noundef %4) local_unnamed_addr #0 {
   %6 = alloca %struct._zend_ini_parser_param, align 8
   store ptr %3, ptr %6, align 8
   %7 = getelementptr inbounds i8, ptr %6, i64 8
@@ -1551,7 +1548,7 @@ define dso_local noundef i32 @zend_parse_ini_string(ptr noundef %0, i1 noundef z
 10:                                               ; preds = %5
   %11 = zext i1 %1 to i8
   store i8 %11, ptr getelementptr inbounds (%struct._zend_compiler_globals, ptr @compiler_globals, i64 0, i32 12), align 4
-  %12 = call i32 @ini_parse(), !range !5
+  %12 = call i32 @ini_parse()
   call void @shutdown_ini_scanner() #17
   %13 = icmp ne i32 %12, 0
   %. = sext i1 %13 to i32
@@ -2121,7 +2118,7 @@ define internal fastcc void @zend_ini_get_var(ptr nocapture noundef writeonly %0
 }
 
 ; Function Attrs: nofree nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc noundef i32 @yysyntax_error(ptr nocapture noundef %0, ptr %.0.val, ptr nocapture readonly %.0.val1, i32 %.8.val) unnamed_addr #5 {
+define internal fastcc range(i32 -2, 1) i32 @yysyntax_error(ptr nocapture noundef %0, ptr %.0.val, ptr nocapture readonly %.0.val1, i32 %.8.val) unnamed_addr #5 {
   %2 = alloca [5 x i32], align 16
   %.not.i = icmp eq i32 %.8.val, -2
   br i1 %.not.i, label %yy_syntax_error_arguments.exit.thread8, label %3
@@ -2152,7 +2149,7 @@ define internal fastcc noundef i32 @yysyntax_error(ptr nocapture noundef %0, ptr
   %19 = zext nneg i32 %15 to i64
   br label %.lr.ph.split.i.i
 
-.lr.ph.split.i.i:                                 ; preds = %.lr.ph.i.i, %33
+.lr.ph.split.i.i:                                 ; preds = %33, %.lr.ph.i.i
   %indvars.iv.i.i = phi i64 [ %indvars.iv.next.i.i, %33 ], [ %17, %.lr.ph.i.i ]
   %.0333.i.i = phi i32 [ %.2.i.fr.i, %33 ], [ 0, %.lr.ph.i.i ]
   %20 = add nsw i64 %indvars.iv.i.i, %18
@@ -3306,4 +3303,3 @@ attributes #21 = { cold nounwind }
 !2 = !{i32 7, !"PIE Level", i32 2}
 !3 = !{i32 7, !"uwtable", i32 2}
 !4 = !{i32 7, !"frame-pointer", i32 2}
-!5 = !{i32 0, i32 3}

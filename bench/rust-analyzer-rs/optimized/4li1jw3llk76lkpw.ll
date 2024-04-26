@@ -7662,7 +7662,7 @@ define hidden noundef i64 @"_ZN49_$LT$usize$u20$as$u20$core..iter..range..Step$G
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
-define hidden noundef i8 @"_ZN4core3cmp5impls50_$LT$impl$u20$core..cmp..Ord$u20$for$u20$usize$GT$3cmp17h77d218d0d5e66aefE.llvm.1779260972481129599"(ptr noalias nocapture noundef readonly align 8 dereferenceable(8) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(8) %1) unnamed_addr #6 {
+define hidden noundef range(i8 -1, 2) i8 @"_ZN4core3cmp5impls50_$LT$impl$u20$core..cmp..Ord$u20$for$u20$usize$GT$3cmp17h77d218d0d5e66aefE.llvm.1779260972481129599"(ptr noalias nocapture noundef readonly align 8 dereferenceable(8) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(8) %1) unnamed_addr #6 {
   %3 = load i64, ptr %0, align 8, !noundef !12
   %4 = load i64, ptr %1, align 8, !noundef !12
   %5 = icmp ult i64 %3, %4
@@ -8931,7 +8931,7 @@ _ZN4core3ops8function6FnOnce9call_once17h6181aa306af6d492E.exit: ; preds = %3, %
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read, inaccessiblemem: read) uwtable
-define hidden noundef i8 @_ZN4core3ops8function6FnOnce9call_once17hfb8a6183f69bb28cE.llvm.1779260972481129599(ptr noalias nocapture noundef readonly align 8 dereferenceable(8) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(8) %1) unnamed_addr #7 {
+define hidden noundef range(i8 -1, 2) i8 @_ZN4core3ops8function6FnOnce9call_once17hfb8a6183f69bb28cE.llvm.1779260972481129599(ptr noalias nocapture noundef readonly align 8 dereferenceable(8) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(8) %1) unnamed_addr #7 {
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1350)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1353)
   %3 = load i64, ptr %0, align 8, !alias.scope !1350, !noalias !1353, !noundef !12
@@ -15539,6 +15539,7 @@ define hidden void @_ZN7hir_def4attr7DocExpr5parse17h041ed8dc7a16716aE.llvm.1779
   %9 = load ptr, ptr %1, align 8, !nonnull !12, !align !52, !noundef !12
   %10 = getelementptr inbounds i8, ptr %1, i64 8
   %11 = load i64, ptr %10, align 8, !noundef !12
+  %.idx = shl nsw i64 %11, 6
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %7)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %8), !noalias !2955
   %12 = icmp eq i64 %11, 0
@@ -15611,7 +15612,6 @@ default.unreachable:                              ; preds = %_ZN7hir_def4attr15p
   %.sroa.9.0..sroa_idx.i = getelementptr inbounds i8, ptr %8, i64 16
   store i64 %.sroa.9.0.i, ptr %.sroa.9.0..sroa_idx.i, align 8, !noalias !2955
   call void @llvm.lifetime.end.p0(i64 7, ptr nonnull %.sroa.6.i)
-  %.idx = shl nsw i64 %11, 6
   %gepdiff = add nsw i64 %.idx, -64
   %.not.i = icmp eq i64 %11, 1
   br i1 %.not.i, label %38, label %34
@@ -15765,14 +15765,14 @@ _ZN7hir_def4attr15parse_comma_sep17h720e89cefe6f94cdE.exit.i: ; preds = %"_ZN91_
 
 "_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hbe070448a28a2e1dE.exit51.i.thread": ; preds = %70, %38
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.0, ptr noundef nonnull align 8 dereferenceable(24) %7, i64 24, i1 false), !noalias !2975
-  %.sroa.4.0..sroa_idx211 = getelementptr inbounds i8, ptr %7, i64 24
-  %.sroa.4.0.copyload312 = load i8, ptr %.sroa.4.0..sroa_idx211, align 8, !noalias !2975
-  %.sroa.8.0..sroa_idx413 = getelementptr inbounds i8, ptr %7, i64 25
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(23) %.sroa.8, ptr noundef nonnull align 1 dereferenceable(23) %.sroa.8.0..sroa_idx413, i64 23, i1 false), !noalias !2975
+  %.sroa.4.0..sroa_idx210 = getelementptr inbounds i8, ptr %7, i64 24
+  %.sroa.4.0.copyload311 = load i8, ptr %.sroa.4.0..sroa_idx210, align 8, !noalias !2975
+  %.sroa.8.0..sroa_idx412 = getelementptr inbounds i8, ptr %7, i64 25
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(23) %.sroa.8, ptr noundef nonnull align 1 dereferenceable(23) %.sroa.8.0..sroa_idx412, i64 23, i1 false), !noalias !2975
   br label %"_ZN4core3ptr38drop_in_place$LT$smol_str..SmolStr$GT$17h5ba97c416cdfadc7E.exit.i"
 
 "_ZN4core3ptr38drop_in_place$LT$smol_str..SmolStr$GT$17h5ba97c416cdfadc7E.exit.i": ; preds = %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hbe070448a28a2e1dE.exit51.i.thread", %98, %94, %92
-  %.sroa.4.0.copyload314 = phi i8 [ %.sroa.4.0.copyload312, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hbe070448a28a2e1dE.exit51.i.thread" ], [ %.sroa.4.0.copyload3, %98 ], [ %.sroa.4.0.copyload3, %94 ], [ %.sroa.4.0.copyload3, %92 ]
+  %.sroa.4.0.copyload313 = phi i8 [ %.sroa.4.0.copyload311, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hbe070448a28a2e1dE.exit51.i.thread" ], [ %.sroa.4.0.copyload3, %98 ], [ %.sroa.4.0.copyload3, %94 ], [ %.sroa.4.0.copyload3, %92 ]
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %8), !noalias !2955
   br label %_ZN7hir_def4attr13next_doc_expr17hf43c7d4665662769E.exit
 
@@ -15810,7 +15810,7 @@ _ZN7hir_def4attr15parse_comma_sep17h720e89cefe6f94cdE.exit.i: ; preds = %"_ZN91_
           to label %99 unwind label %90, !noalias !2955
 
 _ZN7hir_def4attr13next_doc_expr17hf43c7d4665662769E.exit: ; preds = %72, %"_ZN4core3ptr38drop_in_place$LT$smol_str..SmolStr$GT$17h5ba97c416cdfadc7E.exit.i"
-  %.sroa.4.1 = phi i8 [ %.sroa.4.0, %72 ], [ %.sroa.4.0.copyload314, %"_ZN4core3ptr38drop_in_place$LT$smol_str..SmolStr$GT$17h5ba97c416cdfadc7E.exit.i" ]
+  %.sroa.4.1 = phi i8 [ %.sroa.4.0, %72 ], [ %.sroa.4.0.copyload313, %"_ZN4core3ptr38drop_in_place$LT$smol_str..SmolStr$GT$17h5ba97c416cdfadc7E.exit.i" ]
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %7)
   %.not = icmp eq i8 %.sroa.4.1, 30
   br i1 %.not, label %.thread, label %"_ZN4core3ptr43drop_in_place$LT$hir_def..attr..DocExpr$GT$17hb65b43d8ae903e48E.llvm.1779260972481129599.exit"

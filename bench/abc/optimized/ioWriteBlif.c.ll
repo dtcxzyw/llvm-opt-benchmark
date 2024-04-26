@@ -573,7 +573,7 @@ define void @Io_NtkWriteSubcktFanins(ptr nocapture noundef %0, ptr nocapture nou
 declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @Io_NtkWriteNodeGate(ptr nocapture noundef %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @Io_NtkWriteNodeGate(ptr nocapture noundef %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #0 {
   %4 = getelementptr inbounds i8, ptr %1, i64 56
   %5 = load ptr, ptr %4, align 8
   %6 = tail call ptr @Mio_GateReadName(ptr noundef %5) #10
@@ -1668,8 +1668,8 @@ define void @Io_NtkWriteNodeIntStruct(ptr nocapture noundef %0, ptr nocapture no
 
 51:                                               ; preds = %36
   %fputc = tail call i32 @fputc(i32 10, ptr %0)
-  %52 = tail call noundef i32 @llvm.smax.i32(i32 %29, i32 %43)
-  %53 = tail call noundef i32 @llvm.smax.i32(i32 %37, i32 %52)
+  %52 = tail call i32 @llvm.smax.i32(i32 %29, i32 %43)
+  %53 = tail call i32 @llvm.smax.i32(i32 %37, i32 %52)
   %.not = icmp sgt i32 %.val191, %53
   br i1 %.not, label %79, label %54
 
@@ -2248,8 +2248,8 @@ define void @Io_NtkWriteModelIntStruct(ptr nocapture noundef %0, ptr nocapture n
   br label %228
 
 60:                                               ; preds = %45
-  %61 = tail call noundef i32 @llvm.smax.i32(i32 %38, i32 %52)
-  %62 = tail call noundef i32 @llvm.smax.i32(i32 %46, i32 %61)
+  %61 = tail call i32 @llvm.smax.i32(i32 %38, i32 %52)
+  %62 = tail call i32 @llvm.smax.i32(i32 %46, i32 %61)
   %.not = icmp sgt i32 %.val173, %62
   br i1 %.not, label %73, label %63
 
@@ -3105,16 +3105,16 @@ define internal fastcc void @Io_NtkWriteOne(ptr nocapture noundef %0, ptr nounde
 14:                                               ; preds = %13
   %15 = getelementptr i8, ptr %1, i64 128
   %.val93 = load i32, ptr %15, align 8
-  %.not112 = icmp eq i32 %.val93, 0
-  br i1 %.not112, label %65, label %16
+  %.not113 = icmp eq i32 %.val93, 0
+  br i1 %.not113, label %65, label %16
 
 16:                                               ; preds = %14
   %fputc77 = tail call i32 @fputc(i32 10, ptr %0)
   %17 = getelementptr inbounds i8, ptr %1, i64 80
   %18 = load ptr, ptr %17, align 8
   %19 = getelementptr i8, ptr %18, i64 4
-  %.val91120 = load i32, ptr %19, align 4
-  %20 = icmp sgt i32 %.val91120, 0
+  %.val91121 = load i32, ptr %19, align 4
+  %20 = icmp sgt i32 %.val91121, 0
   br i1 %20, label %.lr.ph, label %.critedge
 
 .lr.ph:                                           ; preds = %16, %60
@@ -3127,8 +3127,8 @@ define internal fastcc void @Io_NtkWriteOne(ptr nocapture noundef %0, ptr nounde
   %25 = getelementptr i8, ptr %24, i64 20
   %.val97 = load i32, ptr %25, align 4
   %26 = and i32 %.val97, 15
-  %.not113 = icmp eq i32 %26, 8
-  br i1 %.not113, label %27, label %60
+  %.not114 = icmp eq i32 %26, 8
+  br i1 %.not114, label %27, label %60
 
 27:                                               ; preds = %.lr.ph
   %.val14.i = load ptr, ptr %24, align 8
@@ -3214,71 +3214,71 @@ define internal fastcc void @Io_NtkWriteOne(ptr nocapture noundef %0, ptr nounde
   %72 = getelementptr inbounds i8, ptr %1, i64 80
   %73 = load ptr, ptr %72, align 8
   %74 = getelementptr i8, ptr %73, i64 4
-  %.val90122 = load i32, ptr %74, align 4
-  %75 = icmp sgt i32 %.val90122, 0
-  br i1 %75, label %.lr.ph124, label %.critedge2
+  %.val90123 = load i32, ptr %74, align 4
+  %75 = icmp sgt i32 %.val90123, 0
+  br i1 %75, label %.lr.ph125, label %.critedge2
 
-.lr.ph124:                                        ; preds = %71, %83
+.lr.ph125:                                        ; preds = %71, %83
   %76 = phi ptr [ %84, %83 ], [ %73, %71 ]
-  %indvars.iv133 = phi i64 [ %indvars.iv.next134, %83 ], [ 0, %71 ]
+  %indvars.iv134 = phi i64 [ %indvars.iv.next135, %83 ], [ 0, %71 ]
   %77 = getelementptr i8, ptr %76, i64 8
   %.val95.val = load ptr, ptr %77, align 8
-  %78 = getelementptr inbounds ptr, ptr %.val95.val, i64 %indvars.iv133
+  %78 = getelementptr inbounds ptr, ptr %.val95.val, i64 %indvars.iv134
   %79 = load ptr, ptr %78, align 8
   %80 = getelementptr i8, ptr %79, i64 20
   %.val100 = load i32, ptr %80, align 4
   %81 = and i32 %.val100, 15
-  %.not117 = icmp eq i32 %81, 10
-  br i1 %.not117, label %82, label %83
+  %.not118 = icmp eq i32 %81, 10
+  br i1 %.not118, label %82, label %83
 
-82:                                               ; preds = %.lr.ph124
+82:                                               ; preds = %.lr.ph125
   tail call fastcc void @Io_NtkWriteSubckt(ptr noundef %0, ptr noundef nonnull %79)
-  %.pre139 = load ptr, ptr %72, align 8
+  %.pre140 = load ptr, ptr %72, align 8
   br label %83
 
-83:                                               ; preds = %82, %.lr.ph124
-  %84 = phi ptr [ %.pre139, %82 ], [ %76, %.lr.ph124 ]
-  %indvars.iv.next134 = add nuw nsw i64 %indvars.iv133, 1
+83:                                               ; preds = %82, %.lr.ph125
+  %84 = phi ptr [ %.pre140, %82 ], [ %76, %.lr.ph125 ]
+  %indvars.iv.next135 = add nuw nsw i64 %indvars.iv134, 1
   %85 = getelementptr i8, ptr %84, i64 4
   %.val90 = load i32, ptr %85, align 4
   %86 = sext i32 %.val90 to i64
-  %87 = icmp slt i64 %indvars.iv.next134, %86
-  br i1 %87, label %.lr.ph124, label %.critedge2, !llvm.loop !53
+  %87 = icmp slt i64 %indvars.iv.next135, %86
+  br i1 %87, label %.lr.ph125, label %.critedge2, !llvm.loop !53
 
 .critedge2:                                       ; preds = %83, %71
   %fputc81 = tail call i32 @fputc(i32 10, ptr %0)
   %88 = load ptr, ptr %72, align 8
   %89 = getelementptr i8, ptr %88, i64 4
-  %.val89125 = load i32, ptr %89, align 4
-  %90 = icmp sgt i32 %.val89125, 0
-  br i1 %90, label %.lr.ph127, label %.critedge4
+  %.val89126 = load i32, ptr %89, align 4
+  %90 = icmp sgt i32 %.val89126, 0
+  br i1 %90, label %.lr.ph128, label %.critedge4
 
-.lr.ph127:                                        ; preds = %.critedge2, %98
+.lr.ph128:                                        ; preds = %.critedge2, %98
   %91 = phi ptr [ %99, %98 ], [ %88, %.critedge2 ]
-  %indvars.iv136 = phi i64 [ %indvars.iv.next137, %98 ], [ 0, %.critedge2 ]
+  %indvars.iv137 = phi i64 [ %indvars.iv.next138, %98 ], [ 0, %.critedge2 ]
   %92 = getelementptr i8, ptr %91, i64 8
   %.val94.val = load ptr, ptr %92, align 8
-  %93 = getelementptr inbounds ptr, ptr %.val94.val, i64 %indvars.iv136
+  %93 = getelementptr inbounds ptr, ptr %.val94.val, i64 %indvars.iv137
   %94 = load ptr, ptr %93, align 8
   %95 = getelementptr i8, ptr %94, i64 20
   %.val101 = load i32, ptr %95, align 4
   %96 = and i32 %.val101, 15
-  %.not116 = icmp eq i32 %96, 9
-  br i1 %.not116, label %97, label %98
+  %.not117 = icmp eq i32 %96, 9
+  br i1 %.not117, label %97, label %98
 
-97:                                               ; preds = %.lr.ph127
+97:                                               ; preds = %.lr.ph128
   tail call fastcc void @Io_NtkWriteSubckt(ptr noundef %0, ptr noundef nonnull %94)
-  %.pre140 = load ptr, ptr %72, align 8
+  %.pre141 = load ptr, ptr %72, align 8
   br label %98
 
-98:                                               ; preds = %97, %.lr.ph127
-  %99 = phi ptr [ %.pre140, %97 ], [ %91, %.lr.ph127 ]
-  %indvars.iv.next137 = add nuw nsw i64 %indvars.iv136, 1
+98:                                               ; preds = %97, %.lr.ph128
+  %99 = phi ptr [ %.pre141, %97 ], [ %91, %.lr.ph128 ]
+  %indvars.iv.next138 = add nuw nsw i64 %indvars.iv137, 1
   %100 = getelementptr i8, ptr %99, i64 4
   %.val89 = load i32, ptr %100, align 4
   %101 = sext i32 %.val89 to i64
-  %102 = icmp slt i64 %indvars.iv.next137, %101
-  br i1 %102, label %.lr.ph127, label %.critedge4, !llvm.loop !54
+  %102 = icmp slt i64 %indvars.iv.next138, %101
+  br i1 %102, label %.lr.ph128, label %.critedge4, !llvm.loop !54
 
 .critedge4:                                       ; preds = %98, %.critedge2
   %fputc82 = tail call i32 @fputc(i32 10, ptr %0)
@@ -3286,8 +3286,8 @@ define internal fastcc void @Io_NtkWriteOne(ptr nocapture noundef %0, ptr nounde
 
 103:                                              ; preds = %.critedge4, %68
   %.val102 = load i32, ptr %8, align 4
-  %.not114 = icmp eq i32 %.val102, 4
-  br i1 %.not114, label %104, label %108
+  %.not115 = icmp eq i32 %.val102, 4
+  br i1 %.not115, label %104, label %108
 
 104:                                              ; preds = %103
   %105 = getelementptr inbounds i8, ptr %1, i64 256
@@ -3305,20 +3305,20 @@ define internal fastcc void @Io_NtkWriteOne(ptr nocapture noundef %0, ptr nounde
   %113 = tail call ptr @Extra_ProgressBarStart(ptr noundef %110, i32 noundef %.val103.val) #10
   %114 = load ptr, ptr %111, align 8
   %115 = getelementptr i8, ptr %114, i64 4
-  %.val128 = load i32, ptr %115, align 4
-  %116 = icmp sgt i32 %.val128, 0
-  br i1 %116, label %.lr.ph130, label %.critedge6
+  %.val129 = load i32, ptr %115, align 4
+  %116 = icmp sgt i32 %.val129, 0
+  br i1 %116, label %.lr.ph131, label %.critedge6
 
-.lr.ph130:                                        ; preds = %108
+.lr.ph131:                                        ; preds = %108
   %.not.i = icmp eq ptr %113, null
   br label %117
 
-117:                                              ; preds = %.lr.ph130, %207
-  %118 = phi ptr [ %114, %.lr.ph130 ], [ %209, %207 ]
-  %.3129 = phi i32 [ 0, %.lr.ph130 ], [ %208, %207 ]
+117:                                              ; preds = %.lr.ph131, %207
+  %118 = phi ptr [ %114, %.lr.ph131 ], [ %209, %207 ]
+  %.3130 = phi i32 [ 0, %.lr.ph131 ], [ %208, %207 ]
   %119 = getelementptr i8, ptr %118, i64 8
   %.val104.val = load ptr, ptr %119, align 8
-  %120 = sext i32 %.3129 to i64
+  %120 = sext i32 %.3130 to i64
   %121 = getelementptr inbounds ptr, ptr %.val104.val, i64 %120
   %122 = load ptr, ptr %121, align 8
   %123 = icmp eq ptr %122, null
@@ -3328,19 +3328,19 @@ define internal fastcc void @Io_NtkWriteOne(ptr nocapture noundef %0, ptr nounde
   %125 = getelementptr i8, ptr %122, i64 20
   %.val105 = load i32, ptr %125, align 4
   %126 = and i32 %.val105, 15
-  %.not115 = icmp eq i32 %126, 7
-  br i1 %.not115, label %127, label %207
+  %.not116 = icmp eq i32 %126, 7
+  br i1 %.not116, label %127, label %207
 
 127:                                              ; preds = %124
   br i1 %.not.i, label %131, label %128
 
 128:                                              ; preds = %127
   %129 = load i32, ptr %113, align 4
-  %130 = icmp sgt i32 %129, %.3129
+  %130 = icmp sgt i32 %129, %.3130
   br i1 %130, label %Extra_ProgressBarUpdate.exit, label %131
 
 131:                                              ; preds = %128, %127
-  tail call void @Extra_ProgressBarUpdate_int(ptr noundef %113, i32 noundef %.3129, ptr noundef null) #10
+  tail call void @Extra_ProgressBarUpdate_int(ptr noundef %113, i32 noundef %.3130, ptr noundef null) #10
   br label %Extra_ProgressBarUpdate.exit
 
 Extra_ProgressBarUpdate.exit:                     ; preds = %128, %131
@@ -3495,23 +3495,24 @@ Io_NtkWriteNodeFanins.exit.i:                     ; preds = %200, %195, %.crited
 
 Io_NtkWriteNode.exit:                             ; preds = %134, %136, %Abc_ObjIsBarBuf.exit.i
   %204 = tail call i64 @fwrite(ptr nonnull @.str.80, i64 5, i64 1, ptr %0)
-  %205 = tail call i32 @Io_NtkWriteNodeGate(ptr noundef %0, ptr noundef nonnull %122, i32 noundef %109), !range !56
+  %205 = tail call i32 @Io_NtkWriteNodeGate(ptr noundef %0, ptr noundef nonnull %122, i32 noundef %109)
   %fputc19.i = tail call i32 @fputc(i32 10, ptr %0)
-  %.not85 = icmp eq i32 %205, 0
-  %206 = add nsw i32 %.3129, 1
+  %.fr = freeze i32 %205
+  %.not85 = icmp eq i32 %.fr, 0
+  %206 = add nsw i32 %.3130, 1
   br i1 %.not85, label %Io_NtkWriteNode.exit.thread, label %207
 
 Io_NtkWriteNode.exit.thread:                      ; preds = %Io_NtkWriteNodeFanins.exit.i, %141, %Io_NtkWriteNode.exit
   br label %207
 
 207:                                              ; preds = %Io_NtkWriteNode.exit.thread, %Io_NtkWriteNode.exit, %124, %117
-  %.4 = phi i32 [ %.3129, %117 ], [ %.3129, %124 ], [ %.3129, %Io_NtkWriteNode.exit.thread ], [ %206, %Io_NtkWriteNode.exit ]
+  %.4 = phi i32 [ %.3130, %117 ], [ %.3130, %124 ], [ %.3130, %Io_NtkWriteNode.exit.thread ], [ %206, %Io_NtkWriteNode.exit ]
   %208 = add nsw i32 %.4, 1
   %209 = load ptr, ptr %111, align 8
   %210 = getelementptr i8, ptr %209, i64 4
   %.val = load i32, ptr %210, align 4
   %211 = icmp slt i32 %208, %.val
-  br i1 %211, label %117, label %.critedge6, !llvm.loop !57
+  br i1 %211, label %117, label %.critedge6, !llvm.loop !56
 
 .critedge6:                                       ; preds = %207, %108
   tail call void @Extra_ProgressBarStop(ptr noundef %113) #10
@@ -3601,7 +3602,7 @@ define internal fastcc void @Io_NtkWriteSubckt(ptr nocapture noundef %0, ptr noc
   %.val27.val = load i32, ptr %42, align 4
   %43 = sext i32 %.val27.val to i64
   %44 = icmp slt i64 %indvars.iv.next, %43
-  br i1 %44, label %15, label %.critedge.preheader, !llvm.loop !58
+  br i1 %44, label %15, label %.critedge.preheader, !llvm.loop !57
 
 .critedge:                                        ; preds = %.lr.ph51, %.critedge
   %indvars.iv53 = phi i64 [ 0, %.lr.ph51 ], [ %indvars.iv.next54, %.critedge ]
@@ -3653,7 +3654,7 @@ define internal fastcc void @Io_NtkWriteSubckt(ptr nocapture noundef %0, ptr noc
   %.val33.val = load i32, ptr %71, align 4
   %72 = sext i32 %.val33.val to i64
   %73 = icmp slt i64 %indvars.iv.next54, %72
-  br i1 %73, label %.critedge, label %.critedge2, !llvm.loop !59
+  br i1 %73, label %.critedge, label %.critedge2, !llvm.loop !58
 
 .critedge2:                                       ; preds = %.critedge, %.critedge.preheader
   %fputc = tail call i32 @fputc(i32 10, ptr %0)
@@ -3770,7 +3771,6 @@ attributes #12 = { nounwind allocsize(0) }
 !53 = distinct !{!53, !5}
 !54 = distinct !{!54, !5}
 !55 = distinct !{!55, !5}
-!56 = !{i32 0, i32 2}
+!56 = distinct !{!56, !5}
 !57 = distinct !{!57, !5}
 !58 = distinct !{!58, !5}
-!59 = distinct !{!59, !5}

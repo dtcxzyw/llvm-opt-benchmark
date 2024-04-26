@@ -897,7 +897,7 @@ define noundef zeroext i1 @_ZN6parser9lexed_str8LexedStr8is_empty17h610b621b6f74
 }
 
 ; Function Attrs: nonlazybind uwtable
-define noundef i16 @_ZN6parser9lexed_str8LexedStr4kind17h4b0f0d8337e99de9E(ptr noalias nocapture noundef readonly align 8 dereferenceable(88) %0, i64 noundef %1) unnamed_addr #1 {
+define noundef range(i16 0, 273) i16 @_ZN6parser9lexed_str8LexedStr4kind17h4b0f0d8337e99de9E(ptr noalias nocapture noundef readonly align 8 dereferenceable(88) %0, i64 noundef %1) unnamed_addr #1 {
   %3 = getelementptr inbounds i8, ptr %0, i64 16
   %4 = load i64, ptr %3, align 8, !noundef !5
   %5 = add i64 %4, -1
@@ -1075,7 +1075,7 @@ define { i64, i64 } @_ZN6parser9lexed_str8LexedStr10text_range17h938f0e6243c46f5
 }
 
 ; Function Attrs: nonlazybind uwtable
-define noundef i64 @_ZN6parser9lexed_str8LexedStr10text_start17h2633626a67cee820E(ptr noalias nocapture noundef readonly align 8 dereferenceable(88) %0, i64 noundef %1) unnamed_addr #1 {
+define noundef range(i64 0, 4294967296) i64 @_ZN6parser9lexed_str8LexedStr10text_start17h2633626a67cee820E(ptr noalias nocapture noundef readonly align 8 dereferenceable(88) %0, i64 noundef %1) unnamed_addr #1 {
   %3 = getelementptr inbounds i8, ptr %0, i64 16
   %4 = load i64, ptr %3, align 8, !alias.scope !156, !noundef !5
   %5 = add i64 %4, -1
@@ -1106,7 +1106,7 @@ define noundef i64 @_ZN6parser9lexed_str8LexedStr10text_start17h2633626a67cee820
 }
 
 ; Function Attrs: nonlazybind uwtable
-define noundef i64 @_ZN6parser9lexed_str8LexedStr8text_len17hb08b5d4e48301c77E(ptr noalias nocapture noundef readonly align 8 dereferenceable(88) %0, i64 noundef %1) unnamed_addr #1 {
+define noundef range(i64 -4294967295, 4294967296) i64 @_ZN6parser9lexed_str8LexedStr8text_len17hb08b5d4e48301c77E(ptr noalias nocapture noundef readonly align 8 dereferenceable(88) %0, i64 noundef %1) unnamed_addr #1 {
   %3 = getelementptr inbounds i8, ptr %0, i64 16
   %4 = load i64, ptr %3, align 8, !noundef !5
   %5 = add i64 %4, -1

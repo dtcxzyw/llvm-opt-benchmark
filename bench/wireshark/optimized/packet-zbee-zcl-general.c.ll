@@ -6422,7 +6422,7 @@ define internal i32 @dissect_zbee_zcl_pwr_prof(ptr noundef %0, ptr nocapture nou
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %.lr.ph.i ]
   %65 = getelementptr [16 x i32], ptr @ett_zbee_zcl_pwr_prof_enphases, i64 0, i64 %indvars.iv.i
   %66 = load i32, ptr %65, align 4
-  %67 = trunc i64 %indvars.iv.i to i32
+  %67 = trunc nuw nsw i64 %indvars.iv.i to i32
   %68 = tail call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %52, ptr noundef %0, i32 noundef %64, i32 noundef 1, i32 noundef %66, ptr noundef null, ptr noundef nonnull @.str.1511, i32 noundef %67) #8
   %69 = load i32, ptr @hf_zbee_zcl_pwr_prof_energy_phase_id, align 4
   %70 = tail call ptr @proto_tree_add_item(ptr noundef %68, i32 noundef %69, ptr noundef %0, i32 noundef %64, i32 noundef 1, i32 noundef 0) #8
@@ -6472,7 +6472,7 @@ define internal i32 @dissect_zbee_zcl_pwr_prof(ptr noundef %0, ptr nocapture nou
   %indvars.iv.i54 = phi i64 [ 0, %.lr.ph.preheader.i51 ], [ %indvars.iv.next.i55, %.lr.ph.i53 ]
   %98 = getelementptr [5 x i32], ptr @ett_zbee_zcl_pwr_prof_pwrprofiles, i64 0, i64 %indvars.iv.i54
   %99 = load i32, ptr %98, align 4
-  %100 = trunc i64 %indvars.iv.i54 to i32
+  %100 = trunc nuw nsw i64 %indvars.iv.i54 to i32
   %101 = tail call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %52, ptr noundef %0, i32 noundef %97, i32 noundef 1, i32 noundef %99, ptr noundef null, ptr noundef nonnull @.str.1512, i32 noundef %100) #8
   %102 = load i32, ptr @hf_zbee_zcl_pwr_prof_pwr_prof_id, align 4
   %103 = tail call ptr @proto_tree_add_item(ptr noundef %101, i32 noundef %102, ptr noundef %0, i32 noundef %97, i32 noundef 1, i32 noundef 0) #8
@@ -6685,7 +6685,7 @@ define internal i32 @dissect_zbee_zcl_appl_ctrl(ptr noundef %0, ptr nocapture no
   %34 = phi i32 [ %63, %dissect_zcl_appl_ctrl_attr_func.exit.i ], [ 1, %31 ]
   %35 = getelementptr [32 x i32], ptr @ett_zbee_zcl_appl_ctrl_func, i64 0, i64 %indvars.iv.i
   %36 = load i32, ptr %35, align 4
-  %37 = trunc i64 %indvars.iv.i to i32
+  %37 = trunc nuw nsw i64 %indvars.iv.i to i32
   %38 = call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %27, ptr noundef %0, i32 noundef %34, i32 noundef 0, i32 noundef %36, ptr noundef null, ptr noundef nonnull @.str.1557, i32 noundef %37) #8
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %39 = load i32, ptr %5, align 4
@@ -7627,7 +7627,7 @@ define internal void @dissect_zcl_gp_attr_data(ptr noundef %0, ptr noundef %1, p
   %.01719.i = phi i8 [ %27, %24 ], [ 0, %9 ]
   %21 = zext i8 %.01719.i to i32
   %22 = add nuw nsw i32 %21, 1
-  %23 = call fastcc i32 @dissect_zbee_zcl_gp_sink_table_entry(ptr noundef %1, ptr noundef %14, ptr noundef nonnull %8, i32 noundef %22), !range !28
+  %23 = call fastcc i32 @dissect_zbee_zcl_gp_sink_table_entry(ptr noundef %1, ptr noundef %14, ptr noundef nonnull %8, i32 noundef %22)
   %.not.i = icmp eq i32 %23, 0
   %.pre.i = load i32, ptr %8, align 4
   br i1 %.not.i, label %dissect_zbee_zcl_gp_sink_table.exit, label %24
@@ -7638,7 +7638,7 @@ define internal void @dissect_zcl_gp_attr_data(ptr noundef %0, ptr noundef %1, p
   %27 = add i8 %.01719.i, 1
   %28 = and i32 %26, 65535
   %29 = icmp ult i32 %28, %12
-  br i1 %29, label %.preheader.i, label %dissect_zbee_zcl_gp_sink_table.exit, !llvm.loop !29
+  br i1 %29, label %.preheader.i, label %dissect_zbee_zcl_gp_sink_table.exit, !llvm.loop !28
 
 dissect_zbee_zcl_gp_sink_table.exit:              ; preds = %.preheader.i, %24, %9
   %.0.i = phi i32 [ %17, %9 ], [ %.pre.i, %24 ], [ %.pre.i, %.preheader.i ]
@@ -7711,7 +7711,7 @@ dissect_zbee_zcl_gp_sink_table.exit:              ; preds = %.preheader.i, %24, 
   %.01719.i42 = phi i8 [ %78, %75 ], [ 0, %60 ]
   %72 = zext i8 %.01719.i42 to i32
   %73 = add nuw nsw i32 %72, 1
-  %74 = call fastcc i32 @dissect_zbee_zcl_gp_proxy_table_entry(ptr noundef %1, ptr noundef %65, ptr noundef nonnull %7, i32 noundef %73), !range !28
+  %74 = call fastcc i32 @dissect_zbee_zcl_gp_proxy_table_entry(ptr noundef %1, ptr noundef %65, ptr noundef nonnull %7, i32 noundef %73)
   %.not.i43 = icmp eq i32 %74, 0
   %.pre.i44 = load i32, ptr %7, align 4
   br i1 %.not.i43, label %dissect_zbee_zcl_gp_proxy_table.exit, label %75
@@ -7722,7 +7722,7 @@ dissect_zbee_zcl_gp_sink_table.exit:              ; preds = %.preheader.i, %24, 
   %78 = add i8 %.01719.i42, 1
   %79 = and i32 %77, 65535
   %80 = icmp ult i32 %79, %63
-  br i1 %80, label %.preheader.i41, label %dissect_zbee_zcl_gp_proxy_table.exit, !llvm.loop !30
+  br i1 %80, label %.preheader.i41, label %dissect_zbee_zcl_gp_proxy_table.exit, !llvm.loop !29
 
 dissect_zbee_zcl_gp_proxy_table.exit:             ; preds = %.preheader.i41, %75, %60
   %.0.i45 = phi i32 [ %68, %60 ], [ %.pre.i44, %75 ], [ %.pre.i44, %.preheader.i41 ]
@@ -8023,7 +8023,7 @@ define internal noundef i32 @dissect_zbee_zcl_touchlink(ptr noundef %0, ptr noun
   %193 = tail call ptr @proto_tree_add_item(ptr noundef %187, i32 noundef %192, ptr noundef %0, i32 noundef %191, i32 noundef 1, i32 noundef -2147483648) #8
   %194 = add nuw nsw i32 %.1, 3
   %.not.i = icmp eq i8 %188, 0
-  br i1 %.not.i, label %dissect_zcl_touchlink_scan_response.exit, label %.lr.ph.i, !llvm.loop !31
+  br i1 %.not.i, label %dissect_zcl_touchlink_scan_response.exit, label %.lr.ph.i, !llvm.loop !30
 
 dissect_zcl_touchlink_scan_response.exit:         ; preds = %.lr.ph.i, %176, %138, %108, %149, %160, %163, %107, %27, %34, %37, %66, %93, %104, %26
   %.3 = phi i32 [ 5, %26 ], [ 19, %93 ], [ 48, %66 ], [ 57, %37 ], [ 6, %104 ], [ 7, %34 ], [ 7, %27 ], [ 5, %107 ], [ 21, %163 ], [ 6, %160 ], [ 18, %149 ], [ 37, %138 ], [ 30, %108 ], [ 8, %176 ], [ %194, %.lr.ph.i ]
@@ -8429,7 +8429,7 @@ define internal fastcc void @dissect_zcl_scenes_extension_fields(ptr noundef %0,
   %117 = add i32 %116, 2
   %118 = tail call i32 @tvb_offset_exists(ptr noundef %0, i32 noundef %117) #8
   %.not = icmp eq i32 %118, 0
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !32
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !31
 
 ._crit_edge:                                      ; preds = %.thread147, %3
   ret void
@@ -8683,7 +8683,7 @@ define internal fastcc void @dissect_zcl_pwr_prof_enphsschednotif(ptr noundef %0
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
   %17 = getelementptr [16 x i32], ptr @ett_zbee_zcl_pwr_prof_enphases, i64 0, i64 %indvars.iv
   %18 = load i32, ptr %17, align 4
-  %19 = trunc i64 %indvars.iv to i32
+  %19 = trunc nuw nsw i64 %indvars.iv to i32
   %20 = tail call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %1, ptr noundef %0, i32 noundef %16, i32 noundef 1, i32 noundef %18, ptr noundef null, ptr noundef nonnull @.str.1511, i32 noundef %19) #8
   %21 = load i32, ptr @hf_zbee_zcl_pwr_prof_energy_phase_id, align 4
   %22 = load i32, ptr %2, align 4
@@ -8698,7 +8698,7 @@ define internal fastcc void @dissect_zcl_pwr_prof_enphsschednotif(ptr noundef %0
   store i32 %29, ptr %2, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !33
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !32
 
 ._crit_edge:                                      ; preds = %.lr.ph, %3
   ret void
@@ -8850,22 +8850,22 @@ define internal fastcc void @dissect_zcl_gp_proxy_sink_table_response(ptr nounde
 .lr.ph.split.us:                                  ; preds = %.lr.ph, %.lr.ph.split.us
   %.03841.us = phi i32 [ %32, %.lr.ph.split.us ], [ 0, %.lr.ph ]
   %30 = add nuw nsw i32 %.03841.us, %29
-  %31 = tail call fastcc i32 @dissect_zbee_zcl_gp_sink_table_entry(ptr noundef %1, ptr noundef %0, ptr noundef nonnull %2, i32 noundef %30), !range !28
+  %31 = tail call fastcc i32 @dissect_zbee_zcl_gp_sink_table_entry(ptr noundef %1, ptr noundef %0, ptr noundef nonnull %2, i32 noundef %30)
   %32 = add nuw nsw i32 %.03841.us, 1
   %33 = icmp ult i32 %32, %28
   %.not.us = icmp ne i32 %31, 0
-  %34 = and i1 %33, %.not.us
-  br i1 %34, label %.lr.ph.split.us, label %.loopexit, !llvm.loop !34
+  %34 = select i1 %33, i1 %.not.us, i1 false
+  br i1 %34, label %.lr.ph.split.us, label %.loopexit, !llvm.loop !33
 
 .lr.ph.split.us42:                                ; preds = %.lr.ph, %.lr.ph.split.us42
   %.03841.us43 = phi i32 [ %37, %.lr.ph.split.us42 ], [ 0, %.lr.ph ]
   %35 = add nuw nsw i32 %.03841.us43, %29
-  %36 = tail call fastcc i32 @dissect_zbee_zcl_gp_proxy_table_entry(ptr noundef %1, ptr noundef %0, ptr noundef nonnull %2, i32 noundef %35), !range !28
+  %36 = tail call fastcc i32 @dissect_zbee_zcl_gp_proxy_table_entry(ptr noundef %1, ptr noundef %0, ptr noundef nonnull %2, i32 noundef %35)
   %37 = add nuw nsw i32 %.03841.us43, 1
   %38 = icmp ult i32 %37, %28
   %.not.us45 = icmp ne i32 %36, 0
-  %39 = and i1 %38, %.not.us45
-  br i1 %39, label %.lr.ph.split.us42, label %.loopexit, !llvm.loop !34
+  %39 = select i1 %38, i1 %.not.us45, i1 false
+  br i1 %39, label %.lr.ph.split.us42, label %.loopexit, !llvm.loop !33
 
 .loopexit:                                        ; preds = %.lr.ph.split.us42, %.lr.ph.split.us, %.lr.ph, %6, %4
   ret void
@@ -8892,7 +8892,7 @@ declare void @col_set_writable(ptr noundef, i32 noundef, i32 noundef) local_unna
 declare i32 @call_dissector_only(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @dissect_zbee_zcl_gp_sink_table_entry(ptr noundef %0, ptr noundef %1, ptr nocapture noundef %2, i32 noundef %3) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @dissect_zbee_zcl_gp_sink_table_entry(ptr noundef %0, ptr noundef %1, ptr nocapture noundef %2, i32 noundef %3) unnamed_addr #0 {
   %5 = load i32, ptr %2, align 4
   %6 = load i32, ptr @ett_zbee_gp_sink_tbl_entry, align 4
   %7 = tail call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %1, ptr noundef %0, i32 noundef %5, i32 noundef -1, i32 noundef %6, ptr noundef null, ptr noundef nonnull @.str.1650, i32 noundef %3) #8
@@ -9008,7 +9008,7 @@ define internal fastcc noundef i32 @dissect_zbee_zcl_gp_sink_table_entry(ptr nou
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @dissect_zbee_zcl_gp_proxy_table_entry(ptr noundef %0, ptr noundef %1, ptr nocapture noundef %2, i32 noundef %3) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @dissect_zbee_zcl_gp_proxy_table_entry(ptr noundef %0, ptr noundef %1, ptr nocapture noundef %2, i32 noundef %3) unnamed_addr #0 {
   %5 = load i32, ptr %2, align 4
   %6 = load i32, ptr @ett_zbee_gp_proxy_tbl_entry, align 4
   %7 = tail call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %1, ptr noundef %0, i32 noundef %5, i32 noundef -1, i32 noundef %6, ptr noundef null, ptr noundef nonnull @.str.1653, i32 noundef %3) #8
@@ -9191,7 +9191,7 @@ define internal fastcc noundef i32 @dissect_zbee_zcl_gp_group_list(ptr noundef %
   %19 = add i32 %.025, 4
   %20 = add i8 %.02224, -1
   %.not = icmp eq i8 %20, 0
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !35
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !34
 
 ._crit_edge:                                      ; preds = %.lr.ph, %4
   %.0.lcssa = phi i32 [ %13, %4 ], [ %19, %.lr.ph ]
@@ -9223,7 +9223,7 @@ define internal fastcc noundef i32 @dissect_zbee_zcl_gp_sink_address_list(ptr no
   %19 = add i32 %.025, 10
   %20 = add i8 %.02224, -1
   %.not = icmp eq i8 %20, 0
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !36
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !35
 
 ._crit_edge:                                      ; preds = %.lr.ph, %4
   %.0.lcssa = phi i32 [ %13, %4 ], [ %19, %.lr.ph ]
@@ -9283,7 +9283,7 @@ attributes #8 = { nounwind }
 !25 = distinct !{!25, !5}
 !26 = distinct !{!26, !5}
 !27 = distinct !{!27, !5}
-!28 = !{i32 0, i32 2}
+!28 = distinct !{!28, !5}
 !29 = distinct !{!29, !5}
 !30 = distinct !{!30, !5}
 !31 = distinct !{!31, !5}
@@ -9291,4 +9291,3 @@ attributes #8 = { nounwind }
 !33 = distinct !{!33, !5}
 !34 = distinct !{!34, !5}
 !35 = distinct !{!35, !5}
-!36 = distinct !{!36, !5}

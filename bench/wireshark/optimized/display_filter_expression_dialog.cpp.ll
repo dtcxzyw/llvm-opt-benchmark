@@ -12470,8 +12470,8 @@ define linkonce_odr ptr @_ZNSt3_V28__rotateIN5QListIP15QTreeWidgetItemE8iterator
 
 29:                                               ; preds = %27
   %30 = load ptr, ptr %.sroa.041.0, align 8
-  %31 = getelementptr ptr, ptr %.sroa.041.0, i64 %.078
   %.idx = shl i64 %.078, 3
+  %31 = getelementptr i8, ptr %.sroa.041.0, i64 %.idx
   %gepdiff = add i64 %.idx, -8
   %32 = icmp sgt i64 %gepdiff, 0
   br i1 %32, label %.lr.ph.i.i.i.i.i.preheader, label %_ZSt4moveIN5QListIP15QTreeWidgetItemE8iteratorES4_ET0_T_S6_S5_.exit

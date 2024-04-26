@@ -453,7 +453,7 @@ _ZN4core3ops8function5FnMut8call_mut17h903972e328ac5266E.exit: ; preds = %29
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define internal fastcc noundef i8 @_ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE(ptr noundef nonnull align 8 %0) unnamed_addr #0 {
+define internal fastcc noundef range(i8 0, 3) i8 @_ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE(ptr noundef nonnull align 8 %0) unnamed_addr #0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 16
   %3 = load atomic i8, ptr %2 monotonic, align 8
   %4 = icmp ult i8 %3, 3
@@ -5265,7 +5265,7 @@ define hidden { ptr, i64 } @"_ZN68_$LT$alloc..sync..Arc$LT$T$C$A$GT$$u20$as$u20$
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
-define hidden noundef i32 @"_ZN69_$LT$span..hygiene..SyntaxContextId$u20$as$u20$core..clone..Clone$GT$5clone17h3569c41720cc4137E.llvm.6887668541773461223"(ptr noalias nocapture noundef readonly align 4 dereferenceable(4) %0) unnamed_addr #12 {
+define hidden noundef range(i32 1, 0) i32 @"_ZN69_$LT$span..hygiene..SyntaxContextId$u20$as$u20$core..clone..Clone$GT$5clone17h3569c41720cc4137E.llvm.6887668541773461223"(ptr noalias nocapture noundef readonly align 4 dereferenceable(4) %0) unnamed_addr #12 {
   %2 = load i32, ptr %0, align 4, !range !1256, !noundef !10
   ret i32 %2
 }
@@ -5931,7 +5931,7 @@ switch.lookup:
 }
 
 ; Function Attrs: nonlazybind uwtable
-define noundef i8 @_ZN10hir_expand20builtin_derive_macro19find_builtin_derive17h537c8d120ebf0ebdE(ptr noalias noundef readonly align 8 dereferenceable(24) %0) unnamed_addr #1 personality ptr @rust_eh_personality {
+define noundef range(i8 0, 10) i8 @_ZN10hir_expand20builtin_derive_macro19find_builtin_derive17h537c8d120ebf0ebdE(ptr noalias noundef readonly align 8 dereferenceable(24) %0) unnamed_addr #1 personality ptr @rust_eh_personality {
   %2 = alloca { { i8, [23 x i8] } }, align 8
   %3 = alloca { { i8, [23 x i8] } }, align 8
   %4 = alloca { { i8, [23 x i8] } }, align 8
@@ -25884,7 +25884,7 @@ define noundef i32 @_ZN10hir_expand10proc_macro11ProcMacroId3new17hb7f5de9951f85
 }
 
 ; Function Attrs: nonlazybind uwtable
-define noundef i32 @_ZN10hir_expand10proc_macro23CustomProcMacroExpander3new17h6f0549560e63cca8E(i32 noundef returned %0) unnamed_addr #1 {
+define noundef range(i32 0, -2) i32 @_ZN10hir_expand10proc_macro23CustomProcMacroExpander3new17h6f0549560e63cca8E(i32 noundef returned %0) unnamed_addr #1 {
   %2 = alloca { ptr, [5 x i64] }, align 8
   %3 = alloca { ptr, [5 x i64] }, align 8
   %4 = alloca i32, align 4

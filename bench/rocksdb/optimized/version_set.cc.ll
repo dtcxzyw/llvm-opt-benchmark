@@ -4899,17 +4899,14 @@ entry:
   %files = getelementptr inbounds i8, ptr %file_level, i64 8
   %0 = load ptr, ptr %files, align 8
   %idx.ext = zext i32 %left to i64
-  %add.ptr = getelementptr inbounds %"struct.rocksdb::FdWithKeyRange", ptr %0, i64 %idx.ext
+  %add.ptr.idx = mul nuw nsw i64 %idx.ext, 80
+  %add.ptr = getelementptr inbounds i8, ptr %0, i64 %add.ptr.idx
   %idx.ext1 = zext i32 %right to i64
-  %add.ptr2 = getelementptr inbounds %"struct.rocksdb::FdWithKeyRange", ptr %0, i64 %idx.ext1
-  %sub.ptr.lhs.cast.i.i.i.i = ptrtoint ptr %add.ptr2 to i64
-  %sub.ptr.rhs.cast.i.i.i.i = ptrtoint ptr %add.ptr to i64
-  %sub.ptr.sub.i.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i.i, %sub.ptr.rhs.cast.i.i.i.i
-  %cmp12.i.i = icmp sgt i64 %sub.ptr.sub.i.i.i.i, 0
+  %add.ptr2.idx3 = sub nsw i64 %idx.ext1, %idx.ext
+  %cmp12.i.i = icmp sgt i64 %add.ptr2.idx3, 0
   br i1 %cmp12.i.i, label %while.body.lr.ph.i.i, label %"_ZSt11lower_boundIPN7rocksdb14FdWithKeyRangeENS0_5SliceEZNS0_12_GLOBAL__N_115FindFileInRangeERKNS0_21InternalKeyComparatorERKNS0_15LevelFilesBriefERKS3_jjE3$_0ET_SE_SE_RKT0_T1_.exit"
 
 while.body.lr.ph.i.i:                             ; preds = %entry
-  %sub.ptr.div.i.i.i.i = udiv exact i64 %sub.ptr.sub.i.i.i.i, 80
   %user_comparator_.i.i.i.i.i = getelementptr inbounds i8, ptr %icmp, i64 8
   %1 = getelementptr inbounds i8, ptr %ref.tmp.i.i.i.i.i, i64 8
   %size_.i.i8.i.i.i.i.i = getelementptr inbounds i8, ptr %key, i64 8
@@ -4920,7 +4917,7 @@ while.body.lr.ph.i.i:                             ; preds = %entry
 
 while.body.i.i:                                   ; preds = %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN7rocksdb12_GLOBAL__N_115FindFileInRangeERKNS2_21InternalKeyComparatorERKNS2_15LevelFilesBriefERKNS2_5SliceEjjE3$_0EclIPNS2_14FdWithKeyRangeESB_EEbT_RT0_.exit.i.i", %while.body.lr.ph.i.i
   %__first.addr.014.i.i = phi ptr [ %add.ptr, %while.body.lr.ph.i.i ], [ %__first.addr.1.i.i, %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN7rocksdb12_GLOBAL__N_115FindFileInRangeERKNS2_21InternalKeyComparatorERKNS2_15LevelFilesBriefERKNS2_5SliceEjjE3$_0EclIPNS2_14FdWithKeyRangeESB_EEbT_RT0_.exit.i.i" ]
-  %__len.013.i.i = phi i64 [ %sub.ptr.div.i.i.i.i, %while.body.lr.ph.i.i ], [ %__len.1.i.i, %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN7rocksdb12_GLOBAL__N_115FindFileInRangeERKNS2_21InternalKeyComparatorERKNS2_15LevelFilesBriefERKNS2_5SliceEjjE3$_0EclIPNS2_14FdWithKeyRangeESB_EEbT_RT0_.exit.i.i" ]
+  %__len.013.i.i = phi i64 [ %add.ptr2.idx3, %while.body.lr.ph.i.i ], [ %__len.1.i.i, %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN7rocksdb12_GLOBAL__N_115FindFileInRangeERKNS2_21InternalKeyComparatorERKNS2_15LevelFilesBriefERKNS2_5SliceEjjE3$_0EclIPNS2_14FdWithKeyRangeESB_EEbT_RT0_.exit.i.i" ]
   %shr.i.i = lshr i64 %__len.013.i.i, 1
   %add.ptr.i.i.i.i = getelementptr inbounds %"struct.rocksdb::FdWithKeyRange", ptr %__first.addr.014.i.i, i64 %shr.i.i
   %largest_key.i.i.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i.i.i, i64 64
@@ -5005,14 +5002,14 @@ if.else.i.i.i.i.i:                                ; preds = %if.then.i.i.i.i.i
 
 "_ZSt11lower_boundIPN7rocksdb14FdWithKeyRangeENS0_5SliceEZNS0_12_GLOBAL__N_115FindFileInRangeERKNS0_21InternalKeyComparatorERKNS0_15LevelFilesBriefERKS3_jjE3$_0ET_SE_SE_RKT0_T1_.exit.loopexit": ; preds = %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN7rocksdb12_GLOBAL__N_115FindFileInRangeERKNS2_21InternalKeyComparatorERKNS2_15LevelFilesBriefERKNS2_5SliceEjjE3$_0EclIPNS2_14FdWithKeyRangeESB_EEbT_RT0_.exit.i.i"
   %.pre = load ptr, ptr %files, align 8
-  %.pre3 = ptrtoint ptr %__first.addr.1.i.i to i64
   br label %"_ZSt11lower_boundIPN7rocksdb14FdWithKeyRangeENS0_5SliceEZNS0_12_GLOBAL__N_115FindFileInRangeERKNS0_21InternalKeyComparatorERKNS0_15LevelFilesBriefERKS3_jjE3$_0ET_SE_SE_RKT0_T1_.exit"
 
 "_ZSt11lower_boundIPN7rocksdb14FdWithKeyRangeENS0_5SliceEZNS0_12_GLOBAL__N_115FindFileInRangeERKNS0_21InternalKeyComparatorERKNS0_15LevelFilesBriefERKS3_jjE3$_0ET_SE_SE_RKT0_T1_.exit": ; preds = %"_ZSt11lower_boundIPN7rocksdb14FdWithKeyRangeENS0_5SliceEZNS0_12_GLOBAL__N_115FindFileInRangeERKNS0_21InternalKeyComparatorERKNS0_15LevelFilesBriefERKS3_jjE3$_0ET_SE_SE_RKT0_T1_.exit.loopexit", %entry
-  %sub.ptr.lhs.cast.pre-phi = phi i64 [ %.pre3, %"_ZSt11lower_boundIPN7rocksdb14FdWithKeyRangeENS0_5SliceEZNS0_12_GLOBAL__N_115FindFileInRangeERKNS0_21InternalKeyComparatorERKNS0_15LevelFilesBriefERKS3_jjE3$_0ET_SE_SE_RKT0_T1_.exit.loopexit" ], [ %sub.ptr.rhs.cast.i.i.i.i, %entry ]
-  %20 = phi ptr [ %.pre, %"_ZSt11lower_boundIPN7rocksdb14FdWithKeyRangeENS0_5SliceEZNS0_12_GLOBAL__N_115FindFileInRangeERKNS0_21InternalKeyComparatorERKNS0_15LevelFilesBriefERKS3_jjE3$_0ET_SE_SE_RKT0_T1_.exit.loopexit" ], [ %0, %entry ]
+  %20 = phi ptr [ %0, %entry ], [ %.pre, %"_ZSt11lower_boundIPN7rocksdb14FdWithKeyRangeENS0_5SliceEZNS0_12_GLOBAL__N_115FindFileInRangeERKNS0_21InternalKeyComparatorERKNS0_15LevelFilesBriefERKS3_jjE3$_0ET_SE_SE_RKT0_T1_.exit.loopexit" ]
+  %__first.addr.0.lcssa.i.i = phi ptr [ %add.ptr, %entry ], [ %__first.addr.1.i.i, %"_ZSt11lower_boundIPN7rocksdb14FdWithKeyRangeENS0_5SliceEZNS0_12_GLOBAL__N_115FindFileInRangeERKNS0_21InternalKeyComparatorERKNS0_15LevelFilesBriefERKS3_jjE3$_0ET_SE_SE_RKT0_T1_.exit.loopexit" ]
+  %sub.ptr.lhs.cast = ptrtoint ptr %__first.addr.0.lcssa.i.i to i64
   %sub.ptr.rhs.cast = ptrtoint ptr %20 to i64
-  %sub.ptr.sub = sub i64 %sub.ptr.lhs.cast.pre-phi, %sub.ptr.rhs.cast
+  %sub.ptr.sub = sub i64 %sub.ptr.lhs.cast, %sub.ptr.rhs.cast
   %sub.ptr.div = sdiv exact i64 %sub.ptr.sub, 80
   %conv = trunc i64 %sub.ptr.div to i32
   ret i32 %conv
@@ -22550,7 +22547,7 @@ if.end:                                           ; preds = %if.then, %entry
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef i32 @_ZNK7rocksdb18VersionStorageInfo13MaxInputLevelEv(ptr nocapture noundef nonnull readonly align 16 dereferenceable(4112) %this) local_unnamed_addr #16 align 2 {
+define noundef range(i32 -2147483648, 2147483646) i32 @_ZNK7rocksdb18VersionStorageInfo13MaxInputLevelEv(ptr nocapture noundef nonnull readonly align 16 dereferenceable(4112) %this) local_unnamed_addr #16 align 2 {
 entry:
   %compaction_style_ = getelementptr inbounds i8, ptr %this, i64 2704
   %0 = load i8, ptr %compaction_style_, align 16
@@ -22563,7 +22560,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef i32 @_ZNK7rocksdb18VersionStorageInfo14MaxOutputLevelEb(ptr nocapture noundef nonnull readonly align 16 dereferenceable(4112) %this, i1 noundef zeroext %allow_ingest_behind) local_unnamed_addr #16 align 2 {
+define noundef range(i32 -2147483648, 2147483647) i32 @_ZNK7rocksdb18VersionStorageInfo14MaxOutputLevelEb(ptr nocapture noundef nonnull readonly align 16 dereferenceable(4112) %this, i1 noundef zeroext %allow_ingest_behind) local_unnamed_addr #16 align 2 {
 entry:
   %num_levels_.i = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load i32, ptr %num_levels_.i, align 16
@@ -25711,8 +25708,8 @@ while.body.i.i:                                   ; preds = %while.body.i.i, %wh
 
 while.cond.preheader:                             ; preds = %"_ZSt11lower_boundIPKN7rocksdb14FdWithKeyRangeEPKNS0_11InternalKeyEZNKS0_18VersionStorageInfo37GetOverlappingInputsRangeBinarySearchEiS6_S6_PSt6vectorIPNS0_12FileMetaDataESaISA_EEiPibPPS4_E3$_0ET_SI_SI_RKT0_T1_.exit"
   %invariant.gep = getelementptr i8, ptr %4, i64 -40
-  %cmp15108 = icmp slt i32 %conv11, %conv7
-  br i1 %cmp15108, label %while.body.lr.ph, label %if.end24
+  %cmp15109 = icmp slt i32 %conv11, %conv7
+  br i1 %cmp15109, label %while.body.lr.ph, label %if.end24
 
 while.body.lr.ph:                                 ; preds = %while.cond.preheader
   %10 = getelementptr inbounds i8, ptr %ref.tmp.i, i64 8
@@ -25720,8 +25717,8 @@ while.body.lr.ph:                                 ; preds = %while.cond.preheade
   br label %while.body
 
 while.body:                                       ; preds = %while.body.lr.ph, %while.body
-  %start_index.0109 = phi i32 [ %conv11, %while.body.lr.ph ], [ %add, %while.body ]
-  %12 = zext nneg i32 %start_index.0109 to i64
+  %start_index.0110 = phi i32 [ %conv11, %while.body.lr.ph ], [ %add, %while.body ]
+  %12 = zext nneg i32 %start_index.0110 to i64
   %gep = getelementptr %"struct.rocksdb::FdWithKeyRange", ptr %invariant.gep, i64 %12
   %13 = load ptr, ptr %gep, align 8
   %largest = getelementptr inbounds i8, ptr %13, i64 72
@@ -25743,7 +25740,7 @@ while.body:                                       ; preds = %while.body.lr.ph, %
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ref.tmp1.i)
   %cmp20 = icmp eq i32 %call3.i, 0
   %conv23 = zext i1 %cmp20 to i32
-  %add = add nuw nsw i32 %start_index.0109, %conv23
+  %add = add nuw nsw i32 %start_index.0110, %conv23
   %cmp15 = icmp slt i32 %add, %conv7
   %15 = select i1 %cmp20, i1 %cmp15, i1 false
   br i1 %15, label %while.body, label %if.end24, !llvm.loop !264
@@ -25755,18 +25752,15 @@ if.end24:                                         ; preds = %while.body, %while.
 
 if.then26:                                        ; preds = %if.end24
   %idx.ext28 = sext i32 %start_index.1 to i64
-  %add.ptr29 = getelementptr inbounds %"struct.rocksdb::FdWithKeyRange", ptr %4, i64 %idx.ext28
+  %add.ptr29.idx = mul nsw i64 %idx.ext28, 80
+  %add.ptr29 = getelementptr inbounds i8, ptr %4, i64 %add.ptr29.idx
   %sext = shl i64 %5, 32
   %idx.ext30 = ashr exact i64 %sext, 32
-  %add.ptr31 = getelementptr inbounds %"struct.rocksdb::FdWithKeyRange", ptr %4, i64 %idx.ext30
-  %sub.ptr.lhs.cast.i.i.i.i53 = ptrtoint ptr %add.ptr31 to i64
-  %sub.ptr.rhs.cast.i.i.i.i54 = ptrtoint ptr %add.ptr29 to i64
-  %sub.ptr.sub.i.i.i.i55 = sub i64 %sub.ptr.lhs.cast.i.i.i.i53, %sub.ptr.rhs.cast.i.i.i.i54
-  %cmp13.i.i56 = icmp sgt i64 %sub.ptr.sub.i.i.i.i55, 0
+  %add.ptr31.idx108 = sub nsw i64 %idx.ext30, %idx.ext28
+  %cmp13.i.i56 = icmp sgt i64 %add.ptr31.idx108, 0
   br i1 %cmp13.i.i56, label %while.body.lr.ph.i.i58, label %"_ZSt11upper_boundIPKN7rocksdb14FdWithKeyRangeEPKNS0_11InternalKeyEZNKS0_18VersionStorageInfo37GetOverlappingInputsRangeBinarySearchEiS6_S6_PSt6vectorIPNS0_12FileMetaDataESaISA_EEiPibPPS4_E3$_1ET_SI_SI_RKT0_T1_.exit"
 
 while.body.lr.ph.i.i58:                           ; preds = %if.then26
-  %sub.ptr.div.i.i.i.i59 = udiv exact i64 %sub.ptr.sub.i.i.i.i55, 80
   %16 = getelementptr inbounds i8, ptr %ref.tmp.i.i.i.i.i51, i64 8
   %17 = getelementptr inbounds i8, ptr %ref.tmp1.i.i.i.i.i52, i64 8
   %cond-lvalue.v.i.i.i.i74 = select i1 %within_interval, i64 72, i64 40
@@ -25774,7 +25768,7 @@ while.body.lr.ph.i.i58:                           ; preds = %if.then26
 
 while.body.i.i60:                                 ; preds = %while.body.i.i60, %while.body.lr.ph.i.i58
   %__first.addr.015.i.i61 = phi ptr [ %add.ptr29, %while.body.lr.ph.i.i58 ], [ %__first.addr.1.i.i85, %while.body.i.i60 ]
-  %__len.014.i.i62 = phi i64 [ %sub.ptr.div.i.i.i.i59, %while.body.lr.ph.i.i58 ], [ %__len.1.i.i84, %while.body.i.i60 ]
+  %__len.014.i.i62 = phi i64 [ %add.ptr31.idx108, %while.body.lr.ph.i.i58 ], [ %__len.1.i.i84, %while.body.i.i60 ]
   %shr.i.i63 = lshr i64 %__len.014.i.i62, 1
   %add.ptr.i.i.i.i66 = getelementptr inbounds %"struct.rocksdb::FdWithKeyRange", ptr %__first.addr.015.i.i61, i64 %shr.i.i63
   %18 = getelementptr i8, ptr %add.ptr.i.i.i.i66, i64 40
@@ -25800,16 +25794,13 @@ while.body.i.i60:                                 ; preds = %while.body.i.i60, %
   %__len.1.i.i84 = select i1 %cmp.i.i9.i.i81, i64 %shr.i.i63, i64 %sub2.i.i83
   %__first.addr.1.i.i85 = select i1 %cmp.i.i9.i.i81, ptr %__first.addr.015.i.i61, ptr %incdec.ptr.i.i82
   %cmp.i.i86 = icmp sgt i64 %__len.1.i.i84, 0
-  br i1 %cmp.i.i86, label %while.body.i.i60, label %"_ZSt11upper_boundIPKN7rocksdb14FdWithKeyRangeEPKNS0_11InternalKeyEZNKS0_18VersionStorageInfo37GetOverlappingInputsRangeBinarySearchEiS6_S6_PSt6vectorIPNS0_12FileMetaDataESaISA_EEiPibPPS4_E3$_1ET_SI_SI_RKT0_T1_.exit.loopexit", !llvm.loop !265
+  br i1 %cmp.i.i86, label %while.body.i.i60, label %"_ZSt11upper_boundIPKN7rocksdb14FdWithKeyRangeEPKNS0_11InternalKeyEZNKS0_18VersionStorageInfo37GetOverlappingInputsRangeBinarySearchEiS6_S6_PSt6vectorIPNS0_12FileMetaDataESaISA_EEiPibPPS4_E3$_1ET_SI_SI_RKT0_T1_.exit", !llvm.loop !265
 
-"_ZSt11upper_boundIPKN7rocksdb14FdWithKeyRangeEPKNS0_11InternalKeyEZNKS0_18VersionStorageInfo37GetOverlappingInputsRangeBinarySearchEiS6_S6_PSt6vectorIPNS0_12FileMetaDataESaISA_EEiPibPPS4_E3$_1ET_SI_SI_RKT0_T1_.exit.loopexit": ; preds = %while.body.i.i60
-  %.pre118 = ptrtoint ptr %__first.addr.1.i.i85 to i64
-  br label %"_ZSt11upper_boundIPKN7rocksdb14FdWithKeyRangeEPKNS0_11InternalKeyEZNKS0_18VersionStorageInfo37GetOverlappingInputsRangeBinarySearchEiS6_S6_PSt6vectorIPNS0_12FileMetaDataESaISA_EEiPibPPS4_E3$_1ET_SI_SI_RKT0_T1_.exit"
-
-"_ZSt11upper_boundIPKN7rocksdb14FdWithKeyRangeEPKNS0_11InternalKeyEZNKS0_18VersionStorageInfo37GetOverlappingInputsRangeBinarySearchEiS6_S6_PSt6vectorIPNS0_12FileMetaDataESaISA_EEiPibPPS4_E3$_1ET_SI_SI_RKT0_T1_.exit": ; preds = %"_ZSt11upper_boundIPKN7rocksdb14FdWithKeyRangeEPKNS0_11InternalKeyEZNKS0_18VersionStorageInfo37GetOverlappingInputsRangeBinarySearchEiS6_S6_PSt6vectorIPNS0_12FileMetaDataESaISA_EEiPibPPS4_E3$_1ET_SI_SI_RKT0_T1_.exit.loopexit", %if.then26
-  %sub.ptr.lhs.cast34.pre-phi = phi i64 [ %.pre118, %"_ZSt11upper_boundIPKN7rocksdb14FdWithKeyRangeEPKNS0_11InternalKeyEZNKS0_18VersionStorageInfo37GetOverlappingInputsRangeBinarySearchEiS6_S6_PSt6vectorIPNS0_12FileMetaDataESaISA_EEiPibPPS4_E3$_1ET_SI_SI_RKT0_T1_.exit.loopexit" ], [ %sub.ptr.rhs.cast.i.i.i.i54, %if.then26 ]
+"_ZSt11upper_boundIPKN7rocksdb14FdWithKeyRangeEPKNS0_11InternalKeyEZNKS0_18VersionStorageInfo37GetOverlappingInputsRangeBinarySearchEiS6_S6_PSt6vectorIPNS0_12FileMetaDataESaISA_EEiPibPPS4_E3$_1ET_SI_SI_RKT0_T1_.exit": ; preds = %while.body.i.i60, %if.then26
+  %__first.addr.0.lcssa.i.i57 = phi ptr [ %add.ptr29, %if.then26 ], [ %__first.addr.1.i.i85, %while.body.i.i60 ]
+  %sub.ptr.lhs.cast34 = ptrtoint ptr %__first.addr.0.lcssa.i.i57 to i64
   %sub.ptr.rhs.cast35 = ptrtoint ptr %4 to i64
-  %sub.ptr.sub36 = sub i64 %sub.ptr.lhs.cast34.pre-phi, %sub.ptr.rhs.cast35
+  %sub.ptr.sub36 = sub i64 %sub.ptr.lhs.cast34, %sub.ptr.rhs.cast35
   %sub.ptr.div37 = sdiv exact i64 %sub.ptr.sub36, 80
   %conv38 = trunc i64 %sub.ptr.div37 to i32
   %cmp39 = icmp slt i32 %conv38, %conv7
@@ -25817,9 +25808,9 @@ while.body.i.i60:                                 ; preds = %while.body.i.i60, %
   br i1 %brmerge107.not, label %while.cond44.preheader, label %if.end67
 
 while.cond44.preheader:                           ; preds = %"_ZSt11upper_boundIPKN7rocksdb14FdWithKeyRangeEPKNS0_11InternalKeyEZNKS0_18VersionStorageInfo37GetOverlappingInputsRangeBinarySearchEiS6_S6_PSt6vectorIPNS0_12FileMetaDataESaISA_EEiPibPPS4_E3$_1ET_SI_SI_RKT0_T1_.exit"
-  %invariant.gep110 = getelementptr i8, ptr %4, i64 -40
-  %cmp47112 = icmp slt i32 %start_index.1, %conv38
-  br i1 %cmp47112, label %while.body49.lr.ph, label %if.end67
+  %invariant.gep111 = getelementptr i8, ptr %4, i64 -40
+  %cmp47113 = icmp slt i32 %start_index.1, %conv38
+  br i1 %cmp47113, label %while.body49.lr.ph, label %if.end67
 
 while.body49.lr.ph:                               ; preds = %while.cond44.preheader
   %20 = getelementptr inbounds i8, ptr %ref.tmp.i87, i64 8
@@ -25827,13 +25818,13 @@ while.body49.lr.ph:                               ; preds = %while.cond44.prehea
   br label %while.body49
 
 while.body49:                                     ; preds = %while.body49.lr.ph, %while.body49
-  %end_index.0113 = phi i32 [ %conv38, %while.body49.lr.ph ], [ %sub64, %while.body49 ]
-  %idxprom50 = sext i32 %end_index.0113 to i64
+  %end_index.0114 = phi i32 [ %conv38, %while.body49.lr.ph ], [ %sub64, %while.body49 ]
+  %idxprom50 = sext i32 %end_index.0114 to i64
   %file_metadata52 = getelementptr inbounds %"struct.rocksdb::FdWithKeyRange", ptr %4, i64 %idxprom50, i32 1
   %22 = load ptr, ptr %file_metadata52, align 8
   %smallest53 = getelementptr inbounds i8, ptr %22, i64 40
-  %gep111 = getelementptr %"struct.rocksdb::FdWithKeyRange", ptr %invariant.gep110, i64 %idxprom50
-  %23 = load ptr, ptr %gep111, align 8
+  %gep112 = getelementptr %"struct.rocksdb::FdWithKeyRange", ptr %invariant.gep111, i64 %idxprom50
+  %23 = load ptr, ptr %gep112, align 8
   %largest58 = getelementptr inbounds i8, ptr %23, i64 72
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp.i87)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp1.i88)
@@ -25850,7 +25841,7 @@ while.body49:                                     ; preds = %while.body49.lr.ph,
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ref.tmp1.i88)
   %cmp60 = icmp eq i32 %call3.i93, 0
   %conv63.neg = sext i1 %cmp60 to i32
-  %sub64 = add nsw i32 %end_index.0113, %conv63.neg
+  %sub64 = add nsw i32 %end_index.0114, %conv63.neg
   %cmp47 = icmp sgt i32 %sub64, %start_index.1
   %24 = select i1 %cmp60, i1 %cmp47, i1 false
   br i1 %24, label %while.body49, label %if.end67, !llvm.loop !266
@@ -25877,8 +25868,8 @@ if.then75:                                        ; preds = %if.end73
   br label %if.end76
 
 if.end76:                                         ; preds = %if.then75, %if.end73
-  %cmp77115 = icmp slt i32 %start_index.1, %end_index.1
-  br i1 %cmp77115, label %for.body.lr.ph, label %for.end
+  %cmp77116 = icmp slt i32 %start_index.1, %end_index.1
+  br i1 %cmp77116, label %for.body.lr.ph, label %for.end
 
 for.body.lr.ph:                                   ; preds = %if.end76
   %files_ = getelementptr inbounds i8, ptr %this, i64 2712
@@ -61916,25 +61907,22 @@ if.end71:                                         ; preds = %if.then66, %if.then
   %files.i = getelementptr inbounds i8, ptr %.pre251, i64 8
   %61 = load ptr, ptr %files.i, align 8
   %idx.ext.i = zext i32 %56 to i64
-  %add.ptr.i = getelementptr inbounds %"struct.rocksdb::FdWithKeyRange", ptr %61, i64 %idx.ext.i
+  %add.ptr.idx.i = mul nuw nsw i64 %idx.ext.i, 80
+  %add.ptr.i = getelementptr inbounds i8, ptr %61, i64 %add.ptr.idx.i
   %idx.ext1.i = zext i32 %add to i64
-  %add.ptr2.i = getelementptr inbounds %"struct.rocksdb::FdWithKeyRange", ptr %61, i64 %idx.ext1.i
-  %sub.ptr.lhs.cast.i.i.i.i.i = ptrtoint ptr %add.ptr2.i to i64
-  %sub.ptr.rhs.cast.i.i.i.i.i = ptrtoint ptr %add.ptr.i to i64
-  %sub.ptr.sub.i.i.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i.i.i, %sub.ptr.rhs.cast.i.i.i.i.i
-  %cmp12.i.i.i = icmp sgt i64 %sub.ptr.sub.i.i.i.i.i, 0
+  %add.ptr2.idx3.i = sub nsw i64 %idx.ext1.i, %idx.ext.i
+  %cmp12.i.i.i = icmp sgt i64 %add.ptr2.idx3.i, 0
   br i1 %cmp12.i.i.i, label %while.body.lr.ph.i.i.i, label %_ZN7rocksdb12_GLOBAL__N_115FindFileInRangeERKNS_21InternalKeyComparatorERKNS_15LevelFilesBriefERKNS_5SliceEjj.exit
 
 while.body.lr.ph.i.i.i:                           ; preds = %if.end71
   %62 = load ptr, ptr %internal_comparator_, align 8
-  %sub.ptr.div.i.i.i.i.i = udiv exact i64 %sub.ptr.sub.i.i.i.i.i, 80
   %user_comparator_.i.i.i.i.i.i = getelementptr inbounds i8, ptr %62, i64 8
   %size_.i.i8.i.i.i.i.i.i = getelementptr inbounds i8, ptr %60, i64 56
   br label %while.body.i.i.i
 
 while.body.i.i.i:                                 ; preds = %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN7rocksdb12_GLOBAL__N_115FindFileInRangeERKNS2_21InternalKeyComparatorERKNS2_15LevelFilesBriefERKNS2_5SliceEjjE3$_0EclIPNS2_14FdWithKeyRangeESB_EEbT_RT0_.exit.i.i.i", %while.body.lr.ph.i.i.i
   %__first.addr.014.i.i.i = phi ptr [ %add.ptr.i, %while.body.lr.ph.i.i.i ], [ %__first.addr.1.i.i.i, %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN7rocksdb12_GLOBAL__N_115FindFileInRangeERKNS2_21InternalKeyComparatorERKNS2_15LevelFilesBriefERKNS2_5SliceEjjE3$_0EclIPNS2_14FdWithKeyRangeESB_EEbT_RT0_.exit.i.i.i" ]
-  %__len.013.i.i.i = phi i64 [ %sub.ptr.div.i.i.i.i.i, %while.body.lr.ph.i.i.i ], [ %__len.1.i.i.i, %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN7rocksdb12_GLOBAL__N_115FindFileInRangeERKNS2_21InternalKeyComparatorERKNS2_15LevelFilesBriefERKNS2_5SliceEjjE3$_0EclIPNS2_14FdWithKeyRangeESB_EEbT_RT0_.exit.i.i.i" ]
+  %__len.013.i.i.i = phi i64 [ %add.ptr2.idx3.i, %while.body.lr.ph.i.i.i ], [ %__len.1.i.i.i, %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN7rocksdb12_GLOBAL__N_115FindFileInRangeERKNS2_21InternalKeyComparatorERKNS2_15LevelFilesBriefERKNS2_5SliceEjjE3$_0EclIPNS2_14FdWithKeyRangeESB_EEbT_RT0_.exit.i.i.i" ]
   %shr.i.i.i = lshr i64 %__len.013.i.i.i, 1
   %add.ptr.i.i.i.i.i = getelementptr inbounds %"struct.rocksdb::FdWithKeyRange", ptr %__first.addr.014.i.i.i, i64 %shr.i.i.i
   %largest_key.i.i.i.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i.i.i.i, i64 64
@@ -62019,17 +62007,17 @@ if.else.i.i.i.i.i.i:                              ; preds = %if.then.i.i.i.i.i.i
 
 "_ZSt11lower_boundIPN7rocksdb14FdWithKeyRangeENS0_5SliceEZNS0_12_GLOBAL__N_115FindFileInRangeERKNS0_21InternalKeyComparatorERKNS0_15LevelFilesBriefERKS3_jjE3$_0ET_SE_SE_RKT0_T1_.exit.loopexit.i": ; preds = %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN7rocksdb12_GLOBAL__N_115FindFileInRangeERKNS2_21InternalKeyComparatorERKNS2_15LevelFilesBriefERKNS2_5SliceEjjE3$_0EclIPNS2_14FdWithKeyRangeESB_EEbT_RT0_.exit.i.i.i"
   %.pre.i150 = load ptr, ptr %files.i, align 8
-  %.pre3.i = ptrtoint ptr %__first.addr.1.i.i.i to i64
   %.pre252 = load i32, ptr %search_right_bound61, align 4
   %.pre258 = add nsw i32 %.pre252, 1
   br label %_ZN7rocksdb12_GLOBAL__N_115FindFileInRangeERKNS_21InternalKeyComparatorERKNS_15LevelFilesBriefERKNS_5SliceEjj.exit
 
 _ZN7rocksdb12_GLOBAL__N_115FindFileInRangeERKNS_21InternalKeyComparatorERKNS_15LevelFilesBriefERKNS_5SliceEjj.exit: ; preds = %if.end71, %"_ZSt11lower_boundIPN7rocksdb14FdWithKeyRangeENS0_5SliceEZNS0_12_GLOBAL__N_115FindFileInRangeERKNS0_21InternalKeyComparatorERKNS0_15LevelFilesBriefERKS3_jjE3$_0ET_SE_SE_RKT0_T1_.exit.loopexit.i"
   %add79.pre-phi = phi i32 [ %add, %if.end71 ], [ %.pre258, %"_ZSt11lower_boundIPN7rocksdb14FdWithKeyRangeENS0_5SliceEZNS0_12_GLOBAL__N_115FindFileInRangeERKNS0_21InternalKeyComparatorERKNS0_15LevelFilesBriefERKS3_jjE3$_0ET_SE_SE_RKT0_T1_.exit.loopexit.i" ]
-  %sub.ptr.lhs.cast.pre-phi.i = phi i64 [ %sub.ptr.rhs.cast.i.i.i.i.i, %if.end71 ], [ %.pre3.i, %"_ZSt11lower_boundIPN7rocksdb14FdWithKeyRangeENS0_5SliceEZNS0_12_GLOBAL__N_115FindFileInRangeERKNS0_21InternalKeyComparatorERKNS0_15LevelFilesBriefERKS3_jjE3$_0ET_SE_SE_RKT0_T1_.exit.loopexit.i" ]
   %78 = phi ptr [ %61, %if.end71 ], [ %.pre.i150, %"_ZSt11lower_boundIPN7rocksdb14FdWithKeyRangeENS0_5SliceEZNS0_12_GLOBAL__N_115FindFileInRangeERKNS0_21InternalKeyComparatorERKNS0_15LevelFilesBriefERKS3_jjE3$_0ET_SE_SE_RKT0_T1_.exit.loopexit.i" ]
+  %__first.addr.0.lcssa.i.i.i = phi ptr [ %add.ptr.i, %if.end71 ], [ %__first.addr.1.i.i.i, %"_ZSt11lower_boundIPN7rocksdb14FdWithKeyRangeENS0_5SliceEZNS0_12_GLOBAL__N_115FindFileInRangeERKNS0_21InternalKeyComparatorERKNS0_15LevelFilesBriefERKS3_jjE3$_0ET_SE_SE_RKT0_T1_.exit.loopexit.i" ]
+  %sub.ptr.lhs.cast.i = ptrtoint ptr %__first.addr.0.lcssa.i.i.i to i64
   %sub.ptr.rhs.cast.i = ptrtoint ptr %78 to i64
-  %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.pre-phi.i, %sub.ptr.rhs.cast.i
+  %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
   %sub.ptr.div.i = sdiv exact i64 %sub.ptr.sub.i, 80
   %conv.i = trunc i64 %sub.ptr.div.i to i32
   %cmp80 = icmp eq i32 %add79.pre-phi, %conv.i

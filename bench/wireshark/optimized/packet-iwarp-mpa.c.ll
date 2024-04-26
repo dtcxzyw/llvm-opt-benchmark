@@ -153,7 +153,7 @@ define hidden void @proto_reg_handoff_mpa() local_unnamed_addr #0 {
 declare void @heur_dissector_add(ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @dissect_iwarp_mpa_heur(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #0 {
+define internal range(i32 0, 2) i32 @dissect_iwarp_mpa_heur(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #0 {
   %5 = icmp eq ptr %3, null
   br i1 %5, label %32, label %6
 
@@ -163,12 +163,12 @@ define internal noundef i32 @dissect_iwarp_mpa_heur(ptr noundef %0, ptr noundef 
   br i1 %8, label %9, label %14
 
 9:                                                ; preds = %6
-  %10 = tail call fastcc i32 @is_mpa_req(ptr noundef %0, ptr noundef %1), !range !4
+  %10 = tail call fastcc i32 @is_mpa_req(ptr noundef %0, ptr noundef %1)
   %.not = icmp eq i32 %10, 0
   br i1 %.not, label %11, label %14
 
 11:                                               ; preds = %9
-  %12 = tail call fastcc i32 @is_mpa_rep(ptr noundef %0, ptr noundef %1), !range !4
+  %12 = tail call fastcc i32 @is_mpa_rep(ptr noundef %0, ptr noundef %1)
   %13 = icmp eq i32 %12, 0
   br label %14
 
@@ -207,7 +207,7 @@ is_mpa_fpdu.exit:                                 ; preds = %23
   %30 = load i32, ptr %29, align 4
   %.not26 = icmp eq i32 %25, %30
   %cond.fr = freeze i1 %.not26
-  %or.cond = and i1 %.0, %cond.fr
+  %or.cond = select i1 %cond.fr, i1 %.0, i1 false
   br i1 %or.cond, label %32, label %.thread
 
 is_mpa_fpdu.exit.thread:                          ; preds = %17, %get_mpa_state.exit.i, %21, %23, %14
@@ -229,7 +229,7 @@ declare ptr @find_dissector_add_dependency(ptr noundef, i32 noundef) local_unnam
 declare i32 @tvb_captured_length(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @is_mpa_req(ptr noundef %0, ptr noundef %1) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @is_mpa_req(ptr noundef %0, ptr noundef %1) unnamed_addr #0 {
   %3 = tail call i64 @tvb_get_ntoh64(ptr noundef %0, i32 noundef 0) #5
   %.not = icmp eq i64 %3, 5571024345981263954
   br i1 %.not, label %4, label %41
@@ -300,7 +300,7 @@ define internal fastcc noundef i32 @is_mpa_req(ptr noundef %0, ptr noundef %1) u
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @is_mpa_rep(ptr noundef %0, ptr noundef %1) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @is_mpa_rep(ptr noundef %0, ptr noundef %1) unnamed_addr #0 {
   %3 = tail call i64 @tvb_get_ntoh64(ptr noundef %0, i32 noundef 0) #5
   %.not = icmp eq i64 %3, 5571024345981263954
   br i1 %.not, label %4, label %28
@@ -361,7 +361,7 @@ get_mpa_state.exit:                               ; preds = %6
 declare void @tcp_dissect_pdus(ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @iwrap_mpa_pdu_length(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr nocapture noundef readonly %3) #0 {
+define internal range(i32 0, 33619977) i32 @iwrap_mpa_pdu_length(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr nocapture noundef readonly %3) #0 {
   %5 = alloca i8, align 1
   %6 = tail call i32 @tvb_captured_length_remaining(ptr noundef %1, i32 noundef %2) #5
   store i8 3, ptr %5, align 1
@@ -443,9 +443,9 @@ define internal i32 @iwrap_mpa_pdu_length(ptr noundef %0, ptr noundef %1, i32 no
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_iwarp_mpa_pdu(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef readonly %3) #0 {
+define internal range(i32 -1, 33619977) i32 @dissect_iwarp_mpa_pdu(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef readonly %3) #0 {
   %5 = alloca i8, align 1
-  %6 = tail call i32 @iwrap_mpa_pdu_length(ptr noundef %1, ptr noundef %0, i32 noundef 0, ptr noundef %3), !range !5
+  %6 = tail call i32 @iwrap_mpa_pdu_length(ptr noundef %1, ptr noundef %0, i32 noundef 0, ptr noundef %3)
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %5)
   store i8 3, ptr %5, align 1
   %7 = icmp eq ptr %3, null
@@ -672,7 +672,7 @@ expected_ulpdu_length.exit.i.i:                   ; preds = %63
   %146 = add nuw nsw i32 %.0.i97.i.i, 1
   %.val18.pre.i.i.i = load i32, ptr %3, align 4
   %.pre.i.i.i = load i32, ptr %118, align 4
-  br label %125, !llvm.loop !6
+  br label %125, !llvm.loop !4
 
 147:                                              ; preds = %73
   %148 = or disjoint i32 %.071.i.i, 2
@@ -772,7 +772,7 @@ dissect_mpa_fpdu.exit.i:                          ; preds = %125, %155
   %197 = sub i32 %185, %194
   %198 = tail call i32 @llvm.umin.i32(i32 %197, i32 512)
   %199 = icmp ult i32 %194, %185
-  br i1 %199, label %.lr.ph.i.i, label %remove_markers.exit.i, !llvm.loop !8
+  br i1 %199, label %.lr.ph.i.i, label %remove_markers.exit.i, !llvm.loop !6
 
 remove_markers.exit.i:                            ; preds = %.lr.ph.i.i
   %200 = tail call ptr @tvb_new_child_real_data(ptr noundef %0, ptr noundef %189, i32 noundef %185, i32 noundef %185) #5
@@ -785,9 +785,9 @@ remove_markers.exit.i:                            ; preds = %.lr.ph.i.i
   %203 = tail call ptr @tvb_new_subset_length(ptr noundef %.sink.i, i32 noundef 2, i32 noundef %202) #5
   %204 = load ptr, ptr @ddp_rdmap_handle, align 8
   %.not49.i = icmp eq ptr %204, null
-  br i1 %.not49.i, label %206, label %dissect_iwarp_mpa.exit.thread11
+  br i1 %.not49.i, label %206, label %dissect_iwarp_mpa.exit.thread12
 
-dissect_iwarp_mpa.exit.thread11:                  ; preds = %201
+dissect_iwarp_mpa.exit.thread12:                  ; preds = %201
   %205 = tail call i32 @call_dissector(ptr noundef nonnull %204, ptr noundef %203, ptr noundef %1, ptr noundef %2) #5
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %5)
   br label %216
@@ -802,12 +802,12 @@ dissect_iwarp_mpa.exit.thread11:                  ; preds = %201
   br i1 %209, label %210, label %dissect_iwarp_mpa.exit.thread
 
 210:                                              ; preds = %207
-  %211 = tail call fastcc i32 @is_mpa_req(ptr noundef %0, ptr noundef %1), !range !4
+  %211 = tail call fastcc i32 @is_mpa_req(ptr noundef %0, ptr noundef %1)
   %.not44.i = icmp eq i32 %211, 0
   br i1 %.not44.i, label %212, label %dissect_iwarp_mpa.exit
 
 212:                                              ; preds = %210
-  %213 = tail call fastcc i32 @is_mpa_rep(ptr noundef %0, ptr noundef %1), !range !4
+  %213 = tail call fastcc i32 @is_mpa_rep(ptr noundef %0, ptr noundef %1)
   %.not45.i = icmp eq i32 %213, 0
   br i1 %.not45.i, label %dissect_iwarp_mpa.exit.thread, label %dissect_iwarp_mpa.exit
 
@@ -817,16 +817,17 @@ dissect_iwarp_mpa.exit.thread:                    ; preds = %4, %dissect_mpa_fpd
 
 dissect_iwarp_mpa.exit:                           ; preds = %212, %210
   %.sink = phi i32 [ 1, %210 ], [ 2, %212 ]
-  %214 = tail call fastcc i32 @dissect_mpa_req_rep(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %.sink), !range !4
+  %214 = tail call fastcc i32 @dissect_mpa_req_rep(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %.sink)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %5)
-  %.not = icmp eq i32 %214, 0
+  %.0.i.fr = freeze i32 %214
+  %.not = icmp eq i32 %.0.i.fr, 0
   br i1 %.not, label %215, label %216
 
 215:                                              ; preds = %dissect_iwarp_mpa.exit.thread, %dissect_iwarp_mpa.exit
   br label %216
 
-216:                                              ; preds = %dissect_iwarp_mpa.exit.thread11, %dissect_iwarp_mpa.exit, %215
-  %217 = phi i32 [ -1, %215 ], [ %6, %dissect_iwarp_mpa.exit ], [ %6, %dissect_iwarp_mpa.exit.thread11 ]
+216:                                              ; preds = %dissect_iwarp_mpa.exit.thread12, %dissect_iwarp_mpa.exit, %215
+  %217 = phi i32 [ -1, %215 ], [ %6, %dissect_iwarp_mpa.exit ], [ %6, %dissect_iwarp_mpa.exit.thread12 ]
   ret i32 %217
 }
 
@@ -964,7 +965,7 @@ declare ptr @tvb_new_subset_length(ptr noundef, i32 noundef, i32 noundef) local_
 declare i32 @call_dissector(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @dissect_mpa_req_rep(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @dissect_mpa_req_rep(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3) unnamed_addr #0 {
   %5 = getelementptr inbounds i8, ptr %1, i64 8
   %6 = load ptr, ptr %5, align 8
   tail call void @col_set_str(ptr noundef %6, i32 noundef 34, ptr noundef nonnull @.str.56) #5
@@ -1123,8 +1124,6 @@ attributes #6 = { noreturn nounwind }
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
 !3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = !{i32 0, i32 2}
-!5 = !{i32 0, i32 33619977}
-!6 = distinct !{!6, !7}
-!7 = !{!"llvm.loop.mustprogress"}
-!8 = distinct !{!8, !7}
+!4 = distinct !{!4, !5}
+!5 = !{!"llvm.loop.mustprogress"}
+!6 = distinct !{!6, !5}

@@ -311,7 +311,7 @@ define hidden void @"_ZN12block_buffer35BlockBuffer$LT$BlockSize$C$Kind$GT$13dig
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define internal fastcc noundef i8 @_ZN12tracing_core8callsite15DefaultCallsite8interest17hfb4783fc25b01e0cE(ptr noundef nonnull align 8 %0) unnamed_addr #2 {
+define internal fastcc noundef range(i8 0, 3) i8 @_ZN12tracing_core8callsite15DefaultCallsite8interest17hfb4783fc25b01e0cE(ptr noundef nonnull align 8 %0) unnamed_addr #2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 16
   %3 = load atomic i8, ptr %2 monotonic, align 8
   %4 = icmp ult i8 %3, 3
@@ -5541,7 +5541,7 @@ _ZN5bytes9bytes_mut8BytesMut6freeze17h898a604450b8798fE.exit218: ; preds = %342,
 }
 
 ; Function Attrs: nonlazybind uwtable
-define noundef i8 @"_ZN108_$LT$actix_http..header..shared..content_encoding..ContentEncoding$u20$as$u20$core..str..traits..FromStr$GT$8from_str17hac31b5c411add04cE"(ptr noalias noundef nonnull readonly align 1 %0, i64 noundef %1) unnamed_addr #7 personality ptr @rust_eh_personality {
+define noundef range(i8 0, 6) i8 @"_ZN108_$LT$actix_http..header..shared..content_encoding..ContentEncoding$u20$as$u20$core..str..traits..FromStr$GT$8from_str17hac31b5c411add04cE"(ptr noalias noundef nonnull readonly align 1 %0, i64 noundef %1) unnamed_addr #7 personality ptr @rust_eh_personality {
   %3 = alloca { i64, { i64, [1 x i64] } }, align 8
   %4 = alloca { i64, { i64, [1 x i64] } }, align 8
   %5 = alloca { ptr, ptr, {} }, align 8
@@ -5824,7 +5824,7 @@ define noundef i8 @"_ZN108_$LT$actix_http..header..shared..content_encoding..Con
 }
 
 ; Function Attrs: nonlazybind uwtable
-define noundef i8 @"_ZN119_$LT$actix_http..header..shared..content_encoding..ContentEncoding$u20$as$u20$core..convert..TryFrom$LT$$RF$str$GT$$GT$8try_from17h5d18bcc32b77b43eE"(ptr noalias noundef nonnull readonly align 1 %0, i64 noundef %1) unnamed_addr #7 {
+define noundef range(i8 0, 6) i8 @"_ZN119_$LT$actix_http..header..shared..content_encoding..ContentEncoding$u20$as$u20$core..convert..TryFrom$LT$$RF$str$GT$$GT$8try_from17h5d18bcc32b77b43eE"(ptr noalias noundef nonnull readonly align 1 %0, i64 noundef %1) unnamed_addr #7 {
   %3 = tail call noundef i8 @"_ZN108_$LT$actix_http..header..shared..content_encoding..ContentEncoding$u20$as$u20$core..str..traits..FromStr$GT$8from_str17hac31b5c411add04cE"(ptr noalias noundef nonnull readonly align 1 %0, i64 noundef %1), !range !844
   ret i8 %3
 }
@@ -8291,7 +8291,7 @@ default.unreachable1:                             ; preds = %2
 }
 
 ; Function Attrs: nonlazybind uwtable
-define noundef i8 @"_ZN10actix_http2ws5proto89_$LT$impl$u20$core..convert..From$LT$actix_http..ws..proto..OpCode$GT$$u20$for$u20$u8$GT$4from17h5b3ae685af8f8229E"(i8 noundef %0) unnamed_addr #7 {
+define noundef range(i8 0, 11) i8 @"_ZN10actix_http2ws5proto89_$LT$impl$u20$core..convert..From$LT$actix_http..ws..proto..OpCode$GT$$u20$for$u20$u8$GT$4from17h5b3ae685af8f8229E"(i8 noundef %0) unnamed_addr #7 {
   %2 = alloca { i64, { ptr, i64 } }, align 8
   %3 = alloca { i64, { ptr, i64 } }, align 8
   %4 = alloca { { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }, align 8
@@ -8561,7 +8561,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hfb4783fc25b01e0cE.exit.th
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define noundef i8 @"_ZN79_$LT$actix_http..ws..proto..OpCode$u20$as$u20$core..convert..From$LT$u8$GT$$GT$4from17hd895a1408cf585e1E"(i8 noundef %0) unnamed_addr #13 {
+define noundef range(i8 0, 7) i8 @"_ZN79_$LT$actix_http..ws..proto..OpCode$u20$as$u20$core..convert..From$LT$u8$GT$$GT$4from17hd895a1408cf585e1E"(i8 noundef %0) unnamed_addr #13 {
   %2 = icmp ult i8 %0, 11
   br i1 %2, label %switch.lookup, label %4
 

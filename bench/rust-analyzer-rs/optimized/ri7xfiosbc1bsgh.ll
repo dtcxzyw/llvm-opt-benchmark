@@ -8042,7 +8042,7 @@ define hidden void @"_ZN46_$LT$DB$u20$as$u20$base_db..SourceDatabase$GT$15set_da
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden noundef i8 @"_ZN46_$LT$DB$u20$as$u20$base_db..SourceDatabase$GT$17toolchain_channel17hef83985e252e0047E"(ptr noundef nonnull align 8 %0, i32 noundef %1) unnamed_addr #5 {
+define hidden noundef range(i8 0, 4) i8 @"_ZN46_$LT$DB$u20$as$u20$base_db..SourceDatabase$GT$17toolchain_channel17hef83985e252e0047E"(ptr noundef nonnull align 8 %0, i32 noundef %1) unnamed_addr #5 {
   %3 = tail call noundef i8 @_ZN7base_db17toolchain_channel17ha1af912636b6fdf4E(ptr noundef nonnull align 1 %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.a366366ced9f536ca000c5a8a0069d12.5.llvm.15603951218622194610, i32 noundef %1), !range !1437
   ret i8 %3
 }
@@ -10306,7 +10306,7 @@ _ZN7tracing4span4Span7entered17h75bf4b6a528220f6E.exit: ; preds = %.thread, %27,
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden noundef i32 @"_ZN46_$LT$DB$u20$as$u20$hir_ty..db..HirDatabase$GT$14intern_closure17h9a262937ff24372eE"(ptr noundef nonnull align 8 %0, ptr noalias nocapture noundef align 4 dereferenceable(12) %1) unnamed_addr #5 {
+define hidden noundef range(i32 1, 0) i32 @"_ZN46_$LT$DB$u20$as$u20$hir_ty..db..HirDatabase$GT$14intern_closure17h9a262937ff24372eE"(ptr noundef nonnull align 8 %0, ptr noalias nocapture noundef align 4 dereferenceable(12) %1) unnamed_addr #5 {
   %3 = tail call noundef i32 @"_ZN46_$LT$DB$u20$as$u20$hir_ty..db..HirDatabase$GT$14intern_closure6__shim17hcbf5cc90233ed2bcE"(ptr noundef nonnull align 1 %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.a366366ced9f536ca000c5a8a0069d12.25.llvm.15603951218622194610, ptr noalias nocapture noundef nonnull align 4 dereferenceable(12) %1), !range !1036
   ret i32 %3
 }
@@ -10582,7 +10582,7 @@ _ZN7tracing4span4Span7entered17h75bf4b6a528220f6E.exit: ; preds = %.thread, %27,
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden noundef i32 @"_ZN46_$LT$DB$u20$as$u20$hir_ty..db..HirDatabase$GT$16intern_coroutine17hbcd577ed92f83861E"(ptr noundef nonnull align 8 %0, ptr noalias nocapture noundef align 4 dereferenceable(12) %1) unnamed_addr #5 {
+define hidden noundef range(i32 1, 0) i32 @"_ZN46_$LT$DB$u20$as$u20$hir_ty..db..HirDatabase$GT$16intern_coroutine17hbcd577ed92f83861E"(ptr noundef nonnull align 8 %0, ptr noalias nocapture noundef align 4 dereferenceable(12) %1) unnamed_addr #5 {
   %3 = tail call noundef i32 @"_ZN46_$LT$DB$u20$as$u20$hir_ty..db..HirDatabase$GT$16intern_coroutine6__shim17hb60b18a86855dd4aE"(ptr noundef nonnull align 1 %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.a366366ced9f536ca000c5a8a0069d12.25.llvm.15603951218622194610, ptr noalias nocapture noundef nonnull align 4 dereferenceable(12) %1), !range !1036
   ret i32 %3
 }
@@ -11668,7 +11668,7 @@ _ZN7tracing4span4Span7entered17h75bf4b6a528220f6E.exit: ; preds = %.thread, %33,
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden noundef i32 @"_ZN46_$LT$DB$u20$as$u20$hir_ty..db..HirDatabase$GT$19intern_callable_def17hec987b98d318be15E"(ptr noundef nonnull align 8 %0, i32 noundef %1, i32 noundef %2) unnamed_addr #5 {
+define hidden noundef range(i32 1, 0) i32 @"_ZN46_$LT$DB$u20$as$u20$hir_ty..db..HirDatabase$GT$19intern_callable_def17hec987b98d318be15E"(ptr noundef nonnull align 8 %0, i32 noundef %1, i32 noundef %2) unnamed_addr #5 {
   %4 = tail call noundef i32 @"_ZN46_$LT$DB$u20$as$u20$hir_ty..db..HirDatabase$GT$19intern_callable_def6__shim17h2f5349418c4e725eE"(ptr noundef nonnull align 1 %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.a366366ced9f536ca000c5a8a0069d12.25.llvm.15603951218622194610, i32 noundef %1, i32 noundef %2), !range !1036
   ret i32 %4
 }
@@ -11809,7 +11809,7 @@ _ZN7tracing4span4Span7entered17h75bf4b6a528220f6E.exit: ; preds = %.thread, %27,
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden noundef i32 @"_ZN46_$LT$DB$u20$as$u20$hir_ty..db..HirDatabase$GT$20intern_impl_trait_id17h32731f4d7ed2aaf2E"(ptr noundef nonnull align 8 %0, ptr noalias nocapture noundef align 4 dereferenceable(12) %1) unnamed_addr #5 {
+define hidden noundef range(i32 1, 0) i32 @"_ZN46_$LT$DB$u20$as$u20$hir_ty..db..HirDatabase$GT$20intern_impl_trait_id17h32731f4d7ed2aaf2E"(ptr noundef nonnull align 8 %0, ptr noalias nocapture noundef align 4 dereferenceable(12) %1) unnamed_addr #5 {
   %3 = tail call noundef i32 @"_ZN46_$LT$DB$u20$as$u20$hir_ty..db..HirDatabase$GT$20intern_impl_trait_id6__shim17h31db09f9e34e25d5E"(ptr noundef nonnull align 1 %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.a366366ced9f536ca000c5a8a0069d12.25.llvm.15603951218622194610, ptr noalias nocapture noundef nonnull align 4 dereferenceable(12) %1), !range !1036
   ret i32 %3
 }
@@ -13287,7 +13287,7 @@ _ZN7tracing4span4Span7entered17h75bf4b6a528220f6E.exit: ; preds = %.thread, %27,
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden noundef i32 @"_ZN46_$LT$DB$u20$as$u20$hir_ty..db..HirDatabase$GT$24intern_lifetime_param_id17h40d46f6559cbffa6E"(ptr noundef nonnull align 8 %0, ptr noalias nocapture noundef align 4 dereferenceable(12) %1) unnamed_addr #5 {
+define hidden noundef range(i32 1, 0) i32 @"_ZN46_$LT$DB$u20$as$u20$hir_ty..db..HirDatabase$GT$24intern_lifetime_param_id17h40d46f6559cbffa6E"(ptr noundef nonnull align 8 %0, ptr noalias nocapture noundef align 4 dereferenceable(12) %1) unnamed_addr #5 {
   %3 = tail call noundef i32 @"_ZN46_$LT$DB$u20$as$u20$hir_ty..db..HirDatabase$GT$24intern_lifetime_param_id6__shim17h32e256d9f2b4a60bE"(ptr noundef nonnull align 1 %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.a366366ced9f536ca000c5a8a0069d12.25.llvm.15603951218622194610, ptr noalias nocapture noundef nonnull align 4 dereferenceable(12) %1), !range !1036
   ret i32 %3
 }
@@ -13532,7 +13532,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.th
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden noundef i32 @"_ZN46_$LT$DB$u20$as$u20$hir_ty..db..HirDatabase$GT$29intern_type_or_const_param_id17h454306bb7c208fb3E"(ptr noundef nonnull align 8 %0, ptr noalias nocapture noundef align 4 dereferenceable(12) %1) unnamed_addr #5 {
+define hidden noundef range(i32 1, 0) i32 @"_ZN46_$LT$DB$u20$as$u20$hir_ty..db..HirDatabase$GT$29intern_type_or_const_param_id17h454306bb7c208fb3E"(ptr noundef nonnull align 8 %0, ptr noalias nocapture noundef align 4 dereferenceable(12) %1) unnamed_addr #5 {
   %3 = tail call noundef i32 @"_ZN46_$LT$DB$u20$as$u20$hir_ty..db..HirDatabase$GT$29intern_type_or_const_param_id6__shim17hc95ce0a7bba7e1baE"(ptr noundef nonnull align 1 %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.a366366ced9f536ca000c5a8a0069d12.25.llvm.15603951218622194610, ptr noalias nocapture noundef nonnull align 4 dereferenceable(12) %1), !range !1036
   ret i32 %3
 }
@@ -19969,7 +19969,7 @@ define hidden noundef nonnull ptr @"_ZN47_$LT$DB$u20$as$u20$hir_def..db..DefData
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden noundef i8 @"_ZN47_$LT$DB$u20$as$u20$hir_def..db..DefDatabase$GT$9lang_attr17hb22437bf1349678fE"(ptr noundef nonnull align 8 %0, ptr noalias nocapture noundef align 4 dereferenceable(16) %1) unnamed_addr #5 {
+define hidden noundef range(i8 0, -125) i8 @"_ZN47_$LT$DB$u20$as$u20$hir_def..db..DefDatabase$GT$9lang_attr17hb22437bf1349678fE"(ptr noundef nonnull align 8 %0, ptr noalias nocapture noundef align 4 dereferenceable(16) %1) unnamed_addr #5 {
   %3 = tail call noundef i8 @_ZN7hir_def9lang_item9lang_attr17h64789c5d20ff3828E(ptr noundef nonnull align 1 %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.a366366ced9f536ca000c5a8a0069d12.23.llvm.15603951218622194610, ptr noalias nocapture noundef nonnull align 4 dereferenceable(16) %1), !range !2018
   ret i8 %3
 }
@@ -23939,79 +23939,79 @@ define hidden { i64, ptr } @"_ZN4core6option15Option$LT$T$GT$7or_else17h70aafd75
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden noundef i32 @"_ZN50_$LT$DB$u20$as$u20$hir_def..db..InternDatabase$GT$10intern_use17h9e38359207571088E"(ptr noundef nonnull align 8 %0, ptr noalias nocapture noundef align 4 dereferenceable(24) %1) unnamed_addr #5 {
+define hidden noundef range(i32 1, 0) i32 @"_ZN50_$LT$DB$u20$as$u20$hir_def..db..InternDatabase$GT$10intern_use17h9e38359207571088E"(ptr noundef nonnull align 8 %0, ptr noalias nocapture noundef align 4 dereferenceable(24) %1) unnamed_addr #5 {
   %3 = tail call noundef i32 @"_ZN50_$LT$DB$u20$as$u20$hir_def..db..InternDatabase$GT$10intern_use6__shim17h6f54355e2324f97bE"(ptr noundef nonnull align 1 %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.a366366ced9f536ca000c5a8a0069d12.21.llvm.15603951218622194610, ptr noalias nocapture noundef nonnull align 4 dereferenceable(24) %1), !range !1036
   ret i32 %3
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden noundef i32 @"_ZN50_$LT$DB$u20$as$u20$hir_def..db..InternDatabase$GT$11intern_enum17h4dedc0bdd6de72ddE"(ptr noundef nonnull align 8 %0, ptr noalias nocapture noundef align 4 dereferenceable(24) %1) unnamed_addr #5 {
+define hidden noundef range(i32 1, 0) i32 @"_ZN50_$LT$DB$u20$as$u20$hir_def..db..InternDatabase$GT$11intern_enum17h4dedc0bdd6de72ddE"(ptr noundef nonnull align 8 %0, ptr noalias nocapture noundef align 4 dereferenceable(24) %1) unnamed_addr #5 {
   %3 = tail call noundef i32 @"_ZN50_$LT$DB$u20$as$u20$hir_def..db..InternDatabase$GT$11intern_enum6__shim17haa69b0fc8e5bb850E"(ptr noundef nonnull align 1 %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.a366366ced9f536ca000c5a8a0069d12.21.llvm.15603951218622194610, ptr noalias nocapture noundef nonnull align 4 dereferenceable(24) %1), !range !1036
   ret i32 %3
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden noundef i32 @"_ZN50_$LT$DB$u20$as$u20$hir_def..db..InternDatabase$GT$11intern_impl17hbc2c86f264f56088E"(ptr noundef nonnull align 8 %0, ptr noalias nocapture noundef align 4 dereferenceable(24) %1) unnamed_addr #5 {
+define hidden noundef range(i32 1, 0) i32 @"_ZN50_$LT$DB$u20$as$u20$hir_def..db..InternDatabase$GT$11intern_impl17hbc2c86f264f56088E"(ptr noundef nonnull align 8 %0, ptr noalias nocapture noundef align 4 dereferenceable(24) %1) unnamed_addr #5 {
   %3 = tail call noundef i32 @"_ZN50_$LT$DB$u20$as$u20$hir_def..db..InternDatabase$GT$11intern_impl6__shim17h03f9b0d0fc76e3c3E"(ptr noundef nonnull align 1 %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.a366366ced9f536ca000c5a8a0069d12.21.llvm.15603951218622194610, ptr noalias nocapture noundef nonnull align 4 dereferenceable(24) %1), !range !1036
   ret i32 %3
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden noundef i32 @"_ZN50_$LT$DB$u20$as$u20$hir_def..db..InternDatabase$GT$12intern_block17h068d52d4c0c52ed9E"(ptr noundef nonnull align 8 %0, ptr noalias nocapture noundef align 4 dereferenceable(20) %1) unnamed_addr #5 {
+define hidden noundef range(i32 1, 0) i32 @"_ZN50_$LT$DB$u20$as$u20$hir_def..db..InternDatabase$GT$12intern_block17h068d52d4c0c52ed9E"(ptr noundef nonnull align 8 %0, ptr noalias nocapture noundef align 4 dereferenceable(20) %1) unnamed_addr #5 {
   %3 = tail call noundef i32 @"_ZN50_$LT$DB$u20$as$u20$hir_def..db..InternDatabase$GT$12intern_block6__shim17h6022b3f731262565E"(ptr noundef nonnull align 1 %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.a366366ced9f536ca000c5a8a0069d12.21.llvm.15603951218622194610, ptr noalias nocapture noundef nonnull align 4 dereferenceable(20) %1), !range !1036
   ret i32 %3
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden noundef i32 @"_ZN50_$LT$DB$u20$as$u20$hir_def..db..InternDatabase$GT$12intern_const17hc5bcf0e700afc4f4E"(ptr noundef nonnull align 8 %0, ptr noalias nocapture noundef align 4 dereferenceable(28) %1) unnamed_addr #5 {
+define hidden noundef range(i32 1, 0) i32 @"_ZN50_$LT$DB$u20$as$u20$hir_def..db..InternDatabase$GT$12intern_const17hc5bcf0e700afc4f4E"(ptr noundef nonnull align 8 %0, ptr noalias nocapture noundef align 4 dereferenceable(28) %1) unnamed_addr #5 {
   %3 = tail call noundef i32 @"_ZN50_$LT$DB$u20$as$u20$hir_def..db..InternDatabase$GT$12intern_const6__shim17h51a0718018d3a360E"(ptr noundef nonnull align 1 %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.a366366ced9f536ca000c5a8a0069d12.21.llvm.15603951218622194610, ptr noalias nocapture noundef nonnull align 4 dereferenceable(28) %1), !range !1036
   ret i32 %3
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden noundef i32 @"_ZN50_$LT$DB$u20$as$u20$hir_def..db..InternDatabase$GT$12intern_trait17h0b33a15d9cb22c13E"(ptr noundef nonnull align 8 %0, ptr noalias nocapture noundef align 4 dereferenceable(24) %1) unnamed_addr #5 {
+define hidden noundef range(i32 1, 0) i32 @"_ZN50_$LT$DB$u20$as$u20$hir_def..db..InternDatabase$GT$12intern_trait17h0b33a15d9cb22c13E"(ptr noundef nonnull align 8 %0, ptr noalias nocapture noundef align 4 dereferenceable(24) %1) unnamed_addr #5 {
   %3 = tail call noundef i32 @"_ZN50_$LT$DB$u20$as$u20$hir_def..db..InternDatabase$GT$12intern_trait6__shim17h0d5a8f325ee3f999E"(ptr noundef nonnull align 1 %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.a366366ced9f536ca000c5a8a0069d12.21.llvm.15603951218622194610, ptr noalias nocapture noundef nonnull align 4 dereferenceable(24) %1), !range !1036
   ret i32 %3
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden noundef i32 @"_ZN50_$LT$DB$u20$as$u20$hir_def..db..InternDatabase$GT$12intern_union17hb7beaef86c4846faE"(ptr noundef nonnull align 8 %0, ptr noalias nocapture noundef align 4 dereferenceable(24) %1) unnamed_addr #5 {
+define hidden noundef range(i32 1, 0) i32 @"_ZN50_$LT$DB$u20$as$u20$hir_def..db..InternDatabase$GT$12intern_union17hb7beaef86c4846faE"(ptr noundef nonnull align 8 %0, ptr noalias nocapture noundef align 4 dereferenceable(24) %1) unnamed_addr #5 {
   %3 = tail call noundef i32 @"_ZN50_$LT$DB$u20$as$u20$hir_def..db..InternDatabase$GT$12intern_union6__shim17hcba6565942c11196E"(ptr noundef nonnull align 1 %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.a366366ced9f536ca000c5a8a0069d12.21.llvm.15603951218622194610, ptr noalias nocapture noundef nonnull align 4 dereferenceable(24) %1), !range !1036
   ret i32 %3
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden noundef i32 @"_ZN50_$LT$DB$u20$as$u20$hir_def..db..InternDatabase$GT$13intern_macro217hffd6d9872efcef4bE"(ptr noundef nonnull align 8 %0, ptr noalias nocapture noundef align 4 dereferenceable(28) %1) unnamed_addr #5 {
+define hidden noundef range(i32 1, 0) i32 @"_ZN50_$LT$DB$u20$as$u20$hir_def..db..InternDatabase$GT$13intern_macro217hffd6d9872efcef4bE"(ptr noundef nonnull align 8 %0, ptr noalias nocapture noundef align 4 dereferenceable(28) %1) unnamed_addr #5 {
   %3 = tail call noundef i32 @"_ZN50_$LT$DB$u20$as$u20$hir_def..db..InternDatabase$GT$13intern_macro26__shim17hce25cb5b323bbbe6E"(ptr noundef nonnull align 1 %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.a366366ced9f536ca000c5a8a0069d12.21.llvm.15603951218622194610, ptr noalias nocapture noundef nonnull align 4 dereferenceable(28) %1), !range !1036
   ret i32 %3
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden noundef i32 @"_ZN50_$LT$DB$u20$as$u20$hir_def..db..InternDatabase$GT$13intern_static17h5027b2673dcfa590E"(ptr noundef nonnull align 8 %0, ptr noalias nocapture noundef align 4 dereferenceable(28) %1) unnamed_addr #5 {
+define hidden noundef range(i32 1, 0) i32 @"_ZN50_$LT$DB$u20$as$u20$hir_def..db..InternDatabase$GT$13intern_static17h5027b2673dcfa590E"(ptr noundef nonnull align 8 %0, ptr noalias nocapture noundef align 4 dereferenceable(28) %1) unnamed_addr #5 {
   %3 = tail call noundef i32 @"_ZN50_$LT$DB$u20$as$u20$hir_def..db..InternDatabase$GT$13intern_static6__shim17hc2681633a3c912c5E"(ptr noundef nonnull align 1 %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.a366366ced9f536ca000c5a8a0069d12.21.llvm.15603951218622194610, ptr noalias nocapture noundef nonnull align 4 dereferenceable(28) %1), !range !1036
   ret i32 %3
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden noundef i32 @"_ZN50_$LT$DB$u20$as$u20$hir_def..db..InternDatabase$GT$13intern_struct17h523ea717e759b4edE"(ptr noundef nonnull align 8 %0, ptr noalias nocapture noundef align 4 dereferenceable(24) %1) unnamed_addr #5 {
+define hidden noundef range(i32 1, 0) i32 @"_ZN50_$LT$DB$u20$as$u20$hir_def..db..InternDatabase$GT$13intern_struct17h523ea717e759b4edE"(ptr noundef nonnull align 8 %0, ptr noalias nocapture noundef align 4 dereferenceable(24) %1) unnamed_addr #5 {
   %3 = tail call noundef i32 @"_ZN50_$LT$DB$u20$as$u20$hir_def..db..InternDatabase$GT$13intern_struct6__shim17h08d65194d5234f85E"(ptr noundef nonnull align 1 %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.a366366ced9f536ca000c5a8a0069d12.21.llvm.15603951218622194610, ptr noalias nocapture noundef nonnull align 4 dereferenceable(24) %1), !range !1036
   ret i32 %3
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden noundef i32 @"_ZN50_$LT$DB$u20$as$u20$hir_def..db..InternDatabase$GT$15intern_function17h60344df992093545E"(ptr noundef nonnull align 8 %0, ptr noalias nocapture noundef align 4 dereferenceable(28) %1) unnamed_addr #5 {
+define hidden noundef range(i32 1, 0) i32 @"_ZN50_$LT$DB$u20$as$u20$hir_def..db..InternDatabase$GT$15intern_function17h60344df992093545E"(ptr noundef nonnull align 8 %0, ptr noalias nocapture noundef align 4 dereferenceable(28) %1) unnamed_addr #5 {
   %3 = tail call noundef i32 @"_ZN50_$LT$DB$u20$as$u20$hir_def..db..InternDatabase$GT$15intern_function6__shim17h5289251cf5082b07E"(ptr noundef nonnull align 1 %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.a366366ced9f536ca000c5a8a0069d12.21.llvm.15603951218622194610, ptr noalias nocapture noundef nonnull align 4 dereferenceable(28) %1), !range !1036
   ret i32 %3
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden noundef i32 @"_ZN50_$LT$DB$u20$as$u20$hir_def..db..InternDatabase$GT$17intern_proc_macro17h5ae15b660e21c604E"(ptr noundef nonnull align 8 %0, ptr noalias nocapture noundef align 4 dereferenceable(24) %1) unnamed_addr #5 {
+define hidden noundef range(i32 1, 0) i32 @"_ZN50_$LT$DB$u20$as$u20$hir_def..db..InternDatabase$GT$17intern_proc_macro17h5ae15b660e21c604E"(ptr noundef nonnull align 8 %0, ptr noalias nocapture noundef align 4 dereferenceable(24) %1) unnamed_addr #5 {
   %3 = tail call noundef i32 @"_ZN50_$LT$DB$u20$as$u20$hir_def..db..InternDatabase$GT$17intern_proc_macro6__shim17h36c12c00d84efbfeE"(ptr noundef nonnull align 1 %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.a366366ced9f536ca000c5a8a0069d12.21.llvm.15603951218622194610, ptr noalias nocapture noundef nonnull align 4 dereferenceable(24) %1), !range !1036
   ret i32 %3
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden noundef i32 @"_ZN50_$LT$DB$u20$as$u20$hir_def..db..InternDatabase$GT$17intern_type_alias17hcfb2b33307094aaeE"(ptr noundef nonnull align 8 %0, ptr noalias nocapture noundef align 4 dereferenceable(28) %1) unnamed_addr #5 {
+define hidden noundef range(i32 1, 0) i32 @"_ZN50_$LT$DB$u20$as$u20$hir_def..db..InternDatabase$GT$17intern_type_alias17hcfb2b33307094aaeE"(ptr noundef nonnull align 8 %0, ptr noalias nocapture noundef align 4 dereferenceable(28) %1) unnamed_addr #5 {
   %3 = tail call noundef i32 @"_ZN50_$LT$DB$u20$as$u20$hir_def..db..InternDatabase$GT$17intern_type_alias6__shim17h57f57537c3ae219aE"(ptr noundef nonnull align 1 %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.a366366ced9f536ca000c5a8a0069d12.21.llvm.15603951218622194610, ptr noalias nocapture noundef nonnull align 4 dereferenceable(28) %1), !range !1036
   ret i32 %3
 }
@@ -24023,13 +24023,13 @@ define hidden void @"_ZN50_$LT$DB$u20$as$u20$hir_def..db..InternDatabase$GT$17lo
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden noundef i32 @"_ZN50_$LT$DB$u20$as$u20$hir_def..db..InternDatabase$GT$18intern_macro_rules17h406bbb04d652bc34E"(ptr noundef nonnull align 8 %0, ptr noalias nocapture noundef align 4 dereferenceable(28) %1) unnamed_addr #5 {
+define hidden noundef range(i32 1, 0) i32 @"_ZN50_$LT$DB$u20$as$u20$hir_def..db..InternDatabase$GT$18intern_macro_rules17h406bbb04d652bc34E"(ptr noundef nonnull align 8 %0, ptr noalias nocapture noundef align 4 dereferenceable(28) %1) unnamed_addr #5 {
   %3 = tail call noundef i32 @"_ZN50_$LT$DB$u20$as$u20$hir_def..db..InternDatabase$GT$18intern_macro_rules6__shim17h00f6abfd2517767bE"(ptr noundef nonnull align 1 %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.a366366ced9f536ca000c5a8a0069d12.21.llvm.15603951218622194610, ptr noalias nocapture noundef nonnull align 4 dereferenceable(28) %1), !range !1036
   ret i32 %3
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden noundef i32 @"_ZN50_$LT$DB$u20$as$u20$hir_def..db..InternDatabase$GT$18intern_trait_alias17hd7f408de8a61d41bE"(ptr noundef nonnull align 8 %0, ptr noalias nocapture noundef align 4 dereferenceable(24) %1) unnamed_addr #5 {
+define hidden noundef range(i32 1, 0) i32 @"_ZN50_$LT$DB$u20$as$u20$hir_def..db..InternDatabase$GT$18intern_trait_alias17hd7f408de8a61d41bE"(ptr noundef nonnull align 8 %0, ptr noalias nocapture noundef align 4 dereferenceable(24) %1) unnamed_addr #5 {
   %3 = tail call noundef i32 @"_ZN50_$LT$DB$u20$as$u20$hir_def..db..InternDatabase$GT$18intern_trait_alias6__shim17hd8fc1e3f646d0c62E"(ptr noundef nonnull align 1 %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.a366366ced9f536ca000c5a8a0069d12.21.llvm.15603951218622194610, ptr noalias nocapture noundef nonnull align 4 dereferenceable(24) %1), !range !1036
   ret i32 %3
 }
@@ -24047,19 +24047,19 @@ define hidden void @"_ZN50_$LT$DB$u20$as$u20$hir_def..db..InternDatabase$GT$18lo
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden noundef i32 @"_ZN50_$LT$DB$u20$as$u20$hir_def..db..InternDatabase$GT$19intern_enum_variant17h46847c06874826eeE"(ptr noundef nonnull align 8 %0, ptr noalias nocapture noundef align 4 dereferenceable(20) %1) unnamed_addr #5 {
+define hidden noundef range(i32 1, 0) i32 @"_ZN50_$LT$DB$u20$as$u20$hir_def..db..InternDatabase$GT$19intern_enum_variant17h46847c06874826eeE"(ptr noundef nonnull align 8 %0, ptr noalias nocapture noundef align 4 dereferenceable(20) %1) unnamed_addr #5 {
   %3 = tail call noundef i32 @"_ZN50_$LT$DB$u20$as$u20$hir_def..db..InternDatabase$GT$19intern_enum_variant6__shim17h6de18d33fad71c1dE"(ptr noundef nonnull align 1 %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.a366366ced9f536ca000c5a8a0069d12.21.llvm.15603951218622194610, ptr noalias nocapture noundef nonnull align 4 dereferenceable(20) %1), !range !1036
   ret i32 %3
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden noundef i32 @"_ZN50_$LT$DB$u20$as$u20$hir_def..db..InternDatabase$GT$19intern_extern_block17he579295538bed627E"(ptr noundef nonnull align 8 %0, ptr noalias nocapture noundef align 4 dereferenceable(24) %1) unnamed_addr #5 {
+define hidden noundef range(i32 1, 0) i32 @"_ZN50_$LT$DB$u20$as$u20$hir_def..db..InternDatabase$GT$19intern_extern_block17he579295538bed627E"(ptr noundef nonnull align 8 %0, ptr noalias nocapture noundef align 4 dereferenceable(24) %1) unnamed_addr #5 {
   %3 = tail call noundef i32 @"_ZN50_$LT$DB$u20$as$u20$hir_def..db..InternDatabase$GT$19intern_extern_block6__shim17hb942b4ca126079a9E"(ptr noundef nonnull align 1 %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.a366366ced9f536ca000c5a8a0069d12.21.llvm.15603951218622194610, ptr noalias nocapture noundef nonnull align 4 dereferenceable(24) %1), !range !1036
   ret i32 %3
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden noundef i32 @"_ZN50_$LT$DB$u20$as$u20$hir_def..db..InternDatabase$GT$19intern_extern_crate17hce65effdede96123E"(ptr noundef nonnull align 8 %0, ptr noalias nocapture noundef align 4 dereferenceable(24) %1) unnamed_addr #5 {
+define hidden noundef range(i32 1, 0) i32 @"_ZN50_$LT$DB$u20$as$u20$hir_def..db..InternDatabase$GT$19intern_extern_crate17hce65effdede96123E"(ptr noundef nonnull align 8 %0, ptr noalias nocapture noundef align 4 dereferenceable(24) %1) unnamed_addr #5 {
   %3 = tail call noundef i32 @"_ZN50_$LT$DB$u20$as$u20$hir_def..db..InternDatabase$GT$19intern_extern_crate6__shim17h7a531e0ec448f1d3E"(ptr noundef nonnull align 1 %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.a366366ced9f536ca000c5a8a0069d12.21.llvm.15603951218622194610, ptr noalias nocapture noundef nonnull align 4 dereferenceable(24) %1), !range !1036
   ret i32 %3
 }
@@ -24089,7 +24089,7 @@ define hidden void @"_ZN50_$LT$DB$u20$as$u20$hir_def..db..InternDatabase$GT$19lo
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden noundef i32 @"_ZN50_$LT$DB$u20$as$u20$hir_def..db..InternDatabase$GT$20intern_in_type_const17hc3a8659d9e153e46E"(ptr noundef nonnull align 8 %0, ptr noalias nocapture noundef align 8 dereferenceable(32) %1) unnamed_addr #5 {
+define hidden noundef range(i32 1, 0) i32 @"_ZN50_$LT$DB$u20$as$u20$hir_def..db..InternDatabase$GT$20intern_in_type_const17hc3a8659d9e153e46E"(ptr noundef nonnull align 8 %0, ptr noalias nocapture noundef align 8 dereferenceable(32) %1) unnamed_addr #5 {
   %3 = tail call noundef i32 @"_ZN50_$LT$DB$u20$as$u20$hir_def..db..InternDatabase$GT$20intern_in_type_const6__shim17hbf63265c4b309b16E"(ptr noundef nonnull align 1 %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.a366366ced9f536ca000c5a8a0069d12.21.llvm.15603951218622194610, ptr noalias nocapture noundef nonnull align 8 dereferenceable(32) %1), !range !1036
   ret i32 %3
 }
@@ -24113,7 +24113,7 @@ define hidden void @"_ZN50_$LT$DB$u20$as$u20$hir_def..db..InternDatabase$GT$20lo
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden noundef i32 @"_ZN50_$LT$DB$u20$as$u20$hir_def..db..InternDatabase$GT$22intern_anonymous_const17hde0764a34aad8016E"(ptr noundef nonnull align 8 %0, ptr noalias nocapture noundef align 4 dereferenceable(12) %1) unnamed_addr #5 {
+define hidden noundef range(i32 1, 0) i32 @"_ZN50_$LT$DB$u20$as$u20$hir_def..db..InternDatabase$GT$22intern_anonymous_const17hde0764a34aad8016E"(ptr noundef nonnull align 8 %0, ptr noalias nocapture noundef align 4 dereferenceable(12) %1) unnamed_addr #5 {
   %3 = tail call noundef i32 @"_ZN50_$LT$DB$u20$as$u20$hir_def..db..InternDatabase$GT$22intern_anonymous_const6__shim17h982cf37ce01f6b65E"(ptr noundef nonnull align 1 %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.a366366ced9f536ca000c5a8a0069d12.21.llvm.15603951218622194610, ptr noalias nocapture noundef nonnull align 4 dereferenceable(12) %1), !range !1036
   ret i32 %3
 }
@@ -24761,7 +24761,7 @@ _ZN7tracing4span4Span7entered17h75bf4b6a528220f6E.exit: ; preds = %.thread, %28,
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden noundef i32 @"_ZN53_$LT$DB$u20$as$u20$hir_expand..db..ExpandDatabase$GT$17intern_macro_call17hbfdc169fc27bbd60E"(ptr noundef nonnull align 8 %0, ptr noalias nocapture noundef align 8 dereferenceable(56) %1) unnamed_addr #5 {
+define hidden noundef range(i32 1, 0) i32 @"_ZN53_$LT$DB$u20$as$u20$hir_expand..db..ExpandDatabase$GT$17intern_macro_call17hbfdc169fc27bbd60E"(ptr noundef nonnull align 8 %0, ptr noalias nocapture noundef align 8 dereferenceable(56) %1) unnamed_addr #5 {
   %3 = tail call noundef i32 @"_ZN53_$LT$DB$u20$as$u20$hir_expand..db..ExpandDatabase$GT$17intern_macro_call6__shim17h2ee23be936a9d4feE"(ptr noundef nonnull align 1 %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.a366366ced9f536ca000c5a8a0069d12.6.llvm.15603951218622194610, ptr noalias nocapture noundef nonnull align 8 dereferenceable(56) %1), !range !1036
   ret i32 %3
 }
@@ -24954,7 +24954,7 @@ define hidden void @"_ZN53_$LT$DB$u20$as$u20$hir_expand..db..ExpandDatabase$GT$2
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden noundef i32 @"_ZN53_$LT$DB$u20$as$u20$hir_expand..db..ExpandDatabase$GT$21intern_syntax_context17h8fa4d6b7802bc631E"(ptr noundef nonnull align 8 %0, ptr noalias nocapture noundef align 4 dereferenceable(20) %1) unnamed_addr #5 {
+define hidden noundef range(i32 1, 0) i32 @"_ZN53_$LT$DB$u20$as$u20$hir_expand..db..ExpandDatabase$GT$21intern_syntax_context17h8fa4d6b7802bc631E"(ptr noundef nonnull align 8 %0, ptr noalias nocapture noundef align 4 dereferenceable(20) %1) unnamed_addr #5 {
   %3 = tail call noundef i32 @"_ZN53_$LT$DB$u20$as$u20$hir_expand..db..ExpandDatabase$GT$21intern_syntax_context6__shim17h57e49a127386b9dfE"(ptr noundef nonnull align 1 %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.a366366ced9f536ca000c5a8a0069d12.6.llvm.15603951218622194610, ptr noalias nocapture noundef nonnull align 4 dereferenceable(20) %1), !range !1036
   ret i32 %3
 }
@@ -26566,7 +26566,7 @@ common.resume:                                    ; preds = %common.resume.sink.
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
-define hidden noundef i8 @"_ZN67_$LT$text_size..size..TextSize$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17hbac1c8f49687bd5bE.llvm.15603951218622194610"(ptr noalias nocapture noundef readonly align 4 dereferenceable(4) %0, ptr noalias nocapture noundef readonly align 4 dereferenceable(4) %1) unnamed_addr #12 {
+define hidden noundef range(i8 -1, 2) i8 @"_ZN67_$LT$text_size..size..TextSize$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17hbac1c8f49687bd5bE.llvm.15603951218622194610"(ptr noalias nocapture noundef readonly align 4 dereferenceable(4) %0, ptr noalias nocapture noundef readonly align 4 dereferenceable(4) %1) unnamed_addr #12 {
   %3 = load i32, ptr %0, align 4, !noundef !9
   %4 = load i32, ptr %1, align 4, !noundef !9
   %5 = icmp ult i32 %3, %4

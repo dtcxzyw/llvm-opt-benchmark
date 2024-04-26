@@ -14,7 +14,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"struct.std::_Vector_base<std::__cxx11::basic_string<char>, std::allocator<std::__cxx11::basic_string<char>>>::_Vector_impl_data" = type { ptr, ptr, ptr }
 %"class.casadi::Sparsity" = type { %"class.casadi::SharedObject" }
 %"class.casadi::SharedObject" = type { ptr }
-%"class.casadi::SXElem" = type { ptr }
 %"class.std::__cxx11::basic_stringstream" = type { %"class.std::basic_iostream.base", %"class.std::__cxx11::basic_stringbuf", %"class.std::basic_ios" }
 %"class.std::basic_iostream.base" = type { %"class.std::basic_istream.base", %"class.std::basic_ostream.base" }
 %"class.std::basic_istream.base" = type { ptr, i64 }
@@ -1338,9 +1337,9 @@ define noundef i32 @_ZNK6casadi5Split4evalEPPKdPPdPxS4_(ptr nocapture noundef no
   br label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %_ZSt4copyIPKdPdET0_T_S4_S3_.exit.i, %.lr.ph.preheader.i
-  %.014.i = phi i64 [ %16, %_ZSt4copyIPKdPdET0_T_S4_S3_.exit.i ], [ 0, %.lr.ph.preheader.i ]
-  %16 = add nuw nsw i64 %.014.i, 1
-  %17 = getelementptr inbounds ptr, ptr %2, i64 %.014.i
+  %.015.i = phi i64 [ %16, %_ZSt4copyIPKdPdET0_T_S4_S3_.exit.i ], [ 0, %.lr.ph.preheader.i ]
+  %16 = add nuw nsw i64 %.015.i, 1
+  %17 = getelementptr inbounds ptr, ptr %2, i64 %.015.i
   %18 = load ptr, ptr %17, align 8
   %.not.i = icmp eq ptr %18, null
   br i1 %.not.i, label %_ZSt4copyIPKdPdET0_T_S4_S3_.exit.i, label %19
@@ -1348,24 +1347,23 @@ define noundef i32 @_ZNK6casadi5Split4evalEPPKdPPdPxS4_(ptr nocapture noundef no
 19:                                               ; preds = %.lr.ph.i
   %20 = load ptr, ptr %6, align 8
   %21 = getelementptr inbounds i64, ptr %20, i64 %16
-  %22 = getelementptr inbounds i64, ptr %20, i64 %.014.i
+  %22 = getelementptr inbounds i64, ptr %20, i64 %.015.i
   %23 = load i64, ptr %22, align 8
   %24 = load i64, ptr %21, align 8
-  %.not.i.i.i.i.i.i = icmp eq i64 %24, %23
+  %.idx14.i = shl nsw i64 %23, 3
+  %.idx.i = shl nsw i64 %24, 3
+  %.not.i.i.i.i.i.i = icmp eq i64 %.idx.i, %.idx14.i
   br i1 %.not.i.i.i.i.i.i, label %_ZSt4copyIPKdPdET0_T_S4_S3_.exit.i, label %25
 
 25:                                               ; preds = %19
   %26 = load ptr, ptr %1, align 8
-  %27 = getelementptr inbounds double, ptr %26, i64 %23
-  %28 = getelementptr inbounds double, ptr %26, i64 %24
-  %29 = ptrtoint ptr %28 to i64
-  %30 = ptrtoint ptr %27 to i64
-  %31 = sub i64 %29, %30
-  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %18, ptr align 8 %27, i64 %31, i1 false)
+  %27 = getelementptr inbounds i8, ptr %26, i64 %.idx14.i
+  %gepdiff.i = sub nsw i64 %.idx.i, %.idx14.i
+  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %18, ptr align 8 %27, i64 %gepdiff.i, i1 false)
   br label %_ZSt4copyIPKdPdET0_T_S4_S3_.exit.i
 
 _ZSt4copyIPKdPdET0_T_S4_S3_.exit.i:               ; preds = %25, %19, %.lr.ph.i
-  %exitcond.not.i = icmp eq i64 %.014.i, %15
+  %exitcond.not.i = icmp eq i64 %.015.i, %15
   br i1 %exitcond.not.i, label %_ZNK6casadi5Split8eval_genIdEEiPPKT_PPS2_PxS6_.exit, label %.lr.ph.i, !llvm.loop !12
 
 _ZNK6casadi5Split8eval_genIdEEiPPKT_PPS2_PxS6_.exit: ; preds = %_ZSt4copyIPKdPdET0_T_S4_S3_.exit.i, %5
@@ -1390,9 +1388,9 @@ define noundef i32 @_ZNK6casadi5Split7eval_sxEPPKNS_6SXElemEPPS1_PxS5_(ptr nocap
   br label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %_ZSt4copyIPKN6casadi6SXElemEPS1_ET0_T_S6_S5_.exit.i, %.lr.ph.preheader.i
-  %.014.i = phi i64 [ %16, %_ZSt4copyIPKN6casadi6SXElemEPS1_ET0_T_S6_S5_.exit.i ], [ 0, %.lr.ph.preheader.i ]
-  %16 = add nuw nsw i64 %.014.i, 1
-  %17 = getelementptr inbounds ptr, ptr %2, i64 %.014.i
+  %.015.i = phi i64 [ %16, %_ZSt4copyIPKN6casadi6SXElemEPS1_ET0_T_S6_S5_.exit.i ], [ 0, %.lr.ph.preheader.i ]
+  %16 = add nuw nsw i64 %.015.i, 1
+  %17 = getelementptr inbounds ptr, ptr %2, i64 %.015.i
   %18 = load ptr, ptr %17, align 8
   %.not.i = icmp eq ptr %18, null
   br i1 %.not.i, label %_ZSt4copyIPKN6casadi6SXElemEPS1_ET0_T_S6_S5_.exit.i, label %19
@@ -1400,32 +1398,32 @@ define noundef i32 @_ZNK6casadi5Split7eval_sxEPPKNS_6SXElemEPPS1_PxS5_(ptr nocap
 19:                                               ; preds = %.lr.ph.i
   %20 = load ptr, ptr %6, align 8
   %21 = getelementptr inbounds i64, ptr %20, i64 %16
-  %22 = getelementptr inbounds i64, ptr %20, i64 %.014.i
+  %22 = getelementptr inbounds i64, ptr %20, i64 %.015.i
   %23 = load i64, ptr %22, align 8
   %24 = load i64, ptr %21, align 8
-  %25 = load ptr, ptr %1, align 8
-  %26 = getelementptr inbounds %"class.casadi::SXElem", ptr %25, i64 %23
-  %27 = getelementptr inbounds %"class.casadi::SXElem", ptr %25, i64 %24
-  %28 = ptrtoint ptr %27 to i64
-  %29 = ptrtoint ptr %26 to i64
-  %30 = sub i64 %28, %29
-  %31 = ashr exact i64 %30, 3
-  %32 = icmp sgt i64 %31, 0
-  br i1 %32, label %.lr.ph.i.i.i.i.i.i, label %_ZSt4copyIPKN6casadi6SXElemEPS1_ET0_T_S6_S5_.exit.i
+  %25 = sub nsw i64 %24, %23
+  %26 = icmp sgt i64 %25, 0
+  br i1 %26, label %.lr.ph.i.i.i.i.i.preheader.i, label %_ZSt4copyIPKN6casadi6SXElemEPS1_ET0_T_S6_S5_.exit.i
 
-.lr.ph.i.i.i.i.i.i:                               ; preds = %19, %.lr.ph.i.i.i.i.i.i
-  %.012.i.i.i.i.i.i = phi i64 [ %36, %.lr.ph.i.i.i.i.i.i ], [ %31, %19 ]
-  %.0811.i.i.i.i.i.i = phi ptr [ %35, %.lr.ph.i.i.i.i.i.i ], [ %18, %19 ]
-  %.0910.i.i.i.i.i.i = phi ptr [ %34, %.lr.ph.i.i.i.i.i.i ], [ %26, %19 ]
-  %33 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZN6casadi6SXElemaSERKS0_(ptr noundef nonnull align 8 dereferenceable(8) %.0811.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(8) %.0910.i.i.i.i.i.i)
-  %34 = getelementptr inbounds i8, ptr %.0910.i.i.i.i.i.i, i64 8
-  %35 = getelementptr inbounds i8, ptr %.0811.i.i.i.i.i.i, i64 8
-  %36 = add nsw i64 %.012.i.i.i.i.i.i, -1
-  %37 = icmp ugt i64 %.012.i.i.i.i.i.i, 1
-  br i1 %37, label %.lr.ph.i.i.i.i.i.i, label %_ZSt4copyIPKN6casadi6SXElemEPS1_ET0_T_S6_S5_.exit.i, !llvm.loop !13
+.lr.ph.i.i.i.i.i.preheader.i:                     ; preds = %19
+  %27 = load ptr, ptr %1, align 8
+  %.idx14.i = shl nsw i64 %23, 3
+  %28 = getelementptr inbounds i8, ptr %27, i64 %.idx14.i
+  br label %.lr.ph.i.i.i.i.i.i
+
+.lr.ph.i.i.i.i.i.i:                               ; preds = %.lr.ph.i.i.i.i.i.i, %.lr.ph.i.i.i.i.i.preheader.i
+  %.012.i.i.i.i.i.i = phi i64 [ %32, %.lr.ph.i.i.i.i.i.i ], [ %25, %.lr.ph.i.i.i.i.i.preheader.i ]
+  %.0811.i.i.i.i.i.i = phi ptr [ %31, %.lr.ph.i.i.i.i.i.i ], [ %18, %.lr.ph.i.i.i.i.i.preheader.i ]
+  %.0910.i.i.i.i.i.i = phi ptr [ %30, %.lr.ph.i.i.i.i.i.i ], [ %28, %.lr.ph.i.i.i.i.i.preheader.i ]
+  %29 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZN6casadi6SXElemaSERKS0_(ptr noundef nonnull align 8 dereferenceable(8) %.0811.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(8) %.0910.i.i.i.i.i.i)
+  %30 = getelementptr inbounds i8, ptr %.0910.i.i.i.i.i.i, i64 8
+  %31 = getelementptr inbounds i8, ptr %.0811.i.i.i.i.i.i, i64 8
+  %32 = add nsw i64 %.012.i.i.i.i.i.i, -1
+  %33 = icmp ugt i64 %.012.i.i.i.i.i.i, 1
+  br i1 %33, label %.lr.ph.i.i.i.i.i.i, label %_ZSt4copyIPKN6casadi6SXElemEPS1_ET0_T_S6_S5_.exit.i, !llvm.loop !13
 
 _ZSt4copyIPKN6casadi6SXElemEPS1_ET0_T_S6_S5_.exit.i: ; preds = %.lr.ph.i.i.i.i.i.i, %19, %.lr.ph.i
-  %exitcond.not.i = icmp eq i64 %.014.i, %15
+  %exitcond.not.i = icmp eq i64 %.015.i, %15
   br i1 %exitcond.not.i, label %_ZNK6casadi5Split8eval_genINS_6SXElemEEEiPPKT_PPS3_PxS7_.exit, label %.lr.ph.i, !llvm.loop !14
 
 _ZNK6casadi5Split8eval_genINS_6SXElemEEEiPPKT_PPS3_PxS7_.exit: ; preds = %_ZSt4copyIPKN6casadi6SXElemEPS1_ET0_T_S6_S5_.exit.i, %5

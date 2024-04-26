@@ -31952,7 +31952,7 @@ define hidden void @_ZN3ide11inlay_hints11label_of_ty17h9c3d544734e1b1beE(ptr no
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden noundef i8 @_ZN3ide11inlay_hints11label_of_ty3rec17he6287fa5f3501440E.llvm.9018798831783864632(ptr nocapture noundef nonnull readonly align 8 %0, ptr noalias noundef readonly align 8 dereferenceable(16) %1, i64 noundef %2, i64 %3, ptr noalias noundef readonly align 8 dereferenceable(16) %4, ptr noalias noundef align 8 dereferenceable(128) %5, ptr noalias nocapture noundef readonly align 8 dereferenceable(56) %6) unnamed_addr #2 personality ptr @rust_eh_personality {
+define hidden noundef range(i8 0, 5) i8 @_ZN3ide11inlay_hints11label_of_ty3rec17he6287fa5f3501440E.llvm.9018798831783864632(ptr nocapture noundef nonnull readonly align 8 %0, ptr noalias noundef readonly align 8 dereferenceable(16) %1, i64 noundef %2, i64 %3, ptr noalias noundef readonly align 8 dereferenceable(16) %4, ptr noalias noundef align 8 dereferenceable(128) %5, ptr noalias nocapture noundef readonly align 8 dereferenceable(56) %6) unnamed_addr #2 personality ptr @rust_eh_personality {
   %8 = alloca { ptr, ptr, {} }, align 8
   %9 = alloca { [1 x i64], i64, [1 x i64] }, align 8
   %10 = alloca { { i64, [3 x i64] }, { { { i64, ptr, {} }, i64 } }, { i32, [3 x i32] } }, align 8

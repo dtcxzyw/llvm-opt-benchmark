@@ -119,7 +119,7 @@ target triple = "x86_64-pc-linux-gnu"
 @__func__._step_test = private unnamed_addr constant [11 x i8] c"_step_test\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @gres_ctld_job_select_whole_node(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef %3) local_unnamed_addr #0 {
+define dso_local range(i32 -1, 1) i32 @gres_ctld_job_select_whole_node(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef %3) local_unnamed_addr #0 {
   %5 = alloca %struct.gres_search_key, align 4
   %6 = icmp eq ptr %0, null
   br i1 %6, label %117, label %7
@@ -412,7 +412,7 @@ define dso_local i32 @gres_ctld_job_alloc(ptr noundef %0, ptr nocapture noundef 
 
 .outer:                                           ; preds = %25
   %35 = load ptr, ptr %1, align 8
-  %36 = tail call fastcc i32 @_job_alloc(ptr noundef nonnull %26, ptr noundef %35, ptr noundef nonnull %28, i32 noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6, ptr noundef %7, ptr noundef %8, i1 noundef zeroext %9), !range !11
+  %36 = tail call fastcc i32 @_job_alloc(ptr noundef nonnull %26, ptr noundef %35, ptr noundef nonnull %28, i32 noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6, ptr noundef %7, ptr noundef %8, i1 noundef zeroext %9)
   %.not37 = icmp eq i32 %36, 0
   %spec.select = select i1 %.not37, i32 %.031.ph43, i32 %36
   %37 = tail call ptr @list_next(ptr noundef %22) #8
@@ -435,7 +435,7 @@ define dso_local i32 @gres_ctld_job_alloc(ptr noundef %0, ptr nocapture noundef 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @_job_alloc(ptr nocapture noundef readonly %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6, ptr noundef %7, ptr noundef %8, i1 noundef zeroext %9) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @_job_alloc(ptr nocapture noundef readonly %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6, ptr noundef %7, ptr noundef %8, i1 noundef zeroext %9) unnamed_addr #0 {
   %11 = alloca i64, align 8
   %12 = alloca ptr, align 8
   %13 = alloca ptr, align 8
@@ -775,7 +775,7 @@ define internal fastcc noundef i32 @_job_alloc(ptr nocapture noundef readonly %0
 193:                                              ; preds = %180, %186, %189
   %194 = add nuw nsw i64 %.0488639, 1
   %exitcond.not = icmp eq i64 %194, %169
-  br i1 %exitcond.not, label %.loopexit635, label %172, !llvm.loop !12
+  br i1 %exitcond.not, label %.loopexit635, label %172, !llvm.loop !11
 
 195:                                              ; preds = %142
   %196 = getelementptr inbounds i8, ptr %15, i64 80
@@ -1186,7 +1186,7 @@ define internal fastcc noundef i32 @_job_alloc(ptr nocapture noundef readonly %0
 427:                                              ; preds = %412, %415
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond706.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond706.not, label %.thread624, label %412, !llvm.loop !13
+  br i1 %exitcond706.not, label %.thread624, label %412, !llvm.loop !12
 
 .thread624:                                       ; preds = %427, %390, %391, %422, %393, %404, %407, %374, %364, %368
   %428 = phi i64 [ %362, %368 ], [ %362, %374 ], [ %397, %393 ], [ %397, %404 ], [ %397, %407 ], [ %397, %422 ], [ %362, %364 ], [ %362, %390 ], [ %362, %391 ], [ %397, %427 ]
@@ -1195,7 +1195,7 @@ define internal fastcc noundef i32 @_job_alloc(ptr nocapture noundef readonly %0
   %430 = load i16, ptr %355, align 8
   %431 = zext i16 %430 to i64
   %432 = icmp ult i64 %429, %431
-  br i1 %432, label %361, label %.loopexit630, !llvm.loop !14
+  br i1 %432, label %361, label %.loopexit630, !llvm.loop !13
 
 433:                                              ; preds = %352, %349
   %434 = tail call i64 @bit_size(ptr noundef nonnull %348) #8
@@ -1308,7 +1308,7 @@ define internal fastcc noundef i32 @_job_alloc(ptr nocapture noundef readonly %0
   %485 = load i16, ptr %446, align 8
   %486 = zext i16 %485 to i64
   %487 = icmp ult i64 %indvars.iv.next711, %486
-  br i1 %487, label %.lr.ph649.split.us, label %._crit_edge, !llvm.loop !15
+  br i1 %487, label %.lr.ph649.split.us, label %._crit_edge, !llvm.loop !14
 
 .lr.ph649.split:                                  ; preds = %.lr.ph649
   %488 = load ptr, ptr %350, align 8
@@ -1352,7 +1352,7 @@ define internal fastcc noundef i32 @_job_alloc(ptr nocapture noundef readonly %0
   %505 = load i16, ptr %446, align 8
   %506 = zext i16 %505 to i64
   %507 = icmp ult i64 %indvars.iv.next708, %506
-  br i1 %507, label %.lr.ph649.split.splitthread-pre-split, label %._crit_edge, !llvm.loop !16
+  br i1 %507, label %.lr.ph649.split.splitthread-pre-split, label %._crit_edge, !llvm.loop !15
 
 ._crit_edge:                                      ; preds = %503, %483, %.lr.ph649.split, %464
   %.lcssa647 = phi i64 [ 0, %464 ], [ 0, %.lr.ph649.split ], [ %484, %483 ], [ %504, %503 ]
@@ -1404,12 +1404,12 @@ define internal fastcc noundef i32 @_job_alloc(ptr nocapture noundef readonly %0
 533:                                              ; preds = %518, %521
   %indvars.iv.next714 = add nuw nsw i64 %indvars.iv713, 1
   %exitcond717.not = icmp eq i64 %indvars.iv.next714, %wide.trip.count716
-  br i1 %exitcond717.not, label %.loopexit631, label %518, !llvm.loop !18
+  br i1 %exitcond717.not, label %.loopexit631, label %518, !llvm.loop !17
 
 .loopexit631:                                     ; preds = %533, %528, %._crit_edge, %510, %513, %451
   %534 = add nuw nsw i64 %.2490659, 1
   %exitcond718.not = icmp eq i64 %534, %.pre-phi
-  br i1 %exitcond718.not, label %._crit_edge665, label %451, !llvm.loop !19
+  br i1 %exitcond718.not, label %._crit_edge665, label %451, !llvm.loop !18
 
 ._crit_edge665:                                   ; preds = %.loopexit631, %443
   %535 = load ptr, ptr %23, align 8
@@ -1437,7 +1437,7 @@ define internal fastcc noundef i32 @_job_alloc(ptr nocapture noundef readonly %0
 543:                                              ; preds = %544
   %indvars.iv.next720 = add nuw nsw i64 %indvars.iv719, 1
   %exitcond723.not = icmp eq i64 %indvars.iv.next720, %wide.trip.count722
-  br i1 %exitcond723.not, label %.loopexit630, label %544, !llvm.loop !20
+  br i1 %exitcond723.not, label %.loopexit630, label %544, !llvm.loop !19
 
 544:                                              ; preds = %.lr.ph669, %543
   %indvars.iv719 = phi i64 [ 0, %.lr.ph669 ], [ %indvars.iv.next720, %543 ]
@@ -1509,7 +1509,7 @@ define internal fastcc noundef i32 @_job_alloc(ptr nocapture noundef readonly %0
   %indvars.iv.next725 = add nuw nsw i64 %indvars.iv724, 1
   %583 = zext i16 %581 to i64
   %584 = icmp ult i64 %indvars.iv.next725, %583
-  br i1 %584, label %560, label %.loopexit630, !llvm.loop !21
+  br i1 %584, label %560, label %.loopexit630, !llvm.loop !20
 
 .loopexit630:                                     ; preds = %.thread624, %543, %580, %569, %.preheader633, %554, %538, %547, %536, %._crit_edge665
   br i1 %9, label %598, label %585
@@ -1537,7 +1537,7 @@ define internal fastcc noundef i32 @_job_alloc(ptr nocapture noundef readonly %0
   %595 = load i16, ptr %116, align 8
   %596 = zext i16 %595 to i64
   %597 = icmp ult i64 %indvars.iv.next728, %596
-  br i1 %597, label %.lr.ph679, label %.loopexit, !llvm.loop !22
+  br i1 %597, label %.lr.ph679, label %.loopexit, !llvm.loop !21
 
 598:                                              ; preds = %.loopexit630
   %599 = load ptr, ptr %55, align 8
@@ -1675,7 +1675,7 @@ define internal fastcc noundef i32 @_job_alloc(ptr nocapture noundef readonly %0
   %670 = icmp ne i64 %669, 0
   %671 = icmp slt i64 %665, 1
   %or.cond.i = select i1 %670, i1 true, i1 %671
-  br i1 %or.cond.i, label %_get_sharing_cnt_from_shared_cnt.exit, label %.lr.ph.i, !llvm.loop !23
+  br i1 %or.cond.i, label %_get_sharing_cnt_from_shared_cnt.exit, label %.lr.ph.i, !llvm.loop !22
 
 _get_sharing_cnt_from_shared_cnt.exit:            ; preds = %.lr.ph.i, %655, %.preheader.i, %645
   %672 = phi i64 [ %625, %645 ], [ %625, %655 ], [ 0, %.preheader.i ], [ %658, %.lr.ph.i ]
@@ -1710,7 +1710,7 @@ _get_sharing_cnt_from_shared_cnt.exit:            ; preds = %.lr.ph.i, %655, %.p
   %687 = load i16, ptr %116, align 8
   %688 = zext i16 %687 to i64
   %689 = icmp ult i64 %indvars.iv.next731, %688
-  br i1 %689, label %612, label %._crit_edge685, !llvm.loop !24
+  br i1 %689, label %612, label %._crit_edge685, !llvm.loop !23
 
 ._crit_edge685:                                   ; preds = %686, %605
   %690 = phi i16 [ 0, %605 ], [ %687, %686 ]
@@ -1867,19 +1867,19 @@ define internal noundef i32 @_set_node_type_cnt(ptr noundef %0, ptr noundef %1) 
 33:                                               ; preds = %20, %23, %28
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.loopexit, label %20, !llvm.loop !25
+  br i1 %exitcond.not, label %.loopexit, label %20, !llvm.loop !24
 
 .loopexit:                                        ; preds = %33, %12, %31, %9, %2, %7
   ret i32 0
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @gres_ctld_job_alloc_whole_node(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6, ptr noundef %7, ptr noundef %8, i1 noundef zeroext %9) local_unnamed_addr #0 {
+define dso_local i32 @gres_ctld_job_alloc_whole_node(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6, ptr noundef %7, ptr noundef %8, i1 noundef zeroext %9) local_unnamed_addr #0 {
   %11 = alloca %struct.gres_search_key, align 4
   %12 = alloca %struct.foreach_explicit_alloc_t, align 8
   %13 = zext i1 %9 to i8
   %14 = icmp eq ptr %0, null
-  br i1 %14, label %112, label %15
+  br i1 %14, label %115, label %15
 
 15:                                               ; preds = %10
   %16 = icmp eq ptr %2, null
@@ -1887,13 +1887,13 @@ define dso_local noundef i32 @gres_ctld_job_alloc_whole_node(ptr noundef %0, ptr
 
 17:                                               ; preds = %15
   %18 = tail call i32 (ptr, ...) @error(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.gres_ctld_job_alloc_whole_node, i32 noundef %6, ptr noundef %7) #8
-  br label %112
+  br label %115
 
 19:                                               ; preds = %15
   %20 = tail call ptr @list_iterator_create(ptr noundef nonnull %2) #8
   %21 = tail call ptr @list_next(ptr noundef %20) #8
-  %.not9298 = icmp eq ptr %21, null
-  br i1 %.not9298, label %.outer._crit_edge, label %.lr.ph.lr.ph
+  %.not96102 = icmp eq ptr %21, null
+  br i1 %.not96102, label %.outer._crit_edge, label %.lr.ph.lr.ph
 
 .lr.ph.lr.ph:                                     ; preds = %19
   %22 = getelementptr inbounds i8, ptr %12, i64 8
@@ -1909,53 +1909,58 @@ define dso_local noundef i32 @gres_ctld_job_alloc_whole_node(ptr noundef %0, ptr
   %32 = getelementptr inbounds i8, ptr %11, i64 12
   br label %.lr.ph
 
-.lr.ph:                                           ; preds = %.lr.ph.backedge, %.lr.ph.lr.ph
-  %33 = phi ptr [ %21, %.lr.ph.lr.ph ], [ %.be, %.lr.ph.backedge ]
-  %34 = getelementptr inbounds i8, ptr %33, i64 8
-  %35 = load ptr, ptr %34, align 8
-  %36 = getelementptr inbounds i8, ptr %35, i64 16
-  %37 = load i64, ptr %36, align 8
-  %.not70 = icmp eq i64 %37, 0
-  br i1 %.not70, label %.backedge, label %38
+.lr.ph:                                           ; preds = %.lr.ph.lr.ph, %.outer
+  %33 = phi ptr [ %21, %.lr.ph.lr.ph ], [ %114, %.outer ]
+  %.064.ph103 = phi i32 [ -1, %.lr.ph.lr.ph ], [ %.3, %.outer ]
+  br label %34
 
-38:                                               ; preds = %.lr.ph
-  %39 = load i32, ptr %33, align 8
-  %40 = call zeroext i1 @gres_id_shared(i32 noundef %39) #8
-  br i1 %40, label %41, label %44
+34:                                               ; preds = %.lr.ph, %.backedge
+  %35 = phi ptr [ %33, %.lr.ph ], [ %61, %.backedge ]
+  %36 = getelementptr inbounds i8, ptr %35, i64 8
+  %37 = load ptr, ptr %36, align 8
+  %38 = getelementptr inbounds i8, ptr %37, i64 16
+  %39 = load i64, ptr %38, align 8
+  %.not70 = icmp eq i64 %39, 0
+  br i1 %.not70, label %.backedge, label %40
 
-41:                                               ; preds = %38
-  %42 = getelementptr inbounds i8, ptr %33, i64 4
-  %43 = call ptr @list_find_first(ptr noundef nonnull %0, ptr noundef nonnull @gres_find_id, ptr noundef nonnull %42) #8
-  %.not71 = icmp eq ptr %43, null
-  br i1 %.not71, label %.backedge, label %44
+40:                                               ; preds = %34
+  %41 = load i32, ptr %35, align 8
+  %42 = call zeroext i1 @gres_id_shared(i32 noundef %41) #8
+  br i1 %42, label %43, label %46
 
-44:                                               ; preds = %41, %38
-  %45 = load ptr, ptr %35, align 8
-  %.not72 = icmp eq ptr %45, null
-  br i1 %.not72, label %54, label %46
+43:                                               ; preds = %40
+  %44 = getelementptr inbounds i8, ptr %35, i64 4
+  %45 = call ptr @list_find_first(ptr noundef nonnull %0, ptr noundef nonnull @gres_find_id, ptr noundef nonnull %44) #8
+  %.not71 = icmp eq ptr %45, null
+  br i1 %.not71, label %.backedge, label %46
 
-46:                                               ; preds = %44
-  %47 = getelementptr inbounds i8, ptr %33, i64 4
-  %48 = load i32, ptr %47, align 4
-  %49 = call zeroext i1 @gres_id_sharing(i32 noundef %48) #8
-  br i1 %49, label %50, label %54
+46:                                               ; preds = %43, %40
+  %47 = load ptr, ptr %37, align 8
+  %.not72 = icmp eq ptr %47, null
+  br i1 %.not72, label %56, label %48
 
-50:                                               ; preds = %46
-  %51 = load ptr, ptr %35, align 8
-  %52 = getelementptr inbounds i8, ptr %51, i64 4
-  %53 = call ptr @list_find_first(ptr noundef nonnull %0, ptr noundef nonnull @gres_find_id, ptr noundef nonnull %52) #8
-  %.not73 = icmp eq ptr %53, null
-  br i1 %.not73, label %54, label %.backedge
+48:                                               ; preds = %46
+  %49 = getelementptr inbounds i8, ptr %35, i64 4
+  %50 = load i32, ptr %49, align 4
+  %51 = call zeroext i1 @gres_id_sharing(i32 noundef %50) #8
+  br i1 %51, label %52, label %56
 
-54:                                               ; preds = %50, %46, %44
-  %55 = load i32, ptr %33, align 8
-  %56 = and i32 %55, 4096
-  %.not74 = icmp eq i32 %56, 0
-  br i1 %.not74, label %60, label %57
+52:                                               ; preds = %48
+  %53 = load ptr, ptr %37, align 8
+  %54 = getelementptr inbounds i8, ptr %53, i64 4
+  %55 = call ptr @list_find_first(ptr noundef nonnull %0, ptr noundef nonnull @gres_find_id, ptr noundef nonnull %54) #8
+  %.not73 = icmp eq ptr %55, null
+  br i1 %.not73, label %56, label %.backedge
 
-57:                                               ; preds = %54
+56:                                               ; preds = %52, %48, %46
+  %57 = load i32, ptr %35, align 8
+  %58 = and i32 %57, 4096
+  %.not74 = icmp eq i32 %58, 0
+  br i1 %.not74, label %62, label %59
+
+59:                                               ; preds = %56
   store ptr %8, ptr %12, align 8
-  store ptr %33, ptr %22, align 8
+  store ptr %35, ptr %22, align 8
   store i32 %6, ptr %23, align 8
   store ptr %1, ptr %24, align 8
   store i8 %13, ptr %25, align 8
@@ -1963,132 +1968,138 @@ define dso_local noundef i32 @gres_ctld_job_alloc_whole_node(ptr noundef %0, ptr
   store i32 %4, ptr %27, align 8
   store i32 %5, ptr %28, align 4
   store ptr %7, ptr %29, align 8
-  store i32 -1, ptr %30, align 8
-  %58 = call i32 @list_for_each(ptr noundef nonnull %0, ptr noundef nonnull @_handle_explicit_alloc, ptr noundef nonnull %12) #8
+  store i32 %.064.ph103, ptr %30, align 8
+  %60 = call i32 @list_for_each(ptr noundef nonnull %0, ptr noundef nonnull @_handle_explicit_alloc, ptr noundef nonnull %12) #8
   br label %.backedge
 
-.backedge:                                        ; preds = %57, %.lr.ph, %41, %50
-  %59 = call ptr @list_next(ptr noundef %20) #8
-  %.not = icmp eq ptr %59, null
-  br i1 %.not, label %.outer._crit_edge, label %.lr.ph.backedge
+.backedge:                                        ; preds = %59, %34, %43, %52
+  %61 = call ptr @list_next(ptr noundef %20) #8
+  %.not = icmp eq ptr %61, null
+  br i1 %.not, label %.outer._crit_edge, label %34, !llvm.loop !25
 
-.lr.ph.backedge:                                  ; preds = %.backedge, %.outer
-  %.be = phi ptr [ %59, %.backedge ], [ %111, %.outer ]
-  br label %.lr.ph, !llvm.loop !26
+62:                                               ; preds = %56
+  %63 = getelementptr inbounds i8, ptr %35, i64 8
+  store i32 %57, ptr %11, align 4
+  %64 = getelementptr inbounds i8, ptr %35, i64 4
+  %65 = load i32, ptr %64, align 4
+  store i32 %65, ptr %31, align 4
+  %66 = getelementptr inbounds i8, ptr %37, i64 128
+  %67 = load i16, ptr %66, align 8
+  %.not75 = icmp eq i16 %67, 0
+  br i1 %.not75, label %69, label %.lr.ph100
 
-60:                                               ; preds = %54
-  %61 = getelementptr inbounds i8, ptr %33, i64 8
-  store i32 %55, ptr %11, align 4
-  %62 = getelementptr inbounds i8, ptr %33, i64 4
-  %63 = load i32, ptr %62, align 4
-  store i32 %63, ptr %31, align 4
-  %64 = getelementptr inbounds i8, ptr %35, i64 128
-  %65 = load i16, ptr %64, align 8
-  %.not75 = icmp eq i16 %65, 0
-  br i1 %.not75, label %67, label %.lr.ph96
+.lr.ph100:                                        ; preds = %62
+  %68 = getelementptr inbounds i8, ptr %37, i64 160
+  br label %86
 
-.lr.ph96:                                         ; preds = %60
-  %66 = getelementptr inbounds i8, ptr %35, i64 160
-  br label %84
-
-67:                                               ; preds = %60
+69:                                               ; preds = %62
   store i32 0, ptr %32, align 4
-  %68 = load ptr, ptr %61, align 8
-  %69 = load ptr, ptr %1, align 8
-  %70 = icmp eq ptr %69, null
-  br i1 %70, label %71, label %73
+  %70 = load ptr, ptr %63, align 8
+  %71 = load ptr, ptr %1, align 8
+  %72 = icmp eq ptr %71, null
+  br i1 %72, label %73, label %75
 
-71:                                               ; preds = %67
-  %72 = call ptr @list_create(ptr noundef nonnull @gres_job_list_delete) #8
-  store ptr %72, ptr %1, align 8
-  br label %73
+73:                                               ; preds = %69
+  %74 = call ptr @list_create(ptr noundef nonnull @gres_job_list_delete) #8
+  store ptr %74, ptr %1, align 8
+  br label %75
 
-73:                                               ; preds = %71, %67
-  %74 = call ptr @list_find_first(ptr noundef nonnull %0, ptr noundef nonnull @gres_find_job_by_key, ptr noundef nonnull %11) #8
-  %.not.i = icmp eq ptr %74, null
+75:                                               ; preds = %73, %69
+  %76 = call ptr @list_find_first(ptr noundef nonnull %0, ptr noundef nonnull @gres_find_job_by_key, ptr noundef nonnull %11) #8
+  %.not.i = icmp eq ptr %76, null
   br i1 %.not.i, label %_job_alloc_whole_node_internal.exit.thread, label %_job_alloc_whole_node_internal.exit
 
-_job_alloc_whole_node_internal.exit.thread:       ; preds = %73
-  %75 = load i32, ptr %31, align 4
-  %76 = load i32, ptr %32, align 4
-  %77 = call i32 (ptr, ...) @error(ptr noundef nonnull @.str.39, ptr noundef nonnull @__func__._job_alloc_whole_node_internal, i32 noundef %75, i32 noundef %76) #8
+_job_alloc_whole_node_internal.exit.thread:       ; preds = %75
+  %77 = load i32, ptr %31, align 4
+  %78 = load i32, ptr %32, align 4
+  %79 = call i32 (ptr, ...) @error(ptr noundef nonnull @.str.39, ptr noundef nonnull @__func__._job_alloc_whole_node_internal, i32 noundef %77, i32 noundef %78) #8
   br label %.outer
 
-_job_alloc_whole_node_internal.exit:              ; preds = %73
-  %78 = getelementptr inbounds i8, ptr %74, i64 8
-  %79 = load ptr, ptr %78, align 8
-  %80 = getelementptr inbounds i8, ptr %68, i64 32
-  %.sink.i = load i64, ptr %80, align 8
-  %81 = getelementptr inbounds i8, ptr %79, i64 32
-  store i64 %.sink.i, ptr %81, align 8
-  %82 = load ptr, ptr %1, align 8
-  %83 = call fastcc i32 @_job_alloc(ptr noundef nonnull %74, ptr noundef %82, ptr noundef nonnull %33, i32 noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6, ptr noundef %7, ptr noundef %8, i1 noundef zeroext %9), !range !11
+_job_alloc_whole_node_internal.exit:              ; preds = %75
+  %80 = getelementptr inbounds i8, ptr %76, i64 8
+  %81 = load ptr, ptr %80, align 8
+  %82 = getelementptr inbounds i8, ptr %70, i64 32
+  %.sink.i = load i64, ptr %82, align 8
+  %83 = getelementptr inbounds i8, ptr %81, i64 32
+  store i64 %.sink.i, ptr %83, align 8
+  %84 = load ptr, ptr %1, align 8
+  %85 = call fastcc i32 @_job_alloc(ptr noundef nonnull %76, ptr noundef %84, ptr noundef nonnull %35, i32 noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6, ptr noundef %7, ptr noundef %8, i1 noundef zeroext %9)
+  %.fr91 = freeze i32 %85
+  %.not76 = icmp eq i32 %.fr91, 0
+  %spec.select = select i1 %.not76, i32 %.064.ph103, i32 %.fr91
   br label %.outer
 
-84:                                               ; preds = %.lr.ph96, %107
-  %indvars.iv = phi i64 [ 0, %.lr.ph96 ], [ %indvars.iv.next, %107 ]
-  %85 = load ptr, ptr %66, align 8
-  %86 = getelementptr inbounds ptr, ptr %85, i64 %indvars.iv
-  %87 = load ptr, ptr %86, align 8
-  %88 = call i32 @gres_build_id(ptr noundef %87) #8
-  store i32 %88, ptr %32, align 4
-  %89 = load ptr, ptr %61, align 8
-  %90 = load ptr, ptr %1, align 8
-  %91 = icmp eq ptr %90, null
-  br i1 %91, label %92, label %94
+86:                                               ; preds = %.lr.ph100, %109
+  %indvars.iv = phi i64 [ 0, %.lr.ph100 ], [ %indvars.iv.next, %109 ]
+  %.198 = phi i32 [ %.064.ph103, %.lr.ph100 ], [ %110, %109 ]
+  %87 = load ptr, ptr %68, align 8
+  %88 = getelementptr inbounds ptr, ptr %87, i64 %indvars.iv
+  %89 = load ptr, ptr %88, align 8
+  %90 = call i32 @gres_build_id(ptr noundef %89) #8
+  store i32 %90, ptr %32, align 4
+  %91 = load ptr, ptr %63, align 8
+  %92 = load ptr, ptr %1, align 8
+  %93 = icmp eq ptr %92, null
+  br i1 %93, label %94, label %96
 
-92:                                               ; preds = %84
-  %93 = call ptr @list_create(ptr noundef nonnull @gres_job_list_delete) #8
-  store ptr %93, ptr %1, align 8
-  br label %94
+94:                                               ; preds = %86
+  %95 = call ptr @list_create(ptr noundef nonnull @gres_job_list_delete) #8
+  store ptr %95, ptr %1, align 8
+  br label %96
 
-94:                                               ; preds = %92, %84
-  %95 = call ptr @list_find_first(ptr noundef nonnull %0, ptr noundef nonnull @gres_find_job_by_key, ptr noundef nonnull %11) #8
-  %.not.i79 = icmp eq ptr %95, null
+96:                                               ; preds = %94, %86
+  %97 = call ptr @list_find_first(ptr noundef nonnull %0, ptr noundef nonnull @gres_find_job_by_key, ptr noundef nonnull %11) #8
+  %.not.i79 = icmp eq ptr %97, null
   br i1 %.not.i79, label %_job_alloc_whole_node_internal.exit82.thread, label %_job_alloc_whole_node_internal.exit82
 
-_job_alloc_whole_node_internal.exit82.thread:     ; preds = %94
-  %96 = load i32, ptr %31, align 4
-  %97 = load i32, ptr %32, align 4
-  %98 = call i32 (ptr, ...) @error(ptr noundef nonnull @.str.39, ptr noundef nonnull @__func__._job_alloc_whole_node_internal, i32 noundef %96, i32 noundef %97) #8
-  br label %107
+_job_alloc_whole_node_internal.exit82.thread:     ; preds = %96
+  %98 = load i32, ptr %31, align 4
+  %99 = load i32, ptr %32, align 4
+  %100 = call i32 (ptr, ...) @error(ptr noundef nonnull @.str.39, ptr noundef nonnull @__func__._job_alloc_whole_node_internal, i32 noundef %98, i32 noundef %99) #8
+  br label %109
 
-_job_alloc_whole_node_internal.exit82:            ; preds = %94
-  %99 = getelementptr inbounds i8, ptr %95, i64 8
-  %100 = load ptr, ptr %99, align 8
-  %101 = getelementptr inbounds i8, ptr %89, i64 144
+_job_alloc_whole_node_internal.exit82:            ; preds = %96
+  %101 = getelementptr inbounds i8, ptr %97, i64 8
   %102 = load ptr, ptr %101, align 8
-  %103 = getelementptr inbounds i64, ptr %102, i64 %indvars.iv
-  %.sink.i80 = load i64, ptr %103, align 8
-  %104 = getelementptr inbounds i8, ptr %100, i64 32
-  store i64 %.sink.i80, ptr %104, align 8
-  %105 = load ptr, ptr %1, align 8
-  %106 = call fastcc i32 @_job_alloc(ptr noundef nonnull %95, ptr noundef %105, ptr noundef nonnull %33, i32 noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6, ptr noundef %7, ptr noundef %8, i1 noundef zeroext %9), !range !11
-  br label %107
+  %103 = getelementptr inbounds i8, ptr %91, i64 144
+  %104 = load ptr, ptr %103, align 8
+  %105 = getelementptr inbounds i64, ptr %104, i64 %indvars.iv
+  %.sink.i80 = load i64, ptr %105, align 8
+  %106 = getelementptr inbounds i8, ptr %102, i64 32
+  store i64 %.sink.i80, ptr %106, align 8
+  %107 = load ptr, ptr %1, align 8
+  %108 = call fastcc i32 @_job_alloc(ptr noundef nonnull %97, ptr noundef %107, ptr noundef nonnull %35, i32 noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6, ptr noundef %7, ptr noundef %8, i1 noundef zeroext %9)
+  %.fr = freeze i32 %108
+  %.not77 = icmp eq i32 %.fr, 0
+  %spec.select90 = select i1 %.not77, i32 %.198, i32 -1
+  br label %109
 
-107:                                              ; preds = %_job_alloc_whole_node_internal.exit82, %_job_alloc_whole_node_internal.exit82.thread
+109:                                              ; preds = %_job_alloc_whole_node_internal.exit82, %_job_alloc_whole_node_internal.exit82.thread
+  %110 = phi i32 [ -1, %_job_alloc_whole_node_internal.exit82.thread ], [ %spec.select90, %_job_alloc_whole_node_internal.exit82 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %108 = load i16, ptr %64, align 8
-  %109 = zext i16 %108 to i64
-  %110 = icmp ult i64 %indvars.iv.next, %109
-  br i1 %110, label %84, label %.outer, !llvm.loop !27
+  %111 = load i16, ptr %66, align 8
+  %112 = zext i16 %111 to i64
+  %113 = icmp ult i64 %indvars.iv.next, %112
+  br i1 %113, label %86, label %.outer, !llvm.loop !26
 
-.outer:                                           ; preds = %107, %_job_alloc_whole_node_internal.exit, %_job_alloc_whole_node_internal.exit.thread
-  %111 = call ptr @list_next(ptr noundef %20) #8
-  %.not92 = icmp eq ptr %111, null
-  br i1 %.not92, label %.outer._crit_edge, label %.lr.ph.backedge
+.outer:                                           ; preds = %109, %_job_alloc_whole_node_internal.exit, %_job_alloc_whole_node_internal.exit.thread
+  %.3 = phi i32 [ -1, %_job_alloc_whole_node_internal.exit.thread ], [ %spec.select, %_job_alloc_whole_node_internal.exit ], [ %110, %109 ]
+  %114 = call ptr @list_next(ptr noundef %20) #8
+  %.not96 = icmp eq ptr %114, null
+  br i1 %.not96, label %.outer._crit_edge, label %.lr.ph, !llvm.loop !25
 
 .outer._crit_edge:                                ; preds = %.outer, %.backedge, %19
+  %.064.ph.lcssa = phi i32 [ -1, %19 ], [ %.064.ph103, %.backedge ], [ %.3, %.outer ]
   call void @list_iterator_destroy(ptr noundef %20) #8
-  br label %112
+  br label %115
 
-112:                                              ; preds = %10, %.outer._crit_edge, %17
-  %.063 = phi i32 [ -1, %17 ], [ -1, %.outer._crit_edge ], [ 0, %10 ]
+115:                                              ; preds = %10, %.outer._crit_edge, %17
+  %.063 = phi i32 [ -1, %17 ], [ %.064.ph.lcssa, %.outer._crit_edge ], [ 0, %10 ]
   ret i32 %.063
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @gres_ctld_job_dealloc(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, ptr noundef %4, i1 noundef zeroext %5, i1 noundef zeroext %6) local_unnamed_addr #0 {
+define dso_local range(i32 2123, 2122) i32 @gres_ctld_job_dealloc(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, ptr noundef %4, i1 noundef zeroext %5, i1 noundef zeroext %6) local_unnamed_addr #0 {
   %8 = icmp eq ptr %0, null
   br i1 %8, label %418, label %9
 
@@ -2130,7 +2141,7 @@ define dso_local i32 @gres_ctld_job_dealloc(ptr noundef %0, ptr noundef %1, i32 
   %27 = tail call i32 (ptr, ...) @error(ptr noundef nonnull @.str.2, ptr noundef nonnull @__func__.gres_ctld_job_dealloc, ptr noundef %4, ptr noundef %26, i32 noundef %3) #8
   %28 = tail call ptr @list_next(ptr noundef %14) #8
   %.not = icmp eq ptr %28, null
-  br i1 %.not, label %.outer._crit_edge, label %19, !llvm.loop !28
+  br i1 %.not, label %.outer._crit_edge, label %19, !llvm.loop !27
 
 29:                                               ; preds = %19
   %30 = getelementptr inbounds i8, ptr %22, i64 8
@@ -2278,7 +2289,7 @@ define dso_local i32 @gres_ctld_job_dealloc(ptr noundef %0, ptr noundef %1, i32 
 104:                                              ; preds = %102, %.lr.ph.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %.critedge.i, label %.lr.ph.i, !llvm.loop !29
+  br i1 %exitcond.not.i, label %.critedge.i, label %.lr.ph.i, !llvm.loop !28
 
 105:                                              ; preds = %74, %71, %68, %65, %61
   %106 = getelementptr inbounds i8, ptr %33, i64 136
@@ -2449,7 +2460,7 @@ define dso_local i32 @gres_ctld_job_dealloc(ptr noundef %0, ptr noundef %1, i32 
   %indvars.iv.next463.i = add nuw nsw i64 %indvars.iv462.i, 1
   %190 = zext i16 %189 to i64
   %191 = icmp ult i64 %indvars.iv.next463.i, %190
-  br i1 %191, label %.lr.ph417.split.us.i, label %.loopexit412.i, !llvm.loop !30
+  br i1 %191, label %.lr.ph417.split.us.i, label %.loopexit412.i, !llvm.loop !29
 
 .lr.ph417.split.i:                                ; preds = %.lr.ph417.i, %212
   %indvars.iv459.i = phi i64 [ %indvars.iv.next460.i, %212 ], [ 0, %.lr.ph417.i ]
@@ -2493,14 +2504,14 @@ define dso_local i32 @gres_ctld_job_dealloc(ptr noundef %0, ptr noundef %1, i32 
   %213 = load i16, ptr %131, align 8
   %214 = zext i16 %213 to i64
   %215 = icmp ult i64 %indvars.iv.next460.i, %214
-  br i1 %215, label %.lr.ph417.split.i, label %.loopexit412.i, !llvm.loop !30
+  br i1 %215, label %.lr.ph417.split.i, label %.loopexit412.i, !llvm.loop !29
 
 .loopexit412.i:                                   ; preds = %212, %188, %170, %167, %164, %137
   %indvars.iv.next466.i = add nuw nsw i64 %indvars.iv465.i, 1
   %216 = load i16, ptr %129, align 8
   %217 = zext i16 %216 to i64
   %218 = icmp ult i64 %indvars.iv.next466.i, %217
-  br i1 %218, label %137, label %.loopexit.i, !llvm.loop !31
+  br i1 %218, label %137, label %.loopexit.i, !llvm.loop !30
 
 219:                                              ; preds = %125
   %220 = getelementptr inbounds i8, ptr %31, i64 96
@@ -2577,7 +2588,7 @@ define dso_local i32 @gres_ctld_job_dealloc(ptr noundef %0, ptr noundef %1, i32 
   br label %267
 
 262:                                              ; preds = %254
-  %263 = trunc i64 %indvars.iv471.i to i32
+  %263 = trunc nuw nsw i64 %indvars.iv471.i to i32
   %264 = tail call i32 (ptr, ...) @error(ptr noundef nonnull @.str.48, ptr noundef %35, i32 noundef %3, ptr noundef %4, i32 noundef %263, i64 noundef %252, i64 noundef %259) #8
   %265 = load ptr, ptr %220, align 8
   %266 = getelementptr inbounds i64, ptr %265, i64 %indvars.iv471.i
@@ -2643,12 +2654,12 @@ define dso_local i32 @gres_ctld_job_dealloc(ptr noundef %0, ptr noundef %1, i32 
   %299 = load i16, ptr %238, align 8
   %300 = zext i16 %299 to i64
   %301 = icmp ult i64 %indvars.iv.next469.i, %300
-  br i1 %301, label %.lr.ph421.i, label %.loopexit409.i, !llvm.loop !32
+  br i1 %301, label %.lr.ph421.i, label %.loopexit409.i, !llvm.loop !31
 
 .loopexit409.i:                                   ; preds = %298, %274, %271, %267, %249, %244
   %indvars.iv.next472.i = add nuw nsw i64 %indvars.iv471.i, 1
   %exitcond475.not.i = icmp eq i64 %indvars.iv.next472.i, %wide.trip.count474.i
-  br i1 %exitcond475.not.i, label %.loopexit.i, label %244, !llvm.loop !33
+  br i1 %exitcond475.not.i, label %.loopexit.i, label %244, !llvm.loop !32
 
 .thread:                                          ; preds = %128, %219, %122, %.critedge.i
   %302 = getelementptr inbounds i8, ptr %33, i64 8
@@ -2699,7 +2710,7 @@ define dso_local i32 @gres_ctld_job_dealloc(ptr noundef %0, ptr noundef %1, i32 
   %indvars.iv.next477.i = add nuw nsw i64 %indvars.iv476.i, 1
   %323 = zext i16 %322 to i64
   %324 = icmp ult i64 %indvars.iv.next477.i, %323
-  br i1 %324, label %308, label %.loopexit.i, !llvm.loop !34
+  br i1 %324, label %308, label %.loopexit.i, !llvm.loop !33
 
 .loopexit.i:                                      ; preds = %.loopexit412.i, %.loopexit409.i, %321, %314, %.preheader407.i, %.thread, %233, %.preheader413.i
   br i1 %6, label %325, label %_job_dealloc.exit.thread
@@ -2737,10 +2748,10 @@ define dso_local i32 @gres_ctld_job_dealloc(ptr noundef %0, ptr noundef %1, i32 
   store i64 %340, ptr %342, align 8
   %indvars.iv.next480.i = add nuw nsw i64 %indvars.iv479.i, 1
   %343 = load i32, ptr %41, align 8
-  %344 = trunc i64 %indvars.iv.next480.i to i32
+  %344 = trunc nsw i64 %indvars.iv.next480.i to i32
   %345 = icmp ugt i32 %343, %344
-  %346 = trunc i64 %indvars.iv479.i to i32
-  br i1 %345, label %.lr.ph433.i, label %._crit_edge.loopexit.i, !llvm.loop !35
+  %346 = trunc nsw i64 %indvars.iv479.i to i32
+  br i1 %345, label %.lr.ph433.i, label %._crit_edge.loopexit.i, !llvm.loop !34
 
 ._crit_edge.loopexit.i:                           ; preds = %.lr.ph433.i
   %.pre492.i = load ptr, ptr %328, align 8
@@ -2788,10 +2799,10 @@ define dso_local i32 @gres_ctld_job_dealloc(ptr noundef %0, ptr noundef %1, i32 
   store ptr %363, ptr %365, align 8
   %indvars.iv.next483.i = add nuw nsw i64 %indvars.iv482.i, 1
   %366 = load i32, ptr %41, align 8
-  %367 = trunc i64 %indvars.iv.next483.i to i32
+  %367 = trunc nsw i64 %indvars.iv.next483.i to i32
   %368 = icmp ugt i32 %366, %367
-  %369 = trunc i64 %indvars.iv482.i to i32
-  br i1 %368, label %.lr.ph438.i, label %._crit_edge439.i, !llvm.loop !36
+  %369 = trunc nsw i64 %indvars.iv482.i to i32
+  br i1 %368, label %.lr.ph438.i, label %._crit_edge439.i, !llvm.loop !35
 
 ._crit_edge439.i:                                 ; preds = %.lr.ph438.i, %356
   %370 = load ptr, ptr %120, align 8
@@ -2836,10 +2847,10 @@ define dso_local i32 @gres_ctld_job_dealloc(ptr noundef %0, ptr noundef %1, i32 
   store ptr %387, ptr %389, align 8
   %indvars.iv.next486.i = add nuw nsw i64 %indvars.iv485.i, 1
   %390 = load i32, ptr %41, align 8
-  %391 = trunc i64 %indvars.iv.next486.i to i32
+  %391 = trunc nsw i64 %indvars.iv.next486.i to i32
   %392 = icmp ugt i32 %390, %391
-  %393 = trunc i64 %indvars.iv485.i to i32
-  br i1 %392, label %.lr.ph444.i, label %._crit_edge445.i, !llvm.loop !37
+  %393 = trunc nsw i64 %indvars.iv485.i to i32
+  br i1 %392, label %.lr.ph444.i, label %._crit_edge445.i, !llvm.loop !36
 
 ._crit_edge445.i:                                 ; preds = %.lr.ph444.i, %380
   %394 = load ptr, ptr %374, align 8
@@ -2870,10 +2881,10 @@ define dso_local i32 @gres_ctld_job_dealloc(ptr noundef %0, ptr noundef %1, i32 
   store i64 %403, ptr %405, align 8
   %indvars.iv.next489.i = add nuw nsw i64 %indvars.iv488.i, 1
   %406 = load i32, ptr %41, align 8
-  %407 = trunc i64 %indvars.iv.next489.i to i32
+  %407 = trunc nsw i64 %indvars.iv.next489.i to i32
   %408 = icmp ugt i32 %406, %407
-  %409 = trunc i64 %indvars.iv488.i to i32
-  br i1 %408, label %.lr.ph449.i, label %._crit_edge450.loopexit.i, !llvm.loop !38
+  %409 = trunc nsw i64 %indvars.iv488.i to i32
+  br i1 %408, label %.lr.ph449.i, label %._crit_edge450.loopexit.i, !llvm.loop !37
 
 ._crit_edge450.loopexit.i:                        ; preds = %.lr.ph449.i
   %.pre495.i = load ptr, ptr %398, align 8
@@ -2901,7 +2912,7 @@ _job_dealloc.exit.thread:                         ; preds = %.loopexit.i, %29, %
   %.1 = phi i32 [ %.025.ph45, %_job_dealloc.exit ], [ -1, %43 ], [ -1, %59 ], [ %.025.ph45, %413 ], [ %.025.ph45, %29 ], [ %.025.ph45, %.loopexit.i ]
   %417 = tail call ptr @list_next(ptr noundef %14) #8
   %.not42 = icmp eq ptr %417, null
-  br i1 %.not42, label %.outer._crit_edge, label %.lr.ph, !llvm.loop !28
+  br i1 %.not42, label %.outer._crit_edge, label %.lr.ph, !llvm.loop !27
 
 .outer._crit_edge:                                ; preds = %_job_dealloc.exit.thread, %24, %13
   %.025.ph.lcssa = phi i32 [ 0, %13 ], [ %.025.ph45, %24 ], [ %.1, %_job_dealloc.exit.thread ]
@@ -3067,7 +3078,7 @@ define dso_local void @gres_ctld_job_merge(ptr noundef %0, ptr noundef %1, ptr n
 87:                                               ; preds = %50, %81, %79
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %50, !llvm.loop !39
+  br i1 %exitcond.not, label %._crit_edge, label %50, !llvm.loop !38
 
 ._crit_edge:                                      ; preds = %87, %38
   %88 = getelementptr inbounds i8, ptr %41, i64 120
@@ -3086,7 +3097,7 @@ define dso_local void @gres_ctld_job_merge(ptr noundef %0, ptr noundef %1, ptr n
   store ptr %45, ptr %92, align 8
   %93 = call ptr @list_next(ptr noundef %33) #8
   %.not201 = icmp eq ptr %93, null
-  br i1 %.not201, label %._crit_edge245, label %38, !llvm.loop !40
+  br i1 %.not201, label %._crit_edge245, label %38, !llvm.loop !39
 
 ._crit_edge245:                                   ; preds = %._crit_edge, %32
   call void @list_iterator_destroy(ptr noundef %33) #8
@@ -3119,7 +3130,7 @@ define dso_local void @gres_ctld_job_merge(ptr noundef %0, ptr noundef %1, ptr n
 .loopexit:                                        ; preds = %197, %141
   %101 = call ptr @list_next(ptr noundef %96) #8
   %.not203 = icmp eq ptr %101, null
-  br i1 %.not203, label %._crit_edge255, label %102, !llvm.loop !41
+  br i1 %.not203, label %._crit_edge255, label %102, !llvm.loop !40
 
 102:                                              ; preds = %.lr.ph254, %.loopexit
   %103 = phi ptr [ %97, %.lr.ph254 ], [ %101, %.loopexit ]
@@ -3316,7 +3327,7 @@ define dso_local void @gres_ctld_job_merge(ptr noundef %0, ptr noundef %1, ptr n
 197:                                              ; preds = %147, %195, %191, %.thread282
   %indvars.iv.next258 = add nuw nsw i64 %indvars.iv257, 1
   %exitcond261.not = icmp eq i64 %indvars.iv.next258, %wide.trip.count260
-  br i1 %exitcond261.not, label %.loopexit, label %147, !llvm.loop !42
+  br i1 %exitcond261.not, label %.loopexit, label %147, !llvm.loop !41
 
 ._crit_edge255:                                   ; preds = %.loopexit, %95
   call void @list_iterator_destroy(ptr noundef %96) #8
@@ -3401,7 +3412,7 @@ define dso_local void @gres_ctld_job_build_details(ptr noundef %0, ptr noundef %
   %15 = load i32, ptr %2, align 4
   %16 = zext i32 %15 to i64
   %17 = icmp ult i64 %indvars.iv.next, %16
-  br i1 %17, label %.lr.ph, label %._crit_edge, !llvm.loop !43
+  br i1 %17, label %.lr.ph, label %._crit_edge, !llvm.loop !42
 
 ._crit_edge:                                      ; preds = %.lr.ph, %5
   tail call void @slurm_xfree(ptr noundef %3) #8
@@ -3431,7 +3442,7 @@ define dso_local void @gres_ctld_job_build_details(ptr noundef %0, ptr noundef %
   %27 = getelementptr inbounds i8, ptr %26, i64 128
   %28 = load ptr, ptr %27, align 8
   %29 = icmp eq ptr %28, null
-  br i1 %29, label %22, label %30, !llvm.loop !44
+  br i1 %29, label %22, label %30, !llvm.loop !43
 
 30:                                               ; preds = %24
   %31 = getelementptr inbounds i8, ptr %26, i64 128
@@ -3518,7 +3529,7 @@ define dso_local void @gres_ctld_job_build_details(ptr noundef %0, ptr noundef %
   br label %_build_shared_gres_details.exit
 
 71:                                               ; preds = %67
-  %72 = trunc i64 %indvars.iv108 to i32
+  %72 = trunc nuw nsw i64 %indvars.iv108 to i32
   %73 = call ptr @hostlist_nth(ptr noundef nonnull %68, i32 noundef %72) #8
   %.not32.i = icmp eq ptr %73, null
   call void @hostlist_destroy(ptr noundef nonnull %68) #8
@@ -3575,7 +3586,7 @@ define dso_local void @gres_ctld_job_build_details(ptr noundef %0, ptr noundef %
   call void (ptr, ptr, ptr, ...) @_xstrfmtcatat(ptr noundef nonnull %7, ptr noundef nonnull %6, ptr noundef nonnull @.str.52, i64 noundef %98, i64 noundef %101) #8
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %._crit_edge.i, label %93, !llvm.loop !45
+  br i1 %exitcond.not.i, label %._crit_edge.i, label %93, !llvm.loop !44
 
 ._crit_edge.i:                                    ; preds = %93
   %.pre.i = load ptr, ptr %6, align 8
@@ -3619,7 +3630,7 @@ _build_shared_gres_details.exit:                  ; preds = %69, %71, %76, %78, 
 112:                                              ; preds = %_build_shared_gres_details.exit, %109, %110, %106
   %indvars.iv.next109 = add nuw nsw i64 %indvars.iv108, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next109, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge100.loopexit, label %48, !llvm.loop !46
+  br i1 %exitcond.not, label %._crit_edge100.loopexit, label %48, !llvm.loop !45
 
 ._crit_edge100.loopexit:                          ; preds = %48, %112
   %.067.lcssa.ph = phi i64 [ %58, %112 ], [ %.06797, %48 ]
@@ -3634,7 +3645,7 @@ _build_shared_gres_details.exit:                  ; preds = %69, %71, %76, %78, 
   %115 = select i1 %.not90, ptr @.str.8, ptr @.str.10
   call void (ptr, ptr, ...) @_xstrfmtcat(ptr noundef nonnull %10, ptr noundef nonnull @.str.14, ptr noundef nonnull %115, ptr noundef %113, i64 noundef %.067.lcssa) #8
   call void @slurm_xfree(ptr noundef nonnull %9) #8
-  br label %.outer, !llvm.loop !44
+  br label %.outer, !llvm.loop !43
 
 116:                                              ; preds = %22
   call void @list_iterator_destroy(ptr noundef %21) #8
@@ -3760,7 +3771,7 @@ define internal fastcc void @_set_type_tres_cnt(ptr noundef %0, ptr noundef %1, 
   %41 = call i32 (ptr, ...) @error(ptr noundef nonnull @.str.23, ptr noundef nonnull @__func__._set_type_tres_cnt, i32 noundef %21) #8
   %42 = call ptr @list_next(ptr noundef %13) #8
   %.not = icmp eq ptr %42, null
-  br i1 %.not, label %.outer._crit_edge, label %16, !llvm.loop !47
+  br i1 %.not, label %.outer._crit_edge, label %16, !llvm.loop !46
 
 43:                                               ; preds = %32, %35
   %.059 = phi i64 [ %39, %35 ], [ %26, %32 ]
@@ -3900,7 +3911,7 @@ define internal fastcc void @_set_type_tres_cnt(ptr noundef %0, ptr noundef %1, 
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %109 = zext i16 %108 to i64
   %110 = icmp ult i64 %indvars.iv.next, %109
-  br i1 %110, label %91, label %.outer.backedge, !llvm.loop !48
+  br i1 %110, label %91, label %.outer.backedge, !llvm.loop !47
 
 111:                                              ; preds = %62
   %112 = call i32 (ptr, ...) @error(ptr noundef nonnull @.str.23, ptr noundef nonnull @__func__._set_type_tres_cnt, i32 noundef %63) #8
@@ -3909,7 +3920,7 @@ define internal fastcc void @_set_type_tres_cnt(ptr noundef %0, ptr noundef %1, 
 .outer.backedge:                                  ; preds = %107, %77, %81, %78, %76, %84, %111
   %113 = call ptr @list_next(ptr noundef %13) #8
   %.not89 = icmp eq ptr %113, null
-  br i1 %.not89, label %.outer._crit_edge, label %.lr.ph, !llvm.loop !47
+  br i1 %.not89, label %.outer._crit_edge, label %.lr.ph, !llvm.loop !46
 
 .outer._crit_edge:                                ; preds = %.outer.backedge, %40, %12
   call void @list_iterator_destroy(ptr noundef %13) #8
@@ -4137,7 +4148,7 @@ _step_get_gres_needed.exit:                       ; preds = %66, %72, %77, %84, 
   %.2 = phi i32 [ 2134, %115 ], [ %spec.select, %106 ]
   %120 = call ptr @list_next(ptr noundef %31) #8
   %.not46 = icmp eq ptr %120, null
-  br i1 %.not46, label %._crit_edge, label %52, !llvm.loop !49
+  br i1 %.not46, label %._crit_edge, label %52, !llvm.loop !48
 
 ._crit_edge:                                      ; preds = %119, %28
   %.040.lcssa = phi i32 [ 0, %28 ], [ %.2, %119 ]
@@ -4155,7 +4166,7 @@ declare void @gres_step_list_delete(ptr noundef) #1
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #2
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @_step_alloc_type(ptr noundef %0, ptr noundef %1) #0 {
+define internal range(i32 -1, 1) i32 @_step_alloc_type(ptr noundef %0, ptr noundef %1) #0 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
   %5 = alloca %struct.gres_search_key, align 4
@@ -4588,7 +4599,7 @@ _init_step_gres_per_bit.exit.i.i:                 ; preds = %211, %207, %167
   br i1 %.not71.i.us.i, label %249, label %_shared_step_gres_avail.exit.thread.i.us.i
 
 249:                                              ; preds = %247
-  %250 = trunc i64 %indvars.iv.i.us.i to i32
+  %250 = trunc nuw nsw i64 %indvars.iv.i.us.i to i32
   %251 = call fastcc zeroext i1 @_cores_on_gres(ptr noundef %80, ptr noundef null, ptr noundef %169, i32 noundef %250, ptr noundef %152)
   br i1 %251, label %252, label %_shared_step_gres_avail.exit.thread.i.us.i
 
@@ -4637,7 +4648,7 @@ _shared_step_gres_avail.exit.thread.i.us.i:       ; preds = %269, %257, %255, %2
   %276 = icmp ult i64 %indvars.iv.next.i.us.i, %242
   %277 = icmp ne i64 %.2.i.us.i, 0
   %278 = select i1 %276, i1 %277, i1 false
-  br i1 %278, label %.lr.ph.i.split.us.i, label %._crit_edge.i.i, !llvm.loop !50
+  br i1 %278, label %.lr.ph.i.split.us.i, label %._crit_edge.i.i, !llvm.loop !49
 
 .lr.ph.i.split.i:                                 ; preds = %_shared_step_gres_avail.exit.thread.i.i, %.lr.ph.i.split.preheader.i
   %indvars.iv.i.i = phi i64 [ %indvars.iv.next.i.i, %_shared_step_gres_avail.exit.thread.i.i ], [ 0, %.lr.ph.i.split.preheader.i ]
@@ -4652,7 +4663,7 @@ _shared_step_gres_avail.exit.thread.i.us.i:       ; preds = %269, %257, %255, %2
   br i1 %.not71.i.i, label %282, label %_shared_step_gres_avail.exit.thread.i.i
 
 282:                                              ; preds = %280
-  %283 = trunc i64 %indvars.iv.i.i to i32
+  %283 = trunc nuw nsw i64 %indvars.iv.i.i to i32
   %284 = call fastcc zeroext i1 @_cores_on_gres(ptr noundef %80, ptr noundef null, ptr noundef %169, i32 noundef %283, ptr noundef %152)
   br i1 %284, label %285, label %_shared_step_gres_avail.exit.thread.i.i
 
@@ -4692,7 +4703,7 @@ _shared_step_gres_avail.exit.thread.i.i:          ; preds = %299, %293, %.thread
   %301 = icmp ult i64 %indvars.iv.next.i.i, %245
   %302 = icmp ne i64 %.2.i.i, 0
   %303 = select i1 %301, i1 %302, i1 false
-  br i1 %303, label %.lr.ph.i.split.i, label %._crit_edge.i.i, !llvm.loop !50
+  br i1 %303, label %.lr.ph.i.split.i, label %._crit_edge.i.i, !llvm.loop !49
 
 ._crit_edge.i.i:                                  ; preds = %_shared_step_gres_avail.exit.thread.i.i, %_shared_step_gres_avail.exit.thread.i.us.i, %.thread.i, %232
   %.05.lcssa.i.i = phi i64 [ %.1.i, %232 ], [ %.1.i, %.thread.i ], [ %.2.i.us.i, %_shared_step_gres_avail.exit.thread.i.us.i ], [ %.2.i.i, %_shared_step_gres_avail.exit.thread.i.i ]
@@ -5156,7 +5167,7 @@ define dso_local i32 @gres_ctld_step_dealloc(ptr noundef %0, ptr noundef %1, i32
 127:                                              ; preds = %121, %117, %113, %110, %107, %105, %100
   %indvars.iv.next.i.us = add nuw nsw i64 %indvars.iv.i.us, 1
   %exitcond.not.i.us = icmp eq i64 %indvars.iv.next.i.us, %wide.trip.count.i.us
-  br i1 %exitcond.not.i.us, label %._crit_edge.i.us, label %100, !llvm.loop !51
+  br i1 %exitcond.not.i.us, label %._crit_edge.i.us, label %100, !llvm.loop !50
 
 ._crit_edge.i.us:                                 ; preds = %127, %96
   %128 = load ptr, ptr %70, align 8
@@ -5207,7 +5218,7 @@ _step_dealloc.exit.us:                            ; preds = %45, %50
   %149 = phi i32 [ %.01524.us, %147 ], [ -1, %_step_dealloc.exit.us ]
   %150 = call ptr @list_next(ptr noundef %17) #8
   %.not.us = icmp eq ptr %150, null
-  br i1 %.not.us, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !52
+  br i1 %.not.us, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !51
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %192
   %151 = phi ptr [ %194, %192 ], [ %18, %.lr.ph ]
@@ -5300,7 +5311,7 @@ _step_dealloc.exit:                               ; preds = %173
   %193 = phi i32 [ %.01524, %191 ], [ -1, %_step_dealloc.exit ]
   %194 = call ptr @list_next(ptr noundef %17) #8
   %.not = icmp eq ptr %194, null
-  br i1 %.not, label %._crit_edge, label %.lr.ph.split, !llvm.loop !52
+  br i1 %.not, label %._crit_edge, label %.lr.ph.split, !llvm.loop !51
 
 ._crit_edge:                                      ; preds = %192, %148, %14
   %.015.lcssa = phi i32 [ 0, %14 ], [ %149, %148 ], [ %193, %192 ]
@@ -5349,7 +5360,7 @@ define dso_local void @gres_ctld_step_state_rebase(ptr noundef %0, ptr noundef %
 .backedge:                                        ; preds = %.backedge.sink.split, %9
   %17 = tail call ptr @list_next(ptr noundef %6) #8
   %.not = icmp eq ptr %17, null
-  br i1 %.not, label %.outer._crit_edge, label %9, !llvm.loop !53
+  br i1 %.not, label %.outer._crit_edge, label %9, !llvm.loop !52
 
 18:                                               ; preds = %13
   %19 = tail call i32 @bit_set_count(ptr noundef %2) #8
@@ -5451,7 +5462,7 @@ define dso_local void @gres_ctld_step_state_rebase(ptr noundef %0, ptr noundef %
   %.3 = phi ptr [ %.2, %50 ], [ %.194, %44 ], [ %.194, %63 ], [ %.194, %59 ], [ %.194, %57 ], [ %.194, %56 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge97, label %39, !llvm.loop !54
+  br i1 %exitcond.not, label %._crit_edge97, label %39, !llvm.loop !53
 
 ._crit_edge97:                                    ; preds = %66, %30
   %.1.lcssa = phi ptr [ %.061.ph99, %30 ], [ %.3, %66 ]
@@ -5472,7 +5483,7 @@ define dso_local void @gres_ctld_step_state_rebase(ptr noundef %0, ptr noundef %
   store ptr %.1.lcssa, ptr %70, align 8
   %71 = tail call ptr @list_next(ptr noundef %6) #8
   %.not89 = icmp eq ptr %71, null
-  br i1 %.not89, label %.outer._crit_edge, label %.lr.ph, !llvm.loop !53
+  br i1 %.not89, label %.outer._crit_edge, label %.lr.ph, !llvm.loop !52
 
 .outer._crit_edge:                                ; preds = %.outer, %.backedge, %5
   tail call void @list_iterator_destroy(ptr noundef %6) #8
@@ -5547,7 +5558,7 @@ define dso_local ptr @gres_ctld_gres_on_node_as_tres(ptr noundef %0, i32 noundef
 .backedge:                                        ; preds = %25, %28, %39, %12, %34
   %29 = call ptr @list_next(ptr noundef %9) #8
   %.not24 = icmp eq ptr %29, null
-  br i1 %.not24, label %._crit_edge, label %12, !llvm.loop !55
+  br i1 %.not24, label %._crit_edge, label %12, !llvm.loop !54
 
 30:                                               ; preds = %22
   %31 = getelementptr inbounds i8, ptr %15, i64 112
@@ -5914,7 +5925,7 @@ define dso_local i64 @gres_ctld_step_test(ptr nocapture noundef readonly %0) loc
   %147 = select i1 %.not40.not, i64 %.03566, i64 %146
   %148 = call ptr @list_next(ptr noundef %29) #8
   %.not = icmp eq ptr %148, null
-  br i1 %.not, label %.loopexit, label %.lr.ph, !llvm.loop !56
+  br i1 %.not, label %.loopexit, label %.lr.ph, !llvm.loop !55
 
 .loopexit:                                        ; preds = %.thread110.i, %51, %102, %.thread.i, %67, %13, %.thread116.i, %63, %60, %56
   %.2 = phi i64 [ 0, %56 ], [ 0, %60 ], [ 0, %63 ], [ 0, %.thread116.i ], [ -2, %13 ], [ 0, %67 ], [ 0, %.thread.i ], [ 0, %102 ], [ -2, %51 ], [ %147, %.thread110.i ]
@@ -5930,7 +5941,7 @@ define dso_local i64 @gres_ctld_step_test(ptr nocapture noundef readonly %0) loc
 declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #3
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @_step_get_gres_cnt(ptr noundef %0, ptr nocapture noundef %1) #0 {
+define internal range(i32 -1, 1) i32 @_step_get_gres_cnt(ptr noundef %0, ptr nocapture noundef %1) #0 {
   %3 = getelementptr inbounds i8, ptr %1, i64 16
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %1, i64 8
@@ -6120,7 +6131,7 @@ define dso_local ptr @gres_ctld_gres_2_tres_str(ptr noundef %0, i1 noundef zeroe
 .backedge:                                        ; preds = %21, %24
   %23 = call ptr @list_next(ptr noundef %8) #8
   %.not22 = icmp eq ptr %23, null
-  br i1 %.not22, label %._crit_edge, label %.lr.ph, !llvm.loop !57
+  br i1 %.not22, label %._crit_edge, label %.lr.ph, !llvm.loop !56
 
 24:                                               ; preds = %17, %13
   %.pn = phi ptr [ %19, %17 ], [ %15, %13 ]
@@ -6270,7 +6281,7 @@ define dso_local void @gres_ctld_step_test_per_step(ptr noundef %0, ptr nocaptur
   %68 = load i32, ptr %37, align 8
   %69 = zext i32 %68 to i64
   %70 = icmp ult i64 %indvars.iv.next, %69
-  br i1 %70, label %.lr.ph, label %.preheader77, !llvm.loop !58
+  br i1 %70, label %.lr.ph, label %.preheader77, !llvm.loop !57
 
 .preheader:                                       ; preds = %.preheader77, %..loopexit_crit_edge
   %.05789 = phi i32 [ %.2, %..loopexit_crit_edge ], [ %50, %.preheader77 ]
@@ -6363,11 +6374,11 @@ define dso_local void @gres_ctld_step_test_per_step(ptr noundef %0, ptr nocaptur
   %indvars.iv.next98 = add nsw i64 %indvars.iv97, 1
   %lftr.wideiv = trunc i64 %indvars.iv.next98 to i32
   %exitcond.not = icmp eq i32 %40, %lftr.wideiv
-  br i1 %exitcond.not, label %..loopexit_crit_edge, label %71, !llvm.loop !59
+  br i1 %exitcond.not, label %..loopexit_crit_edge, label %71, !llvm.loop !58
 
 ..loopexit_crit_edge:                             ; preds = %107
   %108 = icmp sgt i32 %.2, -1
-  br i1 %108, label %.preheader, label %._crit_edge, !llvm.loop !60
+  br i1 %108, label %.preheader, label %._crit_edge, !llvm.loop !59
 
 ._crit_edge:                                      ; preds = %..loopexit_crit_edge, %..loopexit_crit_edge.thread, %.preheader77
   %109 = load ptr, ptr %9, align 8
@@ -6386,7 +6397,7 @@ define dso_local void @gres_ctld_step_test_per_step(ptr noundef %0, ptr nocaptur
 .backedge:                                        ; preds = %111, %41
   %112 = call ptr @list_next(ptr noundef %31) #8
   %.not67 = icmp eq ptr %112, null
-  br i1 %.not67, label %._crit_edge93, label %41, !llvm.loop !61
+  br i1 %.not67, label %._crit_edge93, label %41, !llvm.loop !60
 
 ._crit_edge93:                                    ; preds = %.backedge, %25
   call void @list_iterator_destroy(ptr noundef %31) #8
@@ -6458,7 +6469,7 @@ define internal fastcc void @_allocate_gres_bits(ptr nocapture noundef %0, ptr n
   br i1 %.not34.us.us, label %27, label %47
 
 27:                                               ; preds = %24
-  %28 = trunc i64 %indvars.iv53 to i32
+  %28 = trunc nuw nsw i64 %indvars.iv53 to i32
   %29 = tail call fastcc zeroext i1 @_cores_on_gres(ptr noundef nonnull %6, ptr noundef %14, ptr noundef nonnull %0, i32 noundef %28, ptr noundef %1)
   br i1 %29, label %30, label %47
 
@@ -6490,7 +6501,7 @@ define internal fastcc void @_allocate_gres_bits(ptr nocapture noundef %0, ptr n
 47:                                               ; preds = %30, %27, %24
   %indvars.iv.next54 = add nuw nsw i64 %indvars.iv53, 1
   %exitcond56.not = icmp eq i64 %indvars.iv.next54, %2
-  br i1 %exitcond56.not, label %.critedge, label %.lr.ph.split.us.split.us, !llvm.loop !62
+  br i1 %exitcond56.not, label %.critedge, label %.lr.ph.split.us.split.us, !llvm.loop !61
 
 .lr.ph.split.us.split:                            ; preds = %.lr.ph.split.us, %70
   %indvars.iv49 = phi i64 [ %indvars.iv.next50, %70 ], [ 0, %.lr.ph.split.us ]
@@ -6532,7 +6543,7 @@ define internal fastcc void @_allocate_gres_bits(ptr nocapture noundef %0, ptr n
 70:                                               ; preds = %53, %50
   %indvars.iv.next50 = add nuw nsw i64 %indvars.iv49, 1
   %exitcond52.not = icmp eq i64 %indvars.iv.next50, %2
-  br i1 %exitcond52.not, label %.critedge, label %.lr.ph.split.us.split, !llvm.loop !62
+  br i1 %exitcond52.not, label %.critedge, label %.lr.ph.split.us.split, !llvm.loop !61
 
 .lr.ph.split:                                     ; preds = %.lr.ph
   br i1 %.not, label %.lr.ph.split.split.us, label %.lr.ph.split.split
@@ -6550,7 +6561,7 @@ define internal fastcc void @_allocate_gres_bits(ptr nocapture noundef %0, ptr n
   br i1 %.not34.us40, label %76, label %88
 
 76:                                               ; preds = %73
-  %77 = trunc i64 %indvars.iv45 to i32
+  %77 = trunc nuw nsw i64 %indvars.iv45 to i32
   %78 = tail call fastcc zeroext i1 @_cores_on_gres(ptr noundef nonnull %6, ptr noundef %14, ptr noundef nonnull %0, i32 noundef %77, ptr noundef %1)
   br i1 %78, label %79, label %88
 
@@ -6572,7 +6583,7 @@ define internal fastcc void @_allocate_gres_bits(ptr nocapture noundef %0, ptr n
 88:                                               ; preds = %79, %76, %73
   %indvars.iv.next46 = add nuw nsw i64 %indvars.iv45, 1
   %exitcond48.not = icmp eq i64 %indvars.iv.next46, %2
-  br i1 %exitcond48.not, label %.critedge, label %.lr.ph.split.split.us, !llvm.loop !62
+  br i1 %exitcond48.not, label %.critedge, label %.lr.ph.split.split.us, !llvm.loop !61
 
 .lr.ph.split.split:                               ; preds = %.lr.ph.split, %103
   %indvars.iv = phi i64 [ %indvars.iv.next, %103 ], [ 0, %.lr.ph.split ]
@@ -6604,7 +6615,7 @@ define internal fastcc void @_allocate_gres_bits(ptr nocapture noundef %0, ptr n
 103:                                              ; preds = %94, %91
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %2
-  br i1 %exitcond.not, label %.critedge, label %.lr.ph.split.split, !llvm.loop !62
+  br i1 %exitcond.not, label %.critedge, label %.lr.ph.split.split, !llvm.loop !61
 
 .critedge:                                        ; preds = %103, %.lr.ph.split.split, %88, %.lr.ph.split.split.us, %70, %.lr.ph.split.us.split, %47, %.lr.ph.split.us.split.us, %13
   %.not33 = icmp eq ptr %14, null
@@ -6669,7 +6680,7 @@ define internal fastcc i64 @_cnt_topo_gres(ptr nocapture noundef readonly %0, i3
   %32 = tail call i64 @bit_ffs_from_bit(ptr noundef %30, i64 noundef %31) #8
   %33 = and i64 %32, 2147483648
   %34 = icmp eq i64 %33, 0
-  br i1 %34, label %.lr.ph, label %.loopexit, !llvm.loop !63
+  br i1 %34, label %.lr.ph, label %.loopexit, !llvm.loop !62
 
 ._crit_edge:                                      ; preds = %3, %6
   %35 = getelementptr inbounds i8, ptr %0, i64 128
@@ -6812,7 +6823,7 @@ define internal fastcc void @_copy_matching_gres_per_bit(ptr nocapture noundef r
   %45 = tail call i64 @bit_ffs_from_bit(ptr noundef %43, i64 noundef %44) #8
   %46 = and i64 %45, 2147483648
   %47 = icmp eq i64 %46, 0
-  br i1 %47, label %28, label %._crit_edge, !llvm.loop !64
+  br i1 %47, label %28, label %._crit_edge, !llvm.loop !63
 
 ._crit_edge:                                      ; preds = %28, %11
   ret void
@@ -6926,7 +6937,7 @@ define internal fastcc noundef zeroext i1 @_cores_on_gres(ptr noundef %0, ptr no
   %63 = load i16, ptr %8, align 8
   %64 = zext i16 %63 to i64
   %65 = icmp ult i64 %indvars.iv.next, %64
-  br i1 %65, label %18, label %.loopexit, !llvm.loop !65
+  br i1 %65, label %18, label %.loopexit, !llvm.loop !64
 
 .loopexit:                                        ; preds = %41, %62, %45, %.thread, %.thread58, %5, %7
   %.040 = phi i1 [ true, %7 ], [ true, %5 ], [ true, %.thread58 ], [ true, %41 ], [ true, %62 ], [ false, %45 ], [ false, %.thread ]
@@ -6984,7 +6995,7 @@ define internal void @_handle_explicit_alloc(ptr noundef %0, ptr nocapture nound
   %31 = getelementptr inbounds i8, ptr %1, i64 32
   %32 = load i8, ptr %31, align 8
   %33 = trunc i8 %32 to i1
-  %34 = tail call fastcc i32 @_job_alloc(ptr noundef nonnull %0, ptr noundef %18, ptr noundef %19, i32 noundef %21, i32 noundef %23, i32 noundef %25, i32 noundef %27, ptr noundef %29, ptr noundef %30, i1 noundef zeroext %33), !range !11
+  %34 = tail call fastcc i32 @_job_alloc(ptr noundef nonnull %0, ptr noundef %18, ptr noundef %19, i32 noundef %21, i32 noundef %23, i32 noundef %25, i32 noundef %27, ptr noundef %29, ptr noundef %30, i1 noundef zeroext %33)
   %.not21 = icmp eq i32 %34, 0
   br i1 %.not21, label %37, label %35
 
@@ -7125,13 +7136,13 @@ attributes #9 = { nounwind willreturn memory(read) }
 !8 = !{!"llvm.loop.mustprogress"}
 !9 = distinct !{!9, !8}
 !10 = distinct !{!10, !8}
-!11 = !{i32 -1, i32 1}
+!11 = distinct !{!11, !8}
 !12 = distinct !{!12, !8}
 !13 = distinct !{!13, !8}
 !14 = distinct !{!14, !8}
-!15 = distinct !{!15, !8}
-!16 = distinct !{!16, !8, !17}
-!17 = !{!"llvm.loop.unswitch.partial.disable"}
+!15 = distinct !{!15, !8, !16}
+!16 = !{!"llvm.loop.unswitch.partial.disable"}
+!17 = distinct !{!17, !8}
 !18 = distinct !{!18, !8}
 !19 = distinct !{!19, !8}
 !20 = distinct !{!20, !8}
@@ -7179,4 +7190,3 @@ attributes #9 = { nounwind willreturn memory(read) }
 !62 = distinct !{!62, !8}
 !63 = distinct !{!63, !8}
 !64 = distinct !{!64, !8}
-!65 = distinct !{!65, !8}

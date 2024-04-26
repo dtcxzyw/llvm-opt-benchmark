@@ -289,7 +289,7 @@ declare void @jv_free(i64, ptr) local_unnamed_addr #2
 declare { i64, ptr } @jv_null() local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @yyparse(ptr nocapture noundef writeonly %0, ptr nocapture noundef %1, ptr noundef %2, ptr nocapture noundef readonly %3) local_unnamed_addr #0 {
+define range(i32 0, 3) i32 @yyparse(ptr nocapture noundef writeonly %0, ptr nocapture noundef %1, ptr noundef %2, ptr nocapture noundef readonly %3) local_unnamed_addr #0 {
   %5 = alloca %union.YYSTYPE, align 8
   %6 = alloca %struct.location, align 8
   %7 = alloca [200 x i16], align 16
@@ -3379,7 +3379,7 @@ define noundef i32 @yyparse(ptr nocapture noundef writeonly %0, ptr nocapture no
 2081:                                             ; preds = %2070, %2080, %2078, %2072
   %.21249 = phi ptr [ %.11248, %2070 ], [ %11, %2080 ], [ %2077, %2078 ], [ %.11248, %2072 ]
   %.01144 = phi ptr [ @.str.42, %2070 ], [ @.str.42, %2080 ], [ %2077, %2078 ], [ %.11248, %2072 ]
-  %.0 = phi i32 [ %2071, %2070 ], [ -2, %2080 ], [ %2079, %2078 ], [ 0, %2072 ]
+  %.0 = phi i32 [ -2, %2070 ], [ -2, %2080 ], [ %2079, %2078 ], [ 0, %2072 ]
   %2082 = load i32, ptr %1, align 4
   %2083 = add nsw i32 %2082, 1
   store i32 %2083, ptr %1, align 4
@@ -4103,7 +4103,7 @@ define internal fastcc { i64, ptr } @check_object_key(ptr %0, ptr %1) unnamed_ad
 declare { ptr, ptr } @gen_dictpair(ptr, ptr, ptr, ptr) local_unnamed_addr #2
 
 ; Function Attrs: nofree nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc noundef i32 @yysyntax_error(ptr nocapture noundef %0, ptr %.0.val, ptr nocapture readonly %.0.val1, i32 %.8.val) unnamed_addr #4 {
+define internal fastcc range(i32 -2, 1) i32 @yysyntax_error(ptr nocapture noundef %0, ptr %.0.val, ptr nocapture readonly %.0.val1, i32 %.8.val) unnamed_addr #4 {
   %2 = alloca [5 x i32], align 16
   %.not.i = icmp eq i32 %.8.val, -2
   br i1 %.not.i, label %yy_syntax_error_arguments.exit.thread8, label %3
@@ -4134,7 +4134,7 @@ define internal fastcc noundef i32 @yysyntax_error(ptr nocapture noundef %0, ptr
   %19 = sext i32 %15 to i64
   br label %.lr.ph.split.i.i
 
-.lr.ph.split.i.i:                                 ; preds = %.lr.ph.i.i, %37
+.lr.ph.split.i.i:                                 ; preds = %37, %.lr.ph.i.i
   %indvars.iv.i.i = phi i64 [ %indvars.iv.next.i.i, %37 ], [ %17, %.lr.ph.i.i ]
   %.0353.i.i = phi i32 [ %.2.i.fr.i, %37 ], [ 0, %.lr.ph.i.i ]
   %20 = add nsw i64 %indvars.iv.i.i, %18
@@ -4650,7 +4650,7 @@ define i32 @jq_parse(ptr noundef %0, ptr nocapture noundef %1) local_unnamed_add
   store ptr %13, ptr %1, align 8
   %.sroa.22.0..sroa_idx = getelementptr inbounds i8, ptr %1, i64 8
   store ptr %14, ptr %.sroa.22.0..sroa_idx, align 8
-  %15 = call i32 @yyparse(ptr noundef nonnull %1, ptr noundef nonnull %4, ptr noundef %0, ptr noundef nonnull %3), !range !9
+  %15 = call i32 @yyparse(ptr noundef nonnull %1, ptr noundef nonnull %4, ptr noundef %0, ptr noundef nonnull %3)
   %16 = load ptr, ptr %3, align 8
   call void @jq_yy_delete_buffer(ptr noundef %11, ptr noundef %16) #9
   %17 = load ptr, ptr %3, align 8
@@ -4791,4 +4791,3 @@ attributes #9 = { nounwind }
 !6 = distinct !{!6, !5}
 !7 = distinct !{!7, !5}
 !8 = distinct !{!8, !5}
-!9 = !{i32 0, i32 3}

@@ -131,7 +131,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden noundef i32 @_ZNK6hermes3hbc20DebugScopeDescriptor5Flags8toUint32Ev(ptr nocapture noundef nonnull readonly align 1 dereferenceable(2) %this) local_unnamed_addr #1 align 2 {
+define hidden noundef range(i32 0, 4) i32 @_ZNK6hermes3hbc20DebugScopeDescriptor5Flags8toUint32Ev(ptr nocapture noundef nonnull readonly align 1 dereferenceable(2) %this) local_unnamed_addr #1 align 2 {
 entry:
   %0 = load i8, ptr %this, align 1
   %1 = and i8 %0, 1
@@ -594,7 +594,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   %end.052 = phi i32 [ 0, %for.body.lr.ph ], [ %end.1, %for.inc ]
   %foundFile.051 = phi i8 [ 0, %for.body.lr.ph ], [ %foundFile.1, %for.inc ]
   %__begin1.050 = phi ptr [ %0, %for.body.lr.ph ], [ %incdec.ptr, %for.inc ]
-  %tobool = trunc i8 %foundFile.051 to i1
+  %tobool = trunc nuw i8 %foundFile.051 to i1
   br i1 %tobool, label %if.then, label %if.end
 
 if.then:                                          ; preds = %for.body
@@ -623,7 +623,7 @@ for.end:                                          ; preds = %for.inc, %if.then
   %foundFile.047 = phi i8 [ %foundFile.051, %if.then ], [ %foundFile.1, %for.inc ]
   %start.044 = phi i32 [ %start.053, %if.then ], [ %start.1, %for.inc ]
   %end.2 = phi i32 [ %3, %if.then ], [ %end.1, %for.inc ]
-  %tobool8 = trunc i8 %foundFile.047 to i1
+  %tobool8 = trunc nuw i8 %foundFile.047 to i1
   br i1 %tobool8, label %while.cond.preheader, label %if.then9
 
 while.cond.preheader:                             ; preds = %for.end
@@ -1125,7 +1125,7 @@ if.then4.i.i31:                                   ; preds = %_ZN4llvh11raw_ostre
 
 _ZN4llvh11raw_ostreamlsEPKc.exit36:               ; preds = %if.then.i.i34, %if.then4.i.i31
   %phi.call.i33 = phi ptr [ %call3.i.i35, %if.then.i.i34 ], [ %call.i, %if.then4.i.i31 ]
-  %12 = trunc i64 %indvars.iv to i32
+  %12 = trunc nuw i64 %indvars.iv to i32
   call void @_ZNK6hermes3hbc9DebugInfo15getFilenameByIDB5cxx11Ej(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp, ptr noundef nonnull align 8 dereferenceable(136) %this, i32 noundef %12)
   %call.i37 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #16
   %call2.i = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6lengthEv(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #16
@@ -3663,14 +3663,13 @@ if.end37:                                         ; preds = %if.then.i.i.i.i.i46
 
 if.then.i.i:                                      ; preds = %if.end37
   %11 = load ptr, ptr %RHS, align 8
-  %add.ptr.i = getelementptr inbounds %"struct.hermes::hbc::DebugFileRegion", ptr %11, i64 %conv.i50
-  %add.ptr39 = getelementptr inbounds %"struct.hermes::hbc::DebugFileRegion", ptr %11, i64 %CurSize.0
+  %add.ptr39.idx = mul nuw nsw i64 %CurSize.0, 12
+  %add.ptr39 = getelementptr inbounds i8, ptr %11, i64 %add.ptr39.idx
   %12 = load ptr, ptr %this, align 8
   %add.ptr42 = getelementptr inbounds %"struct.hermes::hbc::DebugFileRegion", ptr %12, i64 %CurSize.0
-  %sub.ptr.lhs.cast.i.i = ptrtoint ptr %add.ptr.i to i64
-  %sub.ptr.rhs.cast.i.i = ptrtoint ptr %add.ptr39 to i64
-  %sub.ptr.sub.i.i = sub i64 %sub.ptr.lhs.cast.i.i, %sub.ptr.rhs.cast.i.i
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %add.ptr42, ptr align 1 %add.ptr39, i64 %sub.ptr.sub.i.i, i1 false)
+  %add.ptr.i.idx55 = sub nsw i64 %conv.i50, %CurSize.0
+  %gepdiff = mul nsw i64 %add.ptr.i.idx55, 12
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %add.ptr42, ptr align 1 %add.ptr39, i64 %gepdiff, i1 false)
   br label %_ZN4llvh23SmallVectorTemplateBaseIN6hermes3hbc15DebugFileRegionELb1EE18uninitialized_moveIPS3_S6_EEvT_S7_T0_.exit
 
 _ZN4llvh23SmallVectorTemplateBaseIN6hermes3hbc15DebugFileRegionELb1EE18uninitialized_moveIPS3_S6_EEvT_S7_T0_.exit: ; preds = %if.end37, %if.then.i.i
@@ -3853,7 +3852,7 @@ _ZN4llvh8DenseMapIPN6hermes12UniqueStringEjNS_12DenseMapInfoIS3_EENS_6detail12De
   %or6.i = or i64 %shr5.i, %or4.i
   %shr7.i = lshr i64 %or6.i, 16
   %or8.i = or i64 %shr7.i, %or6.i
-  %2 = trunc i64 %or8.i to i32
+  %2 = trunc nuw i64 %or8.i to i32
   %conv3 = add i32 %2, 1
   %.sroa.speculated = tail call i32 @llvm.umax.i32(i32 %conv3, i32 64)
   store i32 %.sroa.speculated, ptr %NumBuckets, align 8

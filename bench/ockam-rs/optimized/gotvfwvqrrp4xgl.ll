@@ -12878,7 +12878,7 @@ define hidden void @_ZN12futures_util6future10try_future12TryFutureExt6map_ok17h
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define internal fastcc noundef i8 @_ZN12tracing_core8callsite15DefaultCallsite8interest17h90c4fcd119ea9721E(ptr noundef nonnull align 8 %0) unnamed_addr #1 {
+define internal fastcc noundef range(i8 0, 3) i8 @_ZN12tracing_core8callsite15DefaultCallsite8interest17h90c4fcd119ea9721E(ptr noundef nonnull align 8 %0) unnamed_addr #1 {
   %2 = getelementptr inbounds i8, ptr %0, i64 16
   %3 = load atomic i8, ptr %2 monotonic, align 8
   %4 = icmp ult i8 %3, 3
@@ -75105,7 +75105,7 @@ define hidden void @"_ZN4core6option19Option$LT$$RF$T$GT$6cloned17h4b3952c078a63
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
-define hidden noundef i8 @"_ZN4core6option19Option$LT$$RF$T$GT$6cloned17h4b4152237b1c4ca8E"(ptr noalias nocapture noundef readonly align 1 dereferenceable_or_null(1) %0) unnamed_addr #19 {
+define hidden noundef range(i8 0, 5) i8 @"_ZN4core6option19Option$LT$$RF$T$GT$6cloned17h4b4152237b1c4ca8E"(ptr noalias nocapture noundef readonly align 1 dereferenceable_or_null(1) %0) unnamed_addr #19 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %5, label %3
 
@@ -84122,7 +84122,7 @@ define hidden noundef zeroext i1 @"_ZN60_$LT$alloc..string..String$u20$as$u20$co
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
-define hidden noundef i64 @"_ZN61_$LT$tracing_core..span..Id$u20$as$u20$core..clone..Clone$GT$5clone17h02e6011a692db60cE.llvm.12634899616595775615"(ptr noalias nocapture noundef readonly align 8 dereferenceable(8) %0) unnamed_addr #12 {
+define hidden noundef range(i64 1, 0) i64 @"_ZN61_$LT$tracing_core..span..Id$u20$as$u20$core..clone..Clone$GT$5clone17h02e6011a692db60cE.llvm.12634899616595775615"(ptr noalias nocapture noundef readonly align 8 dereferenceable(8) %0) unnamed_addr #12 {
   %2 = load i64, ptr %0, align 8, !range !793, !noundef !4
   ret i64 %2
 }
@@ -106306,7 +106306,7 @@ define void @_ZN9ockam_api5nodes6models5relay9RelayInfo17with_last_failure17h973
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
-define noundef i8 @_ZN9ockam_api5nodes6models5relay9RelayInfo17connection_status17h8506db70658bde82E(ptr noalias nocapture noundef readonly align 8 dereferenceable(200) %0) unnamed_addr #19 {
+define noundef range(i8 0, 3) i8 @_ZN9ockam_api5nodes6models5relay9RelayInfo17connection_status17h8506db70658bde82E(ptr noalias nocapture noundef readonly align 8 dereferenceable(200) %0) unnamed_addr #19 {
   %2 = getelementptr inbounds i8, ptr %0, i64 193
   %3 = load i8, ptr %2, align 1, !range !842, !noundef !4
   ret i8 %3
@@ -113307,7 +113307,7 @@ define { ptr, i64 } @_ZN9ockam_api7version7Version8git_hash17h1b314897f7266d88E(
 }
 
 ; Function Attrs: nonlazybind uwtable
-define noundef i8 @_ZN9ockam_api2ui8terminal10background18TerminalBackground23detect_background_color17h1120004ac058528bE() unnamed_addr #4 personality ptr @rust_eh_personality {
+define noundef range(i8 0, 3) i8 @_ZN9ockam_api2ui8terminal10background18TerminalBackground23detect_background_color17h1120004ac058528bE() unnamed_addr #4 personality ptr @rust_eh_personality {
   %1 = alloca { i8, [15 x i8] }, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %1)
   call void @_ZN10ockam_core3env3env12get_env_impl17hb31139d9ae38ac1eE(ptr noalias nocapture noundef nonnull sret({ i8, [15 x i8] }) align 8 dereferenceable(16) %1, ptr noalias noundef nonnull readonly align 1 @anon.854733f247b1faa87fceaacb6c7ba5f2.842, i64 noundef 9, i24 0)
@@ -152272,7 +152272,7 @@ define hidden void @"_ZN92_$LT$ockam_api..nodes..registry..SecureChannelListener
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
-define hidden noundef i8 @"_ZN83_$LT$ockam_api..nodes..registry..KafkaServiceInfo$u20$as$u20$core..clone..Clone$GT$5clone17hfdb8b914a80ca7ccE.llvm.12634899616595775615"(ptr noalias nocapture noundef readonly align 1 dereferenceable(1) %0) unnamed_addr #12 {
+define hidden noundef range(i8 0, 4) i8 @"_ZN83_$LT$ockam_api..nodes..registry..KafkaServiceInfo$u20$as$u20$core..clone..Clone$GT$5clone17hfdb8b914a80ca7ccE.llvm.12634899616595775615"(ptr noalias nocapture noundef readonly align 1 dereferenceable(1) %0) unnamed_addr #12 {
   %2 = load i8, ptr %0, align 1, !range !655, !noundef !4
   ret i8 %2
 }

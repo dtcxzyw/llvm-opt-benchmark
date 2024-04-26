@@ -203,7 +203,7 @@ declare ptr @CreateWaitEventSet(ptr noundef, i32 noundef) local_unnamed_addr #1
 declare i32 @AddWaitEventToSet(ptr noundef, i32 noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @StreamServerPort(i32 noundef %0, ptr noundef %1, i16 noundef zeroext %2, ptr noundef %3, ptr nocapture noundef writeonly %4, ptr nocapture noundef %5, i32 noundef %6) local_unnamed_addr #0 {
+define dso_local range(i32 -1, 1) i32 @StreamServerPort(i32 noundef %0, ptr noundef %1, i16 noundef zeroext %2, ptr noundef %3, ptr nocapture noundef writeonly %4, ptr nocapture noundef %5, i32 noundef %6) local_unnamed_addr #0 {
   %8 = alloca ptr, align 8
   %9 = alloca [32 x i8], align 16
   %10 = alloca [64 x i8], align 16
@@ -683,7 +683,7 @@ declare i32 @errhint(ptr noundef, ...) local_unnamed_addr #1
 declare i32 @listen(i32 noundef, i32 noundef) local_unnamed_addr #5
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @StreamConnection(i32 noundef %0, ptr noundef %1) local_unnamed_addr #0 {
+define dso_local range(i32 -1, 1) i32 @StreamConnection(i32 noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = alloca i32, align 4
   %4 = getelementptr inbounds i8, ptr %1, i64 152
   %5 = getelementptr inbounds i8, ptr %1, i64 280
@@ -763,13 +763,13 @@ define dso_local noundef i32 @StreamConnection(i32 noundef %0, ptr noundef %1) l
 
 41:                                               ; preds = %33
   %42 = load i32, ptr @tcp_keepalives_idle, align 4
-  %43 = call i32 @pq_setkeepalivesidle(i32 noundef %42, ptr noundef nonnull %1), !range !7
+  %43 = call i32 @pq_setkeepalivesidle(i32 noundef %42, ptr noundef nonnull %1)
   %44 = load i32, ptr @tcp_keepalives_interval, align 4
-  %45 = call i32 @pq_setkeepalivesinterval(i32 noundef %44, ptr noundef nonnull %1), !range !7
+  %45 = call i32 @pq_setkeepalivesinterval(i32 noundef %44, ptr noundef nonnull %1)
   %46 = load i32, ptr @tcp_keepalives_count, align 4
-  %47 = call i32 @pq_setkeepalivescount(i32 noundef %46, ptr noundef nonnull %1), !range !7
+  %47 = call i32 @pq_setkeepalivescount(i32 noundef %46, ptr noundef nonnull %1)
   %48 = load i32, ptr @tcp_user_timeout, align 4
-  %49 = call i32 @pq_settcpusertimeout(i32 noundef %48, ptr noundef nonnull %1), !range !7
+  %49 = call i32 @pq_settcpusertimeout(i32 noundef %48, ptr noundef nonnull %1)
   br label %50
 
 50:                                               ; preds = %23, %41, %39, %37, %31, %29, %21, %19, %13
@@ -785,7 +785,7 @@ declare void @pg_usleep(i64 noundef) local_unnamed_addr #1
 declare i32 @getsockname(i32 noundef, ptr, ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @pq_setkeepalivesidle(i32 noundef %0, ptr noundef %1) local_unnamed_addr #0 {
+define dso_local range(i32 -1, 1) i32 @pq_setkeepalivesidle(i32 noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = alloca i32, align 4
   %4 = alloca i32, align 4
   store i32 %0, ptr %4, align 4
@@ -894,7 +894,7 @@ pq_getkeepalivesidle.exit:                        ; preds = %18, %._crit_edge.i
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @pq_setkeepalivesinterval(i32 noundef %0, ptr noundef %1) local_unnamed_addr #0 {
+define dso_local range(i32 -1, 1) i32 @pq_setkeepalivesinterval(i32 noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = alloca i32, align 4
   %4 = alloca i32, align 4
   store i32 %0, ptr %4, align 4
@@ -1003,7 +1003,7 @@ pq_getkeepalivesinterval.exit:                    ; preds = %18, %._crit_edge.i
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @pq_setkeepalivescount(i32 noundef %0, ptr noundef %1) local_unnamed_addr #0 {
+define dso_local range(i32 -1, 1) i32 @pq_setkeepalivescount(i32 noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = alloca i32, align 4
   %4 = alloca i32, align 4
   store i32 %0, ptr %4, align 4
@@ -1112,7 +1112,7 @@ pq_getkeepalivescount.exit:                       ; preds = %18, %._crit_edge.i
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @pq_settcpusertimeout(i32 noundef %0, ptr noundef %1) local_unnamed_addr #0 {
+define dso_local range(i32 -1, 1) i32 @pq_settcpusertimeout(i32 noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = alloca i32, align 4
   %4 = alloca i32, align 4
   store i32 %0, ptr %4, align 4
@@ -1305,7 +1305,7 @@ define dso_local void @RemoveSocketFiles() local_unnamed_addr #7 {
 declare noundef i32 @unlink(ptr nocapture noundef readonly) local_unnamed_addr #8
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @pq_getbyte() local_unnamed_addr #0 {
+define dso_local range(i32 -1, 256) i32 @pq_getbyte() local_unnamed_addr #0 {
   br label %1
 
 1:                                                ; preds = %4, %0
@@ -1315,9 +1315,9 @@ define dso_local i32 @pq_getbyte() local_unnamed_addr #0 {
   br i1 %.not, label %6, label %4
 
 4:                                                ; preds = %1
-  %5 = tail call fastcc i32 @pq_recvbuf(), !range !7
+  %5 = tail call fastcc i32 @pq_recvbuf()
   %.not2 = icmp eq i32 %5, 0
-  br i1 %.not2, label %1, label %.loopexit, !llvm.loop !8
+  br i1 %.not2, label %1, label %.loopexit, !llvm.loop !7
 
 6:                                                ; preds = %1
   %7 = add nsw i32 %2, 1
@@ -1334,7 +1334,7 @@ define dso_local i32 @pq_getbyte() local_unnamed_addr #0 {
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @pq_recvbuf() unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @pq_recvbuf() unnamed_addr #0 {
   %1 = load i32, ptr @PqRecvPointer, align 4
   %2 = icmp sgt i32 %1, 0
   br i1 %2, label %3, label %12
@@ -1427,7 +1427,7 @@ socket_set_nonblocking.exit:                      ; preds = %12
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @pq_peekbyte() local_unnamed_addr #0 {
+define dso_local range(i32 -1, 256) i32 @pq_peekbyte() local_unnamed_addr #0 {
   br label %1
 
 1:                                                ; preds = %4, %0
@@ -1437,9 +1437,9 @@ define dso_local i32 @pq_peekbyte() local_unnamed_addr #0 {
   br i1 %.not, label %6, label %4
 
 4:                                                ; preds = %1
-  %5 = tail call fastcc i32 @pq_recvbuf(), !range !7
+  %5 = tail call fastcc i32 @pq_recvbuf()
   %.not2 = icmp eq i32 %5, 0
-  br i1 %.not2, label %1, label %.loopexit, !llvm.loop !9
+  br i1 %.not2, label %1, label %.loopexit, !llvm.loop !8
 
 6:                                                ; preds = %1
   %7 = sext i32 %2 to i64
@@ -1454,7 +1454,7 @@ define dso_local i32 @pq_peekbyte() local_unnamed_addr #0 {
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @pq_getbyte_if_available(ptr noundef %0) local_unnamed_addr #0 {
+define dso_local range(i32 -1, -2147483648) i32 @pq_getbyte_if_available(ptr noundef %0) local_unnamed_addr #0 {
   %2 = load i32, ptr @PqRecvPointer, align 4
   %3 = load i32, ptr @PqRecvLength, align 4
   %4 = icmp slt i32 %2, %3
@@ -1527,7 +1527,7 @@ socket_set_nonblocking.exit:                      ; preds = %10
 declare i64 @secure_read(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @pq_getbytes(ptr nocapture noundef writeonly %0, i64 noundef %1) local_unnamed_addr #0 {
+define dso_local range(i32 -1, 1) i32 @pq_getbytes(ptr nocapture noundef writeonly %0, i64 noundef %1) local_unnamed_addr #0 {
   %.not23 = icmp eq i64 %1, 0
   br i1 %.not23, label %.loopexit, label %.preheader
 
@@ -1543,9 +1543,9 @@ define dso_local noundef i32 @pq_getbytes(ptr nocapture noundef writeonly %0, i6
   br i1 %.not17, label %8, label %6
 
 6:                                                ; preds = %3
-  %7 = tail call fastcc i32 @pq_recvbuf(), !range !7
+  %7 = tail call fastcc i32 @pq_recvbuf()
   %.not18 = icmp eq i32 %7, 0
-  br i1 %.not18, label %3, label %.loopexit, !llvm.loop !10
+  br i1 %.not18, label %3, label %.loopexit, !llvm.loop !9
 
 8:                                                ; preds = %3
   %9 = sub i32 %5, %4
@@ -1560,7 +1560,7 @@ define dso_local noundef i32 @pq_getbytes(ptr nocapture noundef writeonly %0, i6
   %15 = getelementptr i8, ptr %.01224, i64 %spec.select
   %16 = sub i64 %.01125, %spec.select
   %.not = icmp eq i64 %16, 0
-  br i1 %.not, label %.loopexit, label %.preheader, !llvm.loop !11
+  br i1 %.not, label %.loopexit, label %.preheader, !llvm.loop !10
 
 .loopexit:                                        ; preds = %8, %6, %2
   %.013 = phi i32 [ 0, %2 ], [ -1, %6 ], [ 0, %8 ]
@@ -1611,7 +1611,7 @@ define dso_local zeroext i1 @pq_is_reading_msg() local_unnamed_addr #10 {
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @pq_getmessage(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0 {
+define dso_local range(i32 -1, 1) i32 @pq_getmessage(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0 {
   %3 = alloca i32, align 4
   %4 = alloca [1 x %struct.__jmp_buf_tag], align 16
   call void @resetStringInfo(ptr noundef %0) #19
@@ -1629,9 +1629,9 @@ define dso_local noundef i32 @pq_getmessage(ptr noundef %0, i32 noundef %1) loca
   br i1 %.not17.i, label %10, label %8
 
 8:                                                ; preds = %5
-  %9 = call fastcc i32 @pq_recvbuf(), !range !7
+  %9 = call fastcc i32 @pq_recvbuf()
   %.not18.i = icmp eq i32 %9, 0
-  br i1 %.not18.i, label %5, label %19, !llvm.loop !10
+  br i1 %.not18.i, label %5, label %19, !llvm.loop !9
 
 10:                                               ; preds = %5
   %11 = sub i32 %7, %6
@@ -1646,7 +1646,7 @@ define dso_local noundef i32 @pq_getmessage(ptr noundef %0, i32 noundef %1) loca
   %17 = getelementptr i8, ptr %.01224.i, i64 %spec.select.i
   %18 = sub i64 %.01125.i, %spec.select.i
   %.not.i = icmp eq i64 %18, 0
-  br i1 %.not.i, label %pq_getbytes.exit, label %.preheader.i, !llvm.loop !11
+  br i1 %.not.i, label %pq_getbytes.exit, label %.preheader.i, !llvm.loop !10
 
 19:                                               ; preds = %8
   %20 = call zeroext i1 @errstart(i32 noundef 16, ptr noundef null) #19
@@ -1710,9 +1710,9 @@ pq_getbytes.exit:                                 ; preds = %10
   br i1 %.not17.i15, label %48, label %46
 
 46:                                               ; preds = %43
-  %47 = call fastcc i32 @pq_recvbuf(), !range !7
+  %47 = call fastcc i32 @pq_recvbuf()
   %.not18.i16 = icmp eq i32 %47, 0
-  br i1 %.not18.i16, label %43, label %pq_getbytes.exit20, !llvm.loop !10
+  br i1 %.not18.i16, label %43, label %pq_getbytes.exit20, !llvm.loop !9
 
 48:                                               ; preds = %43
   %49 = sub i32 %45, %44
@@ -1727,13 +1727,13 @@ pq_getbytes.exit:                                 ; preds = %10
   %55 = getelementptr i8, ptr %.01224.i14, i64 %spec.select.i18
   %56 = sub i64 %.01125.i13, %spec.select.i18
   %.not.i19 = icmp eq i64 %56, 0
-  br i1 %.not.i19, label %.loopexit.loopexit, label %.preheader.i12, !llvm.loop !11
+  br i1 %.not.i19, label %.loopexit.loopexit, label %.preheader.i12, !llvm.loop !10
 
 57:                                               ; preds = %35
   store ptr %36, ptr @PG_exception_stack, align 8
   store ptr %37, ptr @error_context_stack, align 8
   %58 = zext nneg i32 %34 to i64
-  %59 = call fastcc i32 @pq_discardbytes(i64 noundef %58), !range !7
+  %59 = call fastcc i32 @pq_discardbytes(i64 noundef %58)
   %60 = icmp eq i32 %59, -1
   br i1 %60, label %61, label %66
 
@@ -1794,7 +1794,7 @@ declare i32 @__sigsetjmp(ptr noundef, i32 noundef) local_unnamed_addr #13
 declare void @enlargeStringInfo(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @pq_discardbytes(i64 noundef %0) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @pq_discardbytes(i64 noundef %0) unnamed_addr #0 {
   %.not19 = icmp eq i64 %0, 0
   br i1 %.not19, label %.loopexit, label %.preheader
 
@@ -1809,9 +1809,9 @@ define internal fastcc noundef i32 @pq_discardbytes(i64 noundef %0) unnamed_addr
   br i1 %.not13, label %7, label %5
 
 5:                                                ; preds = %2
-  %6 = tail call fastcc i32 @pq_recvbuf(), !range !7
+  %6 = tail call fastcc i32 @pq_recvbuf()
   %.not14 = icmp eq i32 %6, 0
-  br i1 %.not14, label %2, label %.loopexit, !llvm.loop !12
+  br i1 %.not14, label %2, label %.loopexit, !llvm.loop !11
 
 7:                                                ; preds = %2
   %8 = sub i32 %4, %3
@@ -1822,7 +1822,7 @@ define internal fastcc noundef i32 @pq_discardbytes(i64 noundef %0) unnamed_addr
   store i32 %11, ptr @PqRecvPointer, align 4
   %12 = sub i64 %.0820, %spec.select
   %.not = icmp eq i64 %12, 0
-  br i1 %.not, label %.loopexit, label %.preheader, !llvm.loop !13
+  br i1 %.not, label %.loopexit, label %.preheader, !llvm.loop !12
 
 .loopexit:                                        ; preds = %7, %5, %1
   %.09 = phi i32 [ 0, %1 ], [ -1, %5 ], [ 0, %7 ]
@@ -1833,7 +1833,7 @@ define internal fastcc noundef i32 @pq_discardbytes(i64 noundef %0) unnamed_addr
 declare void @pg_re_throw() local_unnamed_addr #14
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @pq_putmessage_v2(i8 noundef signext %0, ptr nocapture noundef readonly %1, i64 noundef %2) local_unnamed_addr #0 {
+define dso_local range(i32 -1, 1) i32 @pq_putmessage_v2(i8 noundef signext %0, ptr nocapture noundef readonly %1, i64 noundef %2) local_unnamed_addr #0 {
   %4 = alloca i8, align 1
   store i8 %0, ptr %4, align 1
   %.b2 = load i1, ptr @PqCommBusy, align 1
@@ -1841,12 +1841,12 @@ define dso_local noundef i32 @pq_putmessage_v2(i8 noundef signext %0, ptr nocapt
 
 5:                                                ; preds = %3
   store i1 true, ptr @PqCommBusy, align 1
-  %6 = call fastcc i32 @internal_putbytes(ptr noundef nonnull %4, i64 noundef 1), !range !7
+  %6 = call fastcc i32 @internal_putbytes(ptr noundef nonnull %4, i64 noundef 1)
   %.not = icmp eq i32 %6, 0
   br i1 %.not, label %7, label %9
 
 7:                                                ; preds = %5
-  %8 = tail call fastcc i32 @internal_putbytes(ptr noundef %1, i64 noundef %2), !range !7
+  %8 = tail call fastcc i32 @internal_putbytes(ptr noundef %1, i64 noundef %2)
   %.not3 = icmp eq i32 %8, 0
   br i1 %.not3, label %.sink.split, label %9
 
@@ -1864,7 +1864,7 @@ define dso_local noundef i32 @pq_putmessage_v2(i8 noundef signext %0, ptr nocapt
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @internal_putbytes(ptr nocapture noundef readonly %0, i64 noundef %1) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @internal_putbytes(ptr nocapture noundef readonly %0, i64 noundef %1) unnamed_addr #0 {
   %.not17 = icmp eq i64 %1, 0
   br i1 %.not17, label %._crit_edge, label %.lr.ph.preheader
 
@@ -1897,7 +1897,7 @@ define internal fastcc noundef i32 @internal_putbytes(ptr nocapture noundef read
 socket_set_nonblocking.exit:                      ; preds = %5
   %12 = getelementptr inbounds i8, ptr %6, i64 4
   store i8 0, ptr %12, align 4
-  %13 = tail call fastcc i32 @internal_flush(), !range !7
+  %13 = tail call fastcc i32 @internal_flush()
   %.not16 = icmp eq i32 %13, 0
   br i1 %.not16, label %socket_set_nonblocking.exit._crit_edge, label %._crit_edge
 
@@ -1922,7 +1922,7 @@ socket_set_nonblocking.exit._crit_edge:           ; preds = %socket_set_nonblock
   %24 = getelementptr i8, ptr %.01218, i64 %spec.select
   %25 = sub i64 %.01119, %spec.select
   %.not = icmp eq i64 %25, 0
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !14
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !13
 
 ._crit_edge:                                      ; preds = %socket_set_nonblocking.exit, %14, %2
   %.013 = phi i32 [ 0, %2 ], [ 0, %14 ], [ -1, %socket_set_nonblocking.exit ]
@@ -2147,7 +2147,7 @@ define dso_local i32 @pq_gettcpusertimeout(ptr noundef %0) local_unnamed_addr #0
 ; Function Attrs: nounwind uwtable
 define dso_local void @assign_tcp_keepalives_idle(i32 noundef %0, ptr nocapture noundef readnone %1) local_unnamed_addr #0 {
   %3 = load ptr, ptr @MyProcPort, align 8
-  %4 = tail call i32 @pq_setkeepalivesidle(i32 noundef %0, ptr noundef %3), !range !7
+  %4 = tail call i32 @pq_setkeepalivesidle(i32 noundef %0, ptr noundef %3)
   ret void
 }
 
@@ -2211,7 +2211,7 @@ pq_getkeepalivesidle.exit:                        ; preds = %0, %4, %8, %11, %._
 ; Function Attrs: nounwind uwtable
 define dso_local void @assign_tcp_keepalives_interval(i32 noundef %0, ptr nocapture noundef readnone %1) local_unnamed_addr #0 {
   %3 = load ptr, ptr @MyProcPort, align 8
-  %4 = tail call i32 @pq_setkeepalivesinterval(i32 noundef %0, ptr noundef %3), !range !7
+  %4 = tail call i32 @pq_setkeepalivesinterval(i32 noundef %0, ptr noundef %3)
   ret void
 }
 
@@ -2275,7 +2275,7 @@ pq_getkeepalivesinterval.exit:                    ; preds = %0, %4, %8, %11, %._
 ; Function Attrs: nounwind uwtable
 define dso_local void @assign_tcp_keepalives_count(i32 noundef %0, ptr nocapture noundef readnone %1) local_unnamed_addr #0 {
   %3 = load ptr, ptr @MyProcPort, align 8
-  %4 = tail call i32 @pq_setkeepalivescount(i32 noundef %0, ptr noundef %3), !range !7
+  %4 = tail call i32 @pq_setkeepalivescount(i32 noundef %0, ptr noundef %3)
   ret void
 }
 
@@ -2339,7 +2339,7 @@ pq_getkeepalivescount.exit:                       ; preds = %0, %4, %8, %11, %._
 ; Function Attrs: nounwind uwtable
 define dso_local void @assign_tcp_user_timeout(i32 noundef %0, ptr nocapture noundef readnone %1) local_unnamed_addr #0 {
   %3 = load ptr, ptr @MyProcPort, align 8
-  %4 = tail call i32 @pq_settcpusertimeout(i32 noundef %0, ptr noundef %3), !range !7
+  %4 = tail call i32 @pq_settcpusertimeout(i32 noundef %0, ptr noundef %3)
   ret void
 }
 
@@ -2425,14 +2425,14 @@ define dso_local zeroext i1 @pq_check_connection() local_unnamed_addr #0 {
 10:                                               ; preds = %.lr.ph20
   %indvars.iv.next = add nuw nsw i64 %indvars.iv19, 1
   %exitcond = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond, label %._crit_edge.loopexit, label %11, !llvm.loop !15
+  br i1 %exitcond, label %._crit_edge.loopexit, label %11, !llvm.loop !14
 
 11:                                               ; preds = %10
   %12 = getelementptr [3 x %struct.WaitEvent], ptr %1, i64 0, i64 %indvars.iv.next, i32 1
   %13 = load i32, ptr %12, align 4
   %14 = and i32 %13, 128
   %.not = icmp eq i32 %14, 0
-  br i1 %.not, label %.lr.ph20, label %._crit_edge.loopexit, !llvm.loop !15
+  br i1 %.not, label %.lr.ph20, label %._crit_edge.loopexit, !llvm.loop !14
 
 .lr.ph20:                                         ; preds = %.lr.ph, %11
   %15 = phi i32 [ %13, %11 ], [ %8, %.lr.ph ]
@@ -2472,7 +2472,7 @@ define internal void @socket_comm_reset() #11 {
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @socket_flush() #0 {
+define internal range(i32 -1, 1) i32 @socket_flush() #0 {
   %.b2 = load i1, ptr @PqCommBusy, align 1
   br i1 %.b2, label %10, label %1
 
@@ -2493,7 +2493,7 @@ define internal noundef i32 @socket_flush() #0 {
 socket_set_nonblocking.exit:                      ; preds = %1
   %8 = getelementptr inbounds i8, ptr %2, i64 4
   store i8 0, ptr %8, align 4
-  %9 = tail call fastcc i32 @internal_flush(), !range !7
+  %9 = tail call fastcc i32 @internal_flush()
   store i1 false, ptr @PqCommBusy, align 1
   br label %10
 
@@ -2503,7 +2503,7 @@ socket_set_nonblocking.exit:                      ; preds = %1
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @socket_flush_if_writable() #0 {
+define internal range(i32 -1, 1) i32 @socket_flush_if_writable() #0 {
   %1 = load i32, ptr @PqSendPointer, align 4
   %2 = load i32, ptr @PqSendStart, align 4
   %3 = icmp eq i32 %1, %2
@@ -2530,7 +2530,7 @@ socket_set_nonblocking.exit:                      ; preds = %5
   %12 = getelementptr inbounds i8, ptr %6, i64 4
   store i8 1, ptr %12, align 4
   store i1 true, ptr @PqCommBusy, align 1
-  %13 = tail call fastcc i32 @internal_flush(), !range !7
+  %13 = tail call fastcc i32 @internal_flush()
   store i1 false, ptr @PqCommBusy, align 1
   br label %14
 
@@ -2548,7 +2548,7 @@ define internal zeroext i1 @socket_is_send_pending() #10 {
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @socket_putmessage(i8 noundef signext %0, ptr nocapture noundef readonly %1, i64 noundef %2) #0 {
+define internal range(i32 -1, 1) i32 @socket_putmessage(i8 noundef signext %0, ptr nocapture noundef readonly %1, i64 noundef %2) #0 {
   %4 = alloca i8, align 1
   %5 = alloca i32, align 4
   store i8 %0, ptr %4, align 1
@@ -2557,7 +2557,7 @@ define internal noundef i32 @socket_putmessage(i8 noundef signext %0, ptr nocapt
 
 6:                                                ; preds = %3
   store i1 true, ptr @PqCommBusy, align 1
-  %7 = call fastcc i32 @internal_putbytes(ptr noundef nonnull %4, i64 noundef 1), !range !7
+  %7 = call fastcc i32 @internal_putbytes(ptr noundef nonnull %4, i64 noundef 1)
   %.not = icmp eq i32 %7, 0
   br i1 %.not, label %8, label %15
 
@@ -2566,12 +2566,12 @@ define internal noundef i32 @socket_putmessage(i8 noundef signext %0, ptr nocapt
   %10 = add i32 %9, 4
   %11 = tail call i32 @llvm.bswap.i32(i32 %10)
   store i32 %11, ptr %5, align 4
-  %12 = call fastcc i32 @internal_putbytes(ptr noundef nonnull %5, i64 noundef 4), !range !7
+  %12 = call fastcc i32 @internal_putbytes(ptr noundef nonnull %5, i64 noundef 4)
   %.not4 = icmp eq i32 %12, 0
   br i1 %.not4, label %13, label %15
 
 13:                                               ; preds = %8
-  %14 = tail call fastcc i32 @internal_putbytes(ptr noundef %1, i64 noundef %2), !range !7
+  %14 = tail call fastcc i32 @internal_putbytes(ptr noundef %1, i64 noundef %2)
   %.not5 = icmp eq i32 %14, 0
   br i1 %.not5, label %.sink.split, label %15
 
@@ -2615,7 +2615,7 @@ define internal void @socket_putmessage_noblock(i8 noundef signext %0, ptr nound
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @internal_flush() unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @internal_flush() unnamed_addr #0 {
   %1 = load ptr, ptr @PqSendBuffer, align 8
   %2 = load i32, ptr @PqSendStart, align 4
   %3 = sext i32 %2 to i64
@@ -2625,12 +2625,15 @@ define internal fastcc noundef i32 @internal_flush() unnamed_addr #0 {
   %7 = getelementptr i8, ptr %1, i64 %6
   %8 = ptrtoint ptr %7 to i64
   %9 = icmp ult ptr %4, %7
-  br i1 %9, label %.outer.split, label %.outer._crit_edge
+  br i1 %9, label %.outer.split.preheader, label %.outer._crit_edge
 
-.outer.split:                                     ; preds = %0, %.outer
-  %.09.ph20 = phi ptr [ %28, %.outer ], [ %4, %0 ]
-  %.pn = ptrtoint ptr %.09.ph20 to i64
-  %10 = sub i64 %8, %.pn
+.outer.split.preheader:                           ; preds = %0
+  %gepdiff = sub nsw i64 %6, %3
+  br label %.outer.split
+
+.outer.split:                                     ; preds = %.outer.split.preheader, %.outer
+  %10 = phi i64 [ %33, %.outer ], [ %gepdiff, %.outer.split.preheader ]
+  %.09.ph20 = phi ptr [ %28, %.outer ], [ %4, %.outer.split.preheader ]
   br label %11
 
 11:                                               ; preds = %.outer.split, %16
@@ -2679,7 +2682,9 @@ define internal fastcc noundef i32 @internal_flush() unnamed_addr #0 {
   %30 = add i32 %29, %14
   store i32 %30, ptr @PqSendStart, align 4
   %31 = icmp ult ptr %28, %7
-  br i1 %31, label %.outer.split, label %.outer._crit_edge, !llvm.loop !16
+  %32 = ptrtoint ptr %28 to i64
+  %33 = sub i64 %8, %32
+  br i1 %31, label %.outer.split, label %.outer._crit_edge, !llvm.loop !15
 
 .outer._crit_edge:                                ; preds = %.outer, %0
   store i32 0, ptr @PqSendPointer, align 4
@@ -2766,7 +2771,7 @@ attributes #24 = { noreturn nounwind }
 !4 = !{i32 7, !"frame-pointer", i32 2}
 !5 = distinct !{!5, !6}
 !6 = !{!"llvm.loop.mustprogress"}
-!7 = !{i32 -1, i32 1}
+!7 = distinct !{!7, !6}
 !8 = distinct !{!8, !6}
 !9 = distinct !{!9, !6}
 !10 = distinct !{!10, !6}
@@ -2775,4 +2780,3 @@ attributes #24 = { noreturn nounwind }
 !13 = distinct !{!13, !6}
 !14 = distinct !{!14, !6}
 !15 = distinct !{!15, !6}
-!16 = distinct !{!16, !6}

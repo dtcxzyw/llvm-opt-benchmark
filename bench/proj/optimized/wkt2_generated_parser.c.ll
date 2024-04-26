@@ -561,7 +561,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.547 = private unnamed_addr constant [34 x i8] c"abridged_transformation_parameter\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @pj_wkt2_parse(ptr noundef %0) local_unnamed_addr #0 {
+define hidden range(i32 0, 3) i32 @pj_wkt2_parse(ptr noundef %0) local_unnamed_addr #0 {
   %2 = alloca i32, align 4
   %3 = alloca [200 x i16], align 16
   %4 = alloca [200 x i32], align 16
@@ -795,7 +795,7 @@ define hidden noundef i32 @pj_wkt2_parse(ptr noundef %0) local_unnamed_addr #0 {
 
 124:                                              ; preds = %122
   %125 = call fastcc i32 @yysyntax_error(ptr noundef nonnull %6, ptr %.1218, ptr noundef nonnull %.2162, i32 noundef %123)
-  switch i32 %125, label %133 [
+  switch i32 %125, label %.thread [
     i32 0, label %.thread227
     i32 1, label %126
   ]
@@ -816,23 +816,21 @@ define hidden noundef i32 @pj_wkt2_parse(ptr noundef %0) local_unnamed_addr #0 {
   %129 = load i64, ptr %6, align 8
   %130 = call ptr @malloc(i64 noundef %129) #7
   %.not208 = icmp eq ptr %130, null
-  br i1 %.not208, label %.thread, label %131
+  br i1 %.not208, label %131, label %132
 
-.thread:                                          ; preds = %128
+131:                                              ; preds = %128
   store i64 128, ptr %6, align 8
+  br label %.thread
+
+.thread:                                          ; preds = %124, %131
+  %.2219.ph = phi ptr [ %5, %131 ], [ %.1218, %124 ]
   call void @pj_wkt2_error(ptr noundef %0, ptr noundef nonnull @.str) #8
   br label %.loopexit
 
-131:                                              ; preds = %128
-  %132 = call fastcc i32 @yysyntax_error(ptr noundef nonnull %6, ptr nonnull %130, ptr noundef nonnull %.2162, i32 noundef %123)
-  br label %133
-
-133:                                              ; preds = %124, %131
-  %.2219 = phi ptr [ %.1218, %124 ], [ %130, %131 ]
-  %.0147 = phi ptr [ @.str, %124 ], [ %130, %131 ]
-  %.0 = phi i32 [ %125, %124 ], [ %132, %131 ]
-  call void @pj_wkt2_error(ptr noundef %0, ptr noundef nonnull %.0147) #8
-  %134 = icmp eq i32 %.0, 2
+132:                                              ; preds = %128
+  %133 = call fastcc i32 @yysyntax_error(ptr noundef nonnull %6, ptr nonnull %130, ptr noundef nonnull %.2162, i32 noundef %123)
+  call void @pj_wkt2_error(ptr noundef %0, ptr noundef nonnull %130) #8
+  %134 = icmp eq i32 %133, 2
   br i1 %134, label %.loopexit, label %139
 
 135:                                              ; preds = %122
@@ -843,9 +841,9 @@ define hidden noundef i32 @pj_wkt2_parse(ptr noundef %0) local_unnamed_addr #0 {
   %138 = icmp eq i32 %.4, 0
   br i1 %138, label %.thread251, label %139
 
-139:                                              ; preds = %135, %133, %.thread227, %122, %137
-  %.4221 = phi ptr [ %.1218, %122 ], [ %.1218, %137 ], [ %.1218, %.thread227 ], [ %.2219, %133 ], [ %.1218, %135 ]
-  %.6 = phi i32 [ %.4, %122 ], [ %.4, %137 ], [ %.4, %.thread227 ], [ %.4, %133 ], [ -2, %135 ]
+139:                                              ; preds = %135, %132, %.thread227, %122, %137
+  %.4221 = phi ptr [ %.1218, %122 ], [ %.1218, %137 ], [ %.1218, %.thread227 ], [ %130, %132 ], [ %.1218, %135 ]
+  %.6 = phi i32 [ %.4, %122 ], [ %.4, %137 ], [ %.4, %.thread227 ], [ %.4, %132 ], [ -2, %135 ]
   br label %140
 
 140:                                              ; preds = %155, %139
@@ -879,8 +877,8 @@ define hidden noundef i32 @pj_wkt2_parse(ptr noundef %0) local_unnamed_addr #0 {
   %157 = getelementptr inbounds i8, ptr %.3163, i64 -2
   %158 = load i16, ptr %157, align 2
   %.phi.trans.insert = sext i16 %158 to i64
-  %.phi.trans.insert286 = getelementptr inbounds [1496 x i16], ptr @yypact, i64 0, i64 %.phi.trans.insert
-  %.pre = load i16, ptr %.phi.trans.insert286, align 2
+  %.phi.trans.insert296 = getelementptr inbounds [1496 x i16], ptr @yypact, i64 0, i64 %.phi.trans.insert
+  %.pre = load i16, ptr %.phi.trans.insert296, align 2
   br label %140
 
 159:                                              ; preds = %149
@@ -890,9 +888,9 @@ define hidden noundef i32 @pj_wkt2_parse(ptr noundef %0) local_unnamed_addr #0 {
   store i32 %161, ptr %162, align 4
   br label %7
 
-.loopexit:                                        ; preds = %133, %20, %13, %.thread
-  %.5222 = phi ptr [ %5, %.thread ], [ %.1218, %20 ], [ %.1218, %13 ], [ %.2219, %133 ]
-  %.3158 = phi ptr [ %.1156, %.thread ], [ %.0155, %20 ], [ %.0155, %13 ], [ %.1156, %133 ]
+.loopexit:                                        ; preds = %132, %20, %13, %.thread
+  %.5222 = phi ptr [ %.2219.ph, %.thread ], [ %.1218, %20 ], [ %.1218, %13 ], [ %130, %132 ]
+  %.3158 = phi ptr [ %.1156, %.thread ], [ %.0155, %20 ], [ %.0155, %13 ], [ %.1156, %132 ]
   call void @pj_wkt2_error(ptr noundef %0, ptr noundef nonnull @.str.3) #8
   br label %.thread251
 
@@ -904,24 +902,24 @@ define hidden noundef i32 @pj_wkt2_parse(ptr noundef %0) local_unnamed_addr #0 {
   br i1 %.not211, label %163, label %.thread251.thread
 
 .thread251.thread:                                ; preds = %33, %.thread251
-  %.6223241294 = phi ptr [ %.6223241, %.thread251 ], [ %.1218, %33 ]
-  %.0181243292 = phi i32 [ %.0181243, %.thread251 ], [ 1, %33 ]
-  %.4159249291 = phi ptr [ %.4159249, %.thread251 ], [ %24, %33 ]
-  call void @free(ptr noundef %.4159249291)
+  %.6223241304 = phi ptr [ %.6223241, %.thread251 ], [ %.1218, %33 ]
+  %.0181243302 = phi i32 [ %.0181243, %.thread251 ], [ 1, %33 ]
+  %.4159249301 = phi ptr [ %.4159249, %.thread251 ], [ %24, %33 ]
+  call void @free(ptr noundef %.4159249301)
   br label %163
 
 163:                                              ; preds = %.thread251.thread, %.thread251
-  %.6223241295 = phi ptr [ %.6223241294, %.thread251.thread ], [ %.6223241, %.thread251 ]
-  %.0181243293 = phi i32 [ %.0181243292, %.thread251.thread ], [ %.0181243, %.thread251 ]
-  %.not212 = icmp eq ptr %.6223241295, %5
+  %.6223241305 = phi ptr [ %.6223241304, %.thread251.thread ], [ %.6223241, %.thread251 ]
+  %.0181243303 = phi i32 [ %.0181243302, %.thread251.thread ], [ %.0181243, %.thread251 ]
+  %.not212 = icmp eq ptr %.6223241305, %5
   br i1 %.not212, label %165, label %164
 
 164:                                              ; preds = %163
-  call void @free(ptr noundef %.6223241295)
+  call void @free(ptr noundef %.6223241305)
   br label %165
 
 165:                                              ; preds = %164, %163
-  ret i32 %.0181243293
+  ret i32 %.0181243303
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite)
@@ -936,7 +934,7 @@ declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #3
 declare i32 @pj_wkt2_lex(ptr noundef, ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc noundef i32 @yysyntax_error(ptr nocapture noundef %0, ptr %.0.val, ptr nocapture noundef readonly %1, i32 noundef %2) unnamed_addr #5 {
+define internal fastcc range(i32 0, 3) i32 @yysyntax_error(ptr nocapture noundef %0, ptr %.0.val, ptr nocapture noundef readonly %1, i32 noundef %2) unnamed_addr #5 {
   %4 = alloca [5 x ptr], align 16
   %.not = icmp eq i32 %2, -2
   br i1 %.not, label %.thread7, label %5

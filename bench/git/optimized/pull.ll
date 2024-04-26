@@ -1178,7 +1178,7 @@ is_null_oid.exit116:                              ; preds = %if.then.i.i.i112, %
   br i1 %retval.0.in.i.i.i110.not, label %if.end91, label %land.lhs.true79
 
 land.lhs.true79:                                  ; preds = %is_null_oid.exit116
-  %call80 = call fastcc i32 @oideq(ptr noundef nonnull %orig_head, ptr noundef nonnull %curr_head), !range !11
+  %call80 = call fastcc i32 @oideq(ptr noundef nonnull %orig_head, ptr noundef nonnull %curr_head)
   %tobool81.not = icmp eq i32 %call80, 0
   br i1 %tobool81.not, label %if.then82, label %if.end91
 
@@ -1241,7 +1241,7 @@ if.end7.i132:                                     ; preds = %if.end.i131
 while.cond.backedge.i:                            ; preds = %if.end7.i132, %if.end.i131, %while.body.i
   %call2.i130 = call i32 @strbuf_getline_lf(ptr noundef nonnull %sb.i123, ptr noundef %call1.i125) #17
   %cmp.not.i = icmp eq i32 %call2.i130, -1
-  br i1 %cmp.not.i, label %get_merge_heads.exit, label %while.body.i, !llvm.loop !12
+  br i1 %cmp.not.i, label %get_merge_heads.exit, label %while.body.i, !llvm.loop !11
 
 get_merge_heads.exit:                             ; preds = %while.cond.backedge.i, %if.end91
   %call8.i = call i32 @fclose(ptr noundef %call1.i125)
@@ -1395,7 +1395,7 @@ get_can_ff.exit:                                  ; preds = %if.end104
   br i1 %tobool121.not, label %land.rhs, label %land.end
 
 land.rhs:                                         ; preds = %if.end111, %land.lhs.true113, %get_can_ff.exit
-  %call122 = call fastcc i32 @already_up_to_date(ptr noundef nonnull %orig_head, ptr noundef nonnull %merge_heads), !range !11
+  %call122 = call fastcc i32 @already_up_to_date(ptr noundef nonnull %orig_head, ptr noundef nonnull %merge_heads)
   %tobool123.not = icmp eq i32 %call122, 0
   br label %land.end
 
@@ -1424,7 +1424,7 @@ if.end140.thread:                                 ; preds = %if.then128
 
 if.end132:                                        ; preds = %land.end
   %tobool135 = icmp ne i32 %rebase_unspecified.1, 0
-  %or.cond2 = and i1 %tobool135, %111
+  %or.cond2 = select i1 %tobool135, i1 %111, i1 false
   br i1 %or.cond2, label %if.then138, label %if.end140
 
 if.then138:                                       ; preds = %if.end132
@@ -1820,7 +1820,7 @@ return:                                           ; preds = %if.end, %entry, %if
 declare i32 @require_clean_work_tree(ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define internal fastcc i32 @oideq(ptr nocapture noundef readonly %oid1, ptr nocapture noundef readonly %oid2) unnamed_addr #6 {
+define internal fastcc range(i32 0, 2) i32 @oideq(ptr nocapture noundef readonly %oid1, ptr nocapture noundef readonly %oid2) unnamed_addr #6 {
 entry:
   %algo = getelementptr inbounds i8, ptr %oid1, i64 32
   %0 = load i32, ptr %algo, align 4
@@ -2162,7 +2162,7 @@ if.end79:                                         ; preds = %_.exit29, %_.exit10
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @already_up_to_date(ptr noundef %orig_head, ptr nocapture noundef readonly %merge_heads) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @already_up_to_date(ptr noundef %orig_head, ptr nocapture noundef readonly %merge_heads) unnamed_addr #0 {
 entry:
   %list = alloca ptr, align 8
   %0 = load ptr, ptr @the_repository, align 8
@@ -2176,7 +2176,7 @@ for.cond:                                         ; preds = %for.body
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %2 = load i64, ptr %nr, align 8
   %cmp = icmp ugt i64 %2, %indvars.iv.next
-  br i1 %cmp, label %for.body, label %return, !llvm.loop !13
+  br i1 %cmp, label %for.body, label %return, !llvm.loop !12
 
 for.body:                                         ; preds = %entry, %for.cond
   %indvars.iv = phi i64 [ %indvars.iv.next, %for.cond ], [ 0, %entry ]
@@ -2640,7 +2640,7 @@ declare i32 @parse_opt_passthru(ptr noundef, ptr noundef, i32 noundef) #3
 declare i32 @option_fetch_parse_recurse_submodules(ptr noundef, ptr noundef, i32 noundef) #3
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @parse_opt_rebase(ptr nocapture noundef readonly %opt, ptr noundef %arg, i32 noundef %unset) #0 {
+define internal range(i32 -1, 1) i32 @parse_opt_rebase(ptr nocapture noundef readonly %opt, ptr noundef %arg, i32 noundef %unset) #0 {
 entry:
   %value1 = getelementptr inbounds i8, ptr %opt, i64 16
   %0 = load ptr, ptr %value1, align 8
@@ -2750,7 +2750,7 @@ declare i32 @fprintf_ln(ptr noundef, ptr noundef, ...) local_unnamed_addr #3
 declare i32 @for_each_remote(ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal noundef i32 @get_only_remote(ptr nocapture noundef readonly %remote, ptr nocapture noundef %cb_data) #12 {
+define internal range(i32 -1, 1) i32 @get_only_remote(ptr nocapture noundef readonly %remote, ptr nocapture noundef %cb_data) #12 {
 entry:
   %0 = load ptr, ptr %cb_data, align 8
   %tobool.not = icmp eq ptr %0, null
@@ -2841,6 +2841,5 @@ attributes #20 = { noreturn }
 !8 = distinct !{!8, !6}
 !9 = distinct !{!9, !6}
 !10 = distinct !{!10, !6}
-!11 = !{i32 0, i32 2}
+!11 = distinct !{!11, !6}
 !12 = distinct !{!12, !6}
-!13 = distinct !{!13, !6}

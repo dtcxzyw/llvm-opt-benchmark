@@ -3373,7 +3373,7 @@ return:                                           ; preds = %if.end, %if.end10, 
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef i8 @_ZN4absl19str_format_internal17FormatConvertImplEcNS0_24FormatConversionSpecImplEPNS0_14FormatSinkImplE(i8 noundef signext %v, i64 %conv.coerce0, i32 %conv.coerce1, ptr noundef %sink) local_unnamed_addr #0 {
+define dso_local range(i8 0, 2) i8 @_ZN4absl19str_format_internal17FormatConvertImplEcNS0_24FormatConversionSpecImplEPNS0_14FormatSinkImplE(i8 noundef signext %v, i64 %conv.coerce0, i32 %conv.coerce1, ptr noundef %sink) local_unnamed_addr #0 {
 entry:
   %call = tail call noundef zeroext i1 @_ZN4absl19str_format_internal13ConvertIntArgIcEEbT_NS0_24FormatConversionSpecImplEPNS0_14FormatSinkImplE(i8 noundef signext %v, i64 %conv.coerce0, i32 %conv.coerce1, ptr noundef %sink)
   %frombool = zext i1 %call to i8
@@ -3413,7 +3413,7 @@ return:                                           ; preds = %if.end, %if.end10, 
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef i8 @_ZN4absl19str_format_internal17FormatConvertImplEaNS0_24FormatConversionSpecImplEPNS0_14FormatSinkImplE(i8 noundef signext %v, i64 %conv.coerce0, i32 %conv.coerce1, ptr noundef %sink) local_unnamed_addr #0 {
+define dso_local range(i8 0, 2) i8 @_ZN4absl19str_format_internal17FormatConvertImplEaNS0_24FormatConversionSpecImplEPNS0_14FormatSinkImplE(i8 noundef signext %v, i64 %conv.coerce0, i32 %conv.coerce1, ptr noundef %sink) local_unnamed_addr #0 {
 entry:
   %call = tail call noundef zeroext i1 @_ZN4absl19str_format_internal13ConvertIntArgIaEEbT_NS0_24FormatConversionSpecImplEPNS0_14FormatSinkImplE(i8 noundef signext %v, i64 %conv.coerce0, i32 %conv.coerce1, ptr noundef %sink)
   %frombool = zext i1 %call to i8
@@ -3452,7 +3452,7 @@ return:                                           ; preds = %if.end, %if.end10, 
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef i8 @_ZN4absl19str_format_internal17FormatConvertImplEhNS0_24FormatConversionSpecImplEPNS0_14FormatSinkImplE(i8 noundef zeroext %v, i64 %conv.coerce0, i32 %conv.coerce1, ptr noundef %sink) local_unnamed_addr #0 {
+define dso_local range(i8 0, 2) i8 @_ZN4absl19str_format_internal17FormatConvertImplEhNS0_24FormatConversionSpecImplEPNS0_14FormatSinkImplE(i8 noundef zeroext %v, i64 %conv.coerce0, i32 %conv.coerce1, ptr noundef %sink) local_unnamed_addr #0 {
 entry:
   %call = tail call noundef zeroext i1 @_ZN4absl19str_format_internal13ConvertIntArgIhEEbT_NS0_24FormatConversionSpecImplEPNS0_14FormatSinkImplE(i8 noundef zeroext %v, i64 %conv.coerce0, i32 %conv.coerce1, ptr noundef %sink)
   %frombool = zext i1 %call to i8
@@ -3492,7 +3492,7 @@ return:                                           ; preds = %if.end, %if.end10, 
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef i8 @_ZN4absl19str_format_internal17FormatConvertImplEsNS0_24FormatConversionSpecImplEPNS0_14FormatSinkImplE(i16 noundef signext %v, i64 %conv.coerce0, i32 %conv.coerce1, ptr noundef %sink) local_unnamed_addr #0 {
+define dso_local range(i8 0, 2) i8 @_ZN4absl19str_format_internal17FormatConvertImplEsNS0_24FormatConversionSpecImplEPNS0_14FormatSinkImplE(i16 noundef signext %v, i64 %conv.coerce0, i32 %conv.coerce1, ptr noundef %sink) local_unnamed_addr #0 {
 entry:
   %call = tail call noundef zeroext i1 @_ZN4absl19str_format_internal13ConvertIntArgIsEEbT_NS0_24FormatConversionSpecImplEPNS0_14FormatSinkImplE(i16 noundef signext %v, i64 %conv.coerce0, i32 %conv.coerce1, ptr noundef %sink)
   %frombool = zext i1 %call to i8
@@ -3531,7 +3531,7 @@ return:                                           ; preds = %if.end, %if.end10, 
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef i8 @_ZN4absl19str_format_internal17FormatConvertImplEtNS0_24FormatConversionSpecImplEPNS0_14FormatSinkImplE(i16 noundef zeroext %v, i64 %conv.coerce0, i32 %conv.coerce1, ptr noundef %sink) local_unnamed_addr #0 {
+define dso_local range(i8 0, 2) i8 @_ZN4absl19str_format_internal17FormatConvertImplEtNS0_24FormatConversionSpecImplEPNS0_14FormatSinkImplE(i16 noundef zeroext %v, i64 %conv.coerce0, i32 %conv.coerce1, ptr noundef %sink) local_unnamed_addr #0 {
 entry:
   %call = tail call noundef zeroext i1 @_ZN4absl19str_format_internal13ConvertIntArgItEEbT_NS0_24FormatConversionSpecImplEPNS0_14FormatSinkImplE(i16 noundef zeroext %v, i64 %conv.coerce0, i32 %conv.coerce1, ptr noundef %sink)
   %frombool = zext i1 %call to i8
@@ -3569,7 +3569,7 @@ return:                                           ; preds = %if.end, %if.end10, 
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef i8 @_ZN4absl19str_format_internal17FormatConvertImplEiNS0_24FormatConversionSpecImplEPNS0_14FormatSinkImplE(i32 noundef %v, i64 %conv.coerce0, i32 %conv.coerce1, ptr noundef %sink) local_unnamed_addr #0 {
+define dso_local range(i8 0, 2) i8 @_ZN4absl19str_format_internal17FormatConvertImplEiNS0_24FormatConversionSpecImplEPNS0_14FormatSinkImplE(i32 noundef %v, i64 %conv.coerce0, i32 %conv.coerce1, ptr noundef %sink) local_unnamed_addr #0 {
 entry:
   %call = tail call noundef zeroext i1 @_ZN4absl19str_format_internal13ConvertIntArgIiEEbT_NS0_24FormatConversionSpecImplEPNS0_14FormatSinkImplE(i32 noundef %v, i64 %conv.coerce0, i32 %conv.coerce1, ptr noundef %sink)
   %frombool = zext i1 %call to i8
@@ -3608,7 +3608,7 @@ return:                                           ; preds = %if.end, %if.end10, 
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef i8 @_ZN4absl19str_format_internal17FormatConvertImplEjNS0_24FormatConversionSpecImplEPNS0_14FormatSinkImplE(i32 noundef %v, i64 %conv.coerce0, i32 %conv.coerce1, ptr noundef %sink) local_unnamed_addr #0 {
+define dso_local range(i8 0, 2) i8 @_ZN4absl19str_format_internal17FormatConvertImplEjNS0_24FormatConversionSpecImplEPNS0_14FormatSinkImplE(i32 noundef %v, i64 %conv.coerce0, i32 %conv.coerce1, ptr noundef %sink) local_unnamed_addr #0 {
 entry:
   %call = tail call noundef zeroext i1 @_ZN4absl19str_format_internal13ConvertIntArgIjEEbT_NS0_24FormatConversionSpecImplEPNS0_14FormatSinkImplE(i32 noundef %v, i64 %conv.coerce0, i32 %conv.coerce1, ptr noundef %sink)
   %frombool = zext i1 %call to i8
@@ -3647,7 +3647,7 @@ return:                                           ; preds = %if.end, %if.end10, 
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef i8 @_ZN4absl19str_format_internal17FormatConvertImplElNS0_24FormatConversionSpecImplEPNS0_14FormatSinkImplE(i64 noundef %v, i64 %conv.coerce0, i32 %conv.coerce1, ptr noundef %sink) local_unnamed_addr #0 {
+define dso_local range(i8 0, 2) i8 @_ZN4absl19str_format_internal17FormatConvertImplElNS0_24FormatConversionSpecImplEPNS0_14FormatSinkImplE(i64 noundef %v, i64 %conv.coerce0, i32 %conv.coerce1, ptr noundef %sink) local_unnamed_addr #0 {
 entry:
   %call = tail call noundef zeroext i1 @_ZN4absl19str_format_internal13ConvertIntArgIlEEbT_NS0_24FormatConversionSpecImplEPNS0_14FormatSinkImplE(i64 noundef %v, i64 %conv.coerce0, i32 %conv.coerce1, ptr noundef %sink)
   %frombool = zext i1 %call to i8
@@ -3685,7 +3685,7 @@ return:                                           ; preds = %if.end, %if.end10, 
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef i8 @_ZN4absl19str_format_internal17FormatConvertImplEmNS0_24FormatConversionSpecImplEPNS0_14FormatSinkImplE(i64 noundef %v, i64 %conv.coerce0, i32 %conv.coerce1, ptr noundef %sink) local_unnamed_addr #0 {
+define dso_local range(i8 0, 2) i8 @_ZN4absl19str_format_internal17FormatConvertImplEmNS0_24FormatConversionSpecImplEPNS0_14FormatSinkImplE(i64 noundef %v, i64 %conv.coerce0, i32 %conv.coerce1, ptr noundef %sink) local_unnamed_addr #0 {
 entry:
   %call = tail call noundef zeroext i1 @_ZN4absl19str_format_internal13ConvertIntArgImEEbT_NS0_24FormatConversionSpecImplEPNS0_14FormatSinkImplE(i64 noundef %v, i64 %conv.coerce0, i32 %conv.coerce1, ptr noundef %sink)
   %frombool = zext i1 %call to i8
@@ -3724,7 +3724,7 @@ return:                                           ; preds = %if.end, %if.end10, 
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef i8 @_ZN4absl19str_format_internal17FormatConvertImplExNS0_24FormatConversionSpecImplEPNS0_14FormatSinkImplE(i64 noundef %v, i64 %conv.coerce0, i32 %conv.coerce1, ptr noundef %sink) local_unnamed_addr #0 {
+define dso_local range(i8 0, 2) i8 @_ZN4absl19str_format_internal17FormatConvertImplExNS0_24FormatConversionSpecImplEPNS0_14FormatSinkImplE(i64 noundef %v, i64 %conv.coerce0, i32 %conv.coerce1, ptr noundef %sink) local_unnamed_addr #0 {
 entry:
   %call = tail call noundef zeroext i1 @_ZN4absl19str_format_internal13ConvertIntArgIxEEbT_NS0_24FormatConversionSpecImplEPNS0_14FormatSinkImplE(i64 noundef %v, i64 %conv.coerce0, i32 %conv.coerce1, ptr noundef %sink)
   %frombool = zext i1 %call to i8
@@ -3762,7 +3762,7 @@ return:                                           ; preds = %if.end, %if.end10, 
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef i8 @_ZN4absl19str_format_internal17FormatConvertImplEyNS0_24FormatConversionSpecImplEPNS0_14FormatSinkImplE(i64 noundef %v, i64 %conv.coerce0, i32 %conv.coerce1, ptr noundef %sink) local_unnamed_addr #0 {
+define dso_local range(i8 0, 2) i8 @_ZN4absl19str_format_internal17FormatConvertImplEyNS0_24FormatConversionSpecImplEPNS0_14FormatSinkImplE(i64 noundef %v, i64 %conv.coerce0, i32 %conv.coerce1, ptr noundef %sink) local_unnamed_addr #0 {
 entry:
   %call = tail call noundef zeroext i1 @_ZN4absl19str_format_internal13ConvertIntArgIyEEbT_NS0_24FormatConversionSpecImplEPNS0_14FormatSinkImplE(i64 noundef %v, i64 %conv.coerce0, i32 %conv.coerce1, ptr noundef %sink)
   %frombool = zext i1 %call to i8
@@ -3795,7 +3795,7 @@ return:                                           ; preds = %entry, %if.end, %if
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef i8 @_ZN4absl19str_format_internal17FormatConvertImplENS_6int128ENS0_24FormatConversionSpecImplEPNS0_14FormatSinkImplE(i64 %v.coerce0, i64 %v.coerce1, i64 %conv.coerce0, i32 %conv.coerce1, ptr noundef %sink) local_unnamed_addr #0 {
+define dso_local range(i8 0, 2) i8 @_ZN4absl19str_format_internal17FormatConvertImplENS_6int128ENS0_24FormatConversionSpecImplEPNS0_14FormatSinkImplE(i64 %v.coerce0, i64 %v.coerce1, i64 %conv.coerce0, i32 %conv.coerce1, ptr noundef %sink) local_unnamed_addr #0 {
 entry:
   %call = tail call noundef zeroext i1 @_ZN4absl19str_format_internal13ConvertIntArgINS_6int128EEEbT_NS0_24FormatConversionSpecImplEPNS0_14FormatSinkImplE(i64 %v.coerce0, i64 %v.coerce1, i64 %conv.coerce0, i32 %conv.coerce1, ptr noundef %sink)
   %frombool = zext i1 %call to i8
@@ -3828,7 +3828,7 @@ return:                                           ; preds = %entry, %if.end, %if
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef i8 @_ZN4absl19str_format_internal17FormatConvertImplENS_7uint128ENS0_24FormatConversionSpecImplEPNS0_14FormatSinkImplE(i64 %v.coerce0, i64 %v.coerce1, i64 %conv.coerce0, i32 %conv.coerce1, ptr noundef %sink) local_unnamed_addr #0 {
+define dso_local range(i8 0, 2) i8 @_ZN4absl19str_format_internal17FormatConvertImplENS_7uint128ENS0_24FormatConversionSpecImplEPNS0_14FormatSinkImplE(i64 %v.coerce0, i64 %v.coerce1, i64 %conv.coerce0, i32 %conv.coerce1, ptr noundef %sink) local_unnamed_addr #0 {
 entry:
   %call = tail call noundef zeroext i1 @_ZN4absl19str_format_internal13ConvertIntArgINS_7uint128EEEbT_NS0_24FormatConversionSpecImplEPNS0_14FormatSinkImplE(i64 %v.coerce0, i64 %v.coerce1, i64 %conv.coerce0, i32 %conv.coerce1, ptr noundef %sink)
   %frombool = zext i1 %call to i8
@@ -3885,7 +3885,7 @@ return:                                           ; preds = %entry, %if.end, %_Z
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef i8 @_ZN4absl19str_format_internal17FormatConvertImplEfNS0_24FormatConversionSpecImplEPNS0_14FormatSinkImplE(float noundef %v, i64 %conv.coerce0, i32 %conv.coerce1, ptr noundef %sink) local_unnamed_addr #0 {
+define dso_local range(i8 0, 2) i8 @_ZN4absl19str_format_internal17FormatConvertImplEfNS0_24FormatConversionSpecImplEPNS0_14FormatSinkImplE(float noundef %v, i64 %conv.coerce0, i32 %conv.coerce1, ptr noundef %sink) local_unnamed_addr #0 {
 entry:
   %conv.i = alloca %"class.absl::str_format_internal::FormatConversionSpecImpl", align 8
   call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %conv.i)
@@ -3965,7 +3965,7 @@ return:                                           ; preds = %entry, %if.end, %_Z
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef i8 @_ZN4absl19str_format_internal17FormatConvertImplEdNS0_24FormatConversionSpecImplEPNS0_14FormatSinkImplE(double noundef %v, i64 %conv.coerce0, i32 %conv.coerce1, ptr noundef %sink) local_unnamed_addr #0 {
+define dso_local range(i8 0, 2) i8 @_ZN4absl19str_format_internal17FormatConvertImplEdNS0_24FormatConversionSpecImplEPNS0_14FormatSinkImplE(double noundef %v, i64 %conv.coerce0, i32 %conv.coerce1, ptr noundef %sink) local_unnamed_addr #0 {
 entry:
   %conv.i = alloca %"class.absl::str_format_internal::FormatConversionSpecImpl", align 8
   call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %conv.i)
@@ -4044,7 +4044,7 @@ return:                                           ; preds = %entry, %if.end, %_Z
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef i8 @_ZN4absl19str_format_internal17FormatConvertImplEeNS0_24FormatConversionSpecImplEPNS0_14FormatSinkImplE(x86_fp80 noundef %v, i64 %conv.coerce0, i32 %conv.coerce1, ptr noundef %sink) local_unnamed_addr #0 {
+define dso_local range(i8 0, 2) i8 @_ZN4absl19str_format_internal17FormatConvertImplEeNS0_24FormatConversionSpecImplEPNS0_14FormatSinkImplE(x86_fp80 noundef %v, i64 %conv.coerce0, i32 %conv.coerce1, ptr noundef %sink) local_unnamed_addr #0 {
 entry:
   %conv.i = alloca %"class.absl::str_format_internal::FormatConversionSpecImpl", align 8
   call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %conv.i)
@@ -4089,7 +4089,7 @@ if.end:                                           ; preds = %entry
   br i1 %cmp.i.not, label %return, label %if.end10
 
 if.end10:                                         ; preds = %if.end
-  %call16 = tail call i8 @_ZN4absl19str_format_internal17FormatConvertImplEPKcNS0_24FormatConversionSpecImplEPNS0_14FormatSinkImplE(ptr noundef %arg.coerce, i64 %spec.coerce0, i32 %spec.coerce1, ptr noundef %out), !range !21
+  %call16 = tail call i8 @_ZN4absl19str_format_internal17FormatConvertImplEPKcNS0_24FormatConversionSpecImplEPNS0_14FormatSinkImplE(ptr noundef %arg.coerce, i64 %spec.coerce0, i32 %spec.coerce1, ptr noundef %out)
   %tobool = trunc nuw i8 %call16 to i1
   br label %return
 
@@ -4099,7 +4099,7 @@ return:                                           ; preds = %entry, %if.end, %if
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef i8 @_ZN4absl19str_format_internal17FormatConvertImplEPKcNS0_24FormatConversionSpecImplEPNS0_14FormatSinkImplE(ptr noundef %v, i64 %conv.coerce0, i32 %conv.coerce1, ptr noundef %sink) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define dso_local range(i8 0, 2) i8 @_ZN4absl19str_format_internal17FormatConvertImplEPKcNS0_24FormatConversionSpecImplEPNS0_14FormatSinkImplE(ptr noundef %v, i64 %conv.coerce0, i32 %conv.coerce1, ptr noundef %sink) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %as_digits.i = alloca %"class.absl::str_format_internal::(anonymous namespace)::IntDigits", align 8
   %0 = and i64 %conv.coerce0, 255
@@ -4237,7 +4237,7 @@ if.end11.i.i.i:                                   ; preds = %if.end7.i.i.i
   %incdec.ptr12.i.i.i = getelementptr inbounds i8, ptr %__first.addr.049.i.i.i, i64 4
   %dec.i.i.i = add nsw i64 %__trip_count.050.i.i.i, -1
   %cmp.i.i.i = icmp sgt i64 %__trip_count.050.i.i.i, 1
-  br i1 %cmp.i.i.i, label %for.body.i.i.i, label %for.end.loopexit.i.i.i, !llvm.loop !22
+  br i1 %cmp.i.i.i, label %for.body.i.i.i, label %for.end.loopexit.i.i.i, !llvm.loop !21
 
 for.end.loopexit.i.i.i:                           ; preds = %if.end11.i.i.i
   %.pre56.i.i.i = ptrtoint ptr %scevgep.i.i.i to i64
@@ -4442,7 +4442,7 @@ return:                                           ; preds = %if.end.i.i, %if.end
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef i8 @_ZN4absl19str_format_internal17FormatConvertImplERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS0_24FormatConversionSpecImplEPNS0_14FormatSinkImplE(ptr noundef nonnull align 8 dereferenceable(32) %v, i64 %conv.coerce0, i32 %conv.coerce1, ptr noundef %sink) local_unnamed_addr #0 {
+define dso_local range(i8 0, 2) i8 @_ZN4absl19str_format_internal17FormatConvertImplERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS0_24FormatConversionSpecImplEPNS0_14FormatSinkImplE(ptr noundef nonnull align 8 dereferenceable(32) %v, i64 %conv.coerce0, i32 %conv.coerce1, ptr noundef %sink) local_unnamed_addr #0 {
 entry:
   %call = tail call { i64, ptr } @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEcvSt17basic_string_viewIcS2_EEv(ptr noundef nonnull align 8 dereferenceable(32) %v) #14
   %0 = extractvalue { i64, ptr } %call, 0
@@ -4580,7 +4580,7 @@ return:                                           ; preds = %if.end.i.i, %if.end
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef i8 @_ZN4absl19str_format_internal17FormatConvertImplESt17basic_string_viewIcSt11char_traitsIcEENS0_24FormatConversionSpecImplEPNS0_14FormatSinkImplE(i64 %v.coerce0, ptr %v.coerce1, i64 %conv.coerce0, i32 %conv.coerce1, ptr noundef %sink) local_unnamed_addr #0 {
+define dso_local range(i8 0, 2) i8 @_ZN4absl19str_format_internal17FormatConvertImplESt17basic_string_viewIcSt11char_traitsIcEENS0_24FormatConversionSpecImplEPNS0_14FormatSinkImplE(i64 %v.coerce0, ptr %v.coerce1, i64 %conv.coerce0, i32 %conv.coerce1, ptr noundef %sink) local_unnamed_addr #0 {
 entry:
   %conv.sroa.1.0.extract.shift.i = lshr i64 %conv.coerce0, 8
   %conv.sroa.1.0.extract.trunc.i = trunc i64 %conv.sroa.1.0.extract.shift.i to i8
@@ -4654,7 +4654,7 @@ if.end:                                           ; preds = %entry
   br i1 %cmp.i.not, label %return, label %if.end10
 
 if.end10:                                         ; preds = %if.end
-  %call16 = tail call i8 @_ZN4absl19str_format_internal17FormatConvertImplEPKwNS0_24FormatConversionSpecImplEPNS0_14FormatSinkImplE(ptr noundef %arg.coerce, i64 %spec.coerce0, i32 %spec.coerce1, ptr noundef %out), !range !21
+  %call16 = tail call i8 @_ZN4absl19str_format_internal17FormatConvertImplEPKwNS0_24FormatConversionSpecImplEPNS0_14FormatSinkImplE(ptr noundef %arg.coerce, i64 %spec.coerce0, i32 %spec.coerce1, ptr noundef %out)
   %tobool = trunc nuw i8 %call16 to i1
   br label %return
 
@@ -4664,7 +4664,7 @@ return:                                           ; preds = %entry, %if.end, %if
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef i8 @_ZN4absl19str_format_internal17FormatConvertImplEPKwNS0_24FormatConversionSpecImplEPNS0_14FormatSinkImplE(ptr noundef %v, i64 %conv.coerce0, i32 %conv.coerce1, ptr noundef %sink) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define dso_local range(i8 0, 2) i8 @_ZN4absl19str_format_internal17FormatConvertImplEPKwNS0_24FormatConversionSpecImplEPNS0_14FormatSinkImplE(ptr noundef %v, i64 %conv.coerce0, i32 %conv.coerce1, ptr noundef %sink) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %as_digits.i = alloca %"class.absl::str_format_internal::(anonymous namespace)::IntDigits", align 8
   %0 = and i64 %conv.coerce0, 255
@@ -4761,16 +4761,15 @@ if.then9:                                         ; preds = %if.else
 
 if.else11:                                        ; preds = %if.else
   %idx.ext = zext nneg i32 %conv.coerce1 to i64
-  %add.ptr = getelementptr inbounds i32, ptr %v, i64 %idx.ext
-  %sub.ptr.lhs.cast.i.i.i9 = ptrtoint ptr %add.ptr to i64
+  %add.ptr.idx29 = shl nuw nsw i64 %idx.ext, 2
+  %add.ptr = getelementptr inbounds i8, ptr %v, i64 %add.ptr.idx29
   %sub.ptr.rhs.cast.i.i.i10 = ptrtoint ptr %v to i64
   %cmp48.i.i.i.not = icmp ult i32 %conv.coerce1, 4
   br i1 %cmp48.i.i.i.not, label %for.end.i.i.i, label %for.body.lr.ph.i.i.i
 
 for.body.lr.ph.i.i.i:                             ; preds = %if.else11
-  %add.ptr.idx = shl nuw nsw i64 %idx.ext, 2
   %shr.i.i.i = lshr i64 %idx.ext, 2
-  %11 = and i64 %add.ptr.idx, 8589934576
+  %11 = and i64 %add.ptr.idx29, 8589934576
   %scevgep.i.i.i = getelementptr i8, ptr %v, i64 %11
   br label %for.body.i.i.i
 
@@ -4791,24 +4790,22 @@ if.end3.i.i.i:                                    ; preds = %if.end.i.i.i
   %incdec.ptr4.i.i.i = getelementptr inbounds i8, ptr %__first.addr.049.i.i.i, i64 8
   %14 = load i32, ptr %incdec.ptr4.i.i.i, align 4
   %cmp.i27.i.i.i = icmp eq i32 %14, 0
-  br i1 %cmp.i27.i.i.i, label %_ZSt4findIPKwwET_S2_S2_RKT0_.exit.loopexit.split.loop.exit41, label %if.end7.i.i.i
+  br i1 %cmp.i27.i.i.i, label %_ZSt4findIPKwwET_S2_S2_RKT0_.exit.loopexit.split.loop.exit42, label %if.end7.i.i.i
 
 if.end7.i.i.i:                                    ; preds = %if.end3.i.i.i
   %incdec.ptr8.i.i.i = getelementptr inbounds i8, ptr %__first.addr.049.i.i.i, i64 12
   %15 = load i32, ptr %incdec.ptr8.i.i.i, align 4
   %cmp.i28.i.i.i = icmp eq i32 %15, 0
-  br i1 %cmp.i28.i.i.i, label %_ZSt4findIPKwwET_S2_S2_RKT0_.exit.loopexit.split.loop.exit43, label %if.end11.i.i.i
+  br i1 %cmp.i28.i.i.i, label %_ZSt4findIPKwwET_S2_S2_RKT0_.exit.loopexit.split.loop.exit44, label %if.end11.i.i.i
 
 if.end11.i.i.i:                                   ; preds = %if.end7.i.i.i
   %incdec.ptr12.i.i.i = getelementptr inbounds i8, ptr %__first.addr.049.i.i.i, i64 16
   %dec.i.i.i = add nsw i64 %__trip_count.050.i.i.i, -1
   %cmp.i.i.i = icmp sgt i64 %__trip_count.050.i.i.i, 1
-  br i1 %cmp.i.i.i, label %for.body.i.i.i, label %for.end.loopexit.i.i.i, !llvm.loop !23
+  br i1 %cmp.i.i.i, label %for.body.i.i.i, label %for.end.loopexit.i.i.i, !llvm.loop !22
 
 for.end.loopexit.i.i.i:                           ; preds = %if.end11.i.i.i
-  %.pre56.i.i.i = ptrtoint ptr %scevgep.i.i.i to i64
-  %.pre57.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i9, %.pre56.i.i.i
-  %16 = ashr exact i64 %.pre57.i.i.i, 2
+  %16 = and i64 %idx.ext, 3
   br label %for.end.i.i.i
 
 for.end.i.i.i:                                    ; preds = %for.end.loopexit.i.i.i, %if.else11
@@ -4852,16 +4849,16 @@ _ZSt4findIPKwwET_S2_S2_RKT0_.exit.loopexit.split.loop.exit: ; preds = %if.end.i.
   %incdec.ptr.i.i.i.le = getelementptr inbounds i8, ptr %__first.addr.049.i.i.i, i64 4
   br label %_ZSt4findIPKwwET_S2_S2_RKT0_.exit
 
-_ZSt4findIPKwwET_S2_S2_RKT0_.exit.loopexit.split.loop.exit41: ; preds = %if.end3.i.i.i
+_ZSt4findIPKwwET_S2_S2_RKT0_.exit.loopexit.split.loop.exit42: ; preds = %if.end3.i.i.i
   %incdec.ptr4.i.i.i.le = getelementptr inbounds i8, ptr %__first.addr.049.i.i.i, i64 8
   br label %_ZSt4findIPKwwET_S2_S2_RKT0_.exit
 
-_ZSt4findIPKwwET_S2_S2_RKT0_.exit.loopexit.split.loop.exit43: ; preds = %if.end7.i.i.i
+_ZSt4findIPKwwET_S2_S2_RKT0_.exit.loopexit.split.loop.exit44: ; preds = %if.end7.i.i.i
   %incdec.ptr8.i.i.i.le = getelementptr inbounds i8, ptr %__first.addr.049.i.i.i, i64 12
   br label %_ZSt4findIPKwwET_S2_S2_RKT0_.exit
 
-_ZSt4findIPKwwET_S2_S2_RKT0_.exit:                ; preds = %for.body.i.i.i, %_ZSt4findIPKwwET_S2_S2_RKT0_.exit.loopexit.split.loop.exit, %_ZSt4findIPKwwET_S2_S2_RKT0_.exit.loopexit.split.loop.exit41, %_ZSt4findIPKwwET_S2_S2_RKT0_.exit.loopexit.split.loop.exit43, %sw.bb.i.i.i, %sw.bb21.i.i.i, %sw.bb26.i.i.i, %sw.default.i.i.i
-  %retval.0.i.i.i = phi ptr [ %add.ptr, %sw.default.i.i.i ], [ %__first.addr.0.lcssa.i.i.i, %sw.bb.i.i.i ], [ %__first.addr.1.i.i.i, %sw.bb21.i.i.i ], [ %__first.addr.2.i.i.i, %sw.bb26.i.i.i ], [ %incdec.ptr.i.i.i.le, %_ZSt4findIPKwwET_S2_S2_RKT0_.exit.loopexit.split.loop.exit ], [ %incdec.ptr4.i.i.i.le, %_ZSt4findIPKwwET_S2_S2_RKT0_.exit.loopexit.split.loop.exit41 ], [ %incdec.ptr8.i.i.i.le, %_ZSt4findIPKwwET_S2_S2_RKT0_.exit.loopexit.split.loop.exit43 ], [ %__first.addr.049.i.i.i, %for.body.i.i.i ]
+_ZSt4findIPKwwET_S2_S2_RKT0_.exit:                ; preds = %for.body.i.i.i, %_ZSt4findIPKwwET_S2_S2_RKT0_.exit.loopexit.split.loop.exit, %_ZSt4findIPKwwET_S2_S2_RKT0_.exit.loopexit.split.loop.exit42, %_ZSt4findIPKwwET_S2_S2_RKT0_.exit.loopexit.split.loop.exit44, %sw.bb.i.i.i, %sw.bb21.i.i.i, %sw.bb26.i.i.i, %sw.default.i.i.i
+  %retval.0.i.i.i = phi ptr [ %add.ptr, %sw.default.i.i.i ], [ %__first.addr.0.lcssa.i.i.i, %sw.bb.i.i.i ], [ %__first.addr.1.i.i.i, %sw.bb21.i.i.i ], [ %__first.addr.2.i.i.i, %sw.bb26.i.i.i ], [ %incdec.ptr.i.i.i.le, %_ZSt4findIPKwwET_S2_S2_RKT0_.exit.loopexit.split.loop.exit ], [ %incdec.ptr4.i.i.i.le, %_ZSt4findIPKwwET_S2_S2_RKT0_.exit.loopexit.split.loop.exit42 ], [ %incdec.ptr8.i.i.i.le, %_ZSt4findIPKwwET_S2_S2_RKT0_.exit.loopexit.split.loop.exit44 ], [ %__first.addr.049.i.i.i, %for.body.i.i.i ]
   %sub.ptr.lhs.cast = ptrtoint ptr %retval.0.i.i.i to i64
   %sub.ptr.sub = sub i64 %sub.ptr.lhs.cast, %sub.ptr.rhs.cast.i.i.i10
   %sub.ptr.div = ashr exact i64 %sub.ptr.sub, 2
@@ -4903,7 +4900,7 @@ return:                                           ; preds = %entry, %if.end, %if
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef i8 @_ZN4absl19str_format_internal17FormatConvertImplERKNSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEEENS0_24FormatConversionSpecImplEPNS0_14FormatSinkImplE(ptr noundef nonnull align 8 dereferenceable(32) %v, i64 %conv.coerce0, i32 %conv.coerce1, ptr noundef %sink) local_unnamed_addr #0 {
+define dso_local range(i8 0, 2) i8 @_ZN4absl19str_format_internal17FormatConvertImplERKNSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEEENS0_24FormatConversionSpecImplEPNS0_14FormatSinkImplE(ptr noundef nonnull align 8 dereferenceable(32) %v, i64 %conv.coerce0, i32 %conv.coerce1, ptr noundef %sink) local_unnamed_addr #0 {
 entry:
   %call = tail call noundef ptr @_ZNKSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %v) #14
   %call1 = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %v) #14
@@ -4938,7 +4935,7 @@ return:                                           ; preds = %entry, %if.end, %if
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef i8 @_ZN4absl19str_format_internal17FormatConvertImplESt17basic_string_viewIwSt11char_traitsIwEENS0_24FormatConversionSpecImplEPNS0_14FormatSinkImplE(i64 %v.coerce0, ptr nocapture readonly %v.coerce1, i64 %conv.coerce0, i32 %conv.coerce1, ptr noundef %sink) local_unnamed_addr #0 {
+define dso_local range(i8 0, 2) i8 @_ZN4absl19str_format_internal17FormatConvertImplESt17basic_string_viewIwSt11char_traitsIwEENS0_24FormatConversionSpecImplEPNS0_14FormatSinkImplE(i64 %v.coerce0, ptr nocapture readonly %v.coerce1, i64 %conv.coerce0, i32 %conv.coerce1, ptr noundef %sink) local_unnamed_addr #0 {
 entry:
   %call2 = tail call fastcc noundef zeroext i1 @_ZN4absl19str_format_internal12_GLOBAL__N_116ConvertStringArgEPKwmNS0_24FormatConversionSpecImplEPNS0_14FormatSinkImplE(ptr noundef %v.coerce1, i64 noundef %v.coerce0, i64 %conv.coerce0, i32 %conv.coerce1, ptr noundef %sink)
   %frombool = zext i1 %call2 to i8
@@ -5211,7 +5208,7 @@ if.end:                                           ; preds = %if.then.i, %if.then
   %add = add i64 %retval.0.i.ph, %chars_written.028
   %inc = add nuw i64 %i.027, 1
   %exitcond.not = icmp eq i64 %inc, %len
-  br i1 %exitcond.not, label %invoke.cont5, label %invoke.cont2, !llvm.loop !24
+  br i1 %exitcond.not, label %invoke.cont5, label %invoke.cont2, !llvm.loop !23
 
 invoke.cont5:                                     ; preds = %if.end
   %33 = load ptr, ptr %data_.i.i, align 8
@@ -5313,7 +5310,7 @@ declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #4
 declare i64 @wcslen(ptr nocapture noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef i8 @_ZN4absl19str_format_internal17FormatConvertImplEDnNS0_24FormatConversionSpecImplEPNS0_14FormatSinkImplE(ptr nocapture readnone %0, i64 %conv.coerce0, i32 %conv.coerce1, ptr noundef %sink) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define dso_local range(i8 0, 2) i8 @_ZN4absl19str_format_internal17FormatConvertImplEDnNS0_24FormatConversionSpecImplEPNS0_14FormatSinkImplE(ptr nocapture readnone %0, i64 %conv.coerce0, i32 %conv.coerce1, ptr noundef %sink) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %1 = and i64 %conv.coerce0, 255
   %cmp.i = icmp eq i64 %1, 17
@@ -5375,7 +5372,7 @@ _ZN4absl19str_format_internal17FormatConvertImplEPKcNS0_24FormatConversionSpecIm
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef i8 @_ZN4absl19str_format_internal17FormatConvertImplEwNS0_24FormatConversionSpecImplEPNS0_14FormatSinkImplE(i32 noundef signext %v, i64 %conv.coerce0, i32 %conv.coerce1, ptr noundef %sink) local_unnamed_addr #0 {
+define dso_local range(i8 0, 2) i8 @_ZN4absl19str_format_internal17FormatConvertImplEwNS0_24FormatConversionSpecImplEPNS0_14FormatSinkImplE(i32 noundef signext %v, i64 %conv.coerce0, i32 %conv.coerce1, ptr noundef %sink) local_unnamed_addr #0 {
 entry:
   %call = tail call noundef zeroext i1 @_ZN4absl19str_format_internal13ConvertIntArgIwEEbT_NS0_24FormatConversionSpecImplEPNS0_14FormatSinkImplE(i32 noundef signext %v, i64 %conv.coerce0, i32 %conv.coerce1, ptr noundef %sink)
   %frombool = zext i1 %call to i8
@@ -5448,7 +5445,7 @@ do.body.i:                                        ; preds = %do.body.i, %sw.bb8
   %tobool.not.i.i = icmp ne i64 %coerce1.sroa.0.0.extract.trunc.i.i.i, 0
   %tobool2.i.i = icmp ugt i64 %v.sroa.5.0.i, 7
   %4 = or i1 %tobool2.i.i, %tobool.not.i.i
-  br i1 %4, label %do.body.i, label %_ZN4absl19str_format_internal12_GLOBAL__N_19IntDigits10PrintAsOctINS_7uint128EEEvT_.exit, !llvm.loop !25
+  br i1 %4, label %do.body.i, label %_ZN4absl19str_format_internal12_GLOBAL__N_19IntDigits10PrintAsOctINS_7uint128EEEvT_.exit, !llvm.loop !24
 
 _ZN4absl19str_format_internal12_GLOBAL__N_19IntDigits10PrintAsOctINS_7uint128EEEvT_.exit: ; preds = %do.body.i
   store ptr %incdec.ptr.i, ptr %as_digits, align 8
@@ -5483,7 +5480,7 @@ do.body.i12:                                      ; preds = %do.body.i12, %sw.bb
   %tobool.not.i.i23 = icmp ne i64 %coerce1.sroa.0.0.extract.trunc.i.i.i21, 0
   %tobool2.i.i24 = icmp ugt i64 %v.sroa.5.0.i13, 255
   %6 = or i1 %tobool2.i.i24, %tobool.not.i.i23
-  br i1 %6, label %do.body.i12, label %_ZN4absl19str_format_internal12_GLOBAL__N_19IntDigits15PrintAsHexLowerINS_7uint128EEEvT_.exit, !llvm.loop !26
+  br i1 %6, label %do.body.i12, label %_ZN4absl19str_format_internal12_GLOBAL__N_19IntDigits15PrintAsHexLowerINS_7uint128EEEvT_.exit, !llvm.loop !25
 
 _ZN4absl19str_format_internal12_GLOBAL__N_19IntDigits15PrintAsHexLowerINS_7uint128EEEvT_.exit: ; preds = %do.body.i12
   %7 = and i16 %5, 255
@@ -5521,7 +5518,7 @@ do.body.i32:                                      ; preds = %do.body.i32, %sw.bb
   %tobool.not.i.i45 = icmp ne i64 %coerce1.sroa.0.0.extract.trunc.i.i.i43, 0
   %tobool2.i.i46 = icmp ugt i64 %v.sroa.5.0.i33, 15
   %9 = or i1 %tobool2.i.i46, %tobool.not.i.i45
-  br i1 %9, label %do.body.i32, label %_ZN4absl19str_format_internal12_GLOBAL__N_19IntDigits15PrintAsHexUpperINS_7uint128EEEvT_.exit, !llvm.loop !27
+  br i1 %9, label %do.body.i32, label %_ZN4absl19str_format_internal12_GLOBAL__N_19IntDigits15PrintAsHexUpperINS_7uint128EEEvT_.exit, !llvm.loop !26
 
 _ZN4absl19str_format_internal12_GLOBAL__N_19IntDigits15PrintAsHexUpperINS_7uint128EEEvT_.exit: ; preds = %do.body.i32
   store ptr %incdec.ptr.i37, ptr %as_digits, align 8
@@ -5557,7 +5554,7 @@ do.body.i53:                                      ; preds = %do.body.i53, %sw.bb
   %tobool.not.i.i58 = icmp ne i64 %coerce3.sroa.0.0.extract.trunc.i.i.i, 0
   %tobool2.i.i59 = icmp ne i64 %coerce3.sroa.2.0.extract.trunc.i.i.i, 0
   %11 = select i1 %tobool.not.i.i58, i1 true, i1 %tobool2.i.i59
-  br i1 %11, label %do.body.i53, label %_ZN4absl19str_format_internal12_GLOBAL__N_19IntDigits10PrintAsDecENS_7uint128Eb.exit, !llvm.loop !28
+  br i1 %11, label %do.body.i53, label %_ZN4absl19str_format_internal12_GLOBAL__N_19IntDigits10PrintAsDecENS_7uint128Eb.exit, !llvm.loop !27
 
 _ZN4absl19str_format_internal12_GLOBAL__N_19IntDigits10PrintAsDecENS_7uint128Eb.exit: ; preds = %do.body.i53
   %12 = load i8, ptr %add.ptr2.i57, align 1
@@ -5606,7 +5603,7 @@ do.body.i.i:                                      ; preds = %do.body.i.i, %sw.bb
   %tobool.not.i.i.i = icmp ne i64 %coerce3.sroa.0.0.extract.trunc.i.i.i.i, 0
   %tobool2.i.i.i = icmp ne i64 %coerce3.sroa.2.0.extract.trunc.i.i.i.i, 0
   %15 = select i1 %tobool.not.i.i.i, i1 true, i1 %tobool2.i.i.i
-  br i1 %15, label %do.body.i.i, label %do.end.i.i, !llvm.loop !28
+  br i1 %15, label %do.body.i.i, label %do.end.i.i, !llvm.loop !27
 
 do.end.i.i:                                       ; preds = %do.body.i.i
   %16 = load i8, ptr %add.ptr2.i.i, align 1
@@ -5767,7 +5764,7 @@ do.body.i:                                        ; preds = %do.body.i, %sw.bb8
   %tobool.not.i.i = icmp ne i64 %coerce1.sroa.0.0.extract.trunc.i.i.i, 0
   %tobool2.i.i = icmp ugt i64 %v.sroa.5.0.i, 7
   %4 = or i1 %tobool2.i.i, %tobool.not.i.i
-  br i1 %4, label %do.body.i, label %_ZN4absl19str_format_internal12_GLOBAL__N_19IntDigits10PrintAsOctINS_7uint128EEEvT_.exit, !llvm.loop !25
+  br i1 %4, label %do.body.i, label %_ZN4absl19str_format_internal12_GLOBAL__N_19IntDigits10PrintAsOctINS_7uint128EEEvT_.exit, !llvm.loop !24
 
 _ZN4absl19str_format_internal12_GLOBAL__N_19IntDigits10PrintAsOctINS_7uint128EEEvT_.exit: ; preds = %do.body.i
   store ptr %incdec.ptr.i, ptr %as_digits, align 8
@@ -5802,7 +5799,7 @@ do.body.i11:                                      ; preds = %do.body.i11, %sw.bb
   %tobool.not.i.i22 = icmp ne i64 %coerce1.sroa.0.0.extract.trunc.i.i.i20, 0
   %tobool2.i.i23 = icmp ugt i64 %v.sroa.5.0.i12, 255
   %6 = or i1 %tobool2.i.i23, %tobool.not.i.i22
-  br i1 %6, label %do.body.i11, label %_ZN4absl19str_format_internal12_GLOBAL__N_19IntDigits15PrintAsHexLowerINS_7uint128EEEvT_.exit, !llvm.loop !26
+  br i1 %6, label %do.body.i11, label %_ZN4absl19str_format_internal12_GLOBAL__N_19IntDigits15PrintAsHexLowerINS_7uint128EEEvT_.exit, !llvm.loop !25
 
 _ZN4absl19str_format_internal12_GLOBAL__N_19IntDigits15PrintAsHexLowerINS_7uint128EEEvT_.exit: ; preds = %do.body.i11
   %7 = and i16 %5, 255
@@ -5840,7 +5837,7 @@ do.body.i30:                                      ; preds = %do.body.i30, %sw.bb
   %tobool.not.i.i43 = icmp ne i64 %coerce1.sroa.0.0.extract.trunc.i.i.i41, 0
   %tobool2.i.i44 = icmp ugt i64 %v.sroa.5.0.i31, 15
   %9 = or i1 %tobool2.i.i44, %tobool.not.i.i43
-  br i1 %9, label %do.body.i30, label %_ZN4absl19str_format_internal12_GLOBAL__N_19IntDigits15PrintAsHexUpperINS_7uint128EEEvT_.exit, !llvm.loop !27
+  br i1 %9, label %do.body.i30, label %_ZN4absl19str_format_internal12_GLOBAL__N_19IntDigits15PrintAsHexUpperINS_7uint128EEEvT_.exit, !llvm.loop !26
 
 _ZN4absl19str_format_internal12_GLOBAL__N_19IntDigits15PrintAsHexUpperINS_7uint128EEEvT_.exit: ; preds = %do.body.i30
   store ptr %incdec.ptr.i35, ptr %as_digits, align 8
@@ -5876,7 +5873,7 @@ do.body.i50:                                      ; preds = %do.body.i50, %sw.bb
   %tobool.not.i.i55 = icmp ne i64 %coerce3.sroa.0.0.extract.trunc.i.i.i, 0
   %tobool2.i.i56 = icmp ne i64 %coerce3.sroa.2.0.extract.trunc.i.i.i, 0
   %11 = select i1 %tobool.not.i.i55, i1 true, i1 %tobool2.i.i56
-  br i1 %11, label %do.body.i50, label %_ZN4absl19str_format_internal12_GLOBAL__N_19IntDigits10PrintAsDecENS_7uint128Eb.exit, !llvm.loop !28
+  br i1 %11, label %do.body.i50, label %_ZN4absl19str_format_internal12_GLOBAL__N_19IntDigits10PrintAsDecENS_7uint128Eb.exit, !llvm.loop !27
 
 _ZN4absl19str_format_internal12_GLOBAL__N_19IntDigits10PrintAsDecENS_7uint128Eb.exit: ; preds = %do.body.i50
   %12 = load i8, ptr %add.ptr2.i54, align 1
@@ -5916,7 +5913,7 @@ do.body.i65:                                      ; preds = %do.body.i65, %sw.bb
   %tobool.not.i.i80 = icmp ne i64 %coerce3.sroa.0.0.extract.trunc.i.i.i77, 0
   %tobool2.i.i81 = icmp ne i64 %coerce3.sroa.2.0.extract.trunc.i.i.i79, 0
   %14 = select i1 %tobool.not.i.i80, i1 true, i1 %tobool2.i.i81
-  br i1 %14, label %do.body.i65, label %_ZN4absl19str_format_internal12_GLOBAL__N_19IntDigits10PrintAsDecENS_7uint128Eb.exit89, !llvm.loop !28
+  br i1 %14, label %do.body.i65, label %_ZN4absl19str_format_internal12_GLOBAL__N_19IntDigits10PrintAsDecENS_7uint128Eb.exit89, !llvm.loop !27
 
 _ZN4absl19str_format_internal12_GLOBAL__N_19IntDigits10PrintAsDecENS_7uint128Eb.exit89: ; preds = %do.body.i65
   %15 = load i8, ptr %add.ptr2.i69, align 1
@@ -6130,11 +6127,10 @@ attributes #17 = { builtin nounwind }
 !18 = distinct !{!18, !6}
 !19 = distinct !{!19, !6}
 !20 = distinct !{!20, !6}
-!21 = !{i8 0, i8 2}
+!21 = distinct !{!21, !6}
 !22 = distinct !{!22, !6}
 !23 = distinct !{!23, !6}
 !24 = distinct !{!24, !6}
 !25 = distinct !{!25, !6}
 !26 = distinct !{!26, !6}
 !27 = distinct !{!27, !6}
-!28 = distinct !{!28, !6}

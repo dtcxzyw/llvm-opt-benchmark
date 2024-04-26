@@ -199,74 +199,70 @@ define dso_local i32 @ipv6_find_tlv(ptr nocapture noundef readonly %0, i32 nound
   %9 = getelementptr i8, ptr %5, i64 %8
   %10 = getelementptr inbounds i8, ptr %0, i64 184
   %11 = load i32, ptr %10, align 8
-  %12 = zext i32 %11 to i64
-  %13 = getelementptr i8, ptr %5, i64 %12
-  %14 = ptrtoint ptr %13 to i64
-  %15 = ptrtoint ptr %9 to i64
-  %16 = sub i64 %14, %15
-  %17 = trunc i64 %16 to i32
-  %18 = add i32 %1, 2
-  %19 = icmp sgt i32 %18, %17
-  br i1 %19, label %.thread4, label %20
+  %12 = zext i16 %7 to i32
+  %13 = sub i32 %11, %12
+  %14 = add i32 %1, 2
+  %15 = icmp sgt i32 %14, %13
+  br i1 %15, label %.thread4, label %16
 
-20:                                               ; preds = %3
-  %21 = sext i32 %1 to i64
-  %22 = getelementptr i8, ptr %9, i64 %21
-  %23 = getelementptr inbounds i8, ptr %22, i64 1
-  %24 = load i8, ptr %23, align 1
-  %25 = zext i8 %24 to i32
-  %26 = shl nuw nsw i32 %25, 3
-  %27 = add i32 %1, 8
-  %28 = add i32 %27, %26
-  %29 = icmp sgt i32 %28, %17
-  br i1 %29, label %.thread4, label %30
+16:                                               ; preds = %3
+  %17 = sext i32 %1 to i64
+  %18 = getelementptr i8, ptr %9, i64 %17
+  %19 = getelementptr inbounds i8, ptr %18, i64 1
+  %20 = load i8, ptr %19, align 1
+  %21 = zext i8 %20 to i32
+  %22 = shl nuw nsw i32 %21, 3
+  %23 = add i32 %1, 8
+  %24 = add i32 %23, %22
+  %25 = icmp sgt i32 %24, %13
+  br i1 %25, label %.thread4, label %26
 
-30:                                               ; preds = %20
-  %31 = or disjoint i32 %26, 6
-  br label %32
+26:                                               ; preds = %16
+  %27 = or disjoint i32 %22, 6
+  br label %28
 
-32:                                               ; preds = %30, %52
-  %33 = phi i32 [ %31, %30 ], [ %55, %52 ]
-  %34 = phi i32 [ %18, %30 ], [ %54, %52 ]
-  %35 = sext i32 %34 to i64
-  %36 = getelementptr i8, ptr %9, i64 %35
-  %37 = load i8, ptr %36, align 1
-  %38 = zext i8 %37 to i32
-  %39 = icmp eq i32 %38, %2
+28:                                               ; preds = %26, %48
+  %29 = phi i32 [ %27, %26 ], [ %51, %48 ]
+  %30 = phi i32 [ %14, %26 ], [ %50, %48 ]
+  %31 = sext i32 %30 to i64
+  %32 = getelementptr i8, ptr %9, i64 %31
+  %33 = load i8, ptr %32, align 1
+  %34 = zext i8 %33 to i32
+  %35 = icmp eq i32 %34, %2
+  br i1 %35, label %.thread4, label %36
+
+36:                                               ; preds = %28
+  %37 = icmp eq i8 %33, 0
+  br i1 %37, label %48, label %38
+
+38:                                               ; preds = %36
+  %39 = icmp eq i32 %29, 1
   br i1 %39, label %.thread4, label %40
 
-40:                                               ; preds = %32
-  %41 = icmp eq i8 %37, 0
-  br i1 %41, label %52, label %42
+40:                                               ; preds = %38
+  %41 = add i32 %30, 1
+  %42 = sext i32 %41 to i64
+  %43 = getelementptr i8, ptr %9, i64 %42
+  %44 = load i8, ptr %43, align 1
+  %45 = zext i8 %44 to i32
+  %46 = add nuw nsw i32 %45, 2
+  %47 = icmp ugt i32 %46, %29
+  br i1 %47, label %.thread4, label %48
 
-42:                                               ; preds = %40
-  %43 = icmp eq i32 %33, 1
-  br i1 %43, label %.thread4, label %44
+48:                                               ; preds = %36, %40
+  %49 = phi i32 [ %46, %40 ], [ 1, %36 ]
+  %50 = add i32 %49, %30
+  %51 = sub nsw i32 %29, %49
+  %52 = icmp sgt i32 %51, 0
+  br i1 %52, label %28, label %.thread4
 
-44:                                               ; preds = %42
-  %45 = add i32 %34, 1
-  %46 = sext i32 %45 to i64
-  %47 = getelementptr i8, ptr %9, i64 %46
-  %48 = load i8, ptr %47, align 1
-  %49 = zext i8 %48 to i32
-  %50 = add nuw nsw i32 %49, 2
-  %51 = icmp ugt i32 %50, %33
-  br i1 %51, label %.thread4, label %52
-
-52:                                               ; preds = %40, %44
-  %53 = phi i32 [ %50, %44 ], [ 1, %40 ]
-  %54 = add i32 %53, %34
-  %55 = sub nsw i32 %33, %53
-  %56 = icmp sgt i32 %55, 0
-  br i1 %56, label %32, label %.thread4
-
-.thread4:                                         ; preds = %44, %42, %32, %52, %20, %3
-  %57 = phi i32 [ -1, %20 ], [ -1, %3 ], [ -1, %44 ], [ -1, %42 ], [ %34, %32 ], [ -1, %52 ]
-  ret i32 %57
+.thread4:                                         ; preds = %40, %38, %28, %48, %16, %3
+  %53 = phi i32 [ -1, %16 ], [ -1, %3 ], [ -1, %40 ], [ -1, %38 ], [ %30, %28 ], [ -1, %48 ]
+  ret i32 %53
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @ipv6_find_hdr(ptr noundef %0, ptr nocapture noundef %1, i32 noundef %2, ptr noundef writeonly %3, ptr noundef %4) #1 align 16 {
+define dso_local range(i32 -74, 256) i32 @ipv6_find_hdr(ptr noundef %0, ptr nocapture noundef %1, i32 noundef %2, ptr noundef writeonly %3, ptr noundef %4) #1 align 16 {
   %6 = alloca %struct.ipv6hdr, align 4
   %7 = alloca %struct.ipv6_opt_hdr, align 2
   %8 = alloca %struct.ipv6_rt_hdr, align 4

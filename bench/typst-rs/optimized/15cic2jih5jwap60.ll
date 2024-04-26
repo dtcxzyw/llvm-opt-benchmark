@@ -1815,27 +1815,24 @@ define { i64, i64 } @_ZN12typst_syntax6source6Source14byte_to_column17h931e4d614
 
 37:                                               ; preds = %"_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17hec6e3494bc021c8aE.exit7.i.i", %"_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17hec6e3494bc021c8aE.exit.thread.i.i"
   %38 = getelementptr inbounds i8, ptr %27, i64 %25
-  %39 = getelementptr inbounds i8, ptr %27, i64 %1
-  %40 = ptrtoint ptr %39 to i64
-  %41 = ptrtoint ptr %38 to i64
-  %42 = sub nuw i64 %40, %41
-  %43 = icmp ult i64 %42, 32
-  br i1 %43, label %46, label %44
+  %gepdiff = sub nsw i64 %1, %25
+  %39 = icmp ult i64 %gepdiff, 32
+  br i1 %39, label %42, label %40
 
-44:                                               ; preds = %37
-  %45 = tail call noundef i64 @_ZN4core3str5count14do_count_chars17h6869cfb395975575E(ptr noalias noundef nonnull readonly align 1 %38, i64 noundef %42)
+40:                                               ; preds = %37
+  %41 = tail call noundef i64 @_ZN4core3str5count14do_count_chars17h6869cfb395975575E(ptr noalias noundef nonnull readonly align 1 %38, i64 noundef %gepdiff)
   br label %"_ZN81_$LT$core..str..iter..Chars$u20$as$u20$core..iter..traits..iterator..Iterator$GT$5count17hb7e61b61a4501cf1E.exit"
 
-46:                                               ; preds = %37
-  %47 = tail call noundef i64 @_ZN4core3str5count23char_count_general_case17h14630a3483e09c70E(ptr noalias noundef nonnull readonly align 1 %38, i64 noundef %42)
+42:                                               ; preds = %37
+  %43 = tail call noundef i64 @_ZN4core3str5count23char_count_general_case17h14630a3483e09c70E(ptr noalias noundef nonnull readonly align 1 %38, i64 noundef %gepdiff)
   br label %"_ZN81_$LT$core..str..iter..Chars$u20$as$u20$core..iter..traits..iterator..Iterator$GT$5count17hb7e61b61a4501cf1E.exit"
 
-"_ZN81_$LT$core..str..iter..Chars$u20$as$u20$core..iter..traits..iterator..Iterator$GT$5count17hb7e61b61a4501cf1E.exit": ; preds = %2, %23, %"_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17hec6e3494bc021c8aE.exit.i.i", %"_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17hec6e3494bc021c8aE.exit7.i.i", %.loopexit, %46, %44
-  %.sroa.5.0 = phi i64 [ %47, %46 ], [ %45, %44 ], [ undef, %.loopexit ], [ undef, %"_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17hec6e3494bc021c8aE.exit7.i.i" ], [ undef, %"_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17hec6e3494bc021c8aE.exit.i.i" ], [ undef, %23 ], [ undef, %2 ]
-  %.sroa.0.0 = phi i64 [ 1, %46 ], [ 1, %44 ], [ 0, %.loopexit ], [ 0, %"_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17hec6e3494bc021c8aE.exit7.i.i" ], [ 0, %"_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17hec6e3494bc021c8aE.exit.i.i" ], [ 0, %23 ], [ 0, %2 ]
-  %48 = insertvalue { i64, i64 } poison, i64 %.sroa.0.0, 0
-  %49 = insertvalue { i64, i64 } %48, i64 %.sroa.5.0, 1
-  ret { i64, i64 } %49
+"_ZN81_$LT$core..str..iter..Chars$u20$as$u20$core..iter..traits..iterator..Iterator$GT$5count17hb7e61b61a4501cf1E.exit": ; preds = %2, %23, %"_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17hec6e3494bc021c8aE.exit.i.i", %"_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17hec6e3494bc021c8aE.exit7.i.i", %.loopexit, %42, %40
+  %.sroa.5.0 = phi i64 [ %43, %42 ], [ %41, %40 ], [ undef, %.loopexit ], [ undef, %"_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17hec6e3494bc021c8aE.exit7.i.i" ], [ undef, %"_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17hec6e3494bc021c8aE.exit.i.i" ], [ undef, %23 ], [ undef, %2 ]
+  %.sroa.0.0 = phi i64 [ 1, %42 ], [ 1, %40 ], [ 0, %.loopexit ], [ 0, %"_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17hec6e3494bc021c8aE.exit7.i.i" ], [ 0, %"_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17hec6e3494bc021c8aE.exit.i.i" ], [ 0, %23 ], [ 0, %2 ]
+  %44 = insertvalue { i64, i64 } poison, i64 %.sroa.0.0, 0
+  %45 = insertvalue { i64, i64 } %44, i64 %.sroa.5.0, 1
+  ret { i64, i64 } %45
 }
 
 ; Function Attrs: nonlazybind uwtable

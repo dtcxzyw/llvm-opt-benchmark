@@ -7522,7 +7522,7 @@ define void @_ZN19WiresharkMainWindow26setMenusForSelectedTreeRowEP16FieldInform
   %91 = select i1 %88, ptr %90, ptr null
   %.sroa.08.0.extract.trunc = trunc i64 %84 to i32
   %.sroa.17.0.extract.shift = lshr i64 %86, 32
-  %.sroa.17.0.extract.trunc = trunc i64 %.sroa.17.0.extract.shift to i32
+  %.sroa.17.0.extract.trunc = trunc nuw i64 %.sroa.17.0.extract.shift to i32
   %92 = add i32 %.sroa.08.0.extract.trunc, -1
   %93 = add i32 %92, %.sroa.17.0.extract.trunc
   %94 = getelementptr inbounds i8, ptr %91, i64 212
@@ -7538,7 +7538,7 @@ define void @_ZN19WiresharkMainWindow26setMenusForSelectedTreeRowEP16FieldInform
   %99 = load ptr, ptr %19, align 8
   %100 = select i1 %97, ptr %99, ptr null
   %.sroa.1.0.extract.shift = lshr i64 %95, 32
-  %.sroa.1.0.extract.trunc = trunc i64 %.sroa.1.0.extract.shift to i32
+  %.sroa.1.0.extract.trunc = trunc nuw i64 %.sroa.1.0.extract.shift to i32
   br label %.sink.split
 
 101:                                              ; preds = %75, %66, %63
@@ -25804,7 +25804,7 @@ define void @_ZN19WiresharkMainWindow13goToGoClickedEv(ptr noundef nonnull align
 .noexc:                                           ; preds = %1
   %12 = add i64 %11, 2147483648
   %.not.i.i = icmp ult i64 %12, 4294967296
-  %13 = trunc i64 %11 to i32
+  %13 = trunc nsw i64 %11 to i32
   %14 = select i1 %.not.i.i, i32 %13, i32 0
   invoke void @_ZN10MainWindow9gotoFrameEi(ptr noundef nonnull align 8 dereferenceable(272) %0, i32 noundef %14)
           to label %15 unwind label %28
@@ -31303,254 +31303,252 @@ define linkonce_odr noundef i64 @_ZN9QtPrivate19sequential_erase_ifI5QListIP14Ac
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 16
   %6 = load i64, ptr %5, align 8
-  %7 = getelementptr ptr, ptr %4, i64 %6
+  %.idx44 = shl i64 %6, 3
+  %7 = getelementptr i8, ptr %4, i64 %.idx44
   %.sroa.014.0.copyload = load ptr, ptr %1, align 8
-  %8 = ptrtoint ptr %7 to i64
-  %9 = ptrtoint ptr %4 to i64
-  %.idx = shl i64 %6, 3
-  %10 = ashr i64 %.idx, 5
-  %11 = icmp sgt i64 %10, 0
-  br i1 %11, label %.lr.ph.i.i.i, label %._crit_edge.i.i.i
+  %8 = ptrtoint ptr %4 to i64
+  %9 = ashr i64 %.idx44, 5
+  %10 = icmp sgt i64 %9, 0
+  br i1 %10, label %.lr.ph.i.i.i, label %._crit_edge.i.i.i
 
 .lr.ph.i.i.i:                                     ; preds = %2
-  %12 = load ptr, ptr %.sroa.014.0.copyload, align 8
-  %13 = and i64 %.idx, -32
-  %scevgep.i.i.i = getelementptr i8, ptr %4, i64 %13
-  br label %14
+  %11 = load ptr, ptr %.sroa.014.0.copyload, align 8
+  %12 = and i64 %.idx44, -32
+  %scevgep.i.i.i = getelementptr i8, ptr %4, i64 %12
+  br label %13
 
-14:                                               ; preds = %29, %.lr.ph.i.i.i
-  %.052.i.i.i = phi i64 [ %10, %.lr.ph.i.i.i ], [ %31, %29 ]
-  %.sroa.034.051.i.i.i = phi ptr [ %4, %.lr.ph.i.i.i ], [ %30, %29 ]
-  %15 = load ptr, ptr %.sroa.034.051.i.i.i, align 8
-  %16 = icmp eq ptr %15, %12
-  br i1 %16, label %_ZSt7find_ifIN5QListIP14AccordionFrameE14const_iteratorEZN9QtPrivate16sequential_eraseIS3_S2_EEDaRT_RKT0_EUlS8_E_ES7_S7_S7_S9_.exit, label %17
+13:                                               ; preds = %28, %.lr.ph.i.i.i
+  %.052.i.i.i = phi i64 [ %9, %.lr.ph.i.i.i ], [ %30, %28 ]
+  %.sroa.034.051.i.i.i = phi ptr [ %4, %.lr.ph.i.i.i ], [ %29, %28 ]
+  %14 = load ptr, ptr %.sroa.034.051.i.i.i, align 8
+  %15 = icmp eq ptr %14, %11
+  br i1 %15, label %_ZSt7find_ifIN5QListIP14AccordionFrameE14const_iteratorEZN9QtPrivate16sequential_eraseIS3_S2_EEDaRT_RKT0_EUlS8_E_ES7_S7_S7_S9_.exit, label %16
 
-17:                                               ; preds = %14
-  %18 = getelementptr i8, ptr %.sroa.034.051.i.i.i, i64 8
-  %19 = load ptr, ptr %18, align 8
-  %20 = icmp eq ptr %19, %12
-  br i1 %20, label %_ZSt7find_ifIN5QListIP14AccordionFrameE14const_iteratorEZN9QtPrivate16sequential_eraseIS3_S2_EEDaRT_RKT0_EUlS8_E_ES7_S7_S7_S9_.exit.loopexit.split.loop.exit, label %21
+16:                                               ; preds = %13
+  %17 = getelementptr i8, ptr %.sroa.034.051.i.i.i, i64 8
+  %18 = load ptr, ptr %17, align 8
+  %19 = icmp eq ptr %18, %11
+  br i1 %19, label %_ZSt7find_ifIN5QListIP14AccordionFrameE14const_iteratorEZN9QtPrivate16sequential_eraseIS3_S2_EEDaRT_RKT0_EUlS8_E_ES7_S7_S7_S9_.exit.loopexit.split.loop.exit, label %20
 
-21:                                               ; preds = %17
-  %22 = getelementptr i8, ptr %.sroa.034.051.i.i.i, i64 16
-  %23 = load ptr, ptr %22, align 8
-  %24 = icmp eq ptr %23, %12
-  br i1 %24, label %_ZSt7find_ifIN5QListIP14AccordionFrameE14const_iteratorEZN9QtPrivate16sequential_eraseIS3_S2_EEDaRT_RKT0_EUlS8_E_ES7_S7_S7_S9_.exit.loopexit.split.loop.exit63, label %25
+20:                                               ; preds = %16
+  %21 = getelementptr i8, ptr %.sroa.034.051.i.i.i, i64 16
+  %22 = load ptr, ptr %21, align 8
+  %23 = icmp eq ptr %22, %11
+  br i1 %23, label %_ZSt7find_ifIN5QListIP14AccordionFrameE14const_iteratorEZN9QtPrivate16sequential_eraseIS3_S2_EEDaRT_RKT0_EUlS8_E_ES7_S7_S7_S9_.exit.loopexit.split.loop.exit64, label %24
 
-25:                                               ; preds = %21
-  %26 = getelementptr i8, ptr %.sroa.034.051.i.i.i, i64 24
-  %27 = load ptr, ptr %26, align 8
-  %28 = icmp eq ptr %27, %12
-  br i1 %28, label %_ZSt7find_ifIN5QListIP14AccordionFrameE14const_iteratorEZN9QtPrivate16sequential_eraseIS3_S2_EEDaRT_RKT0_EUlS8_E_ES7_S7_S7_S9_.exit.loopexit.split.loop.exit65, label %29
+24:                                               ; preds = %20
+  %25 = getelementptr i8, ptr %.sroa.034.051.i.i.i, i64 24
+  %26 = load ptr, ptr %25, align 8
+  %27 = icmp eq ptr %26, %11
+  br i1 %27, label %_ZSt7find_ifIN5QListIP14AccordionFrameE14const_iteratorEZN9QtPrivate16sequential_eraseIS3_S2_EEDaRT_RKT0_EUlS8_E_ES7_S7_S7_S9_.exit.loopexit.split.loop.exit66, label %28
 
-29:                                               ; preds = %25
-  %30 = getelementptr i8, ptr %.sroa.034.051.i.i.i, i64 32
-  %31 = add nsw i64 %.052.i.i.i, -1
-  %32 = icmp sgt i64 %.052.i.i.i, 1
-  br i1 %32, label %14, label %._crit_edge.loopexit.i.i.i, !llvm.loop !828
+28:                                               ; preds = %24
+  %29 = getelementptr i8, ptr %.sroa.034.051.i.i.i, i64 32
+  %30 = add nsw i64 %.052.i.i.i, -1
+  %31 = icmp sgt i64 %.052.i.i.i, 1
+  br i1 %31, label %13, label %._crit_edge.loopexit.i.i.i, !llvm.loop !828
 
-._crit_edge.loopexit.i.i.i:                       ; preds = %29
-  %.pre59.i.i.i = ptrtoint ptr %scevgep.i.i.i to i64
-  %.pre60.i.i.i = sub i64 %8, %.pre59.i.i.i
+._crit_edge.loopexit.i.i.i:                       ; preds = %28
+  %gepdiff = and i64 %.idx44, 24
   br label %._crit_edge.i.i.i
 
 ._crit_edge.i.i.i:                                ; preds = %._crit_edge.loopexit.i.i.i, %2
-  %.pre-phi61.i.i.i = phi i64 [ %.pre60.i.i.i, %._crit_edge.loopexit.i.i.i ], [ %.idx, %2 ]
+  %.pre-phi61.i.i.i = phi i64 [ %gepdiff, %._crit_edge.loopexit.i.i.i ], [ %.idx44, %2 ]
   %.sroa.034.0.lcssa.i.i.i = phi ptr [ %scevgep.i.i.i, %._crit_edge.loopexit.i.i.i ], [ %4, %2 ]
-  %33 = ashr exact i64 %.pre-phi61.i.i.i, 3
-  switch i64 %33, label %_ZSt7find_ifIN5QListIP14AccordionFrameE14const_iteratorEZN9QtPrivate16sequential_eraseIS3_S2_EEDaRT_RKT0_EUlS8_E_ES7_S7_S7_S9_.exit [
-    i64 3, label %34
+  %32 = ashr exact i64 %.pre-phi61.i.i.i, 3
+  switch i64 %32, label %_ZSt7find_ifIN5QListIP14AccordionFrameE14const_iteratorEZN9QtPrivate16sequential_eraseIS3_S2_EEDaRT_RKT0_EUlS8_E_ES7_S7_S7_S9_.exit [
+    i64 3, label %33
     i64 2, label %._crit_edge._crit_edge.i.i.i
     i64 1, label %._crit_edge._crit_edge57.i.i.i
   ]
 
 ._crit_edge._crit_edge57.i.i.i:                   ; preds = %._crit_edge.i.i.i
   %.pre58.i.i.i = load ptr, ptr %.sroa.014.0.copyload, align 8
-  br label %46
+  br label %45
 
 ._crit_edge._crit_edge.i.i.i:                     ; preds = %._crit_edge.i.i.i
   %.pre.i.i.i = load ptr, ptr %.sroa.014.0.copyload, align 8
-  br label %40
+  br label %39
 
-34:                                               ; preds = %._crit_edge.i.i.i
-  %35 = load ptr, ptr %.sroa.034.0.lcssa.i.i.i, align 8
-  %36 = load ptr, ptr %.sroa.014.0.copyload, align 8
-  %37 = icmp eq ptr %35, %36
-  br i1 %37, label %_ZSt7find_ifIN5QListIP14AccordionFrameE14const_iteratorEZN9QtPrivate16sequential_eraseIS3_S2_EEDaRT_RKT0_EUlS8_E_ES7_S7_S7_S9_.exit, label %38
+33:                                               ; preds = %._crit_edge.i.i.i
+  %34 = load ptr, ptr %.sroa.034.0.lcssa.i.i.i, align 8
+  %35 = load ptr, ptr %.sroa.014.0.copyload, align 8
+  %36 = icmp eq ptr %34, %35
+  br i1 %36, label %_ZSt7find_ifIN5QListIP14AccordionFrameE14const_iteratorEZN9QtPrivate16sequential_eraseIS3_S2_EEDaRT_RKT0_EUlS8_E_ES7_S7_S7_S9_.exit, label %37
 
-38:                                               ; preds = %34
-  %39 = getelementptr i8, ptr %.sroa.034.0.lcssa.i.i.i, i64 8
-  br label %40
+37:                                               ; preds = %33
+  %38 = getelementptr i8, ptr %.sroa.034.0.lcssa.i.i.i, i64 8
+  br label %39
 
-40:                                               ; preds = %38, %._crit_edge._crit_edge.i.i.i
-  %41 = phi ptr [ %.pre.i.i.i, %._crit_edge._crit_edge.i.i.i ], [ %36, %38 ]
-  %.sroa.034.1.i.i.i = phi ptr [ %.sroa.034.0.lcssa.i.i.i, %._crit_edge._crit_edge.i.i.i ], [ %39, %38 ]
-  %42 = load ptr, ptr %.sroa.034.1.i.i.i, align 8
-  %43 = icmp eq ptr %42, %41
-  br i1 %43, label %_ZSt7find_ifIN5QListIP14AccordionFrameE14const_iteratorEZN9QtPrivate16sequential_eraseIS3_S2_EEDaRT_RKT0_EUlS8_E_ES7_S7_S7_S9_.exit, label %44
+39:                                               ; preds = %37, %._crit_edge._crit_edge.i.i.i
+  %40 = phi ptr [ %.pre.i.i.i, %._crit_edge._crit_edge.i.i.i ], [ %35, %37 ]
+  %.sroa.034.1.i.i.i = phi ptr [ %.sroa.034.0.lcssa.i.i.i, %._crit_edge._crit_edge.i.i.i ], [ %38, %37 ]
+  %41 = load ptr, ptr %.sroa.034.1.i.i.i, align 8
+  %42 = icmp eq ptr %41, %40
+  br i1 %42, label %_ZSt7find_ifIN5QListIP14AccordionFrameE14const_iteratorEZN9QtPrivate16sequential_eraseIS3_S2_EEDaRT_RKT0_EUlS8_E_ES7_S7_S7_S9_.exit, label %43
 
-44:                                               ; preds = %40
-  %45 = getelementptr i8, ptr %.sroa.034.1.i.i.i, i64 8
-  br label %46
+43:                                               ; preds = %39
+  %44 = getelementptr i8, ptr %.sroa.034.1.i.i.i, i64 8
+  br label %45
 
-46:                                               ; preds = %44, %._crit_edge._crit_edge57.i.i.i
-  %47 = phi ptr [ %.pre58.i.i.i, %._crit_edge._crit_edge57.i.i.i ], [ %41, %44 ]
-  %.sroa.034.2.i.i.i = phi ptr [ %.sroa.034.0.lcssa.i.i.i, %._crit_edge._crit_edge57.i.i.i ], [ %45, %44 ]
-  %48 = load ptr, ptr %.sroa.034.2.i.i.i, align 8
-  %49 = icmp eq ptr %48, %47
-  %spec.select.i.i.i = select i1 %49, ptr %.sroa.034.2.i.i.i, ptr %7
+45:                                               ; preds = %43, %._crit_edge._crit_edge57.i.i.i
+  %46 = phi ptr [ %.pre58.i.i.i, %._crit_edge._crit_edge57.i.i.i ], [ %40, %43 ]
+  %.sroa.034.2.i.i.i = phi ptr [ %.sroa.034.0.lcssa.i.i.i, %._crit_edge._crit_edge57.i.i.i ], [ %44, %43 ]
+  %47 = load ptr, ptr %.sroa.034.2.i.i.i, align 8
+  %48 = icmp eq ptr %47, %46
+  %spec.select.i.i.i = select i1 %48, ptr %.sroa.034.2.i.i.i, ptr %7
   br label %_ZSt7find_ifIN5QListIP14AccordionFrameE14const_iteratorEZN9QtPrivate16sequential_eraseIS3_S2_EEDaRT_RKT0_EUlS8_E_ES7_S7_S7_S9_.exit
 
-_ZSt7find_ifIN5QListIP14AccordionFrameE14const_iteratorEZN9QtPrivate16sequential_eraseIS3_S2_EEDaRT_RKT0_EUlS8_E_ES7_S7_S7_S9_.exit.loopexit.split.loop.exit: ; preds = %17
-  %50 = getelementptr i8, ptr %.sroa.034.051.i.i.i, i64 8
+_ZSt7find_ifIN5QListIP14AccordionFrameE14const_iteratorEZN9QtPrivate16sequential_eraseIS3_S2_EEDaRT_RKT0_EUlS8_E_ES7_S7_S7_S9_.exit.loopexit.split.loop.exit: ; preds = %16
+  %49 = getelementptr i8, ptr %.sroa.034.051.i.i.i, i64 8
   br label %_ZSt7find_ifIN5QListIP14AccordionFrameE14const_iteratorEZN9QtPrivate16sequential_eraseIS3_S2_EEDaRT_RKT0_EUlS8_E_ES7_S7_S7_S9_.exit
 
-_ZSt7find_ifIN5QListIP14AccordionFrameE14const_iteratorEZN9QtPrivate16sequential_eraseIS3_S2_EEDaRT_RKT0_EUlS8_E_ES7_S7_S7_S9_.exit.loopexit.split.loop.exit63: ; preds = %21
-  %51 = getelementptr i8, ptr %.sroa.034.051.i.i.i, i64 16
+_ZSt7find_ifIN5QListIP14AccordionFrameE14const_iteratorEZN9QtPrivate16sequential_eraseIS3_S2_EEDaRT_RKT0_EUlS8_E_ES7_S7_S7_S9_.exit.loopexit.split.loop.exit64: ; preds = %20
+  %50 = getelementptr i8, ptr %.sroa.034.051.i.i.i, i64 16
   br label %_ZSt7find_ifIN5QListIP14AccordionFrameE14const_iteratorEZN9QtPrivate16sequential_eraseIS3_S2_EEDaRT_RKT0_EUlS8_E_ES7_S7_S7_S9_.exit
 
-_ZSt7find_ifIN5QListIP14AccordionFrameE14const_iteratorEZN9QtPrivate16sequential_eraseIS3_S2_EEDaRT_RKT0_EUlS8_E_ES7_S7_S7_S9_.exit.loopexit.split.loop.exit65: ; preds = %25
-  %52 = getelementptr i8, ptr %.sroa.034.051.i.i.i, i64 24
+_ZSt7find_ifIN5QListIP14AccordionFrameE14const_iteratorEZN9QtPrivate16sequential_eraseIS3_S2_EEDaRT_RKT0_EUlS8_E_ES7_S7_S7_S9_.exit.loopexit.split.loop.exit66: ; preds = %24
+  %51 = getelementptr i8, ptr %.sroa.034.051.i.i.i, i64 24
   br label %_ZSt7find_ifIN5QListIP14AccordionFrameE14const_iteratorEZN9QtPrivate16sequential_eraseIS3_S2_EEDaRT_RKT0_EUlS8_E_ES7_S7_S7_S9_.exit
 
-_ZSt7find_ifIN5QListIP14AccordionFrameE14const_iteratorEZN9QtPrivate16sequential_eraseIS3_S2_EEDaRT_RKT0_EUlS8_E_ES7_S7_S7_S9_.exit: ; preds = %14, %_ZSt7find_ifIN5QListIP14AccordionFrameE14const_iteratorEZN9QtPrivate16sequential_eraseIS3_S2_EEDaRT_RKT0_EUlS8_E_ES7_S7_S7_S9_.exit.loopexit.split.loop.exit, %_ZSt7find_ifIN5QListIP14AccordionFrameE14const_iteratorEZN9QtPrivate16sequential_eraseIS3_S2_EEDaRT_RKT0_EUlS8_E_ES7_S7_S7_S9_.exit.loopexit.split.loop.exit63, %_ZSt7find_ifIN5QListIP14AccordionFrameE14const_iteratorEZN9QtPrivate16sequential_eraseIS3_S2_EEDaRT_RKT0_EUlS8_E_ES7_S7_S7_S9_.exit.loopexit.split.loop.exit65, %._crit_edge.i.i.i, %34, %40, %46
-  %.sroa.010.0.in.sroa.speculated.i.i.i = phi ptr [ %.sroa.034.0.lcssa.i.i.i, %34 ], [ %.sroa.034.1.i.i.i, %40 ], [ %7, %._crit_edge.i.i.i ], [ %spec.select.i.i.i, %46 ], [ %50, %_ZSt7find_ifIN5QListIP14AccordionFrameE14const_iteratorEZN9QtPrivate16sequential_eraseIS3_S2_EEDaRT_RKT0_EUlS8_E_ES7_S7_S7_S9_.exit.loopexit.split.loop.exit ], [ %51, %_ZSt7find_ifIN5QListIP14AccordionFrameE14const_iteratorEZN9QtPrivate16sequential_eraseIS3_S2_EEDaRT_RKT0_EUlS8_E_ES7_S7_S7_S9_.exit.loopexit.split.loop.exit63 ], [ %52, %_ZSt7find_ifIN5QListIP14AccordionFrameE14const_iteratorEZN9QtPrivate16sequential_eraseIS3_S2_EEDaRT_RKT0_EUlS8_E_ES7_S7_S7_S9_.exit.loopexit.split.loop.exit65 ], [ %.sroa.034.051.i.i.i, %14 ]
-  %53 = ptrtoint ptr %.sroa.010.0.in.sroa.speculated.i.i.i to i64
-  %54 = sub i64 %53, %9
-  %55 = ashr exact i64 %54, 3
-  %56 = icmp eq i64 %55, %6
-  br i1 %56, label %_ZN5QListIP14AccordionFrameE5eraseENS2_14const_iteratorES3_.exit, label %57
+_ZSt7find_ifIN5QListIP14AccordionFrameE14const_iteratorEZN9QtPrivate16sequential_eraseIS3_S2_EEDaRT_RKT0_EUlS8_E_ES7_S7_S7_S9_.exit: ; preds = %13, %_ZSt7find_ifIN5QListIP14AccordionFrameE14const_iteratorEZN9QtPrivate16sequential_eraseIS3_S2_EEDaRT_RKT0_EUlS8_E_ES7_S7_S7_S9_.exit.loopexit.split.loop.exit, %_ZSt7find_ifIN5QListIP14AccordionFrameE14const_iteratorEZN9QtPrivate16sequential_eraseIS3_S2_EEDaRT_RKT0_EUlS8_E_ES7_S7_S7_S9_.exit.loopexit.split.loop.exit64, %_ZSt7find_ifIN5QListIP14AccordionFrameE14const_iteratorEZN9QtPrivate16sequential_eraseIS3_S2_EEDaRT_RKT0_EUlS8_E_ES7_S7_S7_S9_.exit.loopexit.split.loop.exit66, %._crit_edge.i.i.i, %33, %39, %45
+  %.sroa.010.0.in.sroa.speculated.i.i.i = phi ptr [ %.sroa.034.0.lcssa.i.i.i, %33 ], [ %.sroa.034.1.i.i.i, %39 ], [ %7, %._crit_edge.i.i.i ], [ %spec.select.i.i.i, %45 ], [ %49, %_ZSt7find_ifIN5QListIP14AccordionFrameE14const_iteratorEZN9QtPrivate16sequential_eraseIS3_S2_EEDaRT_RKT0_EUlS8_E_ES7_S7_S7_S9_.exit.loopexit.split.loop.exit ], [ %50, %_ZSt7find_ifIN5QListIP14AccordionFrameE14const_iteratorEZN9QtPrivate16sequential_eraseIS3_S2_EEDaRT_RKT0_EUlS8_E_ES7_S7_S7_S9_.exit.loopexit.split.loop.exit64 ], [ %51, %_ZSt7find_ifIN5QListIP14AccordionFrameE14const_iteratorEZN9QtPrivate16sequential_eraseIS3_S2_EEDaRT_RKT0_EUlS8_E_ES7_S7_S7_S9_.exit.loopexit.split.loop.exit66 ], [ %.sroa.034.051.i.i.i, %13 ]
+  %52 = ptrtoint ptr %.sroa.010.0.in.sroa.speculated.i.i.i to i64
+  %53 = sub i64 %52, %8
+  %54 = ashr exact i64 %53, 3
+  %55 = icmp eq i64 %54, %6
+  br i1 %55, label %_ZN5QListIP14AccordionFrameE5eraseENS2_14const_iteratorES3_.exit, label %56
 
-57:                                               ; preds = %_ZSt7find_ifIN5QListIP14AccordionFrameE14const_iteratorEZN9QtPrivate16sequential_eraseIS3_S2_EEDaRT_RKT0_EUlS8_E_ES7_S7_S7_S9_.exit
-  %58 = load ptr, ptr %0, align 8
-  %.not.i.i.i.i = icmp eq ptr %58, null
+56:                                               ; preds = %_ZSt7find_ifIN5QListIP14AccordionFrameE14const_iteratorEZN9QtPrivate16sequential_eraseIS3_S2_EEDaRT_RKT0_EUlS8_E_ES7_S7_S7_S9_.exit
+  %57 = load ptr, ptr %0, align 8
+  %.not.i.i.i.i = icmp eq ptr %57, null
   br i1 %.not.i.i.i.i, label %_ZN5QListIP14AccordionFrameE3endEv.exit, label %_ZNK17QArrayDataPointerIP14AccordionFrameE11needsDetachEv.exit.i.i.i
 
-_ZNK17QArrayDataPointerIP14AccordionFrameE11needsDetachEv.exit.i.i.i: ; preds = %57
-  %59 = load atomic i32, ptr %58 monotonic, align 4
-  %60 = icmp sgt i32 %59, 1
-  br i1 %60, label %_ZN5QListIP14AccordionFrameE3endEv.exit, label %_ZN5QListIP14AccordionFrameE3endEv.exit.thread
+_ZNK17QArrayDataPointerIP14AccordionFrameE11needsDetachEv.exit.i.i.i: ; preds = %56
+  %58 = load atomic i32, ptr %57 monotonic, align 4
+  %59 = icmp sgt i32 %58, 1
+  br i1 %59, label %_ZN5QListIP14AccordionFrameE3endEv.exit, label %_ZN5QListIP14AccordionFrameE3endEv.exit.thread
 
 _ZN5QListIP14AccordionFrameE3endEv.exit.thread:   ; preds = %_ZNK17QArrayDataPointerIP14AccordionFrameE11needsDetachEv.exit.i.i.i
-  %61 = getelementptr ptr, ptr %4, i64 %6
+  %60 = getelementptr ptr, ptr %4, i64 %6
   br label %_ZNK17QArrayDataPointerIP14AccordionFrameE11needsDetachEv.exit.i.i.i30
 
-_ZN5QListIP14AccordionFrameE3endEv.exit:          ; preds = %57, %_ZNK17QArrayDataPointerIP14AccordionFrameE11needsDetachEv.exit.i.i.i
+_ZN5QListIP14AccordionFrameE3endEv.exit:          ; preds = %56, %_ZNK17QArrayDataPointerIP14AccordionFrameE11needsDetachEv.exit.i.i.i
   tail call void @_ZN17QArrayDataPointerIP14AccordionFrameE17reallocateAndGrowEN10QArrayData14GrowthPositionExPS2_(ptr noundef nonnull align 8 dereferenceable(24) %0, i32 noundef 0, i64 noundef 0, ptr noundef null)
   %.pre = load ptr, ptr %3, align 8
-  %.pre58 = load i64, ptr %5, align 8
-  %.pre59 = load ptr, ptr %0, align 8
-  %62 = getelementptr ptr, ptr %.pre, i64 %.pre58
-  %.not.i.i.i.i29 = icmp eq ptr %.pre59, null
+  %.pre59 = load i64, ptr %5, align 8
+  %.pre60 = load ptr, ptr %0, align 8
+  %61 = getelementptr ptr, ptr %.pre, i64 %.pre59
+  %.not.i.i.i.i29 = icmp eq ptr %.pre60, null
   br i1 %.not.i.i.i.i29, label %_ZNK17QArrayDataPointerIP14AccordionFrameE11needsDetachEv.exit.thread.i.i.i31, label %_ZNK17QArrayDataPointerIP14AccordionFrameE11needsDetachEv.exit.i.i.i30
 
 _ZNK17QArrayDataPointerIP14AccordionFrameE11needsDetachEv.exit.i.i.i30: ; preds = %_ZN5QListIP14AccordionFrameE3endEv.exit.thread, %_ZN5QListIP14AccordionFrameE3endEv.exit
-  %63 = phi ptr [ %61, %_ZN5QListIP14AccordionFrameE3endEv.exit.thread ], [ %62, %_ZN5QListIP14AccordionFrameE3endEv.exit ]
-  %64 = phi ptr [ %4, %_ZN5QListIP14AccordionFrameE3endEv.exit.thread ], [ %.pre, %_ZN5QListIP14AccordionFrameE3endEv.exit ]
-  %65 = phi ptr [ %58, %_ZN5QListIP14AccordionFrameE3endEv.exit.thread ], [ %.pre59, %_ZN5QListIP14AccordionFrameE3endEv.exit ]
-  %66 = load atomic i32, ptr %65 monotonic, align 4
-  %67 = icmp sgt i32 %66, 1
-  br i1 %67, label %_ZNK17QArrayDataPointerIP14AccordionFrameE11needsDetachEv.exit.thread.i.i.i31, label %_ZSt4nextIN5QListIP14AccordionFrameE8iteratorEET_S5_NSt15iterator_traitsIS5_E15difference_typeE.exit
+  %62 = phi ptr [ %60, %_ZN5QListIP14AccordionFrameE3endEv.exit.thread ], [ %61, %_ZN5QListIP14AccordionFrameE3endEv.exit ]
+  %63 = phi ptr [ %4, %_ZN5QListIP14AccordionFrameE3endEv.exit.thread ], [ %.pre, %_ZN5QListIP14AccordionFrameE3endEv.exit ]
+  %64 = phi ptr [ %57, %_ZN5QListIP14AccordionFrameE3endEv.exit.thread ], [ %.pre60, %_ZN5QListIP14AccordionFrameE3endEv.exit ]
+  %65 = load atomic i32, ptr %64 monotonic, align 4
+  %66 = icmp sgt i32 %65, 1
+  br i1 %66, label %_ZNK17QArrayDataPointerIP14AccordionFrameE11needsDetachEv.exit.thread.i.i.i31, label %_ZSt4nextIN5QListIP14AccordionFrameE8iteratorEET_S5_NSt15iterator_traitsIS5_E15difference_typeE.exit
 
 _ZNK17QArrayDataPointerIP14AccordionFrameE11needsDetachEv.exit.thread.i.i.i31: ; preds = %_ZNK17QArrayDataPointerIP14AccordionFrameE11needsDetachEv.exit.i.i.i30, %_ZN5QListIP14AccordionFrameE3endEv.exit
-  %68 = phi ptr [ %63, %_ZNK17QArrayDataPointerIP14AccordionFrameE11needsDetachEv.exit.i.i.i30 ], [ %62, %_ZN5QListIP14AccordionFrameE3endEv.exit ]
+  %67 = phi ptr [ %62, %_ZNK17QArrayDataPointerIP14AccordionFrameE11needsDetachEv.exit.i.i.i30 ], [ %61, %_ZN5QListIP14AccordionFrameE3endEv.exit ]
   tail call void @_ZN17QArrayDataPointerIP14AccordionFrameE17reallocateAndGrowEN10QArrayData14GrowthPositionExPS2_(ptr noundef nonnull align 8 dereferenceable(24) %0, i32 noundef 0, i64 noundef 0, ptr noundef null)
-  %.pre60 = load ptr, ptr %3, align 8
+  %.pre61 = load ptr, ptr %3, align 8
   br label %_ZSt4nextIN5QListIP14AccordionFrameE8iteratorEET_S5_NSt15iterator_traitsIS5_E15difference_typeE.exit
 
 _ZSt4nextIN5QListIP14AccordionFrameE8iteratorEET_S5_NSt15iterator_traitsIS5_E15difference_typeE.exit: ; preds = %_ZNK17QArrayDataPointerIP14AccordionFrameE11needsDetachEv.exit.i.i.i30, %_ZNK17QArrayDataPointerIP14AccordionFrameE11needsDetachEv.exit.thread.i.i.i31
-  %69 = phi ptr [ %63, %_ZNK17QArrayDataPointerIP14AccordionFrameE11needsDetachEv.exit.i.i.i30 ], [ %68, %_ZNK17QArrayDataPointerIP14AccordionFrameE11needsDetachEv.exit.thread.i.i.i31 ]
-  %70 = phi ptr [ %64, %_ZNK17QArrayDataPointerIP14AccordionFrameE11needsDetachEv.exit.i.i.i30 ], [ %.pre60, %_ZNK17QArrayDataPointerIP14AccordionFrameE11needsDetachEv.exit.thread.i.i.i31 ]
-  %71 = getelementptr i8, ptr %70, i64 %54
-  %72 = getelementptr i8, ptr %71, i64 8
-  %.not52 = icmp eq ptr %72, %69
-  br i1 %.not52, label %._crit_edge, label %.lr.ph
+  %68 = phi ptr [ %62, %_ZNK17QArrayDataPointerIP14AccordionFrameE11needsDetachEv.exit.i.i.i30 ], [ %67, %_ZNK17QArrayDataPointerIP14AccordionFrameE11needsDetachEv.exit.thread.i.i.i31 ]
+  %69 = phi ptr [ %63, %_ZNK17QArrayDataPointerIP14AccordionFrameE11needsDetachEv.exit.i.i.i30 ], [ %.pre61, %_ZNK17QArrayDataPointerIP14AccordionFrameE11needsDetachEv.exit.thread.i.i.i31 ]
+  %70 = getelementptr i8, ptr %69, i64 %53
+  %71 = getelementptr i8, ptr %70, i64 8
+  %.not53 = icmp eq ptr %71, %68
+  br i1 %.not53, label %._crit_edge, label %.lr.ph
 
-.lr.ph:                                           ; preds = %_ZSt4nextIN5QListIP14AccordionFrameE8iteratorEET_S5_NSt15iterator_traitsIS5_E15difference_typeE.exit, %80
-  %73 = phi ptr [ %81, %80 ], [ %72, %_ZSt4nextIN5QListIP14AccordionFrameE8iteratorEET_S5_NSt15iterator_traitsIS5_E15difference_typeE.exit ]
-  %.sroa.038.053 = phi ptr [ %.sroa.038.1, %80 ], [ %71, %_ZSt4nextIN5QListIP14AccordionFrameE8iteratorEET_S5_NSt15iterator_traitsIS5_E15difference_typeE.exit ]
-  %74 = load ptr, ptr %73, align 8
-  %75 = load ptr, ptr %1, align 8
-  %76 = load ptr, ptr %75, align 8
-  %77 = icmp eq ptr %74, %76
-  br i1 %77, label %80, label %78
+.lr.ph:                                           ; preds = %_ZSt4nextIN5QListIP14AccordionFrameE8iteratorEET_S5_NSt15iterator_traitsIS5_E15difference_typeE.exit, %79
+  %72 = phi ptr [ %80, %79 ], [ %71, %_ZSt4nextIN5QListIP14AccordionFrameE8iteratorEET_S5_NSt15iterator_traitsIS5_E15difference_typeE.exit ]
+  %.sroa.038.054 = phi ptr [ %.sroa.038.1, %79 ], [ %70, %_ZSt4nextIN5QListIP14AccordionFrameE8iteratorEET_S5_NSt15iterator_traitsIS5_E15difference_typeE.exit ]
+  %73 = load ptr, ptr %72, align 8
+  %74 = load ptr, ptr %1, align 8
+  %75 = load ptr, ptr %74, align 8
+  %76 = icmp eq ptr %73, %75
+  br i1 %76, label %79, label %77
 
-78:                                               ; preds = %.lr.ph
-  store ptr %74, ptr %.sroa.038.053, align 8
-  %79 = getelementptr i8, ptr %.sroa.038.053, i64 8
-  br label %80
+77:                                               ; preds = %.lr.ph
+  store ptr %73, ptr %.sroa.038.054, align 8
+  %78 = getelementptr i8, ptr %.sroa.038.054, i64 8
+  br label %79
 
-80:                                               ; preds = %78, %.lr.ph
-  %.sroa.038.1 = phi ptr [ %.sroa.038.053, %.lr.ph ], [ %79, %78 ]
-  %81 = getelementptr i8, ptr %73, i64 8
-  %.not = icmp eq ptr %81, %69
+79:                                               ; preds = %77, %.lr.ph
+  %.sroa.038.1 = phi ptr [ %.sroa.038.054, %.lr.ph ], [ %78, %77 ]
+  %80 = getelementptr i8, ptr %72, i64 8
+  %.not = icmp eq ptr %80, %68
   br i1 %.not, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !829
 
-._crit_edge.loopexit:                             ; preds = %80
-  %.pre61 = load ptr, ptr %3, align 8
+._crit_edge.loopexit:                             ; preds = %79
+  %.pre62 = load ptr, ptr %3, align 8
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %._crit_edge.loopexit, %_ZSt4nextIN5QListIP14AccordionFrameE8iteratorEET_S5_NSt15iterator_traitsIS5_E15difference_typeE.exit
-  %82 = phi ptr [ %70, %_ZSt4nextIN5QListIP14AccordionFrameE8iteratorEET_S5_NSt15iterator_traitsIS5_E15difference_typeE.exit ], [ %.pre61, %._crit_edge.loopexit ]
-  %.sroa.038.0.lcssa = phi ptr [ %71, %_ZSt4nextIN5QListIP14AccordionFrameE8iteratorEET_S5_NSt15iterator_traitsIS5_E15difference_typeE.exit ], [ %.sroa.038.1, %._crit_edge.loopexit ]
-  %83 = ptrtoint ptr %69 to i64
-  %84 = ptrtoint ptr %.sroa.038.0.lcssa to i64
-  %85 = sub i64 %83, %84
-  %86 = ashr exact i64 %85, 3
-  %87 = ptrtoint ptr %82 to i64
-  %88 = sub i64 %84, %87
-  %89 = icmp eq ptr %69, %.sroa.038.0.lcssa
-  br i1 %89, label %_ZN5QListIP14AccordionFrameE5eraseENS2_14const_iteratorES3_.exit, label %90
+  %81 = phi ptr [ %69, %_ZSt4nextIN5QListIP14AccordionFrameE8iteratorEET_S5_NSt15iterator_traitsIS5_E15difference_typeE.exit ], [ %.pre62, %._crit_edge.loopexit ]
+  %.sroa.038.0.lcssa = phi ptr [ %70, %_ZSt4nextIN5QListIP14AccordionFrameE8iteratorEET_S5_NSt15iterator_traitsIS5_E15difference_typeE.exit ], [ %.sroa.038.1, %._crit_edge.loopexit ]
+  %82 = ptrtoint ptr %68 to i64
+  %83 = ptrtoint ptr %.sroa.038.0.lcssa to i64
+  %84 = sub i64 %82, %83
+  %85 = ashr exact i64 %84, 3
+  %86 = ptrtoint ptr %81 to i64
+  %87 = sub i64 %83, %86
+  %88 = icmp eq ptr %68, %.sroa.038.0.lcssa
+  br i1 %88, label %_ZN5QListIP14AccordionFrameE5eraseENS2_14const_iteratorES3_.exit, label %89
 
-90:                                               ; preds = %._crit_edge
-  %91 = load ptr, ptr %0, align 8
-  %.not.i.i.i.i32 = icmp eq ptr %91, null
+89:                                               ; preds = %._crit_edge
+  %90 = load ptr, ptr %0, align 8
+  %.not.i.i.i.i32 = icmp eq ptr %90, null
   br i1 %.not.i.i.i.i32, label %_ZNK17QArrayDataPointerIP14AccordionFrameE11needsDetachEv.exit.thread.i.i.i36, label %_ZNK17QArrayDataPointerIP14AccordionFrameE11needsDetachEv.exit.i.i.i33
 
-_ZNK17QArrayDataPointerIP14AccordionFrameE11needsDetachEv.exit.i.i.i33: ; preds = %90
-  %92 = load atomic i32, ptr %91 monotonic, align 4
-  %93 = icmp sgt i32 %92, 1
-  br i1 %93, label %_ZNK17QArrayDataPointerIP14AccordionFrameE11needsDetachEv.exit.thread.i.i.i36, label %_ZN17QArrayDataPointerIP14AccordionFrameE6detachEPS2_.exit.i.i
+_ZNK17QArrayDataPointerIP14AccordionFrameE11needsDetachEv.exit.i.i.i33: ; preds = %89
+  %91 = load atomic i32, ptr %90 monotonic, align 4
+  %92 = icmp sgt i32 %91, 1
+  br i1 %92, label %_ZNK17QArrayDataPointerIP14AccordionFrameE11needsDetachEv.exit.thread.i.i.i36, label %_ZN17QArrayDataPointerIP14AccordionFrameE6detachEPS2_.exit.i.i
 
-_ZNK17QArrayDataPointerIP14AccordionFrameE11needsDetachEv.exit.thread.i.i.i36: ; preds = %_ZNK17QArrayDataPointerIP14AccordionFrameE11needsDetachEv.exit.i.i.i33, %90
+_ZNK17QArrayDataPointerIP14AccordionFrameE11needsDetachEv.exit.thread.i.i.i36: ; preds = %_ZNK17QArrayDataPointerIP14AccordionFrameE11needsDetachEv.exit.i.i.i33, %89
   tail call void @_ZN17QArrayDataPointerIP14AccordionFrameE17reallocateAndGrowEN10QArrayData14GrowthPositionExPS2_(ptr noundef nonnull align 8 dereferenceable(24) %0, i32 noundef 0, i64 noundef 0, ptr noundef null)
   %.pre.i = load ptr, ptr %3, align 8
   br label %_ZN17QArrayDataPointerIP14AccordionFrameE6detachEPS2_.exit.i.i
 
 _ZN17QArrayDataPointerIP14AccordionFrameE6detachEPS2_.exit.i.i: ; preds = %_ZNK17QArrayDataPointerIP14AccordionFrameE11needsDetachEv.exit.thread.i.i.i36, %_ZNK17QArrayDataPointerIP14AccordionFrameE11needsDetachEv.exit.i.i.i33
-  %94 = phi ptr [ %.pre.i, %_ZNK17QArrayDataPointerIP14AccordionFrameE11needsDetachEv.exit.thread.i.i.i36 ], [ %82, %_ZNK17QArrayDataPointerIP14AccordionFrameE11needsDetachEv.exit.i.i.i33 ]
-  %95 = getelementptr i8, ptr %94, i64 %88
-  %96 = getelementptr i8, ptr %95, i64 %85
-  %97 = icmp ugt i64 %88, 7
-  %98 = load i64, ptr %5, align 8
-  %99 = getelementptr ptr, ptr %94, i64 %98
-  %.not.i.i.i = icmp eq ptr %96, %99
-  %or.cond.i.i.i34 = select i1 %97, i1 true, i1 %.not.i.i.i
-  br i1 %or.cond.i.i.i34, label %101, label %100
+  %93 = phi ptr [ %.pre.i, %_ZNK17QArrayDataPointerIP14AccordionFrameE11needsDetachEv.exit.thread.i.i.i36 ], [ %81, %_ZNK17QArrayDataPointerIP14AccordionFrameE11needsDetachEv.exit.i.i.i33 ]
+  %94 = getelementptr i8, ptr %93, i64 %87
+  %95 = getelementptr i8, ptr %94, i64 %84
+  %96 = icmp ugt i64 %87, 7
+  %97 = load i64, ptr %5, align 8
+  %98 = getelementptr ptr, ptr %93, i64 %97
+  %.not.i.i.i = icmp eq ptr %95, %98
+  %or.cond.i.i.i34 = select i1 %96, i1 true, i1 %.not.i.i.i
+  br i1 %or.cond.i.i.i34, label %100, label %99
 
-100:                                              ; preds = %_ZN17QArrayDataPointerIP14AccordionFrameE6detachEPS2_.exit.i.i
-  store ptr %96, ptr %3, align 8
+99:                                               ; preds = %_ZN17QArrayDataPointerIP14AccordionFrameE6detachEPS2_.exit.i.i
+  store ptr %95, ptr %3, align 8
   br label %_ZN9QtPrivate12QPodArrayOpsIP14AccordionFrameE5eraseEPS2_x.exit.i.i
 
-101:                                              ; preds = %_ZN17QArrayDataPointerIP14AccordionFrameE6detachEPS2_.exit.i.i
-  br i1 %.not.i.i.i, label %_ZN9QtPrivate12QPodArrayOpsIP14AccordionFrameE5eraseEPS2_x.exit.i.i, label %102
+100:                                              ; preds = %_ZN17QArrayDataPointerIP14AccordionFrameE6detachEPS2_.exit.i.i
+  br i1 %.not.i.i.i, label %_ZN9QtPrivate12QPodArrayOpsIP14AccordionFrameE5eraseEPS2_x.exit.i.i, label %101
 
-102:                                              ; preds = %101
-  %103 = ptrtoint ptr %99 to i64
-  %104 = ptrtoint ptr %96 to i64
-  %105 = sub i64 %103, %104
-  tail call void @llvm.memmove.p0.p0.i64(ptr align 1 %95, ptr align 1 %96, i64 %105, i1 false)
+101:                                              ; preds = %100
+  %102 = ptrtoint ptr %98 to i64
+  %103 = ptrtoint ptr %95 to i64
+  %104 = sub i64 %102, %103
+  tail call void @llvm.memmove.p0.p0.i64(ptr align 1 %94, ptr align 1 %95, i64 %104, i1 false)
   %.pre.i.i.i35 = load i64, ptr %5, align 8
   br label %_ZN9QtPrivate12QPodArrayOpsIP14AccordionFrameE5eraseEPS2_x.exit.i.i
 
-_ZN9QtPrivate12QPodArrayOpsIP14AccordionFrameE5eraseEPS2_x.exit.i.i: ; preds = %102, %101, %100
-  %106 = phi i64 [ %98, %101 ], [ %.pre.i.i.i35, %102 ], [ %98, %100 ]
-  %107 = sub i64 %106, %86
-  store i64 %107, ptr %5, align 8
+_ZN9QtPrivate12QPodArrayOpsIP14AccordionFrameE5eraseEPS2_x.exit.i.i: ; preds = %101, %100, %99
+  %105 = phi i64 [ %97, %100 ], [ %.pre.i.i.i35, %101 ], [ %97, %99 ]
+  %106 = sub i64 %105, %85
+  store i64 %106, ptr %5, align 8
   br label %_ZN5QListIP14AccordionFrameE5eraseENS2_14const_iteratorES3_.exit
 
 _ZN5QListIP14AccordionFrameE5eraseENS2_14const_iteratorES3_.exit: ; preds = %_ZN9QtPrivate12QPodArrayOpsIP14AccordionFrameE5eraseEPS2_x.exit.i.i, %._crit_edge, %_ZSt7find_ifIN5QListIP14AccordionFrameE14const_iteratorEZN9QtPrivate16sequential_eraseIS3_S2_EEDaRT_RKT0_EUlS8_E_ES7_S7_S7_S9_.exit
-  %.0 = phi i64 [ 0, %_ZSt7find_ifIN5QListIP14AccordionFrameE14const_iteratorEZN9QtPrivate16sequential_eraseIS3_S2_EEDaRT_RKT0_EUlS8_E_ES7_S7_S7_S9_.exit ], [ %86, %._crit_edge ], [ %86, %_ZN9QtPrivate12QPodArrayOpsIP14AccordionFrameE5eraseEPS2_x.exit.i.i ]
+  %.0 = phi i64 [ 0, %_ZSt7find_ifIN5QListIP14AccordionFrameE14const_iteratorEZN9QtPrivate16sequential_eraseIS3_S2_EEDaRT_RKT0_EUlS8_E_ES7_S7_S7_S9_.exit ], [ %85, %._crit_edge ], [ %85, %_ZN9QtPrivate12QPodArrayOpsIP14AccordionFrameE5eraseEPS2_x.exit.i.i ]
   ret i64 %.0
 }
 

@@ -416,7 +416,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.379 = private unnamed_addr constant [15 x i8] c"isset_variable\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @zendparse() local_unnamed_addr #0 {
+define range(i32 0, 3) i32 @zendparse() local_unnamed_addr #0 {
   %1 = alloca %union._zend_parser_stack_elem, align 8
   %2 = alloca [200 x i16], align 16
   %3 = alloca [200 x %union._zend_parser_stack_elem], align 16
@@ -467,7 +467,7 @@ define noundef i32 @zendparse() local_unnamed_addr #0 {
   %24 = ashr exact i64 %23, 1
   %25 = add nsw i64 %24, 1
   %26 = icmp sgt i64 %.01571, 9999
-  br i1 %26, label %.loopexit1689, label %27
+  br i1 %26, label %.loopexit1690, label %27
 
 27:                                               ; preds = %20
   %28 = shl nsw i64 %.01571, 1
@@ -476,7 +476,7 @@ define noundef i32 @zendparse() local_unnamed_addr #0 {
   %30 = add nsw i64 %29, 7
   %31 = call noalias ptr @malloc(i64 noundef %30) #11
   %.not1636 = icmp eq ptr %31, null
-  br i1 %.not1636, label %.loopexit1689, label %32
+  br i1 %.not1636, label %.loopexit1690, label %32
 
 32:                                               ; preds = %27
   %33 = shl i64 %25, 1
@@ -500,7 +500,7 @@ define noundef i32 @zendparse() local_unnamed_addr #0 {
   %43 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %37, i64 %25
   %44 = getelementptr inbounds i8, ptr %43, i64 -8
   %.not1638 = icmp sgt i64 %spec.store.select, %25
-  br i1 %.not1638, label %45, label %.loopexit.loopexit1707
+  br i1 %.not1638, label %45, label %.loopexit.loopexit1717
 
 45:                                               ; preds = %40, %16
   %.21591 = phi ptr [ %44, %40 ], [ %.11590, %16 ]
@@ -509,7 +509,7 @@ define noundef i32 @zendparse() local_unnamed_addr #0 {
   %.11574 = phi ptr [ %31, %40 ], [ %.01573, %16 ]
   %.11572 = phi i64 [ %spec.store.select, %40 ], [ %.01571, %16 ]
   %46 = icmp eq i32 %.11565, 3
-  br i1 %46, label %.loopexit1691, label %47
+  br i1 %46, label %.loopexit1692, label %47
 
 47:                                               ; preds = %45
   %48 = sext i32 %.11565 to i64
@@ -534,7 +534,7 @@ define noundef i32 @zendparse() local_unnamed_addr #0 {
 
 59:                                               ; preds = %57
   %60 = icmp eq i32 %.2, 256
-  br i1 %60, label %.thread1687, label %61
+  br i1 %60, label %.thread1688, label %61
 
 61:                                               ; preds = %59
   %62 = icmp ult i32 %.2, 407
@@ -1130,7 +1130,7 @@ define noundef i32 @zendparse() local_unnamed_addr #0 {
   %105 = load ptr, ptr %.21591, align 8
   %106 = call i32 @zend_lex_tstring(ptr noundef nonnull %7, ptr noundef %105) #12
   %107 = icmp eq i32 %106, -1
-  br i1 %107, label %.loopexit.loopexit1707, label %108
+  br i1 %107, label %.loopexit.loopexit1717, label %108
 
 108:                                              ; preds = %104
   %109 = call ptr @zend_ast_create_zval(ptr noundef nonnull %7) #12
@@ -1779,7 +1779,7 @@ define noundef i32 @zendparse() local_unnamed_addr #0 {
   %502 = load ptr, ptr %.21591, align 8
   %503 = call i32 @zend_lex_tstring(ptr noundef nonnull %8, ptr noundef %502) #12
   %504 = icmp eq i32 %503, -1
-  br i1 %504, label %.loopexit.loopexit1707, label %505
+  br i1 %504, label %.loopexit.loopexit1717, label %505
 
 505:                                              ; preds = %501
   %506 = call ptr @zend_ast_create_zval(ptr noundef nonnull %8) #12
@@ -2797,7 +2797,7 @@ define noundef i32 @zendparse() local_unnamed_addr #0 {
   %1184 = load ptr, ptr %.21591, align 8
   %1185 = call i32 @zend_lex_tstring(ptr noundef nonnull %9, ptr noundef %1184) #12
   %1186 = icmp eq i32 %1185, -1
-  br i1 %1186, label %.loopexit.loopexit1707, label %1187
+  br i1 %1186, label %.loopexit.loopexit1717, label %1187
 
 1187:                                             ; preds = %1183
   %1188 = getelementptr inbounds i8, ptr %.21591, i64 -16
@@ -3035,7 +3035,7 @@ define noundef i32 @zendparse() local_unnamed_addr #0 {
   %1322 = load ptr, ptr %1321, align 8
   %1323 = call i32 @zend_lex_tstring(ptr noundef nonnull %10, ptr noundef %1322) #12
   %1324 = icmp eq i32 %1323, -1
-  br i1 %1324, label %.loopexit.loopexit1707, label %1325
+  br i1 %1324, label %.loopexit.loopexit1717, label %1325
 
 1325:                                             ; preds = %1320
   %1326 = call ptr @zend_ast_create_zval(ptr noundef nonnull %10) #12
@@ -3936,7 +3936,7 @@ define noundef i32 @zendparse() local_unnamed_addr #0 {
   %1916 = load ptr, ptr %1915, align 8
   %1917 = call i32 @zend_lex_tstring(ptr noundef nonnull %11, ptr noundef %1916) #12
   %1918 = icmp eq i32 %1917, -1
-  br i1 %1918, label %.loopexit.loopexit1707, label %1919
+  br i1 %1918, label %.loopexit.loopexit1717, label %1919
 
 1919:                                             ; preds = %1914
   %1920 = call ptr @zend_ast_create_zval(ptr noundef nonnull %11) #12
@@ -4721,14 +4721,14 @@ define noundef i32 @zendparse() local_unnamed_addr #0 {
 2402:                                             ; preds = %2397, %.thread, %2395
   %.61680 = phi i32 [ -2, %2395 ], [ %.61679, %2397 ], [ %.61679, %.thread ]
   %2403 = phi i32 [ -2, %2395 ], [ %2401, %2397 ], [ 2, %.thread ]
-  switch i32 %.11569, label %.thread1687 [
+  switch i32 %.11569, label %.thread1688 [
     i32 0, label %2404
     i32 3, label %2417
   ]
 
 2404:                                             ; preds = %2402
   %2405 = call fastcc i32 @yysyntax_error(ptr noundef nonnull %6, ptr noundef nonnull %5, ptr nonnull %.21580, i32 %2403)
-  switch i32 %2405, label %2415 [
+  switch i32 %2405, label %.thread1681 [
     i32 0, label %.thread1684
     i32 -1, label %2407
   ]
@@ -4736,7 +4736,7 @@ define noundef i32 @zendparse() local_unnamed_addr #0 {
 .thread1684:                                      ; preds = %2404
   %2406 = load ptr, ptr %5, align 8
   call void @zenderror(ptr noundef %2406) #12
-  br label %.thread1687
+  br label %.thread1688
 
 2407:                                             ; preds = %2404
   %2408 = load ptr, ptr %5, align 8
@@ -4752,24 +4752,22 @@ define noundef i32 @zendparse() local_unnamed_addr #0 {
   %2412 = call noalias ptr @malloc(i64 noundef %2411) #11
   store ptr %2412, ptr %5, align 8
   %.not1669 = icmp eq ptr %2412, null
-  br i1 %.not1669, label %.thread1681, label %2413
+  br i1 %.not1669, label %2413, label %2414
 
 2413:                                             ; preds = %2410
-  %2414 = call fastcc i32 @yysyntax_error(ptr noundef nonnull %6, ptr noundef nonnull %5, ptr nonnull %.21580, i32 %2403)
-  br label %2415
-
-.thread1681:                                      ; preds = %2410
   store ptr %4, ptr %5, align 8
   store i64 128, ptr %6, align 8
-  call void @zenderror(ptr noundef nonnull @.str.2) #12
-  br label %.loopexit1689
+  br label %.thread1681
 
-2415:                                             ; preds = %2404, %2413
-  %.01558 = phi ptr [ %2412, %2413 ], [ @.str.2, %2404 ]
-  %.0 = phi i32 [ %2414, %2413 ], [ %2405, %2404 ]
-  call void @zenderror(ptr noundef nonnull %.01558) #12
-  %2416 = icmp eq i32 %.0, -2
-  br i1 %2416, label %.loopexit1689, label %.thread1687
+.thread1681:                                      ; preds = %2404, %2413
+  call void @zenderror(ptr noundef nonnull @.str.2) #12
+  br label %.loopexit1690
+
+2414:                                             ; preds = %2410
+  %2415 = call fastcc i32 @yysyntax_error(ptr noundef nonnull %6, ptr noundef nonnull %5, ptr nonnull %.21580, i32 %2403)
+  call void @zenderror(ptr noundef nonnull %2412) #12
+  %2416 = icmp eq i32 %2415, -2
+  br i1 %2416, label %.loopexit1690, label %.thread1688
 
 2417:                                             ; preds = %2402
   %2418 = icmp slt i32 %.61680, 1
@@ -4777,11 +4775,11 @@ define noundef i32 @zendparse() local_unnamed_addr #0 {
 
 2419:                                             ; preds = %2417
   %2420 = icmp eq i32 %.61680, 0
-  br i1 %2420, label %.loopexit.loopexit1707, label %.thread1687
+  br i1 %2420, label %.loopexit.loopexit1717, label %.thread1688
 
 2421:                                             ; preds = %2417
   call fastcc void @yydestruct(i32 noundef %2403, ptr noundef nonnull %1)
-  br label %.thread1687
+  br label %.thread1688
 
 2422:                                             ; preds = %1246, %1235, %1228, %874, %605, %599, %590, %435, %1213, %1203, %354
   %2423 = sext i8 %95 to i64
@@ -4790,19 +4788,19 @@ define noundef i32 @zendparse() local_unnamed_addr #0 {
   %2426 = getelementptr inbounds i16, ptr %.21580, i64 %2424
   %2427 = load i16, ptr %2426, align 2
   %2428 = sext i16 %2427 to i32
-  br label %.thread1687
+  br label %.thread1688
 
-.thread1687:                                      ; preds = %2402, %2415, %.thread1684, %59, %2419, %2421, %2422
-  %.31592 = phi ptr [ %.21591, %2419 ], [ %.21591, %2421 ], [ %2425, %2422 ], [ %.21591, %59 ], [ %.21591, %.thread1684 ], [ %.21591, %2415 ], [ %.21591, %2402 ]
-  %.31581 = phi ptr [ %.21580, %2419 ], [ %.21580, %2421 ], [ %2426, %2422 ], [ %.21580, %59 ], [ %.21580, %.thread1684 ], [ %.21580, %2415 ], [ %.21580, %2402 ]
-  %.21566 = phi i32 [ %.11565, %2419 ], [ %.11565, %2421 ], [ %2428, %2422 ], [ %.11565, %59 ], [ %.11565, %.thread1684 ], [ %.11565, %2415 ], [ %.11565, %2402 ]
-  %.7 = phi i32 [ %.61680, %2419 ], [ -2, %2421 ], [ %.5, %2422 ], [ 257, %59 ], [ %.61680, %.thread1684 ], [ %.61680, %2415 ], [ %.61680, %2402 ]
+.thread1688:                                      ; preds = %2402, %2414, %.thread1684, %59, %2419, %2421, %2422
+  %.31592 = phi ptr [ %.21591, %2419 ], [ %.21591, %2421 ], [ %2425, %2422 ], [ %.21591, %59 ], [ %.21591, %.thread1684 ], [ %.21591, %2414 ], [ %.21591, %2402 ]
+  %.31581 = phi ptr [ %.21580, %2419 ], [ %.21580, %2421 ], [ %2426, %2422 ], [ %.21580, %59 ], [ %.21580, %.thread1684 ], [ %.21580, %2414 ], [ %.21580, %2402 ]
+  %.21566 = phi i32 [ %.11565, %2419 ], [ %.11565, %2421 ], [ %2428, %2422 ], [ %.11565, %59 ], [ %.11565, %.thread1684 ], [ %.11565, %2414 ], [ %.11565, %2402 ]
+  %.7 = phi i32 [ %.61680, %2419 ], [ -2, %2421 ], [ %.5, %2422 ], [ 257, %59 ], [ %.61680, %.thread1684 ], [ %.61680, %2414 ], [ %.61680, %2402 ]
   br label %2429
 
-2429:                                             ; preds = %2446, %.thread1687
-  %.41593 = phi ptr [ %.31592, %.thread1687 ], [ %2450, %2446 ]
-  %.41582 = phi ptr [ %.31581, %.thread1687 ], [ %2451, %2446 ]
-  %.31567 = phi i32 [ %.21566, %.thread1687 ], [ %2453, %2446 ]
+2429:                                             ; preds = %2446, %.thread1688
+  %.41593 = phi ptr [ %.31592, %.thread1688 ], [ %2450, %2446 ]
+  %.41582 = phi ptr [ %.31581, %.thread1688 ], [ %2451, %2446 ]
+  %.31567 = phi i32 [ %.21566, %.thread1688 ], [ %2453, %2446 ]
   %2430 = sext i32 %.31567 to i64
   %2431 = getelementptr inbounds [1131 x i16], ptr @yypact, i64 0, i64 %2430
   %2432 = load i16, ptr %2431, align 2
@@ -4826,7 +4824,7 @@ define noundef i32 @zendparse() local_unnamed_addr #0 {
 
 2444:                                             ; preds = %2434, %2440, %2429
   %2445 = icmp eq ptr %.41582, %.11574
-  br i1 %2445, label %.loopexit1691, label %2446
+  br i1 %2445, label %.loopexit1692, label %2446
 
 2446:                                             ; preds = %2444
   %2447 = getelementptr inbounds [1131 x i16], ptr @yystos, i64 0, i64 %2430
@@ -4846,34 +4844,34 @@ define noundef i32 @zendparse() local_unnamed_addr #0 {
   store i64 %2457, ptr %2456, align 8
   br label %14
 
-.loopexit.loopexit1707:                           ; preds = %40, %104, %501, %1183, %1320, %1914, %2419
+.loopexit.loopexit1717:                           ; preds = %40, %104, %501, %1183, %1320, %1914, %2419
   %.31603.ph = phi i32 [ 0, %40 ], [ 0, %2419 ], [ %96, %1914 ], [ %96, %1320 ], [ %96, %1183 ], [ %96, %501 ], [ %96, %104 ]
   %.51594.ph = phi ptr [ %44, %40 ], [ %.21591, %2419 ], [ %.21591, %1914 ], [ %.21591, %1320 ], [ %.21591, %1183 ], [ %.21591, %501 ], [ %.21591, %104 ]
   %.51583.ph = phi ptr [ %42, %40 ], [ %.21580, %2419 ], [ %.21580, %1914 ], [ %.21580, %1320 ], [ %.21580, %1183 ], [ %.21580, %501 ], [ %.21580, %104 ]
   %.21575.ph = phi ptr [ %31, %40 ], [ %.11574, %2419 ], [ %.11574, %1914 ], [ %.11574, %1320 ], [ %.11574, %1183 ], [ %.11574, %501 ], [ %.11574, %104 ]
   %.8.ph = phi i32 [ %.1, %40 ], [ 0, %2419 ], [ %.5, %1914 ], [ %.5, %1320 ], [ %.5, %1183 ], [ %.5, %501 ], [ %.5, %104 ]
   %2458 = sext i32 %.31603.ph to i64
-  br label %.loopexit1691
+  br label %.loopexit1692
 
-.loopexit1689:                                    ; preds = %2415, %27, %20, %.thread1681
-  %.61595 = phi ptr [ %.21591, %.thread1681 ], [ %.11590, %27 ], [ %.21591, %2415 ], [ %.11590, %20 ]
-  %.61584 = phi ptr [ %.21580, %.thread1681 ], [ %.11579, %27 ], [ %.21580, %2415 ], [ %.11579, %20 ]
-  %.31576 = phi ptr [ %.11574, %.thread1681 ], [ %.01573, %27 ], [ %.11574, %2415 ], [ %.01573, %20 ]
-  %.9 = phi i32 [ %.61680, %.thread1681 ], [ %.1, %27 ], [ %.61680, %2415 ], [ %.1, %20 ]
+.loopexit1690:                                    ; preds = %2414, %27, %20, %.thread1681
+  %.61595 = phi ptr [ %.21591, %.thread1681 ], [ %.11590, %27 ], [ %.21591, %2414 ], [ %.11590, %20 ]
+  %.61584 = phi ptr [ %.21580, %.thread1681 ], [ %.11579, %27 ], [ %.21580, %2414 ], [ %.11579, %20 ]
+  %.31576 = phi ptr [ %.11574, %.thread1681 ], [ %.01573, %27 ], [ %.11574, %2414 ], [ %.01573, %20 ]
+  %.9 = phi i32 [ %.61680, %.thread1681 ], [ %.1, %27 ], [ %.61680, %2414 ], [ %.1, %20 ]
   call void @zenderror(ptr noundef nonnull @.str.5) #12
-  br label %.loopexit1691
+  br label %.loopexit1692
 
-.loopexit1691:                                    ; preds = %45, %2444, %.loopexit.loopexit1707, %.loopexit1689
-  %.41604 = phi i64 [ 0, %.loopexit1689 ], [ %2458, %.loopexit.loopexit1707 ], [ 0, %2444 ], [ 0, %45 ]
-  %.01599 = phi i32 [ 2, %.loopexit1689 ], [ 1, %.loopexit.loopexit1707 ], [ 1, %2444 ], [ 0, %45 ]
-  %.71596 = phi ptr [ %.61595, %.loopexit1689 ], [ %.51594.ph, %.loopexit.loopexit1707 ], [ %.41593, %2444 ], [ %.21591, %45 ]
-  %.71585 = phi ptr [ %.61584, %.loopexit1689 ], [ %.51583.ph, %.loopexit.loopexit1707 ], [ %.41582, %2444 ], [ %.21580, %45 ]
-  %.41577 = phi ptr [ %.31576, %.loopexit1689 ], [ %.21575.ph, %.loopexit.loopexit1707 ], [ %.11574, %2444 ], [ %.11574, %45 ]
-  %.10 = phi i32 [ %.9, %.loopexit1689 ], [ %.8.ph, %.loopexit.loopexit1707 ], [ %.7, %2444 ], [ %.1, %45 ]
+.loopexit1692:                                    ; preds = %45, %2444, %.loopexit.loopexit1717, %.loopexit1690
+  %.41604 = phi i64 [ 0, %.loopexit1690 ], [ %2458, %.loopexit.loopexit1717 ], [ 0, %2444 ], [ 0, %45 ]
+  %.01599 = phi i32 [ 2, %.loopexit1690 ], [ 1, %.loopexit.loopexit1717 ], [ 1, %2444 ], [ 0, %45 ]
+  %.71596 = phi ptr [ %.61595, %.loopexit1690 ], [ %.51594.ph, %.loopexit.loopexit1717 ], [ %.41593, %2444 ], [ %.21591, %45 ]
+  %.71585 = phi ptr [ %.61584, %.loopexit1690 ], [ %.51583.ph, %.loopexit.loopexit1717 ], [ %.41582, %2444 ], [ %.21580, %45 ]
+  %.41577 = phi ptr [ %.31576, %.loopexit1690 ], [ %.21575.ph, %.loopexit.loopexit1717 ], [ %.11574, %2444 ], [ %.11574, %45 ]
+  %.10 = phi i32 [ %.9, %.loopexit1690 ], [ %.8.ph, %.loopexit.loopexit1717 ], [ %.7, %2444 ], [ %.1, %45 ]
   %.not1670 = icmp eq i32 %.10, -2
   br i1 %.not1670, label %2467, label %2459
 
-2459:                                             ; preds = %.loopexit1691
+2459:                                             ; preds = %.loopexit1692
   %or.cond11 = icmp ult i32 %.10, 407
   br i1 %or.cond11, label %2460, label %2465
 
@@ -4889,27 +4887,27 @@ define noundef i32 @zendparse() local_unnamed_addr #0 {
   call fastcc void @yydestruct(i32 noundef %2466, ptr noundef nonnull %1)
   br label %2467
 
-2467:                                             ; preds = %2465, %.loopexit1691
+2467:                                             ; preds = %2465, %.loopexit1692
   %2468 = sub nsw i64 0, %.41604
   %2469 = getelementptr inbounds i16, ptr %.71585, i64 %2468
-  %.not16711704 = icmp eq ptr %2469, %.41577
-  br i1 %.not16711704, label %._crit_edge, label %.lr.ph.preheader
+  %.not16711714 = icmp eq ptr %2469, %.41577
+  br i1 %.not16711714, label %._crit_edge, label %.lr.ph.preheader
 
 .lr.ph.preheader:                                 ; preds = %2467
   %2470 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %.71596, i64 %2468
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
-  %.815861706 = phi ptr [ %2477, %.lr.ph ], [ %2469, %.lr.ph.preheader ]
-  %.815971705 = phi ptr [ %2476, %.lr.ph ], [ %2470, %.lr.ph.preheader ]
-  %2471 = load i16, ptr %.815861706, align 2
+  %.815861716 = phi ptr [ %2477, %.lr.ph ], [ %2469, %.lr.ph.preheader ]
+  %.815971715 = phi ptr [ %2476, %.lr.ph ], [ %2470, %.lr.ph.preheader ]
+  %2471 = load i16, ptr %.815861716, align 2
   %2472 = sext i16 %2471 to i64
   %2473 = getelementptr inbounds [1131 x i16], ptr @yystos, i64 0, i64 %2472
   %2474 = load i16, ptr %2473, align 2
   %2475 = sext i16 %2474 to i32
-  call fastcc void @yydestruct(i32 noundef %2475, ptr noundef %.815971705)
-  %2476 = getelementptr inbounds i8, ptr %.815971705, i64 -8
-  %2477 = getelementptr inbounds i8, ptr %.815861706, i64 -2
+  call fastcc void @yydestruct(i32 noundef %2475, ptr noundef %.815971715)
+  %2476 = getelementptr inbounds i8, ptr %.815971715, i64 -8
+  %2477 = getelementptr inbounds i8, ptr %.815861716, i64 -2
   %.not1671 = icmp eq ptr %2477, %.41577
   br i1 %.not1671, label %._crit_edge, label %.lr.ph
 
@@ -5002,7 +5000,7 @@ declare ptr @zend_ast_create_class_const_or_name(ptr noundef, ptr noundef) local
 declare ptr @zend_negate_num_string(ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: nofree nounwind uwtable
-define internal fastcc noundef i32 @yysyntax_error(ptr nocapture noundef %0, ptr nocapture noundef readonly %1, ptr nocapture readonly %.0.val, i32 %.8.val) unnamed_addr #5 {
+define internal fastcc range(i32 -2, 1) i32 @yysyntax_error(ptr nocapture noundef %0, ptr nocapture noundef readonly %1, ptr nocapture readonly %.0.val, i32 %.8.val) unnamed_addr #5 {
   %3 = alloca [5 x i32], align 16
   %.not.i = icmp eq i32 %.8.val, -2
   br i1 %.not.i, label %yy_syntax_error_arguments.exit.thread6, label %4
@@ -5033,7 +5031,7 @@ define internal fastcc noundef i32 @yysyntax_error(ptr nocapture noundef %0, ptr
   %20 = sext i32 %16 to i64
   br label %.lr.ph.split.i.i
 
-.lr.ph.split.i.i:                                 ; preds = %.lr.ph.i.i, %38
+.lr.ph.split.i.i:                                 ; preds = %38, %.lr.ph.i.i
   %indvars.iv.i.i = phi i64 [ %indvars.iv.next.i.i, %38 ], [ %18, %.lr.ph.i.i ]
   %.0353.i.i = phi i32 [ %.2.i.fr.i, %38 ], [ 0, %.lr.ph.i.i ]
   %21 = add nsw i64 %indvars.iv.i.i, %19

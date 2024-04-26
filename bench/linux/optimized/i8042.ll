@@ -277,7 +277,7 @@ define dso_local void @i8042_unlock_chip() #0 align 16 {
 declare dso_local void @mutex_unlock(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @i8042_install_filter(ptr noundef %0) #0 align 16 {
+define dso_local noundef range(i32 -16, 1) i32 @i8042_install_filter(ptr noundef %0) #0 align 16 {
   %2 = tail call i64 @_raw_spin_lock_irqsave(ptr noundef nonnull @i8042_lock) #9
   %3 = load ptr, ptr @i8042_platform_filter, align 8
   %4 = icmp eq ptr %3, null
@@ -303,7 +303,7 @@ declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #2
 declare dso_local i64 @_raw_spin_lock_irqsave(ptr noundef) local_unnamed_addr #1 section ".spinlock.text"
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @i8042_remove_filter(ptr noundef readnone %0) #0 align 16 {
+define dso_local noundef range(i32 -22, 1) i32 @i8042_remove_filter(ptr noundef readnone %0) #0 align 16 {
   %2 = tail call i64 @_raw_spin_lock_irqsave(ptr noundef nonnull @i8042_lock) #9
   %3 = load ptr, ptr @i8042_platform_filter, align 8
   %4 = icmp eq ptr %3, %0
@@ -320,13 +320,13 @@ define dso_local noundef i32 @i8042_remove_filter(ptr noundef readnone %0) #0 al
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @i8042_command(ptr nocapture noundef %0, i32 noundef %1) #0 align 16 {
+define dso_local range(i32 -1, 1) i32 @i8042_command(ptr nocapture noundef %0, i32 noundef %1) #0 align 16 {
   %3 = load i1, ptr @i8042_present, align 1
   br i1 %3, label %4, label %7
 
 4:                                                ; preds = %2
   %5 = tail call i64 @_raw_spin_lock_irqsave(ptr noundef nonnull @i8042_lock) #9
-  %6 = tail call fastcc i32 @__i8042_command(ptr noundef %0, i32 noundef %1), !range !5
+  %6 = tail call fastcc i32 @__i8042_command(ptr noundef %0, i32 noundef %1)
   tail call void @_raw_spin_unlock_irqrestore(ptr noundef nonnull @i8042_lock, i64 noundef %5) #9
   br label %7
 
@@ -336,8 +336,8 @@ define dso_local noundef i32 @i8042_command(ptr nocapture noundef %0, i32 nounde
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc noundef i32 @__i8042_command(ptr nocapture noundef %0, i32 noundef %1) unnamed_addr #0 align 16 {
-  %3 = load i8, ptr @i8042_noloop, align 1, !range !6, !noundef !7
+define internal fastcc range(i32 -1, 1) i32 @__i8042_command(ptr nocapture noundef %0, i32 noundef %1) unnamed_addr #0 align 16 {
+  %3 = load i8, ptr @i8042_noloop, align 1, !range !5, !noundef !6
   %4 = icmp ne i8 %3, 0
   %5 = icmp eq i32 %1, 4563
   %6 = and i1 %5, %4
@@ -346,7 +346,7 @@ define internal fastcc noundef i32 @__i8042_command(ptr nocapture noundef %0, i3
 7:                                                ; preds = %2
   %8 = load i32, ptr @i8042_command_reg, align 4
   %9 = trunc i32 %8 to i16
-  %10 = tail call i8 asm sideeffect "inb ${1:w}, ${0:b}", "={ax},N{dx},~{dirflag},~{fpsr},~{flags}"(i16 %9) #9, !srcloc !8
+  %10 = tail call i8 asm sideeffect "inb ${1:w}, ${0:b}", "={ax},N{dx},~{dirflag},~{fpsr},~{flags}"(i16 %9) #9, !srcloc !7
   %11 = and i8 %10, 2
   %12 = icmp eq i8 %11, 0
   br i1 %12, label %24, label %.preheader9
@@ -357,19 +357,19 @@ define internal fastcc noundef i32 @__i8042_command(ptr nocapture noundef %0, i3
   %14 = add nuw nsw i32 %13, 1
   %15 = load i32, ptr @i8042_command_reg, align 4
   %16 = trunc i32 %15 to i16
-  %17 = tail call i8 asm sideeffect "inb ${1:w}, ${0:b}", "={ax},N{dx},~{dirflag},~{fpsr},~{flags}"(i16 %16) #9, !srcloc !8
+  %17 = tail call i8 asm sideeffect "inb ${1:w}, ${0:b}", "={ax},N{dx},~{dirflag},~{fpsr},~{flags}"(i16 %16) #9, !srcloc !7
   %18 = and i8 %17, 2
   %19 = icmp ne i8 %18, 0
   %20 = icmp ult i32 %13, 9999
   %21 = select i1 %19, i1 %20, i1 false
-  br i1 %21, label %.preheader9, label %22, !llvm.loop !9
+  br i1 %21, label %.preheader9, label %22, !llvm.loop !8
 
 22:                                               ; preds = %.preheader9
   %23 = icmp eq i32 %14, 10000
   br i1 %23, label %.loopexit, label %24
 
 24:                                               ; preds = %22, %7
-  %25 = load i8, ptr @i8042_debug, align 1, !range !6, !noundef !7
+  %25 = load i8, ptr @i8042_debug, align 1, !range !5, !noundef !6
   %26 = icmp eq i8 %25, 0
   br i1 %26, label %34, label %27
 
@@ -386,7 +386,7 @@ define internal fastcc noundef i32 @__i8042_command(ptr nocapture noundef %0, i3
   %35 = trunc i32 %1 to i8
   %36 = load i32, ptr @i8042_command_reg, align 4
   %37 = trunc i32 %36 to i16
-  tail call void asm sideeffect "outb ${0:b}, ${1:w}", "{ax},N{dx},~{dirflag},~{fpsr},~{flags}"(i8 %35, i16 %37) #9, !srcloc !12
+  tail call void asm sideeffect "outb ${0:b}, ${1:w}", "{ax},N{dx},~{dirflag},~{fpsr},~{flags}"(i8 %35, i16 %37) #9, !srcloc !11
   %38 = lshr i32 %1, 12
   %39 = and i32 %38, 15
   %40 = icmp eq i32 %39, 0
@@ -409,7 +409,7 @@ define internal fastcc noundef i32 @__i8042_command(ptr nocapture noundef %0, i3
 .split.us.preheader:                              ; preds = %46
   %48 = load i32, ptr @i8042_command_reg, align 4
   %49 = trunc i32 %48 to i16
-  %50 = tail call i8 asm sideeffect "inb ${1:w}, ${0:b}", "={ax},N{dx},~{dirflag},~{fpsr},~{flags}"(i16 %49) #9, !srcloc !8
+  %50 = tail call i8 asm sideeffect "inb ${1:w}, ${0:b}", "={ax},N{dx},~{dirflag},~{fpsr},~{flags}"(i16 %49) #9, !srcloc !7
   %51 = and i8 %50, 1
   %52 = icmp eq i8 %51, 0
   br i1 %52, label %.preheader.us, label %.thread5.us
@@ -420,12 +420,12 @@ define internal fastcc noundef i32 @__i8042_command(ptr nocapture noundef %0, i3
   %54 = add nuw nsw i32 %53, 1
   %55 = load i32, ptr @i8042_command_reg, align 4
   %56 = trunc i32 %55 to i16
-  %57 = tail call i8 asm sideeffect "inb ${1:w}, ${0:b}", "={ax},N{dx},~{dirflag},~{fpsr},~{flags}"(i16 %56) #9, !srcloc !8
+  %57 = tail call i8 asm sideeffect "inb ${1:w}, ${0:b}", "={ax},N{dx},~{dirflag},~{fpsr},~{flags}"(i16 %56) #9, !srcloc !7
   %58 = and i8 %57, 1
   %59 = icmp eq i8 %58, 0
   %60 = icmp ult i32 %53, 9999
   %61 = select i1 %59, i1 %60, i1 false
-  br i1 %61, label %.preheader.us, label %62, !llvm.loop !13
+  br i1 %61, label %.preheader.us, label %62, !llvm.loop !12
 
 62:                                               ; preds = %.preheader.us
   %.not6.us = icmp eq i32 %54, 10000
@@ -434,7 +434,7 @@ define internal fastcc noundef i32 @__i8042_command(ptr nocapture noundef %0, i3
 .thread5.us:                                      ; preds = %62, %.split.us.preheader
   %63 = load i32, ptr @i8042_command_reg, align 4
   %64 = trunc i32 %63 to i16
-  %65 = tail call i8 asm sideeffect "inb ${1:w}, ${0:b}", "={ax},N{dx},~{dirflag},~{fpsr},~{flags}"(i16 %64) #9, !srcloc !8
+  %65 = tail call i8 asm sideeffect "inb ${1:w}, ${0:b}", "={ax},N{dx},~{dirflag},~{fpsr},~{flags}"(i16 %64) #9, !srcloc !7
   %66 = and i8 %65, 32
   %67 = icmp eq i8 %66, 0
   br i1 %67, label %.split16.us, label %68
@@ -442,9 +442,9 @@ define internal fastcc noundef i32 @__i8042_command(ptr nocapture noundef %0, i3
 68:                                               ; preds = %.thread5.us
   %69 = load i32, ptr @i8042_data_reg, align 4
   %70 = trunc i32 %69 to i16
-  %71 = tail call i8 asm sideeffect "inb ${1:w}, ${0:b}", "={ax},N{dx},~{dirflag},~{fpsr},~{flags}"(i16 %70) #9, !srcloc !8
+  %71 = tail call i8 asm sideeffect "inb ${1:w}, ${0:b}", "={ax},N{dx},~{dirflag},~{fpsr},~{flags}"(i16 %70) #9, !srcloc !7
   store i8 %71, ptr %0, align 1
-  %72 = load i8, ptr @i8042_debug, align 1, !range !6, !noundef !7
+  %72 = load i8, ptr @i8042_debug, align 1, !range !5, !noundef !6
   %73 = icmp eq i8 %72, 0
   br i1 %73, label %.loopexit, label %74
 
@@ -461,13 +461,13 @@ define internal fastcc noundef i32 @__i8042_command(ptr nocapture noundef %0, i3
   %82 = phi i64 [ 0, %41 ], [ %118, %113 ]
   %83 = load i32, ptr @i8042_command_reg, align 4
   %84 = trunc i32 %83 to i16
-  %85 = tail call i8 asm sideeffect "inb ${1:w}, ${0:b}", "={ax},N{dx},~{dirflag},~{fpsr},~{flags}"(i16 %84) #9, !srcloc !8
+  %85 = tail call i8 asm sideeffect "inb ${1:w}, ${0:b}", "={ax},N{dx},~{dirflag},~{fpsr},~{flags}"(i16 %84) #9, !srcloc !7
   %86 = and i8 %85, 2
   %87 = icmp eq i8 %86, 0
   br i1 %87, label %.thread, label %.preheader7
 
 .thread:                                          ; preds = %81
-  %88 = load i8, ptr @i8042_debug, align 1, !range !6, !noundef !7
+  %88 = load i8, ptr @i8042_debug, align 1, !range !5, !noundef !6
   %89 = icmp eq i8 %88, 0
   br i1 %89, label %113, label %104
 
@@ -477,16 +477,16 @@ define internal fastcc noundef i32 @__i8042_command(ptr nocapture noundef %0, i3
   %91 = add nuw nsw i32 %90, 1
   %92 = load i32, ptr @i8042_command_reg, align 4
   %93 = trunc i32 %92 to i16
-  %94 = tail call i8 asm sideeffect "inb ${1:w}, ${0:b}", "={ax},N{dx},~{dirflag},~{fpsr},~{flags}"(i16 %93) #9, !srcloc !8
+  %94 = tail call i8 asm sideeffect "inb ${1:w}, ${0:b}", "={ax},N{dx},~{dirflag},~{fpsr},~{flags}"(i16 %93) #9, !srcloc !7
   %95 = and i8 %94, 2
   %96 = icmp ne i8 %95, 0
   %97 = icmp ult i32 %90, 9999
   %98 = select i1 %96, i1 %97, i1 false
-  br i1 %98, label %.preheader7, label %99, !llvm.loop !9
+  br i1 %98, label %.preheader7, label %99, !llvm.loop !8
 
 99:                                               ; preds = %.preheader7
   %.not = icmp eq i32 %91, 10000
-  %100 = load i8, ptr @i8042_debug, align 1, !range !6, !noundef !7
+  %100 = load i8, ptr @i8042_debug, align 1, !range !5, !noundef !6
   %101 = icmp eq i8 %100, 0
   br i1 %.not, label %102, label %103
 
@@ -512,16 +512,16 @@ define internal fastcc noundef i32 @__i8042_command(ptr nocapture noundef %0, i3
   %115 = load i8, ptr %114, align 1
   %116 = load i32, ptr @i8042_data_reg, align 4
   %117 = trunc i32 %116 to i16
-  tail call void asm sideeffect "outb ${0:b}, ${1:w}", "{ax},N{dx},~{dirflag},~{fpsr},~{flags}"(i8 %115, i16 %117) #9, !srcloc !12
+  tail call void asm sideeffect "outb ${0:b}, ${1:w}", "{ax},N{dx},~{dirflag},~{fpsr},~{flags}"(i8 %115, i16 %117) #9, !srcloc !11
   %118 = add nuw nsw i64 %82, 1
   %119 = icmp eq i64 %118, %42
-  br i1 %119, label %.loopexit8, label %81, !llvm.loop !14
+  br i1 %119, label %.loopexit8, label %81, !llvm.loop !13
 
 .split:                                           ; preds = %46, %153
   %120 = phi i64 [ %154, %153 ], [ 0, %46 ]
   %121 = load i32, ptr @i8042_command_reg, align 4
   %122 = trunc i32 %121 to i16
-  %123 = tail call i8 asm sideeffect "inb ${1:w}, ${0:b}", "={ax},N{dx},~{dirflag},~{fpsr},~{flags}"(i16 %122) #9, !srcloc !8
+  %123 = tail call i8 asm sideeffect "inb ${1:w}, ${0:b}", "={ax},N{dx},~{dirflag},~{fpsr},~{flags}"(i16 %122) #9, !srcloc !7
   %124 = and i8 %123, 1
   %125 = icmp eq i8 %124, 0
   br i1 %125, label %.preheader, label %.thread5
@@ -532,34 +532,34 @@ define internal fastcc noundef i32 @__i8042_command(ptr nocapture noundef %0, i3
   %127 = add nuw nsw i32 %126, 1
   %128 = load i32, ptr @i8042_command_reg, align 4
   %129 = trunc i32 %128 to i16
-  %130 = tail call i8 asm sideeffect "inb ${1:w}, ${0:b}", "={ax},N{dx},~{dirflag},~{fpsr},~{flags}"(i16 %129) #9, !srcloc !8
+  %130 = tail call i8 asm sideeffect "inb ${1:w}, ${0:b}", "={ax},N{dx},~{dirflag},~{fpsr},~{flags}"(i16 %129) #9, !srcloc !7
   %131 = and i8 %130, 1
   %132 = icmp eq i8 %131, 0
   %133 = icmp ult i32 %126, 9999
   %134 = select i1 %132, i1 %133, i1 false
-  br i1 %134, label %.preheader, label %135, !llvm.loop !13
+  br i1 %134, label %.preheader, label %135, !llvm.loop !12
 
 135:                                              ; preds = %.preheader
   %.not6 = icmp eq i32 %127, 10000
   br i1 %.not6, label %.split14.us, label %.thread5
 
 .split14.us:                                      ; preds = %135, %62
-  %136 = load i8, ptr @i8042_debug, align 1, !range !6, !noundef !7
+  %136 = load i8, ptr @i8042_debug, align 1, !range !5, !noundef !6
   %137 = icmp eq i8 %136, 0
   br i1 %137, label %.loopexit, label %156
 
 .thread5:                                         ; preds = %.split, %135
   %138 = load i32, ptr @i8042_data_reg, align 4
   %139 = trunc i32 %138 to i16
-  %140 = tail call i8 asm sideeffect "inb ${1:w}, ${0:b}", "={ax},N{dx},~{dirflag},~{fpsr},~{flags}"(i16 %139) #9, !srcloc !8
+  %140 = tail call i8 asm sideeffect "inb ${1:w}, ${0:b}", "={ax},N{dx},~{dirflag},~{fpsr},~{flags}"(i16 %139) #9, !srcloc !7
   %141 = getelementptr i8, ptr %0, i64 %120
   store i8 %140, ptr %141, align 1
-  %142 = load i8, ptr @i8042_debug, align 1, !range !6, !noundef !7
+  %142 = load i8, ptr @i8042_debug, align 1, !range !5, !noundef !6
   %143 = icmp eq i8 %142, 0
   br i1 %143, label %153, label %146
 
 .split16.us:                                      ; preds = %.thread5.us
-  %144 = load i8, ptr @i8042_debug, align 1, !range !6, !noundef !7
+  %144 = load i8, ptr @i8042_debug, align 1, !range !5, !noundef !6
   %145 = icmp eq i8 %144, 0
   br i1 %145, label %.loopexit, label %156
 
@@ -575,7 +575,7 @@ define internal fastcc noundef i32 @__i8042_command(ptr nocapture noundef %0, i3
 153:                                              ; preds = %146, %.thread5
   %154 = add nuw nsw i64 %120, 1
   %155 = icmp eq i64 %154, %47
-  br i1 %155, label %.loopexit, label %.split, !llvm.loop !15
+  br i1 %155, label %.loopexit, label %.split, !llvm.loop !14
 
 156:                                              ; preds = %.split16.us, %.split14.us, %102
   %157 = phi ptr [ @.str.1, %102 ], [ @.str.3, %.split14.us ], [ @.str.4, %.split16.us ]
@@ -649,7 +649,7 @@ define internal i32 @i8042_init() #3 section ".init.text" align 16 {
   br label %34
 
 7:                                                ; preds = %0
-  %8 = tail call fastcc i32 @i8042_flush(), !range !16
+  %8 = tail call fastcc i32 @i8042_flush(), !range !15
   %9 = icmp eq i32 %8, 0
   br i1 %9, label %12, label %10
 
@@ -723,13 +723,13 @@ define internal i32 @i8042_set_reset(ptr noundef %0, ptr nocapture noundef reado
   br i1 %6, label %11, label %7
 
 7:                                                ; preds = %2
-  store i8 0, ptr %3, align 1, !annotation !17
+  store i8 0, ptr %3, align 1, !annotation !16
   %8 = call i32 @kstrtobool(ptr noundef nonnull %0, ptr noundef nonnull %3) #9
   %9 = icmp eq i32 %8, 0
   br i1 %9, label %._crit_edge, label %13
 
 ._crit_edge:                                      ; preds = %7
-  %.pre = load i8, ptr %3, align 1, !range !6
+  %.pre = load i8, ptr %3, align 1, !range !5
   %10 = zext nneg i8 %.pre to i32
   br label %11
 
@@ -767,13 +767,13 @@ define internal i32 @i8042_probe(ptr nocapture readnone %0) #0 align 16 {
   br i1 %7, label %8, label %11
 
 8:                                                ; preds = %1
-  %9 = tail call fastcc i32 @i8042_controller_selftest(), !range !18
+  %9 = tail call fastcc i32 @i8042_controller_selftest(), !range !17
   %10 = icmp eq i32 %9, 0
   br i1 %10, label %11, label %.loopexit
 
 11:                                               ; preds = %8, %1
   call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %5) #9
-  store i16 0, ptr %5, align 2, !annotation !17
+  store i16 0, ptr %5, align 2, !annotation !16
   %12 = getelementptr inbounds i8, ptr %5, i64 1
   br label %13
 
@@ -803,14 +803,14 @@ define internal i32 @i8042_probe(ptr nocapture readnone %0) #0 align 16 {
   %25 = zext nneg i32 %24 to i64
   %26 = getelementptr [2 x i8], ptr %5, i64 0, i64 %25
   %27 = tail call i64 @_raw_spin_lock_irqsave(ptr noundef nonnull @i8042_lock) #9
-  %28 = call fastcc i32 @__i8042_command(ptr noundef %26, i32 noundef 288), !range !5
+  %28 = call fastcc i32 @__i8042_command(ptr noundef %26, i32 noundef 288)
   tail call void @_raw_spin_unlock_irqrestore(ptr noundef nonnull @i8042_lock, i64 noundef %27) #9
   %29 = icmp eq i32 %28, 0
   br i1 %29, label %34, label %.thread
 
 .thread:                                          ; preds = %21, %23
   %30 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.11) #10
-  %31 = load i8, ptr @i8042_probe_defer, align 1, !range !6, !noundef !7
+  %31 = load i8, ptr @i8042_probe_defer, align 1, !range !5, !noundef !6
   %32 = icmp eq i8 %31, 0
   %33 = select i1 %32, i32 -5, i32 -517
   br label %.thread17
@@ -821,7 +821,7 @@ define internal i32 @i8042_probe(ptr nocapture readnone %0) #0 align 16 {
   %37 = load i8, ptr %12, align 1
   %38 = icmp ne i8 %36, %37
   %39 = select i1 %19, i1 true, i1 %38
-  br i1 %39, label %13, label %40, !llvm.loop !19
+  br i1 %39, label %13, label %40, !llvm.loop !18
 
 40:                                               ; preds = %34
   store i8 %36, ptr @i8042_initial_ctr, align 1
@@ -831,13 +831,13 @@ define internal i32 @i8042_probe(ptr nocapture readnone %0) #0 align 16 {
   %43 = tail call i64 @_raw_spin_lock_irqsave(ptr noundef nonnull @i8042_lock) #9
   %44 = load i32, ptr @i8042_command_reg, align 4
   %45 = trunc i32 %44 to i16
-  %46 = tail call i8 asm sideeffect "inb ${1:w}, ${0:b}", "={ax},N{dx},~{dirflag},~{fpsr},~{flags}"(i16 %45) #9, !srcloc !8
+  %46 = tail call i8 asm sideeffect "inb ${1:w}, ${0:b}", "={ax},N{dx},~{dirflag},~{fpsr},~{flags}"(i16 %45) #9, !srcloc !7
   %47 = and i8 %46, 16
   %48 = icmp eq i8 %47, 0
   br i1 %48, label %49, label %57
 
 49:                                               ; preds = %40
-  %50 = load i8, ptr @i8042_unlock, align 1, !range !6, !noundef !7
+  %50 = load i8, ptr @i8042_unlock, align 1, !range !5, !noundef !6
   %51 = icmp eq i8 %50, 0
   br i1 %51, label %55, label %52
 
@@ -878,7 +878,7 @@ define internal i32 @i8042_probe(ptr nocapture readnone %0) #0 align 16 {
 
 67:                                               ; preds = %65
   %68 = tail call i64 @_raw_spin_lock_irqsave(ptr noundef nonnull @i8042_lock) #9
-  %69 = tail call fastcc i32 @__i8042_command(ptr noundef nonnull @i8042_ctr, i32 noundef 4192), !range !5
+  %69 = tail call fastcc i32 @__i8042_command(ptr noundef nonnull @i8042_ctr, i32 noundef 4192)
   tail call void @_raw_spin_unlock_irqrestore(ptr noundef nonnull @i8042_lock, i64 noundef %68) #9
   %70 = icmp eq i32 %69, 0
   br i1 %70, label %73, label %71
@@ -893,9 +893,9 @@ define internal i32 @i8042_probe(ptr nocapture readnone %0) #0 align 16 {
   br label %.loopexit
 
 73:                                               ; preds = %67
-  %74 = tail call fastcc i32 @i8042_flush(), !range !16
+  %74 = tail call fastcc i32 @i8042_flush(), !range !15
   call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %5) #9
-  %75 = load i8, ptr @i8042_dritek, align 1, !range !6, !noundef !7
+  %75 = load i8, ptr @i8042_dritek, align 1, !range !5, !noundef !6
   %76 = icmp eq i8 %75, 0
   br i1 %76, label %85, label %77
 
@@ -907,7 +907,7 @@ define internal i32 @i8042_probe(ptr nocapture readnone %0) #0 align 16 {
 
 79:                                               ; preds = %77
   %80 = tail call i64 @_raw_spin_lock_irqsave(ptr noundef nonnull @i8042_lock) #9
-  %81 = call fastcc i32 @__i8042_command(ptr noundef nonnull %4, i32 noundef 4185), !range !5
+  %81 = call fastcc i32 @__i8042_command(ptr noundef nonnull %4, i32 noundef 4185)
   tail call void @_raw_spin_unlock_irqrestore(ptr noundef nonnull @i8042_lock, i64 noundef %80) #9
   %82 = icmp eq i32 %81, 0
   br i1 %82, label %84, label %.thread18
@@ -921,20 +921,20 @@ define internal i32 @i8042_probe(ptr nocapture readnone %0) #0 align 16 {
   br label %85
 
 85:                                               ; preds = %84, %73
-  %86 = load i8, ptr @i8042_noaux, align 1, !range !6, !noundef !7
+  %86 = load i8, ptr @i8042_noaux, align 1, !range !5, !noundef !6
   %87 = icmp eq i8 %86, 0
   br i1 %87, label %88, label %.thread27
 
 88:                                               ; preds = %85
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %3) #9
-  %89 = tail call fastcc i32 @i8042_flush(), !range !16
+  %89 = tail call fastcc i32 @i8042_flush(), !range !15
   store i8 90, ptr %3, align 1
   %90 = load i1, ptr @i8042_present, align 1
   br i1 %90, label %91, label %.thread24
 
 91:                                               ; preds = %88
   %92 = tail call i64 @_raw_spin_lock_irqsave(ptr noundef nonnull @i8042_lock) #9
-  %93 = call fastcc i32 @__i8042_command(ptr noundef nonnull %3, i32 noundef 4563), !range !5
+  %93 = call fastcc i32 @__i8042_command(ptr noundef nonnull %3, i32 noundef 4563)
   tail call void @_raw_spin_unlock_irqrestore(ptr noundef nonnull @i8042_lock, i64 noundef %92) #9
   %94 = icmp ne i32 %93, 0
   %95 = load i8, ptr %3, align 1
@@ -948,7 +948,7 @@ define internal i32 @i8042_probe(ptr nocapture readnone %0) #0 align 16 {
 
 99:                                               ; preds = %98
   %100 = tail call i64 @_raw_spin_lock_irqsave(ptr noundef nonnull @i8042_lock) #9
-  %101 = call fastcc i32 @__i8042_command(ptr noundef nonnull %3, i32 noundef 425), !range !5
+  %101 = call fastcc i32 @__i8042_command(ptr noundef nonnull %3, i32 noundef 425)
   tail call void @_raw_spin_unlock_irqrestore(ptr noundef nonnull @i8042_lock, i64 noundef %100) #9
   %102 = icmp eq i32 %101, 0
   br i1 %102, label %103, label %.thread24
@@ -966,447 +966,448 @@ define internal i32 @i8042_probe(ptr nocapture readnone %0) #0 align 16 {
   br label %107
 
 107:                                              ; preds = %105, %91
-  %108 = phi i1 [ false, %91 ], [ %106, %105 ]
-  %109 = tail call fastcc i32 @i8042_toggle_aux(i1 noundef zeroext false), !range !5
-  %110 = icmp eq i32 %109, 0
-  br i1 %110, label %114, label %111
+  %108 = phi i32 [ 0, %91 ], [ %93, %105 ]
+  %109 = phi i1 [ false, %91 ], [ %106, %105 ]
+  %110 = tail call fastcc i32 @i8042_toggle_aux(i1 noundef zeroext false), !range !19
+  %111 = icmp eq i32 %110, 0
+  br i1 %111, label %115, label %112
 
-111:                                              ; preds = %107
-  %112 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.18) #10
-  %113 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.19) #10
-  br label %114
+112:                                              ; preds = %107
+  %113 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.18) #10
+  %114 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.19) #10
+  br label %115
 
-114:                                              ; preds = %111, %107
-  %115 = tail call fastcc i32 @i8042_toggle_aux(i1 noundef zeroext true), !range !5
-  %116 = icmp eq i32 %115, 0
-  br i1 %116, label %117, label %.thread24
+115:                                              ; preds = %112, %107
+  %116 = tail call fastcc i32 @i8042_toggle_aux(i1 noundef zeroext true), !range !19
+  %117 = icmp eq i32 %116, 0
+  br i1 %117, label %118, label %.thread24
 
-117:                                              ; preds = %114
-  %118 = load i8, ptr @i8042_kbdreset, align 1, !range !6, !noundef !7
-  %119 = icmp eq i8 %118, 0
-  br i1 %119, label %123, label %120
+118:                                              ; preds = %115
+  %119 = load i8, ptr @i8042_kbdreset, align 1, !range !5, !noundef !6
+  %120 = icmp eq i8 %119, 0
+  br i1 %120, label %124, label %121
 
-120:                                              ; preds = %117
-  %121 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.20) #10
-  %122 = tail call i32 @i8042_kbd_write(ptr poison, i8 noundef zeroext -1), !range !5
-  br label %123
+121:                                              ; preds = %118
+  %122 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.20) #10
+  %123 = tail call i32 @i8042_kbd_write(ptr poison, i8 noundef zeroext -1), !range !19
+  br label %124
 
-123:                                              ; preds = %120, %117
-  %124 = load i8, ptr @i8042_noloop, align 1, !range !6, !noundef !7
-  %125 = icmp ne i8 %124, 0
-  %126 = load i8, ptr @i8042_bypass_aux_irq_test, align 1, !range !6
-  %127 = icmp ne i8 %126, 0
-  %128 = select i1 %125, i1 true, i1 %127
-  %129 = or i1 %108, %128
-  br i1 %129, label %167, label %130
+124:                                              ; preds = %121, %118
+  %125 = load i8, ptr @i8042_noloop, align 1, !range !5, !noundef !6
+  %126 = icmp ne i8 %125, 0
+  %127 = load i8, ptr @i8042_bypass_aux_irq_test, align 1, !range !5
+  %128 = icmp ne i8 %127, 0
+  %129 = select i1 %126, i1 true, i1 %128
+  %130 = or i1 %109, %129
+  br i1 %130, label %168, label %131
 
-130:                                              ; preds = %123
-  %131 = load i32, ptr @i8042_aux_irq, align 4
-  %132 = load ptr, ptr @i8042_platform_device, align 8
-  %133 = tail call i32 @request_threaded_irq(i32 noundef %131, ptr noundef nonnull @i8042_aux_test_irq, ptr noundef null, i64 noundef 128, ptr noundef nonnull @.str.6, ptr noundef %132) #9
-  %134 = icmp eq i32 %133, 0
-  br i1 %134, label %135, label %167
+131:                                              ; preds = %124
+  %132 = load i32, ptr @i8042_aux_irq, align 4
+  %133 = load ptr, ptr @i8042_platform_device, align 8
+  %134 = tail call i32 @request_threaded_irq(i32 noundef %132, ptr noundef nonnull @i8042_aux_test_irq, ptr noundef null, i64 noundef 128, ptr noundef nonnull @.str.6, ptr noundef %133) #9
+  %135 = icmp eq i32 %134, 0
+  br i1 %135, label %136, label %168
 
-135:                                              ; preds = %130
-  %136 = load i8, ptr @i8042_ctr, align 1
-  %137 = and i8 %136, -35
-  %138 = or disjoint i8 %137, 2
-  store i8 %138, ptr @i8042_ctr, align 1
-  %139 = load i1, ptr @i8042_present, align 1
-  br i1 %139, label %140, label %144
+136:                                              ; preds = %131
+  %137 = load i8, ptr @i8042_ctr, align 1
+  %138 = and i8 %137, -35
+  %139 = or disjoint i8 %138, 2
+  store i8 %139, ptr @i8042_ctr, align 1
+  %140 = load i1, ptr @i8042_present, align 1
+  br i1 %140, label %141, label %145
 
-140:                                              ; preds = %135
-  %141 = tail call i64 @_raw_spin_lock_irqsave(ptr noundef nonnull @i8042_lock) #9
-  %142 = tail call fastcc i32 @__i8042_command(ptr noundef nonnull @i8042_ctr, i32 noundef 4192), !range !5
-  tail call void @_raw_spin_unlock_irqrestore(ptr noundef nonnull @i8042_lock, i64 noundef %141) #9
-  %143 = icmp eq i32 %142, 0
-  br i1 %143, label %149, label %._crit_edge
+141:                                              ; preds = %136
+  %142 = tail call i64 @_raw_spin_lock_irqsave(ptr noundef nonnull @i8042_lock) #9
+  %143 = tail call fastcc i32 @__i8042_command(ptr noundef nonnull @i8042_ctr, i32 noundef 4192)
+  tail call void @_raw_spin_unlock_irqrestore(ptr noundef nonnull @i8042_lock, i64 noundef %142) #9
+  %144 = icmp eq i32 %143, 0
+  br i1 %144, label %150, label %._crit_edge
 
-._crit_edge:                                      ; preds = %140
+._crit_edge:                                      ; preds = %141
   %.pre = load i8, ptr @i8042_ctr, align 1
-  br label %144
+  br label %145
 
-144:                                              ; preds = %._crit_edge, %135
-  %145 = phi i8 [ %.pre, %._crit_edge ], [ %138, %135 ]
-  %146 = and i8 %145, -35
-  %147 = or disjoint i8 %146, 32
-  store i8 %147, ptr @i8042_ctr, align 1
-  %148 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.36) #10
-  br label %167
+145:                                              ; preds = %._crit_edge, %136
+  %146 = phi i8 [ %.pre, %._crit_edge ], [ %139, %136 ]
+  %147 = and i8 %146, -35
+  %148 = or disjoint i8 %147, 32
+  store i8 %148, ptr @i8042_ctr, align 1
+  %149 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.36) #10
+  br label %168
 
-149:                                              ; preds = %140
-  %150 = tail call i64 @_raw_spin_lock_irqsave(ptr noundef nonnull @i8042_lock) #9
+150:                                              ; preds = %141
+  %151 = tail call i64 @_raw_spin_lock_irqsave(ptr noundef nonnull @i8042_lock) #9
   store i32 0, ptr @i8042_aux_irq_delivered, align 8
   tail call void @__init_swait_queue_head(ptr noundef nonnull getelementptr inbounds (%struct.completion, ptr @i8042_aux_irq_delivered, i64 0, i32 1), ptr noundef nonnull @.str.24, ptr noundef nonnull @init_completion.__key) #9
   store i1 true, ptr @i8042_irq_being_tested, align 1
   store i8 -91, ptr %3, align 1
-  %151 = call fastcc i32 @__i8042_command(ptr noundef nonnull %3, i32 noundef 4307), !range !5
-  tail call void @_raw_spin_unlock_irqrestore(ptr noundef nonnull @i8042_lock, i64 noundef %150) #9
-  %152 = icmp eq i32 %151, 0
-  br i1 %152, label %153, label %167
+  %152 = call fastcc i32 @__i8042_command(ptr noundef nonnull %3, i32 noundef 4307)
+  tail call void @_raw_spin_unlock_irqrestore(ptr noundef nonnull @i8042_lock, i64 noundef %151) #9
+  %153 = icmp eq i32 %152, 0
+  br i1 %153, label %154, label %168
 
-153:                                              ; preds = %149
-  %154 = tail call i64 @wait_for_completion_timeout(ptr noundef nonnull @i8042_aux_irq_delivered, i64 noundef 250) #9
-  %155 = icmp eq i64 %154, 0
-  br i1 %155, label %156, label %167
+154:                                              ; preds = %150
+  %155 = tail call i64 @wait_for_completion_timeout(ptr noundef nonnull @i8042_aux_irq_delivered, i64 noundef 250) #9
+  %156 = icmp eq i64 %155, 0
+  br i1 %156, label %157, label %168
 
-156:                                              ; preds = %153
-  %157 = load i8, ptr @i8042_debug, align 1, !range !6, !noundef !7
-  %158 = icmp eq i8 %157, 0
-  br i1 %158, label %165, label %159
+157:                                              ; preds = %154
+  %158 = load i8, ptr @i8042_debug, align 1, !range !5, !noundef !6
+  %159 = icmp eq i8 %158, 0
+  br i1 %159, label %166, label %160
 
-159:                                              ; preds = %156
-  %160 = load volatile i64, ptr @jiffies, align 64
-  %161 = load i64, ptr @i8042_start_time, align 8
-  %162 = sub i64 %160, %161
-  %163 = trunc i64 %162 to i32
-  %164 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.21, i32 noundef %163) #10
-  br label %165
+160:                                              ; preds = %157
+  %161 = load volatile i64, ptr @jiffies, align 64
+  %162 = load i64, ptr @i8042_start_time, align 8
+  %163 = sub i64 %161, %162
+  %164 = trunc i64 %163 to i32
+  %165 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.21, i32 noundef %164) #10
+  br label %166
 
-165:                                              ; preds = %159, %156
-  %166 = tail call fastcc i32 @i8042_flush(), !range !16
-  br label %167
+166:                                              ; preds = %160, %157
+  %167 = tail call fastcc i32 @i8042_flush(), !range !15
+  br label %168
 
-167:                                              ; preds = %165, %153, %149, %144, %130, %123
-  %168 = phi i1 [ false, %130 ], [ true, %149 ], [ true, %165 ], [ true, %153 ], [ false, %123 ], [ true, %144 ]
-  %169 = phi i32 [ %93, %130 ], [ -1, %149 ], [ -1, %165 ], [ 0, %153 ], [ 0, %123 ], [ %93, %144 ]
-  %170 = load i8, ptr @i8042_ctr, align 1
-  %171 = and i8 %170, -35
-  %172 = or disjoint i8 %171, 32
-  store i8 %172, ptr @i8042_ctr, align 1
-  %173 = load i1, ptr @i8042_present, align 1
-  br i1 %173, label %174, label %179
+168:                                              ; preds = %166, %154, %150, %145, %131, %124
+  %169 = phi i1 [ false, %131 ], [ true, %150 ], [ true, %166 ], [ true, %154 ], [ false, %124 ], [ true, %145 ]
+  %170 = phi i32 [ %108, %131 ], [ -1, %150 ], [ -1, %166 ], [ 0, %154 ], [ 0, %124 ], [ %108, %145 ]
+  %171 = load i8, ptr @i8042_ctr, align 1
+  %172 = and i8 %171, -35
+  %173 = or disjoint i8 %172, 32
+  store i8 %173, ptr @i8042_ctr, align 1
+  %174 = load i1, ptr @i8042_present, align 1
+  br i1 %174, label %175, label %180
 
-174:                                              ; preds = %167
-  %175 = tail call i64 @_raw_spin_lock_irqsave(ptr noundef nonnull @i8042_lock) #9
-  %176 = tail call fastcc i32 @__i8042_command(ptr noundef nonnull @i8042_ctr, i32 noundef 4192), !range !5
-  tail call void @_raw_spin_unlock_irqrestore(ptr noundef nonnull @i8042_lock, i64 noundef %175) #9
-  %177 = icmp eq i32 %176, 0
-  %178 = select i1 %177, i32 %169, i32 -1
-  br label %179
+175:                                              ; preds = %168
+  %176 = tail call i64 @_raw_spin_lock_irqsave(ptr noundef nonnull @i8042_lock) #9
+  %177 = tail call fastcc i32 @__i8042_command(ptr noundef nonnull @i8042_ctr, i32 noundef 4192)
+  tail call void @_raw_spin_unlock_irqrestore(ptr noundef nonnull @i8042_lock, i64 noundef %176) #9
+  %178 = icmp eq i32 %177, 0
+  %179 = select i1 %178, i32 %170, i32 -1
+  br label %180
 
-179:                                              ; preds = %174, %167
-  %180 = phi i32 [ %178, %174 ], [ -1, %167 ]
-  br i1 %168, label %181, label %185
+180:                                              ; preds = %175, %168
+  %181 = phi i32 [ %179, %175 ], [ -1, %168 ]
+  br i1 %169, label %182, label %186
 
-181:                                              ; preds = %179
-  %182 = load i32, ptr @i8042_aux_irq, align 4
-  %183 = load ptr, ptr @i8042_platform_device, align 8
-  %184 = tail call ptr @free_irq(i32 noundef %182, ptr noundef %183) #9
-  br label %185
+182:                                              ; preds = %180
+  %183 = load i32, ptr @i8042_aux_irq, align 4
+  %184 = load ptr, ptr @i8042_platform_device, align 8
+  %185 = tail call ptr @free_irq(i32 noundef %183, ptr noundef %184) #9
+  br label %186
 
-.thread24:                                        ; preds = %103, %99, %114, %98, %88
+.thread24:                                        ; preds = %103, %99, %115, %98, %88
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %3) #9
   br label %.thread27
 
-185:                                              ; preds = %181, %179
+186:                                              ; preds = %182, %180
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %3) #9
-  %186 = icmp eq i32 %180, 0
-  br i1 %186, label %187, label %.thread27
+  %187 = icmp eq i32 %181, 0
+  br i1 %187, label %188, label %.thread27
 
-187:                                              ; preds = %185
-  %188 = load i8, ptr @i8042_nomux, align 1, !range !6, !noundef !7
-  %189 = icmp eq i8 %188, 0
-  br i1 %189, label %190, label %211
+188:                                              ; preds = %186
+  %189 = load i8, ptr @i8042_nomux, align 1, !range !5, !noundef !6
+  %190 = icmp eq i8 %189, 0
+  br i1 %190, label %191, label %212
 
-190:                                              ; preds = %187
+191:                                              ; preds = %188
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %2) #9
-  store i8 0, ptr %2, align 1, !annotation !17
-  %191 = call fastcc i32 @i8042_set_mux_mode(i1 noundef zeroext true, ptr noundef nonnull %2), !range !5
-  %192 = icmp eq i32 %191, 0
-  br i1 %192, label %193, label %210
+  store i8 0, ptr %2, align 1, !annotation !16
+  %192 = call fastcc i32 @i8042_set_mux_mode(i1 noundef zeroext true, ptr noundef nonnull %2), !range !19
+  %193 = icmp eq i32 %192, 0
+  br i1 %193, label %194, label %211
 
-193:                                              ; preds = %190
-  %194 = load i8, ptr %2, align 1
-  %195 = zext i8 %194 to i32
-  %196 = lshr i32 %195, 4
-  %197 = and i32 %195, 15
-  %198 = call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.25, i32 noundef %196, i32 noundef %197) #10
-  %199 = load i8, ptr @i8042_ctr, align 1
-  %200 = and i8 %199, -35
-  %201 = or disjoint i8 %200, 32
-  store i8 %201, ptr @i8042_ctr, align 1
-  %202 = load i1, ptr @i8042_present, align 1
-  br i1 %202, label %203, label %207
+194:                                              ; preds = %191
+  %195 = load i8, ptr %2, align 1
+  %196 = zext i8 %195 to i32
+  %197 = lshr i32 %196, 4
+  %198 = and i32 %196, 15
+  %199 = call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.25, i32 noundef %197, i32 noundef %198) #10
+  %200 = load i8, ptr @i8042_ctr, align 1
+  %201 = and i8 %200, -35
+  %202 = or disjoint i8 %201, 32
+  store i8 %202, ptr @i8042_ctr, align 1
+  %203 = load i1, ptr @i8042_present, align 1
+  br i1 %203, label %204, label %208
 
-203:                                              ; preds = %193
-  %204 = call i64 @_raw_spin_lock_irqsave(ptr noundef nonnull @i8042_lock) #9
-  %205 = call fastcc i32 @__i8042_command(ptr noundef nonnull @i8042_ctr, i32 noundef 4192), !range !5
-  call void @_raw_spin_unlock_irqrestore(ptr noundef nonnull @i8042_lock, i64 noundef %204) #9
-  %206 = icmp eq i32 %205, 0
-  br i1 %206, label %209, label %207
+204:                                              ; preds = %194
+  %205 = call i64 @_raw_spin_lock_irqsave(ptr noundef nonnull @i8042_lock) #9
+  %206 = call fastcc i32 @__i8042_command(ptr noundef nonnull @i8042_ctr, i32 noundef 4192)
+  call void @_raw_spin_unlock_irqrestore(ptr noundef nonnull @i8042_lock, i64 noundef %205) #9
+  %207 = icmp eq i32 %206, 0
+  br i1 %207, label %210, label %208
 
-207:                                              ; preds = %203, %193
-  %208 = call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.26) #10
-  br label %210
-
-209:                                              ; preds = %203
-  store i1 true, ptr @i8042_mux_present, align 1
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %2) #9
-  br label %234
-
-210:                                              ; preds = %207, %190
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %2) #9
+208:                                              ; preds = %204, %194
+  %209 = call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.26) #10
   br label %211
 
-211:                                              ; preds = %210, %187
-  %212 = load ptr, ptr getelementptr inbounds ([3 x [14 x ptr]], ptr @kmalloc_caches, i64 0, i64 0, i64 11), align 8
-  %213 = call noalias noundef align 8 dereferenceable_or_null(1096) ptr @kmalloc_trace(ptr noundef %212, i32 noundef 3520, i64 noundef 1096) #12
-  %214 = icmp eq ptr %213, null
-  br i1 %214, label %i8042_create_aux_port.exit, label %i8042_create_aux_port.exit.thread
+210:                                              ; preds = %204
+  store i1 true, ptr @i8042_mux_present, align 1
+  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %2) #9
+  br label %235
 
-i8042_create_aux_port.exit.thread:                ; preds = %211
-  %215 = getelementptr inbounds i8, ptr %213, i64 201
-  store i8 1, ptr %215, align 1
-  %216 = getelementptr inbounds i8, ptr %213, i64 216
-  store ptr @i8042_aux_write, ptr %216, align 8
-  %217 = getelementptr inbounds i8, ptr %213, i64 240
-  store ptr @i8042_start, ptr %217, align 8
-  %218 = getelementptr inbounds i8, ptr %213, i64 248
-  store ptr @i8042_stop, ptr %218, align 8
-  %219 = getelementptr inbounds i8, ptr %213, i64 1088
-  store ptr @i8042_mutex, ptr %219, align 8
-  store ptr getelementptr inbounds ([6 x %struct.i8042_port], ptr @i8042_ports, i64 0, i64 1), ptr %213, align 8
-  %220 = load ptr, ptr @i8042_platform_device, align 8
-  %221 = getelementptr inbounds i8, ptr %220, i64 16
-  %222 = getelementptr inbounds i8, ptr %213, i64 408
-  store ptr %221, ptr %222, align 8
-  %223 = getelementptr inbounds i8, ptr %213, i64 8
-  %224 = getelementptr inbounds i8, ptr %213, i64 40
-  %225 = call i64 @strscpy(ptr noundef %223, ptr noundef nonnull @.str.27, i64 noundef 32) #9
-  %226 = call i64 @strscpy(ptr noundef %224, ptr noundef nonnull @.str.28, i64 noundef 32) #9
-  %227 = getelementptr inbounds i8, ptr %213, i64 72
-  %228 = call i64 @strscpy(ptr noundef %227, ptr noundef nonnull @i8042_aux_firmware_id, i64 noundef 128) #9
-  %229 = getelementptr inbounds i8, ptr %213, i64 232
-  store ptr @i8042_port_close, ptr %229, align 8
-  store ptr %213, ptr getelementptr inbounds ([6 x %struct.i8042_port], ptr @i8042_ports, i64 0, i64 1), align 16
+211:                                              ; preds = %208, %191
+  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %2) #9
+  br label %212
+
+212:                                              ; preds = %211, %188
+  %213 = load ptr, ptr getelementptr inbounds ([3 x [14 x ptr]], ptr @kmalloc_caches, i64 0, i64 0, i64 11), align 8
+  %214 = call noalias noundef align 8 dereferenceable_or_null(1096) ptr @kmalloc_trace(ptr noundef %213, i32 noundef 3520, i64 noundef 1096) #12
+  %215 = icmp eq ptr %214, null
+  br i1 %215, label %i8042_create_aux_port.exit, label %i8042_create_aux_port.exit.thread
+
+i8042_create_aux_port.exit.thread:                ; preds = %212
+  %216 = getelementptr inbounds i8, ptr %214, i64 201
+  store i8 1, ptr %216, align 1
+  %217 = getelementptr inbounds i8, ptr %214, i64 216
+  store ptr @i8042_aux_write, ptr %217, align 8
+  %218 = getelementptr inbounds i8, ptr %214, i64 240
+  store ptr @i8042_start, ptr %218, align 8
+  %219 = getelementptr inbounds i8, ptr %214, i64 248
+  store ptr @i8042_stop, ptr %219, align 8
+  %220 = getelementptr inbounds i8, ptr %214, i64 1088
+  store ptr @i8042_mutex, ptr %220, align 8
+  store ptr getelementptr inbounds ([6 x %struct.i8042_port], ptr @i8042_ports, i64 0, i64 1), ptr %214, align 8
+  %221 = load ptr, ptr @i8042_platform_device, align 8
+  %222 = getelementptr inbounds i8, ptr %221, i64 16
+  %223 = getelementptr inbounds i8, ptr %214, i64 408
+  store ptr %222, ptr %223, align 8
+  %224 = getelementptr inbounds i8, ptr %214, i64 8
+  %225 = getelementptr inbounds i8, ptr %214, i64 40
+  %226 = call i64 @strscpy(ptr noundef %224, ptr noundef nonnull @.str.27, i64 noundef 32) #9
+  %227 = call i64 @strscpy(ptr noundef %225, ptr noundef nonnull @.str.28, i64 noundef 32) #9
+  %228 = getelementptr inbounds i8, ptr %214, i64 72
+  %229 = call i64 @strscpy(ptr noundef %228, ptr noundef nonnull @i8042_aux_firmware_id, i64 noundef 128) #9
+  %230 = getelementptr inbounds i8, ptr %214, i64 232
+  store ptr @i8042_port_close, ptr %230, align 8
+  store ptr %214, ptr getelementptr inbounds ([6 x %struct.i8042_port], ptr @i8042_ports, i64 0, i64 1), align 16
   store i8 -1, ptr getelementptr inbounds ([6 x %struct.i8042_port], ptr @i8042_ports, i64 0, i64 1, i32 4), align 2
-  %230 = load i32, ptr @i8042_aux_irq, align 4
-  store i32 %230, ptr getelementptr inbounds ([6 x %struct.i8042_port], ptr @i8042_ports, i64 0, i64 1, i32 1), align 8
+  %231 = load i32, ptr @i8042_aux_irq, align 4
+  store i32 %231, ptr getelementptr inbounds ([6 x %struct.i8042_port], ptr @i8042_ports, i64 0, i64 1, i32 1), align 8
   br label %.loopexit33
 
-231:                                              ; preds = %234
-  %232 = add nuw nsw i32 %235, 1
-  %233 = icmp eq i32 %232, 4
-  br i1 %233, label %.loopexit33.loopexit, label %234, !llvm.loop !20
+232:                                              ; preds = %235
+  %233 = add nuw nsw i32 %236, 1
+  %234 = icmp eq i32 %233, 4
+  br i1 %234, label %.loopexit33.loopexit, label %235, !llvm.loop !20
 
-234:                                              ; preds = %231, %209
-  %235 = phi i32 [ 0, %209 ], [ %232, %231 ]
-  %236 = call fastcc i32 @i8042_create_aux_port(i32 noundef %235), !range !21
-  %237 = icmp eq i32 %236, 0
-  br i1 %237, label %231, label %i8042_create_aux_port.exit
+235:                                              ; preds = %232, %210
+  %236 = phi i32 [ 0, %210 ], [ %233, %232 ]
+  %237 = call fastcc i32 @i8042_create_aux_port(i32 noundef %236), !range !21
+  %238 = icmp eq i32 %237, 0
+  br i1 %238, label %232, label %i8042_create_aux_port.exit
 
-.loopexit33.loopexit:                             ; preds = %231
+.loopexit33.loopexit:                             ; preds = %232
   %.pre38 = load i32, ptr @i8042_aux_irq, align 4
   br label %.loopexit33
 
 .loopexit33:                                      ; preds = %.loopexit33.loopexit, %i8042_create_aux_port.exit.thread
-  %238 = phi i32 [ %230, %i8042_create_aux_port.exit.thread ], [ %.pre38, %.loopexit33.loopexit ]
-  %239 = phi ptr [ @i8042_enable_aux_port, %i8042_create_aux_port.exit.thread ], [ @i8042_enable_mux_ports, %.loopexit33.loopexit ]
-  %240 = load ptr, ptr @i8042_platform_device, align 8
-  %241 = call i32 @request_threaded_irq(i32 noundef %238, ptr noundef nonnull @i8042_interrupt, ptr noundef null, i64 noundef 128, ptr noundef nonnull @.str.6, ptr noundef %240) #9
-  %242 = icmp eq i32 %241, 0
-  br i1 %242, label %243, label %i8042_create_aux_port.exit
+  %239 = phi i32 [ %231, %i8042_create_aux_port.exit.thread ], [ %.pre38, %.loopexit33.loopexit ]
+  %240 = phi ptr [ @i8042_enable_aux_port, %i8042_create_aux_port.exit.thread ], [ @i8042_enable_mux_ports, %.loopexit33.loopexit ]
+  %241 = load ptr, ptr @i8042_platform_device, align 8
+  %242 = call i32 @request_threaded_irq(i32 noundef %239, ptr noundef nonnull @i8042_interrupt, ptr noundef null, i64 noundef 128, ptr noundef nonnull @.str.6, ptr noundef %241) #9
+  %243 = icmp eq i32 %242, 0
+  br i1 %243, label %244, label %i8042_create_aux_port.exit
 
-243:                                              ; preds = %.loopexit33
-  %244 = call i32 %239() #9, !callees !22
-  %245 = icmp eq i32 %244, 0
-  br i1 %245, label %246, label %247
+244:                                              ; preds = %.loopexit33
+  %245 = call i32 %240() #9, !callees !22
+  %246 = icmp eq i32 %245, 0
+  br i1 %246, label %247, label %248
 
-246:                                              ; preds = %243
+247:                                              ; preds = %244
   store i1 true, ptr @i8042_aux_irq_registered, align 1
   br label %.thread27
 
-247:                                              ; preds = %243
-  %248 = load i32, ptr @i8042_aux_irq, align 4
-  %249 = load ptr, ptr @i8042_platform_device, align 8
-  %250 = call ptr @free_irq(i32 noundef %248, ptr noundef %249) #9
+248:                                              ; preds = %244
+  %249 = load i32, ptr @i8042_aux_irq, align 4
+  %250 = load ptr, ptr @i8042_platform_device, align 8
+  %251 = call ptr @free_irq(i32 noundef %249, ptr noundef %250) #9
   br label %i8042_create_aux_port.exit
 
-i8042_create_aux_port.exit:                       ; preds = %234, %211, %247, %.loopexit33
-  %251 = phi i32 [ %241, %.loopexit33 ], [ %244, %247 ], [ -12, %211 ], [ %236, %234 ]
-  br label %252
+i8042_create_aux_port.exit:                       ; preds = %235, %212, %248, %.loopexit33
+  %252 = phi i32 [ %242, %.loopexit33 ], [ %245, %248 ], [ -12, %212 ], [ %237, %235 ]
+  br label %253
 
-252:                                              ; preds = %252, %i8042_create_aux_port.exit
-  %253 = phi i64 [ 1, %i8042_create_aux_port.exit ], [ %256, %252 ]
-  %254 = getelementptr [6 x %struct.i8042_port], ptr @i8042_ports, i64 0, i64 %253
-  %255 = load ptr, ptr %254, align 16
-  call void @kfree(ptr noundef %255) #9
-  store ptr null, ptr %254, align 16
-  %256 = add nuw nsw i64 %253, 1
-  %257 = icmp eq i64 %256, 6
-  br i1 %257, label %258, label %252, !llvm.loop !23
+253:                                              ; preds = %253, %i8042_create_aux_port.exit
+  %254 = phi i64 [ 1, %i8042_create_aux_port.exit ], [ %257, %253 ]
+  %255 = getelementptr [6 x %struct.i8042_port], ptr @i8042_ports, i64 0, i64 %254
+  %256 = load ptr, ptr %255, align 16
+  call void @kfree(ptr noundef %256) #9
+  store ptr null, ptr %255, align 16
+  %257 = add nuw nsw i64 %254, 1
+  %258 = icmp eq i64 %257, 6
+  br i1 %258, label %259, label %253, !llvm.loop !23
 
-258:                                              ; preds = %252
-  switch i32 %251, label %.thread32 [
+259:                                              ; preds = %253
+  switch i32 %252, label %.thread32 [
     i32 -16, label %.thread27
     i32 -19, label %.thread27
     i32 0, label %.thread27
   ]
 
-.thread27:                                        ; preds = %.thread24, %185, %246, %258, %258, %258, %85
-  %259 = load i8, ptr @i8042_nokbd, align 1, !range !6, !noundef !7
-  %260 = icmp eq i8 %259, 0
-  br i1 %260, label %261, label %.preheader
+.thread27:                                        ; preds = %.thread24, %186, %247, %259, %259, %259, %85
+  %260 = load i8, ptr @i8042_nokbd, align 1, !range !5, !noundef !6
+  %261 = icmp eq i8 %260, 0
+  br i1 %261, label %262, label %.preheader
 
-261:                                              ; preds = %.thread27
-  %262 = load ptr, ptr getelementptr inbounds ([3 x [14 x ptr]], ptr @kmalloc_caches, i64 0, i64 0, i64 11), align 8
-  %263 = call noalias noundef align 8 dereferenceable_or_null(1096) ptr @kmalloc_trace(ptr noundef %262, i32 noundef 3520, i64 noundef 1096) #12
-  %264 = icmp eq ptr %263, null
-  br i1 %264, label %.thread32, label %265
+262:                                              ; preds = %.thread27
+  %263 = load ptr, ptr getelementptr inbounds ([3 x [14 x ptr]], ptr @kmalloc_caches, i64 0, i64 0, i64 11), align 8
+  %264 = call noalias noundef align 8 dereferenceable_or_null(1096) ptr @kmalloc_trace(ptr noundef %263, i32 noundef 3520, i64 noundef 1096) #12
+  %265 = icmp eq ptr %264, null
+  br i1 %265, label %.thread32, label %266
 
-265:                                              ; preds = %261
-  %266 = load i8, ptr @i8042_direct, align 1, !range !6, !noundef !7
-  %267 = icmp eq i8 %266, 0
-  %268 = select i1 %267, i8 6, i8 1
-  %269 = getelementptr inbounds i8, ptr %263, i64 201
-  store i8 %268, ptr %269, align 1
-  %270 = load i8, ptr @i8042_dumbkbd, align 1, !range !6, !noundef !7
-  %271 = icmp eq i8 %270, 0
-  %272 = select i1 %271, ptr @i8042_kbd_write, ptr null
-  %273 = getelementptr inbounds i8, ptr %263, i64 216
-  store ptr %272, ptr %273, align 8
-  %274 = getelementptr inbounds i8, ptr %263, i64 240
-  store ptr @i8042_start, ptr %274, align 8
-  %275 = getelementptr inbounds i8, ptr %263, i64 248
-  store ptr @i8042_stop, ptr %275, align 8
-  %276 = getelementptr inbounds i8, ptr %263, i64 232
-  store ptr @i8042_port_close, ptr %276, align 8
-  %277 = getelementptr inbounds i8, ptr %263, i64 1088
-  store ptr @i8042_mutex, ptr %277, align 8
-  store ptr @i8042_ports, ptr %263, align 8
-  %278 = load ptr, ptr @i8042_platform_device, align 8
-  %279 = getelementptr inbounds i8, ptr %278, i64 16
-  %280 = getelementptr inbounds i8, ptr %263, i64 344
-  %281 = getelementptr inbounds i8, ptr %263, i64 408
-  store ptr %279, ptr %281, align 8
-  %282 = getelementptr inbounds i8, ptr %263, i64 8
-  %283 = call i64 @strscpy(ptr noundef %282, ptr noundef nonnull @.str.46, i64 noundef 32) #9
-  %284 = getelementptr inbounds i8, ptr %263, i64 40
-  %285 = call i64 @strscpy(ptr noundef %284, ptr noundef nonnull @.str.47, i64 noundef 32) #9
-  %286 = getelementptr inbounds i8, ptr %263, i64 72
-  %287 = call i64 @strscpy(ptr noundef %286, ptr noundef nonnull @i8042_kbd_firmware_id, i64 noundef 128) #9
-  %288 = load ptr, ptr @i8042_kbd_fwnode, align 8
-  call void @set_primary_fwnode(ptr noundef %280, ptr noundef %288) #9
-  store ptr %263, ptr @i8042_ports, align 16
-  %289 = load i32, ptr @i8042_kbd_irq, align 4
-  store i32 %289, ptr getelementptr inbounds ([6 x %struct.i8042_port], ptr @i8042_ports, i64 0, i64 0, i32 1), align 8
-  %290 = load ptr, ptr @i8042_platform_device, align 8
-  %291 = call i32 @request_threaded_irq(i32 noundef %289, ptr noundef nonnull @i8042_interrupt, ptr noundef null, i64 noundef 128, ptr noundef nonnull @.str.6, ptr noundef %290) #9
-  %292 = icmp eq i32 %291, 0
-  br i1 %292, label %293, label %310
+266:                                              ; preds = %262
+  %267 = load i8, ptr @i8042_direct, align 1, !range !5, !noundef !6
+  %268 = icmp eq i8 %267, 0
+  %269 = select i1 %268, i8 6, i8 1
+  %270 = getelementptr inbounds i8, ptr %264, i64 201
+  store i8 %269, ptr %270, align 1
+  %271 = load i8, ptr @i8042_dumbkbd, align 1, !range !5, !noundef !6
+  %272 = icmp eq i8 %271, 0
+  %273 = select i1 %272, ptr @i8042_kbd_write, ptr null
+  %274 = getelementptr inbounds i8, ptr %264, i64 216
+  store ptr %273, ptr %274, align 8
+  %275 = getelementptr inbounds i8, ptr %264, i64 240
+  store ptr @i8042_start, ptr %275, align 8
+  %276 = getelementptr inbounds i8, ptr %264, i64 248
+  store ptr @i8042_stop, ptr %276, align 8
+  %277 = getelementptr inbounds i8, ptr %264, i64 232
+  store ptr @i8042_port_close, ptr %277, align 8
+  %278 = getelementptr inbounds i8, ptr %264, i64 1088
+  store ptr @i8042_mutex, ptr %278, align 8
+  store ptr @i8042_ports, ptr %264, align 8
+  %279 = load ptr, ptr @i8042_platform_device, align 8
+  %280 = getelementptr inbounds i8, ptr %279, i64 16
+  %281 = getelementptr inbounds i8, ptr %264, i64 344
+  %282 = getelementptr inbounds i8, ptr %264, i64 408
+  store ptr %280, ptr %282, align 8
+  %283 = getelementptr inbounds i8, ptr %264, i64 8
+  %284 = call i64 @strscpy(ptr noundef %283, ptr noundef nonnull @.str.46, i64 noundef 32) #9
+  %285 = getelementptr inbounds i8, ptr %264, i64 40
+  %286 = call i64 @strscpy(ptr noundef %285, ptr noundef nonnull @.str.47, i64 noundef 32) #9
+  %287 = getelementptr inbounds i8, ptr %264, i64 72
+  %288 = call i64 @strscpy(ptr noundef %287, ptr noundef nonnull @i8042_kbd_firmware_id, i64 noundef 128) #9
+  %289 = load ptr, ptr @i8042_kbd_fwnode, align 8
+  call void @set_primary_fwnode(ptr noundef %281, ptr noundef %289) #9
+  store ptr %264, ptr @i8042_ports, align 16
+  %290 = load i32, ptr @i8042_kbd_irq, align 4
+  store i32 %290, ptr getelementptr inbounds ([6 x %struct.i8042_port], ptr @i8042_ports, i64 0, i64 0, i32 1), align 8
+  %291 = load ptr, ptr @i8042_platform_device, align 8
+  %292 = call i32 @request_threaded_irq(i32 noundef %290, ptr noundef nonnull @i8042_interrupt, ptr noundef null, i64 noundef 128, ptr noundef nonnull @.str.6, ptr noundef %291) #9
+  %293 = icmp eq i32 %292, 0
+  br i1 %293, label %294, label %311
 
-293:                                              ; preds = %265
-  %294 = load i8, ptr @i8042_ctr, align 1
-  %295 = and i8 %294, -18
-  %296 = or disjoint i8 %295, 1
-  store i8 %296, ptr @i8042_ctr, align 1
-  %297 = load i1, ptr @i8042_present, align 1
-  br i1 %297, label %298, label %303
+294:                                              ; preds = %266
+  %295 = load i8, ptr @i8042_ctr, align 1
+  %296 = and i8 %295, -18
+  %297 = or disjoint i8 %296, 1
+  store i8 %297, ptr @i8042_ctr, align 1
+  %298 = load i1, ptr @i8042_present, align 1
+  br i1 %298, label %299, label %304
 
-298:                                              ; preds = %293
-  %299 = call i64 @_raw_spin_lock_irqsave(ptr noundef nonnull @i8042_lock) #9
-  %300 = call fastcc i32 @__i8042_command(ptr noundef nonnull @i8042_ctr, i32 noundef 4192), !range !5
-  call void @_raw_spin_unlock_irqrestore(ptr noundef nonnull @i8042_lock, i64 noundef %299) #9
-  %301 = icmp eq i32 %300, 0
-  br i1 %301, label %313, label %._crit_edge39
+299:                                              ; preds = %294
+  %300 = call i64 @_raw_spin_lock_irqsave(ptr noundef nonnull @i8042_lock) #9
+  %301 = call fastcc i32 @__i8042_command(ptr noundef nonnull @i8042_ctr, i32 noundef 4192)
+  call void @_raw_spin_unlock_irqrestore(ptr noundef nonnull @i8042_lock, i64 noundef %300) #9
+  %302 = icmp eq i32 %301, 0
+  br i1 %302, label %314, label %._crit_edge39
 
-._crit_edge39:                                    ; preds = %298
+._crit_edge39:                                    ; preds = %299
   %.pre40 = load i8, ptr @i8042_ctr, align 1
-  %302 = and i8 %.pre40, -18
-  br label %303
+  %303 = and i8 %.pre40, -18
+  br label %304
 
-303:                                              ; preds = %._crit_edge39, %293
-  %304 = phi i8 [ %302, %._crit_edge39 ], [ %295, %293 ]
-  %305 = or disjoint i8 %304, 16
-  store i8 %305, ptr @i8042_ctr, align 1
-  %306 = call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.48) #10
-  %307 = load i32, ptr @i8042_kbd_irq, align 4
-  %308 = load ptr, ptr @i8042_platform_device, align 8
-  %309 = call ptr @free_irq(i32 noundef %307, ptr noundef %308) #9
-  br label %310
+304:                                              ; preds = %._crit_edge39, %294
+  %305 = phi i8 [ %303, %._crit_edge39 ], [ %296, %294 ]
+  %306 = or disjoint i8 %305, 16
+  store i8 %306, ptr @i8042_ctr, align 1
+  %307 = call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.48) #10
+  %308 = load i32, ptr @i8042_kbd_irq, align 4
+  %309 = load ptr, ptr @i8042_platform_device, align 8
+  %310 = call ptr @free_irq(i32 noundef %308, ptr noundef %309) #9
+  br label %311
 
-310:                                              ; preds = %303, %265
-  %311 = phi i32 [ %291, %265 ], [ -5, %303 ]
-  %312 = load ptr, ptr @i8042_ports, align 16
-  call void @kfree(ptr noundef %312) #9
+311:                                              ; preds = %304, %266
+  %312 = phi i32 [ %292, %266 ], [ -5, %304 ]
+  %313 = load ptr, ptr @i8042_ports, align 16
+  call void @kfree(ptr noundef %313) #9
   store ptr null, ptr @i8042_ports, align 16
   br label %.thread32
 
-313:                                              ; preds = %298
+314:                                              ; preds = %299
   store i1 true, ptr @i8042_kbd_irq_registered, align 1
   br label %.preheader
 
-.preheader:                                       ; preds = %313, %.thread27
-  br label %314
+.preheader:                                       ; preds = %314, %.thread27
+  br label %315
 
-314:                                              ; preds = %.preheader, %328
-  %315 = phi i64 [ %329, %328 ], [ 0, %.preheader ]
-  %316 = getelementptr [6 x %struct.i8042_port], ptr @i8042_ports, i64 0, i64 %315
-  %317 = load ptr, ptr %316, align 16
-  %318 = icmp eq ptr %317, null
-  br i1 %318, label %328, label %319
+315:                                              ; preds = %.preheader, %329
+  %316 = phi i64 [ %330, %329 ], [ 0, %.preheader ]
+  %317 = getelementptr [6 x %struct.i8042_port], ptr @i8042_ports, i64 0, i64 %316
+  %318 = load ptr, ptr %317, align 16
+  %319 = icmp eq ptr %318, null
+  br i1 %319, label %329, label %320
 
-319:                                              ; preds = %314
-  %320 = getelementptr inbounds i8, ptr %317, i64 8
-  %321 = load i32, ptr @i8042_data_reg, align 4
-  %322 = sext i32 %321 to i64
-  %323 = load i32, ptr @i8042_command_reg, align 4
-  %324 = sext i32 %323 to i64
-  %325 = getelementptr inbounds i8, ptr %316, i64 8
-  %326 = load i32, ptr %325, align 8
-  %327 = call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.49, ptr noundef %320, i64 noundef %322, i64 noundef %324, i32 noundef %326) #10
-  call void @__serio_register_port(ptr noundef nonnull %317, ptr noundef null) #9
-  br label %328
+320:                                              ; preds = %315
+  %321 = getelementptr inbounds i8, ptr %318, i64 8
+  %322 = load i32, ptr @i8042_data_reg, align 4
+  %323 = sext i32 %322 to i64
+  %324 = load i32, ptr @i8042_command_reg, align 4
+  %325 = sext i32 %324 to i64
+  %326 = getelementptr inbounds i8, ptr %317, i64 8
+  %327 = load i32, ptr %326, align 8
+  %328 = call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.49, ptr noundef %321, i64 noundef %323, i64 noundef %325, i32 noundef %327) #10
+  call void @__serio_register_port(ptr noundef nonnull %318, ptr noundef null) #9
+  br label %329
 
-328:                                              ; preds = %319, %314
-  %329 = add nuw nsw i64 %315, 1
-  %330 = icmp eq i64 %329, 6
-  br i1 %330, label %.loopexit, label %314, !llvm.loop !24
+329:                                              ; preds = %320, %315
+  %330 = add nuw nsw i64 %316, 1
+  %331 = icmp eq i64 %330, 6
+  br i1 %331, label %.loopexit, label %315, !llvm.loop !24
 
-.thread32:                                        ; preds = %261, %310, %258
-  %331 = phi i32 [ %251, %258 ], [ %311, %310 ], [ -12, %261 ]
-  br label %332
+.thread32:                                        ; preds = %262, %311, %259
+  %332 = phi i32 [ %252, %259 ], [ %312, %311 ], [ -12, %262 ]
+  br label %333
 
-332:                                              ; preds = %332, %.thread32
-  %333 = phi i64 [ 1, %.thread32 ], [ %336, %332 ]
-  %334 = getelementptr [6 x %struct.i8042_port], ptr @i8042_ports, i64 0, i64 %333
-  %335 = load ptr, ptr %334, align 16
-  call void @kfree(ptr noundef %335) #9
-  store ptr null, ptr %334, align 16
-  %336 = add nuw nsw i64 %333, 1
-  %337 = icmp eq i64 %336, 6
-  br i1 %337, label %338, label %332, !llvm.loop !23
+333:                                              ; preds = %333, %.thread32
+  %334 = phi i64 [ 1, %.thread32 ], [ %337, %333 ]
+  %335 = getelementptr [6 x %struct.i8042_port], ptr @i8042_ports, i64 0, i64 %334
+  %336 = load ptr, ptr %335, align 16
+  call void @kfree(ptr noundef %336) #9
+  store ptr null, ptr %335, align 16
+  %337 = add nuw nsw i64 %334, 1
+  %338 = icmp eq i64 %337, 6
+  br i1 %338, label %339, label %333, !llvm.loop !23
 
-338:                                              ; preds = %332
-  %339 = load i1, ptr @i8042_aux_irq_registered, align 1
-  br i1 %339, label %340, label %344
+339:                                              ; preds = %333
+  %340 = load i1, ptr @i8042_aux_irq_registered, align 1
+  br i1 %340, label %341, label %345
 
-340:                                              ; preds = %338
-  %341 = load i32, ptr @i8042_aux_irq, align 4
-  %342 = load ptr, ptr @i8042_platform_device, align 8
-  %343 = call ptr @free_irq(i32 noundef %341, ptr noundef %342) #9
-  br label %344
+341:                                              ; preds = %339
+  %342 = load i32, ptr @i8042_aux_irq, align 4
+  %343 = load ptr, ptr @i8042_platform_device, align 8
+  %344 = call ptr @free_irq(i32 noundef %342, ptr noundef %343) #9
+  br label %345
 
-344:                                              ; preds = %340, %338
-  %345 = load i1, ptr @i8042_kbd_irq_registered, align 1
-  br i1 %345, label %346, label %350
+345:                                              ; preds = %341, %339
+  %346 = load i1, ptr @i8042_kbd_irq_registered, align 1
+  br i1 %346, label %347, label %351
 
-346:                                              ; preds = %344
-  %347 = load i32, ptr @i8042_kbd_irq, align 4
-  %348 = load ptr, ptr @i8042_platform_device, align 8
-  %349 = call ptr @free_irq(i32 noundef %347, ptr noundef %348) #9
-  br label %350
+347:                                              ; preds = %345
+  %348 = load i32, ptr @i8042_kbd_irq, align 4
+  %349 = load ptr, ptr @i8042_platform_device, align 8
+  %350 = call ptr @free_irq(i32 noundef %348, ptr noundef %349) #9
+  br label %351
 
-350:                                              ; preds = %346, %344
+351:                                              ; preds = %347, %345
   store i1 false, ptr @i8042_kbd_irq_registered, align 1
   store i1 false, ptr @i8042_aux_irq_registered, align 1
   call fastcc void @i8042_controller_reset(i1 noundef zeroext false)
   br label %.loopexit
 
-.loopexit:                                        ; preds = %328, %.thread17, %350, %8
-  %351 = phi i32 [ %331, %350 ], [ %9, %8 ], [ %.ph, %.thread17 ], [ 0, %328 ]
-  ret i32 %351
+.loopexit:                                        ; preds = %329, %.thread17, %351, %8
+  %352 = phi i32 [ %332, %351 ], [ %9, %8 ], [ %.ph, %.thread17 ], [ 0, %329 ]
+  ret i32 %352
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
@@ -1464,10 +1465,10 @@ define internal void @i8042_shutdown(ptr nocapture readnone %0) #0 align 16 {
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc noundef i32 @i8042_controller_selftest() unnamed_addr #0 align 16 {
+define internal fastcc noundef range(i32 -19, 1) i32 @i8042_controller_selftest() unnamed_addr #0 align 16 {
   %1 = alloca i8, align 1
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %1) #9
-  store i8 0, ptr %1, align 1, !annotation !17
+  store i8 0, ptr %1, align 1, !annotation !16
   br label %2
 
 2:                                                ; preds = %22, %0
@@ -1477,7 +1478,7 @@ define internal fastcc noundef i32 @i8042_controller_selftest() unnamed_addr #0 
 
 5:                                                ; preds = %2
   %6 = tail call i64 @_raw_spin_lock_irqsave(ptr noundef nonnull @i8042_lock) #9
-  %7 = call fastcc i32 @__i8042_command(ptr noundef nonnull %1, i32 noundef 426), !range !5
+  %7 = call fastcc i32 @__i8042_command(ptr noundef nonnull %1, i32 noundef 426)
   tail call void @_raw_spin_unlock_irqrestore(ptr noundef nonnull @i8042_lock, i64 noundef %6) #9
   %8 = icmp eq i32 %7, 0
   br i1 %8, label %9, label %.thread
@@ -1488,7 +1489,7 @@ define internal fastcc noundef i32 @i8042_controller_selftest() unnamed_addr #0 
   br i1 %11, label %.loopexit, label %12
 
 12:                                               ; preds = %9
-  %13 = load i8, ptr @i8042_debug, align 1, !range !6, !noundef !7
+  %13 = load i8, ptr @i8042_debug, align 1, !range !5, !noundef !6
   %14 = icmp eq i8 %13, 0
   br i1 %14, label %22, label %15
 
@@ -1521,7 +1522,7 @@ define internal fastcc noundef i32 @i8042_controller_selftest() unnamed_addr #0 
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal fastcc void @i8042_controller_reset(i1 noundef zeroext %0) unnamed_addr #0 align 16 {
-  %2 = tail call fastcc i32 @i8042_flush(), !range !16
+  %2 = tail call fastcc i32 @i8042_flush(), !range !15
   %3 = load i8, ptr @i8042_ctr, align 1
   %4 = and i8 %3, -52
   %5 = or disjoint i8 %4, 48
@@ -1531,7 +1532,7 @@ define internal fastcc void @i8042_controller_reset(i1 noundef zeroext %0) unnam
 
 7:                                                ; preds = %1
   %8 = tail call i64 @_raw_spin_lock_irqsave(ptr noundef nonnull @i8042_lock) #9
-  %9 = tail call fastcc i32 @__i8042_command(ptr noundef nonnull @i8042_ctr, i32 noundef 4192), !range !5
+  %9 = tail call fastcc i32 @__i8042_command(ptr noundef nonnull @i8042_ctr, i32 noundef 4192)
   tail call void @_raw_spin_unlock_irqrestore(ptr noundef nonnull @i8042_lock, i64 noundef %8) #9
   %10 = icmp eq i32 %9, 0
   br i1 %10, label %13, label %11
@@ -1545,7 +1546,7 @@ define internal fastcc void @i8042_controller_reset(i1 noundef zeroext %0) unnam
   br i1 %14, label %15, label %17
 
 15:                                               ; preds = %13
-  %16 = tail call fastcc i32 @i8042_set_mux_mode(i1 noundef zeroext false, ptr noundef null), !range !5
+  %16 = tail call fastcc i32 @i8042_set_mux_mode(i1 noundef zeroext false, ptr noundef null), !range !19
   br label %17
 
 17:                                               ; preds = %15, %13
@@ -1559,7 +1560,7 @@ define internal fastcc void @i8042_controller_reset(i1 noundef zeroext %0) unnam
   br i1 %0, label %20, label %22
 
 20:                                               ; preds = %19, %17
-  %21 = tail call fastcc i32 @i8042_controller_selftest(), !range !18
+  %21 = tail call fastcc i32 @i8042_controller_selftest(), !range !17
   br label %22
 
 22:                                               ; preds = %20, %19, %17
@@ -1568,7 +1569,7 @@ define internal fastcc void @i8042_controller_reset(i1 noundef zeroext %0) unnam
 
 24:                                               ; preds = %22
   %25 = tail call i64 @_raw_spin_lock_irqsave(ptr noundef nonnull @i8042_lock) #9
-  %26 = tail call fastcc i32 @__i8042_command(ptr noundef nonnull @i8042_initial_ctr, i32 noundef 4192), !range !5
+  %26 = tail call fastcc i32 @__i8042_command(ptr noundef nonnull @i8042_initial_ctr, i32 noundef 4192)
   tail call void @_raw_spin_unlock_irqrestore(ptr noundef nonnull @i8042_lock, i64 noundef %25) #9
   %27 = icmp eq i32 %26, 0
   br i1 %27, label %30, label %28
@@ -1585,11 +1586,11 @@ define internal fastcc void @i8042_controller_reset(i1 noundef zeroext %0) unnam
 declare dso_local void @msleep(i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc noundef i32 @i8042_flush() unnamed_addr #0 align 16 {
+define internal fastcc noundef range(i32 -5, 1) i32 @i8042_flush() unnamed_addr #0 align 16 {
   %1 = tail call i64 @_raw_spin_lock_irqsave(ptr noundef nonnull @i8042_lock) #9
   %2 = load i32, ptr @i8042_command_reg, align 4
   %3 = trunc i32 %2 to i16
-  %4 = tail call i8 asm sideeffect "inb ${1:w}, ${0:b}", "={ax},N{dx},~{dirflag},~{fpsr},~{flags}"(i16 %3) #9, !srcloc !8
+  %4 = tail call i8 asm sideeffect "inb ${1:w}, ${0:b}", "={ax},N{dx},~{dirflag},~{fpsr},~{flags}"(i16 %3) #9, !srcloc !7
   %5 = zext i8 %4 to i32
   %6 = and i32 %5, 1
   %7 = icmp eq i32 %6, 0
@@ -1606,8 +1607,8 @@ define internal fastcc noundef i32 @i8042_flush() unnamed_addr #0 align 16 {
   tail call void @__const_udelay(i64 noundef 214750) #9
   %13 = load i32, ptr @i8042_data_reg, align 4
   %14 = trunc i32 %13 to i16
-  %15 = tail call i8 asm sideeffect "inb ${1:w}, ${0:b}", "={ax},N{dx},~{dirflag},~{fpsr},~{flags}"(i16 %14) #9, !srcloc !8
-  %16 = load i8, ptr @i8042_debug, align 1, !range !6, !noundef !7
+  %15 = tail call i8 asm sideeffect "inb ${1:w}, ${0:b}", "={ax},N{dx},~{dirflag},~{fpsr},~{flags}"(i16 %14) #9, !srcloc !7
+  %16 = load i8, ptr @i8042_debug, align 1, !range !5, !noundef !6
   %17 = icmp eq i8 %16, 0
   br i1 %17, label %28, label %18
 
@@ -1626,7 +1627,7 @@ define internal fastcc noundef i32 @i8042_flush() unnamed_addr #0 align 16 {
 28:                                               ; preds = %18, %12
   %29 = load i32, ptr @i8042_command_reg, align 4
   %30 = trunc i32 %29 to i16
-  %31 = tail call i8 asm sideeffect "inb ${1:w}, ${0:b}", "={ax},N{dx},~{dirflag},~{fpsr},~{flags}"(i16 %30) #9, !srcloc !8
+  %31 = tail call i8 asm sideeffect "inb ${1:w}, ${0:b}", "={ax},N{dx},~{dirflag},~{fpsr},~{flags}"(i16 %30) #9, !srcloc !7
   %32 = zext i8 %31 to i32
   %33 = and i32 %32, 1
   %34 = icmp eq i32 %33, 0
@@ -1639,7 +1640,7 @@ define internal fastcc noundef i32 @i8042_flush() unnamed_addr #0 align 16 {
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc noundef i32 @i8042_create_aux_port(i32 noundef %0) unnamed_addr #0 align 16 {
+define internal fastcc noundef range(i32 -12, 1) i32 @i8042_create_aux_port(i32 noundef %0) unnamed_addr #0 align 16 {
   %2 = icmp slt i32 %0, 0
   %3 = add nuw nsw i32 %0, 2
   %4 = select i1 %2, i32 1, i32 %3
@@ -1703,7 +1704,7 @@ define internal fastcc noundef i32 @i8042_create_aux_port(i32 noundef %0) unname
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef i32 @i8042_enable_aux_port() unnamed_addr #0 align 16 {
+define internal noundef range(i32 -5, 1) i32 @i8042_enable_aux_port() unnamed_addr #0 align 16 {
   %1 = load i8, ptr @i8042_ctr, align 1
   %2 = and i8 %1, -35
   %3 = or disjoint i8 %2, 2
@@ -1713,7 +1714,7 @@ define internal noundef i32 @i8042_enable_aux_port() unnamed_addr #0 align 16 {
 
 5:                                                ; preds = %0
   %6 = tail call i64 @_raw_spin_lock_irqsave(ptr noundef nonnull @i8042_lock) #9
-  %7 = tail call fastcc i32 @__i8042_command(ptr noundef nonnull @i8042_ctr, i32 noundef 4192), !range !5
+  %7 = tail call fastcc i32 @__i8042_command(ptr noundef nonnull @i8042_ctr, i32 noundef 4192)
   tail call void @_raw_spin_unlock_irqrestore(ptr noundef nonnull @i8042_lock, i64 noundef %6) #9
   %8 = icmp eq i32 %7, 0
   br i1 %8, label %14, label %._crit_edge
@@ -1736,10 +1737,10 @@ define internal noundef i32 @i8042_enable_aux_port() unnamed_addr #0 align 16 {
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef i32 @i8042_enable_mux_ports() unnamed_addr #0 align 16 {
+define internal noundef range(i32 -5, 1) i32 @i8042_enable_mux_ports() unnamed_addr #0 align 16 {
   %1 = alloca i8, align 1
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %1) #9
-  store i8 0, ptr %1, align 1, !annotation !17
+  store i8 0, ptr %1, align 1, !annotation !16
   %.pre1 = load i1, ptr @i8042_present, align 1
   br label %.backedge
 
@@ -1752,7 +1753,7 @@ define internal noundef i32 @i8042_enable_mux_ports() unnamed_addr #0 align 16 {
 5:                                                ; preds = %.backedge
   %6 = or disjoint i32 %4, 144
   %7 = tail call i64 @_raw_spin_lock_irqsave(ptr noundef nonnull @i8042_lock) #9
-  %8 = call fastcc i32 @__i8042_command(ptr noundef nonnull %1, i32 noundef %6), !range !5
+  %8 = call fastcc i32 @__i8042_command(ptr noundef nonnull %1, i32 noundef %6)
   tail call void @_raw_spin_unlock_irqrestore(ptr noundef nonnull @i8042_lock, i64 noundef %7) #9
   %.pr = load i1, ptr @i8042_present, align 1
   br i1 %.pr, label %9, label %.thread.thread
@@ -1761,7 +1762,7 @@ define internal noundef i32 @i8042_enable_mux_ports() unnamed_addr #0 align 16 {
   %10 = tail call i64 @_raw_spin_lock_irqsave(ptr noundef nonnull @i8042_lock) #9
   %11 = load i32, ptr @i8042_command_reg, align 4
   %12 = trunc i32 %11 to i16
-  %13 = tail call i8 asm sideeffect "inb ${1:w}, ${0:b}", "={ax},N{dx},~{dirflag},~{fpsr},~{flags}"(i16 %12) #9, !srcloc !8
+  %13 = tail call i8 asm sideeffect "inb ${1:w}, ${0:b}", "={ax},N{dx},~{dirflag},~{fpsr},~{flags}"(i16 %12) #9, !srcloc !7
   %14 = and i8 %13, 2
   %15 = icmp eq i8 %14, 0
   br i1 %15, label %27, label %.preheader
@@ -1772,19 +1773,19 @@ define internal noundef i32 @i8042_enable_mux_ports() unnamed_addr #0 align 16 {
   %17 = add nuw nsw i32 %16, 1
   %18 = load i32, ptr @i8042_command_reg, align 4
   %19 = trunc i32 %18 to i16
-  %20 = tail call i8 asm sideeffect "inb ${1:w}, ${0:b}", "={ax},N{dx},~{dirflag},~{fpsr},~{flags}"(i16 %19) #9, !srcloc !8
+  %20 = tail call i8 asm sideeffect "inb ${1:w}, ${0:b}", "={ax},N{dx},~{dirflag},~{fpsr},~{flags}"(i16 %19) #9, !srcloc !7
   %21 = and i8 %20, 2
   %22 = icmp ne i8 %21, 0
   %23 = icmp ult i32 %16, 9999
   %24 = select i1 %22, i1 %23, i1 false
-  br i1 %24, label %.preheader, label %25, !llvm.loop !9
+  br i1 %24, label %.preheader, label %25, !llvm.loop !8
 
 25:                                               ; preds = %.preheader
   %26 = icmp eq i32 %17, 10000
   br i1 %26, label %39, label %27
 
 27:                                               ; preds = %25, %9
-  %28 = load i8, ptr @i8042_debug, align 1, !range !6, !noundef !7
+  %28 = load i8, ptr @i8042_debug, align 1, !range !5, !noundef !6
   %29 = icmp eq i8 %28, 0
   br i1 %29, label %36, label %30
 
@@ -1799,7 +1800,7 @@ define internal noundef i32 @i8042_enable_mux_ports() unnamed_addr #0 align 16 {
 36:                                               ; preds = %30, %27
   %37 = load i32, ptr @i8042_command_reg, align 4
   %38 = trunc i32 %37 to i16
-  tail call void asm sideeffect "outb ${0:b}, ${1:w}", "{ax},N{dx},~{dirflag},~{fpsr},~{flags}"(i8 -88, i16 %38) #9, !srcloc !12
+  tail call void asm sideeffect "outb ${0:b}, ${1:w}", "{ax},N{dx},~{dirflag},~{fpsr},~{flags}"(i8 -88, i16 %38) #9, !srcloc !11
   br label %39
 
 39:                                               ; preds = %36, %25
@@ -1839,7 +1840,7 @@ define internal noundef i32 @i8042_enable_mux_ports() unnamed_addr #0 align 16 {
 
 52:                                               ; preds = %48
   %53 = tail call i64 @_raw_spin_lock_irqsave(ptr noundef nonnull @i8042_lock) #9
-  %54 = tail call fastcc i32 @__i8042_command(ptr noundef nonnull @i8042_ctr, i32 noundef 4192), !range !5
+  %54 = tail call fastcc i32 @__i8042_command(ptr noundef nonnull @i8042_ctr, i32 noundef 4192)
   tail call void @_raw_spin_unlock_irqrestore(ptr noundef nonnull @i8042_lock, i64 noundef %53) #9
   %55 = icmp eq i32 %54, 0
   br i1 %55, label %61, label %._crit_edge
@@ -1863,11 +1864,11 @@ define internal noundef i32 @i8042_enable_mux_ports() unnamed_addr #0 align 16 {
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i32 @i8042_interrupt(i32 noundef %0, ptr nocapture readnone %1) #0 align 16 {
+define internal range(i32 0, 2) i32 @i8042_interrupt(i32 noundef %0, ptr nocapture readnone %1) #0 align 16 {
   %3 = tail call i64 @_raw_spin_lock_irqsave(ptr noundef nonnull @i8042_lock) #9
   %4 = load i32, ptr @i8042_command_reg, align 4
   %5 = trunc i32 %4 to i16
-  %6 = tail call i8 asm sideeffect "inb ${1:w}, ${0:b}", "={ax},N{dx},~{dirflag},~{fpsr},~{flags}"(i16 %5) #9, !srcloc !8
+  %6 = tail call i8 asm sideeffect "inb ${1:w}, ${0:b}", "={ax},N{dx},~{dirflag},~{fpsr},~{flags}"(i16 %5) #9, !srcloc !7
   %7 = zext i8 %6 to i32
   %8 = and i32 %7, 1
   %9 = icmp eq i32 %8, 0
@@ -1876,7 +1877,7 @@ define internal i32 @i8042_interrupt(i32 noundef %0, ptr nocapture readnone %1) 
 10:                                               ; preds = %2
   tail call void @_raw_spin_unlock_irqrestore(ptr noundef nonnull @i8042_lock, i64 noundef %3) #9
   %11 = icmp eq i32 %0, 0
-  %12 = load i8, ptr @i8042_debug, align 1, !range !6
+  %12 = load i8, ptr @i8042_debug, align 1, !range !5
   %13 = icmp eq i8 %12, 0
   %14 = select i1 %11, i1 true, i1 %13
   br i1 %14, label %151, label %15
@@ -1892,7 +1893,7 @@ define internal i32 @i8042_interrupt(i32 noundef %0, ptr nocapture readnone %1) 
 21:                                               ; preds = %2
   %22 = load i32, ptr @i8042_data_reg, align 4
   %23 = trunc i32 %22 to i16
-  %24 = tail call i8 asm sideeffect "inb ${1:w}, ${0:b}", "={ax},N{dx},~{dirflag},~{fpsr},~{flags}"(i16 %23) #9, !srcloc !8
+  %24 = tail call i8 asm sideeffect "inb ${1:w}, ${0:b}", "={ax},N{dx},~{dirflag},~{fpsr},~{flags}"(i16 %23) #9, !srcloc !7
   %25 = zext i8 %24 to i32
   %26 = load i1, ptr @i8042_mux_present, align 1
   %27 = and i32 %7, 32
@@ -1906,7 +1907,7 @@ define internal i32 @i8042_interrupt(i32 noundef %0, ptr nocapture readnone %1) 
   br i1 %32, label %52, label %33
 
 33:                                               ; preds = %30
-  %34 = load i8, ptr @i8042_debug, align 1, !range !6, !noundef !7
+  %34 = load i8, ptr @i8042_debug, align 1, !range !5, !noundef !6
   %35 = icmp eq i8 %34, 0
   br i1 %35, label %42, label %36
 
@@ -1958,7 +1959,7 @@ define internal i32 @i8042_interrupt(i32 noundef %0, ptr nocapture readnone %1) 
   %62 = and i8 %61, 2
   %63 = and i32 %7, 64
   %64 = icmp ne i32 %63, 0
-  %65 = load i8, ptr @i8042_notimeout, align 1, !range !6
+  %65 = load i8, ptr @i8042_notimeout, align 1, !range !5
   %66 = icmp eq i8 %65, 0
   %67 = select i1 %64, i1 %66, i1 false
   %68 = zext i1 %67 to i8
@@ -1976,7 +1977,7 @@ define internal i32 @i8042_interrupt(i32 noundef %0, ptr nocapture readnone %1) 
   %78 = zext nneg i32 %75 to i64
   %79 = getelementptr [6 x %struct.i8042_port], ptr @i8042_ports, i64 0, i64 %78
   %80 = getelementptr inbounds i8, ptr %79, i64 12
-  %81 = load i8, ptr %80, align 4, !range !6, !noundef !7
+  %81 = load i8, ptr %80, align 4, !range !5, !noundef !6
   %82 = icmp eq i8 %81, 0
   br i1 %82, label %85, label %83
 
@@ -1986,15 +1987,15 @@ define internal i32 @i8042_interrupt(i32 noundef %0, ptr nocapture readnone %1) 
 
 85:                                               ; preds = %83, %73
   %86 = phi ptr [ %84, %83 ], [ null, %73 ]
-  %87 = load i8, ptr @i8042_debug, align 1, !range !6, !noundef !7
+  %87 = load i8, ptr @i8042_debug, align 1, !range !5, !noundef !6
   %88 = icmp eq i8 %87, 0
   br i1 %88, label %119, label %89
 
 89:                                               ; preds = %85
   %90 = getelementptr inbounds i8, ptr %79, i64 13
-  %91 = load i8, ptr %90, align 1, !range !6, !noundef !7
+  %91 = load i8, ptr %90, align 1, !range !5, !noundef !6
   %92 = icmp ne i8 %91, 0
-  %93 = load i8, ptr @i8042_unmask_kbd_data, align 1, !range !6
+  %93 = load i8, ptr @i8042_unmask_kbd_data, align 1, !range !5
   %94 = icmp eq i8 %93, 0
   %95 = select i1 %92, i1 %94, i1 false
   %96 = load volatile i64, ptr @jiffies, align 64
@@ -2042,7 +2043,7 @@ define internal i32 @i8042_interrupt(i32 noundef %0, ptr nocapture readnone %1) 
 128:                                              ; preds = %122
   %129 = add nsw i8 %120, -1
   store i8 %129, ptr @i8042_suppress_kbd_ack, align 1
-  %130 = load i8, ptr @i8042_debug, align 1, !range !6, !noundef !7
+  %130 = load i8, ptr @i8042_debug, align 1, !range !5, !noundef !6
   %131 = icmp eq i8 %130, 0
   br i1 %131, label %.thread, label %140
 
@@ -2056,7 +2057,7 @@ define internal i32 @i8042_interrupt(i32 noundef %0, ptr nocapture readnone %1) 
   br i1 %136, label %137, label %147
 
 137:                                              ; preds = %135
-  %138 = load i8, ptr @i8042_debug, align 1, !range !6, !noundef !7
+  %138 = load i8, ptr @i8042_debug, align 1, !range !5, !noundef !6
   %139 = icmp eq i8 %138, 0
   br i1 %139, label %.thread, label %140
 
@@ -2090,17 +2091,17 @@ define internal i32 @i8042_interrupt(i32 noundef %0, ptr nocapture readnone %1) 
 declare dso_local ptr @free_irq(i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc noundef i32 @i8042_toggle_aux(i1 noundef zeroext %0) unnamed_addr #0 align 16 {
+define internal fastcc noundef range(i32 -1, 1) i32 @i8042_toggle_aux(i1 noundef zeroext %0) unnamed_addr #0 align 16 {
   %2 = alloca i8, align 1
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %2) #9
   %3 = load i1, ptr @i8042_present, align 1
   br i1 %3, label %4, label %.thread
 
 4:                                                ; preds = %1
-  store i8 0, ptr %2, align 1, !annotation !17
+  store i8 0, ptr %2, align 1, !annotation !16
   %5 = select i1 %0, i32 168, i32 167
   %6 = tail call i64 @_raw_spin_lock_irqsave(ptr noundef nonnull @i8042_lock) #9
-  %7 = call fastcc i32 @__i8042_command(ptr noundef nonnull %2, i32 noundef %5), !range !5
+  %7 = call fastcc i32 @__i8042_command(ptr noundef nonnull %2, i32 noundef %5)
   tail call void @_raw_spin_unlock_irqrestore(ptr noundef nonnull @i8042_lock, i64 noundef %6) #9
   %8 = icmp eq i32 %7, 0
   br i1 %8, label %.preheader, label %.thread
@@ -2118,7 +2119,7 @@ define internal fastcc noundef i32 @i8042_toggle_aux(i1 noundef zeroext %0) unna
 
 14:                                               ; preds = %.preheader
   %15 = tail call i64 @_raw_spin_lock_irqsave(ptr noundef nonnull @i8042_lock) #9
-  %16 = call fastcc i32 @__i8042_command(ptr noundef nonnull %2, i32 noundef 288), !range !5
+  %16 = call fastcc i32 @__i8042_command(ptr noundef nonnull %2, i32 noundef 288)
   tail call void @_raw_spin_unlock_irqrestore(ptr noundef nonnull @i8042_lock, i64 noundef %15) #9
   %17 = icmp eq i32 %16, 0
   br i1 %17, label %18, label %.thread
@@ -2137,11 +2138,11 @@ define internal fastcc noundef i32 @i8042_toggle_aux(i1 noundef zeroext %0) unna
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef i32 @i8042_kbd_write(ptr nocapture readnone %0, i8 noundef zeroext %1) #0 align 16 {
+define internal range(i32 -1, 1) i32 @i8042_kbd_write(ptr nocapture readnone %0, i8 noundef zeroext %1) #0 align 16 {
   %3 = tail call i64 @_raw_spin_lock_irqsave(ptr noundef nonnull @i8042_lock) #9
   %4 = load i32, ptr @i8042_command_reg, align 4
   %5 = trunc i32 %4 to i16
-  %6 = tail call i8 asm sideeffect "inb ${1:w}, ${0:b}", "={ax},N{dx},~{dirflag},~{fpsr},~{flags}"(i16 %5) #9, !srcloc !8
+  %6 = tail call i8 asm sideeffect "inb ${1:w}, ${0:b}", "={ax},N{dx},~{dirflag},~{fpsr},~{flags}"(i16 %5) #9, !srcloc !7
   %7 = and i8 %6, 2
   %8 = icmp eq i8 %7, 0
   br i1 %8, label %.thread, label %.preheader
@@ -2152,19 +2153,19 @@ define internal noundef i32 @i8042_kbd_write(ptr nocapture readnone %0, i8 nound
   %10 = add nuw nsw i32 %9, 1
   %11 = load i32, ptr @i8042_command_reg, align 4
   %12 = trunc i32 %11 to i16
-  %13 = tail call i8 asm sideeffect "inb ${1:w}, ${0:b}", "={ax},N{dx},~{dirflag},~{fpsr},~{flags}"(i16 %12) #9, !srcloc !8
+  %13 = tail call i8 asm sideeffect "inb ${1:w}, ${0:b}", "={ax},N{dx},~{dirflag},~{fpsr},~{flags}"(i16 %12) #9, !srcloc !7
   %14 = and i8 %13, 2
   %15 = icmp ne i8 %14, 0
   %16 = icmp ult i32 %9, 9999
   %17 = select i1 %15, i1 %16, i1 false
-  br i1 %17, label %.preheader, label %18, !llvm.loop !9
+  br i1 %17, label %.preheader, label %18, !llvm.loop !8
 
 18:                                               ; preds = %.preheader
   %.not = icmp eq i32 %10, 10000
   br i1 %.not, label %31, label %.thread
 
 .thread:                                          ; preds = %2, %18
-  %19 = load i8, ptr @i8042_debug, align 1, !range !6, !noundef !7
+  %19 = load i8, ptr @i8042_debug, align 1, !range !5, !noundef !6
   %20 = icmp eq i8 %19, 0
   br i1 %20, label %28, label %21
 
@@ -2180,7 +2181,7 @@ define internal noundef i32 @i8042_kbd_write(ptr nocapture readnone %0, i8 nound
 28:                                               ; preds = %21, %.thread
   %29 = load i32, ptr @i8042_data_reg, align 4
   %30 = trunc i32 %29 to i16
-  tail call void asm sideeffect "outb ${0:b}, ${1:w}", "{ax},N{dx},~{dirflag},~{fpsr},~{flags}"(i8 %1, i16 %30) #9, !srcloc !12
+  tail call void asm sideeffect "outb ${0:b}, ${1:w}", "{ax},N{dx},~{dirflag},~{fpsr},~{flags}"(i8 %1, i16 %30) #9, !srcloc !11
   br label %31
 
 31:                                               ; preds = %28, %18
@@ -2190,11 +2191,11 @@ define internal noundef i32 @i8042_kbd_write(ptr nocapture readnone %0, i8 nound
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i32 @i8042_aux_test_irq(i32 %0, ptr nocapture readnone %1) #0 align 16 {
+define internal range(i32 0, 2) i32 @i8042_aux_test_irq(i32 %0, ptr nocapture readnone %1) #0 align 16 {
   %3 = tail call i64 @_raw_spin_lock_irqsave(ptr noundef nonnull @i8042_lock) #9
   %4 = load i32, ptr @i8042_command_reg, align 4
   %5 = trunc i32 %4 to i16
-  %6 = tail call i8 asm sideeffect "inb ${1:w}, ${0:b}", "={ax},N{dx},~{dirflag},~{fpsr},~{flags}"(i16 %5) #9, !srcloc !8
+  %6 = tail call i8 asm sideeffect "inb ${1:w}, ${0:b}", "={ax},N{dx},~{dirflag},~{fpsr},~{flags}"(i16 %5) #9, !srcloc !7
   %7 = zext i8 %6 to i32
   %8 = and i32 %7, 1
   %9 = icmp eq i32 %8, 0
@@ -2203,8 +2204,8 @@ define internal i32 @i8042_aux_test_irq(i32 %0, ptr nocapture readnone %1) #0 al
 10:                                               ; preds = %2
   %11 = load i32, ptr @i8042_data_reg, align 4
   %12 = trunc i32 %11 to i16
-  %13 = tail call i8 asm sideeffect "inb ${1:w}, ${0:b}", "={ax},N{dx},~{dirflag},~{fpsr},~{flags}"(i16 %12) #9, !srcloc !8
-  %14 = load i8, ptr @i8042_debug, align 1, !range !6, !noundef !7
+  %13 = tail call i8 asm sideeffect "inb ${1:w}, ${0:b}", "={ax},N{dx},~{dirflag},~{fpsr},~{flags}"(i16 %12) #9, !srcloc !7
+  %14 = load i8, ptr @i8042_debug, align 1, !range !5, !noundef !6
   %15 = icmp eq i8 %14, 0
   br i1 %15, label %._crit_edge, label %16
 
@@ -2253,17 +2254,17 @@ declare dso_local void @complete(ptr noundef) local_unnamed_addr #1
 declare dso_local void @__init_swait_queue_head(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc noundef i32 @i8042_set_mux_mode(i1 noundef zeroext %0, ptr noundef writeonly %1) unnamed_addr #0 align 16 {
+define internal fastcc noundef range(i32 -1, 1) i32 @i8042_set_mux_mode(i1 noundef zeroext %0, ptr noundef writeonly %1) unnamed_addr #0 align 16 {
   %3 = alloca i8, align 1
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %3) #9
-  %4 = tail call fastcc i32 @i8042_flush(), !range !16
+  %4 = tail call fastcc i32 @i8042_flush(), !range !15
   store i8 -16, ptr %3, align 1
   %5 = load i1, ptr @i8042_present, align 1
   br i1 %5, label %6, label %.thread
 
 6:                                                ; preds = %2
   %7 = tail call i64 @_raw_spin_lock_irqsave(ptr noundef nonnull @i8042_lock) #9
-  %8 = call fastcc i32 @__i8042_command(ptr noundef nonnull %3, i32 noundef 4563), !range !5
+  %8 = call fastcc i32 @__i8042_command(ptr noundef nonnull %3, i32 noundef 4563)
   tail call void @_raw_spin_unlock_irqrestore(ptr noundef nonnull @i8042_lock, i64 noundef %7) #9
   %9 = icmp eq i32 %8, 0
   %10 = load i8, ptr %3, align 1
@@ -2279,7 +2280,7 @@ define internal fastcc noundef i32 @i8042_set_mux_mode(i1 noundef zeroext %0, pt
 
 16:                                               ; preds = %13
   %17 = tail call i64 @_raw_spin_lock_irqsave(ptr noundef nonnull @i8042_lock) #9
-  %18 = call fastcc i32 @__i8042_command(ptr noundef nonnull %3, i32 noundef 4563), !range !5
+  %18 = call fastcc i32 @__i8042_command(ptr noundef nonnull %3, i32 noundef 4563)
   tail call void @_raw_spin_unlock_irqrestore(ptr noundef nonnull @i8042_lock, i64 noundef %17) #9
   %19 = icmp eq i32 %18, 0
   %20 = load i8, ptr %3, align 1
@@ -2295,7 +2296,7 @@ define internal fastcc noundef i32 @i8042_set_mux_mode(i1 noundef zeroext %0, pt
 
 26:                                               ; preds = %23
   %27 = tail call i64 @_raw_spin_lock_irqsave(ptr noundef nonnull @i8042_lock) #9
-  %28 = call fastcc i32 @__i8042_command(ptr noundef nonnull %3, i32 noundef 4563), !range !5
+  %28 = call fastcc i32 @__i8042_command(ptr noundef nonnull %3, i32 noundef 4563)
   tail call void @_raw_spin_unlock_irqrestore(ptr noundef nonnull @i8042_lock, i64 noundef %27) #9
   %29 = icmp eq i32 %28, 0
   br i1 %29, label %30, label %.thread
@@ -2322,7 +2323,7 @@ define internal fastcc noundef i32 @i8042_set_mux_mode(i1 noundef zeroext %0, pt
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef i32 @i8042_aux_write(ptr nocapture noundef readonly %0, i8 noundef zeroext %1) #0 align 16 {
+define internal range(i32 -1, 1) i32 @i8042_aux_write(ptr nocapture noundef readonly %0, i8 noundef zeroext %1) #0 align 16 {
   %3 = alloca i8, align 1
   store i8 %1, ptr %3, align 1
   %4 = load i1, ptr @i8042_present, align 1
@@ -2337,7 +2338,7 @@ define internal noundef i32 @i8042_aux_write(ptr nocapture noundef readonly %0, 
   %11 = add nsw i32 %10, 4240
   %12 = select i1 %9, i32 4308, i32 %11
   %13 = tail call i64 @_raw_spin_lock_irqsave(ptr noundef nonnull @i8042_lock) #9
-  %14 = call fastcc i32 @__i8042_command(ptr noundef nonnull %3, i32 noundef %12), !range !5
+  %14 = call fastcc i32 @__i8042_command(ptr noundef nonnull %3, i32 noundef %12)
   tail call void @_raw_spin_unlock_irqrestore(ptr noundef nonnull @i8042_lock, i64 noundef %13) #9
   br label %15
 
@@ -2403,7 +2404,7 @@ define internal void @i8042_port_close(ptr noundef readnone %0) #0 align 16 {
 
 11:                                               ; preds = %1
   %12 = tail call i64 @_raw_spin_lock_irqsave(ptr noundef nonnull @i8042_lock) #9
-  %13 = tail call fastcc i32 @__i8042_command(ptr noundef nonnull @i8042_ctr, i32 noundef 4192), !range !5
+  %13 = tail call fastcc i32 @__i8042_command(ptr noundef nonnull @i8042_ctr, i32 noundef 4192)
   tail call void @_raw_spin_unlock_irqrestore(ptr noundef nonnull @i8042_lock, i64 noundef %12) #9
   %14 = icmp eq i32 %13, 0
   br i1 %14, label %17, label %15
@@ -2423,7 +2424,7 @@ define internal void @i8042_port_close(ptr noundef readnone %0) #0 align 16 {
 
 22:                                               ; preds = %17
   %23 = tail call i64 @_raw_spin_lock_irqsave(ptr noundef nonnull @i8042_lock) #9
-  %24 = tail call fastcc i32 @__i8042_command(ptr noundef nonnull @i8042_ctr, i32 noundef 4192), !range !5
+  %24 = tail call fastcc i32 @__i8042_command(ptr noundef nonnull @i8042_ctr, i32 noundef 4192)
   tail call void @_raw_spin_unlock_irqrestore(ptr noundef nonnull @i8042_lock, i64 noundef %23) #9
   %25 = icmp eq i32 %24, 0
   br i1 %25, label %28, label %26
@@ -2529,7 +2530,7 @@ define internal noundef i32 @i8042_pm_suspend(ptr nocapture readnone %0) #0 alig
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef i32 @i8042_pm_resume(ptr nocapture readnone %0) #0 align 16 {
+define internal noundef range(i32 -19, 1) i32 @i8042_pm_resume(ptr nocapture readnone %0) #0 align 16 {
   br label %2
 
 2:                                                ; preds = %20, %1
@@ -2572,7 +2573,7 @@ define internal noundef i32 @i8042_pm_resume(ptr nocapture readnone %0) #0 align
 27:                                               ; preds = %23
   %28 = and i32 %24, 2
   %29 = icmp ne i32 %28, 0
-  %30 = tail call fastcc i32 @i8042_controller_resume(i1 noundef zeroext %29), !range !18
+  %30 = tail call fastcc i32 @i8042_controller_resume(i1 noundef zeroext %29)
   br label %31
 
 31:                                               ; preds = %27, %23
@@ -2593,8 +2594,8 @@ define internal noundef i32 @i8042_pm_reset(ptr nocapture readnone %0) #0 align 
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef i32 @i8042_pm_restore(ptr nocapture readnone %0) #0 align 16 {
-  %2 = tail call fastcc i32 @i8042_controller_resume(i1 noundef zeroext false), !range !18
+define internal noundef range(i32 -19, 1) i32 @i8042_pm_restore(ptr nocapture readnone %0) #0 align 16 {
+  %2 = tail call fastcc i32 @i8042_controller_resume(i1 noundef zeroext false)
   ret i32 %2
 }
 
@@ -2617,9 +2618,9 @@ define internal noundef i32 @i8042_pm_resume_noirq(ptr nocapture readnone %0) #0
 declare dso_local i32 @irq_set_irq_wake(i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc noundef i32 @i8042_controller_resume(i1 noundef zeroext %0) unnamed_addr #0 align 16 {
+define internal fastcc noundef range(i32 -19, 1) i32 @i8042_controller_resume(i1 noundef zeroext %0) unnamed_addr #0 align 16 {
   %2 = alloca i8, align 1
-  %3 = tail call fastcc i32 @i8042_flush(), !range !16
+  %3 = tail call fastcc i32 @i8042_flush(), !range !15
   %4 = icmp eq i32 %3, 0
   br i1 %4, label %7, label %5
 
@@ -2638,13 +2639,13 @@ define internal fastcc noundef i32 @i8042_controller_resume(i1 noundef zeroext %
   br i1 %0, label %10, label %13
 
 10:                                               ; preds = %9, %7
-  %11 = tail call fastcc i32 @i8042_controller_selftest(), !range !18
+  %11 = tail call fastcc i32 @i8042_controller_selftest(), !range !17
   %12 = icmp eq i32 %11, 0
   br i1 %12, label %13, label %89
 
 13:                                               ; preds = %10, %9, %7
   %14 = load i8, ptr @i8042_initial_ctr, align 1
-  %15 = load i8, ptr @i8042_direct, align 1, !range !6, !noundef !7
+  %15 = load i8, ptr @i8042_direct, align 1, !range !5, !noundef !6
   %16 = icmp eq i8 %15, 0
   %17 = and i8 %14, -116
   %spec.select = select i1 %16, i8 %14, i8 %17
@@ -2656,7 +2657,7 @@ define internal fastcc noundef i32 @i8042_controller_resume(i1 noundef zeroext %
 
 21:                                               ; preds = %13
   %22 = tail call i64 @_raw_spin_lock_irqsave(ptr noundef nonnull @i8042_lock) #9
-  %23 = tail call fastcc i32 @__i8042_command(ptr noundef nonnull @i8042_ctr, i32 noundef 4192), !range !5
+  %23 = tail call fastcc i32 @__i8042_command(ptr noundef nonnull @i8042_ctr, i32 noundef 4192)
   tail call void @_raw_spin_unlock_irqrestore(ptr noundef nonnull @i8042_lock, i64 noundef %22) #9
   %24 = icmp eq i32 %23, 0
   br i1 %24, label %32, label %25
@@ -2669,7 +2670,7 @@ define internal fastcc noundef i32 @i8042_controller_resume(i1 noundef zeroext %
 
 i8042_command.exit:                               ; preds = %25
   %28 = tail call i64 @_raw_spin_lock_irqsave(ptr noundef nonnull @i8042_lock) #9
-  %29 = tail call fastcc i32 @__i8042_command(ptr noundef nonnull @i8042_ctr, i32 noundef 4192), !range !5
+  %29 = tail call fastcc i32 @__i8042_command(ptr noundef nonnull @i8042_ctr, i32 noundef 4192)
   tail call void @_raw_spin_unlock_irqrestore(ptr noundef nonnull @i8042_lock, i64 noundef %28) #9
   %30 = icmp eq i32 %29, 0
   br i1 %30, label %32, label %i8042_command.exit.thread
@@ -2679,7 +2680,7 @@ i8042_command.exit.thread:                        ; preds = %25, %i8042_command.
   br label %89
 
 32:                                               ; preds = %i8042_command.exit, %21
-  %33 = load i8, ptr @i8042_dritek, align 1, !range !6, !noundef !7
+  %33 = load i8, ptr @i8042_dritek, align 1, !range !5, !noundef !6
   %34 = icmp eq i8 %33, 0
   br i1 %34, label %43, label %35
 
@@ -2691,7 +2692,7 @@ i8042_command.exit.thread:                        ; preds = %25, %i8042_command.
 
 37:                                               ; preds = %35
   %38 = tail call i64 @_raw_spin_lock_irqsave(ptr noundef nonnull @i8042_lock) #9
-  %39 = call fastcc i32 @__i8042_command(ptr noundef nonnull %2, i32 noundef 4185), !range !5
+  %39 = call fastcc i32 @__i8042_command(ptr noundef nonnull %2, i32 noundef 4185)
   tail call void @_raw_spin_unlock_irqrestore(ptr noundef nonnull @i8042_lock, i64 noundef %38) #9
   %40 = icmp eq i32 %39, 0
   br i1 %40, label %42, label %.critedge
@@ -2709,12 +2710,12 @@ i8042_command.exit.thread:                        ; preds = %25, %i8042_command.
   br i1 %44, label %45, label %51
 
 45:                                               ; preds = %43
-  %46 = tail call fastcc i32 @i8042_set_mux_mode(i1 noundef zeroext true, ptr noundef null), !range !5
+  %46 = tail call fastcc i32 @i8042_set_mux_mode(i1 noundef zeroext true, ptr noundef null), !range !19
   %47 = icmp eq i32 %46, 0
   br i1 %47, label %48, label %67
 
 48:                                               ; preds = %45
-  %49 = tail call i32 @i8042_enable_mux_ports(), !range !16
+  %49 = tail call i32 @i8042_enable_mux_ports(), !range !15
   %50 = icmp eq i32 %49, 0
   br i1 %50, label %70, label %67
 
@@ -2733,7 +2734,7 @@ i8042_command.exit.thread:                        ; preds = %25, %i8042_command.
 
 59:                                               ; preds = %54
   %60 = tail call i64 @_raw_spin_lock_irqsave(ptr noundef nonnull @i8042_lock) #9
-  %61 = tail call fastcc i32 @__i8042_command(ptr noundef nonnull @i8042_ctr, i32 noundef 4192), !range !5
+  %61 = tail call fastcc i32 @__i8042_command(ptr noundef nonnull @i8042_ctr, i32 noundef 4192)
   tail call void @_raw_spin_unlock_irqrestore(ptr noundef nonnull @i8042_lock, i64 noundef %60) #9
   %62 = icmp eq i32 %61, 0
   br i1 %62, label %70, label %._crit_edge
@@ -2769,7 +2770,7 @@ i8042_command.exit.thread:                        ; preds = %25, %i8042_command.
 
 78:                                               ; preds = %73
   %79 = tail call i64 @_raw_spin_lock_irqsave(ptr noundef nonnull @i8042_lock) #9
-  %80 = tail call fastcc i32 @__i8042_command(ptr noundef nonnull @i8042_ctr, i32 noundef 4192), !range !5
+  %80 = tail call fastcc i32 @__i8042_command(ptr noundef nonnull @i8042_ctr, i32 noundef 4192)
   tail call void @_raw_spin_unlock_irqrestore(ptr noundef nonnull @i8042_lock, i64 noundef %79) #9
   %81 = icmp eq i32 %80, 0
   br i1 %81, label %87, label %._crit_edge2
@@ -3106,13 +3107,13 @@ define internal fastcc noundef i32 @i8042_platform_init() unnamed_addr #3 sectio
   store i32 1, ptr @i8042_kbd_irq, align 4
   store i32 12, ptr @i8042_aux_irq, align 4
   tail call fastcc void @i8042_check_quirks() #11
-  %5 = tail call fastcc i32 @i8042_pnp_init() #11, !range !18
+  %5 = tail call fastcc i32 @i8042_pnp_init() #11, !range !17
   %6 = icmp eq i32 %5, 0
   br i1 %6, label %7, label %10
 
 7:                                                ; preds = %4
-  %8 = call i32 @i8042_command(ptr noundef nonnull %1, i32 noundef 4305), !range !5
-  %9 = tail call i32 @i8042_command(ptr noundef null, i32 noundef 255), !range !5
+  %8 = call i32 @i8042_command(ptr noundef nonnull %1, i32 noundef 4305)
+  %9 = tail call i32 @i8042_command(ptr noundef null, i32 noundef 255)
   br label %10
 
 10:                                               ; preds = %7, %4, %0
@@ -3143,7 +3144,7 @@ define internal i64 @i8042_panic_blink(i32 noundef %0) #0 align 16 {
   %5 = phi i64 [ 0, %1 ], [ %12, %11 ]
   %6 = load i32, ptr @i8042_command_reg, align 4
   %7 = trunc i32 %6 to i16
-  %8 = tail call i8 asm sideeffect "inb ${1:w}, ${0:b}", "={ax},N{dx},~{dirflag},~{fpsr},~{flags}"(i16 %7) #9, !srcloc !8
+  %8 = tail call i8 asm sideeffect "inb ${1:w}, ${0:b}", "={ax},N{dx},~{dirflag},~{fpsr},~{flags}"(i16 %7) #9, !srcloc !7
   %9 = and i8 %8, 2
   %10 = icmp eq i8 %9, 0
   br i1 %10, label %14, label %11
@@ -3155,7 +3156,7 @@ define internal i64 @i8042_panic_blink(i32 noundef %0) #0 align 16 {
   br i1 %13, label %.loopexit, label %4, !llvm.loop !37
 
 14:                                               ; preds = %4
-  %15 = load i8, ptr @i8042_debug, align 1, !range !6, !noundef !7
+  %15 = load i8, ptr @i8042_debug, align 1, !range !5, !noundef !6
   %16 = icmp eq i8 %15, 0
   br i1 %16, label %23, label %17
 
@@ -3171,7 +3172,7 @@ define internal i64 @i8042_panic_blink(i32 noundef %0) #0 align 16 {
   store i8 2, ptr @i8042_suppress_kbd_ack, align 1
   %24 = load i32, ptr @i8042_data_reg, align 4
   %25 = trunc i32 %24 to i16
-  tail call void asm sideeffect "outb ${0:b}, ${1:w}", "{ax},N{dx},~{dirflag},~{fpsr},~{flags}"(i8 -19, i16 %25) #9, !srcloc !12
+  tail call void asm sideeffect "outb ${0:b}, ${1:w}", "{ax},N{dx},~{dirflag},~{fpsr},~{flags}"(i8 -19, i16 %25) #9, !srcloc !11
   tail call void @__const_udelay(i64 noundef 4295000) #9
   %26 = add nuw i64 %5, 1
   %27 = icmp sgt i64 %26, 10
@@ -3181,7 +3182,7 @@ define internal i64 @i8042_panic_blink(i32 noundef %0) #0 align 16 {
   %28 = phi i64 [ %34, %35 ], [ %26, %23 ]
   %29 = load i32, ptr @i8042_command_reg, align 4
   %30 = trunc i32 %29 to i16
-  %31 = tail call i8 asm sideeffect "inb ${1:w}, ${0:b}", "={ax},N{dx},~{dirflag},~{fpsr},~{flags}"(i16 %30) #9, !srcloc !8
+  %31 = tail call i8 asm sideeffect "inb ${1:w}, ${0:b}", "={ax},N{dx},~{dirflag},~{fpsr},~{flags}"(i16 %30) #9, !srcloc !7
   %32 = and i8 %31, 2
   %33 = icmp eq i8 %32, 0
   tail call void @__const_udelay(i64 noundef 4295000) #9
@@ -3197,7 +3198,7 @@ define internal i64 @i8042_panic_blink(i32 noundef %0) #0 align 16 {
   br i1 %38, label %.loopexit, label %39
 
 39:                                               ; preds = %37
-  %40 = load i8, ptr @i8042_debug, align 1, !range !6, !noundef !7
+  %40 = load i8, ptr @i8042_debug, align 1, !range !5, !noundef !6
   %41 = icmp eq i8 %40, 0
   br i1 %41, label %49, label %42
 
@@ -3213,7 +3214,7 @@ define internal i64 @i8042_panic_blink(i32 noundef %0) #0 align 16 {
 49:                                               ; preds = %42, %39
   %50 = load i32, ptr @i8042_data_reg, align 4
   %51 = trunc i32 %50 to i16
-  tail call void asm sideeffect "outb ${0:b}, ${1:w}", "{ax},N{dx},~{dirflag},~{fpsr},~{flags}"(i8 %3, i16 %51) #9, !srcloc !12
+  tail call void asm sideeffect "outb ${0:b}, ${1:w}", "{ax},N{dx},~{dirflag},~{fpsr},~{flags}"(i8 %3, i16 %51) #9, !srcloc !11
   tail call void @__const_udelay(i64 noundef 4295000) #9
   %52 = add nsw i64 %28, 2
   br label %.loopexit
@@ -3366,14 +3367,14 @@ define internal fastcc void @i8042_check_quirks() unnamed_addr #3 section ".init
 }
 
 ; Function Attrs: cold fn_ret_thunk_extern nounwind null_pointer_is_valid optsize
-define internal fastcc noundef i32 @i8042_pnp_init() unnamed_addr #3 section ".init.text" align 16 {
+define internal fastcc noundef range(i32 -19, 1) i32 @i8042_pnp_init() unnamed_addr #3 section ".init.text" align 16 {
   %1 = alloca [4 x i8], align 4
   %2 = alloca [4 x i8], align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %1) #9
   store i32 0, ptr %1, align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %2) #9
   store i32 0, ptr %2, align 4
-  %3 = load i8, ptr @i8042_nopnp, align 1, !range !6, !noundef !7
+  %3 = load i8, ptr @i8042_nopnp, align 1, !range !5, !noundef !6
   %4 = icmp eq i8 %3, 0
   br i1 %4, label %7, label %5
 
@@ -3513,7 +3514,7 @@ define internal fastcc noundef i32 @i8042_pnp_init() unnamed_addr #3 section ".i
 
 81:                                               ; preds = %78, %76, %72
   %82 = phi i8 [ %67, %72 ], [ 1, %78 ], [ %67, %76 ]
-  %83 = load i8, ptr @i8042_nokbd, align 1, !range !6, !noundef !7
+  %83 = load i8, ptr @i8042_nokbd, align 1, !range !5, !noundef !6
   %84 = icmp ne i8 %83, 0
   %85 = load i32, ptr @i8042_pnp_kbd_irq, align 4
   %86 = icmp ne i32 %85, 0
@@ -3530,7 +3531,7 @@ define internal fastcc noundef i32 @i8042_pnp_init() unnamed_addr #3 section ".i
 92:                                               ; preds = %88, %81
   %93 = phi i32 [ %85, %81 ], [ %91, %88 ]
   %94 = phi i8 [ %82, %81 ], [ 1, %88 ]
-  %95 = load i8, ptr @i8042_noaux, align 1, !range !6, !noundef !7
+  %95 = load i8, ptr @i8042_noaux, align 1, !range !5, !noundef !6
   %96 = icmp ne i8 %95, 0
   %97 = load i32, ptr @i8042_pnp_aux_irq, align 4
   %98 = icmp ne i32 %97, 0
@@ -3616,37 +3617,37 @@ attributes #12 = { nounwind allocsize(2) }
 !2 = !{i32 4, !"function_return_thunk_extern", i32 1}
 !3 = !{i32 4, !"indirect_branch_cs_prefix", i32 1}
 !4 = !{i32 4, !"SkipRaxSetup", i32 1}
-!5 = !{i32 -1, i32 1}
-!6 = !{i8 0, i8 2}
-!7 = !{}
-!8 = !{i64 2155422497}
-!9 = distinct !{!9, !10, !11}
-!10 = !{!"llvm.loop.mustprogress"}
-!11 = !{!"llvm.loop.unroll.disable"}
-!12 = !{i64 2155422301}
-!13 = distinct !{!13, !10, !11}
-!14 = distinct !{!14, !10, !11}
-!15 = distinct !{!15, !10, !11}
-!16 = !{i32 -5, i32 1}
-!17 = !{!"auto-init"}
-!18 = !{i32 -19, i32 1}
-!19 = distinct !{!19, !10, !11}
-!20 = distinct !{!20, !10, !11}
+!5 = !{i8 0, i8 2}
+!6 = !{}
+!7 = !{i64 2155422497}
+!8 = distinct !{!8, !9, !10}
+!9 = !{!"llvm.loop.mustprogress"}
+!10 = !{!"llvm.loop.unroll.disable"}
+!11 = !{i64 2155422301}
+!12 = distinct !{!12, !9, !10}
+!13 = distinct !{!13, !9, !10}
+!14 = distinct !{!14, !9, !10}
+!15 = !{i32 -5, i32 1}
+!16 = !{!"auto-init"}
+!17 = !{i32 -19, i32 1}
+!18 = distinct !{!18, !9, !10}
+!19 = !{i32 -1, i32 1}
+!20 = distinct !{!20, !9, !10}
 !21 = !{i32 -12, i32 1}
 !22 = !{ptr @i8042_enable_aux_port, ptr @i8042_enable_mux_ports}
-!23 = distinct !{!23, !10, !11}
-!24 = distinct !{!24, !10, !11}
-!25 = distinct !{!25, !10, !11}
-!26 = distinct !{!26, !10, !11}
-!27 = distinct !{!27, !10, !11}
-!28 = distinct !{!28, !10, !11}
+!23 = distinct !{!23, !9, !10}
+!24 = distinct !{!24, !9, !10}
+!25 = distinct !{!25, !9, !10}
+!26 = distinct !{!26, !9, !10}
+!27 = distinct !{!27, !9, !10}
+!28 = distinct !{!28, !9, !10}
 !29 = !{!"branch_weights", i32 1, i32 2000}
 !30 = !{!"branch_weights", i32 2000, i32 1}
 !31 = !{!"branch_weights", i32 0, i32 -2147483648}
-!32 = distinct !{!32, !10, !11}
+!32 = distinct !{!32, !9, !10}
 !33 = !{i32 0, i32 2}
-!34 = distinct !{!34, !10, !11}
-!35 = distinct !{!35, !10, !11}
-!36 = distinct !{!36, !10, !11}
-!37 = distinct !{!37, !10, !11}
-!38 = distinct !{!38, !10, !11}
+!34 = distinct !{!34, !9, !10}
+!35 = distinct !{!35, !9, !10}
+!36 = distinct !{!36, !9, !10}
+!37 = distinct !{!37, !9, !10}
+!38 = distinct !{!38, !9, !10}

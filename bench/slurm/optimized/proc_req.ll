@@ -444,19 +444,19 @@ define dso_local i32 @proc_req(ptr noundef %0, ptr noundef %1, ptr nocapture nou
   %100 = getelementptr i8, ptr %1, i64 8
   %.val287 = load ptr, ptr %100, align 8
   %101 = tail call fastcc i32 @_get_accounts(ptr noundef nonnull %0, ptr %.val287, ptr noundef %2)
-  br label %317
+  br label %.thread
 
 102:                                              ; preds = %44
   %103 = getelementptr i8, ptr %1, i64 8
   %.val288 = load ptr, ptr %103, align 8
   %104 = tail call fastcc i32 @_get_tres(ptr noundef nonnull %0, ptr %.val288, ptr noundef %2)
-  br label %317
+  br label %.thread
 
 105:                                              ; preds = %44
   %106 = getelementptr i8, ptr %1, i64 8
   %.val289 = load ptr, ptr %106, align 8
   %107 = tail call fastcc i32 @_get_assocs(ptr noundef nonnull %0, ptr %.val289, ptr noundef %2)
-  br label %317
+  br label %.thread
 
 108:                                              ; preds = %44, %44, %44
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4)
@@ -553,62 +553,62 @@ _get_usage.exit:                                  ; preds = %124, %143, %151
   %161 = getelementptr i8, ptr %1, i64 8
   %.val290 = load ptr, ptr %161, align 8
   %162 = tail call fastcc i32 @_get_clusters(ptr noundef nonnull %0, ptr %.val290, ptr noundef %2)
-  br label %317
+  br label %.thread
 
 163:                                              ; preds = %44
   %164 = getelementptr i8, ptr %1, i64 8
   %.val291 = load ptr, ptr %164, align 8
   %165 = tail call fastcc i32 @_get_federations(ptr noundef nonnull %0, ptr %.val291, ptr noundef %2)
-  br label %317
+  br label %.thread
 
 166:                                              ; preds = %44
   %167 = getelementptr i8, ptr %1, i64 8
   %.val292 = load ptr, ptr %167, align 8
   %168 = tail call fastcc i32 @_get_config(ptr noundef nonnull %0, ptr %.val292, ptr noundef %2)
-  br label %317
+  br label %.thread
 
 169:                                              ; preds = %44
   %170 = getelementptr i8, ptr %1, i64 8
   %.val293 = load ptr, ptr %170, align 8
   %171 = tail call fastcc i32 @_get_events(ptr noundef nonnull %0, ptr %.val293, ptr noundef %2)
-  br label %317
+  br label %.thread
 
 172:                                              ; preds = %44
   %173 = getelementptr i8, ptr %1, i64 8
   %.val294 = load ptr, ptr %173, align 8
   %174 = tail call fastcc i32 @_get_instances(ptr noundef nonnull %0, ptr %.val294, ptr noundef %2)
-  br label %317
+  br label %.thread
 
 175:                                              ; preds = %44
   %176 = getelementptr i8, ptr %1, i64 8
   %.val295 = load ptr, ptr %176, align 8
   %.val295.val = load ptr, ptr %.val295, align 8
   %177 = tail call fastcc i32 @_get_jobs_cond(ptr noundef nonnull %0, ptr %.val295.val, ptr noundef %2)
-  br label %317
+  br label %.thread
 
 178:                                              ; preds = %44
   %179 = getelementptr i8, ptr %1, i64 8
   %.val296 = load ptr, ptr %179, align 8
   %180 = tail call fastcc i32 @_get_probs(ptr noundef nonnull %0, ptr %.val296, ptr noundef %2)
-  br label %317
+  br label %.thread
 
 181:                                              ; preds = %44
   %182 = getelementptr i8, ptr %1, i64 8
   %.val297 = load ptr, ptr %182, align 8
   %183 = tail call fastcc i32 @_get_qos(ptr noundef nonnull %0, ptr %.val297, ptr noundef %2)
-  br label %317
+  br label %.thread
 
 184:                                              ; preds = %44
   %185 = getelementptr i8, ptr %1, i64 8
   %.val298 = load ptr, ptr %185, align 8
   %186 = tail call fastcc i32 @_get_res(ptr noundef nonnull %0, ptr %.val298, ptr noundef %2)
-  br label %317
+  br label %.thread
 
 187:                                              ; preds = %44
   %188 = getelementptr i8, ptr %1, i64 8
   %.val299 = load ptr, ptr %188, align 8
   %189 = tail call fastcc i32 @_get_txn(ptr noundef nonnull %0, ptr %.val299, ptr noundef %2)
-  br label %317
+  br label %.thread
 
 190:                                              ; preds = %44
   %191 = getelementptr i8, ptr %1, i64 8
@@ -620,13 +620,13 @@ _get_usage.exit:                                  ; preds = %124, %143, %151
   %194 = getelementptr i8, ptr %1, i64 8
   %.val301 = load ptr, ptr %194, align 8
   %195 = tail call fastcc i32 @_get_reservations(ptr noundef nonnull %0, ptr %.val301, ptr noundef %2)
-  br label %317
+  br label %.thread
 
 196:                                              ; preds = %44
   %197 = getelementptr i8, ptr %1, i64 8
   %.val302 = load ptr, ptr %197, align 8
   %198 = tail call fastcc i32 @_get_users(ptr noundef nonnull %0, ptr %.val302, ptr noundef %2)
-  br label %317
+  br label %.thread
 
 199:                                              ; preds = %44
   %200 = getelementptr i8, ptr %1, i64 8
@@ -650,13 +650,13 @@ _get_usage.exit:                                  ; preds = %124, %143, %151
   %208 = getelementptr i8, ptr %1, i64 8
   %.val306 = load ptr, ptr %208, align 8
   %209 = tail call fastcc i32 @_job_start(ptr noundef nonnull %0, ptr %.val306, ptr noundef %2)
-  br label %317
+  br label %.thread
 
 210:                                              ; preds = %44
   %211 = getelementptr i8, ptr %1, i64 8
   %.val307 = load ptr, ptr %211, align 8
   %212 = tail call fastcc i32 @_job_heavy(ptr noundef nonnull %0, ptr %.val307, ptr noundef %2)
-  br label %317
+  br label %.thread
 
 213:                                              ; preds = %44
   %214 = getelementptr i8, ptr %1, i64 8
@@ -815,10 +815,10 @@ _get_usage.exit:                                  ; preds = %124, %143, %151
   %290 = getelementptr i8, ptr %1, i64 8
   %.val332 = load ptr, ptr %290, align 8
   %291 = tail call fastcc i32 @_send_mult_job_start(ptr noundef nonnull %0, ptr %.val332, ptr noundef %2)
-  br label %317
+  br label %.thread
 
 292:                                              ; preds = %44
-  %293 = tail call fastcc i32 @_send_mult_msg(ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef %2), !range !7
+  %293 = tail call fastcc i32 @_send_mult_msg(ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef %2)
   br label %.thread
 
 294:                                              ; preds = %44
@@ -862,8 +862,8 @@ _get_usage.exit:                                  ; preds = %124, %143, %151
   store ptr %316, ptr %2, align 8
   br label %.thread
 
-317:                                              ; preds = %307, %305, %303, %300, %297, %294, %289, %286, %283, %280, %277, %274, %271, %268, %265, %262, %259, %256, %249, %247, %242, %239, %236, %233, %230, %227, %224, %221, %218, %215, %210, %207, %202, %199, %196, %193, %190, %187, %184, %181, %178, %175, %172, %169, %166, %163, %160, %_get_usage.exit, %105, %102, %99, %96, %93, %90, %87, %84, %81, %78, %75, %72, %69, %66, %63, %60, %57, %54, %51, %47
-  %.0 = phi i32 [ %308, %307 ], [ %306, %305 ], [ %304, %303 ], [ %302, %300 ], [ %299, %297 ], [ %296, %294 ], [ %291, %289 ], [ %288, %286 ], [ %285, %283 ], [ %282, %280 ], [ %279, %277 ], [ %276, %274 ], [ %273, %271 ], [ %270, %268 ], [ %267, %265 ], [ %264, %262 ], [ %261, %259 ], [ %258, %256 ], [ %251, %249 ], [ %248, %247 ], [ %244, %242 ], [ %241, %239 ], [ %238, %236 ], [ %235, %233 ], [ %232, %230 ], [ %229, %227 ], [ %226, %224 ], [ %223, %221 ], [ %220, %218 ], [ %217, %215 ], [ %212, %210 ], [ %209, %207 ], [ %204, %202 ], [ %201, %199 ], [ %198, %196 ], [ %195, %193 ], [ %192, %190 ], [ %189, %187 ], [ %186, %184 ], [ %183, %181 ], [ %180, %178 ], [ %177, %175 ], [ %174, %172 ], [ %171, %169 ], [ %168, %166 ], [ %165, %163 ], [ %162, %160 ], [ %.033.i, %_get_usage.exit ], [ %107, %105 ], [ %104, %102 ], [ %101, %99 ], [ %98, %96 ], [ %95, %93 ], [ %92, %90 ], [ %89, %87 ], [ %86, %84 ], [ %83, %81 ], [ %80, %78 ], [ %77, %75 ], [ %74, %72 ], [ %71, %69 ], [ %68, %66 ], [ %65, %63 ], [ %62, %60 ], [ %59, %57 ], [ %56, %54 ], [ %53, %51 ], [ %50, %47 ]
+317:                                              ; preds = %307, %305, %303, %300, %297, %294, %286, %283, %280, %277, %274, %271, %268, %265, %262, %259, %256, %249, %247, %242, %239, %236, %233, %230, %227, %224, %221, %218, %215, %202, %199, %190, %_get_usage.exit, %96, %93, %90, %87, %84, %81, %78, %75, %72, %69, %66, %63, %60, %57, %54, %51, %47
+  %.0 = phi i32 [ %308, %307 ], [ %306, %305 ], [ %304, %303 ], [ %302, %300 ], [ %299, %297 ], [ %296, %294 ], [ %288, %286 ], [ %285, %283 ], [ %282, %280 ], [ %279, %277 ], [ %276, %274 ], [ %273, %271 ], [ %270, %268 ], [ %267, %265 ], [ %264, %262 ], [ %261, %259 ], [ %258, %256 ], [ %251, %249 ], [ %248, %247 ], [ %244, %242 ], [ %241, %239 ], [ %238, %236 ], [ %235, %233 ], [ %232, %230 ], [ %229, %227 ], [ %226, %224 ], [ %223, %221 ], [ %220, %218 ], [ %217, %215 ], [ %204, %202 ], [ %201, %199 ], [ %192, %190 ], [ %.033.i, %_get_usage.exit ], [ %98, %96 ], [ %95, %93 ], [ %92, %90 ], [ %89, %87 ], [ %86, %84 ], [ %83, %81 ], [ %80, %78 ], [ %77, %75 ], [ %74, %72 ], [ %71, %69 ], [ %68, %66 ], [ %65, %63 ], [ %62, %60 ], [ %59, %57 ], [ %56, %54 ], [ %53, %51 ], [ %50, %47 ]
   %318 = icmp eq i32 %.0, 2002
   br i1 %318, label %319, label %.thread
 
@@ -877,8 +877,8 @@ _get_usage.exit:                                  ; preds = %124, %143, %151
   %326 = call i32 (ptr, ...) @error(ptr noundef nonnull @.str.5, i32 noundef %322, ptr noundef %325) #10
   br label %341
 
-.thread:                                          ; preds = %205, %213, %245, %292, %309, %317
-  %.0338 = phi i32 [ %.0, %317 ], [ 0, %205 ], [ 0, %213 ], [ 0, %245 ], [ %293, %292 ], [ 22, %309 ]
+.thread:                                          ; preds = %99, %102, %105, %160, %163, %166, %169, %172, %175, %178, %181, %184, %187, %193, %196, %205, %207, %210, %213, %245, %289, %292, %309, %317
+  %.0338 = phi i32 [ %.0, %317 ], [ %101, %99 ], [ %104, %102 ], [ %107, %105 ], [ %162, %160 ], [ %165, %163 ], [ %168, %166 ], [ %171, %169 ], [ %174, %172 ], [ %177, %175 ], [ %180, %178 ], [ %183, %181 ], [ %186, %184 ], [ %189, %187 ], [ %195, %193 ], [ %198, %196 ], [ 0, %205 ], [ %209, %207 ], [ %212, %210 ], [ 0, %213 ], [ 0, %245 ], [ %291, %289 ], [ %293, %292 ], [ 22, %309 ]
   %327 = load ptr, ptr %0, align 8
   %328 = getelementptr inbounds i8, ptr %327, i64 88
   %329 = load i16, ptr %328, align 8
@@ -1375,12 +1375,12 @@ _validate_operator.exit:                          ; preds = %10
   %60 = load ptr, ptr %58, align 8
   %61 = call i32 @xstrcasecmp(ptr noundef %60, ptr noundef %.0) #10
   %.not46 = icmp eq i32 %61, 0
-  br i1 %.not46, label %62, label %57, !llvm.loop !8
+  br i1 %.not46, label %62, label %57, !llvm.loop !7
 
 62:                                               ; preds = %59
   %63 = call ptr @list_next(ptr noundef %43) #10
   %.not42 = icmp eq ptr %63, null
-  br i1 %.not42, label %.critedge, label %.lr.ph, !llvm.loop !10
+  br i1 %.not42, label %.critedge, label %.lr.ph, !llvm.loop !9
 
 .critedge:                                        ; preds = %62, %57, %41
   %.1 = phi i1 [ true, %41 ], [ true, %57 ], [ false, %62 ]
@@ -2051,7 +2051,7 @@ define internal fastcc noundef i32 @_cluster_tres(ptr noundef %0, ptr nocapture 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @_get_accounts(ptr nocapture noundef readonly %0, ptr nocapture readonly %.8.val, ptr nocapture noundef %1) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @_get_accounts(ptr nocapture noundef readonly %0, ptr nocapture readonly %.8.val, ptr nocapture noundef %1) unnamed_addr #0 {
   %3 = alloca %struct.dbd_list_msg_t, align 8
   %4 = getelementptr inbounds i8, ptr %3, i64 8
   store i64 0, ptr %4, align 8
@@ -2123,7 +2123,7 @@ define internal fastcc noundef i32 @_get_accounts(ptr nocapture noundef readonly
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @_get_tres(ptr nocapture noundef readonly %0, ptr nocapture readonly %.8.val, ptr nocapture noundef %1) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @_get_tres(ptr nocapture noundef readonly %0, ptr nocapture readonly %.8.val, ptr nocapture noundef %1) unnamed_addr #0 {
   %3 = alloca %struct.dbd_list_msg_t, align 8
   %4 = getelementptr inbounds i8, ptr %3, i64 8
   store i64 0, ptr %4, align 8
@@ -2195,7 +2195,7 @@ define internal fastcc noundef i32 @_get_tres(ptr nocapture noundef readonly %0,
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @_get_assocs(ptr nocapture noundef readonly %0, ptr nocapture readonly %.8.val, ptr nocapture noundef %1) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @_get_assocs(ptr nocapture noundef readonly %0, ptr nocapture readonly %.8.val, ptr nocapture noundef %1) unnamed_addr #0 {
   %3 = alloca %struct.dbd_list_msg_t, align 8
   %4 = getelementptr inbounds i8, ptr %3, i64 8
   store i64 0, ptr %4, align 8
@@ -2267,7 +2267,7 @@ define internal fastcc noundef i32 @_get_assocs(ptr nocapture noundef readonly %
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @_get_clusters(ptr nocapture noundef readonly %0, ptr nocapture readonly %.8.val, ptr nocapture noundef %1) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @_get_clusters(ptr nocapture noundef readonly %0, ptr nocapture readonly %.8.val, ptr nocapture noundef %1) unnamed_addr #0 {
   %3 = alloca %struct.dbd_list_msg_t, align 8
   %4 = getelementptr inbounds i8, ptr %3, i64 8
   store i64 0, ptr %4, align 8
@@ -2339,7 +2339,7 @@ define internal fastcc noundef i32 @_get_clusters(ptr nocapture noundef readonly
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @_get_federations(ptr nocapture noundef readonly %0, ptr nocapture readonly %.8.val, ptr nocapture noundef %1) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @_get_federations(ptr nocapture noundef readonly %0, ptr nocapture readonly %.8.val, ptr nocapture noundef %1) unnamed_addr #0 {
   %3 = alloca %struct.dbd_list_msg_t, align 8
   %4 = getelementptr inbounds i8, ptr %3, i64 8
   store i64 0, ptr %4, align 8
@@ -2411,7 +2411,7 @@ define internal fastcc noundef i32 @_get_federations(ptr nocapture noundef reado
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @_get_config(ptr nocapture noundef readonly %0, ptr %.8.val, ptr nocapture noundef %1) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @_get_config(ptr nocapture noundef readonly %0, ptr %.8.val, ptr nocapture noundef %1) unnamed_addr #0 {
   %3 = alloca ptr, align 8
   %4 = alloca %struct.dbd_list_msg_t, align 8
   store ptr %.8.val, ptr %3, align 8
@@ -2486,7 +2486,7 @@ define internal fastcc noundef i32 @_get_config(ptr nocapture noundef readonly %
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @_get_events(ptr nocapture noundef readonly %0, ptr nocapture readonly %.8.val, ptr nocapture noundef %1) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @_get_events(ptr nocapture noundef readonly %0, ptr nocapture readonly %.8.val, ptr nocapture noundef %1) unnamed_addr #0 {
   %3 = alloca %struct.dbd_list_msg_t, align 8
   %4 = getelementptr inbounds i8, ptr %3, i64 8
   store i64 0, ptr %4, align 8
@@ -2558,7 +2558,7 @@ define internal fastcc noundef i32 @_get_events(ptr nocapture noundef readonly %
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @_get_instances(ptr nocapture noundef readonly %0, ptr nocapture readonly %.8.val, ptr nocapture noundef %1) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @_get_instances(ptr nocapture noundef readonly %0, ptr nocapture readonly %.8.val, ptr nocapture noundef %1) unnamed_addr #0 {
   %3 = alloca %struct.dbd_list_msg_t, align 8
   %4 = getelementptr inbounds i8, ptr %3, i64 8
   store i64 0, ptr %4, align 8
@@ -2630,7 +2630,7 @@ define internal fastcc noundef i32 @_get_instances(ptr nocapture noundef readonl
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @_get_jobs_cond(ptr noundef %0, ptr %.8.val.0.val, ptr nocapture noundef %1) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @_get_jobs_cond(ptr noundef %0, ptr %.8.val.0.val, ptr nocapture noundef %1) unnamed_addr #0 {
   %3 = alloca %struct.dbd_list_msg_t, align 8
   %4 = getelementptr inbounds i8, ptr %3, i64 8
   store i64 0, ptr %4, align 8
@@ -2812,7 +2812,7 @@ _validate_operator.exit41.thread:                 ; preds = %36, %56, %45, %_val
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @_get_probs(ptr nocapture noundef readonly %0, ptr nocapture readonly %.8.val, ptr nocapture noundef %1) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @_get_probs(ptr nocapture noundef readonly %0, ptr nocapture readonly %.8.val, ptr nocapture noundef %1) unnamed_addr #0 {
   %3 = alloca %struct.dbd_list_msg_t, align 8
   %4 = getelementptr inbounds i8, ptr %3, i64 8
   store i64 0, ptr %4, align 8
@@ -2884,7 +2884,7 @@ define internal fastcc noundef i32 @_get_probs(ptr nocapture noundef readonly %0
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @_get_qos(ptr nocapture noundef readonly %0, ptr nocapture readonly %.8.val, ptr nocapture noundef %1) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @_get_qos(ptr nocapture noundef readonly %0, ptr nocapture readonly %.8.val, ptr nocapture noundef %1) unnamed_addr #0 {
   %3 = alloca %struct.dbd_list_msg_t, align 8
   %4 = getelementptr inbounds i8, ptr %3, i64 8
   store i64 0, ptr %4, align 8
@@ -2970,7 +2970,7 @@ define internal fastcc noundef i32 @_get_qos(ptr nocapture noundef readonly %0, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @_get_res(ptr nocapture noundef readonly %0, ptr nocapture readonly %.8.val, ptr nocapture noundef %1) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @_get_res(ptr nocapture noundef readonly %0, ptr nocapture readonly %.8.val, ptr nocapture noundef %1) unnamed_addr #0 {
   %3 = alloca %struct.dbd_list_msg_t, align 8
   %4 = getelementptr inbounds i8, ptr %3, i64 8
   store i64 0, ptr %4, align 8
@@ -3042,7 +3042,7 @@ define internal fastcc noundef i32 @_get_res(ptr nocapture noundef readonly %0, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @_get_txn(ptr nocapture noundef readonly %0, ptr nocapture readonly %.8.val, ptr nocapture noundef %1) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @_get_txn(ptr nocapture noundef readonly %0, ptr nocapture readonly %.8.val, ptr nocapture noundef %1) unnamed_addr #0 {
   %3 = alloca %struct.dbd_list_msg_t, align 8
   %4 = getelementptr inbounds i8, ptr %3, i64 8
   store i64 0, ptr %4, align 8
@@ -3114,7 +3114,7 @@ define internal fastcc noundef i32 @_get_txn(ptr nocapture noundef readonly %0, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @_get_wckeys(ptr noundef %0, ptr nocapture readonly %.8.val, ptr nocapture noundef %1) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 2003) i32 @_get_wckeys(ptr noundef %0, ptr nocapture readonly %.8.val, ptr nocapture noundef %1) unnamed_addr #0 {
   %3 = alloca %struct.dbd_list_msg_t, align 8
   %4 = getelementptr inbounds i8, ptr %3, i64 8
   store i64 0, ptr %4, align 8
@@ -3215,7 +3215,7 @@ _validate_operator.exit.thread:                   ; preds = %_validate_operator.
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @_get_reservations(ptr nocapture noundef readonly %0, ptr nocapture readonly %.8.val, ptr nocapture noundef %1) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @_get_reservations(ptr nocapture noundef readonly %0, ptr nocapture readonly %.8.val, ptr nocapture noundef %1) unnamed_addr #0 {
   %3 = alloca %struct.dbd_list_msg_t, align 8
   %4 = getelementptr inbounds i8, ptr %3, i64 8
   store i64 0, ptr %4, align 8
@@ -3287,7 +3287,7 @@ define internal fastcc noundef i32 @_get_reservations(ptr nocapture noundef read
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @_get_users(ptr nocapture noundef readonly %0, ptr nocapture readonly %.8.val, ptr nocapture noundef %1) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @_get_users(ptr nocapture noundef readonly %0, ptr nocapture readonly %.8.val, ptr nocapture noundef %1) unnamed_addr #0 {
   %3 = alloca %struct.dbd_list_msg_t, align 8
   %4 = getelementptr inbounds i8, ptr %3, i64 8
   store i64 0, ptr %4, align 8
@@ -3710,7 +3710,7 @@ define internal fastcc void @_job_complete(ptr noundef %0, ptr nocapture readonl
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @_job_start(ptr noundef %0, ptr nocapture readonly %.8.val, ptr nocapture noundef %1) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @_job_start(ptr noundef %0, ptr nocapture readonly %.8.val, ptr nocapture noundef %1) unnamed_addr #0 {
   %3 = alloca %struct.dbd_id_rc_msg, align 8
   %.val = load ptr, ptr %0, align 8
   %4 = getelementptr i8, ptr %.val, i64 8
@@ -3748,7 +3748,7 @@ define internal fastcc noundef i32 @_job_start(ptr noundef %0, ptr nocapture rea
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @_job_heavy(ptr nocapture noundef readonly %0, ptr nocapture readonly %.8.val, ptr nocapture noundef writeonly %1) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @_job_heavy(ptr nocapture noundef readonly %0, ptr nocapture readonly %.8.val, ptr nocapture noundef writeonly %1) unnamed_addr #0 {
   %3 = alloca %struct.job_record, align 8
   %4 = alloca %struct.job_details_t, align 8
   %.val = load ptr, ptr %0, align 8
@@ -5107,7 +5107,7 @@ define internal fastcc void @_node_state(ptr nocapture noundef readonly %0, ptr 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @_reconfig(ptr noundef %0, ptr nocapture noundef writeonly %1) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2003) i32 @_reconfig(ptr noundef %0, ptr nocapture noundef writeonly %1) unnamed_addr #0 {
   %3 = load ptr, ptr %0, align 8
   %4 = getelementptr inbounds i8, ptr %3, i64 8
   %5 = load i32, ptr %4, align 8
@@ -6374,7 +6374,7 @@ _validate_operator.exit.thread:                   ; preds = %14, %_validate_oper
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @_send_mult_job_start(ptr noundef %0, ptr nocapture readonly %.8.val, ptr nocapture noundef %1) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @_send_mult_job_start(ptr noundef %0, ptr nocapture readonly %.8.val, ptr nocapture noundef %1) unnamed_addr #0 {
   %3 = alloca %struct.dbd_list_msg_t, align 8
   %4 = getelementptr inbounds i8, ptr %3, i64 8
   store i64 0, ptr %4, align 8
@@ -6410,7 +6410,7 @@ define internal fastcc noundef i32 @_send_mult_job_start(ptr noundef %0, ptr noc
   tail call fastcc void @_process_job_start(ptr noundef nonnull %0, ptr noundef nonnull %18, ptr noundef %19)
   %20 = tail call ptr @list_next(ptr noundef %16) #10
   %.not = icmp eq ptr %20, null
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !11
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !10
 
 ._crit_edge:                                      ; preds = %.lr.ph, %13
   tail call void @list_iterator_destroy(ptr noundef %16) #10
@@ -6436,7 +6436,7 @@ define internal fastcc noundef i32 @_send_mult_job_start(ptr noundef %0, ptr noc
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @_send_mult_msg(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef %2) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @_send_mult_msg(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef %2) unnamed_addr #0 {
   %4 = alloca %struct.dbd_list_msg_t, align 8
   %5 = alloca ptr, align 8
   %6 = alloca %struct.persist_msg_t, align 8
@@ -6501,7 +6501,7 @@ define internal fastcc noundef i32 @_send_mult_msg(ptr noundef %0, ptr nocapture
 
 37:                                               ; preds = %36, %34
   %.not26 = icmp eq i32 %.0, 0
-  br i1 %.not26, label %22, label %38, !llvm.loop !12
+  br i1 %.not26, label %22, label %38, !llvm.loop !11
 
 38:                                               ; preds = %37, %22
   call void @list_iterator_destroy(ptr noundef %21) #10
@@ -6752,7 +6752,7 @@ define internal fastcc noundef i32 @_step_start(ptr noundef %0, ptr %.8.val, ptr
 
 35:                                               ; preds = %34, %.preheader.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  br label %.preheader.i, !llvm.loop !13
+  br label %.preheader.i, !llvm.loop !12
 
 _replace_double_quotes.exit:                      ; preds = %.preheader.i, %29
   %36 = getelementptr inbounds i8, ptr %3, i64 8
@@ -6926,7 +6926,7 @@ _validate_operator.exit.thread:                   ; preds = %_validate_operator.
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @_get_stats(ptr noundef %0, ptr nocapture noundef %1) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2003) i32 @_get_stats(ptr noundef %0, ptr nocapture noundef %1) unnamed_addr #0 {
   %3 = load ptr, ptr %0, align 8
   %4 = getelementptr inbounds i8, ptr %3, i64 8
   %5 = load i32, ptr %4, align 8
@@ -6999,7 +6999,7 @@ _validate_super_user.exit.thread:                 ; preds = %2, %_validate_super
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @_clear_stats(ptr noundef %0, ptr nocapture noundef writeonly %1) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2003) i32 @_clear_stats(ptr noundef %0, ptr nocapture noundef writeonly %1) unnamed_addr #0 {
   %3 = load ptr, ptr %0, align 8
   %4 = getelementptr inbounds i8, ptr %3, i64 8
   %5 = load i32, ptr %4, align 8
@@ -7049,7 +7049,7 @@ _validate_super_user.exit.thread:                 ; preds = %2, %_validate_super
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @_shutdown(ptr noundef %0, ptr nocapture noundef writeonly %1) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2003) i32 @_shutdown(ptr noundef %0, ptr nocapture noundef writeonly %1) unnamed_addr #0 {
   %3 = load ptr, ptr %0, align 8
   %4 = getelementptr inbounds i8, ptr %3, i64 8
   %5 = load i32, ptr %4, align 8
@@ -7118,7 +7118,7 @@ declare ptr @__errno_location() local_unnamed_addr #6
 declare ptr @list_find_first(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal i32 @_find_rpc_obj_in_list(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #7 {
+define internal range(i32 0, 2) i32 @_find_rpc_obj_in_list(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #7 {
   %3 = getelementptr inbounds i8, ptr %0, i64 4
   %4 = load i32, ptr %3, align 4
   %5 = load i32, ptr %1, align 4
@@ -7272,7 +7272,7 @@ define internal fastcc void @_add_registered_cluster(ptr noundef %0) unnamed_add
   %.not42 = icmp eq ptr %41, null
   %42 = icmp eq ptr %41, %0
   %or.cond = or i1 %.not42, %42
-  br i1 %or.cond, label %._crit_edge, label %.lr.ph, !llvm.loop !14
+  br i1 %or.cond, label %._crit_edge, label %.lr.ph, !llvm.loop !13
 
 ._crit_edge:                                      ; preds = %40, %13
   %.not42.lcssa = phi i1 [ %.not4246, %13 ], [ %.not42, %40 ]
@@ -7447,7 +7447,7 @@ define internal fastcc void @_process_job_start(ptr noundef %0, ptr nocapture no
 
 14:                                               ; preds = %13, %.preheader.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  br label %.preheader.i, !llvm.loop !13
+  br label %.preheader.i, !llvm.loop !12
 
 _replace_double_quotes.exit:                      ; preds = %.preheader.i, %3
   %15 = getelementptr inbounds i8, ptr %4, i64 8
@@ -7523,7 +7523,7 @@ _replace_double_quotes.exit:                      ; preds = %.preheader.i, %3
 
 56:                                               ; preds = %55, %.preheader.i70
   %indvars.iv.next.i72 = add nuw nsw i64 %indvars.iv.i71, 1
-  br label %.preheader.i70, !llvm.loop !13
+  br label %.preheader.i70, !llvm.loop !12
 
 _replace_double_quotes.exit73:                    ; preds = %.preheader.i70, %37
   %57 = getelementptr inbounds i8, ptr %4, i64 152
@@ -7564,7 +7564,7 @@ _replace_double_quotes.exit73:                    ; preds = %.preheader.i70, %37
 
 75:                                               ; preds = %74, %.preheader.i75
   %indvars.iv.next.i77 = add nuw nsw i64 %indvars.iv.i76, 1
-  br label %.preheader.i75, !llvm.loop !13
+  br label %.preheader.i75, !llvm.loop !12
 
 _replace_double_quotes.exit78:                    ; preds = %.preheader.i75, %_replace_double_quotes.exit73
   %76 = getelementptr inbounds i8, ptr %4, i64 464
@@ -7589,7 +7589,7 @@ _replace_double_quotes.exit78:                    ; preds = %.preheader.i75, %_r
 
 82:                                               ; preds = %81, %.preheader.i80
   %indvars.iv.next.i82 = add nuw nsw i64 %indvars.iv.i81, 1
-  br label %.preheader.i80, !llvm.loop !13
+  br label %.preheader.i80, !llvm.loop !12
 
 _replace_double_quotes.exit83:                    ; preds = %.preheader.i80, %_replace_double_quotes.exit78
   %83 = getelementptr inbounds i8, ptr %4, i64 528
@@ -7614,7 +7614,7 @@ _replace_double_quotes.exit83:                    ; preds = %.preheader.i80, %_r
 
 89:                                               ; preds = %88, %.preheader.i85
   %indvars.iv.next.i87 = add nuw nsw i64 %indvars.iv.i86, 1
-  br label %.preheader.i85, !llvm.loop !13
+  br label %.preheader.i85, !llvm.loop !12
 
 _replace_double_quotes.exit88:                    ; preds = %.preheader.i85, %_replace_double_quotes.exit83
   %90 = getelementptr inbounds i8, ptr %4, i64 536
@@ -7704,7 +7704,7 @@ _replace_double_quotes.exit88:                    ; preds = %.preheader.i85, %_r
 
 145:                                              ; preds = %144, %.preheader.i90
   %indvars.iv.next.i92 = add nuw nsw i64 %indvars.iv.i91, 1
-  br label %.preheader.i90, !llvm.loop !13
+  br label %.preheader.i90, !llvm.loop !12
 
 _replace_double_quotes.exit93:                    ; preds = %.preheader.i90, %_replace_double_quotes.exit88
   %146 = getelementptr inbounds i8, ptr %4, i64 1088
@@ -7729,7 +7729,7 @@ _replace_double_quotes.exit93:                    ; preds = %.preheader.i90, %_r
 
 152:                                              ; preds = %151, %.preheader.i95
   %indvars.iv.next.i97 = add nuw nsw i64 %indvars.iv.i96, 1
-  br label %.preheader.i95, !llvm.loop !13
+  br label %.preheader.i95, !llvm.loop !12
 
 _replace_double_quotes.exit98:                    ; preds = %.preheader.i95, %_replace_double_quotes.exit93
   %153 = getelementptr inbounds i8, ptr %5, i64 472
@@ -7762,7 +7762,7 @@ _replace_double_quotes.exit98:                    ; preds = %.preheader.i95, %_r
 
 165:                                              ; preds = %164, %.preheader.i100
   %indvars.iv.next.i102 = add nuw nsw i64 %indvars.iv.i101, 1
-  br label %.preheader.i100, !llvm.loop !13
+  br label %.preheader.i100, !llvm.loop !12
 
 _replace_double_quotes.exit103:                   ; preds = %.preheader.i100, %_replace_double_quotes.exit98
   %166 = getelementptr inbounds i8, ptr %5, i64 208
@@ -8006,11 +8006,10 @@ attributes #12 = { nounwind willreturn memory(none) }
 !4 = !{i32 7, !"PIE Level", i32 2}
 !5 = !{i32 7, !"uwtable", i32 2}
 !6 = !{i32 7, !"frame-pointer", i32 2}
-!7 = !{i32 -1, i32 1}
-!8 = distinct !{!8, !9}
-!9 = !{!"llvm.loop.mustprogress"}
-!10 = distinct !{!10, !9}
-!11 = distinct !{!11, !9}
-!12 = distinct !{!12, !9}
-!13 = distinct !{!13, !9}
-!14 = distinct !{!14, !9}
+!7 = distinct !{!7, !8}
+!8 = !{!"llvm.loop.mustprogress"}
+!9 = distinct !{!9, !8}
+!10 = distinct !{!10, !8}
+!11 = distinct !{!11, !8}
+!12 = distinct !{!12, !8}
+!13 = distinct !{!13, !8}

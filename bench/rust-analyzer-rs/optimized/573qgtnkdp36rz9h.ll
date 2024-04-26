@@ -1116,7 +1116,7 @@ define noundef zeroext i1 @_ZN3vfs11ChangedFile11is_modified17hcc83aa8f361cbd17E
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
-define noundef i8 @_ZN3vfs11ChangedFile4kind17h02b1f1b9576b6d2dE(ptr noalias nocapture noundef readonly align 8 dereferenceable(40) %0) unnamed_addr #7 {
+define noundef range(i8 0, 3) i8 @_ZN3vfs11ChangedFile4kind17h02b1f1b9576b6d2dE(ptr noalias nocapture noundef readonly align 8 dereferenceable(40) %0) unnamed_addr #7 {
 switch.lookup:
   %1 = load i64, ptr %0, align 8, !range !40, !noundef !20
   %switch.idx.cast = trunc nuw nsw i64 %1 to i8
@@ -1798,7 +1798,7 @@ _ZN3vfs3Vfs3get17h1b648ad72e54dad2E.exit:         ; preds = %2
 }
 
 ; Function Attrs: nonlazybind uwtable
-define noundef i8 @_ZN3vfs3Vfs3get17h1b648ad72e54dad2E(ptr noalias nocapture noundef readonly align 8 dereferenceable(128) %0, i32 noundef %1) unnamed_addr #1 {
+define noundef range(i8 0, 3) i8 @_ZN3vfs3Vfs3get17h1b648ad72e54dad2E(ptr noalias nocapture noundef readonly align 8 dereferenceable(128) %0, i32 noundef %1) unnamed_addr #1 {
   %3 = zext i32 %1 to i64
   %4 = getelementptr inbounds i8, ptr %0, i64 72
   %5 = load i64, ptr %4, align 8, !noundef !20

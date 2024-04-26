@@ -30,7 +30,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @_hidden_aes_256_ctr = internal unnamed_addr global ptr null, align 8
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef i64 @v_check(i64 noundef %v) local_unnamed_addr #0 {
+define noundef range(i64 0, 196609) i64 @v_check(i64 noundef %v) local_unnamed_addr #0 {
 entry:
   %cmp.inv = icmp ult i64 %v, 196608
   %. = select i1 %cmp.inv, i64 0, i64 196608
@@ -38,7 +38,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @bind_engine(ptr noundef %e, ptr noundef readonly %id, ptr nocapture noundef readonly %fns) local_unnamed_addr #1 {
+define range(i32 0, 2) i32 @bind_engine(ptr noundef %e, ptr noundef readonly %id, ptr nocapture noundef readonly %fns) local_unnamed_addr #1 {
 entry:
   %call = tail call ptr @ENGINE_get_static_state() #9
   %0 = load ptr, ptr %fns, align 8
@@ -123,7 +123,7 @@ declare i32 @ENGINE_set_name(ptr noundef, ptr noundef) local_unnamed_addr #2
 declare i32 @ENGINE_set_init_function(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable
-define internal i32 @padlock_init(ptr nocapture readnone %e) #4 {
+define internal range(i32 0, 2) i32 @padlock_init(ptr nocapture readnone %e) #4 {
 entry:
   %0 = load i32, ptr @padlock_use_ace, align 4
   %tobool1 = icmp ne i32 %0, 0
@@ -134,7 +134,7 @@ entry:
 declare i32 @ENGINE_set_ciphers(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @padlock_ciphers(ptr nocapture readnone %e, ptr noundef writeonly %cipher, ptr nocapture noundef writeonly %nids, i32 noundef %nid) #1 {
+define internal range(i32 0, 16) i32 @padlock_ciphers(ptr nocapture readnone %e, ptr noundef writeonly %cipher, ptr nocapture noundef writeonly %nids, i32 noundef %nid) #1 {
 entry:
   %tobool.not = icmp eq ptr %cipher, null
   br i1 %tobool.not, label %if.then, label %if.end
@@ -1142,7 +1142,7 @@ declare i32 @EVP_CIPHER_meth_set_flags(ptr noundef, i64 noundef) local_unnamed_a
 declare i32 @EVP_CIPHER_meth_set_init(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @padlock_aes_init_key(ptr noundef %ctx, ptr noundef readonly %key, ptr nocapture readnone %iv, i32 noundef %enc) #1 {
+define internal range(i32 0, 2) i32 @padlock_aes_init_key(ptr noundef %ctx, ptr noundef readonly %key, ptr nocapture readnone %iv, i32 noundef %enc) #1 {
 entry:
   %call = tail call i32 @EVP_CIPHER_CTX_get_key_length(ptr noundef %ctx) #9
   %mul = shl nsw i32 %call, 3
@@ -1206,9 +1206,9 @@ sw.bb42:                                          ; preds = %if.end19, %if.end19
   %tobool = icmp ne i32 %enc, 0
   %or.cond2 = or i1 %tobool, %or.cond1
   %ks52 = getelementptr inbounds i8, ptr %add.ptr, i64 32
-  %call53 = tail call fastcc i32 @padlock_aes_set_encrypt_key(ptr noundef nonnull %key, i32 noundef %mul, ptr noundef nonnull %ks52), !range !4
+  %call53 = tail call fastcc i32 @padlock_aes_set_encrypt_key(ptr noundef nonnull %key, i32 noundef %mul, ptr noundef nonnull %ks52)
   %cmp.i = icmp slt i32 %call53, 0
-  %or.cond28 = or i1 %or.cond2, %cmp.i
+  %or.cond28 = select i1 %or.cond2, i1 true, i1 %cmp.i
   br i1 %or.cond28, label %if.end54, label %if.end.i
 
 if.end.i:                                         ; preds = %sw.bb42
@@ -1263,7 +1263,7 @@ for.body.i:                                       ; preds = %for.body.i, %for.bo
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 4
   %indvars.iv.next80.i = add nsw i64 %indvars.iv79.i, -4
   %cmp1.i = icmp slt i64 %indvars.iv.next.i, %indvars.iv.next80.i
-  br i1 %cmp1.i, label %for.body.i, label %for.cond44.preheader.i, !llvm.loop !5
+  br i1 %cmp1.i, label %for.body.i, label %for.cond44.preheader.i, !llvm.loop !4
 
 for.body47.i:                                     ; preds = %for.cond44.preheader.i, %for.inc91.i
   %rk.075.i = phi ptr [ %add.ptr.i, %for.inc91.i ], [ %ks52, %for.cond44.preheader.i ]
@@ -1312,13 +1312,13 @@ for.body50.i:                                     ; preds = %for.body50.i, %for.
   store i32 %xor86.i, ptr %arrayidx52.i, align 4
   %indvars.iv.next88.i = add nuw nsw i64 %indvars.iv87.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next88.i, 4
-  br i1 %exitcond.not.i, label %for.inc91.i, label %for.body50.i, !llvm.loop !7
+  br i1 %exitcond.not.i, label %for.inc91.i, label %for.body50.i, !llvm.loop !6
 
 for.inc91.i:                                      ; preds = %for.body50.i
   %inc92.i = add nuw nsw i32 %i.174.i, 1
   %31 = load i32, ptr %rounds.i, align 4
   %cmp46.i = icmp slt i32 %inc92.i, %31
-  br i1 %cmp46.i, label %for.body47.i, label %if.end54, !llvm.loop !8
+  br i1 %cmp46.i, label %for.body47.i, label %if.end54, !llvm.loop !7
 
 if.end54:                                         ; preds = %for.inc91.i, %sw.bb42, %for.cond44.preheader.i, %if.end.i
   %ks55 = getelementptr inbounds i8, ptr %add.ptr, i64 32
@@ -1382,7 +1382,7 @@ declare i32 @EVP_CIPHER_CTX_is_encrypting(ptr noundef) local_unnamed_addr #2
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #6
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc noundef i32 @padlock_aes_set_encrypt_key(ptr nocapture noundef readonly %userKey, i32 noundef %bits, ptr noundef %key) unnamed_addr #7 {
+define internal fastcc range(i32 -2, 1) i32 @padlock_aes_set_encrypt_key(ptr nocapture noundef readonly %userKey, i32 noundef %bits, ptr noundef %key) unnamed_addr #7 {
 entry:
   %tobool1.not = icmp eq ptr %key, null
   br i1 %tobool1.not, label %return, label %if.end
@@ -1854,7 +1854,7 @@ declare i32 @padlock_cbc_encrypt(ptr noundef, ptr noundef, ptr noundef, i64 noun
 declare ptr @EVP_CIPHER_CTX_iv_noconst(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @padlock_cfb_cipher(ptr noundef %ctx, ptr noundef %out_arg, ptr noundef %in_arg, i64 noundef %nbytes) #1 {
+define internal range(i32 0, 2) i32 @padlock_cfb_cipher(ptr noundef %ctx, ptr noundef %out_arg, ptr noundef %in_arg, i64 noundef %nbytes) #1 {
 entry:
   %call = tail call ptr @EVP_CIPHER_CTX_get_cipher_data(ptr noundef %ctx) #9
   %call1 = tail call ptr @EVP_CIPHER_CTX_get_cipher_data(ptr noundef %ctx) #9
@@ -1902,7 +1902,7 @@ while.body:                                       ; preds = %while.cond.preheade
   %cmp10 = icmp ult i64 %chunk.076, 15
   %cmp12 = icmp ne i64 %dec, 0
   %3 = select i1 %cmp10, i1 %cmp12, i1 false
-  br i1 %3, label %while.body, label %if.end38, !llvm.loop !9
+  br i1 %3, label %while.body, label %if.end38, !llvm.loop !8
 
 while.body26:                                     ; preds = %while.cond19.preheader, %while.body26
   %out_arg.addr.187 = phi ptr [ %incdec.ptr33, %while.body26 ], [ %out_arg, %while.cond19.preheader ]
@@ -1922,7 +1922,7 @@ while.body26:                                     ; preds = %while.cond19.prehea
   %cmp20 = icmp ult i64 %chunk.185, 15
   %cmp23 = icmp ne i64 %dec36, 0
   %6 = select i1 %cmp20, i1 %cmp23, i1 false
-  br i1 %6, label %while.body26, label %if.end38, !llvm.loop !10
+  br i1 %6, label %while.body26, label %if.end38, !llvm.loop !9
 
 if.end38:                                         ; preds = %while.body, %while.body26, %while.cond.preheader, %while.cond19.preheader
   %nbytes.addr.2 = phi i64 [ 0, %while.cond19.preheader ], [ 0, %while.cond.preheader ], [ %dec36, %while.body26 ], [ %dec, %while.body ]
@@ -1996,7 +1996,7 @@ while.body76:                                     ; preds = %if.then66, %while.b
   store i8 %9, ptr %ivp58.095, align 1
   %dec85 = add i64 %nbytes.addr.592, -1
   %tobool75.not = icmp eq i64 %dec85, 0
-  br i1 %tobool75.not, label %if.end101, label %while.body76, !llvm.loop !11
+  br i1 %tobool75.not, label %if.end101, label %while.body76, !llvm.loop !10
 
 if.else87:                                        ; preds = %if.then57
   tail call void @padlock_reload_key() #9
@@ -2019,7 +2019,7 @@ while.body90:                                     ; preds = %if.else87, %while.b
   %incdec.ptr97 = getelementptr inbounds i8, ptr %ivp58.199, i64 1
   %dec98 = add i64 %nbytes.addr.696, -1
   %tobool89.not = icmp eq i64 %dec98, 0
-  br i1 %tobool89.not, label %if.end101, label %while.body90, !llvm.loop !12
+  br i1 %tobool89.not, label %if.end101, label %while.body90, !llvm.loop !11
 
 if.end101:                                        ; preds = %while.body76, %while.body90, %if.end55
   %call102 = tail call ptr @EVP_CIPHER_CTX_iv_noconst(ptr noundef %ctx) #9
@@ -2040,7 +2040,7 @@ declare i32 @padlock_cfb_encrypt(ptr noundef, ptr noundef, ptr noundef, i64 noun
 declare void @padlock_aes_block(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @padlock_ofb_cipher(ptr noundef %ctx, ptr noundef %out_arg, ptr noundef %in_arg, i64 noundef %nbytes) #1 {
+define internal range(i32 0, 2) i32 @padlock_ofb_cipher(ptr noundef %ctx, ptr noundef %out_arg, ptr noundef %in_arg, i64 noundef %nbytes) #1 {
 entry:
   %call = tail call ptr @EVP_CIPHER_CTX_get_cipher_data(ptr noundef %ctx) #9
   %call1 = tail call ptr @EVP_CIPHER_CTX_get_cipher_data(ptr noundef %ctx) #9
@@ -2082,7 +2082,7 @@ while.body:                                       ; preds = %while.body.preheade
   %cmp7 = icmp ult i64 %chunk.046, 15
   %cmp9 = icmp ne i64 %dec, 0
   %3 = select i1 %cmp7, i1 %cmp9, i1 false
-  br i1 %3, label %while.body, label %while.end.loopexit, !llvm.loop !13
+  br i1 %3, label %while.body, label %while.end.loopexit, !llvm.loop !12
 
 while.end.loopexit:                               ; preds = %while.body
   %4 = trunc i64 %inc to i32
@@ -2146,7 +2146,7 @@ while.body43:                                     ; preds = %if.then33, %while.b
   %incdec.ptr50 = getelementptr inbounds i8, ptr %ivp34.053, i64 1
   %dec51 = add i64 %nbytes.addr.351, -1
   %tobool42.not = icmp eq i64 %dec51, 0
-  br i1 %tobool42.not, label %if.end53, label %while.body43, !llvm.loop !14
+  br i1 %tobool42.not, label %if.end53, label %while.body43, !llvm.loop !13
 
 if.end53:                                         ; preds = %while.body43, %if.end31
   %call54 = tail call ptr @EVP_CIPHER_CTX_iv_noconst(ptr noundef %ctx) #9
@@ -2161,7 +2161,7 @@ return:                                           ; preds = %if.then25, %if.end1
 declare i32 @padlock_ofb_encrypt(ptr noundef, ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @padlock_ctr_cipher(ptr noundef %ctx, ptr noundef %out_arg, ptr noundef %in_arg, i64 noundef %nbytes) #1 {
+define internal range(i32 0, 2) i32 @padlock_ctr_cipher(ptr noundef %ctx, ptr noundef %out_arg, ptr noundef %in_arg, i64 noundef %nbytes) #1 {
 entry:
   %num = alloca i32, align 4
   %call = tail call ptr @EVP_CIPHER_CTX_get_cipher_data(ptr noundef %ctx) #9
@@ -2224,14 +2224,13 @@ attributes #10 = { nounwind willreturn memory(read) }
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
 !3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = !{i32 -2, i32 1}
-!5 = distinct !{!5, !6}
-!6 = !{!"llvm.loop.mustprogress"}
-!7 = distinct !{!7, !6}
-!8 = distinct !{!8, !6}
-!9 = distinct !{!9, !6}
-!10 = distinct !{!10, !6}
-!11 = distinct !{!11, !6}
-!12 = distinct !{!12, !6}
-!13 = distinct !{!13, !6}
-!14 = distinct !{!14, !6}
+!4 = distinct !{!4, !5}
+!5 = !{!"llvm.loop.mustprogress"}
+!6 = distinct !{!6, !5}
+!7 = distinct !{!7, !5}
+!8 = distinct !{!8, !5}
+!9 = distinct !{!9, !5}
+!10 = distinct !{!10, !5}
+!11 = distinct !{!11, !5}
+!12 = distinct !{!12, !5}
+!13 = distinct !{!13, !5}

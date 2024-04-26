@@ -2421,7 +2421,7 @@ _ZN4core3fmt8builders9DebugList7entries17h2cc97e806b51800cE.exit: ; preds = %.lr
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
-define hidden noundef i8 @"_ZN4core3cmp5impls50_$LT$impl$u20$core..cmp..Ord$u20$for$u20$usize$GT$3cmp17he0bff06e137ef0d3E.llvm.7442130522521287225"(ptr noalias nocapture noundef readonly align 8 dereferenceable(8) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(8) %1) unnamed_addr #6 {
+define hidden noundef range(i8 -1, 2) i8 @"_ZN4core3cmp5impls50_$LT$impl$u20$core..cmp..Ord$u20$for$u20$usize$GT$3cmp17he0bff06e137ef0d3E.llvm.7442130522521287225"(ptr noalias nocapture noundef readonly align 8 dereferenceable(8) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(8) %1) unnamed_addr #6 {
   %3 = load i64, ptr %0, align 8, !noundef !10
   %4 = load i64, ptr %1, align 8, !noundef !10
   %5 = icmp ult i64 %3, %4
@@ -2563,7 +2563,7 @@ define hidden void @_ZN4core3fmt9Arguments6new_v117hf40ea9300502eef6E.llvm.74421
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read, inaccessiblemem: read) uwtable
-define hidden noundef i8 @_ZN4core3ops8function5FnMut8call_mut17h43d379970fedc9baE.llvm.7442130522521287225(ptr noalias nocapture noundef nonnull readnone align 1 %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(8) %1, ptr noalias nocapture noundef readonly align 8 dereferenceable(8) %2) unnamed_addr #7 {
+define hidden noundef range(i8 -1, 2) i8 @_ZN4core3ops8function5FnMut8call_mut17h43d379970fedc9baE.llvm.7442130522521287225(ptr noalias nocapture noundef nonnull readnone align 1 %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(8) %1, ptr noalias nocapture noundef readonly align 8 dereferenceable(8) %2) unnamed_addr #7 {
   tail call void @llvm.experimental.noalias.scope.decl(metadata !234)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !237)
   %4 = load i64, ptr %1, align 8, !alias.scope !234, !noalias !237, !noundef !10
@@ -2594,7 +2594,7 @@ define hidden void @"_ZN4core3ops8function5impls79_$LT$impl$u20$core..ops..funct
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read, inaccessiblemem: read) uwtable
-define hidden noundef i8 @"_ZN4core3ops8function5impls80_$LT$impl$u20$core..ops..function..FnOnce$LT$A$GT$$u20$for$u20$$RF$mut$u20$F$GT$9call_once17h29910f2b1379b657E"(ptr noalias nocapture noundef nonnull readnone align 1 %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(8) %1, ptr noalias nocapture noundef readonly align 8 dereferenceable(8) %2) unnamed_addr #8 {
+define hidden noundef range(i8 -1, 2) i8 @"_ZN4core3ops8function5impls80_$LT$impl$u20$core..ops..function..FnOnce$LT$A$GT$$u20$for$u20$$RF$mut$u20$F$GT$9call_once17h29910f2b1379b657E"(ptr noalias nocapture noundef nonnull readnone align 1 %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(8) %1, ptr noalias nocapture noundef readonly align 8 dereferenceable(8) %2) unnamed_addr #8 {
   tail call void @llvm.experimental.noalias.scope.decl(metadata !248)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !251)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !253)
@@ -10868,7 +10868,7 @@ define hidden noundef align 8 dereferenceable(8) ptr @"_ZN97_$LT$rustc_data_stru
 }
 
 ; Function Attrs: nonlazybind uwtable
-define noundef i32 @"_ZN80_$LT$rustc_ast..node_id..NodeId$u20$as$u20$rustfmt_nightly..utils..NodeIdExt$GT$4root17hcd0b0af7f7cdf501E"() unnamed_addr #3 {
+define noundef range(i32 0, -255) i32 @"_ZN80_$LT$rustc_ast..node_id..NodeId$u20$as$u20$rustfmt_nightly..utils..NodeIdExt$GT$4root17hcd0b0af7f7cdf501E"() unnamed_addr #3 {
   %1 = tail call noundef i32 @_RNvMNtCs2al5CLA23zg_9rustc_ast7node_idNtB2_6NodeId24placeholder_from_expn_id(i32 noundef 0), !range !1496
   ret i32 %1
 }
@@ -16985,7 +16985,7 @@ define hidden noundef zeroext i1 @_ZN15rustfmt_nightly5lists8ListItem14is_substa
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define hidden noundef i64 @_ZN15rustfmt_nightly5lists9Separator3len17h8a29975da6f0310fE(i1 noundef zeroext %0) unnamed_addr #4 {
+define hidden noundef range(i64 2, 4) i64 @_ZN15rustfmt_nightly5lists9Separator3len17h8a29975da6f0310fE(i1 noundef zeroext %0) unnamed_addr #4 {
   %. = select i1 %0, i64 3, i64 2
   ret i64 %.
 }

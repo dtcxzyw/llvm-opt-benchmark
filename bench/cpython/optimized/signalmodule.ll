@@ -1170,7 +1170,7 @@ do.end20:                                         ; preds = %do.body13, %if.then
 declare ptr @PyOS_setsig(i32 noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @PyErr_CheckSignals() local_unnamed_addr #1 {
+define dso_local range(i32 -1, 1) i32 @PyErr_CheckSignals() local_unnamed_addr #1 {
 entry:
   %0 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_Py_tss_tstate)
   %1 = load ptr, ptr %0, align 8
@@ -1217,7 +1217,7 @@ if.end:                                           ; preds = %_Py_set_eval_breake
   br i1 %narrow.i.not, label %return, label %if.end6
 
 if.end6:                                          ; preds = %if.end
-  %call7 = tail call i32 @_PyErr_CheckSignalsTstate(ptr noundef nonnull %1), !range !7
+  %call7 = tail call i32 @_PyErr_CheckSignalsTstate(ptr noundef nonnull %1)
   br label %return
 
 return:                                           ; preds = %if.end, %if.end6
@@ -1228,7 +1228,7 @@ return:                                           ; preds = %if.end, %if.end6
 declare void @_Py_RunGC(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @_PyErr_CheckSignalsTstate(ptr noundef %tstate) local_unnamed_addr #1 {
+define hidden range(i32 -1, 1) i32 @_PyErr_CheckSignalsTstate(ptr noundef %tstate) local_unnamed_addr #1 {
 entry:
   %0 = load atomic i32, ptr getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 15, i32 2) seq_cst, align 8
   %tobool.not = icmp eq i32 %0, 0
@@ -1266,7 +1266,7 @@ while.body.i.i:                                   ; preds = %_PyFrame_IsIncomple
   %previous.i.i = getelementptr inbounds i8, ptr %frame.addr.08.i.i, i64 8
   %5 = load ptr, ptr %previous.i.i, align 8
   %tobool.not.i.i = icmp eq ptr %5, null
-  br i1 %tobool.not.i.i, label %_PyThreadState_GetFrame.exit, label %land.rhs.i.i, !llvm.loop !8
+  br i1 %tobool.not.i.i, label %_PyThreadState_GetFrame.exit, label %land.rhs.i.i, !llvm.loop !7
 
 _PyThreadState_GetFrame.exit:                     ; preds = %land.rhs.i.i, %_PyFrame_IsIncomplete.exit.i.i, %while.body.i.i, %if.end
   %frame.addr.0.lcssa.i.i = phi ptr [ null, %if.end ], [ %frame.addr.08.i.i, %land.rhs.i.i ], [ null, %while.body.i.i ], [ %frame.addr.08.i.i, %_PyFrame_IsIncomplete.exit.i.i ]
@@ -1394,7 +1394,7 @@ if.then1.i:                                       ; preds = %if.end.i
 for.inc:                                          ; preds = %if.end.i, %if.then1.i, %if.end37, %for.body, %if.then18
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 65
-  br i1 %exitcond.not, label %return, label %for.body, !llvm.loop !9
+  br i1 %exitcond.not, label %return, label %for.body, !llvm.loop !8
 
 return:                                           ; preds = %for.inc, %entry, %if.then36
   %retval.0 = phi i32 [ -1, %if.then36 ], [ 0, %entry ], [ 0, %for.inc ]
@@ -1410,16 +1410,16 @@ declare ptr @Py_BuildValue(ptr noundef, ...) local_unnamed_addr #2
 declare ptr @_PyObject_Call(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @_PyErr_CheckSignals() local_unnamed_addr #1 {
+define hidden range(i32 -1, 1) i32 @_PyErr_CheckSignals() local_unnamed_addr #1 {
 entry:
   %0 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_Py_tss_tstate)
   %1 = load ptr, ptr %0, align 8
-  %call1 = tail call i32 @_PyErr_CheckSignalsTstate(ptr noundef %1), !range !7
+  %call1 = tail call i32 @_PyErr_CheckSignalsTstate(ptr noundef %1)
   ret i32 %call1
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @PyErr_SetInterruptEx(i32 noundef %signum) local_unnamed_addr #1 {
+define dso_local range(i32 -1, 1) i32 @PyErr_SetInterruptEx(i32 noundef %signum) local_unnamed_addr #1 {
 entry:
   %byte.i = alloca i8, align 1
   %0 = add i32 %signum, -65
@@ -1510,7 +1510,7 @@ return:                                           ; preds = %compare_handler.exi
 ; Function Attrs: nounwind uwtable
 define dso_local void @PyErr_SetInterrupt() local_unnamed_addr #1 {
 entry:
-  %call = tail call i32 @PyErr_SetInterruptEx(i32 noundef 2), !range !7
+  %call = tail call i32 @PyErr_SetInterruptEx(i32 noundef 2)
   ret void
 }
 
@@ -1523,7 +1523,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @_PySignal_Init(i32 noundef %install_signal_handlers) local_unnamed_addr #1 {
+define hidden range(i32 -1, 1) i32 @_PySignal_Init(i32 noundef %install_signal_handlers) local_unnamed_addr #1 {
 entry:
   %call = tail call ptr @PyLong_FromVoidPtr(ptr noundef null) #15
   store ptr %call, ptr getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 15, i32 3), align 8
@@ -1542,7 +1542,7 @@ for.body:                                         ; preds = %if.end, %for.body
   store atomic i32 0, ptr %arrayidx monotonic, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 65
-  br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !10
+  br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !9
 
 for.end:                                          ; preds = %for.body
   %tobool.not = icmp eq i32 %install_signal_handlers, 0
@@ -1579,7 +1579,7 @@ return:                                           ; preds = %if.end.i.i, %if.the
 declare ptr @PyLong_FromVoidPtr(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @_PyOS_InterruptOccurred(ptr noundef readonly %tstate) local_unnamed_addr #1 {
+define hidden range(i32 0, 2) i32 @_PyOS_InterruptOccurred(ptr noundef readonly %tstate) local_unnamed_addr #1 {
 entry:
   %cmp.i = icmp eq ptr %tstate, null
   br i1 %cmp.i, label %if.then.i, label %_Py_EnsureFuncTstateNotNULL.exit
@@ -1614,7 +1614,7 @@ return:                                           ; preds = %if.end, %_Py_Ensure
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @PyOS_InterruptOccurred() local_unnamed_addr #1 {
+define dso_local range(i32 0, 2) i32 @PyOS_InterruptOccurred() local_unnamed_addr #1 {
 entry:
   %0 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_Py_tss_tstate)
   %1 = load ptr, ptr %0, align 8
@@ -1667,14 +1667,14 @@ for.body.i:                                       ; preds = %for.body.i, %if.end
   store atomic i32 0, ptr %arrayidx.i monotonic, align 8
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 65
-  br i1 %exitcond.not.i, label %_clear_pending_signals.exit, label %for.body.i, !llvm.loop !11
+  br i1 %exitcond.not.i, label %_clear_pending_signals.exit, label %for.body.i, !llvm.loop !10
 
 _clear_pending_signals.exit:                      ; preds = %for.body.i, %entry
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @_PyOS_IsMainThread() local_unnamed_addr #1 {
+define dso_local range(i32 0, 2) i32 @_PyOS_IsMainThread() local_unnamed_addr #1 {
 entry:
   %0 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_Py_tss_tstate)
   %1 = load ptr, ptr %0, align 8
@@ -2481,8 +2481,9 @@ if.end.i.i:                                       ; preds = %_Py_set_eval_breake
   br i1 %narrow.i.not.i.i, label %PyErr_CheckSignals.exit.thread.i, label %PyErr_CheckSignals.exit.i
 
 PyErr_CheckSignals.exit.i:                        ; preds = %if.end.i.i
-  %call7.i.i = tail call i32 @_PyErr_CheckSignalsTstate(ptr noundef nonnull %1), !range !7
-  %tobool.not.i = icmp eq i32 %call7.i.i, 0
+  %call7.i.i = tail call i32 @_PyErr_CheckSignalsTstate(ptr noundef nonnull %1)
+  %call7.i.fr.i = freeze i32 %call7.i.i
+  %tobool.not.i = icmp eq i32 %call7.i.fr.i, 0
   br i1 %tobool.not.i, label %PyErr_CheckSignals.exit.thread.i, label %signal_pause_impl.exit
 
 PyErr_CheckSignals.exit.thread.i:                 ; preds = %PyErr_CheckSignals.exit.i, %if.end.i.i
@@ -2720,7 +2721,7 @@ if.end.i.i:                                       ; preds = %_Py_set_eval_breake
   br i1 %narrow.i.not.i.i, label %if.end5.i, label %PyErr_CheckSignals.exit.i
 
 PyErr_CheckSignals.exit.i:                        ; preds = %if.end.i.i
-  %call7.i.i = call i32 @_PyErr_CheckSignalsTstate(ptr noundef nonnull %4), !range !7
+  %call7.i.i = call i32 @_PyErr_CheckSignalsTstate(ptr noundef nonnull %4)
   %tobool.not.i = icmp eq i32 %call7.i.i, 0
   br i1 %tobool.not.i, label %if.end5.i, label %signal_pthread_sigmask_impl.exit
 
@@ -2882,13 +2883,13 @@ if.end.i.i:                                       ; preds = %_Py_set_eval_breake
   br i1 %narrow.i.not.i.i, label %PyErr_CheckSignals.exit.i, label %if.end6.i.i
 
 if.end6.i.i:                                      ; preds = %if.end.i.i
-  %call7.i.i = call i32 @_PyErr_CheckSignalsTstate(ptr noundef nonnull %2), !range !7
+  %call7.i.i = call i32 @_PyErr_CheckSignalsTstate(ptr noundef nonnull %2)
   br label %PyErr_CheckSignals.exit.i
 
 PyErr_CheckSignals.exit.i:                        ; preds = %if.end6.i.i, %if.end.i.i
   %retval.0.i.i = phi i32 [ %call7.i.i, %if.end6.i.i ], [ 0, %if.end.i.i ]
   %tobool.not.i = icmp eq i32 %retval.0.i.i, 0
-  br i1 %tobool.not.i, label %do.body.i, label %signal_sigwaitinfo_impl.exit, !llvm.loop !12
+  br i1 %tobool.not.i, label %do.body.i, label %signal_sigwaitinfo_impl.exit, !llvm.loop !11
 
 cond.true.i:                                      ; preds = %land.lhs.true.i
   %15 = load ptr, ptr @PyExc_OSError, align 8
@@ -3035,7 +3036,7 @@ if.end.i.i:                                       ; preds = %_Py_set_eval_breake
   br i1 %narrow.i.not.i.i, label %if.end24.i, label %PyErr_CheckSignals.exit.i
 
 PyErr_CheckSignals.exit.i:                        ; preds = %if.end.i.i
-  %call7.i.i = call i32 @_PyErr_CheckSignalsTstate(ptr noundef nonnull %8), !range !7
+  %call7.i.i = call i32 @_PyErr_CheckSignalsTstate(ptr noundef nonnull %8)
   %tobool.not.i = icmp eq i32 %call7.i.i, 0
   br i1 %tobool.not.i, label %if.end24.i, label %signal_sigtimedwait_impl.exit
 
@@ -3278,7 +3279,7 @@ if.else16:                                        ; preds = %if.end.i18, %if.els
 
 if.end19:                                         ; preds = %compare_handler.exit26, %compare_handler.exit, %if.end5
   %func.0 = phi ptr [ @signal_handler, %if.end5 ], [ inttoptr (i64 1 to ptr), %compare_handler.exit ], [ null, %compare_handler.exit26 ]
-  %call20 = tail call i32 @_PyErr_CheckSignalsTstate(ptr noundef nonnull %1), !range !7
+  %call20 = tail call i32 @_PyErr_CheckSignalsTstate(ptr noundef nonnull %1)
   %tobool21.not = icmp eq i32 %call20, 0
   br i1 %tobool21.not, label %if.end23, label %return
 
@@ -3429,8 +3430,9 @@ if.end.i:                                         ; preds = %_Py_set_eval_breake
   br i1 %narrow.i.not.i, label %PyErr_CheckSignals.exit.thread, label %PyErr_CheckSignals.exit
 
 PyErr_CheckSignals.exit:                          ; preds = %if.end.i
-  %call7.i = tail call i32 @_PyErr_CheckSignalsTstate(ptr noundef nonnull %2), !range !7
-  %tobool4.not = icmp eq i32 %call7.i, 0
+  %call7.i = tail call i32 @_PyErr_CheckSignalsTstate(ptr noundef nonnull %2)
+  %call7.i.fr = freeze i32 %call7.i
+  %tobool4.not = icmp eq i32 %call7.i.fr, 0
   br i1 %tobool4.not, label %PyErr_CheckSignals.exit.thread, label %return
 
 PyErr_CheckSignals.exit.thread:                   ; preds = %if.end.i, %PyErr_CheckSignals.exit
@@ -3543,8 +3545,9 @@ if.end.i:                                         ; preds = %_Py_set_eval_breake
   br i1 %narrow.i.not.i, label %PyErr_CheckSignals.exit.thread, label %PyErr_CheckSignals.exit
 
 PyErr_CheckSignals.exit:                          ; preds = %if.end.i
-  %call7.i = tail call i32 @_PyErr_CheckSignalsTstate(ptr noundef nonnull %2), !range !7
-  %tobool.not = icmp eq i32 %call7.i, 0
+  %call7.i = tail call i32 @_PyErr_CheckSignalsTstate(ptr noundef nonnull %2)
+  %call7.i.fr = freeze i32 %call7.i
+  %tobool.not = icmp eq i32 %call7.i.fr, 0
   br i1 %tobool.not, label %PyErr_CheckSignals.exit.thread, label %return
 
 PyErr_CheckSignals.exit.thread:                   ; preds = %if.end.i, %PyErr_CheckSignals.exit
@@ -3645,7 +3648,7 @@ if.then1.i:                                       ; preds = %if.end.i
 for.inc:                                          ; preds = %if.end.i, %if.then1.i, %if.end15, %for.body
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 65
-  br i1 %exitcond.not, label %return, label %for.body, !llvm.loop !13
+  br i1 %exitcond.not, label %return, label %for.body, !llvm.loop !12
 
 return.sink.split:                                ; preds = %if.end.i19, %if.end.i37
   call void @_Py_Dealloc(ptr noundef nonnull %call) #15
@@ -3755,7 +3758,7 @@ declare i32 @sigemptyset(ptr noundef) local_unnamed_addr #4
 declare i32 @sigfillset(ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @signal_module_exec(ptr noundef %m) #1 {
+define internal range(i32 -1, 1) i32 @signal_module_exec(ptr noundef %m) #1 {
 entry:
   %0 = getelementptr i8, ptr %m, i64 32
   %m.val = load ptr, ptr %0, align 8
@@ -4087,7 +4090,7 @@ if.then1.i.i.i:                                   ; preds = %if.end.i.i14.i
 Py_XDECREF.exit.i:                                ; preds = %if.then1.i.i.i, %if.end.i.i14.i, %if.then.i.i, %_Py_NewRef.exit.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 65
-  br i1 %exitcond.not.i, label %for.end.i, label %for.body.i, !llvm.loop !14
+  br i1 %exitcond.not.i, label %for.end.i, label %for.body.i, !llvm.loop !13
 
 for.end.i:                                        ; preds = %Py_XDECREF.exit.i
   %20 = load atomic i64, ptr getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 15, i32 0, i64 2, i32 1) seq_cst, align 8
@@ -4239,11 +4242,10 @@ attributes #18 = { nounwind willreturn memory(read) }
 !4 = !{i32 7, !"frame-pointer", i32 2}
 !5 = distinct !{!5, !6}
 !6 = !{!"llvm.loop.mustprogress"}
-!7 = !{i32 -1, i32 1}
+!7 = distinct !{!7, !6}
 !8 = distinct !{!8, !6}
 !9 = distinct !{!9, !6}
 !10 = distinct !{!10, !6}
 !11 = distinct !{!11, !6}
 !12 = distinct !{!12, !6}
 !13 = distinct !{!13, !6}
-!14 = distinct !{!14, !6}

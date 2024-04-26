@@ -456,49 +456,49 @@ for.inc.i24:                                      ; preds = %while.body.preheade
   br i1 %cmp1.i26, label %for.body.i18, label %for.end.i, !llvm.loop !11
 
 for.end.i:                                        ; preds = %for.inc.i24
-  %cmp51.i.i = icmp sgt i32 %52, 0
-  br i1 %cmp51.i.i, label %for.body.i.i, label %if.end9.thread.i
+  %cmp53.i.i = icmp sgt i32 %52, 0
+  br i1 %cmp53.i.i, label %for.body.i.i, label %if.end9.thread.i
 
 for.body.i.i:                                     ; preds = %for.end.i, %if.end5.i.i
-  %.pre62.i.i = phi i32 [ %.pre63.i.i, %if.end5.i.i ], [ %52, %for.end.i ]
+  %.pre64.i.i = phi i32 [ %.pre65.i.i, %if.end5.i.i ], [ %52, %for.end.i ]
   %54 = phi i32 [ %60, %if.end5.i.i ], [ %52, %for.end.i ]
   %indvars.iv.i.i = phi i64 [ %indvars.iv.next.i.i, %if.end5.i.i ], [ 0, %for.end.i ]
-  %size.054.i.i = phi i32 [ %add.i37.i, %if.end5.i.i ], [ 0, %for.end.i ]
-  %loc.sroa.0.053.i.i = phi i64 [ %loc.sroa.0.1.i.i, %if.end5.i.i ], [ -1, %for.end.i ]
-  %loc.sroa.5.052.i.i = phi i64 [ %loc.sroa.5.1.i.i, %if.end5.i.i ], [ -1, %for.end.i ]
+  %size.056.i.i = phi i32 [ %add.i37.i, %if.end5.i.i ], [ 0, %for.end.i ]
+  %loc.sroa.0.055.i.i = phi i64 [ %loc.sroa.0.1.i.i, %if.end5.i.i ], [ -1, %for.end.i ]
+  %loc.sroa.5.054.i.i = phi i64 [ %loc.sroa.5.1.i.i, %if.end5.i.i ], [ -1, %for.end.i ]
   %55 = load ptr, ptr %instrs, align 8
   %arrayidx.i.i27 = getelementptr %struct._PyCompile_Instruction, ptr %55, i64 %indvars.iv.i.i
   %i_loc.i.i = getelementptr inbounds i8, ptr %arrayidx.i.i27, i64 8
   %56 = load i64, ptr %i_loc.i.i, align 4
   %57 = getelementptr inbounds i8, ptr %arrayidx.i.i27, i64 16
   %58 = load i64, ptr %57, align 4
-  %or.cond.i.i.i = icmp eq i64 %loc.sroa.0.053.i.i, %56
-  %59 = icmp eq i64 %loc.sroa.5.052.i.i, %58
+  %or.cond.i.i.i = icmp eq i64 %loc.sroa.0.055.i.i, %56
+  %59 = icmp eq i64 %loc.sroa.5.054.i.i, %58
   %or.cond.i.i = select i1 %or.cond.i.i.i, i1 %59, i1 false
   br i1 %or.cond.i.i, label %if.end5.i.i, label %if.then.i25.i
 
 if.then.i25.i:                                    ; preds = %for.body.i.i
-  %cmp.i.i26.i = icmp eq i32 %size.054.i.i, 0
+  %cmp.i.i26.i = icmp eq i32 %size.056.i.i, 0
   br i1 %cmp.i.i26.i, label %if.end5.i.i, label %while.cond.preheader.i.i.i
 
 while.cond.preheader.i.i.i:                       ; preds = %if.then.i25.i
-  %cmp18.i.i.i = icmp sgt i32 %size.054.i.i, 8
+  %cmp18.i.i.i = icmp sgt i32 %size.056.i.i, 8
   br i1 %cmp18.i.i.i, label %while.body.i.i.i, label %assemble_emit_location.exit.i.i
 
 while.body.i.i.i:                                 ; preds = %while.cond.preheader.i.i.i, %if.end4.i.i.i
-  %isize.addr.09.i.i.i = phi i32 [ %sub.i.i40.i, %if.end4.i.i.i ], [ %size.054.i.i, %while.cond.preheader.i.i.i ]
-  %call.i.i.i = call fastcc i32 @write_location_info_entry(ptr noundef nonnull %a, i64 %loc.sroa.0.053.i.i, i64 %loc.sroa.5.052.i.i, i32 noundef 8), !range !12
+  %isize.addr.09.i.i.i = phi i32 [ %sub.i.i40.i, %if.end4.i.i.i ], [ %size.056.i.i, %while.cond.preheader.i.i.i ]
+  %call.i.i.i = call fastcc i32 @write_location_info_entry(ptr noundef nonnull %a, i64 %loc.sroa.0.055.i.i, i64 %loc.sroa.5.054.i.i, i32 noundef 8)
   %cmp2.i.i.i = icmp slt i32 %call.i.i.i, 0
   br i1 %cmp2.i.i.i, label %if.end9, label %if.end4.i.i.i
 
 if.end4.i.i.i:                                    ; preds = %while.body.i.i.i
   %sub.i.i40.i = add nsw i32 %isize.addr.09.i.i.i, -8
   %cmp1.i.i41.i = icmp sgt i32 %isize.addr.09.i.i.i, 16
-  br i1 %cmp1.i.i41.i, label %while.body.i.i.i, label %assemble_emit_location.exit.i.i, !llvm.loop !13
+  br i1 %cmp1.i.i41.i, label %while.body.i.i.i, label %assemble_emit_location.exit.i.i, !llvm.loop !12
 
 assemble_emit_location.exit.i.i:                  ; preds = %if.end4.i.i.i, %while.cond.preheader.i.i.i
-  %isize.addr.0.lcssa.i.i.i = phi i32 [ %size.054.i.i, %while.cond.preheader.i.i.i ], [ %sub.i.i40.i, %if.end4.i.i.i ]
-  %call5.i.i.i = call fastcc i32 @write_location_info_entry(ptr noundef nonnull %a, i64 %loc.sroa.0.053.i.i, i64 %loc.sroa.5.052.i.i, i32 noundef %isize.addr.0.lcssa.i.i.i), !range !12
+  %isize.addr.0.lcssa.i.i.i = phi i32 [ %size.056.i.i, %while.cond.preheader.i.i.i ], [ %sub.i.i40.i, %if.end4.i.i.i ]
+  %call5.i.i.i = call fastcc i32 @write_location_info_entry(ptr noundef nonnull %a, i64 %loc.sroa.0.055.i.i, i64 %loc.sroa.5.054.i.i, i32 noundef %isize.addr.0.lcssa.i.i.i)
   %cmp2.i.i = icmp slt i32 %call5.i.i.i, 0
   br i1 %cmp2.i.i, label %if.end9, label %assemble_emit_location.exit.if.end_crit_edge.i.i
 
@@ -509,11 +509,11 @@ assemble_emit_location.exit.if.end_crit_edge.i.i: ; preds = %assemble_emit_locat
   br label %if.end5.i.i
 
 if.end5.i.i:                                      ; preds = %assemble_emit_location.exit.if.end_crit_edge.i.i, %if.then.i25.i, %for.body.i.i
-  %.pre63.i.i = phi i32 [ %.pre62.i.i, %for.body.i.i ], [ %.pre.pre.i.i, %assemble_emit_location.exit.if.end_crit_edge.i.i ], [ %.pre62.i.i, %if.then.i25.i ]
-  %60 = phi i32 [ %54, %for.body.i.i ], [ %.pre.pre.i.i, %assemble_emit_location.exit.if.end_crit_edge.i.i ], [ %.pre62.i.i, %if.then.i25.i ]
-  %loc.sroa.5.1.i.i = phi i64 [ %loc.sroa.5.052.i.i, %for.body.i.i ], [ %loc.sroa.5.0.copyload10.pre.i.i, %assemble_emit_location.exit.if.end_crit_edge.i.i ], [ %58, %if.then.i25.i ]
-  %loc.sroa.0.1.i.i = phi i64 [ %loc.sroa.0.053.i.i, %for.body.i.i ], [ %loc.sroa.0.0.copyload9.pre.i.i, %assemble_emit_location.exit.if.end_crit_edge.i.i ], [ %56, %if.then.i25.i ]
-  %size.1.i.i = phi i32 [ %size.054.i.i, %for.body.i.i ], [ 0, %assemble_emit_location.exit.if.end_crit_edge.i.i ], [ 0, %if.then.i25.i ]
+  %.pre65.i.i = phi i32 [ %.pre64.i.i, %for.body.i.i ], [ %.pre.pre.i.i, %assemble_emit_location.exit.if.end_crit_edge.i.i ], [ %.pre64.i.i, %if.then.i25.i ]
+  %60 = phi i32 [ %54, %for.body.i.i ], [ %.pre.pre.i.i, %assemble_emit_location.exit.if.end_crit_edge.i.i ], [ %.pre64.i.i, %if.then.i25.i ]
+  %loc.sroa.5.1.i.i = phi i64 [ %loc.sroa.5.054.i.i, %for.body.i.i ], [ %loc.sroa.5.0.copyload10.pre.i.i, %assemble_emit_location.exit.if.end_crit_edge.i.i ], [ %58, %if.then.i25.i ]
+  %loc.sroa.0.1.i.i = phi i64 [ %loc.sroa.0.055.i.i, %for.body.i.i ], [ %loc.sroa.0.0.copyload9.pre.i.i, %assemble_emit_location.exit.if.end_crit_edge.i.i ], [ %56, %if.then.i25.i ]
+  %size.1.i.i = phi i32 [ %size.056.i.i, %for.body.i.i ], [ 0, %assemble_emit_location.exit.if.end_crit_edge.i.i ], [ 0, %if.then.i25.i ]
   %arrayidx.val.i.i = load i32, ptr %arrayidx.i.i27, align 4
   %61 = getelementptr i8, ptr %arrayidx.i.i27, i64 4
   %arrayidx.val16.i.i = load i32, ptr %61, align 4
@@ -534,7 +534,7 @@ if.end5.i.i:                                      ; preds = %assemble_emit_locat
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %63 = sext i32 %60 to i64
   %cmp.i38.i = icmp slt i64 %indvars.iv.next.i.i, %63
-  br i1 %cmp.i38.i, label %for.body.i.i, label %for.end.i.i, !llvm.loop !14
+  br i1 %cmp.i38.i, label %for.body.i.i, label %for.end.i.i, !llvm.loop !13
 
 for.end.i.i:                                      ; preds = %if.end5.i.i
   %cmp.i19.i.i = icmp eq i32 %add.i37.i, 0
@@ -546,19 +546,20 @@ while.cond.preheader.i20.i.i:                     ; preds = %for.end.i.i
 
 while.body.i26.i.i:                               ; preds = %while.cond.preheader.i20.i.i, %if.end4.i30.i.i
   %isize.addr.09.i27.i.i = phi i32 [ %sub.i31.i.i, %if.end4.i30.i.i ], [ %add.i37.i, %while.cond.preheader.i20.i.i ]
-  %call.i28.i.i = call fastcc i32 @write_location_info_entry(ptr noundef nonnull %a, i64 %loc.sroa.0.1.i.i, i64 %loc.sroa.5.1.i.i, i32 noundef 8), !range !12
+  %call.i28.i.i = call fastcc i32 @write_location_info_entry(ptr noundef nonnull %a, i64 %loc.sroa.0.1.i.i, i64 %loc.sroa.5.1.i.i, i32 noundef 8)
   %cmp2.i29.i.i = icmp slt i32 %call.i28.i.i, 0
   br i1 %cmp2.i29.i.i, label %if.end9, label %if.end4.i30.i.i
 
 if.end4.i30.i.i:                                  ; preds = %while.body.i26.i.i
   %sub.i31.i.i = add nsw i32 %isize.addr.09.i27.i.i, -8
   %cmp1.i32.i.i = icmp sgt i32 %isize.addr.09.i27.i.i, 16
-  br i1 %cmp1.i32.i.i, label %while.body.i26.i.i, label %assemble_emit_location.exit33.i.i, !llvm.loop !13
+  br i1 %cmp1.i32.i.i, label %while.body.i26.i.i, label %assemble_emit_location.exit33.i.i, !llvm.loop !12
 
 assemble_emit_location.exit33.i.i:                ; preds = %if.end4.i30.i.i, %while.cond.preheader.i20.i.i
   %isize.addr.0.lcssa.i23.i.i = phi i32 [ %add.i37.i, %while.cond.preheader.i20.i.i ], [ %sub.i31.i.i, %if.end4.i30.i.i ]
-  %call5.i24.i.i = call fastcc i32 @write_location_info_entry(ptr noundef nonnull %a, i64 %loc.sroa.0.1.i.i, i64 %loc.sroa.5.1.i.i, i32 noundef %isize.addr.0.lcssa.i23.i.i), !range !12
-  %cmp8.i39.i = icmp slt i32 %call5.i24.i.i, 0
+  %call5.i24.i.i = call fastcc i32 @write_location_info_entry(ptr noundef nonnull %a, i64 %loc.sroa.0.1.i.i, i64 %loc.sroa.5.1.i.i, i32 noundef %isize.addr.0.lcssa.i23.i.i)
+  %call5.i24.fr.i.i = freeze i32 %call5.i24.i.i
+  %cmp8.i39.i = icmp slt i32 %call5.i24.fr.i.i, 0
   br i1 %cmp8.i39.i, label %if.end9, label %assemble_emit_location.exit33.i.if.end9_crit_edge.i
 
 assemble_emit_location.exit33.i.if.end9_crit_edge.i: ; preds = %assemble_emit_location.exit33.i.i
@@ -570,7 +571,7 @@ if.end9.thread.i:                                 ; preds = %for.end.i, %for.con
   br label %if.end13.i
 
 if.end9.i:                                        ; preds = %assemble_emit_location.exit33.i.if.end9_crit_edge.i, %for.end.i.i
-  %64 = phi i32 [ %.pre.i28, %assemble_emit_location.exit33.i.if.end9_crit_edge.i ], [ %.pre63.i.i, %for.end.i.i ]
+  %64 = phi i32 [ %.pre.i28, %assemble_emit_location.exit33.i.if.end9_crit_edge.i ], [ %.pre65.i.i, %for.end.i.i ]
   call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %handler.i.i)
   store i32 -1, ptr %handler.i.i, align 4
   %h_startdepth.i.i = getelementptr inbounds i8, ptr %handler.i.i, i64 4
@@ -602,7 +603,7 @@ if.then6.i.i:                                     ; preds = %if.then.i47.i
   %idxprom9.i.i = zext nneg i32 %68 to i64
   %i_offset.i.i = getelementptr %struct._PyCompile_Instruction, ptr %66, i64 %idxprom9.i.i, i32 5
   %69 = load i32, ptr %i_offset.i.i, align 4
-  %call.i67.i = call fastcc i32 @assemble_emit_exception_table_entry(ptr noundef nonnull %a, i32 noundef %start.019.i.i, i32 noundef %ioffset.020.i.i, i32 noundef %69, ptr noundef nonnull %handler.i.i), !range !12
+  %call.i67.i = call fastcc i32 @assemble_emit_exception_table_entry(ptr noundef nonnull %a, i32 noundef %start.019.i.i, i32 noundef %ioffset.020.i.i, i32 noundef %69, ptr noundef nonnull %handler.i.i)
   %cmp11.i68.i = icmp slt i32 %call.i67.i, 0
   br i1 %cmp11.i68.i, label %assemble_exception_table.exit.thread.i, label %if.then6.if.end13_crit_edge.i.i
 
@@ -639,7 +640,7 @@ if.end15.i.i:                                     ; preds = %if.end13.i.i, %for.
   %indvars.iv.next.i64.i = add nuw nsw i64 %indvars.iv.i45.i, 1
   %73 = sext i32 %70 to i64
   %cmp.i65.i = icmp slt i64 %indvars.iv.next.i64.i, %73
-  br i1 %cmp.i65.i, label %for.body.i44.i, label %for.end.i66.i, !llvm.loop !15
+  br i1 %cmp.i65.i, label %for.body.i44.i, label %for.end.i66.i, !llvm.loop !14
 
 for.end.i66.i:                                    ; preds = %if.end15.i.i
   %.pre23.i.i = load i32, ptr %handler.i.i, align 4
@@ -651,7 +652,7 @@ if.then19.i.i:                                    ; preds = %for.end.i66.i
   %idxprom23.i.i = zext nneg i32 %.pre23.i.i to i64
   %i_offset25.i.i = getelementptr %struct._PyCompile_Instruction, ptr %74, i64 %idxprom23.i.i, i32 5
   %75 = load i32, ptr %i_offset25.i.i, align 4
-  %call26.i.i = call fastcc i32 @assemble_emit_exception_table_entry(ptr noundef nonnull %a, i32 noundef %start.1.i.i, i32 noundef %add.i63.i, i32 noundef %75, ptr noundef nonnull %handler.i.i), !range !12
+  %call26.i.i = call fastcc i32 @assemble_emit_exception_table_entry(ptr noundef nonnull %a, i32 noundef %start.1.i.i, i32 noundef %add.i63.i, i32 noundef %75, ptr noundef nonnull %handler.i.i)
   %cmp27.i.i = icmp slt i32 %call26.i.i, 0
   br i1 %cmp27.i.i, label %assemble_exception_table.exit.thread.i, label %if.end13.i
 
@@ -771,7 +772,7 @@ _Py_NewRef.exit.i.i:                              ; preds = %if.end.i.i.i.i31, %
   store ptr %84, ptr %arrayidx.i.i.i32, align 8
   %call2.i.i33 = call i32 @PyDict_Next(ptr noundef %79, ptr noundef nonnull %pos.i.i, ptr noundef nonnull %k.i.i, ptr noundef nonnull %v.i.i) #6
   %tobool.not.i.i = icmp eq i32 %call2.i.i33, 0
-  br i1 %tobool.not.i.i, label %if.end.i, label %while.body.i.i, !llvm.loop !16
+  br i1 %tobool.not.i.i, label %if.end.i, label %while.body.i.i, !llvm.loop !15
 
 error.thread.i:                                   ; preds = %if.then1.i.i.i, %if.end.i.i.i, %if.then7.i.i, %if.then7
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %k.i.i)
@@ -873,7 +874,7 @@ if.end16.i.i:                                     ; preds = %if.end7.i.i39
   %97 = load ptr, ptr %u_varnames.i.i, align 8
   %call.i.i40 = call i32 @PyDict_Next(ptr noundef %97, ptr noundef nonnull %pos.i22.i, ptr noundef nonnull %k.i20.i, ptr noundef nonnull %v.i21.i) #6
   %tobool.not.i27.i = icmp eq i32 %call.i.i40, 0
-  br i1 %tobool.not.i27.i, label %while.end.i.i, label %while.body.i24.i, !llvm.loop !17
+  br i1 %tobool.not.i27.i, label %while.end.i.i, label %while.body.i24.i, !llvm.loop !16
 
 while.end.i.i:                                    ; preds = %if.end16.i.i, %if.end25.i
   %98 = load ptr, ptr %u_varnames.i.i, align 8
@@ -910,7 +911,7 @@ if.then38.i.i:                                    ; preds = %if.end36.i.i
   %103 = load ptr, ptr %u_cellvars27.i.i, align 8
   %call2833.i.i = call i32 @PyDict_Next(ptr noundef %103, ptr noundef nonnull %pos.i22.i, ptr noundef nonnull %k.i20.i, ptr noundef nonnull %v.i21.i) #6
   %tobool29.not34.i.i = icmp eq i32 %call2833.i.i, 0
-  br i1 %tobool29.not34.i.i, label %while.end50.i.i, label %while.body30.lr.ph.i.i, !llvm.loop !18
+  br i1 %tobool29.not34.i.i, label %while.end50.i.i, label %while.body30.lr.ph.i.i, !llvm.loop !17
 
 if.end39.i.i:                                     ; preds = %if.end36.i.i
   %104 = load ptr, ptr %v.i21.i, align 8
@@ -930,7 +931,7 @@ if.end48.i.i:                                     ; preds = %land.lhs.true44.i.i
   %106 = load ptr, ptr %u_cellvars27.i.i, align 8
   %call28.i29.i = call i32 @PyDict_Next(ptr noundef %106, ptr noundef nonnull %pos.i22.i, ptr noundef nonnull %k.i20.i, ptr noundef nonnull %v.i21.i) #6
   %tobool29.not.i.i = icmp eq i32 %call28.i29.i, 0
-  br i1 %tobool29.not.i.i, label %while.end50.i.i, label %while.body30.i.i, !llvm.loop !18
+  br i1 %tobool29.not.i.i, label %while.end50.i.i, label %while.body30.i.i, !llvm.loop !17
 
 while.end50.i.i:                                  ; preds = %if.then38.i.i, %if.end48.i.i, %while.end.i.i
   %numdropped.0.neg.lcssa.i.i = phi i32 [ 0, %while.end.i.i ], [ %numdropped.0.neg39.i.i, %if.end48.i.i ], [ %numdropped.0.neg.i.i, %if.then38.i.i ]
@@ -963,7 +964,7 @@ if.end63.i.i:                                     ; preds = %land.lhs.true59.i.i
   %110 = load ptr, ptr %u_freevars.i.i, align 8
   %call52.i.i = call i32 @PyDict_Next(ptr noundef %110, ptr noundef nonnull %pos.i22.i, ptr noundef nonnull %k.i20.i, ptr noundef nonnull %v.i21.i) #6
   %tobool53.not.i.i = icmp eq i32 %call52.i.i, 0
-  br i1 %tobool53.not.i.i, label %if.end30.i43, label %while.body54.i.i, !llvm.loop !19
+  br i1 %tobool53.not.i.i, label %if.end30.i43, label %while.body54.i.i, !llvm.loop !18
 
 compute_localsplus_info.exit.thread.i:            ; preds = %if.end7.i.i39, %if.end.i.i37, %land.lhs.true.i30.i, %land.lhs.true44.i.i, %while.body30.i.i, %land.lhs.true59.i.i
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %k.i20.i)
@@ -1210,7 +1211,7 @@ declare void @_Py_Dealloc(ptr noundef) local_unnamed_addr #1
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #3
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @write_location_info_entry(ptr noundef %a, i64 %loc.coerce0, i64 %loc.coerce1, i32 noundef %isize) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @write_location_info_entry(ptr noundef %a, i64 %loc.coerce0, i64 %loc.coerce1, i32 noundef %isize) unnamed_addr #0 {
 entry:
   %loc.sroa.0.0.extract.trunc = trunc i64 %loc.coerce0 to i32
   %loc.sroa.9.0.extract.shift = lshr i64 %loc.coerce0, 32
@@ -1305,7 +1306,7 @@ while.body.i.i.i.i:                               ; preds = %if.then25, %while.b
   %shr.i.i.i.i = lshr i32 %val.addr.08.i.i.i.i, 6
   %inc.i.i.i.i = add nuw nsw i32 %written.09.i.i.i.i, 1
   %cmp.i.i.i.i = icmp ugt i32 %val.addr.08.i.i.i.i, 4095
-  br i1 %cmp.i.i.i.i, label %while.body.i.i.i.i, label %write_location_info_no_column.exit, !llvm.loop !20
+  br i1 %cmp.i.i.i.i, label %while.body.i.i.i.i, label %write_location_info_no_column.exit, !llvm.loop !19
 
 write_location_info_no_column.exit:               ; preds = %while.body.i.i.i.i, %if.then25
   %ptr.addr.0.lcssa.i.i.i.i = phi ptr [ %add.ptr.i.i6.i, %if.then25 ], [ %incdec.ptr.i.i.i.i, %while.body.i.i.i.i ]
@@ -1451,7 +1452,7 @@ while.body.i.i.i.i96:                             ; preds = %if.end63, %while.bo
   %shr.i.i.i.i102 = lshr i32 %val.addr.08.i.i.i.i98, 6
   %inc.i.i.i.i103 = add nuw nsw i32 %written.09.i.i.i.i97, 1
   %cmp.i.i.i.i104 = icmp ugt i32 %val.addr.08.i.i.i.i98, 4095
-  br i1 %cmp.i.i.i.i104, label %while.body.i.i.i.i96, label %write_location_signed_varint.exit.i, !llvm.loop !20
+  br i1 %cmp.i.i.i.i104, label %while.body.i.i.i.i96, label %write_location_signed_varint.exit.i, !llvm.loop !19
 
 write_location_signed_varint.exit.i:              ; preds = %while.body.i.i.i.i96, %if.end63
   %ptr.addr.0.lcssa.i.i.i.i90 = phi ptr [ %add.ptr.i.i11.i, %if.end63 ], [ %incdec.ptr.i.i.i.i101, %while.body.i.i.i.i96 ]
@@ -1482,7 +1483,7 @@ while.body.i.i.i:                                 ; preds = %write_location_sign
   %shr.i.i.i = lshr i32 %val.addr.08.i.i.i, 6
   %inc.i.i.i = add nuw nsw i32 %written.09.i.i.i, 1
   %cmp.i.i20.i = icmp ugt i32 %val.addr.08.i.i.i, 4095
-  br i1 %cmp.i.i20.i, label %while.body.i.i.i, label %write_location_varint.exit.i, !llvm.loop !20
+  br i1 %cmp.i.i20.i, label %while.body.i.i.i, label %write_location_varint.exit.i, !llvm.loop !19
 
 write_location_varint.exit.i:                     ; preds = %while.body.i.i.i, %write_location_signed_varint.exit.i
   %ptr.addr.0.lcssa.i.i.i = phi ptr [ %add.ptr.i.i18.i, %write_location_signed_varint.exit.i ], [ %incdec.ptr.i.i.i, %while.body.i.i.i ]
@@ -1513,7 +1514,7 @@ while.body.i.i32.i:                               ; preds = %write_location_vari
   %shr.i.i38.i = lshr i32 %val.addr.08.i.i34.i, 6
   %inc.i.i39.i = add nuw nsw i32 %written.09.i.i33.i, 1
   %cmp.i.i40.i = icmp ugt i32 %val.addr.08.i.i34.i, 4095
-  br i1 %cmp.i.i40.i, label %while.body.i.i32.i, label %write_location_varint.exit41.i, !llvm.loop !20
+  br i1 %cmp.i.i40.i, label %while.body.i.i32.i, label %write_location_varint.exit41.i, !llvm.loop !19
 
 write_location_varint.exit41.i:                   ; preds = %while.body.i.i32.i, %write_location_varint.exit.i
   %ptr.addr.0.lcssa.i.i27.i = phi ptr [ %add.ptr.i.i25.i, %write_location_varint.exit.i ], [ %incdec.ptr.i.i37.i, %while.body.i.i32.i ]
@@ -1544,7 +1545,7 @@ while.body.i.i53.i:                               ; preds = %write_location_vari
   %shr.i.i59.i = lshr i32 %val.addr.08.i.i55.i, 6
   %inc.i.i60.i = add nuw nsw i32 %written.09.i.i54.i, 1
   %cmp.i.i61.i = icmp ugt i32 %val.addr.08.i.i55.i, 4095
-  br i1 %cmp.i.i61.i, label %while.body.i.i53.i, label %write_location_info_long_form.exit, !llvm.loop !20
+  br i1 %cmp.i.i61.i, label %while.body.i.i53.i, label %write_location_info_long_form.exit, !llvm.loop !19
 
 write_location_info_long_form.exit:               ; preds = %while.body.i.i53.i, %write_location_varint.exit41.i
   %ptr.addr.0.lcssa.i.i48.i = phi ptr [ %add.ptr.i.i46.i, %write_location_varint.exit41.i ], [ %incdec.ptr.i.i58.i, %while.body.i.i53.i ]
@@ -1564,7 +1565,7 @@ return:                                           ; preds = %if.then, %write_loc
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @assemble_emit_exception_table_entry(ptr noundef %a, i32 noundef %start, i32 noundef %end, i32 noundef %handler_offset, ptr nocapture noundef readonly %handler) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @assemble_emit_exception_table_entry(ptr noundef %a, i32 noundef %start, i32 noundef %end, i32 noundef %handler_offset, ptr nocapture noundef readonly %handler) unnamed_addr #0 {
 entry:
   %a_except_table = getelementptr inbounds i8, ptr %a, i64 16
   %0 = load ptr, ptr %a_except_table, align 8
@@ -2000,7 +2001,7 @@ attributes #6 = { nounwind }
 !9 = distinct !{!9, !6}
 !10 = distinct !{!10, !6}
 !11 = distinct !{!11, !6}
-!12 = !{i32 -1, i32 1}
+!12 = distinct !{!12, !6}
 !13 = distinct !{!13, !6}
 !14 = distinct !{!14, !6}
 !15 = distinct !{!15, !6}
@@ -2008,4 +2009,3 @@ attributes #6 = { nounwind }
 !17 = distinct !{!17, !6}
 !18 = distinct !{!18, !6}
 !19 = distinct !{!19, !6}
-!20 = distinct !{!20, !6}

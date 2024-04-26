@@ -1532,7 +1532,7 @@ define hidden void @_ZN4core9core_arch3x864sse215_mm_loadu_si12817h21b88d06aaf71
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
-define hidden noundef i32 @_ZN4core9core_arch3x864sse217_mm_movemask_epi817h31f6d680f1d503c7E.llvm.9046935466133531089(ptr noalias nocapture noundef readonly align 16 dereferenceable(16) %0) unnamed_addr #8 {
+define hidden noundef range(i32 0, 65536) i32 @_ZN4core9core_arch3x864sse217_mm_movemask_epi817h31f6d680f1d503c7E.llvm.9046935466133531089(ptr noalias nocapture noundef readonly align 16 dereferenceable(16) %0) unnamed_addr #8 {
   %2 = load <16 x i8>, ptr %0, align 16
   %3 = icmp slt <16 x i8> %2, zeroinitializer
   %4 = bitcast <16 x i1> %3 to i16
@@ -2580,7 +2580,7 @@ define noundef zeroext i1 @"_ZN85_$LT$ockam_core..hex_encoding..deserialize..Vis
 }
 
 ; Function Attrs: cold mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define i64 @_ZN10ockam_core5error4code9ErrorCode3new17hbe08d38db711fe31E(i8 noundef %0, i8 noundef %1) unnamed_addr #16 {
+define range(i64 0, 281474976710656) i64 @_ZN10ockam_core5error4code9ErrorCode3new17hbe08d38db711fe31E(i8 noundef %0, i8 noundef %1) unnamed_addr #16 {
   %.sroa.3.0.insert.ext = zext i8 %0 to i64
   %.sroa.3.0.insert.shift = shl nuw nsw i64 %.sroa.3.0.insert.ext, 40
   %.sroa.2.0.insert.ext = zext i8 %1 to i64
@@ -2590,7 +2590,7 @@ define i64 @_ZN10ockam_core5error4code9ErrorCode3new17hbe08d38db711fe31E(i8 noun
 }
 
 ; Function Attrs: cold mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define i64 @_ZN10ockam_core5error4code9ErrorCode14new_with_extra17hecc79c0d4016afc6E(i8 noundef %0, i8 noundef %1, i32 noundef %2) unnamed_addr #16 {
+define range(i64 0, 281474976710656) i64 @_ZN10ockam_core5error4code9ErrorCode14new_with_extra17hecc79c0d4016afc6E(i8 noundef %0, i8 noundef %1, i32 noundef %2) unnamed_addr #16 {
   %.sroa.3.0.insert.ext = zext i8 %0 to i64
   %.sroa.3.0.insert.shift = shl nuw nsw i64 %.sroa.3.0.insert.ext, 40
   %.sroa.2.0.insert.ext = zext i8 %1 to i64
@@ -2607,13 +2607,13 @@ define noundef i64 @_ZN10ockam_core5error4code9ErrorCode7unknown17hb52c655a06eea
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define noundef i8 @_ZN10ockam_core5error4code6Origin7from_u817h19b0627d92997e69E(i8 noundef %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(24) %1) unnamed_addr #15 {
+define noundef range(i8 0, 15) i8 @_ZN10ockam_core5error4code6Origin7from_u817h19b0627d92997e69E(i8 noundef %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(24) %1) unnamed_addr #15 {
   %. = tail call i8 @llvm.umin.i8(i8 %0, i8 14)
   ret i8 %.
 }
 
 ; Function Attrs: nonlazybind uwtable
-define noundef i8 @"_ZN81_$LT$ockam_core..error..code..Origin$u20$as$u20$core..convert..From$LT$u8$GT$$GT$4from17hb0a8b8d4a9484a14E"(i8 noundef %0, ptr noalias noundef readonly align 8 dereferenceable(24) %1) unnamed_addr #3 {
+define noundef range(i8 0, 14) i8 @"_ZN81_$LT$ockam_core..error..code..Origin$u20$as$u20$core..convert..From$LT$u8$GT$$GT$4from17hb0a8b8d4a9484a14E"(i8 noundef %0, ptr noalias noundef readonly align 8 dereferenceable(24) %1) unnamed_addr #3 {
   %3 = alloca { i64, { ptr, i64 } }, align 8
   %4 = alloca { i64, { ptr, i64 } }, align 8
   %5 = alloca [1 x { ptr, ptr }], align 8
@@ -2878,13 +2878,13 @@ _ZN10ockam_core5error4code6Origin7from_u817h19b0627d92997e69E.exit.thread: ; pre
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define noundef i8 @_ZN10ockam_core5error4code4Kind7from_u817hc80ed19438725b52E(i8 noundef %0) unnamed_addr #15 {
+define noundef range(i8 0, 18) i8 @_ZN10ockam_core5error4code4Kind7from_u817hc80ed19438725b52E(i8 noundef %0) unnamed_addr #15 {
   %. = tail call i8 @llvm.umin.i8(i8 %0, i8 17)
   ret i8 %.
 }
 
 ; Function Attrs: nonlazybind uwtable
-define noundef i8 @"_ZN79_$LT$ockam_core..error..code..Kind$u20$as$u20$core..convert..From$LT$u8$GT$$GT$4from17hb8383ada186296c4E"(i8 noundef %0, ptr noalias noundef readonly align 8 dereferenceable(24) %1) unnamed_addr #3 {
+define noundef range(i8 0, 17) i8 @"_ZN79_$LT$ockam_core..error..code..Kind$u20$as$u20$core..convert..From$LT$u8$GT$$GT$4from17hb8383ada186296c4E"(i8 noundef %0, ptr noalias noundef readonly align 8 dereferenceable(24) %1) unnamed_addr #3 {
   %3 = alloca { i64, { ptr, i64 } }, align 8
   %4 = alloca { i64, { ptr, i64 } }, align 8
   %5 = alloca [1 x { ptr, ptr }], align 8
@@ -3210,13 +3210,13 @@ define noundef zeroext i1 @"_ZN73_$LT$ockam_core..error..code..ErrorCode$u20$as$
 }
 
 ; Function Attrs: nonlazybind uwtable
-define noundef i8 @"_ZN107_$LT$ockam_core..routing..message..opentelemetry..OpenTelemetryContext$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17h8b732c29fed7dae2E"(ptr noalias noundef readonly align 8 dereferenceable(48) %0, ptr noalias noundef readonly align 8 dereferenceable(48) %1) unnamed_addr #3 {
+define noundef range(i8 -1, 2) i8 @"_ZN107_$LT$ockam_core..routing..message..opentelemetry..OpenTelemetryContext$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17h8b732c29fed7dae2E"(ptr noalias noundef readonly align 8 dereferenceable(48) %0, ptr noalias noundef readonly align 8 dereferenceable(48) %1) unnamed_addr #3 {
   %3 = tail call noundef i8 @"_ZN100_$LT$ockam_core..routing..message..opentelemetry..OpenTelemetryContext$u20$as$u20$core..cmp..Ord$GT$3cmp17h938ae1efea4f976eE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(48) %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(48) %1), !range !595
   ret i8 %3
 }
 
 ; Function Attrs: nonlazybind uwtable
-define noundef i8 @"_ZN100_$LT$ockam_core..routing..message..opentelemetry..OpenTelemetryContext$u20$as$u20$core..cmp..Ord$GT$3cmp17h938ae1efea4f976eE"(ptr noalias noundef readonly align 8 dereferenceable(48) %0, ptr noalias noundef readonly align 8 dereferenceable(48) %1) unnamed_addr #3 personality ptr @rust_eh_personality {
+define noundef range(i8 -1, 2) i8 @"_ZN100_$LT$ockam_core..routing..message..opentelemetry..OpenTelemetryContext$u20$as$u20$core..cmp..Ord$GT$3cmp17h938ae1efea4f976eE"(ptr noalias noundef readonly align 8 dereferenceable(48) %0, ptr noalias noundef readonly align 8 dereferenceable(48) %1) unnamed_addr #3 personality ptr @rust_eh_personality {
   %3 = alloca {}, align 1
   %4 = alloca { [1 x i64], i64, [1 x i64] }, align 8
   %5 = alloca { [1 x i64], i64, [1 x i64] }, align 8

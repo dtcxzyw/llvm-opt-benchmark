@@ -28911,7 +28911,7 @@ common.resume:                                    ; preds = %56, %50, %24, %31
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define hidden noundef i64 @"_ZN9text_size4size88_$LT$impl$u20$core..convert..From$LT$text_size..size..TextSize$GT$$u20$for$u20$usize$GT$4from17h92a2a0bf50a80762E.llvm.4370348610037963988"(i32 noundef %0) unnamed_addr #12 {
+define hidden noundef range(i64 0, 4294967296) i64 @"_ZN9text_size4size88_$LT$impl$u20$core..convert..From$LT$text_size..size..TextSize$GT$$u20$for$u20$usize$GT$4from17h92a2a0bf50a80762E.llvm.4370348610037963988"(i32 noundef %0) unnamed_addr #12 {
   %2 = zext i32 %0 to i64
   ret i64 %2
 }

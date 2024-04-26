@@ -1203,7 +1203,7 @@ common.resume.i.i.i:                              ; preds = %24, %15
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define internal fastcc noundef i8 @_ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE(ptr noundef nonnull align 8 %0) unnamed_addr #1 {
+define internal fastcc noundef range(i8 0, 3) i8 @_ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE(ptr noundef nonnull align 8 %0) unnamed_addr #1 {
   %2 = getelementptr inbounds i8, ptr %0, i64 16
   %3 = load atomic i8, ptr %2 monotonic, align 8
   %4 = icmp ult i8 %3, 3
@@ -25088,7 +25088,7 @@ _ZN5rowan6cursor8NodeData6inc_rc17h79dd31861126988eE.llvm.2274688034147933536.ex
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define internal fastcc noundef i16 @"_ZN3ide12expand_macro12expand_macro28_$u7b$$u7b$closure$u7d$$u7d$17hd4106bfef4f21d20E"(ptr noundef nonnull %0) unnamed_addr #1 personality ptr @rust_eh_personality {
+define internal fastcc noundef range(i16 0, 273) i16 @"_ZN3ide12expand_macro12expand_macro28_$u7b$$u7b$closure$u7d$$u7d$17hd4106bfef4f21d20E"(ptr noundef nonnull %0) unnamed_addr #1 personality ptr @rust_eh_personality {
   %2 = load i64, ptr %0, align 8, !range !37, !noundef !22
   %.sroa.3.0.in.i.i = getelementptr inbounds i8, ptr %0, i64 8
   %.sroa.3.0.i.i = load ptr, ptr %.sroa.3.0.in.i.i, align 8, !nonnull !22, !noundef !22
@@ -30058,7 +30058,7 @@ _ZN5rowan6cursor8NodeData3key17hac391177412f5ff8E.exit.i.i278: ; preds = %974, %
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define internal fastcc noundef i8 @_ZN3ide14folding_ranges9fold_kind17h051b32cac27f6affE(i16 noundef %0) unnamed_addr #3 {
+define internal fastcc noundef range(i8 0, 13) i8 @_ZN3ide14folding_ranges9fold_kind17h051b32cac27f6affE(i16 noundef %0) unnamed_addr #3 {
   switch i16 %0, label %7 [
     i16 127, label %2
     i16 134, label %3
@@ -37220,7 +37220,7 @@ define hidden noundef zeroext i1 @"_ZN3ide13parent_module10crates_for28_$u7b$$u7
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define hidden noundef i64 @"_ZN3ide19shuffle_crate_graph19shuffle_crate_graph28_$u7b$$u7b$closure$u7d$$u7d$17hb043870bf25d5182E.llvm.2274688034147933536"(ptr noalias nocapture noundef readonly align 8 dereferenceable(8) %0, i64 noundef %1) unnamed_addr #1 {
+define hidden noundef range(i64 0, 4294967296) i64 @"_ZN3ide19shuffle_crate_graph19shuffle_crate_graph28_$u7b$$u7b$closure$u7d$$u7d$17hb043870bf25d5182E.llvm.2274688034147933536"(ptr noalias nocapture noundef readonly align 8 dereferenceable(8) %0, i64 noundef %1) unnamed_addr #1 {
   %3 = load ptr, ptr %0, align 8, !nonnull !22, !align !343, !noundef !22
   %4 = trunc i64 %1 to i32
   %5 = tail call noundef i32 @_ZN8oorandom6Rand3210rand_range17h5bbb4894fc0dee4dE(ptr noalias noundef nonnull align 8 dereferenceable(16) %3, i32 noundef 0, i32 noundef %4)

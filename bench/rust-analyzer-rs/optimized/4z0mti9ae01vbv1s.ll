@@ -34352,7 +34352,7 @@ _ZN4core3ops8function6FnOnce9call_once17h11f40a4694d776eaE.exit.i: ; preds = %45
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc noundef i8 @_ZN14ide_completion7context8analysis15is_in_breakable17hd5ed6ffcf50e1d64E(ptr noalias noundef readonly align 8 dereferenceable(8) %0) unnamed_addr #0 personality ptr @rust_eh_personality {
+define internal fastcc noundef range(i8 6, 5) i8 @_ZN14ide_completion7context8analysis15is_in_breakable17hd5ed6ffcf50e1d64E(ptr noalias noundef readonly align 8 dereferenceable(8) %0) unnamed_addr #0 personality ptr @rust_eh_personality {
   %2 = alloca { { ptr, ptr, ptr }, ptr }, align 8
   %3 = alloca { ptr, i8, {}, [7 x i8] }, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3)
@@ -35065,7 +35065,7 @@ define internal fastcc void @"_ZN14ide_completion7context8analysis22expected_typ
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define internal fastcc noundef i16 @"_ZN14ide_completion7context8analysis17classify_name_ref28_$u7b$$u7b$closure$u7d$$u7d$17hccbcd653e3cd5af0E"(ptr noundef nonnull %0) unnamed_addr #3 personality ptr @rust_eh_personality {
+define internal fastcc noundef range(i16 0, 273) i16 @"_ZN14ide_completion7context8analysis17classify_name_ref28_$u7b$$u7b$closure$u7d$$u7d$17hccbcd653e3cd5af0E"(ptr noundef nonnull %0) unnamed_addr #3 personality ptr @rust_eh_personality {
   %2 = load i64, ptr %0, align 8, !range !538, !noundef !8
   %.sroa.3.0.in.i.i = getelementptr inbounds i8, ptr %0, i64 8
   %.sroa.3.0.i.i = load ptr, ptr %.sroa.3.0.in.i.i, align 8, !nonnull !8, !noundef !8

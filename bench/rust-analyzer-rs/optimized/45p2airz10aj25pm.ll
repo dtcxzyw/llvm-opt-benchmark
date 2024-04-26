@@ -26971,7 +26971,7 @@ define hidden noundef ptr @"_ZN10hir_expand2db18expand_speculative28_$u7b$$u7b$c
 }
 
 ; Function Attrs: nonlazybind uwtable
-define noundef i32 @"_ZN88_$LT$span..hygiene..SyntaxContextId$u20$as$u20$hir_expand..hygiene..SyntaxContextExt$GT$24normalize_to_macro_rules17hd1f9bb6f5c59ae74E"(i32 noundef %0, ptr noundef nonnull align 1 %1, ptr noalias nocapture noundef readonly align 8 dereferenceable(24) %2) unnamed_addr #2 {
+define noundef range(i32 1, 0) i32 @"_ZN88_$LT$span..hygiene..SyntaxContextId$u20$as$u20$hir_expand..hygiene..SyntaxContextExt$GT$24normalize_to_macro_rules17hd1f9bb6f5c59ae74E"(i32 noundef %0, ptr noundef nonnull align 1 %1, ptr noalias nocapture noundef readonly align 8 dereferenceable(24) %2) unnamed_addr #2 {
   %4 = alloca { i32, i32, i32, i32, i8, [3 x i8] }, align 4
   call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %4)
   %5 = getelementptr inbounds i8, ptr %2, i64 408
@@ -26984,7 +26984,7 @@ define noundef i32 @"_ZN88_$LT$span..hygiene..SyntaxContextId$u20$as$u20$hir_exp
 }
 
 ; Function Attrs: nonlazybind uwtable
-define noundef i32 @"_ZN88_$LT$span..hygiene..SyntaxContextId$u20$as$u20$hir_expand..hygiene..SyntaxContextExt$GT$23normalize_to_macros_2_017hecbf26ecad94cbd2E"(i32 noundef %0, ptr noundef nonnull align 1 %1, ptr noalias nocapture noundef readonly align 8 dereferenceable(24) %2) unnamed_addr #2 {
+define noundef range(i32 1, 0) i32 @"_ZN88_$LT$span..hygiene..SyntaxContextId$u20$as$u20$hir_expand..hygiene..SyntaxContextExt$GT$23normalize_to_macros_2_017hecbf26ecad94cbd2E"(i32 noundef %0, ptr noundef nonnull align 1 %1, ptr noalias nocapture noundef readonly align 8 dereferenceable(24) %2) unnamed_addr #2 {
   %4 = alloca { i32, i32, i32, i32, i8, [3 x i8] }, align 4
   call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %4)
   %5 = getelementptr inbounds i8, ptr %2, i64 408
@@ -26997,7 +26997,7 @@ define noundef i32 @"_ZN88_$LT$span..hygiene..SyntaxContextId$u20$as$u20$hir_exp
 }
 
 ; Function Attrs: nonlazybind uwtable
-define noundef i32 @"_ZN88_$LT$span..hygiene..SyntaxContextId$u20$as$u20$hir_expand..hygiene..SyntaxContextExt$GT$11parent_ctxt17h66b83ebf1d393d26E"(i32 noundef %0, ptr noundef nonnull align 1 %1, ptr noalias nocapture noundef readonly align 8 dereferenceable(24) %2) unnamed_addr #2 {
+define noundef range(i32 1, 0) i32 @"_ZN88_$LT$span..hygiene..SyntaxContextId$u20$as$u20$hir_expand..hygiene..SyntaxContextExt$GT$11parent_ctxt17h66b83ebf1d393d26E"(i32 noundef %0, ptr noundef nonnull align 1 %1, ptr noalias nocapture noundef readonly align 8 dereferenceable(24) %2) unnamed_addr #2 {
   %4 = alloca { i32, i32, i32, i32, i8, [3 x i8] }, align 4
   call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %4)
   %5 = getelementptr inbounds i8, ptr %2, i64 408
@@ -27211,7 +27211,7 @@ define hidden { i32, i32 } @"_ZN10hir_expand8span_map13real_span_map28_$u7b$$u7b
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden noundef i8 @_ZN10hir_expand11cfg_process9check_cfg17h1a2af32ed0721924E(ptr noundef nonnull align 1 %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(24) %1, ptr noalias noundef readonly align 8 dereferenceable(8) %2, i32 noundef %3) unnamed_addr #2 personality ptr @rust_eh_personality {
+define hidden noundef range(i8 0, 3) i8 @_ZN10hir_expand11cfg_process9check_cfg17h1a2af32ed0721924E(ptr noundef nonnull align 1 %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(24) %1, ptr noalias noundef readonly align 8 dereferenceable(8) %2, i32 noundef %3) unnamed_addr #2 personality ptr @rust_eh_personality {
   %5 = alloca ptr, align 8
   %6 = alloca { [24 x i8], i8, [23 x i8] }, align 8
   %7 = alloca { [24 x i8], i8, [23 x i8] }, align 8
@@ -27434,7 +27434,7 @@ default.unreachable:                              ; preds = %11
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden noundef i8 @_ZN10hir_expand11cfg_process14check_cfg_attr17h3a9f6ec59475cfc7E(ptr noundef nonnull align 1 %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(24) %1, ptr noalias noundef readonly align 8 dereferenceable(8) %2, i32 noundef %3) unnamed_addr #2 personality ptr @rust_eh_personality {
+define hidden noundef range(i8 0, 3) i8 @_ZN10hir_expand11cfg_process14check_cfg_attr17h3a9f6ec59475cfc7E(ptr noundef nonnull align 1 %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(24) %1, ptr noalias noundef readonly align 8 dereferenceable(8) %2, i32 noundef %3) unnamed_addr #2 personality ptr @rust_eh_personality {
   %5 = alloca ptr, align 8
   %6 = alloca { [24 x i8], i8, [23 x i8] }, align 8
   %7 = alloca { [24 x i8], i8, [23 x i8] }, align 8
@@ -31879,7 +31879,7 @@ switch.lookup:
 }
 
 ; Function Attrs: nonlazybind uwtable
-define noundef i32 @"_ZN71_$LT$span..hygiene..SyntaxContextData$u20$as$u20$hir_expand..Intern$GT$6intern17h3d9450624060dbccE"(ptr noalias nocapture noundef align 4 dereferenceable(20) %0, ptr noundef nonnull align 1 %1, ptr noalias nocapture noundef readonly align 8 dereferenceable(24) %2) unnamed_addr #2 {
+define noundef range(i32 1, 0) i32 @"_ZN71_$LT$span..hygiene..SyntaxContextData$u20$as$u20$hir_expand..Intern$GT$6intern17h3d9450624060dbccE"(ptr noalias nocapture noundef align 4 dereferenceable(20) %0, ptr noundef nonnull align 1 %1, ptr noalias nocapture noundef readonly align 8 dereferenceable(24) %2) unnamed_addr #2 {
   %4 = getelementptr inbounds i8, ptr %2, i64 400
   %5 = load ptr, ptr %4, align 8, !invariant.load !9, !nonnull !9
   %6 = tail call noundef i32 %5(ptr noundef nonnull align 1 %1, ptr noalias nocapture noundef nonnull align 4 dereferenceable(20) %0), !range !144

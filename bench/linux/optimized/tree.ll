@@ -945,7 +945,7 @@ define dso_local void @rcutorture_get_gp_data(i32 noundef %0, ptr nocapture noun
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @rcu_needs_cpu() local_unnamed_addr #1 align 16 {
+define dso_local noundef range(i32 0, 2) i32 @rcu_needs_cpu() local_unnamed_addr #1 align 16 {
   %1 = tail call i64 asm "add %gs:$1, $0", "=r,*m,0,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) @this_cpu_off, ptr nonnull @rcu_data) #27, !srcloc !33
   %2 = inttoptr i64 %1 to ptr
   %3 = getelementptr inbounds i8, ptr %2, i64 120
@@ -2480,7 +2480,7 @@ define dso_local void @kvfree_call_rcu(ptr noundef %0, ptr noundef %1) #1 align 
 declare dso_local void @__warn_printk(ptr noundef, ...) local_unnamed_addr #7
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i64 @get_state_synchronize_rcu() #1 align 16 {
+define dso_local range(i64 0, -3) i64 @get_state_synchronize_rcu() #1 align 16 {
   tail call void asm sideeffect "lock; addl $$0,-4(%rsp)", "~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"() #28, !srcloc !112
   %1 = load volatile i64, ptr getelementptr inbounds (%struct.rcu_state, ptr @rcu_state, i64 0, i32 13), align 8
   %2 = add i64 %1, 7
@@ -3635,7 +3635,7 @@ define dso_local void @get_state_synchronize_rcu_full(ptr nocapture noundef writ
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i64 @start_poll_synchronize_rcu() #1 align 16 {
+define dso_local range(i64 0, -3) i64 @start_poll_synchronize_rcu() #1 align 16 {
   tail call void asm sideeffect "lock; addl $$0,-4(%rsp)", "~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"() #28, !srcloc !112
   %1 = load volatile i64, ptr getelementptr inbounds (%struct.rcu_state, ptr @rcu_state, i64 0, i32 13), align 8
   %2 = add i64 %1, 7
@@ -6296,7 +6296,7 @@ declare dso_local i32 @register_pm_notifier(ptr noundef) local_unnamed_addr #7
 declare dso_local ptr @alloc_workqueue(ptr noundef, i32 noundef, i32 noundef, ...) local_unnamed_addr #7
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i64 @start_poll_synchronize_rcu_expedited() #1 align 16 {
+define dso_local range(i64 0, -3) i64 @start_poll_synchronize_rcu_expedited() #1 align 16 {
   tail call void asm sideeffect "lock; addl $$0,-4(%rsp)", "~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"() #28, !srcloc !112
   %1 = load volatile i64, ptr getelementptr inbounds (%struct.rcu_state, ptr @rcu_state, i64 0, i32 13), align 8
   %2 = add i64 %1, 7
@@ -6413,7 +6413,7 @@ define dso_local i32 @rcu_exp_jiffies_till_stall_check() #1 align 16 {
 declare dso_local i32 @jiffies_to_msecs(i64 noundef) local_unnamed_addr #7
 
 ; Function Attrs: fn_ret_thunk_extern nofree norecurse nounwind null_pointer_is_valid memory(readwrite, argmem: none)
-define dso_local i32 @rcu_jiffies_till_stall_check() #14 align 16 {
+define dso_local range(i32 3000, 300001) i32 @rcu_jiffies_till_stall_check() #14 align 16 {
   %1 = load volatile i32, ptr @rcu_cpu_stall_timeout, align 4
   %2 = icmp slt i32 %1, 3
   br i1 %2, label %5, label %3
@@ -12222,7 +12222,7 @@ declare dso_local void @panic(ptr noundef, ...) local_unnamed_addr #19
 declare dso_local i32 @task_call_func(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #7
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef i32 @check_slow_task(ptr noundef %0, ptr nocapture noundef writeonly %1) #1 align 16 {
+define internal noundef range(i32 -16, 1) i32 @check_slow_task(ptr noundef %0, ptr nocapture noundef writeonly %1) #1 align 16 {
   %3 = tail call i32 @task_curr(ptr noundef %0) #28
   %4 = icmp eq i32 %3, 0
   br i1 %4, label %5, label %16
@@ -14769,7 +14769,7 @@ declare dso_local i32 @__SCT__cond_resched() local_unnamed_addr #7
 declare dso_local i64 @schedule_timeout(i64 noundef) local_unnamed_addr #7
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef i32 @dyntick_save_progress_counter(ptr noundef %0) unnamed_addr #1 align 16 {
+define internal noundef range(i32 0, 2) i32 @dyntick_save_progress_counter(ptr noundef %0) unnamed_addr #1 align 16 {
   %2 = getelementptr inbounds i8, ptr %0, i64 512
   %3 = load i32, ptr %2, align 8
   tail call void asm sideeffect "lock; addl $$0,-4(%rsp)", "~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"() #28, !srcloc !412
@@ -14868,7 +14868,7 @@ define internal noundef i32 @dyntick_save_progress_counter(ptr noundef %0) unnam
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef i32 @rcu_implicit_dynticks_qs(ptr noundef %0) unnamed_addr #1 align 16 {
+define internal noundef range(i32 -1, 2) i32 @rcu_implicit_dynticks_qs(ptr noundef %0) unnamed_addr #1 align 16 {
   %2 = getelementptr inbounds i8, ptr %0, i64 24
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 272
@@ -15216,7 +15216,7 @@ declare dso_local zeroext i1 @irq_work_queue_on(ptr noundef, i32 noundef) local_
 declare dso_local i32 @smpboot_register_percpu_thread(ptr noundef) local_unnamed_addr #7
 
 ; Function Attrs: fn_ret_thunk_extern nofree nounwind null_pointer_is_valid memory(read)
-define internal i32 @rcu_cpu_kthread_should_run(i32 %0) #22 align 16 {
+define internal range(i32 0, 256) i32 @rcu_cpu_kthread_should_run(i32 %0) #22 align 16 {
   %2 = tail call i8 asm "movb %gs:$1, $0", "=q,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i8) getelementptr inbounds (%struct.rcu_data, ptr @rcu_data, i64 0, i32 28)) #27, !srcloc !506
   %3 = zext i8 %2 to i32
   ret i32 %3
@@ -16998,7 +16998,7 @@ define internal i64 @kfree_rcu_shrink_count(ptr nocapture readnone %0, ptr nocap
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i64 @kfree_rcu_shrink_scan(ptr nocapture readnone %0, ptr nocapture noundef %1) #1 align 16 {
+define internal range(i64 -2147483648, 2147483648) i64 @kfree_rcu_shrink_scan(ptr nocapture readnone %0, ptr nocapture noundef %1) #1 align 16 {
   %3 = getelementptr inbounds i8, ptr %1, i64 8
   br label %4
 

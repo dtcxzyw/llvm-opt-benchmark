@@ -11553,7 +11553,7 @@ define hidden void @_ZN12futures_util6stream6stream9StreamExt3map17he3c1f28ee096
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define internal fastcc noundef i8 @_ZN12tracing_core8callsite15DefaultCallsite8interest17h90c4fcd119ea9721E(ptr noundef nonnull align 8 %0) unnamed_addr #9 {
+define internal fastcc noundef range(i8 0, 3) i8 @_ZN12tracing_core8callsite15DefaultCallsite8interest17h90c4fcd119ea9721E(ptr noundef nonnull align 8 %0) unnamed_addr #9 {
   %2 = getelementptr inbounds i8, ptr %0, i64 16
   %3 = load atomic i8, ptr %2 monotonic, align 8
   %4 = icmp ult i8 %3, 3
@@ -180719,7 +180719,7 @@ declare void @_ZN3std10sys_common11thread_info3set17hc85db6f4f1447751E(ptr noali
 declare hidden void @_ZN3std10sys_common9backtrace26__rust_end_short_backtrace17hd010b8799fe50049E(ptr noalias nocapture noundef align 8 dereferenceable(24)) unnamed_addr #28
 
 ; Function Attrs: nonlazybind
-define hidden noundef i32 @__rust_try.llvm.16651527428598399534(ptr nocapture noundef nonnull readonly %0, ptr noundef %1, ptr nocapture noundef nonnull readonly %2) unnamed_addr #29 personality ptr @rust_eh_personality {
+define hidden noundef range(i32 0, 2) i32 @__rust_try.llvm.16651527428598399534(ptr nocapture noundef nonnull readonly %0, ptr noundef %1, ptr nocapture noundef nonnull readonly %2) unnamed_addr #29 personality ptr @rust_eh_personality {
   invoke void %0(ptr %1)
           to label %common.ret unwind label %4
 

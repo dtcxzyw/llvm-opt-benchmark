@@ -506,15 +506,14 @@ for.end29.i.i:                                    ; preds = %for.inc27.i.i
   %C.val.i.pre.i.i = load ptr, ptr %variables_.i.i.i, align 8
   %C.val3.i.pre.i.i = load i32, ptr %Size.i.i.i, align 8
   %conv.i.i.i.i.i.i.i.i = zext i32 %C.val3.i.pre.i.i to i64
-  %add.ptr.i.i.i.i.i.i87.i.i = getelementptr inbounds ptr, ptr %C.val.i.pre.i.i, i64 %conv.i.i.i.i.i.i.i.i
-  %sub.ptr.lhs.cast.i.i.i.i.i.i.i.i = ptrtoint ptr %add.ptr.i.i.i.i.i.i87.i.i to i64
+  %add.ptr.i.i.i.i.idx1.i.i.i.i = shl nuw nsw i64 %conv.i.i.i.i.i.i.i.i, 3
+  %add.ptr.i.i.i.i.i.i87.i.i = getelementptr inbounds i8, ptr %C.val.i.pre.i.i, i64 %add.ptr.i.i.i.i.idx1.i.i.i.i
   %cmp43.i.i.i.i.not.i.i.i.i = icmp ult i32 %C.val3.i.pre.i.i, 4
   br i1 %cmp43.i.i.i.i.not.i.i.i.i, label %for.end.i.i.i.i.i.i.i.i, label %for.body.preheader.i.i.i.i.i.i.i.i
 
 for.body.preheader.i.i.i.i.i.i.i.i:               ; preds = %for.end29.i.i
-  %add.ptr.i.i.i.i.idx.i.i.i.i = shl nuw nsw i64 %conv.i.i.i.i.i.i.i.i, 3
   %shr.i.i.i.i.i.i.i.i = lshr i64 %conv.i.i.i.i.i.i.i.i, 2
-  %74 = and i64 %add.ptr.i.i.i.i.idx.i.i.i.i, 34359738336
+  %74 = and i64 %add.ptr.i.i.i.i.idx1.i.i.i.i, 34359738336
   %scevgep.i.i.i.i.i.i.i.i = getelementptr i8, ptr %C.val.i.pre.i.i, i64 %74
   br label %for.body.i.i.i.i.i.i.i.i
 
@@ -550,18 +549,16 @@ if.end12.i.i.i.i.i.i.i.i:                         ; preds = %if.end8.i.i.i.i.i.i
   br i1 %cmp.i.i.i.i.i.i.i.i, label %for.body.i.i.i.i.i.i.i.i, label %for.end.loopexit.i.i.i.i.i.i.i.i, !llvm.loop !7
 
 for.end.loopexit.i.i.i.i.i.i.i.i:                 ; preds = %if.end12.i.i.i.i.i.i.i.i
-  %.pre.i.i.i.i.i.i.i.i = ptrtoint ptr %scevgep.i.i.i.i.i.i.i.i to i64
-  %.pre50.i.i.i.i.i.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i.i.i.i.i.i, %.pre.i.i.i.i.i.i.i.i
-  %75 = ashr exact i64 %.pre50.i.i.i.i.i.i.i.i, 3
+  %75 = and i32 %C.val3.i.pre.i.i, 3
   br label %for.end.i.i.i.i.i.i.i.i
 
 for.end.i.i.i.i.i.i.i.i:                          ; preds = %for.end.loopexit.i.i.i.i.i.i.i.i, %for.end29.i.i
-  %sub.ptr.sub16.pre-phi.i.i.i.i.i.i.i.i = phi i64 [ %75, %for.end.loopexit.i.i.i.i.i.i.i.i ], [ %conv.i.i.i.i.i.i.i.i, %for.end29.i.i ]
+  %sub.ptr.sub16.pre-phi.i.i.i.i.i.i.i.i = phi i32 [ %75, %for.end.loopexit.i.i.i.i.i.i.i.i ], [ %C.val3.i.pre.i.i, %for.end29.i.i ]
   %__first.addr.0.lcssa.i.i.i.i.i.i.i.i = phi ptr [ %scevgep.i.i.i.i.i.i.i.i, %for.end.loopexit.i.i.i.i.i.i.i.i ], [ %C.val.i.pre.i.i, %for.end29.i.i ]
-  switch i64 %sub.ptr.sub16.pre-phi.i.i.i.i.i.i.i.i, label %_ZN6hermes12_GLOBAL__N_113runOnFunctionEPNS_8FunctionE.exit.i [
-    i64 3, label %sw.bb.i.i.i.i.i.i.i.i
-    i64 2, label %sw.bb22.i.i.i.i.i.i.i.i
-    i64 1, label %sw.bb27.i.i.i.i.i.i.i.i
+  switch i32 %sub.ptr.sub16.pre-phi.i.i.i.i.i.i.i.i, label %_ZN6hermes12_GLOBAL__N_113runOnFunctionEPNS_8FunctionE.exit.i [
+    i32 3, label %sw.bb.i.i.i.i.i.i.i.i
+    i32 2, label %sw.bb22.i.i.i.i.i.i.i.i
+    i32 1, label %sw.bb27.i.i.i.i.i.i.i.i
   ]
 
 sw.bb.i.i.i.i.i.i.i.i:                            ; preds = %for.end.i.i.i.i.i.i.i.i

@@ -1965,7 +1965,7 @@ define hidden void @zim_SplFileInfo_getPathname(ptr nocapture noundef readonly %
   br i1 %.not.i, label %spl_filesystem_object_get_pathname.exit.thread, label %16
 
 16:                                               ; preds = %13
-  %17 = tail call fastcc i32 @spl_filesystem_object_get_file_name(ptr noundef nonnull %5), !range !4
+  %17 = tail call fastcc i32 @spl_filesystem_object_get_file_name(ptr noundef nonnull %5)
   br label %spl_filesystem_object_get_pathname.exit
 
 spl_filesystem_object_get_pathname.exit:          ; preds = %.critedge, %.critedge, %16
@@ -2053,7 +2053,7 @@ define hidden void @zim_FilesystemIterator_key(ptr nocapture noundef readonly %0
   br label %45
 
 27:                                               ; preds = %.critedge
-  %28 = tail call fastcc i32 @spl_filesystem_object_get_file_name(ptr noundef nonnull %5), !range !4
+  %28 = tail call fastcc i32 @spl_filesystem_object_get_file_name(ptr noundef nonnull %5)
   %29 = icmp eq i32 %28, -1
   br i1 %29, label %30, label %33
 
@@ -2091,7 +2091,7 @@ define hidden void @zim_FilesystemIterator_key(ptr nocapture noundef readonly %0
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @spl_filesystem_object_get_file_name(ptr noundef %0) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @spl_filesystem_object_get_file_name(ptr noundef %0) unnamed_addr #0 {
   %2 = alloca i64, align 8
   %3 = alloca i8, align 1
   %4 = getelementptr inbounds i8, ptr %0, i64 32
@@ -2249,7 +2249,7 @@ define hidden void @zim_FilesystemIterator_current(ptr nocapture noundef readonl
   ]
 
 14:                                               ; preds = %.critedge
-  %15 = tail call fastcc i32 @spl_filesystem_object_get_file_name(ptr noundef nonnull %5), !range !4
+  %15 = tail call fastcc i32 @spl_filesystem_object_get_file_name(ptr noundef nonnull %5)
   %16 = icmp eq i32 %15, -1
   br i1 %16, label %17, label %20
 
@@ -2283,7 +2283,7 @@ define hidden void @zim_FilesystemIterator_current(ptr nocapture noundef readonl
   br label %43
 
 32:                                               ; preds = %.critedge
-  %33 = tail call fastcc i32 @spl_filesystem_object_get_file_name(ptr noundef nonnull %5), !range !4
+  %33 = tail call fastcc i32 @spl_filesystem_object_get_file_name(ptr noundef nonnull %5)
   %34 = icmp eq i32 %33, -1
   br i1 %34, label %35, label %38
 
@@ -2380,7 +2380,7 @@ define internal fastcc void @spl_filesystem_object_create_type(i32 noundef %0, p
   store ptr %44, ptr %4, align 8
   %45 = getelementptr inbounds i8, ptr %4, i64 8
   store i32 776, ptr %45, align 8
-  %46 = tail call fastcc i32 @spl_filesystem_object_get_file_name(ptr noundef nonnull %1), !range !4
+  %46 = tail call fastcc i32 @spl_filesystem_object_get_file_name(ptr noundef nonnull %1)
   %47 = icmp eq i32 %46, -1
   br i1 %47, label %217, label %48
 
@@ -2540,7 +2540,7 @@ spl_filesystem_object_get_path.exit:              ; preds = %83, %87, %96, %99, 
   store ptr %132, ptr %4, align 8
   %133 = getelementptr inbounds i8, ptr %4, i64 8
   store i32 776, ptr %133, align 8
-  %134 = call fastcc i32 @spl_filesystem_object_get_file_name(ptr noundef nonnull %1), !range !4
+  %134 = call fastcc i32 @spl_filesystem_object_get_file_name(ptr noundef nonnull %1)
   %135 = icmp eq i32 %134, -1
   br i1 %135, label %217, label %136
 
@@ -2683,7 +2683,7 @@ spl_filesystem_object_get_path.exit107:           ; preds = %173, %177, %186, %1
   call void @zend_replace_error_handling(i32 noundef 1, ptr noundef %208, ptr noundef nonnull %11) #18
   %209 = load i8, ptr %8, align 1
   %210 = trunc i8 %209 to i1
-  %211 = call fastcc i32 @spl_filesystem_file_open(ptr noundef nonnull %127, i1 noundef zeroext %210), !range !4
+  %211 = call fastcc i32 @spl_filesystem_file_open(ptr noundef nonnull %127, i1 noundef zeroext %210)
   %212 = icmp eq i32 %211, -1
   call void @zend_restore_error_handling(ptr noundef nonnull %11) #18
   br i1 %212, label %213, label %217
@@ -2976,7 +2976,7 @@ define hidden void @zim_SplFileInfo_getPerms(ptr nocapture noundef readonly %0, 
 
 .critedge:                                        ; preds = %2
   %11 = getelementptr inbounds i8, ptr %5, i64 -384
-  %12 = tail call fastcc i32 @spl_filesystem_object_get_file_name(ptr noundef nonnull %11), !range !4
+  %12 = tail call fastcc i32 @spl_filesystem_object_get_file_name(ptr noundef nonnull %11)
   %13 = icmp eq i32 %12, -1
   br i1 %13, label %14, label %17
 
@@ -3024,7 +3024,7 @@ define hidden void @zim_SplFileInfo_getInode(ptr nocapture noundef readonly %0, 
 
 .critedge:                                        ; preds = %2
   %11 = getelementptr inbounds i8, ptr %5, i64 -384
-  %12 = tail call fastcc i32 @spl_filesystem_object_get_file_name(ptr noundef nonnull %11), !range !4
+  %12 = tail call fastcc i32 @spl_filesystem_object_get_file_name(ptr noundef nonnull %11)
   %13 = icmp eq i32 %12, -1
   br i1 %13, label %14, label %17
 
@@ -3066,7 +3066,7 @@ define hidden void @zim_SplFileInfo_getSize(ptr nocapture noundef readonly %0, p
 
 .critedge:                                        ; preds = %2
   %11 = getelementptr inbounds i8, ptr %5, i64 -384
-  %12 = tail call fastcc i32 @spl_filesystem_object_get_file_name(ptr noundef nonnull %11), !range !4
+  %12 = tail call fastcc i32 @spl_filesystem_object_get_file_name(ptr noundef nonnull %11)
   %13 = icmp eq i32 %12, -1
   br i1 %13, label %14, label %17
 
@@ -3108,7 +3108,7 @@ define hidden void @zim_SplFileInfo_getOwner(ptr nocapture noundef readonly %0, 
 
 .critedge:                                        ; preds = %2
   %11 = getelementptr inbounds i8, ptr %5, i64 -384
-  %12 = tail call fastcc i32 @spl_filesystem_object_get_file_name(ptr noundef nonnull %11), !range !4
+  %12 = tail call fastcc i32 @spl_filesystem_object_get_file_name(ptr noundef nonnull %11)
   %13 = icmp eq i32 %12, -1
   br i1 %13, label %14, label %17
 
@@ -3150,7 +3150,7 @@ define hidden void @zim_SplFileInfo_getGroup(ptr nocapture noundef readonly %0, 
 
 .critedge:                                        ; preds = %2
   %11 = getelementptr inbounds i8, ptr %5, i64 -384
-  %12 = tail call fastcc i32 @spl_filesystem_object_get_file_name(ptr noundef nonnull %11), !range !4
+  %12 = tail call fastcc i32 @spl_filesystem_object_get_file_name(ptr noundef nonnull %11)
   %13 = icmp eq i32 %12, -1
   br i1 %13, label %14, label %17
 
@@ -3192,7 +3192,7 @@ define hidden void @zim_SplFileInfo_getATime(ptr nocapture noundef readonly %0, 
 
 .critedge:                                        ; preds = %2
   %11 = getelementptr inbounds i8, ptr %5, i64 -384
-  %12 = tail call fastcc i32 @spl_filesystem_object_get_file_name(ptr noundef nonnull %11), !range !4
+  %12 = tail call fastcc i32 @spl_filesystem_object_get_file_name(ptr noundef nonnull %11)
   %13 = icmp eq i32 %12, -1
   br i1 %13, label %14, label %17
 
@@ -3234,7 +3234,7 @@ define hidden void @zim_SplFileInfo_getMTime(ptr nocapture noundef readonly %0, 
 
 .critedge:                                        ; preds = %2
   %11 = getelementptr inbounds i8, ptr %5, i64 -384
-  %12 = tail call fastcc i32 @spl_filesystem_object_get_file_name(ptr noundef nonnull %11), !range !4
+  %12 = tail call fastcc i32 @spl_filesystem_object_get_file_name(ptr noundef nonnull %11)
   %13 = icmp eq i32 %12, -1
   br i1 %13, label %14, label %17
 
@@ -3276,7 +3276,7 @@ define hidden void @zim_SplFileInfo_getCTime(ptr nocapture noundef readonly %0, 
 
 .critedge:                                        ; preds = %2
   %11 = getelementptr inbounds i8, ptr %5, i64 -384
-  %12 = tail call fastcc i32 @spl_filesystem_object_get_file_name(ptr noundef nonnull %11), !range !4
+  %12 = tail call fastcc i32 @spl_filesystem_object_get_file_name(ptr noundef nonnull %11)
   %13 = icmp eq i32 %12, -1
   br i1 %13, label %14, label %17
 
@@ -3318,7 +3318,7 @@ define hidden void @zim_SplFileInfo_getType(ptr nocapture noundef readonly %0, p
 
 .critedge:                                        ; preds = %2
   %11 = getelementptr inbounds i8, ptr %5, i64 -384
-  %12 = tail call fastcc i32 @spl_filesystem_object_get_file_name(ptr noundef nonnull %11), !range !4
+  %12 = tail call fastcc i32 @spl_filesystem_object_get_file_name(ptr noundef nonnull %11)
   %13 = icmp eq i32 %12, -1
   br i1 %13, label %14, label %17
 
@@ -3360,7 +3360,7 @@ define hidden void @zim_SplFileInfo_isWritable(ptr nocapture noundef readonly %0
 
 .critedge:                                        ; preds = %2
   %11 = getelementptr inbounds i8, ptr %5, i64 -384
-  %12 = tail call fastcc i32 @spl_filesystem_object_get_file_name(ptr noundef nonnull %11), !range !4
+  %12 = tail call fastcc i32 @spl_filesystem_object_get_file_name(ptr noundef nonnull %11)
   %13 = icmp eq i32 %12, -1
   br i1 %13, label %14, label %17
 
@@ -3402,7 +3402,7 @@ define hidden void @zim_SplFileInfo_isReadable(ptr nocapture noundef readonly %0
 
 .critedge:                                        ; preds = %2
   %11 = getelementptr inbounds i8, ptr %5, i64 -384
-  %12 = tail call fastcc i32 @spl_filesystem_object_get_file_name(ptr noundef nonnull %11), !range !4
+  %12 = tail call fastcc i32 @spl_filesystem_object_get_file_name(ptr noundef nonnull %11)
   %13 = icmp eq i32 %12, -1
   br i1 %13, label %14, label %17
 
@@ -3444,7 +3444,7 @@ define hidden void @zim_SplFileInfo_isExecutable(ptr nocapture noundef readonly 
 
 .critedge:                                        ; preds = %2
   %11 = getelementptr inbounds i8, ptr %5, i64 -384
-  %12 = tail call fastcc i32 @spl_filesystem_object_get_file_name(ptr noundef nonnull %11), !range !4
+  %12 = tail call fastcc i32 @spl_filesystem_object_get_file_name(ptr noundef nonnull %11)
   %13 = icmp eq i32 %12, -1
   br i1 %13, label %14, label %17
 
@@ -3486,7 +3486,7 @@ define hidden void @zim_SplFileInfo_isFile(ptr nocapture noundef readonly %0, pt
 
 .critedge:                                        ; preds = %2
   %11 = getelementptr inbounds i8, ptr %5, i64 -384
-  %12 = tail call fastcc i32 @spl_filesystem_object_get_file_name(ptr noundef nonnull %11), !range !4
+  %12 = tail call fastcc i32 @spl_filesystem_object_get_file_name(ptr noundef nonnull %11)
   %13 = icmp eq i32 %12, -1
   br i1 %13, label %14, label %17
 
@@ -3528,7 +3528,7 @@ define hidden void @zim_SplFileInfo_isDir(ptr nocapture noundef readonly %0, ptr
 
 .critedge:                                        ; preds = %2
   %11 = getelementptr inbounds i8, ptr %5, i64 -384
-  %12 = tail call fastcc i32 @spl_filesystem_object_get_file_name(ptr noundef nonnull %11), !range !4
+  %12 = tail call fastcc i32 @spl_filesystem_object_get_file_name(ptr noundef nonnull %11)
   %13 = icmp eq i32 %12, -1
   br i1 %13, label %14, label %17
 
@@ -3570,7 +3570,7 @@ define hidden void @zim_SplFileInfo_isLink(ptr nocapture noundef readonly %0, pt
 
 .critedge:                                        ; preds = %2
   %11 = getelementptr inbounds i8, ptr %5, i64 -384
-  %12 = tail call fastcc i32 @spl_filesystem_object_get_file_name(ptr noundef nonnull %11), !range !4
+  %12 = tail call fastcc i32 @spl_filesystem_object_get_file_name(ptr noundef nonnull %11)
   %13 = icmp eq i32 %12, -1
   br i1 %13, label %14, label %17
 
@@ -3619,7 +3619,7 @@ define hidden void @zim_SplFileInfo_getLinkTarget(ptr nocapture noundef readonly
   br i1 %15, label %16, label %.thread
 
 16:                                               ; preds = %.critedge
-  %17 = tail call fastcc i32 @spl_filesystem_object_get_file_name(ptr noundef nonnull %7), !range !4
+  %17 = tail call fastcc i32 @spl_filesystem_object_get_file_name(ptr noundef nonnull %7)
   %18 = icmp eq i32 %17, -1
   br i1 %18, label %19, label %22
 
@@ -3755,7 +3755,7 @@ define hidden void @zim_SplFileInfo_getRealPath(ptr nocapture noundef readonly %
   br i1 %.not76, label %27, label %21
 
 21:                                               ; preds = %18
-  %22 = tail call fastcc i32 @spl_filesystem_object_get_file_name(ptr noundef nonnull %6), !range !4
+  %22 = tail call fastcc i32 @spl_filesystem_object_get_file_name(ptr noundef nonnull %6)
   %23 = icmp eq i32 %22, -1
   br i1 %23, label %24, label %27
 
@@ -3954,7 +3954,7 @@ define hidden void @zim_SplFileInfo_getPathInfo(ptr nocapture noundef readonly %
   br i1 %.not.i, label %spl_filesystem_object_get_pathname.exit.thread, label %23
 
 23:                                               ; preds = %20
-  %24 = call fastcc i32 @spl_filesystem_object_get_file_name(ptr noundef nonnull %7), !range !4
+  %24 = call fastcc i32 @spl_filesystem_object_get_file_name(ptr noundef nonnull %7)
   br label %spl_filesystem_object_get_pathname.exit
 
 spl_filesystem_object_get_pathname.exit:          ; preds = %17, %17, %23
@@ -4161,7 +4161,7 @@ define hidden void @zim_SplFileInfo___debugInfo(ptr nocapture noundef readonly %
   br i1 %.not.i.i, label %spl_filesystem_object_get_pathname.exit.thread.i, label %33
 
 33:                                               ; preds = %30
-  %34 = tail call fastcc i32 @spl_filesystem_object_get_file_name(ptr noundef nonnull %19), !range !4
+  %34 = tail call fastcc i32 @spl_filesystem_object_get_file_name(ptr noundef nonnull %19)
   br label %spl_filesystem_object_get_pathname.exit.i
 
 spl_filesystem_object_get_pathname.exit.i:        ; preds = %33, %23, %23
@@ -5216,7 +5216,7 @@ spl_filesystem_is_invalid_or_dot.exit.thread:     ; preds = %23, %.thread101, %s
   br label %63
 
 34:                                               ; preds = %27
-  %35 = call fastcc i32 @spl_filesystem_object_get_file_name(ptr noundef nonnull %6), !range !4
+  %35 = call fastcc i32 @spl_filesystem_object_get_file_name(ptr noundef nonnull %6)
   %36 = icmp eq i32 %35, -1
   br i1 %36, label %37, label %40
 
@@ -5297,7 +5297,7 @@ define hidden void @zim_RecursiveDirectoryIterator_getChildren(ptr nocapture nou
   br label %84
 
 .critedge:                                        ; preds = %2
-  %14 = tail call fastcc i32 @spl_filesystem_object_get_file_name(ptr noundef nonnull %7), !range !4
+  %14 = tail call fastcc i32 @spl_filesystem_object_get_file_name(ptr noundef nonnull %7)
   %15 = icmp eq i32 %14, -1
   br i1 %15, label %16, label %19
 
@@ -5643,7 +5643,7 @@ define hidden void @zim_SplFileObject___construct(ptr nocapture noundef readonly
   call void @zend_replace_error_handling(i32 noundef 1, ptr noundef %30, ptr noundef nonnull %5) #18
   %31 = load i8, ptr %4, align 1
   %32 = trunc i8 %31 to i1
-  %33 = call fastcc i32 @spl_filesystem_file_open(ptr noundef nonnull %8, i1 noundef zeroext %32), !range !4
+  %33 = call fastcc i32 @spl_filesystem_file_open(ptr noundef nonnull %8, i1 noundef zeroext %32)
   call void @zend_restore_error_handling(ptr noundef nonnull %5) #18
   %34 = icmp eq i32 %33, -1
   br i1 %34, label %35, label %38
@@ -5711,7 +5711,7 @@ define hidden void @zim_SplFileObject___construct(ptr nocapture noundef readonly
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @spl_filesystem_file_open(ptr nocapture noundef %0, i1 noundef zeroext %1) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @spl_filesystem_file_open(ptr nocapture noundef %0, i1 noundef zeroext %1) unnamed_addr #0 {
   %3 = alloca %struct._zval_struct, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 40
   store i32 2, ptr %4, align 8
@@ -5943,7 +5943,7 @@ define internal fastcc noundef i32 @spl_filesystem_file_open(ptr nocapture nound
   br i1 %.not194, label %132, label %130
 
 130:                                              ; preds = %104
-  %131 = load ptr, ptr %129, align 8, !nonnull !5, !noundef !5
+  %131 = load ptr, ptr %129, align 8, !nonnull !4, !noundef !4
   br label %132
 
 132:                                              ; preds = %104, %130
@@ -6041,7 +6041,7 @@ define hidden void @zim_SplTempFileObject___construct(ptr nocapture noundef read
   store ptr %38, ptr %44, align 8
   %45 = load ptr, ptr @spl_ce_RuntimeException, align 8
   call void @zend_replace_error_handling(i32 noundef 1, ptr noundef %45, ptr noundef nonnull %4) #18
-  %46 = call fastcc i32 @spl_filesystem_file_open(ptr noundef nonnull %7, i1 noundef zeroext false), !range !4
+  %46 = call fastcc i32 @spl_filesystem_file_open(ptr noundef nonnull %7, i1 noundef zeroext false)
   %47 = icmp eq i32 %46, 0
   br i1 %47, label %48, label %51
 
@@ -6314,7 +6314,7 @@ define hidden void @zim_SplFileObject_fgets(ptr nocapture noundef readonly %0, p
   br label %36
 
 16:                                               ; preds = %.critedge
-  %17 = tail call fastcc i32 @spl_filesystem_file_read_ex(ptr noundef nonnull %5, i1 noundef zeroext false, i64 noundef 1, i1 noundef zeroext false), !range !4
+  %17 = tail call fastcc i32 @spl_filesystem_file_read_ex(ptr noundef nonnull %5, i1 noundef zeroext false, i64 noundef 1, i1 noundef zeroext false)
   %18 = icmp eq i32 %17, -1
   br i1 %18, label %19, label %22
 
@@ -6353,7 +6353,7 @@ define hidden void @zim_SplFileObject_fgets(ptr nocapture noundef readonly %0, p
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @spl_filesystem_file_read_ex(ptr noundef %0, i1 noundef zeroext %1, i64 noundef %2, i1 noundef zeroext %3) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @spl_filesystem_file_read_ex(ptr noundef %0, i1 noundef zeroext %1, i64 noundef %2, i1 noundef zeroext %3) unnamed_addr #0 {
   %5 = alloca i64, align 8
   store i64 0, ptr %5, align 8
   %6 = getelementptr inbounds i8, ptr %0, i64 120
@@ -6613,14 +6613,14 @@ define hidden void @zim_SplFileObject_current(ptr nocapture noundef readonly %0,
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @spl_filesystem_file_read_line(ptr nocapture noundef readonly %0, ptr noundef %1) unnamed_addr #0 {
+define internal fastcc i32 @spl_filesystem_file_read_line(ptr nocapture noundef readonly %0, ptr noundef %1) unnamed_addr #0 {
   %3 = tail call fastcc i32 @spl_filesystem_file_read_line_ex(ptr noundef %0, ptr noundef %1)
   %4 = getelementptr inbounds i8, ptr %1, i64 48
   %5 = load i64, ptr %4, align 8
   %6 = and i64 %5, 4
   %7 = icmp ne i64 %6, 0
   %8 = icmp eq i32 %3, 0
-  %or.cond10 = and i1 %8, %7
+  %or.cond10 = select i1 %7, i1 %8, i1 false
   br i1 %or.cond10, label %.lr.ph, label %.critedge
 
 .lr.ph:                                           ; preds = %2
@@ -6688,7 +6688,7 @@ spl_filesystem_file_free_line.exit:               ; preds = %29, %32
   %35 = and i64 %34, 4
   %36 = icmp ne i64 %35, 0
   %37 = icmp eq i32 %33, 0
-  %or.cond = and i1 %37, %36
+  %or.cond = select i1 %36, i1 %37, i1 false
   br i1 %or.cond, label %13, label %.critedge
 
 .critedge:                                        ; preds = %is_line_empty.exit, %spl_filesystem_file_free_line.exit, %18, %21, %20, %2
@@ -7086,7 +7086,7 @@ define internal fastcc noundef i32 @spl_filesystem_file_read_csv(ptr noundef %0,
   %.pre = load ptr, ptr %6, align 8
   %.not.i48 = icmp ne ptr %.pre, null
   %9 = zext i1 %.not.i48 to i64
-  %10 = tail call fastcc noundef i32 @spl_filesystem_file_read_ex(ptr noundef nonnull %0, i1 noundef zeroext true, i64 noundef %9, i1 noundef zeroext true), !range !4
+  %10 = tail call fastcc i32 @spl_filesystem_file_read_ex(ptr noundef nonnull %0, i1 noundef zeroext true, i64 noundef %9, i1 noundef zeroext true)
   %.not49 = icmp eq i32 %10, 0
   br i1 %.not49, label %.lr.ph, label %.loopexit
 
@@ -7134,7 +7134,7 @@ is_line_empty.exit.thread42:                      ; preds = %.lr.ph
 .backedge:                                        ; preds = %is_line_empty.exit.thread42, %is_line_empty.exit
   %.not.i = icmp ne ptr %11, null
   %25 = zext i1 %.not.i to i64
-  %26 = tail call fastcc noundef i32 @spl_filesystem_file_read_ex(ptr noundef nonnull %0, i1 noundef zeroext true, i64 noundef %25, i1 noundef zeroext true), !range !4
+  %26 = tail call fastcc i32 @spl_filesystem_file_read_ex(ptr noundef nonnull %0, i1 noundef zeroext true, i64 noundef %25, i1 noundef zeroext true)
   %.not = icmp eq i32 %26, 0
   br i1 %.not, label %.lr.ph, label %.loopexit
 
@@ -7880,7 +7880,7 @@ define hidden void @zim_SplFileObject_fscanf(ptr nocapture noundef readonly %0, 
   %24 = load ptr, ptr %23, align 8
   %.not.i = icmp ne ptr %24, null
   %25 = zext i1 %.not.i to i64
-  %26 = call fastcc noundef i32 @spl_filesystem_file_read_ex(ptr noundef nonnull %8, i1 noundef zeroext false, i64 noundef %25, i1 noundef zeroext false), !range !4
+  %26 = call fastcc i32 @spl_filesystem_file_read_ex(ptr noundef nonnull %8, i1 noundef zeroext false, i64 noundef %25, i1 noundef zeroext false)
   %27 = icmp eq i32 %26, -1
   br i1 %27, label %28, label %31
 
@@ -10144,7 +10144,7 @@ declare ptr @_php_stream_get_line(ptr noundef, ptr noundef, i64 noundef, ptr nou
 declare noalias ptr @_estrdup(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @spl_filesystem_file_read_line_ex(ptr nocapture noundef readonly %0, ptr noundef %1) unnamed_addr #0 {
+define internal fastcc i32 @spl_filesystem_file_read_line_ex(ptr nocapture noundef readonly %0, ptr noundef %1) unnamed_addr #0 {
   %3 = alloca %struct._zval_struct, align 8
   %4 = getelementptr inbounds i8, ptr %1, i64 48
   %5 = load i64, ptr %4, align 8
@@ -10278,7 +10278,7 @@ spl_filesystem_file_free_line.exit33:             ; preds = %51, %57, %62
   %75 = load ptr, ptr %74, align 8
   %.not.i34 = icmp ne ptr %75, null
   %76 = zext i1 %.not.i34 to i64
-  %77 = tail call fastcc noundef i32 @spl_filesystem_file_read_ex(ptr noundef nonnull %1, i1 noundef zeroext true, i64 noundef %76, i1 noundef zeroext false), !range !4
+  %77 = tail call fastcc i32 @spl_filesystem_file_read_ex(ptr noundef nonnull %1, i1 noundef zeroext true, i64 noundef %76, i1 noundef zeroext false)
   br label %78
 
 78:                                               ; preds = %34, %spl_filesystem_file_free_line.exit, %73, %spl_filesystem_file_free_line.exit33, %41, %7
@@ -10321,7 +10321,7 @@ define internal void @spl_filesystem_dir_it_dtor(ptr noundef %0) #0 {
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define internal i32 @spl_filesystem_dir_it_valid(ptr nocapture noundef readonly %0) #12 {
+define internal range(i32 -1, 1) i32 @spl_filesystem_dir_it_valid(ptr nocapture noundef readonly %0) #12 {
   %2 = getelementptr i8, ptr %0, i64 104
   %.val = load ptr, ptr %2, align 8
   %3 = getelementptr inbounds i8, ptr %.val, i64 120
@@ -10561,7 +10561,7 @@ define internal ptr @spl_filesystem_tree_it_current_data(ptr noundef %0) #0 {
   br i1 %10, label %11, label %35
 
 11:                                               ; preds = %6
-  %12 = tail call fastcc i32 @spl_filesystem_object_get_file_name(ptr noundef nonnull %.val), !range !4
+  %12 = tail call fastcc i32 @spl_filesystem_object_get_file_name(ptr noundef nonnull %.val)
   %13 = icmp eq i32 %12, -1
   br i1 %13, label %35, label %14
 
@@ -10594,7 +10594,7 @@ define internal ptr @spl_filesystem_tree_it_current_data(ptr noundef %0) #0 {
   br i1 %28, label %29, label %35
 
 29:                                               ; preds = %24
-  %30 = tail call fastcc i32 @spl_filesystem_object_get_file_name(ptr noundef nonnull %.val), !range !4
+  %30 = tail call fastcc i32 @spl_filesystem_object_get_file_name(ptr noundef nonnull %.val)
   %31 = icmp eq i32 %30, -1
   br i1 %31, label %35, label %32
 
@@ -10642,7 +10642,7 @@ define internal void @spl_filesystem_tree_it_current_key(ptr nocapture noundef r
   br label %.sink.split
 
 19:                                               ; preds = %2
-  %20 = tail call fastcc i32 @spl_filesystem_object_get_file_name(ptr noundef nonnull %.val), !range !4
+  %20 = tail call fastcc i32 @spl_filesystem_object_get_file_name(ptr noundef nonnull %.val)
   %21 = icmp eq i32 %20, -1
   br i1 %21, label %32, label %22
 
@@ -11066,5 +11066,4 @@ attributes #22 = { nounwind allocsize(0,1) }
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
 !3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = !{i32 -1, i32 1}
-!5 = !{}
+!4 = !{}

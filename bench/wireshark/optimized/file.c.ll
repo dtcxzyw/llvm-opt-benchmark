@@ -195,7 +195,7 @@ define hidden i64 @cf_get_computed_elapsed(ptr nocapture noundef readonly %0) lo
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @cf_open(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, ptr noundef %4) local_unnamed_addr #1 {
+define hidden range(i32 0, 2) i32 @cf_open(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, ptr noundef %4) local_unnamed_addr #1 {
   %6 = alloca ptr, align 8
   %7 = call ptr @wtap_open_offline(ptr noundef %1, i32 noundef %2, ptr noundef %4, ptr noundef nonnull %6, i32 noundef 1) #21
   %8 = icmp eq ptr %7, null
@@ -529,7 +529,7 @@ declare void @reset_tap_listeners() local_unnamed_addr #3
 declare void @epan_free(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @cf_read(ptr noundef %0, i32 noundef %1) local_unnamed_addr #1 {
+define hidden range(i32 0, 3) i32 @cf_read(ptr noundef %0, i32 noundef %1) local_unnamed_addr #1 {
   %3 = alloca i32, align 4
   %4 = alloca %struct._frame_data, align 8
   %5 = alloca %struct.epan_dissect, align 8
@@ -2056,7 +2056,7 @@ define hidden void @cf_set_rfcode(ptr nocapture noundef writeonly %0, ptr nounde
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @cf_merge_files_to_tempfile(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef %4, i32 noundef %5, i32 noundef %6) local_unnamed_addr #1 {
+define hidden range(i32 0, 2) i32 @cf_merge_files_to_tempfile(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef %4, i32 noundef %5, i32 noundef %6) local_unnamed_addr #1 {
   %8 = alloca i32, align 4
   %9 = alloca ptr, align 8
   %10 = alloca i32, align 4
@@ -2320,7 +2320,7 @@ declare void @cfile_write_failure_alert_box(ptr noundef, ptr noundef, i32 nounde
 declare void @cfile_close_failure_alert_box(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @cf_filter_packets(ptr noundef %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #1 {
+define hidden range(i32 0, 2) i32 @cf_filter_packets(ptr noundef %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #1 {
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
   %.not = icmp eq ptr %1, null
@@ -2449,7 +2449,7 @@ define hidden void @cf_redissect_packets(ptr noundef %0) local_unnamed_addr #1 {
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @cf_read_record(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #1 {
+define hidden range(i32 0, 2) i32 @cf_read_record(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #1 {
   %5 = alloca i32, align 4
   %6 = alloca ptr, align 8
   %7 = getelementptr inbounds i8, ptr %0, i64 248
@@ -2476,7 +2476,7 @@ define hidden noundef i32 @cf_read_record(ptr nocapture noundef readonly %0, ptr
 declare i32 @wtap_seek_read(ptr noundef, i64 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @cf_read_record_no_alert(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #1 {
+define hidden range(i32 0, 2) i32 @cf_read_record_no_alert(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #1 {
   %5 = alloca i32, align 4
   %6 = alloca ptr, align 8
   %7 = getelementptr inbounds i8, ptr %0, i64 248
@@ -2498,7 +2498,7 @@ define hidden noundef i32 @cf_read_record_no_alert(ptr nocapture noundef readonl
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @cf_read_current_record(ptr noundef %0) local_unnamed_addr #1 {
+define hidden range(i32 0, 2) i32 @cf_read_current_record(ptr noundef %0) local_unnamed_addr #1 {
   %2 = alloca i32, align 4
   %3 = alloca ptr, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 376
@@ -2695,7 +2695,7 @@ declare void @nstime_delta(ptr noundef, ptr noundef, ptr noundef) local_unnamed_
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #11
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @cf_retap_packets(ptr noundef %0) local_unnamed_addr #1 {
+define hidden range(i32 0, 3) i32 @cf_retap_packets(ptr noundef %0) local_unnamed_addr #1 {
   %2 = alloca %struct.packet_range_tag, align 8
   %3 = alloca %struct.retap_callback_args_t, align 8
   %4 = icmp eq ptr %0, null
@@ -2775,7 +2775,7 @@ cf_callback_invoke.exit:                          ; preds = %.lr.ph.i, %5
   br i1 %.not.i24, label %switch.lookup, label %.lr.ph.i21, !llvm.loop !6
 
 switch.lookup:                                    ; preds = %.lr.ph.i21, %20
-  %38 = sext i32 %32 to i64
+  %38 = zext nneg i32 %32 to i64
   %switch.gep = getelementptr inbounds [3 x i32], ptr @switch.table.cf_retap_packets, i64 0, i64 %38
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %39
@@ -2792,7 +2792,7 @@ declare void @packet_range_init(ptr noundef, ptr noundef) local_unnamed_addr #3
 declare void @packet_range_process_init(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @process_specified_records(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr nocapture noundef readonly %4, ptr noundef %5, i32 noundef %6) unnamed_addr #1 {
+define internal fastcc range(i32 0, 3) i32 @process_specified_records(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr nocapture noundef readonly %4, ptr noundef %5, i32 noundef %6) unnamed_addr #1 {
   %8 = alloca i32, align 4
   %9 = alloca ptr, align 8
   %10 = alloca %struct.wtap_rec, align 8
@@ -2966,7 +2966,7 @@ define internal noundef i32 @retap_packet(ptr noundef %0, ptr noundef %1, ptr no
 declare void @packet_range_cleanup(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @cf_print_packets(ptr noundef %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #1 {
+define hidden range(i32 0, 3) i32 @cf_print_packets(ptr noundef %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #1 {
   %4 = alloca %struct.print_callback_args_t, align 8
   store ptr %1, ptr %4, align 8
   %5 = getelementptr inbounds i8, ptr %1, i64 276
@@ -3295,7 +3295,7 @@ declare i32 @have_custom_cols(ptr noundef) local_unnamed_addr #3
 declare i32 @have_field_extractors() local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @print_packet(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4) #1 {
+define internal range(i32 0, 2) i32 @print_packet(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4) #1 {
   %6 = alloca [20 x i8], align 16
   %7 = alloca [17 x i8], align 16
   %8 = load ptr, ptr %4, align 8
@@ -3642,7 +3642,7 @@ define internal noundef i32 @print_packet(ptr noundef %0, ptr noundef %1, ptr no
 declare i32 @print_finale(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @cf_write_pdml_packets(ptr noundef %0, ptr noundef %1) local_unnamed_addr #1 {
+define hidden range(i32 0, 3) i32 @cf_write_pdml_packets(ptr noundef %0, ptr noundef %1) local_unnamed_addr #1 {
   %3 = alloca %struct.write_packet_callback_args_t, align 8
   %4 = getelementptr inbounds i8, ptr %1, i64 16
   %5 = load ptr, ptr %4, align 8
@@ -3704,7 +3704,7 @@ declare noundef i32 @ferror(ptr nocapture noundef) local_unnamed_addr #13
 declare noundef i32 @fclose(ptr nocapture noundef) local_unnamed_addr #6
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @write_pdml_packet(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4) #1 {
+define internal range(i32 0, 2) i32 @write_pdml_packet(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4) #1 {
   %6 = getelementptr inbounds i8, ptr %4, i64 8
   %7 = getelementptr inbounds i8, ptr %0, i64 56
   %8 = load i16, ptr %7, align 8
@@ -3726,7 +3726,7 @@ define internal noundef i32 @write_pdml_packet(ptr noundef %0, ptr noundef %1, p
 declare void @write_pdml_finale(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @cf_write_psml_packets(ptr noundef %0, ptr noundef %1) local_unnamed_addr #1 {
+define hidden range(i32 0, 3) i32 @cf_write_psml_packets(ptr noundef %0, ptr noundef %1) local_unnamed_addr #1 {
   %3 = alloca %struct.write_packet_callback_args_t, align 8
   %4 = getelementptr inbounds i8, ptr %1, i64 16
   %5 = load ptr, ptr %4, align 8
@@ -3790,7 +3790,7 @@ define hidden noundef i32 @cf_write_psml_packets(ptr noundef %0, ptr noundef %1)
 declare void @write_psml_preamble(ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @write_psml_packet(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4) #1 {
+define internal range(i32 0, 2) i32 @write_psml_packet(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4) #1 {
   %6 = getelementptr inbounds i8, ptr %4, i64 8
   %7 = getelementptr inbounds i8, ptr %0, i64 304
   tail call void @col_custom_prime_edt(ptr noundef nonnull %6, ptr noundef nonnull %7) #21
@@ -3814,7 +3814,7 @@ define internal noundef i32 @write_psml_packet(ptr noundef %0, ptr noundef %1, p
 declare void @write_psml_finale(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @cf_write_csv_packets(ptr noundef %0, ptr noundef %1) local_unnamed_addr #1 {
+define hidden range(i32 0, 3) i32 @cf_write_csv_packets(ptr noundef %0, ptr noundef %1) local_unnamed_addr #1 {
   %3 = alloca %struct.write_packet_callback_args_t, align 8
   %4 = getelementptr inbounds i8, ptr %1, i64 16
   %5 = load ptr, ptr %4, align 8
@@ -3868,7 +3868,7 @@ define hidden noundef i32 @cf_write_csv_packets(ptr noundef %0, ptr noundef %1) 
 declare void @write_csv_column_titles(ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @write_csv_packet(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4) #1 {
+define internal range(i32 0, 2) i32 @write_csv_packet(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4) #1 {
   %6 = getelementptr inbounds i8, ptr %4, i64 8
   %7 = getelementptr inbounds i8, ptr %0, i64 304
   tail call void @col_custom_prime_edt(ptr noundef nonnull %6, ptr noundef nonnull %7) #21
@@ -3890,7 +3890,7 @@ define internal noundef i32 @write_csv_packet(ptr noundef %0, ptr noundef %1, pt
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @cf_write_carrays_packets(ptr noundef %0, ptr noundef %1) local_unnamed_addr #1 {
+define hidden range(i32 0, 3) i32 @cf_write_carrays_packets(ptr noundef %0, ptr noundef %1) local_unnamed_addr #1 {
   %3 = alloca %struct.write_packet_callback_args_t, align 8
   %4 = getelementptr inbounds i8, ptr %1, i64 16
   %5 = load ptr, ptr %4, align 8
@@ -3928,7 +3928,7 @@ define hidden noundef i32 @cf_write_carrays_packets(ptr noundef %0, ptr noundef 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @carrays_write_packet(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4) #1 {
+define internal range(i32 0, 2) i32 @carrays_write_packet(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4) #1 {
   %6 = getelementptr inbounds i8, ptr %4, i64 8
   %7 = getelementptr inbounds i8, ptr %0, i64 56
   %8 = load i16, ptr %7, align 8
@@ -3948,7 +3948,7 @@ define internal noundef i32 @carrays_write_packet(ptr noundef %0, ptr noundef %1
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @cf_write_json_packets(ptr noundef %0, ptr noundef %1) local_unnamed_addr #1 {
+define hidden range(i32 0, 3) i32 @cf_write_json_packets(ptr noundef %0, ptr noundef %1) local_unnamed_addr #1 {
   %3 = alloca %struct.write_packet_callback_args_t, align 8
   %4 = alloca %struct.json_dumper, align 8
   %5 = getelementptr inbounds i8, ptr %1, i64 16
@@ -4002,7 +4002,7 @@ define hidden noundef i32 @cf_write_json_packets(ptr noundef %0, ptr noundef %1)
 declare void @write_json_preamble(ptr dead_on_unwind writable sret(%struct.json_dumper) align 8, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @write_json_packet(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4) #1 {
+define internal range(i32 0, 2) i32 @write_json_packet(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4) #1 {
   %6 = getelementptr inbounds i8, ptr %4, i64 8
   %7 = getelementptr inbounds i8, ptr %0, i64 56
   %8 = load i16, ptr %7, align 8
@@ -4031,7 +4031,7 @@ define internal noundef i32 @write_json_packet(ptr noundef %0, ptr noundef %1, p
 declare void @write_json_finale(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @cf_find_packet_protocol_tree(ptr noundef %0, ptr noundef %1, i32 noundef %2, i1 noundef zeroext %3) local_unnamed_addr #1 {
+define hidden range(i32 0, 2) i32 @cf_find_packet_protocol_tree(ptr noundef %0, ptr noundef %1, i32 noundef %2, i1 noundef zeroext %3) local_unnamed_addr #1 {
   %5 = alloca %struct.match_data, align 8
   %6 = getelementptr inbounds i8, ptr %5, i64 40
   store i32 0, ptr %6, align 8
@@ -4074,7 +4074,7 @@ define hidden noundef i32 @cf_find_packet_protocol_tree(ptr noundef %0, ptr noun
   br label %28
 
 26:                                               ; preds = %17, %14, %4
-  %27 = call fastcc i32 @find_packet(ptr noundef nonnull %0, ptr noundef nonnull @match_protocol_tree, ptr noundef nonnull %5, i32 noundef %2), !range !19
+  %27 = call fastcc i32 @find_packet(ptr noundef nonnull %0, ptr noundef nonnull @match_protocol_tree, ptr noundef nonnull %5, i32 noundef %2)
   br label %28
 
 28:                                               ; preds = %26, %22
@@ -4223,7 +4223,7 @@ proto_item_is_hidden.exit.thread:                 ; preds = %13, %proto_item_is_
   %64 = add i32 %.162, 1
   %65 = zext i32 %64 to i64
   %66 = icmp ugt i64 %37, %65
-  br i1 %66, label %.lr.ph, label %.loopexit, !llvm.loop !20
+  br i1 %66, label %.lr.ph, label %.loopexit, !llvm.loop !19
 
 67:                                               ; preds = %33
   %68 = call ptr @strstr(ptr noundef nonnull dereferenceable(1) %.063, ptr noundef nonnull dereferenceable(1) %4) #24
@@ -4374,7 +4374,7 @@ proto_item_is_hidden.exit.thread:                 ; preds = %13, %proto_item_is_
   %59 = add i32 %.162, 1
   %60 = zext i32 %59 to i64
   %61 = icmp ugt i64 %34, %60
-  br i1 %61, label %.lr.ph, label %.loopexit, !llvm.loop !21
+  br i1 %61, label %.lr.ph, label %.loopexit, !llvm.loop !20
 
 62:                                               ; preds = %30
   %63 = call ptr @strstr(ptr noundef nonnull dereferenceable(1) %.063, ptr noundef nonnull dereferenceable(1) %4) #24
@@ -4404,7 +4404,7 @@ proto_item_is_hidden.exit.thread:                 ; preds = %13, %proto_item_is_
 declare i32 @packet_list_select_finfo(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @find_packet(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, i32 noundef %3) unnamed_addr #1 {
+define internal fastcc range(i32 0, 2) i32 @find_packet(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, i32 noundef %3) unnamed_addr #1 {
   %5 = alloca %struct.wtap_rec, align 8
   %6 = alloca %struct.Buffer, align 8
   %7 = alloca [100 x i8], align 16
@@ -4584,7 +4584,7 @@ define internal fastcc noundef i32 @find_packet(ptr noundef %0, ptr nocapture no
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @match_protocol_tree(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4) #1 {
+define internal range(i32 0, 3) i32 @match_protocol_tree(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4) #1 {
   %6 = alloca i32, align 4
   %7 = alloca ptr, align 8
   %8 = alloca %struct.epan_dissect, align 8
@@ -4675,18 +4675,18 @@ define hidden ptr @cf_find_string_protocol_tree(ptr noundef %0, ptr noundef %1) 
 declare ptr @convert_string_case(ptr noundef, i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @cf_find_packet_summary_line(ptr noundef %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #1 {
+define hidden range(i32 0, 2) i32 @cf_find_packet_summary_line(ptr noundef %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #1 {
   %4 = alloca %struct.match_data, align 8
   store ptr %1, ptr %4, align 8
   %5 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #24
   %6 = getelementptr inbounds i8, ptr %4, i64 8
   store i64 %5, ptr %6, align 8
-  %7 = call fastcc i32 @find_packet(ptr noundef %0, ptr noundef nonnull @match_summary_line, ptr noundef nonnull %4, i32 noundef %2), !range !19
+  %7 = call fastcc i32 @find_packet(ptr noundef %0, ptr noundef nonnull @match_summary_line, ptr noundef nonnull %4, i32 noundef %2)
   ret i32 %7
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @match_summary_line(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr nocapture noundef readonly %4) #1 {
+define internal range(i32 0, 3) i32 @match_summary_line(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr nocapture noundef readonly %4) #1 {
   %6 = alloca i32, align 4
   %7 = alloca ptr, align 8
   %8 = alloca %struct.epan_dissect, align 8
@@ -4824,7 +4824,7 @@ cf_read_record.exit.thread:                       ; preds = %5
   %75 = add i32 %.159, 1
   %76 = zext i32 %75 to i64
   %77 = icmp ugt i64 %43, %76
-  br i1 %77, label %.lr.ph84, label %.loopexit, !llvm.loop !22
+  br i1 %77, label %.lr.ph84, label %.loopexit, !llvm.loop !21
 
 78:                                               ; preds = %48
   %79 = call ptr @strstr(ptr noundef nonnull dereferenceable(1) %42, ptr noundef nonnull dereferenceable(1) %9) #24
@@ -4834,7 +4834,7 @@ cf_read_record.exit.thread:                       ; preds = %5
 80:                                               ; preds = %33
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.loopexit, label %33, !llvm.loop !23
+  br i1 %exitcond.not, label %.loopexit, label %33, !llvm.loop !22
 
 .loopexit:                                        ; preds = %80, %74, %.lr.ph84, %70, %21, %.preheader, %78, %46
   %.061.shrunk = phi i1 [ %47, %46 ], [ %.not70, %78 ], [ false, %.preheader ], [ false, %21 ], [ false, %74 ], [ false, %.lr.ph84 ], [ true, %70 ], [ false, %80 ]
@@ -4848,7 +4848,7 @@ cf_read_record.exit.thread:                       ; preds = %5
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @cf_find_packet_data(ptr noundef %0, ptr noundef %1, i64 noundef %2, i32 noundef %3, i1 noundef zeroext %4) local_unnamed_addr #1 {
+define hidden range(i32 0, 2) i32 @cf_find_packet_data(ptr noundef %0, ptr noundef %1, i64 noundef %2, i32 noundef %3, i1 noundef zeroext %4) local_unnamed_addr #1 {
   %6 = alloca %struct.cbs_t, align 8
   %7 = alloca [3 x i8], align 1
   %8 = alloca %struct.ws_mempbrk_pattern, align 16
@@ -5038,7 +5038,7 @@ define hidden noundef i32 @cf_find_packet_data(ptr noundef %0, ptr noundef %1, i
   store i32 0, ptr %108, align 4
   %109 = getelementptr inbounds i8, ptr %0, i64 216
   store i32 0, ptr %109, align 8
-  %110 = call fastcc i32 @find_packet(ptr noundef nonnull %0, ptr noundef nonnull %.040, ptr noundef nonnull %6, i32 noundef %3), !range !19
+  %110 = call fastcc i32 @find_packet(ptr noundef nonnull %0, ptr noundef nonnull %.040, ptr noundef nonnull %6, i32 noundef %3)
   br label %111
 
 111:                                              ; preds = %107, %106
@@ -5050,7 +5050,7 @@ define hidden noundef i32 @cf_find_packet_data(ptr noundef %0, ptr noundef %1, i
 declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #14
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @match_regex(ptr nocapture noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, ptr noundef %3, ptr nocapture readnone %4) #1 {
+define internal range(i32 0, 3) i32 @match_regex(ptr nocapture noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, ptr noundef %3, ptr nocapture readnone %4) #1 {
   %6 = alloca i32, align 4
   %7 = alloca ptr, align 8
   %8 = alloca [2 x i64], align 16
@@ -5122,7 +5122,7 @@ cf_read_record.exit.thread:                       ; preds = %5
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @match_regex_reverse(ptr nocapture noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, ptr noundef %3, ptr nocapture readnone %4) #1 {
+define internal range(i32 0, 3) i32 @match_regex_reverse(ptr nocapture noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, ptr noundef %3, ptr nocapture readnone %4) #1 {
   %6 = alloca i32, align 4
   %7 = alloca ptr, align 8
   %8 = alloca [2 x i64], align 16
@@ -5169,7 +5169,7 @@ cf_read_record.exit.thread:                       ; preds = %5
 25:                                               ; preds = %27
   %26 = add nsw i64 %.125, -1
   %.not21 = icmp eq i64 %26, 0
-  br i1 %.not21, label %.loopexit, label %27, !llvm.loop !24
+  br i1 %.not21, label %.loopexit, label %27, !llvm.loop !23
 
 27:                                               ; preds = %.lr.ph, %25
   %.125 = phi i64 [ %.0, %.lr.ph ], [ %26, %25 ]
@@ -5205,7 +5205,7 @@ declare signext i8 @g_ascii_tolower(i8 noundef signext) local_unnamed_addr #15
 declare void @ws_mempbrk_compile(ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @match_narrow_and_wide_case(ptr nocapture noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, ptr noundef %3, ptr nocapture noundef readonly %4) #1 {
+define internal range(i32 0, 3) i32 @match_narrow_and_wide_case(ptr nocapture noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, ptr noundef %3, ptr nocapture noundef readonly %4) #1 {
   %6 = alloca i32, align 4
   %7 = alloca ptr, align 8
   %8 = alloca i8, align 1
@@ -5307,7 +5307,7 @@ cf_read_record.exit.thread:                       ; preds = %5
   %63 = and i64 %53, 4294967295
   %64 = getelementptr i8, ptr %43, i64 %63
   %65 = icmp ult ptr %64, %31
-  br i1 %65, label %.lr.ph, label %._crit_edge, !llvm.loop !25
+  br i1 %65, label %.lr.ph, label %._crit_edge, !llvm.loop !24
 
 ._crit_edge:                                      ; preds = %62, %.lr.ph
   br i1 %45, label %.lr.ph93, label %._crit_edge94
@@ -5355,12 +5355,12 @@ cf_read_record.exit.thread:                       ; preds = %5
   %90 = getelementptr i8, ptr %43, i64 %89
   %91 = icmp ult ptr %90, %31
   %or.cond = select i1 %.not81, i1 %91, i1 false
-  br i1 %or.cond, label %.lr.ph93, label %._crit_edge94, !llvm.loop !26
+  br i1 %or.cond, label %.lr.ph93, label %._crit_edge94, !llvm.loop !25
 
 ._crit_edge94:                                    ; preds = %.lr.ph93, %82, %86, %.preheader, %._crit_edge
   %92 = getelementptr i8, ptr %43, i64 1
   %93 = icmp ult ptr %92, %31
-  br i1 %93, label %40, label %.loopexit, !llvm.loop !27
+  br i1 %93, label %40, label %.loopexit, !llvm.loop !26
 
 .loopexit:                                        ; preds = %._crit_edge94, %40, %23, %cf_read_record.exit.thread, %55, %75
   %.067 = phi i32 [ 1, %55 ], [ 1, %75 ], [ 2, %cf_read_record.exit.thread ], [ 0, %23 ], [ 0, %40 ], [ 0, %._crit_edge94 ]
@@ -5368,7 +5368,7 @@ cf_read_record.exit.thread:                       ; preds = %5
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @match_narrow_and_wide_case_reverse(ptr nocapture noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, ptr noundef %3, ptr nocapture noundef readonly %4) #1 {
+define internal range(i32 0, 3) i32 @match_narrow_and_wide_case_reverse(ptr nocapture noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, ptr noundef %3, ptr nocapture noundef readonly %4) #1 {
   %6 = alloca i32, align 4
   %7 = alloca ptr, align 8
   %8 = alloca i8, align 1
@@ -5490,7 +5490,7 @@ cf_read_record.exit.thread:                       ; preds = %5
   %70 = and i64 %61, 4294967295
   %71 = getelementptr i8, ptr %51, i64 %70
   %72 = icmp ult ptr %71, %33
-  br i1 %72, label %.lr.ph, label %._crit_edge, !llvm.loop !28
+  br i1 %72, label %.lr.ph, label %._crit_edge, !llvm.loop !27
 
 ._crit_edge:                                      ; preds = %69, %.lr.ph
   br i1 %53, label %.lr.ph103, label %._crit_edge104
@@ -5537,12 +5537,12 @@ cf_read_record.exit.thread:                       ; preds = %5
   %96 = getelementptr i8, ptr %51, i64 %95
   %97 = icmp ult ptr %96, %33
   %or.cond = select i1 %.not89, i1 %97, i1 false
-  br i1 %or.cond, label %.lr.ph103, label %._crit_edge104, !llvm.loop !29
+  br i1 %or.cond, label %.lr.ph103, label %._crit_edge104, !llvm.loop !28
 
 ._crit_edge104:                                   ; preds = %.lr.ph103, %88, %92, %.preheader, %._crit_edge
   %98 = getelementptr i8, ptr %51, i64 -1
   %.not87 = icmp ult ptr %98, %32
-  br i1 %.not87, label %.loopexit, label %48, !llvm.loop !30
+  br i1 %.not87, label %.loopexit, label %48, !llvm.loop !29
 
 .loopexit:                                        ; preds = %._crit_edge104, %48, %46, %cf_read_record.exit.thread, %63, %82, %23
   %.071 = phi i32 [ 0, %23 ], [ 1, %63 ], [ 1, %82 ], [ 2, %cf_read_record.exit.thread ], [ 0, %46 ], [ 0, %48 ], [ 0, %._crit_edge104 ]
@@ -5550,7 +5550,7 @@ cf_read_record.exit.thread:                       ; preds = %5
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @match_narrow_case(ptr nocapture noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, ptr noundef %3, ptr nocapture noundef readonly %4) #1 {
+define internal range(i32 0, 3) i32 @match_narrow_case(ptr nocapture noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, ptr noundef %3, ptr nocapture noundef readonly %4) #1 {
   %6 = alloca i32, align 4
   %7 = alloca ptr, align 8
   %8 = alloca i8, align 1
@@ -5652,12 +5652,12 @@ cf_read_record.exit.thread:                       ; preds = %5
   %63 = and i64 %53, 4294967295
   %64 = getelementptr i8, ptr %43, i64 %63
   %65 = icmp ult ptr %64, %31
-  br i1 %65, label %.lr.ph, label %._crit_edge, !llvm.loop !31
+  br i1 %65, label %.lr.ph, label %._crit_edge, !llvm.loop !30
 
 ._crit_edge:                                      ; preds = %.lr.ph, %62, %.preheader
   %66 = getelementptr i8, ptr %43, i64 1
   %67 = icmp ult ptr %66, %31
-  br i1 %67, label %40, label %.loopexit, !llvm.loop !32
+  br i1 %67, label %40, label %.loopexit, !llvm.loop !31
 
 .loopexit:                                        ; preds = %._crit_edge, %40, %23, %cf_read_record.exit.thread, %55
   %.044 = phi i32 [ 1, %55 ], [ 2, %cf_read_record.exit.thread ], [ 0, %23 ], [ 0, %40 ], [ 0, %._crit_edge ]
@@ -5665,7 +5665,7 @@ cf_read_record.exit.thread:                       ; preds = %5
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @match_narrow_case_reverse(ptr nocapture noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, ptr noundef %3, ptr nocapture noundef readonly %4) #1 {
+define internal range(i32 0, 3) i32 @match_narrow_case_reverse(ptr nocapture noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, ptr noundef %3, ptr nocapture noundef readonly %4) #1 {
   %6 = alloca i32, align 4
   %7 = alloca ptr, align 8
   %8 = alloca i8, align 1
@@ -5787,12 +5787,12 @@ cf_read_record.exit.thread:                       ; preds = %5
   %70 = and i64 %61, 4294967295
   %71 = getelementptr i8, ptr %51, i64 %70
   %72 = icmp ult ptr %71, %33
-  br i1 %72, label %.lr.ph, label %._crit_edge, !llvm.loop !33
+  br i1 %72, label %.lr.ph, label %._crit_edge, !llvm.loop !32
 
 ._crit_edge:                                      ; preds = %.lr.ph, %69, %.preheader
   %73 = getelementptr i8, ptr %51, i64 -1
   %.not59 = icmp ult ptr %73, %32
-  br i1 %.not59, label %.loopexit, label %48, !llvm.loop !34
+  br i1 %.not59, label %.loopexit, label %48, !llvm.loop !33
 
 .loopexit:                                        ; preds = %._crit_edge, %48, %46, %cf_read_record.exit.thread, %63, %23
   %.048 = phi i32 [ 0, %23 ], [ 1, %63 ], [ 2, %cf_read_record.exit.thread ], [ 0, %46 ], [ 0, %48 ], [ 0, %._crit_edge ]
@@ -5800,7 +5800,7 @@ cf_read_record.exit.thread:                       ; preds = %5
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @match_wide_case(ptr nocapture noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, ptr noundef %3, ptr nocapture noundef readonly %4) #1 {
+define internal range(i32 0, 3) i32 @match_wide_case(ptr nocapture noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, ptr noundef %3, ptr nocapture noundef readonly %4) #1 {
   %6 = alloca i32, align 4
   %7 = alloca ptr, align 8
   %8 = alloca i8, align 1
@@ -5913,12 +5913,12 @@ cf_read_record.exit.thread:                       ; preds = %5
   %70 = getelementptr i8, ptr %43, i64 %69
   %71 = icmp ult ptr %70, %31
   %or.cond = select i1 %.not61, i1 %71, i1 false
-  br i1 %or.cond, label %.lr.ph, label %._crit_edge, !llvm.loop !35
+  br i1 %or.cond, label %.lr.ph, label %._crit_edge, !llvm.loop !34
 
 ._crit_edge:                                      ; preds = %.lr.ph, %62, %66, %.preheader
   %72 = getelementptr i8, ptr %43, i64 1
   %73 = icmp ult ptr %72, %31
-  br i1 %73, label %40, label %.loopexit, !llvm.loop !36
+  br i1 %73, label %40, label %.loopexit, !llvm.loop !35
 
 .loopexit:                                        ; preds = %._crit_edge, %40, %23, %cf_read_record.exit.thread, %55
   %.050 = phi i32 [ 1, %55 ], [ 2, %cf_read_record.exit.thread ], [ 0, %23 ], [ 0, %40 ], [ 0, %._crit_edge ]
@@ -5926,7 +5926,7 @@ cf_read_record.exit.thread:                       ; preds = %5
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @match_wide_case_reverse(ptr nocapture noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, ptr noundef %3, ptr nocapture noundef readonly %4) #1 {
+define internal range(i32 0, 3) i32 @match_wide_case_reverse(ptr nocapture noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, ptr noundef %3, ptr nocapture noundef readonly %4) #1 {
   %6 = alloca i32, align 4
   %7 = alloca ptr, align 8
   %8 = alloca i8, align 1
@@ -6059,12 +6059,12 @@ cf_read_record.exit.thread:                       ; preds = %5
   %77 = getelementptr i8, ptr %51, i64 %76
   %78 = icmp ult ptr %77, %33
   %or.cond = select i1 %.not69, i1 %78, i1 false
-  br i1 %or.cond, label %.lr.ph, label %._crit_edge, !llvm.loop !37
+  br i1 %or.cond, label %.lr.ph, label %._crit_edge, !llvm.loop !36
 
 ._crit_edge:                                      ; preds = %.lr.ph, %69, %73, %.preheader
   %79 = getelementptr i8, ptr %51, i64 -1
   %.not67 = icmp ult ptr %79, %32
-  br i1 %.not67, label %.loopexit, label %48, !llvm.loop !38
+  br i1 %.not67, label %.loopexit, label %48, !llvm.loop !37
 
 .loopexit:                                        ; preds = %._crit_edge, %48, %46, %cf_read_record.exit.thread, %63, %23
   %.054 = phi i32 [ 0, %23 ], [ 1, %63 ], [ 2, %cf_read_record.exit.thread ], [ 0, %46 ], [ 0, %48 ], [ 0, %._crit_edge ]
@@ -6072,7 +6072,7 @@ cf_read_record.exit.thread:                       ; preds = %5
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @match_narrow_and_wide(ptr nocapture noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, ptr noundef %3, ptr nocapture noundef readonly %4) #1 {
+define internal range(i32 0, 3) i32 @match_narrow_and_wide(ptr nocapture noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, ptr noundef %3, ptr nocapture noundef readonly %4) #1 {
   %6 = alloca i32, align 4
   %7 = alloca ptr, align 8
   %8 = load ptr, ptr %4, align 8
@@ -6171,7 +6171,7 @@ cf_read_record.exit.thread:                       ; preds = %5
   %62 = and i64 %53, 4294967295
   %63 = getelementptr i8, ptr %44, i64 %62
   %64 = icmp ult ptr %63, %28
-  br i1 %64, label %.lr.ph, label %._crit_edge, !llvm.loop !39
+  br i1 %64, label %.lr.ph, label %._crit_edge, !llvm.loop !38
 
 ._crit_edge:                                      ; preds = %61, %.lr.ph
   br i1 %46, label %.lr.ph94, label %._crit_edge95
@@ -6217,12 +6217,12 @@ cf_read_record.exit.thread:                       ; preds = %5
   %88 = getelementptr i8, ptr %44, i64 %87
   %89 = icmp ult ptr %88, %28
   %or.cond = select i1 %.not82, i1 %89, i1 false
-  br i1 %or.cond, label %.lr.ph94, label %._crit_edge95, !llvm.loop !40
+  br i1 %or.cond, label %.lr.ph94, label %._crit_edge95, !llvm.loop !39
 
 ._crit_edge95:                                    ; preds = %.lr.ph94, %80, %84, %.preheader, %._crit_edge
   %90 = getelementptr i8, ptr %44, i64 1
   %91 = icmp ult ptr %90, %28
-  br i1 %91, label %41, label %.loopexit, !llvm.loop !41
+  br i1 %91, label %41, label %.loopexit, !llvm.loop !40
 
 .loopexit:                                        ; preds = %._crit_edge95, %41, %20, %cf_read_record.exit.thread, %55, %73
   %.068 = phi i32 [ 1, %55 ], [ 1, %73 ], [ 2, %cf_read_record.exit.thread ], [ 0, %20 ], [ 0, %41 ], [ 0, %._crit_edge95 ]
@@ -6230,7 +6230,7 @@ cf_read_record.exit.thread:                       ; preds = %5
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @match_narrow_and_wide_reverse(ptr nocapture noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, ptr noundef %3, ptr nocapture noundef readonly %4) #1 {
+define internal range(i32 0, 3) i32 @match_narrow_and_wide_reverse(ptr nocapture noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, ptr noundef %3, ptr nocapture noundef readonly %4) #1 {
   %6 = alloca i32, align 4
   %7 = alloca ptr, align 8
   %8 = load ptr, ptr %4, align 8
@@ -6349,7 +6349,7 @@ cf_read_record.exit.thread:                       ; preds = %5
   %70 = and i64 %62, 4294967295
   %71 = getelementptr i8, ptr %53, i64 %70
   %72 = icmp ult ptr %71, %30
-  br i1 %72, label %.lr.ph, label %._crit_edge, !llvm.loop !42
+  br i1 %72, label %.lr.ph, label %._crit_edge, !llvm.loop !41
 
 ._crit_edge:                                      ; preds = %69, %.lr.ph
   br i1 %55, label %.lr.ph102, label %._crit_edge103
@@ -6394,12 +6394,12 @@ cf_read_record.exit.thread:                       ; preds = %5
   %95 = getelementptr i8, ptr %53, i64 %94
   %96 = icmp ult ptr %95, %30
   %or.cond = select i1 %.not88, i1 %96, i1 false
-  br i1 %or.cond, label %.lr.ph102, label %._crit_edge103, !llvm.loop !43
+  br i1 %or.cond, label %.lr.ph102, label %._crit_edge103, !llvm.loop !42
 
 ._crit_edge103:                                   ; preds = %.lr.ph102, %87, %91, %.preheader, %._crit_edge
   %97 = getelementptr i8, ptr %53, i64 1
   %98 = icmp ult ptr %97, %30
-  br i1 %98, label %48, label %.loopexit, !llvm.loop !44
+  br i1 %98, label %48, label %.loopexit, !llvm.loop !43
 
 .loopexit:                                        ; preds = %._crit_edge103, %48, %43, %cf_read_record.exit.thread, %64, %81, %20
   %.072 = phi i32 [ 0, %20 ], [ 1, %64 ], [ 1, %81 ], [ 2, %cf_read_record.exit.thread ], [ 0, %43 ], [ 0, %48 ], [ 0, %._crit_edge103 ]
@@ -6407,7 +6407,7 @@ cf_read_record.exit.thread:                       ; preds = %5
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @match_binary(ptr nocapture noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, ptr noundef %3, ptr nocapture noundef readonly %4) #1 {
+define internal range(i32 0, 3) i32 @match_binary(ptr nocapture noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, ptr noundef %3, ptr nocapture noundef readonly %4) #1 {
   %6 = alloca i32, align 4
   %7 = alloca ptr, align 8
   %8 = getelementptr inbounds i8, ptr %4, i64 8
@@ -6480,7 +6480,7 @@ cf_read_record.exit.thread:                       ; preds = %5
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @match_binary_reverse(ptr nocapture noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, ptr noundef %3, ptr nocapture noundef readonly %4) #1 {
+define internal range(i32 0, 3) i32 @match_binary_reverse(ptr nocapture noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, ptr noundef %3, ptr nocapture noundef readonly %4) #1 {
   %6 = alloca i32, align 4
   %7 = alloca ptr, align 8
   %8 = getelementptr inbounds i8, ptr %4, i64 8
@@ -6586,7 +6586,7 @@ cf_read_record.exit.thread:                       ; preds = %5
 61:                                               ; preds = %52
   %62 = getelementptr i8, ptr %50, i64 -1
   %.not43 = icmp ult ptr %62, %23
-  br i1 %.not43, label %.loopexit, label %44, !llvm.loop !45
+  br i1 %.not43, label %.loopexit, label %44, !llvm.loop !44
 
 .loopexit:                                        ; preds = %44, %61, %42, %cf_read_record.exit.thread, %55, %19
   %.0 = phi i32 [ 0, %19 ], [ 1, %55 ], [ 2, %cf_read_record.exit.thread ], [ 0, %42 ], [ 0, %61 ], [ 0, %44 ]
@@ -6594,7 +6594,7 @@ cf_read_record.exit.thread:                       ; preds = %5
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @match_wide(ptr nocapture noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, ptr noundef %3, ptr nocapture noundef readonly %4) #1 {
+define internal range(i32 0, 3) i32 @match_wide(ptr nocapture noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, ptr noundef %3, ptr nocapture noundef readonly %4) #1 {
   %6 = alloca i32, align 4
   %7 = alloca ptr, align 8
   %8 = load ptr, ptr %4, align 8
@@ -6706,12 +6706,12 @@ cf_read_record.exit.thread:                       ; preds = %5
   %70 = getelementptr i8, ptr %44, i64 %69
   %71 = icmp ult ptr %70, %28
   %or.cond = select i1 %.not61, i1 %71, i1 false
-  br i1 %or.cond, label %.lr.ph, label %._crit_edge, !llvm.loop !46
+  br i1 %or.cond, label %.lr.ph, label %._crit_edge, !llvm.loop !45
 
 ._crit_edge:                                      ; preds = %.lr.ph, %62, %66, %.preheader
   %72 = getelementptr i8, ptr %44, i64 1
   %73 = icmp ult ptr %72, %28
-  br i1 %73, label %41, label %.loopexit, !llvm.loop !47
+  br i1 %73, label %41, label %.loopexit, !llvm.loop !46
 
 .loopexit:                                        ; preds = %._crit_edge, %41, %20, %cf_read_record.exit.thread, %55
   %.049 = phi i32 [ 1, %55 ], [ 2, %cf_read_record.exit.thread ], [ 0, %20 ], [ 0, %41 ], [ 0, %._crit_edge ]
@@ -6719,7 +6719,7 @@ cf_read_record.exit.thread:                       ; preds = %5
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @match_wide_reverse(ptr nocapture noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, ptr noundef %3, ptr nocapture noundef readonly %4) #1 {
+define internal range(i32 0, 3) i32 @match_wide_reverse(ptr nocapture noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, ptr noundef %3, ptr nocapture noundef readonly %4) #1 {
   %6 = alloca i32, align 4
   %7 = alloca ptr, align 8
   %8 = load ptr, ptr %4, align 8
@@ -6851,12 +6851,12 @@ cf_read_record.exit.thread:                       ; preds = %5
   %78 = getelementptr i8, ptr %53, i64 %77
   %79 = icmp ult ptr %78, %30
   %or.cond = select i1 %.not67, i1 %79, i1 false
-  br i1 %or.cond, label %.lr.ph, label %._crit_edge, !llvm.loop !48
+  br i1 %or.cond, label %.lr.ph, label %._crit_edge, !llvm.loop !47
 
 ._crit_edge:                                      ; preds = %.lr.ph, %70, %74, %.preheader
   %80 = getelementptr i8, ptr %53, i64 1
   %81 = icmp ult ptr %80, %30
-  br i1 %81, label %48, label %.loopexit, !llvm.loop !49
+  br i1 %81, label %48, label %.loopexit, !llvm.loop !48
 
 .loopexit:                                        ; preds = %._crit_edge, %48, %43, %cf_read_record.exit.thread, %64, %20
   %.053 = phi i32 [ 0, %20 ], [ 1, %64 ], [ 2, %cf_read_record.exit.thread ], [ 0, %43 ], [ 0, %48 ], [ 0, %._crit_edge ]
@@ -6866,13 +6866,13 @@ cf_read_record.exit.thread:                       ; preds = %5
 declare ptr @proto_find_field_from_offset(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @cf_find_packet_dfilter(ptr noundef %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #1 {
-  %4 = tail call fastcc i32 @find_packet(ptr noundef %0, ptr noundef nonnull @match_dfilter, ptr noundef %1, i32 noundef %2), !range !19
+define hidden range(i32 0, 2) i32 @cf_find_packet_dfilter(ptr noundef %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #1 {
+  %4 = tail call fastcc i32 @find_packet(ptr noundef %0, ptr noundef nonnull @match_dfilter, ptr noundef %1, i32 noundef %2)
   ret i32 %4
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @match_dfilter(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4) #1 {
+define internal range(i32 0, 3) i32 @match_dfilter(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4) #1 {
   %6 = alloca i32, align 4
   %7 = alloca ptr, align 8
   %8 = alloca %struct.epan_dissect, align 8
@@ -6918,7 +6918,7 @@ cf_read_record.exit.thread:                       ; preds = %5
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @cf_find_packet_dfilter_string(ptr noundef %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #1 {
+define hidden range(i32 0, 2) i32 @cf_find_packet_dfilter_string(ptr noundef %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #1 {
   %4 = alloca ptr, align 8
   %5 = call zeroext i1 @dfilter_compile_full(ptr noundef %1, ptr noundef nonnull %4, ptr noundef null, i32 noundef 6, ptr noundef nonnull @__func__.cf_find_packet_dfilter_string) #21
   br i1 %5, label %6, label %12
@@ -6929,7 +6929,7 @@ define hidden noundef i32 @cf_find_packet_dfilter_string(ptr noundef %0, ptr nou
   br i1 %8, label %12, label %9
 
 9:                                                ; preds = %6
-  %10 = call fastcc i32 @find_packet(ptr noundef %0, ptr noundef nonnull @match_dfilter, ptr noundef nonnull %7, i32 noundef %2), !range !19
+  %10 = call fastcc i32 @find_packet(ptr noundef %0, ptr noundef nonnull @match_dfilter, ptr noundef nonnull %7, i32 noundef %2)
   %11 = load ptr, ptr %4, align 8
   call void @dfilter_free(ptr noundef %11) #21
   br label %12
@@ -6940,13 +6940,13 @@ define hidden noundef i32 @cf_find_packet_dfilter_string(ptr noundef %0, ptr nou
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @cf_find_packet_marked(ptr noundef %0, i32 noundef %1) local_unnamed_addr #1 {
-  %3 = tail call fastcc i32 @find_packet(ptr noundef %0, ptr noundef nonnull @match_marked, ptr noundef null, i32 noundef %1), !range !19
+define hidden range(i32 0, 2) i32 @cf_find_packet_marked(ptr noundef %0, i32 noundef %1) local_unnamed_addr #1 {
+  %3 = tail call fastcc i32 @find_packet(ptr noundef %0, ptr noundef nonnull @match_marked, ptr noundef null, i32 noundef %1)
   ret i32 %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal i32 @match_marked(ptr nocapture readnone %0, ptr nocapture noundef readonly %1, ptr nocapture readnone %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #5 {
+define internal range(i32 0, 2) i32 @match_marked(ptr nocapture readnone %0, ptr nocapture noundef readonly %1, ptr nocapture readnone %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #5 {
   %6 = getelementptr inbounds i8, ptr %1, i64 50
   %7 = load i16, ptr %6, align 2
   %8 = lshr i16 %7, 4
@@ -6956,13 +6956,13 @@ define internal i32 @match_marked(ptr nocapture readnone %0, ptr nocapture nound
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @cf_find_packet_time_reference(ptr noundef %0, i32 noundef %1) local_unnamed_addr #1 {
-  %3 = tail call fastcc i32 @find_packet(ptr noundef %0, ptr noundef nonnull @match_time_reference, ptr noundef null, i32 noundef %1), !range !19
+define hidden range(i32 0, 2) i32 @cf_find_packet_time_reference(ptr noundef %0, i32 noundef %1) local_unnamed_addr #1 {
+  %3 = tail call fastcc i32 @find_packet(ptr noundef %0, ptr noundef nonnull @match_time_reference, ptr noundef null, i32 noundef %1)
   ret i32 %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal i32 @match_time_reference(ptr nocapture readnone %0, ptr nocapture noundef readonly %1, ptr nocapture readnone %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #5 {
+define internal range(i32 0, 2) i32 @match_time_reference(ptr nocapture readnone %0, ptr nocapture noundef readonly %1, ptr nocapture readnone %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #5 {
   %6 = getelementptr inbounds i8, ptr %1, i64 50
   %7 = load i16, ptr %6, align 2
   %8 = lshr i16 %7, 5
@@ -6972,7 +6972,7 @@ define internal i32 @match_time_reference(ptr nocapture readnone %0, ptr nocaptu
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @cf_goto_frame(ptr noundef readonly %0, i32 noundef %1) local_unnamed_addr #1 {
+define hidden range(i32 0, 2) i32 @cf_goto_frame(ptr noundef readonly %0, i32 noundef %1) local_unnamed_addr #1 {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %8, label %4
 
@@ -7023,7 +7023,7 @@ define hidden noundef i32 @cf_goto_frame(ptr noundef readonly %0, i32 noundef %1
 declare void @statusbar_push_temporary_msg(ptr noundef, ...) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @cf_goto_framenum(ptr noundef %0) local_unnamed_addr #1 {
+define hidden range(i32 0, 2) i32 @cf_goto_framenum(ptr noundef %0) local_unnamed_addr #1 {
   %2 = getelementptr inbounds i8, ptr %0, i64 392
   %3 = load ptr, ptr %2, align 8
   %.not = icmp eq ptr %3, null
@@ -7044,7 +7044,7 @@ define hidden noundef i32 @cf_goto_framenum(ptr noundef %0) local_unnamed_addr #
   br i1 %.not9, label %15, label %13
 
 13:                                               ; preds = %9
-  %14 = tail call i32 @cf_goto_frame(ptr noundef nonnull %0, i32 noundef %12), !range !19
+  %14 = tail call i32 @cf_goto_frame(ptr noundef nonnull %0, i32 noundef %12)
   br label %15
 
 15:                                               ; preds = %1, %9, %4, %13
@@ -7327,7 +7327,7 @@ define hidden void @cf_update_section_comments(ptr nocapture noundef %0, i32 nou
 26:                                               ; preds = %17, %25
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %12, !llvm.loop !50
+  br i1 %exitcond.not, label %._crit_edge, label %12, !llvm.loop !49
 
 ._crit_edge:                                      ; preds = %26, %9
   call void @g_free(ptr noundef %2) #21
@@ -7345,7 +7345,7 @@ define hidden void @cf_update_section_comments(ptr nocapture noundef %0, i32 nou
   %32 = call i32 @wtap_block_remove_nth_option_instance(ptr noundef nonnull %7, i32 noundef 1, i32 noundef %31) #21
   store i32 1, ptr %29, align 4
   %33 = icmp ugt i32 %31, %10
-  br i1 %33, label %30, label %.loopexit, !llvm.loop !51
+  br i1 %33, label %30, label %.loopexit, !llvm.loop !50
 
 .loopexit:                                        ; preds = %30, %._crit_edge, %3
   ret void
@@ -7418,7 +7418,7 @@ declare ptr @wtap_block_ref(ptr noundef) local_unnamed_addr #3
 declare ptr @cap_file_provider_get_modified_block(ptr noundef, ptr noundef) #3
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @cf_set_modified_block(ptr noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #1 {
+define hidden range(i32 0, 2) i32 @cf_set_modified_block(ptr noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #1 {
   %4 = tail call ptr @cf_get_packet_block(ptr noundef %0, ptr noundef %1)
   %5 = icmp eq ptr %4, %2
   br i1 %5, label %25, label %6
@@ -7472,7 +7472,7 @@ declare void @expert_update_comment_count(i64 noundef) local_unnamed_addr #3
 declare void @wtap_block_unref(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @cf_comment_types(ptr nocapture noundef readonly %0) local_unnamed_addr #1 {
+define hidden range(i32 0, 6) i32 @cf_comment_types(ptr nocapture noundef readonly %0) local_unnamed_addr #1 {
   %2 = alloca ptr, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 248
   %4 = load ptr, ptr %3, align 8
@@ -7485,7 +7485,7 @@ define hidden i32 @cf_comment_types(ptr nocapture noundef readonly %0) local_unn
   %8 = load ptr, ptr %3, align 8
   %9 = call i32 @wtap_file_get_num_shbs(ptr noundef %8) #21
   %10 = icmp ult i32 %7, %9
-  br i1 %10, label %.lr.ph, label %._crit_edge, !llvm.loop !52
+  br i1 %10, label %.lr.ph, label %._crit_edge, !llvm.loop !51
 
 .lr.ph:                                           ; preds = %1, %6
   %.0910 = phi i32 [ %7, %6 ], [ 0, %1 ]
@@ -7508,7 +7508,7 @@ define hidden i32 @cf_comment_types(ptr nocapture noundef readonly %0) local_unn
 declare i32 @wtap_file_get_num_shbs(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @cf_add_ip_name_from_string(ptr nocapture noundef writeonly %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #1 {
+define hidden range(i32 0, 2) i32 @cf_add_ip_name_from_string(ptr nocapture noundef writeonly %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #1 {
   %4 = tail call i32 @add_ip_name_from_string(ptr noundef %1, ptr noundef %2) #21
   %.not = icmp eq i32 %4, 0
   br i1 %.not, label %7, label %5
@@ -7536,7 +7536,7 @@ define hidden i32 @cf_can_write_with_wiretap(ptr nocapture noundef readonly %0) 
 declare i32 @wtap_dump_can_write(ptr noundef, i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @cf_can_save(ptr nocapture noundef readonly %0) local_unnamed_addr #1 {
+define hidden range(i32 0, 2) i32 @cf_can_save(ptr nocapture noundef readonly %0) local_unnamed_addr #1 {
   %2 = getelementptr inbounds i8, ptr %0, i64 36
   %3 = load i32, ptr %2, align 4
   %.not = icmp eq i32 %3, 0
@@ -7569,7 +7569,7 @@ define hidden noundef i32 @cf_can_save(ptr nocapture noundef readonly %0) local_
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @cf_can_save_as(ptr nocapture noundef readonly %0) local_unnamed_addr #1 {
+define hidden range(i32 0, 2) i32 @cf_can_save_as(ptr nocapture noundef readonly %0) local_unnamed_addr #1 {
   %2 = getelementptr inbounds i8, ptr %0, i64 72
   %3 = load ptr, ptr %2, align 8
   %4 = tail call i32 @wtap_dump_can_write(ptr noundef %3, i32 noundef 0) #21
@@ -7597,7 +7597,7 @@ define hidden noundef i32 @cf_can_save_as(ptr nocapture noundef readonly %0) loc
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden i32 @cf_has_unsaved_data(ptr nocapture noundef readonly %0) local_unnamed_addr #5 {
+define hidden range(i32 0, 2) i32 @cf_has_unsaved_data(ptr nocapture noundef readonly %0) local_unnamed_addr #5 {
   %2 = getelementptr inbounds i8, ptr %0, i64 32
   %3 = load i32, ptr %2, align 8
   %.not = icmp eq i32 %3, 0
@@ -7622,7 +7622,7 @@ define hidden i32 @cf_has_unsaved_data(ptr nocapture noundef readonly %0) local_
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @cf_save_records(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5) local_unnamed_addr #1 {
+define hidden range(i32 0, 3) i32 @cf_save_records(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5) local_unnamed_addr #1 {
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
   %9 = alloca %struct.save_callback_args_t, align 8
@@ -7996,12 +7996,12 @@ cf_callback_invoke.exit140:                       ; preds = %.lr.ph.i136, %.crit
   br i1 %.not119, label %171, label %166
 
 166:                                              ; preds = %163
-  %167 = call i32 @cf_open(ptr noundef nonnull %0, ptr noundef %1, i32 noundef 0, i32 noundef 0, ptr noundef nonnull %8), !range !19
+  %167 = call i32 @cf_open(ptr noundef nonnull %0, ptr noundef %1, i32 noundef 0, i32 noundef 0, ptr noundef nonnull %8)
   %168 = icmp eq i32 %167, 0
   br i1 %168, label %169, label %cf_callback_invoke.exit147
 
 169:                                              ; preds = %166
-  %170 = call i32 @cf_read(ptr noundef nonnull %0, i32 noundef 1), !range !53
+  %170 = call i32 @cf_read(ptr noundef nonnull %0, i32 noundef 1)
   %.not121 = icmp eq i32 %170, 0
   br i1 %.not121, label %cf_callback_invoke.exit147, label %cf_callback_invoke.exit147.sink.split
 
@@ -8045,7 +8045,7 @@ cf_callback_invoke.exit147:                       ; preds = %.lr.ph.i150, %.lr.p
   %185 = add i32 %.0104178, 1
   %186 = load i32, ptr %176, align 8
   %.not124 = icmp ugt i32 %185, %186
-  br i1 %.not124, label %._crit_edge, label %179, !llvm.loop !54
+  br i1 %.not124, label %._crit_edge, label %179, !llvm.loop !52
 
 ._crit_edge:                                      ; preds = %179, %173
   %187 = getelementptr inbounds i8, ptr %0, i64 288
@@ -8149,7 +8149,7 @@ declare ptr @wtap_dump_open(ptr noundef, i32 noundef, i32 noundef, ptr noundef, 
 declare i32 @wtap_dump_set_addrinfo_list(ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @save_record(ptr noundef %0, ptr noundef %1, ptr nocapture noundef readonly %2, ptr nocapture noundef readonly %3, ptr nocapture noundef readonly %4) #1 {
+define internal range(i32 0, 2) i32 @save_record(ptr noundef %0, ptr noundef %1, ptr nocapture noundef readonly %2, ptr nocapture noundef readonly %3, ptr nocapture noundef readonly %4) #1 {
   %6 = alloca %struct.wtap_rec, align 8
   %7 = alloca i32, align 4
   %8 = alloca ptr, align 8
@@ -8249,7 +8249,7 @@ declare void @wtap_fdclose(ptr noundef) local_unnamed_addr #3
 declare i32 @wtap_fdreopen(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @rescan_file(ptr noundef %0, ptr noundef %1) unnamed_addr #1 {
+define internal fastcc range(i32 0, 3) i32 @rescan_file(ptr noundef %0, ptr noundef %1) unnamed_addr #1 {
   %3 = alloca i32, align 4
   %4 = alloca %struct.wtap_rec, align 8
   %5 = alloca %struct.Buffer, align 8
@@ -8522,7 +8522,7 @@ cf_add_encapsulation_type.exit:                   ; preds = %131, %._crit_edge.i
   %137 = load ptr, ptr %11, align 8
   %138 = call i32 @wtap_read(ptr noundef %137, ptr noundef nonnull %4, ptr noundef nonnull %5, ptr noundef nonnull %6, ptr noundef nonnull %7, ptr noundef nonnull %8) #21
   %.not78 = icmp eq i32 %138, 0
-  br i1 %.not78, label %progress_is_slow.exit.thread.thread._crit_edge, label %62, !llvm.loop !55
+  br i1 %.not78, label %progress_is_slow.exit.thread.thread._crit_edge, label %62, !llvm.loop !53
 
 progress_is_slow.exit.thread.thread._crit_edge:   ; preds = %136, %progress_is_slow.exit.thread.thread, %cf_callback_invoke.exit
   %.3 = phi ptr [ null, %cf_callback_invoke.exit ], [ %.2, %progress_is_slow.exit.thread.thread ], [ %.2, %136 ]
@@ -8590,7 +8590,7 @@ cf_callback_invoke.exit102:                       ; preds = %.lr.ph.i97, %140
 declare void @wtap_write_shb_comment(ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @cf_export_specified_packets(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4) local_unnamed_addr #1 {
+define hidden range(i32 0, 3) i32 @cf_export_specified_packets(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4) local_unnamed_addr #1 {
   %6 = alloca i32, align 4
   %7 = alloca ptr, align 8
   %8 = alloca %struct.save_callback_args_t, align 8
@@ -8718,7 +8718,7 @@ define hidden noundef i32 @cf_export_specified_packets(ptr noundef %0, ptr nound
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @cf_reload(ptr noundef %0) local_unnamed_addr #1 {
+define hidden range(i32 0, 2) i32 @cf_reload(ptr noundef %0) local_unnamed_addr #1 {
   %2 = alloca i32, align 4
   %3 = getelementptr inbounds i8, ptr %0, i64 172
   %4 = load i32, ptr %3, align 4
@@ -8738,12 +8738,12 @@ define hidden noundef i32 @cf_reload(ptr noundef %0) local_unnamed_addr #1 {
   store i32 0, ptr %10, align 8
   %12 = getelementptr inbounds i8, ptr %0, i64 60
   %13 = load i32, ptr %12, align 4
-  %14 = call i32 @cf_open(ptr noundef nonnull %0, ptr noundef %9, i32 noundef %13, i32 noundef %11, ptr noundef nonnull %2), !range !19
+  %14 = call i32 @cf_open(ptr noundef nonnull %0, ptr noundef %9, i32 noundef %13, i32 noundef %11, ptr noundef nonnull %2)
   %15 = icmp eq i32 %14, 0
   br i1 %15, label %16, label %18
 
 16:                                               ; preds = %8
-  %17 = call i32 @cf_read(ptr noundef nonnull %0, i32 noundef 1), !range !53
+  %17 = call i32 @cf_read(ptr noundef nonnull %0, i32 noundef 1)
   br label %19
 
 18:                                               ; preds = %8
@@ -9062,7 +9062,7 @@ attributes #26 = { nounwind willreturn memory(none) }
 !16 = distinct !{!16, !5}
 !17 = distinct !{!17, !5}
 !18 = distinct !{!18, !5}
-!19 = !{i32 0, i32 2}
+!19 = distinct !{!19, !5}
 !20 = distinct !{!20, !5}
 !21 = distinct !{!21, !5}
 !22 = distinct !{!22, !5}
@@ -9096,6 +9096,4 @@ attributes #26 = { nounwind willreturn memory(none) }
 !50 = distinct !{!50, !5}
 !51 = distinct !{!51, !5}
 !52 = distinct !{!52, !5}
-!53 = !{i32 0, i32 3}
-!54 = distinct !{!54, !5}
-!55 = distinct !{!55, !5}
+!53 = distinct !{!53, !5}

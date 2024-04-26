@@ -389,7 +389,7 @@ if.end3.i:                                        ; preds = %if.then
   %conv.i8 = sext i8 %0 to i32
   %call.i9 = tail call i32 @ossl_isdigit(i32 noundef %conv.i8) #14
   %tobool.not19.i = icmp eq i32 %call.i9, 0
-  br i1 %tobool.not19.i, label %if.end.thread13, label %for.body.i
+  br i1 %tobool.not19.i, label %if.end.thread14, label %for.body.i
 
 for.body.i:                                       ; preds = %if.end3.i, %if.end25.i
   %res.021.i = phi i64 [ %add.i, %if.end25.i ], [ 0, %if.end3.i ]
@@ -415,11 +415,11 @@ if.end25.i:                                       ; preds = %for.body.i
   %conv.i4 = sext i8 %2 to i32
   %call.i5 = tail call i32 @ossl_isdigit(i32 noundef %conv.i4) #14
   %tobool.not.i = icmp eq i32 %call.i5, 0
-  br i1 %tobool.not.i, label %if.end.thread13, label %for.body.i, !llvm.loop !4
+  br i1 %tobool.not.i, label %if.end.thread14, label %for.body.i, !llvm.loop !4
 
-if.end.thread13:                                  ; preds = %if.end25.i, %if.end3.i
+if.end.thread14:                                  ; preds = %if.end25.i, %if.end3.i
   %res.0.lcssa.i = phi i64 [ 0, %if.end3.i ], [ %add.i, %if.end25.i ]
-  %call315 = tail call i32 @ERR_pop_to_mark() #14
+  %call316 = tail call i32 @ERR_pop_to_mark() #14
   br label %8
 
 if.else:                                          ; preds = %entry
@@ -445,24 +445,25 @@ if.end:                                           ; preds = %if.then.i, %if.else
   %call1.i = call i32 %5(ptr noundef nonnull %ctmp) #14
   %data.i = getelementptr inbounds i8, ptr %ctmp, i64 16
   store ptr %conf, ptr %data.i, align 8
-  %call2 = call i32 @NCONF_get_number_e(ptr noundef nonnull %ctmp, ptr noundef %group, ptr noundef %name, ptr noundef nonnull %result), !range !6
+  %call2 = call i32 @NCONF_get_number_e(ptr noundef nonnull %ctmp, ptr noundef %group, ptr noundef %name, ptr noundef nonnull %result)
   %call3 = call i32 @ERR_pop_to_mark() #14
-  %cmp4 = icmp eq i32 %call2, 0
+  %call2.fr = freeze i32 %call2
+  %cmp4 = icmp eq i32 %call2.fr, 0
   %6 = load i64, ptr %result, align 8
   br i1 %cmp4, label %7, label %8
 
 7:                                                ; preds = %if.end.thread, %if.end
   br label %8
 
-8:                                                ; preds = %if.end.thread13, %if.end, %7
-  %9 = phi i64 [ 0, %7 ], [ %6, %if.end ], [ %res.0.lcssa.i, %if.end.thread13 ]
+8:                                                ; preds = %if.end.thread14, %if.end, %7
+  %9 = phi i64 [ 0, %7 ], [ %6, %if.end ], [ %res.0.lcssa.i, %if.end.thread14 ]
   ret i64 %9
 }
 
 declare i32 @ERR_set_mark() local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @NCONF_get_number_e(ptr noundef %conf, ptr noundef %group, ptr noundef %name, ptr noundef writeonly %result) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @NCONF_get_number_e(ptr noundef %conf, ptr noundef %group, ptr noundef %name, ptr noundef writeonly %result) local_unnamed_addr #0 {
 entry:
   %cmp = icmp eq ptr %result, null
   br i1 %cmp, label %if.then, label %if.end
@@ -910,7 +911,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal i32 @default_to_int(ptr nocapture readnone %conf, i8 noundef signext %c) unnamed_addr #5 {
+define internal range(i32 -176, 80) i32 @default_to_int(ptr nocapture readnone %conf, i8 noundef signext %c) unnamed_addr #5 {
 entry:
   %conv = sext i8 %c to i32
   %sub = add nsw i32 %conv, -48
@@ -923,7 +924,7 @@ entry:
   %result = alloca i64, align 8
   store i64 0, ptr %result, align 8
   %call = tail call i32 @ERR_set_mark() #14
-  %call1 = call i32 @NCONF_get_number_e(ptr noundef %conf, ptr noundef %section, ptr noundef %name, ptr noundef nonnull %result), !range !6
+  %call1 = call i32 @NCONF_get_number_e(ptr noundef %conf, ptr noundef %section, ptr noundef %name, ptr noundef nonnull %result)
   %call2 = call i32 @ERR_pop_to_mark() #14
   %cmp = icmp eq i32 %call1, 0
   %0 = load i64, ptr %result, align 8
@@ -988,7 +989,7 @@ return:                                           ; preds = %entry, %if.end
 }
 
 ; Function Attrs: mustprogress nounwind willreturn uwtable
-define noundef i32 @OPENSSL_INIT_set_config_filename(ptr nocapture noundef %settings, ptr noundef readonly %filename) local_unnamed_addr #7 {
+define range(i32 0, 2) i32 @OPENSSL_INIT_set_config_filename(ptr nocapture noundef %settings, ptr noundef readonly %filename) local_unnamed_addr #7 {
 entry:
   %cmp.not = icmp eq ptr %filename, null
   br i1 %cmp.not, label %if.end3, label %if.then
@@ -1025,7 +1026,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind willreturn uwtable
-define noundef i32 @OPENSSL_INIT_set_config_appname(ptr nocapture noundef %settings, ptr noundef readonly %appname) local_unnamed_addr #7 {
+define range(i32 0, 2) i32 @OPENSSL_INIT_set_config_appname(ptr nocapture noundef %settings, ptr noundef readonly %appname) local_unnamed_addr #7 {
 entry:
   %cmp.not = icmp eq ptr %appname, null
   br i1 %cmp.not, label %if.end3, label %if.then
@@ -1103,4 +1104,3 @@ attributes #15 = { nounwind willreturn memory(read) }
 !3 = !{i32 7, !"frame-pointer", i32 2}
 !4 = distinct !{!4, !5}
 !5 = !{!"llvm.loop.mustprogress"}
-!6 = !{i32 0, i32 2}

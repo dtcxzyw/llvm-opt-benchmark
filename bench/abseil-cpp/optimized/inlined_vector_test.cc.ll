@@ -14894,6 +14894,7 @@ for.cond2.preheader:                              ; preds = %entry, %for.inc193
 
 for.cond5.preheader:                              ; preds = %for.cond2.preheader, %for.inc190
   %erase_begin.0547 = phi i64 [ 0, %for.cond2.preheader ], [ %inc191, %for.inc190 ]
+  %add.ptr.idx = shl nsw i64 %erase_begin.0547, 4
   %cmp41533.not = icmp eq i64 %erase_begin.0547, 0
   br label %_ZNSt6vectorIiSaIiEE17_S_check_init_lenEmRKS0_.exit.i
 
@@ -15033,24 +15034,18 @@ for.end:                                          ; preds = %_ZN12_GLOBAL__N_110
   %tobool.i.not.i.i = icmp eq i64 %and.i.i.i, 0
   %this.val1.i.i = load ptr, ptr %0, align 8
   %cond.i.i = select i1 %tobool.i.not.i.i, ptr %0, ptr %this.val1.i.i
-  %add.ptr = getelementptr inbounds %"class.(anonymous namespace)::RefCounted", ptr %cond.i.i, i64 %erase_begin.0547
+  %add.ptr = getelementptr inbounds i8, ptr %cond.i.i, i64 %add.ptr.idx
   %cmp.not.i = icmp eq i64 %erase_begin.0547, %erase_end.0546
   br i1 %cmp.not.i, label %invoke.cont20, label %if.then.i
 
 if.then.i:                                        ; preds = %for.end
-  %add.ptr19 = getelementptr inbounds %"class.(anonymous namespace)::RefCounted", ptr %cond.i.i, i64 %erase_end.0546
   %shr.i.sink.i.i.i = lshr i64 %this.val.i.i, 1
-  %sub.ptr.lhs.cast.i.i.i.i = ptrtoint ptr %add.ptr19 to i64
-  %sub.ptr.rhs.cast.i.i.i.i = ptrtoint ptr %add.ptr to i64
-  %sub.ptr.sub.i.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i.i, %sub.ptr.rhs.cast.i.i.i.i
-  %sub.ptr.div.i.i.i.i = ashr exact i64 %sub.ptr.sub.i.i.i.i, 4
-  %add.i.i = add nsw i64 %sub.ptr.div.i.i.i.i, %erase_begin.0547
-  %sub.i.i = sub i64 %shr.i.sink.i.i.i, %add.i.i
-  %cmp3.not.i = icmp eq i64 %shr.i.sink.i.i.i, %add.i.i
+  %sub.i.i = sub nsw i64 %shr.i.sink.i.i.i, %erase_end.0546
+  %cmp3.not.i = icmp eq i64 %shr.i.sink.i.i.i, %erase_end.0546
   br i1 %cmp3.not.i, label %.noexc81, label %for.body.i.preheader
 
 for.body.i.preheader:                             ; preds = %if.then.i
-  %add.ptr.i.i = getelementptr inbounds %"class.(anonymous namespace)::RefCounted", ptr %cond.i.i, i64 %add.i.i
+  %add.ptr.i.i = getelementptr inbounds %"class.(anonymous namespace)::RefCounted", ptr %cond.i.i, i64 %erase_end.0546
   br label %for.body.i
 
 for.body.i:                                       ; preds = %for.body.i.preheader, %_ZN4absl23inlined_vector_internal20IteratorValueAdapterISaIN12_GLOBAL__N_110RefCountedEESt13move_iteratorIPS3_EE10AssignNextES6_.exit.i
@@ -15126,10 +15121,10 @@ _ZN4absl23inlined_vector_internal20IteratorValueAdapterISaIN12_GLOBAL__N_110RefC
   br i1 %exitcond.not.i, label %.noexc81, label %for.body.i, !llvm.loop !326
 
 .noexc81:                                         ; preds = %_ZN4absl23inlined_vector_internal20IteratorValueAdapterISaIN12_GLOBAL__N_110RefCountedEESt13move_iteratorIPS3_EE10AssignNextES6_.exit.i, %if.then.i
-  %sub9.i.i = sub i64 %shr.i.sink.i.i.i, %sub.ptr.div.i.i.i.i
+  %sub9.i.i = sub nsw i64 %shr.i.sink.i.i.i, %sub
   %add.ptr10.i.i = getelementptr inbounds %"class.(anonymous namespace)::RefCounted", ptr %cond.i.i, i64 %sub9.i.i
-  call fastcc void @_ZN4absl23inlined_vector_internal14DestroyAdapterISaIN12_GLOBAL__N_110RefCountedEELb0EE15DestroyElementsERS4_PS3_m(ptr noundef %add.ptr10.i.i, i64 noundef %sub.ptr.div.i.i.i.i)
-  %shl.i.i.i = ashr exact i64 %sub.ptr.sub.i.i.i.i, 3
+  call fastcc void @_ZN4absl23inlined_vector_internal14DestroyAdapterISaIN12_GLOBAL__N_110RefCountedEELb0EE15DestroyElementsERS4_PS3_m(ptr noundef %add.ptr10.i.i, i64 noundef %sub)
+  %shl.i.i.i = shl nuw nsw i64 %sub, 1
   %26 = load i64, ptr %v, align 8
   %sub.i.i.i = sub i64 %26, %shl.i.i.i
   store i64 %sub.i.i.i, ptr %v, align 8
@@ -39532,44 +39527,44 @@ entry:
   %message_.i = getelementptr inbounds i8, ptr %gtest_ar_, i64 8
   %message_.i183 = getelementptr inbounds i8, ptr %gtest_ar_41, i64 8
   %message_.i280 = getelementptr inbounds i8, ptr %gtest_ar_80, i64 8
-  %.sroa.gep411 = getelementptr inbounds i8, ptr %vec, i64 16
-  %.sroa.gep408 = getelementptr inbounds i8, ptr %vec, i64 24
-  %.sroa.gep405 = getelementptr inbounds i8, ptr %vec, i64 32
-  %.sroa.gep467 = getelementptr inbounds i8, ptr %vec, i64 16
+  %.sroa.gep413 = getelementptr inbounds i8, ptr %vec, i64 16
+  %.sroa.gep410 = getelementptr inbounds i8, ptr %vec, i64 24
+  %.sroa.gep407 = getelementptr inbounds i8, ptr %vec, i64 32
+  %.sroa.gep472 = getelementptr inbounds i8, ptr %vec, i64 16
   %.sroa.gep = getelementptr inbounds i8, ptr %vec, i64 16
-  %.sroa.gep461 = getelementptr inbounds i8, ptr %vec, i64 24
-  %.sroa.gep464 = getelementptr inbounds i8, ptr %vec, i64 32
+  %.sroa.gep466 = getelementptr inbounds i8, ptr %vec, i64 24
+  %.sroa.gep469 = getelementptr inbounds i8, ptr %vec, i64 32
   br label %for.body
 
 for.body:                                         ; preds = %entry, %_ZN4absl13InlinedVectorIN12_GLOBAL__N_124NotTriviallyDestructibleELm10ESaIS2_EED2Ev.exit
-  %i.0380 = phi i64 [ 1, %entry ], [ %inc115, %_ZN4absl13InlinedVectorIN12_GLOBAL__N_124NotTriviallyDestructibleELm10ESaIS2_EED2Ev.exit ]
+  %i.0382 = phi i64 [ 1, %entry ], [ %inc115, %_ZN4absl13InlinedVectorIN12_GLOBAL__N_124NotTriviallyDestructibleELm10ESaIS2_EED2Ev.exit ]
   store i64 0, ptr %vec, align 8
   br label %for.body4
 
 for.body4:                                        ; preds = %for.body, %_ZN12_GLOBAL__N_124NotTriviallyDestructibleD2Ev.exit
-  %j.0352 = phi i64 [ 0, %for.body ], [ %inc, %_ZN12_GLOBAL__N_124NotTriviallyDestructibleD2Ev.exit ]
+  %j.0354 = phi i64 [ 0, %for.body ], [ %inc, %_ZN12_GLOBAL__N_124NotTriviallyDestructibleD2Ev.exit ]
   %call.i34 = invoke noalias noundef nonnull dereferenceable(4) ptr @_Znwm(i64 noundef 4) #33
           to label %invoke.cont unwind label %lpad.loopexit.split-lp
 
 invoke.cont:                                      ; preds = %for.body4
-  %conv = trunc nuw nsw i64 %j.0352 to i32
+  %conv = trunc nuw nsw i64 %j.0354 to i32
   store i32 %conv, ptr %call.i34, align 4
   invoke fastcc void @_ZN4absl13InlinedVectorIN12_GLOBAL__N_124NotTriviallyDestructibleELm10ESaIS2_EE9push_backEOS2_(ptr noundef nonnull align 8 dereferenceable(88) %vec, ptr nonnull %call.i34)
           to label %_ZN12_GLOBAL__N_124NotTriviallyDestructibleD2Ev.exit unwind label %_ZN12_GLOBAL__N_124NotTriviallyDestructibleD2Ev.exit37
 
 _ZN12_GLOBAL__N_124NotTriviallyDestructibleD2Ev.exit: ; preds = %invoke.cont
   call void @_ZdlPv(ptr noundef nonnull %call.i34) #32
-  %inc = add nuw nsw i64 %j.0352, 1
-  %exitcond.not = icmp eq i64 %inc, %i.0380
+  %inc = add nuw nsw i64 %j.0354, 1
+  %exitcond.not = icmp eq i64 %inc, %i.0382
   br i1 %exitcond.not, label %for.body9, label %for.body4, !llvm.loop !858
 
 lpad.loopexit:                                    ; preds = %for.body9, %_ZN7testing15AssertionResultD2Ev.exit, %_ZN7testing15AssertionResultD2Ev.exit198
-  %lpad.loopexit342 = landingpad { ptr, i32 }
+  %lpad.loopexit344 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup113
 
 lpad.loopexit.split-lp:                           ; preds = %for.body4
-  %lpad.loopexit.split-lp343 = landingpad { ptr, i32 }
+  %lpad.loopexit.split-lp345 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup113
 
@@ -39580,7 +39575,7 @@ _ZN12_GLOBAL__N_124NotTriviallyDestructibleD2Ev.exit37: ; preds = %invoke.cont
   br label %ehcleanup113
 
 for.body9:                                        ; preds = %_ZN12_GLOBAL__N_124NotTriviallyDestructibleD2Ev.exit, %_ZN12_GLOBAL__N_124NotTriviallyDestructibleD2Ev.exit298
-  %n.0377 = phi i64 [ %inc111, %_ZN12_GLOBAL__N_124NotTriviallyDestructibleD2Ev.exit298 ], [ 0, %_ZN12_GLOBAL__N_124NotTriviallyDestructibleD2Ev.exit ]
+  %n.0379 = phi i64 [ %inc111, %_ZN12_GLOBAL__N_124NotTriviallyDestructibleD2Ev.exit298 ], [ 0, %_ZN12_GLOBAL__N_124NotTriviallyDestructibleD2Ev.exit ]
   %this.val.i.i = load i64, ptr %vec, align 8
   %and.i.i.i = and i64 %this.val.i.i, 1
   %tobool.i.not.i.i = icmp eq i64 %and.i.i.i, 0
@@ -39590,7 +39585,7 @@ for.body9:                                        ; preds = %_ZN12_GLOBAL__N_124
   %2 = getelementptr %"class.(anonymous namespace)::NotTriviallyDestructible", ptr %cond.i.i, i64 %shr.i.i.i
   %arrayidx.i = getelementptr i8, ptr %2, i64 -8
   %call10.val = load ptr, ptr %arrayidx.i, align 8
-  invoke fastcc void @_ZN4absl13InlinedVectorIN12_GLOBAL__N_124NotTriviallyDestructibleELm10ESaIS2_EE6insertEPKS2_mRS5_(ptr noundef nonnull align 8 dereferenceable(88) %vec, ptr noundef nonnull %cond.i.i, i64 noundef %n.0377, ptr %call10.val)
+  invoke fastcc void @_ZN4absl13InlinedVectorIN12_GLOBAL__N_124NotTriviallyDestructibleELm10ESaIS2_EE6insertEPKS2_mRS5_(ptr noundef nonnull align 8 dereferenceable(88) %vec, ptr noundef nonnull %cond.i.i, i64 noundef %n.0379, ptr %call10.val)
           to label %invoke.cont11 unwind label %lpad.loopexit
 
 invoke.cont11:                                    ; preds = %for.body9
@@ -39599,8 +39594,9 @@ invoke.cont11:                                    ; preds = %for.body9
   %tobool.i.not.i.i45 = icmp eq i64 %and.i.i.i44, 0
   %this.val1.i.i46 = load ptr, ptr %0, align 8
   %cond.i.i47 = select i1 %tobool.i.not.i.i45, ptr %0, ptr %this.val1.i.i46
-  %add.ptr = getelementptr inbounds %"class.(anonymous namespace)::NotTriviallyDestructible", ptr %cond.i.i47, i64 %n.0377
-  %cmp103.i.i.i.i.not.not = icmp eq i64 %n.0377, 4
+  %add.ptr.idx339 = shl nuw nsw i64 %n.0379, 3
+  %add.ptr = getelementptr inbounds i8, ptr %cond.i.i47, i64 %add.ptr.idx339
+  %cmp103.i.i.i.i.not.not = icmp eq i64 %n.0379, 4
   br i1 %cmp103.i.i.i.i.not.not, label %for.body.lr.ph.i.i.i.i, label %for.end.i.i.i.i
 
 for.body.lr.ph.i.i.i.i:                           ; preds = %invoke.cont11
@@ -39615,31 +39611,31 @@ for.body.lr.ph.i.i.i.i:                           ; preds = %invoke.cont11
   br i1 %cmp.i.i.i.not.i.i.i.i, label %if.end.i.i.i.i, label %invoke.cont15
 
 if.end.i.i.i.i:                                   ; preds = %for.body.lr.ph.i.i.i.i
-  %this.val1.i.i46.sroa.gep412 = getelementptr inbounds i8, ptr %this.val1.i.i46, i64 8
-  %cond.i.i47.sroa.sel413 = select i1 %tobool.i.not.i.i45, ptr %.sroa.gep411, ptr %this.val1.i.i46.sroa.gep412
-  %incdec.ptr.val.i.i.i.i = load ptr, ptr %cond.i.i47.sroa.sel413, align 8
+  %this.val1.i.i46.sroa.gep414 = getelementptr inbounds i8, ptr %this.val1.i.i46, i64 8
+  %cond.i.i47.sroa.sel415 = select i1 %tobool.i.not.i.i45, ptr %.sroa.gep413, ptr %this.val1.i.i46.sroa.gep414
+  %incdec.ptr.val.i.i.i.i = load ptr, ptr %cond.i.i47.sroa.sel415, align 8
   %incdec.ptr.val.val.i.i.i.i = load i32, ptr %incdec.ptr.val.i.i.i.i, align 4
   %cmp.i.i.i42.not.i.i.i.i = icmp eq i32 %call.val.val.i.i.i.i.i.i, %incdec.ptr.val.val.i.i.i.i
-  br i1 %cmp.i.i.i42.not.i.i.i.i, label %if.end4.i.i.i.i, label %invoke.cont15.loopexit.split.loop.exit355
+  br i1 %cmp.i.i.i42.not.i.i.i.i, label %if.end4.i.i.i.i, label %invoke.cont15.loopexit.split.loop.exit357
 
 if.end4.i.i.i.i:                                  ; preds = %if.end.i.i.i.i
-  %this.val1.i.i46.sroa.gep409 = getelementptr inbounds i8, ptr %this.val1.i.i46, i64 16
-  %cond.i.i47.sroa.sel410 = select i1 %tobool.i.not.i.i45, ptr %.sroa.gep408, ptr %this.val1.i.i46.sroa.gep409
-  %incdec.ptr5.val.i.i.i.i = load ptr, ptr %cond.i.i47.sroa.sel410, align 8
+  %this.val1.i.i46.sroa.gep411 = getelementptr inbounds i8, ptr %this.val1.i.i46, i64 16
+  %cond.i.i47.sroa.sel412 = select i1 %tobool.i.not.i.i45, ptr %.sroa.gep410, ptr %this.val1.i.i46.sroa.gep411
+  %incdec.ptr5.val.i.i.i.i = load ptr, ptr %cond.i.i47.sroa.sel412, align 8
   %incdec.ptr5.val.val.i.i.i.i = load i32, ptr %incdec.ptr5.val.i.i.i.i, align 4
   %cmp.i.i.i52.not.i.i.i.i = icmp eq i32 %call.val.val.i.i.i.i.i.i, %incdec.ptr5.val.val.i.i.i.i
-  br i1 %cmp.i.i.i52.not.i.i.i.i, label %if.end8.i.i.i.i, label %invoke.cont15.loopexit.split.loop.exit353
+  br i1 %cmp.i.i.i52.not.i.i.i.i, label %if.end8.i.i.i.i, label %invoke.cont15.loopexit.split.loop.exit355
 
 if.end8.i.i.i.i:                                  ; preds = %if.end4.i.i.i.i
-  %this.val1.i.i46.sroa.gep406 = getelementptr inbounds i8, ptr %this.val1.i.i46, i64 24
-  %cond.i.i47.sroa.sel407 = select i1 %tobool.i.not.i.i45, ptr %.sroa.gep405, ptr %this.val1.i.i46.sroa.gep406
-  %incdec.ptr9.val.i.i.i.i = load ptr, ptr %cond.i.i47.sroa.sel407, align 8
+  %this.val1.i.i46.sroa.gep408 = getelementptr inbounds i8, ptr %this.val1.i.i46, i64 24
+  %cond.i.i47.sroa.sel409 = select i1 %tobool.i.not.i.i45, ptr %.sroa.gep407, ptr %this.val1.i.i46.sroa.gep408
+  %incdec.ptr9.val.i.i.i.i = load ptr, ptr %cond.i.i47.sroa.sel409, align 8
   %incdec.ptr9.val.val.i.i.i.i = load i32, ptr %incdec.ptr9.val.i.i.i.i, align 4
   %cmp.i.i.i62.not.i.i.i.i = icmp eq i32 %call.val.val.i.i.i.i.i.i, %incdec.ptr9.val.val.i.i.i.i
   br i1 %cmp.i.i.i62.not.i.i.i.i, label %invoke.cont15.thread, label %invoke.cont15.loopexit.split.loop.exit
 
 for.end.i.i.i.i:                                  ; preds = %invoke.cont11
-  switch i64 %n.0377, label %invoke.cont15.thread [
+  switch i64 %n.0379, label %invoke.cont15.thread [
     i64 3, label %sw.bb.i.i.i.i
     i64 2, label %for.end.sw.bb22_crit_edge.i.i.i.i
     i64 1, label %for.end.sw.bb27_crit_edge.i.i.i.i
@@ -39647,8 +39643,8 @@ for.end.i.i.i.i:                                  ; preds = %invoke.cont11
 
 for.end.sw.bb27_crit_edge.i.i.i.i:                ; preds = %for.end.i.i.i.i
   %.pre119.i.i.i.i = lshr i64 %this.val.i.i43, 1
-  %.phi.trans.insert416 = getelementptr %"class.(anonymous namespace)::NotTriviallyDestructible", ptr %cond.i.i47, i64 %.pre119.i.i.i.i
-  %arrayidx.i.i.i89.i.i.i.i.phi.trans.insert = getelementptr i8, ptr %.phi.trans.insert416, i64 -8
+  %.phi.trans.insert418 = getelementptr %"class.(anonymous namespace)::NotTriviallyDestructible", ptr %cond.i.i47, i64 %.pre119.i.i.i.i
+  %arrayidx.i.i.i89.i.i.i.i.phi.trans.insert = getelementptr i8, ptr %.phi.trans.insert418, i64 -8
   %call.val.i.i90.i.i.i.i.pre = load ptr, ptr %arrayidx.i.i.i89.i.i.i.i.phi.trans.insert, align 8
   %call.val.val.i.i91.i.i.i.i.pre = load i32, ptr %call.val.i.i90.i.i.i.i.pre, align 4
   br label %sw.bb27.i.i.i.i
@@ -39673,13 +39669,13 @@ sw.bb.i.i.i.i:                                    ; preds = %for.end.i.i.i.i
   br i1 %cmp.i.i.i72.not.i.i.i.i, label %if.end20.i.i.i.i, label %invoke.cont15
 
 if.end20.i.i.i.i:                                 ; preds = %sw.bb.i.i.i.i
-  %this.val1.i.i46.sroa.gep468 = getelementptr inbounds i8, ptr %this.val1.i.i46, i64 8
-  %cond.i.i47.sroa.sel469 = select i1 %tobool.i.not.i.i45, ptr %.sroa.gep467, ptr %this.val1.i.i46.sroa.gep468
+  %this.val1.i.i46.sroa.gep473 = getelementptr inbounds i8, ptr %this.val1.i.i46, i64 8
+  %cond.i.i47.sroa.sel474 = select i1 %tobool.i.not.i.i45, ptr %.sroa.gep472, ptr %this.val1.i.i46.sroa.gep473
   br label %sw.bb22.i.i.i.i
 
 sw.bb22.i.i.i.i:                                  ; preds = %if.end20.i.i.i.i, %for.end.sw.bb22_crit_edge.i.i.i.i
   %call.val.val.i.i81.i.i.i.i = phi i32 [ %call.val.val.i.i81.i.i.i.i.pre, %for.end.sw.bb22_crit_edge.i.i.i.i ], [ %__first.addr.0.val30.val.i.i.i.i, %if.end20.i.i.i.i ]
-  %__first.addr.1.i.i.i.i = phi ptr [ %cond.i.i47, %for.end.sw.bb22_crit_edge.i.i.i.i ], [ %cond.i.i47.sroa.sel469, %if.end20.i.i.i.i ]
+  %__first.addr.1.i.i.i.i = phi ptr [ %cond.i.i47, %for.end.sw.bb22_crit_edge.i.i.i.i ], [ %cond.i.i47.sroa.sel474, %if.end20.i.i.i.i ]
   %__first.addr.1.val.i.i.i.i = load ptr, ptr %__first.addr.1.i.i.i.i, align 8
   %__first.addr.1.val.val.i.i.i.i = load i32, ptr %__first.addr.1.val.i.i.i.i, align 4
   %cmp.i.i.i82.not.i.i.i.i = icmp eq i32 %call.val.val.i.i81.i.i.i.i, %__first.addr.1.val.val.i.i.i.i
@@ -39702,22 +39698,22 @@ invoke.cont15.thread:                             ; preds = %if.end8.i.i.i.i, %f
   br label %_ZN7testing15AssertionResultD2Ev.exit
 
 invoke.cont15.loopexit.split.loop.exit:           ; preds = %if.end8.i.i.i.i
-  %this.val1.i.i46.sroa.gep465 = getelementptr inbounds i8, ptr %this.val1.i.i46, i64 24
-  %cond.i.i47.sroa.sel466 = select i1 %tobool.i.not.i.i45, ptr %.sroa.gep464, ptr %this.val1.i.i46.sroa.gep465
+  %this.val1.i.i46.sroa.gep470 = getelementptr inbounds i8, ptr %this.val1.i.i46, i64 24
+  %cond.i.i47.sroa.sel471 = select i1 %tobool.i.not.i.i45, ptr %.sroa.gep469, ptr %this.val1.i.i46.sroa.gep470
   br label %invoke.cont15
 
-invoke.cont15.loopexit.split.loop.exit353:        ; preds = %if.end4.i.i.i.i
-  %this.val1.i.i46.sroa.gep462 = getelementptr inbounds i8, ptr %this.val1.i.i46, i64 16
-  %cond.i.i47.sroa.sel463 = select i1 %tobool.i.not.i.i45, ptr %.sroa.gep461, ptr %this.val1.i.i46.sroa.gep462
+invoke.cont15.loopexit.split.loop.exit355:        ; preds = %if.end4.i.i.i.i
+  %this.val1.i.i46.sroa.gep467 = getelementptr inbounds i8, ptr %this.val1.i.i46, i64 16
+  %cond.i.i47.sroa.sel468 = select i1 %tobool.i.not.i.i45, ptr %.sroa.gep466, ptr %this.val1.i.i46.sroa.gep467
   br label %invoke.cont15
 
-invoke.cont15.loopexit.split.loop.exit355:        ; preds = %if.end.i.i.i.i
+invoke.cont15.loopexit.split.loop.exit357:        ; preds = %if.end.i.i.i.i
   %this.val1.i.i46.sroa.gep = getelementptr inbounds i8, ptr %this.val1.i.i46, i64 8
   %cond.i.i47.sroa.sel = select i1 %tobool.i.not.i.i45, ptr %.sroa.gep, ptr %this.val1.i.i46.sroa.gep
   br label %invoke.cont15
 
-invoke.cont15:                                    ; preds = %for.body.lr.ph.i.i.i.i, %invoke.cont15.loopexit.split.loop.exit, %invoke.cont15.loopexit.split.loop.exit353, %invoke.cont15.loopexit.split.loop.exit355, %sw.bb27.i.i.i.i, %sw.bb22.i.i.i.i, %sw.bb.i.i.i.i
-  %retval.0.i.i.i.i = phi ptr [ %cond.i.i47, %sw.bb.i.i.i.i ], [ %__first.addr.1.i.i.i.i, %sw.bb22.i.i.i.i ], [ %__first.addr.2.i.i.i.i, %sw.bb27.i.i.i.i ], [ %cond.i.i47.sroa.sel466, %invoke.cont15.loopexit.split.loop.exit ], [ %cond.i.i47.sroa.sel463, %invoke.cont15.loopexit.split.loop.exit353 ], [ %cond.i.i47.sroa.sel, %invoke.cont15.loopexit.split.loop.exit355 ], [ %cond.i.i47, %for.body.lr.ph.i.i.i.i ]
+invoke.cont15:                                    ; preds = %for.body.lr.ph.i.i.i.i, %invoke.cont15.loopexit.split.loop.exit, %invoke.cont15.loopexit.split.loop.exit355, %invoke.cont15.loopexit.split.loop.exit357, %sw.bb27.i.i.i.i, %sw.bb22.i.i.i.i, %sw.bb.i.i.i.i
+  %retval.0.i.i.i.i = phi ptr [ %cond.i.i47, %sw.bb.i.i.i.i ], [ %__first.addr.1.i.i.i.i, %sw.bb22.i.i.i.i ], [ %__first.addr.2.i.i.i.i, %sw.bb27.i.i.i.i ], [ %cond.i.i47.sroa.sel471, %invoke.cont15.loopexit.split.loop.exit ], [ %cond.i.i47.sroa.sel468, %invoke.cont15.loopexit.split.loop.exit355 ], [ %cond.i.i47.sroa.sel, %invoke.cont15.loopexit.split.loop.exit357 ], [ %cond.i.i47, %for.body.lr.ph.i.i.i.i ]
   %cmp.i = icmp eq ptr %retval.0.i.i.i.i, %add.ptr
   %frombool = zext i1 %cmp.i to i8
   store i8 %frombool, ptr %gtest_ar_, align 8
@@ -39822,7 +39818,7 @@ _ZN7testing15AssertionResultD2Ev.exit:            ; preds = %invoke.cont15, %inv
   %13 = getelementptr %"class.(anonymous namespace)::NotTriviallyDestructible", ptr %cond.i.i60, i64 %shr.i.i
   %arrayidx.i67 = getelementptr i8, ptr %13, i64 -8
   %call36.val = load ptr, ptr %arrayidx.i67, align 8
-  invoke fastcc void @_ZN4absl13InlinedVectorIN12_GLOBAL__N_124NotTriviallyDestructibleELm10ESaIS2_EE6insertEPKS2_mRS5_(ptr noundef nonnull align 8 dereferenceable(88) %vec, ptr noundef nonnull %add.ptr35, i64 noundef %n.0377, ptr %call36.val)
+  invoke fastcc void @_ZN4absl13InlinedVectorIN12_GLOBAL__N_124NotTriviallyDestructibleELm10ESaIS2_EE6insertEPKS2_mRS5_(ptr noundef nonnull align 8 dereferenceable(88) %vec, ptr noundef nonnull %add.ptr35, i64 noundef %n.0379, ptr %call36.val)
           to label %invoke.cont37 unwind label %lpad.loopexit
 
 invoke.cont37:                                    ; preds = %_ZN7testing15AssertionResultD2Ev.exit
@@ -39832,7 +39828,7 @@ invoke.cont37:                                    ; preds = %_ZN7testing15Assert
   %this.val1.i.i71 = load ptr, ptr %0, align 8
   %cond.i.i72 = select i1 %tobool.i.not.i.i70, ptr %0, ptr %this.val1.i.i71
   %add.ptr40 = getelementptr inbounds %"class.(anonymous namespace)::NotTriviallyDestructible", ptr %cond.i.i72, i64 %div21
-  %add.ptr43 = getelementptr inbounds %"class.(anonymous namespace)::NotTriviallyDestructible", ptr %add.ptr40, i64 %n.0377
+  %add.ptr43 = getelementptr inbounds i8, ptr %add.ptr40, i64 %add.ptr.idx339
   br i1 %cmp103.i.i.i.i.not.not, label %for.body.lr.ph.i.i.i.i140, label %for.end.i.i.i.i78
 
 for.body.lr.ph.i.i.i.i140:                        ; preds = %invoke.cont37
@@ -39868,7 +39864,7 @@ if.end8.i.i.i.i169:                               ; preds = %if.end4.i.i.i.i163
   br i1 %cmp.i.i.i62.not.i.i.i.i173, label %invoke.cont46.thread, label %invoke.cont46
 
 for.end.i.i.i.i78:                                ; preds = %invoke.cont37
-  switch i64 %n.0377, label %invoke.cont46.thread [
+  switch i64 %n.0379, label %invoke.cont46.thread [
     i64 3, label %sw.bb.i.i.i.i125
     i64 2, label %for.end.sw.bb22_crit_edge.i.i.i.i104
     i64 1, label %for.end.sw.bb27_crit_edge.i.i.i.i82
@@ -39876,16 +39872,16 @@ for.end.i.i.i.i78:                                ; preds = %invoke.cont37
 
 for.end.sw.bb27_crit_edge.i.i.i.i82:              ; preds = %for.end.i.i.i.i78
   %.pre119.i.i.i.i87 = lshr i64 %this.val.i.i68, 1
-  %.phi.trans.insert422 = getelementptr %"class.(anonymous namespace)::NotTriviallyDestructible", ptr %cond.i.i72, i64 %.pre119.i.i.i.i87
-  %arrayidx.i.i.i89.i.i.i.i97.phi.trans.insert = getelementptr i8, ptr %.phi.trans.insert422, i64 -8
+  %.phi.trans.insert424 = getelementptr %"class.(anonymous namespace)::NotTriviallyDestructible", ptr %cond.i.i72, i64 %.pre119.i.i.i.i87
+  %arrayidx.i.i.i89.i.i.i.i97.phi.trans.insert = getelementptr i8, ptr %.phi.trans.insert424, i64 -8
   %call.val.i.i90.i.i.i.i98.pre = load ptr, ptr %arrayidx.i.i.i89.i.i.i.i97.phi.trans.insert, align 8
   %call.val.val.i.i91.i.i.i.i99.pre = load i32, ptr %call.val.i.i90.i.i.i.i98.pre, align 4
   br label %sw.bb27.i.i.i.i88
 
 for.end.sw.bb22_crit_edge.i.i.i.i104:             ; preds = %for.end.i.i.i.i78
   %.pre117.i.i.i.i109 = lshr i64 %this.val.i.i68, 1
-  %.phi.trans.insert419 = getelementptr %"class.(anonymous namespace)::NotTriviallyDestructible", ptr %cond.i.i72, i64 %.pre117.i.i.i.i109
-  %arrayidx.i.i.i79.i.i.i.i119.phi.trans.insert = getelementptr i8, ptr %.phi.trans.insert419, i64 -8
+  %.phi.trans.insert421 = getelementptr %"class.(anonymous namespace)::NotTriviallyDestructible", ptr %cond.i.i72, i64 %.pre117.i.i.i.i109
+  %arrayidx.i.i.i79.i.i.i.i119.phi.trans.insert = getelementptr i8, ptr %.phi.trans.insert421, i64 -8
   %call.val.i.i80.i.i.i.i120.pre = load ptr, ptr %arrayidx.i.i.i79.i.i.i.i119.phi.trans.insert, align 8
   %call.val.val.i.i81.i.i.i.i121.pre = load i32, ptr %call.val.i.i80.i.i.i.i120.pre, align 4
   br label %sw.bb22.i.i.i.i110
@@ -40045,7 +40041,7 @@ invoke.cont72:                                    ; preds = %_ZN7testing15Assert
   %24 = load i32, ptr %call71.val, align 4
   store i32 %24, ptr %call.i206, align 4
   %add.ptr.i = getelementptr inbounds %"class.(anonymous namespace)::NotTriviallyDestructible", ptr %cond.i.i204, i64 %shr.i.i199
-  invoke fastcc void @_ZN4absl13InlinedVectorIN12_GLOBAL__N_124NotTriviallyDestructibleELm10ESaIS2_EE6insertEPKS2_mRS5_(ptr noundef nonnull align 8 dereferenceable(88) %vec, ptr noundef %add.ptr.i, i64 noundef %n.0377, ptr nonnull %call71.val)
+  invoke fastcc void @_ZN4absl13InlinedVectorIN12_GLOBAL__N_124NotTriviallyDestructibleELm10ESaIS2_EE6insertEPKS2_mRS5_(ptr noundef nonnull align 8 dereferenceable(88) %vec, ptr noundef %add.ptr.i, i64 noundef %n.0379, ptr nonnull %call71.val)
           to label %invoke.cont76 unwind label %lpad75
 
 invoke.cont76:                                    ; preds = %invoke.cont72
@@ -40055,7 +40051,7 @@ invoke.cont76:                                    ; preds = %invoke.cont72
   %this.val1.i.i222 = load ptr, ptr %0, align 8
   %cond.i.i223 = select i1 %tobool.i.not.i.i221, ptr %0, ptr %this.val1.i.i222
   %add.ptr79 = getelementptr inbounds %"class.(anonymous namespace)::NotTriviallyDestructible", ptr %cond.i.i223, i64 %sub
-  %add.ptr82 = getelementptr inbounds %"class.(anonymous namespace)::NotTriviallyDestructible", ptr %add.ptr79, i64 %n.0377
+  %add.ptr82 = getelementptr inbounds i8, ptr %add.ptr79, i64 %add.ptr.idx339
   br i1 %cmp103.i.i.i.i.not.not, label %for.body.lr.ph.i.i.i.i252, label %for.end.i.i.i.i228
 
 for.body.lr.ph.i.i.i.i252:                        ; preds = %invoke.cont76
@@ -40087,7 +40083,7 @@ if.end8.i.i.i.i268:                               ; preds = %if.end4.i.i.i.i263
   br i1 %cmp.i.i.i35.not.i.i.i.i, label %invoke.cont85.thread, label %invoke.cont85
 
 for.end.i.i.i.i228:                               ; preds = %invoke.cont76
-  switch i64 %n.0377, label %invoke.cont85.thread [
+  switch i64 %n.0379, label %invoke.cont85.thread [
     i64 3, label %sw.bb.i.i.i.i247
     i64 2, label %for.end.sw.bb22_crit_edge.i.i.i.i240
     i64 1, label %for.end.sw.bb27_crit_edge.i.i.i.i232
@@ -40242,9 +40238,9 @@ _ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEP
 _ZN12_GLOBAL__N_124NotTriviallyDestructibleD2Ev.exit298: ; preds = %invoke.cont85, %invoke.cont85.thread, %if.end107, %_ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i.i294
   store ptr null, ptr %message_.i280, align 8
   call void @_ZdlPv(ptr noundef nonnull %call.i206) #32
-  %inc111 = add nuw nsw i64 %n.0377, 1
-  %exitcond403.not = icmp eq i64 %inc111, 5
-  br i1 %exitcond403.not, label %for.end112, label %for.body9, !llvm.loop !859
+  %inc111 = add nuw nsw i64 %n.0379, 1
+  %exitcond405.not = icmp eq i64 %inc111, 5
+  br i1 %exitcond405.not, label %for.end112, label %for.body9, !llvm.loop !859
 
 ehcleanup108:                                     ; preds = %_ZN7testing7MessageD2Ev.exit291, %lpad93
   %.pn26.pn.pn = phi { ptr, i32 } [ %.pn26.pn, %_ZN7testing7MessageD2Ev.exit291 ], [ %28, %lpad93 ]
@@ -40306,12 +40302,12 @@ if.then.i.i.i.i:                                  ; preds = %_ZN4absl23inlined_v
   br label %_ZN4absl13InlinedVectorIN12_GLOBAL__N_124NotTriviallyDestructibleELm10ESaIS2_EED2Ev.exit
 
 _ZN4absl13InlinedVectorIN12_GLOBAL__N_124NotTriviallyDestructibleELm10ESaIS2_EED2Ev.exit: ; preds = %for.end112, %_ZN4absl23inlined_vector_internal14DestroyAdapterISaIN12_GLOBAL__N_124NotTriviallyDestructibleEELb0EE15DestroyElementsERS4_PS3_m.exit.i.i.i, %if.then.i.i.i.i
-  %inc115 = add nuw nsw i64 %i.0380, 1
-  %exitcond404.not = icmp eq i64 %inc115, 20
-  br i1 %exitcond404.not, label %for.end116, label %for.body, !llvm.loop !860
+  %inc115 = add nuw nsw i64 %i.0382, 1
+  %exitcond406.not = icmp eq i64 %inc115, 20
+  br i1 %exitcond406.not, label %for.end116, label %for.body, !llvm.loop !860
 
 ehcleanup113:                                     ; preds = %lpad.loopexit, %lpad.loopexit.split-lp, %_ZN12_GLOBAL__N_124NotTriviallyDestructibleD2Ev.exit301, %ehcleanup69, %ehcleanup32, %_ZN12_GLOBAL__N_124NotTriviallyDestructibleD2Ev.exit37
-  %.pn31 = phi { ptr, i32 } [ %1, %_ZN12_GLOBAL__N_124NotTriviallyDestructibleD2Ev.exit37 ], [ %.pn26.pn.pn.pn, %_ZN12_GLOBAL__N_124NotTriviallyDestructibleD2Ev.exit301 ], [ %.pn22.pn.pn, %ehcleanup69 ], [ %.pn.pn.pn, %ehcleanup32 ], [ %lpad.loopexit342, %lpad.loopexit ], [ %lpad.loopexit.split-lp343, %lpad.loopexit.split-lp ]
+  %.pn31 = phi { ptr, i32 } [ %1, %_ZN12_GLOBAL__N_124NotTriviallyDestructibleD2Ev.exit37 ], [ %.pn26.pn.pn.pn, %_ZN12_GLOBAL__N_124NotTriviallyDestructibleD2Ev.exit301 ], [ %.pn22.pn.pn, %ehcleanup69 ], [ %.pn.pn.pn, %ehcleanup32 ], [ %lpad.loopexit344, %lpad.loopexit ], [ %lpad.loopexit.split-lp345, %lpad.loopexit.split-lp ]
   call fastcc void @_ZN4absl13InlinedVectorIN12_GLOBAL__N_124NotTriviallyDestructibleELm10ESaIS2_EED2Ev(ptr noundef nonnull align 8 dereferenceable(88) %vec) #29
   resume { ptr, i32 } %.pn31
 

@@ -497,7 +497,7 @@ define hidden { i32, i32 } @"_ZN104_$LT$core..iter..adapters..cloned..Cloned$LT$
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define hidden noundef i8 @"_ZN104_$LT$core..iter..adapters..cloned..Cloned$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h73893d687d6700d4E"(ptr noalias nocapture noundef align 8 dereferenceable(16) %0) unnamed_addr #3 {
+define hidden noundef range(i8 0, 4) i8 @"_ZN104_$LT$core..iter..adapters..cloned..Cloned$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h73893d687d6700d4E"(ptr noalias nocapture noundef align 8 dereferenceable(16) %0) unnamed_addr #3 {
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8, !alias.scope !64, !nonnull !7, !noundef !7
   %4 = load ptr, ptr %0, align 8, !alias.scope !64, !nonnull !7, !noundef !7
@@ -1670,7 +1670,7 @@ define hidden noundef zeroext i1 @"_ZN117_$LT$rayon..iter..collect..consumer..Co
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define internal fastcc noundef i8 @_ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE(ptr noundef nonnull align 8 %0) unnamed_addr #5 {
+define internal fastcc noundef range(i8 0, 3) i8 @_ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE(ptr noundef nonnull align 8 %0) unnamed_addr #5 {
   %2 = getelementptr inbounds i8, ptr %0, i64 16
   %3 = load atomic i8, ptr %2 monotonic, align 8
   %4 = icmp ult i8 %3, 3
@@ -38601,7 +38601,7 @@ switch.lookup:                                    ; preds = %"_ZN86_$LT$alloc..v
 }
 
 ; Function Attrs: nonlazybind uwtable
-define noundef i8 @_ZN6ide_db9ty_filter7TryEnum7from_ty17ha3a80a82c1ddaaefE(ptr nocapture noundef nonnull readonly align 8 %0, ptr noalias noundef readonly align 8 dereferenceable(16) %1) unnamed_addr #2 personality ptr @rust_eh_personality {
+define noundef range(i8 0, 3) i8 @_ZN6ide_db9ty_filter7TryEnum7from_ty17ha3a80a82c1ddaaefE(ptr nocapture noundef nonnull readonly align 8 %0, ptr noalias noundef readonly align 8 dereferenceable(16) %1) unnamed_addr #2 personality ptr @rust_eh_personality {
   %3 = alloca { ptr, i64 }, align 8
   %4 = alloca { { i8, [23 x i8] } }, align 8
   %5 = alloca { { i8, [23 x i8] } }, align 8

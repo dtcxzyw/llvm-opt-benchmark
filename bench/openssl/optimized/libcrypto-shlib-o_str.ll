@@ -252,7 +252,7 @@ OPENSSL_strlcpy.exit:                             ; preds = %for.body, %entry, %
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef i32 @OPENSSL_hexchar2int(i8 noundef zeroext %c) local_unnamed_addr #7 {
+define range(i32 -1, 16) i32 @OPENSSL_hexchar2int(i8 noundef zeroext %c) local_unnamed_addr #7 {
 entry:
   %switch.tableidx = add i8 %c, -48
   %0 = icmp ult i8 %switch.tableidx, 55
@@ -270,14 +270,14 @@ return:                                           ; preds = %entry, %switch.look
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @OPENSSL_hexstr2buf_ex(ptr noundef %buf, i64 noundef %buf_n, ptr noundef %buflen, ptr nocapture noundef readonly %str, i8 noundef signext %sep) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @OPENSSL_hexstr2buf_ex(ptr noundef %buf, i64 noundef %buf_n, ptr noundef %buflen, ptr nocapture noundef readonly %str, i8 noundef signext %sep) local_unnamed_addr #0 {
 entry:
-  %call = tail call fastcc i32 @hexstr2buf_sep(ptr noundef %buf, i64 noundef %buf_n, ptr noundef %buflen, ptr noundef %str, i8 noundef signext %sep), !range !8
+  %call = tail call fastcc i32 @hexstr2buf_sep(ptr noundef %buf, i64 noundef %buf_n, ptr noundef %buflen, ptr noundef %str, i8 noundef signext %sep)
   ret i32 %call
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @hexstr2buf_sep(ptr noundef writeonly %buf, i64 noundef %buf_n, ptr noundef writeonly %buflen, ptr nocapture noundef readonly %str, i8 noundef signext %sep) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @hexstr2buf_sep(ptr noundef writeonly %buf, i64 noundef %buf_n, ptr noundef writeonly %buflen, ptr nocapture noundef readonly %str, i8 noundef signext %sep) unnamed_addr #0 {
 entry:
   %conv1 = sext i8 %sep to i32
   br label %for.cond.outer
@@ -298,7 +298,7 @@ for.body:                                         ; preds = %for.cond
   %incdec.ptr = getelementptr inbounds i8, ptr %p.0, i64 1
   %conv = zext i8 %0 to i32
   %cmp = icmp eq i32 %conv, %conv1
-  br i1 %cmp, label %for.cond, label %if.end, !llvm.loop !9
+  br i1 %cmp, label %for.cond, label %if.end, !llvm.loop !8
 
 if.end:                                           ; preds = %for.body
   %incdec.ptr6 = getelementptr inbounds i8, ptr %p.0, i64 2
@@ -313,11 +313,12 @@ if.then8:                                         ; preds = %if.end
   br label %return
 
 if.end9:                                          ; preds = %if.end
-  %call = tail call i32 @OPENSSL_hexchar2int(i8 noundef zeroext %1), !range !10
-  %call10 = tail call i32 @OPENSSL_hexchar2int(i8 noundef zeroext %0), !range !10
-  %2 = or i32 %call10, %call
-  %or.cond1.not = icmp sgt i32 %2, -1
-  br i1 %or.cond1.not, label %if.end16, label %if.then15
+  %call = tail call i32 @OPENSSL_hexchar2int(i8 noundef zeroext %1)
+  %call10 = tail call i32 @OPENSSL_hexchar2int(i8 noundef zeroext %0)
+  %cmp11 = icmp slt i32 %call, 0
+  %cmp13 = icmp slt i32 %call10, 0
+  %or.cond1 = select i1 %cmp11, i1 true, i1 %cmp13
+  br i1 %or.cond1, label %if.then15, label %if.end16
 
 if.then15:                                        ; preds = %if.end9
   tail call void @ERR_new() #10
@@ -343,14 +344,14 @@ if.then22:                                        ; preds = %if.then19
 if.end23:                                         ; preds = %if.then19
   %shl = shl nuw nsw i32 %call10, 4
   %or = or i32 %shl, %call
-  %conv24 = trunc i32 %or to i8
+  %conv24 = trunc nuw i32 %or to i8
   %incdec.ptr25 = getelementptr inbounds i8, ptr %q.0.ph, i64 1
   store i8 %conv24, ptr %q.0.ph, align 1
   br label %for.cond.outer.backedge
 
 for.cond.outer.backedge:                          ; preds = %if.end23, %if.end16
   %q.0.ph.be = phi ptr [ %incdec.ptr25, %if.end23 ], [ null, %if.end16 ]
-  br label %for.cond.outer, !llvm.loop !9
+  br label %for.cond.outer, !llvm.loop !8
 
 for.end:                                          ; preds = %for.cond
   %cmp27.not = icmp eq ptr %buflen, null
@@ -391,14 +392,14 @@ if.end4:                                          ; preds = %if.end
 
 if.end7:                                          ; preds = %if.end4
   store i64 0, ptr %tmp_buflen, align 8
-  %call8 = call fastcc i32 @hexstr2buf_sep(ptr noundef nonnull %call1, i64 noundef %div10, ptr noundef nonnull %tmp_buflen, ptr noundef %str, i8 noundef signext %sep), !range !8
+  %call8 = call fastcc i32 @hexstr2buf_sep(ptr noundef nonnull %call1, i64 noundef %div10, ptr noundef nonnull %tmp_buflen, ptr noundef %str, i8 noundef signext %sep)
   %tobool.not = icmp eq i32 %call8, 0
   br i1 %tobool.not, label %if.end13, label %return
 
 if.end7.thread:                                   ; preds = %if.end4
   store i64 0, ptr %buflen, align 8
   store i64 0, ptr %tmp_buflen, align 8
-  %call811 = call fastcc i32 @hexstr2buf_sep(ptr noundef nonnull %call1, i64 noundef %div10, ptr noundef nonnull %tmp_buflen, ptr noundef %str, i8 noundef signext %sep), !range !8
+  %call811 = call fastcc i32 @hexstr2buf_sep(ptr noundef nonnull %call1, i64 noundef %div10, ptr noundef nonnull %tmp_buflen, ptr noundef %str, i8 noundef signext %sep)
   %tobool.not12 = icmp eq i32 %call811, 0
   br i1 %tobool.not12, label %if.end13, label %if.then11
 
@@ -432,14 +433,14 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @OPENSSL_buf2hexstr_ex(ptr noundef %str, i64 noundef %str_n, ptr noundef %strlength, ptr nocapture noundef readonly %buf, i64 noundef %buflen, i8 noundef signext %sep) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @OPENSSL_buf2hexstr_ex(ptr noundef %str, i64 noundef %str_n, ptr noundef %strlength, ptr nocapture noundef readonly %buf, i64 noundef %buflen, i8 noundef signext %sep) local_unnamed_addr #0 {
 entry:
-  %call = tail call fastcc i32 @buf2hexstr_sep(ptr noundef %str, i64 noundef %str_n, ptr noundef %strlength, ptr noundef %buf, i64 noundef %buflen, i8 noundef signext %sep), !range !8
+  %call = tail call fastcc i32 @buf2hexstr_sep(ptr noundef %str, i64 noundef %str_n, ptr noundef %strlength, ptr noundef %buf, i64 noundef %buflen, i8 noundef signext %sep)
   ret i32 %call
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @buf2hexstr_sep(ptr noundef writeonly %str, i64 noundef %str_n, ptr noundef writeonly %strlength, ptr nocapture noundef readonly %buf, i64 noundef %buflen, i8 noundef signext %sep) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @buf2hexstr_sep(ptr noundef writeonly %str, i64 noundef %str_n, ptr noundef writeonly %strlength, ptr nocapture noundef readonly %buf, i64 noundef %buflen, i8 noundef signext %sep) unnamed_addr #0 {
 entry:
   %cmp.not = icmp ne i8 %sep, 0
   %mul = mul i64 %buflen, 3
@@ -491,7 +492,7 @@ for.body.us:                                      ; preds = %for.body.lr.ph, %fo
   %inc.us = add nuw i64 %i.018.us, 1
   %incdec.ptr25.us = getelementptr inbounds i8, ptr %p.019.us, i64 1
   %exitcond21.not = icmp eq i64 %inc.us, %buflen
-  br i1 %exitcond21.not, label %for.end, label %for.body.us, !llvm.loop !11
+  br i1 %exitcond21.not, label %for.end, label %for.body.us, !llvm.loop !9
 
 if.then11:                                        ; preds = %if.end8
   tail call void @ERR_new() #10
@@ -520,7 +521,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   %inc = add nuw i64 %i.018, 1
   %incdec.ptr25 = getelementptr inbounds i8, ptr %p.019, i64 1
   %exitcond.not = icmp eq i64 %inc, %buflen
-  br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !11
+  br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !9
 
 for.end:                                          ; preds = %for.body, %for.body.us, %for.cond.preheader
   %q.0.lcssa = phi ptr [ %str, %for.cond.preheader ], [ %incdec.ptr23.us, %for.body.us ], [ %incdec.ptr20, %for.body ]
@@ -555,7 +556,7 @@ if.end:                                           ; preds = %entry
   br i1 %cmp5, label %return, label %if.end8
 
 if.end8:                                          ; preds = %if.end
-  %call9 = tail call fastcc i32 @buf2hexstr_sep(ptr noundef nonnull %call4, i64 noundef %cond, ptr noundef null, ptr noundef %buf, i64 noundef %buflen, i8 noundef signext %sep), !range !8
+  %call9 = tail call fastcc i32 @buf2hexstr_sep(ptr noundef nonnull %call4, i64 noundef %cond, ptr noundef null, ptr noundef %buf, i64 noundef %buflen, i8 noundef signext %sep)
   %tobool.not = icmp eq i32 %call9, 0
   br i1 %tobool.not, label %if.end11, label %return
 
@@ -608,7 +609,7 @@ for.body.us.i:                                    ; preds = %if.end.i, %for.body
   %inc.us.i = add nuw i64 %i.018.us.i, 1
   %incdec.ptr25.us.i = getelementptr inbounds i8, ptr %p.019.us.i, i64 1
   %exitcond21.not.i = icmp eq i64 %inc.us.i, %buflen
-  br i1 %exitcond21.not.i, label %buf2hexstr_sep.exit, label %for.body.us.i, !llvm.loop !11
+  br i1 %exitcond21.not.i, label %buf2hexstr_sep.exit, label %for.body.us.i, !llvm.loop !9
 
 buf2hexstr_sep.exit:                              ; preds = %for.body.us.i
   %incdec.ptr20.us.i.le = getelementptr inbounds i8, ptr %q.017.us.i, i64 2
@@ -621,7 +622,7 @@ ossl_buf2hexstr_sep.exit:                         ; preds = %buf2hexstr_sep.exit
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @openssl_strerror_r(i32 noundef %errnum, ptr noundef %buf, i64 noundef %buflen) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @openssl_strerror_r(i32 noundef %errnum, ptr noundef %buf, i64 noundef %buflen) local_unnamed_addr #0 {
 entry:
   %call = tail call i32 @__xpg_strerror_r(i32 noundef %errnum, ptr noundef %buf, i64 noundef %buflen) #10
   %tobool.not = icmp eq i32 %call, 0
@@ -654,7 +655,7 @@ while.body:                                       ; preds = %while.cond
   %incdec.ptr4 = getelementptr inbounds i8, ptr %s1.addr.0, i64 1
   %2 = load i8, ptr %s1.addr.0, align 1
   %cmp6 = icmp eq i8 %2, 0
-  br i1 %cmp6, label %return, label %while.cond, !llvm.loop !12
+  br i1 %cmp6, label %return, label %while.cond, !llvm.loop !10
 
 return:                                           ; preds = %while.cond, %while.body
   %call2.lcssa = phi i32 [ %call2, %while.cond ], [ %call, %while.body ]
@@ -692,7 +693,7 @@ if.else:                                          ; preds = %for.body
   %inc = add nuw i64 %i.06, 1
   %cmp = icmp ult i64 %inc, %n
   %or.cond = select i1 %cmp7, i1 %cmp, i1 false
-  br i1 %or.cond, label %for.body, label %return, !llvm.loop !13
+  br i1 %or.cond, label %for.body, label %return, !llvm.loop !11
 
 return:                                           ; preds = %for.body, %if.else, %entry
   %retval.0 = phi i32 [ 0, %entry ], [ 0, %if.else ], [ %sub, %for.body ]
@@ -721,9 +722,7 @@ attributes #10 = { nounwind }
 !5 = !{!"llvm.loop.mustprogress"}
 !6 = distinct !{!6, !5}
 !7 = distinct !{!7, !5}
-!8 = !{i32 0, i32 2}
+!8 = distinct !{!8, !5}
 !9 = distinct !{!9, !5}
-!10 = !{i32 -1, i32 16}
+!10 = distinct !{!10, !5}
 !11 = distinct !{!11, !5}
-!12 = distinct !{!12, !5}
-!13 = distinct !{!13, !5}

@@ -22,7 +22,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str.10 = private unnamed_addr constant [5 x i8] c"seed\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @tls1_change_cipher_state(ptr noundef %s, i32 noundef %which) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @tls1_change_cipher_state(ptr noundef %s, i32 noundef %which) local_unnamed_addr #0 {
 entry:
   %s3 = getelementptr inbounds i8, ptr %s, i64 280
   %new_sym_enc = getelementptr inbounds i8, ptr %s, i64 760
@@ -223,7 +223,7 @@ declare i32 @EVP_CIPHER_is_a(ptr noundef, ptr noundef) local_unnamed_addr #1
 declare i32 @ssl_set_new_record_layer(ptr noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef, i64 noundef, ptr noundef, i64 noundef, ptr noundef, i64 noundef, ptr noundef, i64 noundef, ptr noundef, i64 noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @tls1_setup_key_block(ptr noundef %s) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @tls1_setup_key_block(ptr noundef %s) local_unnamed_addr #0 {
 entry:
   %c = alloca ptr, align 8
   %hash = alloca ptr, align 8
@@ -321,13 +321,11 @@ if.end28:                                         ; preds = %if.end20
   %master_key.i = getelementptr inbounds i8, ptr %13, i64 80
   %master_key_length.i = getelementptr inbounds i8, ptr %13, i64 8
   %14 = load i64, ptr %master_key_length.i, align 8
-  %call.i22 = call fastcc noundef i32 @tls1_PRF(ptr noundef nonnull %s, ptr noundef nonnull @.str.6, i64 noundef 13, ptr noundef nonnull %server_random.i, i64 noundef 32, ptr noundef nonnull %client_random.i, i64 noundef 32, ptr noundef null, i64 noundef 0, ptr noundef nonnull %master_key.i, i64 noundef %14, ptr noundef nonnull %call24, i64 noundef %mul, i32 noundef 1)
-  %tobool35.not = icmp ne i32 %call.i22, 0
-  %spec.select = zext i1 %tobool35.not to i32
+  %call.i22 = call fastcc i32 @tls1_PRF(ptr noundef nonnull %s, ptr noundef nonnull @.str.6, i64 noundef 13, ptr noundef nonnull %server_random.i, i64 noundef 32, ptr noundef nonnull %client_random.i, i64 noundef 32, ptr noundef null, i64 noundef 0, ptr noundef nonnull %master_key.i, i64 noundef %14, ptr noundef nonnull %call24, i64 noundef %mul, i32 noundef 1)
   br label %return
 
 return:                                           ; preds = %if.end28, %if.then27, %entry, %if.then19, %if.then1
-  %retval.0 = phi i32 [ 0, %if.then19 ], [ 0, %if.then1 ], [ 1, %entry ], [ 0, %if.then27 ], [ %spec.select, %if.end28 ]
+  %retval.0 = phi i32 [ 0, %if.then19 ], [ 0, %if.then1 ], [ 1, %entry ], [ 0, %if.then27 ], [ %call.i22, %if.end28 ]
   ret i32 %retval.0
 }
 
@@ -344,7 +342,7 @@ declare void @ssl3_cleanup_key_block(ptr noundef) local_unnamed_addr #1
 declare noalias ptr @CRYPTO_malloc(i64 noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define i64 @tls1_final_finish_mac(ptr noundef %s, ptr noundef %str, i64 noundef %slen, ptr noundef %out) local_unnamed_addr #0 {
+define range(i64 0, 33) i64 @tls1_final_finish_mac(ptr noundef %s, ptr noundef %str, i64 noundef %slen, ptr noundef %out) local_unnamed_addr #0 {
 entry:
   %hashlen = alloca i64, align 8
   %hash = alloca [64 x i8], align 16
@@ -390,7 +388,7 @@ declare i32 @ssl3_digest_cached_records(ptr noundef, i32 noundef) local_unnamed_
 declare i32 @ssl_handshake_hash(ptr noundef, ptr noundef, i64 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @tls1_PRF(ptr noundef %s, ptr noundef %seed1, i64 noundef %seed1_len, ptr noundef %seed2, i64 noundef %seed2_len, ptr noundef %seed3, i64 noundef %seed3_len, ptr noundef %seed4, i64 noundef %seed4_len, ptr noundef %sec, i64 noundef %slen, ptr noundef %out, i64 noundef %olen, i32 noundef %fatal) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @tls1_PRF(ptr noundef %s, ptr noundef %seed1, i64 noundef %seed1_len, ptr noundef %seed2, i64 noundef %seed2_len, ptr noundef %seed3, i64 noundef %seed3_len, ptr noundef %seed4, i64 noundef %seed4_len, ptr noundef %sec, i64 noundef %slen, ptr noundef %out, i64 noundef %olen, i32 noundef %fatal) unnamed_addr #0 {
 entry:
   %params = alloca [8 x %struct.ossl_param_st], align 16
   %tmp = alloca %struct.ossl_param_st, align 8
@@ -497,7 +495,7 @@ return:                                           ; preds = %if.then1, %if.else,
 declare void @OPENSSL_cleanse(ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @tls1_generate_master_secret(ptr noundef %s, ptr noundef %out, ptr noundef %p, i64 noundef %len, ptr nocapture noundef writeonly %secret_size) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @tls1_generate_master_secret(ptr noundef %s, ptr noundef %out, ptr noundef %p, i64 noundef %len, ptr nocapture noundef writeonly %secret_size) local_unnamed_addr #0 {
 entry:
   %hash = alloca [128 x i8], align 16
   %hashlen = alloca i64, align 8
@@ -547,7 +545,7 @@ return:                                           ; preds = %if.else, %do.body, 
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @tls1_export_keying_material(ptr noundef %s, ptr noundef %out, i64 noundef %olen, ptr nocapture noundef readonly %label, i64 noundef %llen, ptr noundef readonly %context, i64 noundef %contextlen, i32 noundef %use_context) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @tls1_export_keying_material(ptr noundef %s, ptr noundef %out, i64 noundef %olen, ptr nocapture noundef readonly %label, i64 noundef %llen, ptr noundef readonly %context, i64 noundef %contextlen, i32 noundef %use_context) local_unnamed_addr #0 {
 entry:
   %cmp = icmp ugt i64 %contextlen, 65535
   br i1 %cmp, label %if.then, label %if.end
@@ -654,7 +652,7 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias
 declare void @CRYPTO_clear_free(ptr noundef, i64 noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef i32 @tls1_alert_code(i32 noundef %code) local_unnamed_addr #3 {
+define range(i32 -1, 121) i32 @tls1_alert_code(i32 noundef %code) local_unnamed_addr #3 {
 entry:
   switch i32 %code, label %sw.default [
     i32 0, label %return

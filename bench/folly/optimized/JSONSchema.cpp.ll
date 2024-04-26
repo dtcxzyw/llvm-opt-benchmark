@@ -61627,17 +61627,14 @@ if.then26:                                        ; preds = %if.end24
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp27) #39
   %8 = load ptr, ptr %m_base, align 8, !tbaa !1687
   %add.ptr = getelementptr inbounds i8, ptr %8, i64 %start_pos.addr.0
-  %add.ptr30 = getelementptr inbounds i8, ptr %8, i64 %position
   %9 = getelementptr inbounds i8, ptr %ref.tmp27, i64 16
   store ptr %9, ptr %ref.tmp27, align 8, !tbaa !36
   %_M_string_length.i = getelementptr inbounds i8, ptr %ref.tmp27, i64 8
   store i64 0, ptr %_M_string_length.i, align 8, !tbaa !38
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %__dnew.i.i) #39
-  %sub.ptr.lhs.cast.i.i.i.i = ptrtoint ptr %add.ptr30 to i64
-  %sub.ptr.rhs.cast.i.i.i.i = ptrtoint ptr %add.ptr to i64
-  %sub.ptr.sub.i.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i.i, %sub.ptr.rhs.cast.i.i.i.i
-  store i64 %sub.ptr.sub.i.i.i.i, ptr %__dnew.i.i, align 8, !tbaa !208
-  %cmp.i.i = icmp ugt i64 %sub.ptr.sub.i.i.i.i, 15
+  %gepdiff = sub nsw i64 %position, %start_pos.addr.0
+  store i64 %gepdiff, ptr %__dnew.i.i, align 8, !tbaa !208
+  %cmp.i.i = icmp ugt i64 %gepdiff, 15
   br i1 %cmp.i.i, label %if.then.i.i, label %if.end.i.i
 
 if.then.i.i:                                      ; preds = %if.then26
@@ -61652,7 +61649,7 @@ call2.i3.i.noexc:                                 ; preds = %if.then.i.i
 
 if.end.i.i:                                       ; preds = %call2.i3.i.noexc, %if.then26
   %11 = phi ptr [ %call2.i3.i92, %call2.i3.i.noexc ], [ %9, %if.then26 ]
-  switch i64 %sub.ptr.sub.i.i.i.i, label %if.end.i.i.i.i.i [
+  switch i64 %gepdiff, label %if.end.i.i.i.i.i [
     i64 1, label %if.then.i.i.i.i
     i64 0, label %invoke.cont
   ]
@@ -61663,7 +61660,7 @@ if.then.i.i.i.i:                                  ; preds = %if.end.i.i
   br label %invoke.cont
 
 if.end.i.i.i.i.i:                                 ; preds = %if.end.i.i
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %11, ptr align 1 %add.ptr, i64 %sub.ptr.sub.i.i.i.i, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %11, ptr align 1 %add.ptr, i64 %gepdiff, i1 false)
   br label %invoke.cont
 
 invoke.cont:                                      ; preds = %if.end.i.i.i.i.i, %if.then.i.i.i.i, %if.end.i.i
@@ -61722,17 +61719,14 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEPKc.exit105: ; preds = %
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp38) #39
   %22 = load ptr, ptr %m_base, align 8, !tbaa !1687
   %add.ptr40 = getelementptr inbounds i8, ptr %22, i64 %position
-  %add.ptr42 = getelementptr inbounds i8, ptr %22, i64 %.sroa.speculated
   %23 = getelementptr inbounds i8, ptr %ref.tmp38, i64 16
   store ptr %23, ptr %ref.tmp38, align 8, !tbaa !36
   %_M_string_length.i107 = getelementptr inbounds i8, ptr %ref.tmp38, i64 8
   store i64 0, ptr %_M_string_length.i107, align 8, !tbaa !38
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %__dnew.i.i106) #39
-  %sub.ptr.lhs.cast.i.i.i.i108 = ptrtoint ptr %add.ptr42 to i64
-  %sub.ptr.rhs.cast.i.i.i.i109 = ptrtoint ptr %add.ptr40 to i64
-  %sub.ptr.sub.i.i.i.i110 = sub i64 %sub.ptr.lhs.cast.i.i.i.i108, %sub.ptr.rhs.cast.i.i.i.i109
-  store i64 %sub.ptr.sub.i.i.i.i110, ptr %__dnew.i.i106, align 8, !tbaa !208
-  %cmp.i.i111 = icmp ugt i64 %sub.ptr.sub.i.i.i.i110, 15
+  %gepdiff6 = sub nsw i64 %.sroa.speculated, %position
+  store i64 %gepdiff6, ptr %__dnew.i.i106, align 8, !tbaa !208
+  %cmp.i.i111 = icmp ugt i64 %gepdiff6, 15
   br i1 %cmp.i.i111, label %if.then.i.i116, label %if.end.i.i112
 
 if.then.i.i116:                                   ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEPKc.exit105
@@ -61747,7 +61741,7 @@ call2.i3.i.noexc117:                              ; preds = %if.then.i.i116
 
 if.end.i.i112:                                    ; preds = %call2.i3.i.noexc117, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEPKc.exit105
   %25 = phi ptr [ %call2.i3.i118, %call2.i3.i.noexc117 ], [ %23, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEPKc.exit105 ]
-  switch i64 %sub.ptr.sub.i.i.i.i110, label %if.end.i.i.i.i.i115 [
+  switch i64 %gepdiff6, label %if.end.i.i.i.i.i115 [
     i64 1, label %if.then.i.i.i.i114
     i64 0, label %invoke.cont45
   ]
@@ -61758,7 +61752,7 @@ if.then.i.i.i.i114:                               ; preds = %if.end.i.i112
   br label %invoke.cont45
 
 if.end.i.i.i.i.i115:                              ; preds = %if.end.i.i112
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %25, ptr align 1 %add.ptr40, i64 %sub.ptr.sub.i.i.i.i110, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %25, ptr align 1 %add.ptr40, i64 %gepdiff6, i1 false)
   br label %invoke.cont45
 
 invoke.cont45:                                    ; preds = %if.end.i.i.i.i.i115, %if.then.i.i.i.i114, %if.end.i.i112

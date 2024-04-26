@@ -76,7 +76,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.55 = private unnamed_addr constant [60 x i8] c"syntax error, unexpected %s, expecting %s or %s or %s or %s\00", align 1
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef i32 @_Z14cmExpr_yyparsePv(ptr noundef %0) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define dso_local noundef range(i32 0, 3) i32 @_Z14cmExpr_yyparsePv(ptr noundef %0) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
   %2 = alloca %"struct.cmExprParserHelper::ParserType", align 8
   %3 = alloca [200 x i8], align 16
   %4 = alloca [200 x %"struct.cmExprParserHelper::ParserType"], align 16
@@ -119,7 +119,7 @@ define dso_local noundef i32 @_Z14cmExpr_yyparsePv(ptr noundef %0) local_unnamed
   br i1 %.not220, label %.thread, label %15
 
 .thread:                                          ; preds = %12
-  %14 = trunc i32 %.1182 to i8
+  %14 = trunc nsw i32 %.1182 to i8
   store i8 %14, ptr %.1199.ptr, align 1
   br label %28
 
@@ -127,7 +127,7 @@ define dso_local noundef i32 @_Z14cmExpr_yyparsePv(ptr noundef %0) local_unnamed
   %16 = load ptr, ptr @stderr, align 8
   %17 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %16, ptr noundef nonnull @.str.1, i32 noundef %.1182) #13
   %.pr = load i32, ptr @cmExpr_yydebug, align 4
-  %18 = trunc i32 %.1182 to i8
+  %18 = trunc nsw i32 %.1182 to i8
   store i8 %18, ptr %.1199.ptr, align 1
   %.not221 = icmp eq i32 %.pr, 0
   br i1 %.not221, label %28, label %19
@@ -325,7 +325,7 @@ _ZL14yy_stack_printPaS_.exit:                     ; preds = %.lr.ph.i, %19
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %.lr.ph.i254 ]
   %119 = load ptr, ptr @stderr, align 8
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  %120 = trunc i64 %indvars.iv.next.i to i32
+  %120 = trunc nuw nsw i64 %indvars.iv.next.i to i32
   %121 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %119, ptr noundef nonnull @.str.50, i32 noundef %120) #13
   %122 = load ptr, ptr @stderr, align 8
   %123 = sub nsw i64 %indvars.iv.next.i, %106
@@ -646,7 +646,7 @@ _ZL15yy_reduce_printPaPN18cmExprParserHelper10ParserTypeEiPv.exit.thread._crit_e
 280:                                              ; preds = %269, %279, %277, %271
   %.2296 = phi ptr [ %.1295, %269 ], [ %5, %279 ], [ %276, %277 ], [ %.1295, %271 ]
   %.0175 = phi ptr [ @.str.10, %269 ], [ @.str.10, %279 ], [ %276, %277 ], [ %.1295, %271 ]
-  %.0 = phi i32 [ %270, %269 ], [ -2, %279 ], [ %278, %277 ], [ 0, %271 ]
+  %.0 = phi i32 [ -2, %269 ], [ -2, %279 ], [ %278, %277 ], [ 0, %271 ]
   %281 = call noundef ptr @_Z18cmExpr_yyget_extraPv(ptr noundef %0)
   call void @_ZN18cmExprParserHelper5ErrorEPKc(ptr noundef nonnull align 8 dereferenceable(160) %281, ptr noundef %.0175)
   %282 = icmp eq i32 %.0, -2
@@ -968,7 +968,7 @@ declare void @_ZNSt14overflow_errorD1Ev(ptr noundef nonnull align 8 dereferencea
 declare void @__cxa_throw(ptr, ptr, ptr) local_unnamed_addr
 
 ; Function Attrs: mustprogress nofree nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc noundef i32 @_ZL14yysyntax_errorPlPPcPK12yypcontext_t(ptr nocapture noundef %0, ptr %.0.val, ptr nocapture readonly %.0.val1, i32 %.8.val) unnamed_addr #5 {
+define internal fastcc noundef range(i32 -2, 1) i32 @_ZL14yysyntax_errorPlPPcPK12yypcontext_t(ptr nocapture noundef %0, ptr %.0.val, ptr nocapture readonly %.0.val1, i32 %.8.val) unnamed_addr #5 {
   %2 = alloca [5 x i32], align 16
   %.not.i = icmp eq i32 %.8.val, -2
   br i1 %.not.i, label %_ZL25yy_syntax_error_argumentsPK12yypcontext_tP15yysymbol_kind_ti.exit.thread8, label %3
@@ -1010,7 +1010,7 @@ define internal fastcc noundef i32 @_ZL14yysyntax_errorPlPPcPK12yypcontext_t(ptr
   %22 = getelementptr inbounds [35 x i8], ptr @_ZL7yycheck, i64 0, i64 %21
   %23 = load i8, ptr %22, align 1
   %24 = sext i8 %23 to i32
-  %25 = trunc i64 %indvars.iv.i.i to i32
+  %25 = trunc nsw i64 %indvars.iv.i.i to i32
   %26 = icmp eq i32 %25, %24
   %27 = icmp ne i64 %indvars.iv.i.i, 1
   %or.cond.i.i = and i1 %27, %26

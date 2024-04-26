@@ -36,7 +36,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @__func__.ERR_OSSLTEST_error = private unnamed_addr constant [19 x i8] c"ERR_OSSLTEST_error\00", align 1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef i64 @v_check(i64 noundef %v) local_unnamed_addr #0 {
+define noundef range(i64 0, 196609) i64 @v_check(i64 noundef %v) local_unnamed_addr #0 {
 entry:
   %cmp.inv = icmp ult i64 %v, 196608
   %. = select i1 %cmp.inv, i64 0, i64 196608
@@ -44,7 +44,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @bind_engine(ptr noundef %e, ptr noundef readonly %id, ptr nocapture noundef readonly %fns) local_unnamed_addr #1 {
+define range(i32 0, 2) i32 @bind_engine(ptr noundef %e, ptr noundef readonly %id, ptr nocapture noundef readonly %fns) local_unnamed_addr #1 {
 entry:
   %call = tail call ptr @ENGINE_get_static_state() #8
   %0 = load ptr, ptr %fns, align 8
@@ -72,8 +72,9 @@ land.lhs.true.i:                                  ; preds = %skip_cbs
   br i1 %cmp.not.i, label %bind_helper.exit, label %bind_helper.exit.thread
 
 bind_helper.exit:                                 ; preds = %skip_cbs, %land.lhs.true.i
-  %call1.i = tail call fastcc i32 @bind_ossltest(ptr noundef %e), !range !4
-  %tobool.not = icmp eq i32 %call1.i, 0
+  %call1.i = tail call fastcc i32 @bind_ossltest(ptr noundef %e)
+  %call1.i.fr = freeze i32 %call1.i
+  %tobool.not = icmp eq i32 %call1.i.fr, 0
   br i1 %tobool.not, label %bind_helper.exit.thread, label %4
 
 bind_helper.exit.thread:                          ; preds = %land.lhs.true.i, %bind_helper.exit
@@ -98,7 +99,7 @@ entry:
   br i1 %cmp.i, label %return, label %if.end.i
 
 if.end.i:                                         ; preds = %entry
-  %call1.i = tail call fastcc i32 @bind_ossltest(ptr noundef nonnull %call.i), !range !4
+  %call1.i = tail call fastcc i32 @bind_ossltest(ptr noundef nonnull %call.i)
   %tobool.not.i = icmp eq i32 %call1.i, 0
   br i1 %tobool.not.i, label %if.then2.i, label %if.end
 
@@ -126,7 +127,7 @@ declare void @ERR_clear_error() local_unnamed_addr #2
 declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @bind_ossltest(ptr noundef %e) unnamed_addr #1 {
+define internal fastcc range(i32 0, 2) i32 @bind_ossltest(ptr noundef %e) unnamed_addr #1 {
 entry:
   %0 = load i32, ptr @lib_code, align 4
   %cmp.i = icmp eq i32 %0, 0
@@ -378,7 +379,7 @@ return:                                           ; preds = %sw.bb, %sw.bb2, %sw
 declare i32 @ENGINE_set_ciphers(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @ossltest_ciphers(ptr nocapture readnone %e, ptr noundef writeonly %cipher, ptr nocapture noundef writeonly %nids, i32 noundef %nid) #1 {
+define internal range(i32 0, 4) i32 @ossltest_ciphers(ptr nocapture readnone %e, ptr noundef writeonly %cipher, ptr nocapture noundef writeonly %nids, i32 noundef %nid) #1 {
 entry:
   %tobool.not = icmp eq ptr %cipher, null
   br i1 %tobool.not, label %if.then, label %if.end
@@ -1062,7 +1063,7 @@ for.body.i:                                       ; preds = %entry, %for.body.i
   store i8 %conv.i, ptr %arrayidx.i, align 1
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 16
-  br i1 %exitcond.not.i, label %if.end, label %for.body.i, !llvm.loop !5
+  br i1 %exitcond.not.i, label %if.end, label %for.body.i, !llvm.loop !4
 
 if.end:                                           ; preds = %for.body.i, %entry
   ret i32 %call2
@@ -1112,7 +1113,7 @@ for.body.i:                                       ; preds = %entry, %for.body.i
   store i8 %conv.i, ptr %arrayidx.i, align 1
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 20
-  br i1 %exitcond.not.i, label %if.end, label %for.body.i, !llvm.loop !5
+  br i1 %exitcond.not.i, label %if.end, label %for.body.i, !llvm.loop !4
 
 if.end:                                           ; preds = %for.body.i, %entry
   ret i32 %call2
@@ -1154,7 +1155,7 @@ for.body.i:                                       ; preds = %entry, %for.body.i
   store i8 %conv.i, ptr %arrayidx.i, align 1
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 32
-  br i1 %exitcond.not.i, label %if.end, label %for.body.i, !llvm.loop !5
+  br i1 %exitcond.not.i, label %if.end, label %for.body.i, !llvm.loop !4
 
 if.end:                                           ; preds = %for.body.i, %entry
   ret i32 %call2
@@ -1196,7 +1197,7 @@ for.body.i:                                       ; preds = %entry, %for.body.i
   store i8 %conv.i, ptr %arrayidx.i, align 1
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 48
-  br i1 %exitcond.not.i, label %if.end, label %for.body.i, !llvm.loop !5
+  br i1 %exitcond.not.i, label %if.end, label %for.body.i, !llvm.loop !4
 
 if.end:                                           ; preds = %for.body.i, %entry
   ret i32 %call2
@@ -1238,7 +1239,7 @@ for.body.i:                                       ; preds = %entry, %for.body.i
   store i8 %conv.i, ptr %arrayidx.i, align 1
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 64
-  br i1 %exitcond.not.i, label %if.end, label %for.body.i, !llvm.loop !5
+  br i1 %exitcond.not.i, label %if.end, label %for.body.i, !llvm.loop !4
 
 if.end:                                           ; preds = %for.body.i, %entry
   ret i32 %call2
@@ -1370,7 +1371,7 @@ return:                                           ; preds = %entry, %if.end12
 declare i32 @EVP_CIPHER_meth_set_ctrl(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @ossltest_aes128_gcm_ctrl(ptr noundef %ctx, i32 noundef %type, i32 noundef %arg, ptr noundef %ptr) #1 {
+define internal range(i32 -2147483648, 2) i32 @ossltest_aes128_gcm_ctrl(ptr noundef %ctx, i32 noundef %type, i32 noundef %arg, ptr noundef %ptr) #1 {
 entry:
   %call = tail call ptr @EVP_aes_128_gcm() #8
   %call1 = tail call ptr @EVP_CIPHER_meth_get_ctrl(ptr noundef %call) #8
@@ -1407,7 +1408,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @ossltest_aes128_cbc_hmac_sha1_cipher(ptr noundef %ctx, ptr nocapture noundef %out, ptr nocapture noundef readonly %in, i64 noundef %len) #1 {
+define internal range(i32 0, 2) i32 @ossltest_aes128_cbc_hmac_sha1_cipher(ptr noundef %ctx, ptr nocapture noundef %out, ptr nocapture noundef readonly %in, i64 noundef %len) #1 {
 entry:
   %call = tail call ptr @EVP_CIPHER_CTX_get_cipher_data(ptr noundef %ctx) #8
   %0 = load i64, ptr %call, align 8
@@ -1451,7 +1452,7 @@ for.body.i:                                       ; preds = %for.body.i, %if.the
   store i8 %conv.i, ptr %arrayidx.i, align 1
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 20
-  br i1 %exitcond.not.i, label %fill_known_data.exit, label %for.body.i, !llvm.loop !5
+  br i1 %exitcond.not.i, label %fill_known_data.exit, label %for.body.i, !llvm.loop !4
 
 fill_known_data.exit:                             ; preds = %for.body.i
   %add13 = add i64 %0, 20
@@ -1514,7 +1515,7 @@ if.end47:                                         ; preds = %if.end38
 for.cond51:                                       ; preds = %for.body54
   %inc62 = add i64 %plen.246, 1
   %exitcond.not = icmp eq i64 %inc62, %len.addr.0
-  br i1 %exitcond.not, label %return, label %for.body54, !llvm.loop !7
+  br i1 %exitcond.not, label %return, label %for.body54, !llvm.loop !6
 
 for.body54:                                       ; preds = %if.end47, %for.cond51
   %plen.246 = phi i64 [ %inc62, %for.cond51 ], [ %sub50, %if.end47 ]
@@ -1529,7 +1530,7 @@ return:                                           ; preds = %for.body54, %for.co
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @ossltest_aes128_cbc_hmac_sha1_ctrl(ptr noundef %ctx, i32 noundef %type, i32 noundef %arg, ptr nocapture noundef %ptr) #1 {
+define internal range(i32 -65535, 65572) i32 @ossltest_aes128_cbc_hmac_sha1_ctrl(ptr noundef %ctx, i32 noundef %type, i32 noundef %arg, ptr nocapture noundef %ptr) #1 {
 entry:
   %call = tail call ptr @EVP_CIPHER_CTX_get_cipher_data(ptr noundef %ctx) #8
   switch i32 %type, label %sw.default [
@@ -1633,7 +1634,7 @@ while.body:                                       ; preds = %entry, %while.body
   %incdec.ptr = getelementptr inbounds i8, ptr %buf.addr.02, i64 1
   store i8 %val.04, ptr %buf.addr.02, align 1
   %cmp = icmp ugt i32 %num.addr.03, 1
-  br i1 %cmp, label %while.body, label %while.end, !llvm.loop !8
+  br i1 %cmp, label %while.body, label %while.end, !llvm.loop !7
 
 while.end:                                        ; preds = %while.body, %entry
   ret i32 1
@@ -1686,8 +1687,7 @@ attributes #10 = { cold }
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
 !3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = !{i32 0, i32 2}
-!5 = distinct !{!5, !6}
-!6 = !{!"llvm.loop.mustprogress"}
-!7 = distinct !{!7, !6}
-!8 = distinct !{!8, !6}
+!4 = distinct !{!4, !5}
+!5 = !{!"llvm.loop.mustprogress"}
+!6 = distinct !{!6, !5}
+!7 = distinct !{!7, !5}

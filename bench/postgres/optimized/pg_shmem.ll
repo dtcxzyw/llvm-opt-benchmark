@@ -74,13 +74,12 @@ define dso_local zeroext i1 @PGSharedMemoryIsInUse(i64 noundef %0, i64 noundef %
   br label %14
 
 14:                                               ; preds = %12, %10, %7, %2
-  %15 = add i32 %5, -5
-  %switch = icmp ult i32 %15, -3
+  %switch = icmp ult i32 %5, 2
   ret i1 %switch
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @PGSharedMemoryAttach(i32 noundef %0, ptr nocapture noundef writeonly %1) unnamed_addr #0 {
+define internal fastcc range(i32 0, 5) i32 @PGSharedMemoryAttach(i32 noundef %0, ptr nocapture noundef writeonly %1) unnamed_addr #0 {
   %3 = alloca %struct.shmid_ds, align 8
   %4 = alloca %struct.stat, align 8
   store ptr null, ptr %1, align 8
@@ -224,8 +223,8 @@ define dso_local void @GetHugePageSize(ptr noundef writeonly %0, ptr noundef wri
 20:                                               ; preds = %.thread
   %21 = icmp ult i64 %.017, 2
   %22 = add nsw i64 %.017, -1
-  %23 = call i64 @llvm.ctlz.i64(i64 %22, i1 true), !range !7
-  %24 = trunc i64 %23 to i32
+  %23 = call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %22, i1 true)
+  %24 = trunc nuw nsw i64 %23 to i32
   %.neg = mul i32 %24, -67108864
   %25 = or disjoint i32 %.neg, 262144
   %26 = select i1 %21, i32 262144, i32 %25
@@ -520,7 +519,7 @@ InternalIpcMemoryCreate.exit:                     ; preds = %100
 
 113:                                              ; preds = %110
   %114 = call fastcc i32 @PGSharedMemoryAttach(i32 noundef %111, ptr noundef nonnull %7)
-  switch i32 %114, label %default.unreachable [
+  switch i32 %114, label %default.unreachable98 [
     i32 0, label %115
     i32 1, label %115
     i32 2, label %123
@@ -572,7 +571,7 @@ InternalIpcMemoryCreate.exit:                     ; preds = %100
   %spec.select = add i32 %138, %.031
   br label %139
 
-default.unreachable:                              ; preds = %113
+default.unreachable98:                            ; preds = %113
   unreachable
 
 139:                                              ; preds = %136, %125, %123, %129
@@ -839,4 +838,3 @@ attributes #13 = { cold nounwind }
 !4 = !{i32 7, !"frame-pointer", i32 2}
 !5 = distinct !{!5, !6}
 !6 = !{!"llvm.loop.mustprogress"}
-!7 = !{i64 0, i64 65}

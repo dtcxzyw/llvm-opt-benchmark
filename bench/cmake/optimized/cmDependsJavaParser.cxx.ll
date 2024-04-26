@@ -304,7 +304,7 @@ $__clang_call_terminate = comdat any
 @.str.278 = private unnamed_addr constant [50 x i8] c"basic_string: construction from null is not valid\00", align 1
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef i32 @_Z21cmDependsJava_yyparsePv(ptr noundef %0) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define dso_local noundef range(i32 0, 3) i32 @_Z21cmDependsJava_yyparsePv(ptr noundef %0) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
   %2 = alloca %"struct.cmDependsJavaParserHelper::ParserType", align 8
   %3 = alloca [200 x i16], align 16
   %4 = alloca [200 x %"struct.cmDependsJavaParserHelper::ParserType"], align 16
@@ -327,7 +327,7 @@ define dso_local noundef i32 @_Z21cmDependsJava_yyparsePv(ptr noundef %0) local_
   %.01422 = phi i32 [ %.6, %2127 ], [ %.5, %2078 ], [ -2, %49 ]
   %.01443.add = add nsw i64 %.01443.idx, 2
   %.11444.ptr = getelementptr inbounds i8, ptr %3, i64 %.01443.add
-  %11 = trunc i32 %.01440 to i16
+  %11 = trunc nsw i32 %.01440 to i16
   store i16 %11, ptr %.11444.ptr, align 2
   %.not = icmp slt i64 %.01443.idx, 396
   br i1 %.not, label %12, label %2131
@@ -4545,7 +4545,7 @@ _ZN25cmDependsJavaParserHelper17SetCurrentCombineEPKc.exit1482: ; preds = %364
 2102:                                             ; preds = %2091, %2101, %2099, %2093
   %.21489 = phi ptr [ %.114881541, %2091 ], [ %6, %2101 ], [ %2098, %2099 ], [ %.114881541, %2093 ]
   %.01421 = phi ptr [ @.str.2, %2091 ], [ @.str.2, %2101 ], [ %2098, %2099 ], [ %.114881541, %2093 ]
-  %.0 = phi i32 [ %2092, %2091 ], [ -2, %2101 ], [ %2100, %2099 ], [ 0, %2093 ]
+  %.0 = phi i32 [ -2, %2091 ], [ -2, %2101 ], [ %2100, %2099 ], [ 0, %2093 ]
   %2103 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
   call void @_ZN25cmDependsJavaParserHelper5ErrorEPKc(ptr noundef nonnull align 8 dereferenceable(248) %2103, ptr noundef %.01421)
   %2104 = icmp eq i32 %.0, -2
@@ -4697,7 +4697,7 @@ declare void @_ZN25cmDependsJavaParserHelper10StartClassEPKc(ptr noundef nonnull
 declare void @_ZN25cmDependsJavaParserHelper8EndClassEv(ptr noundef nonnull align 8 dereferenceable(248)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc noundef i32 @_ZL14yysyntax_errorPlPPcPK12yypcontext_t(ptr nocapture noundef %0, ptr %.0.val, ptr nocapture readonly %.0.val1, i32 %.8.val) unnamed_addr #3 {
+define internal fastcc noundef range(i32 -2, 1) i32 @_ZL14yysyntax_errorPlPPcPK12yypcontext_t(ptr nocapture noundef %0, ptr %.0.val, ptr nocapture readonly %.0.val1, i32 %.8.val) unnamed_addr #3 {
   %2 = alloca [5 x i32], align 16
   %.not.i = icmp eq i32 %.8.val, -2
   br i1 %.not.i, label %_ZL25yy_syntax_error_argumentsPK12yypcontext_tP15yysymbol_kind_ti.exit.thread8, label %3
@@ -4735,7 +4735,7 @@ define internal fastcc noundef i32 @_ZL14yysyntax_errorPlPPcPK12yypcontext_t(ptr
   %21 = getelementptr inbounds [2216 x i16], ptr @_ZL7yycheck, i64 0, i64 %20
   %22 = load i16, ptr %21, align 2
   %23 = sext i16 %22 to i32
-  %24 = trunc i64 %indvars.iv.i.i to i32
+  %24 = trunc nsw i64 %indvars.iv.i.i to i32
   %25 = icmp eq i32 %24, %23
   %26 = icmp ne i64 %indvars.iv.i.i, 1
   %or.cond.i.i = and i1 %26, %25

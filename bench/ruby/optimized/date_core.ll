@@ -1061,7 +1061,7 @@ d_simple_new_internal.exit:                       ; preds = %1, %8
 declare extern_weak void @rb_define_singleton_method(i64 noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal i64 @date_s_valid_jd_p(i32 noundef %0, ptr noundef %1, i64 %2) #0 {
+define internal range(i64 0, 21) i64 @date_s_valid_jd_p(i32 noundef %0, ptr noundef %1, i64 %2) #0 {
   %4 = alloca i64, align 8
   %5 = alloca i64, align 8
   %6 = call i32 (i32, ptr, ptr, ...) @rb_scan_args(i32 noundef %0, ptr noundef %1, ptr noundef nonnull @.str.158, ptr noundef nonnull %4, ptr noundef nonnull %5) #20
@@ -1107,7 +1107,7 @@ valid_jd_sub.exit:                                ; preds = %17, %c_valid_start_
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i64 @date_s_valid_ordinal_p(i32 noundef %0, ptr noundef %1, i64 %2) #0 {
+define internal range(i64 0, 21) i64 @date_s_valid_ordinal_p(i32 noundef %0, ptr noundef %1, i64 %2) #0 {
   %4 = alloca i64, align 8
   %5 = alloca i32, align 4
   %6 = alloca i32, align 4
@@ -1192,7 +1192,7 @@ valid_ordinal_sub.exit:                           ; preds = %33, %c_valid_start_
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i64 @date_s_valid_civil_p(i32 noundef %0, ptr noundef %1, i64 %2) #0 {
+define internal range(i64 0, 21) i64 @date_s_valid_civil_p(i32 noundef %0, ptr noundef %1, i64 %2) #0 {
   %4 = alloca i64, align 8
   %5 = alloca i32, align 4
   %6 = alloca i32, align 4
@@ -1411,7 +1411,7 @@ select.unfold:                                    ; preds = %c_gregorian_last_da
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i64 @date_s_valid_commercial_p(i32 noundef %0, ptr noundef %1, i64 %2) #0 {
+define internal range(i64 0, 21) i64 @date_s_valid_commercial_p(i32 noundef %0, ptr noundef %1, i64 %2) #0 {
   %4 = alloca i64, align 8
   %5 = alloca i32, align 4
   %6 = alloca i32, align 4
@@ -1527,7 +1527,7 @@ valid_commercial_sub.exit:                        ; preds = %47, %c_valid_start_
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i64 @date_s_julian_leap_p(i64 %0, i64 noundef %1) #0 {
+define internal range(i64 0, 21) i64 @date_s_julian_leap_p(i64 %0, i64 noundef %1) #0 {
   %3 = alloca i64, align 8
   %4 = alloca i32, align 4
   %5 = load i64, ptr @rb_cNumeric, align 8
@@ -1551,7 +1551,7 @@ check_numeric.exit:                               ; preds = %2
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i64 @date_s_gregorian_leap_p(i64 %0, i64 noundef %1) #0 {
+define internal range(i64 0, 21) i64 @date_s_gregorian_leap_p(i64 %0, i64 noundef %1) #0 {
   %3 = alloca i64, align 8
   %4 = alloca i32, align 4
   %5 = load i64, ptr @rb_cNumeric, align 8
@@ -4142,7 +4142,7 @@ define internal i64 @d_lite_year(i64 noundef %0) #0 {
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i64 @d_lite_yday(i64 noundef %0) #0 {
+define internal range(i64 1, 0) i64 @d_lite_yday(i64 noundef %0) #0 {
   %2 = tail call ptr @rb_check_typeddata(i64 noundef %0, ptr noundef nonnull @d_lite_type) #20
   %3 = tail call i32 @m_yday(ptr noundef %2)
   %4 = sext i32 %3 to i64
@@ -4152,9 +4152,9 @@ define internal i64 @d_lite_yday(i64 noundef %0) #0 {
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i64 @d_lite_mon(i64 noundef %0) #0 {
+define internal range(i64 1, 0) i64 @d_lite_mon(i64 noundef %0) #0 {
   %2 = tail call ptr @rb_check_typeddata(i64 noundef %0, ptr noundef nonnull @d_lite_type) #20
-  %3 = tail call i32 @m_mon(ptr noundef %2), !range !9
+  %3 = tail call i32 @m_mon(ptr noundef %2)
   %4 = shl nuw nsw i32 %3, 1
   %5 = or disjoint i32 %4, 1
   %6 = zext nneg i32 %5 to i64
@@ -4162,9 +4162,9 @@ define internal i64 @d_lite_mon(i64 noundef %0) #0 {
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i64 @d_lite_mday(i64 noundef %0) #0 {
+define internal range(i64 1, 0) i64 @d_lite_mday(i64 noundef %0) #0 {
   %2 = tail call ptr @rb_check_typeddata(i64 noundef %0, ptr noundef nonnull @d_lite_type) #20
-  %3 = tail call i32 @m_mday(ptr noundef %2), !range !10
+  %3 = tail call i32 @m_mday(ptr noundef %2)
   %4 = shl nuw nsw i32 %3, 1
   %5 = or disjoint i32 %4, 1
   %6 = zext nneg i32 %5 to i64
@@ -4327,7 +4327,7 @@ define internal i64 @d_lite_cwyear(i64 noundef %0) #0 {
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i64 @d_lite_cweek(i64 noundef %0) #0 {
+define internal range(i64 1, 0) i64 @d_lite_cweek(i64 noundef %0) #0 {
   %2 = alloca i32, align 4
   %3 = alloca i32, align 4
   %4 = alloca i32, align 4
@@ -4363,7 +4363,7 @@ m_cweek.exit:                                     ; preds = %9, %11
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i64 @d_lite_cwday(i64 noundef %0) #0 {
+define internal range(i64 1, 0) i64 @d_lite_cwday(i64 noundef %0) #0 {
   %2 = tail call ptr @rb_check_typeddata(i64 noundef %0, ptr noundef nonnull @d_lite_type) #20
   %3 = tail call fastcc i32 @m_local_jd(ptr noundef %2)
   %4 = icmp slt i32 %3, -1
@@ -4391,7 +4391,7 @@ m_cwday.exit:                                     ; preds = %5, %9
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i64 @d_lite_wday(i64 noundef %0) #0 {
+define internal range(i64 1, 0) i64 @d_lite_wday(i64 noundef %0) #0 {
   %2 = tail call ptr @rb_check_typeddata(i64 noundef %0, ptr noundef nonnull @d_lite_type) #20
   %3 = tail call fastcc i32 @m_local_jd(ptr noundef %2)
   %4 = icmp slt i32 %3, -1
@@ -4417,7 +4417,7 @@ m_wday.exit:                                      ; preds = %5, %9
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i64 @d_lite_sunday_p(i64 noundef %0) #0 {
+define internal range(i64 0, 21) i64 @d_lite_sunday_p(i64 noundef %0) #0 {
   %2 = tail call ptr @rb_check_typeddata(i64 noundef %0, ptr noundef nonnull @d_lite_type) #20
   %3 = tail call fastcc i32 @m_local_jd(ptr noundef %2)
   %4 = icmp slt i32 %3, -1
@@ -4442,7 +4442,7 @@ m_wday.exit:                                      ; preds = %5, %9
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i64 @d_lite_monday_p(i64 noundef %0) #0 {
+define internal range(i64 0, 21) i64 @d_lite_monday_p(i64 noundef %0) #0 {
   %2 = tail call ptr @rb_check_typeddata(i64 noundef %0, ptr noundef nonnull @d_lite_type) #20
   %3 = tail call fastcc i32 @m_local_jd(ptr noundef %2)
   %4 = icmp slt i32 %3, -1
@@ -4467,7 +4467,7 @@ m_wday.exit:                                      ; preds = %5, %9
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i64 @d_lite_tuesday_p(i64 noundef %0) #0 {
+define internal range(i64 0, 21) i64 @d_lite_tuesday_p(i64 noundef %0) #0 {
   %2 = tail call ptr @rb_check_typeddata(i64 noundef %0, ptr noundef nonnull @d_lite_type) #20
   %3 = tail call fastcc i32 @m_local_jd(ptr noundef %2)
   %4 = icmp slt i32 %3, -1
@@ -4492,7 +4492,7 @@ m_wday.exit:                                      ; preds = %5, %9
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i64 @d_lite_wednesday_p(i64 noundef %0) #0 {
+define internal range(i64 0, 21) i64 @d_lite_wednesday_p(i64 noundef %0) #0 {
   %2 = tail call ptr @rb_check_typeddata(i64 noundef %0, ptr noundef nonnull @d_lite_type) #20
   %3 = tail call fastcc i32 @m_local_jd(ptr noundef %2)
   %4 = icmp slt i32 %3, -1
@@ -4517,7 +4517,7 @@ m_wday.exit:                                      ; preds = %5, %9
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i64 @d_lite_thursday_p(i64 noundef %0) #0 {
+define internal range(i64 0, 21) i64 @d_lite_thursday_p(i64 noundef %0) #0 {
   %2 = tail call ptr @rb_check_typeddata(i64 noundef %0, ptr noundef nonnull @d_lite_type) #20
   %3 = tail call fastcc i32 @m_local_jd(ptr noundef %2)
   %4 = icmp slt i32 %3, -1
@@ -4542,7 +4542,7 @@ m_wday.exit:                                      ; preds = %5, %9
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i64 @d_lite_friday_p(i64 noundef %0) #0 {
+define internal range(i64 0, 21) i64 @d_lite_friday_p(i64 noundef %0) #0 {
   %2 = tail call ptr @rb_check_typeddata(i64 noundef %0, ptr noundef nonnull @d_lite_type) #20
   %3 = tail call fastcc i32 @m_local_jd(ptr noundef %2)
   %4 = icmp slt i32 %3, -1
@@ -4567,7 +4567,7 @@ m_wday.exit:                                      ; preds = %5, %9
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i64 @d_lite_saturday_p(i64 noundef %0) #0 {
+define internal range(i64 0, 21) i64 @d_lite_saturday_p(i64 noundef %0) #0 {
   %2 = tail call ptr @rb_check_typeddata(i64 noundef %0, ptr noundef nonnull @d_lite_type) #20
   %3 = tail call fastcc i32 @m_local_jd(ptr noundef %2)
   %4 = icmp slt i32 %3, -1
@@ -4599,27 +4599,27 @@ define internal noundef i64 @d_lite_zero(i64 %0) #2 {
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i64 @d_lite_julian_p(i64 noundef %0) #0 {
+define internal range(i64 0, 21) i64 @d_lite_julian_p(i64 noundef %0) #0 {
   %2 = tail call ptr @rb_check_typeddata(i64 noundef %0, ptr noundef nonnull @d_lite_type) #20
-  %3 = tail call fastcc i32 @m_julian_p(ptr noundef %2), !range !11
+  %3 = tail call fastcc i32 @m_julian_p(ptr noundef %2)
   %.not = icmp eq i32 %3, 0
   %4 = select i1 %.not, i64 0, i64 20
   ret i64 %4
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i64 @d_lite_gregorian_p(i64 noundef %0) #0 {
+define internal range(i64 0, 21) i64 @d_lite_gregorian_p(i64 noundef %0) #0 {
   %2 = tail call ptr @rb_check_typeddata(i64 noundef %0, ptr noundef nonnull @d_lite_type) #20
-  %3 = tail call fastcc i32 @m_julian_p(ptr noundef %2), !range !11
+  %3 = tail call fastcc i32 @m_julian_p(ptr noundef %2)
   %.not.not = icmp eq i32 %3, 0
   %4 = select i1 %.not.not, i64 20, i64 0
   ret i64 %4
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i64 @d_lite_leap_p(i64 noundef %0) #0 {
+define internal range(i64 0, 21) i64 @d_lite_leap_p(i64 noundef %0) #0 {
   %2 = tail call ptr @rb_check_typeddata(i64 noundef %0, ptr noundef nonnull @d_lite_type) #20
-  %3 = tail call fastcc i32 @m_julian_p(ptr noundef %2), !range !11
+  %3 = tail call fastcc i32 @m_julian_p(ptr noundef %2)
   %.not.not = icmp eq i32 %3, 0
   %4 = tail call fastcc i32 @m_year(ptr noundef %2)
   br i1 %.not.not, label %5, label %18
@@ -7095,7 +7095,7 @@ define internal i64 @d_lite_rshift(i64 noundef %0, i64 noundef %1) #0 {
   %11 = tail call ptr @rb_check_typeddata(i64 noundef %0, ptr noundef nonnull @d_lite_type) #20
   %12 = tail call i64 @m_real_year(ptr noundef %11)
   %13 = tail call i64 (i64, i64, i32, ...) @rb_funcall(i64 noundef %12, i64 noundef 42, i32 noundef 1, i64 noundef 25) #20
-  %14 = tail call i32 @m_mon(ptr noundef %11), !range !9
+  %14 = tail call i32 @m_mon(ptr noundef %11)
   %15 = add nsw i32 %14, -1
   %16 = sext i32 %15 to i64
   %17 = shl nsw i64 %16, 1
@@ -7152,7 +7152,7 @@ rbimpl_intern_const.exit:                         ; preds = %.lr.ph.i, %39
   %.0 = phi i64 [ %41, %rbimpl_intern_const.exit ], [ %30, %25 ], [ %37, %34 ]
   %.025.in = trunc i64 %.025.in.in to i32
   %.025 = add nsw i32 %.025.in, 1
-  %45 = tail call i32 @m_mday(ptr noundef %11), !range !10
+  %45 = tail call i32 @m_mday(ptr noundef %11)
   %46 = load i32, ptr %11, align 8
   %47 = and i32 %46, 128
   %.not.i29 = icmp eq i32 %47, 0
@@ -7451,7 +7451,7 @@ f_cmp.exit:                                       ; preds = %21, %22
   %38 = call i64 @rb_fix2int(i64 noundef %37) #20
   %39 = and i64 %38, 2147483648
   %40 = icmp eq i64 %39, 0
-  br i1 %40, label %.lr.ph26, label %.loopexit, !llvm.loop !12
+  br i1 %40, label %.lr.ph26, label %.loopexit, !llvm.loop !9
 
 41:                                               ; preds = %f_cmp.exit
   %42 = icmp eq i32 %.0.i, 0
@@ -7479,7 +7479,7 @@ f_cmp.exit:                                       ; preds = %21, %22
   %54 = call i64 @rb_fix2int(i64 noundef %53) #20
   %55 = trunc i64 %54 to i32
   %56 = icmp slt i32 %55, 1
-  br i1 %56, label %.lr.ph, label %.loopexit, !llvm.loop !13
+  br i1 %56, label %.lr.ph, label %.loopexit, !llvm.loop !10
 
 .loopexit:                                        ; preds = %.lr.ph, %.lr.ph26, %.preheader22, %.preheader, %12
   %.0 = phi i64 [ %15, %12 ], [ %2, %.preheader ], [ %2, %.preheader22 ], [ %2, %.lr.ph26 ], [ %2, %.lr.ph ]
@@ -7515,7 +7515,7 @@ define internal i64 @d_lite_upto(i64 noundef %0, i64 noundef %1) #0 {
   %16 = tail call i64 @rb_fix2int(i64 noundef %15) #20
   %17 = trunc i64 %16 to i32
   %18 = icmp slt i32 %17, 1
-  br i1 %18, label %.lr.ph, label %.loopexit, !llvm.loop !14
+  br i1 %18, label %.lr.ph, label %.loopexit, !llvm.loop !11
 
 .loopexit:                                        ; preds = %.lr.ph, %.preheader, %9
   %.07 = phi i64 [ %12, %9 ], [ %0, %.preheader ], [ %0, %.lr.ph ]
@@ -7551,7 +7551,7 @@ define internal i64 @d_lite_downto(i64 noundef %0, i64 noundef %1) #0 {
   %16 = tail call i64 @rb_fix2int(i64 noundef %15) #20
   %17 = and i64 %16, 2147483648
   %18 = icmp eq i64 %17, 0
-  br i1 %18, label %.lr.ph, label %.loopexit, !llvm.loop !15
+  br i1 %18, label %.lr.ph, label %.loopexit, !llvm.loop !12
 
 .loopexit:                                        ; preds = %.lr.ph, %.preheader, %9
   %.07 = phi i64 [ %12, %9 ], [ %0, %.preheader ], [ %0, %.lr.ph ]
@@ -7682,8 +7682,8 @@ f_cmp.exit16.i:                                   ; preds = %42, %41, %37
   br i1 %.not30, label %60, label %64
 
 60:                                               ; preds = %57
-  %61 = tail call fastcc i32 @m_julian_p(ptr noundef nonnull %7), !range !11
-  %62 = tail call fastcc i32 @m_julian_p(ptr noundef nonnull %54), !range !11
+  %61 = tail call fastcc i32 @m_julian_p(ptr noundef nonnull %7)
+  %62 = tail call fastcc i32 @m_julian_p(ptr noundef nonnull %54)
   %63 = icmp eq i32 %61, %62
   br i1 %63, label %169, label %64
 
@@ -8005,8 +8005,8 @@ define internal i64 @d_lite_equal(i64 noundef %0, i64 noundef %1) #0 {
 7:                                                ; preds = %2
   %8 = tail call ptr @rb_check_typeddata(i64 noundef %0, ptr noundef nonnull @d_lite_type) #20
   %9 = tail call ptr @rb_check_typeddata(i64 noundef %1, ptr noundef nonnull @d_lite_type) #20
-  %10 = tail call fastcc i32 @m_julian_p(ptr noundef %8), !range !11
-  %11 = tail call fastcc i32 @m_julian_p(ptr noundef %9), !range !11
+  %10 = tail call fastcc i32 @m_julian_p(ptr noundef %8)
+  %11 = tail call fastcc i32 @m_julian_p(ptr noundef %9)
   %12 = icmp eq i32 %10, %11
   br i1 %12, label %15, label %13
 
@@ -8138,7 +8138,7 @@ f_zero_p.exit:                                    ; preds = %rb_type.exit.thread
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i64 @d_lite_hash(i64 noundef %0) #0 {
+define internal range(i64 1, 0) i64 @d_lite_hash(i64 noundef %0) #0 {
   %2 = alloca [4 x i64], align 16
   %3 = tail call ptr @rb_check_typeddata(i64 noundef %0, ptr noundef nonnull @d_lite_type) #20
   %4 = load i32, ptr %3, align 8
@@ -8248,7 +8248,7 @@ define internal i64 @d_lite_to_s(i64 noundef %0) #0 {
   store ptr @tmx_funcs, ptr %8, align 8
   %9 = call fastcc i64 @date_strftime_alloc(ptr noundef nonnull %4, ptr noundef nonnull @.str.345, ptr noundef nonnull %5)
   store ptr %2, ptr %6, align 8
-  call void asm sideeffect "", "*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(ptr) %6) #20, !srcloc !16
+  call void asm sideeffect "", "*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(ptr) %6) #20, !srcloc !13
   %10 = load ptr, ptr %6, align 8
   %11 = load volatile i64, ptr %10, align 8
   %12 = load ptr, ptr %4, align 8
@@ -8387,7 +8387,7 @@ define internal i64 @d_lite_asctime(i64 noundef %0) #0 {
   store ptr @tmx_funcs, ptr %8, align 8
   %9 = call fastcc i64 @date_strftime_alloc(ptr noundef nonnull %4, ptr noundef nonnull @.str.349, ptr noundef nonnull %5)
   store ptr %2, ptr %6, align 8
-  call void asm sideeffect "", "*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(ptr) %6) #20, !srcloc !16
+  call void asm sideeffect "", "*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(ptr) %6) #20, !srcloc !13
   %10 = load ptr, ptr %6, align 8
   %11 = load volatile i64, ptr %10, align 8
   %12 = load ptr, ptr %4, align 8
@@ -8428,7 +8428,7 @@ define internal i64 @d_lite_iso8601(i64 noundef %0) #0 {
   store ptr @tmx_funcs, ptr %8, align 8
   %9 = call fastcc i64 @date_strftime_alloc(ptr noundef nonnull %4, ptr noundef nonnull @.str.345, ptr noundef nonnull %5)
   store ptr %2, ptr %6, align 8
-  call void asm sideeffect "", "*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(ptr) %6) #20, !srcloc !16
+  call void asm sideeffect "", "*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(ptr) %6) #20, !srcloc !13
   %10 = load ptr, ptr %6, align 8
   %11 = load volatile i64, ptr %10, align 8
   %12 = load ptr, ptr %4, align 8
@@ -8469,7 +8469,7 @@ define internal i64 @d_lite_rfc3339(i64 noundef %0) #0 {
   store ptr @tmx_funcs, ptr %8, align 8
   %9 = call fastcc i64 @date_strftime_alloc(ptr noundef nonnull %4, ptr noundef nonnull @.str.350, ptr noundef nonnull %5)
   store ptr %2, ptr %6, align 8
-  call void asm sideeffect "", "*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(ptr) %6) #20, !srcloc !16
+  call void asm sideeffect "", "*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(ptr) %6) #20, !srcloc !13
   %10 = load ptr, ptr %6, align 8
   %11 = load volatile i64, ptr %10, align 8
   %12 = load ptr, ptr %4, align 8
@@ -8510,7 +8510,7 @@ define internal i64 @d_lite_rfc2822(i64 noundef %0) #0 {
   store ptr @tmx_funcs, ptr %8, align 8
   %9 = call fastcc i64 @date_strftime_alloc(ptr noundef nonnull %4, ptr noundef nonnull @.str.351, ptr noundef nonnull %5)
   store ptr %2, ptr %6, align 8
-  call void asm sideeffect "", "*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(ptr) %6) #20, !srcloc !16
+  call void asm sideeffect "", "*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(ptr) %6) #20, !srcloc !13
   %10 = load ptr, ptr %6, align 8
   %11 = load volatile i64, ptr %10, align 8
   %12 = load ptr, ptr %4, align 8
@@ -8555,7 +8555,7 @@ define internal i64 @d_lite_httpdate(i64 noundef %0) #0 {
   store ptr @tmx_funcs, ptr %10, align 8
   %11 = call fastcc i64 @date_strftime_alloc(ptr noundef nonnull %4, ptr noundef nonnull @.str.352, ptr noundef nonnull %5)
   store ptr %2, ptr %6, align 8
-  call void asm sideeffect "", "*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(ptr) %6) #20, !srcloc !16
+  call void asm sideeffect "", "*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(ptr) %6) #20, !srcloc !13
   %12 = load ptr, ptr %6, align 8
   %13 = load volatile i64, ptr %12, align 8
   %14 = load ptr, ptr %4, align 8
@@ -8657,7 +8657,7 @@ jisx0301_date_format.exit:                        ; preds = %m_real_local_jd.exi
   store ptr @tmx_funcs, ptr %35, align 8
   %36 = call fastcc i64 @date_strftime_alloc(ptr noundef nonnull %4, ptr noundef nonnull %.014.i, ptr noundef nonnull %5)
   store ptr %2, ptr %6, align 8
-  call void asm sideeffect "", "*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(ptr) %6) #20, !srcloc !16
+  call void asm sideeffect "", "*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(ptr) %6) #20, !srcloc !13
   %37 = load ptr, ptr %6, align 8
   %38 = load volatile i64, ptr %37, align 8
   %39 = load ptr, ptr %4, align 8
@@ -9693,7 +9693,7 @@ c_valid_start_p.exit.thread:                      ; preds = %15, %c_valid_start_
 c_valid_start_p.exit.thread97:                    ; preds = %19, %3, %c_valid_start_p.exit, %c_valid_start_p.exit.thread
   %.019 = phi double [ 0x41418A8C80000000, %3 ], [ %17, %c_valid_start_p.exit ], [ 0x41418A8C80000000, %c_valid_start_p.exit.thread ], [ %17, %19 ]
   %24 = load i64, ptr %8, align 8
-  %25 = call fastcc i32 @offset_to_sec(i64 noundef %24, ptr noundef nonnull %11), !range !11
+  %25 = call fastcc i32 @offset_to_sec(i64 noundef %24, ptr noundef nonnull %11)
   %.not35 = icmp eq i32 %25, 0
   br i1 %.not35, label %26, label %27
 
@@ -10289,7 +10289,7 @@ c_valid_start_p.exit.thread:                      ; preds = %18, %c_valid_start_
 c_valid_start_p.exit.thread111:                   ; preds = %22, %3, %c_valid_start_p.exit, %c_valid_start_p.exit.thread
   %.021 = phi double [ 0x41418A8C80000000, %3 ], [ %20, %c_valid_start_p.exit ], [ 0x41418A8C80000000, %c_valid_start_p.exit.thread ], [ %20, %22 ]
   %27 = load i64, ptr %9, align 8
-  %28 = call fastcc i32 @offset_to_sec(i64 noundef %27, ptr noundef nonnull %12), !range !11
+  %28 = call fastcc i32 @offset_to_sec(i64 noundef %27, ptr noundef nonnull %12)
   %.not43 = icmp eq i32 %28, 0
   br i1 %.not43, label %29, label %30
 
@@ -10999,7 +10999,7 @@ c_valid_start_p.exit.thread.i:                    ; preds = %c_valid_start_p.exi
 c_valid_start_p.exit.thread187.i:                 ; preds = %c_valid_start_p.exit.thread.i, %c_valid_start_p.exit.i, %50, %44
   %.057.i = phi double [ 0x41418A8C80000000, %44 ], [ %48, %c_valid_start_p.exit.i ], [ 0x41418A8C80000000, %c_valid_start_p.exit.thread.i ], [ %48, %50 ]
   %55 = load i64, ptr %10, align 8
-  %56 = call fastcc i32 @offset_to_sec(i64 noundef %55, ptr noundef nonnull %13), !range !11
+  %56 = call fastcc i32 @offset_to_sec(i64 noundef %55, ptr noundef nonnull %13)
   %.not87.i = icmp eq i32 %56, 0
   br i1 %.not87.i, label %57, label %58
 
@@ -11898,7 +11898,7 @@ c_valid_start_p.exit.thread:                      ; preds = %21, %c_valid_start_
 c_valid_start_p.exit.thread124:                   ; preds = %25, %3, %c_valid_start_p.exit, %c_valid_start_p.exit.thread
   %.022 = phi double [ 0x41418A8C80000000, %3 ], [ %23, %c_valid_start_p.exit ], [ 0x41418A8C80000000, %c_valid_start_p.exit.thread ], [ %23, %25 ]
   %30 = load i64, ptr %10, align 8
-  %31 = call fastcc i32 @offset_to_sec(i64 noundef %30, ptr noundef nonnull %13), !range !11
+  %31 = call fastcc i32 @offset_to_sec(i64 noundef %30, ptr noundef nonnull %13)
   %.not51 = icmp eq i32 %31, 0
   br i1 %.not51, label %32, label %33
 
@@ -13164,7 +13164,7 @@ define internal i64 @datetime_s_jisx0301(i32 noundef %0, ptr noundef %1, i64 nou
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i64 @d_lite_hour(i64 noundef %0) #0 {
+define internal range(i64 1, 0) i64 @d_lite_hour(i64 noundef %0) #0 {
   %2 = tail call ptr @rb_check_typeddata(i64 noundef %0, ptr noundef nonnull @d_lite_type) #20
   %3 = load i32, ptr %2, align 8
   %4 = and i32 %3, 128
@@ -13222,7 +13222,7 @@ m_hour.exit:                                      ; preds = %1, %get_c_time.exit
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i64 @d_lite_min(i64 noundef %0) #0 {
+define internal range(i64 1, 0) i64 @d_lite_min(i64 noundef %0) #0 {
   %2 = tail call ptr @rb_check_typeddata(i64 noundef %0, ptr noundef nonnull @d_lite_type) #20
   %3 = load i32, ptr %2, align 8
   %4 = and i32 %3, 128
@@ -13280,7 +13280,7 @@ m_min.exit:                                       ; preds = %1, %get_c_time.exit
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i64 @d_lite_sec(i64 noundef %0) #0 {
+define internal range(i64 1, 0) i64 @d_lite_sec(i64 noundef %0) #0 {
   %2 = tail call ptr @rb_check_typeddata(i64 noundef %0, ptr noundef nonnull @d_lite_type) #20
   %3 = load i32, ptr %2, align 8
   %4 = and i32 %3, 128
@@ -13445,7 +13445,7 @@ define internal i64 @d_lite_new_offset(i32 noundef %0, ptr noundef %1, i64 nound
 
 8:                                                ; preds = %3
   %9 = load i64, ptr %4, align 8
-  %10 = call fastcc i32 @offset_to_sec(i64 noundef %9, ptr noundef nonnull %5), !range !11
+  %10 = call fastcc i32 @offset_to_sec(i64 noundef %9, ptr noundef nonnull %5)
   %.not = icmp eq i32 %10, 0
   br i1 %.not, label %11, label %._crit_edge
 
@@ -13483,7 +13483,7 @@ define internal i64 @dt_lite_to_s(i64 noundef %0) #0 {
   store ptr @tmx_funcs, ptr %8, align 8
   %9 = call fastcc i64 @date_strftime_alloc(ptr noundef nonnull %4, ptr noundef nonnull @.str.350, ptr noundef nonnull %5)
   store ptr %2, ptr %6, align 8
-  call void asm sideeffect "", "*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(ptr) %6) #20, !srcloc !16
+  call void asm sideeffect "", "*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(ptr) %6) #20, !srcloc !13
   %10 = load ptr, ptr %6, align 8
   %11 = load volatile i64, ptr %10, align 8
   %12 = load ptr, ptr %4, align 8
@@ -13557,7 +13557,7 @@ rb_num2long_inline.exit:                          ; preds = %16, %14, %rb_check_
   store ptr @tmx_funcs, ptr %19, align 8
   %20 = call fastcc i64 @date_strftime_alloc(ptr noundef nonnull %6, ptr noundef nonnull @.str.345, ptr noundef nonnull %7)
   store ptr %4, ptr %8, align 8
-  call void asm sideeffect "", "*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(ptr) %8) #20, !srcloc !16
+  call void asm sideeffect "", "*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(ptr) %8) #20, !srcloc !13
   %21 = load ptr, ptr %8, align 8
   %22 = load volatile i64, ptr %21, align 8
   %23 = load ptr, ptr %6, align 8
@@ -13919,7 +13919,7 @@ rbimpl_intern_const.exit68:                       ; preds = %.lr.ph.i66, %sec_to
 ; Function Attrs: nounwind uwtable
 define internal i64 @date_to_time(i64 noundef %0) #0 {
   %2 = tail call ptr @rb_check_typeddata(i64 noundef %0, ptr noundef nonnull @d_lite_type) #20
-  %3 = tail call fastcc i32 @m_julian_p(ptr noundef %2), !range !11
+  %3 = tail call fastcc i32 @m_julian_p(ptr noundef %2)
   %.not = icmp eq i32 %3, 0
   br i1 %.not, label %8, label %4
 
@@ -13945,11 +13945,11 @@ define internal i64 @date_to_time(i64 noundef %0) #0 {
 rbimpl_intern_const.exit:                         ; preds = %.lr.ph.i, %8
   %.lcssa.i = phi i64 [ %.pr.i, %8 ], [ %10, %.lr.ph.i ]
   %11 = tail call i64 @m_real_year(ptr noundef %.0)
-  %12 = tail call i32 @m_mon(ptr noundef %.0), !range !9
+  %12 = tail call i32 @m_mon(ptr noundef %.0)
   %13 = shl nuw nsw i32 %12, 1
   %14 = or disjoint i32 %13, 1
   %15 = zext nneg i32 %14 to i64
-  %16 = tail call i32 @m_mday(ptr noundef %.0), !range !10
+  %16 = tail call i32 @m_mday(ptr noundef %.0)
   %17 = shl nuw nsw i32 %16, 1
   %18 = or disjoint i32 %17, 1
   %19 = zext nneg i32 %18 to i64
@@ -14059,7 +14059,7 @@ d_lite_s_alloc_complex.exit:                      ; preds = %22, %29
 ; Function Attrs: nounwind uwtable
 define internal i64 @datetime_to_time(i64 noundef %0) #0 {
   %2 = tail call ptr @rb_check_typeddata(i64 noundef %0, ptr noundef nonnull @d_lite_type) #20
-  %3 = tail call fastcc i32 @m_julian_p(ptr noundef %2), !range !11
+  %3 = tail call fastcc i32 @m_julian_p(ptr noundef %2)
   %.not = icmp eq i32 %3, 0
   br i1 %.not, label %8, label %4
 
@@ -14085,8 +14085,8 @@ define internal i64 @datetime_to_time(i64 noundef %0) #0 {
 rbimpl_intern_const.exit:                         ; preds = %.lr.ph.i, %8
   %.lcssa.i = phi i64 [ %.pr.i, %8 ], [ %10, %.lr.ph.i ]
   %11 = tail call i64 @m_real_year(ptr noundef %.0)
-  %12 = tail call i32 @m_mon(ptr noundef %.0), !range !9
-  %13 = tail call i32 @m_mday(ptr noundef %.0), !range !10
+  %12 = tail call i32 @m_mon(ptr noundef %.0)
+  %13 = tail call i32 @m_mday(ptr noundef %.0)
   %14 = load i32, ptr %.0, align 8
   %15 = and i32 %14, 128
   %.not.i14 = icmp eq i32 %15, 0
@@ -14480,7 +14480,7 @@ define internal void @d_lite_gc_mark(ptr nocapture noundef readonly %0) #0 {
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal i64 @d_lite_memsize(ptr nocapture noundef readonly %0) #4 {
+define internal range(i64 32, 49) i64 @d_lite_memsize(ptr nocapture noundef readonly %0) #4 {
   %2 = load i32, ptr %0, align 8
   %3 = and i32 %2, 128
   %.not = icmp eq i32 %3, 0
@@ -14633,7 +14633,7 @@ f_zero_p.exit.thread:                             ; preds = %50, %rb_type.exit.i
   br label %62
 
 62:                                               ; preds = %59, %f_zero_p.exit.thread, %f_zero_p.exit.thread6, %guess_style.exit.thread
-  %.028 = phi i32 [ 0, %guess_style.exit.thread ], [ %30, %f_zero_p.exit.thread6 ], [ %30, %f_zero_p.exit.thread ], [ %61, %59 ]
+  %.028 = phi i32 [ 0, %guess_style.exit.thread ], [ 1, %f_zero_p.exit.thread6 ], [ 1, %f_zero_p.exit.thread ], [ %61, %59 ]
   ret i32 %.028
 }
 
@@ -14710,7 +14710,7 @@ declare i64 @rb_fix2int(i64 noundef) local_unnamed_addr #1
 declare i64 @rb_num2int(i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree nosync nounwind memory(argmem: readwrite) uwtable
-define internal fastcc i32 @c_valid_ordinal_p(i32 noundef %0, i32 noundef %1, double noundef %2, ptr nocapture noundef %3, ptr nocapture noundef writeonly %4) unnamed_addr #7 {
+define internal fastcc range(i32 0, 2) i32 @c_valid_ordinal_p(i32 noundef %0, i32 noundef %1, double noundef %2, ptr nocapture noundef %3, ptr nocapture noundef writeonly %4) unnamed_addr #7 {
   %6 = alloca i32, align 4
   %7 = alloca i32, align 4
   %8 = alloca i32, align 4
@@ -14737,7 +14737,7 @@ define internal fastcc i32 @c_valid_ordinal_p(i32 noundef %0, i32 noundef %1, do
 23:                                               ; preds = %25
   %24 = add nuw nsw i32 %.08.i, 1
   %exitcond.not.i = icmp eq i32 %24, 30
-  br i1 %exitcond.not.i, label %c_find_ldoy.exit.thread, label %25, !llvm.loop !17
+  br i1 %exitcond.not.i, label %c_find_ldoy.exit.thread, label %25, !llvm.loop !14
 
 c_find_ldoy.exit.thread:                          ; preds = %23
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %17)
@@ -14747,7 +14747,7 @@ c_find_ldoy.exit.thread:                          ; preds = %23
 25:                                               ; preds = %23, %22
   %.08.i = phi i32 [ 0, %22 ], [ %24, %23 ]
   %26 = xor i32 %.08.i, 31
-  %27 = call fastcc i32 @c_valid_civil_p(i32 noundef %0, i32 noundef 12, i32 noundef %26, double noundef %2, ptr noundef nonnull %17, ptr noundef nonnull %18, ptr noundef nonnull %19, ptr noundef nonnull %20), !range !11
+  %27 = call fastcc i32 @c_valid_civil_p(i32 noundef %0, i32 noundef 12, i32 noundef %26, double noundef %2, ptr noundef nonnull %17, ptr noundef nonnull %18, ptr noundef nonnull %19, ptr noundef nonnull %20)
   %.not.i = icmp eq i32 %27, 0
   br i1 %.not.i, label %23, label %28
 
@@ -14796,12 +14796,12 @@ c_jd_to_civil.exit.i:                             ; preds = %34, %28
 
 55:                                               ; preds = %55, %c_jd_to_civil.exit.i
   %.08.i.i = phi i32 [ 1, %c_jd_to_civil.exit.i ], [ %57, %55 ]
-  %56 = call fastcc i32 @c_valid_civil_p(i32 noundef %54, i32 noundef 1, i32 noundef %.08.i.i, double noundef %2, ptr noundef nonnull %13, ptr noundef nonnull %14, ptr noundef nonnull %15, ptr noundef nonnull %16), !range !11
+  %56 = call fastcc i32 @c_valid_civil_p(i32 noundef %54, i32 noundef 1, i32 noundef %.08.i.i, double noundef %2, ptr noundef nonnull %13, ptr noundef nonnull %14, ptr noundef nonnull %15, ptr noundef nonnull %16)
   %.not.i.i = icmp ne i32 %56, 0
   %57 = add nuw nsw i32 %.08.i.i, 1
   %exitcond.not.i.i = icmp eq i32 %57, 31
   %or.cond.i = select i1 %.not.i.i, i1 true, i1 %exitcond.not.i.i
-  br i1 %or.cond.i, label %c_jd_to_ordinal.exit, label %55, !llvm.loop !18
+  br i1 %or.cond.i, label %c_jd_to_ordinal.exit, label %55, !llvm.loop !15
 
 c_jd_to_ordinal.exit:                             ; preds = %55
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %13)
@@ -14823,12 +14823,12 @@ c_jd_to_ordinal.exit:                             ; preds = %55
 
 62:                                               ; preds = %62, %61
   %.08.i.i20 = phi i32 [ 1, %61 ], [ %64, %62 ]
-  %63 = call fastcc i32 @c_valid_civil_p(i32 noundef %0, i32 noundef 1, i32 noundef %.08.i.i20, double noundef %2, ptr noundef nonnull %10, ptr noundef nonnull %11, ptr noundef %3, ptr noundef nonnull %12), !range !11
+  %63 = call fastcc i32 @c_valid_civil_p(i32 noundef %0, i32 noundef 1, i32 noundef %.08.i.i20, double noundef %2, ptr noundef nonnull %10, ptr noundef nonnull %11, ptr noundef %3, ptr noundef nonnull %12)
   %.not.i.i21 = icmp ne i32 %63, 0
   %64 = add nuw nsw i32 %.08.i.i20, 1
   %exitcond.not.i.i22 = icmp eq i32 %64, 31
   %or.cond.i23 = select i1 %.not.i.i21, i1 true, i1 %exitcond.not.i.i22
-  br i1 %or.cond.i23, label %c_ordinal_to_jd.exit, label %62, !llvm.loop !18
+  br i1 %or.cond.i23, label %c_ordinal_to_jd.exit, label %62, !llvm.loop !15
 
 c_ordinal_to_jd.exit:                             ; preds = %62
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %10)
@@ -14882,12 +14882,12 @@ c_jd_to_civil.exit.i24:                           ; preds = %74, %c_ordinal_to_j
 
 95:                                               ; preds = %95, %c_jd_to_civil.exit.i24
   %.08.i.i28 = phi i32 [ 1, %c_jd_to_civil.exit.i24 ], [ %97, %95 ]
-  %96 = call fastcc i32 @c_valid_civil_p(i32 noundef %94, i32 noundef 1, i32 noundef %.08.i.i28, double noundef %2, ptr noundef nonnull %6, ptr noundef nonnull %7, ptr noundef nonnull %8, ptr noundef nonnull %9), !range !11
+  %96 = call fastcc i32 @c_valid_civil_p(i32 noundef %94, i32 noundef 1, i32 noundef %.08.i.i28, double noundef %2, ptr noundef nonnull %6, ptr noundef nonnull %7, ptr noundef nonnull %8, ptr noundef nonnull %9)
   %.not.i.i29 = icmp ne i32 %96, 0
   %97 = add nuw nsw i32 %.08.i.i28, 1
   %exitcond.not.i.i30 = icmp eq i32 %97, 31
   %or.cond.i31 = select i1 %.not.i.i29, i1 true, i1 %exitcond.not.i.i30
-  br i1 %or.cond.i31, label %c_jd_to_ordinal.exit32, label %95, !llvm.loop !18
+  br i1 %or.cond.i31, label %c_jd_to_ordinal.exit32, label %95, !llvm.loop !15
 
 c_jd_to_ordinal.exit32:                           ; preds = %95
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6)
@@ -15109,7 +15109,7 @@ f_zero_p.exit.thread41:                           ; preds = %50, %rb_type.exit.t
 declare i64 @rb_funcall(i64 noundef, i64 noundef, i32 noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: nofree nosync nounwind memory(argmem: readwrite) uwtable
-define internal fastcc i32 @c_valid_civil_p(i32 noundef %0, i32 noundef %1, i32 noundef %2, double noundef %3, ptr nocapture noundef %4, ptr nocapture noundef writeonly %5, ptr nocapture noundef %6, ptr nocapture noundef writeonly %7) unnamed_addr #7 {
+define internal fastcc range(i32 0, 2) i32 @c_valid_civil_p(i32 noundef %0, i32 noundef %1, i32 noundef %2, double noundef %3, ptr nocapture noundef %4, ptr nocapture noundef writeonly %5, ptr nocapture noundef %6, ptr nocapture noundef writeonly %7) unnamed_addr #7 {
   %9 = alloca i32, align 4
   %10 = alloca i32, align 4
   %11 = icmp slt i32 %1, 0
@@ -15131,7 +15131,7 @@ define internal fastcc i32 @c_valid_civil_p(i32 noundef %0, i32 noundef %1, i32 
 17:                                               ; preds = %19
   %18 = add nuw nsw i32 %.0.i57, 1
   %exitcond.not = icmp eq i32 %18, 30
-  br i1 %exitcond.not, label %c_find_ldom.exit.thread, label %19, !llvm.loop !19
+  br i1 %exitcond.not, label %c_find_ldom.exit.thread, label %19, !llvm.loop !16
 
 c_find_ldom.exit.thread:                          ; preds = %17
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9)
@@ -15141,7 +15141,7 @@ c_find_ldom.exit.thread:                          ; preds = %17
 19:                                               ; preds = %16, %17
   %.0.i57 = phi i32 [ 0, %16 ], [ %18, %17 ]
   %20 = xor i32 %.0.i57, 31
-  %21 = call fastcc i32 @c_valid_civil_p(i32 noundef %0, i32 noundef %spec.select, i32 noundef %20, double noundef %3, ptr noundef nonnull %9, ptr noundef nonnull %10, ptr noundef %6, ptr noundef %7), !range !11
+  %21 = call fastcc i32 @c_valid_civil_p(i32 noundef %0, i32 noundef %spec.select, i32 noundef %20, double noundef %3, ptr noundef nonnull %9, ptr noundef nonnull %10, ptr noundef %6, ptr noundef %7)
   %.not.i = icmp eq i32 %21, 0
   br i1 %.not.i, label %17, label %22
 
@@ -15358,7 +15358,7 @@ guess_style.exit:                                 ; preds = %10, %f_negative_p.e
 guess_style.exit.thread:                          ; preds = %26, %guess_style.exit
   %31 = tail call i64 @rb_fix2int(i64 noundef %0) #20
   %32 = trunc i64 %31 to i32
-  %33 = call fastcc i32 @c_valid_civil_p(i32 noundef %32, i32 noundef %1, i32 noundef %2, double noundef %3, ptr noundef %6, ptr noundef %7, ptr noundef nonnull %11, ptr noundef %9), !range !11
+  %33 = call fastcc i32 @c_valid_civil_p(i32 noundef %32, i32 noundef %1, i32 noundef %2, double noundef %3, ptr noundef %6, ptr noundef %7, ptr noundef nonnull %11, ptr noundef %9)
   %.not45 = icmp eq i32 %33, 0
   br i1 %.not45, label %c_valid_gregorian_p.exit.thread, label %34
 
@@ -15602,7 +15602,7 @@ guess_style.exit:                                 ; preds = %10, %f_negative_p.e
 guess_style.exit.thread:                          ; preds = %26, %guess_style.exit
   %31 = tail call i64 @rb_fix2int(i64 noundef %0) #20
   %32 = trunc i64 %31 to i32
-  %33 = call fastcc i32 @c_valid_commercial_p(i32 noundef %32, i32 noundef %1, i32 noundef %2, double noundef %3, ptr noundef %6, ptr noundef %7, ptr noundef nonnull %11, ptr noundef %9), !range !11
+  %33 = call fastcc i32 @c_valid_commercial_p(i32 noundef %32, i32 noundef %1, i32 noundef %2, double noundef %3, ptr noundef %6, ptr noundef %7, ptr noundef nonnull %11, ptr noundef %9)
   %.not = icmp eq i32 %33, 0
   br i1 %.not, label %65, label %34
 
@@ -15676,7 +15676,7 @@ f_zero_p.exit.thread:                             ; preds = %53, %rb_type.exit.i
 62:                                               ; preds = %guess_style.exit
   tail call fastcc void @decode_year(i64 noundef %0, double noundef %.0.i, ptr noundef %4, ptr noundef %5)
   %63 = load i32, ptr %5, align 4
-  %64 = tail call fastcc i32 @c_valid_commercial_p(i32 noundef %63, i32 noundef %1, i32 noundef %2, double noundef %.0.i, ptr noundef %6, ptr noundef %7, ptr noundef %8, ptr noundef %9), !range !11
+  %64 = tail call fastcc i32 @c_valid_commercial_p(i32 noundef %63, i32 noundef %1, i32 noundef %2, double noundef %.0.i, ptr noundef %6, ptr noundef %7, ptr noundef %8, ptr noundef %9)
   br label %65
 
 65:                                               ; preds = %62, %f_zero_p.exit.thread, %f_zero_p.exit.thread44, %guess_style.exit.thread
@@ -15685,7 +15685,7 @@ f_zero_p.exit.thread:                             ; preds = %53, %rb_type.exit.i
 }
 
 ; Function Attrs: nofree nosync nounwind memory(argmem: readwrite) uwtable
-define internal fastcc i32 @c_valid_commercial_p(i32 noundef %0, i32 noundef %1, i32 noundef %2, double noundef %3, ptr nocapture noundef %4, ptr nocapture noundef %5, ptr nocapture noundef %6, ptr nocapture noundef writeonly %7) unnamed_addr #7 {
+define internal fastcc range(i32 0, 2) i32 @c_valid_commercial_p(i32 noundef %0, i32 noundef %1, i32 noundef %2, double noundef %3, ptr nocapture noundef %4, ptr nocapture noundef %5, ptr nocapture noundef %6, ptr nocapture noundef writeonly %7) unnamed_addr #7 {
   %9 = alloca i32, align 4
   %10 = alloca i32, align 4
   %11 = alloca i32, align 4
@@ -15713,12 +15713,12 @@ define internal fastcc i32 @c_valid_commercial_p(i32 noundef %0, i32 noundef %1,
 
 25:                                               ; preds = %25, %23
   %.08.i.i = phi i32 [ 1, %23 ], [ %27, %25 ]
-  %26 = call fastcc i32 @c_valid_civil_p(i32 noundef %24, i32 noundef 1, i32 noundef %.08.i.i, double noundef %3, ptr noundef nonnull %13, ptr noundef nonnull %14, ptr noundef nonnull %15, ptr noundef nonnull %16), !range !11
+  %26 = call fastcc i32 @c_valid_civil_p(i32 noundef %24, i32 noundef 1, i32 noundef %.08.i.i, double noundef %3, ptr noundef nonnull %13, ptr noundef nonnull %14, ptr noundef nonnull %15, ptr noundef nonnull %16)
   %.not.i.i = icmp ne i32 %26, 0
   %27 = add nuw nsw i32 %.08.i.i, 1
   %exitcond.not.i.i = icmp eq i32 %27, 31
   %or.cond.i = select i1 %.not.i.i, i1 true, i1 %exitcond.not.i.i
-  br i1 %or.cond.i, label %c_find_fdoy.exit.i, label %25, !llvm.loop !18
+  br i1 %or.cond.i, label %c_find_fdoy.exit.i, label %25, !llvm.loop !15
 
 c_find_fdoy.exit.i:                               ; preds = %25
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %13)
@@ -15764,12 +15764,12 @@ c_commercial_to_jd.exit:                          ; preds = %31, %35
 
 45:                                               ; preds = %45, %44
   %.08.i.i32 = phi i32 [ 1, %44 ], [ %47, %45 ]
-  %46 = call fastcc i32 @c_valid_civil_p(i32 noundef %0, i32 noundef 1, i32 noundef %.08.i.i32, double noundef %3, ptr noundef nonnull %9, ptr noundef nonnull %10, ptr noundef nonnull %11, ptr noundef nonnull %12), !range !11
+  %46 = call fastcc i32 @c_valid_civil_p(i32 noundef %0, i32 noundef 1, i32 noundef %.08.i.i32, double noundef %3, ptr noundef nonnull %9, ptr noundef nonnull %10, ptr noundef nonnull %11, ptr noundef nonnull %12)
   %.not.i.i33 = icmp ne i32 %46, 0
   %47 = add nuw nsw i32 %.08.i.i32, 1
   %exitcond.not.i.i34 = icmp eq i32 %47, 31
   %or.cond.i35 = select i1 %.not.i.i33, i1 true, i1 %exitcond.not.i.i34
-  br i1 %or.cond.i35, label %c_find_fdoy.exit.i36, label %45, !llvm.loop !18
+  br i1 %or.cond.i35, label %c_find_fdoy.exit.i36, label %45, !llvm.loop !15
 
 c_find_fdoy.exit.i36:                             ; preds = %45
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9)
@@ -15876,12 +15876,12 @@ c_jd_to_civil.exit:                               ; preds = %5, %17
 
 39:                                               ; preds = %39, %c_jd_to_civil.exit
   %.08.i.i = phi i32 [ 1, %c_jd_to_civil.exit ], [ %41, %39 ]
-  %40 = call fastcc i32 @c_valid_civil_p(i32 noundef %38, i32 noundef 1, i32 noundef %.08.i.i, double noundef %1, ptr noundef nonnull %10, ptr noundef nonnull %11, ptr noundef nonnull %12, ptr noundef nonnull %13), !range !11
+  %40 = call fastcc i32 @c_valid_civil_p(i32 noundef %38, i32 noundef 1, i32 noundef %.08.i.i, double noundef %1, ptr noundef nonnull %10, ptr noundef nonnull %11, ptr noundef nonnull %12, ptr noundef nonnull %13)
   %.not.i.i = icmp ne i32 %40, 0
   %41 = add nuw nsw i32 %.08.i.i, 1
   %exitcond.not.i.i = icmp eq i32 %41, 31
   %or.cond.i = select i1 %.not.i.i, i1 true, i1 %exitcond.not.i.i
-  br i1 %or.cond.i, label %c_find_fdoy.exit.i, label %39, !llvm.loop !18
+  br i1 %or.cond.i, label %c_find_fdoy.exit.i, label %39, !llvm.loop !15
 
 c_find_fdoy.exit.i:                               ; preds = %39
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %10)
@@ -15918,12 +15918,12 @@ c_commercial_to_jd.exit:                          ; preds = %45, %49
 
 54:                                               ; preds = %54, %53
   %.08.i.i23 = phi i32 [ 1, %53 ], [ %56, %54 ]
-  %55 = call fastcc i32 @c_valid_civil_p(i32 noundef %37, i32 noundef 1, i32 noundef %.08.i.i23, double noundef %1, ptr noundef nonnull %6, ptr noundef nonnull %7, ptr noundef nonnull %8, ptr noundef nonnull %9), !range !11
+  %55 = call fastcc i32 @c_valid_civil_p(i32 noundef %37, i32 noundef 1, i32 noundef %.08.i.i23, double noundef %1, ptr noundef nonnull %6, ptr noundef nonnull %7, ptr noundef nonnull %8, ptr noundef nonnull %9)
   %.not.i.i24 = icmp ne i32 %55, 0
   %56 = add nuw nsw i32 %.08.i.i23, 1
   %exitcond.not.i.i25 = icmp eq i32 %56, 31
   %or.cond.i26 = select i1 %.not.i.i24, i1 true, i1 %exitcond.not.i.i25
-  br i1 %or.cond.i26, label %c_find_fdoy.exit.i27, label %54, !llvm.loop !18
+  br i1 %or.cond.i26, label %c_find_fdoy.exit.i27, label %54, !llvm.loop !15
 
 c_find_fdoy.exit.i27:                             ; preds = %54
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6)
@@ -16584,7 +16584,7 @@ rb_enc_str_asciicompat_p.exit.thread:             ; preds = %3, %rb_enc_str_asci
 13:                                               ; preds = %rb_enc_str_asciicompat_p.exit
   %14 = load i64, ptr %4, align 8
   %15 = inttoptr i64 %14 to ptr
-  %16 = load i64, ptr %15, align 8, !noalias !20
+  %16 = load i64, ptr %15, align 8, !noalias !17
   %17 = and i64 %16, 8192
   %.not.i.i27 = icmp eq i64 %17, 0
   %18 = getelementptr inbounds i8, ptr %15, i64 24
@@ -16627,7 +16627,7 @@ rb_enc_str_asciicompat_p.exit32.thread:           ; preds = %25, %rb_enc_str_asc
 32:                                               ; preds = %rb_enc_str_asciicompat_p.exit32
   %33 = load i64, ptr %5, align 8
   %34 = inttoptr i64 %33 to ptr
-  %35 = load i64, ptr %34, align 8, !noalias !23
+  %35 = load i64, ptr %34, align 8, !noalias !20
   %36 = and i64 %35, 8192
   %.not.i.i33 = icmp eq i64 %36, 0
   %37 = getelementptr inbounds i8, ptr %34, i64 24
@@ -18198,14 +18198,14 @@ rb_array_const_ptr.exit618:                       ; preds = %rb_array_len.exit61
   %221 = zext i1 %220 to i64
   %spec.select = add nuw nsw i64 %.0231, %221
   %222 = add nuw nsw i64 %.0230, 1
-  br label %207, !llvm.loop !26
+  br label %207, !llvm.loop !23
 
 223:                                              ; preds = %rb_array_len.exit615.thread, %rb_array_len.exit615
   %224 = icmp ugt i64 %.0231, %.0226
   %spec.select239 = select i1 %224, i64 %.0225, i64 %.0228
   %spec.select240 = tail call i64 @llvm.smax.i64(i64 %.0231, i64 %.0226)
   %225 = add nuw nsw i64 %.0225, 1
-  br label %177, !llvm.loop !27
+  br label %177, !llvm.loop !24
 
 226:                                              ; preds = %rb_array_len.exit
   %227 = icmp eq i64 %.0226, 0
@@ -18433,7 +18433,7 @@ rb_array_const_ptr.exit669:                       ; preds = %rb_array_len.exit66
   %311 = tail call i64 (i64, i64, i32, ...) @rb_funcall(i64 noundef %.3, i64 noundef %310, i32 noundef 0) #20
   %312 = tail call i64 @rb_hash_aset(i64 noundef %1, i64 noundef %301, i64 noundef %311) #20
   %313 = add nuw nsw i64 %.0233, 1
-  br label %290, !llvm.loop !28
+  br label %290, !llvm.loop !25
 
 314:                                              ; preds = %rb_array_len.exit666.thread, %rb_array_const_ptr.exit669, %rb_array_len.exit666
   %.pr.i670 = load i64, ptr @rt_complete_frags.rbimpl_id.268, align 8
@@ -18551,7 +18551,7 @@ rb_array_const_ptr.exit693:                       ; preds = %rb_array_len.exit69
   %359 = tail call i64 (i64, i64, i32, ...) @rb_funcall(i64 noundef %.5, i64 noundef %358, i32 noundef 0) #20
   %360 = tail call i64 @rb_hash_aset(i64 noundef %1, i64 noundef %349, i64 noundef %359) #20
   %361 = add nuw nsw i64 %.0234, 1
-  br label %338, !llvm.loop !29
+  br label %338, !llvm.loop !26
 
 362:                                              ; preds = %rb_array_len.exit690.thread, %rb_array_const_ptr.exit693, %rb_array_len.exit690
   %363 = tail call fastcc i64 @rbimpl_intern_const(ptr noundef @rt_complete_frags.rbimpl_id.273, ptr noundef @.str.65) #26
@@ -18590,7 +18590,7 @@ rb_array_const_ptr.exit693:                       ; preds = %rb_array_len.exit69
   %386 = tail call i64 @date_s_today(i32 noundef 0, ptr noundef null, i64 noundef %385)
   %387 = tail call fastcc i64 @rbimpl_intern_const(ptr noundef @rt_complete_frags.rbimpl_id.278, ptr noundef @.str.32) #26
   %388 = tail call i64 @rb_id2sym(i64 noundef %387) #20
-  %389 = tail call i64 @d_lite_wday(i64 noundef %386), !range !30
+  %389 = tail call i64 @d_lite_wday(i64 noundef %386)
   %390 = tail call i64 (i64, i64, i32, ...) @rb_funcall(i64 noundef %386, i64 noundef 45, i32 noundef 1, i64 noundef %389) #20
   %391 = tail call fastcc i64 @rbimpl_intern_const(ptr noundef @rt_complete_frags.rbimpl_id.279, ptr noundef @.str.7) #26
   %392 = tail call i64 @rb_id2sym(i64 noundef %391) #20
@@ -18657,7 +18657,7 @@ rb_array_const_ptr.exit699:                       ; preds = %rb_array_len.exit69
   %424 = tail call i64 (i64, i64, i32, ...) @rb_funcall(i64 noundef %.8, i64 noundef %423, i32 noundef 0) #20
   %425 = tail call i64 @rb_hash_aset(i64 noundef %1, i64 noundef %414, i64 noundef %424) #20
   %426 = add nuw nsw i64 %.0235, 1
-  br label %403, !llvm.loop !31
+  br label %403, !llvm.loop !27
 
 427:                                              ; preds = %rb_array_len.exit696.thread, %rb_array_const_ptr.exit699, %rb_array_len.exit696
   %428 = tail call fastcc i64 @rbimpl_intern_const(ptr noundef @rt_complete_frags.rbimpl_id.281, ptr noundef @.str.229) #26
@@ -18742,7 +18742,7 @@ rb_array_const_ptr.exit705:                       ; preds = %rb_array_len.exit70
   %472 = tail call i64 (i64, i64, i32, ...) @rb_funcall(i64 noundef %.10, i64 noundef %471, i32 noundef 0) #20
   %473 = tail call i64 @rb_hash_aset(i64 noundef %1, i64 noundef %462, i64 noundef %472) #20
   %474 = add nuw nsw i64 %.0236, 1
-  br label %451, !llvm.loop !32
+  br label %451, !llvm.loop !28
 
 475:                                              ; preds = %rb_array_len.exit702.thread, %rb_array_const_ptr.exit705, %rb_array_len.exit702
   %476 = tail call fastcc i64 @rbimpl_intern_const(ptr noundef @rt_complete_frags.rbimpl_id.286, ptr noundef @.str.237) #26
@@ -19702,7 +19702,7 @@ guess_style.exit.i:                               ; preds = %49, %45, %f_negativ
 guess_style.exit.thread.i:                        ; preds = %guess_style.exit.i, %47
   %52 = tail call i64 @rb_fix2int(i64 noundef %0) #20
   %53 = trunc i64 %52 to i32
-  %54 = call fastcc i32 @c_valid_weeknum_p(i32 noundef %53, i32 noundef %20, i32 noundef %26, i32 noundef %32, double noundef %33, ptr noundef nonnull %11, ptr noundef nonnull %12, ptr noundef nonnull %6, ptr noundef nonnull %14), !range !11
+  %54 = call fastcc i32 @c_valid_weeknum_p(i32 noundef %53, i32 noundef %20, i32 noundef %26, i32 noundef %32, double noundef %33, ptr noundef nonnull %11, ptr noundef nonnull %12, ptr noundef nonnull %6, ptr noundef nonnull %14)
   %.not.i12 = icmp eq i32 %54, 0
   br i1 %.not.i12, label %valid_weeknum_p.exit.thread15, label %55
 
@@ -19784,7 +19784,7 @@ valid_weeknum_p.exit.thread:                      ; preds = %f_zero_p.exit.threa
 valid_weeknum_p.exit:                             ; preds = %guess_style.exit.i
   call fastcc void @decode_year(i64 noundef %0, double noundef %.0.i.i, ptr noundef nonnull %8, ptr noundef nonnull %10)
   %82 = load i32, ptr %10, align 4
-  %83 = call fastcc i32 @c_valid_weeknum_p(i32 noundef %82, i32 noundef %20, i32 noundef %26, i32 noundef %32, double noundef %.0.i.i, ptr noundef nonnull %11, ptr noundef nonnull %12, ptr noundef nonnull %13, ptr noundef nonnull %14), !range !11
+  %83 = call fastcc i32 @c_valid_weeknum_p(i32 noundef %82, i32 noundef %20, i32 noundef %26, i32 noundef %32, double noundef %.0.i.i, ptr noundef nonnull %11, ptr noundef nonnull %12, ptr noundef nonnull %13, ptr noundef nonnull %14)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7)
   %.not = icmp eq i32 %83, 0
@@ -19807,7 +19807,7 @@ valid_weeknum_p.exit._crit_edge:                  ; preds = %valid_weeknum_p.exi
 }
 
 ; Function Attrs: nofree nosync nounwind memory(argmem: readwrite) uwtable
-define internal fastcc i32 @c_valid_weeknum_p(i32 noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, double noundef %4, ptr nocapture noundef %5, ptr nocapture noundef %6, ptr nocapture noundef %7, ptr nocapture noundef writeonly %8) unnamed_addr #7 {
+define internal fastcc range(i32 0, 2) i32 @c_valid_weeknum_p(i32 noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, double noundef %4, ptr nocapture noundef %5, ptr nocapture noundef %6, ptr nocapture noundef %7, ptr nocapture noundef writeonly %8) unnamed_addr #7 {
   %10 = alloca i32, align 4
   %11 = alloca i32, align 4
   %12 = alloca i32, align 4
@@ -19835,12 +19835,12 @@ define internal fastcc i32 @c_valid_weeknum_p(i32 noundef %0, i32 noundef %1, i3
 
 26:                                               ; preds = %26, %24
   %.08.i.i = phi i32 [ 1, %24 ], [ %28, %26 ]
-  %27 = call fastcc i32 @c_valid_civil_p(i32 noundef %25, i32 noundef 1, i32 noundef %.08.i.i, double noundef %4, ptr noundef nonnull %14, ptr noundef nonnull %15, ptr noundef nonnull %16, ptr noundef nonnull %17), !range !11
+  %27 = call fastcc i32 @c_valid_civil_p(i32 noundef %25, i32 noundef 1, i32 noundef %.08.i.i, double noundef %4, ptr noundef nonnull %14, ptr noundef nonnull %15, ptr noundef nonnull %16, ptr noundef nonnull %17)
   %.not.i.i = icmp ne i32 %27, 0
   %28 = add nuw nsw i32 %.08.i.i, 1
   %exitcond.not.i.i = icmp eq i32 %28, 31
   %or.cond.i = select i1 %.not.i.i, i1 true, i1 %exitcond.not.i.i
-  br i1 %or.cond.i, label %c_find_fdoy.exit.i, label %26, !llvm.loop !18
+  br i1 %or.cond.i, label %c_find_fdoy.exit.i, label %26, !llvm.loop !15
 
 c_find_fdoy.exit.i:                               ; preds = %26
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %14)
@@ -19889,12 +19889,12 @@ c_weeknum_to_jd.exit:                             ; preds = %33, %37
 
 49:                                               ; preds = %49, %48
   %.08.i.i37 = phi i32 [ 1, %48 ], [ %51, %49 ]
-  %50 = call fastcc i32 @c_valid_civil_p(i32 noundef %0, i32 noundef 1, i32 noundef %.08.i.i37, double noundef %4, ptr noundef nonnull %10, ptr noundef nonnull %11, ptr noundef nonnull %12, ptr noundef nonnull %13), !range !11
+  %50 = call fastcc i32 @c_valid_civil_p(i32 noundef %0, i32 noundef 1, i32 noundef %.08.i.i37, double noundef %4, ptr noundef nonnull %10, ptr noundef nonnull %11, ptr noundef nonnull %12, ptr noundef nonnull %13)
   %.not.i.i38 = icmp ne i32 %50, 0
   %51 = add nuw nsw i32 %.08.i.i37, 1
   %exitcond.not.i.i39 = icmp eq i32 %51, 31
   %or.cond.i40 = select i1 %.not.i.i38, i1 true, i1 %exitcond.not.i.i39
-  br i1 %or.cond.i40, label %c_find_fdoy.exit.i41, label %49, !llvm.loop !18
+  br i1 %or.cond.i40, label %c_find_fdoy.exit.i41, label %49, !llvm.loop !15
 
 c_find_fdoy.exit.i41:                             ; preds = %49
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %10)
@@ -19996,12 +19996,12 @@ c_jd_to_civil.exit:                               ; preds = %6, %13
 
 34:                                               ; preds = %34, %c_jd_to_civil.exit
   %.08.i = phi i32 [ 1, %c_jd_to_civil.exit ], [ %36, %34 ]
-  %35 = call fastcc i32 @c_valid_civil_p(i32 noundef %33, i32 noundef 1, i32 noundef %.08.i, double noundef %2, ptr noundef nonnull %7, ptr noundef nonnull %8, ptr noundef nonnull %9, ptr noundef nonnull %10), !range !11
+  %35 = call fastcc i32 @c_valid_civil_p(i32 noundef %33, i32 noundef 1, i32 noundef %.08.i, double noundef %2, ptr noundef nonnull %7, ptr noundef nonnull %8, ptr noundef nonnull %9, ptr noundef nonnull %10)
   %.not.i = icmp ne i32 %35, 0
   %36 = add nuw nsw i32 %.08.i, 1
   %exitcond.not.i = icmp eq i32 %36, 31
   %or.cond = select i1 %.not.i, i1 true, i1 %exitcond.not.i
-  br i1 %or.cond, label %c_find_fdoy.exit, label %34, !llvm.loop !18
+  br i1 %or.cond, label %c_find_fdoy.exit, label %34, !llvm.loop !15
 
 c_find_fdoy.exit:                                 ; preds = %34
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7)
@@ -20709,7 +20709,7 @@ f_zero_p.exit.thread14:                           ; preds = %20, %rb_type.exit.t
   br label %31
 
 f_zero_p.exit.thread:                             ; preds = %20, %rb_type.exit.i, %rb_type.exit.thread8.i, %f_zero_p.exit
-  %27 = tail call fastcc i32 @m_julian_p(ptr noundef nonnull %0), !range !11
+  %27 = tail call fastcc i32 @m_julian_p(ptr noundef nonnull %0)
   %.not7.not = icmp eq i32 %27, 0
   %28 = select i1 %.not7.not, i32 -1, i32 1
   %29 = sitofp i32 %28 to double
@@ -20869,7 +20869,7 @@ f_zero_p.exit.thread:                             ; preds = %18, %rb_type.exit.i
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @m_julian_p(ptr nocapture noundef %0) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @m_julian_p(ptr nocapture noundef %0) unnamed_addr #0 {
   %2 = load i32, ptr %0, align 8
   %3 = and i32 %2, 128
   %.not = icmp eq i32 %3, 0
@@ -21002,8 +21002,8 @@ m_proleptic_gregorian_p.exit:                     ; preds = %m_virtual_sg.exit, 
 
 20:                                               ; preds = %16, %m_proleptic_gregorian_p.exit
   %21 = tail call fastcc i32 @m_year(ptr noundef nonnull %0)
-  %22 = tail call i32 @m_mon(ptr noundef nonnull %0), !range !9
-  %23 = tail call i32 @m_mday(ptr noundef nonnull %0), !range !10
+  %22 = tail call i32 @m_mon(ptr noundef nonnull %0)
+  %23 = tail call i32 @m_mday(ptr noundef nonnull %0)
   %24 = and i32 %21, 3
   %25 = icmp ne i32 %24, 0
   %26 = srem i32 %21, 100
@@ -21057,8 +21057,8 @@ m_proleptic_julian_p.exit:                        ; preds = %44, %47
 
 48:                                               ; preds = %m_proleptic_julian_p.exit
   %49 = tail call fastcc i32 @m_year(ptr noundef nonnull %0)
-  %50 = tail call i32 @m_mon(ptr noundef nonnull %0), !range !9
-  %51 = tail call i32 @m_mday(ptr noundef nonnull %0), !range !10
+  %50 = tail call i32 @m_mon(ptr noundef nonnull %0)
+  %51 = tail call i32 @m_mday(ptr noundef nonnull %0)
   %52 = and i32 %49, 3
   %53 = icmp eq i32 %52, 0
   %54 = zext i1 %53 to i64
@@ -21107,12 +21107,12 @@ c_jd_to_civil.exit.i:                             ; preds = %61, %59
 
 82:                                               ; preds = %82, %c_jd_to_civil.exit.i
   %.08.i.i = phi i32 [ 1, %c_jd_to_civil.exit.i ], [ %84, %82 ]
-  %83 = call fastcc i32 @c_valid_civil_p(i32 noundef %81, i32 noundef 1, i32 noundef %.08.i.i, double noundef %.0.i, ptr noundef nonnull %2, ptr noundef nonnull %3, ptr noundef nonnull %4, ptr noundef nonnull %5), !range !11
+  %83 = call fastcc i32 @c_valid_civil_p(i32 noundef %81, i32 noundef 1, i32 noundef %.08.i.i, double noundef %.0.i, ptr noundef nonnull %2, ptr noundef nonnull %3, ptr noundef nonnull %4, ptr noundef nonnull %5)
   %.not.i.i21 = icmp ne i32 %83, 0
   %84 = add nuw nsw i32 %.08.i.i, 1
   %exitcond.not.i.i = icmp eq i32 %84, 31
   %or.cond.i22 = select i1 %.not.i.i21, i1 true, i1 %exitcond.not.i.i
-  br i1 %or.cond.i22, label %c_jd_to_ordinal.exit, label %82, !llvm.loop !18
+  br i1 %or.cond.i22, label %c_jd_to_ordinal.exit, label %82, !llvm.loop !15
 
 c_jd_to_ordinal.exit:                             ; preds = %82
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %2)
@@ -21130,7 +21130,7 @@ c_jd_to_ordinal.exit:                             ; preds = %82
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @m_mon(ptr nocapture noundef %0) #0 {
+define internal range(i32 0, 16) i32 @m_mon(ptr nocapture noundef %0) #0 {
   %2 = load i32, ptr %0, align 8
   %3 = and i32 %2, 128
   %.not = icmp eq i32 %3, 0
@@ -21208,7 +21208,7 @@ get_s_civil.exit:                                 ; preds = %c_jd_to_civil.exit.
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @m_mday(ptr nocapture noundef %0) #0 {
+define internal range(i32 0, 32) i32 @m_mday(ptr nocapture noundef %0) #0 {
   %2 = load i32, ptr %0, align 8
   %3 = and i32 %2, 128
   %.not = icmp eq i32 %3, 0
@@ -21380,7 +21380,7 @@ f_zero_p.exit.thread15:                           ; preds = %30, %rb_type.exit.t
   br label %41
 
 f_zero_p.exit.thread:                             ; preds = %30, %rb_type.exit.i, %rb_type.exit.thread8.i, %f_zero_p.exit
-  %37 = tail call fastcc i32 @m_julian_p(ptr noundef nonnull %0), !range !11
+  %37 = tail call fastcc i32 @m_julian_p(ptr noundef nonnull %0)
   %.not7.not = icmp eq i32 %37, 0
   %38 = select i1 %.not7.not, i32 -1, i32 1
   %39 = sitofp i32 %38 to double
@@ -21420,7 +21420,7 @@ m_virtual_sg.exit:                                ; preds = %8, %10
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @m_cwday(ptr nocapture noundef %0) #0 {
+define internal range(i32 0, 8) i32 @m_cwday(ptr nocapture noundef %0) #0 {
   %2 = tail call fastcc i32 @m_local_jd(ptr noundef %0)
   %3 = icmp slt i32 %2, -1
   br i1 %3, label %4, label %8
@@ -21444,7 +21444,7 @@ m_wday.exit:                                      ; preds = %4, %8
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @m_wday(ptr nocapture noundef %0) #0 {
+define internal range(i32 0, 7) i32 @m_wday(ptr nocapture noundef %0) #0 {
   %2 = tail call fastcc i32 @m_local_jd(ptr noundef %0)
   %3 = icmp slt i32 %2, -1
   br i1 %3, label %4, label %8
@@ -22145,7 +22145,7 @@ m_wnumx.exit:                                     ; preds = %8, %10
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal i32 @m_hour(ptr nocapture noundef %0) #16 {
+define internal range(i32 0, 32) i32 @m_hour(ptr nocapture noundef %0) #16 {
   %2 = load i32, ptr %0, align 8
   %3 = and i32 %2, 128
   %.not = icmp eq i32 %3, 0
@@ -22200,7 +22200,7 @@ get_c_time.exit:                                  ; preds = %4, %8
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal i32 @m_min(ptr nocapture noundef %0) #16 {
+define internal range(i32 0, 64) i32 @m_min(ptr nocapture noundef %0) #16 {
   %2 = load i32, ptr %0, align 8
   %3 = and i32 %2, 128
   %.not = icmp eq i32 %3, 0
@@ -22255,7 +22255,7 @@ get_c_time.exit:                                  ; preds = %4, %8
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal i32 @m_sec(ptr nocapture noundef %0) #16 {
+define internal range(i32 0, 64) i32 @m_sec(ptr nocapture noundef %0) #16 {
   %2 = load i32, ptr %0, align 8
   %3 = and i32 %2, 128
   %.not = icmp eq i32 %3, 0
@@ -22601,7 +22601,7 @@ m_of.exit.i:                                      ; preds = %1
 m_zone.exit:                                      ; preds = %4, %m_of.exit.i
   %.0.i = phi i64 [ %15, %m_of.exit.i ], [ %5, %4 ]
   %16 = inttoptr i64 %.0.i to ptr
-  %17 = load i64, ptr %16, align 8, !noalias !33
+  %17 = load i64, ptr %16, align 8, !noalias !29
   %18 = and i64 %17, 8192
   %.not.i.i = icmp eq i64 %18, 0
   %19 = getelementptr inbounds i8, ptr %16, i64 24
@@ -22662,7 +22662,7 @@ rb_enc_str_asciicompat_p.exit.thread:             ; preds = %13, %rb_enc_str_asc
 20:                                               ; preds = %rb_enc_str_asciicompat_p.exit._crit_edge, %11
   %21 = phi i64 [ %.pre, %rb_enc_str_asciicompat_p.exit._crit_edge ], [ %12, %11 ]
   %22 = inttoptr i64 %21 to ptr
-  %23 = load i64, ptr %22, align 8, !noalias !36
+  %23 = load i64, ptr %22, align 8, !noalias !32
   %24 = and i64 %23, 8192
   %.not.i.i44 = icmp eq i64 %24, 0
   %25 = getelementptr inbounds i8, ptr %22, i64 24
@@ -22718,7 +22718,7 @@ RSTRING_PTR.exit:                                 ; preds = %20, %26
 45:                                               ; preds = %.lr.ph
   %46 = getelementptr inbounds i8, ptr %.12, i64 1
   %47 = icmp ult ptr %46, %33
-  br i1 %47, label %.lr.ph, label %.critedge, !llvm.loop !39
+  br i1 %47, label %.lr.ph, label %.critedge, !llvm.loop !35
 
 .critedge:                                        ; preds = %.lr.ph, %45
   %.1.lcssa = phi ptr [ %.12, %.lr.ph ], [ %46, %45 ]
@@ -22735,7 +22735,7 @@ RSTRING_PTR.exit:                                 ; preds = %20, %26
 .critedge.thread:                                 ; preds = %42, %49, %.critedge
   %.1.lcssa8 = phi ptr [ %.1.lcssa, %49 ], [ %.1.lcssa, %.critedge ], [ %40, %42 ]
   %54 = icmp ult ptr %.1.lcssa8, %33
-  br i1 %54, label %.lr.ph6, label %._crit_edge, !llvm.loop !40
+  br i1 %54, label %.lr.ph6, label %._crit_edge, !llvm.loop !36
 
 ._crit_edge:                                      ; preds = %.critedge.thread, %32
   %55 = load i64, ptr %5, align 8
@@ -22977,13 +22977,13 @@ define internal fastcc i64 @deconstruct_keys(i64 noundef %0, i64 noundef %1, i32
   %9 = tail call i64 @m_real_year(ptr noundef %5)
   %10 = tail call i64 @rb_hash_aset(i64 noundef %4, i64 noundef %8, i64 noundef %9) #20
   %11 = load i64, ptr @sym_month, align 8
-  %12 = tail call i32 @m_mon(ptr noundef %5), !range !9
+  %12 = tail call i32 @m_mon(ptr noundef %5)
   %13 = shl nuw nsw i32 %12, 1
   %14 = or disjoint i32 %13, 1
   %15 = zext nneg i32 %14 to i64
   %16 = tail call i64 @rb_hash_aset(i64 noundef %4, i64 noundef %11, i64 noundef %15) #20
   %17 = load i64, ptr @sym_day, align 8
-  %18 = tail call i32 @m_mday(ptr noundef %5), !range !10
+  %18 = tail call i32 @m_mday(ptr noundef %5)
   %19 = shl nuw nsw i32 %18, 1
   %20 = or disjoint i32 %19, 1
   %21 = zext nneg i32 %20 to i64
@@ -23321,7 +23321,7 @@ rb_array_const_ptr.exit:                          ; preds = %rb_array_len.exit.t
   br i1 %211, label %212, label %218
 
 212:                                              ; preds = %209
-  %213 = tail call i32 @m_mon(ptr noundef %5), !range !9
+  %213 = tail call i32 @m_mon(ptr noundef %5)
   %214 = shl nuw nsw i32 %213, 1
   %215 = or disjoint i32 %214, 1
   %216 = zext nneg i32 %215 to i64
@@ -23334,7 +23334,7 @@ rb_array_const_ptr.exit:                          ; preds = %rb_array_len.exit.t
   br i1 %220, label %221, label %227
 
 221:                                              ; preds = %218
-  %222 = tail call i32 @m_mday(ptr noundef %5), !range !10
+  %222 = tail call i32 @m_mday(ptr noundef %5)
   %223 = shl nuw nsw i32 %222, 1
   %224 = or disjoint i32 %223, 1
   %225 = zext nneg i32 %224 to i64
@@ -23643,7 +23643,7 @@ m_zone.exit169:                                   ; preds = %378, %m_of.exit.i16
 390:                                              ; preds = %254, %m_zone.exit169, %372
   %391 = add nuw nsw i64 %.092, 1
   %.pre = load i64, ptr %180, align 8
-  br label %192, !llvm.loop !41
+  br label %192, !llvm.loop !37
 
 .loopexit:                                        ; preds = %rb_array_len.exit.thread, %rb_array_len.exit, %m_wday.exit, %m_zone.exit
   ret i64 %4
@@ -23657,7 +23657,7 @@ declare nonnull ptr @ruby_xrealloc(ptr noundef, i64 noundef) local_unnamed_addr 
 declare i64 @rb_marshal_load(i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @offset_to_sec(i64 noundef %0, ptr nocapture noundef writeonly %1) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @offset_to_sec(i64 noundef %0, ptr nocapture noundef writeonly %1) unnamed_addr #0 {
   br label %Check_Type.exit
 
 Check_Type.exit:                                  ; preds = %Check_Type.exit.backedge, %2
@@ -24790,7 +24790,7 @@ define internal fastcc i64 @iso8601_timediv(i64 noundef %0, i64 noundef %1) unna
   store ptr @tmx_funcs, ptr %17, align 8
   %18 = call fastcc i64 @date_strftime_alloc(ptr noundef nonnull %5, ptr noundef nonnull %8, ptr noundef nonnull %6)
   store ptr %3, ptr %7, align 8
-  call void asm sideeffect "", "*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(ptr) %7) #20, !srcloc !16
+  call void asm sideeffect "", "*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(ptr) %7) #20, !srcloc !13
   %19 = load ptr, ptr %7, align 8
   %20 = load volatile i64, ptr %19, align 8
   %21 = load ptr, ptr %5, align 8
@@ -24871,36 +24871,32 @@ attributes #27 = { nounwind allocsize(0) }
 !6 = distinct !{!6, !7}
 !7 = !{!"llvm.loop.mustprogress"}
 !8 = distinct !{!8, !7}
-!9 = !{i32 0, i32 16}
-!10 = !{i32 0, i32 32}
-!11 = !{i32 0, i32 2}
+!9 = distinct !{!9, !7}
+!10 = distinct !{!10, !7}
+!11 = distinct !{!11, !7}
 !12 = distinct !{!12, !7}
-!13 = distinct !{!13, !7}
+!13 = !{i64 2151077166}
 !14 = distinct !{!14, !7}
 !15 = distinct !{!15, !7}
-!16 = !{i64 2151077166}
-!17 = distinct !{!17, !7}
-!18 = distinct !{!18, !7}
-!19 = distinct !{!19, !7}
+!16 = distinct !{!16, !7}
+!17 = !{!18}
+!18 = distinct !{!18, !19, !"rbimpl_rstring_getmem: argument 0"}
+!19 = distinct !{!19, !"rbimpl_rstring_getmem"}
 !20 = !{!21}
 !21 = distinct !{!21, !22, !"rbimpl_rstring_getmem: argument 0"}
 !22 = distinct !{!22, !"rbimpl_rstring_getmem"}
-!23 = !{!24}
-!24 = distinct !{!24, !25, !"rbimpl_rstring_getmem: argument 0"}
-!25 = distinct !{!25, !"rbimpl_rstring_getmem"}
+!23 = distinct !{!23, !7}
+!24 = distinct !{!24, !7}
+!25 = distinct !{!25, !7}
 !26 = distinct !{!26, !7}
 !27 = distinct !{!27, !7}
 !28 = distinct !{!28, !7}
-!29 = distinct !{!29, !7}
-!30 = !{i64 1, i64 0}
-!31 = distinct !{!31, !7}
-!32 = distinct !{!32, !7}
-!33 = !{!34}
-!34 = distinct !{!34, !35, !"rbimpl_rstring_getmem: argument 0"}
-!35 = distinct !{!35, !"rbimpl_rstring_getmem"}
-!36 = !{!37}
-!37 = distinct !{!37, !38, !"rbimpl_rstring_getmem: argument 0"}
-!38 = distinct !{!38, !"rbimpl_rstring_getmem"}
-!39 = distinct !{!39, !7}
-!40 = distinct !{!40, !7}
-!41 = distinct !{!41, !7}
+!29 = !{!30}
+!30 = distinct !{!30, !31, !"rbimpl_rstring_getmem: argument 0"}
+!31 = distinct !{!31, !"rbimpl_rstring_getmem"}
+!32 = !{!33}
+!33 = distinct !{!33, !34, !"rbimpl_rstring_getmem: argument 0"}
+!34 = distinct !{!34, !"rbimpl_rstring_getmem"}
+!35 = distinct !{!35, !7}
+!36 = distinct !{!36, !7}
+!37 = distinct !{!37, !7}

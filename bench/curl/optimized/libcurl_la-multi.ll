@@ -160,7 +160,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @curl_multi_add_handle(ptr noundef %multi, ptr noundef %data) local_unnamed_addr #0 {
+define i32 @curl_multi_add_handle(ptr noundef %multi, ptr noundef %data) local_unnamed_addr #0 {
 entry:
   %tobool.not = icmp eq ptr %multi, null
   br i1 %tobool.not, label %return, label %land.lhs.true
@@ -226,7 +226,7 @@ if.end31:                                         ; preds = %if.then28, %if.end2
   tail call void @Curl_expire(ptr noundef nonnull %data, i64 noundef 0, i32 noundef 8)
   %timer_lastcall = getelementptr inbounds i8, ptr %multi, i64 424
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %timer_lastcall, i8 0, i64 16, i1 false)
-  %call = tail call i32 @Curl_update_timer(ptr noundef nonnull %multi), !range !6
+  %call = tail call i32 @Curl_update_timer(ptr noundef nonnull %multi)
   %tobool33.not = icmp eq i32 %call, 0
   br i1 %tobool33.not, label %if.end35, label %return
 
@@ -440,7 +440,7 @@ for.inc.i:                                        ; preds = %for.body.i
   %next.i = getelementptr inbounds i8, ptr %e.08.i, i64 16
   %e.0.i = load ptr, ptr %next.i, align 8
   %tobool.not.i = icmp eq ptr %e.0.i, null
-  br i1 %tobool.not.i, label %multi_deltimeout.exit, label %for.body.i, !llvm.loop !7
+  br i1 %tobool.not.i, label %multi_deltimeout.exit, label %for.body.i, !llvm.loop !6
 
 multi_deltimeout.exit:                            ; preds = %for.inc.i, %do.end, %if.then.i
   %expires.i = getelementptr inbounds i8, ptr %data, i64 3784
@@ -478,7 +478,7 @@ for.cond.i:                                       ; preds = %for.body.lr.ph.i, %
   %next.i26 = getelementptr inbounds i8, ptr %e.015.i38, i64 16
   %e.0.i27 = load ptr, ptr %next.i26, align 8
   %tobool4.not.i = icmp eq ptr %e.0.i27, null
-  br i1 %tobool4.not.i, label %multi_addtimeout.exit, label %for.body.i24, !llvm.loop !8
+  br i1 %tobool4.not.i, label %multi_addtimeout.exit, label %for.body.i24, !llvm.loop !7
 
 for.body.i24:                                     ; preds = %for.cond.i
   %11 = load ptr, ptr %e.0.i27, align 8
@@ -490,7 +490,7 @@ for.body.i24:                                     ; preds = %for.cond.i
   %16 = load i32, ptr %set.sroa.7.0.time.i.sroa_idx, align 8
   %call7.i = tail call i64 @Curl_timediff(i64 %12, i32 %14, i64 %15, i32 %16) #19
   %cmp.i25 = icmp sgt i64 %call7.i, 0
-  br i1 %cmp.i25, label %multi_addtimeout.exit, label %for.cond.i, !llvm.loop !8
+  br i1 %cmp.i25, label %multi_addtimeout.exit, label %for.cond.i, !llvm.loop !7
 
 multi_addtimeout.exit:                            ; preds = %for.body.i24, %for.cond.i, %for.body.lr.ph.i, %multi_deltimeout.exit, %for.cond.preheader.i
   %prev.1.i = phi ptr [ null, %multi_deltimeout.exit ], [ null, %for.cond.preheader.i ], [ null, %for.body.lr.ph.i ], [ %e.015.i38, %for.cond.i ], [ %e.015.i38, %for.body.i24 ]
@@ -548,7 +548,7 @@ return:                                           ; preds = %if.then14, %entry, 
 declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #3
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @Curl_update_timer(ptr noundef %multi) local_unnamed_addr #0 {
+define hidden range(i32 0, 12) i32 @Curl_update_timer(ptr noundef %multi) local_unnamed_addr #0 {
 entry:
   %timer_cb = getelementptr inbounds i8, ptr %multi, i64 408
   %0 = load ptr, ptr %timer_cb, align 8
@@ -714,7 +714,7 @@ declare i32 @Curl_share_lock(ptr noundef, i32 noundef, i32 noundef) local_unname
 declare i32 @Curl_share_unlock(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @curl_multi_remove_handle(ptr noundef %multi, ptr noundef %data) local_unnamed_addr #0 {
+define range(i32 0, 12) i32 @curl_multi_remove_handle(ptr noundef %multi, ptr noundef %data) local_unnamed_addr #0 {
 entry:
   %c = alloca ptr, align 8
   %tobool.not = icmp eq ptr %multi, null
@@ -845,7 +845,7 @@ if.end55:                                         ; preds = %if.then51, %if.end4
   %wildcard = getelementptr inbounds i8, ptr %data, i64 5048
   tail call void @Curl_wildcard_dtor(ptr noundef nonnull %wildcard) #19
   store i32 15, ptr %mstate, align 8
-  %call57 = tail call fastcc i32 @singlesocket(ptr noundef nonnull %multi, ptr noundef nonnull %data), !range !6
+  %call57 = tail call fastcc i32 @singlesocket(ptr noundef nonnull %multi, ptr noundef nonnull %data)
   tail call void @Curl_detach_connection(ptr noundef nonnull %data)
   %connect_only = getelementptr inbounds i8, ptr %data, i64 2705
   %17 = load i8, ptr %connect_only, align 1
@@ -919,7 +919,7 @@ for.inc:                                          ; preds = %for.body
   %next = getelementptr inbounds i8, ptr %e.066, i64 16
   %e.0 = load ptr, ptr %next, align 8
   %tobool85.not = icmp eq ptr %e.0, null
-  br i1 %tobool85.not, label %for.end, label %for.body, !llvm.loop !9
+  br i1 %tobool85.not, label %for.end, label %for.body, !llvm.loop !8
 
 for.end:                                          ; preds = %for.inc, %if.end81, %if.then89
   %num_easy = getelementptr inbounds i8, ptr %multi, i64 24
@@ -927,7 +927,7 @@ for.end:                                          ; preds = %for.inc, %if.end81,
   %dec92 = add i32 %26, -1
   store i32 %dec92, ptr %num_easy, align 8
   call fastcc void @process_pending_handles(ptr noundef nonnull %multi)
-  %call93 = call i32 @Curl_update_timer(ptr noundef nonnull %multi), !range !6
+  %call93 = call i32 @Curl_update_timer(ptr noundef nonnull %multi)
   br label %return
 
 return:                                           ; preds = %for.end, %if.end14, %if.end10, %if.end6, %if.end, %land.lhs.true2, %entry, %land.lhs.true
@@ -1288,7 +1288,7 @@ while.body:                                       ; preds = %while.body.lr.ph, %
   tail call void @Curl_llist_remove(ptr noundef nonnull %timeoutlist, ptr noundef %6, ptr noundef null) #19
   %7 = load i64, ptr %size, align 8
   %cmp.not = icmp eq i64 %7, 0
-  br i1 %cmp.not, label %while.end, label %while.body, !llvm.loop !10
+  br i1 %cmp.not, label %while.end, label %while.body, !llvm.loop !9
 
 while.end:                                        ; preds = %while.body, %if.end14
   store i64 0, ptr %expiretime, align 8
@@ -1305,7 +1305,7 @@ declare void @Curl_llist_remove(ptr noundef, ptr noundef, ptr noundef) local_unn
 declare void @Curl_wildcard_dtor(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @singlesocket(ptr noundef %multi, ptr noundef %data) unnamed_addr #0 {
+define internal fastcc range(i32 0, 12) i32 @singlesocket(ptr noundef %multi, ptr noundef %data) unnamed_addr #0 {
 entry:
   %s.addr.i89 = alloca i32, align 4
   %s.addr.i76 = alloca i32, align 4
@@ -1379,7 +1379,7 @@ for.body7.lr.ph:                                  ; preds = %for.cond4.preheader
 for.cond4:                                        ; preds = %for.body7
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %if.then56, label %for.body7, !llvm.loop !11
+  br i1 %exitcond.not, label %if.then56, label %for.body7, !llvm.loop !10
 
 for.body7:                                        ; preds = %for.body7.lr.ph, %for.cond4
   %indvars.iv = phi i64 [ 0, %for.body7.lr.ph ], [ %indvars.iv.next, %for.cond4 ]
@@ -1587,7 +1587,7 @@ for.inc101:                                       ; preds = %land.lhs.true86, %i
   %26 = load i32, ptr %num, align 4
   %27 = zext i32 %26 to i64
   %cmp = icmp ult i64 %indvars.iv.next131, %27
-  br i1 %cmp, label %for.body, label %for.cond104.preheader.loopexit, !llvm.loop !12
+  br i1 %cmp, label %for.body, label %for.cond104.preheader.loopexit, !llvm.loop !11
 
 for.body109:                                      ; preds = %for.body109.lr.ph, %for.inc185
   %indvars.iv138 = phi i64 [ 0, %for.body109.lr.ph ], [ %indvars.iv.next139, %for.inc185 ]
@@ -1606,7 +1606,7 @@ for.body119.preheader:                            ; preds = %for.body109
 for.cond115:                                      ; preds = %for.body119
   %indvars.iv.next134 = add nuw nsw i64 %indvars.iv133, 1
   %exitcond137.not = icmp eq i64 %indvars.iv.next134, %wide.trip.count136
-  br i1 %exitcond137.not, label %if.end132, label %for.body119, !llvm.loop !13
+  br i1 %exitcond137.not, label %if.end132, label %for.body119, !llvm.loop !12
 
 for.body119:                                      ; preds = %for.body119.preheader, %for.cond115
   %indvars.iv133 = phi i64 [ 0, %for.body119.preheader ], [ %indvars.iv.next134, %for.cond115 ]
@@ -1711,7 +1711,7 @@ for.inc185:                                       ; preds = %for.body119, %sh_ge
   %42 = load i32, ptr %num106, align 4
   %43 = zext i32 %42 to i64
   %cmp107 = icmp ult i64 %indvars.iv.next139, %43
-  br i1 %cmp107, label %for.body109, label %for.end187, !llvm.loop !14
+  br i1 %cmp107, label %for.body109, label %for.end187, !llvm.loop !13
 
 for.end187:                                       ; preds = %for.inc185, %for.cond104.preheader
   %.pn = phi ptr [ %1, %for.cond104.preheader ], [ %41, %for.inc185 ]
@@ -1753,7 +1753,7 @@ declare void @Curl_disconnect(ptr noundef, ptr noundef, i1 noundef zeroext) loca
 declare zeroext i1 @Curl_conncache_foreach(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @close_connect_only(ptr nocapture noundef readonly %data, ptr noundef %conn, ptr nocapture readnone %param) #0 {
+define internal range(i32 0, 2) i32 @close_connect_only(ptr nocapture noundef readonly %data, ptr noundef %conn, ptr nocapture readnone %param) #0 {
 entry:
   %lastconnect_id = getelementptr inbounds i8, ptr %data, i64 3168
   %0 = load i64, ptr %lastconnect_id, align 8
@@ -1891,7 +1891,7 @@ declare void @Curl_llist_insert_next(ptr noundef, ptr noundef, ptr noundef, ptr 
 declare void @Curl_conn_ev_data_attach(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @curl_multi_fdset(ptr noundef readonly %multi, ptr nocapture noundef %read_fd_set, ptr nocapture noundef %write_fd_set, ptr nocapture noundef readnone %exc_fd_set, ptr nocapture noundef writeonly %max_fd) local_unnamed_addr #0 {
+define range(i32 0, 9) i32 @curl_multi_fdset(ptr noundef readonly %multi, ptr nocapture noundef %read_fd_set, ptr nocapture noundef %write_fd_set, ptr nocapture noundef readnone %exc_fd_set, ptr nocapture noundef writeonly %max_fd) local_unnamed_addr #0 {
 entry:
   %ps = alloca %struct.easy_pollset, align 4
   %tobool.not = icmp eq ptr %multi, null
@@ -1985,14 +1985,14 @@ for.inc:                                          ; preds = %if.end45, %for.body
   %this_max_fd.2 = phi i32 [ %this_max_fd.119, %for.body7 ], [ %spec.select, %if.end45 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %for.inc56, label %for.body7, !llvm.loop !15
+  br i1 %exitcond.not, label %for.inc56, label %for.body7, !llvm.loop !14
 
 for.inc56:                                        ; preds = %for.inc, %for.body
   %this_max_fd.1.lcssa = phi i32 [ %this_max_fd.023, %for.body ], [ %this_max_fd.2, %for.inc ]
   %next = getelementptr inbounds i8, ptr %data.024, i64 16
   %data.0 = load ptr, ptr %next, align 8
   %tobool4.not = icmp eq ptr %data.0, null
-  br i1 %tobool4.not, label %for.end57, label %for.body, !llvm.loop !16
+  br i1 %tobool4.not, label %for.end57, label %for.body, !llvm.loop !15
 
 for.end57:                                        ; preds = %for.inc56, %if.end3
   %this_max_fd.0.lcssa = phi i32 [ -1, %if.end3 ], [ %this_max_fd.1.lcssa, %for.inc56 ]
@@ -2074,14 +2074,14 @@ sw.epilog:                                        ; preds = %if.end, %if.end, %i
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @curl_multi_wait(ptr noundef %multi, ptr nocapture noundef %extra_fds, i32 noundef %extra_nfds, i32 noundef %timeout_ms, ptr noundef %ret) local_unnamed_addr #0 {
+define range(i32 0, 13) i32 @curl_multi_wait(ptr noundef %multi, ptr nocapture noundef %extra_fds, i32 noundef %extra_nfds, i32 noundef %timeout_ms, ptr noundef %ret) local_unnamed_addr #0 {
 entry:
-  %call = tail call fastcc i32 @multi_wait(ptr noundef %multi, ptr noundef %extra_fds, i32 noundef %extra_nfds, i32 noundef %timeout_ms, ptr noundef %ret, i1 noundef zeroext false, i1 noundef zeroext false), !range !17
+  %call = tail call fastcc i32 @multi_wait(ptr noundef %multi, ptr noundef %extra_fds, i32 noundef %extra_nfds, i32 noundef %timeout_ms, ptr noundef %ret, i1 noundef zeroext false, i1 noundef zeroext false)
   ret i32 %call
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @multi_wait(ptr noundef %multi, ptr nocapture noundef %extra_fds, i32 noundef %extra_nfds, i32 noundef %timeout_ms, ptr noundef writeonly %ret, i1 noundef zeroext %extrawait, i1 noundef zeroext %use_wakeup) unnamed_addr #0 {
+define internal fastcc range(i32 0, 13) i32 @multi_wait(ptr noundef %multi, ptr nocapture noundef %extra_fds, i32 noundef %extra_nfds, i32 noundef %timeout_ms, ptr noundef writeonly %ret, i1 noundef zeroext %extrawait, i1 noundef zeroext %use_wakeup) unnamed_addr #0 {
 entry:
   %ps = alloca %struct.easy_pollset, align 4
   %a_few_on_stack = alloca [10 x %struct.pollfd], align 16
@@ -2125,7 +2125,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   %next = getelementptr inbounds i8, ptr %data.0111, i64 16
   %data.0 = load ptr, ptr %next, align 8
   %tobool8.not = icmp eq ptr %data.0, null
-  br i1 %tobool8.not, label %for.end.loopexit, label %for.body, !llvm.loop !18
+  br i1 %tobool8.not, label %for.end.loopexit, label %for.body, !llvm.loop !16
 
 for.end.loopexit:                                 ; preds = %for.body
   %bf.load.i.pre = load i8, ptr %in_callback, align 1
@@ -2254,14 +2254,14 @@ for.inc68:                                        ; preds = %for.body45, %if.the
   %18 = load i32, ptr %num41, align 4
   %conv42 = zext i32 %18 to i64
   %cmp43 = icmp ult i64 %inc69, %conv42
-  br i1 %cmp43, label %for.body45, label %for.inc71, !llvm.loop !19
+  br i1 %cmp43, label %for.body45, label %for.inc71, !llvm.loop !17
 
 for.inc71:                                        ; preds = %for.inc68, %for.body39
   %nfds.3.lcssa = phi i32 [ %nfds.2119, %for.body39 ], [ %inc46, %for.inc68 ]
   %next72 = getelementptr inbounds i8, ptr %data.1120, i64 16
   %data.1 = load ptr, ptr %next72, align 8
   %tobool38.not = icmp eq ptr %data.1, null
-  br i1 %tobool38.not, label %if.end74, label %for.body39, !llvm.loop !20
+  br i1 %tobool38.not, label %if.end74, label %for.body39, !llvm.loop !18
 
 if.end74:                                         ; preds = %for.inc71, %for.cond37.preheader, %if.end33
   %nfds.4 = phi i32 [ 0, %if.end33 ], [ 0, %for.cond37.preheader ], [ %nfds.3.lcssa, %for.inc71 ]
@@ -2310,7 +2310,7 @@ if.end126:                                        ; preds = %if.then119, %if.end
   %inc127 = add i32 %nfds.5123, 1
   %inc129 = add nuw nsw i64 %i.1124, 1
   %exitcond.not = icmp eq i64 %inc129, %conv76
-  br i1 %exitcond.not, label %for.end130, label %for.body79, !llvm.loop !21
+  br i1 %exitcond.not, label %for.end130, label %for.body79, !llvm.loop !19
 
 for.end130:                                       ; preds = %if.end126, %if.end74
   %nfds.5.lcssa = phi i32 [ %nfds.4, %if.end74 ], [ %inc127, %if.end126 ]
@@ -2363,7 +2363,7 @@ for.body164:                                      ; preds = %for.body164.lr.ph, 
   store i16 %mask.2, ptr %revents191, align 2
   %inc193 = add nuw nsw i64 %i.2128, 1
   %exitcond129.not = icmp eq i64 %inc193, %conv76
-  br i1 %exitcond129.not, label %for.end194, label %for.body164, !llvm.loop !22
+  br i1 %exitcond129.not, label %for.end194, label %for.body164, !llvm.loop !20
 
 for.end194:                                       ; preds = %for.body164, %for.cond160.preheader
   br i1 %use_wakeup, label %land.lhs.true197, label %if.end229
@@ -2482,14 +2482,14 @@ return:                                           ; preds = %if.then2.i.i, %cond
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @curl_multi_poll(ptr noundef %multi, ptr nocapture noundef %extra_fds, i32 noundef %extra_nfds, i32 noundef %timeout_ms, ptr noundef %ret) local_unnamed_addr #0 {
+define range(i32 0, 13) i32 @curl_multi_poll(ptr noundef %multi, ptr nocapture noundef %extra_fds, i32 noundef %extra_nfds, i32 noundef %timeout_ms, ptr noundef %ret) local_unnamed_addr #0 {
 entry:
-  %call = tail call fastcc i32 @multi_wait(ptr noundef %multi, ptr noundef %extra_fds, i32 noundef %extra_nfds, i32 noundef %timeout_ms, ptr noundef %ret, i1 noundef zeroext true, i1 noundef zeroext true), !range !17
+  %call = tail call fastcc i32 @multi_wait(ptr noundef %multi, ptr noundef %extra_fds, i32 noundef %extra_nfds, i32 noundef %timeout_ms, ptr noundef %ret, i1 noundef zeroext true, i1 noundef zeroext true)
   ret i32 %call
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define noundef i32 @curl_multi_wakeup(ptr noundef readonly %multi) local_unnamed_addr #5 {
+define range(i32 0, 10) i32 @curl_multi_wakeup(ptr noundef readonly %multi) local_unnamed_addr #5 {
 entry:
   %buf = alloca [1 x i8], align 1
   %tobool.not = icmp eq ptr %multi, null
@@ -2549,7 +2549,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @Curl_multi_add_perform(ptr noundef %multi, ptr noundef %data, ptr noundef %conn) local_unnamed_addr #0 {
+define hidden i32 @Curl_multi_add_perform(ptr noundef %multi, ptr noundef %data, ptr noundef %conn) local_unnamed_addr #0 {
 entry:
   %in_callback = getelementptr inbounds i8, ptr %multi, i64 457
   %bf.load = load i8, ptr %in_callback, align 1
@@ -2612,7 +2612,7 @@ return:                                           ; preds = %if.end, %Curl_attac
 declare i32 @Curl_init_do(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @Curl_preconnect(ptr nocapture noundef %data) local_unnamed_addr #0 {
+define hidden range(i32 0, 28) i32 @Curl_preconnect(ptr nocapture noundef %data) local_unnamed_addr #0 {
 entry:
   %buffer = getelementptr inbounds i8, ptr %data, i64 3224
   %0 = load ptr, ptr %buffer, align 8
@@ -2639,7 +2639,7 @@ return:                                           ; preds = %if.then, %if.end7
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @curl_multi_perform(ptr noundef %multi, ptr nocapture noundef writeonly %running_handles) local_unnamed_addr #0 {
+define range(i32 0, -2147483648) i32 @curl_multi_perform(ptr noundef %multi, ptr nocapture noundef writeonly %running_handles) local_unnamed_addr #0 {
 entry:
   %action.i27 = alloca %struct.sigaction, align 8
   %action.i = alloca %struct.sigaction, align 8
@@ -2752,11 +2752,11 @@ sigpipe_ignore.exit37:                            ; preds = %sigpipe_restore.exi
 
 if.end29:                                         ; preds = %sigpipe_ignore.exit37, %do.body
   %nosig.1 = phi i8 [ %frombool28.pre-phi, %sigpipe_ignore.exit37 ], [ %nosig.0, %do.body ]
-  %call30 = call fastcc i32 @multi_runsingle(ptr noundef nonnull %multi, ptr noundef nonnull %now, ptr noundef nonnull %data.0), !range !6
+  %call30 = call fastcc i32 @multi_runsingle(ptr noundef nonnull %multi, ptr noundef nonnull %now, ptr noundef nonnull %data.0)
   %tobool31.not = icmp eq i32 %call30, 0
   %spec.select = select i1 %tobool31.not, i32 %returncode.0, i32 %call30
   %tobool34.not = icmp eq ptr %9, null
-  br i1 %tobool34.not, label %do.end, label %do.body, !llvm.loop !23
+  br i1 %tobool34.not, label %do.end, label %do.body, !llvm.loop !21
 
 do.end:                                           ; preds = %if.end29
   %15 = load i8, ptr %no_signal1.i, align 8
@@ -2809,7 +2809,7 @@ for.body.i:                                       ; preds = %if.then40, %if.then
 if.then.i44:                                      ; preds = %for.body.i
   call void @Curl_llist_remove(ptr noundef nonnull %timeoutlist.i, ptr noundef nonnull %e.015.i, ptr noundef null) #19
   %tobool.not.i = icmp eq ptr %24, null
-  br i1 %tobool.not.i, label %for.end.i, label %for.body.i, !llvm.loop !24
+  br i1 %tobool.not.i, label %for.end.i, label %for.body.i, !llvm.loop !22
 
 for.end.i:                                        ; preds = %if.then.i44, %for.body.i
   %.pre.i = load ptr, ptr %timeoutlist.i, align 8
@@ -2837,7 +2837,7 @@ if.else5.i:                                       ; preds = %for.end.i
 do.cond43:                                        ; preds = %if.else5.i, %if.then4.i
   %.pr = load ptr, ptr %t, align 8
   %tobool44.not = icmp eq ptr %.pr, null
-  br i1 %tobool44.not, label %do.end45, label %do.body36, !llvm.loop !25
+  br i1 %tobool44.not, label %do.end45, label %do.body36, !llvm.loop !23
 
 do.end45:                                         ; preds = %do.body36, %do.cond43
   %num_alive = getelementptr inbounds i8, ptr %multi, i64 28
@@ -2847,7 +2847,7 @@ do.end45:                                         ; preds = %do.body36, %do.cond
   br i1 %cmp46, label %if.then48, label %return
 
 if.then48:                                        ; preds = %do.end45
-  %call49 = call i32 @Curl_update_timer(ptr noundef nonnull %multi), !range !6
+  %call49 = call i32 @Curl_update_timer(ptr noundef nonnull %multi)
   br label %return
 
 return:                                           ; preds = %do.end45, %if.then48, %if.end, %entry, %land.lhs.true
@@ -2858,7 +2858,7 @@ return:                                           ; preds = %do.end45, %if.then4
 declare { i64, i32 } @Curl_now() local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @multi_runsingle(ptr noundef %multi, ptr noundef %nowp, ptr noundef %data) unnamed_addr #0 {
+define internal fastcc range(i32 0, 12) i32 @multi_runsingle(ptr noundef %multi, ptr noundef %nowp, ptr noundef %data) unnamed_addr #0 {
 entry:
   %connected = alloca i8, align 1
   %async = alloca i8, align 1
@@ -3323,7 +3323,7 @@ if.then146:                                       ; preds = %sw.bb98, %if.end144
 
 if.end148:                                        ; preds = %if.then122, %if.then146, %if.end144
   %.pr671724 = phi i32 [ %call147, %if.then146 ], [ 0, %if.end144 ], [ 0, %if.then122 ]
-  %call149 = call fastcc i32 @singlesocket(ptr noundef nonnull %multi, ptr noundef nonnull %data), !range !6
+  %call149 = call fastcc i32 @singlesocket(ptr noundef nonnull %multi, ptr noundef nonnull %data)
   %tobool150.not = icmp eq i32 %call149, 0
   br i1 %tobool150.not, label %if.end152, label %return
 
@@ -4882,7 +4882,7 @@ if.end742.thread:                                 ; preds = %if.then734
   br i1 %cmp744762, label %if.then746, label %do.body5.backedge
 
 do.body5.backedge:                                ; preds = %if.end742.thread, %lor.rhs, %do.cond
-  br label %do.body5, !llvm.loop !26
+  br label %do.body5, !llvm.loop !24
 
 if.then746:                                       ; preds = %if.end742.thread, %if.end742
   %fmultidone = getelementptr inbounds i8, ptr %data, i64 2640
@@ -4962,7 +4962,7 @@ return:                                           ; preds = %if.end34, %if.end14
 declare ptr @Curl_splaygetbest(i64, i32, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @curl_multi_cleanup(ptr noundef %multi) local_unnamed_addr #0 {
+define range(i32 0, 9) i32 @curl_multi_cleanup(ptr noundef %multi) local_unnamed_addr #0 {
 entry:
   %iter.i = alloca %struct.Curl_hash_iterator, align 8
   %tobool.not = icmp eq ptr %multi, null
@@ -5106,7 +5106,7 @@ if.then25:                                        ; preds = %if.end20
 
 if.end27:                                         ; preds = %if.then25, %if.end20
   %tobool4.not = icmp eq ptr %10, null
-  br i1 %tobool4.not, label %while.end, label %while.body, !llvm.loop !27
+  br i1 %tobool4.not, label %while.end, label %while.body, !llvm.loop !25
 
 while.end:                                        ; preds = %if.end27, %process_pending_handles.exit
   %conn_cache28 = getelementptr inbounds i8, ptr %multi, i64 296
@@ -5206,11 +5206,11 @@ declare i64 @Curl_llist_count(ptr noundef) local_unnamed_addr #1
 declare i32 @curlx_uztosi(i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @Curl_updatesocket(ptr noundef %data) local_unnamed_addr #0 {
+define hidden range(i32 0, 43) i32 @Curl_updatesocket(ptr noundef %data) local_unnamed_addr #0 {
 entry:
   %multi = getelementptr inbounds i8, ptr %data, i64 192
   %0 = load ptr, ptr %multi, align 8
-  %call = tail call fastcc i32 @singlesocket(ptr noundef %0, ptr noundef %data), !range !6
+  %call = tail call fastcc i32 @singlesocket(ptr noundef %0, ptr noundef %data)
   %tobool.not = icmp eq i32 %call, 0
   %. = select i1 %tobool.not, i32 0, i32 42
   ret i32 %.
@@ -5294,7 +5294,7 @@ if.end16:                                         ; preds = %sh_getentry.exit.th
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn uwtable
-define noundef i32 @curl_multi_setopt(ptr noundef %multi, i32 noundef %option, ...) local_unnamed_addr #9 {
+define range(i32 0, 9) i32 @curl_multi_setopt(ptr noundef %multi, i32 noundef %option, ...) local_unnamed_addr #9 {
 entry:
   %param = alloca [1 x %struct.__va_list_tag], align 16
   %tobool.not = icmp eq ptr %multi, null
@@ -5683,7 +5683,7 @@ if.end:                                           ; preds = %entry
   br i1 %cmp, label %if.then1, label %return
 
 if.then1:                                         ; preds = %if.end
-  %call2 = tail call i32 @Curl_update_timer(ptr noundef nonnull %multi), !range !6
+  %call2 = tail call i32 @Curl_update_timer(ptr noundef nonnull %multi)
   br label %return
 
 return:                                           ; preds = %if.end, %if.then1, %entry
@@ -5710,7 +5710,7 @@ entry:
   br i1 %checkall, label %if.then, label %if.end6
 
 if.then:                                          ; preds = %entry
-  %call1 = tail call i32 @curl_multi_perform(ptr noundef %multi, ptr noundef %running_handles), !range !28
+  %call1 = tail call i32 @curl_multi_perform(ptr noundef %multi, ptr noundef %running_handles)
   %cmp.not = icmp eq i32 %call1, 1
   br i1 %cmp.not, label %return, label %if.then2
 
@@ -5719,18 +5719,18 @@ if.then2:                                         ; preds = %if.then
   %data.065 = load ptr, ptr %easyp, align 8
   %tobool366 = icmp ne ptr %data.065, null
   %tobool4.not67 = icmp eq i32 %call1, 0
-  %3 = and i1 %tobool4.not67, %tobool366
+  %3 = and i1 %tobool366, %tobool4.not67
   br i1 %3, label %while.body, label %return
 
 while.body:                                       ; preds = %if.then2, %while.body
   %data.068 = phi ptr [ %data.0, %while.body ], [ %data.065, %if.then2 ]
-  %call5 = tail call fastcc i32 @singlesocket(ptr noundef %multi, ptr noundef nonnull %data.068), !range !6
+  %call5 = tail call fastcc i32 @singlesocket(ptr noundef %multi, ptr noundef nonnull %data.068)
   %next = getelementptr inbounds i8, ptr %data.068, i64 16
   %data.0 = load ptr, ptr %next, align 8
   %tobool3 = icmp ne ptr %data.0, null
   %tobool4.not = icmp eq i32 %call5, 0
-  %4 = and i1 %tobool4.not, %tobool3
-  br i1 %4, label %while.body, label %return, !llvm.loop !29
+  %4 = select i1 %tobool3, i1 %tobool4.not, i1 false
+  br i1 %4, label %while.body, label %return, !llvm.loop !26
 
 if.end6:                                          ; preds = %entry
   %cmp7.not = icmp eq i32 %s, -1
@@ -5782,7 +5782,7 @@ if.end21:                                         ; preds = %if.then20, %land.lh
   call void @Curl_expire(ptr noundef nonnull %5, i64 noundef 0, i32 noundef 8)
   %call22 = call ptr @Curl_hash_next_element(ptr noundef nonnull %iter) #19
   %tobool14.not = icmp eq ptr %call22, null
-  br i1 %tobool14.not, label %for.end, label %for.body, !llvm.loop !30
+  br i1 %tobool14.not, label %for.end, label %for.body, !llvm.loop !27
 
 for.end:                                          ; preds = %if.end21, %if.else
   %call23 = call { i64, i32 } @Curl_now() #19
@@ -5885,12 +5885,12 @@ sigpipe_ignore.exit53:                            ; preds = %sigpipe_restore.exi
 if.end55:                                         ; preds = %if.else34, %sigpipe_ignore.exit53, %sigpipe_ignore.exit
   %nosig.1 = phi i8 [ %frombool53.pre-phi, %sigpipe_ignore.exit53 ], [ %nosig.0, %if.else34 ], [ %frombool33, %sigpipe_ignore.exit ]
   %first.1 = phi i8 [ %first.0, %sigpipe_ignore.exit53 ], [ %first.0, %if.else34 ], [ 1, %sigpipe_ignore.exit ]
-  %call56 = call fastcc i32 @multi_runsingle(ptr noundef %multi, ptr noundef nonnull %now, ptr noundef nonnull %data.2), !range !6
+  %call56 = call fastcc i32 @multi_runsingle(ptr noundef %multi, ptr noundef nonnull %now, ptr noundef nonnull %data.2)
   %cmp57 = icmp eq i32 %call56, 0
   br i1 %cmp57, label %if.then59, label %if.end65
 
 if.then59:                                        ; preds = %if.end55
-  %call60 = call fastcc i32 @singlesocket(ptr noundef %multi, ptr noundef nonnull %data.2), !range !6
+  %call60 = call fastcc i32 @singlesocket(ptr noundef %multi, ptr noundef nonnull %data.2)
   %tobool61.not = icmp eq i32 %call60, 0
   br i1 %tobool61.not, label %if.end65, label %do.end74
 
@@ -5934,7 +5934,7 @@ for.body.i:                                       ; preds = %if.then69, %if.then
 if.then.i55:                                      ; preds = %for.body.i
   call void @Curl_llist_remove(ptr noundef nonnull %timeoutlist.i, ptr noundef nonnull %e.015.i, ptr noundef null) #19
   %tobool.not.i = icmp eq ptr %26, null
-  br i1 %tobool.not.i, label %for.end.i, label %for.body.i, !llvm.loop !24
+  br i1 %tobool.not.i, label %for.end.i, label %for.body.i, !llvm.loop !22
 
 for.end.i:                                        ; preds = %if.then.i55, %for.body.i
   %.pre.i = load ptr, ptr %timeoutlist.i, align 8
@@ -5962,7 +5962,7 @@ if.else5.i:                                       ; preds = %for.end.i
 do.cond:                                          ; preds = %if.else5.i, %if.then4.i
   %.pr = load ptr, ptr %t, align 8
   %tobool73.not = icmp eq ptr %.pr, null
-  br i1 %tobool73.not, label %do.end74, label %do.body27, !llvm.loop !31
+  br i1 %tobool73.not, label %do.end74, label %do.body27, !llvm.loop !28
 
 do.end74:                                         ; preds = %if.end65, %if.then59, %do.cond
   %first.3 = phi i8 [ %first.1, %if.then59 ], [ %first.2, %do.cond ], [ %first.2, %if.end65 ]
@@ -6005,7 +6005,7 @@ if.end:                                           ; preds = %entry
   br i1 %cmp, label %if.then1, label %return
 
 if.then1:                                         ; preds = %if.end
-  %call2 = tail call i32 @Curl_update_timer(ptr noundef nonnull %multi), !range !6
+  %call2 = tail call i32 @Curl_update_timer(ptr noundef nonnull %multi)
   br label %return
 
 return:                                           ; preds = %if.end, %if.then1, %entry
@@ -6014,7 +6014,7 @@ return:                                           ; preds = %if.end, %if.then1, 
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @curl_multi_socket_all(ptr noundef %multi, ptr nocapture noundef writeonly %running_handles) local_unnamed_addr #0 {
+define range(i32 0, -2147483648) i32 @curl_multi_socket_all(ptr noundef %multi, ptr nocapture noundef writeonly %running_handles) local_unnamed_addr #0 {
 entry:
   %in_callback = getelementptr inbounds i8, ptr %multi, i64 457
   %bf.load = load i8, ptr %in_callback, align 1
@@ -6024,7 +6024,7 @@ entry:
 
 if.end:                                           ; preds = %entry
   %call.i = tail call { i64, i32 } @Curl_now() #19
-  %call1.i = tail call i32 @curl_multi_perform(ptr noundef nonnull %multi, ptr noundef %running_handles), !range !28
+  %call1.i = tail call i32 @curl_multi_perform(ptr noundef nonnull %multi, ptr noundef %running_handles)
   %cmp.not.i = icmp eq i32 %call1.i, 1
   br i1 %cmp.not.i, label %return, label %if.then2.i
 
@@ -6038,13 +6038,13 @@ if.then2.i:                                       ; preds = %if.end
 
 while.body.i:                                     ; preds = %if.then2.i, %while.body.i
   %data.068.i = phi ptr [ %data.0.i, %while.body.i ], [ %data.065.i, %if.then2.i ]
-  %call5.i = tail call fastcc i32 @singlesocket(ptr noundef %multi, ptr noundef nonnull %data.068.i), !range !6
+  %call5.i = tail call fastcc i32 @singlesocket(ptr noundef %multi, ptr noundef nonnull %data.068.i)
   %next.i = getelementptr inbounds i8, ptr %data.068.i, i64 16
   %data.0.i = load ptr, ptr %next.i, align 8
   %tobool3.i = icmp ne ptr %data.0.i, null
   %tobool4.not.i = icmp eq i32 %call5.i, 0
-  %2 = and i1 %tobool4.not.i, %tobool3.i
-  br i1 %2, label %while.body.i, label %multi_socket.exit, !llvm.loop !29
+  %2 = select i1 %tobool3.i, i1 %tobool4.not.i, i1 false
+  br i1 %2, label %while.body.i, label %multi_socket.exit, !llvm.loop !26
 
 multi_socket.exit:                                ; preds = %while.body.i, %if.then2.i
   %retval.0.i = phi i32 [ %call1.i, %if.then2.i ], [ %call5.i, %while.body.i ]
@@ -6052,7 +6052,7 @@ multi_socket.exit:                                ; preds = %while.body.i, %if.t
   br i1 %cmp, label %if.then1, label %return
 
 if.then1:                                         ; preds = %multi_socket.exit
-  %call2 = tail call i32 @Curl_update_timer(ptr noundef %multi), !range !6
+  %call2 = tail call i32 @Curl_update_timer(ptr noundef %multi)
   br label %return
 
 return:                                           ; preds = %if.end, %multi_socket.exit, %if.then1, %entry
@@ -6061,7 +6061,7 @@ return:                                           ; preds = %if.end, %multi_sock
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @curl_multi_timeout(ptr noundef %multi, ptr nocapture noundef writeonly %timeout_ms) local_unnamed_addr #0 {
+define range(i32 0, 9) i32 @curl_multi_timeout(ptr noundef %multi, ptr nocapture noundef writeonly %timeout_ms) local_unnamed_addr #0 {
 entry:
   %tobool.not = icmp eq ptr %multi, null
   br i1 %tobool.not, label %return, label %land.lhs.true
@@ -6158,14 +6158,14 @@ for.inc.i:                                        ; preds = %for.body.i
   %next.i = getelementptr inbounds i8, ptr %e.08.i, i64 16
   %e.0.i = load ptr, ptr %next.i, align 8
   %tobool.not.i = icmp eq ptr %e.0.i, null
-  br i1 %tobool.not.i, label %multi_deltimeout.exit, label %for.body.i, !llvm.loop !7
+  br i1 %tobool.not.i, label %multi_deltimeout.exit, label %for.body.i, !llvm.loop !6
 
 multi_deltimeout.exit:                            ; preds = %for.inc.i, %entry, %if.then.i
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @curl_multi_assign(ptr noundef %multi, i32 noundef %s, ptr noundef %hashp) local_unnamed_addr #0 {
+define range(i32 0, 6) i32 @curl_multi_assign(ptr noundef %multi, i32 noundef %s, ptr noundef %hashp) local_unnamed_addr #0 {
 entry:
   %s.addr.i = alloca i32, align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %s.addr.i)
@@ -6405,7 +6405,7 @@ if.end:                                           ; preds = %if.then3, %do.end
   %next = getelementptr inbounds i8, ptr %e.012, i64 16
   %e.0 = load ptr, ptr %next, align 8
   %tobool1.not = icmp eq ptr %e.0, null
-  br i1 %tobool1.not, label %while.end.loopexit, label %do.end, !llvm.loop !32
+  br i1 %tobool1.not, label %while.end.loopexit, label %do.end, !llvm.loop !29
 
 while.end.loopexit:                               ; preds = %if.end
   %3 = zext i32 %i.1 to i64
@@ -6424,7 +6424,7 @@ if.end6:                                          ; preds = %while.end, %entry
 declare void @Curl_hash_init(ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal i64 @hash_fd(ptr nocapture noundef readonly %key, i64 %key_length, i64 noundef %slots_num) #4 {
+define internal range(i64 0, -1) i64 @hash_fd(ptr nocapture noundef readonly %key, i64 %key_length, i64 noundef %slots_num) #4 {
 entry:
   %0 = load i32, ptr %key, align 4
   %conv = sext i32 %0 to i64
@@ -6433,7 +6433,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal i64 @fd_key_compare(ptr nocapture noundef readonly %k1, i64 %k1_len, ptr nocapture noundef readonly %k2, i64 %k2_len) #4 {
+define internal range(i64 0, 2) i64 @fd_key_compare(ptr nocapture noundef readonly %k1, i64 %k1_len, ptr nocapture noundef readonly %k2, i64 %k2_len) #4 {
 entry:
   %0 = load i32, ptr %k1, align 4
   %1 = load i32, ptr %k2, align 4
@@ -6536,7 +6536,7 @@ while.body.i:                                     ; preds = %while.body.i, %whil
   tail call void @Curl_llist_remove(ptr noundef nonnull %timeoutlist.i, ptr noundef %7, ptr noundef null) #19
   %8 = load i64, ptr %size.i, align 8
   %cmp.not.i = icmp eq i64 %8, 0
-  br i1 %cmp.not.i, label %while.end.i, label %while.body.i, !llvm.loop !10
+  br i1 %cmp.not.i, label %while.end.i, label %while.body.i, !llvm.loop !9
 
 while.end.i:                                      ; preds = %while.body.i, %if.end14.i
   store i64 0, ptr %expiretime.i, align 8
@@ -6575,7 +6575,7 @@ declare void @Curl_pollset_add_socks(ptr noundef, ptr noundef, ptr noundef) loca
 declare i32 @Curl_resolv_getsock(ptr noundef, ptr noundef) #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal noundef i32 @connecting_getsock(ptr nocapture noundef readonly %data, ptr nocapture noundef writeonly %socks) #13 {
+define internal range(i32 0, 2) i32 @connecting_getsock(ptr nocapture noundef readonly %data, ptr nocapture noundef writeonly %socks) #13 {
 entry:
   %conn1 = getelementptr inbounds i8, ptr %data, i64 32
   %0 = load ptr, ptr %conn1, align 8
@@ -6927,7 +6927,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal i64 @trhash_compare(ptr nocapture noundef readonly %k1, i64 %k1_len, ptr nocapture noundef readonly %k2, i64 %k2_len) #4 {
+define internal range(i64 0, 2) i64 @trhash_compare(ptr nocapture noundef readonly %k1, i64 %k1_len, ptr nocapture noundef readonly %k2, i64 %k2_len) #4 {
 entry:
   %0 = load ptr, ptr %k1, align 8
   %1 = load ptr, ptr %k2, align 8
@@ -6998,7 +6998,7 @@ attributes #20 = { nounwind willreturn memory(none) }
 !3 = !{i32 7, !"frame-pointer", i32 2}
 !4 = distinct !{!4, !5}
 !5 = !{!"llvm.loop.mustprogress"}
-!6 = !{i32 0, i32 12}
+!6 = distinct !{!6, !5}
 !7 = distinct !{!7, !5}
 !8 = distinct !{!8, !5}
 !9 = distinct !{!9, !5}
@@ -7009,7 +7009,7 @@ attributes #20 = { nounwind willreturn memory(none) }
 !14 = distinct !{!14, !5}
 !15 = distinct !{!15, !5}
 !16 = distinct !{!16, !5}
-!17 = !{i32 0, i32 13}
+!17 = distinct !{!17, !5}
 !18 = distinct !{!18, !5}
 !19 = distinct !{!19, !5}
 !20 = distinct !{!20, !5}
@@ -7020,8 +7020,5 @@ attributes #20 = { nounwind willreturn memory(none) }
 !25 = distinct !{!25, !5}
 !26 = distinct !{!26, !5}
 !27 = distinct !{!27, !5}
-!28 = !{i32 0, i32 -2147483648}
+!28 = distinct !{!28, !5}
 !29 = distinct !{!29, !5}
-!30 = distinct !{!30, !5}
-!31 = distinct !{!31, !5}
-!32 = distinct !{!32, !5}

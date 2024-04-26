@@ -890,7 +890,7 @@ entry:
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define dso_local i64 @mstime() local_unnamed_addr #8 {
+define dso_local range(i64 -9223372036854775, 9223372036854776) i64 @mstime() local_unnamed_addr #8 {
 entry:
   %tv.i = alloca %struct.timeval, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %tv.i)
@@ -941,7 +941,7 @@ entry:
 declare void @listRelease(ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read) uwtable
-define dso_local i32 @dictSdsKeyCompare(ptr nocapture readnone %d, ptr nocapture noundef readonly %key1, ptr nocapture noundef readonly %key2) #12 {
+define dso_local range(i32 0, 2) i32 @dictSdsKeyCompare(ptr nocapture readnone %d, ptr nocapture noundef readonly %key1, ptr nocapture noundef readonly %key2) #12 {
 entry:
   %arrayidx.i = getelementptr inbounds i8, ptr %key1, i64 -1
   %0 = load i8, ptr %arrayidx.i, align 1
@@ -1094,7 +1094,7 @@ return:                                           ; preds = %entry, %sw.bb13, %s
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read) uwtable
-define dso_local i32 @dictSdsKeyCaseCompare(ptr nocapture readnone %d, ptr nocapture noundef readonly %key1, ptr nocapture noundef readonly %key2) #14 {
+define dso_local range(i32 0, 2) i32 @dictSdsKeyCaseCompare(ptr nocapture readnone %d, ptr nocapture noundef readonly %key1, ptr nocapture noundef readonly %key2) #14 {
 entry:
   %call = tail call i32 @strcasecmp(ptr noundef %key1, ptr noundef %key2) #39
   %cmp = icmp eq i32 %call, 0
@@ -1140,7 +1140,7 @@ entry:
 declare ptr @sdsdup(ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define dso_local i32 @dictObjKeyCompare(ptr nocapture readnone %d, ptr nocapture noundef readonly %key1, ptr nocapture noundef readonly %key2) #16 {
+define dso_local range(i32 0, 2) i32 @dictObjKeyCompare(ptr nocapture readnone %d, ptr nocapture noundef readonly %key1, ptr nocapture noundef readonly %key2) #16 {
 entry:
   %ptr = getelementptr inbounds i8, ptr %key1, i64 8
   %0 = load ptr, ptr %ptr, align 8
@@ -1418,7 +1418,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read) uwtable
-define dso_local i32 @dictCStrKeyCompare(ptr nocapture noundef readnone %d, ptr nocapture noundef readonly %key1, ptr nocapture noundef readonly %key2) local_unnamed_addr #12 {
+define dso_local range(i32 0, 2) i32 @dictCStrKeyCompare(ptr nocapture noundef readnone %d, ptr nocapture noundef readonly %key1, ptr nocapture noundef readonly %key2) local_unnamed_addr #12 {
 entry:
   %call = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %key1) #39
   %conv = trunc i64 %call to i32
@@ -1441,7 +1441,7 @@ return:                                           ; preds = %entry, %if.end
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read) uwtable
-define dso_local i32 @dictCStrKeyCaseCompare(ptr nocapture readnone %d, ptr nocapture noundef readonly %key1, ptr nocapture noundef readonly %key2) #14 {
+define dso_local range(i32 0, 2) i32 @dictCStrKeyCaseCompare(ptr nocapture readnone %d, ptr nocapture noundef readonly %key1, ptr nocapture noundef readonly %key2) #14 {
 entry:
   %call = tail call i32 @strcasecmp(ptr noundef %key1, ptr noundef %key2) #39
   %cmp = icmp eq i32 %call, 0
@@ -1450,7 +1450,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @dictEncObjKeyCompare(ptr nocapture readnone %d, ptr noundef %key1, ptr noundef %key2) #0 {
+define dso_local range(i32 0, 2) i32 @dictEncObjKeyCompare(ptr nocapture readnone %d, ptr noundef %key1, ptr noundef %key2) #0 {
 entry:
   %bf.load = load i32, ptr %key1, align 8
   %0 = and i32 %bf.load, 240
@@ -1710,7 +1710,7 @@ declare void @_serverPanic(ptr noundef, i32 noundef, ptr noundef, ...) local_unn
 declare void @abort() local_unnamed_addr #17
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @dictExpandAllowed(i64 noundef %moreMem, double noundef %usedRatio) #0 {
+define dso_local range(i32 0, 2) i32 @dictExpandAllowed(i64 noundef %moreMem, double noundef %usedRatio) #0 {
 entry:
   %cmp = fcmp ugt double %usedRatio, 1.618000e+00
   br i1 %cmp, label %return, label %if.then
@@ -1956,7 +1956,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local i32 @htNeedsResize(ptr nocapture noundef readonly %dict) local_unnamed_addr #13 {
+define dso_local range(i32 0, 2) i32 @htNeedsResize(ptr nocapture noundef readonly %dict) local_unnamed_addr #13 {
 entry:
   %ht_size_exp = getelementptr inbounds i8, ptr %dict, i64 50
   %0 = load i8, ptr %ht_size_exp, align 2
@@ -2144,7 +2144,7 @@ declare i32 @dictResize(ptr noundef) local_unnamed_addr #4
 declare i32 @dbGetNextNonEmptySlot(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @incrementallyRehash() local_unnamed_addr #0 {
+define dso_local range(i32 0, 2) i32 @incrementallyRehash() local_unnamed_addr #0 {
 entry:
   %0 = load ptr, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i64 0, i32 11), align 8
   %len = getelementptr inbounds i8, ptr %0, i64 40
@@ -2210,7 +2210,7 @@ entry:
 declare void @dictSetResizeEnabled(i32 noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable
-define dso_local i32 @hasActiveChildProcess() local_unnamed_addr #9 {
+define dso_local range(i32 0, 2) i32 @hasActiveChildProcess() local_unnamed_addr #9 {
 entry:
   %0 = load i32, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i64 0, i32 42), align 8
   %cmp = icmp ne i32 %0, -1
@@ -2257,7 +2257,7 @@ declare void @closeChildInfoPipe() local_unnamed_addr #4
 declare void @moduleFireServerEvent(i64 noundef, i32 noundef, ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define dso_local noundef i32 @isMutuallyExclusiveChildType(i32 noundef %type) local_unnamed_addr #18 {
+define dso_local range(i32 0, 2) i32 @isMutuallyExclusiveChildType(i32 noundef %type) local_unnamed_addr #18 {
 entry:
   %0 = add i32 %type, -1
   %or.cond = icmp ult i32 %0, 2
@@ -2268,7 +2268,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @isInsideYieldingLongCommand() local_unnamed_addr #0 {
+define dso_local range(i32 0, 2) i32 @isInsideYieldingLongCommand() local_unnamed_addr #0 {
 entry:
   %call = tail call i32 @scriptIsTimedout() #38
   %tobool = icmp ne i32 %call, 0
@@ -2282,7 +2282,7 @@ entry:
 declare i32 @scriptIsTimedout() local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable
-define dso_local i32 @allPersistenceDisabled() local_unnamed_addr #9 {
+define dso_local range(i32 0, 2) i32 @allPersistenceDisabled() local_unnamed_addr #9 {
 entry:
   %0 = load i32, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i64 0, i32 224), align 8
   %cmp = icmp eq i32 %0, 0
@@ -2337,7 +2337,7 @@ if.end:                                           ; preds = %cond.end, %entry
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: none, inaccessiblemem: none) uwtable
-define dso_local i64 @getInstantaneousMetric(i32 noundef %metric) local_unnamed_addr #20 {
+define dso_local range(i64 -576460752303423488, 576460752303423488) i64 @getInstantaneousMetric(i32 noundef %metric) local_unnamed_addr #20 {
 entry:
   %idxprom = sext i32 %metric to i64
   br label %for.body
@@ -2797,7 +2797,7 @@ declare i64 @getClientMemoryUsage(ptr noundef, ptr noundef) local_unnamed_addr #
 declare i32 @getClientType(ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @clientEvictionAllowed(ptr noundef %c) local_unnamed_addr #0 {
+define dso_local range(i32 0, 2) i32 @clientEvictionAllowed(ptr noundef %c) local_unnamed_addr #0 {
 entry:
   %0 = load i64, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i64 0, i32 315), align 8
   %cmp = icmp eq i64 %0, 0
@@ -2854,7 +2854,7 @@ if.end7:                                          ; preds = %if.then, %if.then3,
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @updateClientMemUsageAndBucket(ptr noundef %c) local_unnamed_addr #0 {
+define dso_local range(i32 0, 2) i32 @updateClientMemUsageAndBucket(ptr noundef %c) local_unnamed_addr #0 {
 entry:
   %0 = load i32, ptr @io_threads_op, align 4
   %cmp = icmp eq i32 %0, 0
@@ -2930,7 +2930,7 @@ if.end:                                           ; preds = %if.then.i, %removeC
   store i64 %add.i, ptr %arrayidx3.i, align 8
   store i32 %call1.i, ptr %last_memory_type.i, align 8
   store i64 %call.i18, ptr %last_memory_usage.i19, align 8
-  %15 = tail call i64 @llvm.ctlz.i64(i64 %call.i18, i1 false), !range !10
+  %15 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %call.i18, i1 false)
   %cast.i = trunc nuw nsw i64 %15 to i32
   %cmp1.i = icmp ult i32 %cast.i, 31
   br i1 %cmp1.i, label %getMemUsageBucket.exit, label %if.else.i
@@ -3000,7 +3000,7 @@ for.body:                                         ; preds = %entry, %for.body
   %o.1 = tail call i64 @llvm.umax.i64(i64 %1, i64 %o.010)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 8
-  br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !11
+  br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !10
 
 for.end:                                          ; preds = %for.body
   store i64 %spec.select, ptr %in_usage, align 8
@@ -3072,7 +3072,7 @@ while.cond.backedge:                              ; preds = %while.body, %if.end
   %len8 = getelementptr inbounds i8, ptr %11, i64 40
   %12 = load i64, ptr %len8, align 8
   %tobool.not = icmp eq i64 %12, 0
-  br i1 %tobool.not, label %while.end, label %land.rhs, !llvm.loop !12
+  br i1 %tobool.not, label %while.end, label %land.rhs, !llvm.loop !11
 
 if.end14:                                         ; preds = %while.body
   %call15 = tail call i32 @clientsCronResizeQueryBuffer(ptr noundef %10)
@@ -3114,7 +3114,7 @@ if.then10.i:                                      ; preds = %if.end.i
   br label %clientsCronTrackExpansiveClients.exit
 
 clientsCronTrackExpansiveClients.exit:            ; preds = %if.end.i, %if.then10.i
-  %call27 = tail call i32 @updateClientMemUsageAndBucket(ptr noundef nonnull %10), !range !13
+  %call27 = tail call i32 @updateClientMemUsageAndBucket(ptr noundef nonnull %10)
   %tobool28.not = icmp eq i32 %call27, 0
   br i1 %tobool28.not, label %if.then29, label %if.end30
 
@@ -3211,7 +3211,7 @@ for.body:                                         ; preds = %for.body.preheader,
   store i32 %inc, ptr @databasesCron.resize_db, align 4
   %inc10 = add nuw nsw i32 %j.06, 1
   %exitcond.not = icmp eq i32 %inc10, %spec.select
-  br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !14
+  br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !12
 
 for.end:                                          ; preds = %for.body, %if.then6
   %8 = load i32, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i64 0, i32 21), align 8
@@ -3265,7 +3265,7 @@ if.end15:                                         ; preds = %if.end7.i, %while.b
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @iAmMaster() local_unnamed_addr #0 {
+define dso_local range(i32 0, 2) i32 @iAmMaster() local_unnamed_addr #0 {
 entry:
   %0 = load i32, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i64 0, i32 362), align 4
   %tobool = icmp eq i32 %0, 0
@@ -3603,7 +3603,7 @@ declare i32 @zmalloc_get_allocator_info(ptr noundef, ptr noundef, ptr noundef) l
 declare i64 @evalMemory() local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @serverCron(ptr nocapture readnone %eventLoop, i64 %id, ptr nocapture readnone %clientData) #0 {
+define dso_local range(i32 -1000, 1001) i32 @serverCron(ptr nocapture readnone %eventLoop, i64 %id, ptr nocapture readnone %clientData) #0 {
 entry:
   %li.i = alloca %struct.listIter, align 8
   %rsi = alloca %struct.rdbSaveInfo, align 8
@@ -3641,7 +3641,7 @@ while.body:                                       ; preds = %while.cond
   %mul = shl nsw i32 %4, 1
   store i32 %mul, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i64 0, i32 8), align 4
   %cmp4 = icmp sgt i32 %4, 250
-  br i1 %cmp4, label %if.then6, label %while.cond, !llvm.loop !15
+  br i1 %cmp4, label %if.then6, label %while.cond, !llvm.loop !13
 
 if.then6:                                         ; preds = %while.body
   store i32 500, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i64 0, i32 8), align 4
@@ -3923,7 +3923,7 @@ if.then36:                                        ; preds = %if.end31
   %51 = load i32, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i64 0, i32 259), align 8
   %spec.select = select i1 %cmp42, i32 %51, i32 0
   %shutdownFlags.0 = select i1 %or.cond, i32 %50, i32 %spec.select
-  %call49 = tail call i32 @prepareForShutdown(i32 noundef %shutdownFlags.0), !range !16
+  %call49 = tail call i32 @prepareForShutdown(i32 noundef %shutdownFlags.0)
   %cmp50 = icmp eq i32 %call49, 0
   br i1 %cmp50, label %if.then52, label %if.end71
 
@@ -3963,7 +3963,7 @@ while.body.i:                                     ; preds = %while.cond.i
   %56 = load i64, ptr %repl_ack_off.i, align 8
   %57 = load i64, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i64 0, i32 262), align 8
   %cmp2.not.i = icmp eq i64 %56, %57
-  br i1 %cmp2.not.i, label %while.cond.i, label %isReadyToShutdown.exit, !llvm.loop !17
+  br i1 %cmp2.not.i, label %while.cond.i, label %isReadyToShutdown.exit, !llvm.loop !14
 
 isReadyToShutdown.exit.thread:                    ; preds = %while.cond.i, %lor.lhs.false60
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %li.i)
@@ -3974,7 +3974,7 @@ isReadyToShutdown.exit:                           ; preds = %while.body.i
   br label %if.end71
 
 if.then63:                                        ; preds = %isReadyToShutdown.exit.thread, %if.then57
-  %call64 = call i32 @finishShutdown(), !range !16
+  %call64 = call i32 @finishShutdown()
   %cmp65 = icmp eq i32 %call64, 0
   br i1 %cmp65, label %if.then67, label %if.end71
 
@@ -4030,7 +4030,7 @@ for.inc:                                          ; preds = %for.body, %if.end10
   %67 = load i32, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i64 0, i32 173), align 8
   %68 = sext i32 %67 to i64
   %cmp84 = icmp slt i64 %indvars.iv.next, %68
-  br i1 %cmp84, label %for.body, label %if.end105, !llvm.loop !18
+  br i1 %cmp84, label %for.body, label %if.end105, !llvm.loop !15
 
 if.end105:                                        ; preds = %for.inc, %lor.lhs.false78, %if.end71
   %69 = load i32, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i64 0, i32 27), align 4
@@ -4177,7 +4177,7 @@ for.inc188:                                       ; preds = %for.body159, %land.
   %94 = load i32, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i64 0, i32 224), align 8
   %95 = sext i32 %94 to i64
   %cmp157 = icmp slt i64 %indvars.iv.next170, %95
-  br i1 %cmp157, label %for.body159, label %for.end190, !llvm.loop !19
+  br i1 %cmp157, label %for.body159, label %for.end190, !llvm.loop !16
 
 for.end190:                                       ; preds = %for.inc188, %for.cond156.preheader, %do.end184
   %96 = load i32, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i64 0, i32 185), align 8
@@ -4457,7 +4457,7 @@ declare void @watchdogScheduleSignal(i32 noundef) local_unnamed_addr #4
 declare i32 @getLRUClock() local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @prepareForShutdown(i32 noundef %flags) local_unnamed_addr #0 {
+define dso_local range(i32 -1, 1) i32 @prepareForShutdown(i32 noundef %flags) local_unnamed_addr #0 {
 entry:
   %argv.i = alloca [3 x ptr], align 16
   %li.i = alloca %struct.listIter, align 8
@@ -4545,7 +4545,7 @@ while.body.i:                                     ; preds = %while.cond.i
   %11 = load i64, ptr %repl_ack_off.i, align 8
   %12 = load i64, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i64 0, i32 262), align 8
   %cmp2.not.i = icmp eq i64 %11, %12
-  br i1 %cmp2.not.i, label %while.cond.i, label %if.then17, !llvm.loop !17
+  br i1 %cmp2.not.i, label %while.cond.i, label %if.then17, !llvm.loop !14
 
 isReadyToShutdown.exit.thread:                    ; preds = %while.cond.i, %land.lhs.true14
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %li.i)
@@ -4586,7 +4586,7 @@ if.end26:                                         ; preds = %if.end21
   br label %return
 
 if.end28:                                         ; preds = %isReadyToShutdown.exit.thread, %if.end10
-  %call29 = call i32 @finishShutdown(), !range !16
+  %call29 = call i32 @finishShutdown()
   br label %return
 
 return:                                           ; preds = %if.end26, %if.end21, %entry, %if.end28
@@ -4598,7 +4598,7 @@ return:                                           ; preds = %if.end26, %if.end21
 declare void @exit(i32 noundef) local_unnamed_addr #17
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @isReadyToShutdown() local_unnamed_addr #0 {
+define dso_local range(i32 0, 2) i32 @isReadyToShutdown() local_unnamed_addr #0 {
 entry:
   %li = alloca %struct.listIter, align 8
   %0 = load ptr, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i64 0, i32 59), align 8
@@ -4623,7 +4623,7 @@ while.body:                                       ; preds = %while.cond
   %3 = load i64, ptr %repl_ack_off, align 8
   %4 = load i64, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i64 0, i32 262), align 8
   %cmp2.not = icmp eq i64 %3, %4
-  br i1 %cmp2.not, label %while.cond, label %return, !llvm.loop !17
+  br i1 %cmp2.not, label %while.cond, label %return, !llvm.loop !14
 
 return:                                           ; preds = %while.cond, %while.body, %entry
   %retval.0 = phi i32 [ 1, %entry ], [ 1, %while.cond ], [ 0, %while.body ]
@@ -4631,7 +4631,7 @@ return:                                           ; preds = %while.cond, %while.
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @finishShutdown() local_unnamed_addr #0 {
+define dso_local range(i32 -1, 1) i32 @finishShutdown() local_unnamed_addr #0 {
 entry:
   %replicas_iter = alloca %struct.listIter, align 8
   %rsi = alloca %struct.rdbSaveInfo, align 8
@@ -4703,7 +4703,7 @@ if.end14:                                         ; preds = %replstateToString.e
   %num_lagging_replicas.1 = phi i32 [ %inc4, %cond.end ], [ %inc4, %replstateToString.exit ], [ %num_lagging_replicas.046, %while.body ]
   %call = call ptr @listNext(ptr noundef nonnull %replicas_iter) #38
   %cmp.not = icmp eq ptr %call, null
-  br i1 %cmp.not, label %while.end, label %while.body, !llvm.loop !20
+  br i1 %cmp.not, label %while.end, label %while.body, !llvm.loop !17
 
 while.end:                                        ; preds = %if.end14
   %13 = load i32, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i64 0, i32 156), align 8
@@ -5188,7 +5188,7 @@ while.body:                                       ; preds = %if.end6, %while.bod
   store i32 %inc, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i64 0, i32 25), align 4
   %10 = load i64, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i64 0, i32 352), align 8
   %cmp8 = icmp slt i64 %add, %10
-  br i1 %cmp8, label %while.body, label %while.end, !llvm.loop !21
+  br i1 %cmp8, label %while.body, label %while.end, !llvm.loop !18
 
 while.end:                                        ; preds = %while.body, %if.end6
   %11 = load volatile i32, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i64 0, i32 81), align 4
@@ -5236,7 +5236,7 @@ land.lhs.true23:                                  ; preds = %if.end21
   br i1 %tobool24.not, label %if.end35, label %if.then25
 
 if.then25:                                        ; preds = %land.lhs.true23
-  %call26 = tail call i32 @prepareForShutdown(i32 noundef 2), !range !16
+  %call26 = tail call i32 @prepareForShutdown(i32 noundef 2)
   %cmp27 = icmp eq i32 %call26, 0
   br i1 %cmp27, label %if.then29, label %do.body
 
@@ -5776,7 +5776,7 @@ for.body:                                         ; preds = %entry, %for.body
   store ptr %call78, ptr %arrayidx, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 10
-  br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !22
+  br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !19
 
 for.end:                                          ; preds = %for.body
   %call79 = call ptr @createStringObject(ptr noundef nonnull @.str.67, i64 noundef 13) #38
@@ -5901,7 +5901,7 @@ for.body135:                                      ; preds = %for.end, %for.body1
   store i32 %bf.set, ptr %1, align 8
   %indvars.iv.next25 = add nuw nsw i64 %indvars.iv24, 1
   %exitcond27.not = icmp eq i64 %indvars.iv.next25, 10000
-  br i1 %exitcond27.not, label %for.body151, label %for.body135, !llvm.loop !23
+  br i1 %exitcond27.not, label %for.body151, label %for.body135, !llvm.loop !20
 
 for.body151:                                      ; preds = %for.body135, %for.body151
   %indvars.iv28 = phi i64 [ %indvars.iv.next29, %for.body151 ], [ 0, %for.body135 ]
@@ -5928,7 +5928,7 @@ for.body151:                                      ; preds = %for.body135, %for.b
   store ptr %call169, ptr %arrayidx171, align 8
   %indvars.iv.next29 = add nuw nsw i64 %indvars.iv28, 1
   %exitcond31.not = icmp eq i64 %indvars.iv.next29, 32
-  br i1 %exitcond31.not, label %for.end174, label %for.body151, !llvm.loop !24
+  br i1 %exitcond31.not, label %for.end174, label %for.body151, !llvm.loop !21
 
 for.end174:                                       ; preds = %for.body151
   %call175 = call ptr @sdsnew(ptr noundef nonnull @.str.123) #38
@@ -5975,7 +5975,7 @@ for.body:                                         ; preds = %if.end, %for.body
   store ptr %call1, ptr %arrayidx3, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 19
-  br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !25
+  br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !22
 
 for.end:                                          ; preds = %for.body, %entry
   ret void
@@ -6001,7 +6001,7 @@ for.body:                                         ; preds = %entry, %for.body
   tail call void @listRelease(ptr noundef %2) #38
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 19
-  br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !26
+  br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !23
 
 for.end:                                          ; preds = %for.body
   %3 = load ptr, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i64 0, i32 63), align 8
@@ -6177,7 +6177,7 @@ if.end:                                           ; preds = %entry, %for.inc
   %call = tail call ptr @sdsnew(ptr noundef nonnull %1) #38
   %fullname = getelementptr inbounds i8, ptr %add.ptr11, i64 216
   store ptr %call, ptr %fullname, align 8
-  %call2 = tail call i32 @populateCommandStructure(ptr noundef nonnull %add.ptr11), !range !16
+  %call2 = tail call i32 @populateCommandStructure(ptr noundef nonnull %add.ptr11)
   %cmp3 = icmp eq i32 %call2, -1
   br i1 %cmp3, label %for.inc, label %if.end5
 
@@ -6260,7 +6260,7 @@ if.end16:                                         ; preds = %land.lhs.true5, %if
   br i1 %tobool18.not, label %if.end28, label %land.lhs.true19
 
 land.lhs.true19:                                  ; preds = %if.end16
-  %call20 = tail call i32 @prepareForShutdown(i32 noundef 4), !range !16
+  %call20 = tail call i32 @prepareForShutdown(i32 noundef 4)
   %cmp21.not = icmp eq i32 %call20, 0
   br i1 %cmp21.not, label %if.end28, label %do.body23
 
@@ -6293,7 +6293,7 @@ for.inc:                                          ; preds = %for.body, %if.then3
   %8 = load i32, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i64 0, i32 313), align 4
   %9 = add nsw i32 %8, 1023
   %cmp29 = icmp slt i32 %j.08, %9
-  br i1 %cmp29, label %for.body, label %for.end, !llvm.loop !27
+  br i1 %cmp29, label %for.body, label %for.end, !llvm.loop !24
 
 for.end:                                          ; preds = %for.inc, %if.end28
   %tobool35.not = icmp eq i64 %delay, 0
@@ -6337,7 +6337,7 @@ declare i32 @usleep(i32 noundef) local_unnamed_addr #4
 declare i32 @execve(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @setOOMScoreAdj(i32 noundef %process_class) local_unnamed_addr #0 {
+define dso_local range(i32 -1, 1) i32 @setOOMScoreAdj(i32 noundef %process_class) local_unnamed_addr #0 {
 entry:
   %buf = alloca [64 x i8], align 16
   %cmp = icmp eq i32 %process_class, -1
@@ -6512,7 +6512,7 @@ while.body:                                       ; preds = %if.end22
   store i64 %sub, ptr %rlim_max, align 8
   %call13 = call i32 @setrlimit64(i32 noundef 7, ptr noundef nonnull %limit) #38
   %cmp14.not = icmp eq i32 %call13, -1
-  br i1 %cmp14.not, label %if.end17, label %while.end, !llvm.loop !28
+  br i1 %cmp14.not, label %if.end17, label %while.end, !llvm.loop !25
 
 if.end17:                                         ; preds = %if.end17.preheader, %while.body
   %bestlimit.02730 = phi i64 [ %sub, %while.body ], [ %conv, %if.end17.preheader ]
@@ -6523,7 +6523,7 @@ if.end17:                                         ; preds = %if.end17.preheader,
 if.end22:                                         ; preds = %if.end17
   %sub = add nsw i64 %bestlimit.02730, -16
   %cmp10 = icmp ugt i64 %sub, %3
-  br i1 %cmp10, label %while.body, label %while.end, !llvm.loop !28
+  br i1 %cmp10, label %while.body, label %while.end, !llvm.loop !25
 
 while.end:                                        ; preds = %if.end22, %while.body, %if.end17, %while.cond.preheader
   %setrlimit_error.1 = phi i32 [ 0, %while.cond.preheader ], [ %4, %if.end17 ], [ %4, %while.body ], [ %4, %if.end22 ]
@@ -6663,7 +6663,7 @@ for.inc:                                          ; preds = %for.body, %if.end
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %6 = sext i32 %5 to i64
   %cmp = icmp slt i64 %indvars.iv.next, %6
-  br i1 %cmp, label %for.body, label %for.end, !llvm.loop !29
+  br i1 %cmp, label %for.body, label %for.end, !llvm.loop !26
 
 for.end:                                          ; preds = %for.inc, %entry
   store i32 0, ptr %count, align 8
@@ -6673,7 +6673,7 @@ for.end:                                          ; preds = %for.inc, %entry
 declare void @aeDeleteFileEvent(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @createSocketAcceptHandler(ptr noundef %sfd, ptr noundef %accept_handler) local_unnamed_addr #0 {
+define dso_local range(i32 -1, 1) i32 @createSocketAcceptHandler(ptr noundef %sfd, ptr noundef %accept_handler) local_unnamed_addr #0 {
 entry:
   %count = getelementptr inbounds i8, ptr %sfd, i64 64
   %0 = load i32, ptr %count, align 8
@@ -6703,14 +6703,14 @@ for.body4:                                        ; preds = %for.cond2.preheader
   %5 = load i32, ptr %arrayidx7, align 4
   tail call void @aeDeleteFileEvent(ptr noundef %4, i32 noundef %5, i32 noundef 1) #38
   %6 = icmp sgt i64 %indvars.iv20, 1
-  br i1 %6, label %for.body4, label %return, !llvm.loop !30
+  br i1 %6, label %for.body4, label %return, !llvm.loop !27
 
 for.inc8:                                         ; preds = %for.body
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %7 = load i32, ptr %count, align 8
   %8 = sext i32 %7 to i64
   %cmp = icmp slt i64 %indvars.iv.next, %8
-  br i1 %cmp, label %for.body, label %return, !llvm.loop !31
+  br i1 %cmp, label %for.body, label %return, !llvm.loop !28
 
 return:                                           ; preds = %for.inc8, %for.body4, %entry, %for.cond2.preheader
   %retval.0 = phi i32 [ -1, %for.cond2.preheader ], [ 0, %entry ], [ -1, %for.body4 ], [ 0, %for.inc8 ]
@@ -6720,7 +6720,7 @@ return:                                           ; preds = %for.inc8, %for.body
 declare i32 @aeCreateFileEvent(ptr noundef, i32 noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @listenToPort(ptr nocapture noundef %sfd) local_unnamed_addr #0 {
+define dso_local range(i32 -1, 1) i32 @listenToPort(ptr nocapture noundef %sfd) local_unnamed_addr #0 {
 entry:
   %port1 = getelementptr inbounds i8, ptr %sfd, i64 84
   %0 = load i32, ptr %port1, align 4
@@ -6820,7 +6820,7 @@ for.inc.i:                                        ; preds = %if.end.i, %for.body
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %17 = sext i32 %16 to i64
   %cmp.i = icmp slt i64 %indvars.iv.next.i, %17
-  br i1 %cmp.i, label %for.body.i, label %closeListener.exit, !llvm.loop !29
+  br i1 %cmp.i, label %for.body.i, label %closeListener.exit, !llvm.loop !26
 
 closeListener.exit:                               ; preds = %for.inc.i, %if.end51
   store i32 0, ptr %count, align 8
@@ -6857,7 +6857,7 @@ for.inc:                                          ; preds = %if.end36, %if.end36
   %23 = load i32, ptr %bindaddr_count, align 8
   %24 = sext i32 %23 to i64
   %cmp4 = icmp slt i64 %indvars.iv.next, %24
-  br i1 %cmp4, label %for.body, label %return, !llvm.loop !32
+  br i1 %cmp4, label %for.body, label %return, !llvm.loop !29
 
 return:                                           ; preds = %for.inc, %entry, %closeListener.exit
   %retval.0 = phi i32 [ -1, %closeListener.exit ], [ 0, %entry ], [ 0, %for.inc ]
@@ -6896,7 +6896,7 @@ for.body:                                         ; preds = %entry, %for.body
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 7
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(148) %arrayidx, i8 0, i64 148, i1 false)
-  br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !33
+  br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !30
 
 for.end:                                          ; preds = %for.body
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) getelementptr inbounds (%struct.redisServer, ptr @server, i64 0, i32 109), i8 0, i64 24, i1 false)
@@ -6956,7 +6956,7 @@ cond.end:                                         ; preds = %for.body, %cond.tru
   store ptr %cond, ptr %slot_size_index, align 8
   %bucket_count = getelementptr inbounds i8, ptr %arrayidx, i64 16
   store i64 0, ptr %bucket_count, align 8
-  br i1 %cmp, label %for.body, label %for.end, !llvm.loop !34
+  br i1 %cmp, label %for.body, label %for.end, !llvm.loop !31
 
 for.end:                                          ; preds = %cond.end
   ret void
@@ -7192,7 +7192,7 @@ cond.end.i:                                       ; preds = %cond.true.i, %for.b
   store ptr %cond.i, ptr %slot_size_index.i, align 8
   %bucket_count.i = getelementptr inbounds i8, ptr %arrayidx.i, i64 16
   store i64 0, ptr %bucket_count.i, align 8
-  br i1 %cmp.i, label %for.body.i, label %initDbState.exit, !llvm.loop !34
+  br i1 %cmp.i, label %for.body.i, label %initDbState.exit, !llvm.loop !31
 
 initDbState.exit:                                 ; preds = %cond.end.i
   %28 = load ptr, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i64 0, i32 10), align 8
@@ -7204,7 +7204,7 @@ initDbState.exit:                                 ; preds = %cond.end.i
   %30 = load i32, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i64 0, i32 173), align 8
   %31 = sext i32 %30 to i64
   %cmp53 = icmp slt i64 %indvars.iv.next, %31
-  br i1 %cmp53, label %for.body, label %for.end, !llvm.loop !35
+  br i1 %cmp53, label %for.body, label %for.end, !llvm.loop !32
 
 for.end:                                          ; preds = %initDbState.exit, %if.end50
   %call89 = call ptr @listCreate() #38
@@ -7254,7 +7254,7 @@ for.body.i23:                                     ; preds = %for.body.i23, %for.
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i24, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 7
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(148) %arrayidx.i25, i8 0, i64 148, i1 false)
-  br i1 %exitcond.not.i, label %resetServerStats.exit, label %for.body.i23, !llvm.loop !33
+  br i1 %exitcond.not.i, label %resetServerStats.exit, label %for.body.i23, !llvm.loop !30
 
 resetServerStats.exit:                            ; preds = %for.body.i23
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) getelementptr inbounds (%struct.redisServer, ptr @server, i64 0, i32 109), i8 0, i64 24, i1 false)
@@ -7358,7 +7358,7 @@ for.body.i28:                                     ; preds = %for.body.i28, %if.e
   store ptr %call1.i30, ptr %arrayidx3.i, align 8
   %indvars.iv.next.i31 = add nuw nsw i64 %indvars.iv.i29, 1
   %exitcond.not.i32 = icmp eq i64 %indvars.iv.next.i31, 19
-  br i1 %exitcond.not.i32, label %if.end132, label %for.body.i28, !llvm.loop !25
+  br i1 %exitcond.not.i32, label %if.end132, label %for.body.i28, !llvm.loop !22
 
 if.end132:                                        ; preds = %for.body.i28, %if.end127
   ret void
@@ -7645,14 +7645,14 @@ for.body4.i:                                      ; preds = %for.cond2.preheader
   %26 = load i32, ptr %arrayidx7.i, align 4
   tail call void @aeDeleteFileEvent(ptr noundef %25, i32 noundef %26, i32 noundef 1) #38
   %27 = icmp sgt i64 %indvars.iv20.i, 1
-  br i1 %27, label %for.body4.i, label %if.then76, !llvm.loop !30
+  br i1 %27, label %for.body4.i, label %if.then76, !llvm.loop !27
 
 for.inc8.i:                                       ; preds = %for.body.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %28 = load i32, ptr %count.i, align 8
   %29 = sext i32 %28 to i64
   %cmp.i = icmp slt i64 %indvars.iv.next.i, %29
-  br i1 %cmp.i, label %for.body.i, label %if.end80, !llvm.loop !31
+  br i1 %cmp.i, label %for.body.i, label %if.end80, !llvm.loop !28
 
 if.then76:                                        ; preds = %for.body4.i, %for.cond2.preheader.i
   %30 = load ptr, ptr %ct56, align 8
@@ -7671,7 +7671,7 @@ for.inc:                                          ; preds = %for.body, %if.end80
   %listen_fds.1 = phi i32 [ %listen_fds.040, %for.body ], [ %add, %if.end80 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 8
-  br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !36
+  br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !33
 
 for.end:                                          ; preds = %for.inc
   %cmp81 = icmp eq i32 %listen_fds.1, 0
@@ -7857,7 +7857,7 @@ for.inc:                                          ; preds = %if.end64, %if.then5
   %prev_lastkey.1 = phi i32 [ %prev_lastkey.061, %if.then36 ], [ %prev_lastkey.061, %if.then51 ], [ %cond93, %if.end64 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !37
+  br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !34
 
 for.end:                                          ; preds = %for.inc
   switch i32 %firstkey.1, label %cond.end104 [
@@ -8056,7 +8056,7 @@ if.end45:                                         ; preds = %if.then42, %if.end3
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @populateCommandStructure(ptr noundef %c) local_unnamed_addr #0 {
+define dso_local range(i32 -1, 1) i32 @populateCommandStructure(ptr noundef %c) local_unnamed_addr #0 {
 entry:
   %flags = getelementptr inbounds i8, ptr %c, i64 112
   %0 = load i64, ptr %flags, align 8
@@ -8189,7 +8189,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   %call1.i = tail call ptr (ptr, ptr, ...) @sdscatfmt(ptr noundef %call.i, ptr noundef nonnull @.str.161, ptr noundef %15, ptr noundef nonnull %14) #38
   %fullname17 = getelementptr inbounds i8, ptr %arrayidx25, i64 216
   store ptr %call1.i, ptr %fullname17, align 8
-  %call18 = tail call i32 @populateCommandStructure(ptr noundef nonnull %arrayidx25), !range !16
+  %call18 = tail call i32 @populateCommandStructure(ptr noundef nonnull %arrayidx25)
   %cmp = icmp eq i32 %call18, -1
   br i1 %cmp, label %for.inc, label %if.end21
 
@@ -8229,7 +8229,7 @@ for.inc:                                          ; preds = %if.end.i20, %for.bo
   %arrayidx = getelementptr inbounds %struct.redisCommand, ptr %20, i64 %indvars.iv.next
   %21 = load ptr, ptr %arrayidx, align 8
   %tobool12.not = icmp eq ptr %21, null
-  br i1 %tobool12.not, label %return, label %for.body, !llvm.loop !38
+  br i1 %tobool12.not, label %return, label %for.body, !llvm.loop !35
 
 return:                                           ; preds = %for.inc, %for.cond.preheader, %10, %if.end, %entry
   %retval.0 = phi i32 [ -1, %entry ], [ -1, %if.end ], [ 0, %10 ], [ 0, %for.cond.preheader ], [ 0, %for.inc ]
@@ -8272,7 +8272,7 @@ if.then6:                                         ; preds = %if.end
 if.end8:                                          ; preds = %if.then6, %if.end
   %call1 = tail call ptr @dictNext(ptr noundef %call) #38
   %cmp.not = icmp eq ptr %call1, null
-  br i1 %cmp.not, label %while.end, label %while.body, !llvm.loop !39
+  br i1 %cmp.not, label %while.end, label %while.body, !llvm.loop !36
 
 while.end:                                        ; preds = %if.end8, %entry
   tail call void @dictReleaseIterator(ptr noundef %call) #38
@@ -8302,7 +8302,7 @@ entry:
 declare void @raxFreeWithCallback(ptr noundef, ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @redisOpArrayAppend(ptr nocapture noundef %oa, i32 noundef %dbid, ptr noundef %argv, i32 noundef %argc, i32 noundef %target) local_unnamed_addr #0 {
+define dso_local range(i32 -2147483647, -2147483648) i32 @redisOpArrayAppend(ptr nocapture noundef %oa, i32 noundef %dbid, ptr noundef %argv, i32 noundef %argc, i32 noundef %target) local_unnamed_addr #0 {
 entry:
   %capacity = getelementptr inbounds i8, ptr %oa, i64 12
   %0 = load i32, ptr %capacity, align 4
@@ -8389,21 +8389,21 @@ for.body:                                         ; preds = %while.body, %for.bo
   %6 = load i32, ptr %argc, align 8
   %7 = sext i32 %6 to i64
   %cmp = icmp slt i64 %indvars.iv.next, %7
-  br i1 %cmp, label %for.body, label %for.end, !llvm.loop !40
+  br i1 %cmp, label %for.body, label %for.end, !llvm.loop !37
 
 for.end:                                          ; preds = %for.body, %while.body
   %8 = load ptr, ptr %add.ptr, align 8
   tail call void @zfree(ptr noundef %8) #38
   %9 = load i32, ptr %numops, align 8
   %tobool.not = icmp eq i32 %9, 0
-  br i1 %tobool.not, label %cond.end, label %while.body, !llvm.loop !41
+  br i1 %tobool.not, label %cond.end, label %while.body, !llvm.loop !38
 
 cond.end:                                         ; preds = %for.end, %entry
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @isContainerCommandBySds(ptr noundef %s) local_unnamed_addr #0 {
+define dso_local range(i32 0, 2) i32 @isContainerCommandBySds(ptr noundef %s) local_unnamed_addr #0 {
 entry:
   %0 = load ptr, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i64 0, i32 12), align 8
   %call = tail call ptr @dictFetchValue(ptr noundef %0, ptr noundef %s) #38
@@ -8600,7 +8600,7 @@ do.body:                                          ; preds = %cond.end, %do.body
   store ptr %arrayidx, ptr %arrayidx25, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %10
-  br i1 %exitcond.not, label %for.end.loopexit, label %do.body, !llvm.loop !42
+  br i1 %exitcond.not, label %for.end.loopexit, label %do.body, !llvm.loop !39
 
 for.end.loopexit:                                 ; preds = %do.body
   %.pre = load ptr, ptr %vla8, align 16
@@ -8747,7 +8747,7 @@ if.end:                                           ; preds = %if.then, %land.end.
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local i32 @mustObeyClient(ptr nocapture noundef readonly %c) local_unnamed_addr #13 {
+define dso_local range(i32 0, 2) i32 @mustObeyClient(ptr nocapture noundef readonly %c) local_unnamed_addr #13 {
 entry:
   %0 = load i64, ptr %c, align 8
   %cmp = icmp eq i64 %0, -1
@@ -8828,7 +8828,7 @@ for.body:                                         ; preds = %for.body.preheader,
   tail call void @incrRefCount(ptr noundef %7) #38
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !43
+  br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !40
 
 for.end:                                          ; preds = %for.body, %if.end
   %8 = load i32, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i64 0, i32 248, i32 2), align 4
@@ -9090,7 +9090,7 @@ cond.end.i:                                       ; preds = %for.body.i
   %11 = load i32, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i64 0, i32 248, i32 1), align 8
   %12 = sext i32 %11 to i64
   %cmp11.i = icmp slt i64 %indvars.iv.next.i, %12
-  br i1 %cmp11.i, label %for.body.i, label %for.end.i, !llvm.loop !44
+  br i1 %cmp11.i, label %for.body.i, label %for.end.i, !llvm.loop !41
 
 for.end.i:                                        ; preds = %cond.end.i, %if.end10.i
   %.lcssa.i = phi i32 [ %5, %if.end10.i ], [ %11, %cond.end.i ]
@@ -9128,14 +9128,14 @@ for.body.i.i:                                     ; preds = %while.body.i.i, %fo
   %19 = load i32, ptr %argc.i.i, align 8
   %20 = sext i32 %19 to i64
   %cmp.i.i = icmp slt i64 %indvars.iv.next.i.i, %20
-  br i1 %cmp.i.i, label %for.body.i.i, label %for.end.i.i, !llvm.loop !40
+  br i1 %cmp.i.i, label %for.body.i.i, label %for.end.i.i, !llvm.loop !37
 
 for.end.i.i:                                      ; preds = %for.body.i.i, %while.body.i.i
   %21 = load ptr, ptr %add.ptr.i.i, align 8
   tail call void @zfree(ptr noundef %21) #38
   %22 = load i32, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i64 0, i32 248, i32 1), align 8
   %tobool.not.i.i = icmp eq i32 %22, 0
-  br i1 %tobool.not.i.i, label %propagatePendingCommands.exit, label %while.body.i.i, !llvm.loop !41
+  br i1 %tobool.not.i.i, label %propagatePendingCommands.exit, label %while.body.i.i, !llvm.loop !38
 
 propagatePendingCommands.exit:                    ; preds = %for.end.i.i, %if.end, %if.end20.i
   tail call void @modulePostExecutionUnitOperations() #38
@@ -9150,7 +9150,7 @@ declare void @firePostExecutionUnitJobs() local_unnamed_addr #4
 declare void @modulePostExecutionUnitOperations() local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define dso_local noundef i32 @incrCommandStatsOnError(ptr noundef %cmd, i32 noundef %flags) local_unnamed_addr #27 {
+define dso_local range(i32 0, 2) i32 @incrCommandStatsOnError(ptr noundef %cmd, i32 noundef %flags) local_unnamed_addr #27 {
 entry:
   %tobool.not = icmp eq ptr %cmd, null
   br i1 %tobool.not, label %if.end10, label %if.then
@@ -9866,7 +9866,7 @@ declare void @trackingHandlePendingKeyInvalidations() local_unnamed_addr #4
 declare void @listJoin(ptr noundef, ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @commandCheckExistence(ptr nocapture noundef readonly %c, ptr noundef %err) local_unnamed_addr #0 {
+define dso_local range(i32 0, 2) i32 @commandCheckExistence(ptr nocapture noundef readonly %c, ptr noundef %err) local_unnamed_addr #0 {
 entry:
   %cmd = getelementptr inbounds i8, ptr %c, i64 128
   %0 = load ptr, ptr %cmd, align 8
@@ -10011,7 +10011,7 @@ sdslen.exit40:                                    ; preds = %land.rhs, %for.body
   %25 = load i32, ptr %argc, align 8
   %26 = sext i32 %25 to i64
   %cmp = icmp slt i64 %indvars.iv.next, %26
-  br i1 %cmp, label %land.rhs, label %for.end, !llvm.loop !45
+  br i1 %cmp, label %land.rhs, label %for.end, !llvm.loop !42
 
 for.end:                                          ; preds = %sdslen.exit, %sdslen.exit40, %if.else
   %args.0.lcssa = phi ptr [ %call16, %if.else ], [ %call23, %sdslen.exit40 ], [ %args.046, %sdslen.exit ]
@@ -10041,7 +10041,7 @@ return:                                           ; preds = %if.end, %entry, %if
 declare void @sdstoupper(ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @commandCheckArity(ptr nocapture noundef readonly %c, ptr noundef writeonly %err) local_unnamed_addr #0 {
+define dso_local range(i32 0, 2) i32 @commandCheckArity(ptr nocapture noundef readonly %c, ptr noundef writeonly %err) local_unnamed_addr #0 {
 entry:
   %cmd = getelementptr inbounds i8, ptr %c, i64 128
   %0 = load ptr, ptr %cmd, align 8
@@ -10129,7 +10129,7 @@ declare void @evalShaCommand(ptr noundef) #4
 declare i64 @evalGetCommandFlags(ptr noundef, i64 noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @processCommand(ptr noundef %c) local_unnamed_addr #0 {
+define dso_local range(i32 -1, 1) i32 @processCommand(ptr noundef %c) local_unnamed_addr #0 {
 entry:
   %err = alloca ptr, align 8
   %acl_errpos = alloca i32, align 4
@@ -10234,7 +10234,7 @@ lookupCommand.exit:                               ; preds = %if.then37, %land.en
   %lastcmd = getelementptr inbounds i8, ptr %c, i64 136
   store ptr %retval.0.i.i, ptr %lastcmd, align 8
   store ptr %retval.0.i.i, ptr %cmd, align 8
-  %call41 = call i32 @commandCheckExistence(ptr noundef nonnull %c, ptr noundef nonnull %err), !range !13
+  %call41 = call i32 @commandCheckExistence(ptr noundef nonnull %c, ptr noundef nonnull %err)
   %tobool42.not = icmp eq i32 %call41, 0
   br i1 %tobool42.not, label %if.then43, label %if.end44
 
@@ -10771,7 +10771,7 @@ if.then309:                                       ; preds = %if.end307
   br label %if.end310
 
 if.end310:                                        ; preds = %if.then309, %if.end307
-  %call311 = call i32 @writeCommandsDeniedByDiskError(), !range !46
+  %call311 = call i32 @writeCommandsDeniedByDiskError()
   %cmp312.not = icmp eq i32 %call311, 0
   br i1 %cmp312.not, label %if.end346, label %land.lhs.true314
 
@@ -11114,7 +11114,7 @@ declare void @quitCommand(ptr noundef) #4
 declare void @resetCommand(ptr noundef) #4
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(readwrite, argmem: none, inaccessiblemem: none) uwtable
-define dso_local noundef i32 @writeCommandsDeniedByDiskError() local_unnamed_addr #28 {
+define dso_local range(i32 0, 3) i32 @writeCommandsDeniedByDiskError() local_unnamed_addr #28 {
 entry:
   %0 = load i32, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i64 0, i32 236), align 4
   %tobool = icmp ne i32 %0, 0
@@ -11331,12 +11331,12 @@ for.body4:                                        ; preds = %for.cond2.preheader
   %3 = load i32, ptr %count, align 8
   %4 = sext i32 %3 to i64
   %cmp3 = icmp slt i64 %indvars.iv.next, %4
-  br i1 %cmp3, label %for.body4, label %for.inc7, !llvm.loop !47
+  br i1 %cmp3, label %for.body4, label %for.inc7, !llvm.loop !43
 
 for.inc7:                                         ; preds = %for.body4, %for.cond2.preheader, %for.body
   %indvars.iv.next19 = add nuw nsw i64 %indvars.iv18, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next19, 8
-  br i1 %exitcond.not, label %for.end9, label %for.body, !llvm.loop !48
+  br i1 %exitcond.not, label %for.end9, label %for.body, !llvm.loop !44
 
 for.end9:                                         ; preds = %for.inc7
   %5 = load i32, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i64 0, i32 362), align 4
@@ -11355,7 +11355,7 @@ for.body13:                                       ; preds = %for.end9, %for.body
   %8 = load i32, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i64 0, i32 54, i32 1), align 8
   %9 = sext i32 %8 to i64
   %cmp12 = icmp slt i64 %indvars.iv.next22, %9
-  br i1 %cmp12, label %for.body13, label %if.end20, !llvm.loop !49
+  br i1 %cmp12, label %for.body13, label %if.end20, !llvm.loop !45
 
 if.end20:                                         ; preds = %for.body13, %for.end9
   %tobool21 = icmp ne i32 %unlink_unix_socket, 0
@@ -11435,7 +11435,7 @@ declare void @listRewind(ptr noundef, ptr noundef) local_unnamed_addr #4
 declare ptr @listNext(ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @abortShutdown() local_unnamed_addr #0 {
+define dso_local range(i32 -1, 1) i32 @abortShutdown() local_unnamed_addr #0 {
 entry:
   %0 = load i64, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i64 0, i32 18), align 8
   %cmp.i.not = icmp eq i64 %0, 0
@@ -11568,7 +11568,7 @@ while.body:                                       ; preds = %entry, %while.body
   %name = getelementptr inbounds %struct.replyFlagNames, ptr %replyFlags, i64 %indvars.iv.next, i32 1
   %2 = load ptr, ptr %name, align 8
   %tobool.not = icmp eq ptr %2, null
-  br i1 %tobool.not, label %while.end.loopexit, label %while.body, !llvm.loop !50
+  br i1 %tobool.not, label %while.end.loopexit, label %while.body, !llvm.loop !46
 
 while.end.loopexit:                               ; preds = %while.body
   %3 = zext nneg i32 %spec.select to i64
@@ -11599,7 +11599,7 @@ if.end20:                                         ; preds = %if.then16, %while.b
   %name8 = getelementptr inbounds %struct.replyFlagNames, ptr %replyFlags, i64 %indvars.iv.next25, i32 1
   %7 = load ptr, ptr %name8, align 8
   %tobool9.not = icmp eq ptr %7, null
-  br i1 %tobool9.not, label %while.end22, label %while.body10, !llvm.loop !51
+  br i1 %tobool9.not, label %while.end22, label %while.body10, !llvm.loop !47
 
 while.end22:                                      ; preds = %if.end20, %while.end
   ret void
@@ -11627,7 +11627,7 @@ while.body.i:                                     ; preds = %entry, %while.body.
   %spec.select.i = add nuw nsw i32 %count.016.i, %inc.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond = icmp eq i64 %indvars.iv.next.i, 20
-  br i1 %exitcond, label %while.end.i, label %while.body.i, !llvm.loop !50
+  br i1 %exitcond, label %while.end.i, label %while.body.i, !llvm.loop !46
 
 while.end.i:                                      ; preds = %while.body.i
   %2 = zext nneg i32 %spec.select.i to i64
@@ -11652,7 +11652,7 @@ if.end20.i:                                       ; preds = %if.then16.i, %while
   %name8.i = getelementptr inbounds %struct.replyFlagNames, ptr @__const.addReplyFlagsForCommand.flagNames, i64 %indvars.iv.next25.i, i32 1
   %5 = load ptr, ptr %name8.i, align 8
   %exitcond2 = icmp eq i64 %indvars.iv.next25.i, 20
-  br i1 %exitcond2, label %addReplyCommandFlags.exit, label %while.body10.i, !llvm.loop !51
+  br i1 %exitcond2, label %addReplyCommandFlags.exit, label %while.body10.i, !llvm.loop !47
 
 addReplyCommandFlags.exit:                        ; preds = %if.end20.i
   ret void
@@ -11677,7 +11677,7 @@ while.body.i:                                     ; preds = %entry, %while.body.
   %spec.select.i = add nuw nsw i32 %count.016.i, %inc.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond = icmp eq i64 %indvars.iv.next.i, 2
-  br i1 %exitcond, label %while.end.i, label %while.body.i, !llvm.loop !50
+  br i1 %exitcond, label %while.end.i, label %while.body.i, !llvm.loop !46
 
 while.end.i:                                      ; preds = %while.body.i
   %2 = zext nneg i32 %spec.select.i to i64
@@ -11702,7 +11702,7 @@ if.end20.i:                                       ; preds = %if.then16.i, %while
   %name8.i = getelementptr inbounds %struct.replyFlagNames, ptr @__const.addReplyDocFlagsForCommand.docFlagNames, i64 %indvars.iv.next25.i, i32 1
   %5 = load ptr, ptr %name8.i, align 8
   %exitcond2 = icmp eq i64 %indvars.iv.next25.i, 2
-  br i1 %exitcond2, label %addReplyCommandFlags.exit, label %while.body10.i, !llvm.loop !51
+  br i1 %exitcond2, label %addReplyCommandFlags.exit, label %while.body10.i, !llvm.loop !47
 
 addReplyCommandFlags.exit:                        ; preds = %if.end20.i
   ret void
@@ -11724,7 +11724,7 @@ while.body.i:                                     ; preds = %entry, %while.body.
   %spec.select.i = add nuw nsw i32 %count.016.i, %inc.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond = icmp eq i64 %indvars.iv.next.i, 11
-  br i1 %exitcond, label %while.end.i, label %while.body.i, !llvm.loop !50
+  br i1 %exitcond, label %while.end.i, label %while.body.i, !llvm.loop !46
 
 while.end.i:                                      ; preds = %while.body.i
   %1 = zext nneg i32 %spec.select.i to i64
@@ -11749,7 +11749,7 @@ if.end20.i:                                       ; preds = %if.then16.i, %while
   %name8.i = getelementptr inbounds %struct.replyFlagNames, ptr @__const.addReplyFlagsForKeyArgs.docFlagNames, i64 %indvars.iv.next25.i, i32 1
   %4 = load ptr, ptr %name8.i, align 8
   %exitcond2 = icmp eq i64 %indvars.iv.next25.i, 11
-  br i1 %exitcond2, label %addReplyCommandFlags.exit, label %while.body10.i, !llvm.loop !51
+  br i1 %exitcond2, label %addReplyCommandFlags.exit, label %while.body10.i, !llvm.loop !47
 
 addReplyCommandFlags.exit:                        ; preds = %if.end20.i
   ret void
@@ -11771,7 +11771,7 @@ while.body.i:                                     ; preds = %entry, %while.body.
   %spec.select.i = add nuw nsw i32 %count.016.i, %inc.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond = icmp eq i64 %indvars.iv.next.i, 3
-  br i1 %exitcond, label %while.end.i, label %while.body.i, !llvm.loop !50
+  br i1 %exitcond, label %while.end.i, label %while.body.i, !llvm.loop !46
 
 while.end.i:                                      ; preds = %while.body.i
   %1 = zext nneg i32 %spec.select.i to i64
@@ -11796,7 +11796,7 @@ if.end20.i:                                       ; preds = %if.then16.i, %while
   %name8.i = getelementptr inbounds %struct.replyFlagNames, ptr @__const.addReplyFlagsForArg.argFlagNames, i64 %indvars.iv.next25.i, i32 1
   %4 = load ptr, ptr %name8.i, align 8
   %exitcond2 = icmp eq i64 %indvars.iv.next25.i, 3
-  br i1 %exitcond2, label %addReplyCommandFlags.exit, label %while.body10.i, !llvm.loop !51
+  br i1 %exitcond2, label %addReplyCommandFlags.exit, label %while.body10.i, !llvm.loop !47
 
 addReplyCommandFlags.exit:                        ; preds = %if.end20.i
   ret void
@@ -11844,7 +11844,7 @@ for.body:                                         ; preds = %for.body.preheader,
   %not.switch94 = xor i1 %switch94, true
   %inc47 = zext i1 %not.switch94 to i64
   %10 = bitcast <4 x i1> %7 to i4
-  %11 = tail call i4 @llvm.ctpop.i4(i4 %10), !range !52
+  %11 = tail call range(i4 0, 5) i4 @llvm.ctpop.i4(i4 %10)
   %12 = zext nneg i4 %11 to i64
   %op.rdx = add nuw nsw i64 %12, %inc31
   %op.rdx100 = add nuw nsw i64 %inc43, %inc47
@@ -11956,7 +11956,7 @@ while.body.i.i:                                   ; preds = %while.body.i.i, %if
   %spec.select.i.i = add nuw nsw i32 %count.016.i.i, %inc.i.i
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.i = icmp eq i64 %indvars.iv.next.i.i, 3
-  br i1 %exitcond.i, label %while.end.i.i, label %while.body.i.i, !llvm.loop !50
+  br i1 %exitcond.i, label %while.end.i.i, label %while.body.i.i, !llvm.loop !46
 
 while.end.i.i:                                    ; preds = %while.body.i.i
   %31 = zext nneg i32 %spec.select.i.i to i64
@@ -11981,7 +11981,7 @@ if.end20.i.i:                                     ; preds = %if.then16.i.i, %whi
   %name8.i.i = getelementptr inbounds %struct.replyFlagNames, ptr @__const.addReplyFlagsForArg.argFlagNames, i64 %indvars.iv.next25.i.i, i32 1
   %34 = load ptr, ptr %name8.i.i, align 8
   %exitcond2.i = icmp eq i64 %indvars.iv.next25.i.i, 3
-  br i1 %exitcond2.i, label %if.end124, label %while.body10.i.i, !llvm.loop !51
+  br i1 %exitcond2.i, label %if.end124, label %while.body10.i.i, !llvm.loop !47
 
 if.end124:                                        ; preds = %if.end20.i.i, %if.end114
   %35 = load i32, ptr %type, align 8
@@ -12001,7 +12001,7 @@ if.then136:                                       ; preds = %if.end124
 for.inc:                                          ; preds = %if.end124, %if.then136
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !53
+  br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !48
 
 for.end:                                          ; preds = %for.inc, %entry
   ret void
@@ -12043,7 +12043,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   %6 = load i32, ptr %num_history, align 8
   %7 = sext i32 %6 to i64
   %cmp = icmp slt i64 %indvars.iv.next, %7
-  br i1 %cmp, label %for.body, label %for.end, !llvm.loop !54
+  br i1 %cmp, label %for.body, label %for.end, !llvm.loop !49
 
 for.end:                                          ; preds = %for.body, %entry
   ret void
@@ -12074,7 +12074,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   %4 = load i32, ptr %num_tips, align 8
   %5 = sext i32 %4 to i64
   %cmp = icmp slt i64 %indvars.iv.next, %5
-  br i1 %cmp, label %for.body, label %for.end, !llvm.loop !55
+  br i1 %cmp, label %for.body, label %for.end, !llvm.loop !50
 
 for.end:                                          ; preds = %for.body, %entry
   ret void
@@ -12135,7 +12135,7 @@ while.body.i.i:                                   ; preds = %while.body.i.i, %if
   %spec.select.i.i = add nuw nsw i32 %count.016.i.i, %inc.i.i
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.i = icmp eq i64 %indvars.iv.next.i.i, 11
-  br i1 %exitcond.i, label %while.end.i.i, label %while.body.i.i, !llvm.loop !50
+  br i1 %exitcond.i, label %while.end.i.i, label %while.body.i.i, !llvm.loop !46
 
 while.end.i.i:                                    ; preds = %while.body.i.i
   %11 = zext nneg i32 %spec.select.i.i to i64
@@ -12160,7 +12160,7 @@ if.end20.i.i:                                     ; preds = %if.then16.i.i, %whi
   %name8.i.i = getelementptr inbounds %struct.replyFlagNames, ptr @__const.addReplyFlagsForKeyArgs.docFlagNames, i64 %indvars.iv.next25.i.i, i32 1
   %14 = load ptr, ptr %name8.i.i, align 8
   %exitcond2.i = icmp eq i64 %indvars.iv.next25.i.i, 11
-  br i1 %exitcond2.i, label %addReplyFlagsForKeyArgs.exit, label %while.body10.i.i, !llvm.loop !51
+  br i1 %exitcond2.i, label %addReplyFlagsForKeyArgs.exit, label %while.body10.i.i, !llvm.loop !47
 
 addReplyFlagsForKeyArgs.exit:                     ; preds = %if.end20.i.i
   tail call void @addReplyBulkCString(ptr noundef %c, ptr noundef nonnull @.str.276) #38
@@ -12303,7 +12303,7 @@ for.inc:                                          ; preds = %sw.bb43, %sw.bb44, 
   %38 = load i32, ptr %key_specs_num, align 8
   %39 = sext i32 %38 to i64
   %cmp = icmp slt i64 %indvars.iv.next, %39
-  br i1 %cmp, label %for.body, label %for.end, !llvm.loop !56
+  br i1 %cmp, label %for.body, label %for.end, !llvm.loop !51
 
 for.end:                                          ; preds = %for.inc, %entry
   ret void
@@ -12354,7 +12354,7 @@ while.body.us:                                    ; preds = %while.body.lr.ph, %
   tail call void %reply_function(ptr noundef %c, ptr noundef %call17.us) #38
   %call16.us = tail call ptr @dictNext(ptr noundef %call) #38
   %cmp.not.us = icmp eq ptr %call16.us, null
-  br i1 %cmp.not.us, label %while.end, label %while.body.us, !llvm.loop !57
+  br i1 %cmp.not.us, label %while.end, label %while.body.us, !llvm.loop !52
 
 while.body:                                       ; preds = %while.body.lr.ph, %sdslen.exit
   %call1616 = phi ptr [ %call16, %sdslen.exit ], [ %call1614, %while.body.lr.ph ]
@@ -12407,7 +12407,7 @@ sdslen.exit:                                      ; preds = %while.body, %sw.bb.
   tail call void %reply_function(ptr noundef %c, ptr noundef nonnull %call17) #38
   %call16 = tail call ptr @dictNext(ptr noundef %call) #38
   %cmp.not = icmp eq ptr %call16, null
-  br i1 %cmp.not, label %while.end, label %while.body, !llvm.loop !57
+  br i1 %cmp.not, label %while.end, label %while.body, !llvm.loop !52
 
 while.end:                                        ; preds = %sdslen.exit, %while.body.us, %if.end14
   tail call void @dictReleaseIterator(ptr noundef %call) #38
@@ -12517,7 +12517,7 @@ while.body.i.i:                                   ; preds = %while.body.i.i, %sd
   %spec.select.i.i = add nuw nsw i32 %count.016.i.i, %inc.i.i
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.i = icmp eq i64 %indvars.iv.next.i.i, 20
-  br i1 %exitcond.i, label %while.end.i.i, label %while.body.i.i, !llvm.loop !50
+  br i1 %exitcond.i, label %while.end.i.i, label %while.body.i.i, !llvm.loop !46
 
 while.end.i.i:                                    ; preds = %while.body.i.i
   %16 = zext nneg i32 %spec.select.i.i to i64
@@ -12542,7 +12542,7 @@ if.end20.i.i:                                     ; preds = %if.then16.i.i, %whi
   %name8.i.i = getelementptr inbounds %struct.replyFlagNames, ptr @__const.addReplyFlagsForCommand.flagNames, i64 %indvars.iv.next25.i.i, i32 1
   %19 = load ptr, ptr %name8.i.i, align 8
   %exitcond2.i = icmp eq i64 %indvars.iv.next25.i.i, 20
-  br i1 %exitcond2.i, label %addReplyFlagsForCommand.exit, label %while.body10.i.i, !llvm.loop !51
+  br i1 %exitcond2.i, label %addReplyFlagsForCommand.exit, label %while.body10.i.i, !llvm.loop !47
 
 addReplyFlagsForCommand.exit:                     ; preds = %if.end20.i.i
   tail call void @addReplyLongLong(ptr noundef %c, i64 noundef %firstkey.0) #38
@@ -12571,7 +12571,7 @@ for.body.i:                                       ; preds = %for.body.i, %for.bo
   %24 = load i32, ptr %num_tips.i, align 8
   %25 = sext i32 %24 to i64
   %cmp.i = icmp slt i64 %indvars.iv.next.i, %25
-  br i1 %cmp.i, label %for.body.i, label %addReplyCommandTips.exit, !llvm.loop !55
+  br i1 %cmp.i, label %for.body.i, label %addReplyCommandTips.exit, !llvm.loop !50
 
 addReplyCommandTips.exit:                         ; preds = %for.body.i, %addReplyFlagsForCommand.exit
   tail call void @addReplyCommandKeySpecs(ptr noundef %c, ptr noundef nonnull %cmd)
@@ -12625,7 +12625,7 @@ entry:
   %tobool33.not = icmp ne ptr %13, null
   %inc35 = zext i1 %tobool33.not to i64
   %14 = bitcast <4 x i1> %12 to i4
-  %15 = tail call i4 @llvm.ctpop.i4(i4 %14), !range !52
+  %15 = tail call range(i4 0, 5) i4 @llvm.ctpop.i4(i4 %14)
   %16 = zext nneg i4 %15 to i64
   %op.rdx = add nuw nsw i64 %16, %inc3
   %op.rdx65 = add nuw nsw i64 %inc11, %inc15
@@ -12705,7 +12705,7 @@ while.body.i.i:                                   ; preds = %while.body.i.i, %if
   %spec.select.i.i = add nuw nsw i32 %count.016.i.i, %inc.i.i
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.i = icmp eq i64 %indvars.iv.next.i.i, 2
-  br i1 %exitcond.i, label %while.end.i.i, label %while.body.i.i, !llvm.loop !50
+  br i1 %exitcond.i, label %while.end.i.i, label %while.body.i.i, !llvm.loop !46
 
 while.end.i.i:                                    ; preds = %while.body.i.i
   %28 = zext nneg i32 %spec.select.i.i to i64
@@ -12730,7 +12730,7 @@ if.end20.i.i:                                     ; preds = %if.then16.i.i, %whi
   %name8.i.i = getelementptr inbounds %struct.replyFlagNames, ptr @__const.addReplyDocFlagsForCommand.docFlagNames, i64 %indvars.iv.next25.i.i, i32 1
   %31 = load ptr, ptr %name8.i.i, align 8
   %exitcond2.i = icmp eq i64 %indvars.iv.next25.i.i, 2
-  br i1 %exitcond2.i, label %if.end61, label %while.body10.i.i, !llvm.loop !51
+  br i1 %exitcond2.i, label %if.end61, label %while.body10.i.i, !llvm.loop !47
 
 if.end61:                                         ; preds = %if.end20.i.i, %if.end57
   %32 = load ptr, ptr %deprecated_since, align 8
@@ -12784,7 +12784,7 @@ for.body.i:                                       ; preds = %if.then74, %for.bod
   %43 = load i32, ptr %num_history.i, align 8
   %44 = sext i32 %43 to i64
   %cmp.i = icmp slt i64 %indvars.iv.next.i, %44
-  br i1 %cmp.i, label %for.body.i, label %if.end75, !llvm.loop !54
+  br i1 %cmp.i, label %for.body.i, label %if.end75, !llvm.loop !49
 
 if.end75:                                         ; preds = %for.body.i, %if.then74, %if.end71
   %45 = load ptr, ptr %args, align 8
@@ -12942,7 +12942,7 @@ for.body.us:                                      ; preds = %for.body.lr.ph, %fo
   %21 = load i32, ptr %numkeys, align 8
   %22 = sext i32 %21 to i64
   %cmp30.us = icmp slt i64 %indvars.iv.next39, %22
-  br i1 %cmp30.us, label %for.body.us, label %if.end52, !llvm.loop !58
+  br i1 %cmp30.us, label %for.body.us, label %if.end52, !llvm.loop !53
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.inc.loopexit
   %indvars.iv = phi i64 [ %indvars.iv.next, %for.inc.loopexit ], [ 0, %for.body.lr.ph ]
@@ -12973,7 +12973,7 @@ while.body.i.i:                                   ; preds = %while.body.i.i, %fo
   %spec.select.i.i = add nuw nsw i32 %count.016.i.i, %inc.i.i
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.i = icmp eq i64 %indvars.iv.next.i.i, 11
-  br i1 %exitcond.i, label %while.end.i.i, label %while.body.i.i, !llvm.loop !50
+  br i1 %exitcond.i, label %while.end.i.i, label %while.body.i.i, !llvm.loop !46
 
 while.end.i.i:                                    ; preds = %while.body.i.i
   %32 = zext nneg i32 %spec.select.i.i to i64
@@ -12998,14 +12998,14 @@ if.end20.i.i:                                     ; preds = %if.then16.i.i, %whi
   %name8.i.i = getelementptr inbounds %struct.replyFlagNames, ptr @__const.addReplyFlagsForKeyArgs.docFlagNames, i64 %indvars.iv.next25.i.i, i32 1
   %35 = load ptr, ptr %name8.i.i, align 8
   %exitcond2.i = icmp eq i64 %indvars.iv.next25.i.i, 11
-  br i1 %exitcond2.i, label %for.inc.loopexit, label %while.body10.i.i, !llvm.loop !51
+  br i1 %exitcond2.i, label %for.inc.loopexit, label %while.body10.i.i, !llvm.loop !47
 
 for.inc.loopexit:                                 ; preds = %if.end20.i.i
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %36 = load i32, ptr %numkeys, align 8
   %37 = sext i32 %36 to i64
   %cmp30 = icmp slt i64 %indvars.iv.next, %37
-  br i1 %cmp30, label %for.body, label %if.end52, !llvm.loop !58
+  br i1 %cmp30, label %for.body, label %if.end52, !llvm.loop !53
 
 if.end52:                                         ; preds = %for.inc.loopexit, %for.body.us, %if.else28, %if.then25, %if.else26
   call void @getKeysFreeResult(ptr noundef nonnull %result) #38
@@ -13059,7 +13059,7 @@ while.body:                                       ; preds = %entry, %while.body
   tail call void @addReplyCommandInfo(ptr noundef %c, ptr noundef %call4)
   %call3 = tail call ptr @dictNext(ptr noundef %call) #38
   %cmp.not = icmp eq ptr %call3, null
-  br i1 %cmp.not, label %while.end, label %while.body, !llvm.loop !59
+  br i1 %cmp.not, label %while.end, label %while.body, !llvm.loop !54
 
 while.end:                                        ; preds = %while.body, %entry
   tail call void @dictReleaseIterator(ptr noundef %call) #38
@@ -13082,7 +13082,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @shouldFilterFromCommandList(ptr noundef %cmd, ptr nocapture noundef %filter) local_unnamed_addr #0 {
+define dso_local range(i32 0, 2) i32 @shouldFilterFromCommandList(ptr noundef %cmd, ptr nocapture noundef %filter) local_unnamed_addr #0 {
 entry:
   %0 = load i32, ptr %filter, align 8
   switch i32 %0, label %sw.default [
@@ -13274,7 +13274,7 @@ entry:
 while.body:                                       ; preds = %entry, %if.end9
   %call110 = phi ptr [ %call1, %if.end9 ], [ %call18, %entry ]
   %call2 = tail call ptr @dictGetVal(ptr noundef nonnull %call110) #38
-  %call3 = call i32 @shouldFilterFromCommandList(ptr noundef %call2, ptr noundef nonnull %filter), !range !13
+  %call3 = call i32 @shouldFilterFromCommandList(ptr noundef %call2, ptr noundef nonnull %filter)
   %tobool.not = icmp eq i32 %call3, 0
   br i1 %tobool.not, label %if.then, label %if.end
 
@@ -13342,7 +13342,7 @@ if.then7:                                         ; preds = %if.end
 if.end9:                                          ; preds = %if.then7, %if.end
   %call1 = tail call ptr @dictNext(ptr noundef %call) #38
   %cmp.not = icmp eq ptr %call1, null
-  br i1 %cmp.not, label %while.end, label %while.body, !llvm.loop !60
+  br i1 %cmp.not, label %while.end, label %while.body, !llvm.loop !55
 
 while.end:                                        ; preds = %if.end9, %entry
   tail call void @dictReleaseIterator(ptr noundef %call) #38
@@ -13420,7 +13420,7 @@ if.then:                                          ; preds = %sdslen.exit
 if.end:                                           ; preds = %if.then, %sdslen.exit
   %call1 = tail call ptr @dictNext(ptr noundef %call) #38
   %cmp.not = icmp eq ptr %call1, null
-  br i1 %cmp.not, label %while.end, label %while.body, !llvm.loop !61
+  br i1 %cmp.not, label %while.end, label %while.body, !llvm.loop !56
 
 while.end:                                        ; preds = %if.end, %entry
   tail call void @dictReleaseIterator(ptr noundef %call) #38
@@ -13493,7 +13493,7 @@ if.end22:                                         ; preds = %if.else15, %if.else
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 3
   %10 = trunc nuw i64 %indvars.iv.next to i32
   %cmp = icmp sgt i32 %0, %10
-  br i1 %cmp, label %for.body, label %for.end, !llvm.loop !62
+  br i1 %cmp, label %for.body, label %for.end, !llvm.loop !57
 
 if.else29:                                        ; preds = %for.body
   %11 = load ptr, ptr getelementptr inbounds (%struct.sharedObjectsStruct, ptr @shared, i64 0, i32 15), align 8
@@ -13565,7 +13565,7 @@ while.body:                                       ; preds = %if.then, %while.bod
   tail call void @addReplyCommandInfo(ptr noundef %c, ptr noundef %call5)
   %call3 = tail call ptr @dictNext(ptr noundef %call) #38
   %cmp4.not = icmp eq ptr %call3, null
-  br i1 %cmp4.not, label %while.end, label %while.body, !llvm.loop !63
+  br i1 %cmp4.not, label %while.end, label %while.body, !llvm.loop !58
 
 while.end:                                        ; preds = %while.body, %if.then
   tail call void @dictReleaseIterator(ptr noundef %call) #38
@@ -13597,7 +13597,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   %10 = load i32, ptr %argc, align 8
   %11 = sext i32 %10 to i64
   %cmp8 = icmp slt i64 %indvars.iv.next, %11
-  br i1 %cmp8, label %for.body, label %if.end, !llvm.loop !64
+  br i1 %cmp8, label %for.body, label %if.end, !llvm.loop !59
 
 if.end:                                           ; preds = %for.body, %if.else, %while.end
   ret void
@@ -13676,7 +13676,7 @@ sdslen.exit:                                      ; preds = %while.body, %sw.bb.
   tail call void @addReplyCommandDocs(ptr noundef %c, ptr noundef nonnull %call5)
   %call3 = tail call ptr @dictNext(ptr noundef %call) #38
   %cmp4.not = icmp eq ptr %call3, null
-  br i1 %cmp4.not, label %while.end, label %while.body, !llvm.loop !65
+  br i1 %cmp4.not, label %while.end, label %while.body, !llvm.loop !60
 
 while.end:                                        ; preds = %sdslen.exit, %if.then
   tail call void @dictReleaseIterator(ptr noundef %call) #38
@@ -13761,7 +13761,7 @@ for.inc:                                          ; preds = %for.body, %sdslen.e
   %22 = load i32, ptr %argc, align 8
   %23 = sext i32 %22 to i64
   %cmp10 = icmp slt i64 %indvars.iv.next, %23
-  br i1 %cmp10, label %for.body, label %for.end.loopexit, !llvm.loop !66
+  br i1 %cmp10, label %for.body, label %for.end.loopexit, !llvm.loop !61
 
 for.end.loopexit:                                 ; preds = %for.inc
   %24 = sext i32 %numcmds.1 to i64
@@ -13906,7 +13906,7 @@ for.inc:                                          ; preds = %for.body, %if.then
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %8 = sext i32 %7 to i64
   %cmp = icmp slt i64 %indvars.iv.next, %8
-  br i1 %cmp, label %for.body, label %for.end, !llvm.loop !67
+  br i1 %cmp, label %for.body, label %for.end, !llvm.loop !62
 
 for.end:                                          ; preds = %for.inc, %entry
   %info.addr.0.lcssa = phi ptr [ %call, %entry ], [ %info.addr.1, %for.inc ]
@@ -14073,7 +14073,7 @@ if.end27:                                         ; preds = %if.then24, %if.end2
   %info.addr.2 = phi ptr [ %call26, %if.then24 ], [ %info.addr.1, %if.end22 ]
   %call1 = tail call ptr @dictNext(ptr noundef %call) #38
   %cmp.not = icmp eq ptr %call1, null
-  br i1 %cmp.not, label %while.end, label %while.body, !llvm.loop !68
+  br i1 %cmp.not, label %while.end, label %while.body, !llvm.loop !63
 
 while.end:                                        ; preds = %if.end27, %entry
   %info.addr.0.lcssa = phi ptr [ %info, %entry ], [ %info.addr.2, %if.end27 ]
@@ -14190,7 +14190,7 @@ if.end15:                                         ; preds = %if.then12, %if.end1
   %info.addr.2 = phi ptr [ %call14, %if.then12 ], [ %info.addr.1, %if.end10 ]
   %call1 = tail call ptr @dictNext(ptr noundef %call) #38
   %cmp.not = icmp eq ptr %call1, null
-  br i1 %cmp.not, label %while.end, label %while.body, !llvm.loop !69
+  br i1 %cmp.not, label %while.end, label %while.body, !llvm.loop !64
 
 while.end:                                        ; preds = %if.end15, %entry
   %info.addr.0.lcssa = phi ptr [ %info, %entry ], [ %info.addr.2, %if.end15 ]
@@ -14221,7 +14221,7 @@ if.end:                                           ; preds = %if.then, %while.bod
   %incdec.ptr = getelementptr inbounds i8, ptr %sections.addr.05, i64 8
   %2 = load ptr, ptr %incdec.ptr, align 8
   %tobool.not = icmp eq ptr %2, null
-  br i1 %tobool.not, label %while.end, label %while.body, !llvm.loop !70
+  br i1 %tobool.not, label %while.end, label %while.body, !llvm.loop !65
 
 while.end:                                        ; preds = %if.end, %entry
   ret void
@@ -14282,7 +14282,7 @@ if.end.i:                                         ; preds = %if.then.i, %while.b
   %incdec.ptr.i = getelementptr inbounds i8, ptr %sections.addr.05.i, i64 8
   %4 = load ptr, ptr %incdec.ptr.i, align 8
   %tobool.not.i = icmp eq ptr %4, null
-  br i1 %tobool.not.i, label %addInfoSectionsToDict.exit.loopexit, label %while.body.i, !llvm.loop !70
+  br i1 %tobool.not.i, label %addInfoSectionsToDict.exit.loopexit, label %while.body.i, !llvm.loop !65
 
 addInfoSectionsToDict.exit.loopexit:              ; preds = %if.end.i
   %.pre = load ptr, ptr @cached_default_info_sections, align 8
@@ -14333,7 +14333,7 @@ if.end.i28:                                       ; preds = %if.then.i31, %while
   %incdec.ptr.i29 = getelementptr inbounds i8, ptr %sections.addr.05.i24, i64 8
   %9 = load ptr, ptr %incdec.ptr.i29, align 8
   %tobool.not.i30 = icmp eq ptr %9, null
-  br i1 %tobool.not.i30, label %for.inc, label %while.body.i23, !llvm.loop !70
+  br i1 %tobool.not.i30, label %for.inc, label %while.body.i23, !llvm.loop !65
 
 if.else:                                          ; preds = %for.body
   %call18 = tail call i32 @strcasecmp(ptr noundef %6, ptr noundef nonnull @.str.347) #39
@@ -14379,7 +14379,7 @@ if.then45:                                        ; preds = %if.else37
 for.inc:                                          ; preds = %if.end.i28, %if.then14, %if.then35, %if.end33, %if.then45, %if.else37, %if.then20, %if.then22
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %return, label %for.body, !llvm.loop !71
+  br i1 %exitcond.not, label %return, label %for.body, !llvm.loop !66
 
 return:                                           ; preds = %for.inc, %if.end4, %addInfoSectionsToDict.exit.loopexit, %if.end6, %if.then1
   %retval.0 = phi ptr [ %0, %if.then1 ], [ %call7, %if.end6 ], [ %.pre, %addInfoSectionsToDict.exit.loopexit ], [ %1, %if.end4 ], [ %call7, %for.inc ]
@@ -14521,7 +14521,7 @@ for.body.i:                                       ; preds = %for.body.i, %if.the
   %o.1.i = tail call i64 @llvm.umax.i64(i64 %19, i64 %o.010.i)
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 8
-  br i1 %exitcond.not.i, label %getExpansiveClientsInfo.exit, label %for.body.i, !llvm.loop !11
+  br i1 %exitcond.not.i, label %getExpansiveClientsInfo.exit, label %for.body.i, !llvm.loop !10
 
 getExpansiveClientsInfo.exit:                     ; preds = %for.body.i
   call void @totalNumberOfBlockingKeys(ptr noundef nonnull %blocking_keys, ptr noundef nonnull %blocking_keys_on_nokey) #38
@@ -15375,7 +15375,7 @@ connAddrPeerName.exit:                            ; preds = %land.lhs.true.i.i
 while.cond.backedge:                              ; preds = %if.then438, %land.lhs.true.i.i, %connAddrPeerName.exit, %replstateToString.exit
   %call435 = call ptr @listNext(ptr noundef nonnull %li) #38
   %tobool436.not = icmp eq ptr %call435, null
-  br i1 %tobool436.not, label %if.end463, label %while.body, !llvm.loop !72
+  br i1 %tobool436.not, label %if.end463, label %while.body, !llvm.loop !67
 
 if.end446:                                        ; preds = %connAddrPeerName.exit, %while.body
   %slaveip.0 = phi ptr [ %225, %while.body ], [ %ip, %connAddrPeerName.exit ]
@@ -15415,7 +15415,7 @@ if.end460:                                        ; preds = %if.end446, %replsta
   %inc462 = add nuw nsw i32 %slaveid.0.ph375, 1
   %call435369 = call ptr @listNext(ptr noundef nonnull %li) #38
   %tobool436.not370 = icmp eq ptr %call435369, null
-  br i1 %tobool436.not370, label %if.end463, label %while.body.lr.ph, !llvm.loop !72
+  br i1 %tobool436.not370, label %if.end463, label %while.body.lr.ph, !llvm.loop !67
 
 if.end463:                                        ; preds = %if.end460, %while.cond.backedge, %if.then434, %if.end431
   %info.18 = phi ptr [ %info.16, %if.end431 ], [ %info.16, %if.then434 ], [ %info.17.ph376, %while.cond.backedge ], [ %call461, %if.end460 ]
@@ -15608,7 +15608,7 @@ if.end572:                                        ; preds = %getSafeInfoString.e
   %call568340 = phi ptr [ %call568338, %getSafeInfoString.exit.thread ], [ %call568, %if.then571 ]
   %call562 = call i32 @raxNext(ptr noundef nonnull %ri) #38
   %tobool563.not = icmp eq i32 %call562, 0
-  br i1 %tobool563.not, label %if.end574, label %while.body564, !llvm.loop !73
+  br i1 %tobool563.not, label %if.end574, label %while.body564, !llvm.loop !68
 
 if.end574:                                        ; preds = %if.end572, %if.end558
   %info.27.lcssa = phi ptr [ %call559, %if.end558 ], [ %call568340, %if.end572 ]
@@ -15726,7 +15726,7 @@ for.inc:                                          ; preds = %if.then627, %for.bo
   %268 = load i32, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i64 0, i32 173), align 8
   %269 = sext i32 %268 to i64
   %cmp617 = icmp slt i64 %indvars.iv.next, %269
-  br i1 %cmp617, label %for.body, label %if.end633, !llvm.loop !74
+  br i1 %cmp617, label %for.body, label %if.end633, !llvm.loop !69
 
 if.end633:                                        ; preds = %for.inc, %if.end615, %lor.lhs.false606
   %sections.12 = phi i32 [ %sections.11356, %lor.lhs.false606 ], [ %inc611, %if.end615 ], [ %inc611, %for.inc ]
@@ -15983,7 +15983,7 @@ return:                                           ; preds = %if.end, %if.end5, %
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @checkIgnoreWarning(ptr nocapture noundef readonly %warning) local_unnamed_addr #0 {
+define dso_local range(i32 0, 2) i32 @checkIgnoreWarning(ptr nocapture noundef readonly %warning) local_unnamed_addr #0 {
 entry:
   %argc = alloca i32, align 4
   %0 = load ptr, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i64 0, i32 33), align 8
@@ -16011,7 +16011,7 @@ for.body:                                         ; preds = %for.body.preheader,
 for.inc:                                          ; preds = %for.body
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !75
+  br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !70
 
 for.end.loopexit.split.loop.exit:                 ; preds = %for.body
   %3 = trunc nuw nsw i64 %indvars.iv to i32
@@ -16365,7 +16365,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @changeListener(ptr noundef %listener) local_unnamed_addr #0 {
+define dso_local range(i32 -1, 1) i32 @changeListener(ptr noundef %listener) local_unnamed_addr #0 {
 entry:
   %count.i = getelementptr inbounds i8, ptr %listener, i64 64
   %0 = load i32, ptr %count.i, align 8
@@ -16393,7 +16393,7 @@ for.inc.i:                                        ; preds = %if.end.i, %for.body
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %6 = sext i32 %5 to i64
   %cmp.i = icmp slt i64 %indvars.iv.next.i, %6
-  br i1 %cmp.i, label %for.body.i, label %closeListener.exit, !llvm.loop !29
+  br i1 %cmp.i, label %for.body.i, label %closeListener.exit, !llvm.loop !26
 
 closeListener.exit:                               ; preds = %for.inc.i, %entry
   store i32 0, ptr %count.i, align 8
@@ -16460,14 +16460,14 @@ for.body4.i:                                      ; preds = %for.cond2.preheader
   %21 = load i32, ptr %arrayidx7.i, align 4
   tail call void @aeDeleteFileEvent(ptr noundef %20, i32 noundef %21, i32 noundef 1) #38
   %22 = icmp sgt i64 %indvars.iv20.i, 1
-  br i1 %22, label %for.body4.i, label %if.then9, !llvm.loop !30
+  br i1 %22, label %for.body4.i, label %if.then9, !llvm.loop !27
 
 for.inc8.i:                                       ; preds = %for.body.i10
   %indvars.iv.next.i15 = add nuw nsw i64 %indvars.iv.i11, 1
   %23 = load i32, ptr %count.i, align 8
   %24 = sext i32 %23 to i64
   %cmp.i16 = icmp slt i64 %indvars.iv.next.i15, %24
-  br i1 %cmp.i16, label %for.body.i10, label %if.end12, !llvm.loop !31
+  br i1 %cmp.i16, label %for.body.i10, label %if.end12, !llvm.loop !28
 
 if.then9:                                         ; preds = %for.body4.i, %for.cond2.preheader.i
   %25 = load ptr, ptr %ct.i, align 8
@@ -16507,7 +16507,7 @@ return:                                           ; preds = %return.sink.split, 
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @redisSetProcTitle(ptr noundef %title) local_unnamed_addr #0 {
+define dso_local range(i32 -1, 1) i32 @redisSetProcTitle(ptr noundef %title) local_unnamed_addr #0 {
 entry:
   %tobool.not = icmp eq ptr %title, null
   br i1 %tobool.not, label %if.then, label %if.end
@@ -16628,12 +16628,12 @@ for.body4.i:                                      ; preds = %for.cond2.preheader
   %3 = load i32, ptr %count.i, align 8
   %4 = sext i32 %3 to i64
   %cmp3.i = icmp slt i64 %indvars.iv.next.i, %4
-  br i1 %cmp3.i, label %for.body4.i, label %for.inc7.i, !llvm.loop !47
+  br i1 %cmp3.i, label %for.body4.i, label %for.inc7.i, !llvm.loop !43
 
 for.inc7.i:                                       ; preds = %for.body4.i, %for.cond2.preheader.i, %for.body.i
   %indvars.iv.next19.i = add nuw nsw i64 %indvars.iv18.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next19.i, 8
-  br i1 %exitcond.not.i, label %for.end9.i, label %for.body.i, !llvm.loop !48
+  br i1 %exitcond.not.i, label %for.end9.i, label %for.body.i, !llvm.loop !44
 
 for.end9.i:                                       ; preds = %for.inc7.i
   %5 = load i32, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i64 0, i32 362), align 4
@@ -16652,7 +16652,7 @@ for.body13.i:                                     ; preds = %for.end9.i, %for.bo
   %8 = load i32, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i64 0, i32 54, i32 1), align 8
   %9 = sext i32 %8 to i64
   %cmp12.i = icmp slt i64 %indvars.iv.next22.i, %9
-  br i1 %cmp12.i, label %for.body13.i, label %closeListeningSockets.exit.loopexit, !llvm.loop !49
+  br i1 %cmp12.i, label %for.body13.i, label %closeListeningSockets.exit.loopexit, !llvm.loop !45
 
 closeListeningSockets.exit.loopexit:              ; preds = %for.body13.i
   %.pre = load i32, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i64 0, i32 362), align 4
@@ -16726,7 +16726,7 @@ if.then8:                                         ; preds = %if.end5
   store ptr @sigKillChildHandler, ptr %act.i, align 8
   %call1.i = call i32 @sigaction(i32 noundef 10, ptr noundef nonnull %act.i, ptr noundef null) #38
   call void @llvm.lifetime.end.p0(i64 152, ptr nonnull %act.i)
-  %call9 = call i32 @setOOMScoreAdj(i32 noundef 2), !range !16
+  %call9 = call i32 @setOOMScoreAdj(i32 noundef 2)
   %3 = load i32, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i64 0, i32 9), align 8
   %cmp.not.i = icmp eq i32 %3, 0
   %4 = load i32, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i64 0, i32 42), align 8
@@ -16868,7 +16868,7 @@ if.end3.i:                                        ; preds = %land.lhs.true.i, %i
 dismissMemory.exit:                               ; preds = %land.lhs.true.i, %if.end3.i
   %call = call ptr @listNext(ptr noundef nonnull %li) #38
   %tobool1.not = icmp eq ptr %call, null
-  br i1 %tobool1.not, label %while.end, label %if.end.i, !llvm.loop !76
+  br i1 %tobool1.not, label %while.end, label %if.end.i, !llvm.loop !71
 
 while.end:                                        ; preds = %dismissMemory.exit, %if.end
   %5 = load ptr, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i64 0, i32 55), align 8
@@ -16884,7 +16884,7 @@ while.body5:                                      ; preds = %while.end, %while.b
   call void @dismissClientMemory(ptr noundef %6)
   %call3 = call ptr @listNext(ptr noundef nonnull %li) #38
   %tobool4.not = icmp eq ptr %call3, null
-  br i1 %tobool4.not, label %while.end7, label %while.body5, !llvm.loop !77
+  br i1 %tobool4.not, label %while.end7, label %while.body5, !llvm.loop !72
 
 while.end7:                                       ; preds = %while.body5, %while.end, %entry
   ret void
@@ -16993,7 +16993,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   %9 = load i32, ptr %argc, align 8
   %10 = sext i32 %9 to i64
   %cmp4 = icmp slt i64 %indvars.iv.next, %10
-  br i1 %cmp4, label %for.body, label %if.end, !llvm.loop !78
+  br i1 %cmp4, label %for.body, label %if.end, !llvm.loop !73
 
 if.end:                                           ; preds = %for.body
   %tobool7.not = icmp eq i32 %9, 0
@@ -17065,7 +17065,7 @@ if.end3.i36:                                      ; preds = %land.lhs.true.i33, 
 if.end25:                                         ; preds = %if.end3.i36, %land.lhs.true.i33, %while.body
   %call = call ptr @listNext(ptr noundef nonnull %li) #38
   %tobool22.not = icmp eq ptr %call, null
-  br i1 %tobool22.not, label %if.end26, label %while.body, !llvm.loop !79
+  br i1 %tobool22.not, label %if.end26, label %while.body, !llvm.loop !74
 
 if.end26:                                         ; preds = %if.end25, %if.then20, %land.lhs.true14, %if.end12
   ret void
@@ -17076,7 +17076,7 @@ declare void @dismissSds(ptr noundef) local_unnamed_addr #4
 declare void @dismissObject(ptr noundef, i64 noundef) local_unnamed_addr #4
 
 ; Function Attrs: nofree nounwind memory(read, inaccessiblemem: none) uwtable
-define dso_local noundef i32 @checkForSentinelMode(i32 noundef %argc, ptr nocapture noundef readonly %argv, ptr noundef readonly %exec_name) local_unnamed_addr #30 {
+define dso_local range(i32 0, 2) i32 @checkForSentinelMode(i32 noundef %argc, ptr nocapture noundef readonly %argv, ptr noundef readonly %exec_name) local_unnamed_addr #30 {
 entry:
   %call = tail call ptr @strstr(ptr noundef nonnull dereferenceable(1) %exec_name, ptr noundef nonnull dereferenceable(1) @.str.426) #39
   %cmp.not = icmp eq ptr %call, null
@@ -17093,7 +17093,7 @@ for.body.preheader:                               ; preds = %for.cond.preheader
 for.cond:                                         ; preds = %for.body
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %return, label %for.body, !llvm.loop !80
+  br i1 %exitcond.not, label %return, label %for.body, !llvm.loop !75
 
 for.body:                                         ; preds = %for.body.preheader, %for.cond
   %indvars.iv = phi i64 [ 1, %for.body.preheader ], [ %indvars.iv.next, %for.cond ]
@@ -17349,7 +17349,7 @@ do.end:                                           ; preds = %entry, %if.end
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @validateProcTitleTemplate(ptr noundef %template) local_unnamed_addr #0 {
+define dso_local range(i32 0, 2) i32 @validateProcTitleTemplate(ptr noundef %template) local_unnamed_addr #0 {
 entry:
   %call.i = tail call ptr @sdstemplate(ptr noundef %template, ptr noundef nonnull @redisProcTitleGetVariable, ptr noundef nonnull @.str.219) #38
   %tobool.not.i = icmp eq ptr %call.i, null
@@ -17434,7 +17434,7 @@ declare void @setcpuaffinity(ptr noundef) local_unnamed_addr #4
 declare i32 @sd_notify(i32 noundef, ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @redisIsSupervised(i32 noundef %mode) local_unnamed_addr #0 {
+define dso_local range(i32 0, 2) i32 @redisIsSupervised(i32 noundef %mode) local_unnamed_addr #0 {
 entry:
   switch i32 %mode, label %if.end20 [
     i32 1, label %if.then
@@ -17615,7 +17615,7 @@ for.body.preheader.i:                             ; preds = %for.cond.preheader.
 for.cond.i:                                       ; preds = %for.body.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %checkForSentinelMode.exit, label %for.body.i, !llvm.loop !80
+  br i1 %exitcond.not.i, label %checkForSentinelMode.exit, label %for.body.i, !llvm.loop !75
 
 for.body.i:                                       ; preds = %for.cond.i, %for.body.preheader.i
   %indvars.iv.i = phi i64 [ 1, %for.body.preheader.i ], [ %indvars.iv.next.i, %for.cond.i ]
@@ -17660,7 +17660,7 @@ for.body:                                         ; preds = %for.body.preheader,
   store ptr %call35, ptr %arrayidx37, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !81
+  br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !76
 
 for.end:                                          ; preds = %for.body, %checkForSentinelMode.exit
   %8 = load i32, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i64 0, i32 27), align 4
@@ -17964,7 +17964,7 @@ if.end255:                                        ; preds = %land.lhs.true126, %
   %config_from_stdin.1 = phi i8 [ %config_from_stdin.0169, %if.end245 ], [ %config_from_stdin.0169, %if.else246 ], [ 1, %land.lhs.true126 ]
   %indvars.iv.next177 = add nuw nsw i64 %indvars.iv176, 1
   %exitcond179.not = icmp eq i64 %indvars.iv.next177, %wide.trip.count178
-  br i1 %exitcond179.not, label %while.end, label %while.body, !llvm.loop !82
+  br i1 %exitcond179.not, label %while.end, label %while.body, !llvm.loop !77
 
 while.end:                                        ; preds = %if.end255, %if.end111
   %options.0.lcssa = phi ptr [ %call55, %if.end111 ], [ %options.3, %if.end255 ]
@@ -18016,12 +18016,12 @@ do.end:                                           ; preds = %do.body, %if.end271
 
 if.end272:                                        ; preds = %do.end, %if.end263
   %47 = load i32, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i64 0, i32 175), align 8
-  %call273 = call i32 @redisIsSupervised(i32 noundef %47), !range !13
+  %call273 = call i32 @redisIsSupervised(i32 noundef %47)
   store i32 %call273, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i64 0, i32 174), align 4
   %48 = load i32, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i64 0, i32 176), align 4
   %tobool274 = icmp ne i32 %48, 0
   %tobool275.not = icmp eq i32 %call273, 0
-  %49 = and i1 %tobool275.not, %tobool274
+  %49 = select i1 %tobool274, i1 %tobool275.not, i1 false
   br i1 %49, label %if.then277, label %do.body279
 
 if.then277:                                       ; preds = %if.end272
@@ -18233,7 +18233,7 @@ for.inc370:                                       ; preds = %if.end366, %for.bod
   %70 = phi i32 [ %.pre184, %if.end366 ], [ %67, %for.body355 ]
   %indvars.iv.next181 = add nuw nsw i64 %indvars.iv180, 1
   %exitcond183.not = icmp eq i64 %indvars.iv.next181, 8
-  br i1 %exitcond183.not, label %for.end372, label %for.body355, !llvm.loop !83
+  br i1 %exitcond183.not, label %for.end372, label %for.body355, !llvm.loop !78
 
 for.end372:                                       ; preds = %for.inc370
   %71 = load i32, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i64 0, i32 175), align 8
@@ -18392,7 +18392,7 @@ if.end402:                                        ; preds = %if.end391
 if.end404:                                        ; preds = %if.end402, %if.end391
   %87 = load ptr, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i64 0, i32 406), align 8
   call void @setcpuaffinity(ptr noundef %87) #38
-  %call405 = call i32 @setOOMScoreAdj(i32 noundef -1), !range !16
+  %call405 = call i32 @setOOMScoreAdj(i32 noundef -1)
   %88 = load ptr, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i64 0, i32 14), align 8
   call void @aeMain(ptr noundef %88) #38
   %89 = load ptr, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i64 0, i32 14), align 8
@@ -18806,13 +18806,13 @@ attributes #44 = { cold }
 !7 = distinct !{!7, !6}
 !8 = distinct !{!8, !6}
 !9 = distinct !{!9, !6}
-!10 = !{i64 0, i64 65}
+!10 = distinct !{!10, !6}
 !11 = distinct !{!11, !6}
 !12 = distinct !{!12, !6}
-!13 = !{i32 0, i32 2}
+!13 = distinct !{!13, !6}
 !14 = distinct !{!14, !6}
 !15 = distinct !{!15, !6}
-!16 = !{i32 -1, i32 1}
+!16 = distinct !{!16, !6}
 !17 = distinct !{!17, !6}
 !18 = distinct !{!18, !6}
 !19 = distinct !{!19, !6}
@@ -18842,13 +18842,13 @@ attributes #44 = { cold }
 !43 = distinct !{!43, !6}
 !44 = distinct !{!44, !6}
 !45 = distinct !{!45, !6}
-!46 = !{i32 0, i32 3}
+!46 = distinct !{!46, !6}
 !47 = distinct !{!47, !6}
 !48 = distinct !{!48, !6}
 !49 = distinct !{!49, !6}
 !50 = distinct !{!50, !6}
 !51 = distinct !{!51, !6}
-!52 = !{i4 0, i4 5}
+!52 = distinct !{!52, !6}
 !53 = distinct !{!53, !6}
 !54 = distinct !{!54, !6}
 !55 = distinct !{!55, !6}
@@ -18875,8 +18875,3 @@ attributes #44 = { cold }
 !76 = distinct !{!76, !6}
 !77 = distinct !{!77, !6}
 !78 = distinct !{!78, !6}
-!79 = distinct !{!79, !6}
-!80 = distinct !{!80, !6}
-!81 = distinct !{!81, !6}
-!82 = distinct !{!82, !6}
-!83 = distinct !{!83, !6}

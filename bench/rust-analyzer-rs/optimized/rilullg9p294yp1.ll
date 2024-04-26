@@ -25726,7 +25726,7 @@ define hidden noundef nonnull ptr @"_ZN99_$LT$arrayvec..arrayvec..ArrayVec$LT$T$
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
-define hidden noundef i64 @"_ZN99_$LT$arrayvec..arrayvec..ArrayVec$LT$T$C$_$GT$$u20$as$u20$arrayvec..arrayvec_impl..ArrayVecImpl$GT$3len17h6abcf9a4e7d09118E.llvm.14583280071648273458"(ptr noalias nocapture noundef readonly align 4 dereferenceable(44) %0) unnamed_addr #16 {
+define hidden noundef range(i64 0, 4294967296) i64 @"_ZN99_$LT$arrayvec..arrayvec..ArrayVec$LT$T$C$_$GT$$u20$as$u20$arrayvec..arrayvec_impl..ArrayVecImpl$GT$3len17h6abcf9a4e7d09118E.llvm.14583280071648273458"(ptr noalias nocapture noundef readonly align 4 dereferenceable(44) %0) unnamed_addr #16 {
   %2 = getelementptr inbounds i8, ptr %0, i64 40
   %3 = load i32, ptr %2, align 4, !noundef !4
   %4 = zext i32 %3 to i64
@@ -36722,7 +36722,7 @@ common.resume:                                    ; preds = %9, %13, %"_ZN63_$LT
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden noundef i8 @_ZN6ide_db7imports10insert_use11ImportGroup3new17h5d0ee2315149e395E(ptr noalias noundef readonly align 8 dereferenceable(8) %0) unnamed_addr #2 personality ptr @rust_eh_personality {
+define hidden noundef range(i8 0, 6) i8 @_ZN6ide_db7imports10insert_use11ImportGroup3new17h5d0ee2315149e395E(ptr noalias noundef readonly align 8 dereferenceable(8) %0) unnamed_addr #2 personality ptr @rust_eh_personality {
   %2 = alloca { { ptr, [1 x i64] } }, align 8
   %3 = alloca ptr, align 8
   %4 = alloca { i64, [2 x i64] }, align 8

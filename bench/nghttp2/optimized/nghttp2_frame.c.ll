@@ -569,7 +569,7 @@ return:                                           ; preds = %entry, %if.end
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef i64 @nghttp2_frame_priority_len(i8 noundef zeroext %flags) local_unnamed_addr #5 {
+define hidden noundef range(i64 0, 6) i64 @nghttp2_frame_priority_len(i8 noundef zeroext %flags) local_unnamed_addr #5 {
 entry:
   %0 = and i8 %flags, 32
   %tobool.not = icmp eq i8 %0, 0
@@ -578,7 +578,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden i64 @nghttp2_frame_headers_payload_nv_offset(ptr nocapture noundef readonly %frame) local_unnamed_addr #7 {
+define hidden range(i64 0, 6) i64 @nghttp2_frame_headers_payload_nv_offset(ptr nocapture noundef readonly %frame) local_unnamed_addr #7 {
 entry:
   %flags = getelementptr inbounds i8, ptr %frame, i64 13
   %0 = load i8, ptr %flags, align 1
@@ -1009,7 +1009,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @nghttp2_frame_pack_settings(ptr nocapture noundef readonly %bufs, ptr nocapture noundef readonly %frame) local_unnamed_addr #0 {
+define hidden range(i32 -522, 1) i32 @nghttp2_frame_pack_settings(ptr nocapture noundef readonly %bufs, ptr nocapture noundef readonly %frame) local_unnamed_addr #0 {
 entry:
   %0 = load ptr, ptr %bufs, align 8
   %cur = getelementptr inbounds i8, ptr %bufs, i64 8
@@ -1149,7 +1149,7 @@ entry:
 declare zeroext i16 @nghttp2_get_uint16(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @nghttp2_frame_unpack_settings_payload2(ptr nocapture noundef %iv_ptr, ptr nocapture noundef %niv_ptr, ptr noundef %payload, i64 noundef %payloadlen, ptr noundef %mem) local_unnamed_addr #0 {
+define hidden range(i32 -901, 1) i32 @nghttp2_frame_unpack_settings_payload2(ptr nocapture noundef %iv_ptr, ptr nocapture noundef %niv_ptr, ptr noundef %payload, i64 noundef %payloadlen, ptr noundef %mem) local_unnamed_addr #0 {
 entry:
   %div = udiv i64 %payloadlen, 6
   store i64 %div, ptr %niv_ptr, align 8
@@ -1325,7 +1325,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @nghttp2_frame_pack_goaway(ptr noundef %bufs, ptr nocapture noundef readonly %frame) local_unnamed_addr #0 {
+define hidden range(i32 -501, -502) i32 @nghttp2_frame_pack_goaway(ptr noundef %bufs, ptr nocapture noundef readonly %frame) local_unnamed_addr #0 {
 entry:
   %0 = load ptr, ptr %bufs, align 8
   %cur = getelementptr inbounds i8, ptr %bufs, i64 8
@@ -1414,7 +1414,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @nghttp2_frame_unpack_goaway_payload2(ptr nocapture noundef writeonly %frame, ptr noundef %payload, i64 noundef %payloadlen, ptr noundef %mem) local_unnamed_addr #0 {
+define hidden range(i32 -901, 1) i32 @nghttp2_frame_unpack_goaway_payload2(ptr nocapture noundef writeonly %frame, ptr noundef %payload, i64 noundef %payloadlen, ptr noundef %mem) local_unnamed_addr #0 {
 entry:
   %var_gift_payloadlen.0 = tail call i64 @llvm.usub.sat.i64(i64 %payloadlen, i64 8)
   %tobool.not = icmp ult i64 %payloadlen, 9
@@ -1620,17 +1620,14 @@ entry:
   store i64 %origin_len, ptr %origin_len2, align 8
   %field_value = getelementptr inbounds i8, ptr %0, i64 16
   store ptr %add.ptr, ptr %field_value, align 8
-  %add.ptr3 = getelementptr inbounds i8, ptr %payload, i64 %payloadlen
-  %sub.ptr.lhs.cast = ptrtoint ptr %add.ptr3 to i64
-  %sub.ptr.rhs.cast = ptrtoint ptr %add.ptr to i64
-  %sub.ptr.sub = sub i64 %sub.ptr.lhs.cast, %sub.ptr.rhs.cast
+  %gepdiff = sub nsw i64 %payloadlen, %origin_len
   %field_value_len = getelementptr inbounds i8, ptr %0, i64 24
-  store i64 %sub.ptr.sub, ptr %field_value_len, align 8
+  store i64 %gepdiff, ptr %field_value_len, align 8
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @nghttp2_frame_unpack_altsvc_payload2(ptr nocapture noundef readonly %frame, ptr noundef %payload, i64 noundef %payloadlen, ptr noundef %mem) local_unnamed_addr #0 {
+define hidden range(i32 -901, 7) i32 @nghttp2_frame_unpack_altsvc_payload2(ptr nocapture noundef readonly %frame, ptr noundef %payload, i64 noundef %payloadlen, ptr noundef %mem) local_unnamed_addr #0 {
 entry:
   %cmp = icmp ult i64 %payloadlen, 2
   br i1 %cmp, label %return, label %if.end
@@ -1654,12 +1651,9 @@ if.end3:                                          ; preds = %if.end
   store i64 %conv, ptr %origin_len2.i, align 8
   %field_value.i = getelementptr inbounds i8, ptr %0, i64 16
   store ptr %add.ptr.i, ptr %field_value.i, align 8
-  %add.ptr3.i = getelementptr inbounds i8, ptr %call1, i64 %sub
-  %sub.ptr.lhs.cast.i = ptrtoint ptr %add.ptr3.i to i64
-  %sub.ptr.rhs.cast.i = ptrtoint ptr %add.ptr.i to i64
-  %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
+  %gepdiff.i = sub nsw i64 %sub, %conv
   %field_value_len.i = getelementptr inbounds i8, ptr %0, i64 24
-  store i64 %sub.ptr.sub.i, ptr %field_value_len.i, align 8
+  store i64 %gepdiff.i, ptr %field_value_len.i, align 8
   br label %return
 
 return:                                           ; preds = %if.end, %entry, %if.end3
@@ -1668,7 +1662,7 @@ return:                                           ; preds = %if.end, %entry, %if
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @nghttp2_frame_pack_origin(ptr nocapture noundef readonly %bufs, ptr nocapture noundef readonly %frame) local_unnamed_addr #0 {
+define hidden range(i32 -522, 1) i32 @nghttp2_frame_pack_origin(ptr nocapture noundef readonly %bufs, ptr nocapture noundef readonly %frame) local_unnamed_addr #0 {
 entry:
   %payload = getelementptr inbounds i8, ptr %frame, i64 16
   %0 = load ptr, ptr %payload, align 8
@@ -1756,7 +1750,7 @@ return:                                           ; preds = %for.end, %entry
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @nghttp2_frame_unpack_origin_payload(ptr nocapture noundef readonly %frame, ptr noundef %payload, i64 noundef %payloadlen, ptr noundef %mem) local_unnamed_addr #0 {
+define hidden range(i32 -901, 1) i32 @nghttp2_frame_unpack_origin_payload(ptr nocapture noundef readonly %frame, ptr noundef %payload, i64 noundef %payloadlen, ptr noundef %mem) local_unnamed_addr #0 {
 entry:
   %payload1 = getelementptr inbounds i8, ptr %frame, i64 16
   %0 = load ptr, ptr %payload1, align 8
@@ -1971,7 +1965,7 @@ return:                                           ; preds = %if.end, %entry, %if
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @nghttp2_nv_equal(ptr nocapture noundef readonly %a, ptr nocapture noundef readonly %b) local_unnamed_addr #0 {
+define hidden range(i32 0, 2) i32 @nghttp2_nv_equal(ptr nocapture noundef readonly %a, ptr nocapture noundef readonly %b) local_unnamed_addr #0 {
 entry:
   %namelen = getelementptr inbounds i8, ptr %a, i64 16
   %0 = load i64, ptr %namelen, align 8
@@ -2162,7 +2156,7 @@ return:                                           ; preds = %if.then2.i, %if.end
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @nghttp2_nv_array_copy(ptr nocapture noundef writeonly %nva_ptr, ptr nocapture noundef readonly %nva, i64 noundef %nvlen, ptr noundef %mem) local_unnamed_addr #0 {
+define hidden range(i32 -901, 1) i32 @nghttp2_nv_array_copy(ptr nocapture noundef writeonly %nva_ptr, ptr nocapture noundef readonly %nva, i64 noundef %nvlen, ptr noundef %mem) local_unnamed_addr #0 {
 entry:
   %cmp = icmp eq i64 %nvlen, 0
   br i1 %cmp, label %if.then, label %for.body
@@ -2325,7 +2319,7 @@ return:                                           ; preds = %if.end95, %for.end,
 declare void @nghttp2_downcase(ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read) uwtable
-define hidden noundef i32 @nghttp2_iv_check(ptr nocapture noundef readonly %iv, i64 noundef %niv) local_unnamed_addr #15 {
+define hidden range(i32 0, 2) i32 @nghttp2_iv_check(ptr nocapture noundef readonly %iv, i64 noundef %niv) local_unnamed_addr #15 {
 entry:
   %cmp26.not = icmp eq i64 %niv, 0
   br i1 %cmp26.not, label %return, label %for.body

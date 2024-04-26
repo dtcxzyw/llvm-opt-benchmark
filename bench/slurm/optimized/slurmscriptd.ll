@@ -205,7 +205,7 @@ define internal noundef zeroext i1 @_msg_readable(ptr nocapture noundef readonly
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @_msg_accept(ptr nocapture noundef readonly %0, ptr nocapture readnone %1) #0 {
+define internal range(i32 -1, 1) i32 @_msg_accept(ptr nocapture noundef readonly %0, ptr nocapture readnone %1) #0 {
   %3 = alloca i32, align 4
   %4 = alloca i32, align 4
   %5 = alloca i64, align 8
@@ -724,7 +724,7 @@ _script_resp_map_add.exit:                        ; preds = %26
 _incr_script_cnt.exit:                            ; preds = %43, %37
   %49 = load i32, ptr @slurmctld_writefd, align 4
   %50 = load i32, ptr %35, align 8
-  %51 = call fastcc i32 @_write_msg(i32 noundef %49, i32 noundef %50, ptr noundef %7), !range !10
+  %51 = call fastcc i32 @_write_msg(i32 noundef %49, i32 noundef %50, ptr noundef %7)
   %52 = icmp eq i32 %51, 0
   %brmerge.not = and i1 %52, %2
   br i1 %brmerge.not, label %53, label %_script_resp_map_remove.exit
@@ -1110,7 +1110,7 @@ declare i32 @env_array_append(ptr noundef, ptr noundef, ptr noundef) local_unnam
 declare i32 @env_array_append_fmt(ptr noundef, ptr noundef, ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @slurmscriptd_run_bb_lua(i32 noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, i32 noundef %4, ptr noundef readonly %5, ptr noundef %6, ptr noundef %7) local_unnamed_addr #0 {
+define dso_local range(i32 -1, 256) i32 @slurmscriptd_run_bb_lua(i32 noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, i32 noundef %4, ptr noundef readonly %5, ptr noundef %6, ptr noundef %7) local_unnamed_addr #0 {
   %9 = alloca %struct.run_script_msg_t, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %9, i8 0, i64 80, i1 false)
   store i32 %2, ptr %9, align 8
@@ -1389,7 +1389,7 @@ define dso_local void @slurmscriptd_update_debug_flags(i64 noundef %0) local_unn
 8:                                                ; preds = %1
   %9 = load i32, ptr @slurmctld_writefd, align 4
   %10 = load i32, ptr %6, align 8
-  %11 = call fastcc i32 @_write_msg(i32 noundef %9, i32 noundef %10, ptr noundef %4), !range !10
+  %11 = call fastcc i32 @_write_msg(i32 noundef %9, i32 noundef %10, ptr noundef %4)
   br label %_script_resp_map_remove.exit.i
 
 _script_resp_map_remove.exit.i:                   ; preds = %8, %1
@@ -1428,7 +1428,7 @@ define dso_local void @slurmscriptd_update_log_level(i32 noundef %0, i1 noundef 
 11:                                               ; preds = %2
   %12 = load i32, ptr @slurmctld_writefd, align 4
   %13 = load i32, ptr %9, align 8
-  %14 = call fastcc i32 @_write_msg(i32 noundef %12, i32 noundef %13, ptr noundef %7), !range !10
+  %14 = call fastcc i32 @_write_msg(i32 noundef %12, i32 noundef %13, ptr noundef %7)
   br label %_script_resp_map_remove.exit.i
 
 _script_resp_map_remove.exit.i:                   ; preds = %11, %2
@@ -1867,8 +1867,9 @@ define internal fastcc void @_kill_slurmscriptd() unnamed_addr #0 {
 13:                                               ; preds = %8
   %14 = load i32, ptr @slurmctld_writefd, align 4
   %15 = load i32, ptr %11, align 8
-  %16 = call fastcc i32 @_write_msg(i32 noundef %14, i32 noundef %15, ptr noundef %10), !range !10
-  %17 = icmp eq i32 %16, 0
+  %16 = call fastcc i32 @_write_msg(i32 noundef %14, i32 noundef %15, ptr noundef %10)
+  %.fr = freeze i32 %16
+  %17 = icmp eq i32 %.fr, 0
   br label %_script_resp_map_remove.exit.i
 
 _script_resp_map_remove.exit.i:                   ; preds = %13, %8
@@ -1941,7 +1942,7 @@ _send_to_slurmscriptd.exit:                       ; preds = %_script_resp_map_re
   %43 = load i32, ptr @script_count, align 4
   %44 = icmp ne i32 %43, 0
   %or.cond3 = select i1 %42, i1 %44, i1 false
-  br i1 %or.cond3, label %.lr.ph.split, label %._crit_edge, !llvm.loop !11
+  br i1 %or.cond3, label %.lr.ph.split, label %._crit_edge, !llvm.loop !10
 
 ._crit_edge:                                      ; preds = %40, %.preheader20
   %45 = call i32 @pthread_mutex_unlock(ptr noundef nonnull @script_count_mutex) #11
@@ -1978,7 +1979,7 @@ _send_to_slurmscriptd.exit:                       ; preds = %_script_resp_map_re
   %60 = tail call ptr @__errno_location() #12
   %61 = load i32, ptr %60, align 4
   %62 = icmp eq i32 %61, 4
-  br i1 %62, label %.preheader, label %63, !llvm.loop !12
+  br i1 %62, label %.preheader, label %63, !llvm.loop !11
 
 63:                                               ; preds = %59
   %64 = call i32 (ptr, ...) @error(ptr noundef nonnull @.str.91, ptr noundef nonnull @__func__._kill_slurmscriptd) #11
@@ -2284,7 +2285,7 @@ define internal fastcc void @_wait_for_powersave_scripts() unnamed_addr #0 {
 25:                                               ; preds = %19, %19, %22
   %26 = call i64 @time(ptr noundef null) #11
   %27 = icmp slt i64 %26, %8
-  br i1 %27, label %9, label %28, !llvm.loop !13
+  br i1 %27, label %9, label %28, !llvm.loop !12
 
 28:                                               ; preds = %25, %9
   %29 = call i32 @pthread_mutex_unlock(ptr noundef nonnull @powersave_script_count_mutex) #11
@@ -2333,7 +2334,7 @@ define internal fastcc void @_wait_for_powersave_scripts() unnamed_addr #0 {
 44:                                               ; preds = %.preheader, %.preheader, %41
   %45 = load i32, ptr @powersave_script_count, align 4
   %.not42 = icmp eq i32 %45, 0
-  br i1 %.not42, label %46, label %.preheader, !llvm.loop !14
+  br i1 %.not42, label %46, label %.preheader, !llvm.loop !13
 
 46:                                               ; preds = %44
   %47 = call i32 @pthread_mutex_unlock(ptr noundef nonnull @powersave_script_count_mutex) #11
@@ -2447,7 +2448,7 @@ define internal noalias noundef ptr @_handle_accept(ptr noundef %0) #0 {
 41:                                               ; preds = %34
   %42 = load i32, ptr @slurmscriptd_writefd, align 4
   %43 = load i32, ptr %38, align 8
-  %44 = call fastcc i32 @_write_msg(i32 noundef %42, i32 noundef %43, ptr noundef %36), !range !10
+  %44 = call fastcc i32 @_write_msg(i32 noundef %42, i32 noundef %43, ptr noundef %36)
   br label %45
 
 45:                                               ; preds = %41, %34
@@ -2716,7 +2717,7 @@ _handle_flush_job.exit.i:                         ; preds = %55, %52, %47
   br label %.lr.ph.split.us.i.i.i.i.backedge
 
 .lr.ph.split.us.i.i.i.i.backedge:                 ; preds = %181, %178
-  br label %.lr.ph.split.us.i.i.i.i, !llvm.loop !15
+  br label %.lr.ph.split.us.i.i.i.i, !llvm.loop !14
 
 .loopexit.i.i.i.i:                                ; preds = %.split.us.i.i.i.i, %170, %.split28.us.i.i.i.i, %153, %145
   call void @_exit(i32 noundef %151) #13
@@ -2846,7 +2847,7 @@ _run_bb_script.exit.i.i:                          ; preds = %185, %135, %129
 253:                                              ; preds = %232
   %254 = load i32, ptr @slurmscriptd_writefd, align 4
   %255 = load i32, ptr %250, align 8
-  %256 = call fastcc i32 @_write_msg(i32 noundef %254, i32 noundef %255, ptr noundef %243), !range !10
+  %256 = call fastcc i32 @_write_msg(i32 noundef %254, i32 noundef %255, ptr noundef %243)
   br label %257
 
 257:                                              ; preds = %253, %232
@@ -3268,7 +3269,7 @@ declare ptr @init_buf(i32 noundef) local_unnamed_addr #1
 declare i32 @slurmscriptd_pack_msg(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @_write_msg(i32 noundef %0, i32 noundef %1, ptr noundef readonly %2) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @_write_msg(i32 noundef %0, i32 noundef %1, ptr noundef readonly %2) unnamed_addr #0 {
   %4 = alloca i32, align 4
   %5 = alloca i32, align 4
   store i32 %1, ptr %4, align 4
@@ -3311,7 +3312,7 @@ define internal fastcc noundef i32 @_write_msg(i32 noundef %0, i32 noundef %1, p
   br label %.lr.ph.split.us.backedge
 
 .lr.ph.split.us.backedge:                         ; preds = %19, %16
-  br label %.lr.ph.split.us, !llvm.loop !16
+  br label %.lr.ph.split.us, !llvm.loop !15
 
 .lr.ph.split.us:                                  ; preds = %3, %.lr.ph.split.us.backedge
   %.057.ph119 = phi i32 [ %14, %.lr.ph.split.us.backedge ], [ 4, %3 ]
@@ -3403,7 +3404,7 @@ define internal fastcc noundef i32 @_write_msg(i32 noundef %0, i32 noundef %1, p
   br label %.lr.ph121.split.us.backedge
 
 .lr.ph121.split.us.backedge:                      ; preds = %55, %52
-  br label %.lr.ph121.split.us, !llvm.loop !17
+  br label %.lr.ph121.split.us, !llvm.loop !16
 
 .outer86._crit_edge:                              ; preds = %.split124.us
   %56 = icmp sgt i32 %33, 0
@@ -3468,7 +3469,7 @@ define internal fastcc noundef i32 @_write_msg(i32 noundef %0, i32 noundef %1, p
   br label %.lr.ph140.split.us.backedge
 
 .lr.ph140.split.us.backedge:                      ; preds = %78, %75
-  br label %.lr.ph140.split.us, !llvm.loop !18
+  br label %.lr.ph140.split.us, !llvm.loop !17
 
 .split164:                                        ; preds = %95
   %79 = tail call i32 @get_log_level() #11
@@ -3498,7 +3499,7 @@ define internal fastcc noundef i32 @_write_msg(i32 noundef %0, i32 noundef %1, p
   br label %.lr.ph158.split.us.backedge
 
 .lr.ph158.split.us.backedge:                      ; preds = %89, %86
-  br label %.lr.ph158.split.us, !llvm.loop !19
+  br label %.lr.ph158.split.us, !llvm.loop !18
 
 .lr.ph158.split.us:                               ; preds = %.outer88._crit_edge, %.lr.ph158.split.us.backedge
   %.059.ph174 = phi ptr [ %83, %.lr.ph158.split.us.backedge ], [ %5, %.outer88._crit_edge ]
@@ -3863,7 +3864,7 @@ attributes #14 = { nounwind willreturn memory(read) }
 !7 = distinct !{!7, !8}
 !8 = !{!"llvm.loop.mustprogress"}
 !9 = distinct !{!9, !8}
-!10 = !{i32 -1, i32 1}
+!10 = distinct !{!10, !8}
 !11 = distinct !{!11, !8}
 !12 = distinct !{!12, !8}
 !13 = distinct !{!13, !8}
@@ -3872,4 +3873,3 @@ attributes #14 = { nounwind willreturn memory(read) }
 !16 = distinct !{!16, !8}
 !17 = distinct !{!17, !8}
 !18 = distinct !{!18, !8}
-!19 = distinct !{!19, !8}

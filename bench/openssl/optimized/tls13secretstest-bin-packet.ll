@@ -6,7 +6,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str = private unnamed_addr constant [27 x i8] c"../openssl/crypto/packet.c\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @WPACKET_allocate_bytes(ptr nocapture noundef %pkt, i64 noundef %len, ptr noundef writeonly %allocbytes) local_unnamed_addr #0 {
+define dso_local range(i32 0, 2) i32 @WPACKET_allocate_bytes(ptr nocapture noundef %pkt, i64 noundef %len, ptr noundef writeonly %allocbytes) local_unnamed_addr #0 {
 entry:
   %subs.i = getelementptr inbounds i8, ptr %pkt, i64 40
   %0 = load ptr, ptr %subs.i, align 8
@@ -122,7 +122,7 @@ return:                                           ; preds = %if.then15.i, %if.en
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @WPACKET_reserve_bytes(ptr nocapture noundef readonly %pkt, i64 noundef %len, ptr noundef writeonly %allocbytes) local_unnamed_addr #0 {
+define dso_local range(i32 0, 2) i32 @WPACKET_reserve_bytes(ptr nocapture noundef readonly %pkt, i64 noundef %len, ptr noundef writeonly %allocbytes) local_unnamed_addr #0 {
 entry:
   %subs = getelementptr inbounds i8, ptr %pkt, i64 40
   %0 = load ptr, ptr %subs, align 8
@@ -229,7 +229,7 @@ return:                                           ; preds = %return.sink.split, 
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @WPACKET_sub_allocate_bytes__(ptr nocapture noundef %pkt, i64 noundef %len, ptr noundef %allocbytes, i64 noundef %lenbytes) local_unnamed_addr #0 {
+define dso_local range(i32 0, 2) i32 @WPACKET_sub_allocate_bytes__(ptr nocapture noundef %pkt, i64 noundef %len, ptr noundef %allocbytes, i64 noundef %lenbytes) local_unnamed_addr #0 {
 entry:
   %lenchars.i = alloca ptr, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %lenchars.i)
@@ -279,13 +279,13 @@ WPACKET_start_sub_packet_len__.exit.thread:       ; preds = %entry, %land.lhs.tr
 
 WPACKET_start_sub_packet_len__.exit:              ; preds = %if.end13.i
   store i64 %2, ptr %packet_len.i, align 8
-  %call23.i = call i32 @WPACKET_allocate_bytes(ptr noundef nonnull %pkt, i64 noundef %lenbytes, ptr noundef nonnull %lenchars.i), !range !5
+  %call23.i = call i32 @WPACKET_allocate_bytes(ptr noundef nonnull %pkt, i64 noundef %lenbytes, ptr noundef nonnull %lenchars.i)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %lenchars.i)
   %tobool.not = icmp eq i32 %call23.i, 0
   br i1 %tobool.not, label %return, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %WPACKET_start_sub_packet_len__.exit.thread9, %WPACKET_start_sub_packet_len__.exit
-  %call1 = call i32 @WPACKET_allocate_bytes(ptr noundef nonnull %pkt, i64 noundef %len, ptr noundef %allocbytes), !range !5
+  %call1 = call i32 @WPACKET_allocate_bytes(ptr noundef nonnull %pkt, i64 noundef %len, ptr noundef %allocbytes)
   %tobool2.not = icmp eq i32 %call1, 0
   br i1 %tobool2.not, label %return, label %lor.lhs.false3
 
@@ -300,8 +300,9 @@ lor.lhs.false.i:                                  ; preds = %lor.lhs.false3
   br i1 %cmp2.i, label %WPACKET_close.exit.thread, label %WPACKET_close.exit
 
 WPACKET_close.exit:                               ; preds = %lor.lhs.false.i
-  %call.i5 = call fastcc i32 @wpacket_intern_close(ptr noundef nonnull %pkt, ptr noundef nonnull %3, i32 noundef 1), !range !5
-  %tobool5.not = icmp eq i32 %call.i5, 0
+  %call.i5 = call fastcc i32 @wpacket_intern_close(ptr noundef nonnull %pkt, ptr noundef nonnull %3, i32 noundef 1)
+  %call.i5.fr = freeze i32 %call.i5
+  %tobool5.not = icmp eq i32 %call.i5.fr, 0
   br i1 %tobool5.not, label %WPACKET_close.exit.thread, label %return
 
 WPACKET_close.exit.thread:                        ; preds = %lor.lhs.false3, %lor.lhs.false.i, %WPACKET_close.exit
@@ -313,7 +314,7 @@ return:                                           ; preds = %WPACKET_close.exit.
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @WPACKET_start_sub_packet_len__(ptr nocapture noundef %pkt, i64 noundef %lenbytes) local_unnamed_addr #0 {
+define dso_local range(i32 0, 2) i32 @WPACKET_start_sub_packet_len__(ptr nocapture noundef %pkt, i64 noundef %lenbytes) local_unnamed_addr #0 {
 entry:
   %lenchars = alloca ptr, align 8
   %subs = getelementptr inbounds i8, ptr %pkt, i64 40
@@ -357,7 +358,7 @@ if.then19:                                        ; preds = %if.end13
 
 if.end20:                                         ; preds = %if.end13
   store i64 %2, ptr %packet_len, align 8
-  %call23 = call i32 @WPACKET_allocate_bytes(ptr noundef nonnull %pkt, i64 noundef %lenbytes, ptr noundef nonnull %lenchars), !range !5
+  %call23 = call i32 @WPACKET_allocate_bytes(ptr noundef nonnull %pkt, i64 noundef %lenbytes, ptr noundef nonnull %lenchars)
   br label %return
 
 return:                                           ; preds = %if.end20, %if.end9, %land.lhs.true, %entry, %if.then19
@@ -366,7 +367,7 @@ return:                                           ; preds = %if.end20, %if.end9,
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @WPACKET_close(ptr nocapture noundef %pkt) local_unnamed_addr #0 {
+define dso_local range(i32 0, 2) i32 @WPACKET_close(ptr nocapture noundef %pkt) local_unnamed_addr #0 {
 entry:
   %subs = getelementptr inbounds i8, ptr %pkt, i64 40
   %0 = load ptr, ptr %subs, align 8
@@ -379,7 +380,7 @@ lor.lhs.false:                                    ; preds = %entry
   br i1 %cmp2, label %return, label %if.end
 
 if.end:                                           ; preds = %lor.lhs.false
-  %call = tail call fastcc i32 @wpacket_intern_close(ptr noundef nonnull %pkt, ptr noundef nonnull %0, i32 noundef 1), !range !5
+  %call = tail call fastcc i32 @wpacket_intern_close(ptr noundef nonnull %pkt, ptr noundef nonnull %0, i32 noundef 1)
   br label %return
 
 return:                                           ; preds = %entry, %lor.lhs.false, %if.end
@@ -438,7 +439,7 @@ return:                                           ; preds = %cond.false, %cond.e
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @WPACKET_sub_reserve_bytes__(ptr nocapture noundef readonly %pkt, i64 noundef %len, ptr noundef writeonly %allocbytes, i64 noundef %lenbytes) local_unnamed_addr #0 {
+define dso_local range(i32 0, 2) i32 @WPACKET_sub_reserve_bytes__(ptr nocapture noundef readonly %pkt, i64 noundef %len, ptr noundef writeonly %allocbytes, i64 noundef %lenbytes) local_unnamed_addr #0 {
 entry:
   %endfirst = getelementptr inbounds i8, ptr %pkt, i64 48
   %bf.load = load i8, ptr %endfirst, align 8
@@ -560,7 +561,7 @@ return:                                           ; preds = %return.sink.split, 
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @WPACKET_init_static_len(ptr nocapture noundef %pkt, ptr noundef %buf, i64 noundef %len, i64 noundef %lenbytes) local_unnamed_addr #0 {
+define dso_local range(i32 0, 2) i32 @WPACKET_init_static_len(ptr nocapture noundef %pkt, ptr noundef %buf, i64 noundef %len, i64 noundef %lenbytes) local_unnamed_addr #0 {
 entry:
   %lenchars.i = alloca ptr, align 8
   %cmp = icmp ne ptr %buf, null
@@ -604,7 +605,7 @@ if.end3.i:                                        ; preds = %if.end.i
   store i64 %lenbytes, ptr %pwritten.i, align 8
   %lenbytes6.i = getelementptr inbounds i8, ptr %call.i, i64 16
   store i64 %lenbytes, ptr %lenbytes6.i, align 8
-  %call7.i = call i32 @WPACKET_allocate_bytes(ptr noundef nonnull %pkt, i64 noundef %lenbytes, ptr noundef nonnull %lenchars.i), !range !5
+  %call7.i = call i32 @WPACKET_allocate_bytes(ptr noundef nonnull %pkt, i64 noundef %lenbytes, ptr noundef nonnull %lenchars.i)
   %tobool.not.i = icmp eq i32 %call7.i, 0
   %2 = load ptr, ptr %subs.i, align 8
   br i1 %tobool.not.i, label %if.then8.i, label %if.end11.i
@@ -630,7 +631,7 @@ return:                                           ; preds = %entry, %wpacket_int
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @WPACKET_init_der(ptr nocapture noundef %pkt, ptr noundef %buf, i64 noundef %len) local_unnamed_addr #0 {
+define dso_local range(i32 0, 2) i32 @WPACKET_init_der(ptr nocapture noundef %pkt, ptr noundef %buf, i64 noundef %len) local_unnamed_addr #0 {
 entry:
   %cmp = icmp ne ptr %buf, null
   %cmp1 = icmp ne i64 %len, 0
@@ -662,7 +663,7 @@ return:                                           ; preds = %if.end, %entry
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @WPACKET_init_len(ptr nocapture noundef %pkt, ptr noundef %buf, i64 noundef %lenbytes) local_unnamed_addr #0 {
+define dso_local range(i32 0, 2) i32 @WPACKET_init_len(ptr nocapture noundef %pkt, ptr noundef %buf, i64 noundef %lenbytes) local_unnamed_addr #0 {
 entry:
   %lenchars.i = alloca ptr, align 8
   %cmp.not = icmp eq ptr %buf, null
@@ -703,7 +704,7 @@ if.end3.i:                                        ; preds = %if.end.i
   store i64 %lenbytes, ptr %pwritten.i, align 8
   %lenbytes6.i = getelementptr inbounds i8, ptr %call.i, i64 16
   store i64 %lenbytes, ptr %lenbytes6.i, align 8
-  %call7.i = call i32 @WPACKET_allocate_bytes(ptr noundef nonnull %pkt, i64 noundef %lenbytes, ptr noundef nonnull %lenchars.i), !range !5
+  %call7.i = call i32 @WPACKET_allocate_bytes(ptr noundef nonnull %pkt, i64 noundef %lenbytes, ptr noundef nonnull %lenchars.i)
   %tobool.not.i = icmp eq i32 %call7.i, 0
   %1 = load ptr, ptr %subs.i, align 8
   br i1 %tobool.not.i, label %if.then8.i, label %if.end11.i
@@ -729,7 +730,7 @@ return:                                           ; preds = %entry, %wpacket_int
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @WPACKET_init(ptr nocapture noundef %pkt, ptr noundef %buf) local_unnamed_addr #0 {
+define dso_local range(i32 0, 2) i32 @WPACKET_init(ptr nocapture noundef %pkt, ptr noundef %buf) local_unnamed_addr #0 {
 entry:
   %cmp.not.i = icmp eq ptr %buf, null
   br i1 %cmp.not.i, label %WPACKET_init_len.exit, label %if.end.i
@@ -759,7 +760,7 @@ WPACKET_init_len.exit:                            ; preds = %if.end.i, %entry
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @WPACKET_init_null(ptr nocapture noundef %pkt, i64 noundef %lenbytes) local_unnamed_addr #0 {
+define dso_local range(i32 0, 2) i32 @WPACKET_init_null(ptr nocapture noundef %pkt, i64 noundef %lenbytes) local_unnamed_addr #0 {
 entry:
   %0 = add i64 %lenbytes, -8
   %or.cond.i = icmp ult i64 %0, -7
@@ -786,7 +787,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @WPACKET_init_null_der(ptr nocapture noundef %pkt) local_unnamed_addr #0 {
+define dso_local range(i32 0, 2) i32 @WPACKET_init_null_der(ptr nocapture noundef %pkt) local_unnamed_addr #0 {
 entry:
   %maxsize = getelementptr inbounds i8, ptr %pkt, i64 32
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %pkt, i8 0, i64 16, i1 false)
@@ -806,7 +807,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define dso_local noundef i32 @WPACKET_set_flags(ptr nocapture noundef readonly %pkt, i32 noundef %flags) local_unnamed_addr #3 {
+define dso_local range(i32 0, 2) i32 @WPACKET_set_flags(ptr nocapture noundef readonly %pkt, i32 noundef %flags) local_unnamed_addr #3 {
 entry:
   %subs = getelementptr inbounds i8, ptr %pkt, i64 40
   %0 = load ptr, ptr %subs, align 8
@@ -824,7 +825,7 @@ return:                                           ; preds = %entry, %if.end
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @WPACKET_fill_lengths(ptr nocapture noundef %pkt) local_unnamed_addr #0 {
+define dso_local range(i32 0, 2) i32 @WPACKET_fill_lengths(ptr nocapture noundef %pkt) local_unnamed_addr #0 {
 entry:
   %subs = getelementptr inbounds i8, ptr %pkt, i64 40
   %0 = load ptr, ptr %subs, align 8
@@ -833,14 +834,14 @@ entry:
 
 for.body:                                         ; preds = %entry, %for.inc
   %sub.05 = phi ptr [ %1, %for.inc ], [ %0, %entry ]
-  %call = tail call fastcc i32 @wpacket_intern_close(ptr noundef %pkt, ptr noundef nonnull %sub.05, i32 noundef 0), !range !5
+  %call = tail call fastcc i32 @wpacket_intern_close(ptr noundef %pkt, ptr noundef nonnull %sub.05, i32 noundef 0)
   %tobool8.not = icmp eq i32 %call, 0
   br i1 %tobool8.not, label %return, label %for.inc
 
 for.inc:                                          ; preds = %for.body
   %1 = load ptr, ptr %sub.05, align 8
   %cmp6.not = icmp eq ptr %1, null
-  br i1 %cmp6.not, label %return, label %for.body, !llvm.loop !6
+  br i1 %cmp6.not, label %return, label %for.body, !llvm.loop !5
 
 return:                                           ; preds = %for.inc, %for.body, %entry
   %retval.0 = phi i32 [ 0, %entry ], [ 1, %for.inc ], [ 0, %for.body ]
@@ -848,7 +849,7 @@ return:                                           ; preds = %for.inc, %for.body,
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @wpacket_intern_close(ptr nocapture noundef %pkt, ptr noundef %sub, i32 noundef %doclose) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @wpacket_intern_close(ptr nocapture noundef %pkt, ptr noundef %sub, i32 noundef %doclose) unnamed_addr #0 {
 entry:
   %data.i = alloca ptr, align 8
   %written = getelementptr inbounds i8, ptr %pkt, i64 24
@@ -946,7 +947,7 @@ for.body.i:                                       ; preds = %for.body.i, %for.bo
   %shr.i = lshr i64 %value.addr.010.i, 8
   %dec.i = add i64 %len.addr.011.i, -1
   %cmp1.not.i = icmp eq i64 %dec.i, 0
-  br i1 %cmp1.not.i, label %put_value.exit, label %for.body.i, !llvm.loop !8
+  br i1 %cmp1.not.i, label %put_value.exit, label %for.body.i, !llvm.loop !7
 
 put_value.exit:                                   ; preds = %for.body.i
   %cmp2.not.i = icmp ugt i64 %value.addr.010.i, 255
@@ -1011,7 +1012,7 @@ while.body:                                       ; preds = %if.then65, %while.b
   %shr = lshr i64 %tmplen.0103, 8
   %inc = add nuw nsw i64 %numlenbytes.0104, 1
   %cmp66.not = icmp ult i64 %tmplen.0103, 65536
-  br i1 %cmp66.not, label %while.end, label %while.body, !llvm.loop !9
+  br i1 %cmp66.not, label %while.end, label %while.body, !llvm.loop !8
 
 while.end.thread:                                 ; preds = %if.then65, %lor.lhs.false
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %data.i)
@@ -1024,7 +1025,7 @@ while.end:                                        ; preds = %while.body
 
 lor.lhs.false.i:                                  ; preds = %while.end.thread, %while.end
   %numlenbytes.0.lcssa108 = phi i64 [ 1, %while.end.thread ], [ %inc, %while.end ]
-  %call.i = call i32 @WPACKET_allocate_bytes(ptr noundef %pkt, i64 noundef %numlenbytes.0.lcssa108, ptr noundef nonnull %data.i), !range !5
+  %call.i = call i32 @WPACKET_allocate_bytes(ptr noundef %pkt, i64 noundef %numlenbytes.0.lcssa108, ptr noundef nonnull %data.i)
   %tobool5.not.i = icmp eq i32 %call.i, 0
   br i1 %tobool5.not.i, label %WPACKET_put_bytes__.exit.thread, label %lor.lhs.false6.i
 
@@ -1051,7 +1052,7 @@ for.body.i.i:                                     ; preds = %for.body.i.i, %for.
   %shr.i.i = lshr i64 %value.addr.010.i.i, 8
   %dec.i.i = add nsw i64 %len.addr.011.i.i, -1
   %cmp1.not.i.i = icmp eq i64 %dec.i.i, 0
-  br i1 %cmp1.not.i.i, label %WPACKET_put_bytes__.exit, label %for.body.i.i, !llvm.loop !8
+  br i1 %cmp1.not.i.i, label %WPACKET_put_bytes__.exit, label %for.body.i.i, !llvm.loop !7
 
 WPACKET_put_bytes__.exit.thread:                  ; preds = %lor.lhs.false.i, %while.end
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %data.i)
@@ -1171,7 +1172,7 @@ return:                                           ; preds = %if.then72, %if.end.
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @WPACKET_finish(ptr nocapture noundef %pkt) local_unnamed_addr #0 {
+define dso_local range(i32 0, 2) i32 @WPACKET_finish(ptr nocapture noundef %pkt) local_unnamed_addr #0 {
 entry:
   %subs = getelementptr inbounds i8, ptr %pkt, i64 40
   %0 = load ptr, ptr %subs, align 8
@@ -1184,7 +1185,7 @@ lor.lhs.false:                                    ; preds = %entry
   br i1 %cmp2.not, label %if.end, label %return
 
 if.end:                                           ; preds = %lor.lhs.false
-  %call = tail call fastcc i32 @wpacket_intern_close(ptr noundef nonnull %pkt, ptr noundef nonnull %0, i32 noundef 1), !range !5
+  %call = tail call fastcc i32 @wpacket_intern_close(ptr noundef nonnull %pkt, ptr noundef nonnull %0, i32 noundef 1)
   %tobool.not = icmp eq i32 %call, 0
   br i1 %tobool.not, label %return, label %if.then4
 
@@ -1204,7 +1205,7 @@ declare void @CRYPTO_free(ptr noundef, ptr noundef, i32 noundef) local_unnamed_a
 declare noalias ptr @CRYPTO_zalloc(i64 noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @WPACKET_start_sub_packet(ptr nocapture noundef %pkt) local_unnamed_addr #0 {
+define dso_local range(i32 0, 2) i32 @WPACKET_start_sub_packet(ptr nocapture noundef %pkt) local_unnamed_addr #0 {
 entry:
   %subs.i = getelementptr inbounds i8, ptr %pkt, i64 40
   %0 = load ptr, ptr %subs.i, align 8
@@ -1234,14 +1235,14 @@ WPACKET_start_sub_packet_len__.exit:              ; preds = %entry, %if.end.i, %
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @WPACKET_put_bytes__(ptr nocapture noundef %pkt, i64 noundef %val, i64 noundef %size) local_unnamed_addr #0 {
+define dso_local range(i32 0, 2) i32 @WPACKET_put_bytes__(ptr nocapture noundef %pkt, i64 noundef %val, i64 noundef %size) local_unnamed_addr #0 {
 entry:
   %data = alloca ptr, align 8
   %cmp = icmp ult i64 %size, 9
   br i1 %cmp, label %lor.lhs.false, label %return
 
 lor.lhs.false:                                    ; preds = %entry
-  %call = call i32 @WPACKET_allocate_bytes(ptr noundef %pkt, i64 noundef %size, ptr noundef nonnull %data), !range !5
+  %call = call i32 @WPACKET_allocate_bytes(ptr noundef %pkt, i64 noundef %size, ptr noundef nonnull %data)
   %tobool5.not = icmp eq i32 %call, 0
   br i1 %tobool5.not, label %return, label %lor.lhs.false6
 
@@ -1268,7 +1269,7 @@ for.body.i:                                       ; preds = %for.body.i, %for.bo
   %shr.i = lshr i64 %value.addr.010.i, 8
   %dec.i = add i64 %len.addr.011.i, -1
   %cmp1.not.i = icmp eq i64 %dec.i, 0
-  br i1 %cmp1.not.i, label %put_value.exit, label %for.body.i, !llvm.loop !8
+  br i1 %cmp1.not.i, label %put_value.exit, label %for.body.i, !llvm.loop !7
 
 put_value.exit:                                   ; preds = %for.body.i, %if.end.i
   %value.addr.0.lcssa.i = phi i64 [ %val, %if.end.i ], [ %shr.i, %for.body.i ]
@@ -1282,7 +1283,7 @@ return:                                           ; preds = %put_value.exit, %lo
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define dso_local noundef i32 @WPACKET_set_max_size(ptr nocapture noundef %pkt, i64 noundef %maxsize) local_unnamed_addr #4 {
+define dso_local range(i32 0, 2) i32 @WPACKET_set_max_size(ptr nocapture noundef %pkt, i64 noundef %maxsize) local_unnamed_addr #4 {
 entry:
   %subs = getelementptr inbounds i8, ptr %pkt, i64 40
   %0 = load ptr, ptr %subs, align 8
@@ -1293,7 +1294,7 @@ for.cond:                                         ; preds = %entry, %for.cond
   %sub.0 = phi ptr [ %1, %for.cond ], [ %0, %entry ]
   %1 = load ptr, ptr %sub.0, align 8
   %cmp6.not = icmp eq ptr %1, null
-  br i1 %cmp6.not, label %for.end, label %for.cond, !llvm.loop !10
+  br i1 %cmp6.not, label %for.end, label %for.cond, !llvm.loop !9
 
 for.end:                                          ; preds = %for.cond
   %lenbytes9 = getelementptr inbounds i8, ptr %sub.0, i64 16
@@ -1326,14 +1327,14 @@ return:                                           ; preds = %for.end, %lor.lhs.f
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @WPACKET_memset(ptr nocapture noundef %pkt, i32 noundef %ch, i64 noundef %len) local_unnamed_addr #0 {
+define dso_local range(i32 0, 2) i32 @WPACKET_memset(ptr nocapture noundef %pkt, i32 noundef %ch, i64 noundef %len) local_unnamed_addr #0 {
 entry:
   %dest = alloca ptr, align 8
   %cmp = icmp eq i64 %len, 0
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %call = call i32 @WPACKET_allocate_bytes(ptr noundef %pkt, i64 noundef %len, ptr noundef nonnull %dest), !range !5
+  %call = call i32 @WPACKET_allocate_bytes(ptr noundef %pkt, i64 noundef %len, ptr noundef nonnull %dest)
   %tobool.not = icmp eq i32 %call, 0
   br i1 %tobool.not, label %return, label %if.end2
 
@@ -1356,14 +1357,14 @@ return:                                           ; preds = %if.end2, %if.then4,
 declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #5
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @WPACKET_memcpy(ptr nocapture noundef %pkt, ptr nocapture noundef readonly %src, i64 noundef %len) local_unnamed_addr #0 {
+define dso_local range(i32 0, 2) i32 @WPACKET_memcpy(ptr nocapture noundef %pkt, ptr nocapture noundef readonly %src, i64 noundef %len) local_unnamed_addr #0 {
 entry:
   %dest = alloca ptr, align 8
   %cmp = icmp eq i64 %len, 0
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %call = call i32 @WPACKET_allocate_bytes(ptr noundef %pkt, i64 noundef %len, ptr noundef nonnull %dest), !range !5
+  %call = call i32 @WPACKET_allocate_bytes(ptr noundef %pkt, i64 noundef %len, ptr noundef nonnull %dest)
   %tobool.not = icmp eq i32 %call, 0
   br i1 %tobool.not, label %return, label %if.end2
 
@@ -1385,7 +1386,7 @@ return:                                           ; preds = %if.end2, %if.then4,
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #6
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @WPACKET_sub_memcpy__(ptr nocapture noundef %pkt, ptr nocapture noundef readonly %src, i64 noundef %len, i64 noundef %lenbytes) local_unnamed_addr #0 {
+define dso_local range(i32 0, 2) i32 @WPACKET_sub_memcpy__(ptr nocapture noundef %pkt, ptr nocapture noundef readonly %src, i64 noundef %len, i64 noundef %lenbytes) local_unnamed_addr #0 {
 entry:
   %dest.i = alloca ptr, align 8
   %lenchars.i = alloca ptr, align 8
@@ -1436,7 +1437,7 @@ WPACKET_start_sub_packet_len__.exit.thread:       ; preds = %entry, %land.lhs.tr
 
 WPACKET_start_sub_packet_len__.exit:              ; preds = %if.end13.i
   store i64 %2, ptr %packet_len.i, align 8
-  %call23.i = call i32 @WPACKET_allocate_bytes(ptr noundef nonnull %pkt, i64 noundef %lenbytes, ptr noundef nonnull %lenchars.i), !range !5
+  %call23.i = call i32 @WPACKET_allocate_bytes(ptr noundef nonnull %pkt, i64 noundef %lenbytes, ptr noundef nonnull %lenchars.i)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %lenchars.i)
   %tobool.not = icmp eq i32 %call23.i, 0
   br i1 %tobool.not, label %return, label %lor.lhs.false
@@ -1447,7 +1448,7 @@ lor.lhs.false:                                    ; preds = %WPACKET_start_sub_p
   br i1 %cmp.i, label %lor.lhs.false3, label %if.end.i3
 
 if.end.i3:                                        ; preds = %lor.lhs.false
-  %call.i4 = call i32 @WPACKET_allocate_bytes(ptr noundef nonnull %pkt, i64 noundef %len, ptr noundef nonnull %dest.i), !range !5
+  %call.i4 = call i32 @WPACKET_allocate_bytes(ptr noundef nonnull %pkt, i64 noundef %len, ptr noundef nonnull %dest.i)
   %tobool.not.i = icmp eq i32 %call.i4, 0
   br i1 %tobool.not.i, label %WPACKET_memcpy.exit, label %if.end2.i
 
@@ -1476,8 +1477,9 @@ lor.lhs.false.i:                                  ; preds = %lor.lhs.false3
   br i1 %cmp2.i, label %WPACKET_close.exit.thread, label %WPACKET_close.exit
 
 WPACKET_close.exit:                               ; preds = %lor.lhs.false.i
-  %call.i9 = call fastcc i32 @wpacket_intern_close(ptr noundef nonnull %pkt, ptr noundef nonnull %4, i32 noundef 1), !range !5
-  %tobool5.not = icmp eq i32 %call.i9, 0
+  %call.i9 = call fastcc i32 @wpacket_intern_close(ptr noundef nonnull %pkt, ptr noundef nonnull %4, i32 noundef 1)
+  %call.i9.fr = freeze i32 %call.i9
+  %tobool5.not = icmp eq i32 %call.i9.fr, 0
   br i1 %tobool5.not, label %WPACKET_close.exit.thread, label %return
 
 WPACKET_close.exit.thread:                        ; preds = %lor.lhs.false3, %lor.lhs.false.i, %WPACKET_close.exit
@@ -1489,7 +1491,7 @@ return:                                           ; preds = %WPACKET_close.exit.
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local noundef i32 @WPACKET_get_total_written(ptr nocapture noundef readonly %pkt, ptr noundef writeonly %written) local_unnamed_addr #7 {
+define dso_local range(i32 0, 2) i32 @WPACKET_get_total_written(ptr nocapture noundef readonly %pkt, ptr noundef writeonly %written) local_unnamed_addr #7 {
 entry:
   %cmp.not = icmp eq ptr %written, null
   br i1 %cmp.not, label %return, label %if.end
@@ -1506,7 +1508,7 @@ return:                                           ; preds = %entry, %if.end
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define dso_local noundef i32 @WPACKET_get_length(ptr nocapture noundef readonly %pkt, ptr noundef writeonly %len) local_unnamed_addr #8 {
+define dso_local range(i32 0, 2) i32 @WPACKET_get_length(ptr nocapture noundef readonly %pkt, ptr noundef writeonly %len) local_unnamed_addr #8 {
 entry:
   %subs = getelementptr inbounds i8, ptr %pkt, i64 40
   %0 = load ptr, ptr %subs, align 8
@@ -1530,7 +1532,7 @@ return:                                           ; preds = %entry, %if.end
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local i32 @WPACKET_is_null_buf(ptr nocapture noundef readonly %pkt) local_unnamed_addr #9 {
+define dso_local range(i32 0, 2) i32 @WPACKET_is_null_buf(ptr nocapture noundef readonly %pkt) local_unnamed_addr #9 {
 entry:
   %0 = load ptr, ptr %pkt, align 8
   %cmp = icmp eq ptr %0, null
@@ -1561,7 +1563,7 @@ for.body:                                         ; preds = %entry, %for.body
   %1 = load ptr, ptr %sub.05, align 8
   tail call void @CRYPTO_free(ptr noundef nonnull %sub.05, ptr noundef nonnull @.str, i32 noundef 532) #12
   %cmp.not = icmp eq ptr %1, null
-  br i1 %cmp.not, label %for.end, label %for.body, !llvm.loop !11
+  br i1 %cmp.not, label %for.end, label %for.body, !llvm.loop !10
 
 for.end:                                          ; preds = %for.body, %entry
   store ptr null, ptr %subs, align 8
@@ -1569,7 +1571,7 @@ for.end:                                          ; preds = %for.body, %entry
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @WPACKET_start_quic_sub_packet_bound(ptr nocapture noundef %pkt, i64 noundef %max_len) local_unnamed_addr #0 {
+define dso_local range(i32 0, 2) i32 @WPACKET_start_quic_sub_packet_bound(ptr nocapture noundef %pkt, i64 noundef %max_len) local_unnamed_addr #0 {
 entry:
   %lenchars.i = alloca ptr, align 8
   %cmp.i = icmp ult i64 %max_len, 64
@@ -1624,7 +1626,7 @@ WPACKET_start_sub_packet_len__.exit:              ; preds = %if.end9.i
   store i64 %retval.0.i.ph, ptr %lenbytes16.i, align 8
   %packet_len.i = getelementptr inbounds i8, ptr %call.i, i64 8
   store i64 %2, ptr %packet_len.i, align 8
-  %call23.i = call i32 @WPACKET_allocate_bytes(ptr noundef nonnull %pkt, i64 noundef %retval.0.i.ph, ptr noundef nonnull %lenchars.i), !range !5
+  %call23.i = call i32 @WPACKET_allocate_bytes(ptr noundef nonnull %pkt, i64 noundef %retval.0.i.ph, ptr noundef nonnull %lenchars.i)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %lenchars.i)
   %cmp2 = icmp eq i32 %call23.i, 0
   br i1 %cmp2, label %return, label %if.end4
@@ -1643,7 +1645,7 @@ return:                                           ; preds = %WPACKET_start_sub_p
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @WPACKET_start_quic_sub_packet(ptr nocapture noundef %pkt) local_unnamed_addr #0 {
+define dso_local range(i32 0, 2) i32 @WPACKET_start_quic_sub_packet(ptr nocapture noundef %pkt) local_unnamed_addr #0 {
 entry:
   %subs.i.i = getelementptr inbounds i8, ptr %pkt, i64 40
   %0 = load ptr, ptr %subs.i.i, align 8
@@ -1728,7 +1730,7 @@ WPACKET_start_quic_sub_packet_bound.exit:         ; preds = %if.then15.i.i, %if.
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @WPACKET_quic_sub_allocate_bytes(ptr nocapture noundef %pkt, i64 noundef %len, ptr noundef %allocbytes) local_unnamed_addr #0 {
+define dso_local range(i32 0, 2) i32 @WPACKET_quic_sub_allocate_bytes(ptr nocapture noundef %pkt, i64 noundef %len, ptr noundef %allocbytes) local_unnamed_addr #0 {
 entry:
   %lenchars.i.i = alloca ptr, align 8
   %cmp.i.i = icmp ult i64 %len, 64
@@ -1783,7 +1785,7 @@ WPACKET_start_sub_packet_len__.exit.i:            ; preds = %if.end9.i.i
   store i64 %retval.0.i.ph.i, ptr %lenbytes16.i.i, align 8
   %packet_len.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 8
   store i64 %2, ptr %packet_len.i.i, align 8
-  %call23.i.i = call i32 @WPACKET_allocate_bytes(ptr noundef nonnull %pkt, i64 noundef %retval.0.i.ph.i, ptr noundef nonnull %lenchars.i.i), !range !5
+  %call23.i.i = call i32 @WPACKET_allocate_bytes(ptr noundef nonnull %pkt, i64 noundef %retval.0.i.ph.i, ptr noundef nonnull %lenchars.i.i)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %lenchars.i.i)
   %cmp2.i = icmp eq i32 %call23.i.i, 0
   br i1 %cmp2.i, label %return, label %lor.lhs.false
@@ -1794,7 +1796,7 @@ lor.lhs.false:                                    ; preds = %WPACKET_start_sub_p
   %4 = load i32, ptr %flags.i, align 8
   %or.i = or i32 %4, 4
   store i32 %or.i, ptr %flags.i, align 8
-  %call1 = call i32 @WPACKET_allocate_bytes(ptr noundef nonnull %pkt, i64 noundef %len, ptr noundef %allocbytes), !range !5
+  %call1 = call i32 @WPACKET_allocate_bytes(ptr noundef nonnull %pkt, i64 noundef %len, ptr noundef %allocbytes)
   %tobool2.not = icmp eq i32 %call1, 0
   br i1 %tobool2.not, label %return, label %lor.lhs.false3
 
@@ -1809,8 +1811,9 @@ lor.lhs.false.i:                                  ; preds = %lor.lhs.false3
   br i1 %cmp2.i4, label %WPACKET_close.exit.thread, label %WPACKET_close.exit
 
 WPACKET_close.exit:                               ; preds = %lor.lhs.false.i
-  %call.i = call fastcc i32 @wpacket_intern_close(ptr noundef nonnull %pkt, ptr noundef nonnull %5, i32 noundef 1), !range !5
-  %tobool5.not = icmp eq i32 %call.i, 0
+  %call.i = call fastcc i32 @wpacket_intern_close(ptr noundef nonnull %pkt, ptr noundef nonnull %5, i32 noundef 1)
+  %call.i.fr = freeze i32 %call.i
+  %tobool5.not = icmp eq i32 %call.i.fr, 0
   br i1 %tobool5.not, label %WPACKET_close.exit.thread, label %return
 
 WPACKET_close.exit.thread:                        ; preds = %lor.lhs.false3, %lor.lhs.false.i, %WPACKET_close.exit
@@ -1822,7 +1825,7 @@ return:                                           ; preds = %WPACKET_start_sub_p
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @WPACKET_quic_write_vlint(ptr nocapture noundef %pkt, i64 noundef %v) local_unnamed_addr #0 {
+define dso_local range(i32 0, 2) i32 @WPACKET_quic_write_vlint(ptr nocapture noundef %pkt, i64 noundef %v) local_unnamed_addr #0 {
 entry:
   %b = alloca ptr, align 8
   store ptr null, ptr %b, align 8
@@ -1843,7 +1846,7 @@ if.end6.i:                                        ; preds = %if.end3.i
 
 if.end:                                           ; preds = %if.end6.i, %entry, %if.end.i, %if.end3.i
   %retval.0.i.ph = phi i64 [ 4, %if.end3.i ], [ 2, %if.end.i ], [ 1, %entry ], [ 8, %if.end6.i ]
-  %call1 = call i32 @WPACKET_allocate_bytes(ptr noundef %pkt, i64 noundef %retval.0.i.ph, ptr noundef nonnull %b), !range !5
+  %call1 = call i32 @WPACKET_allocate_bytes(ptr noundef %pkt, i64 noundef %retval.0.i.ph, ptr noundef nonnull %b)
   %cmp2 = icmp eq i32 %call1, 0
   br i1 %cmp2, label %return, label %if.end4
 
@@ -1894,10 +1897,9 @@ attributes #12 = { nounwind }
 !2 = !{i32 7, !"PIE Level", i32 2}
 !3 = !{i32 7, !"uwtable", i32 2}
 !4 = !{i32 7, !"frame-pointer", i32 2}
-!5 = !{i32 0, i32 2}
-!6 = distinct !{!6, !7}
-!7 = !{!"llvm.loop.mustprogress"}
-!8 = distinct !{!8, !7}
-!9 = distinct !{!9, !7}
-!10 = distinct !{!10, !7}
-!11 = distinct !{!11, !7}
+!5 = distinct !{!5, !6}
+!6 = !{!"llvm.loop.mustprogress"}
+!7 = distinct !{!7, !6}
+!8 = distinct !{!8, !6}
+!9 = distinct !{!9, !6}
+!10 = distinct !{!10, !6}

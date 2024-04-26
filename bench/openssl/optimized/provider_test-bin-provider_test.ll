@@ -81,7 +81,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @setup_tests() local_unnamed_addr #1 {
+define dso_local range(i32 0, 2) i32 @setup_tests() local_unnamed_addr #1 {
 entry:
   br label %while.cond.outer
 
@@ -127,7 +127,7 @@ declare i32 @opt_next() local_unnamed_addr #2
 declare void @add_test(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @test_builtin_provider() #1 {
+define internal range(i32 0, 2) i32 @test_builtin_provider() #1 {
 entry:
   %libctx = alloca ptr, align 8
   %call = tail call ptr @OSSL_LIB_CTX_new() #5
@@ -145,7 +145,7 @@ land.lhs.true:                                    ; preds = %entry
   br i1 %tobool4.not, label %land.end, label %land.rhs
 
 land.rhs:                                         ; preds = %land.lhs.true
-  %call5 = call fastcc i32 @test_provider(ptr noundef nonnull %libctx, ptr noundef nonnull @.str.19, ptr noundef null), !range !7
+  %call5 = call fastcc i32 @test_provider(ptr noundef nonnull %libctx, ptr noundef nonnull @.str.19, ptr noundef null)
   %.pre = load ptr, ptr %libctx, align 8
   br label %land.end
 
@@ -157,7 +157,7 @@ land.end:                                         ; preds = %land.rhs, %land.lhs
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @test_builtin_provider_with_child() #1 {
+define internal range(i32 0, 2) i32 @test_builtin_provider_with_child() #1 {
 entry:
   %libctx = alloca ptr, align 8
   %call = tail call ptr @OSSL_LIB_CTX_new() #5
@@ -188,7 +188,7 @@ if.then9:                                         ; preds = %if.end4
   br label %return
 
 if.end10:                                         ; preds = %if.end4
-  %call11 = call fastcc i32 @test_provider(ptr noundef nonnull %libctx, ptr noundef nonnull @.str.51, ptr noundef nonnull %call2), !range !7
+  %call11 = call fastcc i32 @test_provider(ptr noundef nonnull %libctx, ptr noundef nonnull @.str.51, ptr noundef nonnull %call2)
   br label %return
 
 return:                                           ; preds = %entry, %if.end10, %if.then9, %if.then3
@@ -197,7 +197,7 @@ return:                                           ; preds = %entry, %if.end10, %
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @test_loaded_provider() #1 {
+define internal range(i32 0, 2) i32 @test_loaded_provider() #1 {
 entry:
   %custom_buf.i = alloca [16 x i8], align 16
   %libctx = alloca ptr, align 8
@@ -208,12 +208,12 @@ entry:
   br i1 %tobool.not, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %call2 = call fastcc i32 @test_provider(ptr noundef nonnull %libctx, ptr noundef nonnull @.str.51, ptr noundef null), !range !7
+  %call2 = call fastcc i32 @test_provider(ptr noundef nonnull %libctx, ptr noundef nonnull @.str.51, ptr noundef null)
   %call3 = tail call ptr @OSSL_LIB_CTX_new() #5
   %call4 = tail call i32 @test_ptr(ptr noundef nonnull @.str.20, i32 noundef 281, ptr noundef nonnull @.str.21, ptr noundef %call3) #5
   %tobool5.not = icmp eq i32 %call4, 0
   %tobool8.not = icmp eq i32 %call2, 0
-  %or.cond = or i1 %tobool8.not, %tobool5.not
+  %or.cond = select i1 %tobool5.not, i1 true, i1 %tobool8.not
   br i1 %or.cond, label %return, label %land.rhs
 
 land.rhs:                                         ; preds = %if.end
@@ -327,7 +327,7 @@ declare i32 @OSSL_PROVIDER_add_builtin(ptr noundef, ptr noundef, ptr noundef) lo
 declare i32 @p_test_init(ptr noundef, ptr noundef, ptr noundef, ptr noundef) #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @test_provider(ptr nocapture noundef %libctx, ptr noundef %name, ptr noundef %legacy) unnamed_addr #1 {
+define internal fastcc range(i32 0, 2) i32 @test_provider(ptr nocapture noundef %libctx, ptr noundef %name, ptr noundef %legacy) unnamed_addr #1 {
 entry:
   %expected_greeting = alloca [256 x i8], align 16
   %cmp.not = icmp eq ptr %legacy, null
@@ -626,4 +626,3 @@ attributes #5 = { nounwind }
 !4 = !{i32 7, !"frame-pointer", i32 2}
 !5 = distinct !{!5, !6}
 !6 = !{!"llvm.loop.mustprogress"}
-!7 = !{i32 0, i32 2}

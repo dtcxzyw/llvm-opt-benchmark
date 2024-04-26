@@ -3133,10 +3133,8 @@ while.body:                                       ; preds = %if.end, %if.end29
   %result.0.copyload.i.i = load i32, ptr %add.ptr2.i, align 1
   %idx.ext = zext i32 %result.0.copyload.i.i to i64
   %add.ptr = getelementptr inbounds i8, ptr %2, i64 %idx.ext
-  %sub.ptr.lhs.cast.i = ptrtoint ptr %add.ptr.i to i64
-  %sub.ptr.rhs.cast.i = ptrtoint ptr %add.ptr to i64
-  %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
-  %cmp.i = icmp slt i64 %sub.ptr.sub.i, 3
+  %gepdiff = sub nsw i64 %idx.ext.i, %idx.ext
+  %cmp.i = icmp slt i64 %gepdiff, 3
   br i1 %cmp.i, label %if.then13, label %if.end.i
 
 if.end.i:                                         ; preds = %while.body
@@ -4825,10 +4823,8 @@ entry:
   br i1 %tobool, label %cond.true, label %cond.false
 
 cond.true:                                        ; preds = %entry
-  %sub.ptr.lhs.cast.i = ptrtoint ptr %add.ptr.i to i64
-  %sub.ptr.rhs.cast.i = ptrtoint ptr %add.ptr to i64
-  %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
-  %cmp.i = icmp slt i64 %sub.ptr.sub.i, 3
+  %gepdiff = sub nsw i64 %idx.ext.i, %idx.ext
+  %cmp.i = icmp slt i64 %gepdiff, 3
   br i1 %cmp.i, label %if.then, label %if.end.i
 
 if.end.i:                                         ; preds = %cond.true
@@ -9607,25 +9603,25 @@ if.then.i:                                        ; preds = %invoke.cont
   %2 = load ptr, ptr %key_, align 8
   %call.i = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %kTsMin) #15
   %call2.i = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %kTsMin) #15
-  %call5.i.i.i.i.i38 = invoke noalias noundef nonnull dereferenceable(48) ptr @_Znwm(i64 noundef 48) #16
+  %call5.i.i.i.i.i37 = invoke noalias noundef nonnull dereferenceable(48) ptr @_Znwm(i64 noundef 48) #16
           to label %_ZNSt12_Vector_baseIN7rocksdb5SliceESaIS1_EE13_M_deallocateEPS1_m.exit.i35 unwind label %lpad3
 
 _ZNSt12_Vector_baseIN7rocksdb5SliceESaIS1_EE13_M_deallocateEPS1_m.exit.i35: ; preds = %if.then.i
   %_M_end_of_storage.i.i26 = getelementptr inbounds i8, ptr %key_parts_with_ts, i64 16
-  store ptr %2, ptr %call5.i.i.i.i.i38, align 8
-  %ref.tmp2.sroa.2.0.call5.i.i.i.i.i38.sroa_idx = getelementptr inbounds i8, ptr %call5.i.i.i.i.i38, i64 8
-  store i64 %shared_len, ptr %ref.tmp2.sroa.2.0.call5.i.i.i.i.i38.sroa_idx, align 8
-  %ref.tmp2.sroa.3.0.call5.i.i.i.i.i38.sroa_idx = getelementptr inbounds i8, ptr %call5.i.i.i.i.i38, i64 16
-  store ptr %non_shared_data, ptr %ref.tmp2.sroa.3.0.call5.i.i.i.i.i38.sroa_idx, align 8
-  %ref.tmp2.sroa.4.0.call5.i.i.i.i.i38.sroa_idx = getelementptr inbounds i8, ptr %call5.i.i.i.i.i38, i64 24
-  store i64 %non_shared_len, ptr %ref.tmp2.sroa.4.0.call5.i.i.i.i.i38.sroa_idx, align 8
-  %ref.tmp2.sroa.5.0.call5.i.i.i.i.i38.sroa_idx = getelementptr inbounds i8, ptr %call5.i.i.i.i.i38, i64 32
-  store ptr %call.i, ptr %ref.tmp2.sroa.5.0.call5.i.i.i.i.i38.sroa_idx, align 8
-  %ref.tmp2.sroa.6.0.call5.i.i.i.i.i38.sroa_idx = getelementptr inbounds i8, ptr %call5.i.i.i.i.i38, i64 40
-  store i64 %call2.i, ptr %ref.tmp2.sroa.6.0.call5.i.i.i.i.i38.sroa_idx, align 8
+  store ptr %2, ptr %call5.i.i.i.i.i37, align 8
+  %ref.tmp2.sroa.2.0.call5.i.i.i.i.i37.sroa_idx = getelementptr inbounds i8, ptr %call5.i.i.i.i.i37, i64 8
+  store i64 %shared_len, ptr %ref.tmp2.sroa.2.0.call5.i.i.i.i.i37.sroa_idx, align 8
+  %ref.tmp2.sroa.3.0.call5.i.i.i.i.i37.sroa_idx = getelementptr inbounds i8, ptr %call5.i.i.i.i.i37, i64 16
+  store ptr %non_shared_data, ptr %ref.tmp2.sroa.3.0.call5.i.i.i.i.i37.sroa_idx, align 8
+  %ref.tmp2.sroa.4.0.call5.i.i.i.i.i37.sroa_idx = getelementptr inbounds i8, ptr %call5.i.i.i.i.i37, i64 24
+  store i64 %non_shared_len, ptr %ref.tmp2.sroa.4.0.call5.i.i.i.i.i37.sroa_idx, align 8
+  %ref.tmp2.sroa.5.0.call5.i.i.i.i.i37.sroa_idx = getelementptr inbounds i8, ptr %call5.i.i.i.i.i37, i64 32
+  store ptr %call.i, ptr %ref.tmp2.sroa.5.0.call5.i.i.i.i.i37.sroa_idx, align 8
+  %ref.tmp2.sroa.6.0.call5.i.i.i.i.i37.sroa_idx = getelementptr inbounds i8, ptr %call5.i.i.i.i.i37, i64 40
+  store i64 %call2.i, ptr %ref.tmp2.sroa.6.0.call5.i.i.i.i.i37.sroa_idx, align 8
   %_M_finish.i33 = getelementptr inbounds i8, ptr %key_parts_with_ts, i64 8
-  store ptr %call5.i.i.i.i.i38, ptr %key_parts_with_ts, align 8
-  %add.ptr.i36 = getelementptr inbounds i8, ptr %call5.i.i.i.i.i38, i64 48
+  store ptr %call5.i.i.i.i.i37, ptr %key_parts_with_ts, align 8
+  %add.ptr.i36 = getelementptr inbounds i8, ptr %call5.i.i.i.i.i37, i64 48
   store ptr %add.ptr.i36, ptr %_M_finish.i33, align 8
   store ptr %add.ptr.i36, ptr %_M_end_of_storage.i.i26, align 8
   br label %if.end
@@ -9699,12 +9695,12 @@ invoke.cont23:                                    ; preds = %invoke.cont18
 invoke.cont23.if.end_crit_edge:                   ; preds = %invoke.cont23
   %.pre = load ptr, ptr %key_parts_with_ts, align 8
   %_M_finish.i.phi.trans.insert = getelementptr inbounds i8, ptr %key_parts_with_ts, i64 8
-  %.pre46 = load ptr, ptr %_M_finish.i.phi.trans.insert, align 8
+  %.pre45 = load ptr, ptr %_M_finish.i.phi.trans.insert, align 8
   br label %if.end
 
 if.end:                                           ; preds = %invoke.cont23.if.end_crit_edge, %_ZNSt12_Vector_baseIN7rocksdb5SliceESaIS1_EE13_M_deallocateEPS1_m.exit.i35
-  %9 = phi ptr [ %.pre46, %invoke.cont23.if.end_crit_edge ], [ %add.ptr.i36, %_ZNSt12_Vector_baseIN7rocksdb5SliceESaIS1_EE13_M_deallocateEPS1_m.exit.i35 ]
-  %10 = phi ptr [ %.pre, %invoke.cont23.if.end_crit_edge ], [ %call5.i.i.i.i.i38, %_ZNSt12_Vector_baseIN7rocksdb5SliceESaIS1_EE13_M_deallocateEPS1_m.exit.i35 ]
+  %9 = phi ptr [ %.pre45, %invoke.cont23.if.end_crit_edge ], [ %add.ptr.i36, %_ZNSt12_Vector_baseIN7rocksdb5SliceESaIS1_EE13_M_deallocateEPS1_m.exit.i35 ]
+  %10 = phi ptr [ %.pre, %invoke.cont23.if.end_crit_edge ], [ %call5.i.i.i.i.i37, %_ZNSt12_Vector_baseIN7rocksdb5SliceESaIS1_EE13_M_deallocateEPS1_m.exit.i35 ]
   %sub.ptr.lhs.cast.i = ptrtoint ptr %9 to i64
   %sub.ptr.rhs.cast.i = ptrtoint ptr %10 to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
@@ -10277,10 +10273,8 @@ if.end:                                           ; preds = %entry
   %idx.ext = and i64 %sub.ptr.sub.i, 4294967295
   %add.ptr5 = getelementptr inbounds i8, ptr %2, i64 %idx.ext4
   %add.ptr = getelementptr inbounds i8, ptr %2, i64 %idx.ext
-  %sub.ptr.lhs.cast.i.i = ptrtoint ptr %add.ptr5 to i64
-  %sub.ptr.rhs.cast.i.i = ptrtoint ptr %add.ptr to i64
-  %sub.ptr.sub.i.i = sub i64 %sub.ptr.lhs.cast.i.i, %sub.ptr.rhs.cast.i.i
-  %cmp.i.i = icmp slt i64 %sub.ptr.sub.i.i, 3
+  %gepdiff = sub nsw i64 %idx.ext4, %idx.ext
+  %cmp.i.i = icmp slt i64 %gepdiff, 3
   br i1 %cmp.i.i, label %if.then12, label %if.end.i.i
 
 if.end.i.i:                                       ; preds = %if.end

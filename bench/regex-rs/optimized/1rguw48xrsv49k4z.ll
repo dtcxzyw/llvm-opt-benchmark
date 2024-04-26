@@ -881,7 +881,7 @@ define internal noundef zeroext i1 @"_ZN68_$LT$core..num..error..ParseIntError$u
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc noundef i32 @"_ZN12regex_syntax3ast5parse16ParserI$LT$P$GT$7char_at17h336a5b76778ee86fE"(ptr %.8.val, i64 %.16.val, i64 noundef %0) unnamed_addr #0 {
+define internal fastcc noundef range(i32 0, 1114112) i32 @"_ZN12regex_syntax3ast5parse16ParserI$LT$P$GT$7char_at17h336a5b76778ee86fE"(ptr %.8.val, i64 %.16.val, i64 noundef %0) unnamed_addr #0 {
   %2 = alloca [1 x { ptr, ptr }], align 8
   %3 = alloca { { ptr, i64 }, { ptr, i64 }, { ptr, i64 } }, align 8
   %4 = alloca i64, align 8
@@ -1438,7 +1438,7 @@ _ZN4core7unicode12unicode_data11white_space6lookup17hb09543846971dd4fE.exit: ; p
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc noundef i32 @"_ZN12regex_syntax3ast5parse16ParserI$LT$P$GT$4peek17hab012eea1c6554e3E"(ptr noalias nocapture noundef readonly align 8 dereferenceable(24) %0) unnamed_addr #0 {
+define internal fastcc noundef range(i32 0, 1114113) i32 @"_ZN12regex_syntax3ast5parse16ParserI$LT$P$GT$4peek17hab012eea1c6554e3E"(ptr noalias nocapture noundef readonly align 8 dereferenceable(24) %0) unnamed_addr #0 {
   %.val13 = load ptr, ptr %0, align 8, !nonnull !5, !align !117, !noundef !5
   %2 = getelementptr inbounds i8, ptr %.val13, i64 160
   %3 = load i64, ptr %2, align 8, !noundef !5
@@ -1552,7 +1552,7 @@ _ZN4core3str11validations15next_code_point17h557bd300d34cbe39E.exit.thread: ; pr
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc noundef i32 @"_ZN12regex_syntax3ast5parse16ParserI$LT$P$GT$10peek_space17hadfb35eaa9732675E"(ptr noalias nocapture noundef readonly align 8 dereferenceable(24) %0) unnamed_addr #0 {
+define internal fastcc noundef range(i32 0, 1114113) i32 @"_ZN12regex_syntax3ast5parse16ParserI$LT$P$GT$10peek_space17hadfb35eaa9732675E"(ptr noalias nocapture noundef readonly align 8 dereferenceable(24) %0) unnamed_addr #0 {
   %.val46 = load ptr, ptr %0, align 8, !nonnull !5, !align !117, !noundef !5
   %2 = getelementptr inbounds i8, ptr %.val46, i64 192
   %3 = load i8, ptr %2, align 8, !range !139, !noundef !5
@@ -5001,8 +5001,8 @@ define hidden void @"_ZN12regex_syntax3ast5parse16ParserI$LT$P$GT$19parse_with_c
   br i1 %862, label %_ZN12regex_syntax3ast5parse15is_capture_char17h2907a3e450866a9aE.exit.thread.i.i.i, label %872
 
 863:                                              ; preds = %.thread.i159.i.i
-  %864 = and i32 %855, -33
-  %865 = add i32 %864, -65
+  %864 = and i32 %855, 2097119
+  %865 = add nsw i32 %864, -65
   %or.cond3.i.i.i.i.i.i = icmp ult i32 %865, 26
   br i1 %or.cond3.i.i.i.i.i.i, label %_ZN12regex_syntax3ast5parse15is_capture_char17h2907a3e450866a9aE.exit.thread.i.i.i, label %866
 
@@ -5030,8 +5030,8 @@ define hidden void @"_ZN12regex_syntax3ast5parse16ParserI$LT$P$GT$19parse_with_c
   br i1 %871, label %_ZN12regex_syntax3ast5parse15is_capture_char17h2907a3e450866a9aE.exit.thread.i.i.i, label %_ZN12regex_syntax3ast5parse15is_capture_char17h2907a3e450866a9aE.exit.thread131.i.i.i
 
 872:                                              ; preds = %861
-  %873 = and i32 %855, -33
-  %874 = add i32 %873, -65
+  %873 = and i32 %855, 2097119
+  %874 = add nsw i32 %873, -65
   %or.cond3.i.i.i.i.i = icmp ult i32 %874, 26
   br i1 %or.cond3.i.i.i.i.i, label %_ZN12regex_syntax3ast5parse15is_capture_char17h2907a3e450866a9aE.exit.thread.i.i.i, label %875
 
@@ -11605,7 +11605,7 @@ define internal fastcc void @"_ZN12regex_syntax3ast5parse16ParserI$LT$P$GT$12par
           to label %160 unwind label %.loopexit.i.i, !noalias !1112
 
 160:                                              ; preds = %158
-  %161 = add i32 %159, -48
+  %161 = add nsw i32 %159, -48
   %or.cond.i.i.i = icmp ult i32 %161, 10
   br i1 %or.cond.i.i.i, label %_ZN12regex_syntax3ast5parse6is_hex17h48d0d495e0ca3453E.exit.thread.i.i, label %switch.early.test.i.i
 
@@ -11828,7 +11828,7 @@ switch.lookup:                                    ; preds = %177
           to label %220 unwind label %.loopexit.i27.i, !noalias !1118
 
 220:                                              ; preds = %217
-  %221 = add i32 %219, -48
+  %221 = add nsw i32 %219, -48
   %or.cond.i.i35.i = icmp ult i32 %221, 10
   br i1 %or.cond.i.i35.i, label %_ZN12regex_syntax3ast5parse6is_hex17h48d0d495e0ca3453E.exit.thread.i37.i, label %switch.early.test.i36.i
 
@@ -12317,34 +12317,34 @@ thread-pre-split.i:                               ; preds = %.invoke363.i
   br i1 %388, label %416, label %.invoke.i
 
 .lr.ph.split.split.i.i.i:                         ; preds = %.lr.ph.split.split.i.i.i.preheader, %407
-  %.sroa.7.157.i.i.i = phi i64 [ %408, %407 ], [ %294, %.lr.ph.split.split.i.i.i.preheader ]
+  %.sroa.7.156.i.i.i = phi i64 [ %408, %407 ], [ %294, %.lr.ph.split.split.i.i.i.preheader ]
   %389 = phi i64 [ %404, %407 ], [ 0, %.lr.ph.split.split.i.i.i.preheader ]
-  %.sroa.0.058.i.i.i = getelementptr inbounds i8, ptr %293, i64 %389
-  %390 = icmp ult i64 %.sroa.7.157.i.i.i, 16
+  %.sroa.0.057.i.i.i = getelementptr inbounds i8, ptr %293, i64 %389
+  %390 = icmp ult i64 %.sroa.7.156.i.i.i, 16
   br i1 %390, label %393, label %391
 
 391:                                              ; preds = %.lr.ph.split.split.i.i.i
-  %392 = invoke { i64, i64 } @_ZN4core5slice6memchr14memchr_aligned17h3504444bb25b5daaE(i8 noundef 58, ptr noalias noundef nonnull readonly align 1 %.sroa.0.058.i.i.i, i64 noundef %.sroa.7.157.i.i.i)
+  %392 = invoke { i64, i64 } @_ZN4core5slice6memchr14memchr_aligned17h3504444bb25b5daaE(i8 noundef 58, ptr noalias noundef nonnull readonly align 1 %.sroa.0.057.i.i.i, i64 noundef %.sroa.7.156.i.i.i)
           to label %.noexc145.i unwind label %.loopexit.split-lp.loopexit.i, !noalias !1124
 
 393:                                              ; preds = %.lr.ph.split.split.i.i.i
-  %.not.i.i.i.i = icmp eq i64 %.sroa.7.157.i.i.i, 0
+  %.not.i.i.i.i = icmp eq i64 %.sroa.7.156.i.i.i, 0
   br i1 %.not.i.i.i.i, label %_ZN4core5slice6memchr12memchr_naive17h481c51c45c886aadE.exit.i.i.i, label %.lr.ph.i.i.i.i
 
 .lr.ph.i.i.i.i:                                   ; preds = %393, %397
   %.05.i.i.i.i = phi i64 [ %398, %397 ], [ 0, %393 ]
-  %394 = getelementptr inbounds [0 x i8], ptr %.sroa.0.058.i.i.i, i64 0, i64 %.05.i.i.i.i
+  %394 = getelementptr inbounds [0 x i8], ptr %.sroa.0.057.i.i.i, i64 0, i64 %.05.i.i.i.i
   %395 = load i8, ptr %394, align 1, !alias.scope !1159, !noalias !1164, !noundef !5
   %396 = icmp eq i8 %395, 58
   br i1 %396, label %_ZN4core5slice6memchr12memchr_naive17h481c51c45c886aadE.exit.i.i.i, label %397
 
 397:                                              ; preds = %.lr.ph.i.i.i.i
   %398 = add nuw nsw i64 %.05.i.i.i.i, 1
-  %exitcond.not.i.i.i.i = icmp eq i64 %398, %.sroa.7.157.i.i.i
+  %exitcond.not.i.i.i.i = icmp eq i64 %398, %.sroa.7.156.i.i.i
   br i1 %exitcond.not.i.i.i.i, label %_ZN4core5slice6memchr12memchr_naive17h481c51c45c886aadE.exit.i.i.i, label %.lr.ph.i.i.i.i
 
 _ZN4core5slice6memchr12memchr_naive17h481c51c45c886aadE.exit.i.i.i: ; preds = %397, %.lr.ph.i.i.i.i, %393
-  %.0.lcssa.i.i.i.i = phi i64 [ 0, %393 ], [ %.05.i.i.i.i, %.lr.ph.i.i.i.i ], [ %.sroa.7.157.i.i.i, %397 ]
+  %.0.lcssa.i.i.i.i = phi i64 [ 0, %393 ], [ %.05.i.i.i.i, %.lr.ph.i.i.i.i ], [ %.sroa.7.156.i.i.i, %397 ]
   %.sroa.0.0.i32.i.i.i = phi i64 [ 0, %393 ], [ 1, %.lr.ph.i.i.i.i ], [ 0, %397 ]
   %399 = insertvalue { i64, i64 } poison, i64 %.sroa.0.0.i32.i.i.i, 0
   %400 = insertvalue { i64, i64 } %399, i64 %.0.lcssa.i.i.i.i, 1
@@ -12464,34 +12464,34 @@ _ZN4core5slice6memchr12memchr_naive17h481c51c45c886aadE.exit.i.i.i: ; preds = %3
           to label %470 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.i, !noalias !1124
 
 .lr.ph.split.split.i.i162.i:                      ; preds = %.lr.ph.split.split.i.i162.i.preheader, %466
-  %.sroa.7.157.i.i163.i = phi i64 [ %467, %466 ], [ %294, %.lr.ph.split.split.i.i162.i.preheader ]
+  %.sroa.7.156.i.i163.i = phi i64 [ %467, %466 ], [ %294, %.lr.ph.split.split.i.i162.i.preheader ]
   %448 = phi i64 [ %463, %466 ], [ 0, %.lr.ph.split.split.i.i162.i.preheader ]
-  %.sroa.0.058.i.i164.i = getelementptr inbounds i8, ptr %293, i64 %448
-  %449 = icmp ult i64 %.sroa.7.157.i.i163.i, 16
+  %.sroa.0.057.i.i164.i = getelementptr inbounds i8, ptr %293, i64 %448
+  %449 = icmp ult i64 %.sroa.7.156.i.i163.i, 16
   br i1 %449, label %452, label %450
 
 450:                                              ; preds = %.lr.ph.split.split.i.i162.i
-  %451 = invoke { i64, i64 } @_ZN4core5slice6memchr14memchr_aligned17h3504444bb25b5daaE(i8 noundef 61, ptr noalias noundef nonnull readonly align 1 %.sroa.0.058.i.i164.i, i64 noundef %.sroa.7.157.i.i163.i)
+  %451 = invoke { i64, i64 } @_ZN4core5slice6memchr14memchr_aligned17h3504444bb25b5daaE(i8 noundef 61, ptr noalias noundef nonnull readonly align 1 %.sroa.0.057.i.i164.i, i64 noundef %.sroa.7.156.i.i163.i)
           to label %.noexc181.i unwind label %.loopexit.i, !noalias !1124
 
 452:                                              ; preds = %.lr.ph.split.split.i.i162.i
-  %.not.i.i.i174.i = icmp eq i64 %.sroa.7.157.i.i163.i, 0
+  %.not.i.i.i174.i = icmp eq i64 %.sroa.7.156.i.i163.i, 0
   br i1 %.not.i.i.i174.i, label %_ZN4core5slice6memchr12memchr_naive17h481c51c45c886aadE.exit.i.i178.i, label %.lr.ph.i.i.i175.i
 
 .lr.ph.i.i.i175.i:                                ; preds = %452, %456
   %.05.i.i.i176.i = phi i64 [ %457, %456 ], [ 0, %452 ]
-  %453 = getelementptr inbounds [0 x i8], ptr %.sroa.0.058.i.i164.i, i64 0, i64 %.05.i.i.i176.i
+  %453 = getelementptr inbounds [0 x i8], ptr %.sroa.0.057.i.i164.i, i64 0, i64 %.05.i.i.i176.i
   %454 = load i8, ptr %453, align 1, !alias.scope !1173, !noalias !1178, !noundef !5
   %455 = icmp eq i8 %454, 61
   br i1 %455, label %_ZN4core5slice6memchr12memchr_naive17h481c51c45c886aadE.exit.i.i178.i, label %456
 
 456:                                              ; preds = %.lr.ph.i.i.i175.i
   %457 = add nuw nsw i64 %.05.i.i.i176.i, 1
-  %exitcond.not.i.i.i177.i = icmp eq i64 %457, %.sroa.7.157.i.i163.i
+  %exitcond.not.i.i.i177.i = icmp eq i64 %457, %.sroa.7.156.i.i163.i
   br i1 %exitcond.not.i.i.i177.i, label %_ZN4core5slice6memchr12memchr_naive17h481c51c45c886aadE.exit.i.i178.i, label %.lr.ph.i.i.i175.i
 
 _ZN4core5slice6memchr12memchr_naive17h481c51c45c886aadE.exit.i.i178.i: ; preds = %456, %.lr.ph.i.i.i175.i, %452
-  %.0.lcssa.i.i.i179.i = phi i64 [ 0, %452 ], [ %.05.i.i.i176.i, %.lr.ph.i.i.i175.i ], [ %.sroa.7.157.i.i163.i, %456 ]
+  %.0.lcssa.i.i.i179.i = phi i64 [ 0, %452 ], [ %.05.i.i.i176.i, %.lr.ph.i.i.i175.i ], [ %.sroa.7.156.i.i163.i, %456 ]
   %.sroa.0.0.i32.i.i180.i = phi i64 [ 0, %452 ], [ 1, %.lr.ph.i.i.i175.i ], [ 0, %456 ]
   %458 = insertvalue { i64, i64 } poison, i64 %.sroa.0.0.i32.i.i180.i, 0
   %459 = insertvalue { i64, i64 } %458, i64 %.0.lcssa.i.i.i179.i, 1
@@ -13488,8 +13488,8 @@ define internal fastcc void @"_ZN12regex_syntax3ast5parse16ParserI$LT$P$GT$33may
 27:                                               ; preds = %"_ZN12regex_syntax3ast5parse16ParserI$LT$P$GT$19bump_and_bump_space17ha93486656ca9df72E.exit"
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %7, ptr noundef nonnull align 8 dereferenceable(24) %12, i64 24, i1 false)
   %28 = tail call fastcc noundef i32 @"_ZN12regex_syntax3ast5parse16ParserI$LT$P$GT$7char_at17h336a5b76778ee86fE"(ptr nonnull %.val82, i64 %.val83, i64 noundef %20)
-  %29 = and i32 %28, -33
-  %30 = add i32 %29, -65
+  %29 = and i32 %28, 2097119
+  %30 = add nsw i32 %29, -65
   %or.cond55 = icmp ult i32 %30, 26
   %31 = icmp eq i32 %28, 45
   %or.cond59 = or i1 %31, %or.cond55
@@ -13530,8 +13530,8 @@ define internal fastcc void @"_ZN12regex_syntax3ast5parse16ParserI$LT$P$GT$33may
           to label %46 unwind label %.loopexit
 
 46:                                               ; preds = %.lr.ph
-  %47 = and i32 %45, -33
-  %48 = add i32 %47, -65
+  %47 = and i32 %45, 2097119
+  %48 = add nsw i32 %47, -65
   %or.cond56 = icmp ult i32 %48, 26
   %49 = icmp eq i32 %45, 45
   %or.cond60 = or i1 %49, %or.cond56

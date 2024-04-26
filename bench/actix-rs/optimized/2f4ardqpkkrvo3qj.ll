@@ -590,7 +590,7 @@ define hidden void @"_ZN106_$LT$core..str..pattern..CharPredicateSearcher$LT$F$G
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define internal fastcc noundef i8 @_ZN12tracing_core8callsite15DefaultCallsite8interest17hfb4783fc25b01e0cE(ptr noundef nonnull align 8 %0) unnamed_addr #2 {
+define internal fastcc noundef range(i8 0, 3) i8 @_ZN12tracing_core8callsite15DefaultCallsite8interest17hfb4783fc25b01e0cE(ptr noundef nonnull align 8 %0) unnamed_addr #2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 16
   %3 = load atomic i8, ptr %2 monotonic, align 8
   %4 = icmp ult i8 %3, 3
@@ -9726,7 +9726,7 @@ define void @_ZN10actix_http2ws9handshake17h19a4093241d11a70E(ptr noalias nocapt
 }
 
 ; Function Attrs: nonlazybind uwtable
-define noundef i8 @_ZN10actix_http2ws16verify_handshake17h16f547bf63e73ddaE(ptr noundef nonnull align 8 %0) unnamed_addr #6 personality ptr @rust_eh_personality {
+define noundef range(i8 0, 7) i8 @_ZN10actix_http2ws16verify_handshake17h16f547bf63e73ddaE(ptr noundef nonnull align 8 %0) unnamed_addr #6 personality ptr @rust_eh_personality {
   %2 = alloca { [1 x i64], i64, [1 x i64] }, align 8
   %3 = alloca { { ptr, [3 x i64] } }, align 8
   %4 = alloca { { ptr, [3 x i64] } }, align 8
@@ -10690,7 +10690,7 @@ declare noundef i8 @_ZN12tracing_core8callsite15DefaultCallsite8register17h5dcb6
 declare hidden void @_ZN3std10sys_common9backtrace26__rust_end_short_backtrace17hf8edce0cd6811abaE(ptr noalias nocapture noundef align 8 dereferenceable(24)) unnamed_addr #26
 
 ; Function Attrs: nonlazybind
-define hidden noundef i32 @__rust_try.llvm.18353199392063854698(ptr nocapture noundef nonnull readonly %0, ptr noundef %1, ptr nocapture noundef nonnull readonly %2) unnamed_addr #27 personality ptr @rust_eh_personality {
+define hidden noundef range(i32 0, 2) i32 @__rust_try.llvm.18353199392063854698(ptr nocapture noundef nonnull readonly %0, ptr noundef %1, ptr nocapture noundef nonnull readonly %2) unnamed_addr #27 personality ptr @rust_eh_personality {
   invoke void %0(ptr %1)
           to label %common.ret unwind label %4
 

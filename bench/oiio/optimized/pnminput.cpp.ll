@@ -274,8 +274,6 @@ if.end53:                                         ; preds = %if.then41, %if.else
 
 if.end59:                                         ; preds = %if.end53
   %16 = load ptr, ptr %m_remaining18, align 8
-  %add.ptr = getelementptr inbounds i8, ptr %16, i64 %conv54
-  %sub.ptr.lhs.cast.i.i.i = ptrtoint ptr %add.ptr to i64
   %sub.ptr.lhs.cast.i.i = ptrtoint ptr %buf.sroa.16.0167 to i64
   %sub.ptr.rhs.cast.i.i = ptrtoint ptr %buf.sroa.0.0165 to i64
   %sub.ptr.sub.i.i = sub i64 %sub.ptr.lhs.cast.i.i, %sub.ptr.rhs.cast.i.i
@@ -334,7 +332,6 @@ for.body.i.i.i.i.i.i:                             ; preds = %if.then25.i, %for.b
 
 if.else29.i:                                      ; preds = %if.else.i
   %incdec.ptr4.sink.i.i.i = getelementptr i8, ptr %16, i64 %sub.ptr.sub.i16.i
-  %sub.ptr.lhs.cast.i.i.i.i.i23.i = ptrtoint ptr %incdec.ptr4.sink.i.i.i to i64
   %cmp6.i.i.i.i.i26.i = icmp sgt i64 %sub.ptr.sub.i16.i, 0
   br i1 %cmp6.i.i.i.i.i26.i, label %for.body.i.i.i.i.i28.i, label %_ZSt4copyIPKcPhET0_T_S4_S3_.exit36.i
 
@@ -351,12 +348,12 @@ for.body.i.i.i.i.i28.i:                           ; preds = %if.else29.i, %for.b
   br i1 %cmp.i.i.i.i.i35.i, label %for.body.i.i.i.i.i28.i, label %_ZSt4copyIPKcPhET0_T_S4_S3_.exit36.i, !llvm.loop !7
 
 _ZSt4copyIPKcPhET0_T_S4_S3_.exit36.i:             ; preds = %for.body.i.i.i.i.i28.i, %if.else29.i
-  %sub.ptr.sub.i.i.i.i.i.i.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i, %sub.ptr.lhs.cast.i.i.i.i.i23.i
-  %cmp6.i.i.i.i.i.i.i.i.i = icmp sgt i64 %sub.ptr.sub.i.i.i.i.i.i.i.i.i, 0
+  %gepdiff = sub i64 %conv54, %sub.ptr.sub.i16.i
+  %cmp6.i.i.i.i.i.i.i.i.i = icmp sgt i64 %gepdiff, 0
   br i1 %cmp6.i.i.i.i.i.i.i.i.i, label %for.body.i.i.i.i.i.i.i.i.i, label %invoke.cont
 
 for.body.i.i.i.i.i.i.i.i.i:                       ; preds = %_ZSt4copyIPKcPhET0_T_S4_S3_.exit36.i, %for.body.i.i.i.i.i.i.i.i.i
-  %__n.09.i.i.i.i.i.i.i.i.i = phi i64 [ %dec.i.i.i.i.i.i.i.i.i, %for.body.i.i.i.i.i.i.i.i.i ], [ %sub.ptr.sub.i.i.i.i.i.i.i.i.i, %_ZSt4copyIPKcPhET0_T_S4_S3_.exit36.i ]
+  %__n.09.i.i.i.i.i.i.i.i.i = phi i64 [ %dec.i.i.i.i.i.i.i.i.i, %for.body.i.i.i.i.i.i.i.i.i ], [ %gepdiff, %_ZSt4copyIPKcPhET0_T_S4_S3_.exit36.i ]
   %__result.addr.08.i.i.i.i.i.i.i.i.i = phi ptr [ %incdec.ptr1.i.i.i.i.i.i.i.i.i, %for.body.i.i.i.i.i.i.i.i.i ], [ %buf.sroa.10.0166, %_ZSt4copyIPKcPhET0_T_S4_S3_.exit36.i ]
   %__first.addr.07.i.i.i.i.i.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i.i.i.i.i.i, %for.body.i.i.i.i.i.i.i.i.i ], [ %incdec.ptr4.sink.i.i.i, %_ZSt4copyIPKcPhET0_T_S4_S3_.exit36.i ]
   %19 = load i8, ptr %__first.addr.07.i.i.i.i.i.i.i.i.i, align 1
@@ -625,7 +622,7 @@ if.end.i96:                                       ; preds = %if.then.i100, %for.
   %shl.i = shl nuw nsw i32 1, %bit.08.i
   %and.i = and i32 %shl.i, %conv4.i
   %shr.i = lshr i32 %and.i, %bit.08.i
-  %39 = trunc i32 %shr.i to i8
+  %39 = trunc nuw i32 %shr.i to i8
   %conv7.i97 = sub i8 0, %39
   %inc14.i = add nuw i64 %x.010.i, 1
   %arrayidx9.i = getelementptr inbounds i8, ptr %data, i64 %x.010.i
@@ -1418,7 +1415,7 @@ if.then.i.i.i.i:                                  ; preds = %if.then
   br i1 %cmp.i.i.i.i.i.i, label %_ZSt27__uninitialized_default_n_aIPcmcET_S1_T0_RSaIT1_E.exit.i, label %if.then.i.i.i.i.i.i.i.i
 
 if.then.i.i.i.i.i.i.i.i:                          ; preds = %if.then.i.i.i.i
-  %add.ptr.i.i.i.i.i.i = getelementptr inbounds i8, ptr %0, i64 %sub
+  %add.ptr.i.i.i.i.i.i = getelementptr i8, ptr %0, i64 %sub
   tail call void @llvm.memset.p0.i64(ptr nonnull align 1 %incdec.ptr.i.i.i.i, i8 0, i64 %sub.i.i.i.i, i1 false)
   br label %_ZSt27__uninitialized_default_n_aIPcmcET_S1_T0_RSaIT1_E.exit.i
 

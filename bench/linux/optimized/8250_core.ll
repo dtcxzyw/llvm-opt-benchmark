@@ -142,7 +142,7 @@ define dso_local void @serial8250_set_isa_configurator(ptr noundef %0) #1 align 
 }
 
 ; Function Attrs: cold fn_ret_thunk_extern nounwind null_pointer_is_valid optsize
-define internal noundef i32 @univ8250_console_init() #2 section ".init.text" align 16 {
+define internal noundef range(i32 -19, 1) i32 @univ8250_console_init() #2 section ".init.text" align 16 {
   %1 = load i32, ptr @nr_uarts, align 4
   %2 = icmp eq i32 %1, 0
   br i1 %2, label %4, label %3
@@ -158,7 +158,7 @@ define internal noundef i32 @univ8250_console_init() #2 section ".init.text" ali
 }
 
 ; Function Attrs: cold fn_ret_thunk_extern nounwind null_pointer_is_valid optsize
-define dso_local noundef i32 @early_serial_setup(ptr nocapture noundef readonly %0) local_unnamed_addr #2 section ".init.text" align 16 {
+define dso_local noundef range(i32 -19, 1) i32 @early_serial_setup(ptr nocapture noundef readonly %0) local_unnamed_addr #2 section ".init.text" align 16 {
   %2 = getelementptr inbounds i8, ptr %0, i64 316
   %3 = load i32, ptr %2, align 4
   %4 = icmp ugt i32 %3, 31
@@ -2137,7 +2137,7 @@ define internal void @univ8250_setup_timer(ptr noundef %0) #5 align 16 {
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i32 @serial8250_interrupt(i32 %0, ptr noundef %1) #5 align 16 {
+define internal range(i32 0, 2) i32 @serial8250_interrupt(i32 %0, ptr noundef %1) #5 align 16 {
   %3 = getelementptr inbounds i8, ptr %1, i64 20
   tail call void @_raw_spin_lock(ptr noundef %3) #12
   %4 = getelementptr inbounds i8, ptr %1, i64 24

@@ -1572,7 +1572,7 @@ declare ptr @bmcg2_sat_solver_start(...) local_unnamed_addr #1
 declare void @bmcg2_sat_solver_set_jftr(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @CecG_ManSatCheckNode(ptr nocapture noundef %0, ptr noundef %1) local_unnamed_addr #0 {
+define range(i32 -1, 2) i32 @CecG_ManSatCheckNode(ptr nocapture noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = alloca %struct.timespec, align 8
   %4 = alloca %struct.timespec, align 8
   %5 = alloca %struct.timespec, align 8
@@ -2013,7 +2013,7 @@ Vec_PtrFreeP.exit:                                ; preds = %Abc_Clock.exit, %20
   br i1 %80, label %Bar_ProgressUpdate.exit, label %81
 
 81:                                               ; preds = %77, %76
-  %82 = trunc i64 %indvars.iv to i32
+  %82 = trunc nuw nsw i64 %indvars.iv to i32
   call void @Bar_ProgressUpdate_int(ptr noundef %44, i32 noundef %82, ptr noundef nonnull @.str) #8
   br label %Bar_ProgressUpdate.exit
 
@@ -2030,7 +2030,7 @@ Bar_ProgressUpdate.exit:                          ; preds = %77, %81
   %90 = ptrtoint ptr %87 to i64
   %91 = xor i64 %89, %90
   %92 = inttoptr i64 %91 to ptr
-  %93 = call i32 @CecG_ManSatCheckNode(ptr noundef %38, ptr noundef %92), !range !13
+  %93 = call i32 @CecG_ManSatCheckNode(ptr noundef %38, ptr noundef %92)
   %94 = icmp eq i32 %93, 0
   %95 = load i64, ptr %57, align 4
   %96 = select i1 %94, i64 1073741824, i64 0
@@ -2040,7 +2040,7 @@ Bar_ProgressUpdate.exit:                          ; preds = %77, %81
   %100 = select i1 %99, i64 4611686018427387904, i64 0
   %101 = or disjoint i64 %98, %100
   store i64 %101, ptr %57, align 4
-  %or.cond = and i1 %50, %99
+  %or.cond = select i1 %50, i1 %99, i1 false
   br i1 %or.cond, label %.thread, label %112
 
 .thread:                                          ; preds = %Bar_ProgressUpdate.exit
@@ -2075,7 +2075,7 @@ Bar_ProgressUpdate.exit:                          ; preds = %77, %81
   %.val63 = load i32, ptr %117, align 4
   %118 = sext i32 %.val63 to i64
   %119 = icmp slt i64 %indvars.iv.next, %118
-  br i1 %119, label %51, label %.critedge, !llvm.loop !14
+  br i1 %119, label %51, label %.critedge, !llvm.loop !13
 
 .critedge:                                        ; preds = %51, %113, %115, %36
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5)
@@ -2188,5 +2188,4 @@ attributes #10 = { nounwind allocsize(1) }
 !10 = distinct !{!10, !5}
 !11 = distinct !{!11, !5}
 !12 = distinct !{!12, !5}
-!13 = !{i32 -1, i32 2}
-!14 = distinct !{!14, !5}
+!13 = distinct !{!13, !5}

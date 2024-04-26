@@ -678,7 +678,7 @@ define hidden void @"_ZN14cargo_metadata10dependency1_91_$LT$impl$u20$serde..de.
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define hidden noundef i8 @"_ZN14cargo_metadata10dependency21parse_dependency_kind28_$u7b$$u7b$closure$u7d$$u7d$17hdd089b6b63d89067E.llvm.3506456842714578515"(i8 noundef %0) unnamed_addr #4 {
+define hidden noundef range(i8 5, 4) i8 @"_ZN14cargo_metadata10dependency21parse_dependency_kind28_$u7b$$u7b$closure$u7d$$u7d$17hdd089b6b63d89067E.llvm.3506456842714578515"(i8 noundef %0) unnamed_addr #4 {
   %2 = icmp eq i8 %0, 4
   %. = select i1 %2, i8 0, i8 %0
   ret i8 %.

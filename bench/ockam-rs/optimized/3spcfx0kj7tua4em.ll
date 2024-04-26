@@ -132380,7 +132380,7 @@ define void @_ZN9ockam_api2ui8terminal6Output3new17h86636303d8582980E(ptr noalia
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define noundef i8 @"_ZN90_$LT$ockam_api..ui..terminal..ConfirmResult$u20$as$u20$core..convert..From$LT$bool$GT$$GT$4from17h21fd644e28ee52b2E"(i1 noundef zeroext %0) unnamed_addr #5 {
+define noundef range(i8 0, 2) i8 @"_ZN90_$LT$ockam_api..ui..terminal..ConfirmResult$u20$as$u20$core..convert..From$LT$bool$GT$$GT$4from17h21fd644e28ee52b2E"(i1 noundef zeroext %0) unnamed_addr #5 {
   %not. = xor i1 %0, true
   %. = zext i1 %not. to i8
   ret i8 %.

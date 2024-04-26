@@ -4979,7 +4979,7 @@ define hidden void @"_ZN108_$LT$core..iter..adapters..filter..Filter$LT$I$C$P$GT
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define hidden noundef i64 @"_ZN108_$LT$core..iter..adapters..filter..Filter$LT$I$C$P$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$5count8to_usize28_$u7b$$u7b$closure$u7d$$u7d$17ha41177bfa9989bb6E.llvm.9060417697508566391"(ptr noalias nocapture noundef nonnull readnone align 1 %0, ptr noalias noundef readonly align 8 dereferenceable(32) %1) unnamed_addr #1 personality ptr @rust_eh_personality {
+define hidden noundef range(i64 0, 2) i64 @"_ZN108_$LT$core..iter..adapters..filter..Filter$LT$I$C$P$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$5count8to_usize28_$u7b$$u7b$closure$u7d$$u7d$17ha41177bfa9989bb6E.llvm.9060417697508566391"(ptr noalias nocapture noundef nonnull readnone align 1 %0, ptr noalias noundef readonly align 8 dereferenceable(32) %1) unnamed_addr #1 personality ptr @rust_eh_personality {
   %3 = tail call noundef zeroext i1 @_ZN10ockam_core7routing7address7Address8is_local17hf52f517468d324afE(ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %1), !noalias !1249
   %4 = xor i1 %3, true
   %5 = zext i1 %4 to i64
@@ -65358,7 +65358,7 @@ define hidden noundef i64 @"_ZN4sec15point24EncodedPoint$LT$Size$GT$3len17hf358c
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden noundef i8 @"_ZN4sec15point24EncodedPoint$LT$Size$GT$3tag17h79b598f292b2be7eE.llvm.9060417697508566391"(ptr noalias nocapture noundef readonly align 1 dereferenceable(65) %0) unnamed_addr #2 personality ptr @rust_eh_personality {
+define hidden noundef range(i8 0, 6) i8 @"_ZN4sec15point24EncodedPoint$LT$Size$GT$3tag17h79b598f292b2be7eE.llvm.9060417697508566391"(ptr noalias nocapture noundef readonly align 1 dereferenceable(65) %0) unnamed_addr #2 personality ptr @rust_eh_personality {
   %2 = alloca { i64, [7 x i64] }, align 8
   %3 = alloca { i64, [7 x i64] }, align 8
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %3)

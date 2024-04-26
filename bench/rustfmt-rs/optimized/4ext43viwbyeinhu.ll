@@ -8881,7 +8881,7 @@ _ZN5alloc3fmt6format17h35125637d547cb53E.exit108: ; preds = %80
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define internal fastcc noundef i8 @_ZN12tracing_core8callsite15DefaultCallsite8interest17h0d13743fe14fa6bfE(ptr noundef nonnull align 8 %0) unnamed_addr #0 {
+define internal fastcc noundef range(i8 0, 3) i8 @_ZN12tracing_core8callsite15DefaultCallsite8interest17h0d13743fe14fa6bfE(ptr noundef nonnull align 8 %0) unnamed_addr #0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 16
   %3 = load atomic i8, ptr %2 monotonic, align 8
   %4 = icmp ult i8 %3, 3
@@ -24416,7 +24416,7 @@ _RNvXsd_NtCs2al5CLA23zg_9rustc_ast11tokenstreamNtB5_18RefTokenTreeCursorNtNtNtNt
           to label %.noexc42 unwind label %.loopexit
 
 .noexc42:                                         ; preds = %79
-  switch i8 %80, label %default.unreachable12.i [
+  switch i8 %80, label %default.unreachable [
     i8 0, label %85
     i8 1, label %.sink.split
     i8 2, label %83
@@ -24436,7 +24436,7 @@ _RNvXsd_NtCs2al5CLA23zg_9rustc_ast11tokenstreamNtB5_18RefTokenTreeCursorNtNtNtNt
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %.sroa.0.i), !noalias !4452
   br label %98
 
-default.unreachable12.i:                          ; preds = %.noexc42
+default.unreachable:                              ; preds = %.noexc42
   unreachable
 
 83:                                               ; preds = %.noexc42
@@ -26155,7 +26155,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17h0d13743fe14fa6bfE.exit.th
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc noundef i8 @_ZN15rustfmt_nightly6macros10next_space17h244b1f12318f1b17E(ptr noalias noundef readonly align 8 dereferenceable(16) %0) unnamed_addr #1 {
+define internal fastcc noundef range(i8 0, 4) i8 @_ZN15rustfmt_nightly6macros10next_space17h244b1f12318f1b17E(ptr noalias noundef readonly align 8 dereferenceable(16) %0) unnamed_addr #1 {
   %2 = alloca { { ptr, i64 }, ptr }, align 8
   %3 = alloca [1 x { ptr, ptr }], align 8
   %4 = alloca { { ptr, i64 }, { ptr, i64 }, { ptr, i64 } }, align 8
@@ -26521,7 +26521,7 @@ define hidden void @_ZN15rustfmt_nightly6macros15convert_try_mac17h9aab107770a9b
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden noundef i8 @_ZN15rustfmt_nightly6macros11macro_style17h1ba8baca00ebd2d7E(ptr noalias noundef readonly align 8 dereferenceable(32) %0, ptr nocapture noundef nonnull readonly align 8 %1) unnamed_addr #1 {
+define hidden noundef range(i8 0, 3) i8 @_ZN15rustfmt_nightly6macros11macro_style17h1ba8baca00ebd2d7E(ptr noalias noundef readonly align 8 dereferenceable(32) %0, ptr nocapture noundef nonnull readonly align 8 %1) unnamed_addr #1 {
   %3 = tail call i64 @_RNvMss_NtCs2al5CLA23zg_9rustc_ast3astNtB5_7MacCall4span(ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %0)
   %4 = getelementptr inbounds i8, ptr %1, i64 56
   %5 = load ptr, ptr %4, align 8, !nonnull !14, !align !15, !noundef !14

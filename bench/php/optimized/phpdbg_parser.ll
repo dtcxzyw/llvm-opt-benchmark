@@ -79,7 +79,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.43 = private unnamed_addr constant [5 x i8] c"--> \00", align 1
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @phpdbg_parse() local_unnamed_addr #0 {
+define hidden range(i32 0, 3) i32 @phpdbg_parse() local_unnamed_addr #0 {
   %1 = alloca %struct._phpdbg_param, align 8
   %2 = alloca [200 x i8], align 16
   %3 = alloca [200 x %struct._phpdbg_param], align 16
@@ -105,7 +105,7 @@ define hidden noundef i32 @phpdbg_parse() local_unnamed_addr #0 {
   %.0473 = phi i64 [ 200, %0 ], [ %.1474, %6 ]
   %.1468 = phi i32 [ 0, %0 ], [ %.0467, %6 ]
   %.1 = phi i32 [ -2, %0 ], [ %.0462, %6 ]
-  %9 = trunc i32 %.1468 to i8
+  %9 = trunc nsw i32 %.1468 to i8
   store i8 %9, ptr %.1496, align 1
   %10 = getelementptr inbounds i8, ptr %.0475, i64 %.0473
   %11 = getelementptr inbounds i8, ptr %10, i64 -1
@@ -768,59 +768,58 @@ define hidden noundef i32 @phpdbg_parse() local_unnamed_addr #0 {
 300:                                              ; preds = %292, %294, %295
   %301 = phi i32 [ -2, %292 ], [ %299, %295 ], [ 2, %294 ]
   %302 = call fastcc i32 @yysyntax_error(ptr noundef nonnull %5, ptr nonnull %4, ptr %.2497, i32 %301)
-  switch i32 %302, label %310 [
+  switch i32 %302, label %311 [
     i32 0, label %303
     i32 -1, label %304
   ]
 
 303:                                              ; preds = %300
-  br label %310
+  br label %311
 
 304:                                              ; preds = %300
   %305 = load i64, ptr %5, align 8
   %306 = call noalias ptr @malloc(i64 noundef %305) #11
   %.not533 = icmp eq ptr %306, null
-  br i1 %.not533, label %309, label %307
+  br i1 %.not533, label %310, label %307
 
 307:                                              ; preds = %304
   %308 = call fastcc i32 @yysyntax_error(ptr noundef nonnull %5, ptr nonnull %306, ptr %.2497, i32 %301)
-  br label %310
+  %309 = icmp eq i32 %308, -2
+  br label %311
 
-309:                                              ; preds = %304
+310:                                              ; preds = %304
   store i64 128, ptr %5, align 8
-  br label %310
+  br label %311
 
-310:                                              ; preds = %300, %309, %307, %303
-  %.0556 = phi ptr [ %4, %300 ], [ %4, %309 ], [ %306, %307 ], [ %4, %303 ]
-  %.0461 = phi ptr [ @.str, %300 ], [ @.str, %309 ], [ %306, %307 ], [ %4, %303 ]
-  %.0 = phi i32 [ %302, %300 ], [ -2, %309 ], [ %308, %307 ], [ 0, %303 ]
-  %311 = load i32, ptr getelementptr inbounds (%struct._zend_phpdbg_globals, ptr @phpdbg_globals, i64 0, i32 39, i64 1), align 4
-  %312 = call i32 (i32, i32, ptr, ...) @phpdbg_print(i32 noundef 1, i32 noundef %311, ptr noundef nonnull @.str.42, ptr noundef nonnull %.0461) #12
+311:                                              ; preds = %300, %310, %307, %303
+  %.0556 = phi ptr [ %4, %300 ], [ %4, %310 ], [ %306, %307 ], [ %4, %303 ]
+  %.0461 = phi ptr [ @.str, %300 ], [ @.str, %310 ], [ %306, %307 ], [ %4, %303 ]
+  %.0 = phi i1 [ true, %300 ], [ true, %310 ], [ %309, %307 ], [ false, %303 ]
+  %312 = load i32, ptr getelementptr inbounds (%struct._zend_phpdbg_globals, ptr @phpdbg_globals, i64 0, i32 39, i64 1), align 4
+  %313 = call i32 (i32, i32, ptr, ...) @phpdbg_print(i32 noundef 1, i32 noundef %312, ptr noundef nonnull @.str.42, ptr noundef nonnull %.0461) #12
   %.04.i = load ptr, ptr getelementptr inbounds (%struct._zend_phpdbg_globals, ptr @phpdbg_globals, i64 0, i32 9), align 8
   %.not5.i = icmp eq ptr %.04.i, null
   br i1 %.not5.i, label %yyerror.exit.thread, label %.lr.ph.i
 
-.lr.ph.i:                                         ; preds = %310, %.lr.ph.i
-  %.06.i = phi ptr [ %.0.i, %.lr.ph.i ], [ %.04.i, %310 ]
+.lr.ph.i:                                         ; preds = %311, %.lr.ph.i
+  %.06.i = phi ptr [ %.0.i, %.lr.ph.i ], [ %.04.i, %311 ]
   call void @phpdbg_param_debug(ptr noundef nonnull %.06.i, ptr noundef nonnull @.str.43) #12
-  %313 = getelementptr inbounds i8, ptr %.06.i, i64 72
-  %.0.i = load ptr, ptr %313, align 8
+  %314 = getelementptr inbounds i8, ptr %.06.i, i64 72
+  %.0.i = load ptr, ptr %314, align 8
   %.not.i = icmp eq ptr %.0.i, null
   br i1 %.not.i, label %yyerror.exit, label %.lr.ph.i
 
 yyerror.exit:                                     ; preds = %.lr.ph.i
-  %314 = icmp eq i32 %.0, -2
-  br i1 %314, label %.loopexit, label %.thread579
+  br i1 %.0, label %.loopexit, label %.thread579
 
-yyerror.exit.thread:                              ; preds = %310
-  %315 = icmp eq i32 %.0, -2
-  br i1 %315, label %.loopexit, label %.thread579
+yyerror.exit.thread:                              ; preds = %311
+  br i1 %.0, label %.loopexit, label %.thread579
 
 .loopexit:                                        ; preds = %18, %12, %yyerror.exit.thread, %yyerror.exit
   %.3559 = phi ptr [ %.0556, %yyerror.exit ], [ %.0556, %yyerror.exit.thread ], [ %4, %12 ], [ %4, %18 ]
   %.3478 = phi ptr [ %.1476, %yyerror.exit ], [ %.1476, %yyerror.exit.thread ], [ %.0475, %12 ], [ %.0475, %18 ]
-  %316 = load i32, ptr getelementptr inbounds (%struct._zend_phpdbg_globals, ptr @phpdbg_globals, i64 0, i32 39, i64 1), align 4
-  %317 = call i32 (i32, i32, ptr, ...) @phpdbg_print(i32 noundef 1, i32 noundef %316, ptr noundef nonnull @.str.42, ptr noundef nonnull @.str.3) #12
+  %315 = load i32, ptr getelementptr inbounds (%struct._zend_phpdbg_globals, ptr @phpdbg_globals, i64 0, i32 39, i64 1), align 4
+  %316 = call i32 (i32, i32, ptr, ...) @phpdbg_print(i32 noundef 1, i32 noundef %315, ptr noundef nonnull @.str.42, ptr noundef nonnull @.str.3) #12
   %.04.i545 = load ptr, ptr getelementptr inbounds (%struct._zend_phpdbg_globals, ptr @phpdbg_globals, i64 0, i32 9), align 8
   %.not5.i546 = icmp eq ptr %.04.i545, null
   br i1 %.not5.i546, label %.thread579, label %.lr.ph.i547
@@ -828,8 +827,8 @@ yyerror.exit.thread:                              ; preds = %310
 .lr.ph.i547:                                      ; preds = %.loopexit, %.lr.ph.i547
   %.06.i548 = phi ptr [ %.0.i549, %.lr.ph.i547 ], [ %.04.i545, %.loopexit ]
   call void @phpdbg_param_debug(ptr noundef nonnull %.06.i548, ptr noundef nonnull @.str.43) #12
-  %318 = getelementptr inbounds i8, ptr %.06.i548, i64 72
-  %.0.i549 = load ptr, ptr %318, align 8
+  %317 = getelementptr inbounds i8, ptr %.06.i548, i64 72
+  %.0.i549 = load ptr, ptr %317, align 8
   %.not.i550 = icmp eq ptr %.0.i549, null
   br i1 %.not.i550, label %.thread579, label %.lr.ph.i547
 
@@ -838,26 +837,26 @@ yyerror.exit.thread:                              ; preds = %310
   %.0483575 = phi i32 [ 2, %.loopexit ], [ 1, %yyerror.exit ], [ 1, %yyerror.exit.thread ], [ 2, %.lr.ph.i547 ], [ 0, %33 ], [ 1, %48 ]
   %.4560569 = phi ptr [ %.3559, %.loopexit ], [ %.0556, %yyerror.exit ], [ %.0556, %yyerror.exit.thread ], [ %.3559, %.lr.ph.i547 ], [ %4, %48 ], [ %4, %33 ]
   %.not538 = icmp eq ptr %.4479577, %2
-  br i1 %.not538, label %319, label %.thread579.thread
+  br i1 %.not538, label %318, label %.thread579.thread
 
 .thread579.thread:                                ; preds = %29, %.thread579
   %.4560569637 = phi ptr [ %.4560569, %.thread579 ], [ %4, %29 ]
   %.0483575635 = phi i32 [ %.0483575, %.thread579 ], [ 1, %29 ]
   %.4479577634 = phi ptr [ %.4479577, %.thread579 ], [ %22, %29 ]
   call void @free(ptr noundef %.4479577634) #12
-  br label %319
+  br label %318
 
-319:                                              ; preds = %.thread579.thread, %.thread579
+318:                                              ; preds = %.thread579.thread, %.thread579
   %.4560569638 = phi ptr [ %.4560569637, %.thread579.thread ], [ %.4560569, %.thread579 ]
   %.0483575636 = phi i32 [ %.0483575635, %.thread579.thread ], [ %.0483575, %.thread579 ]
   %.not539 = icmp eq ptr %.4560569638, %4
-  br i1 %.not539, label %321, label %320
+  br i1 %.not539, label %320, label %319
 
-320:                                              ; preds = %319
+319:                                              ; preds = %318
   call void @free(ptr noundef %.4560569638) #12
-  br label %321
+  br label %320
 
-321:                                              ; preds = %320, %319
+320:                                              ; preds = %319, %318
   ret i32 %.0483575636
 }
 
@@ -877,7 +876,7 @@ declare void @phpdbg_stack_separate(ptr noundef) local_unnamed_addr #4
 declare void @phpdbg_stack_push(ptr noundef, ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: nofree nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc noundef i32 @yysyntax_error(ptr nocapture noundef %0, ptr %.0.val, ptr nocapture readonly %.0.val1, i32 %.8.val) unnamed_addr #5 {
+define internal fastcc range(i32 -2, 1) i32 @yysyntax_error(ptr nocapture noundef %0, ptr %.0.val, ptr nocapture readonly %.0.val1, i32 %.8.val) unnamed_addr #5 {
   %2 = alloca [5 x i32], align 16
   %.not.i = icmp eq i32 %.8.val, -2
   br i1 %.not.i, label %yy_syntax_error_arguments.exit.thread8, label %3
@@ -919,7 +918,7 @@ define internal fastcc noundef i32 @yysyntax_error(ptr nocapture noundef %0, ptr
   %22 = getelementptr inbounds [52 x i8], ptr @yycheck, i64 0, i64 %21
   %23 = load i8, ptr %22, align 1
   %24 = sext i8 %23 to i32
-  %25 = trunc i64 %indvars.iv.i.i to i32
+  %25 = trunc nsw i64 %indvars.iv.i.i to i32
   %26 = icmp eq i32 %25, %24
   %27 = icmp ne i64 %indvars.iv.i.i, 1
   %or.cond.i.i = and i1 %27, %26
@@ -1132,7 +1131,7 @@ yy_syntax_error_arguments.exit.thread10:          ; preds = %yytnamerr.exit, %.p
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @phpdbg_do_parse(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
+define hidden range(i32 0, 3) i32 @phpdbg_do_parse(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = load i8, ptr %1, align 1
   %.not = icmp eq i8 %3, 0
   br i1 %.not, label %10, label %4
@@ -1150,7 +1149,7 @@ define hidden noundef i32 @phpdbg_do_parse(ptr noundef %0, ptr noundef %1) local
   %8 = tail call noalias ptr @strdup(ptr noundef nonnull %1) #12
   store ptr %8, ptr getelementptr inbounds (%struct._zend_phpdbg_globals, ptr @phpdbg_globals, i64 0, i32 7), align 8
   tail call void @phpdbg_init_lexer(ptr noundef %0, ptr noundef nonnull %1) #12
-  %9 = tail call i32 @phpdbg_parse(), !range !4
+  %9 = tail call i32 @phpdbg_parse()
   br label %10
 
 10:                                               ; preds = %2, %7
@@ -1203,4 +1202,3 @@ attributes #13 = { nounwind willreturn memory(read) }
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
 !3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = !{i32 0, i32 3}

@@ -72731,24 +72731,13 @@ entry:
   %sub.ptr.sub90 = sub i64 %sub.ptr.lhs.cast, %sub.ptr.rhs.cast89
   %sub.ptr.div91 = ashr exact i64 %sub.ptr.sub90, 2
   %cmp.not92 = icmp slt i64 %sub.ptr.div91, %mul
-  br i1 %cmp.not92, label %while.end, label %while.body.lr.ph
-
-while.body.lr.ph:                                 ; preds = %entry
   %cmp122.i.not = icmp eq i64 %__step_size, 0
-  br i1 %cmp122.i.not, label %_ZSt12__move_mergeIPN11flatbuffers6OffsetIN10reflection8KeyValueEEES5_N9__gnu_cxx5__ops15_Iter_comp_iterINS0_21FlatBufferBuilderImplILb0EE18TableKeyComparatorIS3_EEEEET0_T_SF_SF_SF_SE_T1_.exit.us, label %while.body
+  %or.cond = or i1 %cmp.not92, %cmp122.i.not
+  br i1 %or.cond, label %while.end, label %while.body
 
-_ZSt12__move_mergeIPN11flatbuffers6OffsetIN10reflection8KeyValueEEES5_N9__gnu_cxx5__ops15_Iter_comp_iterINS0_21FlatBufferBuilderImplILb0EE18TableKeyComparatorIS3_EEEEET0_T_SF_SF_SF_SE_T1_.exit.us: ; preds = %while.body.lr.ph, %_ZSt12__move_mergeIPN11flatbuffers6OffsetIN10reflection8KeyValueEEES5_N9__gnu_cxx5__ops15_Iter_comp_iterINS0_21FlatBufferBuilderImplILb0EE18TableKeyComparatorIS3_EEEEET0_T_SF_SF_SF_SE_T1_.exit.us
-  %__first.addr.094.us = phi ptr [ %add.ptr2.us, %_ZSt12__move_mergeIPN11flatbuffers6OffsetIN10reflection8KeyValueEEES5_N9__gnu_cxx5__ops15_Iter_comp_iterINS0_21FlatBufferBuilderImplILb0EE18TableKeyComparatorIS3_EEEEET0_T_SF_SF_SF_SE_T1_.exit.us ], [ %__first, %while.body.lr.ph ]
-  %add.ptr2.us = getelementptr inbounds %"struct.flatbuffers::Offset.412", ptr %__first.addr.094.us, i64 %mul
-  %sub.ptr.rhs.cast.us = ptrtoint ptr %add.ptr2.us to i64
-  %sub.ptr.sub.us = sub i64 %sub.ptr.lhs.cast, %sub.ptr.rhs.cast.us
-  %sub.ptr.div.us = ashr exact i64 %sub.ptr.sub.us, 2
-  %cmp.not.us = icmp slt i64 %sub.ptr.div.us, %mul
-  br i1 %cmp.not.us, label %while.end, label %_ZSt12__move_mergeIPN11flatbuffers6OffsetIN10reflection8KeyValueEEES5_N9__gnu_cxx5__ops15_Iter_comp_iterINS0_21FlatBufferBuilderImplILb0EE18TableKeyComparatorIS3_EEEEET0_T_SF_SF_SF_SE_T1_.exit.us, !llvm.loop !1459
-
-while.body:                                       ; preds = %while.body.lr.ph, %_ZSt12__move_mergeIPN11flatbuffers6OffsetIN10reflection8KeyValueEEES5_N9__gnu_cxx5__ops15_Iter_comp_iterINS0_21FlatBufferBuilderImplILb0EE18TableKeyComparatorIS3_EEEEET0_T_SF_SF_SF_SE_T1_.exit
-  %__first.addr.094 = phi ptr [ %add.ptr2, %_ZSt12__move_mergeIPN11flatbuffers6OffsetIN10reflection8KeyValueEEES5_N9__gnu_cxx5__ops15_Iter_comp_iterINS0_21FlatBufferBuilderImplILb0EE18TableKeyComparatorIS3_EEEEET0_T_SF_SF_SF_SE_T1_.exit ], [ %__first, %while.body.lr.ph ]
-  %__result.addr.093 = phi ptr [ %add.ptr.i.i.i.i.i19.i, %_ZSt12__move_mergeIPN11flatbuffers6OffsetIN10reflection8KeyValueEEES5_N9__gnu_cxx5__ops15_Iter_comp_iterINS0_21FlatBufferBuilderImplILb0EE18TableKeyComparatorIS3_EEEEET0_T_SF_SF_SF_SE_T1_.exit ], [ %__result, %while.body.lr.ph ]
+while.body:                                       ; preds = %entry, %_ZSt12__move_mergeIPN11flatbuffers6OffsetIN10reflection8KeyValueEEES5_N9__gnu_cxx5__ops15_Iter_comp_iterINS0_21FlatBufferBuilderImplILb0EE18TableKeyComparatorIS3_EEEEET0_T_SF_SF_SF_SE_T1_.exit
+  %__first.addr.094 = phi ptr [ %add.ptr2, %_ZSt12__move_mergeIPN11flatbuffers6OffsetIN10reflection8KeyValueEEES5_N9__gnu_cxx5__ops15_Iter_comp_iterINS0_21FlatBufferBuilderImplILb0EE18TableKeyComparatorIS3_EEEEET0_T_SF_SF_SF_SE_T1_.exit ], [ %__first, %entry ]
+  %__result.addr.093 = phi ptr [ %add.ptr.i.i.i.i.i19.i, %_ZSt12__move_mergeIPN11flatbuffers6OffsetIN10reflection8KeyValueEEES5_N9__gnu_cxx5__ops15_Iter_comp_iterINS0_21FlatBufferBuilderImplILb0EE18TableKeyComparatorIS3_EEEEET0_T_SF_SF_SF_SE_T1_.exit ], [ %__result, %entry ]
   %add.ptr = getelementptr inbounds %"struct.flatbuffers::Offset.412", ptr %__first.addr.094, i64 %__step_size
   %add.ptr2 = getelementptr inbounds %"struct.flatbuffers::Offset.412", ptr %__first.addr.094, i64 %mul
   %0 = load ptr, ptr %__comp, align 8
@@ -72824,7 +72813,7 @@ while.body.i:                                     ; preds = %while.body, %while.
   %cmp.i = icmp ne ptr %__first1.addr.1.i, %add.ptr
   %cmp1.i = icmp ne ptr %__first2.addr.1.i, %add.ptr2
   %15 = select i1 %cmp.i, i1 %cmp1.i, i1 false
-  br i1 %15, label %while.body.i, label %while.end.i.loopexit, !llvm.loop !1460
+  br i1 %15, label %while.body.i, label %while.end.i.loopexit, !llvm.loop !1459
 
 while.end.i.loopexit:                             ; preds = %while.body.i
   %sub.ptr.lhs.cast.i.i.i.i.i.i = ptrtoint ptr %add.ptr to i64
@@ -72854,12 +72843,12 @@ _ZSt12__move_mergeIPN11flatbuffers6OffsetIN10reflection8KeyValueEEES5_N9__gnu_cx
   %sub.ptr.sub = sub i64 %sub.ptr.lhs.cast, %sub.ptr.lhs.cast.i.i.i.i.i14.i
   %sub.ptr.div = ashr exact i64 %sub.ptr.sub, 2
   %cmp.not = icmp slt i64 %sub.ptr.div, %mul
-  br i1 %cmp.not, label %while.end, label %while.body, !llvm.loop !1459
+  br i1 %cmp.not, label %while.end, label %while.body, !llvm.loop !1460
 
-while.end:                                        ; preds = %_ZSt12__move_mergeIPN11flatbuffers6OffsetIN10reflection8KeyValueEEES5_N9__gnu_cxx5__ops15_Iter_comp_iterINS0_21FlatBufferBuilderImplILb0EE18TableKeyComparatorIS3_EEEEET0_T_SF_SF_SF_SE_T1_.exit, %_ZSt12__move_mergeIPN11flatbuffers6OffsetIN10reflection8KeyValueEEES5_N9__gnu_cxx5__ops15_Iter_comp_iterINS0_21FlatBufferBuilderImplILb0EE18TableKeyComparatorIS3_EEEEET0_T_SF_SF_SF_SE_T1_.exit.us, %entry
-  %__result.addr.0.lcssa = phi ptr [ %__result, %entry ], [ %__result, %_ZSt12__move_mergeIPN11flatbuffers6OffsetIN10reflection8KeyValueEEES5_N9__gnu_cxx5__ops15_Iter_comp_iterINS0_21FlatBufferBuilderImplILb0EE18TableKeyComparatorIS3_EEEEET0_T_SF_SF_SF_SE_T1_.exit.us ], [ %add.ptr.i.i.i.i.i19.i, %_ZSt12__move_mergeIPN11flatbuffers6OffsetIN10reflection8KeyValueEEES5_N9__gnu_cxx5__ops15_Iter_comp_iterINS0_21FlatBufferBuilderImplILb0EE18TableKeyComparatorIS3_EEEEET0_T_SF_SF_SF_SE_T1_.exit ]
-  %__first.addr.0.lcssa = phi ptr [ %__first, %entry ], [ %add.ptr2.us, %_ZSt12__move_mergeIPN11flatbuffers6OffsetIN10reflection8KeyValueEEES5_N9__gnu_cxx5__ops15_Iter_comp_iterINS0_21FlatBufferBuilderImplILb0EE18TableKeyComparatorIS3_EEEEET0_T_SF_SF_SF_SE_T1_.exit.us ], [ %add.ptr2, %_ZSt12__move_mergeIPN11flatbuffers6OffsetIN10reflection8KeyValueEEES5_N9__gnu_cxx5__ops15_Iter_comp_iterINS0_21FlatBufferBuilderImplILb0EE18TableKeyComparatorIS3_EEEEET0_T_SF_SF_SF_SE_T1_.exit ]
-  %sub.ptr.div.lcssa = phi i64 [ %sub.ptr.div91, %entry ], [ %sub.ptr.div.us, %_ZSt12__move_mergeIPN11flatbuffers6OffsetIN10reflection8KeyValueEEES5_N9__gnu_cxx5__ops15_Iter_comp_iterINS0_21FlatBufferBuilderImplILb0EE18TableKeyComparatorIS3_EEEEET0_T_SF_SF_SF_SE_T1_.exit.us ], [ %sub.ptr.div, %_ZSt12__move_mergeIPN11flatbuffers6OffsetIN10reflection8KeyValueEEES5_N9__gnu_cxx5__ops15_Iter_comp_iterINS0_21FlatBufferBuilderImplILb0EE18TableKeyComparatorIS3_EEEEET0_T_SF_SF_SF_SE_T1_.exit ]
+while.end:                                        ; preds = %_ZSt12__move_mergeIPN11flatbuffers6OffsetIN10reflection8KeyValueEEES5_N9__gnu_cxx5__ops15_Iter_comp_iterINS0_21FlatBufferBuilderImplILb0EE18TableKeyComparatorIS3_EEEEET0_T_SF_SF_SF_SE_T1_.exit, %entry
+  %__result.addr.0.lcssa = phi ptr [ %__result, %entry ], [ %add.ptr.i.i.i.i.i19.i, %_ZSt12__move_mergeIPN11flatbuffers6OffsetIN10reflection8KeyValueEEES5_N9__gnu_cxx5__ops15_Iter_comp_iterINS0_21FlatBufferBuilderImplILb0EE18TableKeyComparatorIS3_EEEEET0_T_SF_SF_SF_SE_T1_.exit ]
+  %__first.addr.0.lcssa = phi ptr [ %__first, %entry ], [ %add.ptr2, %_ZSt12__move_mergeIPN11flatbuffers6OffsetIN10reflection8KeyValueEEES5_N9__gnu_cxx5__ops15_Iter_comp_iterINS0_21FlatBufferBuilderImplILb0EE18TableKeyComparatorIS3_EEEEET0_T_SF_SF_SF_SE_T1_.exit ]
+  %sub.ptr.div.lcssa = phi i64 [ %sub.ptr.div91, %entry ], [ %sub.ptr.div, %_ZSt12__move_mergeIPN11flatbuffers6OffsetIN10reflection8KeyValueEEES5_N9__gnu_cxx5__ops15_Iter_comp_iterINS0_21FlatBufferBuilderImplILb0EE18TableKeyComparatorIS3_EEEEET0_T_SF_SF_SF_SE_T1_.exit ]
   %.sroa.speculated = tail call i64 @llvm.smin.i64(i64 %sub.ptr.div.lcssa, i64 %__step_size)
   %add.ptr9 = getelementptr inbounds %"struct.flatbuffers::Offset.412", ptr %__first.addr.0.lcssa, i64 %.sroa.speculated
   %cmp21.i16 = icmp ne i64 %.sroa.speculated, 0
@@ -72941,7 +72930,7 @@ while.body.i35:                                   ; preds = %while.body.i35.preh
   %cmp.i83 = icmp ne ptr %__first1.addr.1.i81, %add.ptr9
   %cmp1.i84 = icmp ne ptr %__first2.addr.1.i79, %__last
   %32 = select i1 %cmp.i83, i1 %cmp1.i84, i1 false
-  br i1 %32, label %while.body.i35, label %while.end.i18, !llvm.loop !1460
+  br i1 %32, label %while.body.i35, label %while.end.i18, !llvm.loop !1459
 
 while.end.i18:                                    ; preds = %while.body.i35, %while.end
   %__first2.addr.0.lcssa.i19 = phi ptr [ %add.ptr9, %while.end ], [ %__first2.addr.1.i79, %while.body.i35 ]
@@ -80384,24 +80373,13 @@ entry:
   %sub.ptr.sub90 = sub i64 %sub.ptr.lhs.cast, %sub.ptr.rhs.cast89
   %sub.ptr.div91 = ashr exact i64 %sub.ptr.sub90, 2
   %cmp.not92 = icmp slt i64 %sub.ptr.div91, %mul
-  br i1 %cmp.not92, label %while.end, label %while.body.lr.ph
-
-while.body.lr.ph:                                 ; preds = %entry
   %cmp122.i.not = icmp eq i64 %__step_size, 0
-  br i1 %cmp122.i.not, label %_ZSt12__move_mergeIPN11flatbuffers6OffsetIN10reflection5FieldEEES5_N9__gnu_cxx5__ops15_Iter_comp_iterINS0_21FlatBufferBuilderImplILb0EE18TableKeyComparatorIS3_EEEEET0_T_SF_SF_SF_SE_T1_.exit.us, label %while.body
+  %or.cond = or i1 %cmp.not92, %cmp122.i.not
+  br i1 %or.cond, label %while.end, label %while.body
 
-_ZSt12__move_mergeIPN11flatbuffers6OffsetIN10reflection5FieldEEES5_N9__gnu_cxx5__ops15_Iter_comp_iterINS0_21FlatBufferBuilderImplILb0EE18TableKeyComparatorIS3_EEEEET0_T_SF_SF_SF_SE_T1_.exit.us: ; preds = %while.body.lr.ph, %_ZSt12__move_mergeIPN11flatbuffers6OffsetIN10reflection5FieldEEES5_N9__gnu_cxx5__ops15_Iter_comp_iterINS0_21FlatBufferBuilderImplILb0EE18TableKeyComparatorIS3_EEEEET0_T_SF_SF_SF_SE_T1_.exit.us
-  %__first.addr.094.us = phi ptr [ %add.ptr2.us, %_ZSt12__move_mergeIPN11flatbuffers6OffsetIN10reflection5FieldEEES5_N9__gnu_cxx5__ops15_Iter_comp_iterINS0_21FlatBufferBuilderImplILb0EE18TableKeyComparatorIS3_EEEEET0_T_SF_SF_SF_SE_T1_.exit.us ], [ %__first, %while.body.lr.ph ]
-  %add.ptr2.us = getelementptr inbounds %"struct.flatbuffers::Offset.269", ptr %__first.addr.094.us, i64 %mul
-  %sub.ptr.rhs.cast.us = ptrtoint ptr %add.ptr2.us to i64
-  %sub.ptr.sub.us = sub i64 %sub.ptr.lhs.cast, %sub.ptr.rhs.cast.us
-  %sub.ptr.div.us = ashr exact i64 %sub.ptr.sub.us, 2
-  %cmp.not.us = icmp slt i64 %sub.ptr.div.us, %mul
-  br i1 %cmp.not.us, label %while.end, label %_ZSt12__move_mergeIPN11flatbuffers6OffsetIN10reflection5FieldEEES5_N9__gnu_cxx5__ops15_Iter_comp_iterINS0_21FlatBufferBuilderImplILb0EE18TableKeyComparatorIS3_EEEEET0_T_SF_SF_SF_SE_T1_.exit.us, !llvm.loop !1492
-
-while.body:                                       ; preds = %while.body.lr.ph, %_ZSt12__move_mergeIPN11flatbuffers6OffsetIN10reflection5FieldEEES5_N9__gnu_cxx5__ops15_Iter_comp_iterINS0_21FlatBufferBuilderImplILb0EE18TableKeyComparatorIS3_EEEEET0_T_SF_SF_SF_SE_T1_.exit
-  %__first.addr.094 = phi ptr [ %add.ptr2, %_ZSt12__move_mergeIPN11flatbuffers6OffsetIN10reflection5FieldEEES5_N9__gnu_cxx5__ops15_Iter_comp_iterINS0_21FlatBufferBuilderImplILb0EE18TableKeyComparatorIS3_EEEEET0_T_SF_SF_SF_SE_T1_.exit ], [ %__first, %while.body.lr.ph ]
-  %__result.addr.093 = phi ptr [ %add.ptr.i.i.i.i.i19.i, %_ZSt12__move_mergeIPN11flatbuffers6OffsetIN10reflection5FieldEEES5_N9__gnu_cxx5__ops15_Iter_comp_iterINS0_21FlatBufferBuilderImplILb0EE18TableKeyComparatorIS3_EEEEET0_T_SF_SF_SF_SE_T1_.exit ], [ %__result, %while.body.lr.ph ]
+while.body:                                       ; preds = %entry, %_ZSt12__move_mergeIPN11flatbuffers6OffsetIN10reflection5FieldEEES5_N9__gnu_cxx5__ops15_Iter_comp_iterINS0_21FlatBufferBuilderImplILb0EE18TableKeyComparatorIS3_EEEEET0_T_SF_SF_SF_SE_T1_.exit
+  %__first.addr.094 = phi ptr [ %add.ptr2, %_ZSt12__move_mergeIPN11flatbuffers6OffsetIN10reflection5FieldEEES5_N9__gnu_cxx5__ops15_Iter_comp_iterINS0_21FlatBufferBuilderImplILb0EE18TableKeyComparatorIS3_EEEEET0_T_SF_SF_SF_SE_T1_.exit ], [ %__first, %entry ]
+  %__result.addr.093 = phi ptr [ %add.ptr.i.i.i.i.i19.i, %_ZSt12__move_mergeIPN11flatbuffers6OffsetIN10reflection5FieldEEES5_N9__gnu_cxx5__ops15_Iter_comp_iterINS0_21FlatBufferBuilderImplILb0EE18TableKeyComparatorIS3_EEEEET0_T_SF_SF_SF_SE_T1_.exit ], [ %__result, %entry ]
   %add.ptr = getelementptr inbounds %"struct.flatbuffers::Offset.269", ptr %__first.addr.094, i64 %__step_size
   %add.ptr2 = getelementptr inbounds %"struct.flatbuffers::Offset.269", ptr %__first.addr.094, i64 %mul
   %0 = load ptr, ptr %__comp, align 8
@@ -80477,7 +80455,7 @@ while.body.i:                                     ; preds = %while.body, %while.
   %cmp.i = icmp ne ptr %__first1.addr.1.i, %add.ptr
   %cmp1.i = icmp ne ptr %__first2.addr.1.i, %add.ptr2
   %15 = select i1 %cmp.i, i1 %cmp1.i, i1 false
-  br i1 %15, label %while.body.i, label %while.end.i.loopexit, !llvm.loop !1493
+  br i1 %15, label %while.body.i, label %while.end.i.loopexit, !llvm.loop !1492
 
 while.end.i.loopexit:                             ; preds = %while.body.i
   %sub.ptr.lhs.cast.i.i.i.i.i.i = ptrtoint ptr %add.ptr to i64
@@ -80507,12 +80485,12 @@ _ZSt12__move_mergeIPN11flatbuffers6OffsetIN10reflection5FieldEEES5_N9__gnu_cxx5_
   %sub.ptr.sub = sub i64 %sub.ptr.lhs.cast, %sub.ptr.lhs.cast.i.i.i.i.i14.i
   %sub.ptr.div = ashr exact i64 %sub.ptr.sub, 2
   %cmp.not = icmp slt i64 %sub.ptr.div, %mul
-  br i1 %cmp.not, label %while.end, label %while.body, !llvm.loop !1492
+  br i1 %cmp.not, label %while.end, label %while.body, !llvm.loop !1493
 
-while.end:                                        ; preds = %_ZSt12__move_mergeIPN11flatbuffers6OffsetIN10reflection5FieldEEES5_N9__gnu_cxx5__ops15_Iter_comp_iterINS0_21FlatBufferBuilderImplILb0EE18TableKeyComparatorIS3_EEEEET0_T_SF_SF_SF_SE_T1_.exit, %_ZSt12__move_mergeIPN11flatbuffers6OffsetIN10reflection5FieldEEES5_N9__gnu_cxx5__ops15_Iter_comp_iterINS0_21FlatBufferBuilderImplILb0EE18TableKeyComparatorIS3_EEEEET0_T_SF_SF_SF_SE_T1_.exit.us, %entry
-  %__result.addr.0.lcssa = phi ptr [ %__result, %entry ], [ %__result, %_ZSt12__move_mergeIPN11flatbuffers6OffsetIN10reflection5FieldEEES5_N9__gnu_cxx5__ops15_Iter_comp_iterINS0_21FlatBufferBuilderImplILb0EE18TableKeyComparatorIS3_EEEEET0_T_SF_SF_SF_SE_T1_.exit.us ], [ %add.ptr.i.i.i.i.i19.i, %_ZSt12__move_mergeIPN11flatbuffers6OffsetIN10reflection5FieldEEES5_N9__gnu_cxx5__ops15_Iter_comp_iterINS0_21FlatBufferBuilderImplILb0EE18TableKeyComparatorIS3_EEEEET0_T_SF_SF_SF_SE_T1_.exit ]
-  %__first.addr.0.lcssa = phi ptr [ %__first, %entry ], [ %add.ptr2.us, %_ZSt12__move_mergeIPN11flatbuffers6OffsetIN10reflection5FieldEEES5_N9__gnu_cxx5__ops15_Iter_comp_iterINS0_21FlatBufferBuilderImplILb0EE18TableKeyComparatorIS3_EEEEET0_T_SF_SF_SF_SE_T1_.exit.us ], [ %add.ptr2, %_ZSt12__move_mergeIPN11flatbuffers6OffsetIN10reflection5FieldEEES5_N9__gnu_cxx5__ops15_Iter_comp_iterINS0_21FlatBufferBuilderImplILb0EE18TableKeyComparatorIS3_EEEEET0_T_SF_SF_SF_SE_T1_.exit ]
-  %sub.ptr.div.lcssa = phi i64 [ %sub.ptr.div91, %entry ], [ %sub.ptr.div.us, %_ZSt12__move_mergeIPN11flatbuffers6OffsetIN10reflection5FieldEEES5_N9__gnu_cxx5__ops15_Iter_comp_iterINS0_21FlatBufferBuilderImplILb0EE18TableKeyComparatorIS3_EEEEET0_T_SF_SF_SF_SE_T1_.exit.us ], [ %sub.ptr.div, %_ZSt12__move_mergeIPN11flatbuffers6OffsetIN10reflection5FieldEEES5_N9__gnu_cxx5__ops15_Iter_comp_iterINS0_21FlatBufferBuilderImplILb0EE18TableKeyComparatorIS3_EEEEET0_T_SF_SF_SF_SE_T1_.exit ]
+while.end:                                        ; preds = %_ZSt12__move_mergeIPN11flatbuffers6OffsetIN10reflection5FieldEEES5_N9__gnu_cxx5__ops15_Iter_comp_iterINS0_21FlatBufferBuilderImplILb0EE18TableKeyComparatorIS3_EEEEET0_T_SF_SF_SF_SE_T1_.exit, %entry
+  %__result.addr.0.lcssa = phi ptr [ %__result, %entry ], [ %add.ptr.i.i.i.i.i19.i, %_ZSt12__move_mergeIPN11flatbuffers6OffsetIN10reflection5FieldEEES5_N9__gnu_cxx5__ops15_Iter_comp_iterINS0_21FlatBufferBuilderImplILb0EE18TableKeyComparatorIS3_EEEEET0_T_SF_SF_SF_SE_T1_.exit ]
+  %__first.addr.0.lcssa = phi ptr [ %__first, %entry ], [ %add.ptr2, %_ZSt12__move_mergeIPN11flatbuffers6OffsetIN10reflection5FieldEEES5_N9__gnu_cxx5__ops15_Iter_comp_iterINS0_21FlatBufferBuilderImplILb0EE18TableKeyComparatorIS3_EEEEET0_T_SF_SF_SF_SE_T1_.exit ]
+  %sub.ptr.div.lcssa = phi i64 [ %sub.ptr.div91, %entry ], [ %sub.ptr.div, %_ZSt12__move_mergeIPN11flatbuffers6OffsetIN10reflection5FieldEEES5_N9__gnu_cxx5__ops15_Iter_comp_iterINS0_21FlatBufferBuilderImplILb0EE18TableKeyComparatorIS3_EEEEET0_T_SF_SF_SF_SE_T1_.exit ]
   %.sroa.speculated = tail call i64 @llvm.smin.i64(i64 %sub.ptr.div.lcssa, i64 %__step_size)
   %add.ptr9 = getelementptr inbounds %"struct.flatbuffers::Offset.269", ptr %__first.addr.0.lcssa, i64 %.sroa.speculated
   %cmp21.i16 = icmp ne i64 %.sroa.speculated, 0
@@ -80594,7 +80572,7 @@ while.body.i35:                                   ; preds = %while.body.i35.preh
   %cmp.i83 = icmp ne ptr %__first1.addr.1.i81, %add.ptr9
   %cmp1.i84 = icmp ne ptr %__first2.addr.1.i79, %__last
   %32 = select i1 %cmp.i83, i1 %cmp1.i84, i1 false
-  br i1 %32, label %while.body.i35, label %while.end.i18, !llvm.loop !1493
+  br i1 %32, label %while.body.i35, label %while.end.i18, !llvm.loop !1492
 
 while.end.i18:                                    ; preds = %while.body.i35, %while.end
   %__first2.addr.0.lcssa.i19 = phi ptr [ %add.ptr9, %while.end ], [ %__first2.addr.1.i79, %while.body.i35 ]
@@ -82332,24 +82310,13 @@ entry:
   %sub.ptr.sub90 = sub i64 %sub.ptr.lhs.cast, %sub.ptr.rhs.cast89
   %sub.ptr.div91 = ashr exact i64 %sub.ptr.sub90, 2
   %cmp.not92 = icmp slt i64 %sub.ptr.div91, %mul
-  br i1 %cmp.not92, label %while.end, label %while.body.lr.ph
-
-while.body.lr.ph:                                 ; preds = %entry
   %cmp122.i.not = icmp eq i64 %__step_size, 0
-  br i1 %cmp122.i.not, label %_ZSt12__move_mergeIPN11flatbuffers6OffsetIN10reflection6ObjectEEES5_N9__gnu_cxx5__ops15_Iter_comp_iterINS0_21FlatBufferBuilderImplILb0EE18TableKeyComparatorIS3_EEEEET0_T_SF_SF_SF_SE_T1_.exit.us, label %while.body
+  %or.cond = or i1 %cmp.not92, %cmp122.i.not
+  br i1 %or.cond, label %while.end, label %while.body
 
-_ZSt12__move_mergeIPN11flatbuffers6OffsetIN10reflection6ObjectEEES5_N9__gnu_cxx5__ops15_Iter_comp_iterINS0_21FlatBufferBuilderImplILb0EE18TableKeyComparatorIS3_EEEEET0_T_SF_SF_SF_SE_T1_.exit.us: ; preds = %while.body.lr.ph, %_ZSt12__move_mergeIPN11flatbuffers6OffsetIN10reflection6ObjectEEES5_N9__gnu_cxx5__ops15_Iter_comp_iterINS0_21FlatBufferBuilderImplILb0EE18TableKeyComparatorIS3_EEEEET0_T_SF_SF_SF_SE_T1_.exit.us
-  %__first.addr.094.us = phi ptr [ %add.ptr2.us, %_ZSt12__move_mergeIPN11flatbuffers6OffsetIN10reflection6ObjectEEES5_N9__gnu_cxx5__ops15_Iter_comp_iterINS0_21FlatBufferBuilderImplILb0EE18TableKeyComparatorIS3_EEEEET0_T_SF_SF_SF_SE_T1_.exit.us ], [ %__first, %while.body.lr.ph ]
-  %add.ptr2.us = getelementptr inbounds %"struct.flatbuffers::Offset.233", ptr %__first.addr.094.us, i64 %mul
-  %sub.ptr.rhs.cast.us = ptrtoint ptr %add.ptr2.us to i64
-  %sub.ptr.sub.us = sub i64 %sub.ptr.lhs.cast, %sub.ptr.rhs.cast.us
-  %sub.ptr.div.us = ashr exact i64 %sub.ptr.sub.us, 2
-  %cmp.not.us = icmp slt i64 %sub.ptr.div.us, %mul
-  br i1 %cmp.not.us, label %while.end, label %_ZSt12__move_mergeIPN11flatbuffers6OffsetIN10reflection6ObjectEEES5_N9__gnu_cxx5__ops15_Iter_comp_iterINS0_21FlatBufferBuilderImplILb0EE18TableKeyComparatorIS3_EEEEET0_T_SF_SF_SF_SE_T1_.exit.us, !llvm.loop !1509
-
-while.body:                                       ; preds = %while.body.lr.ph, %_ZSt12__move_mergeIPN11flatbuffers6OffsetIN10reflection6ObjectEEES5_N9__gnu_cxx5__ops15_Iter_comp_iterINS0_21FlatBufferBuilderImplILb0EE18TableKeyComparatorIS3_EEEEET0_T_SF_SF_SF_SE_T1_.exit
-  %__first.addr.094 = phi ptr [ %add.ptr2, %_ZSt12__move_mergeIPN11flatbuffers6OffsetIN10reflection6ObjectEEES5_N9__gnu_cxx5__ops15_Iter_comp_iterINS0_21FlatBufferBuilderImplILb0EE18TableKeyComparatorIS3_EEEEET0_T_SF_SF_SF_SE_T1_.exit ], [ %__first, %while.body.lr.ph ]
-  %__result.addr.093 = phi ptr [ %add.ptr.i.i.i.i.i19.i, %_ZSt12__move_mergeIPN11flatbuffers6OffsetIN10reflection6ObjectEEES5_N9__gnu_cxx5__ops15_Iter_comp_iterINS0_21FlatBufferBuilderImplILb0EE18TableKeyComparatorIS3_EEEEET0_T_SF_SF_SF_SE_T1_.exit ], [ %__result, %while.body.lr.ph ]
+while.body:                                       ; preds = %entry, %_ZSt12__move_mergeIPN11flatbuffers6OffsetIN10reflection6ObjectEEES5_N9__gnu_cxx5__ops15_Iter_comp_iterINS0_21FlatBufferBuilderImplILb0EE18TableKeyComparatorIS3_EEEEET0_T_SF_SF_SF_SE_T1_.exit
+  %__first.addr.094 = phi ptr [ %add.ptr2, %_ZSt12__move_mergeIPN11flatbuffers6OffsetIN10reflection6ObjectEEES5_N9__gnu_cxx5__ops15_Iter_comp_iterINS0_21FlatBufferBuilderImplILb0EE18TableKeyComparatorIS3_EEEEET0_T_SF_SF_SF_SE_T1_.exit ], [ %__first, %entry ]
+  %__result.addr.093 = phi ptr [ %add.ptr.i.i.i.i.i19.i, %_ZSt12__move_mergeIPN11flatbuffers6OffsetIN10reflection6ObjectEEES5_N9__gnu_cxx5__ops15_Iter_comp_iterINS0_21FlatBufferBuilderImplILb0EE18TableKeyComparatorIS3_EEEEET0_T_SF_SF_SF_SE_T1_.exit ], [ %__result, %entry ]
   %add.ptr = getelementptr inbounds %"struct.flatbuffers::Offset.233", ptr %__first.addr.094, i64 %__step_size
   %add.ptr2 = getelementptr inbounds %"struct.flatbuffers::Offset.233", ptr %__first.addr.094, i64 %mul
   %0 = load ptr, ptr %__comp, align 8
@@ -82425,7 +82392,7 @@ while.body.i:                                     ; preds = %while.body, %while.
   %cmp.i = icmp ne ptr %__first1.addr.1.i, %add.ptr
   %cmp1.i = icmp ne ptr %__first2.addr.1.i, %add.ptr2
   %15 = select i1 %cmp.i, i1 %cmp1.i, i1 false
-  br i1 %15, label %while.body.i, label %while.end.i.loopexit, !llvm.loop !1510
+  br i1 %15, label %while.body.i, label %while.end.i.loopexit, !llvm.loop !1509
 
 while.end.i.loopexit:                             ; preds = %while.body.i
   %sub.ptr.lhs.cast.i.i.i.i.i.i = ptrtoint ptr %add.ptr to i64
@@ -82455,12 +82422,12 @@ _ZSt12__move_mergeIPN11flatbuffers6OffsetIN10reflection6ObjectEEES5_N9__gnu_cxx5
   %sub.ptr.sub = sub i64 %sub.ptr.lhs.cast, %sub.ptr.lhs.cast.i.i.i.i.i14.i
   %sub.ptr.div = ashr exact i64 %sub.ptr.sub, 2
   %cmp.not = icmp slt i64 %sub.ptr.div, %mul
-  br i1 %cmp.not, label %while.end, label %while.body, !llvm.loop !1509
+  br i1 %cmp.not, label %while.end, label %while.body, !llvm.loop !1510
 
-while.end:                                        ; preds = %_ZSt12__move_mergeIPN11flatbuffers6OffsetIN10reflection6ObjectEEES5_N9__gnu_cxx5__ops15_Iter_comp_iterINS0_21FlatBufferBuilderImplILb0EE18TableKeyComparatorIS3_EEEEET0_T_SF_SF_SF_SE_T1_.exit, %_ZSt12__move_mergeIPN11flatbuffers6OffsetIN10reflection6ObjectEEES5_N9__gnu_cxx5__ops15_Iter_comp_iterINS0_21FlatBufferBuilderImplILb0EE18TableKeyComparatorIS3_EEEEET0_T_SF_SF_SF_SE_T1_.exit.us, %entry
-  %__result.addr.0.lcssa = phi ptr [ %__result, %entry ], [ %__result, %_ZSt12__move_mergeIPN11flatbuffers6OffsetIN10reflection6ObjectEEES5_N9__gnu_cxx5__ops15_Iter_comp_iterINS0_21FlatBufferBuilderImplILb0EE18TableKeyComparatorIS3_EEEEET0_T_SF_SF_SF_SE_T1_.exit.us ], [ %add.ptr.i.i.i.i.i19.i, %_ZSt12__move_mergeIPN11flatbuffers6OffsetIN10reflection6ObjectEEES5_N9__gnu_cxx5__ops15_Iter_comp_iterINS0_21FlatBufferBuilderImplILb0EE18TableKeyComparatorIS3_EEEEET0_T_SF_SF_SF_SE_T1_.exit ]
-  %__first.addr.0.lcssa = phi ptr [ %__first, %entry ], [ %add.ptr2.us, %_ZSt12__move_mergeIPN11flatbuffers6OffsetIN10reflection6ObjectEEES5_N9__gnu_cxx5__ops15_Iter_comp_iterINS0_21FlatBufferBuilderImplILb0EE18TableKeyComparatorIS3_EEEEET0_T_SF_SF_SF_SE_T1_.exit.us ], [ %add.ptr2, %_ZSt12__move_mergeIPN11flatbuffers6OffsetIN10reflection6ObjectEEES5_N9__gnu_cxx5__ops15_Iter_comp_iterINS0_21FlatBufferBuilderImplILb0EE18TableKeyComparatorIS3_EEEEET0_T_SF_SF_SF_SE_T1_.exit ]
-  %sub.ptr.div.lcssa = phi i64 [ %sub.ptr.div91, %entry ], [ %sub.ptr.div.us, %_ZSt12__move_mergeIPN11flatbuffers6OffsetIN10reflection6ObjectEEES5_N9__gnu_cxx5__ops15_Iter_comp_iterINS0_21FlatBufferBuilderImplILb0EE18TableKeyComparatorIS3_EEEEET0_T_SF_SF_SF_SE_T1_.exit.us ], [ %sub.ptr.div, %_ZSt12__move_mergeIPN11flatbuffers6OffsetIN10reflection6ObjectEEES5_N9__gnu_cxx5__ops15_Iter_comp_iterINS0_21FlatBufferBuilderImplILb0EE18TableKeyComparatorIS3_EEEEET0_T_SF_SF_SF_SE_T1_.exit ]
+while.end:                                        ; preds = %_ZSt12__move_mergeIPN11flatbuffers6OffsetIN10reflection6ObjectEEES5_N9__gnu_cxx5__ops15_Iter_comp_iterINS0_21FlatBufferBuilderImplILb0EE18TableKeyComparatorIS3_EEEEET0_T_SF_SF_SF_SE_T1_.exit, %entry
+  %__result.addr.0.lcssa = phi ptr [ %__result, %entry ], [ %add.ptr.i.i.i.i.i19.i, %_ZSt12__move_mergeIPN11flatbuffers6OffsetIN10reflection6ObjectEEES5_N9__gnu_cxx5__ops15_Iter_comp_iterINS0_21FlatBufferBuilderImplILb0EE18TableKeyComparatorIS3_EEEEET0_T_SF_SF_SF_SE_T1_.exit ]
+  %__first.addr.0.lcssa = phi ptr [ %__first, %entry ], [ %add.ptr2, %_ZSt12__move_mergeIPN11flatbuffers6OffsetIN10reflection6ObjectEEES5_N9__gnu_cxx5__ops15_Iter_comp_iterINS0_21FlatBufferBuilderImplILb0EE18TableKeyComparatorIS3_EEEEET0_T_SF_SF_SF_SE_T1_.exit ]
+  %sub.ptr.div.lcssa = phi i64 [ %sub.ptr.div91, %entry ], [ %sub.ptr.div, %_ZSt12__move_mergeIPN11flatbuffers6OffsetIN10reflection6ObjectEEES5_N9__gnu_cxx5__ops15_Iter_comp_iterINS0_21FlatBufferBuilderImplILb0EE18TableKeyComparatorIS3_EEEEET0_T_SF_SF_SF_SE_T1_.exit ]
   %.sroa.speculated = tail call i64 @llvm.smin.i64(i64 %sub.ptr.div.lcssa, i64 %__step_size)
   %add.ptr9 = getelementptr inbounds %"struct.flatbuffers::Offset.233", ptr %__first.addr.0.lcssa, i64 %.sroa.speculated
   %cmp21.i16 = icmp ne i64 %.sroa.speculated, 0
@@ -82542,7 +82509,7 @@ while.body.i35:                                   ; preds = %while.body.i35.preh
   %cmp.i83 = icmp ne ptr %__first1.addr.1.i81, %add.ptr9
   %cmp1.i84 = icmp ne ptr %__first2.addr.1.i79, %__last
   %32 = select i1 %cmp.i83, i1 %cmp1.i84, i1 false
-  br i1 %32, label %while.body.i35, label %while.end.i18, !llvm.loop !1510
+  br i1 %32, label %while.body.i35, label %while.end.i18, !llvm.loop !1509
 
 while.end.i18:                                    ; preds = %while.body.i35, %while.end
   %__first2.addr.0.lcssa.i19 = phi ptr [ %add.ptr9, %while.end ], [ %__first2.addr.1.i79, %while.body.i35 ]
@@ -84280,24 +84247,13 @@ entry:
   %sub.ptr.sub90 = sub i64 %sub.ptr.lhs.cast, %sub.ptr.rhs.cast89
   %sub.ptr.div91 = ashr exact i64 %sub.ptr.sub90, 2
   %cmp.not92 = icmp slt i64 %sub.ptr.div91, %mul
-  br i1 %cmp.not92, label %while.end, label %while.body.lr.ph
-
-while.body.lr.ph:                                 ; preds = %entry
   %cmp122.i.not = icmp eq i64 %__step_size, 0
-  br i1 %cmp122.i.not, label %_ZSt12__move_mergeIPN11flatbuffers6OffsetIN10reflection4EnumEEES5_N9__gnu_cxx5__ops15_Iter_comp_iterINS0_21FlatBufferBuilderImplILb0EE18TableKeyComparatorIS3_EEEEET0_T_SF_SF_SF_SE_T1_.exit.us, label %while.body
+  %or.cond = or i1 %cmp.not92, %cmp122.i.not
+  br i1 %or.cond, label %while.end, label %while.body
 
-_ZSt12__move_mergeIPN11flatbuffers6OffsetIN10reflection4EnumEEES5_N9__gnu_cxx5__ops15_Iter_comp_iterINS0_21FlatBufferBuilderImplILb0EE18TableKeyComparatorIS3_EEEEET0_T_SF_SF_SF_SE_T1_.exit.us: ; preds = %while.body.lr.ph, %_ZSt12__move_mergeIPN11flatbuffers6OffsetIN10reflection4EnumEEES5_N9__gnu_cxx5__ops15_Iter_comp_iterINS0_21FlatBufferBuilderImplILb0EE18TableKeyComparatorIS3_EEEEET0_T_SF_SF_SF_SE_T1_.exit.us
-  %__first.addr.094.us = phi ptr [ %add.ptr2.us, %_ZSt12__move_mergeIPN11flatbuffers6OffsetIN10reflection4EnumEEES5_N9__gnu_cxx5__ops15_Iter_comp_iterINS0_21FlatBufferBuilderImplILb0EE18TableKeyComparatorIS3_EEEEET0_T_SF_SF_SF_SE_T1_.exit.us ], [ %__first, %while.body.lr.ph ]
-  %add.ptr2.us = getelementptr inbounds %"struct.flatbuffers::Offset.239", ptr %__first.addr.094.us, i64 %mul
-  %sub.ptr.rhs.cast.us = ptrtoint ptr %add.ptr2.us to i64
-  %sub.ptr.sub.us = sub i64 %sub.ptr.lhs.cast, %sub.ptr.rhs.cast.us
-  %sub.ptr.div.us = ashr exact i64 %sub.ptr.sub.us, 2
-  %cmp.not.us = icmp slt i64 %sub.ptr.div.us, %mul
-  br i1 %cmp.not.us, label %while.end, label %_ZSt12__move_mergeIPN11flatbuffers6OffsetIN10reflection4EnumEEES5_N9__gnu_cxx5__ops15_Iter_comp_iterINS0_21FlatBufferBuilderImplILb0EE18TableKeyComparatorIS3_EEEEET0_T_SF_SF_SF_SE_T1_.exit.us, !llvm.loop !1526
-
-while.body:                                       ; preds = %while.body.lr.ph, %_ZSt12__move_mergeIPN11flatbuffers6OffsetIN10reflection4EnumEEES5_N9__gnu_cxx5__ops15_Iter_comp_iterINS0_21FlatBufferBuilderImplILb0EE18TableKeyComparatorIS3_EEEEET0_T_SF_SF_SF_SE_T1_.exit
-  %__first.addr.094 = phi ptr [ %add.ptr2, %_ZSt12__move_mergeIPN11flatbuffers6OffsetIN10reflection4EnumEEES5_N9__gnu_cxx5__ops15_Iter_comp_iterINS0_21FlatBufferBuilderImplILb0EE18TableKeyComparatorIS3_EEEEET0_T_SF_SF_SF_SE_T1_.exit ], [ %__first, %while.body.lr.ph ]
-  %__result.addr.093 = phi ptr [ %add.ptr.i.i.i.i.i19.i, %_ZSt12__move_mergeIPN11flatbuffers6OffsetIN10reflection4EnumEEES5_N9__gnu_cxx5__ops15_Iter_comp_iterINS0_21FlatBufferBuilderImplILb0EE18TableKeyComparatorIS3_EEEEET0_T_SF_SF_SF_SE_T1_.exit ], [ %__result, %while.body.lr.ph ]
+while.body:                                       ; preds = %entry, %_ZSt12__move_mergeIPN11flatbuffers6OffsetIN10reflection4EnumEEES5_N9__gnu_cxx5__ops15_Iter_comp_iterINS0_21FlatBufferBuilderImplILb0EE18TableKeyComparatorIS3_EEEEET0_T_SF_SF_SF_SE_T1_.exit
+  %__first.addr.094 = phi ptr [ %add.ptr2, %_ZSt12__move_mergeIPN11flatbuffers6OffsetIN10reflection4EnumEEES5_N9__gnu_cxx5__ops15_Iter_comp_iterINS0_21FlatBufferBuilderImplILb0EE18TableKeyComparatorIS3_EEEEET0_T_SF_SF_SF_SE_T1_.exit ], [ %__first, %entry ]
+  %__result.addr.093 = phi ptr [ %add.ptr.i.i.i.i.i19.i, %_ZSt12__move_mergeIPN11flatbuffers6OffsetIN10reflection4EnumEEES5_N9__gnu_cxx5__ops15_Iter_comp_iterINS0_21FlatBufferBuilderImplILb0EE18TableKeyComparatorIS3_EEEEET0_T_SF_SF_SF_SE_T1_.exit ], [ %__result, %entry ]
   %add.ptr = getelementptr inbounds %"struct.flatbuffers::Offset.239", ptr %__first.addr.094, i64 %__step_size
   %add.ptr2 = getelementptr inbounds %"struct.flatbuffers::Offset.239", ptr %__first.addr.094, i64 %mul
   %0 = load ptr, ptr %__comp, align 8
@@ -84373,7 +84329,7 @@ while.body.i:                                     ; preds = %while.body, %while.
   %cmp.i = icmp ne ptr %__first1.addr.1.i, %add.ptr
   %cmp1.i = icmp ne ptr %__first2.addr.1.i, %add.ptr2
   %15 = select i1 %cmp.i, i1 %cmp1.i, i1 false
-  br i1 %15, label %while.body.i, label %while.end.i.loopexit, !llvm.loop !1527
+  br i1 %15, label %while.body.i, label %while.end.i.loopexit, !llvm.loop !1526
 
 while.end.i.loopexit:                             ; preds = %while.body.i
   %sub.ptr.lhs.cast.i.i.i.i.i.i = ptrtoint ptr %add.ptr to i64
@@ -84403,12 +84359,12 @@ _ZSt12__move_mergeIPN11flatbuffers6OffsetIN10reflection4EnumEEES5_N9__gnu_cxx5__
   %sub.ptr.sub = sub i64 %sub.ptr.lhs.cast, %sub.ptr.lhs.cast.i.i.i.i.i14.i
   %sub.ptr.div = ashr exact i64 %sub.ptr.sub, 2
   %cmp.not = icmp slt i64 %sub.ptr.div, %mul
-  br i1 %cmp.not, label %while.end, label %while.body, !llvm.loop !1526
+  br i1 %cmp.not, label %while.end, label %while.body, !llvm.loop !1527
 
-while.end:                                        ; preds = %_ZSt12__move_mergeIPN11flatbuffers6OffsetIN10reflection4EnumEEES5_N9__gnu_cxx5__ops15_Iter_comp_iterINS0_21FlatBufferBuilderImplILb0EE18TableKeyComparatorIS3_EEEEET0_T_SF_SF_SF_SE_T1_.exit, %_ZSt12__move_mergeIPN11flatbuffers6OffsetIN10reflection4EnumEEES5_N9__gnu_cxx5__ops15_Iter_comp_iterINS0_21FlatBufferBuilderImplILb0EE18TableKeyComparatorIS3_EEEEET0_T_SF_SF_SF_SE_T1_.exit.us, %entry
-  %__result.addr.0.lcssa = phi ptr [ %__result, %entry ], [ %__result, %_ZSt12__move_mergeIPN11flatbuffers6OffsetIN10reflection4EnumEEES5_N9__gnu_cxx5__ops15_Iter_comp_iterINS0_21FlatBufferBuilderImplILb0EE18TableKeyComparatorIS3_EEEEET0_T_SF_SF_SF_SE_T1_.exit.us ], [ %add.ptr.i.i.i.i.i19.i, %_ZSt12__move_mergeIPN11flatbuffers6OffsetIN10reflection4EnumEEES5_N9__gnu_cxx5__ops15_Iter_comp_iterINS0_21FlatBufferBuilderImplILb0EE18TableKeyComparatorIS3_EEEEET0_T_SF_SF_SF_SE_T1_.exit ]
-  %__first.addr.0.lcssa = phi ptr [ %__first, %entry ], [ %add.ptr2.us, %_ZSt12__move_mergeIPN11flatbuffers6OffsetIN10reflection4EnumEEES5_N9__gnu_cxx5__ops15_Iter_comp_iterINS0_21FlatBufferBuilderImplILb0EE18TableKeyComparatorIS3_EEEEET0_T_SF_SF_SF_SE_T1_.exit.us ], [ %add.ptr2, %_ZSt12__move_mergeIPN11flatbuffers6OffsetIN10reflection4EnumEEES5_N9__gnu_cxx5__ops15_Iter_comp_iterINS0_21FlatBufferBuilderImplILb0EE18TableKeyComparatorIS3_EEEEET0_T_SF_SF_SF_SE_T1_.exit ]
-  %sub.ptr.div.lcssa = phi i64 [ %sub.ptr.div91, %entry ], [ %sub.ptr.div.us, %_ZSt12__move_mergeIPN11flatbuffers6OffsetIN10reflection4EnumEEES5_N9__gnu_cxx5__ops15_Iter_comp_iterINS0_21FlatBufferBuilderImplILb0EE18TableKeyComparatorIS3_EEEEET0_T_SF_SF_SF_SE_T1_.exit.us ], [ %sub.ptr.div, %_ZSt12__move_mergeIPN11flatbuffers6OffsetIN10reflection4EnumEEES5_N9__gnu_cxx5__ops15_Iter_comp_iterINS0_21FlatBufferBuilderImplILb0EE18TableKeyComparatorIS3_EEEEET0_T_SF_SF_SF_SE_T1_.exit ]
+while.end:                                        ; preds = %_ZSt12__move_mergeIPN11flatbuffers6OffsetIN10reflection4EnumEEES5_N9__gnu_cxx5__ops15_Iter_comp_iterINS0_21FlatBufferBuilderImplILb0EE18TableKeyComparatorIS3_EEEEET0_T_SF_SF_SF_SE_T1_.exit, %entry
+  %__result.addr.0.lcssa = phi ptr [ %__result, %entry ], [ %add.ptr.i.i.i.i.i19.i, %_ZSt12__move_mergeIPN11flatbuffers6OffsetIN10reflection4EnumEEES5_N9__gnu_cxx5__ops15_Iter_comp_iterINS0_21FlatBufferBuilderImplILb0EE18TableKeyComparatorIS3_EEEEET0_T_SF_SF_SF_SE_T1_.exit ]
+  %__first.addr.0.lcssa = phi ptr [ %__first, %entry ], [ %add.ptr2, %_ZSt12__move_mergeIPN11flatbuffers6OffsetIN10reflection4EnumEEES5_N9__gnu_cxx5__ops15_Iter_comp_iterINS0_21FlatBufferBuilderImplILb0EE18TableKeyComparatorIS3_EEEEET0_T_SF_SF_SF_SE_T1_.exit ]
+  %sub.ptr.div.lcssa = phi i64 [ %sub.ptr.div91, %entry ], [ %sub.ptr.div, %_ZSt12__move_mergeIPN11flatbuffers6OffsetIN10reflection4EnumEEES5_N9__gnu_cxx5__ops15_Iter_comp_iterINS0_21FlatBufferBuilderImplILb0EE18TableKeyComparatorIS3_EEEEET0_T_SF_SF_SF_SE_T1_.exit ]
   %.sroa.speculated = tail call i64 @llvm.smin.i64(i64 %sub.ptr.div.lcssa, i64 %__step_size)
   %add.ptr9 = getelementptr inbounds %"struct.flatbuffers::Offset.239", ptr %__first.addr.0.lcssa, i64 %.sroa.speculated
   %cmp21.i16 = icmp ne i64 %.sroa.speculated, 0
@@ -84490,7 +84446,7 @@ while.body.i35:                                   ; preds = %while.body.i35.preh
   %cmp.i83 = icmp ne ptr %__first1.addr.1.i81, %add.ptr9
   %cmp1.i84 = icmp ne ptr %__first2.addr.1.i79, %__last
   %32 = select i1 %cmp.i83, i1 %cmp1.i84, i1 false
-  br i1 %32, label %while.body.i35, label %while.end.i18, !llvm.loop !1527
+  br i1 %32, label %while.body.i35, label %while.end.i18, !llvm.loop !1526
 
 while.end.i18:                                    ; preds = %while.body.i35, %while.end
   %__first2.addr.0.lcssa.i19 = phi ptr [ %add.ptr9, %while.end ], [ %__first2.addr.1.i79, %while.body.i35 ]
@@ -86228,24 +86184,13 @@ entry:
   %sub.ptr.sub90 = sub i64 %sub.ptr.lhs.cast, %sub.ptr.rhs.cast89
   %sub.ptr.div91 = ashr exact i64 %sub.ptr.sub90, 2
   %cmp.not92 = icmp slt i64 %sub.ptr.div91, %mul
-  br i1 %cmp.not92, label %while.end, label %while.body.lr.ph
-
-while.body.lr.ph:                                 ; preds = %entry
   %cmp122.i.not = icmp eq i64 %__step_size, 0
-  br i1 %cmp122.i.not, label %_ZSt12__move_mergeIPN11flatbuffers6OffsetIN10reflection7ServiceEEES5_N9__gnu_cxx5__ops15_Iter_comp_iterINS0_21FlatBufferBuilderImplILb0EE18TableKeyComparatorIS3_EEEEET0_T_SF_SF_SF_SE_T1_.exit.us, label %while.body
+  %or.cond = or i1 %cmp.not92, %cmp122.i.not
+  br i1 %or.cond, label %while.end, label %while.body
 
-_ZSt12__move_mergeIPN11flatbuffers6OffsetIN10reflection7ServiceEEES5_N9__gnu_cxx5__ops15_Iter_comp_iterINS0_21FlatBufferBuilderImplILb0EE18TableKeyComparatorIS3_EEEEET0_T_SF_SF_SF_SE_T1_.exit.us: ; preds = %while.body.lr.ph, %_ZSt12__move_mergeIPN11flatbuffers6OffsetIN10reflection7ServiceEEES5_N9__gnu_cxx5__ops15_Iter_comp_iterINS0_21FlatBufferBuilderImplILb0EE18TableKeyComparatorIS3_EEEEET0_T_SF_SF_SF_SE_T1_.exit.us
-  %__first.addr.094.us = phi ptr [ %add.ptr2.us, %_ZSt12__move_mergeIPN11flatbuffers6OffsetIN10reflection7ServiceEEES5_N9__gnu_cxx5__ops15_Iter_comp_iterINS0_21FlatBufferBuilderImplILb0EE18TableKeyComparatorIS3_EEEEET0_T_SF_SF_SF_SE_T1_.exit.us ], [ %__first, %while.body.lr.ph ]
-  %add.ptr2.us = getelementptr inbounds %"struct.flatbuffers::Offset.245", ptr %__first.addr.094.us, i64 %mul
-  %sub.ptr.rhs.cast.us = ptrtoint ptr %add.ptr2.us to i64
-  %sub.ptr.sub.us = sub i64 %sub.ptr.lhs.cast, %sub.ptr.rhs.cast.us
-  %sub.ptr.div.us = ashr exact i64 %sub.ptr.sub.us, 2
-  %cmp.not.us = icmp slt i64 %sub.ptr.div.us, %mul
-  br i1 %cmp.not.us, label %while.end, label %_ZSt12__move_mergeIPN11flatbuffers6OffsetIN10reflection7ServiceEEES5_N9__gnu_cxx5__ops15_Iter_comp_iterINS0_21FlatBufferBuilderImplILb0EE18TableKeyComparatorIS3_EEEEET0_T_SF_SF_SF_SE_T1_.exit.us, !llvm.loop !1543
-
-while.body:                                       ; preds = %while.body.lr.ph, %_ZSt12__move_mergeIPN11flatbuffers6OffsetIN10reflection7ServiceEEES5_N9__gnu_cxx5__ops15_Iter_comp_iterINS0_21FlatBufferBuilderImplILb0EE18TableKeyComparatorIS3_EEEEET0_T_SF_SF_SF_SE_T1_.exit
-  %__first.addr.094 = phi ptr [ %add.ptr2, %_ZSt12__move_mergeIPN11flatbuffers6OffsetIN10reflection7ServiceEEES5_N9__gnu_cxx5__ops15_Iter_comp_iterINS0_21FlatBufferBuilderImplILb0EE18TableKeyComparatorIS3_EEEEET0_T_SF_SF_SF_SE_T1_.exit ], [ %__first, %while.body.lr.ph ]
-  %__result.addr.093 = phi ptr [ %add.ptr.i.i.i.i.i19.i, %_ZSt12__move_mergeIPN11flatbuffers6OffsetIN10reflection7ServiceEEES5_N9__gnu_cxx5__ops15_Iter_comp_iterINS0_21FlatBufferBuilderImplILb0EE18TableKeyComparatorIS3_EEEEET0_T_SF_SF_SF_SE_T1_.exit ], [ %__result, %while.body.lr.ph ]
+while.body:                                       ; preds = %entry, %_ZSt12__move_mergeIPN11flatbuffers6OffsetIN10reflection7ServiceEEES5_N9__gnu_cxx5__ops15_Iter_comp_iterINS0_21FlatBufferBuilderImplILb0EE18TableKeyComparatorIS3_EEEEET0_T_SF_SF_SF_SE_T1_.exit
+  %__first.addr.094 = phi ptr [ %add.ptr2, %_ZSt12__move_mergeIPN11flatbuffers6OffsetIN10reflection7ServiceEEES5_N9__gnu_cxx5__ops15_Iter_comp_iterINS0_21FlatBufferBuilderImplILb0EE18TableKeyComparatorIS3_EEEEET0_T_SF_SF_SF_SE_T1_.exit ], [ %__first, %entry ]
+  %__result.addr.093 = phi ptr [ %add.ptr.i.i.i.i.i19.i, %_ZSt12__move_mergeIPN11flatbuffers6OffsetIN10reflection7ServiceEEES5_N9__gnu_cxx5__ops15_Iter_comp_iterINS0_21FlatBufferBuilderImplILb0EE18TableKeyComparatorIS3_EEEEET0_T_SF_SF_SF_SE_T1_.exit ], [ %__result, %entry ]
   %add.ptr = getelementptr inbounds %"struct.flatbuffers::Offset.245", ptr %__first.addr.094, i64 %__step_size
   %add.ptr2 = getelementptr inbounds %"struct.flatbuffers::Offset.245", ptr %__first.addr.094, i64 %mul
   %0 = load ptr, ptr %__comp, align 8
@@ -86321,7 +86266,7 @@ while.body.i:                                     ; preds = %while.body, %while.
   %cmp.i = icmp ne ptr %__first1.addr.1.i, %add.ptr
   %cmp1.i = icmp ne ptr %__first2.addr.1.i, %add.ptr2
   %15 = select i1 %cmp.i, i1 %cmp1.i, i1 false
-  br i1 %15, label %while.body.i, label %while.end.i.loopexit, !llvm.loop !1544
+  br i1 %15, label %while.body.i, label %while.end.i.loopexit, !llvm.loop !1543
 
 while.end.i.loopexit:                             ; preds = %while.body.i
   %sub.ptr.lhs.cast.i.i.i.i.i.i = ptrtoint ptr %add.ptr to i64
@@ -86351,12 +86296,12 @@ _ZSt12__move_mergeIPN11flatbuffers6OffsetIN10reflection7ServiceEEES5_N9__gnu_cxx
   %sub.ptr.sub = sub i64 %sub.ptr.lhs.cast, %sub.ptr.lhs.cast.i.i.i.i.i14.i
   %sub.ptr.div = ashr exact i64 %sub.ptr.sub, 2
   %cmp.not = icmp slt i64 %sub.ptr.div, %mul
-  br i1 %cmp.not, label %while.end, label %while.body, !llvm.loop !1543
+  br i1 %cmp.not, label %while.end, label %while.body, !llvm.loop !1544
 
-while.end:                                        ; preds = %_ZSt12__move_mergeIPN11flatbuffers6OffsetIN10reflection7ServiceEEES5_N9__gnu_cxx5__ops15_Iter_comp_iterINS0_21FlatBufferBuilderImplILb0EE18TableKeyComparatorIS3_EEEEET0_T_SF_SF_SF_SE_T1_.exit, %_ZSt12__move_mergeIPN11flatbuffers6OffsetIN10reflection7ServiceEEES5_N9__gnu_cxx5__ops15_Iter_comp_iterINS0_21FlatBufferBuilderImplILb0EE18TableKeyComparatorIS3_EEEEET0_T_SF_SF_SF_SE_T1_.exit.us, %entry
-  %__result.addr.0.lcssa = phi ptr [ %__result, %entry ], [ %__result, %_ZSt12__move_mergeIPN11flatbuffers6OffsetIN10reflection7ServiceEEES5_N9__gnu_cxx5__ops15_Iter_comp_iterINS0_21FlatBufferBuilderImplILb0EE18TableKeyComparatorIS3_EEEEET0_T_SF_SF_SF_SE_T1_.exit.us ], [ %add.ptr.i.i.i.i.i19.i, %_ZSt12__move_mergeIPN11flatbuffers6OffsetIN10reflection7ServiceEEES5_N9__gnu_cxx5__ops15_Iter_comp_iterINS0_21FlatBufferBuilderImplILb0EE18TableKeyComparatorIS3_EEEEET0_T_SF_SF_SF_SE_T1_.exit ]
-  %__first.addr.0.lcssa = phi ptr [ %__first, %entry ], [ %add.ptr2.us, %_ZSt12__move_mergeIPN11flatbuffers6OffsetIN10reflection7ServiceEEES5_N9__gnu_cxx5__ops15_Iter_comp_iterINS0_21FlatBufferBuilderImplILb0EE18TableKeyComparatorIS3_EEEEET0_T_SF_SF_SF_SE_T1_.exit.us ], [ %add.ptr2, %_ZSt12__move_mergeIPN11flatbuffers6OffsetIN10reflection7ServiceEEES5_N9__gnu_cxx5__ops15_Iter_comp_iterINS0_21FlatBufferBuilderImplILb0EE18TableKeyComparatorIS3_EEEEET0_T_SF_SF_SF_SE_T1_.exit ]
-  %sub.ptr.div.lcssa = phi i64 [ %sub.ptr.div91, %entry ], [ %sub.ptr.div.us, %_ZSt12__move_mergeIPN11flatbuffers6OffsetIN10reflection7ServiceEEES5_N9__gnu_cxx5__ops15_Iter_comp_iterINS0_21FlatBufferBuilderImplILb0EE18TableKeyComparatorIS3_EEEEET0_T_SF_SF_SF_SE_T1_.exit.us ], [ %sub.ptr.div, %_ZSt12__move_mergeIPN11flatbuffers6OffsetIN10reflection7ServiceEEES5_N9__gnu_cxx5__ops15_Iter_comp_iterINS0_21FlatBufferBuilderImplILb0EE18TableKeyComparatorIS3_EEEEET0_T_SF_SF_SF_SE_T1_.exit ]
+while.end:                                        ; preds = %_ZSt12__move_mergeIPN11flatbuffers6OffsetIN10reflection7ServiceEEES5_N9__gnu_cxx5__ops15_Iter_comp_iterINS0_21FlatBufferBuilderImplILb0EE18TableKeyComparatorIS3_EEEEET0_T_SF_SF_SF_SE_T1_.exit, %entry
+  %__result.addr.0.lcssa = phi ptr [ %__result, %entry ], [ %add.ptr.i.i.i.i.i19.i, %_ZSt12__move_mergeIPN11flatbuffers6OffsetIN10reflection7ServiceEEES5_N9__gnu_cxx5__ops15_Iter_comp_iterINS0_21FlatBufferBuilderImplILb0EE18TableKeyComparatorIS3_EEEEET0_T_SF_SF_SF_SE_T1_.exit ]
+  %__first.addr.0.lcssa = phi ptr [ %__first, %entry ], [ %add.ptr2, %_ZSt12__move_mergeIPN11flatbuffers6OffsetIN10reflection7ServiceEEES5_N9__gnu_cxx5__ops15_Iter_comp_iterINS0_21FlatBufferBuilderImplILb0EE18TableKeyComparatorIS3_EEEEET0_T_SF_SF_SF_SE_T1_.exit ]
+  %sub.ptr.div.lcssa = phi i64 [ %sub.ptr.div91, %entry ], [ %sub.ptr.div, %_ZSt12__move_mergeIPN11flatbuffers6OffsetIN10reflection7ServiceEEES5_N9__gnu_cxx5__ops15_Iter_comp_iterINS0_21FlatBufferBuilderImplILb0EE18TableKeyComparatorIS3_EEEEET0_T_SF_SF_SF_SE_T1_.exit ]
   %.sroa.speculated = tail call i64 @llvm.smin.i64(i64 %sub.ptr.div.lcssa, i64 %__step_size)
   %add.ptr9 = getelementptr inbounds %"struct.flatbuffers::Offset.245", ptr %__first.addr.0.lcssa, i64 %.sroa.speculated
   %cmp21.i16 = icmp ne i64 %.sroa.speculated, 0
@@ -86438,7 +86383,7 @@ while.body.i35:                                   ; preds = %while.body.i35.preh
   %cmp.i83 = icmp ne ptr %__first1.addr.1.i81, %add.ptr9
   %cmp1.i84 = icmp ne ptr %__first2.addr.1.i79, %__last
   %32 = select i1 %cmp.i83, i1 %cmp1.i84, i1 false
-  br i1 %32, label %while.body.i35, label %while.end.i18, !llvm.loop !1544
+  br i1 %32, label %while.body.i35, label %while.end.i18, !llvm.loop !1543
 
 while.end.i18:                                    ; preds = %while.body.i35, %while.end
   %__first2.addr.0.lcssa.i19 = phi ptr [ %add.ptr9, %while.end ], [ %__first2.addr.1.i79, %while.body.i35 ]
@@ -88176,24 +88121,13 @@ entry:
   %sub.ptr.sub90 = sub i64 %sub.ptr.lhs.cast, %sub.ptr.rhs.cast89
   %sub.ptr.div91 = ashr exact i64 %sub.ptr.sub90, 2
   %cmp.not92 = icmp slt i64 %sub.ptr.div91, %mul
-  br i1 %cmp.not92, label %while.end, label %while.body.lr.ph
-
-while.body.lr.ph:                                 ; preds = %entry
   %cmp122.i.not = icmp eq i64 %__step_size, 0
-  br i1 %cmp122.i.not, label %_ZSt12__move_mergeIPN11flatbuffers6OffsetIN10reflection10SchemaFileEEES5_N9__gnu_cxx5__ops15_Iter_comp_iterINS0_21FlatBufferBuilderImplILb0EE18TableKeyComparatorIS3_EEEEET0_T_SF_SF_SF_SE_T1_.exit.us, label %while.body
+  %or.cond = or i1 %cmp.not92, %cmp122.i.not
+  br i1 %or.cond, label %while.end, label %while.body
 
-_ZSt12__move_mergeIPN11flatbuffers6OffsetIN10reflection10SchemaFileEEES5_N9__gnu_cxx5__ops15_Iter_comp_iterINS0_21FlatBufferBuilderImplILb0EE18TableKeyComparatorIS3_EEEEET0_T_SF_SF_SF_SE_T1_.exit.us: ; preds = %while.body.lr.ph, %_ZSt12__move_mergeIPN11flatbuffers6OffsetIN10reflection10SchemaFileEEES5_N9__gnu_cxx5__ops15_Iter_comp_iterINS0_21FlatBufferBuilderImplILb0EE18TableKeyComparatorIS3_EEEEET0_T_SF_SF_SF_SE_T1_.exit.us
-  %__first.addr.094.us = phi ptr [ %add.ptr2.us, %_ZSt12__move_mergeIPN11flatbuffers6OffsetIN10reflection10SchemaFileEEES5_N9__gnu_cxx5__ops15_Iter_comp_iterINS0_21FlatBufferBuilderImplILb0EE18TableKeyComparatorIS3_EEEEET0_T_SF_SF_SF_SE_T1_.exit.us ], [ %__first, %while.body.lr.ph ]
-  %add.ptr2.us = getelementptr inbounds %"struct.flatbuffers::Offset.259", ptr %__first.addr.094.us, i64 %mul
-  %sub.ptr.rhs.cast.us = ptrtoint ptr %add.ptr2.us to i64
-  %sub.ptr.sub.us = sub i64 %sub.ptr.lhs.cast, %sub.ptr.rhs.cast.us
-  %sub.ptr.div.us = ashr exact i64 %sub.ptr.sub.us, 2
-  %cmp.not.us = icmp slt i64 %sub.ptr.div.us, %mul
-  br i1 %cmp.not.us, label %while.end, label %_ZSt12__move_mergeIPN11flatbuffers6OffsetIN10reflection10SchemaFileEEES5_N9__gnu_cxx5__ops15_Iter_comp_iterINS0_21FlatBufferBuilderImplILb0EE18TableKeyComparatorIS3_EEEEET0_T_SF_SF_SF_SE_T1_.exit.us, !llvm.loop !1560
-
-while.body:                                       ; preds = %while.body.lr.ph, %_ZSt12__move_mergeIPN11flatbuffers6OffsetIN10reflection10SchemaFileEEES5_N9__gnu_cxx5__ops15_Iter_comp_iterINS0_21FlatBufferBuilderImplILb0EE18TableKeyComparatorIS3_EEEEET0_T_SF_SF_SF_SE_T1_.exit
-  %__first.addr.094 = phi ptr [ %add.ptr2, %_ZSt12__move_mergeIPN11flatbuffers6OffsetIN10reflection10SchemaFileEEES5_N9__gnu_cxx5__ops15_Iter_comp_iterINS0_21FlatBufferBuilderImplILb0EE18TableKeyComparatorIS3_EEEEET0_T_SF_SF_SF_SE_T1_.exit ], [ %__first, %while.body.lr.ph ]
-  %__result.addr.093 = phi ptr [ %add.ptr.i.i.i.i.i19.i, %_ZSt12__move_mergeIPN11flatbuffers6OffsetIN10reflection10SchemaFileEEES5_N9__gnu_cxx5__ops15_Iter_comp_iterINS0_21FlatBufferBuilderImplILb0EE18TableKeyComparatorIS3_EEEEET0_T_SF_SF_SF_SE_T1_.exit ], [ %__result, %while.body.lr.ph ]
+while.body:                                       ; preds = %entry, %_ZSt12__move_mergeIPN11flatbuffers6OffsetIN10reflection10SchemaFileEEES5_N9__gnu_cxx5__ops15_Iter_comp_iterINS0_21FlatBufferBuilderImplILb0EE18TableKeyComparatorIS3_EEEEET0_T_SF_SF_SF_SE_T1_.exit
+  %__first.addr.094 = phi ptr [ %add.ptr2, %_ZSt12__move_mergeIPN11flatbuffers6OffsetIN10reflection10SchemaFileEEES5_N9__gnu_cxx5__ops15_Iter_comp_iterINS0_21FlatBufferBuilderImplILb0EE18TableKeyComparatorIS3_EEEEET0_T_SF_SF_SF_SE_T1_.exit ], [ %__first, %entry ]
+  %__result.addr.093 = phi ptr [ %add.ptr.i.i.i.i.i19.i, %_ZSt12__move_mergeIPN11flatbuffers6OffsetIN10reflection10SchemaFileEEES5_N9__gnu_cxx5__ops15_Iter_comp_iterINS0_21FlatBufferBuilderImplILb0EE18TableKeyComparatorIS3_EEEEET0_T_SF_SF_SF_SE_T1_.exit ], [ %__result, %entry ]
   %add.ptr = getelementptr inbounds %"struct.flatbuffers::Offset.259", ptr %__first.addr.094, i64 %__step_size
   %add.ptr2 = getelementptr inbounds %"struct.flatbuffers::Offset.259", ptr %__first.addr.094, i64 %mul
   %0 = load ptr, ptr %__comp, align 8
@@ -88269,7 +88203,7 @@ while.body.i:                                     ; preds = %while.body, %while.
   %cmp.i = icmp ne ptr %__first1.addr.1.i, %add.ptr
   %cmp1.i = icmp ne ptr %__first2.addr.1.i, %add.ptr2
   %15 = select i1 %cmp.i, i1 %cmp1.i, i1 false
-  br i1 %15, label %while.body.i, label %while.end.i.loopexit, !llvm.loop !1561
+  br i1 %15, label %while.body.i, label %while.end.i.loopexit, !llvm.loop !1560
 
 while.end.i.loopexit:                             ; preds = %while.body.i
   %sub.ptr.lhs.cast.i.i.i.i.i.i = ptrtoint ptr %add.ptr to i64
@@ -88299,12 +88233,12 @@ _ZSt12__move_mergeIPN11flatbuffers6OffsetIN10reflection10SchemaFileEEES5_N9__gnu
   %sub.ptr.sub = sub i64 %sub.ptr.lhs.cast, %sub.ptr.lhs.cast.i.i.i.i.i14.i
   %sub.ptr.div = ashr exact i64 %sub.ptr.sub, 2
   %cmp.not = icmp slt i64 %sub.ptr.div, %mul
-  br i1 %cmp.not, label %while.end, label %while.body, !llvm.loop !1560
+  br i1 %cmp.not, label %while.end, label %while.body, !llvm.loop !1561
 
-while.end:                                        ; preds = %_ZSt12__move_mergeIPN11flatbuffers6OffsetIN10reflection10SchemaFileEEES5_N9__gnu_cxx5__ops15_Iter_comp_iterINS0_21FlatBufferBuilderImplILb0EE18TableKeyComparatorIS3_EEEEET0_T_SF_SF_SF_SE_T1_.exit, %_ZSt12__move_mergeIPN11flatbuffers6OffsetIN10reflection10SchemaFileEEES5_N9__gnu_cxx5__ops15_Iter_comp_iterINS0_21FlatBufferBuilderImplILb0EE18TableKeyComparatorIS3_EEEEET0_T_SF_SF_SF_SE_T1_.exit.us, %entry
-  %__result.addr.0.lcssa = phi ptr [ %__result, %entry ], [ %__result, %_ZSt12__move_mergeIPN11flatbuffers6OffsetIN10reflection10SchemaFileEEES5_N9__gnu_cxx5__ops15_Iter_comp_iterINS0_21FlatBufferBuilderImplILb0EE18TableKeyComparatorIS3_EEEEET0_T_SF_SF_SF_SE_T1_.exit.us ], [ %add.ptr.i.i.i.i.i19.i, %_ZSt12__move_mergeIPN11flatbuffers6OffsetIN10reflection10SchemaFileEEES5_N9__gnu_cxx5__ops15_Iter_comp_iterINS0_21FlatBufferBuilderImplILb0EE18TableKeyComparatorIS3_EEEEET0_T_SF_SF_SF_SE_T1_.exit ]
-  %__first.addr.0.lcssa = phi ptr [ %__first, %entry ], [ %add.ptr2.us, %_ZSt12__move_mergeIPN11flatbuffers6OffsetIN10reflection10SchemaFileEEES5_N9__gnu_cxx5__ops15_Iter_comp_iterINS0_21FlatBufferBuilderImplILb0EE18TableKeyComparatorIS3_EEEEET0_T_SF_SF_SF_SE_T1_.exit.us ], [ %add.ptr2, %_ZSt12__move_mergeIPN11flatbuffers6OffsetIN10reflection10SchemaFileEEES5_N9__gnu_cxx5__ops15_Iter_comp_iterINS0_21FlatBufferBuilderImplILb0EE18TableKeyComparatorIS3_EEEEET0_T_SF_SF_SF_SE_T1_.exit ]
-  %sub.ptr.div.lcssa = phi i64 [ %sub.ptr.div91, %entry ], [ %sub.ptr.div.us, %_ZSt12__move_mergeIPN11flatbuffers6OffsetIN10reflection10SchemaFileEEES5_N9__gnu_cxx5__ops15_Iter_comp_iterINS0_21FlatBufferBuilderImplILb0EE18TableKeyComparatorIS3_EEEEET0_T_SF_SF_SF_SE_T1_.exit.us ], [ %sub.ptr.div, %_ZSt12__move_mergeIPN11flatbuffers6OffsetIN10reflection10SchemaFileEEES5_N9__gnu_cxx5__ops15_Iter_comp_iterINS0_21FlatBufferBuilderImplILb0EE18TableKeyComparatorIS3_EEEEET0_T_SF_SF_SF_SE_T1_.exit ]
+while.end:                                        ; preds = %_ZSt12__move_mergeIPN11flatbuffers6OffsetIN10reflection10SchemaFileEEES5_N9__gnu_cxx5__ops15_Iter_comp_iterINS0_21FlatBufferBuilderImplILb0EE18TableKeyComparatorIS3_EEEEET0_T_SF_SF_SF_SE_T1_.exit, %entry
+  %__result.addr.0.lcssa = phi ptr [ %__result, %entry ], [ %add.ptr.i.i.i.i.i19.i, %_ZSt12__move_mergeIPN11flatbuffers6OffsetIN10reflection10SchemaFileEEES5_N9__gnu_cxx5__ops15_Iter_comp_iterINS0_21FlatBufferBuilderImplILb0EE18TableKeyComparatorIS3_EEEEET0_T_SF_SF_SF_SE_T1_.exit ]
+  %__first.addr.0.lcssa = phi ptr [ %__first, %entry ], [ %add.ptr2, %_ZSt12__move_mergeIPN11flatbuffers6OffsetIN10reflection10SchemaFileEEES5_N9__gnu_cxx5__ops15_Iter_comp_iterINS0_21FlatBufferBuilderImplILb0EE18TableKeyComparatorIS3_EEEEET0_T_SF_SF_SF_SE_T1_.exit ]
+  %sub.ptr.div.lcssa = phi i64 [ %sub.ptr.div91, %entry ], [ %sub.ptr.div, %_ZSt12__move_mergeIPN11flatbuffers6OffsetIN10reflection10SchemaFileEEES5_N9__gnu_cxx5__ops15_Iter_comp_iterINS0_21FlatBufferBuilderImplILb0EE18TableKeyComparatorIS3_EEEEET0_T_SF_SF_SF_SE_T1_.exit ]
   %.sroa.speculated = tail call i64 @llvm.smin.i64(i64 %sub.ptr.div.lcssa, i64 %__step_size)
   %add.ptr9 = getelementptr inbounds %"struct.flatbuffers::Offset.259", ptr %__first.addr.0.lcssa, i64 %.sroa.speculated
   %cmp21.i16 = icmp ne i64 %.sroa.speculated, 0
@@ -88386,7 +88320,7 @@ while.body.i35:                                   ; preds = %while.body.i35.preh
   %cmp.i83 = icmp ne ptr %__first1.addr.1.i81, %add.ptr9
   %cmp1.i84 = icmp ne ptr %__first2.addr.1.i79, %__last
   %32 = select i1 %cmp.i83, i1 %cmp1.i84, i1 false
-  br i1 %32, label %while.body.i35, label %while.end.i18, !llvm.loop !1561
+  br i1 %32, label %while.body.i35, label %while.end.i18, !llvm.loop !1560
 
 while.end.i18:                                    ; preds = %while.body.i35, %while.end
   %__first2.addr.0.lcssa.i19 = phi ptr [ %add.ptr9, %while.end ], [ %__first2.addr.1.i79, %while.body.i35 ]

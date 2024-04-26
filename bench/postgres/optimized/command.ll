@@ -368,9 +368,9 @@ target triple = "x86_64-pc-linux-gnu"
 @switch.table._align2string = private unnamed_addr constant [10 x ptr] [ptr @.str.249, ptr @.str.21, ptr @.str.22, ptr @.str.23, ptr @.str.24, ptr @.str.25, ptr @.str.30, ptr @.str.26, ptr @.str.27, ptr @.str.28], align 8
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @HandleSlashCmds(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #0 {
+define dso_local range(i32 1, 6) i32 @HandleSlashCmds(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #0 {
   %5 = tail call ptr @psql_scan_slash_command(ptr noundef %0) #18
-  %6 = tail call fastcc i32 @exec_command(ptr noundef %5, ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3), !range !5
+  %6 = tail call fastcc i32 @exec_command(ptr noundef %5, ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3)
   switch i32 %6, label %12 [
     i32 0, label %7
     i32 5, label %.preheader
@@ -407,14 +407,14 @@ define dso_local noundef i32 @HandleSlashCmds(ptr noundef %0, ptr noundef %1, pt
   tail call void @free(ptr noundef nonnull %15) #18
   %16 = tail call ptr @psql_scan_slash_option(ptr noundef %0, i32 noundef 0, ptr noundef null, i1 noundef zeroext false) #18
   %.not25.us = icmp eq ptr %16, null
-  br i1 %.not25.us, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !6
+  br i1 %.not25.us, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !5
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %.lr.ph.split
   %17 = phi ptr [ %18, %.lr.ph.split ], [ %14, %.lr.ph ]
   tail call void @free(ptr noundef nonnull %17) #18
   %18 = tail call ptr @psql_scan_slash_option(ptr noundef %0, i32 noundef 0, ptr noundef null, i1 noundef zeroext false) #18
   %.not25 = icmp eq ptr %18, null
-  br i1 %.not25, label %._crit_edge, label %.lr.ph.split, !llvm.loop !6
+  br i1 %.not25, label %._crit_edge, label %.lr.ph.split, !llvm.loop !5
 
 ._crit_edge:                                      ; preds = %.lr.ph.split, %.lr.ph.split.us, %12
   %19 = tail call zeroext i1 @conditional_stack_pop(ptr noundef %1) #18
@@ -425,7 +425,7 @@ define dso_local noundef i32 @HandleSlashCmds(ptr noundef %0, ptr noundef %1, pt
   tail call void @free(ptr noundef nonnull %20) #18
   %21 = tail call ptr @psql_scan_slash_option(ptr noundef %0, i32 noundef 4, ptr noundef null, i1 noundef zeroext false) #18
   %.not24 = icmp eq ptr %21, null
-  br i1 %.not24, label %.loopexit, label %.lr.ph28, !llvm.loop !8
+  br i1 %.not24, label %.loopexit, label %.lr.ph28, !llvm.loop !7
 
 .loopexit:                                        ; preds = %.lr.ph28, %.preheader, %._crit_edge
   %.032 = phi i32 [ 5, %.preheader ], [ %6, %._crit_edge ], [ 5, %.lr.ph28 ]
@@ -439,7 +439,7 @@ define dso_local noundef i32 @HandleSlashCmds(ptr noundef %0, ptr noundef %1, pt
 declare ptr @psql_scan_slash_command(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @exec_command(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4) unnamed_addr #0 {
+define internal fastcc range(i32 0, 6) i32 @exec_command(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4) unnamed_addr #0 {
   %6 = alloca %struct.PromptInterruptContext, align 8
   %7 = alloca %struct.PromptInterruptContext, align 8
   %8 = alloca ptr, align 8
@@ -549,7 +549,7 @@ is_branching_command.exit.thread:                 ; preds = %18, %21, %24, %5, %
   store ptr %47, ptr %59, align 8
   %60 = tail call ptr @psql_scan_slash_option(ptr noundef %1, i32 noundef 0, ptr noundef null, i1 noundef zeroext false) #18
   %.not.i217 = icmp eq ptr %60, null
-  br i1 %.not.i217, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !9
+  br i1 %.not.i217, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !8
 
 ._crit_edge.i:                                    ; preds = %56, %45
   %.012.lcssa.i = phi i32 [ 0, %45 ], [ %48, %56 ]
@@ -567,7 +567,7 @@ is_branching_command.exit.thread:                 ; preds = %18, %21, %24, %5, %
   tail call void @free(ptr noundef nonnull %63) #18
   %64 = tail call ptr @psql_scan_slash_option(ptr noundef %1, i32 noundef 0, ptr noundef null, i1 noundef zeroext false) #18
   %.not.i.i = icmp eq ptr %64, null
-  br i1 %.not.i.i, label %copy_previous_query.exit, label %.lr.ph.i.i, !llvm.loop !10
+  br i1 %.not.i.i, label %copy_previous_query.exit, label %.lr.ph.i.i, !llvm.loop !9
 
 65:                                               ; preds = %41
   %66 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %0, ptr noundef nonnull dereferenceable(2) @.str.65) #19
@@ -596,7 +596,7 @@ is_branching_command.exit.thread:                 ; preds = %18, %21, %24, %5, %
   tail call void @free(ptr noundef nonnull %77) #18
   %78 = tail call ptr @psql_scan_slash_option(ptr noundef %1, i32 noundef 0, ptr noundef null, i1 noundef zeroext false) #18
   %.not.i.i220 = icmp eq ptr %78, null
-  br i1 %.not.i.i220, label %copy_previous_query.exit, label %.lr.ph.i.i219, !llvm.loop !10
+  br i1 %.not.i.i220, label %copy_previous_query.exit, label %.lr.ph.i.i219, !llvm.loop !9
 
 79:                                               ; preds = %65
   %80 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %0, ptr noundef nonnull dereferenceable(2) @.str.79) #19
@@ -861,7 +861,7 @@ read_connect_arg.exit41.i:                        ; preds = %147, %144, %139, %r
   %168 = getelementptr i8, ptr %.0174306.us.us.us.i.i, i64 56
   %169 = load ptr, ptr %168, align 8
   %.not222.us.us.us.i.i = icmp eq ptr %169, null
-  br i1 %.not222.us.us.us.i.i, label %._crit_edge.i.i, label %.lr.ph307.split.us.split.us.split.us.i.i, !llvm.loop !11
+  br i1 %.not222.us.us.us.i.i, label %._crit_edge.i.i, label %.lr.ph307.split.us.split.us.split.us.i.i, !llvm.loop !10
 
 .lr.ph307.split.us.split.us.split.i.i:            ; preds = %.lr.ph307.split.us.split.us.i.i, %180
   %170 = phi ptr [ %182, %180 ], [ %167, %.lr.ph307.split.us.split.us.i.i ]
@@ -890,7 +890,7 @@ read_connect_arg.exit41.i:                        ; preds = %147, %144, %139, %r
   %181 = getelementptr i8, ptr %.0174306.us.us.i.i, i64 56
   %182 = load ptr, ptr %181, align 8
   %.not222.us.us.i.i = icmp eq ptr %182, null
-  br i1 %.not222.us.us.i.i, label %._crit_edge.i.i, label %.lr.ph307.split.us.split.us.split.i.i, !llvm.loop !11
+  br i1 %.not222.us.us.i.i, label %._crit_edge.i.i, label %.lr.ph307.split.us.split.us.split.i.i, !llvm.loop !10
 
 .lr.ph307.split.us.split.i.i:                     ; preds = %.lr.ph307.split.us.i.i
   br i1 %.not225.i.i, label %.lr.ph307.split.us.split.split.us.i.i, label %.lr.ph307.split.us.split.split.i.i
@@ -924,7 +924,7 @@ read_connect_arg.exit41.i:                        ; preds = %147, %144, %139, %r
   %194 = getelementptr i8, ptr %.0174306.us.us316.i.i, i64 56
   %195 = load ptr, ptr %194, align 8
   %.not222.us.us321.i.i = icmp eq ptr %195, null
-  br i1 %.not222.us.us321.i.i, label %._crit_edge.i.i, label %.lr.ph307.split.us.split.split.us.i.i, !llvm.loop !11
+  br i1 %.not222.us.us321.i.i, label %._crit_edge.i.i, label %.lr.ph307.split.us.split.split.us.i.i, !llvm.loop !10
 
 .lr.ph307.split.us.split.split.i.i:               ; preds = %.lr.ph307.split.us.split.i.i, %216
   %196 = phi ptr [ %218, %216 ], [ %167, %.lr.ph307.split.us.split.i.i ]
@@ -974,7 +974,7 @@ read_connect_arg.exit41.i:                        ; preds = %147, %144, %139, %r
   %217 = getelementptr i8, ptr %.0174306.us.i.i, i64 56
   %218 = load ptr, ptr %217, align 8
   %.not222.us.i.i = icmp eq ptr %218, null
-  br i1 %.not222.us.i.i, label %._crit_edge.i.i, label %.lr.ph307.split.us.split.split.i.i, !llvm.loop !11
+  br i1 %.not222.us.i.i, label %._crit_edge.i.i, label %.lr.ph307.split.us.split.split.i.i, !llvm.loop !10
 
 219:                                              ; preds = %166
   %220 = call ptr @PQconninfoParse(ptr noundef %.023.ph.i, ptr noundef nonnull %8) #18
@@ -1068,7 +1068,7 @@ read_connect_arg.exit41.i:                        ; preds = %147, %144, %139, %r
   %257 = getelementptr i8, ptr %.0178295.i.i, i64 56
   %258 = load ptr, ptr %256, align 8
   %.not231.i.i = icmp eq ptr %258, null
-  br i1 %.not231.i.i, label %.critedge.i.i, label %.lr.ph.i.i223, !llvm.loop !12
+  br i1 %.not231.i.i, label %.critedge.i.i, label %.lr.ph.i.i223, !llvm.loop !11
 
 .critedge.i.i:                                    ; preds = %255, %.lr.ph.i.i223, %.preheader289.i.i
   %.0185.lcssa.i.i = phi i1 [ true, %.preheader289.i.i ], [ %.2187.i.i, %255 ], [ %.0185293.i.i, %.lr.ph.i.i223 ]
@@ -1170,7 +1170,7 @@ read_connect_arg.exit41.i:                        ; preds = %147, %144, %139, %r
   %301 = getelementptr i8, ptr %.0174306.i.i, i64 56
   %302 = load ptr, ptr %301, align 8
   %.not222.i.i = icmp eq ptr %302, null
-  br i1 %.not222.i.i, label %._crit_edge.i.i, label %.lr.ph307.split.i.i, !llvm.loop !11
+  br i1 %.not222.i.i, label %._crit_edge.i.i, label %.lr.ph307.split.i.i, !llvm.loop !10
 
 ._crit_edge.i.i:                                  ; preds = %300, %216, %193, %180, %.lr.ph307.split.us.split.us.split.us.i.i, %.preheader.i.i
   %.4.lcssa.i.i = phi i1 [ true, %.preheader.i.i ], [ true, %.lr.ph307.split.us.split.us.split.us.i.i ], [ %.5.us.us.i.i, %180 ], [ %.5.us.us319.i.i, %193 ], [ %.5.us.i.i, %216 ], [ %.5.i.i, %300 ]
@@ -1364,7 +1364,7 @@ prompt_for_password.exit.i.i:                     ; preds = %322, %320
   %381 = getelementptr i8, ptr %.0169333.i.i, i64 56
   %382 = load ptr, ptr %381, align 8
   %.not234.i.i = icmp eq ptr %382, null
-  br i1 %.not234.i.i, label %._crit_edge336.i.i, label %.lr.ph335.i.i, !llvm.loop !13
+  br i1 %.not234.i.i, label %._crit_edge336.i.i, label %.lr.ph335.i.i, !llvm.loop !12
 
 ._crit_edge336.i.i:                               ; preds = %380, %.lr.ph338.i.i
   %.0170.lcssa.i.i = phi i32 [ 0, %.lr.ph338.i.i ], [ %.1.i.i, %380 ]
@@ -1421,7 +1421,7 @@ prompt_for_password.exit264.i.i:                  ; preds = %403, %401
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6)
   call void @PQfinish(ptr noundef %386) #18
   %407 = trunc i8 %406 to i1
-  br i1 %407, label %.outer._crit_edge.i.i, label %.lr.ph338.i.i, !llvm.loop !14
+  br i1 %407, label %.outer._crit_edge.i.i, label %.lr.ph338.i.i, !llvm.loop !13
 
 408:                                              ; preds = %390, %389
   %409 = icmp eq ptr %386, null
@@ -1669,7 +1669,7 @@ param_is_newly_set.exit.thread.i.i:               ; preds = %param_is_newly_set.
   tail call void @free(ptr noundef nonnull %518) #18
   %519 = tail call ptr @psql_scan_slash_option(ptr noundef %1, i32 noundef 0, ptr noundef null, i1 noundef zeroext false) #18
   %.not.i45.i = icmp eq ptr %519, null
-  br i1 %.not.i45.i, label %exec_command_connect.exit, label %.lr.ph.i44.i, !llvm.loop !10
+  br i1 %.not.i45.i, label %exec_command_connect.exit, label %.lr.ph.i44.i, !llvm.loop !9
 
 exec_command_connect.exit:                        ; preds = %.lr.ph.i44.i, %.thread55.i, %515, %516
   %.2.i = phi i32 [ 5, %.thread55.i ], [ 2, %516 ], [ %.0.i43.i, %515 ], [ 2, %.lr.ph.i44.i ]
@@ -1752,7 +1752,7 @@ exec_command_connect.exit:                        ; preds = %.lr.ph.i44.i, %.thr
   tail call void @free(ptr noundef nonnull %553) #18
   %554 = tail call ptr @psql_scan_slash_option(ptr noundef %1, i32 noundef 0, ptr noundef null, i1 noundef zeroext false) #18
   %.not.i.i226 = icmp eq ptr %554, null
-  br i1 %.not.i.i226, label %copy_previous_query.exit, label %.lr.ph.i.i225, !llvm.loop !10
+  br i1 %.not.i.i226, label %copy_previous_query.exit, label %.lr.ph.i.i225, !llvm.loop !9
 
 555:                                              ; preds = %520
   %556 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %0, ptr noundef nonnull dereferenceable(9) @.str.82) #19
@@ -1852,7 +1852,7 @@ printGSSInfo.exit.sink.split.i:                   ; preds = %600, %559
   br i1 %606, label %607, label %609
 
 607:                                              ; preds = %604
-  %608 = tail call fastcc i32 @exec_command_copy(ptr noundef %1, i1 noundef zeroext %15), !range !15
+  %608 = tail call fastcc i32 @exec_command_copy(ptr noundef %1, i1 noundef zeroext %15)
   br label %copy_previous_query.exit
 
 609:                                              ; preds = %604
@@ -1873,7 +1873,7 @@ printGSSInfo.exit.sink.split.i:                   ; preds = %600, %559
   br i1 %616, label %617, label %619
 
 617:                                              ; preds = %614
-  %618 = tail call fastcc i32 @exec_command_crosstabview(ptr noundef %1, i1 noundef zeroext %15), !range !16
+  %618 = tail call fastcc i32 @exec_command_crosstabview(ptr noundef %1, i1 noundef zeroext %15)
   br label %exec_command_a.exit
 
 619:                                              ; preds = %614
@@ -1882,7 +1882,7 @@ printGSSInfo.exit.sink.split.i:                   ; preds = %600, %559
   br i1 %621, label %622, label %624
 
 622:                                              ; preds = %619
-  %623 = tail call fastcc i32 @exec_command_d(ptr noundef %1, i1 noundef zeroext %15, ptr noundef nonnull %0), !range !5
+  %623 = tail call fastcc i32 @exec_command_d(ptr noundef %1, i1 noundef zeroext %15, ptr noundef nonnull %0)
   br label %exec_command_a.exit
 
 624:                                              ; preds = %619
@@ -1896,7 +1896,7 @@ printGSSInfo.exit.sink.split.i:                   ; preds = %600, %559
   br i1 %629, label %630, label %632
 
 630:                                              ; preds = %627, %624
-  %631 = tail call fastcc i32 @exec_command_edit(ptr noundef %1, i1 noundef zeroext %15, ptr noundef %3, ptr noundef %4), !range !15
+  %631 = tail call fastcc i32 @exec_command_edit(ptr noundef %1, i1 noundef zeroext %15, ptr noundef %3, ptr noundef %4)
   br label %copy_previous_query.exit
 
 632:                                              ; preds = %627
@@ -1905,7 +1905,7 @@ printGSSInfo.exit.sink.split.i:                   ; preds = %600, %559
   br i1 %634, label %635, label %637
 
 635:                                              ; preds = %632
-  %636 = tail call fastcc i32 @exec_command_ef_ev(ptr noundef %1, i1 noundef zeroext %15, ptr noundef %3, i1 noundef zeroext true), !range !15
+  %636 = tail call fastcc i32 @exec_command_ef_ev(ptr noundef %1, i1 noundef zeroext %15, ptr noundef %3, i1 noundef zeroext true)
   br label %copy_previous_query.exit
 
 637:                                              ; preds = %632
@@ -1914,7 +1914,7 @@ printGSSInfo.exit.sink.split.i:                   ; preds = %600, %559
   br i1 %639, label %640, label %642
 
 640:                                              ; preds = %637
-  %641 = tail call fastcc i32 @exec_command_ef_ev(ptr noundef %1, i1 noundef zeroext %15, ptr noundef %3, i1 noundef zeroext false), !range !15
+  %641 = tail call fastcc i32 @exec_command_ef_ev(ptr noundef %1, i1 noundef zeroext %15, ptr noundef %3, i1 noundef zeroext false)
   br label %copy_previous_query.exit
 
 642:                                              ; preds = %637
@@ -1942,7 +1942,7 @@ printGSSInfo.exit.sink.split.i:                   ; preds = %600, %559
   br i1 %654, label %655, label %657
 
 655:                                              ; preds = %652
-  %656 = tail call fastcc i32 @exec_command_elif(ptr noundef %1, ptr noundef %2, ptr noundef %3), !range !15
+  %656 = tail call fastcc i32 @exec_command_elif(ptr noundef %1, ptr noundef %2, ptr noundef %3)
   br label %copy_previous_query.exit
 
 657:                                              ; preds = %652
@@ -1951,7 +1951,7 @@ printGSSInfo.exit.sink.split.i:                   ; preds = %600, %559
   br i1 %659, label %660, label %662
 
 660:                                              ; preds = %657
-  %661 = tail call fastcc i32 @exec_command_else(ptr noundef %1, ptr noundef %2, ptr noundef %3), !range !15
+  %661 = tail call fastcc i32 @exec_command_else(ptr noundef %1, ptr noundef %2, ptr noundef %3)
   br label %copy_previous_query.exit
 
 662:                                              ; preds = %657
@@ -1960,7 +1960,7 @@ printGSSInfo.exit.sink.split.i:                   ; preds = %600, %559
   br i1 %664, label %665, label %667
 
 665:                                              ; preds = %662
-  %666 = tail call fastcc i32 @exec_command_endif(ptr noundef %1, ptr noundef %2, ptr noundef %3), !range !15
+  %666 = tail call fastcc i32 @exec_command_endif(ptr noundef %1, ptr noundef %2, ptr noundef %3)
   br label %copy_previous_query.exit
 
 667:                                              ; preds = %662
@@ -1987,7 +1987,7 @@ printGSSInfo.exit.sink.split.i:                   ; preds = %600, %559
   br i1 %677, label %678, label %680
 
 678:                                              ; preds = %675
-  %679 = tail call fastcc i32 @exec_command_f(ptr noundef %1, i1 noundef zeroext %15), !range !15
+  %679 = tail call fastcc i32 @exec_command_f(ptr noundef %1, i1 noundef zeroext %15)
   br label %copy_previous_query.exit
 
 680:                                              ; preds = %675
@@ -2001,7 +2001,7 @@ printGSSInfo.exit.sink.split.i:                   ; preds = %600, %559
   br i1 %685, label %686, label %688
 
 686:                                              ; preds = %683, %680
-  %687 = tail call fastcc i32 @exec_command_g(ptr noundef %1, i1 noundef zeroext %15, ptr noundef nonnull %0), !range !17
+  %687 = tail call fastcc i32 @exec_command_g(ptr noundef %1, i1 noundef zeroext %15, ptr noundef nonnull %0)
   br label %exec_command_a.exit
 
 688:                                              ; preds = %683
@@ -2022,7 +2022,7 @@ printGSSInfo.exit.sink.split.i:                   ; preds = %600, %559
   br i1 %695, label %696, label %698
 
 696:                                              ; preds = %693
-  %697 = tail call fastcc i32 @exec_command_getenv(ptr noundef %1, i1 noundef zeroext %15, ptr noundef nonnull %0), !range !15
+  %697 = tail call fastcc i32 @exec_command_getenv(ptr noundef %1, i1 noundef zeroext %15, ptr noundef nonnull %0)
   br label %copy_previous_query.exit
 
 698:                                              ; preds = %693
@@ -2043,7 +2043,7 @@ printGSSInfo.exit.sink.split.i:                   ; preds = %600, %559
   br i1 %705, label %706, label %708
 
 706:                                              ; preds = %703
-  %707 = tail call fastcc i32 @exec_command_gset(ptr noundef %1, i1 noundef zeroext %15), !range !16
+  %707 = tail call fastcc i32 @exec_command_gset(ptr noundef %1, i1 noundef zeroext %15)
   br label %exec_command_a.exit
 
 708:                                              ; preds = %703
@@ -2072,7 +2072,7 @@ printGSSInfo.exit.sink.split.i:                   ; preds = %600, %559
 
 721:                                              ; preds = %718, %715
   %722 = tail call fastcc i32 @exec_command_html(i1 noundef zeroext %15)
-  br label %exec_command_a.exit
+  br label %copy_previous_query.exit
 
 723:                                              ; preds = %718
   %724 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %0, ptr noundef nonnull dereferenceable(2) @.str.108) #19
@@ -2095,7 +2095,7 @@ printGSSInfo.exit.sink.split.i:                   ; preds = %600, %559
   br i1 %734, label %735, label %737
 
 735:                                              ; preds = %732, %729, %726, %723
-  %736 = tail call fastcc i32 @exec_command_include(ptr noundef %1, i1 noundef zeroext %15, ptr noundef nonnull %0), !range !15
+  %736 = tail call fastcc i32 @exec_command_include(ptr noundef %1, i1 noundef zeroext %15, ptr noundef nonnull %0)
   br label %copy_previous_query.exit
 
 737:                                              ; preds = %732
@@ -2128,7 +2128,7 @@ printGSSInfo.exit.sink.split.i:                   ; preds = %600, %559
   br i1 %752, label %753, label %755
 
 753:                                              ; preds = %750, %747, %744, %741
-  %754 = tail call fastcc i32 @exec_command_list(ptr noundef %1, i1 noundef zeroext %15, ptr noundef nonnull %0), !range !15
+  %754 = tail call fastcc i32 @exec_command_list(ptr noundef %1, i1 noundef zeroext %15, ptr noundef nonnull %0)
   br label %copy_previous_query.exit
 
 755:                                              ; preds = %750
@@ -2137,7 +2137,7 @@ printGSSInfo.exit.sink.split.i:                   ; preds = %600, %559
   br i1 %757, label %758, label %760
 
 758:                                              ; preds = %755
-  %759 = tail call fastcc i32 @exec_command_lo(ptr noundef %1, i1 noundef zeroext %15, ptr noundef nonnull %0), !range !5
+  %759 = tail call fastcc i32 @exec_command_lo(ptr noundef %1, i1 noundef zeroext %15, ptr noundef nonnull %0)
   br label %exec_command_a.exit
 
 760:                                              ; preds = %755
@@ -2151,7 +2151,7 @@ printGSSInfo.exit.sink.split.i:                   ; preds = %600, %559
   br i1 %765, label %766, label %768
 
 766:                                              ; preds = %763, %760
-  %767 = tail call fastcc i32 @exec_command_out(ptr noundef %1, i1 noundef zeroext %15), !range !15
+  %767 = tail call fastcc i32 @exec_command_out(ptr noundef %1, i1 noundef zeroext %15)
   br label %copy_previous_query.exit
 
 768:                                              ; preds = %763
@@ -2174,7 +2174,7 @@ printGSSInfo.exit.sink.split.i:                   ; preds = %600, %559
   br i1 %777, label %778, label %780
 
 778:                                              ; preds = %775
-  %779 = tail call fastcc i32 @exec_command_password(ptr noundef %1, i1 noundef zeroext %15), !range !15
+  %779 = tail call fastcc i32 @exec_command_password(ptr noundef %1, i1 noundef zeroext %15)
   br label %copy_previous_query.exit
 
 780:                                              ; preds = %775
@@ -2183,7 +2183,7 @@ printGSSInfo.exit.sink.split.i:                   ; preds = %600, %559
   br i1 %782, label %783, label %785
 
 783:                                              ; preds = %780
-  %784 = tail call fastcc i32 @exec_command_prompt(ptr noundef %1, i1 noundef zeroext %15, ptr noundef nonnull %0), !range !15
+  %784 = tail call fastcc i32 @exec_command_prompt(ptr noundef %1, i1 noundef zeroext %15, ptr noundef nonnull %0)
   br label %copy_previous_query.exit
 
 785:                                              ; preds = %780
@@ -2192,7 +2192,7 @@ printGSSInfo.exit.sink.split.i:                   ; preds = %600, %559
   br i1 %787, label %788, label %790
 
 788:                                              ; preds = %785
-  %789 = tail call fastcc i32 @exec_command_pset(ptr noundef %1, i1 noundef zeroext %15), !range !15
+  %789 = tail call fastcc i32 @exec_command_pset(ptr noundef %1, i1 noundef zeroext %15)
   br label %copy_previous_query.exit
 
 790:                                              ; preds = %785
@@ -2229,7 +2229,7 @@ printGSSInfo.exit.sink.split.i:                   ; preds = %600, %559
   br i1 %806, label %807, label %809
 
 807:                                              ; preds = %804
-  %808 = tail call fastcc i32 @exec_command_s(ptr noundef %1, i1 noundef zeroext %15), !range !15
+  %808 = tail call fastcc i32 @exec_command_s(ptr noundef %1, i1 noundef zeroext %15)
   br label %copy_previous_query.exit
 
 809:                                              ; preds = %804
@@ -2238,7 +2238,7 @@ printGSSInfo.exit.sink.split.i:                   ; preds = %600, %559
   br i1 %811, label %812, label %814
 
 812:                                              ; preds = %809
-  %813 = tail call fastcc i32 @exec_command_set(ptr noundef %1, i1 noundef zeroext %15), !range !15
+  %813 = tail call fastcc i32 @exec_command_set(ptr noundef %1, i1 noundef zeroext %15)
   br label %copy_previous_query.exit
 
 814:                                              ; preds = %809
@@ -2247,7 +2247,7 @@ printGSSInfo.exit.sink.split.i:                   ; preds = %600, %559
   br i1 %816, label %817, label %819
 
 817:                                              ; preds = %814
-  %818 = tail call fastcc i32 @exec_command_setenv(ptr noundef %1, i1 noundef zeroext %15, ptr noundef nonnull %0), !range !15
+  %818 = tail call fastcc i32 @exec_command_setenv(ptr noundef %1, i1 noundef zeroext %15, ptr noundef nonnull %0)
   br label %copy_previous_query.exit
 
 819:                                              ; preds = %814
@@ -2261,7 +2261,7 @@ printGSSInfo.exit.sink.split.i:                   ; preds = %600, %559
   br i1 %824, label %825, label %827
 
 825:                                              ; preds = %822, %819
-  %826 = tail call fastcc i32 @exec_command_sf_sv(ptr noundef %1, i1 noundef zeroext %15, ptr noundef nonnull %0, i1 noundef zeroext true), !range !15
+  %826 = tail call fastcc i32 @exec_command_sf_sv(ptr noundef %1, i1 noundef zeroext %15, ptr noundef nonnull %0, i1 noundef zeroext true)
   br label %copy_previous_query.exit
 
 827:                                              ; preds = %822
@@ -2275,7 +2275,7 @@ printGSSInfo.exit.sink.split.i:                   ; preds = %600, %559
   br i1 %832, label %833, label %835
 
 833:                                              ; preds = %830, %827
-  %834 = tail call fastcc i32 @exec_command_sf_sv(ptr noundef %1, i1 noundef zeroext %15, ptr noundef nonnull %0, i1 noundef zeroext false), !range !15
+  %834 = tail call fastcc i32 @exec_command_sf_sv(ptr noundef %1, i1 noundef zeroext %15, ptr noundef nonnull %0, i1 noundef zeroext false)
   br label %copy_previous_query.exit
 
 835:                                              ; preds = %830
@@ -2284,7 +2284,7 @@ printGSSInfo.exit.sink.split.i:                   ; preds = %600, %559
   br i1 %837, label %838, label %840
 
 838:                                              ; preds = %835
-  %839 = tail call fastcc i32 @exec_command_t(ptr noundef %1, i1 noundef zeroext %15), !range !15
+  %839 = tail call fastcc i32 @exec_command_t(ptr noundef %1, i1 noundef zeroext %15)
   br label %copy_previous_query.exit
 
 840:                                              ; preds = %835
@@ -2293,7 +2293,7 @@ printGSSInfo.exit.sink.split.i:                   ; preds = %600, %559
   br i1 %842, label %843, label %845
 
 843:                                              ; preds = %840
-  %844 = tail call fastcc i32 @exec_command_T(ptr noundef %1, i1 noundef zeroext %15), !range !15
+  %844 = tail call fastcc i32 @exec_command_T(ptr noundef %1, i1 noundef zeroext %15)
   br label %copy_previous_query.exit
 
 845:                                              ; preds = %840
@@ -2302,7 +2302,7 @@ printGSSInfo.exit.sink.split.i:                   ; preds = %600, %559
   br i1 %847, label %848, label %850
 
 848:                                              ; preds = %845
-  %849 = tail call fastcc i32 @exec_command_timing(ptr noundef %1, i1 noundef zeroext %15), !range !15
+  %849 = tail call fastcc i32 @exec_command_timing(ptr noundef %1, i1 noundef zeroext %15)
   br label %copy_previous_query.exit
 
 850:                                              ; preds = %845
@@ -2311,7 +2311,7 @@ printGSSInfo.exit.sink.split.i:                   ; preds = %600, %559
   br i1 %852, label %853, label %855
 
 853:                                              ; preds = %850
-  %854 = tail call fastcc i32 @exec_command_unset(ptr noundef %1, i1 noundef zeroext %15, ptr noundef nonnull %0), !range !15
+  %854 = tail call fastcc i32 @exec_command_unset(ptr noundef %1, i1 noundef zeroext %15, ptr noundef nonnull %0)
   br label %copy_previous_query.exit
 
 855:                                              ; preds = %850
@@ -2325,7 +2325,7 @@ printGSSInfo.exit.sink.split.i:                   ; preds = %600, %559
   br i1 %860, label %861, label %863
 
 861:                                              ; preds = %858, %855
-  %862 = tail call fastcc i32 @exec_command_write(ptr noundef %1, i1 noundef zeroext %15, ptr noundef nonnull %0, ptr noundef %3, ptr noundef %4), !range !15
+  %862 = tail call fastcc i32 @exec_command_write(ptr noundef %1, i1 noundef zeroext %15, ptr noundef nonnull %0, ptr noundef %3, ptr noundef %4)
   br label %copy_previous_query.exit
 
 863:                                              ; preds = %858
@@ -2334,7 +2334,7 @@ printGSSInfo.exit.sink.split.i:                   ; preds = %600, %559
   br i1 %865, label %866, label %868
 
 866:                                              ; preds = %863
-  %867 = tail call fastcc i32 @exec_command_watch(ptr noundef %1, i1 noundef zeroext %15, ptr noundef %3, ptr noundef %4), !range !15
+  %867 = tail call fastcc i32 @exec_command_watch(ptr noundef %1, i1 noundef zeroext %15, ptr noundef %3, ptr noundef %4)
   br label %copy_previous_query.exit
 
 868:                                              ; preds = %863
@@ -2343,7 +2343,7 @@ printGSSInfo.exit.sink.split.i:                   ; preds = %600, %559
   br i1 %870, label %871, label %873
 
 871:                                              ; preds = %868
-  %872 = tail call fastcc i32 @exec_command_x(ptr noundef %1, i1 noundef zeroext %15), !range !15
+  %872 = tail call fastcc i32 @exec_command_x(ptr noundef %1, i1 noundef zeroext %15)
   br label %copy_previous_query.exit
 
 873:                                              ; preds = %868
@@ -2357,7 +2357,7 @@ printGSSInfo.exit.sink.split.i:                   ; preds = %600, %559
   br i1 %878, label %879, label %881
 
 879:                                              ; preds = %876, %873
-  %880 = tail call fastcc i32 @exec_command_z(ptr noundef %1, i1 noundef zeroext %15, ptr noundef nonnull %0), !range !15
+  %880 = tail call fastcc i32 @exec_command_z(ptr noundef %1, i1 noundef zeroext %15, ptr noundef nonnull %0)
   br label %copy_previous_query.exit
 
 881:                                              ; preds = %876
@@ -2366,7 +2366,7 @@ printGSSInfo.exit.sink.split.i:                   ; preds = %600, %559
   br i1 %883, label %884, label %886
 
 884:                                              ; preds = %881
-  %885 = tail call fastcc i32 @exec_command_shell_escape(ptr noundef %1, i1 noundef zeroext %15), !range !15
+  %885 = tail call fastcc i32 @exec_command_shell_escape(ptr noundef %1, i1 noundef zeroext %15)
   br label %copy_previous_query.exit
 
 886:                                              ; preds = %881
@@ -2378,8 +2378,8 @@ printGSSInfo.exit.sink.split.i:                   ; preds = %600, %559
   tail call fastcc void @exec_command_slash_command_help(ptr noundef %1, i1 noundef zeroext %15)
   br label %copy_previous_query.exit
 
-exec_command_a.exit:                              ; preds = %622, %758, %721, %706, %686, %617
-  %.0 = phi i32 [ %618, %617 ], [ %623, %622 ], [ %687, %686 ], [ %707, %706 ], [ %722, %721 ], [ %759, %758 ]
+exec_command_a.exit:                              ; preds = %622, %758, %706, %686, %617
+  %.0 = phi i32 [ %618, %617 ], [ %623, %622 ], [ %687, %686 ], [ %707, %706 ], [ %759, %758 ]
   %890 = icmp eq i32 %.0, 1
   br i1 %890, label %exec_command_a.exit.thread240, label %copy_previous_query.exit
 
@@ -2398,8 +2398,8 @@ exec_command_a.exit.thread240:                    ; preds = %702, %692, %exec_co
   tail call void @appendPQExpBufferStr(ptr noundef nonnull %3, ptr noundef %896) #18
   br label %copy_previous_query.exit
 
-copy_previous_query.exit:                         ; preds = %.lr.ph.i.i225, %.lr.ph.i.i219, %.lr.ph.i.i, %701, %691, %613, %612, %printGSSInfo.exit.sink.split.i, %600, %558, %551, %550, %75, %69, %61, %._crit_edge.i, %37, %39, %.thread.i, %886, %889, %884, %879, %871, %866, %861, %853, %848, %843, %838, %833, %825, %817, %812, %807, %803, %796, %788, %783, %778, %774, %766, %753, %740, %735, %714, %696, %678, %674, %670, %665, %660, %655, %651, %640, %635, %630, %607, %exec_command_connect.exit, %895, %891, %exec_command_a.exit.thread240, %exec_command_a.exit
-  %.0238 = phi i32 [ %.0, %exec_command_a.exit ], [ 1, %exec_command_a.exit.thread240 ], [ 1, %891 ], [ 1, %895 ], [ 2, %701 ], [ 2, %691 ], [ 2, %613 ], [ 2, %612 ], [ 2, %printGSSInfo.exit.sink.split.i ], [ 2, %600 ], [ 2, %558 ], [ 2, %551 ], [ %.1.i229, %550 ], [ 2, %75 ], [ %74, %69 ], [ 2, %61 ], [ 2, %._crit_edge.i ], [ 5, %37 ], [ 5, %39 ], [ 2, %.thread.i ], [ 0, %886 ], [ 2, %889 ], [ %885, %884 ], [ %880, %879 ], [ %872, %871 ], [ %867, %866 ], [ %862, %861 ], [ %854, %853 ], [ %849, %848 ], [ %844, %843 ], [ %839, %838 ], [ %834, %833 ], [ %826, %825 ], [ %818, %817 ], [ %813, %812 ], [ %808, %807 ], [ 2, %803 ], [ %spec.store.select.i, %796 ], [ %789, %788 ], [ %784, %783 ], [ %779, %778 ], [ 2, %774 ], [ %767, %766 ], [ %754, %753 ], [ 2, %740 ], [ %736, %735 ], [ 2, %714 ], [ %697, %696 ], [ %679, %678 ], [ 2, %674 ], [ 2, %670 ], [ %666, %665 ], [ %661, %660 ], [ %656, %655 ], [ 2, %651 ], [ %641, %640 ], [ %636, %635 ], [ %631, %630 ], [ %608, %607 ], [ %.2.i, %exec_command_connect.exit ], [ 2, %.lr.ph.i.i ], [ 2, %.lr.ph.i.i219 ], [ 2, %.lr.ph.i.i225 ]
+copy_previous_query.exit:                         ; preds = %.lr.ph.i.i225, %.lr.ph.i.i219, %.lr.ph.i.i, %701, %691, %613, %612, %printGSSInfo.exit.sink.split.i, %600, %558, %551, %550, %75, %69, %61, %._crit_edge.i, %37, %39, %.thread.i, %886, %889, %884, %879, %871, %866, %861, %853, %848, %843, %838, %833, %825, %817, %812, %807, %803, %796, %788, %783, %778, %774, %766, %753, %740, %735, %721, %714, %696, %678, %674, %670, %665, %660, %655, %651, %640, %635, %630, %607, %exec_command_connect.exit, %895, %891, %exec_command_a.exit.thread240, %exec_command_a.exit
+  %.0238 = phi i32 [ %.0, %exec_command_a.exit ], [ 1, %exec_command_a.exit.thread240 ], [ 1, %891 ], [ 1, %895 ], [ 2, %701 ], [ 2, %691 ], [ 2, %613 ], [ 2, %612 ], [ 2, %printGSSInfo.exit.sink.split.i ], [ 2, %600 ], [ 2, %558 ], [ 2, %551 ], [ %.1.i229, %550 ], [ 2, %75 ], [ %74, %69 ], [ 2, %61 ], [ 2, %._crit_edge.i ], [ 5, %37 ], [ 5, %39 ], [ 2, %.thread.i ], [ 0, %886 ], [ 2, %889 ], [ %885, %884 ], [ %880, %879 ], [ %872, %871 ], [ %867, %866 ], [ %862, %861 ], [ %854, %853 ], [ %849, %848 ], [ %844, %843 ], [ %839, %838 ], [ %834, %833 ], [ %826, %825 ], [ %818, %817 ], [ %813, %812 ], [ %808, %807 ], [ 2, %803 ], [ %spec.store.select.i, %796 ], [ %789, %788 ], [ %784, %783 ], [ %779, %778 ], [ 2, %774 ], [ %767, %766 ], [ %754, %753 ], [ 2, %740 ], [ %736, %735 ], [ %722, %721 ], [ 2, %714 ], [ %697, %696 ], [ %679, %678 ], [ 2, %674 ], [ 2, %670 ], [ %666, %665 ], [ %661, %660 ], [ %656, %655 ], [ 2, %651 ], [ %641, %640 ], [ %636, %635 ], [ %631, %630 ], [ %608, %607 ], [ %.2.i, %exec_command_connect.exit ], [ 2, %.lr.ph.i.i ], [ 2, %.lr.ph.i.i219 ], [ 2, %.lr.ph.i.i225 ]
   ret i32 %.0238
 }
 
@@ -2782,7 +2782,7 @@ define dso_local zeroext i1 @do_pset(ptr noundef %0, ptr noundef %1, ptr noundef
   %.1 = phi i32 [ %.0172195, %.preheader ], [ %19, %17 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 8
-  br i1 %exitcond.not, label %25, label %.preheader, !llvm.loop !18
+  br i1 %exitcond.not, label %25, label %.preheader, !llvm.loop !14
 
 25:                                               ; preds = %24
   %26 = icmp sgt i32 %.1, -1
@@ -3905,7 +3905,7 @@ define dso_local void @restorePsetInfo(ptr nocapture noundef %0, ptr nocapture n
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @exec_command_copy(ptr noundef %0, i1 noundef zeroext %1) unnamed_addr #0 {
+define internal fastcc range(i32 2, 6) i32 @exec_command_copy(ptr noundef %0, i1 noundef zeroext %1) unnamed_addr #0 {
   %3 = tail call ptr @psql_scan_slash_option(ptr noundef %0, i32 noundef 4, ptr noundef null, i1 noundef zeroext false) #18
   br i1 %1, label %4, label %7
 
@@ -3925,7 +3925,7 @@ define internal fastcc i32 @exec_command_copy(ptr noundef %0, i1 noundef zeroext
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @exec_command_crosstabview(ptr noundef %0, i1 noundef zeroext %1) unnamed_addr #0 {
+define internal fastcc range(i32 1, 3) i32 @exec_command_crosstabview(ptr noundef %0, i1 noundef zeroext %1) unnamed_addr #0 {
   br i1 %1, label %.preheader, label %6
 
 .preheader:                                       ; preds = %2, %.preheader
@@ -3935,7 +3935,7 @@ define internal fastcc noundef i32 @exec_command_crosstabview(ptr noundef %0, i1
   store ptr %3, ptr %4, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 4
-  br i1 %exitcond.not, label %5, label %.preheader, !llvm.loop !19
+  br i1 %exitcond.not, label %5, label %.preheader, !llvm.loop !15
 
 5:                                                ; preds = %.preheader
   store i8 1, ptr getelementptr inbounds (%struct._psqlSettings, ptr @pset, i64 0, i32 15), align 8
@@ -3951,7 +3951,7 @@ define internal fastcc noundef i32 @exec_command_crosstabview(ptr noundef %0, i1
   tail call void @free(ptr noundef nonnull %8) #18
   %9 = tail call ptr @psql_scan_slash_option(ptr noundef %0, i32 noundef 0, ptr noundef null, i1 noundef zeroext false) #18
   %.not.i = icmp eq ptr %9, null
-  br i1 %.not.i, label %ignore_slash_options.exit, label %.lr.ph.i, !llvm.loop !10
+  br i1 %.not.i, label %ignore_slash_options.exit, label %.lr.ph.i, !llvm.loop !9
 
 ignore_slash_options.exit:                        ; preds = %.lr.ph.i, %6, %5
   %.06 = phi i32 [ 1, %5 ], [ 2, %6 ], [ 2, %.lr.ph.i ]
@@ -3959,7 +3959,7 @@ ignore_slash_options.exit:                        ; preds = %.lr.ph.i, %6, %5
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @exec_command_d(ptr noundef %0, i1 noundef zeroext %1, ptr noundef %2) unnamed_addr #0 {
+define internal fastcc range(i32 0, 6) i32 @exec_command_d(ptr noundef %0, i1 noundef zeroext %1, ptr noundef %2) unnamed_addr #0 {
   br i1 %1, label %4, label %142
 
 4:                                                ; preds = %3
@@ -4400,7 +4400,7 @@ define internal fastcc noundef i32 @exec_command_d(ptr noundef %0, i1 noundef ze
   tail call void @free(ptr noundef nonnull %144) #18
   %145 = tail call ptr @psql_scan_slash_option(ptr noundef %0, i32 noundef 0, ptr noundef null, i1 noundef zeroext false) #18
   %.not.i = icmp eq ptr %145, null
-  br i1 %.not.i, label %ignore_slash_options.exit.thread, label %.lr.ph.i, !llvm.loop !10
+  br i1 %.not.i, label %ignore_slash_options.exit.thread, label %.lr.ph.i, !llvm.loop !9
 
 ignore_slash_options.exit.thread151:              ; preds = %85, %57, %76, %99, %111, %122, %4, %88
   tail call void @free(ptr noundef %5) #18
@@ -4421,7 +4421,7 @@ ignore_slash_options.exit.thread:                 ; preds = %.lr.ph.i, %142, %13
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @exec_command_edit(ptr noundef %0, i1 noundef zeroext %1, ptr noundef %2, ptr nocapture noundef readonly %3) unnamed_addr #0 {
+define internal fastcc range(i32 2, 6) i32 @exec_command_edit(ptr noundef %0, i1 noundef zeroext %1, ptr noundef %2, ptr nocapture noundef readonly %3) unnamed_addr #0 {
   %5 = alloca ptr, align 8
   br i1 %1, label %6, label %37
 
@@ -4521,7 +4521,7 @@ define internal fastcc noundef i32 @exec_command_edit(ptr noundef %0, i1 noundef
   tail call void @free(ptr noundef nonnull %39) #18
   %40 = tail call ptr @psql_scan_slash_option(ptr noundef %0, i32 noundef 0, ptr noundef null, i1 noundef zeroext false) #18
   %.not.i34 = icmp eq ptr %40, null
-  br i1 %.not.i34, label %ignore_slash_options.exit, label %.lr.ph.i, !llvm.loop !10
+  br i1 %.not.i34, label %ignore_slash_options.exit, label %.lr.ph.i, !llvm.loop !9
 
 ignore_slash_options.exit:                        ; preds = %.lr.ph.i, %37, %7, %35
   %.2 = phi i32 [ %.151, %35 ], [ 5, %7 ], [ 2, %37 ], [ 2, %.lr.ph.i ]
@@ -4529,7 +4529,7 @@ ignore_slash_options.exit:                        ; preds = %.lr.ph.i, %37, %7, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @exec_command_ef_ev(ptr noundef %0, i1 noundef zeroext %1, ptr noundef %2, i1 noundef zeroext %3) unnamed_addr #0 {
+define internal fastcc range(i32 2, 6) i32 @exec_command_ef_ev(ptr noundef %0, i1 noundef zeroext %1, ptr noundef %2, i1 noundef zeroext %3) unnamed_addr #0 {
   %5 = alloca i32, align 4
   %6 = alloca i8, align 1
   br i1 %1, label %7, label %96
@@ -4579,7 +4579,7 @@ define internal fastcc noundef i32 @exec_command_ef_ev(ptr noundef %0, i1 nounde
   %28 = load i16, ptr %27, align 2
   %29 = and i16 %28, 8192
   %.not34.i = icmp eq i16 %29, 0
-  br i1 %.not34.i, label %.critedge.i, label %18, !llvm.loop !20
+  br i1 %.not34.i, label %.critedge.i, label %18, !llvm.loop !16
 
 .critedge.i:                                      ; preds = %23, %20, %18
   %30 = icmp eq ptr %.031.i, %8
@@ -4620,7 +4620,7 @@ define internal fastcc noundef i32 @exec_command_ef_ev(ptr noundef %0, i1 nounde
 48:                                               ; preds = %43
   %49 = getelementptr i8, ptr %.138.i, i64 -1
   %50 = icmp ugt ptr %49, %8
-  br i1 %50, label %.lr.ph.i, label %.thread50, !llvm.loop !21
+  br i1 %50, label %.lr.ph.i, label %.thread50, !llvm.loop !17
 
 .critedge2.i:                                     ; preds = %43, %.lr.ph.i, %.preheader.i
   %51 = phi i8 [ %32, %.preheader.i ], [ %41, %.lr.ph.i ], [ %41, %43 ]
@@ -4685,7 +4685,7 @@ strip_lineno_from_objdesc.exit:                   ; preds = %60
   %75 = getelementptr i8, ptr %87, i64 1
   %76 = load i8, ptr %75, align 1
   %.not43 = icmp eq i8 %76, 0
-  br i1 %.not43, label %.loopexit, label %.lr.ph, !llvm.loop !22
+  br i1 %.not43, label %.loopexit, label %.lr.ph, !llvm.loop !18
 
 .lr.ph:                                           ; preds = %71, %74
   %.068 = phi ptr [ %75, %74 ], [ %72, %71 ]
@@ -4799,7 +4799,7 @@ define internal fastcc void @exec_command_echo(ptr noundef %0, i1 noundef zeroex
   call void @free(ptr noundef nonnull %13) #18
   %25 = call ptr @psql_scan_slash_option(ptr noundef %0, i32 noundef 0, ptr noundef nonnull %4, i1 noundef zeroext false) #18
   %.not = icmp eq ptr %25, null
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !23
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !19
 
 ._crit_edge:                                      ; preds = %24
   %26 = trunc nuw i8 %.117 to i1
@@ -4819,14 +4819,14 @@ define internal fastcc void @exec_command_echo(ptr noundef %0, i1 noundef zeroex
   tail call void @free(ptr noundef nonnull %29) #18
   %30 = tail call ptr @psql_scan_slash_option(ptr noundef %0, i32 noundef 0, ptr noundef null, i1 noundef zeroext false) #18
   %.not.i = icmp eq ptr %30, null
-  br i1 %.not.i, label %ignore_slash_options.exit, label %.lr.ph.i, !llvm.loop !10
+  br i1 %.not.i, label %ignore_slash_options.exit, label %.lr.ph.i, !llvm.loop !9
 
 ignore_slash_options.exit:                        ; preds = %.lr.ph.i, %27, %._crit_edge, %._crit_edge.thread
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @exec_command_elif(ptr noundef %0, ptr noundef %1, ptr noundef %2) unnamed_addr #0 {
+define internal fastcc range(i32 2, 6) i32 @exec_command_elif(ptr noundef %0, ptr noundef %1, ptr noundef %2) unnamed_addr #0 {
   %4 = tail call i32 @conditional_stack_peek(ptr noundef %1) #18
   switch i32 %4, label %34 [
     i32 1, label %5
@@ -4914,7 +4914,7 @@ discard_query_text.exit18:                        ; preds = %24, %25
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @exec_command_else(ptr noundef %0, ptr noundef %1, ptr noundef %2) unnamed_addr #0 {
+define internal fastcc range(i32 2, 6) i32 @exec_command_else(ptr noundef %0, ptr noundef %1, ptr noundef %2) unnamed_addr #0 {
   %4 = tail call i32 @conditional_stack_peek(ptr noundef %1) #18
   switch i32 %4, label %32 [
     i32 1, label %5
@@ -4996,7 +4996,7 @@ discard_query_text.exit15:                        ; preds = %21, %22
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @exec_command_endif(ptr noundef %0, ptr noundef %1, ptr noundef %2) unnamed_addr #0 {
+define internal fastcc range(i32 2, 6) i32 @exec_command_endif(ptr noundef %0, ptr noundef %1, ptr noundef %2) unnamed_addr #0 {
   %4 = tail call i32 @conditional_stack_peek(ptr noundef %1) #18
   switch i32 %4, label %.thread [
     i32 1, label %14
@@ -5092,7 +5092,7 @@ define internal fastcc void @exec_command_encoding(ptr noundef %0, i1 noundef ze
   tail call void @free(ptr noundef nonnull %22) #18
   %23 = tail call ptr @psql_scan_slash_option(ptr noundef %0, i32 noundef 0, ptr noundef null, i1 noundef zeroext false) #18
   %.not.i = icmp eq ptr %23, null
-  br i1 %.not.i, label %ignore_slash_options.exit, label %.lr.ph.i, !llvm.loop !10
+  br i1 %.not.i, label %ignore_slash_options.exit, label %.lr.ph.i, !llvm.loop !9
 
 ignore_slash_options.exit:                        ; preds = %.lr.ph.i, %21, %5, %20
   ret void
@@ -5130,7 +5130,7 @@ define internal fastcc void @exec_command_errverbose(i1 noundef zeroext %0) unna
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @exec_command_f(ptr noundef %0, i1 noundef zeroext %1) unnamed_addr #0 {
+define internal fastcc range(i32 2, 6) i32 @exec_command_f(ptr noundef %0, i1 noundef zeroext %1) unnamed_addr #0 {
   %3 = tail call ptr @psql_scan_slash_option(ptr noundef %0, i32 noundef 0, ptr noundef null, i1 noundef zeroext false) #18
   br i1 %1, label %4, label %9
 
@@ -5151,7 +5151,7 @@ define internal fastcc i32 @exec_command_f(ptr noundef %0, i1 noundef zeroext %1
   tail call void @free(ptr noundef nonnull %10) #18
   %11 = tail call ptr @psql_scan_slash_option(ptr noundef %0, i32 noundef 0, ptr noundef null, i1 noundef zeroext false) #18
   %.not.i = icmp eq ptr %11, null
-  br i1 %.not.i, label %ignore_slash_options.exit, label %.lr.ph.i, !llvm.loop !10
+  br i1 %.not.i, label %ignore_slash_options.exit, label %.lr.ph.i, !llvm.loop !9
 
 ignore_slash_options.exit:                        ; preds = %.lr.ph.i, %9, %4
   %.0 = phi i32 [ %8, %4 ], [ 2, %9 ], [ 2, %.lr.ph.i ]
@@ -5159,7 +5159,7 @@ ignore_slash_options.exit:                        ; preds = %.lr.ph.i, %9, %4
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @exec_command_g(ptr noundef %0, i1 noundef zeroext %1, ptr noundef %2) unnamed_addr #0 {
+define internal fastcc range(i32 1, 6) i32 @exec_command_g(ptr noundef %0, i1 noundef zeroext %1, ptr noundef %2) unnamed_addr #0 {
   %4 = alloca ptr, align 8
   %5 = tail call ptr @psql_scan_slash_option(ptr noundef %0, i32 noundef 3, ptr noundef null, i1 noundef zeroext false) #18
   store ptr %5, ptr %4, align 8
@@ -5243,7 +5243,7 @@ define internal fastcc noundef i32 @exec_command_g(ptr noundef %0, i1 noundef ze
   br label %36
 
 36:                                               ; preds = %35, %.thread.us.i
-  br i1 %.146.us.i, label %.loopexit.i, label %.split.us.i, !llvm.loop !24
+  br i1 %.146.us.i, label %.loopexit.i, label %.split.us.i, !llvm.loop !20
 
 .split.i:                                         ; preds = %9, %50
   %.031.i = phi ptr [ null, %50 ], [ %10, %9 ]
@@ -5299,7 +5299,7 @@ define internal fastcc noundef i32 @exec_command_g(ptr noundef %0, i1 noundef ze
   br label %50
 
 50:                                               ; preds = %49, %.thread.i
-  br i1 %.146.i, label %process_command_g_options.exit, label %.split.i, !llvm.loop !24
+  br i1 %.146.i, label %process_command_g_options.exit, label %.split.i, !llvm.loop !20
 
 .loopexit.i:                                      ; preds = %36, %.split56.us.i
   %.2.i = phi i8 [ %.us-phi.i, %.split56.us.i ], [ %.130.us.i, %36 ]
@@ -5385,7 +5385,7 @@ process_command_g_options.exit:                   ; preds = %50, %.loopexit.i, %
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @exec_command_getenv(ptr noundef %0, i1 noundef zeroext %1, ptr noundef %2) unnamed_addr #0 {
+define internal fastcc range(i32 2, 6) i32 @exec_command_getenv(ptr noundef %0, i1 noundef zeroext %1, ptr noundef %2) unnamed_addr #0 {
   %4 = tail call ptr @psql_scan_slash_option(ptr noundef %0, i32 noundef 0, ptr noundef null, i1 noundef zeroext false) #18
   br i1 %1, label %5, label %16
 
@@ -5426,7 +5426,7 @@ define internal fastcc i32 @exec_command_getenv(ptr noundef %0, i1 noundef zeroe
   tail call void @free(ptr noundef nonnull %17) #18
   %18 = tail call ptr @psql_scan_slash_option(ptr noundef %0, i32 noundef 0, ptr noundef null, i1 noundef zeroext false) #18
   %.not.i = icmp eq ptr %18, null
-  br i1 %.not.i, label %ignore_slash_options.exit, label %.lr.ph.i, !llvm.loop !10
+  br i1 %.not.i, label %ignore_slash_options.exit, label %.lr.ph.i, !llvm.loop !9
 
 ignore_slash_options.exit:                        ; preds = %.lr.ph.i, %16, %15
   %.1 = phi i32 [ %.0, %15 ], [ 2, %16 ], [ 2, %.lr.ph.i ]
@@ -5434,7 +5434,7 @@ ignore_slash_options.exit:                        ; preds = %.lr.ph.i, %16, %15
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @exec_command_gset(ptr noundef %0, i1 noundef zeroext %1) unnamed_addr #0 {
+define internal fastcc range(i32 1, 3) i32 @exec_command_gset(ptr noundef %0, i1 noundef zeroext %1) unnamed_addr #0 {
   %3 = tail call ptr @psql_scan_slash_option(ptr noundef %0, i32 noundef 0, ptr noundef null, i1 noundef zeroext false) #18
   %.not = icmp eq ptr %3, null
   br i1 %1, label %4, label %8
@@ -5459,7 +5459,7 @@ define internal fastcc noundef i32 @exec_command_gset(ptr noundef %0, i1 noundef
   tail call void @free(ptr noundef nonnull %9) #18
   %10 = tail call ptr @psql_scan_slash_option(ptr noundef %0, i32 noundef 0, ptr noundef null, i1 noundef zeroext false) #18
   %.not.i = icmp eq ptr %10, null
-  br i1 %.not.i, label %ignore_slash_options.exit, label %.lr.ph.i, !llvm.loop !10
+  br i1 %.not.i, label %ignore_slash_options.exit, label %.lr.ph.i, !llvm.loop !9
 
 ignore_slash_options.exit:                        ; preds = %.lr.ph.i, %8, %7
   %.0 = phi i32 [ 1, %7 ], [ 2, %8 ], [ 2, %.lr.ph.i ]
@@ -5487,7 +5487,7 @@ define internal fastcc void @exec_command_help(ptr noundef %0, i1 noundef zeroex
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @exec_command_html(i1 noundef zeroext %0) unnamed_addr #0 {
+define internal fastcc range(i32 2, 6) i32 @exec_command_html(i1 noundef zeroext %0) unnamed_addr #0 {
   br i1 %0, label %2, label %.thread
 
 2:                                                ; preds = %1
@@ -5516,7 +5516,7 @@ define internal fastcc noundef i32 @exec_command_html(i1 noundef zeroext %0) unn
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @exec_command_include(ptr noundef %0, i1 noundef zeroext %1, ptr noundef %2) unnamed_addr #0 {
+define internal fastcc range(i32 2, 6) i32 @exec_command_include(ptr noundef %0, i1 noundef zeroext %1, ptr noundef %2) unnamed_addr #0 {
   %4 = alloca ptr, align 8
   br i1 %1, label %5, label %21
 
@@ -5561,7 +5561,7 @@ define internal fastcc i32 @exec_command_include(ptr noundef %0, i1 noundef zero
   tail call void @free(ptr noundef nonnull %23) #18
   %24 = tail call ptr @psql_scan_slash_option(ptr noundef %0, i32 noundef 0, ptr noundef null, i1 noundef zeroext false) #18
   %.not.i = icmp eq ptr %24, null
-  br i1 %.not.i, label %ignore_slash_options.exit, label %.lr.ph.i, !llvm.loop !10
+  br i1 %.not.i, label %ignore_slash_options.exit, label %.lr.ph.i, !llvm.loop !9
 
 ignore_slash_options.exit:                        ; preds = %.lr.ph.i, %21, %7, %14
   %.0 = phi i32 [ %20, %14 ], [ 5, %7 ], [ 2, %21 ], [ 2, %.lr.ph.i ]
@@ -5617,7 +5617,7 @@ save_query_text_state.exit13:                     ; preds = %14, %15
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @exec_command_list(ptr noundef %0, i1 noundef zeroext %1, ptr noundef readonly %2) unnamed_addr #0 {
+define internal fastcc range(i32 2, 6) i32 @exec_command_list(ptr noundef %0, i1 noundef zeroext %1, ptr noundef readonly %2) unnamed_addr #0 {
   br i1 %1, label %4, label %10
 
 4:                                                ; preds = %3
@@ -5639,7 +5639,7 @@ define internal fastcc i32 @exec_command_list(ptr noundef %0, i1 noundef zeroext
   tail call void @free(ptr noundef nonnull %12) #18
   %13 = tail call ptr @psql_scan_slash_option(ptr noundef %0, i32 noundef 0, ptr noundef null, i1 noundef zeroext false) #18
   %.not.i = icmp eq ptr %13, null
-  br i1 %.not.i, label %ignore_slash_options.exit, label %.lr.ph.i, !llvm.loop !10
+  br i1 %.not.i, label %ignore_slash_options.exit, label %.lr.ph.i, !llvm.loop !9
 
 ignore_slash_options.exit:                        ; preds = %.lr.ph.i, %10, %4
   %.0 = phi i32 [ %9, %4 ], [ 2, %10 ], [ 2, %.lr.ph.i ]
@@ -5650,7 +5650,7 @@ ignore_slash_options.exit:                        ; preds = %.lr.ph.i, %10, %4
 declare i32 @strncmp(ptr nocapture noundef, ptr nocapture noundef, i64 noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @exec_command_lo(ptr noundef %0, i1 noundef zeroext %1, ptr noundef %2) unnamed_addr #0 {
+define internal fastcc range(i32 0, 6) i32 @exec_command_lo(ptr noundef %0, i1 noundef zeroext %1, ptr noundef %2) unnamed_addr #0 {
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
   br i1 %1, label %6, label %42
@@ -5745,7 +5745,7 @@ define internal fastcc noundef i32 @exec_command_lo(ptr noundef %0, i1 noundef z
   tail call void @free(ptr noundef nonnull %44) #18
   %45 = tail call ptr @psql_scan_slash_option(ptr noundef %0, i32 noundef 0, ptr noundef null, i1 noundef zeroext false) #18
   %.not.i = icmp eq ptr %45, null
-  br i1 %.not.i, label %ignore_slash_options.exit.thread, label %.lr.ph.i, !llvm.loop !10
+  br i1 %.not.i, label %ignore_slash_options.exit.thread, label %.lr.ph.i, !llvm.loop !9
 
 ignore_slash_options.exit:                        ; preds = %14, %13, %28, %40, %39, %33, %21, %22, %35
   %46 = phi ptr [ %.pre22, %14 ], [ null, %13 ], [ %8, %22 ], [ %8, %21 ], [ %8, %28 ], [ %8, %33 ], [ %8, %40 ], [ %8, %39 ], [ %8, %35 ]
@@ -5764,7 +5764,7 @@ ignore_slash_options.exit.thread:                 ; preds = %.lr.ph.i, %ignore_s
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @exec_command_out(ptr noundef %0, i1 noundef zeroext %1) unnamed_addr #0 {
+define internal fastcc range(i32 2, 6) i32 @exec_command_out(ptr noundef %0, i1 noundef zeroext %1) unnamed_addr #0 {
   %3 = alloca ptr, align 8
   br i1 %1, label %4, label %10
 
@@ -5838,7 +5838,7 @@ define internal fastcc void @exec_command_print(i1 noundef zeroext %0, ptr nound
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @exec_command_password(ptr noundef %0, i1 noundef zeroext %1) unnamed_addr #0 {
+define internal fastcc range(i32 2, 6) i32 @exec_command_password(ptr noundef %0, i1 noundef zeroext %1) unnamed_addr #0 {
   %3 = alloca %struct.PQExpBufferData, align 8
   %4 = alloca %struct.PromptInterruptContext, align 8
   br i1 %1, label %5, label %38
@@ -5930,7 +5930,7 @@ define internal fastcc noundef i32 @exec_command_password(ptr noundef %0, i1 nou
   tail call void @free(ptr noundef nonnull %40) #18
   %41 = tail call ptr @psql_scan_slash_option(ptr noundef %0, i32 noundef 0, ptr noundef null, i1 noundef zeroext false) #18
   %.not.i = icmp eq ptr %41, null
-  br i1 %.not.i, label %ignore_slash_options.exit, label %.lr.ph.i, !llvm.loop !10
+  br i1 %.not.i, label %ignore_slash_options.exit, label %.lr.ph.i, !llvm.loop !9
 
 ignore_slash_options.exit:                        ; preds = %.lr.ph.i, %38, %37, %8
   %.0 = phi i32 [ 5, %8 ], [ %.1, %37 ], [ 2, %38 ], [ 2, %.lr.ph.i ]
@@ -5938,7 +5938,7 @@ ignore_slash_options.exit:                        ; preds = %.lr.ph.i, %38, %37,
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @exec_command_prompt(ptr noundef %0, i1 noundef zeroext %1, ptr noundef %2) unnamed_addr #0 {
+define internal fastcc range(i32 2, 6) i32 @exec_command_prompt(ptr noundef %0, i1 noundef zeroext %1, ptr noundef %2) unnamed_addr #0 {
   %4 = alloca %struct.PromptInterruptContext, align 8
   %5 = tail call ptr @psql_scan_slash_option(ptr noundef %0, i32 noundef 0, ptr noundef null, i1 noundef zeroext false) #18
   br i1 %1, label %6, label %29
@@ -6019,7 +6019,7 @@ define internal fastcc i32 @exec_command_prompt(ptr noundef %0, i1 noundef zeroe
   tail call void @free(ptr noundef nonnull %30) #18
   %31 = tail call ptr @psql_scan_slash_option(ptr noundef %0, i32 noundef 0, ptr noundef null, i1 noundef zeroext false) #18
   %.not.i = icmp eq ptr %31, null
-  br i1 %.not.i, label %ignore_slash_options.exit, label %.lr.ph.i, !llvm.loop !10
+  br i1 %.not.i, label %ignore_slash_options.exit, label %.lr.ph.i, !llvm.loop !9
 
 ignore_slash_options.exit:                        ; preds = %.lr.ph.i, %29, %8, %.thread40
   %.2 = phi i32 [ %.1, %.thread40 ], [ 5, %8 ], [ 2, %29 ], [ 2, %.lr.ph.i ]
@@ -6027,7 +6027,7 @@ ignore_slash_options.exit:                        ; preds = %.lr.ph.i, %29, %8, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @exec_command_pset(ptr noundef %0, i1 noundef zeroext %1) unnamed_addr #0 {
+define internal fastcc range(i32 2, 6) i32 @exec_command_pset(ptr noundef %0, i1 noundef zeroext %1) unnamed_addr #0 {
   %3 = alloca [32 x i8], align 16
   %4 = tail call ptr @psql_scan_slash_option(ptr noundef %0, i32 noundef 0, ptr noundef null, i1 noundef zeroext false) #18
   br i1 %1, label %5, label %222
@@ -6106,7 +6106,7 @@ define internal fastcc i32 @exec_command_pset(ptr noundef %0, i1 noundef zeroext
 38:                                               ; preds = %37, %35, %33
   %.1.i.i = phi ptr [ %34, %33 ], [ %36, %35 ], [ %32, %37 ]
   %39 = getelementptr i8, ptr %.016.i.i, i64 1
-  br label %30, !llvm.loop !25
+  br label %30, !llvm.loop !21
 
 pset_quoted_string.exit.i:                        ; preds = %30
   store i8 39, ptr %.0.i.i, align 1
@@ -6174,7 +6174,7 @@ pset_quoted_string.exit.i:                        ; preds = %30
 67:                                               ; preds = %66, %64, %62
   %.1.i68.i = phi ptr [ %63, %62 ], [ %65, %64 ], [ %61, %66 ]
   %68 = getelementptr i8, ptr %.016.i66.i, i64 1
-  br label %59, !llvm.loop !25
+  br label %59, !llvm.loop !21
 
 pset_quoted_string.exit69.i:                      ; preds = %59
   store i8 39, ptr %.0.i67.i, align 1
@@ -6284,7 +6284,7 @@ _align2string.exit:                               ; preds = %88, %switch.lookup
 118:                                              ; preds = %117, %115, %113
   %.1.i = phi ptr [ %114, %113 ], [ %116, %115 ], [ %112, %117 ]
   %119 = getelementptr i8, ptr %.016.i, i64 1
-  br label %110, !llvm.loop !25
+  br label %110, !llvm.loop !21
 
 pset_quoted_string.exit:                          ; preds = %110
   store i8 39, ptr %.0.i20, align 1
@@ -6480,7 +6480,7 @@ pset_value_string.exit:                           ; preds = %11, %18, %pset_quot
   call void @free(ptr noundef %.0.i) #18
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %.not18 = icmp eq i64 %indvars.iv.next, 22
-  br i1 %.not18, label %.loopexit, label %.preheader, !llvm.loop !26
+  br i1 %.not18, label %.loopexit, label %.preheader, !llvm.loop !22
 
 217:                                              ; preds = %5
   %218 = load i8, ptr getelementptr inbounds (%struct._psqlSettings, ptr @pset, i64 0, i32 32), align 2
@@ -6504,7 +6504,7 @@ pset_value_string.exit:                           ; preds = %11, %18, %pset_quot
   tail call void @free(ptr noundef nonnull %223) #18
   %224 = tail call ptr @psql_scan_slash_option(ptr noundef %0, i32 noundef 0, ptr noundef null, i1 noundef zeroext false) #18
   %.not.i19 = icmp eq ptr %224, null
-  br i1 %.not.i19, label %ignore_slash_options.exit, label %.lr.ph.i, !llvm.loop !10
+  br i1 %.not.i19, label %ignore_slash_options.exit, label %.lr.ph.i, !llvm.loop !9
 
 ignore_slash_options.exit:                        ; preds = %.lr.ph.i, %222, %.loopexit
   %.1 = phi i32 [ %.0, %.loopexit ], [ 2, %222 ], [ 2, %.lr.ph.i ]
@@ -6531,7 +6531,7 @@ define internal fastcc void @exec_command_reset(ptr noundef %0, i1 noundef zeroe
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @exec_command_s(ptr noundef %0, i1 noundef zeroext %1) unnamed_addr #0 {
+define internal fastcc range(i32 2, 6) i32 @exec_command_s(ptr noundef %0, i1 noundef zeroext %1) unnamed_addr #0 {
   %3 = alloca ptr, align 8
   br i1 %1, label %4, label %23
 
@@ -6586,7 +6586,7 @@ thread-pre-split:                                 ; preds = %4, %14
   tail call void @free(ptr noundef nonnull %25) #18
   %26 = tail call ptr @psql_scan_slash_option(ptr noundef %0, i32 noundef 0, ptr noundef null, i1 noundef zeroext false) #18
   %.not.i = icmp eq ptr %26, null
-  br i1 %.not.i, label %ignore_slash_options.exit, label %.lr.ph.i, !llvm.loop !10
+  br i1 %.not.i, label %ignore_slash_options.exit, label %.lr.ph.i, !llvm.loop !9
 
 ignore_slash_options.exit:                        ; preds = %.lr.ph.i, %23, %20
   %.0 = phi i32 [ %22, %20 ], [ 2, %23 ], [ 2, %.lr.ph.i ]
@@ -6594,7 +6594,7 @@ ignore_slash_options.exit:                        ; preds = %.lr.ph.i, %23, %20
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @exec_command_set(ptr noundef %0, i1 noundef zeroext %1) unnamed_addr #0 {
+define internal fastcc range(i32 2, 6) i32 @exec_command_set(ptr noundef %0, i1 noundef zeroext %1) unnamed_addr #0 {
   %3 = tail call ptr @psql_scan_slash_option(ptr noundef %0, i32 noundef 0, ptr noundef null, i1 noundef zeroext false) #18
   %.not = icmp eq ptr %3, null
   br i1 %1, label %4, label %23
@@ -6629,7 +6629,7 @@ define internal fastcc i32 @exec_command_set(ptr noundef %0, i1 noundef zeroext 
   tail call void @free(ptr noundef nonnull %12) #18
   %19 = tail call ptr @psql_scan_slash_option(ptr noundef %0, i32 noundef 0, ptr noundef null, i1 noundef zeroext false) #18
   %.not23 = icmp eq ptr %19, null
-  br i1 %.not23, label %._crit_edge, label %.lr.ph, !llvm.loop !27
+  br i1 %.not23, label %._crit_edge, label %.lr.ph, !llvm.loop !23
 
 ._crit_edge:                                      ; preds = %.lr.ph, %7
   %.0.lcssa = phi ptr [ %10, %7 ], [ %17, %.lr.ph ]
@@ -6652,7 +6652,7 @@ define internal fastcc i32 @exec_command_set(ptr noundef %0, i1 noundef zeroext 
   tail call void @free(ptr noundef nonnull %24) #18
   %25 = tail call ptr @psql_scan_slash_option(ptr noundef %0, i32 noundef 0, ptr noundef null, i1 noundef zeroext false) #18
   %.not.i = icmp eq ptr %25, null
-  br i1 %.not.i, label %ignore_slash_options.exit, label %.lr.ph.i, !llvm.loop !10
+  br i1 %.not.i, label %ignore_slash_options.exit, label %.lr.ph.i, !llvm.loop !9
 
 ignore_slash_options.exit:                        ; preds = %.lr.ph.i, %23, %22
   %.2 = phi i32 [ %.1, %22 ], [ 2, %23 ], [ 2, %.lr.ph.i ]
@@ -6660,7 +6660,7 @@ ignore_slash_options.exit:                        ; preds = %.lr.ph.i, %23, %22
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @exec_command_setenv(ptr noundef %0, i1 noundef zeroext %1, ptr noundef %2) unnamed_addr #0 {
+define internal fastcc range(i32 2, 6) i32 @exec_command_setenv(ptr noundef %0, i1 noundef zeroext %1, ptr noundef %2) unnamed_addr #0 {
   %4 = tail call ptr @psql_scan_slash_option(ptr noundef %0, i32 noundef 0, ptr noundef null, i1 noundef zeroext false) #18
   br i1 %1, label %5, label %17
 
@@ -6709,7 +6709,7 @@ define internal fastcc noundef i32 @exec_command_setenv(ptr noundef %0, i1 nound
   tail call void @free(ptr noundef nonnull %18) #18
   %19 = tail call ptr @psql_scan_slash_option(ptr noundef %0, i32 noundef 0, ptr noundef null, i1 noundef zeroext false) #18
   %.not.i = icmp eq ptr %19, null
-  br i1 %.not.i, label %ignore_slash_options.exit, label %.lr.ph.i, !llvm.loop !10
+  br i1 %.not.i, label %ignore_slash_options.exit, label %.lr.ph.i, !llvm.loop !9
 
 ignore_slash_options.exit:                        ; preds = %.lr.ph.i, %17, %16
   %.1 = phi i32 [ %.0, %16 ], [ 2, %17 ], [ 2, %.lr.ph.i ]
@@ -6717,7 +6717,7 @@ ignore_slash_options.exit:                        ; preds = %.lr.ph.i, %17, %16
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @exec_command_sf_sv(ptr noundef %0, i1 noundef zeroext %1, ptr noundef readonly %2, i1 noundef zeroext %3) unnamed_addr #0 {
+define internal fastcc range(i32 2, 6) i32 @exec_command_sf_sv(ptr noundef %0, i1 noundef zeroext %1, ptr noundef readonly %2, i1 noundef zeroext %3) unnamed_addr #0 {
   %5 = alloca i32, align 4
   br i1 %1, label %6, label %65
 
@@ -6768,7 +6768,7 @@ define internal fastcc noundef i32 @exec_command_sf_sv(ptr noundef %0, i1 nounde
   %26 = getelementptr i8, ptr %29, i64 1
   %27 = load i8, ptr %26, align 1
   %.not.i = icmp eq i8 %27, 0
-  br i1 %.not.i, label %count_lines_in_buf.exit, label %.lr.ph.i, !llvm.loop !28
+  br i1 %.not.i, label %count_lines_in_buf.exit, label %.lr.ph.i, !llvm.loop !24
 
 .lr.ph.i:                                         ; preds = %23, %25
   %.03.i = phi ptr [ %26, %25 ], [ %.val, %23 ]
@@ -6801,7 +6801,7 @@ count_lines_in_buf.exit:                          ; preds = %25, %.lr.ph.i, %23
   %37 = getelementptr i8, ptr %53, i64 1
   %38 = load i8, ptr %37, align 1
   %.not.i29 = icmp eq i8 %38, 0
-  br i1 %.not.i29, label %print_with_linenumbers.exit, label %.lr.ph.i28, !llvm.loop !29
+  br i1 %.not.i29, label %print_with_linenumbers.exit, label %.lr.ph.i28, !llvm.loop !25
 
 .lr.ph.i28:                                       ; preds = %36, %.lr.ph.preheader.i
   %.028.i = phi i32 [ %spec.select.i, %36 ], [ 0, %.lr.ph.preheader.i ]
@@ -6883,7 +6883,7 @@ print_with_linenumbers.exit:                      ; preds = %60, %36, %33, %61
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @exec_command_t(ptr noundef %0, i1 noundef zeroext %1) unnamed_addr #0 {
+define internal fastcc range(i32 2, 6) i32 @exec_command_t(ptr noundef %0, i1 noundef zeroext %1) unnamed_addr #0 {
   br i1 %1, label %3, label %9
 
 3:                                                ; preds = %2
@@ -6905,7 +6905,7 @@ define internal fastcc i32 @exec_command_t(ptr noundef %0, i1 noundef zeroext %1
   tail call void @free(ptr noundef nonnull %11) #18
   %12 = tail call ptr @psql_scan_slash_option(ptr noundef %0, i32 noundef 0, ptr noundef null, i1 noundef zeroext false) #18
   %.not.i = icmp eq ptr %12, null
-  br i1 %.not.i, label %ignore_slash_options.exit, label %.lr.ph.i, !llvm.loop !10
+  br i1 %.not.i, label %ignore_slash_options.exit, label %.lr.ph.i, !llvm.loop !9
 
 ignore_slash_options.exit:                        ; preds = %.lr.ph.i, %9, %3
   %.0 = phi i32 [ %8, %3 ], [ 2, %9 ], [ 2, %.lr.ph.i ]
@@ -6913,7 +6913,7 @@ ignore_slash_options.exit:                        ; preds = %.lr.ph.i, %9, %3
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @exec_command_T(ptr noundef %0, i1 noundef zeroext %1) unnamed_addr #0 {
+define internal fastcc range(i32 2, 6) i32 @exec_command_T(ptr noundef %0, i1 noundef zeroext %1) unnamed_addr #0 {
   %3 = tail call ptr @psql_scan_slash_option(ptr noundef %0, i32 noundef 0, ptr noundef null, i1 noundef zeroext false) #18
   br i1 %1, label %4, label %9
 
@@ -6934,7 +6934,7 @@ define internal fastcc i32 @exec_command_T(ptr noundef %0, i1 noundef zeroext %1
   tail call void @free(ptr noundef nonnull %10) #18
   %11 = tail call ptr @psql_scan_slash_option(ptr noundef %0, i32 noundef 0, ptr noundef null, i1 noundef zeroext false) #18
   %.not.i = icmp eq ptr %11, null
-  br i1 %.not.i, label %ignore_slash_options.exit, label %.lr.ph.i, !llvm.loop !10
+  br i1 %.not.i, label %ignore_slash_options.exit, label %.lr.ph.i, !llvm.loop !9
 
 ignore_slash_options.exit:                        ; preds = %.lr.ph.i, %9, %4
   %.0 = phi i32 [ %8, %4 ], [ 2, %9 ], [ 2, %.lr.ph.i ]
@@ -6942,7 +6942,7 @@ ignore_slash_options.exit:                        ; preds = %.lr.ph.i, %9, %4
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @exec_command_timing(ptr noundef %0, i1 noundef zeroext %1) unnamed_addr #0 {
+define internal fastcc range(i32 2, 6) i32 @exec_command_timing(ptr noundef %0, i1 noundef zeroext %1) unnamed_addr #0 {
   %3 = tail call ptr @psql_scan_slash_option(ptr noundef %0, i32 noundef 0, ptr noundef null, i1 noundef zeroext false) #18
   %.not = icmp eq ptr %3, null
   br i1 %1, label %4, label %19
@@ -6987,7 +6987,7 @@ define internal fastcc i32 @exec_command_timing(ptr noundef %0, i1 noundef zeroe
   tail call void @free(ptr noundef nonnull %20) #18
   %21 = tail call ptr @psql_scan_slash_option(ptr noundef %0, i32 noundef 0, ptr noundef null, i1 noundef zeroext false) #18
   %.not.i = icmp eq ptr %21, null
-  br i1 %.not.i, label %ignore_slash_options.exit, label %.lr.ph.i, !llvm.loop !10
+  br i1 %.not.i, label %ignore_slash_options.exit, label %.lr.ph.i, !llvm.loop !9
 
 ignore_slash_options.exit:                        ; preds = %.lr.ph.i, %19, %18
   %.1 = phi i32 [ %.0, %18 ], [ 2, %19 ], [ 2, %.lr.ph.i ]
@@ -6995,7 +6995,7 @@ ignore_slash_options.exit:                        ; preds = %.lr.ph.i, %19, %18
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @exec_command_unset(ptr noundef %0, i1 noundef zeroext %1, ptr noundef %2) unnamed_addr #0 {
+define internal fastcc range(i32 2, 6) i32 @exec_command_unset(ptr noundef %0, i1 noundef zeroext %1, ptr noundef %2) unnamed_addr #0 {
   %4 = tail call ptr @psql_scan_slash_option(ptr noundef %0, i32 noundef 0, ptr noundef null, i1 noundef zeroext false) #18
   %.not = icmp eq ptr %4, null
   br i1 %1, label %5, label %11
@@ -7026,7 +7026,7 @@ define internal fastcc i32 @exec_command_unset(ptr noundef %0, i1 noundef zeroex
   tail call void @free(ptr noundef nonnull %12) #18
   %13 = tail call ptr @psql_scan_slash_option(ptr noundef %0, i32 noundef 0, ptr noundef null, i1 noundef zeroext false) #18
   %.not.i = icmp eq ptr %13, null
-  br i1 %.not.i, label %ignore_slash_options.exit, label %.lr.ph.i, !llvm.loop !10
+  br i1 %.not.i, label %ignore_slash_options.exit, label %.lr.ph.i, !llvm.loop !9
 
 ignore_slash_options.exit:                        ; preds = %.lr.ph.i, %11, %10
   %.1 = phi i32 [ %.0, %10 ], [ 2, %11 ], [ 2, %.lr.ph.i ]
@@ -7034,7 +7034,7 @@ ignore_slash_options.exit:                        ; preds = %.lr.ph.i, %11, %10
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @exec_command_write(ptr noundef %0, i1 noundef zeroext %1, ptr noundef %2, ptr noundef readonly %3, ptr noundef readonly %4) unnamed_addr #0 {
+define internal fastcc range(i32 2, 6) i32 @exec_command_write(ptr noundef %0, i1 noundef zeroext %1, ptr noundef %2, ptr noundef readonly %3, ptr noundef readonly %4) unnamed_addr #0 {
   %6 = alloca ptr, align 8
   br i1 %1, label %7, label %47
 
@@ -7163,7 +7163,7 @@ define internal fastcc noundef i32 @exec_command_write(ptr noundef %0, i1 nounde
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @exec_command_watch(ptr noundef %0, i1 noundef zeroext %1, ptr noundef %2, ptr nocapture noundef readonly %3) unnamed_addr #0 {
+define internal fastcc range(i32 2, 6) i32 @exec_command_watch(ptr noundef %0, i1 noundef zeroext %1, ptr noundef %2, ptr nocapture noundef readonly %3) unnamed_addr #0 {
   %5 = alloca %struct.printQueryOpt, align 8
   %6 = alloca %struct.__sigset_t, align 8
   %7 = alloca %struct.__sigset_t, align 8
@@ -7359,7 +7359,7 @@ define internal fastcc i32 @exec_command_watch(ptr noundef %0, i1 noundef zeroex
   call void @free(ptr noundef nonnull %15) #18
   %91 = call ptr @psql_scan_slash_option(ptr noundef %0, i32 noundef 0, ptr noundef null, i1 noundef zeroext true) #18
   %.not = icmp eq ptr %91, null
-  br i1 %.not, label %.preheader._crit_edge, label %.lr.ph, !llvm.loop !30
+  br i1 %.not, label %.preheader._crit_edge, label %.lr.ph, !llvm.loop !26
 
 .preheader._crit_edge:                            ; preds = %.preheader, %.preheader.preheader
   %.04183.lcssa = phi i32 [ 0, %.preheader.preheader ], [ %.142, %.preheader ]
@@ -7694,7 +7694,7 @@ do_watch.exit:                                    ; preds = %99, %210
   tail call void @free(ptr noundef nonnull %218) #18
   %219 = tail call ptr @psql_scan_slash_option(ptr noundef %0, i32 noundef 0, ptr noundef null, i1 noundef zeroext false) #18
   %.not.i66 = icmp eq ptr %219, null
-  br i1 %.not.i66, label %ignore_slash_options.exit, label %.lr.ph.i, !llvm.loop !10
+  br i1 %.not.i66, label %ignore_slash_options.exit, label %.lr.ph.i, !llvm.loop !9
 
 ignore_slash_options.exit:                        ; preds = %.lr.ph.i, %216, %.critedge
   %.3 = phi i32 [ %.pre-phi, %.critedge ], [ 2, %216 ], [ 2, %.lr.ph.i ]
@@ -7702,7 +7702,7 @@ ignore_slash_options.exit:                        ; preds = %.lr.ph.i, %216, %.c
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @exec_command_x(ptr noundef %0, i1 noundef zeroext %1) unnamed_addr #0 {
+define internal fastcc range(i32 2, 6) i32 @exec_command_x(ptr noundef %0, i1 noundef zeroext %1) unnamed_addr #0 {
   br i1 %1, label %3, label %9
 
 3:                                                ; preds = %2
@@ -7724,7 +7724,7 @@ define internal fastcc i32 @exec_command_x(ptr noundef %0, i1 noundef zeroext %1
   tail call void @free(ptr noundef nonnull %11) #18
   %12 = tail call ptr @psql_scan_slash_option(ptr noundef %0, i32 noundef 0, ptr noundef null, i1 noundef zeroext false) #18
   %.not.i = icmp eq ptr %12, null
-  br i1 %.not.i, label %ignore_slash_options.exit, label %.lr.ph.i, !llvm.loop !10
+  br i1 %.not.i, label %ignore_slash_options.exit, label %.lr.ph.i, !llvm.loop !9
 
 ignore_slash_options.exit:                        ; preds = %.lr.ph.i, %9, %3
   %.0 = phi i32 [ %8, %3 ], [ 2, %9 ], [ 2, %.lr.ph.i ]
@@ -7732,7 +7732,7 @@ ignore_slash_options.exit:                        ; preds = %.lr.ph.i, %9, %3
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @exec_command_z(ptr noundef %0, i1 noundef zeroext %1, ptr noundef readonly %2) unnamed_addr #0 {
+define internal fastcc range(i32 2, 6) i32 @exec_command_z(ptr noundef %0, i1 noundef zeroext %1, ptr noundef readonly %2) unnamed_addr #0 {
   br i1 %1, label %4, label %10
 
 4:                                                ; preds = %3
@@ -7754,7 +7754,7 @@ define internal fastcc i32 @exec_command_z(ptr noundef %0, i1 noundef zeroext %1
   tail call void @free(ptr noundef nonnull %12) #18
   %13 = tail call ptr @psql_scan_slash_option(ptr noundef %0, i32 noundef 0, ptr noundef null, i1 noundef zeroext false) #18
   %.not.i = icmp eq ptr %13, null
-  br i1 %.not.i, label %ignore_slash_options.exit, label %.lr.ph.i, !llvm.loop !10
+  br i1 %.not.i, label %ignore_slash_options.exit, label %.lr.ph.i, !llvm.loop !9
 
 ignore_slash_options.exit:                        ; preds = %.lr.ph.i, %10, %4
   %.0 = phi i32 [ %9, %4 ], [ 2, %10 ], [ 2, %.lr.ph.i ]
@@ -7762,7 +7762,7 @@ ignore_slash_options.exit:                        ; preds = %.lr.ph.i, %10, %4
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @exec_command_shell_escape(ptr noundef %0, i1 noundef zeroext %1) unnamed_addr #0 {
+define internal fastcc range(i32 2, 6) i32 @exec_command_shell_escape(ptr noundef %0, i1 noundef zeroext %1) unnamed_addr #0 {
   %3 = tail call ptr @psql_scan_slash_option(ptr noundef %0, i32 noundef 4, ptr noundef null, i1 noundef zeroext false) #18
   br i1 %1, label %4, label %18
 
@@ -7868,7 +7868,7 @@ define internal fastcc void @exec_command_slash_command_help(ptr noundef %0, i1 
   tail call void @free(ptr noundef nonnull %23) #18
   %24 = tail call ptr @psql_scan_slash_option(ptr noundef %0, i32 noundef 0, ptr noundef null, i1 noundef zeroext false) #18
   %.not.i = icmp eq ptr %24, null
-  br i1 %.not.i, label %ignore_slash_options.exit, label %.lr.ph.i, !llvm.loop !10
+  br i1 %.not.i, label %ignore_slash_options.exit, label %.lr.ph.i, !llvm.loop !9
 
 ignore_slash_options.exit:                        ; preds = %.lr.ph.i, %22, %21
   ret void
@@ -7982,7 +7982,7 @@ define internal fastcc zeroext i1 @exec_command_dfo(ptr noundef %0, ptr noundef 
   %9 = getelementptr [100 x ptr], ptr %6, i64 0, i64 %indvars.iv
   store ptr %7, ptr %9, align 8
   %exitcond = icmp eq i64 %indvars.iv.next, 100
-  br i1 %exitcond, label %.loopexit, label %.preheader, !llvm.loop !31
+  br i1 %exitcond, label %.loopexit, label %.preheader, !llvm.loop !27
 
 .loopexit.loopexit.split.loop.exit27:             ; preds = %.preheader
   %10 = trunc nuw nsw i64 %indvars.iv to i32
@@ -8021,7 +8021,7 @@ define internal fastcc zeroext i1 @exec_command_dfo(ptr noundef %0, ptr noundef 
   call void @free(ptr noundef %24) #18
   %indvars.iv.next25 = add nsw i64 %indvars.iv24, -1
   %.not29 = icmp eq i64 %indvars.iv24, 0
-  br i1 %.not29, label %._crit_edge, label %.lr.ph, !llvm.loop !32
+  br i1 %.not29, label %._crit_edge, label %.lr.ph, !llvm.loop !28
 
 ._crit_edge:                                      ; preds = %.lr.ph, %19
   ret i1 %.0.in
@@ -8300,7 +8300,7 @@ define internal fastcc noundef zeroext i1 @do_edit(ptr noundef %0, ptr noundef %
   call void @appendPQExpBufferStr(ptr noundef %1, ptr noundef nonnull %10) #18
   %88 = call ptr @fgets(ptr noundef nonnull %10, i32 noundef 1024, ptr noundef nonnull %84)
   %.not80 = icmp eq ptr %88, null
-  br i1 %.not80, label %._crit_edge, label %.lr.ph, !llvm.loop !33
+  br i1 %.not80, label %._crit_edge, label %.lr.ph, !llvm.loop !29
 
 ._crit_edge:                                      ; preds = %.lr.ph, %86
   %89 = call i32 @ferror(ptr noundef nonnull %84) #18
@@ -8751,7 +8751,7 @@ define internal fastcc void @ignore_boolean_expression(ptr noundef %0) unnamed_a
   tail call void @free(ptr noundef nonnull %4) #18
   %9 = tail call ptr @psql_scan_slash_option(ptr noundef %0, i32 noundef 0, ptr noundef null, i1 noundef zeroext false) #18
   %.not.i = icmp eq ptr %9, null
-  br i1 %.not.i, label %gather_boolean_expression.exit, label %.lr.ph.i, !llvm.loop !34
+  br i1 %.not.i, label %gather_boolean_expression.exit, label %.lr.ph.i, !llvm.loop !30
 
 gather_boolean_expression.exit:                   ; preds = %7, %1
   tail call void @destroyPQExpBuffer(ptr noundef %2) #18
@@ -8782,7 +8782,7 @@ define internal fastcc zeroext i1 @is_true_boolean_expression(ptr noundef %0, pt
   tail call void @free(ptr noundef nonnull %6) #18
   %11 = tail call ptr @psql_scan_slash_option(ptr noundef %0, i32 noundef 0, ptr noundef null, i1 noundef zeroext false) #18
   %.not.i = icmp eq ptr %11, null
-  br i1 %.not.i, label %gather_boolean_expression.exit, label %.lr.ph.i, !llvm.loop !34
+  br i1 %.not.i, label %gather_boolean_expression.exit, label %.lr.ph.i, !llvm.loop !30
 
 gather_boolean_expression.exit:                   ; preds = %9, %2
   store i8 0, ptr %3, align 1
@@ -8873,7 +8873,7 @@ define internal fastcc noundef ptr @pset_quoted_string(ptr nocapture noundef rea
 15:                                               ; preds = %10, %14, %12
   %.1 = phi ptr [ %11, %10 ], [ %13, %12 ], [ %9, %14 ]
   %16 = getelementptr i8, ptr %.016, i64 1
-  br label %7, !llvm.loop !25
+  br label %7, !llvm.loop !21
 
 17:                                               ; preds = %7
   store i8 39, ptr %.0, align 1
@@ -9020,33 +9020,29 @@ attributes #20 = { nounwind willreturn memory(none) }
 !2 = !{i32 7, !"PIE Level", i32 2}
 !3 = !{i32 7, !"uwtable", i32 2}
 !4 = !{i32 7, !"frame-pointer", i32 2}
-!5 = !{i32 0, i32 6}
-!6 = distinct !{!6, !7}
-!7 = !{!"llvm.loop.mustprogress"}
-!8 = distinct !{!8, !7}
-!9 = distinct !{!9, !7}
-!10 = distinct !{!10, !7}
-!11 = distinct !{!11, !7}
-!12 = distinct !{!12, !7}
-!13 = distinct !{!13, !7}
-!14 = distinct !{!14, !7}
-!15 = !{i32 2, i32 6}
-!16 = !{i32 1, i32 3}
-!17 = !{i32 1, i32 6}
-!18 = distinct !{!18, !7}
-!19 = distinct !{!19, !7}
-!20 = distinct !{!20, !7}
-!21 = distinct !{!21, !7}
-!22 = distinct !{!22, !7}
-!23 = distinct !{!23, !7}
-!24 = distinct !{!24, !7}
-!25 = distinct !{!25, !7}
-!26 = distinct !{!26, !7}
-!27 = distinct !{!27, !7}
-!28 = distinct !{!28, !7}
-!29 = distinct !{!29, !7}
-!30 = distinct !{!30, !7}
-!31 = distinct !{!31, !7}
-!32 = distinct !{!32, !7}
-!33 = distinct !{!33, !7}
-!34 = distinct !{!34, !7}
+!5 = distinct !{!5, !6}
+!6 = !{!"llvm.loop.mustprogress"}
+!7 = distinct !{!7, !6}
+!8 = distinct !{!8, !6}
+!9 = distinct !{!9, !6}
+!10 = distinct !{!10, !6}
+!11 = distinct !{!11, !6}
+!12 = distinct !{!12, !6}
+!13 = distinct !{!13, !6}
+!14 = distinct !{!14, !6}
+!15 = distinct !{!15, !6}
+!16 = distinct !{!16, !6}
+!17 = distinct !{!17, !6}
+!18 = distinct !{!18, !6}
+!19 = distinct !{!19, !6}
+!20 = distinct !{!20, !6}
+!21 = distinct !{!21, !6}
+!22 = distinct !{!22, !6}
+!23 = distinct !{!23, !6}
+!24 = distinct !{!24, !6}
+!25 = distinct !{!25, !6}
+!26 = distinct !{!26, !6}
+!27 = distinct !{!27, !6}
+!28 = distinct !{!28, !6}
+!29 = distinct !{!29, !6}
+!30 = distinct !{!30, !6}

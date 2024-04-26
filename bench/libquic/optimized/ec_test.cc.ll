@@ -97,7 +97,7 @@ $_ZNSt10unique_ptrI11ec_group_st14OpenSSLDeleterIS0_XadL_Z13EC_GROUP_freeEEEED2E
 @str = private unnamed_addr constant [5 x i8] c"PASS\00", align 1
 
 ; Function Attrs: mustprogress norecurse uwtable
-define hidden noundef i32 @main() local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define hidden noundef range(i32 0, 2) i32 @main() local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %key.i70 = alloca %"class.std::unique_ptr", align 8
   %ctx.i = alloca %"class.std::unique_ptr.34", align 8
@@ -2350,8 +2350,6 @@ _ZN20ScopedOpenSSLContextI6cbb_stvXadL_Z8CBB_zeroEEXadL_Z11CBB_cleanupEEED2Ev.ex
 if.end:                                           ; preds = %invoke.cont13
   %3 = load ptr, ptr %der, align 8
   %4 = load i64, ptr %der_len, align 8
-  %add.ptr = getelementptr inbounds i8, ptr %3, i64 %4
-  %sub.ptr.lhs.cast.i.i.i.i.i = ptrtoint ptr %add.ptr to i64
   %_M_end_of_storage.i.i.i.i = getelementptr inbounds i8, ptr %out, i64 16
   %5 = load ptr, ptr %_M_end_of_storage.i.i.i.i, align 8
   %6 = load ptr, ptr %out, align 8
@@ -2422,7 +2420,6 @@ invoke.cont.i.i.i.i:                              ; preds = %_ZSt4copyIPhS0_ET0_
 
 _ZSt7advanceIPhmEvRT_T0_.exit.i.i.i:              ; preds = %if.else.i.i.i
   %add.ptr.i.i.i.i.i = getelementptr inbounds i8, ptr %3, i64 %sub.ptr.sub.i16.i.i.i
-  %sub.ptr.lhs.cast.i.i.i.i.i23.i.i.i = ptrtoint ptr %add.ptr.i.i.i.i.i to i64
   %tobool.not.i.i.i.i.i26.i.i.i = icmp eq ptr %7, %6
   br i1 %tobool.not.i.i.i.i.i26.i.i.i, label %_ZSt4copyIPhS0_ET0_T_S2_S1_.exit29.i.i.i, label %if.then.i.i.i.i.i27.i.i.i
 
@@ -2433,16 +2430,16 @@ if.then.i.i.i.i.i27.i.i.i:                        ; preds = %_ZSt7advanceIPhmEvR
 
 _ZSt4copyIPhS0_ET0_T_S2_S1_.exit29.i.i.i:         ; preds = %if.then.i.i.i.i.i27.i.i.i, %_ZSt7advanceIPhmEvRT_T0_.exit.i.i.i
   %9 = phi ptr [ %7, %_ZSt7advanceIPhmEvRT_T0_.exit.i.i.i ], [ %.pre46.i.i.i, %if.then.i.i.i.i.i27.i.i.i ]
-  %sub.ptr.sub.i.i.i.i.i.i.i.i.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i.i.i, %sub.ptr.lhs.cast.i.i.i.i.i23.i.i.i
+  %gepdiff = sub nsw i64 %4, %sub.ptr.sub.i16.i.i.i
   %tobool.not.i.i.i.i.i.i.i.i.i.i.i = icmp eq i64 %sub.ptr.sub.i16.i.i.i, %4
   br i1 %tobool.not.i.i.i.i.i.i.i.i.i.i.i, label %_ZSt22__uninitialized_copy_aIPhS0_hET0_T_S2_S1_RSaIT1_E.exit.i.i.i, label %if.then.i.i.i.i.i.i.i.i.i.i.i
 
 if.then.i.i.i.i.i.i.i.i.i.i.i:                    ; preds = %_ZSt4copyIPhS0_ET0_T_S2_S1_.exit29.i.i.i
-  call void @llvm.memmove.p0.p0.i64(ptr align 1 %9, ptr align 1 %add.ptr.i.i.i.i.i, i64 %sub.ptr.sub.i.i.i.i.i.i.i.i.i.i.i, i1 false)
+  call void @llvm.memmove.p0.p0.i64(ptr align 1 %9, ptr align 1 %add.ptr.i.i.i.i.i, i64 %gepdiff, i1 false)
   br label %_ZSt22__uninitialized_copy_aIPhS0_hET0_T_S2_S1_RSaIT1_E.exit.i.i.i
 
 _ZSt22__uninitialized_copy_aIPhS0_hET0_T_S2_S1_RSaIT1_E.exit.i.i.i: ; preds = %if.then.i.i.i.i.i.i.i.i.i.i.i, %_ZSt4copyIPhS0_ET0_T_S2_S1_.exit29.i.i.i
-  %add.ptr.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %9, i64 %sub.ptr.sub.i.i.i.i.i.i.i.i.i.i.i
+  %add.ptr.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %9, i64 %gepdiff
   store ptr %add.ptr.i.i.i.i.i.i.i.i.i.i.i, ptr %_M_finish.i.i.i.i, align 8
   br label %invoke.cont16
 

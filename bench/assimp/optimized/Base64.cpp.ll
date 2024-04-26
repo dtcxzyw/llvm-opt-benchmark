@@ -228,7 +228,7 @@ declare i32 @__gxx_personality_v0(...)
 declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define noundef i64 @_ZN6Assimp6Base646DecodeEPKcmRPh(ptr noundef %in, i64 noundef %inLength, ptr nocapture noundef nonnull align 8 dereferenceable(8) %out) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define noundef range(i64 -2, 4611686018427387904) i64 @_ZN6Assimp6Base646DecodeEPKcmRPh(ptr noundef %in, i64 noundef %inLength, ptr nocapture noundef nonnull align 8 dereferenceable(8) %out) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i117 = alloca i64, align 8
   %ref.tmp.i105 = alloca i64, align 8
@@ -679,20 +679,18 @@ declare noundef nonnull ptr @_Znam(i64 noundef) local_unnamed_addr #4
 declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #5
 
 ; Function Attrs: mustprogress uwtable
-define noundef i64 @_ZN6Assimp6Base646DecodeERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERSt6vectorIhSaIhEE(ptr noundef nonnull align 8 dereferenceable(32) %in, ptr nocapture noundef nonnull align 8 dereferenceable(24) %out) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define noundef range(i64 -2, 4611686018427387904) i64 @_ZN6Assimp6Base646DecodeERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERSt6vectorIhSaIhEE(ptr noundef nonnull align 8 dereferenceable(32) %in, ptr nocapture noundef nonnull align 8 dereferenceable(24) %out) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %outPtr = alloca ptr, align 8
   store ptr null, ptr %outPtr, align 8
   %call = tail call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %in) #12
   %call1 = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %in) #12
-  %call2 = call noundef i64 @_ZN6Assimp6Base646DecodeEPKcmRPh(ptr noundef %call, i64 noundef %call1, ptr noundef nonnull align 8 dereferenceable(8) %outPtr), !range !7
+  %call2 = call noundef i64 @_ZN6Assimp6Base646DecodeEPKcmRPh(ptr noundef %call, i64 noundef %call1, ptr noundef nonnull align 8 dereferenceable(8) %outPtr)
   %0 = load ptr, ptr %outPtr, align 8
   %cmp = icmp eq ptr %0, null
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %add.ptr = getelementptr inbounds i8, ptr %0, i64 %call2
-  %sub.ptr.lhs.cast.i.i.i.i.i = ptrtoint ptr %add.ptr to i64
   %_M_end_of_storage.i.i.i.i = getelementptr inbounds i8, ptr %out, i64 16
   %1 = load ptr, ptr %_M_end_of_storage.i.i.i.i, align 8
   %2 = load ptr, ptr %out, align 8
@@ -757,7 +755,6 @@ invoke.cont.i.i.i.i:                              ; preds = %_ZSt4copyIPhS0_ET0_
 
 _ZSt7advanceIPhmEvRT_T0_.exit.i.i.i:              ; preds = %if.else.i.i.i
   %add.ptr.i.i.i.i.i = getelementptr inbounds i8, ptr %0, i64 %sub.ptr.sub.i16.i.i.i
-  %sub.ptr.lhs.cast.i.i.i.i.i23.i.i.i = ptrtoint ptr %add.ptr.i.i.i.i.i to i64
   %tobool.not.i.i.i.i.i26.i.i.i = icmp eq ptr %3, %2
   br i1 %tobool.not.i.i.i.i.i26.i.i.i, label %_ZSt4copyIPhS0_ET0_T_S2_S1_.exit29.i.i.i, label %if.then.i.i.i.i.i27.i.i.i
 
@@ -768,16 +765,16 @@ if.then.i.i.i.i.i27.i.i.i:                        ; preds = %_ZSt7advanceIPhmEvR
 
 _ZSt4copyIPhS0_ET0_T_S2_S1_.exit29.i.i.i:         ; preds = %if.then.i.i.i.i.i27.i.i.i, %_ZSt7advanceIPhmEvRT_T0_.exit.i.i.i
   %5 = phi ptr [ %3, %_ZSt7advanceIPhmEvRT_T0_.exit.i.i.i ], [ %.pre46.i.i.i, %if.then.i.i.i.i.i27.i.i.i ]
-  %sub.ptr.sub.i.i.i.i.i.i.i.i.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i.i.i, %sub.ptr.lhs.cast.i.i.i.i.i23.i.i.i
+  %gepdiff = sub nsw i64 %call2, %sub.ptr.sub.i16.i.i.i
   %tobool.not.i.i.i.i.i.i.i.i.i.i.i = icmp eq i64 %sub.ptr.sub.i16.i.i.i, %call2
   br i1 %tobool.not.i.i.i.i.i.i.i.i.i.i.i, label %_ZSt22__uninitialized_copy_aIPhS0_hET0_T_S2_S1_RSaIT1_E.exit.i.i.i, label %if.then.i.i.i.i.i.i.i.i.i.i.i
 
 if.then.i.i.i.i.i.i.i.i.i.i.i:                    ; preds = %_ZSt4copyIPhS0_ET0_T_S2_S1_.exit29.i.i.i
-  tail call void @llvm.memmove.p0.p0.i64(ptr align 1 %5, ptr nonnull align 1 %add.ptr.i.i.i.i.i, i64 %sub.ptr.sub.i.i.i.i.i.i.i.i.i.i.i, i1 false)
+  tail call void @llvm.memmove.p0.p0.i64(ptr align 1 %5, ptr nonnull align 1 %add.ptr.i.i.i.i.i, i64 %gepdiff, i1 false)
   br label %_ZSt22__uninitialized_copy_aIPhS0_hET0_T_S2_S1_RSaIT1_E.exit.i.i.i
 
 _ZSt22__uninitialized_copy_aIPhS0_hET0_T_S2_S1_RSaIT1_E.exit.i.i.i: ; preds = %if.then.i.i.i.i.i.i.i.i.i.i.i, %_ZSt4copyIPhS0_ET0_T_S2_S1_.exit29.i.i.i
-  %add.ptr.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %5, i64 %sub.ptr.sub.i.i.i.i.i.i.i.i.i.i.i
+  %add.ptr.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %5, i64 %gepdiff
   store ptr %add.ptr.i.i.i.i.i.i.i.i.i.i.i, ptr %_M_finish.i.i.i.i, align 8
   br label %delete.notnull
 
@@ -801,7 +798,7 @@ define void @_ZN6Assimp6Base646DecodeERKNSt7__cxx1112basic_stringIcSt11char_trai
 entry:
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %agg.result, i8 0, i64 24, i1 false)
   %call = invoke noundef i64 @_ZN6Assimp6Base646DecodeERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERSt6vectorIhSaIhEE(ptr noundef nonnull align 8 dereferenceable(32) %in, ptr noundef nonnull align 8 dereferenceable(24) %agg.result)
-          to label %nrvo.skipdtor unwind label %lpad, !range !7
+          to label %nrvo.skipdtor unwind label %lpad
 
 lpad:                                             ; preds = %entry
   %0 = landingpad { ptr, i32 }
@@ -1204,4 +1201,3 @@ attributes #15 = { builtin nounwind }
 !4 = distinct !{!4, !5}
 !5 = !{!"llvm.loop.mustprogress"}
 !6 = distinct !{!6, !5}
-!7 = !{i64 -2, i64 4611686018427387904}

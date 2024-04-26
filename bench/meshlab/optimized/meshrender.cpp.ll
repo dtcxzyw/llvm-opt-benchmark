@@ -1402,7 +1402,8 @@ _ZN9QtPrivate8RefCount3refEv.exit.i:              ; preds = %2
   %14 = getelementptr inbounds i8, ptr %12, i64 8
   %15 = load i32, ptr %14, align 8
   %16 = sext i32 %15 to i64
-  %17 = getelementptr inbounds ptr, ptr %13, i64 %16
+  %.idx3.i = shl nsw i64 %16, 3
+  %17 = getelementptr inbounds i8, ptr %13, i64 %.idx3.i
   %18 = load ptr, ptr %3, align 8
   %19 = getelementptr inbounds i8, ptr %18, i64 16
   %20 = getelementptr inbounds i8, ptr %18, i64 8
@@ -1416,18 +1417,16 @@ _ZN9QtPrivate8RefCount3refEv.exit.i:              ; preds = %2
   %25 = getelementptr inbounds i8, ptr %12, i64 12
   %26 = load i32, ptr %25, align 4
   %27 = sext i32 %26 to i64
-  %28 = getelementptr inbounds ptr, ptr %13, i64 %27
-  %29 = ptrtoint ptr %28 to i64
-  %30 = ptrtoint ptr %17 to i64
-  %31 = sub i64 %29, %30
-  %32 = icmp sgt i64 %31, 0
-  br i1 %32, label %33, label %_ZN5QListIP7QActionEC2ERKS2_.exit
+  %28 = sub nsw i64 %27, %16
+  %29 = icmp sgt i64 %28, 0
+  br i1 %29, label %30, label %_ZN5QListIP7QActionEC2ERKS2_.exit
 
-33:                                               ; preds = %24
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %17, ptr nonnull align 8 %23, i64 %31, i1 false)
+30:                                               ; preds = %24
+  %gepdiff.i = shl nuw nsw i64 %28, 3
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %17, ptr nonnull align 8 %23, i64 %gepdiff.i, i1 false)
   br label %_ZN5QListIP7QActionEC2ERKS2_.exit
 
-_ZN5QListIP7QActionEC2ERKS2_.exit:                ; preds = %_ZN9QtPrivate8RefCount3refEv.exit.thread.i, %_ZN9QtPrivate8RefCount3refEv.exit.i, %8, %24, %33
+_ZN5QListIP7QActionEC2ERKS2_.exit:                ; preds = %_ZN9QtPrivate8RefCount3refEv.exit.thread.i, %_ZN9QtPrivate8RefCount3refEv.exit.i, %8, %24, %30
   ret void
 }
 
@@ -1459,7 +1458,8 @@ _ZN9QtPrivate8RefCount3refEv.exit.i.i:            ; preds = %2
   %14 = getelementptr inbounds i8, ptr %12, i64 8
   %15 = load i32, ptr %14, align 8
   %16 = sext i32 %15 to i64
-  %17 = getelementptr inbounds ptr, ptr %13, i64 %16
+  %.idx3.i.i = shl nsw i64 %16, 3
+  %17 = getelementptr inbounds i8, ptr %13, i64 %.idx3.i.i
   %18 = load ptr, ptr %3, align 8, !noalias !17
   %19 = getelementptr inbounds i8, ptr %18, i64 16
   %20 = getelementptr inbounds i8, ptr %18, i64 8
@@ -1473,18 +1473,16 @@ _ZN9QtPrivate8RefCount3refEv.exit.i.i:            ; preds = %2
   %25 = getelementptr inbounds i8, ptr %12, i64 12
   %26 = load i32, ptr %25, align 4
   %27 = sext i32 %26 to i64
-  %28 = getelementptr inbounds ptr, ptr %13, i64 %27
-  %29 = ptrtoint ptr %28 to i64
-  %30 = ptrtoint ptr %17 to i64
-  %31 = sub i64 %29, %30
-  %32 = icmp sgt i64 %31, 0
-  br i1 %32, label %33, label %_ZN22MeshShaderRenderPlugin7actionsEv.exit
+  %28 = sub nsw i64 %27, %16
+  %29 = icmp sgt i64 %28, 0
+  br i1 %29, label %30, label %_ZN22MeshShaderRenderPlugin7actionsEv.exit
 
-33:                                               ; preds = %24
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %17, ptr nonnull align 8 %23, i64 %31, i1 false)
+30:                                               ; preds = %24
+  %gepdiff.i.i = shl nuw nsw i64 %28, 3
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %17, ptr nonnull align 8 %23, i64 %gepdiff.i.i, i1 false)
   br label %_ZN22MeshShaderRenderPlugin7actionsEv.exit
 
-_ZN22MeshShaderRenderPlugin7actionsEv.exit:       ; preds = %_ZN9QtPrivate8RefCount3refEv.exit.thread.i.i, %_ZN9QtPrivate8RefCount3refEv.exit.i.i, %8, %24, %33
+_ZN22MeshShaderRenderPlugin7actionsEv.exit:       ; preds = %_ZN9QtPrivate8RefCount3refEv.exit.thread.i.i, %_ZN9QtPrivate8RefCount3refEv.exit.i.i, %8, %24, %30
   ret void
 }
 

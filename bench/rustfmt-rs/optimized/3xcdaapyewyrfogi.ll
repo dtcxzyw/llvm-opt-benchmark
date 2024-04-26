@@ -1372,7 +1372,7 @@ define internal fastcc { ptr, i64 } @"_ZN111_$LT$alloc..string..String$u20$as$u2
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define internal fastcc noundef i8 @_ZN12tracing_core8callsite15DefaultCallsite8interest17h0d13743fe14fa6bfE(ptr noundef nonnull align 8 %0) unnamed_addr #0 {
+define internal fastcc noundef range(i8 0, 3) i8 @_ZN12tracing_core8callsite15DefaultCallsite8interest17h0d13743fe14fa6bfE(ptr noundef nonnull align 8 %0) unnamed_addr #0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 16
   %3 = load atomic i8, ptr %2 monotonic, align 8
   %4 = icmp ult i8 %3, 3
@@ -1572,7 +1572,7 @@ define hidden void @"_ZN49_$LT$F$u20$as$u20$core..str..pattern..Pattern$GT$13int
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
-define hidden noundef i8 @"_ZN4core3cmp5impls50_$LT$impl$u20$core..cmp..Ord$u20$for$u20$usize$GT$3cmp17he0bff06e137ef0d3E.llvm.15131964271339581801"(ptr noalias nocapture noundef readonly align 8 dereferenceable(8) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(8) %1) unnamed_addr #7 {
+define hidden noundef range(i8 -1, 2) i8 @"_ZN4core3cmp5impls50_$LT$impl$u20$core..cmp..Ord$u20$for$u20$usize$GT$3cmp17he0bff06e137ef0d3E.llvm.15131964271339581801"(ptr noalias nocapture noundef readonly align 8 dereferenceable(8) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(8) %1) unnamed_addr #7 {
   %3 = load i64, ptr %0, align 8, !noundef !10
   %4 = load i64, ptr %1, align 8, !noundef !10
   %5 = icmp ult i64 %3, %4
@@ -1692,7 +1692,7 @@ define hidden noundef nonnull align 8 dereferenceable(64) ptr @"_ZN4core3ops8fun
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read, inaccessiblemem: read) uwtable
-define hidden noundef i8 @_ZN4core3ops8function6FnOnce9call_once17hb78e0a793360f381E.llvm.15131964271339581801(ptr noalias nocapture noundef readonly align 8 dereferenceable(8) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(8) %1) unnamed_addr #11 {
+define hidden noundef range(i8 -1, 2) i8 @_ZN4core3ops8function6FnOnce9call_once17hb78e0a793360f381E.llvm.15131964271339581801(ptr noalias nocapture noundef readonly align 8 dereferenceable(8) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(8) %1) unnamed_addr #11 {
   tail call void @llvm.experimental.noalias.scope.decl(metadata !297)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !300)
   %3 = load i64, ptr %0, align 8, !alias.scope !297, !noalias !300, !noundef !10
@@ -30075,7 +30075,7 @@ _ZN15rustfmt_nightly5utils8wrap_str17hb715dcbc8cd81436E.exit44: ; preds = %"_ZN4
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden noundef i8 @_ZN15rustfmt_nightly4expr23choose_separator_tactic17h14c19baa1c82db5fE.llvm.15131964271339581801(ptr nocapture noundef nonnull readonly align 8 %0, i64 %1) unnamed_addr #4 {
+define hidden noundef range(i8 0, 4) i8 @_ZN15rustfmt_nightly4expr23choose_separator_tactic17h14c19baa1c82db5fE.llvm.15131964271339581801(ptr nocapture noundef nonnull readonly align 8 %0, i64 %1) unnamed_addr #4 {
   %3 = getelementptr inbounds i8, ptr %0, i64 48
   %4 = load ptr, ptr %3, align 8, !nonnull !10, !noundef !10
   %5 = getelementptr inbounds i8, ptr %4, i64 16
@@ -38154,7 +38154,7 @@ common.resume:                                    ; preds = %11, %25
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden noundef i8 @_ZN15rustfmt_nightly7reorder13compare_items17he278f920362edbffE(ptr noalias noundef readonly align 8 dereferenceable(136) %0, ptr noalias noundef readonly align 8 dereferenceable(136) %1) unnamed_addr #4 {
+define hidden noundef range(i8 -1, 2) i8 @_ZN15rustfmt_nightly7reorder13compare_items17he278f920362edbffE(ptr noalias noundef readonly align 8 dereferenceable(136) %0, ptr noalias noundef readonly align 8 dereferenceable(136) %1) unnamed_addr #4 {
   %3 = alloca i32, align 4
   %4 = alloca i32, align 4
   %5 = load i64, ptr %0, align 8, !range !6282, !noundef !10
@@ -39880,7 +39880,7 @@ define hidden noundef zeroext i1 @_ZN15rustfmt_nightly7reorder23contains_macro_u
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden noundef i8 @_ZN15rustfmt_nightly7reorder19ReorderableItemKind4from17hf3f3021929dff475E(ptr noalias nocapture noundef readonly align 8 dereferenceable(136) %0) unnamed_addr #4 personality ptr @rust_eh_personality {
+define hidden noundef range(i8 0, 4) i8 @_ZN15rustfmt_nightly7reorder19ReorderableItemKind4from17hf3f3021929dff475E(ptr noalias nocapture noundef readonly align 8 dereferenceable(136) %0) unnamed_addr #4 personality ptr @rust_eh_personality {
   %2 = alloca { [17 x i32], i32 }, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 96
   %4 = load ptr, ptr %3, align 8, !nonnull !10, !noundef !10

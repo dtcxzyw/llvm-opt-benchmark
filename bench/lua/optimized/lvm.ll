@@ -22,7 +22,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str.10 = private unnamed_addr constant [14 x i8] c"initial value\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @luaV_tonumber_(ptr nocapture noundef readonly %obj, ptr nocapture noundef writeonly %n) local_unnamed_addr #0 {
+define hidden range(i32 0, 2) i32 @luaV_tonumber_(ptr nocapture noundef readonly %obj, ptr nocapture noundef writeonly %n) local_unnamed_addr #0 {
 entry:
   %v = alloca %struct.TValue, align 8
   %tt_ = getelementptr inbounds i8, ptr %obj, i64 8
@@ -85,7 +85,7 @@ return:                                           ; preds = %return.sink.split, 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden noundef i32 @luaV_flttointeger(double noundef %n, ptr nocapture noundef writeonly %p, i32 noundef %mode) local_unnamed_addr #1 {
+define hidden range(i32 0, 2) i32 @luaV_flttointeger(double noundef %n, ptr nocapture noundef writeonly %p, i32 noundef %mode) local_unnamed_addr #1 {
 entry:
   %0 = tail call double @llvm.floor.f64(double %n)
   %cmp = fcmp une double %0, %n
@@ -126,7 +126,7 @@ return:                                           ; preds = %if.then, %land.end
 declare double @llvm.floor.f64(double) #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden noundef i32 @luaV_tointegerns(ptr nocapture noundef readonly %obj, ptr nocapture noundef writeonly %p, i32 noundef %mode) local_unnamed_addr #3 {
+define hidden range(i32 0, 2) i32 @luaV_tointegerns(ptr nocapture noundef readonly %obj, ptr nocapture noundef writeonly %p, i32 noundef %mode) local_unnamed_addr #3 {
 entry:
   %tt_ = getelementptr inbounds i8, ptr %obj, i64 8
   %0 = load i8, ptr %tt_, align 8
@@ -178,7 +178,7 @@ return:                                           ; preds = %land.end.i, %if.the
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @luaV_tointeger(ptr nocapture noundef readonly %obj, ptr nocapture noundef writeonly %p, i32 noundef %mode) local_unnamed_addr #0 {
+define hidden range(i32 0, 2) i32 @luaV_tointeger(ptr nocapture noundef readonly %obj, ptr nocapture noundef writeonly %p, i32 noundef %mode) local_unnamed_addr #0 {
 entry:
   %v = alloca %struct.TValue, align 8
   %tt_.i = getelementptr inbounds i8, ptr %obj, i64 8

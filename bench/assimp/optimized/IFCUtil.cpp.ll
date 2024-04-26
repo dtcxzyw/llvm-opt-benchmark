@@ -3151,15 +3151,14 @@ if.end309:                                        ; preds = %invoke.cont305
   %202 = load i32, ptr %add.ptr.i474, align 4
   %conv316 = zext i32 %202 to i64
   %add.ptr.i475 = getelementptr %class.aiVector3t, ptr %199, i64 %200
-  %add.ptr.i477 = getelementptr inbounds %class.aiVector3t, ptr %add.ptr.i475, i64 %conv316
+  %add.ptr.i477.idx832 = mul nuw nsw i64 %conv316, 24
+  %add.ptr.i477 = getelementptr inbounds i8, ptr %add.ptr.i475, i64 %add.ptr.i477.idx832
   %agg.tmp334.sroa.0.sroa.0.0.copyload = load double, ptr %add.ptr.i472, align 8
   %agg.tmp334.sroa.0.sroa.2.0.add.ptr.i472.sroa_idx = getelementptr inbounds i8, ptr %add.ptr.i472, i64 8
   %agg.tmp334.sroa.0.sroa.2.0.copyload = load double, ptr %agg.tmp334.sroa.0.sroa.2.0.add.ptr.i472.sroa_idx, align 8
   %agg.tmp334.sroa.0.sroa.3.0.add.ptr.i472.sroa_idx = getelementptr inbounds i8, ptr %add.ptr.i472, i64 16
   %agg.tmp334.sroa.0.sroa.3.0.copyload = load double, ptr %agg.tmp334.sroa.0.sroa.3.0.add.ptr.i472.sroa_idx, align 8
-  %sub.ptr.lhs.cast.i.i727 = ptrtoint ptr %add.ptr.i477 to i64
   %sub.ptr.rhs.cast.i.i728 = ptrtoint ptr %add.ptr.i475 to i64
-  %add.ptr.i477.idx = mul nuw nsw i64 %conv316, 24
   %cmp92.i.not = icmp ult i32 %202, 4
   br i1 %cmp92.i.not, label %for.end.i, label %for.body.lr.ph.i731
 
@@ -3245,12 +3244,11 @@ if.end21.i:                                       ; preds = %if.end15.i
   br i1 %cmp.i742, label %for.body.i734, label %for.end.loopexit.i, !llvm.loop !123
 
 for.end.loopexit.i:                               ; preds = %if.end21.i
-  %.pre104.i = ptrtoint ptr %scevgep.i to i64
-  %.pre105.i = sub i64 %sub.ptr.lhs.cast.i.i727, %.pre104.i
+  %gepdiff = sub nsw i64 %add.ptr.i477.idx832, %203
   br label %for.end.i
 
 for.end.i:                                        ; preds = %for.end.loopexit.i, %if.end309
-  %sub.ptr.sub.i41.pre-phi.i = phi i64 [ %.pre105.i, %for.end.loopexit.i ], [ %add.ptr.i477.idx, %if.end309 ]
+  %sub.ptr.sub.i41.pre-phi.i = phi i64 [ %gepdiff, %for.end.loopexit.i ], [ %add.ptr.i477.idx832, %if.end309 ]
   %__first.sroa.0.0.lcssa.i = phi ptr [ %scevgep.i, %for.end.loopexit.i ], [ %add.ptr.i475, %if.end309 ]
   %sub.ptr.div.i42.i = sdiv exact i64 %sub.ptr.sub.i41.pre-phi.i, 24
   switch i64 %sub.ptr.div.i42.i, label %invoke.cont365 [

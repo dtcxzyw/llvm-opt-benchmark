@@ -55,7 +55,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str.30 = private unnamed_addr constant [18 x i8] c"socket: udp=%s:%d\00", align 1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local noundef i32 @net_init_socket(ptr nocapture noundef readonly %netdev, ptr noundef %name, ptr noundef %peer, ptr noundef %errp) local_unnamed_addr #0 {
+define dso_local range(i32 -1, 1) i32 @net_init_socket(ptr nocapture noundef readonly %netdev, ptr noundef %name, ptr noundef %peer, ptr noundef %errp) local_unnamed_addr #0 {
 entry:
   %saddr.i64 = alloca %struct.sockaddr_in, align 4
   %saddr.i = alloca %struct.sockaddr_in, align 4
@@ -89,7 +89,7 @@ if.end:                                           ; preds = %entry
   %9 = insertelement <4 x ptr> %8, ptr %5, i64 3
   %10 = icmp ne <4 x ptr> %9, zeroinitializer
   %11 = bitcast <4 x i1> %10 to i4
-  %12 = tail call i4 @llvm.ctpop.i4(i4 %11), !range !5
+  %12 = tail call range(i4 0, 5) i4 @llvm.ctpop.i4(i4 %11)
   %13 = zext nneg i4 %12 to i32
   %op.rdx = add nuw nsw i32 %13, %lnot.ext
   %cmp25.not = icmp eq i32 %op.rdx, 1
@@ -330,7 +330,6 @@ if.end81:                                         ; preds = %if.end72
 
 if.then84:                                        ; preds = %if.end81
   %call87 = tail call fastcc i32 @net_socket_mcast_init(ptr noundef %peer, ptr noundef %name, ptr noundef nonnull %4, ptr noundef %14, ptr noundef %errp)
-  %call87.lobit = ashr i32 %call87, 31
   br label %return
 
 if.end91:                                         ; preds = %if.end81
@@ -350,11 +349,10 @@ if.then99:                                        ; preds = %if.end96
 
 if.end100:                                        ; preds = %if.end96
   %call103 = tail call fastcc i32 @net_socket_udp_init(ptr noundef %peer, ptr noundef %name, ptr noundef nonnull %5, ptr noundef nonnull %14, ptr noundef %errp)
-  %call103.lobit = ashr i32 %call103, 31
   br label %return
 
 return:                                           ; preds = %32, %net_socket_connect_init.exit, %27, %net_socket_listen_init.exit, %net_socket_fd_check.exit.thread, %if.end100, %if.then84, %sw.bb58, %sw.bb, %if.then38, %if.then99, %sw.epilog, %if.then51, %if.then34, %if.then26
-  %retval.0 = phi i32 [ -1, %if.then26 ], [ -1, %if.then51 ], [ 0, %sw.epilog ], [ -1, %if.then99 ], [ -1, %if.then34 ], [ -1, %if.then38 ], [ -1, %sw.bb ], [ -1, %sw.bb58 ], [ %call87.lobit, %if.then84 ], [ %call103.lobit, %if.end100 ], [ -1, %net_socket_fd_check.exit.thread ], [ -1, %27 ], [ 0, %net_socket_listen_init.exit ], [ -1, %32 ], [ 0, %net_socket_connect_init.exit ]
+  %retval.0 = phi i32 [ -1, %if.then26 ], [ -1, %if.then51 ], [ 0, %sw.epilog ], [ -1, %if.then99 ], [ -1, %if.then34 ], [ -1, %if.then38 ], [ -1, %sw.bb ], [ -1, %sw.bb58 ], [ %call87, %if.then84 ], [ %call103, %if.end100 ], [ -1, %net_socket_fd_check.exit.thread ], [ -1, %27 ], [ 0, %net_socket_listen_init.exit ], [ -1, %32 ], [ 0, %net_socket_connect_init.exit ]
   ret i32 %retval.0
 }
 
@@ -403,7 +401,7 @@ if.then8:                                         ; preds = %if.end6
   br label %err
 
 if.end9:                                          ; preds = %if.end6
-  %call10 = call fastcc i32 @net_socket_mcast_create(ptr noundef nonnull %saddr, ptr noundef null, ptr noundef %errp), !range !6
+  %call10 = call fastcc i32 @net_socket_mcast_create(ptr noundef nonnull %saddr, ptr noundef null, ptr noundef %errp)
   %cmp11 = icmp slt i32 %call10, 0
   br i1 %cmp11, label %err, label %if.end13
 
@@ -507,7 +505,7 @@ if.end:                                           ; preds = %if.else, %if.then
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc noundef i32 @net_socket_mcast_init(ptr noundef %peer, ptr noundef %name, ptr noundef %host_str, ptr noundef %localaddr_str, ptr noundef %errp) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @net_socket_mcast_init(ptr noundef %peer, ptr noundef %name, ptr noundef %host_str, ptr noundef %localaddr_str, ptr noundef %errp) unnamed_addr #0 {
 entry:
   %saddr = alloca %struct.sockaddr_in, align 4
   %localaddr = alloca %struct.in_addr, align 4
@@ -530,7 +528,7 @@ if.then5:                                         ; preds = %if.then2
 
 if.end7:                                          ; preds = %if.end, %if.then2
   %param_localaddr.0 = phi ptr [ %localaddr, %if.then2 ], [ null, %if.end ]
-  %call8 = call fastcc i32 @net_socket_mcast_create(ptr noundef nonnull %saddr, ptr noundef %param_localaddr.0, ptr noundef %errp), !range !6
+  %call8 = call fastcc i32 @net_socket_mcast_create(ptr noundef nonnull %saddr, ptr noundef %param_localaddr.0, ptr noundef %errp)
   %cmp9 = icmp slt i32 %call8, 0
   br i1 %cmp9, label %return, label %if.end11
 
@@ -558,7 +556,7 @@ return:                                           ; preds = %if.end11, %if.end7,
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc noundef i32 @net_socket_udp_init(ptr noundef %peer, ptr noundef %name, ptr noundef %rhost, ptr noundef %lhost, ptr noundef %errp) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @net_socket_udp_init(ptr noundef %peer, ptr noundef %name, ptr noundef %rhost, ptr noundef %lhost, ptr noundef %errp) unnamed_addr #0 {
 entry:
   %laddr = alloca %struct.sockaddr_in, align 4
   %raddr = alloca %struct.sockaddr_in, align 4
@@ -643,7 +641,7 @@ declare void @qapi_free_SocketAddress(ptr noundef) local_unnamed_addr #2
 declare i32 @parse_host_port(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc i32 @net_socket_mcast_create(ptr noundef %mcastaddr, ptr noundef %localaddr, ptr noundef %errp) unnamed_addr #0 {
+define internal fastcc range(i32 -1, -2147483648) i32 @net_socket_mcast_create(ptr noundef %mcastaddr, ptr noundef %localaddr, ptr noundef %errp) unnamed_addr #0 {
 entry:
   %imr = alloca %struct.ip_mreq, align 4
   %val = alloca i32, align 4
@@ -1332,5 +1330,3 @@ attributes #10 = { nounwind willreturn memory(none) }
 !2 = !{i32 7, !"PIE Level", i32 2}
 !3 = !{i32 7, !"uwtable", i32 2}
 !4 = !{i32 7, !"frame-pointer", i32 2}
-!5 = !{i4 0, i4 5}
-!6 = !{i32 -1, i32 -2147483648}

@@ -5228,138 +5228,129 @@ _ZNSt6vectorIiSaIiEE9push_backERKi.exit:          ; preds = %16, %_ZNSt6vectorIi
 .lr.ph:                                           ; preds = %_ZNSt6vectorIiSaIiEE9push_backERKi.exit
   %42 = sext i32 %2 to i64
   %43 = sext i32 %1 to i64
-  %44 = getelementptr inbounds %"struct.ceres::internal::CompressedList", ptr %5, i64 %43
-  %45 = ptrtoint ptr %44 to i64
-  %46 = ptrtoint ptr %5 to i64
-  br label %47
+  %44 = ptrtoint ptr %5 to i64
+  br label %45
 
-47:                                               ; preds = %.lr.ph, %_ZNSt6vectorIiSaIiEE9push_backERKi.exit34
-  %48 = phi ptr [ %41, %.lr.ph ], [ %102, %_ZNSt6vectorIiSaIiEE9push_backERKi.exit34 ]
-  %.021.in.sroa.speculated43 = phi i32 [ %0, %.lr.ph ], [ %73, %_ZNSt6vectorIiSaIiEE9push_backERKi.exit34 ]
-  %.02242 = phi i32 [ %4, %.lr.ph ], [ %79, %_ZNSt6vectorIiSaIiEE9push_backERKi.exit34 ]
-  %49 = load ptr, ptr %7, align 8
-  %50 = ptrtoint ptr %48 to i64
-  %51 = ptrtoint ptr %49 to i64
-  %52 = sub i64 %50, %51
-  %53 = ashr exact i64 %52, 2
-  %54 = icmp ugt i64 %53, %42
-  br i1 %54, label %._crit_edge, label %55
+45:                                               ; preds = %.lr.ph, %_ZNSt6vectorIiSaIiEE9push_backERKi.exit34
+  %46 = phi ptr [ %41, %.lr.ph ], [ %98, %_ZNSt6vectorIiSaIiEE9push_backERKi.exit34 ]
+  %.021.in.sroa.speculated45 = phi i32 [ %0, %.lr.ph ], [ %69, %_ZNSt6vectorIiSaIiEE9push_backERKi.exit34 ]
+  %.02244 = phi i32 [ %4, %.lr.ph ], [ %75, %_ZNSt6vectorIiSaIiEE9push_backERKi.exit34 ]
+  %47 = load ptr, ptr %7, align 8
+  %48 = ptrtoint ptr %46 to i64
+  %49 = ptrtoint ptr %47 to i64
+  %50 = sub i64 %48, %49
+  %51 = ashr exact i64 %50, 2
+  %52 = icmp ugt i64 %51, %42
+  br i1 %52, label %._crit_edge, label %53
 
-55:                                               ; preds = %47
-  %56 = add nsw i32 %.02242, %3
-  %57 = sext i32 %.021.in.sroa.speculated43 to i64
-  %58 = getelementptr inbounds %"struct.ceres::internal::CompressedList", ptr %5, i64 %57
-  %59 = ptrtoint ptr %58 to i64
-  %60 = sub i64 %45, %59
-  %61 = icmp sgt i64 %60, 0
-  br i1 %61, label %_ZSt7advanceIPKN5ceres8internal14CompressedListElEvRT_T0_.exit.preheader.i, label %_ZSt15partition_pointIPKN5ceres8internal14CompressedListEZNS1_26MaxPartitionCostIsFeasibleIS2_ZNS1_21PartitionedMatrixViewILi2ELi3ELi9EEC1ERKNS1_12LinearSolver7OptionsERKNS1_17BlockSparseMatrixEEUlRS3_E_EEbiiiiiPKT_OT0_PSt6vectorIiSaIiEEEUlSF_E_ESH_SH_SH_SK_.exit
+53:                                               ; preds = %45
+  %54 = add nsw i32 %.02244, %3
+  %55 = sext i32 %.021.in.sroa.speculated45 to i64
+  %.idx41 = mul nsw i64 %55, 40
+  %56 = getelementptr inbounds i8, ptr %5, i64 %.idx41
+  %.idx42 = sub nsw i64 %43, %55
+  %57 = icmp sgt i64 %.idx42, 0
+  br i1 %57, label %_ZSt7advanceIPKN5ceres8internal14CompressedListElEvRT_T0_.exit.i, label %_ZSt15partition_pointIPKN5ceres8internal14CompressedListEZNS1_26MaxPartitionCostIsFeasibleIS2_ZNS1_21PartitionedMatrixViewILi2ELi3ELi9EEC1ERKNS1_12LinearSolver7OptionsERKNS1_17BlockSparseMatrixEEUlRS3_E_EEbiiiiiPKT_OT0_PSt6vectorIiSaIiEEEUlSF_E_ESH_SH_SH_SK_.exit
 
-_ZSt7advanceIPKN5ceres8internal14CompressedListElEvRT_T0_.exit.preheader.i: ; preds = %55
-  %62 = udiv exact i64 %60, 40
-  br label %_ZSt7advanceIPKN5ceres8internal14CompressedListElEvRT_T0_.exit.i
+_ZSt7advanceIPKN5ceres8internal14CompressedListElEvRT_T0_.exit.i: ; preds = %53, %_ZSt7advanceIPKN5ceres8internal14CompressedListElEvRT_T0_.exit.i
+  %.016.i = phi ptr [ %.1.i, %_ZSt7advanceIPKN5ceres8internal14CompressedListElEvRT_T0_.exit.i ], [ %56, %53 ]
+  %.01015.i = phi i64 [ %.111.i, %_ZSt7advanceIPKN5ceres8internal14CompressedListElEvRT_T0_.exit.i ], [ %.idx42, %53 ]
+  %58 = lshr i64 %.01015.i, 1
+  %59 = getelementptr inbounds %"struct.ceres::internal::CompressedList", ptr %.016.i, i64 %58
+  %60 = getelementptr inbounds i8, ptr %59, i64 36
+  %61 = load i32, ptr %60, align 4
+  %.not.i25 = icmp sgt i32 %61, %54
+  %62 = getelementptr inbounds i8, ptr %59, i64 40
+  %63 = xor i64 %58, -1
+  %64 = add nsw i64 %.01015.i, %63
+  %.111.i = select i1 %.not.i25, i64 %58, i64 %64
+  %.1.i = select i1 %.not.i25, ptr %.016.i, ptr %62
+  %65 = icmp sgt i64 %.111.i, 0
+  br i1 %65, label %_ZSt7advanceIPKN5ceres8internal14CompressedListElEvRT_T0_.exit.i, label %_ZSt15partition_pointIPKN5ceres8internal14CompressedListEZNS1_26MaxPartitionCostIsFeasibleIS2_ZNS1_21PartitionedMatrixViewILi2ELi3ELi9EEC1ERKNS1_12LinearSolver7OptionsERKNS1_17BlockSparseMatrixEEUlRS3_E_EEbiiiiiPKT_OT0_PSt6vectorIiSaIiEEEUlSF_E_ESH_SH_SH_SK_.exit, !llvm.loop !51
 
-_ZSt7advanceIPKN5ceres8internal14CompressedListElEvRT_T0_.exit.i: ; preds = %_ZSt7advanceIPKN5ceres8internal14CompressedListElEvRT_T0_.exit.i, %_ZSt7advanceIPKN5ceres8internal14CompressedListElEvRT_T0_.exit.preheader.i
-  %.016.i = phi ptr [ %.1.i, %_ZSt7advanceIPKN5ceres8internal14CompressedListElEvRT_T0_.exit.i ], [ %58, %_ZSt7advanceIPKN5ceres8internal14CompressedListElEvRT_T0_.exit.preheader.i ]
-  %.01015.i = phi i64 [ %.111.i, %_ZSt7advanceIPKN5ceres8internal14CompressedListElEvRT_T0_.exit.i ], [ %62, %_ZSt7advanceIPKN5ceres8internal14CompressedListElEvRT_T0_.exit.preheader.i ]
-  %63 = lshr i64 %.01015.i, 1
-  %64 = getelementptr inbounds %"struct.ceres::internal::CompressedList", ptr %.016.i, i64 %63
-  %65 = getelementptr inbounds i8, ptr %64, i64 36
-  %66 = load i32, ptr %65, align 4
-  %.not.i25 = icmp sgt i32 %66, %56
-  %67 = getelementptr inbounds i8, ptr %64, i64 40
-  %68 = xor i64 %63, -1
-  %69 = add nsw i64 %.01015.i, %68
-  %.111.i = select i1 %.not.i25, i64 %63, i64 %69
-  %.1.i = select i1 %.not.i25, ptr %.016.i, ptr %67
-  %70 = icmp sgt i64 %.111.i, 0
-  br i1 %70, label %_ZSt7advanceIPKN5ceres8internal14CompressedListElEvRT_T0_.exit.i, label %_ZSt15partition_pointIPKN5ceres8internal14CompressedListEZNS1_26MaxPartitionCostIsFeasibleIS2_ZNS1_21PartitionedMatrixViewILi2ELi3ELi9EEC1ERKNS1_12LinearSolver7OptionsERKNS1_17BlockSparseMatrixEEUlRS3_E_EEbiiiiiPKT_OT0_PSt6vectorIiSaIiEEEUlSF_E_ESH_SH_SH_SK_.exit.loopexit, !llvm.loop !51
+_ZSt15partition_pointIPKN5ceres8internal14CompressedListEZNS1_26MaxPartitionCostIsFeasibleIS2_ZNS1_21PartitionedMatrixViewILi2ELi3ELi9EEC1ERKNS1_12LinearSolver7OptionsERKNS1_17BlockSparseMatrixEEUlRS3_E_EEbiiiiiPKT_OT0_PSt6vectorIiSaIiEEEUlSF_E_ESH_SH_SH_SK_.exit: ; preds = %_ZSt7advanceIPKN5ceres8internal14CompressedListElEvRT_T0_.exit.i, %53
+  %.0.lcssa.i = phi ptr [ %56, %53 ], [ %.1.i, %_ZSt7advanceIPKN5ceres8internal14CompressedListElEvRT_T0_.exit.i ]
+  %66 = ptrtoint ptr %.0.lcssa.i to i64
+  %67 = sub i64 %66, %44
+  %68 = sdiv exact i64 %67, 40
+  %69 = trunc i64 %68 to i32
+  %70 = icmp eq i32 %.021.in.sroa.speculated45, %69
+  br i1 %70, label %._crit_edge, label %71
 
-_ZSt15partition_pointIPKN5ceres8internal14CompressedListEZNS1_26MaxPartitionCostIsFeasibleIS2_ZNS1_21PartitionedMatrixViewILi2ELi3ELi9EEC1ERKNS1_12LinearSolver7OptionsERKNS1_17BlockSparseMatrixEEUlRS3_E_EEbiiiiiPKT_OT0_PSt6vectorIiSaIiEEEUlSF_E_ESH_SH_SH_SK_.exit.loopexit: ; preds = %_ZSt7advanceIPKN5ceres8internal14CompressedListElEvRT_T0_.exit.i
-  %.pre = ptrtoint ptr %.1.i to i64
-  br label %_ZSt15partition_pointIPKN5ceres8internal14CompressedListEZNS1_26MaxPartitionCostIsFeasibleIS2_ZNS1_21PartitionedMatrixViewILi2ELi3ELi9EEC1ERKNS1_12LinearSolver7OptionsERKNS1_17BlockSparseMatrixEEUlRS3_E_EEbiiiiiPKT_OT0_PSt6vectorIiSaIiEEEUlSF_E_ESH_SH_SH_SK_.exit
+71:                                               ; preds = %_ZSt15partition_pointIPKN5ceres8internal14CompressedListEZNS1_26MaxPartitionCostIsFeasibleIS2_ZNS1_21PartitionedMatrixViewILi2ELi3ELi9EEC1ERKNS1_12LinearSolver7OptionsERKNS1_17BlockSparseMatrixEEUlRS3_E_EEbiiiiiPKT_OT0_PSt6vectorIiSaIiEEEUlSF_E_ESH_SH_SH_SK_.exit
+  %72 = shl i64 %68, 32
+  %sext = add i64 %72, -4294967296
+  %73 = ashr exact i64 %sext, 32
+  %74 = getelementptr inbounds %"struct.ceres::internal::CompressedList", ptr %5, i64 %73, i32 3
+  %75 = load i32, ptr %74, align 4
+  %76 = load ptr, ptr %14, align 8
+  %.not.i26 = icmp eq ptr %46, %76
+  br i1 %.not.i26, label %80, label %77
 
-_ZSt15partition_pointIPKN5ceres8internal14CompressedListEZNS1_26MaxPartitionCostIsFeasibleIS2_ZNS1_21PartitionedMatrixViewILi2ELi3ELi9EEC1ERKNS1_12LinearSolver7OptionsERKNS1_17BlockSparseMatrixEEUlRS3_E_EEbiiiiiPKT_OT0_PSt6vectorIiSaIiEEEUlSF_E_ESH_SH_SH_SK_.exit: ; preds = %_ZSt15partition_pointIPKN5ceres8internal14CompressedListEZNS1_26MaxPartitionCostIsFeasibleIS2_ZNS1_21PartitionedMatrixViewILi2ELi3ELi9EEC1ERKNS1_12LinearSolver7OptionsERKNS1_17BlockSparseMatrixEEUlRS3_E_EEbiiiiiPKT_OT0_PSt6vectorIiSaIiEEEUlSF_E_ESH_SH_SH_SK_.exit.loopexit, %55
-  %.pre-phi = phi i64 [ %.pre, %_ZSt15partition_pointIPKN5ceres8internal14CompressedListEZNS1_26MaxPartitionCostIsFeasibleIS2_ZNS1_21PartitionedMatrixViewILi2ELi3ELi9EEC1ERKNS1_12LinearSolver7OptionsERKNS1_17BlockSparseMatrixEEUlRS3_E_EEbiiiiiPKT_OT0_PSt6vectorIiSaIiEEEUlSF_E_ESH_SH_SH_SK_.exit.loopexit ], [ %59, %55 ]
-  %71 = sub i64 %.pre-phi, %46
-  %72 = sdiv exact i64 %71, 40
-  %73 = trunc i64 %72 to i32
-  %74 = icmp eq i32 %.021.in.sroa.speculated43, %73
-  br i1 %74, label %._crit_edge, label %75
-
-75:                                               ; preds = %_ZSt15partition_pointIPKN5ceres8internal14CompressedListEZNS1_26MaxPartitionCostIsFeasibleIS2_ZNS1_21PartitionedMatrixViewILi2ELi3ELi9EEC1ERKNS1_12LinearSolver7OptionsERKNS1_17BlockSparseMatrixEEUlRS3_E_EEbiiiiiPKT_OT0_PSt6vectorIiSaIiEEEUlSF_E_ESH_SH_SH_SK_.exit
-  %76 = shl i64 %72, 32
-  %sext = add i64 %76, -4294967296
-  %77 = ashr exact i64 %sext, 32
-  %78 = getelementptr inbounds %"struct.ceres::internal::CompressedList", ptr %5, i64 %77, i32 3
-  %79 = load i32, ptr %78, align 4
-  %80 = load ptr, ptr %14, align 8
-  %.not.i26 = icmp eq ptr %48, %80
-  br i1 %.not.i26, label %84, label %81
-
-81:                                               ; preds = %75
-  store i32 %73, ptr %48, align 4
-  %82 = load ptr, ptr %10, align 8
-  %83 = getelementptr inbounds i8, ptr %82, i64 4
-  store ptr %83, ptr %10, align 8
+77:                                               ; preds = %71
+  store i32 %69, ptr %46, align 4
+  %78 = load ptr, ptr %10, align 8
+  %79 = getelementptr inbounds i8, ptr %78, i64 4
+  store ptr %79, ptr %10, align 8
   br label %_ZNSt6vectorIiSaIiEE9push_backERKi.exit34
 
-84:                                               ; preds = %75
-  %85 = icmp eq i64 %52, 9223372036854775804
-  br i1 %85, label %86, label %_ZNKSt6vectorIiSaIiEE12_M_check_lenEmPKc.exit.i.i27
+80:                                               ; preds = %71
+  %81 = icmp eq i64 %50, 9223372036854775804
+  br i1 %81, label %82, label %_ZNKSt6vectorIiSaIiEE12_M_check_lenEmPKc.exit.i.i27
 
-86:                                               ; preds = %84
+82:                                               ; preds = %80
   tail call void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.14) #20
   unreachable
 
-_ZNKSt6vectorIiSaIiEE12_M_check_lenEmPKc.exit.i.i27: ; preds = %84
-  %.sroa.speculated.i.i.i28 = tail call i64 @llvm.umax.i64(i64 %53, i64 1)
-  %87 = add nsw i64 %.sroa.speculated.i.i.i28, %53
-  %88 = icmp ult i64 %87, %53
-  %89 = tail call i64 @llvm.umin.i64(i64 %87, i64 2305843009213693951)
-  %90 = select i1 %88, i64 2305843009213693951, i64 %89
-  %.not.i.i.i29 = icmp eq i64 %90, 0
-  br i1 %.not.i.i.i29, label %_ZNSt12_Vector_baseIiSaIiEE11_M_allocateEm.exit.i.i30, label %91
+_ZNKSt6vectorIiSaIiEE12_M_check_lenEmPKc.exit.i.i27: ; preds = %80
+  %.sroa.speculated.i.i.i28 = tail call i64 @llvm.umax.i64(i64 %51, i64 1)
+  %83 = add nsw i64 %.sroa.speculated.i.i.i28, %51
+  %84 = icmp ult i64 %83, %51
+  %85 = tail call i64 @llvm.umin.i64(i64 %83, i64 2305843009213693951)
+  %86 = select i1 %84, i64 2305843009213693951, i64 %85
+  %.not.i.i.i29 = icmp eq i64 %86, 0
+  br i1 %.not.i.i.i29, label %_ZNSt12_Vector_baseIiSaIiEE11_M_allocateEm.exit.i.i30, label %87
 
-91:                                               ; preds = %_ZNKSt6vectorIiSaIiEE12_M_check_lenEmPKc.exit.i.i27
-  %92 = shl nuw nsw i64 %90, 2
-  %93 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %92) #21
+87:                                               ; preds = %_ZNKSt6vectorIiSaIiEE12_M_check_lenEmPKc.exit.i.i27
+  %88 = shl nuw nsw i64 %86, 2
+  %89 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %88) #21
   br label %_ZNSt12_Vector_baseIiSaIiEE11_M_allocateEm.exit.i.i30
 
-_ZNSt12_Vector_baseIiSaIiEE11_M_allocateEm.exit.i.i30: ; preds = %91, %_ZNKSt6vectorIiSaIiEE12_M_check_lenEmPKc.exit.i.i27
-  %94 = phi ptr [ %93, %91 ], [ null, %_ZNKSt6vectorIiSaIiEE12_M_check_lenEmPKc.exit.i.i27 ]
-  %95 = getelementptr inbounds i32, ptr %94, i64 %53
-  store i32 %73, ptr %95, align 4
-  %96 = icmp sgt i64 %52, 0
-  br i1 %96, label %97, label %_ZNSt6vectorIiSaIiEE11_S_relocateEPiS2_S2_RS0_.exit16.i.i31
+_ZNSt12_Vector_baseIiSaIiEE11_M_allocateEm.exit.i.i30: ; preds = %87, %_ZNKSt6vectorIiSaIiEE12_M_check_lenEmPKc.exit.i.i27
+  %90 = phi ptr [ %89, %87 ], [ null, %_ZNKSt6vectorIiSaIiEE12_M_check_lenEmPKc.exit.i.i27 ]
+  %91 = getelementptr inbounds i32, ptr %90, i64 %51
+  store i32 %69, ptr %91, align 4
+  %92 = icmp sgt i64 %50, 0
+  br i1 %92, label %93, label %_ZNSt6vectorIiSaIiEE11_S_relocateEPiS2_S2_RS0_.exit16.i.i31
 
-97:                                               ; preds = %_ZNSt12_Vector_baseIiSaIiEE11_M_allocateEm.exit.i.i30
-  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 4 %94, ptr align 4 %49, i64 %52, i1 false)
+93:                                               ; preds = %_ZNSt12_Vector_baseIiSaIiEE11_M_allocateEm.exit.i.i30
+  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 4 %90, ptr align 4 %47, i64 %50, i1 false)
   br label %_ZNSt6vectorIiSaIiEE11_S_relocateEPiS2_S2_RS0_.exit16.i.i31
 
-_ZNSt6vectorIiSaIiEE11_S_relocateEPiS2_S2_RS0_.exit16.i.i31: ; preds = %97, %_ZNSt12_Vector_baseIiSaIiEE11_M_allocateEm.exit.i.i30
-  %98 = getelementptr inbounds i8, ptr %94, i64 %52
-  %99 = getelementptr inbounds i8, ptr %98, i64 4
-  %.not.i17.i.i32 = icmp eq ptr %49, null
-  br i1 %.not.i17.i.i32, label %_ZNSt6vectorIiSaIiEE17_M_realloc_insertIJRKiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_.exit.i33, label %100
+_ZNSt6vectorIiSaIiEE11_S_relocateEPiS2_S2_RS0_.exit16.i.i31: ; preds = %93, %_ZNSt12_Vector_baseIiSaIiEE11_M_allocateEm.exit.i.i30
+  %94 = getelementptr inbounds i8, ptr %90, i64 %50
+  %95 = getelementptr inbounds i8, ptr %94, i64 4
+  %.not.i17.i.i32 = icmp eq ptr %47, null
+  br i1 %.not.i17.i.i32, label %_ZNSt6vectorIiSaIiEE17_M_realloc_insertIJRKiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_.exit.i33, label %96
 
-100:                                              ; preds = %_ZNSt6vectorIiSaIiEE11_S_relocateEPiS2_S2_RS0_.exit16.i.i31
-  tail call void @_ZdlPv(ptr noundef nonnull %49) #23
+96:                                               ; preds = %_ZNSt6vectorIiSaIiEE11_S_relocateEPiS2_S2_RS0_.exit16.i.i31
+  tail call void @_ZdlPv(ptr noundef nonnull %47) #23
   br label %_ZNSt6vectorIiSaIiEE17_M_realloc_insertIJRKiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_.exit.i33
 
-_ZNSt6vectorIiSaIiEE17_M_realloc_insertIJRKiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_.exit.i33: ; preds = %100, %_ZNSt6vectorIiSaIiEE11_S_relocateEPiS2_S2_RS0_.exit16.i.i31
-  store ptr %94, ptr %7, align 8
-  store ptr %99, ptr %10, align 8
-  %101 = getelementptr inbounds i32, ptr %94, i64 %90
-  store ptr %101, ptr %14, align 8
+_ZNSt6vectorIiSaIiEE17_M_realloc_insertIJRKiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_.exit.i33: ; preds = %96, %_ZNSt6vectorIiSaIiEE11_S_relocateEPiS2_S2_RS0_.exit16.i.i31
+  store ptr %90, ptr %7, align 8
+  store ptr %95, ptr %10, align 8
+  %97 = getelementptr inbounds i32, ptr %90, i64 %86
+  store ptr %97, ptr %14, align 8
   br label %_ZNSt6vectorIiSaIiEE9push_backERKi.exit34
 
-_ZNSt6vectorIiSaIiEE9push_backERKi.exit34:        ; preds = %81, %_ZNSt6vectorIiSaIiEE17_M_realloc_insertIJRKiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_.exit.i33
-  %102 = phi ptr [ %83, %81 ], [ %99, %_ZNSt6vectorIiSaIiEE17_M_realloc_insertIJRKiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_.exit.i33 ]
-  %.not47 = icmp slt i32 %73, %1
-  br i1 %.not47, label %47, label %._crit_edge, !llvm.loop !52
+_ZNSt6vectorIiSaIiEE9push_backERKi.exit34:        ; preds = %77, %_ZNSt6vectorIiSaIiEE17_M_realloc_insertIJRKiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_.exit.i33
+  %98 = phi ptr [ %79, %77 ], [ %95, %_ZNSt6vectorIiSaIiEE17_M_realloc_insertIJRKiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_.exit.i33 ]
+  %.not49 = icmp slt i32 %69, %1
+  br i1 %.not49, label %45, label %._crit_edge, !llvm.loop !52
 
-._crit_edge:                                      ; preds = %47, %_ZSt15partition_pointIPKN5ceres8internal14CompressedListEZNS1_26MaxPartitionCostIsFeasibleIS2_ZNS1_21PartitionedMatrixViewILi2ELi3ELi9EEC1ERKNS1_12LinearSolver7OptionsERKNS1_17BlockSparseMatrixEEUlRS3_E_EEbiiiiiPKT_OT0_PSt6vectorIiSaIiEEEUlSF_E_ESH_SH_SH_SK_.exit, %_ZNSt6vectorIiSaIiEE9push_backERKi.exit34, %_ZNSt6vectorIiSaIiEE9push_backERKi.exit
-  %.lcssa = phi i1 [ true, %_ZNSt6vectorIiSaIiEE9push_backERKi.exit ], [ true, %_ZNSt6vectorIiSaIiEE9push_backERKi.exit34 ], [ false, %_ZSt15partition_pointIPKN5ceres8internal14CompressedListEZNS1_26MaxPartitionCostIsFeasibleIS2_ZNS1_21PartitionedMatrixViewILi2ELi3ELi9EEC1ERKNS1_12LinearSolver7OptionsERKNS1_17BlockSparseMatrixEEUlRS3_E_EEbiiiiiPKT_OT0_PSt6vectorIiSaIiEEEUlSF_E_ESH_SH_SH_SK_.exit ], [ false, %47 ]
+._crit_edge:                                      ; preds = %45, %_ZSt15partition_pointIPKN5ceres8internal14CompressedListEZNS1_26MaxPartitionCostIsFeasibleIS2_ZNS1_21PartitionedMatrixViewILi2ELi3ELi9EEC1ERKNS1_12LinearSolver7OptionsERKNS1_17BlockSparseMatrixEEUlRS3_E_EEbiiiiiPKT_OT0_PSt6vectorIiSaIiEEEUlSF_E_ESH_SH_SH_SK_.exit, %_ZNSt6vectorIiSaIiEE9push_backERKi.exit34, %_ZNSt6vectorIiSaIiEE9push_backERKi.exit
+  %.lcssa = phi i1 [ true, %_ZNSt6vectorIiSaIiEE9push_backERKi.exit ], [ true, %_ZNSt6vectorIiSaIiEE9push_backERKi.exit34 ], [ false, %_ZSt15partition_pointIPKN5ceres8internal14CompressedListEZNS1_26MaxPartitionCostIsFeasibleIS2_ZNS1_21PartitionedMatrixViewILi2ELi3ELi9EEC1ERKNS1_12LinearSolver7OptionsERKNS1_17BlockSparseMatrixEEUlRS3_E_EEbiiiiiPKT_OT0_PSt6vectorIiSaIiEEEUlSF_E_ESH_SH_SH_SK_.exit ], [ false, %45 ]
   ret i1 %.lcssa
 }
 
@@ -5454,138 +5445,129 @@ _ZNSt6vectorIiSaIiEE9push_backERKi.exit:          ; preds = %16, %_ZNSt6vectorIi
 .lr.ph:                                           ; preds = %_ZNSt6vectorIiSaIiEE9push_backERKi.exit
   %42 = sext i32 %2 to i64
   %43 = sext i32 %1 to i64
-  %44 = getelementptr inbounds %"struct.ceres::internal::CompressedList", ptr %5, i64 %43
-  %45 = ptrtoint ptr %44 to i64
-  %46 = ptrtoint ptr %5 to i64
-  br label %47
+  %44 = ptrtoint ptr %5 to i64
+  br label %45
 
-47:                                               ; preds = %.lr.ph, %_ZNSt6vectorIiSaIiEE9push_backERKi.exit34
-  %48 = phi ptr [ %41, %.lr.ph ], [ %102, %_ZNSt6vectorIiSaIiEE9push_backERKi.exit34 ]
-  %.021.in.sroa.speculated43 = phi i32 [ %0, %.lr.ph ], [ %73, %_ZNSt6vectorIiSaIiEE9push_backERKi.exit34 ]
-  %.02242 = phi i32 [ %4, %.lr.ph ], [ %79, %_ZNSt6vectorIiSaIiEE9push_backERKi.exit34 ]
-  %49 = load ptr, ptr %7, align 8
-  %50 = ptrtoint ptr %48 to i64
-  %51 = ptrtoint ptr %49 to i64
-  %52 = sub i64 %50, %51
-  %53 = ashr exact i64 %52, 2
-  %54 = icmp ugt i64 %53, %42
-  br i1 %54, label %._crit_edge, label %55
+45:                                               ; preds = %.lr.ph, %_ZNSt6vectorIiSaIiEE9push_backERKi.exit34
+  %46 = phi ptr [ %41, %.lr.ph ], [ %98, %_ZNSt6vectorIiSaIiEE9push_backERKi.exit34 ]
+  %.021.in.sroa.speculated45 = phi i32 [ %0, %.lr.ph ], [ %69, %_ZNSt6vectorIiSaIiEE9push_backERKi.exit34 ]
+  %.02244 = phi i32 [ %4, %.lr.ph ], [ %75, %_ZNSt6vectorIiSaIiEE9push_backERKi.exit34 ]
+  %47 = load ptr, ptr %7, align 8
+  %48 = ptrtoint ptr %46 to i64
+  %49 = ptrtoint ptr %47 to i64
+  %50 = sub i64 %48, %49
+  %51 = ashr exact i64 %50, 2
+  %52 = icmp ugt i64 %51, %42
+  br i1 %52, label %._crit_edge, label %53
 
-55:                                               ; preds = %47
-  %56 = add nsw i32 %.02242, %3
-  %57 = sext i32 %.021.in.sroa.speculated43 to i64
-  %58 = getelementptr inbounds %"struct.ceres::internal::CompressedList", ptr %5, i64 %57
-  %59 = ptrtoint ptr %58 to i64
-  %60 = sub i64 %45, %59
-  %61 = icmp sgt i64 %60, 0
-  br i1 %61, label %_ZSt7advanceIPKN5ceres8internal14CompressedListElEvRT_T0_.exit.preheader.i, label %_ZSt15partition_pointIPKN5ceres8internal14CompressedListEZNS1_26MaxPartitionCostIsFeasibleIS2_ZNS1_21PartitionedMatrixViewILi2ELi3ELi9EEC1ERKNS1_12LinearSolver7OptionsERKNS1_17BlockSparseMatrixEEUlRS3_E0_EEbiiiiiPKT_OT0_PSt6vectorIiSaIiEEEUlSF_E_ESH_SH_SH_SK_.exit
+53:                                               ; preds = %45
+  %54 = add nsw i32 %.02244, %3
+  %55 = sext i32 %.021.in.sroa.speculated45 to i64
+  %.idx41 = mul nsw i64 %55, 40
+  %56 = getelementptr inbounds i8, ptr %5, i64 %.idx41
+  %.idx42 = sub nsw i64 %43, %55
+  %57 = icmp sgt i64 %.idx42, 0
+  br i1 %57, label %_ZSt7advanceIPKN5ceres8internal14CompressedListElEvRT_T0_.exit.i, label %_ZSt15partition_pointIPKN5ceres8internal14CompressedListEZNS1_26MaxPartitionCostIsFeasibleIS2_ZNS1_21PartitionedMatrixViewILi2ELi3ELi9EEC1ERKNS1_12LinearSolver7OptionsERKNS1_17BlockSparseMatrixEEUlRS3_E0_EEbiiiiiPKT_OT0_PSt6vectorIiSaIiEEEUlSF_E_ESH_SH_SH_SK_.exit
 
-_ZSt7advanceIPKN5ceres8internal14CompressedListElEvRT_T0_.exit.preheader.i: ; preds = %55
-  %62 = udiv exact i64 %60, 40
-  br label %_ZSt7advanceIPKN5ceres8internal14CompressedListElEvRT_T0_.exit.i
+_ZSt7advanceIPKN5ceres8internal14CompressedListElEvRT_T0_.exit.i: ; preds = %53, %_ZSt7advanceIPKN5ceres8internal14CompressedListElEvRT_T0_.exit.i
+  %.016.i = phi ptr [ %.1.i, %_ZSt7advanceIPKN5ceres8internal14CompressedListElEvRT_T0_.exit.i ], [ %56, %53 ]
+  %.01015.i = phi i64 [ %.111.i, %_ZSt7advanceIPKN5ceres8internal14CompressedListElEvRT_T0_.exit.i ], [ %.idx42, %53 ]
+  %58 = lshr i64 %.01015.i, 1
+  %59 = getelementptr inbounds %"struct.ceres::internal::CompressedList", ptr %.016.i, i64 %58
+  %60 = getelementptr inbounds i8, ptr %59, i64 36
+  %61 = load i32, ptr %60, align 4
+  %.not.i25 = icmp sgt i32 %61, %54
+  %62 = getelementptr inbounds i8, ptr %59, i64 40
+  %63 = xor i64 %58, -1
+  %64 = add nsw i64 %.01015.i, %63
+  %.111.i = select i1 %.not.i25, i64 %58, i64 %64
+  %.1.i = select i1 %.not.i25, ptr %.016.i, ptr %62
+  %65 = icmp sgt i64 %.111.i, 0
+  br i1 %65, label %_ZSt7advanceIPKN5ceres8internal14CompressedListElEvRT_T0_.exit.i, label %_ZSt15partition_pointIPKN5ceres8internal14CompressedListEZNS1_26MaxPartitionCostIsFeasibleIS2_ZNS1_21PartitionedMatrixViewILi2ELi3ELi9EEC1ERKNS1_12LinearSolver7OptionsERKNS1_17BlockSparseMatrixEEUlRS3_E0_EEbiiiiiPKT_OT0_PSt6vectorIiSaIiEEEUlSF_E_ESH_SH_SH_SK_.exit, !llvm.loop !53
 
-_ZSt7advanceIPKN5ceres8internal14CompressedListElEvRT_T0_.exit.i: ; preds = %_ZSt7advanceIPKN5ceres8internal14CompressedListElEvRT_T0_.exit.i, %_ZSt7advanceIPKN5ceres8internal14CompressedListElEvRT_T0_.exit.preheader.i
-  %.016.i = phi ptr [ %.1.i, %_ZSt7advanceIPKN5ceres8internal14CompressedListElEvRT_T0_.exit.i ], [ %58, %_ZSt7advanceIPKN5ceres8internal14CompressedListElEvRT_T0_.exit.preheader.i ]
-  %.01015.i = phi i64 [ %.111.i, %_ZSt7advanceIPKN5ceres8internal14CompressedListElEvRT_T0_.exit.i ], [ %62, %_ZSt7advanceIPKN5ceres8internal14CompressedListElEvRT_T0_.exit.preheader.i ]
-  %63 = lshr i64 %.01015.i, 1
-  %64 = getelementptr inbounds %"struct.ceres::internal::CompressedList", ptr %.016.i, i64 %63
-  %65 = getelementptr inbounds i8, ptr %64, i64 36
-  %66 = load i32, ptr %65, align 4
-  %.not.i25 = icmp sgt i32 %66, %56
-  %67 = getelementptr inbounds i8, ptr %64, i64 40
-  %68 = xor i64 %63, -1
-  %69 = add nsw i64 %.01015.i, %68
-  %.111.i = select i1 %.not.i25, i64 %63, i64 %69
-  %.1.i = select i1 %.not.i25, ptr %.016.i, ptr %67
-  %70 = icmp sgt i64 %.111.i, 0
-  br i1 %70, label %_ZSt7advanceIPKN5ceres8internal14CompressedListElEvRT_T0_.exit.i, label %_ZSt15partition_pointIPKN5ceres8internal14CompressedListEZNS1_26MaxPartitionCostIsFeasibleIS2_ZNS1_21PartitionedMatrixViewILi2ELi3ELi9EEC1ERKNS1_12LinearSolver7OptionsERKNS1_17BlockSparseMatrixEEUlRS3_E0_EEbiiiiiPKT_OT0_PSt6vectorIiSaIiEEEUlSF_E_ESH_SH_SH_SK_.exit.loopexit, !llvm.loop !53
+_ZSt15partition_pointIPKN5ceres8internal14CompressedListEZNS1_26MaxPartitionCostIsFeasibleIS2_ZNS1_21PartitionedMatrixViewILi2ELi3ELi9EEC1ERKNS1_12LinearSolver7OptionsERKNS1_17BlockSparseMatrixEEUlRS3_E0_EEbiiiiiPKT_OT0_PSt6vectorIiSaIiEEEUlSF_E_ESH_SH_SH_SK_.exit: ; preds = %_ZSt7advanceIPKN5ceres8internal14CompressedListElEvRT_T0_.exit.i, %53
+  %.0.lcssa.i = phi ptr [ %56, %53 ], [ %.1.i, %_ZSt7advanceIPKN5ceres8internal14CompressedListElEvRT_T0_.exit.i ]
+  %66 = ptrtoint ptr %.0.lcssa.i to i64
+  %67 = sub i64 %66, %44
+  %68 = sdiv exact i64 %67, 40
+  %69 = trunc i64 %68 to i32
+  %70 = icmp eq i32 %.021.in.sroa.speculated45, %69
+  br i1 %70, label %._crit_edge, label %71
 
-_ZSt15partition_pointIPKN5ceres8internal14CompressedListEZNS1_26MaxPartitionCostIsFeasibleIS2_ZNS1_21PartitionedMatrixViewILi2ELi3ELi9EEC1ERKNS1_12LinearSolver7OptionsERKNS1_17BlockSparseMatrixEEUlRS3_E0_EEbiiiiiPKT_OT0_PSt6vectorIiSaIiEEEUlSF_E_ESH_SH_SH_SK_.exit.loopexit: ; preds = %_ZSt7advanceIPKN5ceres8internal14CompressedListElEvRT_T0_.exit.i
-  %.pre = ptrtoint ptr %.1.i to i64
-  br label %_ZSt15partition_pointIPKN5ceres8internal14CompressedListEZNS1_26MaxPartitionCostIsFeasibleIS2_ZNS1_21PartitionedMatrixViewILi2ELi3ELi9EEC1ERKNS1_12LinearSolver7OptionsERKNS1_17BlockSparseMatrixEEUlRS3_E0_EEbiiiiiPKT_OT0_PSt6vectorIiSaIiEEEUlSF_E_ESH_SH_SH_SK_.exit
+71:                                               ; preds = %_ZSt15partition_pointIPKN5ceres8internal14CompressedListEZNS1_26MaxPartitionCostIsFeasibleIS2_ZNS1_21PartitionedMatrixViewILi2ELi3ELi9EEC1ERKNS1_12LinearSolver7OptionsERKNS1_17BlockSparseMatrixEEUlRS3_E0_EEbiiiiiPKT_OT0_PSt6vectorIiSaIiEEEUlSF_E_ESH_SH_SH_SK_.exit
+  %72 = shl i64 %68, 32
+  %sext = add i64 %72, -4294967296
+  %73 = ashr exact i64 %sext, 32
+  %74 = getelementptr inbounds %"struct.ceres::internal::CompressedList", ptr %5, i64 %73, i32 3
+  %75 = load i32, ptr %74, align 4
+  %76 = load ptr, ptr %14, align 8
+  %.not.i26 = icmp eq ptr %46, %76
+  br i1 %.not.i26, label %80, label %77
 
-_ZSt15partition_pointIPKN5ceres8internal14CompressedListEZNS1_26MaxPartitionCostIsFeasibleIS2_ZNS1_21PartitionedMatrixViewILi2ELi3ELi9EEC1ERKNS1_12LinearSolver7OptionsERKNS1_17BlockSparseMatrixEEUlRS3_E0_EEbiiiiiPKT_OT0_PSt6vectorIiSaIiEEEUlSF_E_ESH_SH_SH_SK_.exit: ; preds = %_ZSt15partition_pointIPKN5ceres8internal14CompressedListEZNS1_26MaxPartitionCostIsFeasibleIS2_ZNS1_21PartitionedMatrixViewILi2ELi3ELi9EEC1ERKNS1_12LinearSolver7OptionsERKNS1_17BlockSparseMatrixEEUlRS3_E0_EEbiiiiiPKT_OT0_PSt6vectorIiSaIiEEEUlSF_E_ESH_SH_SH_SK_.exit.loopexit, %55
-  %.pre-phi = phi i64 [ %.pre, %_ZSt15partition_pointIPKN5ceres8internal14CompressedListEZNS1_26MaxPartitionCostIsFeasibleIS2_ZNS1_21PartitionedMatrixViewILi2ELi3ELi9EEC1ERKNS1_12LinearSolver7OptionsERKNS1_17BlockSparseMatrixEEUlRS3_E0_EEbiiiiiPKT_OT0_PSt6vectorIiSaIiEEEUlSF_E_ESH_SH_SH_SK_.exit.loopexit ], [ %59, %55 ]
-  %71 = sub i64 %.pre-phi, %46
-  %72 = sdiv exact i64 %71, 40
-  %73 = trunc i64 %72 to i32
-  %74 = icmp eq i32 %.021.in.sroa.speculated43, %73
-  br i1 %74, label %._crit_edge, label %75
-
-75:                                               ; preds = %_ZSt15partition_pointIPKN5ceres8internal14CompressedListEZNS1_26MaxPartitionCostIsFeasibleIS2_ZNS1_21PartitionedMatrixViewILi2ELi3ELi9EEC1ERKNS1_12LinearSolver7OptionsERKNS1_17BlockSparseMatrixEEUlRS3_E0_EEbiiiiiPKT_OT0_PSt6vectorIiSaIiEEEUlSF_E_ESH_SH_SH_SK_.exit
-  %76 = shl i64 %72, 32
-  %sext = add i64 %76, -4294967296
-  %77 = ashr exact i64 %sext, 32
-  %78 = getelementptr inbounds %"struct.ceres::internal::CompressedList", ptr %5, i64 %77, i32 3
-  %79 = load i32, ptr %78, align 4
-  %80 = load ptr, ptr %14, align 8
-  %.not.i26 = icmp eq ptr %48, %80
-  br i1 %.not.i26, label %84, label %81
-
-81:                                               ; preds = %75
-  store i32 %73, ptr %48, align 4
-  %82 = load ptr, ptr %10, align 8
-  %83 = getelementptr inbounds i8, ptr %82, i64 4
-  store ptr %83, ptr %10, align 8
+77:                                               ; preds = %71
+  store i32 %69, ptr %46, align 4
+  %78 = load ptr, ptr %10, align 8
+  %79 = getelementptr inbounds i8, ptr %78, i64 4
+  store ptr %79, ptr %10, align 8
   br label %_ZNSt6vectorIiSaIiEE9push_backERKi.exit34
 
-84:                                               ; preds = %75
-  %85 = icmp eq i64 %52, 9223372036854775804
-  br i1 %85, label %86, label %_ZNKSt6vectorIiSaIiEE12_M_check_lenEmPKc.exit.i.i27
+80:                                               ; preds = %71
+  %81 = icmp eq i64 %50, 9223372036854775804
+  br i1 %81, label %82, label %_ZNKSt6vectorIiSaIiEE12_M_check_lenEmPKc.exit.i.i27
 
-86:                                               ; preds = %84
+82:                                               ; preds = %80
   tail call void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.14) #20
   unreachable
 
-_ZNKSt6vectorIiSaIiEE12_M_check_lenEmPKc.exit.i.i27: ; preds = %84
-  %.sroa.speculated.i.i.i28 = tail call i64 @llvm.umax.i64(i64 %53, i64 1)
-  %87 = add nsw i64 %.sroa.speculated.i.i.i28, %53
-  %88 = icmp ult i64 %87, %53
-  %89 = tail call i64 @llvm.umin.i64(i64 %87, i64 2305843009213693951)
-  %90 = select i1 %88, i64 2305843009213693951, i64 %89
-  %.not.i.i.i29 = icmp eq i64 %90, 0
-  br i1 %.not.i.i.i29, label %_ZNSt12_Vector_baseIiSaIiEE11_M_allocateEm.exit.i.i30, label %91
+_ZNKSt6vectorIiSaIiEE12_M_check_lenEmPKc.exit.i.i27: ; preds = %80
+  %.sroa.speculated.i.i.i28 = tail call i64 @llvm.umax.i64(i64 %51, i64 1)
+  %83 = add nsw i64 %.sroa.speculated.i.i.i28, %51
+  %84 = icmp ult i64 %83, %51
+  %85 = tail call i64 @llvm.umin.i64(i64 %83, i64 2305843009213693951)
+  %86 = select i1 %84, i64 2305843009213693951, i64 %85
+  %.not.i.i.i29 = icmp eq i64 %86, 0
+  br i1 %.not.i.i.i29, label %_ZNSt12_Vector_baseIiSaIiEE11_M_allocateEm.exit.i.i30, label %87
 
-91:                                               ; preds = %_ZNKSt6vectorIiSaIiEE12_M_check_lenEmPKc.exit.i.i27
-  %92 = shl nuw nsw i64 %90, 2
-  %93 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %92) #21
+87:                                               ; preds = %_ZNKSt6vectorIiSaIiEE12_M_check_lenEmPKc.exit.i.i27
+  %88 = shl nuw nsw i64 %86, 2
+  %89 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %88) #21
   br label %_ZNSt12_Vector_baseIiSaIiEE11_M_allocateEm.exit.i.i30
 
-_ZNSt12_Vector_baseIiSaIiEE11_M_allocateEm.exit.i.i30: ; preds = %91, %_ZNKSt6vectorIiSaIiEE12_M_check_lenEmPKc.exit.i.i27
-  %94 = phi ptr [ %93, %91 ], [ null, %_ZNKSt6vectorIiSaIiEE12_M_check_lenEmPKc.exit.i.i27 ]
-  %95 = getelementptr inbounds i32, ptr %94, i64 %53
-  store i32 %73, ptr %95, align 4
-  %96 = icmp sgt i64 %52, 0
-  br i1 %96, label %97, label %_ZNSt6vectorIiSaIiEE11_S_relocateEPiS2_S2_RS0_.exit16.i.i31
+_ZNSt12_Vector_baseIiSaIiEE11_M_allocateEm.exit.i.i30: ; preds = %87, %_ZNKSt6vectorIiSaIiEE12_M_check_lenEmPKc.exit.i.i27
+  %90 = phi ptr [ %89, %87 ], [ null, %_ZNKSt6vectorIiSaIiEE12_M_check_lenEmPKc.exit.i.i27 ]
+  %91 = getelementptr inbounds i32, ptr %90, i64 %51
+  store i32 %69, ptr %91, align 4
+  %92 = icmp sgt i64 %50, 0
+  br i1 %92, label %93, label %_ZNSt6vectorIiSaIiEE11_S_relocateEPiS2_S2_RS0_.exit16.i.i31
 
-97:                                               ; preds = %_ZNSt12_Vector_baseIiSaIiEE11_M_allocateEm.exit.i.i30
-  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 4 %94, ptr align 4 %49, i64 %52, i1 false)
+93:                                               ; preds = %_ZNSt12_Vector_baseIiSaIiEE11_M_allocateEm.exit.i.i30
+  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 4 %90, ptr align 4 %47, i64 %50, i1 false)
   br label %_ZNSt6vectorIiSaIiEE11_S_relocateEPiS2_S2_RS0_.exit16.i.i31
 
-_ZNSt6vectorIiSaIiEE11_S_relocateEPiS2_S2_RS0_.exit16.i.i31: ; preds = %97, %_ZNSt12_Vector_baseIiSaIiEE11_M_allocateEm.exit.i.i30
-  %98 = getelementptr inbounds i8, ptr %94, i64 %52
-  %99 = getelementptr inbounds i8, ptr %98, i64 4
-  %.not.i17.i.i32 = icmp eq ptr %49, null
-  br i1 %.not.i17.i.i32, label %_ZNSt6vectorIiSaIiEE17_M_realloc_insertIJRKiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_.exit.i33, label %100
+_ZNSt6vectorIiSaIiEE11_S_relocateEPiS2_S2_RS0_.exit16.i.i31: ; preds = %93, %_ZNSt12_Vector_baseIiSaIiEE11_M_allocateEm.exit.i.i30
+  %94 = getelementptr inbounds i8, ptr %90, i64 %50
+  %95 = getelementptr inbounds i8, ptr %94, i64 4
+  %.not.i17.i.i32 = icmp eq ptr %47, null
+  br i1 %.not.i17.i.i32, label %_ZNSt6vectorIiSaIiEE17_M_realloc_insertIJRKiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_.exit.i33, label %96
 
-100:                                              ; preds = %_ZNSt6vectorIiSaIiEE11_S_relocateEPiS2_S2_RS0_.exit16.i.i31
-  tail call void @_ZdlPv(ptr noundef nonnull %49) #23
+96:                                               ; preds = %_ZNSt6vectorIiSaIiEE11_S_relocateEPiS2_S2_RS0_.exit16.i.i31
+  tail call void @_ZdlPv(ptr noundef nonnull %47) #23
   br label %_ZNSt6vectorIiSaIiEE17_M_realloc_insertIJRKiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_.exit.i33
 
-_ZNSt6vectorIiSaIiEE17_M_realloc_insertIJRKiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_.exit.i33: ; preds = %100, %_ZNSt6vectorIiSaIiEE11_S_relocateEPiS2_S2_RS0_.exit16.i.i31
-  store ptr %94, ptr %7, align 8
-  store ptr %99, ptr %10, align 8
-  %101 = getelementptr inbounds i32, ptr %94, i64 %90
-  store ptr %101, ptr %14, align 8
+_ZNSt6vectorIiSaIiEE17_M_realloc_insertIJRKiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_.exit.i33: ; preds = %96, %_ZNSt6vectorIiSaIiEE11_S_relocateEPiS2_S2_RS0_.exit16.i.i31
+  store ptr %90, ptr %7, align 8
+  store ptr %95, ptr %10, align 8
+  %97 = getelementptr inbounds i32, ptr %90, i64 %86
+  store ptr %97, ptr %14, align 8
   br label %_ZNSt6vectorIiSaIiEE9push_backERKi.exit34
 
-_ZNSt6vectorIiSaIiEE9push_backERKi.exit34:        ; preds = %81, %_ZNSt6vectorIiSaIiEE17_M_realloc_insertIJRKiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_.exit.i33
-  %102 = phi ptr [ %83, %81 ], [ %99, %_ZNSt6vectorIiSaIiEE17_M_realloc_insertIJRKiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_.exit.i33 ]
-  %.not47 = icmp slt i32 %73, %1
-  br i1 %.not47, label %47, label %._crit_edge, !llvm.loop !54
+_ZNSt6vectorIiSaIiEE9push_backERKi.exit34:        ; preds = %77, %_ZNSt6vectorIiSaIiEE17_M_realloc_insertIJRKiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_.exit.i33
+  %98 = phi ptr [ %79, %77 ], [ %95, %_ZNSt6vectorIiSaIiEE17_M_realloc_insertIJRKiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_.exit.i33 ]
+  %.not49 = icmp slt i32 %69, %1
+  br i1 %.not49, label %45, label %._crit_edge, !llvm.loop !54
 
-._crit_edge:                                      ; preds = %47, %_ZSt15partition_pointIPKN5ceres8internal14CompressedListEZNS1_26MaxPartitionCostIsFeasibleIS2_ZNS1_21PartitionedMatrixViewILi2ELi3ELi9EEC1ERKNS1_12LinearSolver7OptionsERKNS1_17BlockSparseMatrixEEUlRS3_E0_EEbiiiiiPKT_OT0_PSt6vectorIiSaIiEEEUlSF_E_ESH_SH_SH_SK_.exit, %_ZNSt6vectorIiSaIiEE9push_backERKi.exit34, %_ZNSt6vectorIiSaIiEE9push_backERKi.exit
-  %.lcssa = phi i1 [ true, %_ZNSt6vectorIiSaIiEE9push_backERKi.exit ], [ true, %_ZNSt6vectorIiSaIiEE9push_backERKi.exit34 ], [ false, %_ZSt15partition_pointIPKN5ceres8internal14CompressedListEZNS1_26MaxPartitionCostIsFeasibleIS2_ZNS1_21PartitionedMatrixViewILi2ELi3ELi9EEC1ERKNS1_12LinearSolver7OptionsERKNS1_17BlockSparseMatrixEEUlRS3_E0_EEbiiiiiPKT_OT0_PSt6vectorIiSaIiEEEUlSF_E_ESH_SH_SH_SK_.exit ], [ false, %47 ]
+._crit_edge:                                      ; preds = %45, %_ZSt15partition_pointIPKN5ceres8internal14CompressedListEZNS1_26MaxPartitionCostIsFeasibleIS2_ZNS1_21PartitionedMatrixViewILi2ELi3ELi9EEC1ERKNS1_12LinearSolver7OptionsERKNS1_17BlockSparseMatrixEEUlRS3_E0_EEbiiiiiPKT_OT0_PSt6vectorIiSaIiEEEUlSF_E_ESH_SH_SH_SK_.exit, %_ZNSt6vectorIiSaIiEE9push_backERKi.exit34, %_ZNSt6vectorIiSaIiEE9push_backERKi.exit
+  %.lcssa = phi i1 [ true, %_ZNSt6vectorIiSaIiEE9push_backERKi.exit ], [ true, %_ZNSt6vectorIiSaIiEE9push_backERKi.exit34 ], [ false, %_ZSt15partition_pointIPKN5ceres8internal14CompressedListEZNS1_26MaxPartitionCostIsFeasibleIS2_ZNS1_21PartitionedMatrixViewILi2ELi3ELi9EEC1ERKNS1_12LinearSolver7OptionsERKNS1_17BlockSparseMatrixEEUlRS3_E0_EEbiiiiiPKT_OT0_PSt6vectorIiSaIiEEEUlSF_E_ESH_SH_SH_SK_.exit ], [ false, %45 ]
   ret i1 %.lcssa
 }
 

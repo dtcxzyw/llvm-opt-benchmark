@@ -47262,7 +47262,7 @@ define internal fastcc void @"_ZN11ide_assists8handlers25convert_to_guarded_retu
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define internal fastcc noundef i16 @"_ZN11ide_assists8handlers25convert_to_guarded_return25if_expr_to_guarded_return28_$u7b$$u7b$closure$u7d$$u7d$17hba9ea01e9a7fe744E"(i64 noundef %0, ptr noundef %1) unnamed_addr #0 personality ptr @rust_eh_personality {
+define internal fastcc noundef range(i16 0, 273) i16 @"_ZN11ide_assists8handlers25convert_to_guarded_return25if_expr_to_guarded_return28_$u7b$$u7b$closure$u7d$$u7d$17hba9ea01e9a7fe744E"(i64 noundef %0, ptr noundef %1) unnamed_addr #0 personality ptr @rust_eh_personality {
   %3 = alloca { i64, [1 x i64] }, align 8
   store i64 %0, ptr %3, align 8
   %4 = getelementptr inbounds i8, ptr %3, i64 8
@@ -66425,7 +66425,7 @@ _ZN5alloc6string6String10insert_str17h0f8e8f95f8f82150E.exit: ; preds = %301
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc noundef i8 @_ZN11ide_assists8handlers17generate_function30calculate_necessary_visibility17h33cfbc8ca5945d56E(ptr noalias nocapture noundef align 4 dereferenceable(12) %0, ptr noalias nocapture noundef align 4 dereferenceable(12) %1, ptr nonnull %.8.val) unnamed_addr #6 personality ptr @rust_eh_personality {
+define internal fastcc noundef range(i8 0, 3) i8 @_ZN11ide_assists8handlers17generate_function30calculate_necessary_visibility17h33cfbc8ca5945d56E(ptr noalias nocapture noundef align 4 dereferenceable(12) %0, ptr noalias nocapture noundef align 4 dereferenceable(12) %1, ptr nonnull %.8.val) unnamed_addr #6 personality ptr @rust_eh_personality {
   %3 = alloca { [1 x i64], i64, [1 x i64] }, align 8
   %4 = alloca { [1 x i64], i64, [1 x i64] }, align 8
   %5 = alloca { ptr, ptr, {} }, align 8
@@ -75588,7 +75588,7 @@ declare noundef i8 @_ZN12tracing_core8callsite15DefaultCallsite8register17h8dcfc
 declare hidden void @_ZN3std10sys_common9backtrace26__rust_end_short_backtrace17hb401d6ad7fa32807E(ptr noalias nocapture noundef align 8 dereferenceable(24)) unnamed_addr #21
 
 ; Function Attrs: nonlazybind
-define hidden noundef i32 @__rust_try.llvm.18082005449963326646(ptr nocapture noundef nonnull readonly %0, ptr noundef %1, ptr nocapture noundef nonnull readonly %2) unnamed_addr #22 personality ptr @rust_eh_personality {
+define hidden noundef range(i32 0, 2) i32 @__rust_try.llvm.18082005449963326646(ptr nocapture noundef nonnull readonly %0, ptr noundef %1, ptr nocapture noundef nonnull readonly %2) unnamed_addr #22 personality ptr @rust_eh_personality {
   invoke void %0(ptr %1)
           to label %common.ret unwind label %4
 

@@ -160,7 +160,7 @@ define dso_local ptr @curl_multi_init() local_unnamed_addr #0 {
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @curl_multi_add_handle(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
+define dso_local i32 @curl_multi_add_handle(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %114, label %3
 
@@ -225,7 +225,7 @@ define dso_local noundef i32 @curl_multi_add_handle(ptr noundef %0, ptr noundef 
   tail call void @Curl_expire(ptr noundef nonnull %1, i64 noundef 0, i32 noundef 8)
   %31 = getelementptr inbounds i8, ptr %0, i64 400
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %31, i8 0, i64 16, i1 false)
-  %32 = tail call i32 @Curl_update_timer(ptr noundef nonnull %0), !range !7
+  %32 = tail call i32 @Curl_update_timer(ptr noundef nonnull %0)
   %.not61 = icmp eq i32 %32, 0
   br i1 %.not61, label %33, label %114
 
@@ -423,7 +423,7 @@ define dso_local void @Curl_expire(ptr noundef %0, i64 noundef %1, i32 noundef %
   %27 = getelementptr inbounds i8, ptr %.011.i, i64 16
   %.0.i = load ptr, ptr %27, align 8
   %.not.i = icmp eq ptr %.0.i, null
-  br i1 %.not.i, label %multi_deltimeout.exit, label %.lr.ph.i, !llvm.loop !8
+  br i1 %.not.i, label %multi_deltimeout.exit, label %.lr.ph.i, !llvm.loop !7
 
 multi_deltimeout.exit:                            ; preds = %26, %7, %25
   %28 = getelementptr inbounds i8, ptr %0, i64 3712
@@ -461,7 +461,7 @@ multi_deltimeout.exit:                            ; preds = %26, %7, %25
   %43 = getelementptr inbounds i8, ptr %.025.i46, i64 16
   %.0.i35 = load ptr, ptr %43, align 8
   %.not21.i = icmp eq ptr %.0.i35, null
-  br i1 %.not21.i, label %multi_addtimeout.exit, label %44, !llvm.loop !9
+  br i1 %.not21.i, label %multi_addtimeout.exit, label %44, !llvm.loop !8
 
 44:                                               ; preds = %.lr.ph
   %45 = load ptr, ptr %.0.i35, align 8
@@ -473,7 +473,7 @@ multi_deltimeout.exit:                            ; preds = %26, %7, %25
   %51 = load i32, ptr %.sroa.7.0..sroa_idx38, align 8
   %52 = tail call i64 @Curl_timediff(i64 %47, i32 %49, i64 %50, i32 %51) #19
   %53 = icmp sgt i64 %52, 0
-  br i1 %53, label %multi_addtimeout.exit, label %.lr.ph, !llvm.loop !9
+  br i1 %53, label %multi_addtimeout.exit, label %.lr.ph, !llvm.loop !8
 
 multi_addtimeout.exit:                            ; preds = %44, %.lr.ph, %.lr.ph.i34, %multi_deltimeout.exit, %.preheader.i
   %.1.i = phi ptr [ null, %multi_deltimeout.exit ], [ null, %.preheader.i ], [ null, %.lr.ph.i34 ], [ %.025.i46, %.lr.ph ], [ %.025.i46, %44 ]
@@ -531,7 +531,7 @@ multi_addtimeout.exit._crit_edge:                 ; preds = %multi_addtimeout.ex
 declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #3
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @Curl_update_timer(ptr noundef %0) local_unnamed_addr #0 {
+define dso_local range(i32 0, 12) i32 @Curl_update_timer(ptr noundef %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 384
   %3 = load ptr, ptr %2, align 8
   %.not = icmp eq ptr %3, null
@@ -695,7 +695,7 @@ declare i32 @Curl_share_lock(ptr noundef, i32 noundef, i32 noundef) local_unname
 declare i32 @Curl_share_unlock(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @curl_multi_remove_handle(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
+define dso_local range(i32 0, 12) i32 @curl_multi_remove_handle(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = alloca ptr, align 8
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %95, label %4
@@ -825,7 +825,7 @@ define dso_local noundef i32 @curl_multi_remove_handle(ptr noundef %0, ptr nound
   %61 = getelementptr inbounds i8, ptr %1, i64 4944
   tail call void @Curl_wildcard_dtor(ptr noundef nonnull %61) #19
   store i32 15, ptr %20, align 8
-  %62 = tail call fastcc i32 @singlesocket(ptr noundef nonnull %0, ptr noundef nonnull %1), !range !7
+  %62 = tail call fastcc i32 @singlesocket(ptr noundef nonnull %0, ptr noundef nonnull %1)
   tail call void @Curl_detach_connection(ptr noundef nonnull %1)
   %63 = getelementptr inbounds i8, ptr %1, i64 2641
   %64 = load i8, ptr %63, align 1
@@ -888,7 +888,7 @@ define dso_local noundef i32 @curl_multi_remove_handle(ptr noundef %0, ptr nound
   %90 = getelementptr inbounds i8, ptr %.06389, i64 16
   %.063 = load ptr, ptr %90, align 8
   %.not81 = icmp eq ptr %.063, null
-  br i1 %.not81, label %.loopexit, label %.lr.ph, !llvm.loop !10
+  br i1 %.not81, label %.loopexit, label %.lr.ph, !llvm.loop !9
 
 .loopexit:                                        ; preds = %89, %82, %88
   %91 = getelementptr inbounds i8, ptr %0, i64 24
@@ -896,7 +896,7 @@ define dso_local noundef i32 @curl_multi_remove_handle(ptr noundef %0, ptr nound
   %93 = add i32 %92, -1
   store i32 %93, ptr %91, align 8
   call fastcc void @process_pending_handles(ptr noundef nonnull %0)
-  %94 = call i32 @Curl_update_timer(ptr noundef nonnull %0), !range !7
+  %94 = call i32 @Curl_update_timer(ptr noundef nonnull %0)
   br label %95
 
 95:                                               ; preds = %.loopexit, %15, %14, %11, %7, %8, %2, %4
@@ -1254,7 +1254,7 @@ define dso_local void @Curl_expire_clear(ptr noundef %0) local_unnamed_addr #0 {
   tail call void @Curl_llist_remove(ptr noundef nonnull %11, ptr noundef %26, ptr noundef null) #19
   %27 = load i64, ptr %22, align 8
   %.not24 = icmp eq i64 %27, 0
-  br i1 %.not24, label %._crit_edge, label %25, !llvm.loop !11
+  br i1 %.not24, label %._crit_edge, label %25, !llvm.loop !10
 
 ._crit_edge:                                      ; preds = %25, %21
   store i64 0, ptr %4, align 8
@@ -1271,7 +1271,7 @@ declare void @Curl_llist_remove(ptr noundef, ptr noundef, ptr noundef) local_unn
 declare void @Curl_wildcard_dtor(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @singlesocket(ptr noundef %0, ptr noundef %1) unnamed_addr #0 {
+define internal fastcc range(i32 0, 12) i32 @singlesocket(ptr noundef %0, ptr noundef %1) unnamed_addr #0 {
   %3 = alloca i32, align 4
   %4 = alloca i32, align 4
   %5 = alloca i32, align 4
@@ -1344,7 +1344,7 @@ sh_getentry.exit:                                 ; preds = %24
 34:                                               ; preds = %35
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.thread121, label %35, !llvm.loop !12
+  br i1 %exitcond.not, label %.thread121, label %35, !llvm.loop !11
 
 35:                                               ; preds = %.lr.ph, %34
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %34 ]
@@ -1552,7 +1552,7 @@ sh_addentry.exit:                                 ; preds = %sh_getentry.exit.i,
   %127 = load i32, ptr %10, align 4
   %128 = zext i32 %127 to i64
   %129 = icmp ult i64 %indvars.iv.next173, %128
-  br i1 %129, label %24, label %.preheader.loopexit, !llvm.loop !13
+  br i1 %129, label %24, label %.preheader.loopexit, !llvm.loop !12
 
 130:                                              ; preds = %.lr.ph159, %.loopexit
   %indvars.iv180 = phi i64 [ 0, %.lr.ph159 ], [ %indvars.iv.next181, %.loopexit ]
@@ -1571,7 +1571,7 @@ sh_addentry.exit:                                 ; preds = %sh_getentry.exit.i,
 136:                                              ; preds = %.lr.ph157
   %indvars.iv.next176 = add nuw nsw i64 %indvars.iv175, 1
   %exitcond179.not = icmp eq i64 %indvars.iv.next176, %wide.trip.count178
-  br i1 %exitcond179.not, label %.critedge, label %.lr.ph157, !llvm.loop !14
+  br i1 %exitcond179.not, label %.critedge, label %.lr.ph157, !llvm.loop !13
 
 .lr.ph157:                                        ; preds = %.lr.ph157.preheader, %136
   %indvars.iv175 = phi i64 [ 0, %.lr.ph157.preheader ], [ %indvars.iv.next176, %136 ]
@@ -1676,7 +1676,7 @@ sh_getentry.exit116:                              ; preds = %.critedge
   %182 = load i32, ptr %181, align 4
   %183 = zext i32 %182 to i64
   %184 = icmp ult i64 %indvars.iv.next181, %183
-  br i1 %184, label %130, label %._crit_edge, !llvm.loop !15
+  br i1 %184, label %130, label %._crit_edge, !llvm.loop !14
 
 ._crit_edge:                                      ; preds = %.loopexit, %.preheader
   %.pn = phi ptr [ %17, %.preheader ], [ %180, %.loopexit ]
@@ -1717,7 +1717,7 @@ declare void @Curl_disconnect(ptr noundef, ptr noundef, i1 noundef zeroext) loca
 declare zeroext i1 @Curl_conncache_foreach(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @close_connect_only(ptr nocapture noundef readonly %0, ptr noundef %1, ptr nocapture readnone %2) #0 {
+define internal range(i32 0, 2) i32 @close_connect_only(ptr nocapture noundef readonly %0, ptr noundef %1, ptr nocapture readnone %2) #0 {
   %4 = getelementptr inbounds i8, ptr %0, i64 3096
   %5 = load i64, ptr %4, align 8
   %6 = getelementptr inbounds i8, ptr %1, i64 40
@@ -1851,7 +1851,7 @@ declare void @Curl_llist_insert_next(ptr noundef, ptr noundef, ptr noundef, ptr 
 declare void @Curl_conn_ev_data_attach(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @curl_multi_fdset(ptr noundef readonly %0, ptr nocapture noundef %1, ptr nocapture noundef %2, ptr nocapture noundef readnone %3, ptr nocapture noundef writeonly %4) local_unnamed_addr #0 {
+define dso_local range(i32 0, 9) i32 @curl_multi_fdset(ptr noundef readonly %0, ptr nocapture noundef %1, ptr nocapture noundef %2, ptr nocapture noundef readnone %3, ptr nocapture noundef writeonly %4) local_unnamed_addr #0 {
   %6 = alloca %struct.easy_pollset, align 4
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %50, label %7
@@ -1944,14 +1944,14 @@ define dso_local noundef i32 @curl_multi_fdset(ptr noundef readonly %0, ptr noca
   %.2 = phi i32 [ %.133, %.lr.ph ], [ %spec.select, %47 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !16
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !15
 
 ._crit_edge:                                      ; preds = %48, %18
   %.1.lcssa = phi i32 [ %.02337, %18 ], [ %.2, %48 ]
   %49 = getelementptr inbounds i8, ptr %.02438, i64 16
   %.024 = load ptr, ptr %49, align 8
   %.not30 = icmp eq ptr %.024, null
-  br i1 %.not30, label %._crit_edge41, label %18, !llvm.loop !17
+  br i1 %.not30, label %._crit_edge41, label %18, !llvm.loop !16
 
 ._crit_edge41:                                    ; preds = %._crit_edge, %14
   %.023.lcssa = phi i32 [ -1, %14 ], [ %.1.lcssa, %._crit_edge ]
@@ -2032,13 +2032,13 @@ define internal fastcc void @multi_getsock(ptr noundef %0, ptr noundef %1) unnam
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @curl_multi_wait(ptr noundef %0, ptr nocapture noundef %1, i32 noundef %2, i32 noundef %3, ptr noundef %4) local_unnamed_addr #0 {
-  %6 = tail call fastcc i32 @multi_wait(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, ptr noundef %4, i1 noundef zeroext false, i1 noundef zeroext false), !range !18
+define dso_local range(i32 0, 13) i32 @curl_multi_wait(ptr noundef %0, ptr nocapture noundef %1, i32 noundef %2, i32 noundef %3, ptr noundef %4) local_unnamed_addr #0 {
+  %6 = tail call fastcc i32 @multi_wait(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, ptr noundef %4, i1 noundef zeroext false, i1 noundef zeroext false)
   ret i32 %6
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @multi_wait(ptr noundef %0, ptr nocapture noundef %1, i32 noundef %2, i32 noundef %3, ptr noundef writeonly %4, i1 noundef zeroext %5, i1 noundef zeroext %6) unnamed_addr #0 {
+define internal fastcc range(i32 0, 13) i32 @multi_wait(ptr noundef %0, ptr nocapture noundef %1, i32 noundef %2, i32 noundef %3, ptr noundef writeonly %4, i1 noundef zeroext %5, i1 noundef zeroext %6) unnamed_addr #0 {
   %8 = alloca %struct.easy_pollset, align 4
   %9 = alloca [10 x %struct.pollfd], align 16
   %10 = alloca [64 x i8], align 16
@@ -2081,7 +2081,7 @@ define internal fastcc noundef i32 @multi_wait(ptr noundef %0, ptr nocapture nou
   %26 = getelementptr inbounds i8, ptr %.0113174, i64 16
   %.0113 = load ptr, ptr %26, align 8
   %.not138 = icmp eq ptr %.0113, null
-  br i1 %.not138, label %._crit_edge.loopexit, label %23, !llvm.loop !19
+  br i1 %.not138, label %._crit_edge.loopexit, label %23, !llvm.loop !17
 
 ._crit_edge.loopexit:                             ; preds = %23
   %.pre = load i8, ptr %15, align 1
@@ -2210,14 +2210,14 @@ multi_timeout.exit:                               ; preds = %._crit_edge, %29, %
   %81 = load i32, ptr %62, align 4
   %82 = zext i32 %81 to i64
   %83 = icmp ult i64 %80, %82
-  br i1 %83, label %.lr.ph178, label %._crit_edge179, !llvm.loop !20
+  br i1 %83, label %.lr.ph178, label %._crit_edge179, !llvm.loop !18
 
 ._crit_edge179:                                   ; preds = %79, %64
   %.3.lcssa = phi i32 [ %.2123183, %64 ], [ %66, %79 ]
   %84 = getelementptr inbounds i8, ptr %.1114184, i64 16
   %.1114 = load ptr, ptr %84, align 8
   %.not142 = icmp eq ptr %.1114, null
-  br i1 %.not142, label %.loopexit, label %64, !llvm.loop !21
+  br i1 %.not142, label %.loopexit, label %64, !llvm.loop !19
 
 .loopexit:                                        ; preds = %._crit_edge179, %.preheader170, %61
   %.4 = phi i32 [ 0, %61 ], [ 0, %.preheader170 ], [ %.3.lcssa, %._crit_edge179 ]
@@ -2266,7 +2266,7 @@ multi_timeout.exit:                               ; preds = %._crit_edge, %29, %
   %105 = add i32 %.5187, 1
   %106 = add nuw nsw i64 %.1116188, 1
   %exitcond.not = icmp eq i64 %106, %85
-  br i1 %exitcond.not, label %._crit_edge191, label %.lr.ph190, !llvm.loop !22
+  br i1 %exitcond.not, label %._crit_edge191, label %.lr.ph190, !llvm.loop !20
 
 ._crit_edge191:                                   ; preds = %104, %.loopexit
   %.5.lcssa = phi i32 [ %.4, %.loopexit ], [ %105, %104 ]
@@ -2319,7 +2319,7 @@ multi_timeout.exit:                               ; preds = %._crit_edge, %29, %
   store i16 %.2, ptr %127, align 2
   %128 = add nuw nsw i64 %.2117194, 1
   %exitcond202.not = icmp eq i64 %128, %85
-  br i1 %exitcond202.not, label %._crit_edge196, label %123, !llvm.loop !23
+  br i1 %exitcond202.not, label %._crit_edge196, label %123, !llvm.loop !21
 
 ._crit_edge196:                                   ; preds = %123, %.preheader169
   br i1 %6, label %129, label %148
@@ -2438,13 +2438,13 @@ curl_multi_timeout.exit.thread:                   ; preds = %163, %172, %157, %1
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @curl_multi_poll(ptr noundef %0, ptr nocapture noundef %1, i32 noundef %2, i32 noundef %3, ptr noundef %4) local_unnamed_addr #0 {
-  %6 = tail call fastcc i32 @multi_wait(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, ptr noundef %4, i1 noundef zeroext true, i1 noundef zeroext true), !range !18
+define dso_local range(i32 0, 13) i32 @curl_multi_poll(ptr noundef %0, ptr nocapture noundef %1, i32 noundef %2, i32 noundef %3, ptr noundef %4) local_unnamed_addr #0 {
+  %6 = tail call fastcc i32 @multi_wait(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, ptr noundef %4, i1 noundef zeroext true, i1 noundef zeroext true)
   ret i32 %6
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define dso_local noundef i32 @curl_multi_wakeup(ptr noundef readonly %0) local_unnamed_addr #5 {
+define dso_local range(i32 0, 10) i32 @curl_multi_wakeup(ptr noundef readonly %0) local_unnamed_addr #5 {
   %2 = alloca [1 x i8], align 1
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %.loopexit, label %3
@@ -2502,7 +2502,7 @@ define dso_local void @Curl_multi_connchanged(ptr nocapture noundef %0) local_un
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @Curl_multi_add_perform(ptr noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 {
+define dso_local i32 @Curl_multi_add_perform(ptr noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = getelementptr inbounds i8, ptr %0, i64 433
   %5 = load i8, ptr %4, align 1
   %6 = and i8 %5, 4
@@ -2564,7 +2564,7 @@ Curl_attach_connection.exit:                      ; preds = %mstate.exit, %22, %
 declare i32 @Curl_init_do(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @Curl_preconnect(ptr nocapture noundef %0) local_unnamed_addr #0 {
+define dso_local range(i32 0, 28) i32 @Curl_preconnect(ptr nocapture noundef %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 3152
   %3 = load ptr, ptr %2, align 8
   %.not = icmp eq ptr %3, null
@@ -2590,7 +2590,7 @@ define dso_local noundef i32 @Curl_preconnect(ptr nocapture noundef %0) local_un
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @curl_multi_perform(ptr noundef %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #0 {
+define dso_local range(i32 0, -2147483648) i32 @curl_multi_perform(ptr noundef %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #0 {
   %3 = alloca %struct.sigaction, align 8
   %4 = alloca %struct.sigaction, align 8
   %5 = alloca ptr, align 8
@@ -2702,11 +2702,11 @@ sigpipe_ignore.exit43:                            ; preds = %sigpipe_restore.exi
 
 55:                                               ; preds = %sigpipe_ignore.exit43, %33
   %.1 = phi i8 [ %.pre-phi55, %sigpipe_ignore.exit43 ], [ %.026, %33 ]
-  %56 = call fastcc i32 @multi_runsingle(ptr noundef nonnull %0, ptr noundef nonnull %6, ptr noundef nonnull %.027), !range !7
+  %56 = call fastcc i32 @multi_runsingle(ptr noundef nonnull %0, ptr noundef nonnull %6, ptr noundef nonnull %.027)
   %.not38 = icmp eq i32 %56, 0
   %spec.select = select i1 %.not38, i32 %.028, i32 %56
   %.not39 = icmp eq ptr %35, null
-  br i1 %.not39, label %57, label %33, !llvm.loop !24
+  br i1 %.not39, label %57, label %33, !llvm.loop !22
 
 57:                                               ; preds = %55
   %58 = load i8, ptr %28, align 8
@@ -2759,7 +2759,7 @@ sigpipe_restore.exit44:                           ; preds = %60, %57, %19
 86:                                               ; preds = %.lr.ph.i
   call void @Curl_llist_remove(ptr noundef nonnull %75, ptr noundef nonnull %.023.i, ptr noundef null) #19
   %.not.i45 = icmp eq ptr %78, null
-  br i1 %.not.i45, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !25
+  br i1 %.not.i45, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !23
 
 ._crit_edge.i:                                    ; preds = %86, %.lr.ph.i
   %.pre.i = load ptr, ptr %75, align 8
@@ -2787,7 +2787,7 @@ sigpipe_restore.exit44:                           ; preds = %60, %57, %19
 add_next_timeout.exit:                            ; preds = %89, %._crit_edge.thread.i
   %.pr = load ptr, ptr %5, align 8
   %.not41 = icmp eq ptr %.pr, null
-  br i1 %.not41, label %add_next_timeout.exit.thread, label %63, !llvm.loop !26
+  br i1 %.not41, label %add_next_timeout.exit.thread, label %63, !llvm.loop !24
 
 add_next_timeout.exit.thread:                     ; preds = %63, %add_next_timeout.exit
   %97 = getelementptr inbounds i8, ptr %0, i64 28
@@ -2797,7 +2797,7 @@ add_next_timeout.exit.thread:                     ; preds = %63, %add_next_timeo
   br i1 %99, label %100, label %102
 
 100:                                              ; preds = %add_next_timeout.exit.thread
-  %101 = call i32 @Curl_update_timer(ptr noundef nonnull %0), !range !7
+  %101 = call i32 @Curl_update_timer(ptr noundef nonnull %0)
   br label %102
 
 102:                                              ; preds = %add_next_timeout.exit.thread, %100, %15, %2, %12
@@ -2808,7 +2808,7 @@ add_next_timeout.exit.thread:                     ; preds = %63, %add_next_timeo
 declare { i64, i32 } @Curl_now() local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @multi_runsingle(ptr noundef %0, ptr noundef %1, ptr noundef %2) unnamed_addr #0 {
+define internal fastcc range(i32 0, 12) i32 @multi_runsingle(ptr noundef %0, ptr noundef %1, ptr noundef %2) unnamed_addr #0 {
   %4 = alloca i8, align 1
   %5 = alloca i8, align 1
   %6 = alloca i8, align 1
@@ -3268,7 +3268,7 @@ process_pending_handles.exit448:                  ; preds = %mstate.exit.i447, %
 
 .thread613:                                       ; preds = %218, %.thread, %221
   %.pr530607 = phi i32 [ %222, %.thread ], [ 0, %221 ], [ 0, %218 ]
-  %223 = call fastcc i32 @singlesocket(ptr noundef nonnull %0, ptr noundef nonnull %2), !range !7
+  %223 = call fastcc i32 @singlesocket(ptr noundef nonnull %0, ptr noundef nonnull %2)
   %.not421 = icmp eq i32 %223, 0
   br i1 %.not421, label %224, label %.loopexit
 
@@ -4879,7 +4879,7 @@ mstate.exit519.thread:                            ; preds = %859
   br i1 %880, label %881, label %.critedge.backedge
 
 .critedge.backedge:                               ; preds = %mstate.exit519.thread, %910, %908
-  br label %.critedge, !llvm.loop !27
+  br label %.critedge, !llvm.loop !25
 
 881:                                              ; preds = %mstate.exit519.thread, %mstate.exit519
   %882 = getelementptr inbounds i8, ptr %2, i64 2592
@@ -4959,7 +4959,7 @@ mstate.exit522:                                   ; preds = %896, %899
 declare ptr @Curl_splaygetbest(i64, i32, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @curl_multi_cleanup(ptr noundef %0) local_unnamed_addr #0 {
+define dso_local range(i32 0, 9) i32 @curl_multi_cleanup(ptr noundef %0) local_unnamed_addr #0 {
   %2 = alloca %struct.Curl_hash_iterator, align 8
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %75, label %3
@@ -5088,7 +5088,7 @@ process_pending_handles.exit:                     ; preds = %unlink_all_msgsent_
   %58 = getelementptr inbounds i8, ptr %.02837, i64 192
   store ptr null, ptr %58, align 8
   %.not31 = icmp eq ptr %40, null
-  br i1 %.not31, label %._crit_edge, label %.lr.ph, !llvm.loop !28
+  br i1 %.not31, label %._crit_edge, label %.lr.ph, !llvm.loop !26
 
 ._crit_edge:                                      ; preds = %57, %process_pending_handles.exit
   %59 = getelementptr inbounds i8, ptr %0, i64 272
@@ -5183,10 +5183,10 @@ declare i64 @Curl_llist_count(ptr noundef) local_unnamed_addr #1
 declare i32 @curlx_uztosi(i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @Curl_updatesocket(ptr noundef %0) local_unnamed_addr #0 {
+define dso_local range(i32 0, 43) i32 @Curl_updatesocket(ptr noundef %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 192
   %3 = load ptr, ptr %2, align 8
-  %4 = tail call fastcc i32 @singlesocket(ptr noundef %3, ptr noundef %0), !range !7
+  %4 = tail call fastcc i32 @singlesocket(ptr noundef %3, ptr noundef %0)
   %.not = icmp eq i32 %4, 0
   %. = select i1 %.not, i32 0, i32 42
   ret i32 %.
@@ -5269,7 +5269,7 @@ sh_getentry.exit:                                 ; preds = %9
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn uwtable
-define dso_local noundef i32 @curl_multi_setopt(ptr noundef %0, i32 noundef %1, ...) local_unnamed_addr #9 {
+define dso_local range(i32 0, 9) i32 @curl_multi_setopt(ptr noundef %0, i32 noundef %1, ...) local_unnamed_addr #9 {
   %3 = alloca [1 x %struct.__va_list_tag], align 16
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %212, label %4
@@ -5656,7 +5656,7 @@ define dso_local i32 @curl_multi_socket(ptr noundef %0, i32 noundef %1, ptr noca
   br i1 %9, label %10, label %12
 
 10:                                               ; preds = %7
-  %11 = tail call i32 @Curl_update_timer(ptr noundef nonnull %0), !range !7
+  %11 = tail call i32 @Curl_update_timer(ptr noundef nonnull %0)
   br label %12
 
 12:                                               ; preds = %7, %10, %3
@@ -5682,7 +5682,7 @@ define internal fastcc i32 @multi_socket(ptr noundef %0, i1 noundef zeroext %1, 
   br i1 %1, label %17, label %27
 
 17:                                               ; preds = %5
-  %18 = tail call i32 @curl_multi_perform(ptr noundef %0, ptr noundef %4), !range !29
+  %18 = tail call i32 @curl_multi_perform(ptr noundef %0, ptr noundef %4)
   %.not76 = icmp eq i32 %18, 1
   br i1 %.not76, label %.loopexit, label %19
 
@@ -5691,18 +5691,18 @@ define internal fastcc i32 @multi_socket(ptr noundef %0, i1 noundef zeroext %1, 
   %.04688 = load ptr, ptr %20, align 8
   %21 = icmp ne ptr %.04688, null
   %.not7789 = icmp eq i32 %18, 0
-  %22 = and i1 %.not7789, %21
+  %22 = and i1 %21, %.not7789
   br i1 %22, label %.lr.ph92, label %.loopexit
 
 .lr.ph92:                                         ; preds = %19, %.lr.ph92
   %.04690 = phi ptr [ %.046, %.lr.ph92 ], [ %.04688, %19 ]
-  %23 = tail call fastcc i32 @singlesocket(ptr noundef %0, ptr noundef nonnull %.04690), !range !7
+  %23 = tail call fastcc i32 @singlesocket(ptr noundef %0, ptr noundef nonnull %.04690)
   %24 = getelementptr inbounds i8, ptr %.04690, i64 16
   %.046 = load ptr, ptr %24, align 8
   %25 = icmp ne ptr %.046, null
   %.not77 = icmp eq i32 %23, 0
-  %26 = and i1 %.not77, %25
-  br i1 %26, label %.lr.ph92, label %.loopexit, !llvm.loop !30
+  %26 = select i1 %25, i1 %.not77, i1 false
+  br i1 %26, label %.lr.ph92, label %.loopexit, !llvm.loop !27
 
 27:                                               ; preds = %5
   %.not = icmp eq i32 %2, -1
@@ -5754,7 +5754,7 @@ sh_getentry.exit:                                 ; preds = %27
   call void @Curl_expire(ptr noundef nonnull %35, i64 noundef 0, i32 noundef 8)
   %47 = call ptr @Curl_hash_next_element(ptr noundef nonnull %12) #19
   %.not68 = icmp eq ptr %47, null
-  br i1 %.not68, label %._crit_edge, label %33, !llvm.loop !31
+  br i1 %.not68, label %._crit_edge, label %33, !llvm.loop !28
 
 ._crit_edge:                                      ; preds = %46, %30
   %48 = call { i64, i32 } @Curl_now() #19
@@ -5857,12 +5857,12 @@ sigpipe_ignore.exit80:                            ; preds = %sigpipe_restore.exi
 86:                                               ; preds = %69, %sigpipe_ignore.exit80, %sigpipe_ignore.exit
   %.156 = phi i8 [ %.pre-phi101, %sigpipe_ignore.exit80 ], [ %.055, %69 ], [ %64, %sigpipe_ignore.exit ]
   %.152 = phi i8 [ %.051, %sigpipe_ignore.exit80 ], [ %.051, %69 ], [ 1, %sigpipe_ignore.exit ]
-  %87 = call fastcc i32 @multi_runsingle(ptr noundef %0, ptr noundef nonnull %10, ptr noundef nonnull %.248), !range !7
+  %87 = call fastcc i32 @multi_runsingle(ptr noundef %0, ptr noundef nonnull %10, ptr noundef nonnull %.248)
   %88 = icmp eq i32 %87, 0
   br i1 %88, label %89, label %91
 
 89:                                               ; preds = %86
-  %90 = call fastcc i32 @singlesocket(ptr noundef %0, ptr noundef nonnull %.248), !range !7
+  %90 = call fastcc i32 @singlesocket(ptr noundef %0, ptr noundef nonnull %.248)
   %.not71 = icmp eq i32 %90, 0
   br i1 %.not71, label %91, label %add_next_timeout.exit.thread
 
@@ -5906,7 +5906,7 @@ sigpipe_ignore.exit80:                            ; preds = %sigpipe_restore.exi
 114:                                              ; preds = %.lr.ph.i
   call void @Curl_llist_remove(ptr noundef nonnull %103, ptr noundef nonnull %.023.i, ptr noundef null) #19
   %.not.i81 = icmp eq ptr %106, null
-  br i1 %.not.i81, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !25
+  br i1 %.not.i81, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !23
 
 ._crit_edge.i:                                    ; preds = %114, %.lr.ph.i
   %.pre.i = load ptr, ptr %103, align 8
@@ -5934,7 +5934,7 @@ sigpipe_ignore.exit80:                            ; preds = %sigpipe_restore.exi
 add_next_timeout.exit:                            ; preds = %117, %._crit_edge.thread.i
   %.pr = load ptr, ptr %9, align 8
   %.not73 = icmp eq ptr %.pr, null
-  br i1 %.not73, label %add_next_timeout.exit.thread, label %56, !llvm.loop !32
+  br i1 %.not73, label %add_next_timeout.exit.thread, label %56, !llvm.loop !29
 
 add_next_timeout.exit.thread:                     ; preds = %91, %89, %add_next_timeout.exit
   %.354 = phi i8 [ %.152, %89 ], [ %.253, %add_next_timeout.exit ], [ %.253, %91 ]
@@ -5976,7 +5976,7 @@ define dso_local i32 @curl_multi_socket_action(ptr noundef %0, i32 noundef %1, i
   br i1 %10, label %11, label %13
 
 11:                                               ; preds = %8
-  %12 = tail call i32 @Curl_update_timer(ptr noundef nonnull %0), !range !7
+  %12 = tail call i32 @Curl_update_timer(ptr noundef nonnull %0)
   br label %13
 
 13:                                               ; preds = %8, %11, %4
@@ -5985,7 +5985,7 @@ define dso_local i32 @curl_multi_socket_action(ptr noundef %0, i32 noundef %1, i
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @curl_multi_socket_all(ptr noundef %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #0 {
+define dso_local range(i32 0, -2147483648) i32 @curl_multi_socket_all(ptr noundef %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds i8, ptr %0, i64 433
   %4 = load i8, ptr %3, align 1
   %5 = and i8 %4, 4
@@ -5994,7 +5994,7 @@ define dso_local i32 @curl_multi_socket_all(ptr noundef %0, ptr nocapture nounde
 
 6:                                                ; preds = %2
   %7 = tail call { i64, i32 } @Curl_now() #19
-  %8 = tail call i32 @curl_multi_perform(ptr noundef nonnull %0, ptr noundef %1), !range !29
+  %8 = tail call i32 @curl_multi_perform(ptr noundef nonnull %0, ptr noundef %1)
   %.not76.i = icmp eq i32 %8, 1
   br i1 %.not76.i, label %multi_socket.exit.thread, label %9
 
@@ -6008,13 +6008,13 @@ define dso_local i32 @curl_multi_socket_all(ptr noundef %0, ptr nocapture nounde
 
 .lr.ph92.i:                                       ; preds = %9, %.lr.ph92.i
   %.04690.i = phi ptr [ %.046.i, %.lr.ph92.i ], [ %.04688.i, %9 ]
-  %13 = tail call fastcc i32 @singlesocket(ptr noundef %0, ptr noundef nonnull %.04690.i), !range !7
+  %13 = tail call fastcc i32 @singlesocket(ptr noundef %0, ptr noundef nonnull %.04690.i)
   %14 = getelementptr inbounds i8, ptr %.04690.i, i64 16
   %.046.i = load ptr, ptr %14, align 8
   %15 = icmp ne ptr %.046.i, null
   %.not77.i = icmp eq i32 %13, 0
-  %16 = and i1 %.not77.i, %15
-  br i1 %16, label %.lr.ph92.i, label %multi_socket.exit, !llvm.loop !30
+  %16 = select i1 %15, i1 %.not77.i, i1 false
+  br i1 %16, label %.lr.ph92.i, label %multi_socket.exit, !llvm.loop !27
 
 multi_socket.exit:                                ; preds = %.lr.ph92.i, %9
   %.0.i = phi i32 [ %8, %9 ], [ %13, %.lr.ph92.i ]
@@ -6022,7 +6022,7 @@ multi_socket.exit:                                ; preds = %.lr.ph92.i, %9
   br i1 %17, label %18, label %multi_socket.exit.thread
 
 18:                                               ; preds = %multi_socket.exit
-  %19 = tail call i32 @Curl_update_timer(ptr noundef %0), !range !7
+  %19 = tail call i32 @Curl_update_timer(ptr noundef %0)
   br label %multi_socket.exit.thread
 
 multi_socket.exit.thread:                         ; preds = %6, %multi_socket.exit, %18, %2
@@ -6031,7 +6031,7 @@ multi_socket.exit.thread:                         ; preds = %6, %multi_socket.ex
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @curl_multi_timeout(ptr noundef %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #0 {
+define dso_local range(i32 0, 9) i32 @curl_multi_timeout(ptr noundef %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #0 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %28, label %3
 
@@ -6126,14 +6126,14 @@ define dso_local void @Curl_expire_done(ptr noundef %0, i32 noundef %1) local_un
   %10 = getelementptr inbounds i8, ptr %.011.i, i64 16
   %.0.i = load ptr, ptr %10, align 8
   %.not.i = icmp eq ptr %.0.i, null
-  br i1 %.not.i, label %multi_deltimeout.exit, label %.lr.ph.i, !llvm.loop !8
+  br i1 %.not.i, label %multi_deltimeout.exit, label %.lr.ph.i, !llvm.loop !7
 
 multi_deltimeout.exit:                            ; preds = %9, %2, %8
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @curl_multi_assign(ptr noundef %0, i32 noundef %1, ptr noundef %2) local_unnamed_addr #0 {
+define dso_local range(i32 0, 6) i32 @curl_multi_assign(ptr noundef %0, i32 noundef %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = alloca i32, align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4)
   store i32 %1, ptr %4, align 4
@@ -6365,7 +6365,7 @@ define dso_local ptr @curl_multi_get_handles(ptr nocapture noundef readonly %0) 
   %19 = getelementptr inbounds i8, ptr %.018, i64 16
   %.0 = load ptr, ptr %19, align 8
   %.not13 = icmp eq ptr %.0, null
-  br i1 %.not13, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !33
+  br i1 %.not13, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !30
 
 ._crit_edge.loopexit:                             ; preds = %18
   %20 = zext i32 %.1 to i64
@@ -6384,7 +6384,7 @@ define dso_local ptr @curl_multi_get_handles(ptr nocapture noundef readonly %0) 
 declare void @Curl_hash_init(ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal i64 @hash_fd(ptr nocapture noundef readonly %0, i64 %1, i64 noundef %2) #4 {
+define internal range(i64 0, -1) i64 @hash_fd(ptr nocapture noundef readonly %0, i64 %1, i64 noundef %2) #4 {
   %4 = load i32, ptr %0, align 4
   %5 = sext i32 %4 to i64
   %6 = urem i64 %5, %2
@@ -6392,7 +6392,7 @@ define internal i64 @hash_fd(ptr nocapture noundef readonly %0, i64 %1, i64 noun
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal i64 @fd_key_compare(ptr nocapture noundef readonly %0, i64 %1, ptr nocapture noundef readonly %2, i64 %3) #4 {
+define internal range(i64 0, 2) i64 @fd_key_compare(ptr nocapture noundef readonly %0, i64 %1, ptr nocapture noundef readonly %2, i64 %3) #4 {
   %5 = load i32, ptr %0, align 4
   %6 = load i32, ptr %2, align 4
   %7 = icmp eq i32 %5, %6
@@ -6491,7 +6491,7 @@ Curl_detach_connection.exit:                      ; preds = %1, %4
   tail call void @Curl_llist_remove(ptr noundef nonnull %16, ptr noundef %31, ptr noundef null) #19
   %32 = load i64, ptr %27, align 8
   %.not24.i = icmp eq i64 %32, 0
-  br i1 %.not24.i, label %._crit_edge.i, label %30, !llvm.loop !11
+  br i1 %.not24.i, label %._crit_edge.i, label %30, !llvm.loop !10
 
 ._crit_edge.i:                                    ; preds = %30, %26
   store i64 0, ptr %9, align 8
@@ -6528,7 +6528,7 @@ declare void @Curl_pollset_add_socks(ptr noundef, ptr noundef, ptr noundef) loca
 declare i32 @Curl_resolv_getsock(ptr noundef, ptr noundef) #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal noundef i32 @connecting_getsock(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) #13 {
+define internal range(i32 0, 2) i32 @connecting_getsock(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) #13 {
   %3 = getelementptr inbounds i8, ptr %0, i64 32
   %4 = load ptr, ptr %3, align 8
   %.not = icmp eq ptr %4, null
@@ -6875,7 +6875,7 @@ define internal i64 @trhash(ptr nocapture noundef readonly %0, i64 %1, i64 nound
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal i64 @trhash_compare(ptr nocapture noundef readonly %0, i64 %1, ptr nocapture noundef readonly %2, i64 %3) #4 {
+define internal range(i64 0, 2) i64 @trhash_compare(ptr nocapture noundef readonly %0, i64 %1, ptr nocapture noundef readonly %2, i64 %3) #4 {
   %5 = load ptr, ptr %0, align 8
   %6 = load ptr, ptr %2, align 8
   %7 = icmp eq ptr %5, %6
@@ -6945,7 +6945,7 @@ attributes #20 = { nounwind willreturn memory(none) }
 !4 = !{i32 7, !"frame-pointer", i32 2}
 !5 = distinct !{!5, !6}
 !6 = !{!"llvm.loop.mustprogress"}
-!7 = !{i32 0, i32 12}
+!7 = distinct !{!7, !6}
 !8 = distinct !{!8, !6}
 !9 = distinct !{!9, !6}
 !10 = distinct !{!10, !6}
@@ -6956,7 +6956,7 @@ attributes #20 = { nounwind willreturn memory(none) }
 !15 = distinct !{!15, !6}
 !16 = distinct !{!16, !6}
 !17 = distinct !{!17, !6}
-!18 = !{i32 0, i32 13}
+!18 = distinct !{!18, !6}
 !19 = distinct !{!19, !6}
 !20 = distinct !{!20, !6}
 !21 = distinct !{!21, !6}
@@ -6967,8 +6967,5 @@ attributes #20 = { nounwind willreturn memory(none) }
 !26 = distinct !{!26, !6}
 !27 = distinct !{!27, !6}
 !28 = distinct !{!28, !6}
-!29 = !{i32 0, i32 -2147483648}
+!29 = distinct !{!29, !6}
 !30 = distinct !{!30, !6}
-!31 = distinct !{!31, !6}
-!32 = distinct !{!32, !6}
-!33 = distinct !{!33, !6}

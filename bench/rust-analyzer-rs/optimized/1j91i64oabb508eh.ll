@@ -16326,7 +16326,7 @@ define hidden void @_ZN4core3ops8function6FnOnce9call_once17h7b825f5b8bc8f9aaE.l
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define hidden noundef i8 @_ZN4core3ops8function6FnOnce9call_once17h862c7e19a0a54671E.llvm.15439407322995335751(i1 noundef zeroext %0) unnamed_addr #4 {
+define hidden noundef range(i8 0, 2) i8 @_ZN4core3ops8function6FnOnce9call_once17h862c7e19a0a54671E.llvm.15439407322995335751(i1 noundef zeroext %0) unnamed_addr #4 {
   %2 = zext i1 %0 to i8
   ret i8 %2
 }
@@ -16630,7 +16630,7 @@ define hidden void @_ZN4core3ops8function6FnOnce9call_once17hb1ed8e4b3fbcca50E.l
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define hidden noundef i8 @_ZN4core3ops8function6FnOnce9call_once17hb210049ffa71e410E.llvm.15439407322995335751(i1 noundef zeroext %0) unnamed_addr #4 {
+define hidden noundef range(i8 0, 2) i8 @_ZN4core3ops8function6FnOnce9call_once17hb210049ffa71e410E.llvm.15439407322995335751(i1 noundef zeroext %0) unnamed_addr #4 {
   %2 = zext i1 %0 to i8
   ret i8 %2
 }
@@ -16647,7 +16647,7 @@ define hidden noundef nonnull ptr @_ZN4core3ops8function6FnOnce9call_once17hbb0f
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define hidden noundef i8 @_ZN4core3ops8function6FnOnce9call_once17hbbd28aff779f851eE.llvm.15439407322995335751(i1 noundef zeroext %0) unnamed_addr #4 {
+define hidden noundef range(i8 0, 2) i8 @_ZN4core3ops8function6FnOnce9call_once17hbbd28aff779f851eE.llvm.15439407322995335751(i1 noundef zeroext %0) unnamed_addr #4 {
   %2 = zext i1 %0 to i8
   ret i8 %2
 }
@@ -16913,7 +16913,7 @@ define hidden noundef i64 @_ZN4core3ptr12align_offset17h4eff030758acb178E(ptr no
 }
 
 ; Function Attrs: inlinehint nofree norecurse nosync nounwind nonlazybind memory(none) uwtable
-define hidden noundef i64 @_ZN4core3ptr12align_offset7mod_inv17h013d61a74e4005d4E.llvm.15439407322995335751(i64 noundef %0, i64 noundef %1) unnamed_addr #9 {
+define hidden noundef range(i64 0, -1) i64 @_ZN4core3ptr12align_offset7mod_inv17h013d61a74e4005d4E.llvm.15439407322995335751(i64 noundef %0, i64 noundef %1) unnamed_addr #9 {
   %3 = alloca [8 x i8], align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
   store <8 x i8> <i8 1, i8 11, i8 13, i8 7, i8 9, i8 3, i8 5, i8 15>, ptr %3, align 8
@@ -23373,7 +23373,7 @@ define hidden { i32, i32 } @_ZN4core6option6Option4Some17h211fb2378aefa8f1E.llvm
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define hidden noundef i8 @_ZN4core6option6Option4Some17h250c4e4e5ba20ba2E.llvm.15439407322995335751(i1 noundef zeroext %0) unnamed_addr #4 {
+define hidden noundef range(i8 0, 2) i8 @_ZN4core6option6Option4Some17h250c4e4e5ba20ba2E.llvm.15439407322995335751(i1 noundef zeroext %0) unnamed_addr #4 {
   %2 = zext i1 %0 to i8
   ret i8 %2
 }
@@ -23534,7 +23534,7 @@ define hidden void @_ZN4core6option6Option4Some17hb26f2806afb644f9E.llvm.1543940
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define hidden noundef i8 @_ZN4core6option6Option4Some17hb5b3f295b5df38f6E.llvm.15439407322995335751(i1 noundef zeroext %0) unnamed_addr #4 {
+define hidden noundef range(i8 0, 2) i8 @_ZN4core6option6Option4Some17hb5b3f295b5df38f6E.llvm.15439407322995335751(i1 noundef zeroext %0) unnamed_addr #4 {
   %2 = zext i1 %0 to i8
   ret i8 %2
 }
@@ -23602,7 +23602,7 @@ define hidden { i64, i64 } @_ZN4core6option6Option4Some17he346709038ce63b3E.llvm
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define hidden noundef i8 @_ZN4core6option6Option4Some17he94d9d76c8892166E.llvm.15439407322995335751(i1 noundef zeroext %0) unnamed_addr #4 {
+define hidden noundef range(i8 0, 2) i8 @_ZN4core6option6Option4Some17he94d9d76c8892166E.llvm.15439407322995335751(i1 noundef zeroext %0) unnamed_addr #4 {
   %2 = zext i1 %0 to i8
   ret i8 %2
 }
@@ -75214,7 +75214,7 @@ _ZN13rust_analyzer3cli5flags12RustAnalyzer9from_vec_17hb4f2540088f7e01bE.exit: ;
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
-define noundef i8 @_ZN13rust_analyzer3cli5flags12RustAnalyzer9verbosity17h43401405ac26be34E(ptr noalias nocapture noundef readonly align 8 dereferenceable(112) %0) unnamed_addr #45 {
+define noundef range(i8 0, 4) i8 @_ZN13rust_analyzer3cli5flags12RustAnalyzer9verbosity17h43401405ac26be34E(ptr noalias nocapture noundef readonly align 8 dereferenceable(112) %0) unnamed_addr #45 {
   %2 = getelementptr inbounds i8, ptr %0, i64 108
   %3 = load i8, ptr %2, align 4, !range !274, !noundef !12
   %4 = trunc nuw i8 %3 to i1

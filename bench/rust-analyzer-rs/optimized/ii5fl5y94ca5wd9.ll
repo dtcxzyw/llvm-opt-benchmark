@@ -2229,7 +2229,7 @@ _ZN4core3ops8function6FnOnce9call_once17h574c770443ddeff6E.exit: ; preds = %4
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define internal noundef i8 @"_ZN4core3ops8function6FnOnce40call_once$u7b$$u7b$vtable.shim$u7d$$u7d$17hea375b37fe07b615E"(ptr nocapture noundef readonly %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(192) %1, i32 noundef %2) unnamed_addr #0 personality ptr @rust_eh_personality {
+define internal noundef range(i8 0, 3) i8 @"_ZN4core3ops8function6FnOnce40call_once$u7b$$u7b$vtable.shim$u7d$$u7d$17hea375b37fe07b615E"(ptr nocapture noundef readonly %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(192) %1, i32 noundef %2) unnamed_addr #0 personality ptr @rust_eh_personality {
   %4 = alloca { ptr, ptr }, align 16
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4)
   %5 = load <2 x ptr>, ptr %0, align 8
@@ -2240,7 +2240,7 @@ define internal noundef i8 @"_ZN4core3ops8function6FnOnce40call_once$u7b$$u7b$vt
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define internal noundef i32 @_ZN4core3ops8function6FnOnce9call_once17h59cd3f60471e5a4cE(ptr noalias noundef readonly align 8 dereferenceable(24) %0) unnamed_addr #0 personality ptr @rust_eh_personality {
+define internal noundef range(i32 0, 3) i32 @_ZN4core3ops8function6FnOnce9call_once17h59cd3f60471e5a4cE(ptr noalias noundef readonly align 8 dereferenceable(24) %0) unnamed_addr #0 personality ptr @rust_eh_personality {
   %2 = alloca { { i8, [23 x i8] } }, align 8
   %3 = alloca { { i8, [23 x i8] } }, align 8
   %4 = alloca { { i8, [23 x i8] } }, align 8
@@ -2411,7 +2411,7 @@ define internal noundef i32 @_ZN4core3ops8function6FnOnce9call_once17h59cd3f6047
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define internal noundef i32 @_ZN4core3ops8function6FnOnce9call_once17h8dd6c4445d8c82e2E(ptr noalias noundef readonly align 8 dereferenceable(24) %0) unnamed_addr #0 personality ptr @rust_eh_personality {
+define internal noundef range(i32 0, 3) i32 @_ZN4core3ops8function6FnOnce9call_once17h8dd6c4445d8c82e2E(ptr noalias noundef readonly align 8 dereferenceable(24) %0) unnamed_addr #0 personality ptr @rust_eh_personality {
   %2 = alloca { { i8, [23 x i8] } }, align 8
   %3 = alloca { { i8, [23 x i8] } }, align 8
   %4 = alloca { { i8, [23 x i8] } }, align 8
@@ -12645,7 +12645,7 @@ define hidden void @"_ZN5salsa19QueryTable$LT$Q$GT$3get17h05c948cfda2dfd22E"(ptr
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden noundef i32 @"_ZN5salsa19QueryTable$LT$Q$GT$3get17h0b312e9fb7ba45e1E"(ptr noalias nocapture noundef readonly align 8 dereferenceable(24) %0, ptr noalias nocapture noundef align 4 dereferenceable(24) %1) unnamed_addr #1 personality ptr @rust_eh_personality {
+define hidden noundef range(i32 1, 0) i32 @"_ZN5salsa19QueryTable$LT$Q$GT$3get17h0b312e9fb7ba45e1E"(ptr noalias nocapture noundef readonly align 8 dereferenceable(24) %0, ptr noalias nocapture noundef align 4 dereferenceable(24) %1) unnamed_addr #1 personality ptr @rust_eh_personality {
   %3 = getelementptr inbounds i8, ptr %0, i64 16
   %4 = load ptr, ptr %3, align 8, !nonnull !4, !align !121, !noundef !4
   %5 = load ptr, ptr %0, align 8, !nonnull !4, !align !597, !noundef !4
@@ -12669,7 +12669,7 @@ define hidden noundef nonnull ptr @"_ZN5salsa19QueryTable$LT$Q$GT$3get17h1349447
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden noundef i32 @"_ZN5salsa19QueryTable$LT$Q$GT$3get17h1ac87c9c6122131dE"(ptr noalias nocapture noundef readonly align 8 dereferenceable(24) %0, ptr noalias nocapture noundef align 4 dereferenceable(24) %1) unnamed_addr #1 personality ptr @rust_eh_personality {
+define hidden noundef range(i32 1, 0) i32 @"_ZN5salsa19QueryTable$LT$Q$GT$3get17h1ac87c9c6122131dE"(ptr noalias nocapture noundef readonly align 8 dereferenceable(24) %0, ptr noalias nocapture noundef align 4 dereferenceable(24) %1) unnamed_addr #1 personality ptr @rust_eh_personality {
   %3 = getelementptr inbounds i8, ptr %0, i64 16
   %4 = load ptr, ptr %3, align 8, !nonnull !4, !align !121, !noundef !4
   %5 = load ptr, ptr %0, align 8, !nonnull !4, !align !597, !noundef !4
@@ -12680,7 +12680,7 @@ define hidden noundef i32 @"_ZN5salsa19QueryTable$LT$Q$GT$3get17h1ac87c9c6122131
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden noundef i32 @"_ZN5salsa19QueryTable$LT$Q$GT$3get17h1d4ff86ad951bbe7E"(ptr noalias nocapture noundef readonly align 8 dereferenceable(24) %0, ptr noalias nocapture noundef align 4 dereferenceable(24) %1) unnamed_addr #1 personality ptr @rust_eh_personality {
+define hidden noundef range(i32 1, 0) i32 @"_ZN5salsa19QueryTable$LT$Q$GT$3get17h1d4ff86ad951bbe7E"(ptr noalias nocapture noundef readonly align 8 dereferenceable(24) %0, ptr noalias nocapture noundef align 4 dereferenceable(24) %1) unnamed_addr #1 personality ptr @rust_eh_personality {
   %3 = getelementptr inbounds i8, ptr %0, i64 16
   %4 = load ptr, ptr %3, align 8, !nonnull !4, !align !121, !noundef !4
   %5 = load ptr, ptr %0, align 8, !nonnull !4, !align !597, !noundef !4
@@ -12717,7 +12717,7 @@ define hidden void @"_ZN5salsa19QueryTable$LT$Q$GT$3get17h21f580a05abc64b3E"(ptr
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden noundef i32 @"_ZN5salsa19QueryTable$LT$Q$GT$3get17h2317449e52295a21E"(ptr noalias nocapture noundef readonly align 8 dereferenceable(24) %0, ptr noalias nocapture noundef align 4 dereferenceable(24) %1) unnamed_addr #1 personality ptr @rust_eh_personality {
+define hidden noundef range(i32 1, 0) i32 @"_ZN5salsa19QueryTable$LT$Q$GT$3get17h2317449e52295a21E"(ptr noalias nocapture noundef readonly align 8 dereferenceable(24) %0, ptr noalias nocapture noundef align 4 dereferenceable(24) %1) unnamed_addr #1 personality ptr @rust_eh_personality {
   %3 = getelementptr inbounds i8, ptr %0, i64 16
   %4 = load ptr, ptr %3, align 8, !nonnull !4, !align !121, !noundef !4
   %5 = load ptr, ptr %0, align 8, !nonnull !4, !align !597, !noundef !4
@@ -12728,7 +12728,7 @@ define hidden noundef i32 @"_ZN5salsa19QueryTable$LT$Q$GT$3get17h2317449e52295a2
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden noundef i32 @"_ZN5salsa19QueryTable$LT$Q$GT$3get17h24ed84e9604e4b0dE"(ptr noalias nocapture noundef readonly align 8 dereferenceable(24) %0, ptr noalias nocapture noundef align 4 dereferenceable(28) %1) unnamed_addr #1 personality ptr @rust_eh_personality {
+define hidden noundef range(i32 1, 0) i32 @"_ZN5salsa19QueryTable$LT$Q$GT$3get17h24ed84e9604e4b0dE"(ptr noalias nocapture noundef readonly align 8 dereferenceable(24) %0, ptr noalias nocapture noundef align 4 dereferenceable(28) %1) unnamed_addr #1 personality ptr @rust_eh_personality {
   %3 = getelementptr inbounds i8, ptr %0, i64 16
   %4 = load ptr, ptr %3, align 8, !nonnull !4, !align !121, !noundef !4
   %5 = load ptr, ptr %0, align 8, !nonnull !4, !align !597, !noundef !4
@@ -12752,7 +12752,7 @@ define hidden noundef nonnull ptr @"_ZN5salsa19QueryTable$LT$Q$GT$3get17h264bc8b
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden noundef i32 @"_ZN5salsa19QueryTable$LT$Q$GT$3get17h267bde217b08c1a0E"(ptr noalias nocapture noundef readonly align 8 dereferenceable(24) %0, ptr noalias nocapture noundef align 4 dereferenceable(28) %1) unnamed_addr #1 personality ptr @rust_eh_personality {
+define hidden noundef range(i32 1, 0) i32 @"_ZN5salsa19QueryTable$LT$Q$GT$3get17h267bde217b08c1a0E"(ptr noalias nocapture noundef readonly align 8 dereferenceable(24) %0, ptr noalias nocapture noundef align 4 dereferenceable(28) %1) unnamed_addr #1 personality ptr @rust_eh_personality {
   %3 = getelementptr inbounds i8, ptr %0, i64 16
   %4 = load ptr, ptr %3, align 8, !nonnull !4, !align !121, !noundef !4
   %5 = load ptr, ptr %0, align 8, !nonnull !4, !align !597, !noundef !4
@@ -12882,7 +12882,7 @@ define hidden noundef nonnull ptr @"_ZN5salsa19QueryTable$LT$Q$GT$3get17h3746869
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden noundef i32 @"_ZN5salsa19QueryTable$LT$Q$GT$3get17h3ba5a2238c01ed57E"(ptr noalias nocapture noundef readonly align 8 dereferenceable(24) %0, ptr noalias nocapture noundef align 4 dereferenceable(24) %1) unnamed_addr #1 personality ptr @rust_eh_personality {
+define hidden noundef range(i32 1, 0) i32 @"_ZN5salsa19QueryTable$LT$Q$GT$3get17h3ba5a2238c01ed57E"(ptr noalias nocapture noundef readonly align 8 dereferenceable(24) %0, ptr noalias nocapture noundef align 4 dereferenceable(24) %1) unnamed_addr #1 personality ptr @rust_eh_personality {
   %3 = getelementptr inbounds i8, ptr %0, i64 16
   %4 = load ptr, ptr %3, align 8, !nonnull !4, !align !121, !noundef !4
   %5 = load ptr, ptr %0, align 8, !nonnull !4, !align !597, !noundef !4
@@ -12893,7 +12893,7 @@ define hidden noundef i32 @"_ZN5salsa19QueryTable$LT$Q$GT$3get17h3ba5a2238c01ed5
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden noundef i32 @"_ZN5salsa19QueryTable$LT$Q$GT$3get17h3d96eb27226b3558E"(ptr noalias nocapture noundef readonly align 8 dereferenceable(24) %0, ptr noalias nocapture noundef align 4 dereferenceable(28) %1) unnamed_addr #1 personality ptr @rust_eh_personality {
+define hidden noundef range(i32 1, 0) i32 @"_ZN5salsa19QueryTable$LT$Q$GT$3get17h3d96eb27226b3558E"(ptr noalias nocapture noundef readonly align 8 dereferenceable(24) %0, ptr noalias nocapture noundef align 4 dereferenceable(28) %1) unnamed_addr #1 personality ptr @rust_eh_personality {
   %3 = getelementptr inbounds i8, ptr %0, i64 16
   %4 = load ptr, ptr %3, align 8, !nonnull !4, !align !121, !noundef !4
   %5 = load ptr, ptr %0, align 8, !nonnull !4, !align !597, !noundef !4
@@ -12917,7 +12917,7 @@ define hidden { ptr, ptr } @"_ZN5salsa19QueryTable$LT$Q$GT$3get17h4d91bf714c4269
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden noundef i32 @"_ZN5salsa19QueryTable$LT$Q$GT$3get17h4f112c82da880b94E"(ptr noalias nocapture noundef readonly align 8 dereferenceable(24) %0, ptr noalias nocapture noundef align 4 dereferenceable(24) %1) unnamed_addr #1 personality ptr @rust_eh_personality {
+define hidden noundef range(i32 1, 0) i32 @"_ZN5salsa19QueryTable$LT$Q$GT$3get17h4f112c82da880b94E"(ptr noalias nocapture noundef readonly align 8 dereferenceable(24) %0, ptr noalias nocapture noundef align 4 dereferenceable(24) %1) unnamed_addr #1 personality ptr @rust_eh_personality {
   %3 = getelementptr inbounds i8, ptr %0, i64 16
   %4 = load ptr, ptr %3, align 8, !nonnull !4, !align !121, !noundef !4
   %5 = load ptr, ptr %0, align 8, !nonnull !4, !align !597, !noundef !4
@@ -12956,7 +12956,7 @@ define hidden void @"_ZN5salsa19QueryTable$LT$Q$GT$3get17h53294e9be76d71e4E"(ptr
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden noundef i32 @"_ZN5salsa19QueryTable$LT$Q$GT$3get17h57b9e868e95b472dE"(ptr noalias nocapture noundef readonly align 8 dereferenceable(24) %0, ptr noalias nocapture noundef align 4 dereferenceable(28) %1) unnamed_addr #1 personality ptr @rust_eh_personality {
+define hidden noundef range(i32 1, 0) i32 @"_ZN5salsa19QueryTable$LT$Q$GT$3get17h57b9e868e95b472dE"(ptr noalias nocapture noundef readonly align 8 dereferenceable(24) %0, ptr noalias nocapture noundef align 4 dereferenceable(28) %1) unnamed_addr #1 personality ptr @rust_eh_personality {
   %3 = getelementptr inbounds i8, ptr %0, i64 16
   %4 = load ptr, ptr %3, align 8, !nonnull !4, !align !121, !noundef !4
   %5 = load ptr, ptr %0, align 8, !nonnull !4, !align !597, !noundef !4
@@ -13006,7 +13006,7 @@ define hidden { ptr, ptr } @"_ZN5salsa19QueryTable$LT$Q$GT$3get17h630956cdbd4bbb
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden noundef i32 @"_ZN5salsa19QueryTable$LT$Q$GT$3get17h656e9883a3a08aa6E"(ptr noalias nocapture noundef readonly align 8 dereferenceable(24) %0, ptr noalias nocapture noundef align 4 dereferenceable(28) %1) unnamed_addr #1 personality ptr @rust_eh_personality {
+define hidden noundef range(i32 1, 0) i32 @"_ZN5salsa19QueryTable$LT$Q$GT$3get17h656e9883a3a08aa6E"(ptr noalias nocapture noundef readonly align 8 dereferenceable(24) %0, ptr noalias nocapture noundef align 4 dereferenceable(28) %1) unnamed_addr #1 personality ptr @rust_eh_personality {
   %3 = getelementptr inbounds i8, ptr %0, i64 16
   %4 = load ptr, ptr %3, align 8, !nonnull !4, !align !121, !noundef !4
   %5 = load ptr, ptr %0, align 8, !nonnull !4, !align !597, !noundef !4
@@ -13123,7 +13123,7 @@ define hidden noundef nonnull ptr @"_ZN5salsa19QueryTable$LT$Q$GT$3get17h7d18a03
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden noundef i32 @"_ZN5salsa19QueryTable$LT$Q$GT$3get17h8091734870b85d28E"(ptr noalias nocapture noundef readonly align 8 dereferenceable(24) %0, ptr noalias nocapture noundef align 4 dereferenceable(24) %1) unnamed_addr #1 personality ptr @rust_eh_personality {
+define hidden noundef range(i32 1, 0) i32 @"_ZN5salsa19QueryTable$LT$Q$GT$3get17h8091734870b85d28E"(ptr noalias nocapture noundef readonly align 8 dereferenceable(24) %0, ptr noalias nocapture noundef align 4 dereferenceable(24) %1) unnamed_addr #1 personality ptr @rust_eh_personality {
   %3 = getelementptr inbounds i8, ptr %0, i64 16
   %4 = load ptr, ptr %3, align 8, !nonnull !4, !align !121, !noundef !4
   %5 = load ptr, ptr %0, align 8, !nonnull !4, !align !597, !noundef !4
@@ -13147,7 +13147,7 @@ define hidden { ptr, ptr } @"_ZN5salsa19QueryTable$LT$Q$GT$3get17h86a08f248ef021
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden noundef i32 @"_ZN5salsa19QueryTable$LT$Q$GT$3get17h8bae619f5cd7fbeaE"(ptr noalias nocapture noundef readonly align 8 dereferenceable(24) %0, ptr noalias nocapture noundef align 4 dereferenceable(24) %1) unnamed_addr #1 personality ptr @rust_eh_personality {
+define hidden noundef range(i32 1, 0) i32 @"_ZN5salsa19QueryTable$LT$Q$GT$3get17h8bae619f5cd7fbeaE"(ptr noalias nocapture noundef readonly align 8 dereferenceable(24) %0, ptr noalias nocapture noundef align 4 dereferenceable(24) %1) unnamed_addr #1 personality ptr @rust_eh_personality {
   %3 = getelementptr inbounds i8, ptr %0, i64 16
   %4 = load ptr, ptr %3, align 8, !nonnull !4, !align !121, !noundef !4
   %5 = load ptr, ptr %0, align 8, !nonnull !4, !align !597, !noundef !4
@@ -13184,7 +13184,7 @@ define hidden void @"_ZN5salsa19QueryTable$LT$Q$GT$3get17h94fd7ecdd852d6dbE"(ptr
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden noundef i32 @"_ZN5salsa19QueryTable$LT$Q$GT$3get17h956eaff74b84418cE"(ptr noalias nocapture noundef readonly align 8 dereferenceable(24) %0, ptr noalias nocapture noundef align 4 dereferenceable(12) %1) unnamed_addr #1 personality ptr @rust_eh_personality {
+define hidden noundef range(i32 1, 0) i32 @"_ZN5salsa19QueryTable$LT$Q$GT$3get17h956eaff74b84418cE"(ptr noalias nocapture noundef readonly align 8 dereferenceable(24) %0, ptr noalias nocapture noundef align 4 dereferenceable(12) %1) unnamed_addr #1 personality ptr @rust_eh_personality {
   %3 = getelementptr inbounds i8, ptr %0, i64 16
   %4 = load ptr, ptr %3, align 8, !nonnull !4, !align !121, !noundef !4
   %5 = load ptr, ptr %0, align 8, !nonnull !4, !align !597, !noundef !4
@@ -13236,7 +13236,7 @@ define hidden noundef nonnull ptr @"_ZN5salsa19QueryTable$LT$Q$GT$3get17h9963ce2
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden noundef i32 @"_ZN5salsa19QueryTable$LT$Q$GT$3get17h9a45d9f50918d5b5E"(ptr noalias nocapture noundef readonly align 8 dereferenceable(24) %0, ptr noalias nocapture noundef align 4 dereferenceable(24) %1) unnamed_addr #1 personality ptr @rust_eh_personality {
+define hidden noundef range(i32 1, 0) i32 @"_ZN5salsa19QueryTable$LT$Q$GT$3get17h9a45d9f50918d5b5E"(ptr noalias nocapture noundef readonly align 8 dereferenceable(24) %0, ptr noalias nocapture noundef align 4 dereferenceable(24) %1) unnamed_addr #1 personality ptr @rust_eh_personality {
   %3 = getelementptr inbounds i8, ptr %0, i64 16
   %4 = load ptr, ptr %3, align 8, !nonnull !4, !align !121, !noundef !4
   %5 = load ptr, ptr %0, align 8, !nonnull !4, !align !597, !noundef !4
@@ -13337,7 +13337,7 @@ define hidden noundef nonnull ptr @"_ZN5salsa19QueryTable$LT$Q$GT$3get17hb81127d
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden noundef i32 @"_ZN5salsa19QueryTable$LT$Q$GT$3get17hbe10f540f230d09bE"(ptr noalias nocapture noundef readonly align 8 dereferenceable(24) %0, ptr noalias nocapture noundef align 4 dereferenceable(28) %1) unnamed_addr #1 personality ptr @rust_eh_personality {
+define hidden noundef range(i32 1, 0) i32 @"_ZN5salsa19QueryTable$LT$Q$GT$3get17hbe10f540f230d09bE"(ptr noalias nocapture noundef readonly align 8 dereferenceable(24) %0, ptr noalias nocapture noundef align 4 dereferenceable(28) %1) unnamed_addr #1 personality ptr @rust_eh_personality {
   %3 = getelementptr inbounds i8, ptr %0, i64 16
   %4 = load ptr, ptr %3, align 8, !nonnull !4, !align !121, !noundef !4
   %5 = load ptr, ptr %0, align 8, !nonnull !4, !align !597, !noundef !4
@@ -13417,7 +13417,7 @@ define hidden noundef nonnull ptr @"_ZN5salsa19QueryTable$LT$Q$GT$3get17hce808ba
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden noundef i32 @"_ZN5salsa19QueryTable$LT$Q$GT$3get17hcf9541ab9884b928E"(ptr noalias nocapture noundef readonly align 8 dereferenceable(24) %0, ptr noalias nocapture noundef align 4 dereferenceable(24) %1) unnamed_addr #1 personality ptr @rust_eh_personality {
+define hidden noundef range(i32 1, 0) i32 @"_ZN5salsa19QueryTable$LT$Q$GT$3get17hcf9541ab9884b928E"(ptr noalias nocapture noundef readonly align 8 dereferenceable(24) %0, ptr noalias nocapture noundef align 4 dereferenceable(24) %1) unnamed_addr #1 personality ptr @rust_eh_personality {
   %3 = getelementptr inbounds i8, ptr %0, i64 16
   %4 = load ptr, ptr %3, align 8, !nonnull !4, !align !121, !noundef !4
   %5 = load ptr, ptr %0, align 8, !nonnull !4, !align !597, !noundef !4
@@ -13467,7 +13467,7 @@ define hidden void @"_ZN5salsa19QueryTable$LT$Q$GT$3get17he08d4c657d29b318E"(ptr
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden noundef i32 @"_ZN5salsa19QueryTable$LT$Q$GT$3get17he12d680e18f70eaaE"(ptr noalias nocapture noundef readonly align 8 dereferenceable(24) %0, ptr noalias nocapture noundef align 4 dereferenceable(20) %1) unnamed_addr #1 personality ptr @rust_eh_personality {
+define hidden noundef range(i32 1, 0) i32 @"_ZN5salsa19QueryTable$LT$Q$GT$3get17he12d680e18f70eaaE"(ptr noalias nocapture noundef readonly align 8 dereferenceable(24) %0, ptr noalias nocapture noundef align 4 dereferenceable(20) %1) unnamed_addr #1 personality ptr @rust_eh_personality {
   %3 = getelementptr inbounds i8, ptr %0, i64 16
   %4 = load ptr, ptr %3, align 8, !nonnull !4, !align !121, !noundef !4
   %5 = load ptr, ptr %0, align 8, !nonnull !4, !align !597, !noundef !4
@@ -13541,7 +13541,7 @@ define hidden noundef nonnull ptr @"_ZN5salsa19QueryTable$LT$Q$GT$3get17hee60ab3
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden noundef i32 @"_ZN5salsa19QueryTable$LT$Q$GT$3get17hee909128f2859cd3E"(ptr noalias nocapture noundef readonly align 8 dereferenceable(24) %0, ptr noalias nocapture noundef align 8 dereferenceable(32) %1) unnamed_addr #1 personality ptr @rust_eh_personality {
+define hidden noundef range(i32 1, 0) i32 @"_ZN5salsa19QueryTable$LT$Q$GT$3get17hee909128f2859cd3E"(ptr noalias nocapture noundef readonly align 8 dereferenceable(24) %0, ptr noalias nocapture noundef align 8 dereferenceable(32) %1) unnamed_addr #1 personality ptr @rust_eh_personality {
   %3 = getelementptr inbounds i8, ptr %0, i64 16
   %4 = load ptr, ptr %3, align 8, !nonnull !4, !align !121, !noundef !4
   %5 = load ptr, ptr %0, align 8, !nonnull !4, !align !597, !noundef !4
@@ -13595,7 +13595,7 @@ common.resume:                                    ; preds = %9, %17
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden noundef i32 @"_ZN5salsa19QueryTable$LT$Q$GT$3get17hee9be3c5ceac9f68E"(ptr noalias nocapture noundef readonly align 8 dereferenceable(24) %0, ptr noalias nocapture noundef align 4 dereferenceable(20) %1) unnamed_addr #1 personality ptr @rust_eh_personality {
+define hidden noundef range(i32 1, 0) i32 @"_ZN5salsa19QueryTable$LT$Q$GT$3get17hee9be3c5ceac9f68E"(ptr noalias nocapture noundef readonly align 8 dereferenceable(24) %0, ptr noalias nocapture noundef align 4 dereferenceable(20) %1) unnamed_addr #1 personality ptr @rust_eh_personality {
   %3 = getelementptr inbounds i8, ptr %0, i64 16
   %4 = load ptr, ptr %3, align 8, !nonnull !4, !align !121, !noundef !4
   %5 = load ptr, ptr %0, align 8, !nonnull !4, !align !597, !noundef !4
@@ -28466,7 +28466,7 @@ _ZN4core4iter6traits8iterator8Iterator7collect17h6a1d5cff0517f1bdE.llvm.11603491
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define internal noundef i8 @"_ZN7hir_def9find_path15find_in_prelude28_$u7b$$u7b$closure$u7d$$u7d$17h38a8505aace03899E"(ptr noalias nocapture noundef readonly align 8 dereferenceable(16) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(192) %1, i32 noundef %2) unnamed_addr #0 {
+define internal noundef range(i8 0, 3) i8 @"_ZN7hir_def9find_path15find_in_prelude28_$u7b$$u7b$closure$u7d$$u7d$17h38a8505aace03899E"(ptr noalias nocapture noundef readonly align 8 dereferenceable(16) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(192) %1, i32 noundef %2) unnamed_addr #0 {
   %4 = alloca { { i32, [7 x i32] }, { i8, [39 x i8] }, { [8 x i32], i32, [2 x i32] } }, align 4
   tail call void @llvm.experimental.noalias.scope.decl(metadata !6548)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !6551)

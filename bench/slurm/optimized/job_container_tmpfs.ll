@@ -112,7 +112,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.81 = private unnamed_addr constant [41 x i8] c"%s: %s: JOB_CONT: umount2: %s failed: %m\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @init() local_unnamed_addr #0 {
+define range(i32 -1, 1) i32 @init() local_unnamed_addr #0 {
   %1 = tail call zeroext i1 @slurm_running_in_slurmd() #12
   br i1 %1, label %2, label %17
 
@@ -201,7 +201,7 @@ define noundef i32 @fini() local_unnamed_addr #0 {
 declare i32 @close(i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define i32 @container_p_restore(ptr nocapture noundef readnone %0, i1 noundef zeroext %1) local_unnamed_addr #0 {
+define range(i32 -1, 1) i32 @container_p_restore(ptr nocapture noundef readnone %0, i1 noundef zeroext %1) local_unnamed_addr #0 {
   %3 = alloca ptr, align 8
   %4 = alloca i64, align 8
   %5 = load i8, ptr @plugin_disabled, align 1
@@ -281,8 +281,8 @@ define i32 @container_p_restore(ptr nocapture noundef readnone %0, i1 noundef ze
 
 .preheader:                                       ; preds = %40
   %51 = tail call ptr @readdir(ptr noundef nonnull %50) #12
-  %.not2127 = icmp eq ptr %51, null
-  br i1 %.not2127, label %._crit_edge, label %.lr.ph
+  %.not2128 = icmp eq ptr %51, null
+  br i1 %.not2128, label %._crit_edge, label %.lr.ph
 
 52:                                               ; preds = %40
   %53 = load ptr, ptr @jc_conf, align 8
@@ -293,7 +293,7 @@ define i32 @container_p_restore(ptr nocapture noundef readnone %0, i1 noundef ze
 
 .lr.ph:                                           ; preds = %.preheader, %104
   %57 = phi ptr [ %105, %104 ], [ %51, %.preheader ]
-  %.01428 = phi i32 [ %.1, %104 ], [ 0, %.preheader ]
+  %.01429 = phi i32 [ %.1, %104 ], [ 0, %.preheader ]
   %58 = getelementptr inbounds i8, ptr %57, i64 18
   %59 = load i8, ptr %58, align 2
   switch i8 %59, label %104 [
@@ -385,22 +385,23 @@ _restore_ns.exit.thread:                          ; preds = %99, %73, %70
   br label %103
 
 _restore_ns.exit:                                 ; preds = %83, %86, %96
-  %.sink29 = load i64, ptr %4, align 8
-  %101 = trunc i64 %.sink29 to i32
-  %102 = call fastcc i32 @_delete_ns(i32 noundef %101), !range !6
+  %.sink30 = load i64, ptr %4, align 8
+  %101 = trunc i64 %.sink30 to i32
+  %102 = call fastcc i32 @_delete_ns(i32 noundef %101)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
-  %.not24 = icmp eq i32 %102, 0
+  %.0.i.fr = freeze i32 %102
+  %.not24 = icmp eq i32 %.0.i.fr, 0
   br i1 %.not24, label %103, label %104
 
 103:                                              ; preds = %_restore_ns.exit.thread, %_restore_ns.exit
   br label %104
 
 104:                                              ; preds = %103, %_restore_ns.exit, %.lr.ph
-  %.1 = phi i32 [ %.01428, %.lr.ph ], [ %.01428, %103 ], [ -1, %_restore_ns.exit ]
+  %.1 = phi i32 [ %.01429, %.lr.ph ], [ %.01429, %103 ], [ -1, %_restore_ns.exit ]
   %105 = call ptr @readdir(ptr noundef nonnull %50) #12
   %.not21 = icmp eq ptr %105, null
-  br i1 %.not21, label %._crit_edge, label %.lr.ph, !llvm.loop !7
+  br i1 %.not21, label %._crit_edge, label %.lr.ph, !llvm.loop !6
 
 ._crit_edge:                                      ; preds = %104, %.preheader
   %.014.lcssa = phi i32 [ 0, %.preheader ], [ %.1, %104 ]
@@ -493,7 +494,7 @@ declare noundef i32 @open(ptr nocapture noundef readonly, i32 noundef, ...) loca
 declare void @slurm_xfree(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @container_p_join(i32 noundef %0, i32 noundef %1) local_unnamed_addr #0 {
+define range(i32 -1, 1) i32 @container_p_join(i32 noundef %0, i32 noundef %1) local_unnamed_addr #0 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
   store ptr null, ptr %3, align 8
@@ -923,7 +924,7 @@ define i32 @container_p_stepd_create(i32 noundef %0, ptr nocapture noundef reado
   br i1 %183, label %184, label %186
 
 184:                                              ; preds = %179
-  %185 = call fastcc i32 @_clean_job_basepath(i32 noundef %0), !range !6
+  %185 = call fastcc i32 @_clean_job_basepath(i32 noundef %0)
   br label %189
 
 186:                                              ; preds = %179
@@ -1093,13 +1094,13 @@ _create_ns.exit:                                  ; preds = %22, %26, %31, %238,
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @container_p_stepd_delete(i32 noundef %0) local_unnamed_addr #0 {
+define range(i32 -1, 1) i32 @container_p_stepd_delete(i32 noundef %0) local_unnamed_addr #0 {
   %2 = load i8, ptr @plugin_disabled, align 1
   %3 = trunc nuw i8 %2 to i1
   br i1 %3, label %6, label %4
 
 4:                                                ; preds = %1
-  %5 = tail call fastcc i32 @_delete_ns(i32 noundef %0), !range !6
+  %5 = tail call fastcc i32 @_delete_ns(i32 noundef %0)
   br label %6
 
 6:                                                ; preds = %1, %4
@@ -1108,7 +1109,7 @@ define noundef i32 @container_p_stepd_delete(i32 noundef %0) local_unnamed_addr 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @_delete_ns(i32 noundef %0) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @_delete_ns(i32 noundef %0) unnamed_addr #0 {
   %2 = alloca ptr, align 8
   %3 = alloca ptr, align 8
   store ptr null, ptr %2, align 8
@@ -1236,7 +1237,7 @@ define internal fastcc noundef i32 @_delete_ns(i32 noundef %0) unnamed_addr #0 {
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @container_p_send_stepd(i32 noundef %0) local_unnamed_addr #0 {
+define range(i32 -1, 1) i32 @container_p_send_stepd(i32 noundef %0) local_unnamed_addr #0 {
   %2 = alloca i32, align 4
   %3 = tail call ptr @get_slurm_jc_conf_buf() #12
   %4 = getelementptr inbounds i8, ptr %3, i64 20
@@ -1298,7 +1299,7 @@ define noundef i32 @container_p_send_stepd(i32 noundef %0) local_unnamed_addr #0
   br label %.lr.ph.split.us.backedge
 
 .lr.ph.split.us.backedge:                         ; preds = %27, %24
-  br label %.lr.ph.split.us, !llvm.loop !9
+  br label %.lr.ph.split.us, !llvm.loop !8
 
 .outer36._crit_edge:                              ; preds = %.split.us
   %28 = icmp sgt i32 %5, 0
@@ -1363,7 +1364,7 @@ define noundef i32 @container_p_send_stepd(i32 noundef %0) local_unnamed_addr #0
   br label %.lr.ph59.split.us.backedge
 
 .lr.ph59.split.us.backedge:                       ; preds = %50, %47
-  br label %.lr.ph59.split.us, !llvm.loop !10
+  br label %.lr.ph59.split.us, !llvm.loop !9
 
 51:                                               ; preds = %.split65.us, %42, %.split48.us, %19
   %52 = tail call i32 (ptr, ...) @slurm_error(ptr noundef nonnull @.str.15, ptr noundef nonnull @__func__.container_p_send_stepd) #12
@@ -1383,7 +1384,7 @@ declare noundef i64 @write(i32 noundef, ptr nocapture noundef readonly, i64 noun
 declare ptr @__errno_location() local_unnamed_addr #5
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @container_p_recv_stepd(i32 noundef %0) local_unnamed_addr #0 {
+define range(i32 -1, 1) i32 @container_p_recv_stepd(i32 noundef %0) local_unnamed_addr #0 {
   %2 = alloca i32, align 4
   br label %.lr.ph
 
@@ -1500,7 +1501,7 @@ define noundef i32 @container_p_recv_stepd(i32 noundef %0) local_unnamed_addr #0
   br label %.lr.ph.backedge
 
 .lr.ph.backedge:                                  ; preds = %40, %37
-  br label %.lr.ph, !llvm.loop !11
+  br label %.lr.ph, !llvm.loop !10
 
 .outer49._crit_edge:                              ; preds = %.split71.us
   %.pre = load i32, ptr %2, align 4
@@ -1626,7 +1627,7 @@ define noundef i32 @container_p_recv_stepd(i32 noundef %0) local_unnamed_addr #0
   br label %.lr.ph118.backedge
 
 .lr.ph118.backedge:                               ; preds = %82, %79
-  br label %.lr.ph118, !llvm.loop !12
+  br label %.lr.ph118, !llvm.loop !11
 
 .outer._crit_edge:                                ; preds = %.split124.us, %.outer49._crit_edge
   %83 = tail call ptr @set_slurm_jc_conf(ptr noundef %41) #12
@@ -1675,7 +1676,7 @@ declare i64 @strtoul(ptr noundef readonly, ptr nocapture noundef, i32 noundef) l
 declare ptr @slurm_list_find_first(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal i32 @_find_step_in_list(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #7 {
+define internal range(i32 0, 2) i32 @_find_step_in_list(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #7 {
   %3 = getelementptr inbounds i8, ptr %0, i64 20
   %4 = load i32, ptr %3, align 4
   %5 = load i32, ptr %1, align 4
@@ -1762,7 +1763,7 @@ define internal fastcc noundef i32 @_mount_private_dirs(ptr noundef %0, i32 noun
 .backedge:                                        ; preds = %15, %43
   %.017.be = phi ptr [ %44, %43 ], [ %16, %15 ]
   %.not24 = icmp eq ptr %.017.be, null
-  br i1 %.not24, label %.loopexit, label %.lr.ph, !llvm.loop !13
+  br i1 %.not24, label %.loopexit, label %.lr.ph, !llvm.loop !12
 
 17:                                               ; preds = %.lr.ph
   call void (ptr, ptr, ...) @slurm_xstrfmtcat(ptr noundef nonnull %4, ptr noundef nonnull @.str.69, ptr noundef nonnull %0, ptr noundef nonnull %.01739) #12
@@ -1781,7 +1782,7 @@ define internal fastcc noundef i32 @_mount_private_dirs(ptr noundef %0, i32 noun
   ]
 
 .backedge61:                                      ; preds = %21, %23
-  br label %21, !llvm.loop !14
+  br label %21, !llvm.loop !13
 
 23:                                               ; preds = %21
   store i8 95, ptr %.0, align 1
@@ -1844,7 +1845,7 @@ define internal fastcc noundef i32 @_mount_private_dirs(ptr noundef %0, i32 noun
 declare noundef i32 @chown(ptr nocapture noundef readonly, i32 noundef, i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @_clean_job_basepath(i32 noundef %0) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @_clean_job_basepath(i32 noundef %0) unnamed_addr #0 {
   %2 = alloca ptr, align 8
   store ptr null, ptr %2, align 8
   %3 = load ptr, ptr @jc_conf, align 8
@@ -1881,7 +1882,7 @@ define internal fastcc noundef i32 @_clean_job_basepath(i32 noundef %0) unnamed_
 .backedge:                                        ; preds = %36, %19, %.lr.ph, %16
   %18 = call ptr @readdir(ptr noundef nonnull %6) #12
   %.not10 = icmp eq ptr %18, null
-  br i1 %.not10, label %._crit_edge, label %.lr.ph, !llvm.loop !15
+  br i1 %.not10, label %._crit_edge, label %.lr.ph, !llvm.loop !14
 
 19:                                               ; preds = %16
   %20 = getelementptr inbounds i8, ptr %13, i64 18
@@ -2046,13 +2047,12 @@ attributes #15 = { nounwind willreturn memory(read) }
 !3 = !{i32 8, !"PIC Level", i32 2}
 !4 = !{i32 7, !"uwtable", i32 2}
 !5 = !{i32 7, !"frame-pointer", i32 2}
-!6 = !{i32 -1, i32 1}
-!7 = distinct !{!7, !8}
-!8 = !{!"llvm.loop.mustprogress"}
-!9 = distinct !{!9, !8}
-!10 = distinct !{!10, !8}
-!11 = distinct !{!11, !8}
-!12 = distinct !{!12, !8}
-!13 = distinct !{!13, !8}
-!14 = distinct !{!14, !8}
-!15 = distinct !{!15, !8}
+!6 = distinct !{!6, !7}
+!7 = !{!"llvm.loop.mustprogress"}
+!8 = distinct !{!8, !7}
+!9 = distinct !{!9, !7}
+!10 = distinct !{!10, !7}
+!11 = distinct !{!11, !7}
+!12 = distinct !{!12, !7}
+!13 = distinct !{!13, !7}
+!14 = distinct !{!14, !7}

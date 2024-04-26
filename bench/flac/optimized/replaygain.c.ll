@@ -44,7 +44,7 @@ entry:
 declare i32 @ValidGainFrequency(i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local i32 @grabbag__replaygain_init(i32 noundef %sample_frequency) local_unnamed_addr #0 {
+define dso_local range(i32 0, 2) i32 @grabbag__replaygain_init(i32 noundef %sample_frequency) local_unnamed_addr #0 {
 entry:
   store double 0.000000e+00, ptr @album_peak_, align 8
   store double 0.000000e+00, ptr @title_peak_, align 8
@@ -58,7 +58,7 @@ entry:
 declare i32 @InitGainAnalysis(i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local noundef i32 @grabbag__replaygain_analyze(ptr nocapture noundef readonly %input, i32 noundef %is_stereo, i32 noundef %bps, i32 noundef %samples) local_unnamed_addr #0 {
+define dso_local range(i32 0, 2) i32 @grabbag__replaygain_analyze(ptr nocapture noundef readonly %input, i32 noundef %is_stereo, i32 noundef %bps, i32 noundef %samples) local_unnamed_addr #0 {
 entry:
   %cmp = icmp eq i32 %bps, 16
   br i1 %cmp, label %if.then, label %if.else71
@@ -165,7 +165,7 @@ cond.true74:                                      ; preds = %if.else71
 cond.false77:                                     ; preds = %if.else71
   %sub78 = sub nuw nsw i32 16, %bps
   %shl79 = shl nuw nsw i32 1, %sub78
-  %conv80 = uitofp i32 %shl79 to double
+  %conv80 = uitofp nneg i32 %shl79 to double
   br label %cond.end81
 
 cond.end81:                                       ; preds = %cond.false77, %cond.true74
@@ -387,7 +387,7 @@ declare i32 @FLAC__stream_decoder_set_metadata_respond(ptr noundef, i32 noundef)
 declare i32 @FLAC__stream_decoder_init_file(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal noundef i32 @write_callback_(ptr nocapture readnone %decoder, ptr nocapture noundef readonly %frame, ptr nocapture noundef readonly %buffer, ptr nocapture noundef %client_data) #0 {
+define internal range(i32 0, 2) i32 @write_callback_(ptr nocapture readnone %decoder, ptr nocapture noundef readonly %frame, ptr nocapture noundef readonly %buffer, ptr nocapture noundef %client_data) #0 {
 entry:
   %bits_per_sample1 = getelementptr inbounds i8, ptr %frame, i64 16
   %0 = load i32, ptr %bits_per_sample1, align 8
@@ -424,16 +424,23 @@ land.lhs.true14:                                  ; preds = %land.lhs.true11
   %cmp16 = icmp eq i32 %2, %8
   br i1 %cmp16, label %if.end, label %if.end.thread
 
+if.end.thread:                                    ; preds = %land.lhs.true, %land.lhs.true14, %land.lhs.true11, %land.lhs.true8, %entry
+  store i32 1, ptr %error, align 4
+  br label %9
+
 if.end:                                           ; preds = %land.lhs.true14
   %conv = zext i1 %cmp to i32
-  %call = tail call i32 @grabbag__replaygain_analyze(ptr noundef %buffer, i32 noundef %conv, i32 noundef %0, i32 noundef %3), !range !14
-  %lnot.ext = xor i32 %call, 1
-  br label %if.end.thread
+  %call = tail call i32 @grabbag__replaygain_analyze(ptr noundef %buffer, i32 noundef %conv, i32 noundef %0, i32 noundef %3)
+  %call.fr = freeze i32 %call
+  %lnot.ext = xor i32 %call.fr, 1
+  store i32 %lnot.ext, ptr %error, align 4
+  %tobool22.not = icmp ne i32 %lnot.ext, 0
+  %spec.select = zext i1 %tobool22.not to i32
+  br label %9
 
-if.end.thread:                                    ; preds = %entry, %land.lhs.true8, %land.lhs.true11, %land.lhs.true14, %land.lhs.true, %if.end
-  %storemerge = phi i32 [ %lnot.ext, %if.end ], [ 1, %land.lhs.true ], [ 1, %land.lhs.true14 ], [ 1, %land.lhs.true11 ], [ 1, %land.lhs.true8 ], [ 1, %entry ]
-  store i32 %storemerge, ptr %error, align 4
-  ret i32 %storemerge
+9:                                                ; preds = %if.end, %if.end.thread
+  %10 = phi i32 [ 1, %if.end.thread ], [ %spec.select, %if.end ]
+  ret i32 %10
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
@@ -726,7 +733,7 @@ do.body:                                          ; preds = %land.rhs, %if.end8
 land.rhs:                                         ; preds = %do.body
   %call14 = tail call i32 @FLAC__metadata_iterator_next(ptr noundef nonnull %call5) #15
   %tobool15.not = icmp eq i32 %call14, 0
-  br i1 %tobool15.not, label %if.then17, label %do.body, !llvm.loop !15
+  br i1 %tobool15.not, label %if.then17, label %do.body, !llvm.loop !14
 
 if.then17:                                        ; preds = %land.rhs
   %call18 = tail call ptr @FLAC__metadata_object_new(i32 noundef 4) #15
@@ -743,7 +750,7 @@ if.then20:                                        ; preds = %if.then17
 while.cond:                                       ; preds = %if.then17, %while.cond
   %call22 = tail call i32 @FLAC__metadata_iterator_next(ptr noundef nonnull %call5) #15
   %tobool23.not = icmp eq i32 %call22, 0
-  br i1 %tobool23.not, label %while.end, label %while.cond, !llvm.loop !16
+  br i1 %tobool23.not, label %while.end, label %while.cond, !llvm.loop !15
 
 while.end:                                        ; preds = %while.cond
   %6 = load ptr, ptr %block, align 8
@@ -938,7 +945,7 @@ return:                                           ; preds = %if.end4, %entry, %i
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local i32 @grabbag__replaygain_load_from_vorbiscomment(ptr noundef %block, i32 noundef %album_mode, i32 noundef %strict, ptr nocapture noundef writeonly %reference, ptr nocapture noundef writeonly %gain, ptr nocapture noundef writeonly %peak) local_unnamed_addr #0 {
+define dso_local range(i32 0, 2) i32 @grabbag__replaygain_load_from_vorbiscomment(ptr noundef %block, i32 noundef %album_mode, i32 noundef %strict, ptr nocapture noundef writeonly %reference, ptr nocapture noundef writeonly %gain, ptr nocapture noundef writeonly %peak) local_unnamed_addr #0 {
 entry:
   %s.i46 = alloca [32 x i8], align 16
   %end.i47 = alloca ptr, align 8
@@ -1127,7 +1134,7 @@ if.end46:                                         ; preds = %parse_double_.exit6
 
 if.then51:                                        ; preds = %if.end46
   %lnot.ext = zext i1 %tobool.not to i32
-  %call53 = call i32 @grabbag__replaygain_load_from_vorbiscomment(ptr noundef %block, i32 noundef %lnot.ext, i32 noundef 1, ptr noundef nonnull %reference, ptr noundef %gain, ptr noundef %peak), !range !14
+  %call53 = call i32 @grabbag__replaygain_load_from_vorbiscomment(ptr noundef %block, i32 noundef %lnot.ext, i32 noundef 1, ptr noundef nonnull %reference, ptr noundef %gain, ptr noundef %peak)
   br label %return
 
 return:                                           ; preds = %if.end46, %if.then51, %entry
@@ -1276,6 +1283,5 @@ attributes #16 = { nounwind willreturn memory(read) }
 !11 = distinct !{!11, !6}
 !12 = distinct !{!12, !6}
 !13 = distinct !{!13, !6}
-!14 = !{i32 0, i32 2}
+!14 = distinct !{!14, !6}
 !15 = distinct !{!15, !6}
-!16 = distinct !{!16, !6}

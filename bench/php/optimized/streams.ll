@@ -188,7 +188,7 @@ define ptr @php_stream_encloses(ptr noundef %0, ptr nocapture noundef %1) local_
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @php_stream_from_persistent_id(ptr noundef %0, ptr noundef %1) local_unnamed_addr #2 {
+define range(i32 0, 3) i32 @php_stream_from_persistent_id(ptr noundef %0, ptr noundef %1) local_unnamed_addr #2 {
   %3 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %0) #28
   %4 = tail call ptr @zend_hash_str_find(ptr noundef nonnull getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 34), ptr noundef %0, i64 noundef %3) #27
   %.not = icmp eq ptr %4, null
@@ -932,7 +932,7 @@ declare void @zval_ptr_dtor(ptr noundef) local_unnamed_addr #5
 declare void @zend_hash_apply_with_argument(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define internal i32 @_php_stream_free_persistent(ptr nocapture noundef readonly %0, ptr noundef readnone %1) #10 {
+define internal range(i32 0, 2) i32 @_php_stream_free_persistent(ptr nocapture noundef readonly %0, ptr noundef readnone %1) #10 {
   %3 = load ptr, ptr %0, align 8
   %4 = getelementptr inbounds i8, ptr %3, i64 24
   %5 = load ptr, ptr %4, align 8
@@ -942,7 +942,7 @@ define internal i32 @_php_stream_free_persistent(ptr nocapture noundef readonly 
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @_php_stream_fill_read_buffer(ptr noundef %0, i64 noundef %1) local_unnamed_addr #2 {
+define range(i32 -1, 1) i32 @_php_stream_fill_read_buffer(ptr noundef %0, i64 noundef %1) local_unnamed_addr #2 {
   %3 = alloca %struct._php_stream_bucket_brigade, align 8
   %4 = alloca %struct._php_stream_bucket_brigade, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 96
@@ -1420,7 +1420,7 @@ define i64 @_php_stream_read(ptr noundef %0, ptr noundef %1, i64 noundef %2) loc
   br i1 %41, label %.thread103.thread, label %.thread103
 
 42:                                               ; preds = %31, %.thread
-  %43 = tail call i32 @_php_stream_fill_read_buffer(ptr noundef nonnull %0, i64 noundef %.16790), !range !5
+  %43 = tail call i32 @_php_stream_fill_read_buffer(ptr noundef nonnull %0, i64 noundef %.16790)
   %.not80 = icmp eq i32 %43, 0
   br i1 %.not80, label %46, label %44
 
@@ -1687,7 +1687,7 @@ define i32 @_php_stream_set_option(ptr noundef %0, i32 noundef %1, i32 noundef %
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @_php_stream_putc(ptr noundef %0, i32 noundef %1) local_unnamed_addr #2 {
+define range(i32 -1, 2) i32 @_php_stream_putc(ptr noundef %0, i32 noundef %1) local_unnamed_addr #2 {
   %3 = alloca i8, align 1
   %4 = trunc i32 %1 to i8
   store i8 %4, ptr %3, align 1
@@ -1783,7 +1783,7 @@ define i64 @_php_stream_write(ptr noundef %0, ptr noundef %1, i64 noundef %2) lo
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @_php_stream_getc(ptr noundef %0) local_unnamed_addr #2 {
+define range(i32 -1, 256) i32 @_php_stream_getc(ptr noundef %0) local_unnamed_addr #2 {
   %2 = alloca i8, align 1
   %3 = call i64 @_php_stream_read(ptr noundef %0, ptr noundef nonnull %2, i64 noundef 1)
   %4 = icmp sgt i64 %3, 0
@@ -2096,7 +2096,7 @@ select.unfold:                                    ; preds = %29, %24
 
 46:                                               ; preds = %44, %42
   %.0 = phi i64 [ %43, %42 ], [ %spec.select90, %44 ]
-  %47 = tail call i32 @_php_stream_fill_read_buffer(ptr noundef nonnull %0, i64 noundef %.0), !range !5
+  %47 = tail call i32 @_php_stream_fill_read_buffer(ptr noundef nonnull %0, i64 noundef %.0)
   %48 = load i64, ptr %7, align 8
   %49 = load i64, ptr %8, align 8
   %50 = icmp eq i64 %48, %49
@@ -2159,7 +2159,7 @@ define noundef ptr @php_stream_get_record(ptr noundef %0, i64 noundef %1, ptr no
   %21 = load i64, ptr %18, align 8
   %..us = tail call i64 @llvm.umin.i64(i64 %20, i64 %21)
   %22 = add i64 %..us, %.0121141.us
-  %23 = tail call i32 @_php_stream_fill_read_buffer(ptr noundef nonnull %0, i64 noundef %22), !range !5
+  %23 = tail call i32 @_php_stream_fill_read_buffer(ptr noundef nonnull %0, i64 noundef %22)
   %24 = load i64, ptr %11, align 8
   %25 = load i64, ptr %13, align 8
   %26 = sub nsw i64 %24, %25
@@ -2182,7 +2182,7 @@ define noundef ptr @php_stream_get_record(ptr noundef %0, i64 noundef %1, ptr no
   %34 = load i64, ptr %18, align 8
   %. = tail call i64 @llvm.umin.i64(i64 %33, i64 %34)
   %35 = add i64 %., %.0121141
-  %36 = tail call i32 @_php_stream_fill_read_buffer(ptr noundef nonnull %0, i64 noundef %35), !range !5
+  %36 = tail call i32 @_php_stream_fill_read_buffer(ptr noundef nonnull %0, i64 noundef %35)
   %37 = load i64, ptr %11, align 8
   %38 = load i64, ptr %13, align 8
   %39 = sub nsw i64 %37, %38
@@ -2318,67 +2318,65 @@ define internal fastcc ptr @_php_stream_search_delim(ptr nocapture noundef reado
   %23 = getelementptr i8, ptr %15, i64 %.
   %24 = icmp uge ptr %23, %16
   tail call void @llvm.assume(i1 %24)
-  %25 = ptrtoint ptr %23 to i64
-  %26 = ptrtoint ptr %16 to i64
-  %27 = sub i64 %25, %26
-  %28 = icmp ult i64 %27, %4
-  br i1 %28, label %.loopexit, label %29
+  %gepdiff = sub i64 %., %2
+  %25 = icmp ult i64 %gepdiff, %4
+  br i1 %25, label %.loopexit, label %26
 
-29:                                               ; preds = %22
-  %30 = icmp ult i64 %27, 1024
-  %31 = icmp ult i64 %4, 9
-  %32 = or i1 %31, %30
-  br i1 %32, label %33, label %57
+26:                                               ; preds = %22
+  %27 = icmp ult i64 %gepdiff, 1024
+  %28 = icmp ult i64 %4, 9
+  %29 = or i1 %28, %27
+  br i1 %29, label %30, label %54
 
-33:                                               ; preds = %29
-  %34 = add i64 %4, -1
-  %35 = getelementptr inbounds i8, ptr %3, i64 %34
-  %36 = load i8, ptr %35, align 1
-  %37 = sub i64 0, %4
-  %38 = getelementptr inbounds i8, ptr %23, i64 %37
-  %39 = getelementptr inbounds i8, ptr %3, i64 1
-  %.not7275 = icmp ugt ptr %16, %38
+30:                                               ; preds = %26
+  %31 = add i64 %4, -1
+  %32 = getelementptr inbounds i8, ptr %3, i64 %31
+  %33 = load i8, ptr %32, align 1
+  %34 = sub i64 0, %4
+  %35 = getelementptr inbounds i8, ptr %23, i64 %34
+  %36 = getelementptr inbounds i8, ptr %3, i64 1
+  %.not7275 = icmp ugt ptr %16, %35
   br i1 %.not7275, label %.loopexit, label %.lr.ph
 
-.lr.ph:                                           ; preds = %33
-  %40 = load i8, ptr %3, align 1
-  %41 = sext i8 %40 to i32
-  %42 = ptrtoint ptr %38 to i64
-  %43 = add i64 %42, 1
-  %44 = add i64 %4, -2
-  br label %45
+.lr.ph:                                           ; preds = %30
+  %37 = load i8, ptr %3, align 1
+  %38 = sext i8 %37 to i32
+  %39 = ptrtoint ptr %35 to i64
+  %40 = add i64 %39, 1
+  %41 = add i64 %4, -2
+  br label %42
 
-45:                                               ; preds = %.lr.ph, %55
-  %.06276 = phi ptr [ %16, %.lr.ph ], [ %56, %55 ]
-  %46 = ptrtoint ptr %.06276 to i64
-  %47 = sub i64 %43, %46
-  %48 = tail call ptr @memchr(ptr noundef %.06276, i32 noundef %41, i64 noundef %47) #28
-  %.not73 = icmp eq ptr %48, null
-  br i1 %.not73, label %.loopexit, label %49
+42:                                               ; preds = %.lr.ph, %52
+  %.06276 = phi ptr [ %16, %.lr.ph ], [ %53, %52 ]
+  %43 = ptrtoint ptr %.06276 to i64
+  %44 = sub i64 %40, %43
+  %45 = tail call ptr @memchr(ptr noundef %.06276, i32 noundef %38, i64 noundef %44) #28
+  %.not73 = icmp eq ptr %45, null
+  br i1 %.not73, label %.loopexit, label %46
 
-49:                                               ; preds = %45
-  %50 = getelementptr inbounds i8, ptr %48, i64 %34
-  %51 = load i8, ptr %50, align 1
-  %52 = icmp eq i8 %36, %51
-  br i1 %52, label %53, label %55
+46:                                               ; preds = %42
+  %47 = getelementptr inbounds i8, ptr %45, i64 %31
+  %48 = load i8, ptr %47, align 1
+  %49 = icmp eq i8 %33, %48
+  br i1 %49, label %50, label %52
 
-53:                                               ; preds = %49
-  %54 = getelementptr inbounds i8, ptr %48, i64 1
-  %bcmp = tail call i32 @bcmp(ptr nonnull %39, ptr nonnull %54, i64 %44)
+50:                                               ; preds = %46
+  %51 = getelementptr inbounds i8, ptr %45, i64 1
+  %bcmp = tail call i32 @bcmp(ptr nonnull %36, ptr nonnull %51, i64 %41)
   %.not74 = icmp eq i32 %bcmp, 0
-  br i1 %.not74, label %.loopexit, label %55
+  br i1 %.not74, label %.loopexit, label %52
 
-55:                                               ; preds = %53, %49
-  %56 = getelementptr inbounds i8, ptr %48, i64 1
-  %.not72 = icmp ugt ptr %56, %38
-  br i1 %.not72, label %.loopexit, label %45
+52:                                               ; preds = %50, %46
+  %53 = getelementptr inbounds i8, ptr %45, i64 1
+  %.not72 = icmp ugt ptr %53, %35
+  br i1 %.not72, label %.loopexit, label %42
 
-57:                                               ; preds = %29
-  %58 = tail call ptr @zend_memnstr_ex(ptr noundef %16, ptr noundef %3, i64 noundef %4, ptr noundef %23) #27
+54:                                               ; preds = %26
+  %55 = tail call ptr @zend_memnstr_ex(ptr noundef %16, ptr noundef %3, i64 noundef %4, ptr noundef %23) #27
   br label %.loopexit
 
-.loopexit:                                        ; preds = %55, %45, %53, %33, %57, %22, %5, %17
-  %.063 = phi ptr [ %21, %17 ], [ null, %5 ], [ %58, %57 ], [ null, %22 ], [ null, %33 ], [ null, %55 ], [ null, %45 ], [ %48, %53 ]
+.loopexit:                                        ; preds = %52, %42, %50, %30, %54, %22, %5, %17
+  %.063 = phi ptr [ %21, %17 ], [ null, %5 ], [ %55, %54 ], [ null, %22 ], [ null, %30 ], [ null, %52 ], [ null, %42 ], [ %45, %50 ]
   ret ptr %.063
 }
 
@@ -3510,7 +3508,7 @@ _php_stream_stat.exit.thread:                     ; preds = %113, %124, %_php_st
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @_php_stream_copy_to_stream_ex(ptr noundef %0, ptr noundef %1, i64 noundef %2, ptr noundef writeonly %3) local_unnamed_addr #2 {
+define range(i32 -1, 1) i32 @_php_stream_copy_to_stream_ex(ptr noundef %0, ptr noundef %1, i64 noundef %2, ptr noundef writeonly %3) local_unnamed_addr #2 {
   %5 = alloca [8192 x i8], align 16
   %6 = alloca i32, align 4
   %7 = alloca i32, align 4
@@ -3928,7 +3926,7 @@ declare i32 @_php_stream_mmap_unmap(ptr noundef) local_unnamed_addr #5
 ; Function Attrs: nounwind uwtable
 define i64 @_php_stream_copy_to_stream(ptr noundef %0, ptr noundef %1, i64 noundef %2) local_unnamed_addr #2 {
   %4 = alloca i64, align 8
-  %5 = call i32 @_php_stream_copy_to_stream_ex(ptr noundef %0, ptr noundef %1, i64 noundef %2, ptr noundef nonnull %4), !range !5
+  %5 = call i32 @_php_stream_copy_to_stream_ex(ptr noundef %0, ptr noundef %1, i64 noundef %2, ptr noundef nonnull %4)
   %6 = icmp eq i32 %5, 0
   %7 = load i64, ptr %4, align 8
   %8 = icmp eq i64 %7, 0
@@ -3984,7 +3982,7 @@ define hidden void @php_shutdown_stream_hashes() local_unnamed_addr #2 {
 declare void @zend_hash_destroy(ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @php_init_stream_wrappers(i32 noundef %0) local_unnamed_addr #2 {
+define hidden range(i32 -1, 1) i32 @php_init_stream_wrappers(i32 noundef %0) local_unnamed_addr #2 {
   %2 = tail call i32 @zend_register_list_destructors_ex(ptr noundef nonnull @stream_resource_regular_dtor, ptr noundef null, ptr noundef nonnull @.str.3, i32 noundef %0) #27
   store i32 %2, ptr @le_stream, align 4
   %3 = tail call i32 @zend_register_list_destructors_ex(ptr noundef null, ptr noundef nonnull @stream_resource_persistent_dtor, ptr noundef nonnull @.str.4, i32 noundef %0) #27
@@ -4060,7 +4058,7 @@ define hidden void @php_shutdown_stream_wrappers(i32 noundef %0) local_unnamed_a
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @php_register_url_stream_wrapper(ptr noundef %0, ptr noundef %1) local_unnamed_addr #2 {
+define range(i32 -1, 1) i32 @php_register_url_stream_wrapper(ptr noundef %0, ptr noundef %1) local_unnamed_addr #2 {
   %3 = alloca %struct._zval_struct, align 8
   %4 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %0) #28
   %5 = and i64 %4, 4294967295
@@ -4139,7 +4137,7 @@ define i32 @php_unregister_url_stream_wrapper(ptr noundef %0) local_unnamed_addr
 declare i32 @zend_hash_str_del(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #5
 
 ; Function Attrs: nounwind uwtable
-define i32 @php_register_url_stream_wrapper_volatile(ptr noundef %0, ptr noundef %1) local_unnamed_addr #2 {
+define range(i32 -1, 1) i32 @php_register_url_stream_wrapper_volatile(ptr noundef %0, ptr noundef %1) local_unnamed_addr #2 {
   %3 = alloca %struct._zval_struct, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 24
   %5 = getelementptr inbounds i8, ptr %0, i64 16
@@ -5699,4 +5697,3 @@ attributes #32 = { nounwind allocsize(0,1) }
 !2 = !{i32 7, !"uwtable", i32 2}
 !3 = !{i32 7, !"frame-pointer", i32 2}
 !4 = !{}
-!5 = !{i32 -1, i32 1}

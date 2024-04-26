@@ -39,7 +39,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @__func__.ERR_DASYNC_error = private unnamed_addr constant [17 x i8] c"ERR_DASYNC_error\00", align 1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef i64 @v_check(i64 noundef %v) local_unnamed_addr #0 {
+define noundef range(i64 0, 196609) i64 @v_check(i64 noundef %v) local_unnamed_addr #0 {
 entry:
   %cmp.inv = icmp ult i64 %v, 196608
   %. = select i1 %cmp.inv, i64 0, i64 196608
@@ -47,7 +47,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @bind_engine(ptr noundef %e, ptr noundef readonly %id, ptr nocapture noundef readonly %fns) local_unnamed_addr #1 {
+define range(i32 0, 2) i32 @bind_engine(ptr noundef %e, ptr noundef readonly %id, ptr nocapture noundef readonly %fns) local_unnamed_addr #1 {
 entry:
   %call = tail call ptr @ENGINE_get_static_state() #8
   %0 = load ptr, ptr %fns, align 8
@@ -75,8 +75,9 @@ land.lhs.true.i:                                  ; preds = %skip_cbs
   br i1 %cmp.not.i, label %bind_helper.exit, label %bind_helper.exit.thread
 
 bind_helper.exit:                                 ; preds = %skip_cbs, %land.lhs.true.i
-  %call1.i = tail call fastcc i32 @bind_dasync(ptr noundef %e), !range !4
-  %tobool.not = icmp eq i32 %call1.i, 0
+  %call1.i = tail call fastcc i32 @bind_dasync(ptr noundef %e)
+  %call1.i.fr = freeze i32 %call1.i
+  %tobool.not = icmp eq i32 %call1.i.fr, 0
   br i1 %tobool.not, label %bind_helper.exit.thread, label %4
 
 bind_helper.exit.thread:                          ; preds = %land.lhs.true.i, %bind_helper.exit
@@ -101,7 +102,7 @@ entry:
   br i1 %tobool.not.i, label %return, label %if.end.i
 
 if.end.i:                                         ; preds = %entry
-  %call1.i = tail call fastcc i32 @bind_dasync(ptr noundef nonnull %call.i), !range !4
+  %call1.i = tail call fastcc i32 @bind_dasync(ptr noundef nonnull %call.i)
   %tobool2.not.i = icmp eq i32 %call1.i, 0
   br i1 %tobool2.not.i, label %if.then3.i, label %if.end
 
@@ -132,7 +133,7 @@ declare i32 @ERR_pop_to_mark() local_unnamed_addr #2
 declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @bind_dasync(ptr noundef %e) unnamed_addr #1 {
+define internal fastcc range(i32 0, 2) i32 @bind_dasync(ptr noundef %e) unnamed_addr #1 {
 entry:
   %call = tail call ptr @EVP_PKEY_meth_find(i32 noundef 6) #8
   store ptr %call, ptr @dasync_rsa_orig, align 8
@@ -747,7 +748,7 @@ declare i32 @ENGINE_set_name(ptr noundef, ptr noundef) local_unnamed_addr #2
 declare i32 @ENGINE_set_pkey_meths(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: write, inaccessiblemem: none) uwtable
-define internal noundef i32 @dasync_pkey(ptr nocapture readnone %e, ptr noundef writeonly %pmeth, ptr nocapture noundef writeonly %pnids, i32 noundef %nid) #4 {
+define internal range(i32 0, 2) i32 @dasync_pkey(ptr nocapture readnone %e, ptr noundef writeonly %pmeth, ptr nocapture noundef writeonly %pnids, i32 noundef %nid) #4 {
 entry:
   %cmp = icmp eq ptr %pmeth, null
   br i1 %cmp, label %if.then, label %if.end
@@ -838,7 +839,7 @@ return:                                           ; preds = %if.end, %dasync_dig
 declare i32 @ENGINE_set_ciphers(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: write, inaccessiblemem: none) uwtable
-define internal noundef i32 @dasync_ciphers(ptr nocapture readnone %e, ptr noundef writeonly %cipher, ptr nocapture noundef writeonly %nids, i32 noundef %nid) #4 {
+define internal range(i32 0, 4) i32 @dasync_ciphers(ptr nocapture readnone %e, ptr noundef writeonly %cipher, ptr nocapture noundef writeonly %nids, i32 noundef %nid) #4 {
 entry:
   %cmp = icmp eq ptr %cipher, null
   br i1 %cmp, label %if.then, label %if.end
@@ -1402,7 +1403,7 @@ land.end:                                         ; preds = %land.rhs, %if.end27
   %land.ext = zext i1 %10 to i32
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !5
+  br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !4
 
 for.end:                                          ; preds = %land.end
   store i32 0, ptr %numpipes, align 8
@@ -1582,6 +1583,5 @@ attributes #9 = { nounwind willreturn memory(read) }
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
 !3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = !{i32 0, i32 2}
-!5 = distinct !{!5, !6}
-!6 = !{!"llvm.loop.mustprogress"}
+!4 = distinct !{!4, !5}
+!5 = !{!"llvm.loop.mustprogress"}

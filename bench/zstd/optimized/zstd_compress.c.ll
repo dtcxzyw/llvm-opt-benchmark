@@ -55,7 +55,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @ZSTD_defaultCParameters = internal unnamed_addr constant [4 x [23 x %struct.ZSTD_compressionParameters]] [[23 x %struct.ZSTD_compressionParameters] [%struct.ZSTD_compressionParameters { i32 19, i32 12, i32 13, i32 1, i32 6, i32 1, i32 1 }, %struct.ZSTD_compressionParameters { i32 19, i32 13, i32 14, i32 1, i32 7, i32 0, i32 1 }, %struct.ZSTD_compressionParameters { i32 20, i32 15, i32 16, i32 1, i32 6, i32 0, i32 1 }, %struct.ZSTD_compressionParameters { i32 21, i32 16, i32 17, i32 1, i32 5, i32 0, i32 2 }, %struct.ZSTD_compressionParameters { i32 21, i32 18, i32 18, i32 1, i32 5, i32 0, i32 2 }, %struct.ZSTD_compressionParameters { i32 21, i32 18, i32 19, i32 3, i32 5, i32 2, i32 3 }, %struct.ZSTD_compressionParameters { i32 21, i32 18, i32 19, i32 3, i32 5, i32 4, i32 4 }, %struct.ZSTD_compressionParameters { i32 21, i32 19, i32 20, i32 4, i32 5, i32 8, i32 4 }, %struct.ZSTD_compressionParameters { i32 21, i32 19, i32 20, i32 4, i32 5, i32 16, i32 5 }, %struct.ZSTD_compressionParameters { i32 22, i32 20, i32 21, i32 4, i32 5, i32 16, i32 5 }, %struct.ZSTD_compressionParameters { i32 22, i32 21, i32 22, i32 5, i32 5, i32 16, i32 5 }, %struct.ZSTD_compressionParameters { i32 22, i32 21, i32 22, i32 6, i32 5, i32 16, i32 5 }, %struct.ZSTD_compressionParameters { i32 22, i32 22, i32 23, i32 6, i32 5, i32 32, i32 5 }, %struct.ZSTD_compressionParameters { i32 22, i32 22, i32 22, i32 4, i32 5, i32 32, i32 6 }, %struct.ZSTD_compressionParameters { i32 22, i32 22, i32 23, i32 5, i32 5, i32 32, i32 6 }, %struct.ZSTD_compressionParameters { i32 22, i32 23, i32 23, i32 6, i32 5, i32 32, i32 6 }, %struct.ZSTD_compressionParameters { i32 22, i32 22, i32 22, i32 5, i32 5, i32 48, i32 7 }, %struct.ZSTD_compressionParameters { i32 23, i32 23, i32 22, i32 5, i32 4, i32 64, i32 7 }, %struct.ZSTD_compressionParameters { i32 23, i32 23, i32 22, i32 6, i32 3, i32 64, i32 8 }, %struct.ZSTD_compressionParameters { i32 23, i32 24, i32 22, i32 7, i32 3, i32 256, i32 9 }, %struct.ZSTD_compressionParameters { i32 25, i32 25, i32 23, i32 7, i32 3, i32 256, i32 9 }, %struct.ZSTD_compressionParameters { i32 26, i32 26, i32 24, i32 7, i32 3, i32 512, i32 9 }, %struct.ZSTD_compressionParameters { i32 27, i32 27, i32 25, i32 9, i32 3, i32 999, i32 9 }], [23 x %struct.ZSTD_compressionParameters] [%struct.ZSTD_compressionParameters { i32 18, i32 12, i32 13, i32 1, i32 5, i32 1, i32 1 }, %struct.ZSTD_compressionParameters { i32 18, i32 13, i32 14, i32 1, i32 6, i32 0, i32 1 }, %struct.ZSTD_compressionParameters { i32 18, i32 14, i32 14, i32 1, i32 5, i32 0, i32 2 }, %struct.ZSTD_compressionParameters { i32 18, i32 16, i32 16, i32 1, i32 4, i32 0, i32 2 }, %struct.ZSTD_compressionParameters { i32 18, i32 16, i32 17, i32 3, i32 5, i32 2, i32 3 }, %struct.ZSTD_compressionParameters { i32 18, i32 17, i32 18, i32 5, i32 5, i32 2, i32 3 }, %struct.ZSTD_compressionParameters { i32 18, i32 18, i32 19, i32 3, i32 5, i32 4, i32 4 }, %struct.ZSTD_compressionParameters { i32 18, i32 18, i32 19, i32 4, i32 4, i32 4, i32 4 }, %struct.ZSTD_compressionParameters { i32 18, i32 18, i32 19, i32 4, i32 4, i32 8, i32 5 }, %struct.ZSTD_compressionParameters { i32 18, i32 18, i32 19, i32 5, i32 4, i32 8, i32 5 }, %struct.ZSTD_compressionParameters { i32 18, i32 18, i32 19, i32 6, i32 4, i32 8, i32 5 }, %struct.ZSTD_compressionParameters { i32 18, i32 18, i32 19, i32 5, i32 4, i32 12, i32 6 }, %struct.ZSTD_compressionParameters { i32 18, i32 19, i32 19, i32 7, i32 4, i32 12, i32 6 }, %struct.ZSTD_compressionParameters { i32 18, i32 18, i32 19, i32 4, i32 4, i32 16, i32 7 }, %struct.ZSTD_compressionParameters { i32 18, i32 18, i32 19, i32 4, i32 3, i32 32, i32 7 }, %struct.ZSTD_compressionParameters { i32 18, i32 18, i32 19, i32 6, i32 3, i32 128, i32 7 }, %struct.ZSTD_compressionParameters { i32 18, i32 19, i32 19, i32 6, i32 3, i32 128, i32 8 }, %struct.ZSTD_compressionParameters { i32 18, i32 19, i32 19, i32 8, i32 3, i32 256, i32 8 }, %struct.ZSTD_compressionParameters { i32 18, i32 19, i32 19, i32 6, i32 3, i32 128, i32 9 }, %struct.ZSTD_compressionParameters { i32 18, i32 19, i32 19, i32 8, i32 3, i32 256, i32 9 }, %struct.ZSTD_compressionParameters { i32 18, i32 19, i32 19, i32 10, i32 3, i32 512, i32 9 }, %struct.ZSTD_compressionParameters { i32 18, i32 19, i32 19, i32 12, i32 3, i32 512, i32 9 }, %struct.ZSTD_compressionParameters { i32 18, i32 19, i32 19, i32 13, i32 3, i32 999, i32 9 }], [23 x %struct.ZSTD_compressionParameters] [%struct.ZSTD_compressionParameters { i32 17, i32 12, i32 12, i32 1, i32 5, i32 1, i32 1 }, %struct.ZSTD_compressionParameters { i32 17, i32 12, i32 13, i32 1, i32 6, i32 0, i32 1 }, %struct.ZSTD_compressionParameters { i32 17, i32 13, i32 15, i32 1, i32 5, i32 0, i32 1 }, %struct.ZSTD_compressionParameters { i32 17, i32 15, i32 16, i32 2, i32 5, i32 0, i32 2 }, %struct.ZSTD_compressionParameters { i32 17, i32 17, i32 17, i32 2, i32 4, i32 0, i32 2 }, %struct.ZSTD_compressionParameters { i32 17, i32 16, i32 17, i32 3, i32 4, i32 2, i32 3 }, %struct.ZSTD_compressionParameters { i32 17, i32 16, i32 17, i32 3, i32 4, i32 4, i32 4 }, %struct.ZSTD_compressionParameters { i32 17, i32 16, i32 17, i32 3, i32 4, i32 8, i32 5 }, %struct.ZSTD_compressionParameters { i32 17, i32 16, i32 17, i32 4, i32 4, i32 8, i32 5 }, %struct.ZSTD_compressionParameters { i32 17, i32 16, i32 17, i32 5, i32 4, i32 8, i32 5 }, %struct.ZSTD_compressionParameters { i32 17, i32 16, i32 17, i32 6, i32 4, i32 8, i32 5 }, %struct.ZSTD_compressionParameters { i32 17, i32 17, i32 17, i32 5, i32 4, i32 8, i32 6 }, %struct.ZSTD_compressionParameters { i32 17, i32 18, i32 17, i32 7, i32 4, i32 12, i32 6 }, %struct.ZSTD_compressionParameters { i32 17, i32 18, i32 17, i32 3, i32 4, i32 12, i32 7 }, %struct.ZSTD_compressionParameters { i32 17, i32 18, i32 17, i32 4, i32 3, i32 32, i32 7 }, %struct.ZSTD_compressionParameters { i32 17, i32 18, i32 17, i32 6, i32 3, i32 256, i32 7 }, %struct.ZSTD_compressionParameters { i32 17, i32 18, i32 17, i32 6, i32 3, i32 128, i32 8 }, %struct.ZSTD_compressionParameters { i32 17, i32 18, i32 17, i32 8, i32 3, i32 256, i32 8 }, %struct.ZSTD_compressionParameters { i32 17, i32 18, i32 17, i32 10, i32 3, i32 512, i32 8 }, %struct.ZSTD_compressionParameters { i32 17, i32 18, i32 17, i32 5, i32 3, i32 256, i32 9 }, %struct.ZSTD_compressionParameters { i32 17, i32 18, i32 17, i32 7, i32 3, i32 512, i32 9 }, %struct.ZSTD_compressionParameters { i32 17, i32 18, i32 17, i32 9, i32 3, i32 512, i32 9 }, %struct.ZSTD_compressionParameters { i32 17, i32 18, i32 17, i32 11, i32 3, i32 999, i32 9 }], [23 x %struct.ZSTD_compressionParameters] [%struct.ZSTD_compressionParameters { i32 14, i32 12, i32 13, i32 1, i32 5, i32 1, i32 1 }, %struct.ZSTD_compressionParameters { i32 14, i32 14, i32 15, i32 1, i32 5, i32 0, i32 1 }, %struct.ZSTD_compressionParameters { i32 14, i32 14, i32 15, i32 1, i32 4, i32 0, i32 1 }, %struct.ZSTD_compressionParameters { i32 14, i32 14, i32 15, i32 2, i32 4, i32 0, i32 2 }, %struct.ZSTD_compressionParameters { i32 14, i32 14, i32 14, i32 4, i32 4, i32 2, i32 3 }, %struct.ZSTD_compressionParameters { i32 14, i32 14, i32 14, i32 3, i32 4, i32 4, i32 4 }, %struct.ZSTD_compressionParameters { i32 14, i32 14, i32 14, i32 4, i32 4, i32 8, i32 5 }, %struct.ZSTD_compressionParameters { i32 14, i32 14, i32 14, i32 6, i32 4, i32 8, i32 5 }, %struct.ZSTD_compressionParameters { i32 14, i32 14, i32 14, i32 8, i32 4, i32 8, i32 5 }, %struct.ZSTD_compressionParameters { i32 14, i32 15, i32 14, i32 5, i32 4, i32 8, i32 6 }, %struct.ZSTD_compressionParameters { i32 14, i32 15, i32 14, i32 9, i32 4, i32 8, i32 6 }, %struct.ZSTD_compressionParameters { i32 14, i32 15, i32 14, i32 3, i32 4, i32 12, i32 7 }, %struct.ZSTD_compressionParameters { i32 14, i32 15, i32 14, i32 4, i32 3, i32 24, i32 7 }, %struct.ZSTD_compressionParameters { i32 14, i32 15, i32 14, i32 5, i32 3, i32 32, i32 8 }, %struct.ZSTD_compressionParameters { i32 14, i32 15, i32 15, i32 6, i32 3, i32 64, i32 8 }, %struct.ZSTD_compressionParameters { i32 14, i32 15, i32 15, i32 7, i32 3, i32 256, i32 8 }, %struct.ZSTD_compressionParameters { i32 14, i32 15, i32 15, i32 5, i32 3, i32 48, i32 9 }, %struct.ZSTD_compressionParameters { i32 14, i32 15, i32 15, i32 6, i32 3, i32 128, i32 9 }, %struct.ZSTD_compressionParameters { i32 14, i32 15, i32 15, i32 7, i32 3, i32 256, i32 9 }, %struct.ZSTD_compressionParameters { i32 14, i32 15, i32 15, i32 8, i32 3, i32 256, i32 9 }, %struct.ZSTD_compressionParameters { i32 14, i32 15, i32 15, i32 8, i32 3, i32 512, i32 9 }, %struct.ZSTD_compressionParameters { i32 14, i32 15, i32 15, i32 9, i32 3, i32 512, i32 9 }, %struct.ZSTD_compressionParameters { i32 14, i32 15, i32 15, i32 10, i32 3, i32 999, i32 9 }]], align 16
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef i64 @ZSTD_compressBound(i64 noundef %srcSize) local_unnamed_addr #0 {
+define range(i64 1, 0) i64 @ZSTD_compressBound(i64 noundef %srcSize) local_unnamed_addr #0 {
 entry:
   %cmp = icmp ugt i64 %srcSize, -71777214294589697
   br i1 %cmp, label %cond.end6.thread, label %cond.end6
@@ -335,7 +335,7 @@ return:                                           ; preds = %lor.lhs.false.i, %i
 declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #3
 
 ; Function Attrs: nounwind uwtable
-define noundef i64 @ZSTD_freeCCtx(ptr noundef %cctx) local_unnamed_addr #1 {
+define range(i64 -64, 1) i64 @ZSTD_freeCCtx(ptr noundef %cctx) local_unnamed_addr #1 {
 entry:
   %cmp = icmp eq ptr %cctx, null
   br i1 %cmp, label %return, label %do.body1
@@ -572,7 +572,7 @@ return:                                           ; preds = %if.else.i, %if.then
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define noundef i64 @ZSTD_CCtxParams_reset(ptr noundef writeonly %params) local_unnamed_addr #5 {
+define range(i64 -1, 1) i64 @ZSTD_CCtxParams_reset(ptr noundef writeonly %params) local_unnamed_addr #5 {
 entry:
   %tobool.not.i = icmp eq ptr %params, null
   br i1 %tobool.not.i, label %ZSTD_CCtxParams_init.exit, label %do.end8.i
@@ -591,7 +591,7 @@ ZSTD_CCtxParams_init.exit:                        ; preds = %entry, %do.end8.i
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define noundef i64 @ZSTD_CCtxParams_init(ptr noundef writeonly %cctxParams, i32 noundef %compressionLevel) local_unnamed_addr #5 {
+define range(i64 -1, 1) i64 @ZSTD_CCtxParams_init(ptr noundef writeonly %cctxParams, i32 noundef %compressionLevel) local_unnamed_addr #5 {
 entry:
   %tobool.not = icmp eq ptr %cctxParams, null
   br i1 %tobool.not, label %return, label %do.end8
@@ -610,7 +610,7 @@ return:                                           ; preds = %entry, %do.end8
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define noundef i64 @ZSTD_CCtxParams_init_advanced(ptr noundef writeonly %cctxParams, ptr nocapture noundef readonly byval(%struct.ZSTD_parameters) align 8 %params) local_unnamed_addr #6 {
+define range(i64 -42, 1) i64 @ZSTD_CCtxParams_init_advanced(ptr noundef writeonly %cctxParams, ptr nocapture noundef readonly byval(%struct.ZSTD_parameters) align 8 %params) local_unnamed_addr #6 {
 entry:
   %tobool.not = icmp eq ptr %cctxParams, null
   br i1 %tobool.not, label %return, label %do.body9
@@ -714,7 +714,7 @@ return:                                           ; preds = %do.body60.i, %do.bo
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define i64 @ZSTD_checkCParams(ptr nocapture noundef readonly byval(%struct.ZSTD_compressionParameters) align 8 %cParams) local_unnamed_addr #7 {
+define range(i64 -42, 1) i64 @ZSTD_checkCParams(ptr nocapture noundef readonly byval(%struct.ZSTD_compressionParameters) align 8 %cParams) local_unnamed_addr #7 {
 entry:
   %0 = load i32, ptr %cParams, align 8
   %1 = add i32 %0, -32
@@ -1087,10 +1087,10 @@ if.end.i:                                         ; preds = %entry
   %simplifycfg.merge.i = tail call i32 @llvm.smin.i32(i32 %0, i32 22)
   %value.addr.0 = select i1 %2, i32 %simplifycfg.merge.i, i32 %value
   %cmp = icmp eq i32 %value.addr.0, 0
-  %spec.select462 = select i1 %cmp, i32 3, i32 %value.addr.0
+  %spec.select494 = select i1 %cmp, i32 3, i32 %value.addr.0
   %3 = getelementptr inbounds i8, ptr %CCtxParams, i64 44
-  store i32 %spec.select462, ptr %3, align 4
-  %narrow = tail call i32 @llvm.smax.i32(i32 %spec.select462, i32 0)
+  store i32 %spec.select494, ptr %3, align 4
+  %narrow = tail call i32 @llvm.smax.i32(i32 %spec.select494, i32 0)
   %spec.select = zext nneg i32 %narrow to i64
   br label %sw.epilog
 
@@ -1111,8 +1111,8 @@ sw.bb65:                                          ; preds = %entry
   %cmp66.not = icmp ne i32 %value, 0
   %5 = add i32 %value, -31
   %narrow.i110 = icmp ult i32 %5, -25
-  %or.cond450 = and i1 %cmp66.not, %narrow.i110
-  br i1 %or.cond450, label %sw.epilog, label %if.end85
+  %or.cond482 = and i1 %cmp66.not, %narrow.i110
+  br i1 %or.cond482, label %sw.epilog, label %if.end85
 
 if.end85:                                         ; preds = %sw.bb65
   %hashLog = getelementptr inbounds i8, ptr %CCtxParams, i64 12
@@ -1124,8 +1124,8 @@ sw.bb90:                                          ; preds = %entry
   %cmp91.not = icmp ne i32 %value, 0
   %6 = add i32 %value, -31
   %narrow.i120 = icmp ult i32 %6, -25
-  %or.cond451 = and i1 %cmp91.not, %narrow.i120
-  br i1 %or.cond451, label %sw.epilog, label %if.end110
+  %or.cond483 = and i1 %cmp91.not, %narrow.i120
+  br i1 %or.cond483, label %sw.epilog, label %if.end110
 
 if.end110:                                        ; preds = %sw.bb90
   %chainLog = getelementptr inbounds i8, ptr %CCtxParams, i64 8
@@ -1134,8 +1134,8 @@ if.end110:                                        ; preds = %sw.bb90
   br label %sw.epilog
 
 sw.bb115:                                         ; preds = %entry
-  %or.cond452 = icmp ugt i32 %value, 30
-  br i1 %or.cond452, label %sw.epilog, label %if.end135
+  %or.cond484 = icmp ugt i32 %value, 30
+  br i1 %or.cond484, label %sw.epilog, label %if.end135
 
 if.end135:                                        ; preds = %sw.bb115
   %searchLog = getelementptr inbounds i8, ptr %CCtxParams, i64 16
@@ -1170,8 +1170,8 @@ do.end179:                                        ; preds = %do.body165
   br label %sw.epilog
 
 sw.bb184:                                         ; preds = %entry
-  %or.cond454 = icmp ugt i32 %value, 9
-  br i1 %or.cond454, label %sw.epilog, label %if.end204
+  %or.cond486 = icmp ugt i32 %value, 9
+  br i1 %or.cond486, label %sw.epilog, label %if.end204
 
 if.end204:                                        ; preds = %sw.bb184
   %strategy = getelementptr inbounds i8, ptr %CCtxParams, i64 28
@@ -1294,8 +1294,8 @@ sw.bb385:                                         ; preds = %entry
   %cmp386.not = icmp ne i32 %value, 0
   %19 = add i32 %value, -31
   %narrow.i252 = icmp ult i32 %19, -25
-  %or.cond455 = and i1 %cmp386.not, %narrow.i252
-  br i1 %or.cond455, label %sw.epilog, label %if.end405
+  %or.cond487 = and i1 %cmp386.not, %narrow.i252
+  br i1 %or.cond487, label %sw.epilog, label %if.end405
 
 if.end405:                                        ; preds = %sw.bb385
   %hashLog407 = getelementptr inbounds i8, ptr %CCtxParams, i64 100
@@ -1307,8 +1307,8 @@ sw.bb411:                                         ; preds = %entry
   %cmp412.not = icmp ne i32 %value, 0
   %20 = add i32 %value, -4097
   %narrow.i262 = icmp ult i32 %20, -4093
-  %or.cond456 = and i1 %cmp412.not, %narrow.i262
-  br i1 %or.cond456, label %sw.epilog, label %if.end431
+  %or.cond488 = and i1 %cmp412.not, %narrow.i262
+  br i1 %or.cond488, label %sw.epilog, label %if.end431
 
 if.end431:                                        ; preds = %sw.bb411
   %minMatchLength = getelementptr inbounds i8, ptr %CCtxParams, i64 108
@@ -1340,8 +1340,8 @@ sw.bb486:                                         ; preds = %entry
   %cmp487.not = icmp ne i32 %value, 0
   %21 = add i32 %value, -131073
   %narrow.i292 = icmp ult i32 %21, -131009
-  %or.cond459 = and i1 %cmp487.not, %narrow.i292
-  br i1 %or.cond459, label %sw.epilog, label %if.end506
+  %or.cond491 = and i1 %cmp487.not, %narrow.i292
+  br i1 %or.cond491, label %sw.epilog, label %if.end506
 
 if.end506:                                        ; preds = %sw.bb486
   %conv507 = zext nneg i32 %value to i64
@@ -1453,8 +1453,8 @@ sw.bb708:                                         ; preds = %entry
   %cmp709.not = icmp ne i32 %value, 0
   %22 = add i32 %value, -131073
   %narrow.i402 = icmp ult i32 %22, -130049
-  %or.cond461 = and i1 %cmp709.not, %narrow.i402
-  br i1 %or.cond461, label %sw.epilog, label %if.end728
+  %or.cond493 = and i1 %cmp709.not, %narrow.i402
+  br i1 %or.cond493, label %sw.epilog, label %if.end728
 
 if.end728:                                        ; preds = %sw.bb708
   %conv729 = zext nneg i32 %value to i64
@@ -1478,15 +1478,15 @@ sw.epilog:                                        ; preds = %sw.bb436, %sw.bb138
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define noundef i64 @ZSTD_CCtx_getParameter(ptr nocapture noundef readonly %cctx, i32 noundef %param, ptr nocapture noundef writeonly %value) local_unnamed_addr #6 {
+define range(i64 -40, 1) i64 @ZSTD_CCtx_getParameter(ptr nocapture noundef readonly %cctx, i32 noundef %param, ptr nocapture noundef writeonly %value) local_unnamed_addr #6 {
 entry:
   %requestedParams = getelementptr inbounds i8, ptr %cctx, i64 16
-  %call = tail call i64 @ZSTD_CCtxParams_getParameter(ptr noundef nonnull %requestedParams, i32 noundef %param, ptr noundef %value), !range !7
+  %call = tail call i64 @ZSTD_CCtxParams_getParameter(ptr noundef nonnull %requestedParams, i32 noundef %param, ptr noundef %value)
   ret i64 %call
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define noundef i64 @ZSTD_CCtxParams_getParameter(ptr nocapture noundef readonly %CCtxParams, i32 noundef %param, ptr nocapture noundef writeonly %value) local_unnamed_addr #6 {
+define range(i64 -40, 1) i64 @ZSTD_CCtxParams_getParameter(ptr nocapture noundef readonly %CCtxParams, i32 noundef %param, ptr nocapture noundef writeonly %value) local_unnamed_addr #6 {
 entry:
   switch i32 %param, label %return [
     i32 10, label %sw.bb
@@ -1734,7 +1734,7 @@ return:                                           ; preds = %return.sink.split, 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define noundef i64 @ZSTD_CCtx_setParametersUsingCCtxParams(ptr nocapture noundef %cctx, ptr nocapture noundef readonly %params) local_unnamed_addr #6 {
+define range(i64 -60, 1) i64 @ZSTD_CCtx_setParametersUsingCCtxParams(ptr nocapture noundef %cctx, ptr nocapture noundef readonly %params) local_unnamed_addr #6 {
 entry:
   %streamStage = getelementptr inbounds i8, ptr %cctx, i64 3608
   %0 = load i32, ptr %streamStage, align 8
@@ -1962,7 +1962,7 @@ return:                                           ; preds = %do.body60.i.i, %do.
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define noundef i64 @ZSTD_CCtx_setPledgedSrcSize(ptr nocapture noundef %cctx, i64 noundef %pledgedSrcSize) local_unnamed_addr #6 {
+define range(i64 -60, 1) i64 @ZSTD_CCtx_setPledgedSrcSize(ptr nocapture noundef %cctx, i64 noundef %pledgedSrcSize) local_unnamed_addr #6 {
 entry:
   %streamStage = getelementptr inbounds i8, ptr %cctx, i64 3608
   %0 = load i32, ptr %streamStage, align 8
@@ -1981,7 +1981,7 @@ return:                                           ; preds = %entry, %do.end10
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i64 @ZSTD_CCtx_loadDictionary_advanced(ptr nocapture noundef %cctx, ptr noundef %dict, i64 noundef %dictSize, i32 noundef %dictLoadMethod, i32 noundef %dictContentType) local_unnamed_addr #1 {
+define range(i64 -64, 1) i64 @ZSTD_CCtx_loadDictionary_advanced(ptr nocapture noundef %cctx, ptr noundef %dict, i64 noundef %dictSize, i32 noundef %dictLoadMethod, i32 noundef %dictContentType) local_unnamed_addr #1 {
 entry:
   %streamStage = getelementptr inbounds i8, ptr %cctx, i64 3608
   %0 = load i32, ptr %streamStage, align 8
@@ -2132,7 +2132,7 @@ ZSTD_freeCDict.exit:                              ; preds = %ZSTD_customFree.exi
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i64 @ZSTD_CCtx_loadDictionary_byReference(ptr nocapture noundef %cctx, ptr noundef %dict, i64 noundef %dictSize) local_unnamed_addr #1 {
+define range(i64 -64, 1) i64 @ZSTD_CCtx_loadDictionary_byReference(ptr nocapture noundef %cctx, ptr noundef %dict, i64 noundef %dictSize) local_unnamed_addr #1 {
 entry:
   %streamStage.i = getelementptr inbounds i8, ptr %cctx, i64 3608
   %0 = load i32, ptr %streamStage.i, align 8
@@ -2161,7 +2161,7 @@ ZSTD_CCtx_loadDictionary_advanced.exit:           ; preds = %entry, %do.end10.i,
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i64 @ZSTD_CCtx_loadDictionary(ptr nocapture noundef %cctx, ptr noundef readonly %dict, i64 noundef %dictSize) local_unnamed_addr #1 {
+define range(i64 -64, 1) i64 @ZSTD_CCtx_loadDictionary(ptr nocapture noundef %cctx, ptr noundef readonly %dict, i64 noundef %dictSize) local_unnamed_addr #1 {
 entry:
   %streamStage.i = getelementptr inbounds i8, ptr %cctx, i64 3608
   %0 = load i32, ptr %streamStage.i, align 8
@@ -2220,7 +2220,7 @@ ZSTD_CCtx_loadDictionary_advanced.exit:           ; preds = %entry, %do.end10.i,
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i64 @ZSTD_CCtx_refCDict(ptr nocapture noundef %cctx, ptr noundef %cdict) local_unnamed_addr #1 {
+define range(i64 -60, 1) i64 @ZSTD_CCtx_refCDict(ptr nocapture noundef %cctx, ptr noundef %cdict) local_unnamed_addr #1 {
 entry:
   %streamStage = getelementptr inbounds i8, ptr %cctx, i64 3608
   %0 = load i32, ptr %streamStage, align 8
@@ -2239,7 +2239,7 @@ return:                                           ; preds = %entry, %do.end8
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define noundef i64 @ZSTD_CCtx_refThreadPool(ptr nocapture noundef %cctx, ptr noundef %pool) local_unnamed_addr #6 {
+define range(i64 -60, 1) i64 @ZSTD_CCtx_refThreadPool(ptr nocapture noundef %cctx, ptr noundef %pool) local_unnamed_addr #6 {
 entry:
   %streamStage = getelementptr inbounds i8, ptr %cctx, i64 3608
   %0 = load i32, ptr %streamStage, align 8
@@ -2257,7 +2257,7 @@ return:                                           ; preds = %entry, %do.end8
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i64 @ZSTD_CCtx_refPrefix(ptr nocapture noundef %cctx, ptr noundef %prefix, i64 noundef %prefixSize) local_unnamed_addr #1 {
+define range(i64 -60, 1) i64 @ZSTD_CCtx_refPrefix(ptr nocapture noundef %cctx, ptr noundef %prefix, i64 noundef %prefixSize) local_unnamed_addr #1 {
 entry:
   %streamStage.i = getelementptr inbounds i8, ptr %cctx, i64 3608
   %0 = load i32, ptr %streamStage.i, align 8
@@ -2286,7 +2286,7 @@ ZSTD_CCtx_refPrefix_advanced.exit:                ; preds = %entry, %do.end8.i, 
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i64 @ZSTD_CCtx_refPrefix_advanced(ptr nocapture noundef %cctx, ptr noundef %prefix, i64 noundef %prefixSize, i32 noundef %dictContentType) local_unnamed_addr #1 {
+define range(i64 -60, 1) i64 @ZSTD_CCtx_refPrefix_advanced(ptr nocapture noundef %cctx, ptr noundef %prefix, i64 noundef %prefixSize, i32 noundef %dictContentType) local_unnamed_addr #1 {
 entry:
   %streamStage = getelementptr inbounds i8, ptr %cctx, i64 3608
   %0 = load i32, ptr %streamStage, align 8
@@ -2315,7 +2315,7 @@ return:                                           ; preds = %do.end8, %if.then11
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i64 @ZSTD_CCtx_reset(ptr nocapture noundef %cctx, i32 noundef %reset) local_unnamed_addr #1 {
+define range(i64 -60, 1) i64 @ZSTD_CCtx_reset(ptr nocapture noundef %cctx, i32 noundef %reset) local_unnamed_addr #1 {
 entry:
   %0 = and i32 %reset, -3
   %or.cond = icmp eq i32 %0, 1
@@ -2408,7 +2408,7 @@ if.then6.i:                                       ; preds = %entry
   %conv.i = trunc nuw i64 %add.i to i32
   %cmp7.i = icmp ult i32 %conv.i, 64
   %sub.i = add i32 %conv.i, -1
-  %4 = tail call i32 @llvm.ctlz.i32(i32 %sub.i, i1 true), !range !8
+  %4 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %sub.i, i1 true)
   %add9.i = sub nuw nsw i32 32, %4
   %cond.i = select i1 %cmp7.i, i32 6, i32 %add9.i
   %spec.select36 = tail call i32 @llvm.umin.i32(i32 %cPar2.sroa.0.0, i32 %cond.i)
@@ -2438,7 +2438,7 @@ if.else.i.i:                                      ; preds = %if.end.i.i
 if.else6.i.i:                                     ; preds = %if.else.i.i
   %conv.i.i = trunc nuw nsw i64 %add.i.i to i32
   %sub.i19.i = add nsw i32 %conv.i.i, -1
-  %5 = tail call i32 @llvm.ctlz.i32(i32 %sub.i19.i, i1 true), !range !8
+  %5 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %sub.i19.i, i1 true)
   %add7.i.i = sub nuw nsw i32 32, %5
   br label %ZSTD_dictAndWindowLog.exit.i
 
@@ -2518,7 +2518,7 @@ if.then6:                                         ; preds = %sw.epilog
   %conv = trunc nuw i64 %add to i32
   %cmp7 = icmp ult i32 %conv, 64
   %sub = add i32 %conv, -1
-  %0 = tail call i32 @llvm.ctlz.i32(i32 %sub, i1 true), !range !8
+  %0 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %sub, i1 true)
   %add9 = sub nuw nsw i32 32, %0
   %cond = select i1 %cmp7, i32 6, i32 %add9
   %1 = load i32, ptr %cPar, align 8
@@ -2554,7 +2554,7 @@ if.else.i:                                        ; preds = %if.end.i
 if.else6.i:                                       ; preds = %if.else.i
   %conv.i = trunc nuw nsw i64 %add.i to i32
   %sub.i19 = add nsw i32 %conv.i, -1
-  %3 = tail call i32 @llvm.ctlz.i32(i32 %sub.i19, i1 true), !range !8
+  %3 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %sub.i19, i1 true)
   %add7.i = sub nuw nsw i32 32, %3
   br label %ZSTD_dictAndWindowLog.exit
 
@@ -2845,7 +2845,7 @@ if.then6.i:                                       ; preds = %sw.epilog.i
   %conv.i = trunc nuw i64 %add.i15 to i32
   %cmp7.i = icmp ult i32 %conv.i, 64
   %sub.i = add i32 %conv.i, -1
-  %2 = tail call i32 @llvm.ctlz.i32(i32 %sub.i, i1 true), !range !8
+  %2 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %sub.i, i1 true)
   %add9.i = sub nuw nsw i32 32, %2
   %cond.i = select i1 %cmp7.i, i32 6, i32 %add9.i
   %spec.select33 = tail call i32 @llvm.umin.i32(i32 %cp.sroa.0.sroa.0.0.copyload, i32 %cond.i)
@@ -2875,7 +2875,7 @@ if.else.i.i:                                      ; preds = %if.end.i.i
 if.else6.i.i:                                     ; preds = %if.else.i.i
   %conv.i.i = trunc nuw nsw i64 %add.i.i to i32
   %sub.i19.i = add nsw i32 %conv.i.i, -1
-  %3 = tail call i32 @llvm.ctlz.i32(i32 %sub.i19.i, i1 true), !range !8
+  %3 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %sub.i19.i, i1 true)
   %add7.i.i = sub nuw nsw i32 32, %3
   br label %ZSTD_dictAndWindowLog.exit.i
 
@@ -3103,47 +3103,47 @@ entry:
   %cParams.i = alloca %struct.ZSTD_compressionParameters, align 4
   %cParams3 = alloca %struct.ZSTD_compressionParameters, align 8
   %initialParams = alloca %struct.ZSTD_CCtx_params_s, align 8
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !9)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !7)
   call void @llvm.lifetime.start.p0(i64 28, ptr nonnull %cParams3)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(28) %cParams3, ptr noundef nonnull align 8 dereferenceable(28) %cParams, i64 28, i1 false)
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(216) %initialParams, i8 0, i64 216, i1 false), !alias.scope !9
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(216) %initialParams, i8 0, i64 216, i1 false), !alias.scope !7
   %compressionLevel9.i.i = getelementptr inbounds i8, ptr %initialParams, i64 44
-  store i32 3, ptr %compressionLevel9.i.i, align 4, !alias.scope !9
+  store i32 3, ptr %compressionLevel9.i.i, align 4, !alias.scope !7
   %fParams.i.i = getelementptr inbounds i8, ptr %initialParams, i64 32
-  store i32 1, ptr %fParams.i.i, align 8, !alias.scope !9
+  store i32 1, ptr %fParams.i.i, align 8, !alias.scope !7
   %cParams121.i = getelementptr inbounds i8, ptr %initialParams, i64 4
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(28) %cParams121.i, ptr noundef nonnull align 8 dereferenceable(28) %cParams, i64 28, i1 false)
   %ldmParams22.i = getelementptr inbounds i8, ptr %initialParams, i64 96
   %strategy.i.i = getelementptr inbounds i8, ptr %cParams3, i64 24
-  %0 = load i32, ptr %strategy.i.i, align 8, !noalias !9
+  %0 = load i32, ptr %strategy.i.i, align 8, !noalias !7
   %cmp1.i.i = icmp ugt i32 %0, 6
-  %1 = load i32, ptr %cParams3, align 8, !noalias !9
+  %1 = load i32, ptr %cParams3, align 8, !noalias !7
   %cmp2.i.i = icmp ugt i32 %1, 26
   %or.cond.i = select i1 %cmp1.i.i, i1 %cmp2.i.i, i1 false
   br i1 %or.cond.i, label %if.end.i, label %if.end.i.thread
 
 if.end.i.thread:                                  ; preds = %entry
-  store i32 2, ptr %ldmParams22.i, align 8, !alias.scope !9
+  store i32 2, ptr %ldmParams22.i, align 8, !alias.scope !7
   %useBlockSplitter.i298 = getelementptr inbounds i8, ptr %initialParams, i64 140
   br label %if.end.i4.i
 
 if.end.i:                                         ; preds = %entry
-  store i32 1, ptr %ldmParams22.i, align 8, !alias.scope !9
+  store i32 1, ptr %ldmParams22.i, align 8, !alias.scope !7
   call void @ZSTD_ldm_adjustParameters(ptr noundef nonnull %ldmParams22.i, ptr noundef nonnull %cParams3) #28
   %useBlockSplitter.i.phi.trans.insert = getelementptr inbounds i8, ptr %initialParams, i64 140
-  %.pre = load i32, ptr %useBlockSplitter.i.phi.trans.insert, align 4, !alias.scope !9
+  %.pre = load i32, ptr %useBlockSplitter.i.phi.trans.insert, align 4, !alias.scope !7
   %useBlockSplitter.i = getelementptr inbounds i8, ptr %initialParams, i64 140
   %cmp.not.i2.i = icmp eq i32 %.pre, 0
   br i1 %cmp.not.i2.i, label %if.end.i4.i, label %ZSTD_resolveBlockSplitterMode.exit.i
 
 if.end.i4.i:                                      ; preds = %if.end.i.thread, %if.end.i
   %useBlockSplitter.i301 = phi ptr [ %useBlockSplitter.i298, %if.end.i.thread ], [ %useBlockSplitter.i, %if.end.i ]
-  %2 = load i32, ptr %strategy.i.i, align 8, !noalias !9
+  %2 = load i32, ptr %strategy.i.i, align 8, !noalias !7
   %cmp1.i6.i = icmp ugt i32 %2, 6
   br i1 %cmp1.i6.i, label %land.rhs.i7.i, label %ZSTD_resolveBlockSplitterMode.exit.i
 
 land.rhs.i7.i:                                    ; preds = %if.end.i4.i
-  %3 = load i32, ptr %cParams3, align 8, !noalias !9
+  %3 = load i32, ptr %cParams3, align 8, !noalias !7
   %cmp2.i8.i = icmp ugt i32 %3, 16
   %4 = select i1 %cmp2.i8.i, i32 1, i32 2
   br label %ZSTD_resolveBlockSplitterMode.exit.i
@@ -3151,40 +3151,40 @@ land.rhs.i7.i:                                    ; preds = %if.end.i4.i
 ZSTD_resolveBlockSplitterMode.exit.i:             ; preds = %land.rhs.i7.i, %if.end.i4.i, %if.end.i
   %useBlockSplitter.i300 = phi ptr [ %useBlockSplitter.i, %if.end.i ], [ %useBlockSplitter.i301, %if.end.i4.i ], [ %useBlockSplitter.i301, %land.rhs.i7.i ]
   %retval.0.i3.i = phi i32 [ %.pre, %if.end.i ], [ 2, %if.end.i4.i ], [ %4, %land.rhs.i7.i ]
-  store i32 %retval.0.i3.i, ptr %useBlockSplitter.i300, align 4, !alias.scope !9
+  store i32 %retval.0.i3.i, ptr %useBlockSplitter.i300, align 4, !alias.scope !7
   %useRowMatchFinder.i = getelementptr inbounds i8, ptr %initialParams, i64 144
-  %5 = load i32, ptr %useRowMatchFinder.i, align 8, !alias.scope !9
+  %5 = load i32, ptr %useRowMatchFinder.i, align 8, !alias.scope !7
   %cmp.not.i9.i = icmp eq i32 %5, 0
   br i1 %cmp.not.i9.i, label %if.end.i11.i, label %ZSTD_makeCCtxParamsFromCParams.exit
 
 if.end.i11.i:                                     ; preds = %ZSTD_resolveBlockSplitterMode.exit.i
-  %6 = load i32, ptr %strategy.i.i, align 8, !noalias !9
+  %6 = load i32, ptr %strategy.i.i, align 8, !noalias !7
   %7 = add i32 %6, -6
   %8 = icmp ult i32 %7, -3
   br i1 %8, label %ZSTD_makeCCtxParamsFromCParams.exit, label %if.end2.i.i
 
 if.end2.i.i:                                      ; preds = %if.end.i11.i
-  %9 = load i32, ptr %cParams3, align 8, !noalias !9
+  %9 = load i32, ptr %cParams3, align 8, !noalias !7
   %cmp3.i.i = icmp ugt i32 %9, 14
   %spec.select.i.i = select i1 %cmp3.i.i, i32 1, i32 2
   br label %ZSTD_makeCCtxParamsFromCParams.exit
 
 ZSTD_makeCCtxParamsFromCParams.exit:              ; preds = %ZSTD_resolveBlockSplitterMode.exit.i, %if.end.i11.i, %if.end2.i.i
   %retval.0.i10.i = phi i32 [ %spec.select.i.i, %if.end2.i.i ], [ %5, %ZSTD_resolveBlockSplitterMode.exit.i ], [ 2, %if.end.i11.i ]
-  store i32 %retval.0.i10.i, ptr %useRowMatchFinder.i, align 8, !alias.scope !9
+  store i32 %retval.0.i10.i, ptr %useRowMatchFinder.i, align 8, !alias.scope !7
   %maxBlockSize.i = getelementptr inbounds i8, ptr %initialParams, i64 200
-  %10 = load i64, ptr %maxBlockSize.i, align 8, !alias.scope !9
+  %10 = load i64, ptr %maxBlockSize.i, align 8, !alias.scope !7
   %cmp.i.i = icmp eq i64 %10, 0
   %.maxBlockSize.i.i = select i1 %cmp.i.i, i64 131072, i64 %10
-  store i64 %.maxBlockSize.i.i, ptr %maxBlockSize.i, align 8, !alias.scope !9
+  store i64 %.maxBlockSize.i.i, ptr %maxBlockSize.i, align 8, !alias.scope !7
   %searchForExternalRepcodes.i = getelementptr inbounds i8, ptr %initialParams, i64 208
-  %11 = load i32, ptr %searchForExternalRepcodes.i, align 8, !alias.scope !9
+  %11 = load i32, ptr %searchForExternalRepcodes.i, align 8, !alias.scope !7
   %12 = load i32, ptr %compressionLevel9.i.i, align 4
   %cmp.not.i13.i = icmp eq i32 %11, 0
   %cmp1.i14.i = icmp slt i32 %12, 10
   %..i.i = select i1 %cmp1.i14.i, i32 2, i32 1
   %retval.0.i15.i = select i1 %cmp.not.i13.i, i32 %..i.i, i32 %11
-  store i32 %retval.0.i15.i, ptr %searchForExternalRepcodes.i, align 8, !alias.scope !9
+  store i32 %retval.0.i15.i, ptr %searchForExternalRepcodes.i, align 8, !alias.scope !7
   call void @llvm.lifetime.end.p0(i64 28, ptr nonnull %cParams3)
   %strategy = getelementptr inbounds i8, ptr %cParams, i64 24
   %13 = load i32, ptr %strategy, align 8
@@ -3197,86 +3197,86 @@ if.then:                                          ; preds = %ZSTD_makeCCtxParams
   call void @llvm.lifetime.start.p0(i64 28, ptr nonnull %cParams.i)
   call void @llvm.lifetime.start.p0(i64 28, ptr nonnull %cParams.i52)
   %srcSizeHint1.i = getelementptr inbounds i8, ptr %initialParams, i64 64
-  %16 = load i32, ptr %srcSizeHint1.i, align 8, !noalias !12
+  %16 = load i32, ptr %srcSizeHint1.i, align 8, !noalias !10
   %cmp2.i = icmp slt i32 %16, 1
   %conv.i = zext nneg i32 %16 to i64
   %spec.select.i = select i1 %cmp2.i, i64 -1, i64 %conv.i
-  call fastcc void @ZSTD_getCParams_internal(ptr noalias nonnull align 4 %cParams.i52, i32 noundef %12, i64 noundef %spec.select.i, i64 noundef 0, i32 noundef 0), !noalias !13
-  %17 = load i32, ptr %ldmParams22.i, align 8, !noalias !12
+  call fastcc void @ZSTD_getCParams_internal(ptr noalias nonnull align 4 %cParams.i52, i32 noundef %12, i64 noundef %spec.select.i, i64 noundef 0, i32 noundef 0), !noalias !11
+  %17 = load i32, ptr %ldmParams22.i, align 8, !noalias !10
   %cmp4.i = icmp eq i32 %17, 1
   br i1 %cmp4.i, label %if.then6.i, label %if.end7.i
 
 if.then6.i:                                       ; preds = %if.then
-  store i32 27, ptr %cParams.i52, align 8, !noalias !13
+  store i32 27, ptr %cParams.i52, align 8, !noalias !11
   br label %if.end7.i
 
 if.end7.i:                                        ; preds = %if.then6.i, %if.then
-  %18 = load i32, ptr %cParams121.i, align 4, !noalias !13
+  %18 = load i32, ptr %cParams121.i, align 4, !noalias !11
   %tobool.not.i.i = icmp eq i32 %18, 0
   br i1 %tobool.not.i.i, label %if.end.i.i56, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %if.end7.i
-  store i32 %18, ptr %cParams.i52, align 8, !noalias !13
+  store i32 %18, ptr %cParams.i52, align 8, !noalias !11
   br label %if.end.i.i56
 
 if.end.i.i56:                                     ; preds = %if.then.i.i, %if.end7.i
   %hashLog.i.i = getelementptr inbounds i8, ptr %initialParams, i64 12
-  %19 = load i32, ptr %hashLog.i.i, align 4, !noalias !13
+  %19 = load i32, ptr %hashLog.i.i, align 4, !noalias !11
   %tobool3.not.i.i = icmp eq i32 %19, 0
   br i1 %tobool3.not.i.i, label %if.end7.i.i, label %if.then4.i.i
 
 if.then4.i.i:                                     ; preds = %if.end.i.i56
   %hashLog6.i.i = getelementptr inbounds i8, ptr %cParams.i52, i64 8
-  store i32 %19, ptr %hashLog6.i.i, align 8, !noalias !13
+  store i32 %19, ptr %hashLog6.i.i, align 8, !noalias !11
   br label %if.end7.i.i
 
 if.end7.i.i:                                      ; preds = %if.then4.i.i, %if.end.i.i56
   %chainLog.i.i = getelementptr inbounds i8, ptr %initialParams, i64 8
-  %20 = load i32, ptr %chainLog.i.i, align 8, !noalias !13
+  %20 = load i32, ptr %chainLog.i.i, align 8, !noalias !11
   %tobool8.not.i.i = icmp eq i32 %20, 0
   br i1 %tobool8.not.i.i, label %if.end12.i.i, label %if.then9.i.i
 
 if.then9.i.i:                                     ; preds = %if.end7.i.i
   %chainLog11.i.i = getelementptr inbounds i8, ptr %cParams.i52, i64 4
-  store i32 %20, ptr %chainLog11.i.i, align 4, !noalias !13
+  store i32 %20, ptr %chainLog11.i.i, align 4, !noalias !11
   br label %if.end12.i.i
 
 if.end12.i.i:                                     ; preds = %if.then9.i.i, %if.end7.i.i
   %searchLog.i.i = getelementptr inbounds i8, ptr %initialParams, i64 16
-  %21 = load i32, ptr %searchLog.i.i, align 8, !noalias !13
+  %21 = load i32, ptr %searchLog.i.i, align 8, !noalias !11
   %tobool13.not.i.i = icmp eq i32 %21, 0
   br i1 %tobool13.not.i.i, label %if.end17.i.i, label %if.then14.i.i
 
 if.then14.i.i:                                    ; preds = %if.end12.i.i
   %searchLog16.i.i = getelementptr inbounds i8, ptr %cParams.i52, i64 12
-  store i32 %21, ptr %searchLog16.i.i, align 4, !noalias !13
+  store i32 %21, ptr %searchLog16.i.i, align 4, !noalias !11
   br label %if.end17.i.i
 
 if.end17.i.i:                                     ; preds = %if.then14.i.i, %if.end12.i.i
   %minMatch.i.i = getelementptr inbounds i8, ptr %initialParams, i64 20
-  %22 = load i32, ptr %minMatch.i.i, align 4, !noalias !13
+  %22 = load i32, ptr %minMatch.i.i, align 4, !noalias !11
   %tobool18.not.i.i = icmp eq i32 %22, 0
   br i1 %tobool18.not.i.i, label %if.end22.i.i, label %if.then19.i.i
 
 if.then19.i.i:                                    ; preds = %if.end17.i.i
   %minMatch21.i.i = getelementptr inbounds i8, ptr %cParams.i52, i64 16
-  store i32 %22, ptr %minMatch21.i.i, align 8, !noalias !13
+  store i32 %22, ptr %minMatch21.i.i, align 8, !noalias !11
   br label %if.end22.i.i
 
 if.end22.i.i:                                     ; preds = %if.then19.i.i, %if.end17.i.i
   %targetLength.i.i = getelementptr inbounds i8, ptr %initialParams, i64 24
-  %23 = load i32, ptr %targetLength.i.i, align 8, !noalias !13
+  %23 = load i32, ptr %targetLength.i.i, align 8, !noalias !11
   %tobool23.not.i.i = icmp eq i32 %23, 0
   br i1 %tobool23.not.i.i, label %if.end27.i.i, label %if.then24.i.i
 
 if.then24.i.i:                                    ; preds = %if.end22.i.i
   %targetLength26.i.i = getelementptr inbounds i8, ptr %cParams.i52, i64 20
-  store i32 %23, ptr %targetLength26.i.i, align 4, !noalias !13
+  store i32 %23, ptr %targetLength26.i.i, align 4, !noalias !11
   br label %if.end27.i.i
 
 if.end27.i.i:                                     ; preds = %if.then24.i.i, %if.end22.i.i
   %strategy.i.i57 = getelementptr inbounds i8, ptr %initialParams, i64 28
-  %24 = load i32, ptr %strategy.i.i57, align 4, !noalias !13
+  %24 = load i32, ptr %strategy.i.i57, align 4, !noalias !11
   %tobool28.not.i.i = icmp eq i32 %24, 0
   %cParams.i52151.sroa.15259.0.cParams.i52.sroa_idx.phi.trans.insert = getelementptr inbounds i8, ptr %cParams.i52, i64 24
   %cParams.i52151.sroa.15259.0.copyload260.pre = load i32, ptr %cParams.i52151.sroa.15259.0.cParams.i52.sroa_idx.phi.trans.insert, align 8
@@ -3297,7 +3297,7 @@ if.then6.i156:                                    ; preds = %if.end27.i.i
   %conv.i157 = trunc nuw nsw i64 %spec.select.i to i32
   %cmp7.i = icmp ult i32 %conv.i157, 64
   %sub.i = add nsw i32 %conv.i157, -1
-  %26 = call i32 @llvm.ctlz.i32(i32 %sub.i, i1 true), !range !8
+  %26 = call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %sub.i, i1 true)
   %add9.i = sub nuw nsw i32 32, %26
   %cond.i = select i1 %cmp7.i, i32 6, i32 %add9.i
   %spec.select = call i32 @llvm.umin.i32(i32 %cParams.i52151.sroa.0.0.copyload254, i32 %cond.i)
@@ -3349,9 +3349,9 @@ do.end9.i:                                        ; preds = %if.end36.i
   %cmp.i.i4 = icmp ne ptr %params.val.i, null
   %conv.i.i = zext i1 %cmp.i.i4 to i32
   %call11.i = call fastcc i64 @ZSTD_estimateCCtxSize_usingCCtxParams_internal(ptr noundef nonnull %cParams.i, ptr noundef nonnull %ldmParams22.i, i32 noundef 1, i32 noundef 2, i64 noundef 0, i64 noundef 0, i64 noundef -1, i32 noundef %conv.i.i, i64 noundef %.maxBlockSize.i.i)
-  %.pre292 = load i32, ptr %srcSizeHint1.i, align 8, !noalias !16
-  %.pre293 = load i32, ptr %compressionLevel9.i.i, align 4, !noalias !16
-  %.pre294 = load i32, ptr %ldmParams22.i, align 8, !noalias !16
+  %.pre292 = load i32, ptr %srcSizeHint1.i, align 8, !noalias !14
+  %.pre293 = load i32, ptr %compressionLevel9.i.i, align 4, !noalias !14
+  %.pre294 = load i32, ptr %ldmParams22.i, align 8, !noalias !14
   %.pre297 = zext nneg i32 %.pre292 to i64
   br label %ZSTD_estimateCCtxSize_usingCCtxParams.exit
 
@@ -3367,75 +3367,75 @@ ZSTD_estimateCCtxSize_usingCCtxParams.exit:       ; preds = %if.end36.i, %do.end
   call void @llvm.lifetime.start.p0(i64 28, ptr nonnull %cParams.i59)
   %cmp2.i61 = icmp slt i32 %31, 1
   %spec.select.i63 = select i1 %cmp2.i61, i64 -1, i64 %conv.i62.pre-phi
-  call fastcc void @ZSTD_getCParams_internal(ptr noalias nonnull align 4 %cParams.i59, i32 noundef %30, i64 noundef %spec.select.i63, i64 noundef 0, i32 noundef 0), !noalias !16
+  call fastcc void @ZSTD_getCParams_internal(ptr noalias nonnull align 4 %cParams.i59, i32 noundef %30, i64 noundef %spec.select.i63, i64 noundef 0, i32 noundef 0), !noalias !14
   %cmp4.i67 = icmp eq i32 %29, 1
   br i1 %cmp4.i67, label %if.then6.i103, label %if.end7.i68
 
 if.then6.i103:                                    ; preds = %ZSTD_estimateCCtxSize_usingCCtxParams.exit
-  store i32 27, ptr %cParams.i59, align 8, !noalias !16
+  store i32 27, ptr %cParams.i59, align 8, !noalias !14
   br label %if.end7.i68
 
 if.end7.i68:                                      ; preds = %if.then6.i103, %ZSTD_estimateCCtxSize_usingCCtxParams.exit
-  %32 = load i32, ptr %cParams121.i, align 4, !noalias !16
+  %32 = load i32, ptr %cParams121.i, align 4, !noalias !14
   %tobool.not.i.i70 = icmp eq i32 %32, 0
   br i1 %tobool.not.i.i70, label %if.end.i.i72, label %if.then.i.i71
 
 if.then.i.i71:                                    ; preds = %if.end7.i68
-  store i32 %32, ptr %cParams.i59, align 8, !noalias !16
+  store i32 %32, ptr %cParams.i59, align 8, !noalias !14
   br label %if.end.i.i72
 
 if.end.i.i72:                                     ; preds = %if.then.i.i71, %if.end7.i68
-  %33 = load i32, ptr %hashLog.i.i, align 4, !noalias !16
+  %33 = load i32, ptr %hashLog.i.i, align 4, !noalias !14
   %tobool3.not.i.i74 = icmp eq i32 %33, 0
   br i1 %tobool3.not.i.i74, label %if.end7.i.i77, label %if.then4.i.i75
 
 if.then4.i.i75:                                   ; preds = %if.end.i.i72
   %hashLog6.i.i76 = getelementptr inbounds i8, ptr %cParams.i59, i64 8
-  store i32 %33, ptr %hashLog6.i.i76, align 8, !noalias !16
+  store i32 %33, ptr %hashLog6.i.i76, align 8, !noalias !14
   br label %if.end7.i.i77
 
 if.end7.i.i77:                                    ; preds = %if.then4.i.i75, %if.end.i.i72
-  %34 = load i32, ptr %chainLog.i.i, align 8, !noalias !16
+  %34 = load i32, ptr %chainLog.i.i, align 8, !noalias !14
   %tobool8.not.i.i79 = icmp eq i32 %34, 0
   br i1 %tobool8.not.i.i79, label %if.end12.i.i82, label %if.then9.i.i80
 
 if.then9.i.i80:                                   ; preds = %if.end7.i.i77
   %chainLog11.i.i81 = getelementptr inbounds i8, ptr %cParams.i59, i64 4
-  store i32 %34, ptr %chainLog11.i.i81, align 4, !noalias !16
+  store i32 %34, ptr %chainLog11.i.i81, align 4, !noalias !14
   br label %if.end12.i.i82
 
 if.end12.i.i82:                                   ; preds = %if.then9.i.i80, %if.end7.i.i77
-  %35 = load i32, ptr %searchLog.i.i, align 8, !noalias !16
+  %35 = load i32, ptr %searchLog.i.i, align 8, !noalias !14
   %tobool13.not.i.i84 = icmp eq i32 %35, 0
   br i1 %tobool13.not.i.i84, label %if.end17.i.i87, label %if.then14.i.i85
 
 if.then14.i.i85:                                  ; preds = %if.end12.i.i82
   %searchLog16.i.i86 = getelementptr inbounds i8, ptr %cParams.i59, i64 12
-  store i32 %35, ptr %searchLog16.i.i86, align 4, !noalias !16
+  store i32 %35, ptr %searchLog16.i.i86, align 4, !noalias !14
   br label %if.end17.i.i87
 
 if.end17.i.i87:                                   ; preds = %if.then14.i.i85, %if.end12.i.i82
-  %36 = load i32, ptr %minMatch.i.i, align 4, !noalias !16
+  %36 = load i32, ptr %minMatch.i.i, align 4, !noalias !14
   %tobool18.not.i.i89 = icmp eq i32 %36, 0
   br i1 %tobool18.not.i.i89, label %if.end22.i.i92, label %if.then19.i.i90
 
 if.then19.i.i90:                                  ; preds = %if.end17.i.i87
   %minMatch21.i.i91 = getelementptr inbounds i8, ptr %cParams.i59, i64 16
-  store i32 %36, ptr %minMatch21.i.i91, align 8, !noalias !16
+  store i32 %36, ptr %minMatch21.i.i91, align 8, !noalias !14
   br label %if.end22.i.i92
 
 if.end22.i.i92:                                   ; preds = %if.then19.i.i90, %if.end17.i.i87
-  %37 = load i32, ptr %targetLength.i.i, align 8, !noalias !16
+  %37 = load i32, ptr %targetLength.i.i, align 8, !noalias !14
   %tobool23.not.i.i94 = icmp eq i32 %37, 0
   br i1 %tobool23.not.i.i94, label %if.end27.i.i97, label %if.then24.i.i95
 
 if.then24.i.i95:                                  ; preds = %if.end22.i.i92
   %targetLength26.i.i96 = getelementptr inbounds i8, ptr %cParams.i59, i64 20
-  store i32 %37, ptr %targetLength26.i.i96, align 4, !noalias !16
+  store i32 %37, ptr %targetLength26.i.i96, align 4, !noalias !14
   br label %if.end27.i.i97
 
 if.end27.i.i97:                                   ; preds = %if.then24.i.i95, %if.end22.i.i92
-  %38 = load i32, ptr %strategy.i.i57, align 4, !noalias !16
+  %38 = load i32, ptr %strategy.i.i57, align 4, !noalias !14
   %tobool28.not.i.i99 = icmp eq i32 %38, 0
   %cParams.i59158.sroa.15267.0.cParams.i59.sroa_idx.phi.trans.insert = getelementptr inbounds i8, ptr %cParams.i59, i64 24
   %cParams.i59158.sroa.15267.0.copyload268.pre = load i32, ptr %cParams.i59158.sroa.15267.0.cParams.i59.sroa_idx.phi.trans.insert, align 8
@@ -3456,7 +3456,7 @@ if.then6.i197:                                    ; preds = %if.end27.i.i97
   %conv.i198 = trunc nuw nsw i64 %spec.select.i63 to i32
   %cmp7.i199 = icmp ult i32 %conv.i198, 64
   %sub.i200 = add nsw i32 %conv.i198, -1
-  %40 = call i32 @llvm.ctlz.i32(i32 %sub.i200, i1 true), !range !8
+  %40 = call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %sub.i200, i1 true)
   %add9.i201 = sub nuw nsw i32 32, %40
   %cond.i202 = select i1 %cmp7.i199, i32 6, i32 %add9.i201
   %spec.select281 = call i32 @llvm.umin.i32(i32 %cParams.i59158.sroa.0.0.copyload262, i32 %cond.i202)
@@ -3533,86 +3533,86 @@ if.else:                                          ; preds = %ZSTD_makeCCtxParams
   call void @llvm.lifetime.start.p0(i64 28, ptr nonnull %cParams.i31)
   call void @llvm.lifetime.start.p0(i64 28, ptr nonnull %cParams.i105)
   %srcSizeHint1.i106 = getelementptr inbounds i8, ptr %initialParams, i64 64
-  %46 = load i32, ptr %srcSizeHint1.i106, align 8, !noalias !19
+  %46 = load i32, ptr %srcSizeHint1.i106, align 8, !noalias !17
   %cmp2.i107 = icmp slt i32 %46, 1
   %conv.i108 = zext nneg i32 %46 to i64
   %spec.select.i109 = select i1 %cmp2.i107, i64 -1, i64 %conv.i108
-  call fastcc void @ZSTD_getCParams_internal(ptr noalias nonnull align 4 %cParams.i105, i32 noundef %12, i64 noundef %spec.select.i109, i64 noundef 0, i32 noundef 0), !noalias !19
-  %47 = load i32, ptr %ldmParams22.i, align 8, !noalias !19
+  call fastcc void @ZSTD_getCParams_internal(ptr noalias nonnull align 4 %cParams.i105, i32 noundef %12, i64 noundef %spec.select.i109, i64 noundef 0, i32 noundef 0), !noalias !17
+  %47 = load i32, ptr %ldmParams22.i, align 8, !noalias !17
   %cmp4.i113 = icmp eq i32 %47, 1
   br i1 %cmp4.i113, label %if.then6.i149, label %if.end7.i114
 
 if.then6.i149:                                    ; preds = %if.else
-  store i32 27, ptr %cParams.i105, align 8, !noalias !19
+  store i32 27, ptr %cParams.i105, align 8, !noalias !17
   br label %if.end7.i114
 
 if.end7.i114:                                     ; preds = %if.then6.i149, %if.else
-  %48 = load i32, ptr %cParams121.i, align 4, !noalias !19
+  %48 = load i32, ptr %cParams121.i, align 4, !noalias !17
   %tobool.not.i.i116 = icmp eq i32 %48, 0
   br i1 %tobool.not.i.i116, label %if.end.i.i118, label %if.then.i.i117
 
 if.then.i.i117:                                   ; preds = %if.end7.i114
-  store i32 %48, ptr %cParams.i105, align 8, !noalias !19
+  store i32 %48, ptr %cParams.i105, align 8, !noalias !17
   br label %if.end.i.i118
 
 if.end.i.i118:                                    ; preds = %if.then.i.i117, %if.end7.i114
   %hashLog.i.i119 = getelementptr inbounds i8, ptr %initialParams, i64 12
-  %49 = load i32, ptr %hashLog.i.i119, align 4, !noalias !19
+  %49 = load i32, ptr %hashLog.i.i119, align 4, !noalias !17
   %tobool3.not.i.i120 = icmp eq i32 %49, 0
   br i1 %tobool3.not.i.i120, label %if.end7.i.i123, label %if.then4.i.i121
 
 if.then4.i.i121:                                  ; preds = %if.end.i.i118
   %hashLog6.i.i122 = getelementptr inbounds i8, ptr %cParams.i105, i64 8
-  store i32 %49, ptr %hashLog6.i.i122, align 8, !noalias !19
+  store i32 %49, ptr %hashLog6.i.i122, align 8, !noalias !17
   br label %if.end7.i.i123
 
 if.end7.i.i123:                                   ; preds = %if.then4.i.i121, %if.end.i.i118
   %chainLog.i.i124 = getelementptr inbounds i8, ptr %initialParams, i64 8
-  %50 = load i32, ptr %chainLog.i.i124, align 8, !noalias !19
+  %50 = load i32, ptr %chainLog.i.i124, align 8, !noalias !17
   %tobool8.not.i.i125 = icmp eq i32 %50, 0
   br i1 %tobool8.not.i.i125, label %if.end12.i.i128, label %if.then9.i.i126
 
 if.then9.i.i126:                                  ; preds = %if.end7.i.i123
   %chainLog11.i.i127 = getelementptr inbounds i8, ptr %cParams.i105, i64 4
-  store i32 %50, ptr %chainLog11.i.i127, align 4, !noalias !19
+  store i32 %50, ptr %chainLog11.i.i127, align 4, !noalias !17
   br label %if.end12.i.i128
 
 if.end12.i.i128:                                  ; preds = %if.then9.i.i126, %if.end7.i.i123
   %searchLog.i.i129 = getelementptr inbounds i8, ptr %initialParams, i64 16
-  %51 = load i32, ptr %searchLog.i.i129, align 8, !noalias !19
+  %51 = load i32, ptr %searchLog.i.i129, align 8, !noalias !17
   %tobool13.not.i.i130 = icmp eq i32 %51, 0
   br i1 %tobool13.not.i.i130, label %if.end17.i.i133, label %if.then14.i.i131
 
 if.then14.i.i131:                                 ; preds = %if.end12.i.i128
   %searchLog16.i.i132 = getelementptr inbounds i8, ptr %cParams.i105, i64 12
-  store i32 %51, ptr %searchLog16.i.i132, align 4, !noalias !19
+  store i32 %51, ptr %searchLog16.i.i132, align 4, !noalias !17
   br label %if.end17.i.i133
 
 if.end17.i.i133:                                  ; preds = %if.then14.i.i131, %if.end12.i.i128
   %minMatch.i.i134 = getelementptr inbounds i8, ptr %initialParams, i64 20
-  %52 = load i32, ptr %minMatch.i.i134, align 4, !noalias !19
+  %52 = load i32, ptr %minMatch.i.i134, align 4, !noalias !17
   %tobool18.not.i.i135 = icmp eq i32 %52, 0
   br i1 %tobool18.not.i.i135, label %if.end22.i.i138, label %if.then19.i.i136
 
 if.then19.i.i136:                                 ; preds = %if.end17.i.i133
   %minMatch21.i.i137 = getelementptr inbounds i8, ptr %cParams.i105, i64 16
-  store i32 %52, ptr %minMatch21.i.i137, align 8, !noalias !19
+  store i32 %52, ptr %minMatch21.i.i137, align 8, !noalias !17
   br label %if.end22.i.i138
 
 if.end22.i.i138:                                  ; preds = %if.then19.i.i136, %if.end17.i.i133
   %targetLength.i.i139 = getelementptr inbounds i8, ptr %initialParams, i64 24
-  %53 = load i32, ptr %targetLength.i.i139, align 8, !noalias !19
+  %53 = load i32, ptr %targetLength.i.i139, align 8, !noalias !17
   %tobool23.not.i.i140 = icmp eq i32 %53, 0
   br i1 %tobool23.not.i.i140, label %if.end27.i.i143, label %if.then24.i.i141
 
 if.then24.i.i141:                                 ; preds = %if.end22.i.i138
   %targetLength26.i.i142 = getelementptr inbounds i8, ptr %cParams.i105, i64 20
-  store i32 %53, ptr %targetLength26.i.i142, align 4, !noalias !19
+  store i32 %53, ptr %targetLength26.i.i142, align 4, !noalias !17
   br label %if.end27.i.i143
 
 if.end27.i.i143:                                  ; preds = %if.then24.i.i141, %if.end22.i.i138
   %strategy.i.i144 = getelementptr inbounds i8, ptr %initialParams, i64 28
-  %54 = load i32, ptr %strategy.i.i144, align 4, !noalias !19
+  %54 = load i32, ptr %strategy.i.i144, align 4, !noalias !17
   %tobool28.not.i.i145 = icmp eq i32 %54, 0
   %cParams.i105206.sroa.15275.0.cParams.i105.sroa_idx.phi.trans.insert = getelementptr inbounds i8, ptr %cParams.i105, i64 24
   %cParams.i105206.sroa.15275.0.copyload276.pre = load i32, ptr %cParams.i105206.sroa.15275.0.cParams.i105.sroa_idx.phi.trans.insert, align 8
@@ -3633,7 +3633,7 @@ if.then6.i245:                                    ; preds = %if.end27.i.i143
   %conv.i246 = trunc nuw nsw i64 %spec.select.i109 to i32
   %cmp7.i247 = icmp ult i32 %conv.i246, 64
   %sub.i248 = add nsw i32 %conv.i246, -1
-  %56 = call i32 @llvm.ctlz.i32(i32 %sub.i248, i1 true), !range !8
+  %56 = call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %sub.i248, i1 true)
   %add9.i249 = sub nuw nsw i32 32, %56
   %cond.i250 = select i1 %cmp7.i247, i32 6, i32 %add9.i249
   %spec.select286 = call i32 @llvm.umin.i32(i32 %cParams.i105206.sroa.0.0.copyload270, i32 %cond.i250)
@@ -3743,7 +3743,7 @@ for.body.i:                                       ; preds = %cond.end.i, %for.bo
   %largestSize.06.i = phi i64 [ 0, %for.body ], [ %cond.i, %cond.end.i ]
   %arrayidx.i = getelementptr inbounds [4 x i64], ptr @ZSTD_estimateCCtxSize_internal.srcSizeTiers, i64 0, i64 %indvars.iv.i
   %0 = load i64, ptr %arrayidx.i, align 8
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !22)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !20)
   %cmp.i = icmp ne i64 %indvars.iv.i, 3
   %conv.i = zext i1 %cmp.i to i64
   %cmp1.i7 = icmp ult i64 %indvars.iv.i, 2
@@ -3753,17 +3753,17 @@ for.body.i:                                       ; preds = %cond.end.i, %for.bo
   %conv4.i = zext i1 %cmp3.i to i64
   %add5.i = add nuw nsw i64 %add.i, %conv4.i
   %arrayidx19.i = getelementptr inbounds [4 x [23 x %struct.ZSTD_compressionParameters]], ptr @ZSTD_defaultCParameters, i64 0, i64 %add5.i, i64 %row.0.i
-  %cp.sroa.0.sroa.0.0.copyload.i = load i32, ptr %arrayidx19.i, align 4, !noalias !22
+  %cp.sroa.0.sroa.0.0.copyload.i = load i32, ptr %arrayidx19.i, align 4, !noalias !20
   %cp.sroa.0.sroa.2.0.arrayidx19.sroa_idx.i = getelementptr inbounds i8, ptr %arrayidx19.i, i64 4
-  %cp.sroa.0.sroa.2.0.copyload.i = load i32, ptr %cp.sroa.0.sroa.2.0.arrayidx19.sroa_idx.i, align 4, !noalias !22
+  %cp.sroa.0.sroa.2.0.copyload.i = load i32, ptr %cp.sroa.0.sroa.2.0.arrayidx19.sroa_idx.i, align 4, !noalias !20
   %cp.sroa.0.sroa.3.0.arrayidx19.sroa_idx.i = getelementptr inbounds i8, ptr %arrayidx19.i, i64 8
-  %cp.sroa.0.sroa.3.0.copyload.i = load i32, ptr %cp.sroa.0.sroa.3.0.arrayidx19.sroa_idx.i, align 4, !noalias !22
+  %cp.sroa.0.sroa.3.0.copyload.i = load i32, ptr %cp.sroa.0.sroa.3.0.arrayidx19.sroa_idx.i, align 4, !noalias !20
   %cp.sroa.0.sroa.4.0.arrayidx19.sroa_idx.i = getelementptr inbounds i8, ptr %arrayidx19.i, i64 12
-  %1 = load <2 x i32>, ptr %cp.sroa.0.sroa.4.0.arrayidx19.sroa_idx.i, align 4, !noalias !22
+  %1 = load <2 x i32>, ptr %cp.sroa.0.sroa.4.0.arrayidx19.sroa_idx.i, align 4, !noalias !20
   %cp.sroa.2.0.arrayidx19.sroa_idx.i = getelementptr inbounds i8, ptr %arrayidx19.i, i64 20
-  %cp.sroa.2.0.copyload.i = load i32, ptr %cp.sroa.2.0.arrayidx19.sroa_idx.i, align 4, !noalias !22
+  %cp.sroa.2.0.copyload.i = load i32, ptr %cp.sroa.2.0.arrayidx19.sroa_idx.i, align 4, !noalias !20
   %cp.sroa.3.0.arrayidx19.sroa_idx.i = getelementptr inbounds i8, ptr %arrayidx19.i, i64 24
-  %cp.sroa.3.0.copyload.i = load i32, ptr %cp.sroa.3.0.arrayidx19.sroa_idx.i, align 4, !noalias !22
+  %cp.sroa.3.0.copyload.i = load i32, ptr %cp.sroa.3.0.arrayidx19.sroa_idx.i, align 4, !noalias !20
   %cmp3.i.i.not = icmp eq i64 %indvars.iv.i, 3
   br i1 %cmp3.i.i.not, label %if.end36.i.i, label %if.then6.i.i
 
@@ -3771,7 +3771,7 @@ if.then6.i.i:                                     ; preds = %for.body.i
   %conv.i.i = trunc nuw i64 %0 to i32
   %cmp7.i.i = icmp ult i32 %conv.i.i, 64
   %sub.i.i = add nsw i32 %conv.i.i, -1
-  %2 = tail call i32 @llvm.ctlz.i32(i32 %sub.i.i, i1 true), !range !8
+  %2 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %sub.i.i, i1 true)
   %add9.i.i = sub nuw nsw i32 32, %2
   %cond.i.i = select i1 %cmp7.i.i, i32 6, i32 %add9.i.i
   %spec.select33.i = tail call i32 @llvm.umin.i32(i32 %cp.sroa.0.sroa.0.0.copyload.i, i32 %cond.i.i)
@@ -3808,12 +3808,12 @@ ZSTD_getCParams_internal.exit:                    ; preds = %if.end36.i.i, %if.t
   %cp12.sroa.12.4.i = phi i32 [ %cp12.sroa.12.1.i, %if.end36.i.i ], [ %spec.select38.i, %if.then69.i.i ]
   %spec.select36.i = tail call i32 @llvm.umax.i32(i32 %cp12.sroa.0.1.i, i32 10)
   %cp.sroa.2.0.i = select i1 %cmp22.i, i32 %sub.i, i32 %cp.sroa.2.0.copyload.i
-  store i32 %spec.select36.i, ptr %cParams.i, align 8, !alias.scope !22
-  store i32 %cp12.sroa.8.0.i, ptr %cp12.sroa.8.0.agg.result.sroa_idx.i, align 4, !alias.scope !22
-  store i32 %cp12.sroa.12.4.i, ptr %cp12.sroa.12.0.agg.result.sroa_idx.i, align 8, !alias.scope !22
-  store <2 x i32> %1, ptr %cp12.sroa.18.0.agg.result.sroa_idx.i, align 4, !alias.scope !22
-  store i32 %cp.sroa.2.0.i, ptr %cp12.sroa.1926.0.agg.result.sroa_idx.i, align 4, !alias.scope !22
-  store i32 %cp.sroa.3.0.copyload.i, ptr %cp12.sroa.20.0.agg.result.sroa_idx.i, align 8, !alias.scope !22
+  store i32 %spec.select36.i, ptr %cParams.i, align 8, !alias.scope !20
+  store i32 %cp12.sroa.8.0.i, ptr %cp12.sroa.8.0.agg.result.sroa_idx.i, align 4, !alias.scope !20
+  store i32 %cp12.sroa.12.4.i, ptr %cp12.sroa.12.0.agg.result.sroa_idx.i, align 8, !alias.scope !20
+  store <2 x i32> %1, ptr %cp12.sroa.18.0.agg.result.sroa_idx.i, align 4, !alias.scope !20
+  store i32 %cp.sroa.2.0.i, ptr %cp12.sroa.1926.0.agg.result.sroa_idx.i, align 4, !alias.scope !20
+  store i32 %cp.sroa.3.0.copyload.i, ptr %cp12.sroa.20.0.agg.result.sroa_idx.i, align 8, !alias.scope !20
   %call.i = tail call i64 @ZSTD_estimateCCtxSize_usingCParams(ptr noundef nonnull byval(%struct.ZSTD_compressionParameters) align 8 %cParams.i)
   %cmp1.i = icmp ugt i64 %call.i, %largestSize.06.i
   br i1 %cmp1.i, label %cond.true.i, label %cond.end.i
@@ -3826,14 +3826,14 @@ cond.end.i:                                       ; preds = %cond.true.i, %ZSTD_
   %cond.i = phi i64 [ %call2.i, %cond.true.i ], [ %largestSize.06.i, %ZSTD_getCParams_internal.exit ]
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 4
-  br i1 %exitcond.not.i, label %ZSTD_estimateCCtxSize_internal.exit, label %for.body.i, !llvm.loop !25
+  br i1 %exitcond.not.i, label %ZSTD_estimateCCtxSize_internal.exit, label %for.body.i, !llvm.loop !23
 
 ZSTD_estimateCCtxSize_internal.exit:              ; preds = %cond.end.i
   call void @llvm.lifetime.end.p0(i64 28, ptr nonnull %cParams.i)
   %spec.select = tail call i64 @llvm.umax.i64(i64 %cond.i, i64 %memBudget.08)
   %inc = add i32 %level.09, 1
   %exitcond.not = icmp eq i32 %level.09, %compressionLevel
-  br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !27
+  br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !25
 
 for.end:                                          ; preds = %ZSTD_estimateCCtxSize_internal.exit
   ret i64 %spec.select
@@ -3923,47 +3923,47 @@ define i64 @ZSTD_estimateCStreamSize_usingCParams(ptr nocapture noundef readonly
 entry:
   %cParams3 = alloca %struct.ZSTD_compressionParameters, align 8
   %initialParams = alloca %struct.ZSTD_CCtx_params_s, align 8
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !28)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !26)
   call void @llvm.lifetime.start.p0(i64 28, ptr nonnull %cParams3)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(28) %cParams3, ptr noundef nonnull align 8 dereferenceable(28) %cParams, i64 28, i1 false)
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(216) %initialParams, i8 0, i64 216, i1 false), !alias.scope !28
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(216) %initialParams, i8 0, i64 216, i1 false), !alias.scope !26
   %compressionLevel9.i.i = getelementptr inbounds i8, ptr %initialParams, i64 44
-  store i32 3, ptr %compressionLevel9.i.i, align 4, !alias.scope !28
+  store i32 3, ptr %compressionLevel9.i.i, align 4, !alias.scope !26
   %fParams.i.i = getelementptr inbounds i8, ptr %initialParams, i64 32
-  store i32 1, ptr %fParams.i.i, align 8, !alias.scope !28
+  store i32 1, ptr %fParams.i.i, align 8, !alias.scope !26
   %cParams121.i = getelementptr inbounds i8, ptr %initialParams, i64 4
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(28) %cParams121.i, ptr noundef nonnull align 8 dereferenceable(28) %cParams, i64 28, i1 false)
   %ldmParams22.i = getelementptr inbounds i8, ptr %initialParams, i64 96
   %strategy.i.i = getelementptr inbounds i8, ptr %cParams3, i64 24
-  %0 = load i32, ptr %strategy.i.i, align 8, !noalias !28
+  %0 = load i32, ptr %strategy.i.i, align 8, !noalias !26
   %cmp1.i.i = icmp ugt i32 %0, 6
-  %1 = load i32, ptr %cParams3, align 8, !noalias !28
+  %1 = load i32, ptr %cParams3, align 8, !noalias !26
   %cmp2.i.i = icmp ugt i32 %1, 26
   %or.cond.i = select i1 %cmp1.i.i, i1 %cmp2.i.i, i1 false
   br i1 %or.cond.i, label %if.end.i, label %if.end.i.thread
 
 if.end.i.thread:                                  ; preds = %entry
-  store i32 2, ptr %ldmParams22.i, align 8, !alias.scope !28
+  store i32 2, ptr %ldmParams22.i, align 8, !alias.scope !26
   %useBlockSplitter.i4 = getelementptr inbounds i8, ptr %initialParams, i64 140
   br label %if.end.i4.i
 
 if.end.i:                                         ; preds = %entry
-  store i32 1, ptr %ldmParams22.i, align 8, !alias.scope !28
+  store i32 1, ptr %ldmParams22.i, align 8, !alias.scope !26
   call void @ZSTD_ldm_adjustParameters(ptr noundef nonnull %ldmParams22.i, ptr noundef nonnull %cParams3) #28
   %useBlockSplitter.i.phi.trans.insert = getelementptr inbounds i8, ptr %initialParams, i64 140
-  %.pre = load i32, ptr %useBlockSplitter.i.phi.trans.insert, align 4, !alias.scope !28
+  %.pre = load i32, ptr %useBlockSplitter.i.phi.trans.insert, align 4, !alias.scope !26
   %useBlockSplitter.i = getelementptr inbounds i8, ptr %initialParams, i64 140
   %cmp.not.i2.i = icmp eq i32 %.pre, 0
   br i1 %cmp.not.i2.i, label %if.end.i4.i, label %ZSTD_resolveBlockSplitterMode.exit.i
 
 if.end.i4.i:                                      ; preds = %if.end.i.thread, %if.end.i
   %useBlockSplitter.i7 = phi ptr [ %useBlockSplitter.i4, %if.end.i.thread ], [ %useBlockSplitter.i, %if.end.i ]
-  %2 = load i32, ptr %strategy.i.i, align 8, !noalias !28
+  %2 = load i32, ptr %strategy.i.i, align 8, !noalias !26
   %cmp1.i6.i = icmp ugt i32 %2, 6
   br i1 %cmp1.i6.i, label %land.rhs.i7.i, label %ZSTD_resolveBlockSplitterMode.exit.i
 
 land.rhs.i7.i:                                    ; preds = %if.end.i4.i
-  %3 = load i32, ptr %cParams3, align 8, !noalias !28
+  %3 = load i32, ptr %cParams3, align 8, !noalias !26
   %cmp2.i8.i = icmp ugt i32 %3, 16
   %4 = select i1 %cmp2.i8.i, i32 1, i32 2
   br label %ZSTD_resolveBlockSplitterMode.exit.i
@@ -3971,40 +3971,40 @@ land.rhs.i7.i:                                    ; preds = %if.end.i4.i
 ZSTD_resolveBlockSplitterMode.exit.i:             ; preds = %land.rhs.i7.i, %if.end.i4.i, %if.end.i
   %useBlockSplitter.i6 = phi ptr [ %useBlockSplitter.i, %if.end.i ], [ %useBlockSplitter.i7, %if.end.i4.i ], [ %useBlockSplitter.i7, %land.rhs.i7.i ]
   %retval.0.i3.i = phi i32 [ %.pre, %if.end.i ], [ 2, %if.end.i4.i ], [ %4, %land.rhs.i7.i ]
-  store i32 %retval.0.i3.i, ptr %useBlockSplitter.i6, align 4, !alias.scope !28
+  store i32 %retval.0.i3.i, ptr %useBlockSplitter.i6, align 4, !alias.scope !26
   %useRowMatchFinder.i = getelementptr inbounds i8, ptr %initialParams, i64 144
-  %5 = load i32, ptr %useRowMatchFinder.i, align 8, !alias.scope !28
+  %5 = load i32, ptr %useRowMatchFinder.i, align 8, !alias.scope !26
   %cmp.not.i9.i = icmp eq i32 %5, 0
   br i1 %cmp.not.i9.i, label %if.end.i11.i, label %ZSTD_makeCCtxParamsFromCParams.exit
 
 if.end.i11.i:                                     ; preds = %ZSTD_resolveBlockSplitterMode.exit.i
-  %6 = load i32, ptr %strategy.i.i, align 8, !noalias !28
+  %6 = load i32, ptr %strategy.i.i, align 8, !noalias !26
   %7 = add i32 %6, -6
   %8 = icmp ult i32 %7, -3
   br i1 %8, label %ZSTD_makeCCtxParamsFromCParams.exit, label %if.end2.i.i
 
 if.end2.i.i:                                      ; preds = %if.end.i11.i
-  %9 = load i32, ptr %cParams3, align 8, !noalias !28
+  %9 = load i32, ptr %cParams3, align 8, !noalias !26
   %cmp3.i.i = icmp ugt i32 %9, 14
   %spec.select.i.i = select i1 %cmp3.i.i, i32 1, i32 2
   br label %ZSTD_makeCCtxParamsFromCParams.exit
 
 ZSTD_makeCCtxParamsFromCParams.exit:              ; preds = %ZSTD_resolveBlockSplitterMode.exit.i, %if.end.i11.i, %if.end2.i.i
   %retval.0.i10.i = phi i32 [ %spec.select.i.i, %if.end2.i.i ], [ %5, %ZSTD_resolveBlockSplitterMode.exit.i ], [ 2, %if.end.i11.i ]
-  store i32 %retval.0.i10.i, ptr %useRowMatchFinder.i, align 8, !alias.scope !28
+  store i32 %retval.0.i10.i, ptr %useRowMatchFinder.i, align 8, !alias.scope !26
   %maxBlockSize.i = getelementptr inbounds i8, ptr %initialParams, i64 200
-  %10 = load i64, ptr %maxBlockSize.i, align 8, !alias.scope !28
+  %10 = load i64, ptr %maxBlockSize.i, align 8, !alias.scope !26
   %cmp.i.i = icmp eq i64 %10, 0
   %.maxBlockSize.i.i = select i1 %cmp.i.i, i64 131072, i64 %10
-  store i64 %.maxBlockSize.i.i, ptr %maxBlockSize.i, align 8, !alias.scope !28
+  store i64 %.maxBlockSize.i.i, ptr %maxBlockSize.i, align 8, !alias.scope !26
   %searchForExternalRepcodes.i = getelementptr inbounds i8, ptr %initialParams, i64 208
-  %11 = load i32, ptr %searchForExternalRepcodes.i, align 8, !alias.scope !28
-  %12 = load i32, ptr %compressionLevel9.i.i, align 4, !alias.scope !28
+  %11 = load i32, ptr %searchForExternalRepcodes.i, align 8, !alias.scope !26
+  %12 = load i32, ptr %compressionLevel9.i.i, align 4, !alias.scope !26
   %cmp.not.i13.i = icmp eq i32 %11, 0
   %cmp1.i14.i = icmp slt i32 %12, 10
   %..i.i = select i1 %cmp1.i14.i, i32 2, i32 1
   %retval.0.i15.i = select i1 %cmp.not.i13.i, i32 %..i.i, i32 %11
-  store i32 %retval.0.i15.i, ptr %searchForExternalRepcodes.i, align 8, !alias.scope !28
+  store i32 %retval.0.i15.i, ptr %searchForExternalRepcodes.i, align 8, !alias.scope !26
   call void @llvm.lifetime.end.p0(i64 28, ptr nonnull %cParams3)
   %strategy = getelementptr inbounds i8, ptr %cParams, i64 24
   %13 = load i32, ptr %strategy, align 8
@@ -4045,7 +4045,7 @@ for.body:                                         ; preds = %entry, %ZSTD_estima
   %level.08 = phi i32 [ %cond, %entry ], [ %inc, %ZSTD_estimateCStreamSize_internal.exit ]
   %memBudget.07 = phi i64 [ 0, %entry ], [ %spec.select, %ZSTD_estimateCStreamSize_internal.exit ]
   call void @llvm.lifetime.start.p0(i64 28, ptr nonnull %cParams.i)
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !31)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !29)
   %cmp6.i.i = icmp eq i32 %level.08, 0
   br i1 %cmp6.i.i, label %if.end17.i.i, label %if.else.i.i
 
@@ -4061,17 +4061,17 @@ if.else11.i.i:                                    ; preds = %if.else.i.i
 if.end17.i.i:                                     ; preds = %if.else11.i.i, %if.else.i.i, %for.body
   %row.0.i.i = phi i64 [ 3, %for.body ], [ 0, %if.else.i.i ], [ %spec.select.i.i, %if.else11.i.i ]
   %arrayidx19.i.i = getelementptr inbounds [4 x [23 x %struct.ZSTD_compressionParameters]], ptr @ZSTD_defaultCParameters, i64 0, i64 0, i64 %row.0.i.i
-  %cp.sroa.0.sroa.0.0.copyload.i.i = load i32, ptr %arrayidx19.i.i, align 4, !noalias !31
+  %cp.sroa.0.sroa.0.0.copyload.i.i = load i32, ptr %arrayidx19.i.i, align 4, !noalias !29
   %cp.sroa.0.sroa.2.0.arrayidx19.sroa_idx.i.i = getelementptr inbounds i8, ptr %arrayidx19.i.i, i64 4
-  %cp.sroa.0.sroa.2.0.copyload.i.i = load i32, ptr %cp.sroa.0.sroa.2.0.arrayidx19.sroa_idx.i.i, align 4, !noalias !31
+  %cp.sroa.0.sroa.2.0.copyload.i.i = load i32, ptr %cp.sroa.0.sroa.2.0.arrayidx19.sroa_idx.i.i, align 4, !noalias !29
   %cp.sroa.0.sroa.3.0.arrayidx19.sroa_idx.i.i = getelementptr inbounds i8, ptr %arrayidx19.i.i, i64 8
-  %cp.sroa.0.sroa.3.0.copyload.i.i = load i32, ptr %cp.sroa.0.sroa.3.0.arrayidx19.sroa_idx.i.i, align 4, !noalias !31
+  %cp.sroa.0.sroa.3.0.copyload.i.i = load i32, ptr %cp.sroa.0.sroa.3.0.arrayidx19.sroa_idx.i.i, align 4, !noalias !29
   %cp.sroa.0.sroa.4.0.arrayidx19.sroa_idx.i.i = getelementptr inbounds i8, ptr %arrayidx19.i.i, i64 12
-  %0 = load <2 x i32>, ptr %cp.sroa.0.sroa.4.0.arrayidx19.sroa_idx.i.i, align 4, !noalias !31
+  %0 = load <2 x i32>, ptr %cp.sroa.0.sroa.4.0.arrayidx19.sroa_idx.i.i, align 4, !noalias !29
   %cp.sroa.2.0.arrayidx19.sroa_idx.i.i = getelementptr inbounds i8, ptr %arrayidx19.i.i, i64 20
-  %cp.sroa.2.0.copyload.i.i = load i32, ptr %cp.sroa.2.0.arrayidx19.sroa_idx.i.i, align 4, !noalias !31
+  %cp.sroa.2.0.copyload.i.i = load i32, ptr %cp.sroa.2.0.arrayidx19.sroa_idx.i.i, align 4, !noalias !29
   %cp.sroa.3.0.arrayidx19.sroa_idx.i.i = getelementptr inbounds i8, ptr %arrayidx19.i.i, i64 24
-  %cp.sroa.3.0.copyload.i.i = load i32, ptr %cp.sroa.3.0.arrayidx19.sroa_idx.i.i, align 4, !noalias !31
+  %cp.sroa.3.0.copyload.i.i = load i32, ptr %cp.sroa.3.0.arrayidx19.sroa_idx.i.i, align 4, !noalias !29
   %1 = add i32 %cp.sroa.3.0.copyload.i.i, -6
   %2 = icmp ult i32 %1, -3
   br i1 %2, label %ZSTD_estimateCStreamSize_internal.exit, label %if.then69.i.i.i
@@ -4091,18 +4091,18 @@ ZSTD_estimateCStreamSize_internal.exit:           ; preds = %if.end17.i.i, %if.t
   %spec.select32.i.i = tail call i32 @llvm.umax.i32(i32 %level.08, i32 -131072)
   %sub.i.i = sub nsw i32 0, %spec.select32.i.i
   %cp.sroa.2.0.i.i = select i1 %cmp22.i.i, i32 %sub.i.i, i32 %cp.sroa.2.0.copyload.i.i
-  store i32 %spec.select36.i.i, ptr %cParams.i, align 8, !alias.scope !31
-  store i32 %cp.sroa.0.sroa.2.0.copyload.i.i, ptr %cp12.sroa.8.0.agg.result.sroa_idx.i.i, align 4, !alias.scope !31
-  store i32 %cp12.sroa.12.4.i.i, ptr %cp12.sroa.12.0.agg.result.sroa_idx.i.i, align 8, !alias.scope !31
-  store <2 x i32> %0, ptr %cp12.sroa.18.0.agg.result.sroa_idx.i.i, align 4, !alias.scope !31
-  store i32 %cp.sroa.2.0.i.i, ptr %cp12.sroa.1926.0.agg.result.sroa_idx.i.i, align 4, !alias.scope !31
-  store i32 %cp.sroa.3.0.copyload.i.i, ptr %cp12.sroa.20.0.agg.result.sroa_idx.i.i, align 8, !alias.scope !31
+  store i32 %spec.select36.i.i, ptr %cParams.i, align 8, !alias.scope !29
+  store i32 %cp.sroa.0.sroa.2.0.copyload.i.i, ptr %cp12.sroa.8.0.agg.result.sroa_idx.i.i, align 4, !alias.scope !29
+  store i32 %cp12.sroa.12.4.i.i, ptr %cp12.sroa.12.0.agg.result.sroa_idx.i.i, align 8, !alias.scope !29
+  store <2 x i32> %0, ptr %cp12.sroa.18.0.agg.result.sroa_idx.i.i, align 4, !alias.scope !29
+  store i32 %cp.sroa.2.0.i.i, ptr %cp12.sroa.1926.0.agg.result.sroa_idx.i.i, align 4, !alias.scope !29
+  store i32 %cp.sroa.3.0.copyload.i.i, ptr %cp12.sroa.20.0.agg.result.sroa_idx.i.i, align 8, !alias.scope !29
   %call.i = tail call i64 @ZSTD_estimateCStreamSize_usingCParams(ptr noundef nonnull byval(%struct.ZSTD_compressionParameters) align 8 %cParams.i)
   call void @llvm.lifetime.end.p0(i64 28, ptr nonnull %cParams.i)
   %spec.select = tail call i64 @llvm.umax.i64(i64 %call.i, i64 %memBudget.07)
   %inc = add i32 %level.08, 1
   %exitcond.not = icmp eq i32 %level.08, %compressionLevel
-  br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !34
+  br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !32
 
 for.end:                                          ; preds = %ZSTD_estimateCStreamSize_internal.exit
   ret i64 %spec.select
@@ -4213,14 +4213,14 @@ for.body:                                         ; preds = %entry, %for.body
   store i32 0, ptr %arrayidx, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 3
-  br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !35
+  br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !33
 
 for.end:                                          ; preds = %for.body
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i64 @ZSTD_copyCCtx(ptr noundef %dstCCtx, ptr nocapture noundef readonly %srcCCtx, i64 noundef %pledgedSrcSize) local_unnamed_addr #1 {
+define range(i64 -60, 1) i64 @ZSTD_copyCCtx(ptr noundef %dstCCtx, ptr nocapture noundef readonly %srcCCtx, i64 noundef %pledgedSrcSize) local_unnamed_addr #1 {
 entry:
   %params.i = alloca %struct.ZSTD_CCtx_params_s, align 8
   %bufferedPolicy = getelementptr inbounds i8, ptr %srcCCtx, i64 3528
@@ -4384,7 +4384,7 @@ for.body:                                         ; preds = %for.body.preheader,
   %litLength = getelementptr inbounds i8, ptr %arrayidx, i64 4
   %6 = load i16, ptr %litLength, align 4
   %7 = load i32, ptr %arrayidx, align 4
-  %8 = tail call i32 @llvm.ctlz.i32(i32 %7, i1 true), !range !8
+  %8 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %7, i1 true)
   %mlBase = getelementptr inbounds i8, ptr %arrayidx, i64 6
   %9 = load i16, ptr %mlBase, align 2
   %conv10 = zext i16 %9 to i32
@@ -4393,7 +4393,7 @@ for.body:                                         ; preds = %for.body.preheader,
 
 cond.true.i:                                      ; preds = %for.body
   %conv4 = zext i16 %6 to i32
-  %10 = tail call i32 @llvm.ctlz.i32(i32 %conv4, i1 true), !range !8
+  %10 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %conv4, i1 true)
   %add.i = sub nuw nsw i32 50, %10
   br label %ZSTD_LLcode.exit
 
@@ -4417,7 +4417,7 @@ ZSTD_LLcode.exit:                                 ; preds = %cond.true.i, %cond.
   br i1 %cmp.i22, label %cond.true.i28, label %cond.false.i23
 
 cond.true.i28:                                    ; preds = %ZSTD_LLcode.exit
-  %13 = tail call i32 @llvm.ctlz.i32(i32 %conv10, i1 true), !range !8
+  %13 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %conv10, i1 true)
   %add.i29 = sub nuw nsw i32 67, %13
   br label %ZSTD_MLcode.exit
 
@@ -4435,7 +4435,7 @@ ZSTD_MLcode.exit:                                 ; preds = %cond.true.i28, %con
   store i8 %conv19, ptr %arrayidx21, align 1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !36
+  br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !34
 
 for.end:                                          ; preds = %ZSTD_MLcode.exit, %entry
   %longLengthType = getelementptr inbounds i8, ptr %seqStorePtr, i64 72
@@ -4582,7 +4582,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define i64 @ZSTD_sequenceBound(i64 noundef %srcSize) local_unnamed_addr #0 {
+define range(i64 1, 6148914691236517207) i64 @ZSTD_sequenceBound(i64 noundef %srcSize) local_unnamed_addr #0 {
 entry:
   %div = udiv i64 %srcSize, 3
   %add = add nuw nsw i64 %div, 1
@@ -4746,7 +4746,7 @@ for.inc:                                          ; preds = %if.else, %if.then5,
   %out.1 = phi i64 [ %out.019, %if.then5 ], [ %out.019, %if.then ], [ %inc, %if.else ]
   %inc13 = add nuw i64 %in.017, 1
   %exitcond.not = icmp eq i64 %inc13, %seqsSize
-  br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !37
+  br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !35
 
 for.end:                                          ; preds = %for.inc, %entry
   %out.0.lcssa = phi i64 [ 0, %entry ], [ %out.1, %for.inc ]
@@ -4925,11 +4925,11 @@ do.end16:                                         ; preds = %ZSTD_buildBlockEntr
 
 do.body4.thread.i:                                ; preds = %do.end16
   %litlength_repeatMode.i.i = getelementptr inbounds i8, ptr %nextEntropy, i64 5612
-  store i32 0, ptr %litlength_repeatMode.i.i, align 4, !noalias !38
+  store i32 0, ptr %litlength_repeatMode.i.i, align 4, !noalias !36
   %offcode_repeatMode.i.i = getelementptr inbounds i8, ptr %nextEntropy, i64 5604
-  store i32 0, ptr %offcode_repeatMode.i.i, align 4, !noalias !38
+  store i32 0, ptr %offcode_repeatMode.i.i, align 4, !noalias !36
   %matchlength_repeatMode.i.i = getelementptr inbounds i8, ptr %nextEntropy, i64 5608
-  store i32 0, ptr %matchlength_repeatMode.i.i, align 4, !noalias !38
+  store i32 0, ptr %matchlength_repeatMode.i.i, align 4, !noalias !36
   br label %do.end13.i
 
 do.body4.i:                                       ; preds = %do.end16
@@ -5012,7 +5012,7 @@ return:                                           ; preds = %do.body22, %do.body
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define noundef i64 @ZSTD_writeLastEmptyBlock(ptr nocapture noundef writeonly %dst, i64 noundef %dstCapacity) local_unnamed_addr #5 {
+define range(i64 -70, 4) i64 @ZSTD_writeLastEmptyBlock(ptr nocapture noundef writeonly %dst, i64 noundef %dstCapacity) local_unnamed_addr #5 {
 entry:
   %cmp = icmp ult i64 %dstCapacity, 3
   br i1 %cmp, label %return, label %do.end8
@@ -5179,68 +5179,68 @@ if.end.i55:                                       ; preds = %if.end39
   %ldmState = getelementptr inbounds i8, ptr %cctx, i64 1032
   %11 = load ptr, ptr %ldmState, align 8
   %cmp1.i56.not = icmp eq ptr %11, %src
-  br i1 %cmp1.i56.not, label %if.end.if.end17_crit_edge.i58, label %if.then2.i84
+  br i1 %cmp1.i56.not, label %if.end.if.end17_crit_edge.i57, label %if.then2.i83
 
-if.end.if.end17_crit_edge.i58:                    ; preds = %if.end.i55
-  %dictBase21.phi.trans.insert.i59 = getelementptr inbounds i8, ptr %cctx, i64 1048
-  %.pre.i60 = load ptr, ptr %dictBase21.phi.trans.insert.i59, align 8
-  %lowLimit22.phi.trans.insert.i61 = getelementptr inbounds i8, ptr %cctx, i64 1060
-  %.pre34.i62 = load i32, ptr %lowLimit22.phi.trans.insert.i61, align 4
-  %dictLimit27.phi.trans.insert.i63 = getelementptr inbounds i8, ptr %cctx, i64 1056
-  %.pre35.i64 = load i32, ptr %dictLimit27.phi.trans.insert.i63, align 8
-  br label %if.end17.i65
+if.end.if.end17_crit_edge.i57:                    ; preds = %if.end.i55
+  %dictBase21.phi.trans.insert.i58 = getelementptr inbounds i8, ptr %cctx, i64 1048
+  %.pre.i59 = load ptr, ptr %dictBase21.phi.trans.insert.i58, align 8
+  %lowLimit22.phi.trans.insert.i60 = getelementptr inbounds i8, ptr %cctx, i64 1060
+  %.pre34.i61 = load i32, ptr %lowLimit22.phi.trans.insert.i60, align 4
+  %dictLimit27.phi.trans.insert.i62 = getelementptr inbounds i8, ptr %cctx, i64 1056
+  %.pre35.i63 = load i32, ptr %dictLimit27.phi.trans.insert.i62, align 8
+  br label %if.end17.i64
 
-if.then2.i84:                                     ; preds = %if.end.i55
-  %base.i85 = getelementptr inbounds i8, ptr %cctx, i64 1040
-  %12 = load ptr, ptr %base.i85, align 8
-  %sub.ptr.lhs.cast.i86 = ptrtoint ptr %11 to i64
-  %sub.ptr.rhs.cast.i87 = ptrtoint ptr %12 to i64
-  %sub.ptr.sub.i88 = sub i64 %sub.ptr.lhs.cast.i86, %sub.ptr.rhs.cast.i87
-  %dictLimit.i89 = getelementptr inbounds i8, ptr %cctx, i64 1056
-  %13 = load i32, ptr %dictLimit.i89, align 8
-  %lowLimit.i90 = getelementptr inbounds i8, ptr %cctx, i64 1060
-  store i32 %13, ptr %lowLimit.i90, align 4
-  %conv.i91 = trunc i64 %sub.ptr.sub.i88 to i32
-  store i32 %conv.i91, ptr %dictLimit.i89, align 8
-  %dictBase.i92 = getelementptr inbounds i8, ptr %cctx, i64 1048
-  store ptr %12, ptr %dictBase.i92, align 8
-  %idx.neg.i93 = sub i64 0, %sub.ptr.sub.i88
-  %add.ptr.i94 = getelementptr inbounds i8, ptr %src, i64 %idx.neg.i93
-  store ptr %add.ptr.i94, ptr %base.i85, align 8
-  %sub.i95 = sub i32 %conv.i91, %13
-  %cmp11.i96 = icmp ult i32 %sub.i95, 8
-  br i1 %cmp11.i96, label %if.then13.i97, label %if.end17.i65
+if.then2.i83:                                     ; preds = %if.end.i55
+  %base.i84 = getelementptr inbounds i8, ptr %cctx, i64 1040
+  %12 = load ptr, ptr %base.i84, align 8
+  %sub.ptr.lhs.cast.i85 = ptrtoint ptr %11 to i64
+  %sub.ptr.rhs.cast.i86 = ptrtoint ptr %12 to i64
+  %sub.ptr.sub.i87 = sub i64 %sub.ptr.lhs.cast.i85, %sub.ptr.rhs.cast.i86
+  %dictLimit.i88 = getelementptr inbounds i8, ptr %cctx, i64 1056
+  %13 = load i32, ptr %dictLimit.i88, align 8
+  %lowLimit.i89 = getelementptr inbounds i8, ptr %cctx, i64 1060
+  store i32 %13, ptr %lowLimit.i89, align 4
+  %conv.i90 = trunc i64 %sub.ptr.sub.i87 to i32
+  store i32 %conv.i90, ptr %dictLimit.i88, align 8
+  %dictBase.i91 = getelementptr inbounds i8, ptr %cctx, i64 1048
+  store ptr %12, ptr %dictBase.i91, align 8
+  %idx.neg.i92 = sub i64 0, %sub.ptr.sub.i87
+  %add.ptr.i93 = getelementptr inbounds i8, ptr %src, i64 %idx.neg.i92
+  store ptr %add.ptr.i93, ptr %base.i84, align 8
+  %sub.i94 = sub i32 %conv.i90, %13
+  %cmp11.i95 = icmp ult i32 %sub.i94, 8
+  br i1 %cmp11.i95, label %if.then13.i96, label %if.end17.i64
 
-if.then13.i97:                                    ; preds = %if.then2.i84
-  store i32 %conv.i91, ptr %lowLimit.i90, align 4
-  br label %if.end17.i65
+if.then13.i96:                                    ; preds = %if.then2.i83
+  store i32 %conv.i90, ptr %lowLimit.i89, align 4
+  br label %if.end17.i64
 
-if.end17.i65:                                     ; preds = %if.then13.i97, %if.then2.i84, %if.end.if.end17_crit_edge.i58
-  %14 = phi i32 [ %.pre35.i64, %if.end.if.end17_crit_edge.i58 ], [ %conv.i91, %if.then13.i97 ], [ %conv.i91, %if.then2.i84 ]
-  %15 = phi i32 [ %.pre34.i62, %if.end.if.end17_crit_edge.i58 ], [ %conv.i91, %if.then13.i97 ], [ %13, %if.then2.i84 ]
-  %16 = phi ptr [ %.pre.i60, %if.end.if.end17_crit_edge.i58 ], [ %12, %if.then13.i97 ], [ %12, %if.then2.i84 ]
+if.end17.i64:                                     ; preds = %if.then13.i96, %if.then2.i83, %if.end.if.end17_crit_edge.i57
+  %14 = phi i32 [ %.pre35.i63, %if.end.if.end17_crit_edge.i57 ], [ %conv.i90, %if.then13.i96 ], [ %conv.i90, %if.then2.i83 ]
+  %15 = phi i32 [ %.pre34.i61, %if.end.if.end17_crit_edge.i57 ], [ %conv.i90, %if.then13.i96 ], [ %13, %if.then2.i83 ]
+  %16 = phi ptr [ %.pre.i59, %if.end.if.end17_crit_edge.i57 ], [ %12, %if.then13.i96 ], [ %12, %if.then2.i83 ]
   store ptr %add.ptr18.i, ptr %ldmState, align 8
-  %idx.ext.i68 = zext i32 %15 to i64
-  %add.ptr23.i69 = getelementptr inbounds i8, ptr %16, i64 %idx.ext.i68
-  %cmp24.i70 = icmp ugt ptr %add.ptr18.i, %add.ptr23.i69
-  %idx.ext28.i71 = zext i32 %14 to i64
-  %add.ptr29.i72 = getelementptr inbounds i8, ptr %16, i64 %idx.ext28.i71
-  %cmp30.i73 = icmp ugt ptr %add.ptr29.i72, %src
-  %and33.i74 = and i1 %cmp24.i70, %cmp30.i73
-  br i1 %and33.i74, label %if.then33.i76, label %if.end45
+  %idx.ext.i67 = zext i32 %15 to i64
+  %add.ptr23.i68 = getelementptr inbounds i8, ptr %16, i64 %idx.ext.i67
+  %cmp24.i69 = icmp ugt ptr %add.ptr18.i, %add.ptr23.i68
+  %idx.ext28.i70 = zext i32 %14 to i64
+  %add.ptr29.i71 = getelementptr inbounds i8, ptr %16, i64 %idx.ext28.i70
+  %cmp30.i72 = icmp ugt ptr %add.ptr29.i71, %src
+  %and33.i73 = and i1 %cmp24.i69, %cmp30.i72
+  br i1 %and33.i73, label %if.then33.i75, label %if.end45
 
-if.then33.i76:                                    ; preds = %if.end17.i65
-  %lowLimit22.i77 = getelementptr inbounds i8, ptr %cctx, i64 1060
-  %sub.ptr.lhs.cast36.i78 = ptrtoint ptr %add.ptr18.i to i64
-  %sub.ptr.rhs.cast37.i79 = ptrtoint ptr %16 to i64
-  %sub.ptr.sub38.i80 = sub i64 %sub.ptr.lhs.cast36.i78, %sub.ptr.rhs.cast37.i79
-  %cmp41.i81 = icmp sgt i64 %sub.ptr.sub38.i80, %idx.ext28.i71
-  %conv44.i82 = trunc i64 %sub.ptr.sub38.i80 to i32
-  %cond.i83 = select i1 %cmp41.i81, i32 %14, i32 %conv44.i82
-  store i32 %cond.i83, ptr %lowLimit22.i77, align 4
+if.then33.i75:                                    ; preds = %if.end17.i64
+  %lowLimit22.i76 = getelementptr inbounds i8, ptr %cctx, i64 1060
+  %sub.ptr.lhs.cast36.i77 = ptrtoint ptr %add.ptr18.i to i64
+  %sub.ptr.rhs.cast37.i78 = ptrtoint ptr %16 to i64
+  %sub.ptr.sub38.i79 = sub i64 %sub.ptr.lhs.cast36.i77, %sub.ptr.rhs.cast37.i78
+  %cmp41.i80 = icmp sgt i64 %sub.ptr.sub38.i79, %idx.ext28.i70
+  %conv44.i81 = trunc i64 %sub.ptr.sub38.i79 to i32
+  %cond.i82 = select i1 %cmp41.i80, i32 %14, i32 %conv44.i81
+  store i32 %cond.i82, ptr %lowLimit22.i76, align 4
   br label %if.end45
 
-if.end45:                                         ; preds = %if.then33.i76, %if.end17.i65, %if.end39
+if.end45:                                         ; preds = %if.then33.i75, %if.end17.i64, %if.end39
   br i1 %tobool.not, label %cond.true, label %if.then47
 
 if.then47:                                        ; preds = %if.end45
@@ -5251,17 +5251,17 @@ if.then47:                                        ; preds = %if.end45
   br i1 %cmp.i.i, label %do.end11.i, label %return
 
 do.end11.i:                                       ; preds = %if.then47
-  %cmp.i100 = icmp eq i64 %call.i, 1
-  br i1 %cmp.i100, label %if.end37.i, label %if.end13.i
+  %cmp.i99 = icmp eq i64 %call.i, 1
+  br i1 %cmp.i99, label %if.end37.i, label %if.end13.i
 
 if.end13.i:                                       ; preds = %do.end11.i
   %seqCollector.i = getelementptr inbounds i8, ptr %cctx, i64 912
   %17 = load i32, ptr %seqCollector.i, align 8
   %tobool14.not.i = icmp eq i32 %17, 0
   %blockState17.i = getelementptr inbounds i8, ptr %cctx, i64 3200
-  br i1 %tobool14.not.i, label %if.end16.i, label %cond.end.thread155
+  br i1 %tobool14.not.i, label %if.end16.i, label %cond.end.thread154
 
-cond.end.thread155:                               ; preds = %if.end13.i
+cond.end.thread154:                               ; preds = %if.end13.i
   tail call fastcc void @ZSTD_copyBlockSequences(ptr noundef nonnull %cctx)
   %18 = load <2 x ptr>, ptr %blockState17.i, align 8
   %19 = shufflevector <2 x ptr> %18, <2 x ptr> poison, <2 x i32> <i32 1, i32 0>
@@ -5294,8 +5294,8 @@ if.end37.i:                                       ; preds = %if.then35.i, %if.en
   %27 = load ptr, ptr %blockState38.i, align 8
   %offcode_repeatMode.i = getelementptr inbounds i8, ptr %27, i64 5604
   %28 = load i32, ptr %offcode_repeatMode.i, align 4
-  %cmp41.i101 = icmp eq i32 %28, 2
-  br i1 %cmp41.i101, label %if.then42.i, label %cond.end
+  %cmp41.i100 = icmp eq i32 %28, 2
+  br i1 %cmp41.i100, label %if.then42.i, label %cond.end
 
 if.then42.i:                                      ; preds = %if.end37.i
   store i32 1, ptr %offcode_repeatMode.i, align 4
@@ -5314,7 +5314,7 @@ cond.true:                                        ; preds = %if.end45
 
 if.then.i:                                        ; preds = %cond.true
   %xxhState.i = getelementptr inbounds i8, ptr %cctx, i64 784
-  %call.i103 = tail call i32 @ZSTD_XXH64_update(ptr nocapture noundef nonnull %xxhState.i, ptr nocapture noundef %src, i64 noundef %srcSize) #28
+  %call.i102 = tail call i32 @ZSTD_XXH64_update(ptr nocapture noundef nonnull %xxhState.i, ptr nocapture noundef %src, i64 noundef %srcSize) #28
   br label %while.body.lr.ph.i
 
 while.body.lr.ph.i:                               ; preds = %cond.true, %if.then.i
@@ -5347,16 +5347,16 @@ while.body.lr.ph.i:                               ; preds = %cond.true, %if.then
   %longLengthPos.i38.i.i.i.i = getelementptr inbounds i8, ptr %cctx, i64 4060
   %litStart29.i.i.i.i = getelementptr inbounds i8, ptr %cctx, i64 4000
   %lit.i.i.i111.i = getelementptr inbounds i8, ptr %cctx, i64 4008
-  %seqCollector.i122 = getelementptr inbounds i8, ptr %cctx, i64 912
-  %entropyWorkspace.i130 = getelementptr inbounds i8, ptr %cctx, i64 3520
-  %bmi2.i131 = getelementptr inbounds i8, ptr %cctx, i64 8
+  %seqCollector.i121 = getelementptr inbounds i8, ptr %cctx, i64 912
+  %entropyWorkspace.i129 = getelementptr inbounds i8, ptr %cctx, i64 3520
+  %bmi2.i130 = getelementptr inbounds i8, ptr %cctx, i64 8
   br label %while.body.i
 
 while.body.i:                                     ; preds = %if.end125.i, %while.body.lr.ph.i
   %dstCapacity.addr.0154.i = phi i64 [ %dstCapacity.addr.0, %while.body.lr.ph.i ], [ %sub129.i, %if.end125.i ]
   %blockSize.0153.i = phi i64 [ %29, %while.body.lr.ph.i ], [ %spec.select.i, %if.end125.i ]
   %remaining.0152.i = phi i64 [ %srcSize, %while.body.lr.ph.i ], [ %sub127.i, %if.end125.i ]
-  %ip.0151.i = phi ptr [ %src, %while.body.lr.ph.i ], [ %add.ptr.i105, %if.end125.i ]
+  %ip.0151.i = phi ptr [ %src, %while.body.lr.ph.i ], [ %add.ptr.i104, %if.end125.i ]
   %op.0148.i = phi ptr [ %dst.addr.0, %while.body.lr.ph.i ], [ %add.ptr128.i, %if.end125.i ]
   %cmp.not.i = icmp ult i64 %blockSize.0153.i, %remaining.0152.i
   %and.i = select i1 %cmp.not.i, i32 0, i32 %32
@@ -5365,17 +5365,17 @@ while.body.i:                                     ; preds = %if.end125.i, %while
 
 do.end18.i:                                       ; preds = %while.body.i
   %spec.select.i = tail call i64 @llvm.umin.i64(i64 %remaining.0152.i, i64 %blockSize.0153.i)
-  %add.ptr.i105 = getelementptr inbounds i8, ptr %ip.0151.i, i64 %spec.select.i
-  tail call fastcc void @ZSTD_overflowCorrectIfNeeded(ptr noundef nonnull %matchState, ptr noundef nonnull %workspace.i, ptr noundef nonnull %appliedParams40, ptr noundef %ip.0151.i, ptr noundef %add.ptr.i105)
+  %add.ptr.i104 = getelementptr inbounds i8, ptr %ip.0151.i, i64 %spec.select.i
+  tail call fastcc void @ZSTD_overflowCorrectIfNeeded(ptr noundef nonnull %matchState, ptr noundef nonnull %workspace.i, ptr noundef nonnull %appliedParams40, ptr noundef %ip.0151.i, ptr noundef %add.ptr.i104)
   %35 = load ptr, ptr %base.i.i, align 8
-  %sub.ptr.lhs.cast.i.i = ptrtoint ptr %add.ptr.i105 to i64
+  %sub.ptr.lhs.cast.i.i = ptrtoint ptr %add.ptr.i104 to i64
   %sub.ptr.rhs.cast.i.i = ptrtoint ptr %35 to i64
   %sub.ptr.sub.i.i = sub i64 %sub.ptr.lhs.cast.i.i, %sub.ptr.rhs.cast.i.i
   %conv.i.i = trunc i64 %sub.ptr.sub.i.i to i32
   %36 = load i32, ptr %loadedDictEnd.i, align 4
   %add.i.i = add i32 %36, %shl.i
-  %cmp.i.i106 = icmp ult i32 %add.i.i, %conv.i.i
-  br i1 %cmp.i.i106, label %do.end5.i.i, label %lor.lhs.false.i.i
+  %cmp.i.i105 = icmp ult i32 %add.i.i, %conv.i.i
+  br i1 %cmp.i.i105, label %do.end5.i.i, label %lor.lhs.false.i.i
 
 lor.lhs.false.i.i:                                ; preds = %do.end18.i
   %37 = load i32, ptr %dictLimit.i.i, align 8
@@ -5394,12 +5394,12 @@ ZSTD_checkDictValidity.exit.i:                    ; preds = %do.end5.i.i, %lor.l
   %conv.i87.i = trunc i64 %sub.ptr.sub.i86.i to i32
   %add.i88.i = add i32 %38, %shl.i
   %cmp2.i.i = icmp ult i32 %add.i88.i, %conv.i87.i
-  %.pre.i107 = load i32, ptr %lowLimit.i.i, align 4
+  %.pre.i106 = load i32, ptr %lowLimit.i.i, align 4
   br i1 %cmp2.i.i, label %if.then.i.i, label %ZSTD_window_enforceMaxDist.exit.i
 
 if.then.i.i:                                      ; preds = %ZSTD_checkDictValidity.exit.i
   %sub.i.i = sub i32 %conv.i87.i, %shl.i
-  %cmp4.i.i = icmp ult i32 %.pre.i107, %sub.i.i
+  %cmp4.i.i = icmp ult i32 %.pre.i106, %sub.i.i
   br i1 %cmp4.i.i, label %if.then6.i.i, label %if.end.i.i
 
 if.then6.i.i:                                     ; preds = %if.then.i.i
@@ -5407,7 +5407,7 @@ if.then6.i.i:                                     ; preds = %if.then.i.i
   br label %if.end.i.i
 
 if.end.i.i:                                       ; preds = %if.then6.i.i, %if.then.i.i
-  %39 = phi i32 [ %sub.i.i, %if.then6.i.i ], [ %.pre.i107, %if.then.i.i ]
+  %39 = phi i32 [ %sub.i.i, %if.then6.i.i ], [ %.pre.i106, %if.then.i.i ]
   %40 = load i32, ptr %dictLimit.i.i, align 8
   %cmp9.i.i = icmp ult i32 %40, %39
   br i1 %cmp9.i.i, label %do.end13.i.i, label %if.end16.i.i
@@ -5422,7 +5422,7 @@ if.end16.i.i:                                     ; preds = %do.end13.i.i, %if.e
   br label %ZSTD_window_enforceMaxDist.exit.i
 
 ZSTD_window_enforceMaxDist.exit.i:                ; preds = %if.end16.i.i, %ZSTD_checkDictValidity.exit.i
-  %41 = phi i32 [ %.pre.i107, %ZSTD_checkDictValidity.exit.i ], [ %39, %if.end16.i.i ]
+  %41 = phi i32 [ %.pre.i106, %ZSTD_checkDictValidity.exit.i ], [ %39, %if.end16.i.i ]
   %42 = load i32, ptr %nextToUpdate.i, align 4
   %cmp29.i = icmp ult i32 %42, %41
   br i1 %cmp29.i, label %if.then31.i, label %if.end35.i
@@ -5467,7 +5467,7 @@ land.lhs.true.i.i.i:                              ; preds = %if.then.i.i.i
   br i1 %.not.i.i.i, label %if.end.i.i.i, label %land.lhs.true2.i.i.i
 
 land.lhs.true2.i.i.i:                             ; preds = %land.lhs.true.i.i.i
-  %call3.i.i.i = tail call fastcc i32 @ZSTD_isRLE(ptr noundef %ip.0151.i, i64 noundef %spec.select.i), !range !41
+  %call3.i.i.i = tail call fastcc i32 @ZSTD_isRLE(ptr noundef %ip.0151.i, i64 noundef %spec.select.i)
   %tobool4.not.i.i.i = icmp eq i32 %call3.i.i.i, 0
   br i1 %tobool4.not.i.i.i, label %if.end.i.i.i, label %do.end10.i.i.i.i
 
@@ -5692,7 +5692,7 @@ for.inc.i50.i.i.i.i:                              ; preds = %land.lhs.true.i55.i
   %literalsBytes.1.i51.i.i.i.i = phi i64 [ %add.i48.i.i.i.i, %for.body.i42.i.i.i.i ], [ %spec.select.i58.i.i.i.i, %land.lhs.true.i55.i.i.i.i ]
   %inc.i52.i.i.i.i = add nuw nsw i64 %i.011.i44.i.i.i.i, 1
   %exitcond.not.i53.i.i.i.i = icmp eq i64 %inc.i52.i.i.i.i, %conv.i27.i.i
-  br i1 %exitcond.not.i53.i.i.i.i, label %ZSTD_countSeqStoreLiteralsBytes.exit59.i.i.i.i, label %for.body.i42.i.i.i.i, !llvm.loop !42
+  br i1 %exitcond.not.i53.i.i.i.i, label %ZSTD_countSeqStoreLiteralsBytes.exit59.i.i.i.i, label %for.body.i42.i.i.i.i, !llvm.loop !39
 
 ZSTD_countSeqStoreLiteralsBytes.exit59.i.i.i.i:   ; preds = %for.inc.i50.i.i.i.i, %if.else27.i.i.i.i
   %literalsBytes.0.lcssa.i54.i.i.i.i = phi i64 [ 0, %if.else27.i.i.i.i ], [ %literalsBytes.1.i51.i.i.i.i, %for.inc.i50.i.i.i.i ]
@@ -5748,7 +5748,7 @@ for.inc.i.i.i.i:                                  ; preds = %land.lhs.true.i.i.i
   %literalsBytes.1.i.i.i.i = phi i64 [ %add.i.i.i112.i, %for.body.i.i.i.i ], [ %spec.select.i.i.i.i, %land.lhs.true.i.i.i.i ]
   %inc.i.i.i.i = add nuw i64 %i.011.i.i.i.i, 1
   %exitcond.not.i.i.i.i = icmp eq i64 %inc.i.i.i.i, %umax.i.i.i.i
-  br i1 %exitcond.not.i.i.i.i, label %for.body.i67.i.i.i, label %for.body.i.i.i.i, !llvm.loop !42
+  br i1 %exitcond.not.i.i.i.i, label %for.body.i67.i.i.i, label %for.body.i.i.i.i, !llvm.loop !39
 
 for.body.i67.i.i.i:                               ; preds = %for.inc.i.i.i.i, %for.inc.i74.i.i.i
   %matchBytes.012.i.i.i.i = phi i64 [ %matchBytes.1.i.i.i.i, %for.inc.i74.i.i.i ], [ 0, %for.inc.i.i.i.i ]
@@ -5772,7 +5772,7 @@ for.inc.i74.i.i.i:                                ; preds = %land.lhs.true.i77.i
   %matchBytes.1.i.i.i.i = phi i64 [ %add3.i.i.i113.i, %for.body.i67.i.i.i ], [ %spec.select.i78.i.i.i, %land.lhs.true.i77.i.i.i ]
   %inc.i75.i.i.i = add nuw i64 %i.011.i68.i.i.i, 1
   %exitcond.not.i76.i.i.i = icmp eq i64 %inc.i75.i.i.i, %umax.i.i.i.i
-  br i1 %exitcond.not.i76.i.i.i, label %ZSTD_countSeqStoreMatchBytes.exit.loopexit.i.i.i, label %for.body.i67.i.i.i, !llvm.loop !43
+  br i1 %exitcond.not.i76.i.i.i, label %ZSTD_countSeqStoreMatchBytes.exit.loopexit.i.i.i, label %for.body.i67.i.i.i, !llvm.loop !40
 
 ZSTD_countSeqStoreMatchBytes.exit.loopexit.i.i.i: ; preds = %for.inc.i74.i.i.i
   %75 = add i64 %matchBytes.1.i.i.i.i, %literalsBytes.1.i.i.i.i
@@ -5813,7 +5813,7 @@ do.end66.i.i.i:                                   ; preds = %if.end48.i.i.i
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %currSeqStore5.i.i.i, ptr noundef nonnull align 8 dereferenceable(80) %nextSeqStore3.i.i.i, i64 80, i1 false)
   %inc.i.i.i = add i64 %i.085.i.i.i, 1
   %cmp32.not.i.i.i = icmp ugt i64 %inc.i.i.i, %retval.0.i.i.i.i
-  br i1 %cmp32.not.i.i.i, label %for.end.i.i.i, label %for.body.i.i.i, !llvm.loop !44
+  br i1 %cmp32.not.i.i.i, label %for.end.i.i.i, label %for.body.i.i.i, !llvm.loop !41
 
 for.end.i.i.i:                                    ; preds = %do.end66.i.i.i
   %78 = load ptr, ptr %blockState.i.i.i, align 8
@@ -5834,78 +5834,78 @@ ZSTD_compressBlock_splitBlock.exit.i:             ; preds = %ZSTD_compressBlock_
 
 if.else75.i:                                      ; preds = %if.else.i
   %add.ptr76.i = getelementptr inbounds i8, ptr %op.0148.i, i64 3
-  %sub.i113 = add i64 %dstCapacity.addr.0154.i, -3
-  %call.i116 = tail call fastcc i64 @ZSTD_buildSeqStore(ptr noundef nonnull %cctx, ptr noundef %ip.0151.i, i64 noundef %spec.select.i)
-  %cmp.i.i117 = icmp ult i64 %call.i116, -119
-  br i1 %cmp.i.i117, label %do.end11.i119, label %return
+  %sub.i112 = add i64 %dstCapacity.addr.0154.i, -3
+  %call.i115 = tail call fastcc i64 @ZSTD_buildSeqStore(ptr noundef nonnull %cctx, ptr noundef %ip.0151.i, i64 noundef %spec.select.i)
+  %cmp.i.i116 = icmp ult i64 %call.i115, -119
+  br i1 %cmp.i.i116, label %do.end11.i118, label %return
 
-do.end11.i119:                                    ; preds = %if.else75.i
-  %cmp.i120 = icmp eq i64 %call.i116, 1
-  br i1 %cmp.i120, label %if.end37.i136, label %if.end13.i121
+do.end11.i118:                                    ; preds = %if.else75.i
+  %cmp.i119 = icmp eq i64 %call.i115, 1
+  br i1 %cmp.i119, label %if.end37.i135, label %if.end13.i120
 
-if.end13.i121:                                    ; preds = %do.end11.i119
-  %79 = load i32, ptr %seqCollector.i122, align 8
-  %tobool14.not.i123 = icmp eq i32 %79, 0
-  br i1 %tobool14.not.i123, label %if.end16.i127, label %do.end92.i.thread
+if.end13.i120:                                    ; preds = %do.end11.i118
+  %79 = load i32, ptr %seqCollector.i121, align 8
+  %tobool14.not.i122 = icmp eq i32 %79, 0
+  br i1 %tobool14.not.i122, label %if.end16.i126, label %do.end92.i.thread
 
-do.end92.i.thread:                                ; preds = %if.end13.i121
+do.end92.i.thread:                                ; preds = %if.end13.i120
   tail call fastcc void @ZSTD_copyBlockSequences(ptr noundef nonnull %cctx)
   %80 = load <2 x ptr>, ptr %blockState.i.i.i, align 8
   %81 = shufflevector <2 x ptr> %80, <2 x ptr> poison, <2 x i32> <i32 1, i32 0>
   store <2 x ptr> %81, ptr %blockState.i.i.i, align 8
   br label %if.then95.i
 
-if.end16.i127:                                    ; preds = %if.end13.i121
+if.end16.i126:                                    ; preds = %if.end13.i120
   %82 = load ptr, ptr %blockState.i.i.i, align 8
   %83 = load ptr, ptr %nextCBlock.i.i.i.i, align 8
-  %84 = load ptr, ptr %entropyWorkspace.i130, align 8
-  %85 = load i32, ptr %bmi2.i131, align 8
-  %call20.i132 = tail call fastcc i64 @ZSTD_entropyCompressSeqStore(ptr noundef nonnull %seqStore.i.i.i, ptr noundef %82, ptr noundef %83, ptr noundef nonnull %appliedParams40, ptr noundef nonnull %add.ptr76.i, i64 noundef %sub.i113, i64 noundef %spec.select.i, ptr noundef %84, i32 noundef %85)
+  %84 = load ptr, ptr %entropyWorkspace.i129, align 8
+  %85 = load i32, ptr %bmi2.i130, align 8
+  %call20.i131 = tail call fastcc i64 @ZSTD_entropyCompressSeqStore(ptr noundef nonnull %seqStore.i.i.i, ptr noundef %82, ptr noundef %83, ptr noundef nonnull %appliedParams40, ptr noundef nonnull %add.ptr76.i, i64 noundef %sub.i112, i64 noundef %spec.select.i, ptr noundef %84, i32 noundef %85)
   %86 = load i32, ptr %isFirstBlock.i.i.i, align 8
   %tobool22.i = icmp eq i32 %86, 0
-  %cmp24.i133 = icmp ult i64 %call20.i132, 25
-  %or.cond.i134 = select i1 %tobool22.i, i1 %cmp24.i133, i1 false
-  br i1 %or.cond.i134, label %land.lhs.true25.i, label %out.i
+  %cmp24.i132 = icmp ult i64 %call20.i131, 25
+  %or.cond.i133 = select i1 %tobool22.i, i1 %cmp24.i132, i1 false
+  br i1 %or.cond.i133, label %land.lhs.true25.i, label %out.i
 
-land.lhs.true25.i:                                ; preds = %if.end16.i127
-  %call26.i = tail call fastcc i32 @ZSTD_isRLE(ptr noundef %ip.0151.i, i64 noundef %spec.select.i), !range !41
+land.lhs.true25.i:                                ; preds = %if.end16.i126
+  %call26.i = tail call fastcc i32 @ZSTD_isRLE(ptr noundef %ip.0151.i, i64 noundef %spec.select.i)
   %tobool27.not.i = icmp eq i32 %call26.i, 0
   br i1 %tobool27.not.i, label %out.i, label %if.then28.i
 
 if.then28.i:                                      ; preds = %land.lhs.true25.i
   %87 = load i8, ptr %ip.0151.i, align 1
   store i8 %87, ptr %add.ptr76.i, align 1
-  br label %if.end37.i136
+  br label %if.end37.i135
 
-out.i:                                            ; preds = %land.lhs.true25.i, %if.end16.i127
-  %88 = add i64 %call20.i132, -2
-  %or.cond1.i135 = icmp ult i64 %88, -121
-  br i1 %or.cond1.i135, label %if.then35.i142, label %if.end37.i136
+out.i:                                            ; preds = %land.lhs.true25.i, %if.end16.i126
+  %88 = add i64 %call20.i131, -2
+  %or.cond1.i134 = icmp ult i64 %88, -121
+  br i1 %or.cond1.i134, label %if.then35.i141, label %if.end37.i135
 
-if.then35.i142:                                   ; preds = %out.i
+if.then35.i141:                                   ; preds = %out.i
   %89 = load <2 x ptr>, ptr %blockState.i.i.i, align 8
   %90 = shufflevector <2 x ptr> %89, <2 x ptr> poison, <2 x i32> <i32 1, i32 0>
   store <2 x ptr> %90, ptr %blockState.i.i.i, align 8
-  br label %if.end37.i136
+  br label %if.end37.i135
 
-if.end37.i136:                                    ; preds = %if.then35.i142, %out.i, %if.then28.i, %do.end11.i119
-  %cSize.034.i137 = phi i64 [ %call20.i132, %if.then35.i142 ], [ %call20.i132, %out.i ], [ 0, %do.end11.i119 ], [ 1, %if.then28.i ]
+if.end37.i135:                                    ; preds = %if.then35.i141, %out.i, %if.then28.i, %do.end11.i118
+  %cSize.034.i136 = phi i64 [ %call20.i131, %if.then35.i141 ], [ %call20.i131, %out.i ], [ 0, %do.end11.i118 ], [ 1, %if.then28.i ]
   %91 = load ptr, ptr %blockState.i.i.i, align 8
-  %offcode_repeatMode.i139 = getelementptr inbounds i8, ptr %91, i64 5604
-  %92 = load i32, ptr %offcode_repeatMode.i139, align 4
-  %cmp41.i140 = icmp eq i32 %92, 2
-  br i1 %cmp41.i140, label %if.then42.i141, label %ZSTD_compressBlock_internal.exit143
+  %offcode_repeatMode.i138 = getelementptr inbounds i8, ptr %91, i64 5604
+  %92 = load i32, ptr %offcode_repeatMode.i138, align 4
+  %cmp41.i139 = icmp eq i32 %92, 2
+  br i1 %cmp41.i139, label %if.then42.i140, label %ZSTD_compressBlock_internal.exit142
 
-if.then42.i141:                                   ; preds = %if.end37.i136
-  store i32 1, ptr %offcode_repeatMode.i139, align 4
-  br label %ZSTD_compressBlock_internal.exit143
+if.then42.i140:                                   ; preds = %if.end37.i135
+  store i32 1, ptr %offcode_repeatMode.i138, align 4
+  br label %ZSTD_compressBlock_internal.exit142
 
-ZSTD_compressBlock_internal.exit143:              ; preds = %if.end37.i136, %if.then42.i141
-  %cmp.i124.i = icmp ult i64 %cSize.034.i137, -119
+ZSTD_compressBlock_internal.exit142:              ; preds = %if.end37.i135, %if.then42.i140
+  %cmp.i124.i = icmp ult i64 %cSize.034.i136, -119
   br i1 %cmp.i124.i, label %do.end92.i, label %return
 
-do.end92.i:                                       ; preds = %ZSTD_compressBlock_internal.exit143
-  switch i64 %cSize.034.i137, label %cond.false.i [
+do.end92.i:                                       ; preds = %ZSTD_compressBlock_internal.exit142
+  switch i64 %cSize.034.i136, label %cond.false.i [
     i64 0, label %if.then95.i
     i64 1, label %cond.end.i
   ]
@@ -5933,7 +5933,7 @@ cond.false.i:                                     ; preds = %do.end92.i
   br label %cond.end.i
 
 cond.end.i:                                       ; preds = %cond.false.i, %do.end92.i
-  %call77.sink.i = phi i64 [ %cSize.034.i137, %cond.false.i ], [ %spec.select.i, %do.end92.i ]
+  %call77.sink.i = phi i64 [ %cSize.034.i136, %cond.false.i ], [ %spec.select.i, %do.end92.i ]
   %.sink.i = phi i32 [ 4, %cond.false.i ], [ 2, %do.end92.i ]
   %call77.tr.i = trunc i64 %call77.sink.i to i32
   %conv120.i = shl i32 %call77.tr.i, 3
@@ -5945,7 +5945,7 @@ cond.end.i:                                       ; preds = %cond.false.i, %do.e
   %conv1.i.i = trunc i32 %shr.i.i to i8
   %arrayidx.i.i = getelementptr inbounds i8, ptr %op.0148.i, i64 2
   store i8 %conv1.i.i, ptr %arrayidx.i.i, align 1
-  %add122.i = add nuw i64 %cSize.034.i137, 3
+  %add122.i = add nuw i64 %cSize.034.i136, 3
   br label %if.end125.i
 
 if.end125.i:                                      ; preds = %cond.end.i, %ZSTD_noCompressBlock.exit.i, %ZSTD_compressBlock_splitBlock.exit.i, %if.then28.i.i, %do.end27.i.i
@@ -5955,36 +5955,36 @@ if.end125.i:                                      ; preds = %cond.end.i, %ZSTD_n
   %sub129.i = sub i64 %dstCapacity.addr.0154.i, %cSize.0.i
   store i32 0, ptr %isFirstBlock.i.i.i, align 8
   %tobool4.not.i = icmp eq i64 %sub127.i, 0
-  br i1 %tobool4.not.i, label %while.end.i, label %while.body.i, !llvm.loop !45
+  br i1 %tobool4.not.i, label %while.end.i, label %while.body.i, !llvm.loop !42
 
 while.end.i:                                      ; preds = %if.end125.i
   %tobool132.not.i = icmp ne i32 %lastFrameChunk, 0
   %cmp134.i = icmp ugt ptr %add.ptr128.i, %dst.addr.0
-  %or.cond.i109 = select i1 %tobool132.not.i, i1 %cmp134.i, i1 false
-  br i1 %or.cond.i109, label %if.then136.i, label %if.end137.i
+  %or.cond.i108 = select i1 %tobool132.not.i, i1 %cmp134.i, i1 false
+  br i1 %or.cond.i108, label %if.then136.i, label %if.end137.i
 
 if.then136.i:                                     ; preds = %while.end.i
   store i32 3, ptr %cctx, align 8
   br label %if.end137.i
 
 if.end137.i:                                      ; preds = %if.then136.i, %while.end.i
-  %sub.ptr.lhs.cast.i110 = ptrtoint ptr %add.ptr128.i to i64
-  %sub.ptr.rhs.cast.i111 = ptrtoint ptr %dst.addr.0 to i64
-  %sub.ptr.sub.i112 = sub i64 %sub.ptr.lhs.cast.i110, %sub.ptr.rhs.cast.i111
+  %sub.ptr.lhs.cast.i109 = ptrtoint ptr %add.ptr128.i to i64
+  %sub.ptr.rhs.cast.i110 = ptrtoint ptr %dst.addr.0 to i64
+  %sub.ptr.sub.i111 = sub i64 %sub.ptr.lhs.cast.i109, %sub.ptr.rhs.cast.i110
   br label %cond.end
 
 cond.end:                                         ; preds = %if.end137.i, %if.then42.i, %if.end37.i
-  %cond = phi i64 [ %cSize.034.i, %if.then42.i ], [ %cSize.034.i, %if.end37.i ], [ %sub.ptr.sub.i112, %if.end137.i ]
-  %cmp.i114 = icmp ult i64 %cond, -119
-  br i1 %cmp.i114, label %do.end70, label %return
+  %cond = phi i64 [ %cSize.034.i, %if.then42.i ], [ %cSize.034.i, %if.end37.i ], [ %sub.ptr.sub.i111, %if.end137.i ]
+  %cmp.i113 = icmp ult i64 %cond, -119
+  br i1 %cmp.i113, label %do.end70, label %return
 
-do.end70:                                         ; preds = %cond.end.thread155, %cond.end
-  %cond160 = phi i64 [ 0, %cond.end.thread155 ], [ %cond, %cond.end ]
+do.end70:                                         ; preds = %cond.end.thread154, %cond.end
+  %cond159 = phi i64 [ 0, %cond.end.thread154 ], [ %cond, %cond.end ]
   %consumedSrcSize = getelementptr inbounds i8, ptr %cctx, i64 768
   %94 = load i64, ptr %consumedSrcSize, align 8
   %add = add i64 %94, %srcSize
   store i64 %add, ptr %consumedSrcSize, align 8
-  %add71 = add i64 %cond160, %fhSize.0
+  %add71 = add i64 %cond159, %fhSize.0
   %producedCSize = getelementptr inbounds i8, ptr %cctx, i64 776
   %95 = load i64, ptr %producedCSize, align 8
   %add72 = add i64 %95, %add71
@@ -5994,12 +5994,12 @@ do.end70:                                         ; preds = %cond.end.thread155,
   %cmp74.not = icmp ne i64 %96, 0
   %add78 = add i64 %add, 1
   %cmp80 = icmp ugt i64 %add78, %96
-  %or.cond161 = select i1 %cmp74.not, i1 %cmp80, i1 false
-  %spec.select = select i1 %or.cond161, i64 -72, i64 %add71
+  %or.cond160 = select i1 %cmp74.not, i1 %cmp80, i1 false
+  %spec.select = select i1 %or.cond160, i64 -72, i64 %add71
   br label %return
 
-return:                                           ; preds = %if.else75.i, %while.body.i, %ZSTD_compressBlock_splitBlock.exit.i, %ZSTD_compressBlock_internal.exit143, %ZSTD_noCompressBlock.exit.i, %if.then9.i.i.i, %do.end33.i.i.i, %ZSTD_compressBlock_targetCBlockSize_body.exit.i.i, %if.then39.i, %if.end20.i.i, %if.then58.i, %if.then95.i, %do.end70, %if.then47, %cond.end, %if.end30, %if.then13, %entry
-  %retval.0 = phi i64 [ -60, %entry ], [ %call, %if.then13 ], [ %fhSize.0, %if.end30 ], [ %cond, %cond.end ], [ %call.i, %if.then47 ], [ %spec.select, %do.end70 ], [ %call.i116, %if.else75.i ], [ -70, %if.then95.i ], [ %call.i97.i, %if.then58.i ], [ -70, %if.end20.i.i ], [ %call.i.i, %if.then39.i ], [ %add3.i.i.i.i, %ZSTD_compressBlock_targetCBlockSize_body.exit.i.i ], [ -70, %do.end33.i.i.i ], [ %call7.i.i.i, %if.then9.i.i.i ], [ %add3.i.i, %ZSTD_noCompressBlock.exit.i ], [ %cSize.034.i137, %ZSTD_compressBlock_internal.exit143 ], [ %retval.0.i99.i, %ZSTD_compressBlock_splitBlock.exit.i ], [ -70, %while.body.i ]
+return:                                           ; preds = %if.else75.i, %while.body.i, %ZSTD_compressBlock_splitBlock.exit.i, %ZSTD_compressBlock_internal.exit142, %ZSTD_noCompressBlock.exit.i, %if.then9.i.i.i, %do.end33.i.i.i, %ZSTD_compressBlock_targetCBlockSize_body.exit.i.i, %if.then39.i, %if.end20.i.i, %if.then58.i, %if.then95.i, %do.end70, %if.then47, %cond.end, %if.end30, %if.then13, %entry
+  %retval.0 = phi i64 [ -60, %entry ], [ %call, %if.then13 ], [ %fhSize.0, %if.end30 ], [ %cond, %cond.end ], [ %call.i, %if.then47 ], [ %spec.select, %do.end70 ], [ %call.i115, %if.else75.i ], [ -70, %if.then95.i ], [ %call.i97.i, %if.then58.i ], [ -70, %if.end20.i.i ], [ %call.i.i, %if.then39.i ], [ %add3.i.i.i.i, %ZSTD_compressBlock_targetCBlockSize_body.exit.i.i ], [ -70, %do.end33.i.i.i ], [ %call7.i.i.i, %if.then9.i.i.i ], [ %add3.i.i, %ZSTD_noCompressBlock.exit.i ], [ %cSize.034.i136, %ZSTD_compressBlock_internal.exit142 ], [ %retval.0.i99.i, %ZSTD_compressBlock_splitBlock.exit.i ], [ -70, %while.body.i ]
   ret i64 %retval.0
 }
 
@@ -6154,7 +6154,7 @@ do.end121:                                        ; preds = %do.body103
 for.cond.i:                                       ; preds = %for.body.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 53
-  br i1 %exitcond.not.i, label %ZSTD_dictNCountRepeat.exit, label %for.body.i, !llvm.loop !46
+  br i1 %exitcond.not.i, label %ZSTD_dictNCountRepeat.exit, label %for.body.i, !llvm.loop !43
 
 for.body.i:                                       ; preds = %do.end121, %for.cond.i
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %for.cond.i ], [ 0, %do.end121 ]
@@ -6195,7 +6195,7 @@ do.end177:                                        ; preds = %do.body159
 for.cond.i75:                                     ; preds = %for.body.i71
   %indvars.iv.next.i76 = add nuw nsw i64 %indvars.iv.i72, 1
   %exitcond.not.i77 = icmp eq i64 %indvars.iv.next.i76, 36
-  br i1 %exitcond.not.i77, label %ZSTD_dictNCountRepeat.exit79, label %for.body.i71, !llvm.loop !46
+  br i1 %exitcond.not.i77, label %ZSTD_dictNCountRepeat.exit79, label %for.body.i71, !llvm.loop !43
 
 for.body.i71:                                     ; preds = %do.end177, %for.cond.i75
   %indvars.iv.i72 = phi i64 [ %indvars.iv.next.i76, %for.cond.i75 ], [ 0, %do.end177 ]
@@ -6230,7 +6230,7 @@ do.end196:                                        ; preds = %ZSTD_dictNCountRepe
   %cmp211 = icmp ult i64 %sub.ptr.sub210, 4294836224
   %conv = trunc nuw i64 %sub.ptr.sub210 to i32
   %add = add nuw i32 %conv, 131072
-  %11 = call i32 @llvm.ctlz.i32(i32 %add, i1 true), !range !8
+  %11 = call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %add, i1 true)
   %sub.i = xor i32 %11, 31
   %offcodeMax.0 = select i1 %cmp211, i32 %sub.i, i32 31
   %12 = load i32, ptr %offcodeMaxValue, align 4
@@ -6245,7 +6245,7 @@ for.body.preheader.i81:                           ; preds = %do.end196
 for.cond.i86:                                     ; preds = %for.body.i82
   %indvars.iv.next.i87 = add nuw nsw i64 %indvars.iv.i83, 1
   %exitcond.not.i88 = icmp eq i64 %indvars.iv.next.i87, %wide.trip.count.i
-  br i1 %exitcond.not.i88, label %ZSTD_dictNCountRepeat.exit90, label %for.body.i82, !llvm.loop !46
+  br i1 %exitcond.not.i88, label %ZSTD_dictNCountRepeat.exit90, label %for.body.i82, !llvm.loop !43
 
 for.body.i82:                                     ; preds = %for.cond.i86, %for.body.preheader.i81
   %indvars.iv.i83 = phi i64 [ 0, %for.body.preheader.i81 ], [ %indvars.iv.next.i87, %for.cond.i86 ]
@@ -6263,7 +6263,7 @@ ZSTD_dictNCountRepeat.exit90:                     ; preds = %for.cond.i86, %for.
 for.cond:                                         ; preds = %do.body223
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 3
-  br i1 %exitcond.not, label %for.end, label %do.body223, !llvm.loop !47
+  br i1 %exitcond.not, label %for.end, label %do.body223, !llvm.loop !44
 
 do.body223:                                       ; preds = %ZSTD_dictNCountRepeat.exit90, %for.cond
   %indvars.iv = phi i64 [ 0, %ZSTD_dictNCountRepeat.exit90 ], [ %indvars.iv.next, %for.cond ]
@@ -6445,7 +6445,7 @@ if.then6.i.i.i:                                   ; preds = %if.then.i
   %conv.i.i.i = trunc nuw i64 %pledgedSrcSize to i32
   %cmp7.i.i.i = icmp ult i32 %conv.i.i.i, 64
   %sub.i28.i.i = add nsw i32 %conv.i.i.i, -1
-  %11 = tail call i32 @llvm.ctlz.i32(i32 %sub.i28.i.i, i1 true), !range !8
+  %11 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %sub.i28.i.i, i1 true)
   %add9.i.i.i = sub nuw nsw i32 32, %11
   %cond.i.i.i = select i1 %cmp7.i.i.i, i32 6, i32 %add9.i.i.i
   %spec.select.i.i = tail call i32 @llvm.umin.i32(i32 %adjusted_cdict_cParams.sroa.0.sroa.0.0.copyload.i.i, i32 %cond.i.i.i)
@@ -6659,7 +6659,7 @@ for.body.i.i.i:                                   ; preds = %for.body.i.i.i, %fo
   store i32 %shr.i.i.i, ptr %arrayidx1.i.i.i, align 4
   %inc.i.i.i = add nuw i64 %i.02.i.i.i, 1
   %exitcond.not.i.i.i = icmp eq i64 %inc.i.i.i, %shl2297.i.i
-  br i1 %exitcond.not.i.i.i, label %ZSTD_copyCDictTableIntoCCtx.exit.i.i, label %for.body.i.i.i, !llvm.loop !48
+  br i1 %exitcond.not.i.i.i, label %ZSTD_copyCDictTableIntoCCtx.exit.i.i, label %for.body.i.i.i, !llvm.loop !45
 
 if.else.i.i.i:                                    ; preds = %cond.end.i.i, %cond.end.thread.i.i
   %44 = phi ptr [ %36, %cond.end.thread.i.i ], [ %40, %cond.end.i.i ]
@@ -6715,7 +6715,7 @@ for.body.i48.i.i:                                 ; preds = %for.cond.preheader.
   store i32 %shr.i51.i.i, ptr %arrayidx1.i52.i.i, align 4
   %inc.i53.i.i = add nuw i64 %i.02.i49.i.i, 1
   %exitcond.not.i54.i.i = icmp eq i64 %inc.i53.i.i, %cond76.i.i
-  br i1 %exitcond.not.i54.i.i, label %if.end37.i.i, label %for.body.i48.i.i, !llvm.loop !48
+  br i1 %exitcond.not.i54.i.i, label %if.end37.i.i, label %for.body.i48.i.i, !llvm.loop !45
 
 if.else.i55.i.i:                                  ; preds = %if.then32.i.i
   %mul.i56.i.i = shl i64 %cond76.i.i, 2
@@ -6976,7 +6976,6 @@ if.then20.i:                                      ; preds = %if.end14.i
   br label %do.end66.i
 
 if.end40.i:                                       ; preds = %if.end14.i
-  %add.ptr.i.i = getelementptr inbounds i8, ptr %dict, i64 %dictSize
   %noDictIDFlag.i.i = getelementptr inbounds i8, ptr %cctx, i64 272
   %15 = load i32, ptr %noDictIDFlag.i.i, align 8
   %tobool.not.i.i = icmp eq i32 %15, 0
@@ -6995,10 +6994,8 @@ cond.end.i.i:                                     ; preds = %cond.false.i.i, %if
 
 do.end12.i.i:                                     ; preds = %cond.end.i.i
   %add.ptr13.i.i = getelementptr inbounds i8, ptr %dict, i64 %call2.i.i
-  %sub.ptr.lhs.cast.i.i = ptrtoint ptr %add.ptr.i.i to i64
-  %sub.ptr.rhs.cast.i.i = ptrtoint ptr %add.ptr13.i.i to i64
-  %sub.ptr.sub.i.i = sub i64 %sub.ptr.lhs.cast.i.i, %sub.ptr.rhs.cast.i.i
-  tail call fastcc void @ZSTD_loadDictionaryContent(ptr noundef nonnull %matchState44.i, ptr noundef null, ptr noundef nonnull %workspace46.i, ptr noundef nonnull %appliedParams47.i, ptr noundef nonnull %add.ptr13.i.i, i64 noundef %sub.ptr.sub.i.i, i32 noundef 0, i32 noundef 0)
+  %gepdiff.i.i = sub nsw i64 %dictSize, %call2.i.i
+  tail call fastcc void @ZSTD_loadDictionaryContent(ptr noundef nonnull %matchState44.i, ptr noundef null, ptr noundef nonnull %workspace46.i, ptr noundef nonnull %appliedParams47.i, ptr noundef nonnull %add.ptr13.i.i, i64 noundef %gepdiff.i.i, i32 noundef 0, i32 noundef 0)
   br label %do.end66.i
 
 do.end66.i:                                       ; preds = %if.then20.i, %do.end12.i.i, %cond.false40.i
@@ -7029,10 +7026,10 @@ entry:
   %add8.i.i = add i64 %dictSize, 499
   %cond9.i.i = select i1 %cmp6.i.i, i64 -1, i64 %add8.i.i
   %cmp.i = icmp ult i64 %cond9.i.i, 262145
-  %conv.i8 = zext i1 %cmp.i to i64
+  %conv.i7 = zext i1 %cmp.i to i64
   %cmp1.i = icmp ult i64 %cond9.i.i, 131073
   %conv2.i = zext i1 %cmp1.i to i64
-  %add.i = add nuw nsw i64 %conv.i8, %conv2.i
+  %add.i = add nuw nsw i64 %conv.i7, %conv2.i
   %cmp3.i = icmp ult i64 %cond9.i.i, 16385
   %conv4.i = zext i1 %cmp3.i to i64
   %add5.i = add nuw nsw i64 %add.i, %conv4.i
@@ -7051,17 +7048,17 @@ if.else11.i:                                      ; preds = %if.else.i
 if.end17.i:                                       ; preds = %if.else11.i, %if.else.i, %entry
   %row.0.i = phi i64 [ 3, %entry ], [ 0, %if.else.i ], [ %spec.select.i, %if.else11.i ]
   %arrayidx19.i = getelementptr inbounds [4 x [23 x %struct.ZSTD_compressionParameters]], ptr @ZSTD_defaultCParameters, i64 0, i64 %add5.i, i64 %row.0.i
-  %cp.sroa.0.sroa.0.0.copyload.i = load i32, ptr %arrayidx19.i, align 4, !noalias !49
+  %cp.sroa.0.sroa.0.0.copyload.i = load i32, ptr %arrayidx19.i, align 4, !noalias !46
   %cp.sroa.0.sroa.2.0.arrayidx19.sroa_idx.i = getelementptr inbounds i8, ptr %arrayidx19.i, i64 4
-  %cp.sroa.0.sroa.2.0.copyload.i = load i32, ptr %cp.sroa.0.sroa.2.0.arrayidx19.sroa_idx.i, align 4, !noalias !49
+  %cp.sroa.0.sroa.2.0.copyload.i = load i32, ptr %cp.sroa.0.sroa.2.0.arrayidx19.sroa_idx.i, align 4, !noalias !46
   %cp.sroa.0.sroa.3.0.arrayidx19.sroa_idx.i = getelementptr inbounds i8, ptr %arrayidx19.i, i64 8
-  %cp.sroa.0.sroa.3.0.copyload.i = load i32, ptr %cp.sroa.0.sroa.3.0.arrayidx19.sroa_idx.i, align 4, !noalias !49
+  %cp.sroa.0.sroa.3.0.copyload.i = load i32, ptr %cp.sroa.0.sroa.3.0.arrayidx19.sroa_idx.i, align 4, !noalias !46
   %cp.sroa.0.sroa.4.0.arrayidx19.sroa_idx.i = getelementptr inbounds i8, ptr %arrayidx19.i, i64 12
-  %0 = load <2 x i32>, ptr %cp.sroa.0.sroa.4.0.arrayidx19.sroa_idx.i, align 4, !noalias !49
+  %0 = load <2 x i32>, ptr %cp.sroa.0.sroa.4.0.arrayidx19.sroa_idx.i, align 4, !noalias !46
   %cp.sroa.2.0.arrayidx19.sroa_idx.i = getelementptr inbounds i8, ptr %arrayidx19.i, i64 20
-  %cp.sroa.2.0.copyload.i = load i32, ptr %cp.sroa.2.0.arrayidx19.sroa_idx.i, align 4, !noalias !49
+  %cp.sroa.2.0.copyload.i = load i32, ptr %cp.sroa.2.0.arrayidx19.sroa_idx.i, align 4, !noalias !46
   %cp.sroa.3.0.arrayidx19.sroa_idx.i = getelementptr inbounds i8, ptr %arrayidx19.i, i64 24
-  %cp.sroa.3.0.copyload.i = load i32, ptr %cp.sroa.3.0.arrayidx19.sroa_idx.i, align 4, !noalias !49
+  %cp.sroa.3.0.copyload.i = load i32, ptr %cp.sroa.3.0.arrayidx19.sroa_idx.i, align 4, !noalias !46
   %1 = add i32 %cp.sroa.3.0.copyload.i, -6
   %2 = icmp ult i32 %1, -3
   br i1 %2, label %ZSTD_getCParams_internal.exit, label %if.then69.i.i
@@ -7093,8 +7090,8 @@ ZSTD_getCParams_internal.exit:                    ; preds = %if.end17.i, %if.the
   store <2 x i32> %0, ptr %params.sroa.5.sroa.3.0.params.sroa.5.0.cParams.i4.sroa_idx.sroa_idx, align 8
   %params.sroa.5.sroa.5.0.params.sroa.5.0.cParams.i4.sroa_idx.sroa_idx = getelementptr inbounds i8, ptr %cctxParams, i64 24
   store i32 %cp.sroa.2.0.i, ptr %params.sroa.5.sroa.5.0.params.sroa.5.0.cParams.i4.sroa_idx.sroa_idx, align 8
-  %params.sroa.518.0.cParams.i4.sroa_idx = getelementptr inbounds i8, ptr %cctxParams, i64 28
-  store i32 %cp.sroa.3.0.copyload.i, ptr %params.sroa.518.0.cParams.i4.sroa_idx, align 4
+  %params.sroa.517.0.cParams.i4.sroa_idx = getelementptr inbounds i8, ptr %cctxParams, i64 28
+  store i32 %cp.sroa.3.0.copyload.i, ptr %params.sroa.517.0.cParams.i4.sroa_idx, align 4
   %fParams.i5 = getelementptr inbounds i8, ptr %cctxParams, i64 32
   store i32 1, ptr %fParams.i5, align 8
   %compressionLevel3.i = getelementptr inbounds i8, ptr %cctxParams, i64 44
@@ -7106,9 +7103,9 @@ if.end.i23.i:                                     ; preds = %ZSTD_getCParams_int
   store i32 2, ptr %useRowMatchFinder.i, align 8
   %useBlockSplitter.i = getelementptr inbounds i8, ptr %cctxParams, i64 140
   %cmp1.i.i = icmp ugt i32 %cp.sroa.3.0.copyload.i, 6
-  br i1 %cmp1.i.i, label %land.rhs.i30.i, label %if.end.i27.i.thread30
+  br i1 %cmp1.i.i, label %land.rhs.i30.i, label %if.end.i27.i.thread29
 
-if.end.i27.i.thread30:                            ; preds = %if.end.i23.i
+if.end.i27.i.thread29:                            ; preds = %if.end.i23.i
   store i32 2, ptr %useBlockSplitter.i, align 4
   br label %ZSTD_CCtxParams_init_internal.exit
 
@@ -7116,8 +7113,8 @@ if.end.i27.i:                                     ; preds = %ZSTD_getCParams_int
   %cmp3.i.i = icmp ugt i32 %cp.sroa.0.sroa.0.0.copyload.i, 14
   %spec.select.i.i = select i1 %cmp3.i.i, i32 1, i32 2
   store i32 %spec.select.i.i, ptr %useRowMatchFinder.i, align 8
-  %useBlockSplitter.i23 = getelementptr inbounds i8, ptr %cctxParams, i64 140
-  store i32 2, ptr %useBlockSplitter.i23, align 4
+  %useBlockSplitter.i22 = getelementptr inbounds i8, ptr %cctxParams, i64 140
+  store i32 2, ptr %useBlockSplitter.i22, align 4
   br label %ZSTD_CCtxParams_init_internal.exit
 
 land.rhs.i30.i:                                   ; preds = %if.end.i23.i
@@ -7128,8 +7125,8 @@ land.rhs.i30.i:                                   ; preds = %if.end.i23.i
   %5 = select i1 %cmp2.i31.i, i32 1, i32 2
   br label %ZSTD_CCtxParams_init_internal.exit
 
-ZSTD_CCtxParams_init_internal.exit:               ; preds = %if.end.i27.i, %if.end.i27.i.thread30, %land.rhs.i30.i
-  %retval.0.i26.i = phi i32 [ 2, %if.end.i27.i ], [ %5, %land.rhs.i30.i ], [ 2, %if.end.i27.i.thread30 ]
+ZSTD_CCtxParams_init_internal.exit:               ; preds = %if.end.i27.i, %if.end.i27.i.thread29, %land.rhs.i30.i
+  %retval.0.i26.i = phi i32 [ 2, %if.end.i27.i ], [ %5, %land.rhs.i30.i ], [ 2, %if.end.i27.i.thread29 ]
   %ldmParams.i = getelementptr inbounds i8, ptr %cctxParams, i64 96
   store i32 %retval.0.i26.i, ptr %ldmParams.i, align 8
   %maxBlockSize.i = getelementptr inbounds i8, ptr %cctxParams, i64 200
@@ -7161,9 +7158,9 @@ cond.false40.i:                                   ; preds = %cond.end4.i
   %appliedParams47.i = getelementptr inbounds i8, ptr %cctx, i64 232
   %entropyWorkspace48.i = getelementptr inbounds i8, ptr %cctx, i64 3520
   %7 = load ptr, ptr %entropyWorkspace48.i, align 8
-  %cmp.i10 = icmp eq ptr %dict, null
-  %cmp1.i11 = icmp ult i64 %dictSize, 8
-  %or.cond.i = or i1 %cmp.i10, %cmp1.i11
+  %cmp.i9 = icmp eq ptr %dict, null
+  %cmp1.i10 = icmp ult i64 %dictSize, 8
+  %or.cond.i = or i1 %cmp.i9, %cmp1.i10
   br i1 %or.cond.i, label %do.end66.i, label %if.end14.i
 
 if.end14.i:                                       ; preds = %cond.false40.i
@@ -7186,35 +7183,32 @@ if.then20.i:                                      ; preds = %if.end14.i
   br label %do.end66.i
 
 if.end40.i:                                       ; preds = %if.end14.i
-  %add.ptr.i.i = getelementptr inbounds i8, ptr %dict, i64 %dictSize
   %noDictIDFlag.i.i = getelementptr inbounds i8, ptr %cctx, i64 272
   %8 = load i32, ptr %noDictIDFlag.i.i, align 8
   %tobool.not.i.i = icmp eq i32 %8, 0
-  br i1 %tobool.not.i.i, label %cond.false.i.i14, label %cond.end.i.i
+  br i1 %tobool.not.i.i, label %cond.false.i.i13, label %cond.end.i.i
 
-cond.false.i.i14:                                 ; preds = %if.end40.i
+cond.false.i.i13:                                 ; preds = %if.end40.i
   %add.ptr1.i.i = getelementptr inbounds i8, ptr %dict, i64 4
   %add.ptr1.val.i.i = load i32, ptr %add.ptr1.i.i, align 1
   br label %cond.end.i.i
 
-cond.end.i.i:                                     ; preds = %cond.false.i.i14, %if.end40.i
-  %cond.i.i = phi i32 [ %add.ptr1.val.i.i, %cond.false.i.i14 ], [ 0, %if.end40.i ]
+cond.end.i.i:                                     ; preds = %cond.false.i.i13, %if.end40.i
+  %cond.i.i = phi i32 [ %add.ptr1.val.i.i, %cond.false.i.i13 ], [ 0, %if.end40.i ]
   %call2.i.i = tail call i64 @ZSTD_loadCEntropy(ptr noundef nonnull %6, ptr noundef %7, ptr noundef nonnull %dict, i64 noundef %dictSize)
   %cmp.i.i.i = icmp ult i64 %call2.i.i, -119
   br i1 %cmp.i.i.i, label %do.end12.i.i, label %ZSTD_compressBegin_internal.exit
 
 do.end12.i.i:                                     ; preds = %cond.end.i.i
   %add.ptr13.i.i = getelementptr inbounds i8, ptr %dict, i64 %call2.i.i
-  %sub.ptr.lhs.cast.i.i = ptrtoint ptr %add.ptr.i.i to i64
-  %sub.ptr.rhs.cast.i.i = ptrtoint ptr %add.ptr13.i.i to i64
-  %sub.ptr.sub.i.i = sub i64 %sub.ptr.lhs.cast.i.i, %sub.ptr.rhs.cast.i.i
-  tail call fastcc void @ZSTD_loadDictionaryContent(ptr noundef nonnull %matchState44.i, ptr noundef null, ptr noundef nonnull %workspace46.i, ptr noundef nonnull %appliedParams47.i, ptr noundef nonnull %add.ptr13.i.i, i64 noundef %sub.ptr.sub.i.i, i32 noundef 0, i32 noundef 0)
+  %gepdiff.i.i = sub nsw i64 %dictSize, %call2.i.i
+  tail call fastcc void @ZSTD_loadDictionaryContent(ptr noundef nonnull %matchState44.i, ptr noundef null, ptr noundef nonnull %workspace46.i, ptr noundef nonnull %appliedParams47.i, ptr noundef nonnull %add.ptr13.i.i, i64 noundef %gepdiff.i.i, i32 noundef 0, i32 noundef 0)
   br label %do.end66.i
 
 do.end66.i:                                       ; preds = %if.then20.i, %do.end12.i.i, %cond.false40.i
-  %retval.0.i13.ph = phi i32 [ 0, %cond.false40.i ], [ %cond.i.i, %do.end12.i.i ], [ 0, %if.then20.i ]
+  %retval.0.i12.ph = phi i32 [ 0, %cond.false40.i ], [ %cond.i.i, %do.end12.i.i ], [ 0, %if.then20.i ]
   %dictID67.i = getelementptr inbounds i8, ptr %cctx, i64 664
-  store i32 %retval.0.i13.ph, ptr %dictID67.i, align 8
+  store i32 %retval.0.i12.ph, ptr %dictID67.i, align 8
   %dictContentSize68.i = getelementptr inbounds i8, ptr %cctx, i64 672
   store i64 %dictSize, ptr %dictContentSize68.i, align 8
   br label %ZSTD_compressBegin_internal.exit
@@ -7644,7 +7638,6 @@ if.then20.i:                                      ; preds = %if.end14.i
   br label %do.end11
 
 if.end40.i:                                       ; preds = %if.end14.i
-  %add.ptr.i.i = getelementptr inbounds i8, ptr %dict, i64 %dictSize
   %noDictIDFlag.i.i = getelementptr inbounds i8, ptr %cctx, i64 272
   %2 = load i32, ptr %noDictIDFlag.i.i, align 8
   %tobool.not.i.i = icmp eq i32 %2, 0
@@ -7663,10 +7656,8 @@ cond.end.i.i:                                     ; preds = %cond.false.i.i, %if
 
 do.end12.i.i:                                     ; preds = %cond.end.i.i
   %add.ptr13.i.i = getelementptr inbounds i8, ptr %dict, i64 %call2.i.i
-  %sub.ptr.lhs.cast.i.i = ptrtoint ptr %add.ptr.i.i to i64
-  %sub.ptr.rhs.cast.i.i = ptrtoint ptr %add.ptr13.i.i to i64
-  %sub.ptr.sub.i.i = sub i64 %sub.ptr.lhs.cast.i.i, %sub.ptr.rhs.cast.i.i
-  tail call fastcc void @ZSTD_loadDictionaryContent(ptr noundef nonnull %matchState44.i, ptr noundef null, ptr noundef nonnull %workspace46.i, ptr noundef nonnull %appliedParams47.i, ptr noundef nonnull %add.ptr13.i.i, i64 noundef %sub.ptr.sub.i.i, i32 noundef 0, i32 noundef 0)
+  %gepdiff.i.i = sub nsw i64 %dictSize, %call2.i.i
+  tail call fastcc void @ZSTD_loadDictionaryContent(ptr noundef nonnull %matchState44.i, ptr noundef null, ptr noundef nonnull %workspace46.i, ptr noundef nonnull %appliedParams47.i, ptr noundef nonnull %add.ptr13.i.i, i64 noundef %gepdiff.i.i, i32 noundef 0, i32 noundef 0)
   br label %do.end11
 
 do.end11:                                         ; preds = %if.then20.i, %do.end12.i.i, %cond.false40.i
@@ -7691,7 +7682,7 @@ entry:
   %tobool.not = icmp eq ptr %dict, null
   %cond = select i1 %tobool.not, i64 0, i64 %dictSize
   call void @llvm.lifetime.start.p0(i64 28, ptr nonnull %cParams.i)
-  call fastcc void @ZSTD_getCParams_internal(ptr noalias nonnull align 4 %cParams.i, i32 noundef %compressionLevel, i64 noundef %srcSize, i64 noundef %cond, i32 noundef 0), !noalias !54
+  call fastcc void @ZSTD_getCParams_internal(ptr noalias nonnull align 4 %cParams.i, i32 noundef %compressionLevel, i64 noundef %srcSize, i64 noundef %cond, i32 noundef 0), !noalias !51
   %params.sroa.0.0.copyload = load i32, ptr %cParams.i, align 4
   %params.sroa.5.0.cParams.i.sroa_idx = getelementptr inbounds i8, ptr %cParams.i, i64 4
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %params.sroa.5, ptr noundef nonnull align 4 dereferenceable(20) %params.sroa.5.0.cParams.i.sroa_idx, i64 20, i1 false)
@@ -7764,7 +7755,7 @@ entry:
   %params.sroa.5.i = alloca { i32, i32, i32, i32, i32 }, align 8
   call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %params.sroa.5.i)
   call void @llvm.lifetime.start.p0(i64 28, ptr nonnull %cParams.i.i)
-  call fastcc void @ZSTD_getCParams_internal(ptr noalias nonnull align 4 %cParams.i.i, i32 noundef %compressionLevel, i64 noundef %srcSize, i64 noundef 0, i32 noundef 0), !noalias !57
+  call fastcc void @ZSTD_getCParams_internal(ptr noalias nonnull align 4 %cParams.i.i, i32 noundef %compressionLevel, i64 noundef %srcSize, i64 noundef 0, i32 noundef 0), !noalias !54
   %params.sroa.0.0.copyload.i = load i32, ptr %cParams.i.i, align 4
   %params.sroa.5.0.cParams.i.sroa_idx.i = getelementptr inbounds i8, ptr %cParams.i.i, i64 4
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %params.sroa.5.i, ptr noundef nonnull align 4 dereferenceable(20) %params.sroa.5.0.cParams.i.sroa_idx.i, i64 20, i1 false)
@@ -8128,7 +8119,7 @@ if.end:                                           ; preds = %entry
 if.then6:                                         ; preds = %if.end
   %compressionLevel = getelementptr inbounds i8, ptr %cctxParams, i64 44
   %3 = load i32, ptr %compressionLevel, align 4
-  call fastcc void @ZSTD_getCParams_internal(ptr noalias nonnull align 4 %tmp, i32 noundef %3, i64 noundef 0, i64 noundef %dictSize, i32 noundef 2), !alias.scope !60
+  call fastcc void @ZSTD_getCParams_internal(ptr noalias nonnull align 4 %tmp, i32 noundef %3, i64 noundef 0, i64 noundef %dictSize, i32 noundef 2), !alias.scope !57
   %strategy.i = getelementptr inbounds i8, ptr %tmp, i64 24
   %4 = load i32, ptr %strategy.i, align 4
   %.off.i = add i32 %4, -3
@@ -8175,90 +8166,90 @@ if.then6:                                         ; preds = %if.end
 if.else:                                          ; preds = %if.end
   call void @llvm.lifetime.start.p0(i64 28, ptr nonnull %cParams.i)
   %srcSizeHint1.i = getelementptr inbounds i8, ptr %cctxParams, i64 64
-  %17 = load i32, ptr %srcSizeHint1.i, align 8, !noalias !63
+  %17 = load i32, ptr %srcSizeHint1.i, align 8, !noalias !60
   %cmp2.i = icmp slt i32 %17, 1
   %conv.i = zext nneg i32 %17 to i64
   %18 = select i1 %cmp2.i, i64 -1, i64 %conv.i
   %compressionLevel.i = getelementptr inbounds i8, ptr %cctxParams, i64 44
-  %19 = load i32, ptr %compressionLevel.i, align 4, !noalias !12
-  call fastcc void @ZSTD_getCParams_internal(ptr noalias nonnull align 4 %cParams.i, i32 noundef %19, i64 noundef %18, i64 noundef %dictSize, i32 noundef 2), !noalias !63
+  %19 = load i32, ptr %compressionLevel.i, align 4, !noalias !10
+  call fastcc void @ZSTD_getCParams_internal(ptr noalias nonnull align 4 %cParams.i, i32 noundef %19, i64 noundef %18, i64 noundef %dictSize, i32 noundef 2), !noalias !60
   %ldmParams.i = getelementptr inbounds i8, ptr %cctxParams, i64 96
-  %20 = load i32, ptr %ldmParams.i, align 8, !noalias !63
+  %20 = load i32, ptr %ldmParams.i, align 8, !noalias !60
   %cmp4.i = icmp eq i32 %20, 1
   br i1 %cmp4.i, label %if.then6.i, label %if.end7.i12
 
 if.then6.i:                                       ; preds = %if.else
-  store i32 27, ptr %cParams.i, align 8, !noalias !63
+  store i32 27, ptr %cParams.i, align 8, !noalias !60
   br label %if.end7.i12
 
 if.end7.i12:                                      ; preds = %if.then6.i, %if.else
   %cParams8.i = getelementptr inbounds i8, ptr %cctxParams, i64 4
-  %21 = load i32, ptr %cParams8.i, align 4, !noalias !12
+  %21 = load i32, ptr %cParams8.i, align 4, !noalias !10
   %tobool.not.i.i = icmp eq i32 %21, 0
   br i1 %tobool.not.i.i, label %if.end.i.i, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %if.end7.i12
-  store i32 %21, ptr %cParams.i, align 8, !noalias !63
+  store i32 %21, ptr %cParams.i, align 8, !noalias !60
   br label %if.end.i.i
 
 if.end.i.i:                                       ; preds = %if.then.i.i, %if.end7.i12
   %hashLog.i.i = getelementptr inbounds i8, ptr %cctxParams, i64 12
-  %22 = load i32, ptr %hashLog.i.i, align 4, !noalias !12
+  %22 = load i32, ptr %hashLog.i.i, align 4, !noalias !10
   %tobool3.not.i.i = icmp eq i32 %22, 0
   br i1 %tobool3.not.i.i, label %if.end7.i.i, label %if.then4.i.i
 
 if.then4.i.i:                                     ; preds = %if.end.i.i
   %hashLog6.i.i = getelementptr inbounds i8, ptr %cParams.i, i64 8
-  store i32 %22, ptr %hashLog6.i.i, align 8, !noalias !63
+  store i32 %22, ptr %hashLog6.i.i, align 8, !noalias !60
   br label %if.end7.i.i
 
 if.end7.i.i:                                      ; preds = %if.then4.i.i, %if.end.i.i
   %chainLog.i.i = getelementptr inbounds i8, ptr %cctxParams, i64 8
-  %23 = load i32, ptr %chainLog.i.i, align 8, !noalias !12
+  %23 = load i32, ptr %chainLog.i.i, align 8, !noalias !10
   %tobool8.not.i.i = icmp eq i32 %23, 0
   br i1 %tobool8.not.i.i, label %if.end12.i.i, label %if.then9.i.i
 
 if.then9.i.i:                                     ; preds = %if.end7.i.i
   %chainLog11.i.i = getelementptr inbounds i8, ptr %cParams.i, i64 4
-  store i32 %23, ptr %chainLog11.i.i, align 4, !noalias !63
+  store i32 %23, ptr %chainLog11.i.i, align 4, !noalias !60
   br label %if.end12.i.i
 
 if.end12.i.i:                                     ; preds = %if.then9.i.i, %if.end7.i.i
   %searchLog.i.i = getelementptr inbounds i8, ptr %cctxParams, i64 16
-  %24 = load i32, ptr %searchLog.i.i, align 8, !noalias !12
+  %24 = load i32, ptr %searchLog.i.i, align 8, !noalias !10
   %tobool13.not.i.i = icmp eq i32 %24, 0
   br i1 %tobool13.not.i.i, label %if.end17.i.i, label %if.then14.i.i
 
 if.then14.i.i:                                    ; preds = %if.end12.i.i
   %searchLog16.i.i = getelementptr inbounds i8, ptr %cParams.i, i64 12
-  store i32 %24, ptr %searchLog16.i.i, align 4, !noalias !63
+  store i32 %24, ptr %searchLog16.i.i, align 4, !noalias !60
   br label %if.end17.i.i
 
 if.end17.i.i:                                     ; preds = %if.then14.i.i, %if.end12.i.i
   %minMatch.i.i = getelementptr inbounds i8, ptr %cctxParams, i64 20
-  %25 = load i32, ptr %minMatch.i.i, align 4, !noalias !12
+  %25 = load i32, ptr %minMatch.i.i, align 4, !noalias !10
   %tobool18.not.i.i = icmp eq i32 %25, 0
   br i1 %tobool18.not.i.i, label %if.end22.i.i, label %if.then19.i.i
 
 if.then19.i.i:                                    ; preds = %if.end17.i.i
   %minMatch21.i.i = getelementptr inbounds i8, ptr %cParams.i, i64 16
-  store i32 %25, ptr %minMatch21.i.i, align 8, !noalias !63
+  store i32 %25, ptr %minMatch21.i.i, align 8, !noalias !60
   br label %if.end22.i.i
 
 if.end22.i.i:                                     ; preds = %if.then19.i.i, %if.end17.i.i
   %targetLength.i.i = getelementptr inbounds i8, ptr %cctxParams, i64 24
-  %26 = load i32, ptr %targetLength.i.i, align 8, !noalias !12
+  %26 = load i32, ptr %targetLength.i.i, align 8, !noalias !10
   %tobool23.not.i.i = icmp eq i32 %26, 0
   br i1 %tobool23.not.i.i, label %if.end27.i.i, label %if.then24.i.i
 
 if.then24.i.i:                                    ; preds = %if.end22.i.i
   %targetLength26.i.i = getelementptr inbounds i8, ptr %cParams.i, i64 20
-  store i32 %26, ptr %targetLength26.i.i, align 4, !noalias !63
+  store i32 %26, ptr %targetLength26.i.i, align 4, !noalias !60
   br label %if.end27.i.i
 
 if.end27.i.i:                                     ; preds = %if.then24.i.i, %if.end22.i.i
   %strategy.i.i = getelementptr inbounds i8, ptr %cctxParams, i64 28
-  %27 = load i32, ptr %strategy.i.i, align 4, !noalias !12
+  %27 = load i32, ptr %strategy.i.i, align 4, !noalias !10
   %tobool28.not.i.i = icmp eq i32 %27, 0
   %cParams.i84.sroa.24.0.cParams.i.sroa_idx.phi.trans.insert = getelementptr inbounds i8, ptr %cParams.i, i64 24
   %cParams.i84.sroa.24.0.copyload.pre = load i32, ptr %cParams.i84.sroa.24.0.cParams.i.sroa_idx.phi.trans.insert, align 8
@@ -8287,7 +8278,7 @@ if.then6.i98:                                     ; preds = %if.end27.i.i
   %conv.i100 = trunc nuw i64 %add.i99 to i32
   %cmp7.i = icmp ult i32 %conv.i100, 64
   %sub.i = add i32 %conv.i100, -1
-  %30 = tail call i32 @llvm.ctlz.i32(i32 %sub.i, i1 true), !range !8
+  %30 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %sub.i, i1 true)
   %add9.i = sub nuw nsw i32 32, %30
   %cond.i = select i1 %cmp7.i, i32 6, i32 %add9.i
   %spec.select226 = tail call i32 @llvm.umin.i32(i32 %cParams.i84.sroa.0.0.copyload, i32 %cond.i)
@@ -8316,7 +8307,7 @@ if.else.i.i97:                                    ; preds = %if.end.i.i89
 if.else6.i.i:                                     ; preds = %if.else.i.i97
   %conv.i.i = trunc nuw nsw i64 %add.i.i91 to i32
   %sub.i19.i = add nsw i32 %conv.i.i, -1
-  %31 = tail call i32 @llvm.ctlz.i32(i32 %sub.i19.i, i1 true), !range !8
+  %31 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %sub.i19.i, i1 true)
   %add7.i.i = sub nuw nsw i32 32, %31
   br label %ZSTD_dictAndWindowLog.exit.i
 
@@ -8403,13 +8394,13 @@ if.then11:                                        ; preds = %if.end9
   store i32 0, ptr %enableDedicatedDictSearch, align 8
   call void @llvm.lifetime.start.p0(i64 28, ptr nonnull %cParams.i17)
   %srcSizeHint1.i18 = getelementptr inbounds i8, ptr %cctxParams, i64 64
-  %48 = load i32, ptr %srcSizeHint1.i18, align 8, !noalias !66
+  %48 = load i32, ptr %srcSizeHint1.i18, align 8, !noalias !63
   %cmp2.i19 = icmp slt i32 %48, 1
   %conv.i20 = zext nneg i32 %48 to i64
   %49 = select i1 %cmp2.i19, i64 -1, i64 %conv.i20
-  call fastcc void @ZSTD_getCParams_internal(ptr noalias nonnull align 4 %cParams.i17, i32 noundef %43, i64 noundef %49, i64 noundef %dictSize, i32 noundef 2), !noalias !66
+  call fastcc void @ZSTD_getCParams_internal(ptr noalias nonnull align 4 %cParams.i17, i32 noundef %43, i64 noundef %49, i64 noundef %dictSize, i32 noundef 2), !noalias !63
   %ldmParams.i24 = getelementptr inbounds i8, ptr %cctxParams, i64 96
-  %50 = load i32, ptr %ldmParams.i24, align 8, !noalias !66
+  %50 = load i32, ptr %ldmParams.i24, align 8, !noalias !63
   %cmp4.i25.not = icmp eq i32 %50, 1
   %tobool.not.i.i28 = icmp ne i32 %42, 0
   %51 = or i1 %cmp4.i25.not, %tobool.not.i.i28
@@ -8417,7 +8408,7 @@ if.then11:                                        ; preds = %if.end9
 
 52:                                               ; preds = %if.then11
   %spec.select248 = select i1 %tobool.not.i.i28, i32 %42, i32 27
-  store i32 %spec.select248, ptr %cParams.i17, align 8, !noalias !66
+  store i32 %spec.select248, ptr %cParams.i17, align 8, !noalias !63
   br label %53
 
 53:                                               ; preds = %if.then11, %52
@@ -8426,7 +8417,7 @@ if.then11:                                        ; preds = %if.end9
 
 if.then4.i.i33:                                   ; preds = %53
   %hashLog6.i.i34 = getelementptr inbounds i8, ptr %cParams.i17, i64 8
-  store i32 %41, ptr %hashLog6.i.i34, align 8, !noalias !66
+  store i32 %41, ptr %hashLog6.i.i34, align 8, !noalias !63
   br label %if.end7.i.i35
 
 if.end7.i.i35:                                    ; preds = %if.then4.i.i33, %53
@@ -8435,7 +8426,7 @@ if.end7.i.i35:                                    ; preds = %if.then4.i.i33, %53
 
 if.then9.i.i38:                                   ; preds = %if.end7.i.i35
   %chainLog11.i.i39 = getelementptr inbounds i8, ptr %cParams.i17, i64 4
-  store i32 %40, ptr %chainLog11.i.i39, align 4, !noalias !66
+  store i32 %40, ptr %chainLog11.i.i39, align 4, !noalias !63
   br label %if.end12.i.i40
 
 if.end12.i.i40:                                   ; preds = %if.then9.i.i38, %if.end7.i.i35
@@ -8444,7 +8435,7 @@ if.end12.i.i40:                                   ; preds = %if.then9.i.i38, %if
 
 if.then14.i.i43:                                  ; preds = %if.end12.i.i40
   %searchLog16.i.i44 = getelementptr inbounds i8, ptr %cParams.i17, i64 12
-  store i32 %39, ptr %searchLog16.i.i44, align 4, !noalias !66
+  store i32 %39, ptr %searchLog16.i.i44, align 4, !noalias !63
   br label %if.end17.i.i45
 
 if.end17.i.i45:                                   ; preds = %if.then14.i.i43, %if.end12.i.i40
@@ -8453,7 +8444,7 @@ if.end17.i.i45:                                   ; preds = %if.then14.i.i43, %i
 
 if.then19.i.i48:                                  ; preds = %if.end17.i.i45
   %minMatch21.i.i49 = getelementptr inbounds i8, ptr %cParams.i17, i64 16
-  store i32 %38, ptr %minMatch21.i.i49, align 8, !noalias !66
+  store i32 %38, ptr %minMatch21.i.i49, align 8, !noalias !63
   br label %if.end22.i.i50
 
 if.end22.i.i50:                                   ; preds = %if.then19.i.i48, %if.end17.i.i45
@@ -8462,7 +8453,7 @@ if.end22.i.i50:                                   ; preds = %if.then19.i.i48, %i
 
 if.then24.i.i53:                                  ; preds = %if.end22.i.i50
   %targetLength26.i.i54 = getelementptr inbounds i8, ptr %cParams.i17, i64 20
-  store i32 %37, ptr %targetLength26.i.i54, align 4, !noalias !66
+  store i32 %37, ptr %targetLength26.i.i54, align 4, !noalias !63
   br label %if.end27.i.i55
 
 if.end27.i.i55:                                   ; preds = %if.then24.i.i53, %if.end22.i.i50
@@ -8494,7 +8485,7 @@ if.then6.i168:                                    ; preds = %if.end27.i.i55
   %conv.i170 = trunc nuw i64 %add.i169 to i32
   %cmp7.i171 = icmp ult i32 %conv.i170, 64
   %sub.i172 = add i32 %conv.i170, -1
-  %56 = tail call i32 @llvm.ctlz.i32(i32 %sub.i172, i1 true), !range !8
+  %56 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %sub.i172, i1 true)
   %add9.i173 = sub nuw nsw i32 32, %56
   %cond.i174 = select i1 %cmp7.i171, i32 6, i32 %add9.i173
   %spec.select232 = tail call i32 @llvm.umin.i32(i32 %cParams.i17101.sroa.0.0.copyload, i32 %cond.i174)
@@ -8523,7 +8514,7 @@ if.else.i.i162:                                   ; preds = %if.end.i.i115
 if.else6.i.i164:                                  ; preds = %if.else.i.i162
   %conv.i.i165 = trunc nuw nsw i64 %add.i.i118 to i32
   %sub.i19.i166 = add nsw i32 %conv.i.i165, -1
-  %57 = tail call i32 @llvm.ctlz.i32(i32 %sub.i19.i166, i1 true), !range !8
+  %57 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %sub.i19.i166, i1 true)
   %add7.i.i167 = sub nuw nsw i32 32, %57
   br label %ZSTD_dictAndWindowLog.exit.i121
 
@@ -8882,7 +8873,7 @@ ZSTD_cwksp_reserve_object.exit44:                 ; preds = %do.end3.i35, %if.en
   store i32 0, ptr %litlength_repeatMode.i, align 4
   %useRowMatchFinder = getelementptr inbounds i8, ptr %params, i64 144
   %7 = load i32, ptr %useRowMatchFinder, align 8
-  %call27 = call fastcc i64 @ZSTD_reset_matchState(ptr noundef nonnull %matchState, ptr noundef nonnull %workspace21, ptr noundef nonnull %cParams1, i32 noundef %7, i32 noundef 0, i32 noundef 1, i32 noundef 0), !range !69
+  %call27 = call fastcc i64 @ZSTD_reset_matchState(ptr noundef nonnull %matchState, ptr noundef nonnull %workspace21, ptr noundef nonnull %cParams1, i32 noundef %7, i32 noundef 0, i32 noundef 1, i32 noundef 0)
   %cmp.i = icmp ult i64 %call27, -119
   br i1 %cmp.i, label %do.end40, label %return
 
@@ -9202,7 +9193,7 @@ cond.true:                                        ; preds = %lor.lhs.false16, %l
   br label %cond.end
 
 cond.false:                                       ; preds = %lor.lhs.false16
-  call fastcc void @ZSTD_getCParams_internal(ptr noalias nonnull align 4 %tmp18, i32 noundef %1, i64 noundef %pledgedSrcSize, i64 noundef %0, i32 noundef 3), !alias.scope !70
+  call fastcc void @ZSTD_getCParams_internal(ptr noalias nonnull align 4 %tmp18, i32 noundef %1, i64 noundef %pledgedSrcSize, i64 noundef %0, i32 noundef 3), !alias.scope !66
   %params.sroa.0.0.copyload = load i32, ptr %tmp18, align 4
   %params.sroa.6.0.tmp18.sroa_idx = getelementptr inbounds i8, ptr %tmp18, i64 4
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %params.sroa.6, ptr noundef nonnull align 4 dereferenceable(20) %params.sroa.6.0.tmp18.sroa_idx, i64 20, i1 false)
@@ -9276,7 +9267,7 @@ if.then23:                                        ; preds = %ZSTD_CCtxParams_ini
   %conv = trunc nuw nsw i64 %cond to i32
   %cmp28 = icmp ugt i32 %conv, 1
   %sub = add nsw i32 %conv, -1
-  %7 = tail call i32 @llvm.ctlz.i32(i32 %sub, i1 true), !range !8
+  %7 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %sub, i1 true)
   %add = sub nuw nsw i32 32, %7
   %cond33 = select i1 %cmp28, i32 %add, i32 1
   %cond42 = tail call i32 @llvm.umax.i32(i32 %params.sroa.0.0, i32 %cond33)
@@ -9610,9 +9601,9 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i64 @ZSTD_freeCStream(ptr noundef %zcs) local_unnamed_addr #1 {
+define range(i64 -64, 1) i64 @ZSTD_freeCStream(ptr noundef %zcs) local_unnamed_addr #1 {
 entry:
-  %call = tail call i64 @ZSTD_freeCCtx(ptr noundef %zcs), !range !69
+  %call = tail call i64 @ZSTD_freeCCtx(ptr noundef %zcs)
   ret i64 %call
 }
 
@@ -9623,13 +9614,13 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef i64 @ZSTD_CStreamOutSize() local_unnamed_addr #0 {
+define noundef range(i64 8, 7) i64 @ZSTD_CStreamOutSize() local_unnamed_addr #0 {
 entry:
   ret i64 131591
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define noundef i64 @ZSTD_resetCStream(ptr nocapture noundef writeonly %zcs, i64 noundef %pss) local_unnamed_addr #5 {
+define noundef range(i64 -60, 1) i64 @ZSTD_resetCStream(ptr nocapture noundef writeonly %zcs, i64 noundef %pss) local_unnamed_addr #5 {
 return:
   %streamStage.i = getelementptr inbounds i8, ptr %zcs, i64 3608
   store i32 0, ptr %streamStage.i, align 8
@@ -9642,7 +9633,7 @@ return:
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i64 @ZSTD_initCStream_internal(ptr nocapture noundef %zcs, ptr noundef readonly %dict, i64 noundef %dictSize, ptr noundef %cdict, ptr nocapture noundef readonly %params, i64 noundef %pledgedSrcSize) local_unnamed_addr #1 {
+define range(i64 -64, 1) i64 @ZSTD_initCStream_internal(ptr nocapture noundef %zcs, ptr noundef readonly %dict, i64 noundef %dictSize, ptr noundef %cdict, ptr nocapture noundef readonly %params, i64 noundef %pledgedSrcSize) local_unnamed_addr #1 {
 ZSTD_CCtx_setPledgedSrcSize.exit:
   %streamStage.i = getelementptr inbounds i8, ptr %zcs, i64 3608
   store i32 0, ptr %streamStage.i, align 8
@@ -9709,7 +9700,7 @@ return:                                           ; preds = %ZSTD_customMalloc.e
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i64 @ZSTD_initCStream_usingCDict_advanced(ptr nocapture noundef %zcs, ptr noundef %cdict, i64 %fParams.coerce0, i32 %fParams.coerce1, i64 noundef %pledgedSrcSize) local_unnamed_addr #1 {
+define noundef range(i64 -60, 1) i64 @ZSTD_initCStream_usingCDict_advanced(ptr nocapture noundef %zcs, ptr noundef %cdict, i64 %fParams.coerce0, i32 %fParams.coerce1, i64 noundef %pledgedSrcSize) local_unnamed_addr #1 {
 ZSTD_CCtx_setPledgedSrcSize.exit:
   %streamStage.i = getelementptr inbounds i8, ptr %zcs, i64 3608
   store i32 0, ptr %streamStage.i, align 8
@@ -9727,7 +9718,7 @@ ZSTD_CCtx_setPledgedSrcSize.exit:
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i64 @ZSTD_initCStream_usingCDict(ptr nocapture noundef %zcs, ptr noundef %cdict) local_unnamed_addr #1 {
+define noundef range(i64 -60, 1) i64 @ZSTD_initCStream_usingCDict(ptr nocapture noundef %zcs, ptr noundef %cdict) local_unnamed_addr #1 {
 return:
   %streamStage.i = getelementptr inbounds i8, ptr %zcs, i64 3608
   store i32 0, ptr %streamStage.i, align 8
@@ -9740,7 +9731,7 @@ return:
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i64 @ZSTD_initCStream_advanced(ptr nocapture noundef %zcs, ptr noundef readonly %dict, i64 noundef %dictSize, ptr nocapture noundef readonly byval(%struct.ZSTD_parameters) align 8 %params, i64 noundef %pss) local_unnamed_addr #1 {
+define range(i64 -64, 1) i64 @ZSTD_initCStream_advanced(ptr nocapture noundef %zcs, ptr noundef readonly %dict, i64 noundef %dictSize, ptr nocapture noundef readonly byval(%struct.ZSTD_parameters) align 8 %params, i64 noundef %pss) local_unnamed_addr #1 {
 ZSTD_CCtx_setPledgedSrcSize.exit:
   %fParams = getelementptr inbounds i8, ptr %params, i64 28
   %0 = load i32, ptr %fParams, align 4
@@ -9867,9 +9858,9 @@ do.end10.i.i:
   %simplifycfg.merge.i.i = tail call i32 @llvm.smin.i32(i32 %0, i32 22)
   %value.addr.0.i = select i1 %2, i32 %simplifycfg.merge.i.i, i32 %compressionLevel
   %cmp.i9 = icmp eq i32 %value.addr.0.i, 0
-  %spec.select462.i = select i1 %cmp.i9, i32 3, i32 %value.addr.0.i
+  %spec.select494.i = select i1 %cmp.i9, i32 3, i32 %value.addr.0.i
   %3 = getelementptr inbounds i8, ptr %zcs, i64 60
-  store i32 %spec.select462.i, ptr %3, align 4
+  store i32 %spec.select494.i, ptr %3, align 4
   tail call fastcc void @ZSTD_clearAllDicts(ptr noundef nonnull %zcs)
   %cmp11.i.i = icmp eq ptr %dict, null
   %cmp12.i.i = icmp eq i64 %dictSize, 0
@@ -9954,9 +9945,9 @@ ZSTD_CCtx_setPledgedSrcSize.exit:                 ; preds = %if.then.i, %do.end1
   %simplifycfg.merge.i.i.c = tail call i32 @llvm.smin.i32(i32 %4, i32 22)
   %value.addr.0.i.c = select i1 %3, i32 %simplifycfg.merge.i.i.c, i32 %compressionLevel
   %cmp.i21.c = icmp eq i32 %value.addr.0.i.c, 0
-  %spec.select462.i.c = select i1 %cmp.i21.c, i32 3, i32 %value.addr.0.i.c
+  %spec.select494.i.c = select i1 %cmp.i21.c, i32 3, i32 %value.addr.0.i.c
   %5 = getelementptr inbounds i8, ptr %zcs, i64 60
-  store i32 %spec.select462.i.c, ptr %5, align 4
+  store i32 %spec.select494.i.c, ptr %5, align 4
   ret i64 %.call46
 }
 
@@ -9986,9 +9977,9 @@ ZSTD_CCtx_setParameter.exit:                      ; preds = %ZSTD_CCtx_refCDict.
   %simplifycfg.merge.i.i = tail call i32 @llvm.smin.i32(i32 %1, i32 22)
   %value.addr.0.i = select i1 %3, i32 %simplifycfg.merge.i.i, i32 %compressionLevel
   %cmp.i12 = icmp eq i32 %value.addr.0.i, 0
-  %spec.select462.i = select i1 %cmp.i12, i32 3, i32 %value.addr.0.i
+  %spec.select494.i = select i1 %cmp.i12, i32 3, i32 %value.addr.0.i
   %4 = getelementptr inbounds i8, ptr %zcs, i64 60
-  store i32 %spec.select462.i, ptr %4, align 4
+  store i32 %spec.select494.i, ptr %4, align 4
   ret i64 0
 }
 
@@ -10648,7 +10639,7 @@ ZSTD_getCParamMode.exit:                          ; preds = %land.lhs.true.i.i, 
 
 land.lhs.true.i69:                                ; preds = %ZSTD_getCParamMode.exit
   %srcSizeHint1.i = getelementptr inbounds i8, ptr %params, i64 64
-  %19 = load i32, ptr %srcSizeHint1.i, align 8, !noalias !73
+  %19 = load i32, ptr %srcSizeHint1.i, align 8, !noalias !69
   %cmp2.i = icmp sgt i32 %19, 0
   %conv.i70 = zext nneg i32 %19 to i64
   %spec.select.i = select i1 %cmp2.i, i64 %conv.i70, i64 -1
@@ -10663,89 +10654,89 @@ if.end.i66:                                       ; preds = %lor.lhs.false4.i.i,
   %srcSizeHint.addr.0.i = phi i64 [ %sub110, %ZSTD_getCParamMode.exit ], [ %spec.select.i, %land.lhs.true.i69 ], [ %sub121, %lor.lhs.false4.i.i ]
   %compressionLevel.i = getelementptr inbounds i8, ptr %params, i64 44
   %20 = load i32, ptr %compressionLevel.i, align 4
-  call fastcc void @ZSTD_getCParams_internal(ptr noalias nonnull align 4 %cParams.i, i32 noundef %20, i64 noundef %srcSizeHint.addr.0.i, i64 noundef %cond31106132, i32 noundef %retval.0.i64133), !noalias !73
+  call fastcc void @ZSTD_getCParams_internal(ptr noalias nonnull align 4 %cParams.i, i32 noundef %20, i64 noundef %srcSizeHint.addr.0.i, i64 noundef %cond31106132, i32 noundef %retval.0.i64133), !noalias !69
   %ldmParams.i = getelementptr inbounds i8, ptr %params, i64 96
   %21 = load i32, ptr %ldmParams.i, align 8
   %cmp4.i = icmp eq i32 %21, 1
   br i1 %cmp4.i, label %if.then6.i, label %if.end7.i
 
 if.then6.i:                                       ; preds = %if.end.i66
-  store i32 27, ptr %cParams.i, align 8, !noalias !73
+  store i32 27, ptr %cParams.i, align 8, !noalias !69
   br label %if.end7.i
 
 if.end7.i:                                        ; preds = %if.then6.i, %if.end.i66
-  %22 = load i32, ptr %cParams134, align 4, !noalias !73
+  %22 = load i32, ptr %cParams134, align 4, !noalias !69
   %tobool.not.i.i67 = icmp eq i32 %22, 0
   br i1 %tobool.not.i.i67, label %if.end.i.i, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %if.end7.i
-  store i32 %22, ptr %cParams.i, align 8, !noalias !73
+  store i32 %22, ptr %cParams.i, align 8, !noalias !69
   br label %if.end.i.i
 
 if.end.i.i:                                       ; preds = %if.then.i.i, %if.end7.i
   %hashLog.i.i = getelementptr inbounds i8, ptr %params, i64 12
-  %23 = load i32, ptr %hashLog.i.i, align 4, !noalias !73
+  %23 = load i32, ptr %hashLog.i.i, align 4, !noalias !69
   %tobool3.not.i.i = icmp eq i32 %23, 0
   br i1 %tobool3.not.i.i, label %if.end7.i.i, label %if.then4.i.i
 
 if.then4.i.i:                                     ; preds = %if.end.i.i
   %hashLog6.i.i = getelementptr inbounds i8, ptr %cParams.i, i64 8
-  store i32 %23, ptr %hashLog6.i.i, align 8, !noalias !73
+  store i32 %23, ptr %hashLog6.i.i, align 8, !noalias !69
   br label %if.end7.i.i
 
 if.end7.i.i:                                      ; preds = %if.then4.i.i, %if.end.i.i
   %chainLog.i.i = getelementptr inbounds i8, ptr %params, i64 8
-  %24 = load i32, ptr %chainLog.i.i, align 8, !noalias !73
+  %24 = load i32, ptr %chainLog.i.i, align 8, !noalias !69
   %tobool8.not.i.i = icmp eq i32 %24, 0
   br i1 %tobool8.not.i.i, label %if.end12.i.i, label %if.then9.i.i
 
 if.then9.i.i:                                     ; preds = %if.end7.i.i
   %chainLog11.i.i = getelementptr inbounds i8, ptr %cParams.i, i64 4
-  store i32 %24, ptr %chainLog11.i.i, align 4, !noalias !73
+  store i32 %24, ptr %chainLog11.i.i, align 4, !noalias !69
   br label %if.end12.i.i
 
 if.end12.i.i:                                     ; preds = %if.then9.i.i, %if.end7.i.i
   %searchLog.i.i = getelementptr inbounds i8, ptr %params, i64 16
-  %25 = load i32, ptr %searchLog.i.i, align 8, !noalias !73
+  %25 = load i32, ptr %searchLog.i.i, align 8, !noalias !69
   %tobool13.not.i.i = icmp eq i32 %25, 0
   br i1 %tobool13.not.i.i, label %if.end17.i.i, label %if.then14.i.i
 
 if.then14.i.i:                                    ; preds = %if.end12.i.i
   %searchLog16.i.i = getelementptr inbounds i8, ptr %cParams.i, i64 12
-  store i32 %25, ptr %searchLog16.i.i, align 4, !noalias !73
+  store i32 %25, ptr %searchLog16.i.i, align 4, !noalias !69
   br label %if.end17.i.i
 
 if.end17.i.i:                                     ; preds = %if.then14.i.i, %if.end12.i.i
   %minMatch.i.i = getelementptr inbounds i8, ptr %params, i64 20
-  %26 = load i32, ptr %minMatch.i.i, align 4, !noalias !73
+  %26 = load i32, ptr %minMatch.i.i, align 4, !noalias !69
   %tobool18.not.i.i = icmp eq i32 %26, 0
   br i1 %tobool18.not.i.i, label %if.end22.i.i, label %if.then19.i.i
 
 if.then19.i.i:                                    ; preds = %if.end17.i.i
   %minMatch21.i.i = getelementptr inbounds i8, ptr %cParams.i, i64 16
-  store i32 %26, ptr %minMatch21.i.i, align 8, !noalias !73
+  store i32 %26, ptr %minMatch21.i.i, align 8, !noalias !69
   br label %if.end22.i.i
 
 if.end22.i.i:                                     ; preds = %if.then19.i.i, %if.end17.i.i
   %targetLength.i.i = getelementptr inbounds i8, ptr %params, i64 24
-  %27 = load i32, ptr %targetLength.i.i, align 8, !noalias !73
+  %27 = load i32, ptr %targetLength.i.i, align 8, !noalias !69
   %tobool23.not.i.i = icmp eq i32 %27, 0
   br i1 %tobool23.not.i.i, label %if.end27.i.i, label %if.then24.i.i
 
 if.then24.i.i:                                    ; preds = %if.end22.i.i
   %targetLength26.i.i = getelementptr inbounds i8, ptr %cParams.i, i64 20
-  store i32 %27, ptr %targetLength26.i.i, align 4, !noalias !73
+  store i32 %27, ptr %targetLength26.i.i, align 4, !noalias !69
   br label %if.end27.i.i
 
 if.end27.i.i:                                     ; preds = %if.then24.i.i, %if.end22.i.i
   %strategy.i.i68 = getelementptr inbounds i8, ptr %params, i64 28
-  %28 = load i32, ptr %strategy.i.i68, align 4, !noalias !73
+  %28 = load i32, ptr %strategy.i.i68, align 4, !noalias !69
   %tobool28.not.i.i = icmp eq i32 %28, 0
   br i1 %tobool28.not.i.i, label %ZSTD_getCParamsFromCCtxParams.exit, label %if.then29.i.i
 
 if.then29.i.i:                                    ; preds = %if.end27.i.i
   %strategy31.i.i = getelementptr inbounds i8, ptr %cParams.i, i64 24
-  store i32 %28, ptr %strategy31.i.i, align 8, !noalias !73
+  store i32 %28, ptr %strategy31.i.i, align 8, !noalias !69
   br label %ZSTD_getCParamsFromCCtxParams.exit
 
 ZSTD_getCParamsFromCCtxParams.exit:               ; preds = %if.end27.i.i, %if.then29.i.i
@@ -11041,7 +11032,7 @@ while.body:                                       ; preds = %while.body.outer, %
     i32 0, label %return
     i32 1, label %sw.bb56
     i32 2, label %while.body.do.end294_crit_edge
-  ], !llvm.loop !76
+  ], !llvm.loop !72
 
 while.body.do.end294_crit_edge:                   ; preds = %while.body
   %.pre234 = load i64, ptr %outBuffContentSize, align 8
@@ -11372,7 +11363,7 @@ if.end325:                                        ; preds = %if.end316
 while.body.outer.backedge:                        ; preds = %if.end325, %if.then281
   %ip.2233.ph.be = phi ptr [ %ip.6, %if.then281 ], [ %ip.7, %if.end325 ]
   %op.0229.ph.be = phi ptr [ %add.ptr282, %if.then281 ], [ %add.ptr309, %if.end325 ]
-  br label %while.body.outer, !llvm.loop !76
+  br label %while.body.outer, !llvm.loop !72
 
 while.end:                                        ; preds = %land.lhs.true112, %land.lhs.true119, %land.lhs.true137, %ZSTD_limitCopy.exit205, %do.end323, %do.end90, %do.end287, %if.then130
   %op.2.ph = phi ptr [ %op.0229.ph, %if.then130 ], [ %add.ptr282, %do.end287 ], [ %add.ptr91, %do.end90 ], [ %add.ptr309, %do.end323 ], [ %op.0229.ph, %land.lhs.true112 ], [ %op.0229.ph, %land.lhs.true119 ], [ %op.0229.ph, %land.lhs.true137 ], [ %add.ptr309, %ZSTD_limitCopy.exit205 ]
@@ -11444,7 +11435,7 @@ entry:
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define noundef i64 @ZSTD_copySequencesToSeqStoreExplicitBlockDelim(ptr nocapture noundef %cctx, ptr nocapture noundef %seqPos, ptr nocapture noundef readonly %inSeqs, i64 noundef %inSeqsSize, ptr noundef %src, i64 noundef %blockSize, i32 noundef %externalRepSearch) local_unnamed_addr #13 {
+define range(i64 -107, 1) i64 @ZSTD_copySequencesToSeqStoreExplicitBlockDelim(ptr nocapture noundef %cctx, ptr nocapture noundef %seqPos, ptr nocapture noundef readonly %inSeqs, i64 noundef %inSeqsSize, ptr noundef %src, i64 noundef %blockSize, i32 noundef %externalRepSearch) local_unnamed_addr #13 {
 entry:
   %updatedRepcodes = alloca %struct.repcodes_s, align 8
   %0 = load i32, ptr %seqPos, align 8
@@ -11664,7 +11655,7 @@ if.then.i:                                        ; preds = %do.end89
 
 if.then3.i:                                       ; preds = %if.then.i
   %27 = load ptr, ptr %lit.i, align 8
-  %add.ptr.i198 = getelementptr inbounds i8, ptr %27, i64 %conv91
+  %add.ptr.i198 = getelementptr i8, ptr %27, i64 %conv91
   %add.ptr6.i = getelementptr inbounds i8, ptr %ip.0184, i64 16
   %add.ptr5.i = getelementptr inbounds i8, ptr %27, i64 16
   %add.ptr6.i.val = load <2 x i64>, ptr %add.ptr6.i, align 1
@@ -11688,7 +11679,7 @@ do.body11.i:                                      ; preds = %do.body11.i, %if.en
   store <2 x i64> %add.ptr14.i.val, ptr %add.ptr13.i, align 1
   %add.ptr18.i = getelementptr inbounds i8, ptr %op.i.1, i64 32
   %cmp23.i = icmp ult ptr %add.ptr18.i, %add.ptr.i198
-  br i1 %cmp23.i, label %do.body11.i, label %if.end8.i, !llvm.loop !77
+  br i1 %cmp23.i, label %do.body11.i, label %if.end8.i, !llvm.loop !73
 
 if.else.i:                                        ; preds = %do.end89
   %iend35.i = ptrtoint ptr %add.ptr1.i to i64
@@ -11720,7 +11711,7 @@ do.body11.i.i:                                    ; preds = %do.body11.i.i, %if.
   store <2 x i64> %add.ptr14.i.val.i, ptr %add.ptr13.i.i, align 1
   %add.ptr18.i.i = getelementptr inbounds i8, ptr %op.i.1.i, i64 32
   %cmp23.i.i = icmp ult ptr %add.ptr18.i.i, %add.ptr.i.i
-  br i1 %cmp23.i.i, label %do.body11.i.i, label %if.end.i, !llvm.loop !77
+  br i1 %cmp23.i.i, label %do.body11.i.i, label %if.end.i, !llvm.loop !73
 
 if.end.i:                                         ; preds = %do.body11.i.i, %if.then.i153, %if.else.i
   %op.addr.0.i = phi ptr [ %add.ptr.i.i, %if.then.i153 ], [ %26, %if.else.i ], [ %add.ptr.i.i, %do.body11.i.i ]
@@ -11742,7 +11733,7 @@ while.body.i:                                     ; preds = %while.body.i, %whil
   %incdec.ptr5.i = getelementptr inbounds i8, ptr %op.addr.133.i, i64 1
   store i8 %29, ptr %op.addr.133.i, align 1
   %exitcond.not.i = icmp eq ptr %incdec.ptr.i157, %scevgep.i
-  br i1 %exitcond.not.i, label %if.end8.i, label %while.body.i, !llvm.loop !78
+  br i1 %exitcond.not.i, label %if.end8.i, label %while.body.i, !llvm.loop !74
 
 if.end8.i.thread:                                 ; preds = %if.then.i, %if.then3.i
   %30 = load ptr, ptr %lit.i, align 8
@@ -11806,7 +11797,7 @@ ZSTD_storeSeq.exit:                               ; preds = %if.then23.i, %if.en
   %inc = add i32 %idx.0187, 1
   %conv12 = zext i32 %inc to i64
   %cmp = icmp ult i64 %conv12, %inSeqsSize
-  br i1 %cmp, label %land.rhs, label %for.end, !llvm.loop !79
+  br i1 %cmp, label %land.rhs, label %for.end, !llvm.loop !75
 
 for.end:                                          ; preds = %lor.rhs, %ZSTD_storeSeq.exit
   %ip.0.lcssa = phi ptr [ %ip.0184, %lor.rhs ], [ %add.ptr94, %ZSTD_storeSeq.exit ]
@@ -11918,7 +11909,7 @@ return:                                           ; preds = %do.body74, %if.then
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define i64 @ZSTD_copySequencesToSeqStoreNoBlockDelim(ptr nocapture noundef %cctx, ptr nocapture noundef %seqPos, ptr nocapture noundef readonly %inSeqs, i64 noundef %inSeqsSize, ptr noundef %src, i64 noundef %blockSize, i32 %externalRepSearch) local_unnamed_addr #13 {
+define range(i64 -107, 4294967296) i64 @ZSTD_copySequencesToSeqStoreNoBlockDelim(ptr nocapture noundef %cctx, ptr nocapture noundef %seqPos, ptr nocapture noundef readonly %inSeqs, i64 noundef %inSeqsSize, ptr noundef %src, i64 noundef %blockSize, i32 %externalRepSearch) local_unnamed_addr #13 {
 entry:
   %updatedRepcodes = alloca %struct.repcodes_s, align 4
   %0 = load i32, ptr %seqPos, align 8
@@ -12180,7 +12171,7 @@ if.then.i:                                        ; preds = %do.end138
 
 if.then3.i:                                       ; preds = %if.then.i
   %25 = load ptr, ptr %lit.i, align 8
-  %add.ptr.i174 = getelementptr inbounds i8, ptr %25, i64 %conv140
+  %add.ptr.i174 = getelementptr i8, ptr %25, i64 %conv140
   %add.ptr6.i = getelementptr inbounds i8, ptr %ip.0194, i64 16
   %add.ptr5.i = getelementptr inbounds i8, ptr %25, i64 16
   %add.ptr6.i.val = load <2 x i64>, ptr %add.ptr6.i, align 1
@@ -12204,7 +12195,7 @@ do.body11.i:                                      ; preds = %do.body11.i, %if.en
   store <2 x i64> %add.ptr14.i.val, ptr %add.ptr13.i, align 1
   %add.ptr18.i = getelementptr inbounds i8, ptr %op.i.1, i64 32
   %cmp23.i = icmp ult ptr %add.ptr18.i, %add.ptr.i174
-  br i1 %cmp23.i, label %do.body11.i, label %if.end8.i, !llvm.loop !77
+  br i1 %cmp23.i, label %do.body11.i, label %if.end8.i, !llvm.loop !73
 
 if.else.i:                                        ; preds = %do.end138
   %iend35.i = ptrtoint ptr %add.ptr1.i to i64
@@ -12236,7 +12227,7 @@ do.body11.i.i:                                    ; preds = %do.body11.i.i, %if.
   store <2 x i64> %add.ptr14.i.val.i, ptr %add.ptr13.i.i, align 1
   %add.ptr18.i.i = getelementptr inbounds i8, ptr %op.i.1.i, i64 32
   %cmp23.i.i = icmp ult ptr %add.ptr18.i.i, %add.ptr.i.i
-  br i1 %cmp23.i.i, label %do.body11.i.i, label %if.end.i, !llvm.loop !77
+  br i1 %cmp23.i.i, label %do.body11.i.i, label %if.end.i, !llvm.loop !73
 
 if.end.i:                                         ; preds = %do.body11.i.i, %if.then.i154, %if.else.i
   %op.addr.0.i = phi ptr [ %add.ptr.i.i, %if.then.i154 ], [ %24, %if.else.i ], [ %add.ptr.i.i, %do.body11.i.i ]
@@ -12258,7 +12249,7 @@ while.body.i:                                     ; preds = %while.body.i, %whil
   %incdec.ptr5.i = getelementptr inbounds i8, ptr %op.addr.133.i, i64 1
   store i8 %27, ptr %op.addr.133.i, align 1
   %exitcond.not.i = icmp eq ptr %incdec.ptr.i158, %scevgep.i
-  br i1 %exitcond.not.i, label %if.end8.i, label %while.body.i, !llvm.loop !78
+  br i1 %exitcond.not.i, label %if.end8.i, label %while.body.i, !llvm.loop !74
 
 if.end8.i.thread:                                 ; preds = %if.then.i, %if.then3.i
   %28 = load ptr, ptr %lit.i, align 8
@@ -12322,7 +12313,7 @@ ZSTD_storeSeq.exit:                               ; preds = %if.then23.i, %if.en
   %inc = zext i1 %cmp23.not.not to i32
   %spec.select = add i32 %idx.0199, %inc
   %tobool14.not = icmp eq i32 %endPosInSequence.2, 0
-  br i1 %tobool14.not, label %do.end148, label %land.lhs.true, !llvm.loop !80
+  br i1 %tobool14.not, label %do.end148, label %land.lhs.true, !llvm.loop !76
 
 do.end148:                                        ; preds = %do.end39, %ZSTD_storeSeq.exit, %land.lhs.true, %do.end11, %if.else76
   %ip.0183 = phi ptr [ %ip.0194, %if.else76 ], [ %src, %do.end11 ], [ %ip.0194, %do.end39 ], [ %add.ptr143, %ZSTD_storeSeq.exit ], [ %ip.0194, %land.lhs.true ]
@@ -12446,7 +12437,7 @@ if.end.i.i:                                       ; preds = %while.body.i
 while.cond.i.i.i:                                 ; preds = %while.body.i.i.i
   %inc.i.i.i = add i64 %spos.013.i.i.i, 1
   %exitcond.not.i.i.i = icmp eq i64 %inc.i.i.i, %inSeqsSize
-  br i1 %exitcond.not.i.i.i, label %ZSTD_compressSequences_internal.exit.thread, label %while.body.i.i.i, !llvm.loop !81
+  br i1 %exitcond.not.i.i.i, label %ZSTD_compressSequences_internal.exit.thread, label %while.body.i.i.i, !llvm.loop !77
 
 while.body.i.i.i:                                 ; preds = %if.end.i.i, %while.cond.i.i.i
   %spos.013.i.i.i = phi i64 [ %inc.i.i.i, %while.cond.i.i.i ], [ %conv.i.i.i, %if.end.i.i ]
@@ -12495,7 +12486,7 @@ do.end32.i:                                       ; preds = %determine_blockSize
   store ptr %9, ptr %sequences.i.i, align 8
   store i32 0, ptr %longLengthType.i.i, align 8
   %10 = load i32, ptr %searchForExternalRepcodes.i, align 8
-  %call36.i = call i64 %switch.select3.i.i(ptr noundef %cctx, ptr noundef nonnull %seqPos.i, ptr noundef %inSeqs, i64 noundef %inSeqsSize, ptr noundef %ip.0156.i, i64 noundef %retval.0.i183.i, i32 noundef %10) #28, !callees !82
+  %call36.i = call i64 %switch.select3.i.i(ptr noundef %cctx, ptr noundef nonnull %seqPos.i, ptr noundef %inSeqs, i64 noundef %inSeqsSize, ptr noundef %ip.0156.i, i64 noundef %retval.0.i183.i, i32 noundef %10) #28, !callees !78
   %cmp.i88.i = icmp ult i64 %call36.i, -119
   br i1 %cmp.i88.i, label %do.end51.i, label %ZSTD_compressSequences_internal.exit.thread
 
@@ -12530,7 +12521,7 @@ while.cond.backedge.i:                            ; preds = %if.else194.i, %do.e
   %ip.0.be.i = getelementptr inbounds i8, ptr %ip.0156.i, i64 %sub52.i
   %op.1.be.i = getelementptr inbounds i8, ptr %op.1155.i, i64 %add3.i.pn.i
   %tobool.not.i = icmp eq i64 %remaining.0.be.i, 0
-  br i1 %tobool.not.i, label %ZSTD_compressSequences_internal.exit, label %while.body.i, !llvm.loop !83
+  br i1 %tobool.not.i, label %ZSTD_compressSequences_internal.exit, label %while.body.i, !llvm.loop !79
 
 do.body80.i:                                      ; preds = %do.end51.i
   %cmp81.i = icmp ult i64 %dstCapacity.addr.1159.i, 3
@@ -12569,7 +12560,7 @@ land.lhs.true.i:                                  ; preds = %do.end117.i
   br i1 %.not.i, label %if.end126.i, label %land.lhs.true122.i
 
 land.lhs.true122.i:                               ; preds = %land.lhs.true.i
-  %call123.i = call fastcc i32 @ZSTD_isRLE(ptr noundef %ip.0156.i, i64 noundef %sub52.i), !range !41
+  %call123.i = call fastcc i32 @ZSTD_isRLE(ptr noundef %ip.0156.i, i64 noundef %sub52.i)
   %tobool124.not.i = icmp eq i32 %call123.i, 0
   br i1 %tobool124.not.i, label %if.end126.i, label %if.then150.i
 
@@ -12849,9 +12840,9 @@ declare i64 @ZSTD_XXH64_digest(ptr nocapture noundef) local_unnamed_addr #14
 define i64 @ZSTD_flushStream(ptr noundef %zcs, ptr noundef %output) local_unnamed_addr #1 {
 entry:
   %input = alloca %struct.ZSTD_inBuffer_s, align 8
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !84)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !80)
   %inBufferMode.i = getelementptr inbounds i8, ptr %zcs, i64 356
-  %0 = load i32, ptr %inBufferMode.i, align 4, !noalias !84
+  %0 = load i32, ptr %inBufferMode.i, align 4, !noalias !80
   %cmp.i = icmp eq i32 %0, 1
   br i1 %cmp.i, label %cond.true.i, label %cond.false.i
 
@@ -12863,7 +12854,7 @@ cond.true.i:                                      ; preds = %entry
   br label %inBuffer_forEndFlush.exit
 
 cond.false.i:                                     ; preds = %entry
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %input, i8 0, i64 24, i1 false), !alias.scope !84
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %input, i8 0, i64 24, i1 false), !alias.scope !80
   br label %inBuffer_forEndFlush.exit
 
 inBuffer_forEndFlush.exit:                        ; preds = %cond.true.i, %cond.false.i
@@ -12878,9 +12869,9 @@ inBuffer_forEndFlush.exit:                        ; preds = %cond.true.i, %cond.
 define i64 @ZSTD_endStream(ptr noundef %zcs, ptr noundef %output) local_unnamed_addr #1 {
 entry:
   %input = alloca %struct.ZSTD_inBuffer_s, align 8
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !87)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !83)
   %inBufferMode.i = getelementptr inbounds i8, ptr %zcs, i64 356
-  %0 = load i32, ptr %inBufferMode.i, align 4, !noalias !87
+  %0 = load i32, ptr %inBufferMode.i, align 4, !noalias !83
   %cmp.i = icmp eq i32 %0, 1
   br i1 %cmp.i, label %cond.true.i, label %cond.false.i
 
@@ -12890,7 +12881,7 @@ cond.true.i:                                      ; preds = %entry
   br label %inBuffer_forEndFlush.exit
 
 cond.false.i:                                     ; preds = %entry
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %input, i8 0, i64 24, i1 false), !alias.scope !87
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %input, i8 0, i64 24, i1 false), !alias.scope !83
   br label %inBuffer_forEndFlush.exit
 
 inBuffer_forEndFlush.exit:                        ; preds = %cond.true.i, %cond.false.i
@@ -12950,14 +12941,14 @@ entry:
   %cParams.i = alloca %struct.ZSTD_compressionParameters, align 4
   %cmp = icmp eq i64 %srcSizeHint, 0
   %spec.store.select = select i1 %cmp, i64 -1, i64 %srcSizeHint
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !90)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !86)
   call void @llvm.lifetime.start.p0(i64 28, ptr nonnull %cParams.i)
-  call fastcc void @ZSTD_getCParams_internal(ptr noalias nonnull align 4 %cParams.i, i32 noundef %compressionLevel, i64 noundef %spec.store.select, i64 noundef %dictSize, i32 noundef 3), !noalias !90
+  call fastcc void @ZSTD_getCParams_internal(ptr noalias nonnull align 4 %cParams.i, i32 noundef %compressionLevel, i64 noundef %spec.store.select, i64 noundef %dictSize, i32 noundef 3), !noalias !86
   %0 = getelementptr inbounds i8, ptr %agg.result, i64 32
-  store i64 0, ptr %0, align 4, !alias.scope !90
+  store i64 0, ptr %0, align 4, !alias.scope !86
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(28) %agg.result, ptr noundef nonnull align 4 dereferenceable(28) %cParams.i, i64 28, i1 false)
   %fParams.i = getelementptr inbounds i8, ptr %agg.result, i64 28
-  store i32 1, ptr %fParams.i, align 4, !alias.scope !90
+  store i32 1, ptr %fParams.i, align 4, !alias.scope !86
   call void @llvm.lifetime.end.p0(i64 28, ptr nonnull %cParams.i)
   ret void
 }
@@ -13016,12 +13007,12 @@ if.end:                                           ; preds = %if.then, %entry
   %1 = load i32, ptr %cParams4, align 4
   %sh_prom = zext nneg i32 %1 to i64
   %shl = shl nuw i64 1, %sh_prom
-  %cmp10596 = icmp eq i64 %pledgedSrcSize, 0
+  %cmp10595 = icmp eq i64 %pledgedSrcSize, 0
   %shl16.pledgedSrcSize = tail call i64 @llvm.umin.i64(i64 %shl, i64 %pledgedSrcSize)
-  %spec.select595 = select i1 %cmp10596, i64 1, i64 %shl16.pledgedSrcSize
+  %spec.select594 = select i1 %cmp10595, i64 1, i64 %shl16.pledgedSrcSize
   %maxBlockSize = getelementptr inbounds i8, ptr %zc, i64 432
   %2 = load i64, ptr %maxBlockSize, align 8
-  %.cond27 = tail call i64 @llvm.umin.i64(i64 %2, i64 %spec.select595)
+  %.cond27 = tail call i64 @llvm.umin.i64(i64 %2, i64 %spec.select594)
   %minMatch = getelementptr inbounds i8, ptr %zc, i64 252
   %3 = load i32, ptr %minMatch, align 4
   %4 = getelementptr i8, ptr %zc, i64 424
@@ -13069,12 +13060,12 @@ land.lhs.true44:                                  ; preds = %land.lhs.true, %ZST
   %inBufferMode = getelementptr inbounds i8, ptr %zc, i64 356
   %8 = load i32, ptr %inBufferMode, align 4
   %cmp45 = icmp eq i32 %8, 0
-  %add47 = add i64 %.cond27, %spec.select595
+  %add47 = add i64 %.cond27, %spec.select594
   %spec.select = select i1 %cmp45, i64 %add47, i64 0
   br label %cond.end49
 
 cond.end49:                                       ; preds = %if.end, %land.lhs.true44
-  %cond42581 = phi i64 [ %cond42.ph, %land.lhs.true44 ], [ 0, %if.end ]
+  %cond42580 = phi i64 [ %cond42.ph, %land.lhs.true44 ], [ 0, %if.end ]
   %cond50 = phi i64 [ %spec.select, %land.lhs.true44 ], [ 0, %if.end ]
   %call52 = tail call i64 @ZSTD_ldm_getMaxNbSeq(ptr noundef nonnull byval(%struct.ldmParams_t) align 8 %ldmParams, i64 noundef %.cond27) #28
   %blockState = getelementptr inbounds i8, ptr %zc, i64 3200
@@ -13109,7 +13100,7 @@ lor.end:                                          ; preds = %lor.rhs, %cond.end4
   %cmp.i152 = icmp ne ptr %appliedParams.val140, null
   %conv.i153 = zext i1 %cmp.i152 to i32
   %14 = load i64, ptr %maxBlockSize, align 8
-  %call63 = tail call fastcc i64 @ZSTD_estimateCCtxSize_usingCCtxParams_internal(ptr noundef nonnull %cParams4, ptr noundef nonnull %ldmParams, i32 noundef %conv, i32 noundef %13, i64 noundef %cond50, i64 noundef %cond42581, i64 noundef %pledgedSrcSize, i32 noundef %conv.i153, i64 noundef %14)
+  %call63 = tail call fastcc i64 @ZSTD_estimateCCtxSize_usingCCtxParams_internal(ptr noundef nonnull %cParams4, ptr noundef nonnull %ldmParams, i32 noundef %conv, i32 noundef %13, i64 noundef %cond50, i64 noundef %cond42580, i64 noundef %pledgedSrcSize, i32 noundef %conv.i153, i64 noundef %14)
   %cmp.i154 = icmp ult i64 %call63, -119
   br i1 %cmp.i154, label %do.end77, label %return
 
@@ -13242,8 +13233,8 @@ lor.lhs.false.i175:                               ; preds = %lor.lhs.false.i
 
 ZSTD_cwksp_reserve_object.exit181.thread:         ; preds = %lor.lhs.false.i175
   store i8 1, ptr %allocFailed.i.i.i, align 8
-  %nextCBlock590 = getelementptr inbounds i8, ptr %zc, i64 3208
-  store ptr null, ptr %nextCBlock590, align 8
+  %nextCBlock589 = getelementptr inbounds i8, ptr %zc, i64 3208
+  store ptr null, ptr %nextCBlock589, align 8
   br label %return
 
 lor.lhs.false.i189:                               ; preds = %lor.lhs.false.i175
@@ -13257,8 +13248,8 @@ lor.lhs.false.i189:                               ; preds = %lor.lhs.false.i175
 
 ZSTD_cwksp_reserve_object.exit195.thread:         ; preds = %lor.lhs.false.i189
   store i8 1, ptr %allocFailed.i.i.i, align 8
-  %entropyWorkspace593 = getelementptr inbounds i8, ptr %zc, i64 3520
-  store ptr null, ptr %entropyWorkspace593, align 8
+  %entropyWorkspace592 = getelementptr inbounds i8, ptr %zc, i64 3520
+  store ptr null, ptr %entropyWorkspace592, align 8
   br label %return
 
 if.end183.thread:                                 ; preds = %lor.lhs.false.i189
@@ -13268,24 +13259,24 @@ if.end183.thread:                                 ; preds = %lor.lhs.false.i189
   %entropyWorkspace = getelementptr inbounds i8, ptr %zc, i64 3520
   store ptr %add.ptr.i169, ptr %entropyWorkspace, align 8
   store ptr %add.ptr.i183, ptr %18, align 8
-  %allocFailed.i199606 = getelementptr inbounds i8, ptr %zc, i64 736
-  store i8 0, ptr %allocFailed.i199606, align 8
-  %phase.i200607 = getelementptr inbounds i8, ptr %zc, i64 744
+  %allocFailed.i199605 = getelementptr inbounds i8, ptr %zc, i64 736
+  store i8 0, ptr %allocFailed.i199605, align 8
+  %phase.i200606 = getelementptr inbounds i8, ptr %zc, i64 744
   br label %ZSTD_cwksp_clear.exit
 
 if.end183:                                        ; preds = %ZSTD_cwksp_check_wasteful.exit
   %objectEnd.i196.phi.trans.insert = getelementptr inbounds i8, ptr %zc, i64 696
   %.pre = load ptr, ptr %objectEnd.i196.phi.trans.insert, align 8
   %phase.i200.phi.trans.insert = getelementptr inbounds i8, ptr %zc, i64 744
-  %.pre598 = load i32, ptr %phase.i200.phi.trans.insert, align 8
-  %.pre600 = and i64 %sub.ptr.lhs.cast.i156, -64
-  %.pre601 = inttoptr i64 %.pre600 to ptr
+  %.pre597 = load i32, ptr %phase.i200.phi.trans.insert, align 8
+  %.pre599 = and i64 %sub.ptr.lhs.cast.i156, -64
+  %.pre600 = inttoptr i64 %.pre599 to ptr
   store ptr %.pre, ptr %18, align 8
-  store ptr %.pre601, ptr %19, align 8
+  store ptr %.pre600, ptr %19, align 8
   %allocFailed.i199 = getelementptr inbounds i8, ptr %zc, i64 736
   store i8 0, ptr %allocFailed.i199, align 8
   %phase.i200 = getelementptr inbounds i8, ptr %zc, i64 744
-  %cmp.i201 = icmp ugt i32 %.pre598, 1
+  %cmp.i201 = icmp ugt i32 %.pre597, 1
   br i1 %cmp.i201, label %if.then.i, label %ZSTD_cwksp_clear.exit
 
 if.then.i:                                        ; preds = %if.end183
@@ -13293,10 +13284,10 @@ if.then.i:                                        ; preds = %if.end183
   br label %ZSTD_cwksp_clear.exit
 
 ZSTD_cwksp_clear.exit:                            ; preds = %if.end183.thread, %if.end183, %if.then.i
-  %phase.i200616 = phi ptr [ %phase.i200607, %if.end183.thread ], [ %phase.i200, %if.end183 ], [ %phase.i200, %if.then.i ]
-  %allocFailed.i199614 = phi ptr [ %allocFailed.i199606, %if.end183.thread ], [ %allocFailed.i199, %if.end183 ], [ %allocFailed.i199, %if.then.i ]
-  %needsIndexReset.0609 = phi i32 [ 1, %if.end183.thread ], [ %cond57, %if.end183 ], [ %cond57, %if.then.i ]
-  %objectEnd.i196610 = getelementptr inbounds i8, ptr %zc, i64 696
+  %phase.i200615 = phi ptr [ %phase.i200606, %if.end183.thread ], [ %phase.i200, %if.end183 ], [ %phase.i200, %if.then.i ]
+  %allocFailed.i199613 = phi ptr [ %allocFailed.i199605, %if.end183.thread ], [ %allocFailed.i199, %if.end183 ], [ %allocFailed.i199, %if.then.i ]
+  %needsIndexReset.0608 = phi i32 [ 1, %if.end183.thread ], [ %cond57, %if.end183 ], [ %cond57, %if.then.i ]
+  %objectEnd.i196609 = getelementptr inbounds i8, ptr %zc, i64 696
   %cParams186 = getelementptr inbounds i8, ptr %zc, i64 3472
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(28) %cParams186, ptr noundef nonnull align 4 dereferenceable(28) %cParams4, i64 28, i1 false)
   %prefetchCDictTables = getelementptr inbounds i8, ptr %zc, i64 408
@@ -13340,7 +13331,7 @@ do.end200:                                        ; preds = %if.then196, %ZSTD_c
   %litlength_repeatMode.i = getelementptr inbounds i8, ptr %27, i64 5612
   store i32 0, ptr %litlength_repeatMode.i, align 4
   %28 = load i32, ptr %useRowMatchFinder, align 8
-  %call211 = tail call fastcc i64 @ZSTD_reset_matchState(ptr noundef nonnull %matchState, ptr noundef nonnull %workspace, ptr noundef nonnull %cParams4, i32 noundef %28, i32 noundef %crp, i32 noundef %needsIndexReset.0609, i32 noundef 1), !range !69
+  %call211 = tail call fastcc i64 @ZSTD_reset_matchState(ptr noundef nonnull %matchState, ptr noundef nonnull %workspace, ptr noundef nonnull %cParams4, i32 noundef %28, i32 noundef %crp, i32 noundef %needsIndexReset.0608, i32 noundef 1)
   %cmp.i203 = icmp ult i64 %call211, -119
   br i1 %cmp.i203, label %do.end224, label %return
 
@@ -13348,7 +13339,7 @@ do.end224:                                        ; preds = %do.end200
   %mul = shl i64 %div.i, 3
   %add.i.i = add i64 %mul, 63
   %and.i.i205 = and i64 %add.i.i, -64
-  %29 = load i32, ptr %phase.i200616, align 8
+  %29 = load i32, ptr %phase.i200615, align 8
   %cmp.i.i.i = icmp ult i32 %29, 2
   br i1 %cmp.i.i.i, label %if.then.i.i.i, label %ZSTD_cwksp_internal_advance_phase.exit.i.i
 
@@ -13357,7 +13348,7 @@ if.then.i.i.i:                                    ; preds = %do.end224
   br i1 %cmp3.i.i.i, label %if.then5.i.i.i, label %if.end29.i.i.i
 
 if.then5.i.i.i:                                   ; preds = %if.then.i.i.i
-  %30 = load ptr, ptr %objectEnd.i196610, align 8
+  %30 = load ptr, ptr %objectEnd.i196609, align 8
   %tableValidEnd.i.i.i = getelementptr inbounds i8, ptr %zc, i64 712
   store ptr %30, ptr %tableValidEnd.i.i.i, align 8
   %ws.val.i.i.i = load ptr, ptr %17, align 8
@@ -13374,7 +13365,7 @@ if.then5.i.i.i:                                   ; preds = %if.then.i.i.i
   br i1 %cmp10.i.i.i, label %ZSTD_cwksp_reserve_aligned.exit, label %do.end20.i.i.i
 
 do.end20.i.i.i:                                   ; preds = %if.then5.i.i.i
-  store ptr %add.ptr.i.i.i, ptr %objectEnd.i196610, align 8
+  store ptr %add.ptr.i.i.i, ptr %objectEnd.i196609, align 8
   store ptr %add.ptr.i.i.i, ptr %18, align 8
   %cmp24.not.i.i.i = icmp eq i64 %and2.i.i.i.i, 0
   br i1 %cmp24.not.i.i.i, label %if.end29.i.i.i, label %if.then25.i.i.i
@@ -13384,7 +13375,7 @@ if.then25.i.i.i:                                  ; preds = %do.end20.i.i.i
   br label %if.end29.i.i.i
 
 if.end29.i.i.i:                                   ; preds = %if.then25.i.i.i, %do.end20.i.i.i, %if.then.i.i.i
-  store i32 2, ptr %phase.i200616, align 8
+  store i32 2, ptr %phase.i200615, align 8
   br label %ZSTD_cwksp_internal_advance_phase.exit.i.i
 
 ZSTD_cwksp_internal_advance_phase.exit.i.i:       ; preds = %if.end29.i.i.i, %do.end224
@@ -13401,7 +13392,7 @@ if.end.i.i206:                                    ; preds = %ZSTD_cwksp_internal
   br i1 %cmp.i6.i.i, label %do.end2.i.i.i, label %if.end.i.i.i
 
 do.end2.i.i.i:                                    ; preds = %if.end.i.i206
-  store i8 1, ptr %allocFailed.i199614, align 8
+  store i8 1, ptr %allocFailed.i199613, align 8
   br label %ZSTD_cwksp_reserve_aligned.exit
 
 if.end.i.i.i:                                     ; preds = %if.end.i.i206
@@ -13438,7 +13429,7 @@ if.then230:                                       ; preds = %ZSTD_cwksp_reserve_
   br i1 %cmp.i.i.i214, label %if.then5.i.i.i234, label %ZSTD_cwksp_internal_advance_phase.exit.i.i215
 
 if.then5.i.i.i234:                                ; preds = %if.then230
-  %41 = load ptr, ptr %objectEnd.i196610, align 8
+  %41 = load ptr, ptr %objectEnd.i196609, align 8
   %tableValidEnd.i.i.i236 = getelementptr inbounds i8, ptr %zc, i64 712
   store ptr %41, ptr %tableValidEnd.i.i.i236, align 8
   %ws.val.i.i.i237 = load ptr, ptr %17, align 8
@@ -13455,7 +13446,7 @@ if.then5.i.i.i234:                                ; preds = %if.then230
   br i1 %cmp10.i.i.i243, label %ZSTD_cwksp_reserve_aligned.exit248, label %do.end20.i.i.i244
 
 do.end20.i.i.i244:                                ; preds = %if.then5.i.i.i234
-  store ptr %add.ptr.i.i.i242, ptr %objectEnd.i196610, align 8
+  store ptr %add.ptr.i.i.i242, ptr %objectEnd.i196609, align 8
   store ptr %add.ptr.i.i.i242, ptr %18, align 8
   %cmp24.not.i.i.i246 = icmp eq i64 %and2.i.i.i.i241, 0
   br i1 %cmp24.not.i.i.i246, label %if.end29.i.i.i233, label %if.then25.i.i.i247
@@ -13465,7 +13456,7 @@ if.then25.i.i.i247:                               ; preds = %do.end20.i.i.i244
   br label %if.end29.i.i.i233
 
 if.end29.i.i.i233:                                ; preds = %if.then25.i.i.i247, %do.end20.i.i.i244
-  store i32 2, ptr %phase.i200616, align 8
+  store i32 2, ptr %phase.i200615, align 8
   br label %ZSTD_cwksp_internal_advance_phase.exit.i.i215
 
 ZSTD_cwksp_internal_advance_phase.exit.i.i215:    ; preds = %if.end29.i.i.i233, %if.then230
@@ -13481,7 +13472,7 @@ if.end.i.i217:                                    ; preds = %ZSTD_cwksp_internal
   br i1 %cmp.i6.i.i222, label %do.end2.i.i.i229, label %if.end.i.i.i223
 
 do.end2.i.i.i229:                                 ; preds = %if.end.i.i217
-  store i8 1, ptr %allocFailed.i199614, align 8
+  store i8 1, ptr %allocFailed.i199613, align 8
   br label %ZSTD_cwksp_reserve_aligned.exit248
 
 if.end.i.i.i223:                                  ; preds = %if.end.i.i217
@@ -13507,7 +13498,7 @@ ZSTD_cwksp_reserve_aligned.exit248:               ; preds = %if.then5.i.i.i234, 
   %mul239 = mul i64 %call52, 12
   %add.i.i249 = add i64 %mul239, 63
   %and.i.i250 = and i64 %add.i.i249, -64
-  %48 = load i32, ptr %phase.i200616, align 8
+  %48 = load i32, ptr %phase.i200615, align 8
   %cmp.i.i.i252 = icmp ult i32 %48, 2
   br i1 %cmp.i.i.i252, label %if.then.i.i.i269, label %ZSTD_cwksp_internal_advance_phase.exit.i.i253
 
@@ -13516,7 +13507,7 @@ if.then.i.i.i269:                                 ; preds = %ZSTD_cwksp_reserve_
   br i1 %cmp3.i.i.i270, label %if.then5.i.i.i272, label %if.end29.i.i.i271
 
 if.then5.i.i.i272:                                ; preds = %if.then.i.i.i269
-  %49 = load ptr, ptr %objectEnd.i196610, align 8
+  %49 = load ptr, ptr %objectEnd.i196609, align 8
   %tableValidEnd.i.i.i274 = getelementptr inbounds i8, ptr %zc, i64 712
   store ptr %49, ptr %tableValidEnd.i.i.i274, align 8
   %ws.val.i.i.i275 = load ptr, ptr %17, align 8
@@ -13533,7 +13524,7 @@ if.then5.i.i.i272:                                ; preds = %if.then.i.i.i269
   br i1 %cmp10.i.i.i281, label %ZSTD_cwksp_reserve_aligned.exit286, label %do.end20.i.i.i282
 
 do.end20.i.i.i282:                                ; preds = %if.then5.i.i.i272
-  store ptr %add.ptr.i.i.i280, ptr %objectEnd.i196610, align 8
+  store ptr %add.ptr.i.i.i280, ptr %objectEnd.i196609, align 8
   store ptr %add.ptr.i.i.i280, ptr %18, align 8
   %cmp24.not.i.i.i284 = icmp eq i64 %and2.i.i.i.i279, 0
   br i1 %cmp24.not.i.i.i284, label %if.end29.i.i.i271, label %if.then25.i.i.i285
@@ -13543,7 +13534,7 @@ if.then25.i.i.i285:                               ; preds = %do.end20.i.i.i282
   br label %if.end29.i.i.i271
 
 if.end29.i.i.i271:                                ; preds = %if.then25.i.i.i285, %do.end20.i.i.i282, %if.then.i.i.i269
-  store i32 2, ptr %phase.i200616, align 8
+  store i32 2, ptr %phase.i200615, align 8
   br label %ZSTD_cwksp_internal_advance_phase.exit.i.i253
 
 ZSTD_cwksp_internal_advance_phase.exit.i.i253:    ; preds = %if.end29.i.i.i271, %ZSTD_cwksp_reserve_aligned.exit248
@@ -13560,7 +13551,7 @@ if.end.i.i255:                                    ; preds = %ZSTD_cwksp_internal
   br i1 %cmp.i6.i.i260, label %do.end2.i.i.i267, label %if.end.i.i.i261
 
 do.end2.i.i.i267:                                 ; preds = %if.end.i.i255
-  store i8 1, ptr %allocFailed.i199614, align 8
+  store i8 1, ptr %allocFailed.i199613, align 8
   br label %ZSTD_cwksp_reserve_aligned.exit286
 
 if.end.i.i.i261:                                  ; preds = %if.end.i.i255
@@ -13617,7 +13608,7 @@ if.then247:                                       ; preds = %if.end244
   br i1 %cmp.i.i.i294, label %if.then5.i.i.i314, label %ZSTD_cwksp_internal_advance_phase.exit.i.i295
 
 if.then5.i.i.i314:                                ; preds = %if.then247
-  %60 = load ptr, ptr %objectEnd.i196610, align 8
+  %60 = load ptr, ptr %objectEnd.i196609, align 8
   %tableValidEnd.i.i.i316 = getelementptr inbounds i8, ptr %zc, i64 712
   store ptr %60, ptr %tableValidEnd.i.i.i316, align 8
   %ws.val.i.i.i317 = load ptr, ptr %17, align 8
@@ -13634,7 +13625,7 @@ if.then5.i.i.i314:                                ; preds = %if.then247
   br i1 %cmp10.i.i.i323, label %ZSTD_cwksp_reserve_aligned.exit328, label %do.end20.i.i.i324
 
 do.end20.i.i.i324:                                ; preds = %if.then5.i.i.i314
-  store ptr %add.ptr.i.i.i322, ptr %objectEnd.i196610, align 8
+  store ptr %add.ptr.i.i.i322, ptr %objectEnd.i196609, align 8
   store ptr %add.ptr.i.i.i322, ptr %18, align 8
   %cmp24.not.i.i.i326 = icmp eq i64 %and2.i.i.i.i321, 0
   br i1 %cmp24.not.i.i.i326, label %if.end29.i.i.i313, label %if.then25.i.i.i327
@@ -13644,7 +13635,7 @@ if.then25.i.i.i327:                               ; preds = %do.end20.i.i.i324
   br label %if.end29.i.i.i313
 
 if.end29.i.i.i313:                                ; preds = %if.then25.i.i.i327, %do.end20.i.i.i324
-  store i32 2, ptr %phase.i200616, align 8
+  store i32 2, ptr %phase.i200615, align 8
   br label %ZSTD_cwksp_internal_advance_phase.exit.i.i295
 
 ZSTD_cwksp_internal_advance_phase.exit.i.i295:    ; preds = %if.end29.i.i.i313, %if.then247
@@ -13661,7 +13652,7 @@ if.end.i.i297:                                    ; preds = %ZSTD_cwksp_internal
   br i1 %cmp.i6.i.i302, label %do.end2.i.i.i309, label %if.end.i.i.i303
 
 do.end2.i.i.i309:                                 ; preds = %if.end.i.i297
-  store i8 1, ptr %allocFailed.i199614, align 8
+  store i8 1, ptr %allocFailed.i199613, align 8
   br label %ZSTD_cwksp_reserve_aligned.exit328
 
 if.end.i.i.i303:                                  ; preds = %if.end.i.i297
@@ -13695,7 +13686,7 @@ if.then.i.i.i347:                                 ; preds = %if.end251
   br i1 %cmp3.i.i.i348, label %if.then5.i.i.i350, label %if.end29.i.i.i349
 
 if.then5.i.i.i350:                                ; preds = %if.then.i.i.i347
-  %70 = load ptr, ptr %objectEnd.i196610, align 8
+  %70 = load ptr, ptr %objectEnd.i196609, align 8
   %tableValidEnd.i.i.i352 = getelementptr inbounds i8, ptr %zc, i64 712
   store ptr %70, ptr %tableValidEnd.i.i.i352, align 8
   %ws.val.i.i.i353 = load ptr, ptr %17, align 8
@@ -13712,7 +13703,7 @@ if.then5.i.i.i350:                                ; preds = %if.then.i.i.i347
   br i1 %cmp10.i.i.i359, label %if.then5.i.i.i385, label %do.end20.i.i.i360
 
 do.end20.i.i.i360:                                ; preds = %if.then5.i.i.i350
-  store ptr %add.ptr.i.i.i358, ptr %objectEnd.i196610, align 8
+  store ptr %add.ptr.i.i.i358, ptr %objectEnd.i196609, align 8
   store ptr %add.ptr.i.i.i358, ptr %18, align 8
   %cmp24.not.i.i.i362 = icmp eq i64 %and2.i.i.i.i357, 0
   br i1 %cmp24.not.i.i.i362, label %if.end29.i.i.i349, label %if.then25.i.i.i363
@@ -13722,7 +13713,7 @@ if.then25.i.i.i363:                               ; preds = %do.end20.i.i.i360
   br label %if.end29.i.i.i349
 
 if.end29.i.i.i349:                                ; preds = %if.then25.i.i.i363, %do.end20.i.i.i360, %if.then.i.i.i347
-  store i32 3, ptr %phase.i200616, align 8
+  store i32 3, ptr %phase.i200615, align 8
   br label %ZSTD_cwksp_internal_advance_phase.exit.i.i331
 
 ZSTD_cwksp_internal_advance_phase.exit.i.i331:    ; preds = %if.end29.i.i.i349, %if.end251
@@ -13739,7 +13730,7 @@ if.end.i.i333:                                    ; preds = %ZSTD_cwksp_internal
   br i1 %cmp.i6.i.i338, label %do.end2.i.i.i345, label %if.end.i.i.i339
 
 do.end2.i.i.i345:                                 ; preds = %if.end.i.i333
-  store i8 1, ptr %allocFailed.i199614, align 8
+  store i8 1, ptr %allocFailed.i199613, align 8
   br label %ZSTD_cwksp_reserve_buffer.exit.thread
 
 if.end.i.i.i339:                                  ; preds = %if.end.i.i333
@@ -13758,14 +13749,14 @@ if.end6.i.i.i342:                                 ; preds = %if.then4.i.i.i344, 
 
 ZSTD_cwksp_reserve_buffer.exit.thread:            ; preds = %ZSTD_cwksp_internal_advance_phase.exit.i.i331, %do.end2.i.i.i345, %if.end6.i.i.i342
   %retval.0.i.i343.ph = phi ptr [ %add.ptr.i4.i.i336, %if.end6.i.i.i342 ], [ null, %do.end2.i.i.i345 ], [ null, %ZSTD_cwksp_internal_advance_phase.exit.i.i331 ]
-  %litStart620 = getelementptr inbounds i8, ptr %zc, i64 968
-  store ptr %retval.0.i.i343.ph, ptr %litStart620, align 8
-  %maxNbLit621 = getelementptr inbounds i8, ptr %zc, i64 1016
-  store i64 %.cond27, ptr %maxNbLit621, align 8
-  %bufferedPolicy622 = getelementptr inbounds i8, ptr %zc, i64 3528
-  store i32 %zbuff, ptr %bufferedPolicy622, align 8
-  %inBuffSize623 = getelementptr inbounds i8, ptr %zc, i64 3544
-  store i64 %cond50, ptr %inBuffSize623, align 8
+  %litStart619 = getelementptr inbounds i8, ptr %zc, i64 968
+  store ptr %retval.0.i.i343.ph, ptr %litStart619, align 8
+  %maxNbLit620 = getelementptr inbounds i8, ptr %zc, i64 1016
+  store i64 %.cond27, ptr %maxNbLit620, align 8
+  %bufferedPolicy621 = getelementptr inbounds i8, ptr %zc, i64 3528
+  store i32 %zbuff, ptr %bufferedPolicy621, align 8
+  %inBuffSize622 = getelementptr inbounds i8, ptr %zc, i64 3544
+  store i64 %cond50, ptr %inBuffSize622, align 8
   br label %ZSTD_cwksp_internal_advance_phase.exit.i.i366
 
 if.then5.i.i.i385:                                ; preds = %if.then5.i.i.i350
@@ -13777,7 +13768,7 @@ if.then5.i.i.i385:                                ; preds = %if.then5.i.i.i350
   store i32 %zbuff, ptr %bufferedPolicy, align 8
   %inBuffSize = getelementptr inbounds i8, ptr %zc, i64 3544
   store i64 %cond50, ptr %inBuffSize, align 8
-  %78 = load ptr, ptr %objectEnd.i196610, align 8
+  %78 = load ptr, ptr %objectEnd.i196609, align 8
   %tableValidEnd.i.i.i387 = getelementptr inbounds i8, ptr %zc, i64 712
   store ptr %78, ptr %tableValidEnd.i.i.i387, align 8
   %ws.val.i.i.i388 = load ptr, ptr %17, align 8
@@ -13794,7 +13785,7 @@ if.then5.i.i.i385:                                ; preds = %if.then5.i.i.i350
   br i1 %cmp10.i.i.i394, label %if.then5.i.i.i421, label %do.end20.i.i.i395
 
 do.end20.i.i.i395:                                ; preds = %if.then5.i.i.i385
-  store ptr %add.ptr.i.i.i393, ptr %objectEnd.i196610, align 8
+  store ptr %add.ptr.i.i.i393, ptr %objectEnd.i196609, align 8
   store ptr %add.ptr.i.i.i393, ptr %18, align 8
   %cmp24.not.i.i.i397 = icmp eq i64 %and2.i.i.i.i392, 0
   br i1 %cmp24.not.i.i.i397, label %if.end29.i.i.i384, label %if.then25.i.i.i398
@@ -13804,7 +13795,7 @@ if.then25.i.i.i398:                               ; preds = %do.end20.i.i.i395
   br label %if.end29.i.i.i384
 
 if.end29.i.i.i384:                                ; preds = %if.then25.i.i.i398, %do.end20.i.i.i395
-  store i32 3, ptr %phase.i200616, align 8
+  store i32 3, ptr %phase.i200615, align 8
   br label %ZSTD_cwksp_internal_advance_phase.exit.i.i366
 
 ZSTD_cwksp_internal_advance_phase.exit.i.i366:    ; preds = %ZSTD_cwksp_reserve_buffer.exit.thread, %if.end29.i.i.i384
@@ -13821,7 +13812,7 @@ if.end.i.i368:                                    ; preds = %ZSTD_cwksp_internal
   br i1 %cmp.i6.i.i373, label %do.end2.i.i.i380, label %if.end.i.i.i374
 
 do.end2.i.i.i380:                                 ; preds = %if.end.i.i368
-  store i8 1, ptr %allocFailed.i199614, align 8
+  store i8 1, ptr %allocFailed.i199613, align 8
   br label %ZSTD_cwksp_reserve_buffer.exit399.thread
 
 if.end.i.i.i374:                                  ; preds = %if.end.i.i368
@@ -13840,18 +13831,18 @@ if.end6.i.i.i377:                                 ; preds = %if.then4.i.i.i379, 
 
 ZSTD_cwksp_reserve_buffer.exit399.thread:         ; preds = %ZSTD_cwksp_internal_advance_phase.exit.i.i366, %do.end2.i.i.i380, %if.end6.i.i.i377
   %retval.0.i.i378.ph = phi ptr [ %add.ptr.i4.i.i371, %if.end6.i.i.i377 ], [ null, %do.end2.i.i.i380 ], [ null, %ZSTD_cwksp_internal_advance_phase.exit.i.i366 ]
-  %inBuff626 = getelementptr inbounds i8, ptr %zc, i64 3536
-  store ptr %retval.0.i.i378.ph, ptr %inBuff626, align 8
-  %outBuffSize627 = getelementptr inbounds i8, ptr %zc, i64 3584
-  store i64 %cond42581, ptr %outBuffSize627, align 8
+  %inBuff625 = getelementptr inbounds i8, ptr %zc, i64 3536
+  store ptr %retval.0.i.i378.ph, ptr %inBuff625, align 8
+  %outBuffSize626 = getelementptr inbounds i8, ptr %zc, i64 3584
+  store i64 %cond42580, ptr %outBuffSize626, align 8
   br label %ZSTD_cwksp_internal_advance_phase.exit.i.i402
 
 if.then5.i.i.i421:                                ; preds = %if.then5.i.i.i385
   %inBuff = getelementptr inbounds i8, ptr %zc, i64 3536
   store ptr null, ptr %inBuff, align 8
   %outBuffSize = getelementptr inbounds i8, ptr %zc, i64 3584
-  store i64 %cond42581, ptr %outBuffSize, align 8
-  %86 = load ptr, ptr %objectEnd.i196610, align 8
+  store i64 %cond42580, ptr %outBuffSize, align 8
+  %86 = load ptr, ptr %objectEnd.i196609, align 8
   %tableValidEnd.i.i.i423 = getelementptr inbounds i8, ptr %zc, i64 712
   store ptr %86, ptr %tableValidEnd.i.i.i423, align 8
   %ws.val.i.i.i424 = load ptr, ptr %17, align 8
@@ -13868,7 +13859,7 @@ if.then5.i.i.i421:                                ; preds = %if.then5.i.i.i385
   br i1 %cmp10.i.i.i430, label %ZSTD_cwksp_reserve_buffer.exit435, label %do.end20.i.i.i431
 
 do.end20.i.i.i431:                                ; preds = %if.then5.i.i.i421
-  store ptr %add.ptr.i.i.i429, ptr %objectEnd.i196610, align 8
+  store ptr %add.ptr.i.i.i429, ptr %objectEnd.i196609, align 8
   store ptr %add.ptr.i.i.i429, ptr %18, align 8
   %cmp24.not.i.i.i433 = icmp eq i64 %and2.i.i.i.i428, 0
   br i1 %cmp24.not.i.i.i433, label %if.end29.i.i.i420, label %if.then25.i.i.i434
@@ -13878,24 +13869,24 @@ if.then25.i.i.i434:                               ; preds = %do.end20.i.i.i431
   br label %if.end29.i.i.i420
 
 if.end29.i.i.i420:                                ; preds = %if.then25.i.i.i434, %do.end20.i.i.i431
-  store i32 3, ptr %phase.i200616, align 8
+  store i32 3, ptr %phase.i200615, align 8
   br label %ZSTD_cwksp_internal_advance_phase.exit.i.i402
 
 ZSTD_cwksp_internal_advance_phase.exit.i.i402:    ; preds = %ZSTD_cwksp_reserve_buffer.exit399.thread, %if.end29.i.i.i420
   %90 = phi i32 [ 3, %if.end29.i.i.i420 ], [ %82, %ZSTD_cwksp_reserve_buffer.exit399.thread ]
-  %cmp.i.i403 = icmp eq i64 %cond42581, 0
+  %cmp.i.i403 = icmp eq i64 %cond42580, 0
   br i1 %cmp.i.i403, label %ZSTD_cwksp_reserve_buffer.exit435, label %if.end.i.i404
 
 if.end.i.i404:                                    ; preds = %ZSTD_cwksp_internal_advance_phase.exit.i.i402
   %91 = load ptr, ptr %19, align 8
-  %idx.neg.i.i.i406 = sub i64 0, %cond42581
+  %idx.neg.i.i.i406 = sub i64 0, %cond42580
   %add.ptr.i4.i.i407 = getelementptr inbounds i8, ptr %91, i64 %idx.neg.i.i.i406
   %92 = load ptr, ptr %18, align 8
   %cmp.i6.i.i409 = icmp ult ptr %add.ptr.i4.i.i407, %92
   br i1 %cmp.i6.i.i409, label %do.end2.i.i.i416, label %if.end.i.i.i410
 
 do.end2.i.i.i416:                                 ; preds = %if.end.i.i404
-  store i8 1, ptr %allocFailed.i199614, align 8
+  store i8 1, ptr %allocFailed.i199613, align 8
   br label %ZSTD_cwksp_reserve_buffer.exit435
 
 if.end.i.i.i410:                                  ; preds = %if.end.i.i404
@@ -13930,302 +13921,302 @@ if.then262:                                       ; preds = %ZSTD_cwksp_reserve_
   %sh_prom266 = zext nneg i32 %sub to i64
   %shl267 = shl nuw i64 1, %sh_prom266
   %cmp.i.i.i437 = icmp ult i32 %94, 3
-  br i1 %cmp.i.i.i437, label %if.then5.i.i.i457, label %ZSTD_cwksp_internal_advance_phase.exit.i.i438
+  br i1 %cmp.i.i.i437, label %if.then5.i.i.i456, label %ZSTD_cwksp_internal_advance_phase.exit.i.i438
 
-if.then5.i.i.i457:                                ; preds = %if.then262
-  %98 = load ptr, ptr %objectEnd.i196610, align 8
-  %tableValidEnd.i.i.i459 = getelementptr inbounds i8, ptr %zc, i64 712
-  store ptr %98, ptr %tableValidEnd.i.i.i459, align 8
-  %ws.val.i.i.i460 = load ptr, ptr %17, align 8
-  %99 = ptrtoint ptr %ws.val.i.i.i460 to i64
-  %and.i.i.i.i461 = and i64 %99, -64
-  %100 = inttoptr i64 %and.i.i.i.i461 to ptr
-  %initOnceStart.i.i.i462 = getelementptr inbounds i8, ptr %zc, i64 728
-  store ptr %100, ptr %initOnceStart.i.i.i462, align 8
+if.then5.i.i.i456:                                ; preds = %if.then262
+  %98 = load ptr, ptr %objectEnd.i196609, align 8
+  %tableValidEnd.i.i.i458 = getelementptr inbounds i8, ptr %zc, i64 712
+  store ptr %98, ptr %tableValidEnd.i.i.i458, align 8
+  %ws.val.i.i.i459 = load ptr, ptr %17, align 8
+  %99 = ptrtoint ptr %ws.val.i.i.i459 to i64
+  %and.i.i.i.i460 = and i64 %99, -64
+  %100 = inttoptr i64 %and.i.i.i.i460 to ptr
+  %initOnceStart.i.i.i461 = getelementptr inbounds i8, ptr %zc, i64 728
+  store ptr %100, ptr %initOnceStart.i.i.i461, align 8
   %101 = ptrtoint ptr %98 to i64
-  %sub1.i.i.i.i463 = sub i64 0, %101
-  %and2.i.i.i.i464 = and i64 %sub1.i.i.i.i463, 63
-  %add.ptr.i.i.i465 = getelementptr inbounds i8, ptr %98, i64 %and2.i.i.i.i464
-  %cmp10.i.i.i466 = icmp ugt ptr %add.ptr.i.i.i465, %ws.val.i.i.i460
-  br i1 %cmp10.i.i.i466, label %ZSTD_cwksp_reserve_buffer.exit471, label %do.end20.i.i.i467
+  %sub1.i.i.i.i462 = sub i64 0, %101
+  %and2.i.i.i.i463 = and i64 %sub1.i.i.i.i462, 63
+  %add.ptr.i.i.i464 = getelementptr inbounds i8, ptr %98, i64 %and2.i.i.i.i463
+  %cmp10.i.i.i465 = icmp ugt ptr %add.ptr.i.i.i464, %ws.val.i.i.i459
+  br i1 %cmp10.i.i.i465, label %ZSTD_cwksp_reserve_buffer.exit470, label %do.end20.i.i.i466
 
-do.end20.i.i.i467:                                ; preds = %if.then5.i.i.i457
-  store ptr %add.ptr.i.i.i465, ptr %objectEnd.i196610, align 8
-  store ptr %add.ptr.i.i.i465, ptr %18, align 8
-  %cmp24.not.i.i.i469 = icmp eq i64 %and2.i.i.i.i464, 0
-  br i1 %cmp24.not.i.i.i469, label %if.end29.i.i.i456, label %if.then25.i.i.i470
+do.end20.i.i.i466:                                ; preds = %if.then5.i.i.i456
+  store ptr %add.ptr.i.i.i464, ptr %objectEnd.i196609, align 8
+  store ptr %add.ptr.i.i.i464, ptr %18, align 8
+  %cmp24.not.i.i.i468 = icmp eq i64 %and2.i.i.i.i463, 0
+  br i1 %cmp24.not.i.i.i468, label %if.end29.i.i.i455, label %if.then25.i.i.i469
 
-if.then25.i.i.i470:                               ; preds = %do.end20.i.i.i467
-  store ptr %add.ptr.i.i.i465, ptr %tableValidEnd.i.i.i459, align 8
-  br label %if.end29.i.i.i456
+if.then25.i.i.i469:                               ; preds = %do.end20.i.i.i466
+  store ptr %add.ptr.i.i.i464, ptr %tableValidEnd.i.i.i458, align 8
+  br label %if.end29.i.i.i455
 
-if.end29.i.i.i456:                                ; preds = %if.then25.i.i.i470, %do.end20.i.i.i467
-  store i32 3, ptr %phase.i200616, align 8
+if.end29.i.i.i455:                                ; preds = %if.then25.i.i.i469, %do.end20.i.i.i466
+  store i32 3, ptr %phase.i200615, align 8
   br label %ZSTD_cwksp_internal_advance_phase.exit.i.i438
 
-ZSTD_cwksp_internal_advance_phase.exit.i.i438:    ; preds = %if.end29.i.i.i456, %if.then262
+ZSTD_cwksp_internal_advance_phase.exit.i.i438:    ; preds = %if.end29.i.i.i455, %if.then262
   %102 = load ptr, ptr %19, align 8
-  %idx.neg.i.i.i442 = sub i64 0, %shl267
-  %add.ptr.i4.i.i443 = getelementptr inbounds i8, ptr %102, i64 %idx.neg.i.i.i442
+  %idx.neg.i.i.i441 = sub i64 0, %shl267
+  %add.ptr.i4.i.i442 = getelementptr inbounds i8, ptr %102, i64 %idx.neg.i.i.i441
   %103 = load ptr, ptr %18, align 8
-  %cmp.i6.i.i445 = icmp ult ptr %add.ptr.i4.i.i443, %103
-  br i1 %cmp.i6.i.i445, label %do.end2.i.i.i452, label %if.end.i.i.i446
+  %cmp.i6.i.i444 = icmp ult ptr %add.ptr.i4.i.i442, %103
+  br i1 %cmp.i6.i.i444, label %do.end2.i.i.i451, label %if.end.i.i.i445
 
-do.end2.i.i.i452:                                 ; preds = %ZSTD_cwksp_internal_advance_phase.exit.i.i438
-  store i8 1, ptr %allocFailed.i199614, align 8
-  br label %ZSTD_cwksp_reserve_buffer.exit471
+do.end2.i.i.i451:                                 ; preds = %ZSTD_cwksp_internal_advance_phase.exit.i.i438
+  store i8 1, ptr %allocFailed.i199613, align 8
+  br label %ZSTD_cwksp_reserve_buffer.exit470
 
-if.end.i.i.i446:                                  ; preds = %ZSTD_cwksp_internal_advance_phase.exit.i.i438
-  %tableValidEnd.i7.i.i447 = getelementptr inbounds i8, ptr %zc, i64 712
-  %104 = load ptr, ptr %tableValidEnd.i7.i.i447, align 8
-  %cmp3.i8.i.i448 = icmp ult ptr %add.ptr.i4.i.i443, %104
-  br i1 %cmp3.i8.i.i448, label %if.then4.i.i.i451, label %if.end6.i.i.i449
+if.end.i.i.i445:                                  ; preds = %ZSTD_cwksp_internal_advance_phase.exit.i.i438
+  %tableValidEnd.i7.i.i446 = getelementptr inbounds i8, ptr %zc, i64 712
+  %104 = load ptr, ptr %tableValidEnd.i7.i.i446, align 8
+  %cmp3.i8.i.i447 = icmp ult ptr %add.ptr.i4.i.i442, %104
+  br i1 %cmp3.i8.i.i447, label %if.then4.i.i.i450, label %if.end6.i.i.i448
 
-if.then4.i.i.i451:                                ; preds = %if.end.i.i.i446
-  store ptr %add.ptr.i4.i.i443, ptr %tableValidEnd.i7.i.i447, align 8
-  br label %if.end6.i.i.i449
+if.then4.i.i.i450:                                ; preds = %if.end.i.i.i445
+  store ptr %add.ptr.i4.i.i442, ptr %tableValidEnd.i7.i.i446, align 8
+  br label %if.end6.i.i.i448
 
-if.end6.i.i.i449:                                 ; preds = %if.then4.i.i.i451, %if.end.i.i.i446
-  store ptr %add.ptr.i4.i.i443, ptr %19, align 8
-  br label %ZSTD_cwksp_reserve_buffer.exit471
+if.end6.i.i.i448:                                 ; preds = %if.then4.i.i.i450, %if.end.i.i.i445
+  store ptr %add.ptr.i4.i.i442, ptr %19, align 8
+  br label %ZSTD_cwksp_reserve_buffer.exit470
 
-ZSTD_cwksp_reserve_buffer.exit471:                ; preds = %if.then5.i.i.i457, %do.end2.i.i.i452, %if.end6.i.i.i449
-  %retval.0.i.i450 = phi ptr [ null, %do.end2.i.i.i452 ], [ %add.ptr.i4.i.i443, %if.end6.i.i.i449 ], [ null, %if.then5.i.i.i457 ]
+ZSTD_cwksp_reserve_buffer.exit470:                ; preds = %if.then5.i.i.i456, %do.end2.i.i.i451, %if.end6.i.i.i448
+  %retval.0.i.i449 = phi ptr [ null, %do.end2.i.i.i451 ], [ %add.ptr.i4.i.i442, %if.end6.i.i.i448 ], [ null, %if.then5.i.i.i456 ]
   %bucketOffsets = getelementptr inbounds i8, ptr %zc, i64 1088
-  store ptr %retval.0.i.i450, ptr %bucketOffsets, align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %retval.0.i.i450, i8 0, i64 %shl267, i1 false)
-  %.pre599 = load i32, ptr %phase.i200616, align 8
+  store ptr %retval.0.i.i449, ptr %bucketOffsets, align 8
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %retval.0.i.i449, i8 0, i64 %shl267, i1 false)
+  %.pre598 = load i32, ptr %phase.i200615, align 8
   br label %if.end272
 
-if.end272:                                        ; preds = %ZSTD_cwksp_reserve_buffer.exit471, %ZSTD_cwksp_reserve_buffer.exit435
-  %105 = phi i32 [ %.pre599, %ZSTD_cwksp_reserve_buffer.exit471 ], [ %94, %ZSTD_cwksp_reserve_buffer.exit435 ]
+if.end272:                                        ; preds = %ZSTD_cwksp_reserve_buffer.exit470, %ZSTD_cwksp_reserve_buffer.exit435
+  %105 = phi i32 [ %.pre598, %ZSTD_cwksp_reserve_buffer.exit470 ], [ %94, %ZSTD_cwksp_reserve_buffer.exit435 ]
   %externSeqStore.i = getelementptr inbounds i8, ptr %zc, i64 3160
   %maxNbSeq274 = getelementptr inbounds i8, ptr %zc, i64 1008
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %externSeqStore.i, i8 0, i64 40, i1 false)
   store i64 %div.i, ptr %maxNbSeq274, align 8
-  %cmp.i.i.i473 = icmp ult i32 %105, 3
-  br i1 %cmp.i.i.i473, label %if.then.i.i.i490, label %ZSTD_cwksp_internal_advance_phase.exit.i.i474
+  %cmp.i.i.i472 = icmp ult i32 %105, 3
+  br i1 %cmp.i.i.i472, label %if.then.i.i.i489, label %ZSTD_cwksp_internal_advance_phase.exit.i.i473
 
-if.then.i.i.i490:                                 ; preds = %if.end272
-  %cmp3.i.i.i491 = icmp eq i32 %105, 0
-  br i1 %cmp3.i.i.i491, label %if.then5.i.i.i493, label %if.end29.i.i.i492
+if.then.i.i.i489:                                 ; preds = %if.end272
+  %cmp3.i.i.i490 = icmp eq i32 %105, 0
+  br i1 %cmp3.i.i.i490, label %if.then5.i.i.i492, label %if.end29.i.i.i491
 
-if.then5.i.i.i493:                                ; preds = %if.then.i.i.i490
-  %106 = load ptr, ptr %objectEnd.i196610, align 8
-  %tableValidEnd.i.i.i495 = getelementptr inbounds i8, ptr %zc, i64 712
-  store ptr %106, ptr %tableValidEnd.i.i.i495, align 8
-  %ws.val.i.i.i496 = load ptr, ptr %17, align 8
-  %107 = ptrtoint ptr %ws.val.i.i.i496 to i64
-  %and.i.i.i.i497 = and i64 %107, -64
-  %108 = inttoptr i64 %and.i.i.i.i497 to ptr
-  %initOnceStart.i.i.i498 = getelementptr inbounds i8, ptr %zc, i64 728
-  store ptr %108, ptr %initOnceStart.i.i.i498, align 8
+if.then5.i.i.i492:                                ; preds = %if.then.i.i.i489
+  %106 = load ptr, ptr %objectEnd.i196609, align 8
+  %tableValidEnd.i.i.i494 = getelementptr inbounds i8, ptr %zc, i64 712
+  store ptr %106, ptr %tableValidEnd.i.i.i494, align 8
+  %ws.val.i.i.i495 = load ptr, ptr %17, align 8
+  %107 = ptrtoint ptr %ws.val.i.i.i495 to i64
+  %and.i.i.i.i496 = and i64 %107, -64
+  %108 = inttoptr i64 %and.i.i.i.i496 to ptr
+  %initOnceStart.i.i.i497 = getelementptr inbounds i8, ptr %zc, i64 728
+  store ptr %108, ptr %initOnceStart.i.i.i497, align 8
   %109 = ptrtoint ptr %106 to i64
-  %sub1.i.i.i.i499 = sub i64 0, %109
-  %and2.i.i.i.i500 = and i64 %sub1.i.i.i.i499, 63
-  %add.ptr.i.i.i501 = getelementptr inbounds i8, ptr %106, i64 %and2.i.i.i.i500
-  %cmp10.i.i.i502 = icmp ugt ptr %add.ptr.i.i.i501, %ws.val.i.i.i496
-  br i1 %cmp10.i.i.i502, label %if.then5.i.i.i529, label %do.end20.i.i.i503
+  %sub1.i.i.i.i498 = sub i64 0, %109
+  %and2.i.i.i.i499 = and i64 %sub1.i.i.i.i498, 63
+  %add.ptr.i.i.i500 = getelementptr inbounds i8, ptr %106, i64 %and2.i.i.i.i499
+  %cmp10.i.i.i501 = icmp ugt ptr %add.ptr.i.i.i500, %ws.val.i.i.i495
+  br i1 %cmp10.i.i.i501, label %if.then5.i.i.i528, label %do.end20.i.i.i502
 
-do.end20.i.i.i503:                                ; preds = %if.then5.i.i.i493
-  store ptr %add.ptr.i.i.i501, ptr %objectEnd.i196610, align 8
-  store ptr %add.ptr.i.i.i501, ptr %18, align 8
-  %cmp24.not.i.i.i505 = icmp eq i64 %and2.i.i.i.i500, 0
-  br i1 %cmp24.not.i.i.i505, label %if.end29.i.i.i492, label %if.then25.i.i.i506
+do.end20.i.i.i502:                                ; preds = %if.then5.i.i.i492
+  store ptr %add.ptr.i.i.i500, ptr %objectEnd.i196609, align 8
+  store ptr %add.ptr.i.i.i500, ptr %18, align 8
+  %cmp24.not.i.i.i504 = icmp eq i64 %and2.i.i.i.i499, 0
+  br i1 %cmp24.not.i.i.i504, label %if.end29.i.i.i491, label %if.then25.i.i.i505
 
-if.then25.i.i.i506:                               ; preds = %do.end20.i.i.i503
-  store ptr %add.ptr.i.i.i501, ptr %tableValidEnd.i.i.i495, align 8
-  br label %if.end29.i.i.i492
+if.then25.i.i.i505:                               ; preds = %do.end20.i.i.i502
+  store ptr %add.ptr.i.i.i500, ptr %tableValidEnd.i.i.i494, align 8
+  br label %if.end29.i.i.i491
 
-if.end29.i.i.i492:                                ; preds = %if.then25.i.i.i506, %do.end20.i.i.i503, %if.then.i.i.i490
-  store i32 3, ptr %phase.i200616, align 8
-  br label %ZSTD_cwksp_internal_advance_phase.exit.i.i474
+if.end29.i.i.i491:                                ; preds = %if.then25.i.i.i505, %do.end20.i.i.i502, %if.then.i.i.i489
+  store i32 3, ptr %phase.i200615, align 8
+  br label %ZSTD_cwksp_internal_advance_phase.exit.i.i473
 
-ZSTD_cwksp_internal_advance_phase.exit.i.i474:    ; preds = %if.end29.i.i.i492, %if.end272
-  %cmp.i.i475 = icmp ugt i64 %conv.i146, %.cond27
-  br i1 %cmp.i.i475, label %ZSTD_cwksp_reserve_buffer.exit507.thread, label %if.end.i.i476
+ZSTD_cwksp_internal_advance_phase.exit.i.i473:    ; preds = %if.end29.i.i.i491, %if.end272
+  %cmp.i.i474 = icmp ugt i64 %conv.i146, %.cond27
+  br i1 %cmp.i.i474, label %ZSTD_cwksp_reserve_buffer.exit506.thread, label %if.end.i.i475
 
-if.end.i.i476:                                    ; preds = %ZSTD_cwksp_internal_advance_phase.exit.i.i474
+if.end.i.i475:                                    ; preds = %ZSTD_cwksp_internal_advance_phase.exit.i.i473
   %110 = load ptr, ptr %19, align 8
-  %idx.neg.i.i.i478 = sub nsw i64 0, %div.i
-  %add.ptr.i4.i.i479 = getelementptr inbounds i8, ptr %110, i64 %idx.neg.i.i.i478
+  %idx.neg.i.i.i477 = sub nsw i64 0, %div.i
+  %add.ptr.i4.i.i478 = getelementptr inbounds i8, ptr %110, i64 %idx.neg.i.i.i477
   %111 = load ptr, ptr %18, align 8
-  %cmp.i6.i.i481 = icmp ult ptr %add.ptr.i4.i.i479, %111
-  br i1 %cmp.i6.i.i481, label %do.end2.i.i.i488, label %if.end.i.i.i482
+  %cmp.i6.i.i480 = icmp ult ptr %add.ptr.i4.i.i478, %111
+  br i1 %cmp.i6.i.i480, label %do.end2.i.i.i487, label %if.end.i.i.i481
 
-do.end2.i.i.i488:                                 ; preds = %if.end.i.i476
-  store i8 1, ptr %allocFailed.i199614, align 8
-  br label %ZSTD_cwksp_reserve_buffer.exit507.thread
+do.end2.i.i.i487:                                 ; preds = %if.end.i.i475
+  store i8 1, ptr %allocFailed.i199613, align 8
+  br label %ZSTD_cwksp_reserve_buffer.exit506.thread
 
-if.end.i.i.i482:                                  ; preds = %if.end.i.i476
-  %tableValidEnd.i7.i.i483 = getelementptr inbounds i8, ptr %zc, i64 712
-  %112 = load ptr, ptr %tableValidEnd.i7.i.i483, align 8
-  %cmp3.i8.i.i484 = icmp ult ptr %add.ptr.i4.i.i479, %112
-  br i1 %cmp3.i8.i.i484, label %if.then4.i.i.i487, label %if.end6.i.i.i485
+if.end.i.i.i481:                                  ; preds = %if.end.i.i475
+  %tableValidEnd.i7.i.i482 = getelementptr inbounds i8, ptr %zc, i64 712
+  %112 = load ptr, ptr %tableValidEnd.i7.i.i482, align 8
+  %cmp3.i8.i.i483 = icmp ult ptr %add.ptr.i4.i.i478, %112
+  br i1 %cmp3.i8.i.i483, label %if.then4.i.i.i486, label %if.end6.i.i.i484
 
-if.then4.i.i.i487:                                ; preds = %if.end.i.i.i482
-  store ptr %add.ptr.i4.i.i479, ptr %tableValidEnd.i7.i.i483, align 8
-  br label %if.end6.i.i.i485
+if.then4.i.i.i486:                                ; preds = %if.end.i.i.i481
+  store ptr %add.ptr.i4.i.i478, ptr %tableValidEnd.i7.i.i482, align 8
+  br label %if.end6.i.i.i484
 
-if.end6.i.i.i485:                                 ; preds = %if.then4.i.i.i487, %if.end.i.i.i482
-  store ptr %add.ptr.i4.i.i479, ptr %19, align 8
-  br label %ZSTD_cwksp_reserve_buffer.exit507.thread
+if.end6.i.i.i484:                                 ; preds = %if.then4.i.i.i486, %if.end.i.i.i481
+  store ptr %add.ptr.i4.i.i478, ptr %19, align 8
+  br label %ZSTD_cwksp_reserve_buffer.exit506.thread
 
-ZSTD_cwksp_reserve_buffer.exit507.thread:         ; preds = %ZSTD_cwksp_internal_advance_phase.exit.i.i474, %do.end2.i.i.i488, %if.end6.i.i.i485
-  %retval.0.i.i486.ph = phi ptr [ %add.ptr.i4.i.i479, %if.end6.i.i.i485 ], [ null, %do.end2.i.i.i488 ], [ null, %ZSTD_cwksp_internal_advance_phase.exit.i.i474 ]
-  %llCode630 = getelementptr inbounds i8, ptr %zc, i64 984
-  store ptr %retval.0.i.i486.ph, ptr %llCode630, align 8
-  br label %ZSTD_cwksp_internal_advance_phase.exit.i.i510
+ZSTD_cwksp_reserve_buffer.exit506.thread:         ; preds = %ZSTD_cwksp_internal_advance_phase.exit.i.i473, %do.end2.i.i.i487, %if.end6.i.i.i484
+  %retval.0.i.i485.ph = phi ptr [ %add.ptr.i4.i.i478, %if.end6.i.i.i484 ], [ null, %do.end2.i.i.i487 ], [ null, %ZSTD_cwksp_internal_advance_phase.exit.i.i473 ]
+  %llCode629 = getelementptr inbounds i8, ptr %zc, i64 984
+  store ptr %retval.0.i.i485.ph, ptr %llCode629, align 8
+  br label %ZSTD_cwksp_internal_advance_phase.exit.i.i509
 
-if.then5.i.i.i529:                                ; preds = %if.then5.i.i.i493
+if.then5.i.i.i528:                                ; preds = %if.then5.i.i.i492
   %llCode = getelementptr inbounds i8, ptr %zc, i64 984
   store ptr null, ptr %llCode, align 8
-  %113 = load ptr, ptr %objectEnd.i196610, align 8
-  %tableValidEnd.i.i.i531 = getelementptr inbounds i8, ptr %zc, i64 712
-  store ptr %113, ptr %tableValidEnd.i.i.i531, align 8
-  %ws.val.i.i.i532 = load ptr, ptr %17, align 8
-  %114 = ptrtoint ptr %ws.val.i.i.i532 to i64
-  %and.i.i.i.i533 = and i64 %114, -64
-  %115 = inttoptr i64 %and.i.i.i.i533 to ptr
-  %initOnceStart.i.i.i534 = getelementptr inbounds i8, ptr %zc, i64 728
-  store ptr %115, ptr %initOnceStart.i.i.i534, align 8
+  %113 = load ptr, ptr %objectEnd.i196609, align 8
+  %tableValidEnd.i.i.i530 = getelementptr inbounds i8, ptr %zc, i64 712
+  store ptr %113, ptr %tableValidEnd.i.i.i530, align 8
+  %ws.val.i.i.i531 = load ptr, ptr %17, align 8
+  %114 = ptrtoint ptr %ws.val.i.i.i531 to i64
+  %and.i.i.i.i532 = and i64 %114, -64
+  %115 = inttoptr i64 %and.i.i.i.i532 to ptr
+  %initOnceStart.i.i.i533 = getelementptr inbounds i8, ptr %zc, i64 728
+  store ptr %115, ptr %initOnceStart.i.i.i533, align 8
   %116 = ptrtoint ptr %113 to i64
-  %sub1.i.i.i.i535 = sub i64 0, %116
-  %and2.i.i.i.i536 = and i64 %sub1.i.i.i.i535, 63
-  %add.ptr.i.i.i537 = getelementptr inbounds i8, ptr %113, i64 %and2.i.i.i.i536
-  %cmp10.i.i.i538 = icmp ugt ptr %add.ptr.i.i.i537, %ws.val.i.i.i532
-  br i1 %cmp10.i.i.i538, label %if.then5.i.i.i565, label %do.end20.i.i.i539
+  %sub1.i.i.i.i534 = sub i64 0, %116
+  %and2.i.i.i.i535 = and i64 %sub1.i.i.i.i534, 63
+  %add.ptr.i.i.i536 = getelementptr inbounds i8, ptr %113, i64 %and2.i.i.i.i535
+  %cmp10.i.i.i537 = icmp ugt ptr %add.ptr.i.i.i536, %ws.val.i.i.i531
+  br i1 %cmp10.i.i.i537, label %if.then5.i.i.i564, label %do.end20.i.i.i538
 
-do.end20.i.i.i539:                                ; preds = %if.then5.i.i.i529
-  store ptr %add.ptr.i.i.i537, ptr %objectEnd.i196610, align 8
-  store ptr %add.ptr.i.i.i537, ptr %18, align 8
-  %cmp24.not.i.i.i541 = icmp eq i64 %and2.i.i.i.i536, 0
-  br i1 %cmp24.not.i.i.i541, label %if.end29.i.i.i528, label %if.then25.i.i.i542
+do.end20.i.i.i538:                                ; preds = %if.then5.i.i.i528
+  store ptr %add.ptr.i.i.i536, ptr %objectEnd.i196609, align 8
+  store ptr %add.ptr.i.i.i536, ptr %18, align 8
+  %cmp24.not.i.i.i540 = icmp eq i64 %and2.i.i.i.i535, 0
+  br i1 %cmp24.not.i.i.i540, label %if.end29.i.i.i527, label %if.then25.i.i.i541
 
-if.then25.i.i.i542:                               ; preds = %do.end20.i.i.i539
-  store ptr %add.ptr.i.i.i537, ptr %tableValidEnd.i.i.i531, align 8
-  br label %if.end29.i.i.i528
+if.then25.i.i.i541:                               ; preds = %do.end20.i.i.i538
+  store ptr %add.ptr.i.i.i536, ptr %tableValidEnd.i.i.i530, align 8
+  br label %if.end29.i.i.i527
 
-if.end29.i.i.i528:                                ; preds = %if.then25.i.i.i542, %do.end20.i.i.i539
-  store i32 3, ptr %phase.i200616, align 8
-  br label %ZSTD_cwksp_internal_advance_phase.exit.i.i510
+if.end29.i.i.i527:                                ; preds = %if.then25.i.i.i541, %do.end20.i.i.i538
+  store i32 3, ptr %phase.i200615, align 8
+  br label %ZSTD_cwksp_internal_advance_phase.exit.i.i509
 
-ZSTD_cwksp_internal_advance_phase.exit.i.i510:    ; preds = %ZSTD_cwksp_reserve_buffer.exit507.thread, %if.end29.i.i.i528
-  %cmp.i.i511 = icmp ugt i64 %conv.i146, %.cond27
-  br i1 %cmp.i.i511, label %ZSTD_cwksp_reserve_buffer.exit543.thread, label %if.end.i.i512
+ZSTD_cwksp_internal_advance_phase.exit.i.i509:    ; preds = %ZSTD_cwksp_reserve_buffer.exit506.thread, %if.end29.i.i.i527
+  %cmp.i.i510 = icmp ugt i64 %conv.i146, %.cond27
+  br i1 %cmp.i.i510, label %ZSTD_cwksp_reserve_buffer.exit542.thread, label %if.end.i.i511
 
-if.end.i.i512:                                    ; preds = %ZSTD_cwksp_internal_advance_phase.exit.i.i510
+if.end.i.i511:                                    ; preds = %ZSTD_cwksp_internal_advance_phase.exit.i.i509
   %117 = load ptr, ptr %19, align 8
-  %idx.neg.i.i.i514 = sub nsw i64 0, %div.i
-  %add.ptr.i4.i.i515 = getelementptr inbounds i8, ptr %117, i64 %idx.neg.i.i.i514
+  %idx.neg.i.i.i513 = sub nsw i64 0, %div.i
+  %add.ptr.i4.i.i514 = getelementptr inbounds i8, ptr %117, i64 %idx.neg.i.i.i513
   %118 = load ptr, ptr %18, align 8
-  %cmp.i6.i.i517 = icmp ult ptr %add.ptr.i4.i.i515, %118
-  br i1 %cmp.i6.i.i517, label %do.end2.i.i.i524, label %if.end.i.i.i518
+  %cmp.i6.i.i516 = icmp ult ptr %add.ptr.i4.i.i514, %118
+  br i1 %cmp.i6.i.i516, label %do.end2.i.i.i523, label %if.end.i.i.i517
 
-do.end2.i.i.i524:                                 ; preds = %if.end.i.i512
-  store i8 1, ptr %allocFailed.i199614, align 8
-  br label %ZSTD_cwksp_reserve_buffer.exit543.thread
+do.end2.i.i.i523:                                 ; preds = %if.end.i.i511
+  store i8 1, ptr %allocFailed.i199613, align 8
+  br label %ZSTD_cwksp_reserve_buffer.exit542.thread
 
-if.end.i.i.i518:                                  ; preds = %if.end.i.i512
-  %tableValidEnd.i7.i.i519 = getelementptr inbounds i8, ptr %zc, i64 712
-  %119 = load ptr, ptr %tableValidEnd.i7.i.i519, align 8
-  %cmp3.i8.i.i520 = icmp ult ptr %add.ptr.i4.i.i515, %119
-  br i1 %cmp3.i8.i.i520, label %if.then4.i.i.i523, label %if.end6.i.i.i521
+if.end.i.i.i517:                                  ; preds = %if.end.i.i511
+  %tableValidEnd.i7.i.i518 = getelementptr inbounds i8, ptr %zc, i64 712
+  %119 = load ptr, ptr %tableValidEnd.i7.i.i518, align 8
+  %cmp3.i8.i.i519 = icmp ult ptr %add.ptr.i4.i.i514, %119
+  br i1 %cmp3.i8.i.i519, label %if.then4.i.i.i522, label %if.end6.i.i.i520
 
-if.then4.i.i.i523:                                ; preds = %if.end.i.i.i518
-  store ptr %add.ptr.i4.i.i515, ptr %tableValidEnd.i7.i.i519, align 8
-  br label %if.end6.i.i.i521
+if.then4.i.i.i522:                                ; preds = %if.end.i.i.i517
+  store ptr %add.ptr.i4.i.i514, ptr %tableValidEnd.i7.i.i518, align 8
+  br label %if.end6.i.i.i520
 
-if.end6.i.i.i521:                                 ; preds = %if.then4.i.i.i523, %if.end.i.i.i518
-  store ptr %add.ptr.i4.i.i515, ptr %19, align 8
-  br label %ZSTD_cwksp_reserve_buffer.exit543.thread
+if.end6.i.i.i520:                                 ; preds = %if.then4.i.i.i522, %if.end.i.i.i517
+  store ptr %add.ptr.i4.i.i514, ptr %19, align 8
+  br label %ZSTD_cwksp_reserve_buffer.exit542.thread
 
-ZSTD_cwksp_reserve_buffer.exit543.thread:         ; preds = %ZSTD_cwksp_internal_advance_phase.exit.i.i510, %do.end2.i.i.i524, %if.end6.i.i.i521
-  %retval.0.i.i522.ph = phi ptr [ %add.ptr.i4.i.i515, %if.end6.i.i.i521 ], [ null, %do.end2.i.i.i524 ], [ null, %ZSTD_cwksp_internal_advance_phase.exit.i.i510 ]
-  %mlCode633 = getelementptr inbounds i8, ptr %zc, i64 992
-  store ptr %retval.0.i.i522.ph, ptr %mlCode633, align 8
-  br label %ZSTD_cwksp_internal_advance_phase.exit.i.i546
+ZSTD_cwksp_reserve_buffer.exit542.thread:         ; preds = %ZSTD_cwksp_internal_advance_phase.exit.i.i509, %do.end2.i.i.i523, %if.end6.i.i.i520
+  %retval.0.i.i521.ph = phi ptr [ %add.ptr.i4.i.i514, %if.end6.i.i.i520 ], [ null, %do.end2.i.i.i523 ], [ null, %ZSTD_cwksp_internal_advance_phase.exit.i.i509 ]
+  %mlCode632 = getelementptr inbounds i8, ptr %zc, i64 992
+  store ptr %retval.0.i.i521.ph, ptr %mlCode632, align 8
+  br label %ZSTD_cwksp_internal_advance_phase.exit.i.i545
 
-if.then5.i.i.i565:                                ; preds = %if.then5.i.i.i529
+if.then5.i.i.i564:                                ; preds = %if.then5.i.i.i528
   %mlCode = getelementptr inbounds i8, ptr %zc, i64 992
   store ptr null, ptr %mlCode, align 8
-  %120 = load ptr, ptr %objectEnd.i196610, align 8
-  %tableValidEnd.i.i.i567 = getelementptr inbounds i8, ptr %zc, i64 712
-  store ptr %120, ptr %tableValidEnd.i.i.i567, align 8
-  %ws.val.i.i.i568 = load ptr, ptr %17, align 8
-  %121 = ptrtoint ptr %ws.val.i.i.i568 to i64
-  %and.i.i.i.i569 = and i64 %121, -64
-  %122 = inttoptr i64 %and.i.i.i.i569 to ptr
-  %initOnceStart.i.i.i570 = getelementptr inbounds i8, ptr %zc, i64 728
-  store ptr %122, ptr %initOnceStart.i.i.i570, align 8
+  %120 = load ptr, ptr %objectEnd.i196609, align 8
+  %tableValidEnd.i.i.i566 = getelementptr inbounds i8, ptr %zc, i64 712
+  store ptr %120, ptr %tableValidEnd.i.i.i566, align 8
+  %ws.val.i.i.i567 = load ptr, ptr %17, align 8
+  %121 = ptrtoint ptr %ws.val.i.i.i567 to i64
+  %and.i.i.i.i568 = and i64 %121, -64
+  %122 = inttoptr i64 %and.i.i.i.i568 to ptr
+  %initOnceStart.i.i.i569 = getelementptr inbounds i8, ptr %zc, i64 728
+  store ptr %122, ptr %initOnceStart.i.i.i569, align 8
   %123 = ptrtoint ptr %120 to i64
-  %sub1.i.i.i.i571 = sub i64 0, %123
-  %and2.i.i.i.i572 = and i64 %sub1.i.i.i.i571, 63
-  %add.ptr.i.i.i573 = getelementptr inbounds i8, ptr %120, i64 %and2.i.i.i.i572
-  %cmp10.i.i.i574 = icmp ugt ptr %add.ptr.i.i.i573, %ws.val.i.i.i568
-  br i1 %cmp10.i.i.i574, label %ZSTD_cwksp_reserve_buffer.exit579, label %do.end20.i.i.i575
+  %sub1.i.i.i.i570 = sub i64 0, %123
+  %and2.i.i.i.i571 = and i64 %sub1.i.i.i.i570, 63
+  %add.ptr.i.i.i572 = getelementptr inbounds i8, ptr %120, i64 %and2.i.i.i.i571
+  %cmp10.i.i.i573 = icmp ugt ptr %add.ptr.i.i.i572, %ws.val.i.i.i567
+  br i1 %cmp10.i.i.i573, label %ZSTD_cwksp_reserve_buffer.exit578, label %do.end20.i.i.i574
 
-do.end20.i.i.i575:                                ; preds = %if.then5.i.i.i565
-  store ptr %add.ptr.i.i.i573, ptr %objectEnd.i196610, align 8
-  store ptr %add.ptr.i.i.i573, ptr %18, align 8
-  %cmp24.not.i.i.i577 = icmp eq i64 %and2.i.i.i.i572, 0
-  br i1 %cmp24.not.i.i.i577, label %if.end29.i.i.i564, label %if.then25.i.i.i578
+do.end20.i.i.i574:                                ; preds = %if.then5.i.i.i564
+  store ptr %add.ptr.i.i.i572, ptr %objectEnd.i196609, align 8
+  store ptr %add.ptr.i.i.i572, ptr %18, align 8
+  %cmp24.not.i.i.i576 = icmp eq i64 %and2.i.i.i.i571, 0
+  br i1 %cmp24.not.i.i.i576, label %if.end29.i.i.i563, label %if.then25.i.i.i577
 
-if.then25.i.i.i578:                               ; preds = %do.end20.i.i.i575
-  store ptr %add.ptr.i.i.i573, ptr %tableValidEnd.i.i.i567, align 8
-  br label %if.end29.i.i.i564
+if.then25.i.i.i577:                               ; preds = %do.end20.i.i.i574
+  store ptr %add.ptr.i.i.i572, ptr %tableValidEnd.i.i.i566, align 8
+  br label %if.end29.i.i.i563
 
-if.end29.i.i.i564:                                ; preds = %if.then25.i.i.i578, %do.end20.i.i.i575
-  store i32 3, ptr %phase.i200616, align 8
-  br label %ZSTD_cwksp_internal_advance_phase.exit.i.i546
+if.end29.i.i.i563:                                ; preds = %if.then25.i.i.i577, %do.end20.i.i.i574
+  store i32 3, ptr %phase.i200615, align 8
+  br label %ZSTD_cwksp_internal_advance_phase.exit.i.i545
 
-ZSTD_cwksp_internal_advance_phase.exit.i.i546:    ; preds = %ZSTD_cwksp_reserve_buffer.exit543.thread, %if.end29.i.i.i564
-  %cmp.i.i547 = icmp ugt i64 %conv.i146, %.cond27
-  br i1 %cmp.i.i547, label %ZSTD_cwksp_reserve_buffer.exit579, label %if.end.i.i548
+ZSTD_cwksp_internal_advance_phase.exit.i.i545:    ; preds = %ZSTD_cwksp_reserve_buffer.exit542.thread, %if.end29.i.i.i563
+  %cmp.i.i546 = icmp ugt i64 %conv.i146, %.cond27
+  br i1 %cmp.i.i546, label %ZSTD_cwksp_reserve_buffer.exit578, label %if.end.i.i547
 
-if.end.i.i548:                                    ; preds = %ZSTD_cwksp_internal_advance_phase.exit.i.i546
+if.end.i.i547:                                    ; preds = %ZSTD_cwksp_internal_advance_phase.exit.i.i545
   %124 = load ptr, ptr %19, align 8
-  %idx.neg.i.i.i550 = sub nsw i64 0, %div.i
-  %add.ptr.i4.i.i551 = getelementptr inbounds i8, ptr %124, i64 %idx.neg.i.i.i550
+  %idx.neg.i.i.i549 = sub nsw i64 0, %div.i
+  %add.ptr.i4.i.i550 = getelementptr inbounds i8, ptr %124, i64 %idx.neg.i.i.i549
   %125 = load ptr, ptr %18, align 8
-  %cmp.i6.i.i553 = icmp ult ptr %add.ptr.i4.i.i551, %125
-  br i1 %cmp.i6.i.i553, label %do.end2.i.i.i560, label %if.end.i.i.i554
+  %cmp.i6.i.i552 = icmp ult ptr %add.ptr.i4.i.i550, %125
+  br i1 %cmp.i6.i.i552, label %do.end2.i.i.i559, label %if.end.i.i.i553
 
-do.end2.i.i.i560:                                 ; preds = %if.end.i.i548
-  store i8 1, ptr %allocFailed.i199614, align 8
-  br label %ZSTD_cwksp_reserve_buffer.exit579
+do.end2.i.i.i559:                                 ; preds = %if.end.i.i547
+  store i8 1, ptr %allocFailed.i199613, align 8
+  br label %ZSTD_cwksp_reserve_buffer.exit578
 
-if.end.i.i.i554:                                  ; preds = %if.end.i.i548
-  %tableValidEnd.i7.i.i555 = getelementptr inbounds i8, ptr %zc, i64 712
-  %126 = load ptr, ptr %tableValidEnd.i7.i.i555, align 8
-  %cmp3.i8.i.i556 = icmp ult ptr %add.ptr.i4.i.i551, %126
-  br i1 %cmp3.i8.i.i556, label %if.then4.i.i.i559, label %if.end6.i.i.i557
+if.end.i.i.i553:                                  ; preds = %if.end.i.i547
+  %tableValidEnd.i7.i.i554 = getelementptr inbounds i8, ptr %zc, i64 712
+  %126 = load ptr, ptr %tableValidEnd.i7.i.i554, align 8
+  %cmp3.i8.i.i555 = icmp ult ptr %add.ptr.i4.i.i550, %126
+  br i1 %cmp3.i8.i.i555, label %if.then4.i.i.i558, label %if.end6.i.i.i556
 
-if.then4.i.i.i559:                                ; preds = %if.end.i.i.i554
-  store ptr %add.ptr.i4.i.i551, ptr %tableValidEnd.i7.i.i555, align 8
-  br label %if.end6.i.i.i557
+if.then4.i.i.i558:                                ; preds = %if.end.i.i.i553
+  store ptr %add.ptr.i4.i.i550, ptr %tableValidEnd.i7.i.i554, align 8
+  br label %if.end6.i.i.i556
 
-if.end6.i.i.i557:                                 ; preds = %if.then4.i.i.i559, %if.end.i.i.i554
-  store ptr %add.ptr.i4.i.i551, ptr %19, align 8
-  br label %ZSTD_cwksp_reserve_buffer.exit579
+if.end6.i.i.i556:                                 ; preds = %if.then4.i.i.i558, %if.end.i.i.i553
+  store ptr %add.ptr.i4.i.i550, ptr %19, align 8
+  br label %ZSTD_cwksp_reserve_buffer.exit578
 
-ZSTD_cwksp_reserve_buffer.exit579:                ; preds = %if.then5.i.i.i565, %ZSTD_cwksp_internal_advance_phase.exit.i.i546, %do.end2.i.i.i560, %if.end6.i.i.i557
-  %retval.0.i.i558 = phi ptr [ null, %ZSTD_cwksp_internal_advance_phase.exit.i.i546 ], [ null, %do.end2.i.i.i560 ], [ %add.ptr.i4.i.i551, %if.end6.i.i.i557 ], [ null, %if.then5.i.i.i565 ]
+ZSTD_cwksp_reserve_buffer.exit578:                ; preds = %if.then5.i.i.i564, %ZSTD_cwksp_internal_advance_phase.exit.i.i545, %do.end2.i.i.i559, %if.end6.i.i.i556
+  %retval.0.i.i557 = phi ptr [ null, %ZSTD_cwksp_internal_advance_phase.exit.i.i545 ], [ null, %do.end2.i.i.i559 ], [ %add.ptr.i4.i.i550, %if.end6.i.i.i556 ], [ null, %if.then5.i.i.i564 ]
   %ofCode = getelementptr inbounds i8, ptr %zc, i64 1000
-  store ptr %retval.0.i.i558, ptr %ofCode, align 8
+  store ptr %retval.0.i.i557, ptr %ofCode, align 8
   %initialized286 = getelementptr inbounds i8, ptr %zc, i64 948
   store i32 1, ptr %initialized286, align 4
   br label %return
 
-return:                                           ; preds = %ZSTD_customMalloc.exit.i, %ZSTD_cwksp_reserve_object.exit195.thread, %ZSTD_cwksp_reserve_object.exit181.thread, %ZSTD_cwksp_reserve_object.exit.thread, %do.end200, %do.body98, %lor.end, %ZSTD_cwksp_reserve_buffer.exit579
-  %retval.0 = phi i64 [ 0, %ZSTD_cwksp_reserve_buffer.exit579 ], [ %call63, %lor.end ], [ -64, %do.body98 ], [ %call211, %do.end200 ], [ -64, %ZSTD_cwksp_reserve_object.exit.thread ], [ -64, %ZSTD_cwksp_reserve_object.exit181.thread ], [ -64, %ZSTD_cwksp_reserve_object.exit195.thread ], [ -64, %ZSTD_customMalloc.exit.i ]
+return:                                           ; preds = %ZSTD_customMalloc.exit.i, %ZSTD_cwksp_reserve_object.exit195.thread, %ZSTD_cwksp_reserve_object.exit181.thread, %ZSTD_cwksp_reserve_object.exit.thread, %do.end200, %do.body98, %lor.end, %ZSTD_cwksp_reserve_buffer.exit578
+  %retval.0 = phi i64 [ 0, %ZSTD_cwksp_reserve_buffer.exit578 ], [ %call63, %lor.end ], [ -64, %do.body98 ], [ %call211, %do.end200 ], [ -64, %ZSTD_cwksp_reserve_object.exit.thread ], [ -64, %ZSTD_cwksp_reserve_object.exit181.thread ], [ -64, %ZSTD_cwksp_reserve_object.exit195.thread ], [ -64, %ZSTD_customMalloc.exit.i ]
   ret i64 %retval.0
 }
 
 declare i32 @ZSTD_XXH64_reset(ptr nocapture noundef, i64 noundef) local_unnamed_addr #9
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal fastcc i64 @ZSTD_reset_matchState(ptr nocapture noundef %ms, ptr noundef %ws, ptr nocapture noundef readonly %cParams, i32 noundef %useRowMatchFinder, i32 noundef %crp, i32 noundef %forceResetIndex, i32 noundef %forWho) unnamed_addr #19 {
+define internal fastcc range(i64 -64, 1) i64 @ZSTD_reset_matchState(ptr nocapture noundef %ms, ptr noundef %ws, ptr nocapture noundef readonly %cParams, i32 noundef %useRowMatchFinder, i32 noundef %crp, i32 noundef %forceResetIndex, i32 noundef %forWho) unnamed_addr #19 {
 entry:
   %strategy = getelementptr inbounds i8, ptr %cParams, i64 24
   %0 = load i32, ptr %strategy, align 4
@@ -14332,9 +14323,9 @@ if.end:                                           ; preds = %if.then, %cond.end1
   %phase1.i = getelementptr inbounds i8, ptr %ws, i64 64
   %15 = load i32, ptr %phase1.i, align 8
   %cmp.i = icmp eq i32 %15, 0
-  br i1 %cmp.i, label %if.then.i.i, label %if.end4.i
+  br i1 %cmp.i, label %if.then5.i.i, label %if.end4.i
 
-if.then.i.i:                                      ; preds = %if.end
+if.then5.i.i:                                     ; preds = %if.end
   %tableValidEnd.i.i = getelementptr inbounds i8, ptr %ws, i64 32
   store ptr %14, ptr %tableValidEnd.i.i, align 8
   %16 = getelementptr i8, ptr %ws, i64 8
@@ -14351,7 +14342,7 @@ if.then.i.i:                                      ; preds = %if.end
   %cmp10.i.i = icmp ugt ptr %add.ptr.i.i, %ws.val.i.i
   br i1 %cmp10.i.i, label %ZSTD_cwksp_reserve_table.exit, label %do.end20.i.i
 
-do.end20.i.i:                                     ; preds = %if.then.i.i
+do.end20.i.i:                                     ; preds = %if.then5.i.i
   store ptr %add.ptr.i.i, ptr %objectEnd.i63, align 8
   store ptr %add.ptr.i.i, ptr %tableEnd.i, align 8
   %cmp24.not.i.i = icmp eq i64 %and2.i.i.i, 0
@@ -14382,19 +14373,19 @@ if.end9.i:                                        ; preds = %if.end4.i
   store ptr %add.ptr.i, ptr %tableEnd.i, align 8
   br label %ZSTD_cwksp_reserve_table.exit
 
-ZSTD_cwksp_reserve_table.exit:                    ; preds = %if.then.i.i, %do.end8.i, %if.end9.i
-  %retval.0.i = phi ptr [ null, %do.end8.i ], [ %20, %if.end9.i ], [ null, %if.then.i.i ]
+ZSTD_cwksp_reserve_table.exit:                    ; preds = %if.then5.i.i, %do.end8.i, %if.end9.i
+  %retval.0.i = phi ptr [ null, %do.end8.i ], [ %20, %if.end9.i ], [ null, %if.then5.i.i ]
   %hashTable = getelementptr inbounds i8, ptr %ms, i64 112
   store ptr %retval.0.i, ptr %hashTable, align 8
   %22 = load i32, ptr %phase1.i, align 8
   %cmp.i66 = icmp eq i32 %22, 0
-  br i1 %cmp.i66, label %if.then.i.i79, label %entry.if.end4_crit_edge.i67
+  br i1 %cmp.i66, label %if.then5.i.i79, label %entry.if.end4_crit_edge.i67
 
 entry.if.end4_crit_edge.i67:                      ; preds = %ZSTD_cwksp_reserve_table.exit
   %.pre.i69 = load ptr, ptr %tableEnd.i, align 8
   br label %if.end4.i70
 
-if.then.i.i79:                                    ; preds = %ZSTD_cwksp_reserve_table.exit
+if.then5.i.i79:                                   ; preds = %ZSTD_cwksp_reserve_table.exit
   %23 = load ptr, ptr %objectEnd.i63, align 8
   %tableValidEnd.i.i81 = getelementptr inbounds i8, ptr %ws, i64 32
   store ptr %23, ptr %tableValidEnd.i.i81, align 8
@@ -14412,7 +14403,7 @@ if.then.i.i79:                                    ; preds = %ZSTD_cwksp_reserve_
   %cmp10.i.i88 = icmp ugt ptr %add.ptr.i.i87, %ws.val.i.i82
   br i1 %cmp10.i.i88, label %ZSTD_cwksp_reserve_table.exit94, label %do.end20.i.i89
 
-do.end20.i.i89:                                   ; preds = %if.then.i.i79
+do.end20.i.i89:                                   ; preds = %if.then5.i.i79
   store ptr %add.ptr.i.i87, ptr %objectEnd.i63, align 8
   store ptr %add.ptr.i.i87, ptr %tableEnd.i, align 8
   %cmp24.not.i.i91 = icmp eq i64 %and2.i.i.i86, 0
@@ -14443,20 +14434,20 @@ if.end9.i74:                                      ; preds = %if.end4.i70
   store ptr %add.ptr.i71, ptr %tableEnd.i, align 8
   br label %ZSTD_cwksp_reserve_table.exit94
 
-ZSTD_cwksp_reserve_table.exit94:                  ; preds = %if.then.i.i79, %do.end8.i77, %if.end9.i74
-  %retval.0.i76 = phi ptr [ null, %do.end8.i77 ], [ %28, %if.end9.i74 ], [ null, %if.then.i.i79 ]
+ZSTD_cwksp_reserve_table.exit94:                  ; preds = %if.then5.i.i79, %do.end8.i77, %if.end9.i74
+  %retval.0.i76 = phi ptr [ null, %do.end8.i77 ], [ %28, %if.end9.i74 ], [ null, %if.then5.i.i79 ]
   %chainTable = getelementptr inbounds i8, ptr %ms, i64 128
   store ptr %retval.0.i76, ptr %chainTable, align 8
   %mul30 = select i1 %tobool16.not, i64 0, i64 %9
   %30 = load i32, ptr %phase1.i, align 8
   %cmp.i96 = icmp eq i32 %30, 0
-  br i1 %cmp.i96, label %if.then.i.i109, label %entry.if.end4_crit_edge.i97
+  br i1 %cmp.i96, label %if.then5.i.i109, label %entry.if.end4_crit_edge.i97
 
 entry.if.end4_crit_edge.i97:                      ; preds = %ZSTD_cwksp_reserve_table.exit94
   %.pre.i99 = load ptr, ptr %tableEnd.i, align 8
   br label %if.end4.i100
 
-if.then.i.i109:                                   ; preds = %ZSTD_cwksp_reserve_table.exit94
+if.then5.i.i109:                                  ; preds = %ZSTD_cwksp_reserve_table.exit94
   %31 = load ptr, ptr %objectEnd.i63, align 8
   %tableValidEnd.i.i111 = getelementptr inbounds i8, ptr %ws, i64 32
   store ptr %31, ptr %tableValidEnd.i.i111, align 8
@@ -14474,7 +14465,7 @@ if.then.i.i109:                                   ; preds = %ZSTD_cwksp_reserve_
   %cmp10.i.i118 = icmp ugt ptr %add.ptr.i.i117, %ws.val.i.i112
   br i1 %cmp10.i.i118, label %ZSTD_cwksp_reserve_table.exit124, label %do.end20.i.i119
 
-do.end20.i.i119:                                  ; preds = %if.then.i.i109
+do.end20.i.i119:                                  ; preds = %if.then5.i.i109
   store ptr %add.ptr.i.i117, ptr %objectEnd.i63, align 8
   store ptr %add.ptr.i.i117, ptr %tableEnd.i, align 8
   %cmp24.not.i.i121 = icmp eq i64 %and2.i.i.i116, 0
@@ -14505,8 +14496,8 @@ if.end9.i104:                                     ; preds = %if.end4.i100
   store ptr %add.ptr.i101, ptr %tableEnd.i, align 8
   br label %ZSTD_cwksp_reserve_table.exit124
 
-ZSTD_cwksp_reserve_table.exit124:                 ; preds = %if.then.i.i109, %do.end8.i107, %if.end9.i104
-  %retval.0.i106 = phi ptr [ null, %do.end8.i107 ], [ %36, %if.end9.i104 ], [ null, %if.then.i.i109 ]
+ZSTD_cwksp_reserve_table.exit124:                 ; preds = %if.then5.i.i109, %do.end8.i107, %if.end9.i104
+  %retval.0.i106 = phi ptr [ null, %do.end8.i107 ], [ %36, %if.end9.i104 ], [ null, %if.then5.i.i109 ]
   %hashTable3 = getelementptr inbounds i8, ptr %ms, i64 120
   store ptr %retval.0.i106, ptr %hashTable3, align 8
   %38 = getelementptr i8, ptr %ws, i64 56
@@ -14530,27 +14521,27 @@ if.then.i:                                        ; preds = %if.then49
   %sub.ptr.rhs.cast.i = ptrtoint ptr %39 to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
   tail call void @llvm.memset.p0.i64(ptr align 1 %39, i8 0, i64 %sub.ptr.sub.i, i1 false)
-  %.pre.i130 = load ptr, ptr %tableValidEnd.i125, align 8
+  %.pre.i129 = load ptr, ptr %tableValidEnd.i125, align 8
   %.pre7.i = load ptr, ptr %tableEnd.i, align 8
   br label %if.end.i
 
 if.end.i:                                         ; preds = %if.then.i, %if.then49
   %41 = phi ptr [ %.pre7.i, %if.then.i ], [ %40, %if.then49 ]
-  %42 = phi ptr [ %.pre.i130, %if.then.i ], [ %39, %if.then49 ]
+  %42 = phi ptr [ %.pre.i129, %if.then.i ], [ %39, %if.then49 ]
   %cmp.i.i128 = icmp ult ptr %42, %41
-  br i1 %cmp.i.i128, label %if.then.i.i129, label %if.end50
+  br i1 %cmp.i.i128, label %if.then.i.i, label %if.end50
 
-if.then.i.i129:                                   ; preds = %if.end.i
+if.then.i.i:                                      ; preds = %if.end.i
   store ptr %41, ptr %tableValidEnd.i125, align 8
   br label %if.end50
 
-if.end50:                                         ; preds = %if.then.i.i129, %if.end.i, %do.end47
+if.end50:                                         ; preds = %if.then.i.i, %if.end.i, %do.end47
   %43 = load i32, ptr %strategy, align 4
   %44 = add i32 %43, -6
   %45 = icmp ult i32 %44, -3
-  %cmp.i131 = icmp ne i32 %useRowMatchFinder, 1
-  %.not394 = or i1 %cmp.i131, %45
-  br i1 %.not394, label %if.end81, label %if.then54
+  %cmp.i130 = icmp ne i32 %useRowMatchFinder, 1
+  %.not393 = or i1 %cmp.i130, %45
+  br i1 %.not393, label %if.end81, label %if.then54
 
 if.then54:                                        ; preds = %if.end50
   %add.i.i = add nuw i64 %shl3, 63
@@ -14560,9 +14551,9 @@ if.then54:                                        ; preds = %if.end50
 
 if.then56:                                        ; preds = %if.then54
   %cmp.i.i.i = icmp eq i32 %46, 0
-  br i1 %cmp.i.i.i, label %if.then.i.i.i, label %ZSTD_cwksp_internal_advance_phase.exit.i.i
+  br i1 %cmp.i.i.i, label %if.then5.i.i.i, label %ZSTD_cwksp_internal_advance_phase.exit.i.i
 
-if.then.i.i.i:                                    ; preds = %if.then56
+if.then5.i.i.i:                                   ; preds = %if.then56
   %47 = load ptr, ptr %objectEnd.i63, align 8
   %tableValidEnd.i.i.i = getelementptr inbounds i8, ptr %ws, i64 32
   store ptr %47, ptr %tableValidEnd.i.i.i, align 8
@@ -14580,7 +14571,7 @@ if.then.i.i.i:                                    ; preds = %if.then56
   %cmp10.i.i.i = icmp ugt ptr %add.ptr.i.i.i, %ws.val.i.i.i
   br i1 %cmp10.i.i.i, label %ZSTD_cwksp_reserve_aligned_init_once.exit, label %do.end20.i.i.i
 
-do.end20.i.i.i:                                   ; preds = %if.then.i.i.i
+do.end20.i.i.i:                                   ; preds = %if.then5.i.i.i
   store ptr %add.ptr.i.i.i, ptr %objectEnd.i63, align 8
   store ptr %add.ptr.i.i.i, ptr %tableEnd.i, align 8
   %cmp24.not.i.i.i = icmp eq i64 %and2.i.i.i.i, 0
@@ -14595,8 +14586,8 @@ if.end29.i.i.i:                                   ; preds = %if.then25.i.i.i, %d
   br label %ZSTD_cwksp_internal_advance_phase.exit.i.i
 
 ZSTD_cwksp_internal_advance_phase.exit.i.i:       ; preds = %if.end29.i.i.i, %if.then56
-  %cmp.i.i132 = icmp eq i64 %and.i.i, 0
-  br i1 %cmp.i.i132, label %ZSTD_cwksp_reserve_aligned_init_once.exit, label %if.end.i.i
+  %cmp.i.i131 = icmp eq i64 %and.i.i, 0
+  br i1 %cmp.i.i131, label %ZSTD_cwksp_reserve_aligned_init_once.exit, label %if.end.i.i
 
 if.end.i.i:                                       ; preds = %ZSTD_cwksp_internal_advance_phase.exit.i.i
   %allocStart.i.i.i = getelementptr inbounds i8, ptr %ws, i64 40
@@ -14625,20 +14616,20 @@ ZSTD_cwksp_reserve_internal.exit.i:               ; preds = %if.then4.i.i.i, %if
   store ptr %add.ptr.i4.i.i, ptr %allocStart.i.i.i, align 8
   %initOnceStart.i = getelementptr inbounds i8, ptr %ws, i64 48
   %55 = load ptr, ptr %initOnceStart.i, align 8
-  %cmp.i133 = icmp ult ptr %add.ptr.i4.i.i, %55
-  br i1 %cmp.i133, label %if.then.i135, label %ZSTD_cwksp_reserve_aligned_init_once.exit
+  %cmp.i132 = icmp ult ptr %add.ptr.i4.i.i, %55
+  br i1 %cmp.i132, label %if.then.i134, label %ZSTD_cwksp_reserve_aligned_init_once.exit
 
-if.then.i135:                                     ; preds = %ZSTD_cwksp_reserve_internal.exit.i
-  %sub.ptr.lhs.cast.i136 = ptrtoint ptr %55 to i64
-  %sub.ptr.rhs.cast.i137 = ptrtoint ptr %add.ptr.i4.i.i to i64
-  %sub.ptr.sub.i138 = sub i64 %sub.ptr.lhs.cast.i136, %sub.ptr.rhs.cast.i137
-  %sub.ptr.sub.call.i = tail call i64 @llvm.umin.i64(i64 %sub.ptr.sub.i138, i64 %and.i.i)
+if.then.i134:                                     ; preds = %ZSTD_cwksp_reserve_internal.exit.i
+  %sub.ptr.lhs.cast.i135 = ptrtoint ptr %55 to i64
+  %sub.ptr.rhs.cast.i136 = ptrtoint ptr %add.ptr.i4.i.i to i64
+  %sub.ptr.sub.i137 = sub i64 %sub.ptr.lhs.cast.i135, %sub.ptr.rhs.cast.i136
+  %sub.ptr.sub.call.i = tail call i64 @llvm.umin.i64(i64 %sub.ptr.sub.i137, i64 %and.i.i)
   tail call void @llvm.memset.p0.i64(ptr nonnull align 1 %add.ptr.i4.i.i, i8 0, i64 %sub.ptr.sub.call.i, i1 false)
   store ptr %add.ptr.i4.i.i, ptr %initOnceStart.i, align 8
   br label %ZSTD_cwksp_reserve_aligned_init_once.exit
 
-ZSTD_cwksp_reserve_aligned_init_once.exit:        ; preds = %if.then.i.i.i, %ZSTD_cwksp_internal_advance_phase.exit.i.i, %do.end2.i.i.i, %ZSTD_cwksp_reserve_internal.exit.i, %if.then.i135
-  %retval.0.i15.i = phi ptr [ %add.ptr.i4.i.i, %if.then.i135 ], [ %add.ptr.i4.i.i, %ZSTD_cwksp_reserve_internal.exit.i ], [ null, %ZSTD_cwksp_internal_advance_phase.exit.i.i ], [ null, %do.end2.i.i.i ], [ null, %if.then.i.i.i ]
+ZSTD_cwksp_reserve_aligned_init_once.exit:        ; preds = %if.then5.i.i.i, %ZSTD_cwksp_internal_advance_phase.exit.i.i, %do.end2.i.i.i, %ZSTD_cwksp_reserve_internal.exit.i, %if.then.i134
+  %retval.0.i15.i = phi ptr [ %add.ptr.i4.i.i, %if.then.i134 ], [ %add.ptr.i4.i.i, %ZSTD_cwksp_reserve_internal.exit.i ], [ null, %ZSTD_cwksp_internal_advance_phase.exit.i.i ], [ null, %do.end2.i.i.i ], [ null, %if.then5.i.i.i ]
   %tagTable = getelementptr inbounds i8, ptr %ms, i64 56
   store ptr %retval.0.i15.i, ptr %tagTable, align 8
   %hashSalt.i = getelementptr inbounds i8, ptr %ms, i64 96
@@ -14649,16 +14640,16 @@ ZSTD_cwksp_reserve_aligned_init_once.exit:        ; preds = %if.then.i.i.i, %ZST
   %xor2.i.i = xor i64 %57, %56
   %mul.i.i = mul i64 %xor2.i.i, -6939452855193903323
   %shr.i.i = lshr i64 %mul.i.i, 35
-  %add.i.i139 = add nuw nsw i64 %shr.i.i, 8
-  %xor3.i.i = xor i64 %add.i.i139, %mul.i.i
+  %add.i.i138 = add nuw nsw i64 %shr.i.i, 8
+  %xor3.i.i = xor i64 %add.i.i138, %mul.i.i
   %mul4.i.i = mul i64 %xor3.i.i, -6939452855193903323
   %hashSaltEntropy.i = getelementptr inbounds i8, ptr %ms, i64 104
   %58 = load i32, ptr %hashSaltEntropy.i, align 8
-  %conv.i140 = zext i32 %58 to i64
-  %or.i.i3.i = shl nuw nsw i64 %conv.i140, 15
-  %or.i9.i4.i = tail call i64 @llvm.fshl.i64(i64 %conv.i140, i64 %conv.i140, i64 40)
+  %conv.i139 = zext i32 %58 to i64
+  %or.i.i3.i = shl nuw nsw i64 %conv.i139, 15
+  %or.i9.i4.i = tail call i64 @llvm.fshl.i64(i64 %conv.i139, i64 %conv.i139, i64 40)
   %59 = xor i64 %or.i9.i4.i, %or.i.i3.i
-  %xor2.i5.i = xor i64 %59, %conv.i140
+  %xor2.i5.i = xor i64 %59, %conv.i139
   %mul.i6.i = mul i64 %xor2.i5.i, -6939452855193903323
   %shr.i7.i = lshr i64 %mul.i6.i, 35
   %add.i8.i = add nuw nsw i64 %shr.i7.i, 4
@@ -14672,78 +14663,78 @@ ZSTD_cwksp_reserve_aligned_init_once.exit:        ; preds = %if.then.i.i.i, %ZST
   br label %if.end61
 
 if.else:                                          ; preds = %if.then54
-  %cmp.i.i.i144 = icmp ult i32 %46, 2
-  br i1 %cmp.i.i.i144, label %if.then.i.i.i160, label %ZSTD_cwksp_internal_advance_phase.exit.i.i145
+  %cmp.i.i.i143 = icmp ult i32 %46, 2
+  br i1 %cmp.i.i.i143, label %if.then.i.i.i, label %ZSTD_cwksp_internal_advance_phase.exit.i.i144
 
-if.then.i.i.i160:                                 ; preds = %if.else
+if.then.i.i.i:                                    ; preds = %if.else
   %cmp3.i.i.i = icmp eq i32 %46, 0
-  br i1 %cmp3.i.i.i, label %if.then5.i.i.i, label %if.end29.i.i.i161
+  br i1 %cmp3.i.i.i, label %if.then5.i.i.i160, label %if.end29.i.i.i159
 
-if.then5.i.i.i:                                   ; preds = %if.then.i.i.i160
+if.then5.i.i.i160:                                ; preds = %if.then.i.i.i
   %63 = load ptr, ptr %objectEnd.i63, align 8
-  %tableValidEnd.i.i.i163 = getelementptr inbounds i8, ptr %ws, i64 32
-  store ptr %63, ptr %tableValidEnd.i.i.i163, align 8
+  %tableValidEnd.i.i.i162 = getelementptr inbounds i8, ptr %ws, i64 32
+  store ptr %63, ptr %tableValidEnd.i.i.i162, align 8
   %64 = getelementptr i8, ptr %ws, i64 8
-  %ws.val.i.i.i164 = load ptr, ptr %64, align 8
-  %65 = ptrtoint ptr %ws.val.i.i.i164 to i64
-  %and.i.i.i.i165 = and i64 %65, -64
-  %66 = inttoptr i64 %and.i.i.i.i165 to ptr
-  %initOnceStart.i.i.i166 = getelementptr inbounds i8, ptr %ws, i64 48
-  store ptr %66, ptr %initOnceStart.i.i.i166, align 8
+  %ws.val.i.i.i163 = load ptr, ptr %64, align 8
+  %65 = ptrtoint ptr %ws.val.i.i.i163 to i64
+  %and.i.i.i.i164 = and i64 %65, -64
+  %66 = inttoptr i64 %and.i.i.i.i164 to ptr
+  %initOnceStart.i.i.i165 = getelementptr inbounds i8, ptr %ws, i64 48
+  store ptr %66, ptr %initOnceStart.i.i.i165, align 8
   %67 = ptrtoint ptr %63 to i64
-  %sub1.i.i.i.i167 = sub i64 0, %67
-  %and2.i.i.i.i168 = and i64 %sub1.i.i.i.i167, 63
-  %add.ptr.i.i.i169 = getelementptr inbounds i8, ptr %63, i64 %and2.i.i.i.i168
-  %cmp10.i.i.i170 = icmp ugt ptr %add.ptr.i.i.i169, %ws.val.i.i.i164
-  br i1 %cmp10.i.i.i170, label %ZSTD_cwksp_reserve_aligned.exit, label %do.end20.i.i.i171
+  %sub1.i.i.i.i166 = sub i64 0, %67
+  %and2.i.i.i.i167 = and i64 %sub1.i.i.i.i166, 63
+  %add.ptr.i.i.i168 = getelementptr inbounds i8, ptr %63, i64 %and2.i.i.i.i167
+  %cmp10.i.i.i169 = icmp ugt ptr %add.ptr.i.i.i168, %ws.val.i.i.i163
+  br i1 %cmp10.i.i.i169, label %ZSTD_cwksp_reserve_aligned.exit, label %do.end20.i.i.i170
 
-do.end20.i.i.i171:                                ; preds = %if.then5.i.i.i
-  store ptr %add.ptr.i.i.i169, ptr %objectEnd.i63, align 8
-  store ptr %add.ptr.i.i.i169, ptr %tableEnd.i, align 8
-  %cmp24.not.i.i.i173 = icmp eq i64 %and2.i.i.i.i168, 0
-  br i1 %cmp24.not.i.i.i173, label %if.end29.i.i.i161, label %if.then25.i.i.i174
+do.end20.i.i.i170:                                ; preds = %if.then5.i.i.i160
+  store ptr %add.ptr.i.i.i168, ptr %objectEnd.i63, align 8
+  store ptr %add.ptr.i.i.i168, ptr %tableEnd.i, align 8
+  %cmp24.not.i.i.i172 = icmp eq i64 %and2.i.i.i.i167, 0
+  br i1 %cmp24.not.i.i.i172, label %if.end29.i.i.i159, label %if.then25.i.i.i173
 
-if.then25.i.i.i174:                               ; preds = %do.end20.i.i.i171
-  store ptr %add.ptr.i.i.i169, ptr %tableValidEnd.i.i.i163, align 8
-  br label %if.end29.i.i.i161
+if.then25.i.i.i173:                               ; preds = %do.end20.i.i.i170
+  store ptr %add.ptr.i.i.i168, ptr %tableValidEnd.i.i.i162, align 8
+  br label %if.end29.i.i.i159
 
-if.end29.i.i.i161:                                ; preds = %if.then25.i.i.i174, %do.end20.i.i.i171, %if.then.i.i.i160
+if.end29.i.i.i159:                                ; preds = %if.then25.i.i.i173, %do.end20.i.i.i170, %if.then.i.i.i
   store i32 2, ptr %phase1.i, align 8
-  br label %ZSTD_cwksp_internal_advance_phase.exit.i.i145
+  br label %ZSTD_cwksp_internal_advance_phase.exit.i.i144
 
-ZSTD_cwksp_internal_advance_phase.exit.i.i145:    ; preds = %if.end29.i.i.i161, %if.else
-  %cmp.i.i146 = icmp eq i64 %and.i.i, 0
-  br i1 %cmp.i.i146, label %ZSTD_cwksp_reserve_aligned.exit, label %if.end.i.i147
+ZSTD_cwksp_internal_advance_phase.exit.i.i144:    ; preds = %if.end29.i.i.i159, %if.else
+  %cmp.i.i145 = icmp eq i64 %and.i.i, 0
+  br i1 %cmp.i.i145, label %ZSTD_cwksp_reserve_aligned.exit, label %if.end.i.i146
 
-if.end.i.i147:                                    ; preds = %ZSTD_cwksp_internal_advance_phase.exit.i.i145
-  %allocStart.i.i.i148 = getelementptr inbounds i8, ptr %ws, i64 40
-  %68 = load ptr, ptr %allocStart.i.i.i148, align 8
-  %idx.neg.i.i.i149 = sub i64 0, %and.i.i
-  %add.ptr.i4.i.i150 = getelementptr inbounds i8, ptr %68, i64 %idx.neg.i.i.i149
+if.end.i.i146:                                    ; preds = %ZSTD_cwksp_internal_advance_phase.exit.i.i144
+  %allocStart.i.i.i147 = getelementptr inbounds i8, ptr %ws, i64 40
+  %68 = load ptr, ptr %allocStart.i.i.i147, align 8
+  %idx.neg.i.i.i148 = sub i64 0, %and.i.i
+  %add.ptr.i4.i.i149 = getelementptr inbounds i8, ptr %68, i64 %idx.neg.i.i.i148
   %69 = load ptr, ptr %tableEnd.i, align 8
-  %cmp.i6.i.i152 = icmp ult ptr %add.ptr.i4.i.i150, %69
-  br i1 %cmp.i6.i.i152, label %do.end2.i.i.i158, label %if.end.i.i.i153
+  %cmp.i6.i.i151 = icmp ult ptr %add.ptr.i4.i.i149, %69
+  br i1 %cmp.i6.i.i151, label %do.end2.i.i.i157, label %if.end.i.i.i152
 
-do.end2.i.i.i158:                                 ; preds = %if.end.i.i147
+do.end2.i.i.i157:                                 ; preds = %if.end.i.i146
   store i8 1, ptr %38, align 8
   br label %ZSTD_cwksp_reserve_aligned.exit
 
-if.end.i.i.i153:                                  ; preds = %if.end.i.i147
-  %tableValidEnd.i7.i.i154 = getelementptr inbounds i8, ptr %ws, i64 32
-  %70 = load ptr, ptr %tableValidEnd.i7.i.i154, align 8
-  %cmp3.i8.i.i155 = icmp ult ptr %add.ptr.i4.i.i150, %70
-  br i1 %cmp3.i8.i.i155, label %if.then4.i.i.i157, label %if.end6.i.i.i
+if.end.i.i.i152:                                  ; preds = %if.end.i.i146
+  %tableValidEnd.i7.i.i153 = getelementptr inbounds i8, ptr %ws, i64 32
+  %70 = load ptr, ptr %tableValidEnd.i7.i.i153, align 8
+  %cmp3.i8.i.i154 = icmp ult ptr %add.ptr.i4.i.i149, %70
+  br i1 %cmp3.i8.i.i154, label %if.then4.i.i.i156, label %if.end6.i.i.i
 
-if.then4.i.i.i157:                                ; preds = %if.end.i.i.i153
-  store ptr %add.ptr.i4.i.i150, ptr %tableValidEnd.i7.i.i154, align 8
+if.then4.i.i.i156:                                ; preds = %if.end.i.i.i152
+  store ptr %add.ptr.i4.i.i149, ptr %tableValidEnd.i7.i.i153, align 8
   br label %if.end6.i.i.i
 
-if.end6.i.i.i:                                    ; preds = %if.then4.i.i.i157, %if.end.i.i.i153
-  store ptr %add.ptr.i4.i.i150, ptr %allocStart.i.i.i148, align 8
+if.end6.i.i.i:                                    ; preds = %if.then4.i.i.i156, %if.end.i.i.i152
+  store ptr %add.ptr.i4.i.i149, ptr %allocStart.i.i.i147, align 8
   br label %ZSTD_cwksp_reserve_aligned.exit
 
-ZSTD_cwksp_reserve_aligned.exit:                  ; preds = %if.then5.i.i.i, %ZSTD_cwksp_internal_advance_phase.exit.i.i145, %do.end2.i.i.i158, %if.end6.i.i.i
-  %retval.0.i.i = phi ptr [ null, %ZSTD_cwksp_internal_advance_phase.exit.i.i145 ], [ null, %do.end2.i.i.i158 ], [ %add.ptr.i4.i.i150, %if.end6.i.i.i ], [ null, %if.then5.i.i.i ]
+ZSTD_cwksp_reserve_aligned.exit:                  ; preds = %if.then5.i.i.i160, %ZSTD_cwksp_internal_advance_phase.exit.i.i144, %do.end2.i.i.i157, %if.end6.i.i.i
+  %retval.0.i.i = phi ptr [ null, %ZSTD_cwksp_internal_advance_phase.exit.i.i144 ], [ null, %do.end2.i.i.i157 ], [ %add.ptr.i4.i.i149, %if.end6.i.i.i ], [ null, %if.then5.i.i.i160 ]
   %tagTable59 = getelementptr inbounds i8, ptr %ms, i64 56
   store ptr %retval.0.i.i, ptr %tagTable59, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %retval.0.i.i, i8 0, i64 %shl3, i1 false)
@@ -14755,9 +14746,9 @@ if.end61:                                         ; preds = %ZSTD_cwksp_reserve_
   %searchLog = getelementptr inbounds i8, ptr %cParams, i64 12
   %71 = load i32, ptr %searchLog, align 4
   %spec.select61 = tail call i32 @llvm.umin.i32(i32 %71, i32 6)
-  %spec.select391 = tail call i32 @llvm.umax.i32(i32 %spec.select61, i32 4)
+  %spec.select390 = tail call i32 @llvm.umax.i32(i32 %spec.select61, i32 4)
   %72 = load i32, ptr %hashLog, align 4
-  %sub = sub i32 %72, %spec.select391
+  %sub = sub i32 %72, %spec.select390
   %rowHashLog = getelementptr inbounds i8, ptr %ms, i64 52
   store i32 %sub, ptr %rowHashLog, align 4
   br label %if.end81
@@ -14772,428 +14763,428 @@ land.lhs.true83:                                  ; preds = %if.end81
 
 do.end88:                                         ; preds = %land.lhs.true83
   %74 = load i32, ptr %phase1.i, align 8
-  %cmp.i.i.i176 = icmp ult i32 %74, 2
-  br i1 %cmp.i.i.i176, label %if.then.i.i.i192, label %ZSTD_cwksp_internal_advance_phase.exit.i.i177
+  %cmp.i.i.i175 = icmp ult i32 %74, 2
+  br i1 %cmp.i.i.i175, label %if.then.i.i.i191, label %ZSTD_cwksp_internal_advance_phase.exit.i.i176
 
-if.then.i.i.i192:                                 ; preds = %do.end88
-  %cmp3.i.i.i193 = icmp eq i32 %74, 0
-  br i1 %cmp3.i.i.i193, label %if.then5.i.i.i195, label %if.end29.i.i.i194
+if.then.i.i.i191:                                 ; preds = %do.end88
+  %cmp3.i.i.i192 = icmp eq i32 %74, 0
+  br i1 %cmp3.i.i.i192, label %if.then5.i.i.i194, label %if.end29.i.i.i193
 
-if.then5.i.i.i195:                                ; preds = %if.then.i.i.i192
+if.then5.i.i.i194:                                ; preds = %if.then.i.i.i191
   %75 = load ptr, ptr %objectEnd.i63, align 8
-  %tableValidEnd.i.i.i197 = getelementptr inbounds i8, ptr %ws, i64 32
-  store ptr %75, ptr %tableValidEnd.i.i.i197, align 8
+  %tableValidEnd.i.i.i196 = getelementptr inbounds i8, ptr %ws, i64 32
+  store ptr %75, ptr %tableValidEnd.i.i.i196, align 8
   %76 = getelementptr i8, ptr %ws, i64 8
-  %ws.val.i.i.i198 = load ptr, ptr %76, align 8
-  %77 = ptrtoint ptr %ws.val.i.i.i198 to i64
-  %and.i.i.i.i199 = and i64 %77, -64
-  %78 = inttoptr i64 %and.i.i.i.i199 to ptr
-  %initOnceStart.i.i.i200 = getelementptr inbounds i8, ptr %ws, i64 48
-  store ptr %78, ptr %initOnceStart.i.i.i200, align 8
+  %ws.val.i.i.i197 = load ptr, ptr %76, align 8
+  %77 = ptrtoint ptr %ws.val.i.i.i197 to i64
+  %and.i.i.i.i198 = and i64 %77, -64
+  %78 = inttoptr i64 %and.i.i.i.i198 to ptr
+  %initOnceStart.i.i.i199 = getelementptr inbounds i8, ptr %ws, i64 48
+  store ptr %78, ptr %initOnceStart.i.i.i199, align 8
   %79 = ptrtoint ptr %75 to i64
-  %sub1.i.i.i.i201 = sub i64 0, %79
-  %and2.i.i.i.i202 = and i64 %sub1.i.i.i.i201, 63
-  %add.ptr.i.i.i203 = getelementptr inbounds i8, ptr %75, i64 %and2.i.i.i.i202
-  %cmp10.i.i.i204 = icmp ugt ptr %add.ptr.i.i.i203, %ws.val.i.i.i198
-  br i1 %cmp10.i.i.i204, label %ZSTD_cwksp_reserve_aligned.exit209, label %do.end20.i.i.i205
+  %sub1.i.i.i.i200 = sub i64 0, %79
+  %and2.i.i.i.i201 = and i64 %sub1.i.i.i.i200, 63
+  %add.ptr.i.i.i202 = getelementptr inbounds i8, ptr %75, i64 %and2.i.i.i.i201
+  %cmp10.i.i.i203 = icmp ugt ptr %add.ptr.i.i.i202, %ws.val.i.i.i197
+  br i1 %cmp10.i.i.i203, label %ZSTD_cwksp_reserve_aligned.exit208, label %do.end20.i.i.i204
 
-do.end20.i.i.i205:                                ; preds = %if.then5.i.i.i195
-  store ptr %add.ptr.i.i.i203, ptr %objectEnd.i63, align 8
-  store ptr %add.ptr.i.i.i203, ptr %tableEnd.i, align 8
-  %cmp24.not.i.i.i207 = icmp eq i64 %and2.i.i.i.i202, 0
-  br i1 %cmp24.not.i.i.i207, label %if.end29.i.i.i194, label %if.then25.i.i.i208
+do.end20.i.i.i204:                                ; preds = %if.then5.i.i.i194
+  store ptr %add.ptr.i.i.i202, ptr %objectEnd.i63, align 8
+  store ptr %add.ptr.i.i.i202, ptr %tableEnd.i, align 8
+  %cmp24.not.i.i.i206 = icmp eq i64 %and2.i.i.i.i201, 0
+  br i1 %cmp24.not.i.i.i206, label %if.end29.i.i.i193, label %if.then25.i.i.i207
 
-if.then25.i.i.i208:                               ; preds = %do.end20.i.i.i205
-  store ptr %add.ptr.i.i.i203, ptr %tableValidEnd.i.i.i197, align 8
-  br label %if.end29.i.i.i194
+if.then25.i.i.i207:                               ; preds = %do.end20.i.i.i204
+  store ptr %add.ptr.i.i.i202, ptr %tableValidEnd.i.i.i196, align 8
+  br label %if.end29.i.i.i193
 
-if.end29.i.i.i194:                                ; preds = %if.then25.i.i.i208, %do.end20.i.i.i205, %if.then.i.i.i192
+if.end29.i.i.i193:                                ; preds = %if.then25.i.i.i207, %do.end20.i.i.i204, %if.then.i.i.i191
   store i32 2, ptr %phase1.i, align 8
-  br label %ZSTD_cwksp_internal_advance_phase.exit.i.i177
+  br label %ZSTD_cwksp_internal_advance_phase.exit.i.i176
 
-ZSTD_cwksp_internal_advance_phase.exit.i.i177:    ; preds = %if.end29.i.i.i194, %do.end88
-  %allocStart.i.i.i179 = getelementptr inbounds i8, ptr %ws, i64 40
-  %80 = load ptr, ptr %allocStart.i.i.i179, align 8
-  %add.ptr.i4.i.i180 = getelementptr inbounds i8, ptr %80, i64 -1024
+ZSTD_cwksp_internal_advance_phase.exit.i.i176:    ; preds = %if.end29.i.i.i193, %do.end88
+  %allocStart.i.i.i178 = getelementptr inbounds i8, ptr %ws, i64 40
+  %80 = load ptr, ptr %allocStart.i.i.i178, align 8
+  %add.ptr.i4.i.i179 = getelementptr inbounds i8, ptr %80, i64 -1024
   %81 = load ptr, ptr %tableEnd.i, align 8
-  %cmp.i6.i.i182 = icmp ult ptr %add.ptr.i4.i.i180, %81
-  br i1 %cmp.i6.i.i182, label %do.end2.i.i.i190, label %if.end.i.i.i183
+  %cmp.i6.i.i181 = icmp ult ptr %add.ptr.i4.i.i179, %81
+  br i1 %cmp.i6.i.i181, label %do.end2.i.i.i189, label %if.end.i.i.i182
 
-do.end2.i.i.i190:                                 ; preds = %ZSTD_cwksp_internal_advance_phase.exit.i.i177
+do.end2.i.i.i189:                                 ; preds = %ZSTD_cwksp_internal_advance_phase.exit.i.i176
   store i8 1, ptr %38, align 8
-  br label %ZSTD_cwksp_reserve_aligned.exit209
+  br label %ZSTD_cwksp_reserve_aligned.exit208
 
-if.end.i.i.i183:                                  ; preds = %ZSTD_cwksp_internal_advance_phase.exit.i.i177
-  %tableValidEnd.i7.i.i184 = getelementptr inbounds i8, ptr %ws, i64 32
-  %82 = load ptr, ptr %tableValidEnd.i7.i.i184, align 8
-  %cmp3.i8.i.i185 = icmp ult ptr %add.ptr.i4.i.i180, %82
-  br i1 %cmp3.i8.i.i185, label %if.then4.i.i.i189, label %if.end6.i.i.i186
+if.end.i.i.i182:                                  ; preds = %ZSTD_cwksp_internal_advance_phase.exit.i.i176
+  %tableValidEnd.i7.i.i183 = getelementptr inbounds i8, ptr %ws, i64 32
+  %82 = load ptr, ptr %tableValidEnd.i7.i.i183, align 8
+  %cmp3.i8.i.i184 = icmp ult ptr %add.ptr.i4.i.i179, %82
+  br i1 %cmp3.i8.i.i184, label %if.then4.i.i.i188, label %if.end6.i.i.i185
 
-if.then4.i.i.i189:                                ; preds = %if.end.i.i.i183
-  store ptr %add.ptr.i4.i.i180, ptr %tableValidEnd.i7.i.i184, align 8
-  br label %if.end6.i.i.i186
+if.then4.i.i.i188:                                ; preds = %if.end.i.i.i182
+  store ptr %add.ptr.i4.i.i179, ptr %tableValidEnd.i7.i.i183, align 8
+  br label %if.end6.i.i.i185
 
-if.end6.i.i.i186:                                 ; preds = %if.then4.i.i.i189, %if.end.i.i.i183
-  store ptr %add.ptr.i4.i.i180, ptr %allocStart.i.i.i179, align 8
-  br label %ZSTD_cwksp_reserve_aligned.exit209
+if.end6.i.i.i185:                                 ; preds = %if.then4.i.i.i188, %if.end.i.i.i182
+  store ptr %add.ptr.i4.i.i179, ptr %allocStart.i.i.i178, align 8
+  br label %ZSTD_cwksp_reserve_aligned.exit208
 
-ZSTD_cwksp_reserve_aligned.exit209:               ; preds = %if.then5.i.i.i195, %do.end2.i.i.i190, %if.end6.i.i.i186
-  %retval.0.i.i188 = phi ptr [ null, %do.end2.i.i.i190 ], [ %add.ptr.i4.i.i180, %if.end6.i.i.i186 ], [ null, %if.then5.i.i.i195 ]
+ZSTD_cwksp_reserve_aligned.exit208:               ; preds = %if.then5.i.i.i194, %do.end2.i.i.i189, %if.end6.i.i.i185
+  %retval.0.i.i187 = phi ptr [ null, %do.end2.i.i.i189 ], [ %add.ptr.i4.i.i179, %if.end6.i.i.i185 ], [ null, %if.then5.i.i.i194 ]
   %opt = getelementptr inbounds i8, ptr %ms, i64 144
-  store ptr %retval.0.i.i188, ptr %opt, align 8
+  store ptr %retval.0.i.i187, ptr %opt, align 8
   %83 = load i32, ptr %phase1.i, align 8
-  %cmp.i.i.i211 = icmp ult i32 %83, 2
-  br i1 %cmp.i.i.i211, label %if.then.i.i.i227, label %ZSTD_cwksp_internal_advance_phase.exit.i.i212
+  %cmp.i.i.i210 = icmp ult i32 %83, 2
+  br i1 %cmp.i.i.i210, label %if.then.i.i.i226, label %ZSTD_cwksp_internal_advance_phase.exit.i.i211
 
-if.then.i.i.i227:                                 ; preds = %ZSTD_cwksp_reserve_aligned.exit209
-  %cmp3.i.i.i228 = icmp eq i32 %83, 0
-  br i1 %cmp3.i.i.i228, label %if.then5.i.i.i230, label %if.end29.i.i.i229
+if.then.i.i.i226:                                 ; preds = %ZSTD_cwksp_reserve_aligned.exit208
+  %cmp3.i.i.i227 = icmp eq i32 %83, 0
+  br i1 %cmp3.i.i.i227, label %if.then5.i.i.i229, label %if.end29.i.i.i228
 
-if.then5.i.i.i230:                                ; preds = %if.then.i.i.i227
+if.then5.i.i.i229:                                ; preds = %if.then.i.i.i226
   %84 = load ptr, ptr %objectEnd.i63, align 8
-  %tableValidEnd.i.i.i232 = getelementptr inbounds i8, ptr %ws, i64 32
-  store ptr %84, ptr %tableValidEnd.i.i.i232, align 8
+  %tableValidEnd.i.i.i231 = getelementptr inbounds i8, ptr %ws, i64 32
+  store ptr %84, ptr %tableValidEnd.i.i.i231, align 8
   %85 = getelementptr i8, ptr %ws, i64 8
-  %ws.val.i.i.i233 = load ptr, ptr %85, align 8
-  %86 = ptrtoint ptr %ws.val.i.i.i233 to i64
-  %and.i.i.i.i234 = and i64 %86, -64
-  %87 = inttoptr i64 %and.i.i.i.i234 to ptr
-  %initOnceStart.i.i.i235 = getelementptr inbounds i8, ptr %ws, i64 48
-  store ptr %87, ptr %initOnceStart.i.i.i235, align 8
+  %ws.val.i.i.i232 = load ptr, ptr %85, align 8
+  %86 = ptrtoint ptr %ws.val.i.i.i232 to i64
+  %and.i.i.i.i233 = and i64 %86, -64
+  %87 = inttoptr i64 %and.i.i.i.i233 to ptr
+  %initOnceStart.i.i.i234 = getelementptr inbounds i8, ptr %ws, i64 48
+  store ptr %87, ptr %initOnceStart.i.i.i234, align 8
   %88 = ptrtoint ptr %84 to i64
-  %sub1.i.i.i.i236 = sub i64 0, %88
-  %and2.i.i.i.i237 = and i64 %sub1.i.i.i.i236, 63
-  %add.ptr.i.i.i238 = getelementptr inbounds i8, ptr %84, i64 %and2.i.i.i.i237
-  %cmp10.i.i.i239 = icmp ugt ptr %add.ptr.i.i.i238, %ws.val.i.i.i233
-  br i1 %cmp10.i.i.i239, label %ZSTD_cwksp_reserve_aligned.exit244, label %do.end20.i.i.i240
+  %sub1.i.i.i.i235 = sub i64 0, %88
+  %and2.i.i.i.i236 = and i64 %sub1.i.i.i.i235, 63
+  %add.ptr.i.i.i237 = getelementptr inbounds i8, ptr %84, i64 %and2.i.i.i.i236
+  %cmp10.i.i.i238 = icmp ugt ptr %add.ptr.i.i.i237, %ws.val.i.i.i232
+  br i1 %cmp10.i.i.i238, label %ZSTD_cwksp_reserve_aligned.exit243, label %do.end20.i.i.i239
 
-do.end20.i.i.i240:                                ; preds = %if.then5.i.i.i230
-  store ptr %add.ptr.i.i.i238, ptr %objectEnd.i63, align 8
-  store ptr %add.ptr.i.i.i238, ptr %tableEnd.i, align 8
-  %cmp24.not.i.i.i242 = icmp eq i64 %and2.i.i.i.i237, 0
-  br i1 %cmp24.not.i.i.i242, label %if.end29.i.i.i229, label %if.then25.i.i.i243
+do.end20.i.i.i239:                                ; preds = %if.then5.i.i.i229
+  store ptr %add.ptr.i.i.i237, ptr %objectEnd.i63, align 8
+  store ptr %add.ptr.i.i.i237, ptr %tableEnd.i, align 8
+  %cmp24.not.i.i.i241 = icmp eq i64 %and2.i.i.i.i236, 0
+  br i1 %cmp24.not.i.i.i241, label %if.end29.i.i.i228, label %if.then25.i.i.i242
 
-if.then25.i.i.i243:                               ; preds = %do.end20.i.i.i240
-  store ptr %add.ptr.i.i.i238, ptr %tableValidEnd.i.i.i232, align 8
-  br label %if.end29.i.i.i229
+if.then25.i.i.i242:                               ; preds = %do.end20.i.i.i239
+  store ptr %add.ptr.i.i.i237, ptr %tableValidEnd.i.i.i231, align 8
+  br label %if.end29.i.i.i228
 
-if.end29.i.i.i229:                                ; preds = %if.then25.i.i.i243, %do.end20.i.i.i240, %if.then.i.i.i227
+if.end29.i.i.i228:                                ; preds = %if.then25.i.i.i242, %do.end20.i.i.i239, %if.then.i.i.i226
   store i32 2, ptr %phase1.i, align 8
-  br label %ZSTD_cwksp_internal_advance_phase.exit.i.i212
+  br label %ZSTD_cwksp_internal_advance_phase.exit.i.i211
 
-ZSTD_cwksp_internal_advance_phase.exit.i.i212:    ; preds = %if.end29.i.i.i229, %ZSTD_cwksp_reserve_aligned.exit209
-  %allocStart.i.i.i214 = getelementptr inbounds i8, ptr %ws, i64 40
-  %89 = load ptr, ptr %allocStart.i.i.i214, align 8
-  %add.ptr.i4.i.i215 = getelementptr inbounds i8, ptr %89, i64 -192
+ZSTD_cwksp_internal_advance_phase.exit.i.i211:    ; preds = %if.end29.i.i.i228, %ZSTD_cwksp_reserve_aligned.exit208
+  %allocStart.i.i.i213 = getelementptr inbounds i8, ptr %ws, i64 40
+  %89 = load ptr, ptr %allocStart.i.i.i213, align 8
+  %add.ptr.i4.i.i214 = getelementptr inbounds i8, ptr %89, i64 -192
   %90 = load ptr, ptr %tableEnd.i, align 8
-  %cmp.i6.i.i217 = icmp ult ptr %add.ptr.i4.i.i215, %90
-  br i1 %cmp.i6.i.i217, label %do.end2.i.i.i225, label %if.end.i.i.i218
+  %cmp.i6.i.i216 = icmp ult ptr %add.ptr.i4.i.i214, %90
+  br i1 %cmp.i6.i.i216, label %do.end2.i.i.i224, label %if.end.i.i.i217
 
-do.end2.i.i.i225:                                 ; preds = %ZSTD_cwksp_internal_advance_phase.exit.i.i212
+do.end2.i.i.i224:                                 ; preds = %ZSTD_cwksp_internal_advance_phase.exit.i.i211
   store i8 1, ptr %38, align 8
-  br label %ZSTD_cwksp_reserve_aligned.exit244
+  br label %ZSTD_cwksp_reserve_aligned.exit243
 
-if.end.i.i.i218:                                  ; preds = %ZSTD_cwksp_internal_advance_phase.exit.i.i212
-  %tableValidEnd.i7.i.i219 = getelementptr inbounds i8, ptr %ws, i64 32
-  %91 = load ptr, ptr %tableValidEnd.i7.i.i219, align 8
-  %cmp3.i8.i.i220 = icmp ult ptr %add.ptr.i4.i.i215, %91
-  br i1 %cmp3.i8.i.i220, label %if.then4.i.i.i224, label %if.end6.i.i.i221
+if.end.i.i.i217:                                  ; preds = %ZSTD_cwksp_internal_advance_phase.exit.i.i211
+  %tableValidEnd.i7.i.i218 = getelementptr inbounds i8, ptr %ws, i64 32
+  %91 = load ptr, ptr %tableValidEnd.i7.i.i218, align 8
+  %cmp3.i8.i.i219 = icmp ult ptr %add.ptr.i4.i.i214, %91
+  br i1 %cmp3.i8.i.i219, label %if.then4.i.i.i223, label %if.end6.i.i.i220
 
-if.then4.i.i.i224:                                ; preds = %if.end.i.i.i218
-  store ptr %add.ptr.i4.i.i215, ptr %tableValidEnd.i7.i.i219, align 8
-  br label %if.end6.i.i.i221
+if.then4.i.i.i223:                                ; preds = %if.end.i.i.i217
+  store ptr %add.ptr.i4.i.i214, ptr %tableValidEnd.i7.i.i218, align 8
+  br label %if.end6.i.i.i220
 
-if.end6.i.i.i221:                                 ; preds = %if.then4.i.i.i224, %if.end.i.i.i218
-  store ptr %add.ptr.i4.i.i215, ptr %allocStart.i.i.i214, align 8
-  br label %ZSTD_cwksp_reserve_aligned.exit244
+if.end6.i.i.i220:                                 ; preds = %if.then4.i.i.i223, %if.end.i.i.i217
+  store ptr %add.ptr.i4.i.i214, ptr %allocStart.i.i.i213, align 8
+  br label %ZSTD_cwksp_reserve_aligned.exit243
 
-ZSTD_cwksp_reserve_aligned.exit244:               ; preds = %if.then5.i.i.i230, %do.end2.i.i.i225, %if.end6.i.i.i221
-  %retval.0.i.i223 = phi ptr [ null, %do.end2.i.i.i225 ], [ %add.ptr.i4.i.i215, %if.end6.i.i.i221 ], [ null, %if.then5.i.i.i230 ]
+ZSTD_cwksp_reserve_aligned.exit243:               ; preds = %if.then5.i.i.i229, %do.end2.i.i.i224, %if.end6.i.i.i220
+  %retval.0.i.i222 = phi ptr [ null, %do.end2.i.i.i224 ], [ %add.ptr.i4.i.i214, %if.end6.i.i.i220 ], [ null, %if.then5.i.i.i229 ]
   %litLengthFreq = getelementptr inbounds i8, ptr %ms, i64 152
-  store ptr %retval.0.i.i223, ptr %litLengthFreq, align 8
+  store ptr %retval.0.i.i222, ptr %litLengthFreq, align 8
   %92 = load i32, ptr %phase1.i, align 8
-  %cmp.i.i.i246 = icmp ult i32 %92, 2
-  br i1 %cmp.i.i.i246, label %if.then.i.i.i262, label %ZSTD_cwksp_internal_advance_phase.exit.i.i247
+  %cmp.i.i.i245 = icmp ult i32 %92, 2
+  br i1 %cmp.i.i.i245, label %if.then.i.i.i261, label %ZSTD_cwksp_internal_advance_phase.exit.i.i246
 
-if.then.i.i.i262:                                 ; preds = %ZSTD_cwksp_reserve_aligned.exit244
-  %cmp3.i.i.i263 = icmp eq i32 %92, 0
-  br i1 %cmp3.i.i.i263, label %if.then5.i.i.i265, label %if.end29.i.i.i264
+if.then.i.i.i261:                                 ; preds = %ZSTD_cwksp_reserve_aligned.exit243
+  %cmp3.i.i.i262 = icmp eq i32 %92, 0
+  br i1 %cmp3.i.i.i262, label %if.then5.i.i.i264, label %if.end29.i.i.i263
 
-if.then5.i.i.i265:                                ; preds = %if.then.i.i.i262
+if.then5.i.i.i264:                                ; preds = %if.then.i.i.i261
   %93 = load ptr, ptr %objectEnd.i63, align 8
-  %tableValidEnd.i.i.i267 = getelementptr inbounds i8, ptr %ws, i64 32
-  store ptr %93, ptr %tableValidEnd.i.i.i267, align 8
+  %tableValidEnd.i.i.i266 = getelementptr inbounds i8, ptr %ws, i64 32
+  store ptr %93, ptr %tableValidEnd.i.i.i266, align 8
   %94 = getelementptr i8, ptr %ws, i64 8
-  %ws.val.i.i.i268 = load ptr, ptr %94, align 8
-  %95 = ptrtoint ptr %ws.val.i.i.i268 to i64
-  %and.i.i.i.i269 = and i64 %95, -64
-  %96 = inttoptr i64 %and.i.i.i.i269 to ptr
-  %initOnceStart.i.i.i270 = getelementptr inbounds i8, ptr %ws, i64 48
-  store ptr %96, ptr %initOnceStart.i.i.i270, align 8
+  %ws.val.i.i.i267 = load ptr, ptr %94, align 8
+  %95 = ptrtoint ptr %ws.val.i.i.i267 to i64
+  %and.i.i.i.i268 = and i64 %95, -64
+  %96 = inttoptr i64 %and.i.i.i.i268 to ptr
+  %initOnceStart.i.i.i269 = getelementptr inbounds i8, ptr %ws, i64 48
+  store ptr %96, ptr %initOnceStart.i.i.i269, align 8
   %97 = ptrtoint ptr %93 to i64
-  %sub1.i.i.i.i271 = sub i64 0, %97
-  %and2.i.i.i.i272 = and i64 %sub1.i.i.i.i271, 63
-  %add.ptr.i.i.i273 = getelementptr inbounds i8, ptr %93, i64 %and2.i.i.i.i272
-  %cmp10.i.i.i274 = icmp ugt ptr %add.ptr.i.i.i273, %ws.val.i.i.i268
-  br i1 %cmp10.i.i.i274, label %ZSTD_cwksp_reserve_aligned.exit279, label %do.end20.i.i.i275
+  %sub1.i.i.i.i270 = sub i64 0, %97
+  %and2.i.i.i.i271 = and i64 %sub1.i.i.i.i270, 63
+  %add.ptr.i.i.i272 = getelementptr inbounds i8, ptr %93, i64 %and2.i.i.i.i271
+  %cmp10.i.i.i273 = icmp ugt ptr %add.ptr.i.i.i272, %ws.val.i.i.i267
+  br i1 %cmp10.i.i.i273, label %ZSTD_cwksp_reserve_aligned.exit278, label %do.end20.i.i.i274
 
-do.end20.i.i.i275:                                ; preds = %if.then5.i.i.i265
-  store ptr %add.ptr.i.i.i273, ptr %objectEnd.i63, align 8
-  store ptr %add.ptr.i.i.i273, ptr %tableEnd.i, align 8
-  %cmp24.not.i.i.i277 = icmp eq i64 %and2.i.i.i.i272, 0
-  br i1 %cmp24.not.i.i.i277, label %if.end29.i.i.i264, label %if.then25.i.i.i278
+do.end20.i.i.i274:                                ; preds = %if.then5.i.i.i264
+  store ptr %add.ptr.i.i.i272, ptr %objectEnd.i63, align 8
+  store ptr %add.ptr.i.i.i272, ptr %tableEnd.i, align 8
+  %cmp24.not.i.i.i276 = icmp eq i64 %and2.i.i.i.i271, 0
+  br i1 %cmp24.not.i.i.i276, label %if.end29.i.i.i263, label %if.then25.i.i.i277
 
-if.then25.i.i.i278:                               ; preds = %do.end20.i.i.i275
-  store ptr %add.ptr.i.i.i273, ptr %tableValidEnd.i.i.i267, align 8
-  br label %if.end29.i.i.i264
+if.then25.i.i.i277:                               ; preds = %do.end20.i.i.i274
+  store ptr %add.ptr.i.i.i272, ptr %tableValidEnd.i.i.i266, align 8
+  br label %if.end29.i.i.i263
 
-if.end29.i.i.i264:                                ; preds = %if.then25.i.i.i278, %do.end20.i.i.i275, %if.then.i.i.i262
+if.end29.i.i.i263:                                ; preds = %if.then25.i.i.i277, %do.end20.i.i.i274, %if.then.i.i.i261
   store i32 2, ptr %phase1.i, align 8
-  br label %ZSTD_cwksp_internal_advance_phase.exit.i.i247
+  br label %ZSTD_cwksp_internal_advance_phase.exit.i.i246
 
-ZSTD_cwksp_internal_advance_phase.exit.i.i247:    ; preds = %if.end29.i.i.i264, %ZSTD_cwksp_reserve_aligned.exit244
-  %allocStart.i.i.i249 = getelementptr inbounds i8, ptr %ws, i64 40
-  %98 = load ptr, ptr %allocStart.i.i.i249, align 8
-  %add.ptr.i4.i.i250 = getelementptr inbounds i8, ptr %98, i64 -256
+ZSTD_cwksp_internal_advance_phase.exit.i.i246:    ; preds = %if.end29.i.i.i263, %ZSTD_cwksp_reserve_aligned.exit243
+  %allocStart.i.i.i248 = getelementptr inbounds i8, ptr %ws, i64 40
+  %98 = load ptr, ptr %allocStart.i.i.i248, align 8
+  %add.ptr.i4.i.i249 = getelementptr inbounds i8, ptr %98, i64 -256
   %99 = load ptr, ptr %tableEnd.i, align 8
-  %cmp.i6.i.i252 = icmp ult ptr %add.ptr.i4.i.i250, %99
-  br i1 %cmp.i6.i.i252, label %do.end2.i.i.i260, label %if.end.i.i.i253
+  %cmp.i6.i.i251 = icmp ult ptr %add.ptr.i4.i.i249, %99
+  br i1 %cmp.i6.i.i251, label %do.end2.i.i.i259, label %if.end.i.i.i252
 
-do.end2.i.i.i260:                                 ; preds = %ZSTD_cwksp_internal_advance_phase.exit.i.i247
+do.end2.i.i.i259:                                 ; preds = %ZSTD_cwksp_internal_advance_phase.exit.i.i246
   store i8 1, ptr %38, align 8
-  br label %ZSTD_cwksp_reserve_aligned.exit279
+  br label %ZSTD_cwksp_reserve_aligned.exit278
 
-if.end.i.i.i253:                                  ; preds = %ZSTD_cwksp_internal_advance_phase.exit.i.i247
-  %tableValidEnd.i7.i.i254 = getelementptr inbounds i8, ptr %ws, i64 32
-  %100 = load ptr, ptr %tableValidEnd.i7.i.i254, align 8
-  %cmp3.i8.i.i255 = icmp ult ptr %add.ptr.i4.i.i250, %100
-  br i1 %cmp3.i8.i.i255, label %if.then4.i.i.i259, label %if.end6.i.i.i256
+if.end.i.i.i252:                                  ; preds = %ZSTD_cwksp_internal_advance_phase.exit.i.i246
+  %tableValidEnd.i7.i.i253 = getelementptr inbounds i8, ptr %ws, i64 32
+  %100 = load ptr, ptr %tableValidEnd.i7.i.i253, align 8
+  %cmp3.i8.i.i254 = icmp ult ptr %add.ptr.i4.i.i249, %100
+  br i1 %cmp3.i8.i.i254, label %if.then4.i.i.i258, label %if.end6.i.i.i255
 
-if.then4.i.i.i259:                                ; preds = %if.end.i.i.i253
-  store ptr %add.ptr.i4.i.i250, ptr %tableValidEnd.i7.i.i254, align 8
-  br label %if.end6.i.i.i256
+if.then4.i.i.i258:                                ; preds = %if.end.i.i.i252
+  store ptr %add.ptr.i4.i.i249, ptr %tableValidEnd.i7.i.i253, align 8
+  br label %if.end6.i.i.i255
 
-if.end6.i.i.i256:                                 ; preds = %if.then4.i.i.i259, %if.end.i.i.i253
-  store ptr %add.ptr.i4.i.i250, ptr %allocStart.i.i.i249, align 8
-  br label %ZSTD_cwksp_reserve_aligned.exit279
+if.end6.i.i.i255:                                 ; preds = %if.then4.i.i.i258, %if.end.i.i.i252
+  store ptr %add.ptr.i4.i.i249, ptr %allocStart.i.i.i248, align 8
+  br label %ZSTD_cwksp_reserve_aligned.exit278
 
-ZSTD_cwksp_reserve_aligned.exit279:               ; preds = %if.then5.i.i.i265, %do.end2.i.i.i260, %if.end6.i.i.i256
-  %retval.0.i.i258 = phi ptr [ null, %do.end2.i.i.i260 ], [ %add.ptr.i4.i.i250, %if.end6.i.i.i256 ], [ null, %if.then5.i.i.i265 ]
+ZSTD_cwksp_reserve_aligned.exit278:               ; preds = %if.then5.i.i.i264, %do.end2.i.i.i259, %if.end6.i.i.i255
+  %retval.0.i.i257 = phi ptr [ null, %do.end2.i.i.i259 ], [ %add.ptr.i4.i.i249, %if.end6.i.i.i255 ], [ null, %if.then5.i.i.i264 ]
   %matchLengthFreq = getelementptr inbounds i8, ptr %ms, i64 160
-  store ptr %retval.0.i.i258, ptr %matchLengthFreq, align 8
+  store ptr %retval.0.i.i257, ptr %matchLengthFreq, align 8
   %101 = load i32, ptr %phase1.i, align 8
-  %cmp.i.i.i281 = icmp ult i32 %101, 2
-  br i1 %cmp.i.i.i281, label %if.then.i.i.i297, label %ZSTD_cwksp_internal_advance_phase.exit.i.i282
+  %cmp.i.i.i280 = icmp ult i32 %101, 2
+  br i1 %cmp.i.i.i280, label %if.then.i.i.i296, label %ZSTD_cwksp_internal_advance_phase.exit.i.i281
 
-if.then.i.i.i297:                                 ; preds = %ZSTD_cwksp_reserve_aligned.exit279
-  %cmp3.i.i.i298 = icmp eq i32 %101, 0
-  br i1 %cmp3.i.i.i298, label %if.then5.i.i.i300, label %if.end29.i.i.i299
+if.then.i.i.i296:                                 ; preds = %ZSTD_cwksp_reserve_aligned.exit278
+  %cmp3.i.i.i297 = icmp eq i32 %101, 0
+  br i1 %cmp3.i.i.i297, label %if.then5.i.i.i299, label %if.end29.i.i.i298
 
-if.then5.i.i.i300:                                ; preds = %if.then.i.i.i297
+if.then5.i.i.i299:                                ; preds = %if.then.i.i.i296
   %102 = load ptr, ptr %objectEnd.i63, align 8
-  %tableValidEnd.i.i.i302 = getelementptr inbounds i8, ptr %ws, i64 32
-  store ptr %102, ptr %tableValidEnd.i.i.i302, align 8
+  %tableValidEnd.i.i.i301 = getelementptr inbounds i8, ptr %ws, i64 32
+  store ptr %102, ptr %tableValidEnd.i.i.i301, align 8
   %103 = getelementptr i8, ptr %ws, i64 8
-  %ws.val.i.i.i303 = load ptr, ptr %103, align 8
-  %104 = ptrtoint ptr %ws.val.i.i.i303 to i64
-  %and.i.i.i.i304 = and i64 %104, -64
-  %105 = inttoptr i64 %and.i.i.i.i304 to ptr
-  %initOnceStart.i.i.i305 = getelementptr inbounds i8, ptr %ws, i64 48
-  store ptr %105, ptr %initOnceStart.i.i.i305, align 8
+  %ws.val.i.i.i302 = load ptr, ptr %103, align 8
+  %104 = ptrtoint ptr %ws.val.i.i.i302 to i64
+  %and.i.i.i.i303 = and i64 %104, -64
+  %105 = inttoptr i64 %and.i.i.i.i303 to ptr
+  %initOnceStart.i.i.i304 = getelementptr inbounds i8, ptr %ws, i64 48
+  store ptr %105, ptr %initOnceStart.i.i.i304, align 8
   %106 = ptrtoint ptr %102 to i64
-  %sub1.i.i.i.i306 = sub i64 0, %106
-  %and2.i.i.i.i307 = and i64 %sub1.i.i.i.i306, 63
-  %add.ptr.i.i.i308 = getelementptr inbounds i8, ptr %102, i64 %and2.i.i.i.i307
-  %cmp10.i.i.i309 = icmp ugt ptr %add.ptr.i.i.i308, %ws.val.i.i.i303
-  br i1 %cmp10.i.i.i309, label %ZSTD_cwksp_reserve_aligned.exit314, label %do.end20.i.i.i310
+  %sub1.i.i.i.i305 = sub i64 0, %106
+  %and2.i.i.i.i306 = and i64 %sub1.i.i.i.i305, 63
+  %add.ptr.i.i.i307 = getelementptr inbounds i8, ptr %102, i64 %and2.i.i.i.i306
+  %cmp10.i.i.i308 = icmp ugt ptr %add.ptr.i.i.i307, %ws.val.i.i.i302
+  br i1 %cmp10.i.i.i308, label %ZSTD_cwksp_reserve_aligned.exit313, label %do.end20.i.i.i309
 
-do.end20.i.i.i310:                                ; preds = %if.then5.i.i.i300
-  store ptr %add.ptr.i.i.i308, ptr %objectEnd.i63, align 8
-  store ptr %add.ptr.i.i.i308, ptr %tableEnd.i, align 8
-  %cmp24.not.i.i.i312 = icmp eq i64 %and2.i.i.i.i307, 0
-  br i1 %cmp24.not.i.i.i312, label %if.end29.i.i.i299, label %if.then25.i.i.i313
+do.end20.i.i.i309:                                ; preds = %if.then5.i.i.i299
+  store ptr %add.ptr.i.i.i307, ptr %objectEnd.i63, align 8
+  store ptr %add.ptr.i.i.i307, ptr %tableEnd.i, align 8
+  %cmp24.not.i.i.i311 = icmp eq i64 %and2.i.i.i.i306, 0
+  br i1 %cmp24.not.i.i.i311, label %if.end29.i.i.i298, label %if.then25.i.i.i312
 
-if.then25.i.i.i313:                               ; preds = %do.end20.i.i.i310
-  store ptr %add.ptr.i.i.i308, ptr %tableValidEnd.i.i.i302, align 8
-  br label %if.end29.i.i.i299
+if.then25.i.i.i312:                               ; preds = %do.end20.i.i.i309
+  store ptr %add.ptr.i.i.i307, ptr %tableValidEnd.i.i.i301, align 8
+  br label %if.end29.i.i.i298
 
-if.end29.i.i.i299:                                ; preds = %if.then25.i.i.i313, %do.end20.i.i.i310, %if.then.i.i.i297
+if.end29.i.i.i298:                                ; preds = %if.then25.i.i.i312, %do.end20.i.i.i309, %if.then.i.i.i296
   store i32 2, ptr %phase1.i, align 8
-  br label %ZSTD_cwksp_internal_advance_phase.exit.i.i282
+  br label %ZSTD_cwksp_internal_advance_phase.exit.i.i281
 
-ZSTD_cwksp_internal_advance_phase.exit.i.i282:    ; preds = %if.end29.i.i.i299, %ZSTD_cwksp_reserve_aligned.exit279
-  %allocStart.i.i.i284 = getelementptr inbounds i8, ptr %ws, i64 40
-  %107 = load ptr, ptr %allocStart.i.i.i284, align 8
-  %add.ptr.i4.i.i285 = getelementptr inbounds i8, ptr %107, i64 -128
+ZSTD_cwksp_internal_advance_phase.exit.i.i281:    ; preds = %if.end29.i.i.i298, %ZSTD_cwksp_reserve_aligned.exit278
+  %allocStart.i.i.i283 = getelementptr inbounds i8, ptr %ws, i64 40
+  %107 = load ptr, ptr %allocStart.i.i.i283, align 8
+  %add.ptr.i4.i.i284 = getelementptr inbounds i8, ptr %107, i64 -128
   %108 = load ptr, ptr %tableEnd.i, align 8
-  %cmp.i6.i.i287 = icmp ult ptr %add.ptr.i4.i.i285, %108
-  br i1 %cmp.i6.i.i287, label %do.end2.i.i.i295, label %if.end.i.i.i288
+  %cmp.i6.i.i286 = icmp ult ptr %add.ptr.i4.i.i284, %108
+  br i1 %cmp.i6.i.i286, label %do.end2.i.i.i294, label %if.end.i.i.i287
 
-do.end2.i.i.i295:                                 ; preds = %ZSTD_cwksp_internal_advance_phase.exit.i.i282
+do.end2.i.i.i294:                                 ; preds = %ZSTD_cwksp_internal_advance_phase.exit.i.i281
   store i8 1, ptr %38, align 8
-  br label %ZSTD_cwksp_reserve_aligned.exit314
+  br label %ZSTD_cwksp_reserve_aligned.exit313
 
-if.end.i.i.i288:                                  ; preds = %ZSTD_cwksp_internal_advance_phase.exit.i.i282
-  %tableValidEnd.i7.i.i289 = getelementptr inbounds i8, ptr %ws, i64 32
-  %109 = load ptr, ptr %tableValidEnd.i7.i.i289, align 8
-  %cmp3.i8.i.i290 = icmp ult ptr %add.ptr.i4.i.i285, %109
-  br i1 %cmp3.i8.i.i290, label %if.then4.i.i.i294, label %if.end6.i.i.i291
+if.end.i.i.i287:                                  ; preds = %ZSTD_cwksp_internal_advance_phase.exit.i.i281
+  %tableValidEnd.i7.i.i288 = getelementptr inbounds i8, ptr %ws, i64 32
+  %109 = load ptr, ptr %tableValidEnd.i7.i.i288, align 8
+  %cmp3.i8.i.i289 = icmp ult ptr %add.ptr.i4.i.i284, %109
+  br i1 %cmp3.i8.i.i289, label %if.then4.i.i.i293, label %if.end6.i.i.i290
 
-if.then4.i.i.i294:                                ; preds = %if.end.i.i.i288
-  store ptr %add.ptr.i4.i.i285, ptr %tableValidEnd.i7.i.i289, align 8
-  br label %if.end6.i.i.i291
+if.then4.i.i.i293:                                ; preds = %if.end.i.i.i287
+  store ptr %add.ptr.i4.i.i284, ptr %tableValidEnd.i7.i.i288, align 8
+  br label %if.end6.i.i.i290
 
-if.end6.i.i.i291:                                 ; preds = %if.then4.i.i.i294, %if.end.i.i.i288
-  store ptr %add.ptr.i4.i.i285, ptr %allocStart.i.i.i284, align 8
-  br label %ZSTD_cwksp_reserve_aligned.exit314
+if.end6.i.i.i290:                                 ; preds = %if.then4.i.i.i293, %if.end.i.i.i287
+  store ptr %add.ptr.i4.i.i284, ptr %allocStart.i.i.i283, align 8
+  br label %ZSTD_cwksp_reserve_aligned.exit313
 
-ZSTD_cwksp_reserve_aligned.exit314:               ; preds = %if.then5.i.i.i300, %do.end2.i.i.i295, %if.end6.i.i.i291
-  %retval.0.i.i293 = phi ptr [ null, %do.end2.i.i.i295 ], [ %add.ptr.i4.i.i285, %if.end6.i.i.i291 ], [ null, %if.then5.i.i.i300 ]
+ZSTD_cwksp_reserve_aligned.exit313:               ; preds = %if.then5.i.i.i299, %do.end2.i.i.i294, %if.end6.i.i.i290
+  %retval.0.i.i292 = phi ptr [ null, %do.end2.i.i.i294 ], [ %add.ptr.i4.i.i284, %if.end6.i.i.i290 ], [ null, %if.then5.i.i.i299 ]
   %offCodeFreq = getelementptr inbounds i8, ptr %ms, i64 168
-  store ptr %retval.0.i.i293, ptr %offCodeFreq, align 8
+  store ptr %retval.0.i.i292, ptr %offCodeFreq, align 8
   %110 = load i32, ptr %phase1.i, align 8
-  %cmp.i.i.i316 = icmp ult i32 %110, 2
-  br i1 %cmp.i.i.i316, label %if.then.i.i.i332, label %ZSTD_cwksp_internal_advance_phase.exit.i.i317
+  %cmp.i.i.i315 = icmp ult i32 %110, 2
+  br i1 %cmp.i.i.i315, label %if.then.i.i.i331, label %ZSTD_cwksp_internal_advance_phase.exit.i.i316
 
-if.then.i.i.i332:                                 ; preds = %ZSTD_cwksp_reserve_aligned.exit314
-  %cmp3.i.i.i333 = icmp eq i32 %110, 0
-  br i1 %cmp3.i.i.i333, label %if.then5.i.i.i335, label %if.end29.i.i.i334
+if.then.i.i.i331:                                 ; preds = %ZSTD_cwksp_reserve_aligned.exit313
+  %cmp3.i.i.i332 = icmp eq i32 %110, 0
+  br i1 %cmp3.i.i.i332, label %if.then5.i.i.i334, label %if.end29.i.i.i333
 
-if.then5.i.i.i335:                                ; preds = %if.then.i.i.i332
+if.then5.i.i.i334:                                ; preds = %if.then.i.i.i331
   %111 = load ptr, ptr %objectEnd.i63, align 8
-  %tableValidEnd.i.i.i337 = getelementptr inbounds i8, ptr %ws, i64 32
-  store ptr %111, ptr %tableValidEnd.i.i.i337, align 8
+  %tableValidEnd.i.i.i336 = getelementptr inbounds i8, ptr %ws, i64 32
+  store ptr %111, ptr %tableValidEnd.i.i.i336, align 8
   %112 = getelementptr i8, ptr %ws, i64 8
-  %ws.val.i.i.i338 = load ptr, ptr %112, align 8
-  %113 = ptrtoint ptr %ws.val.i.i.i338 to i64
-  %and.i.i.i.i339 = and i64 %113, -64
-  %114 = inttoptr i64 %and.i.i.i.i339 to ptr
-  %initOnceStart.i.i.i340 = getelementptr inbounds i8, ptr %ws, i64 48
-  store ptr %114, ptr %initOnceStart.i.i.i340, align 8
+  %ws.val.i.i.i337 = load ptr, ptr %112, align 8
+  %113 = ptrtoint ptr %ws.val.i.i.i337 to i64
+  %and.i.i.i.i338 = and i64 %113, -64
+  %114 = inttoptr i64 %and.i.i.i.i338 to ptr
+  %initOnceStart.i.i.i339 = getelementptr inbounds i8, ptr %ws, i64 48
+  store ptr %114, ptr %initOnceStart.i.i.i339, align 8
   %115 = ptrtoint ptr %111 to i64
-  %sub1.i.i.i.i341 = sub i64 0, %115
-  %and2.i.i.i.i342 = and i64 %sub1.i.i.i.i341, 63
-  %add.ptr.i.i.i343 = getelementptr inbounds i8, ptr %111, i64 %and2.i.i.i.i342
-  %cmp10.i.i.i344 = icmp ugt ptr %add.ptr.i.i.i343, %ws.val.i.i.i338
-  br i1 %cmp10.i.i.i344, label %ZSTD_cwksp_reserve_aligned.exit349, label %do.end20.i.i.i345
+  %sub1.i.i.i.i340 = sub i64 0, %115
+  %and2.i.i.i.i341 = and i64 %sub1.i.i.i.i340, 63
+  %add.ptr.i.i.i342 = getelementptr inbounds i8, ptr %111, i64 %and2.i.i.i.i341
+  %cmp10.i.i.i343 = icmp ugt ptr %add.ptr.i.i.i342, %ws.val.i.i.i337
+  br i1 %cmp10.i.i.i343, label %ZSTD_cwksp_reserve_aligned.exit348, label %do.end20.i.i.i344
 
-do.end20.i.i.i345:                                ; preds = %if.then5.i.i.i335
-  store ptr %add.ptr.i.i.i343, ptr %objectEnd.i63, align 8
-  store ptr %add.ptr.i.i.i343, ptr %tableEnd.i, align 8
-  %cmp24.not.i.i.i347 = icmp eq i64 %and2.i.i.i.i342, 0
-  br i1 %cmp24.not.i.i.i347, label %if.end29.i.i.i334, label %if.then25.i.i.i348
+do.end20.i.i.i344:                                ; preds = %if.then5.i.i.i334
+  store ptr %add.ptr.i.i.i342, ptr %objectEnd.i63, align 8
+  store ptr %add.ptr.i.i.i342, ptr %tableEnd.i, align 8
+  %cmp24.not.i.i.i346 = icmp eq i64 %and2.i.i.i.i341, 0
+  br i1 %cmp24.not.i.i.i346, label %if.end29.i.i.i333, label %if.then25.i.i.i347
 
-if.then25.i.i.i348:                               ; preds = %do.end20.i.i.i345
-  store ptr %add.ptr.i.i.i343, ptr %tableValidEnd.i.i.i337, align 8
-  br label %if.end29.i.i.i334
+if.then25.i.i.i347:                               ; preds = %do.end20.i.i.i344
+  store ptr %add.ptr.i.i.i342, ptr %tableValidEnd.i.i.i336, align 8
+  br label %if.end29.i.i.i333
 
-if.end29.i.i.i334:                                ; preds = %if.then25.i.i.i348, %do.end20.i.i.i345, %if.then.i.i.i332
+if.end29.i.i.i333:                                ; preds = %if.then25.i.i.i347, %do.end20.i.i.i344, %if.then.i.i.i331
   store i32 2, ptr %phase1.i, align 8
-  br label %ZSTD_cwksp_internal_advance_phase.exit.i.i317
+  br label %ZSTD_cwksp_internal_advance_phase.exit.i.i316
 
-ZSTD_cwksp_internal_advance_phase.exit.i.i317:    ; preds = %if.end29.i.i.i334, %ZSTD_cwksp_reserve_aligned.exit314
-  %allocStart.i.i.i319 = getelementptr inbounds i8, ptr %ws, i64 40
-  %116 = load ptr, ptr %allocStart.i.i.i319, align 8
-  %add.ptr.i4.i.i320 = getelementptr inbounds i8, ptr %116, i64 -32832
+ZSTD_cwksp_internal_advance_phase.exit.i.i316:    ; preds = %if.end29.i.i.i333, %ZSTD_cwksp_reserve_aligned.exit313
+  %allocStart.i.i.i318 = getelementptr inbounds i8, ptr %ws, i64 40
+  %116 = load ptr, ptr %allocStart.i.i.i318, align 8
+  %add.ptr.i4.i.i319 = getelementptr inbounds i8, ptr %116, i64 -32832
   %117 = load ptr, ptr %tableEnd.i, align 8
-  %cmp.i6.i.i322 = icmp ult ptr %add.ptr.i4.i.i320, %117
-  br i1 %cmp.i6.i.i322, label %do.end2.i.i.i330, label %if.end.i.i.i323
+  %cmp.i6.i.i321 = icmp ult ptr %add.ptr.i4.i.i319, %117
+  br i1 %cmp.i6.i.i321, label %do.end2.i.i.i329, label %if.end.i.i.i322
 
-do.end2.i.i.i330:                                 ; preds = %ZSTD_cwksp_internal_advance_phase.exit.i.i317
+do.end2.i.i.i329:                                 ; preds = %ZSTD_cwksp_internal_advance_phase.exit.i.i316
   store i8 1, ptr %38, align 8
-  br label %ZSTD_cwksp_reserve_aligned.exit349
+  br label %ZSTD_cwksp_reserve_aligned.exit348
 
-if.end.i.i.i323:                                  ; preds = %ZSTD_cwksp_internal_advance_phase.exit.i.i317
-  %tableValidEnd.i7.i.i324 = getelementptr inbounds i8, ptr %ws, i64 32
-  %118 = load ptr, ptr %tableValidEnd.i7.i.i324, align 8
-  %cmp3.i8.i.i325 = icmp ult ptr %add.ptr.i4.i.i320, %118
-  br i1 %cmp3.i8.i.i325, label %if.then4.i.i.i329, label %if.end6.i.i.i326
+if.end.i.i.i322:                                  ; preds = %ZSTD_cwksp_internal_advance_phase.exit.i.i316
+  %tableValidEnd.i7.i.i323 = getelementptr inbounds i8, ptr %ws, i64 32
+  %118 = load ptr, ptr %tableValidEnd.i7.i.i323, align 8
+  %cmp3.i8.i.i324 = icmp ult ptr %add.ptr.i4.i.i319, %118
+  br i1 %cmp3.i8.i.i324, label %if.then4.i.i.i328, label %if.end6.i.i.i325
 
-if.then4.i.i.i329:                                ; preds = %if.end.i.i.i323
-  store ptr %add.ptr.i4.i.i320, ptr %tableValidEnd.i7.i.i324, align 8
-  br label %if.end6.i.i.i326
+if.then4.i.i.i328:                                ; preds = %if.end.i.i.i322
+  store ptr %add.ptr.i4.i.i319, ptr %tableValidEnd.i7.i.i323, align 8
+  br label %if.end6.i.i.i325
 
-if.end6.i.i.i326:                                 ; preds = %if.then4.i.i.i329, %if.end.i.i.i323
-  store ptr %add.ptr.i4.i.i320, ptr %allocStart.i.i.i319, align 8
-  br label %ZSTD_cwksp_reserve_aligned.exit349
+if.end6.i.i.i325:                                 ; preds = %if.then4.i.i.i328, %if.end.i.i.i322
+  store ptr %add.ptr.i4.i.i319, ptr %allocStart.i.i.i318, align 8
+  br label %ZSTD_cwksp_reserve_aligned.exit348
 
-ZSTD_cwksp_reserve_aligned.exit349:               ; preds = %if.then5.i.i.i335, %do.end2.i.i.i330, %if.end6.i.i.i326
-  %retval.0.i.i328 = phi ptr [ null, %do.end2.i.i.i330 ], [ %add.ptr.i4.i.i320, %if.end6.i.i.i326 ], [ null, %if.then5.i.i.i335 ]
+ZSTD_cwksp_reserve_aligned.exit348:               ; preds = %if.then5.i.i.i334, %do.end2.i.i.i329, %if.end6.i.i.i325
+  %retval.0.i.i327 = phi ptr [ null, %do.end2.i.i.i329 ], [ %add.ptr.i4.i.i319, %if.end6.i.i.i325 ], [ null, %if.then5.i.i.i334 ]
   %matchTable = getelementptr inbounds i8, ptr %ms, i64 176
-  store ptr %retval.0.i.i328, ptr %matchTable, align 8
+  store ptr %retval.0.i.i327, ptr %matchTable, align 8
   %119 = load i32, ptr %phase1.i, align 8
-  %cmp.i.i.i351 = icmp ult i32 %119, 2
-  br i1 %cmp.i.i.i351, label %if.then.i.i.i367, label %ZSTD_cwksp_internal_advance_phase.exit.i.i352
+  %cmp.i.i.i350 = icmp ult i32 %119, 2
+  br i1 %cmp.i.i.i350, label %if.then.i.i.i366, label %ZSTD_cwksp_internal_advance_phase.exit.i.i351
 
-if.then.i.i.i367:                                 ; preds = %ZSTD_cwksp_reserve_aligned.exit349
-  %cmp3.i.i.i368 = icmp eq i32 %119, 0
-  br i1 %cmp3.i.i.i368, label %if.then5.i.i.i370, label %if.end29.i.i.i369
+if.then.i.i.i366:                                 ; preds = %ZSTD_cwksp_reserve_aligned.exit348
+  %cmp3.i.i.i367 = icmp eq i32 %119, 0
+  br i1 %cmp3.i.i.i367, label %if.then5.i.i.i369, label %if.end29.i.i.i368
 
-if.then5.i.i.i370:                                ; preds = %if.then.i.i.i367
+if.then5.i.i.i369:                                ; preds = %if.then.i.i.i366
   %120 = load ptr, ptr %objectEnd.i63, align 8
-  %tableValidEnd.i.i.i372 = getelementptr inbounds i8, ptr %ws, i64 32
-  store ptr %120, ptr %tableValidEnd.i.i.i372, align 8
+  %tableValidEnd.i.i.i371 = getelementptr inbounds i8, ptr %ws, i64 32
+  store ptr %120, ptr %tableValidEnd.i.i.i371, align 8
   %121 = getelementptr i8, ptr %ws, i64 8
-  %ws.val.i.i.i373 = load ptr, ptr %121, align 8
-  %122 = ptrtoint ptr %ws.val.i.i.i373 to i64
-  %and.i.i.i.i374 = and i64 %122, -64
-  %123 = inttoptr i64 %and.i.i.i.i374 to ptr
-  %initOnceStart.i.i.i375 = getelementptr inbounds i8, ptr %ws, i64 48
-  store ptr %123, ptr %initOnceStart.i.i.i375, align 8
+  %ws.val.i.i.i372 = load ptr, ptr %121, align 8
+  %122 = ptrtoint ptr %ws.val.i.i.i372 to i64
+  %and.i.i.i.i373 = and i64 %122, -64
+  %123 = inttoptr i64 %and.i.i.i.i373 to ptr
+  %initOnceStart.i.i.i374 = getelementptr inbounds i8, ptr %ws, i64 48
+  store ptr %123, ptr %initOnceStart.i.i.i374, align 8
   %124 = ptrtoint ptr %120 to i64
-  %sub1.i.i.i.i376 = sub i64 0, %124
-  %and2.i.i.i.i377 = and i64 %sub1.i.i.i.i376, 63
-  %add.ptr.i.i.i378 = getelementptr inbounds i8, ptr %120, i64 %and2.i.i.i.i377
-  %cmp10.i.i.i379 = icmp ugt ptr %add.ptr.i.i.i378, %ws.val.i.i.i373
-  br i1 %cmp10.i.i.i379, label %ZSTD_cwksp_reserve_aligned.exit384, label %do.end20.i.i.i380
+  %sub1.i.i.i.i375 = sub i64 0, %124
+  %and2.i.i.i.i376 = and i64 %sub1.i.i.i.i375, 63
+  %add.ptr.i.i.i377 = getelementptr inbounds i8, ptr %120, i64 %and2.i.i.i.i376
+  %cmp10.i.i.i378 = icmp ugt ptr %add.ptr.i.i.i377, %ws.val.i.i.i372
+  br i1 %cmp10.i.i.i378, label %ZSTD_cwksp_reserve_aligned.exit383, label %do.end20.i.i.i379
 
-do.end20.i.i.i380:                                ; preds = %if.then5.i.i.i370
-  store ptr %add.ptr.i.i.i378, ptr %objectEnd.i63, align 8
-  store ptr %add.ptr.i.i.i378, ptr %tableEnd.i, align 8
-  %cmp24.not.i.i.i382 = icmp eq i64 %and2.i.i.i.i377, 0
-  br i1 %cmp24.not.i.i.i382, label %if.end29.i.i.i369, label %if.then25.i.i.i383
+do.end20.i.i.i379:                                ; preds = %if.then5.i.i.i369
+  store ptr %add.ptr.i.i.i377, ptr %objectEnd.i63, align 8
+  store ptr %add.ptr.i.i.i377, ptr %tableEnd.i, align 8
+  %cmp24.not.i.i.i381 = icmp eq i64 %and2.i.i.i.i376, 0
+  br i1 %cmp24.not.i.i.i381, label %if.end29.i.i.i368, label %if.then25.i.i.i382
 
-if.then25.i.i.i383:                               ; preds = %do.end20.i.i.i380
-  store ptr %add.ptr.i.i.i378, ptr %tableValidEnd.i.i.i372, align 8
-  br label %if.end29.i.i.i369
+if.then25.i.i.i382:                               ; preds = %do.end20.i.i.i379
+  store ptr %add.ptr.i.i.i377, ptr %tableValidEnd.i.i.i371, align 8
+  br label %if.end29.i.i.i368
 
-if.end29.i.i.i369:                                ; preds = %if.then25.i.i.i383, %do.end20.i.i.i380, %if.then.i.i.i367
+if.end29.i.i.i368:                                ; preds = %if.then25.i.i.i382, %do.end20.i.i.i379, %if.then.i.i.i366
   store i32 2, ptr %phase1.i, align 8
-  br label %ZSTD_cwksp_internal_advance_phase.exit.i.i352
+  br label %ZSTD_cwksp_internal_advance_phase.exit.i.i351
 
-ZSTD_cwksp_internal_advance_phase.exit.i.i352:    ; preds = %if.end29.i.i.i369, %ZSTD_cwksp_reserve_aligned.exit349
-  %allocStart.i.i.i354 = getelementptr inbounds i8, ptr %ws, i64 40
-  %125 = load ptr, ptr %allocStart.i.i.i354, align 8
-  %add.ptr.i4.i.i355 = getelementptr inbounds i8, ptr %125, i64 -114752
+ZSTD_cwksp_internal_advance_phase.exit.i.i351:    ; preds = %if.end29.i.i.i368, %ZSTD_cwksp_reserve_aligned.exit348
+  %allocStart.i.i.i353 = getelementptr inbounds i8, ptr %ws, i64 40
+  %125 = load ptr, ptr %allocStart.i.i.i353, align 8
+  %add.ptr.i4.i.i354 = getelementptr inbounds i8, ptr %125, i64 -114752
   %126 = load ptr, ptr %tableEnd.i, align 8
-  %cmp.i6.i.i357 = icmp ult ptr %add.ptr.i4.i.i355, %126
-  br i1 %cmp.i6.i.i357, label %do.end2.i.i.i365, label %if.end.i.i.i358
+  %cmp.i6.i.i356 = icmp ult ptr %add.ptr.i4.i.i354, %126
+  br i1 %cmp.i6.i.i356, label %do.end2.i.i.i364, label %if.end.i.i.i357
 
-do.end2.i.i.i365:                                 ; preds = %ZSTD_cwksp_internal_advance_phase.exit.i.i352
+do.end2.i.i.i364:                                 ; preds = %ZSTD_cwksp_internal_advance_phase.exit.i.i351
   store i8 1, ptr %38, align 8
-  br label %ZSTD_cwksp_reserve_aligned.exit384
+  br label %ZSTD_cwksp_reserve_aligned.exit383
 
-if.end.i.i.i358:                                  ; preds = %ZSTD_cwksp_internal_advance_phase.exit.i.i352
-  %tableValidEnd.i7.i.i359 = getelementptr inbounds i8, ptr %ws, i64 32
-  %127 = load ptr, ptr %tableValidEnd.i7.i.i359, align 8
-  %cmp3.i8.i.i360 = icmp ult ptr %add.ptr.i4.i.i355, %127
-  br i1 %cmp3.i8.i.i360, label %if.then4.i.i.i364, label %if.end6.i.i.i361
+if.end.i.i.i357:                                  ; preds = %ZSTD_cwksp_internal_advance_phase.exit.i.i351
+  %tableValidEnd.i7.i.i358 = getelementptr inbounds i8, ptr %ws, i64 32
+  %127 = load ptr, ptr %tableValidEnd.i7.i.i358, align 8
+  %cmp3.i8.i.i359 = icmp ult ptr %add.ptr.i4.i.i354, %127
+  br i1 %cmp3.i8.i.i359, label %if.then4.i.i.i363, label %if.end6.i.i.i360
 
-if.then4.i.i.i364:                                ; preds = %if.end.i.i.i358
-  store ptr %add.ptr.i4.i.i355, ptr %tableValidEnd.i7.i.i359, align 8
-  br label %if.end6.i.i.i361
+if.then4.i.i.i363:                                ; preds = %if.end.i.i.i357
+  store ptr %add.ptr.i4.i.i354, ptr %tableValidEnd.i7.i.i358, align 8
+  br label %if.end6.i.i.i360
 
-if.end6.i.i.i361:                                 ; preds = %if.then4.i.i.i364, %if.end.i.i.i358
-  store ptr %add.ptr.i4.i.i355, ptr %allocStart.i.i.i354, align 8
-  br label %ZSTD_cwksp_reserve_aligned.exit384
+if.end6.i.i.i360:                                 ; preds = %if.then4.i.i.i363, %if.end.i.i.i357
+  store ptr %add.ptr.i4.i.i354, ptr %allocStart.i.i.i353, align 8
+  br label %ZSTD_cwksp_reserve_aligned.exit383
 
-ZSTD_cwksp_reserve_aligned.exit384:               ; preds = %if.then5.i.i.i370, %do.end2.i.i.i365, %if.end6.i.i.i361
-  %retval.0.i.i363 = phi ptr [ null, %do.end2.i.i.i365 ], [ %add.ptr.i4.i.i355, %if.end6.i.i.i361 ], [ null, %if.then5.i.i.i370 ]
+ZSTD_cwksp_reserve_aligned.exit383:               ; preds = %if.then5.i.i.i369, %do.end2.i.i.i364, %if.end6.i.i.i360
+  %retval.0.i.i362 = phi ptr [ null, %do.end2.i.i.i364 ], [ %add.ptr.i4.i.i354, %if.end6.i.i.i360 ], [ null, %if.then5.i.i.i369 ]
   %priceTable = getelementptr inbounds i8, ptr %ms, i64 184
-  store ptr %retval.0.i.i363, ptr %priceTable, align 8
+  store ptr %retval.0.i.i362, ptr %priceTable, align 8
   br label %if.end100
 
-if.end100:                                        ; preds = %ZSTD_cwksp_reserve_aligned.exit384, %land.lhs.true83, %if.end81
+if.end100:                                        ; preds = %ZSTD_cwksp_reserve_aligned.exit383, %land.lhs.true83, %if.end81
   %cParams101 = getelementptr inbounds i8, ptr %ms, i64 256
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(28) %cParams101, ptr noundef nonnull align 4 dereferenceable(28) %cParams, i64 28, i1 false)
   %ws.val62 = load i8, ptr %38, align 8
@@ -15258,7 +15249,7 @@ for.body.i:                                       ; preds = %ZSTD_MLcode.exit.i,
   %litLength.i = getelementptr inbounds i8, ptr %arrayidx.i, i64 4
   %6 = load i16, ptr %litLength.i, align 4
   %7 = load i32, ptr %arrayidx.i, align 4
-  %8 = tail call i32 @llvm.ctlz.i32(i32 %7, i1 true), !range !8
+  %8 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %7, i1 true)
   %mlBase.i = getelementptr inbounds i8, ptr %arrayidx.i, i64 6
   %9 = load i16, ptr %mlBase.i, align 2
   %conv10.i = zext i16 %9 to i32
@@ -15267,7 +15258,7 @@ for.body.i:                                       ; preds = %ZSTD_MLcode.exit.i,
 
 cond.true.i.i:                                    ; preds = %for.body.i
   %conv4.i = zext i16 %6 to i32
-  %10 = tail call i32 @llvm.ctlz.i32(i32 %conv4.i, i1 true), !range !8
+  %10 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %conv4.i, i1 true)
   %add.i.i = sub nuw nsw i32 50, %10
   br label %ZSTD_LLcode.exit.i
 
@@ -15291,7 +15282,7 @@ ZSTD_LLcode.exit.i:                               ; preds = %cond.false.i.i, %co
   br i1 %cmp.i22.i, label %cond.true.i28.i, label %cond.false.i23.i
 
 cond.true.i28.i:                                  ; preds = %ZSTD_LLcode.exit.i
-  %13 = tail call i32 @llvm.ctlz.i32(i32 %conv10.i, i1 true), !range !8
+  %13 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %conv10.i, i1 true)
   %add.i29.i = sub nuw nsw i32 67, %13
   br label %ZSTD_MLcode.exit.i
 
@@ -15309,7 +15300,7 @@ ZSTD_MLcode.exit.i:                               ; preds = %cond.false.i23.i, %
   store i8 %conv19.i, ptr %arrayidx21.i, align 1
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %for.end.i, label %for.body.i, !llvm.loop !36
+  br i1 %exitcond.not.i, label %for.end.i, label %for.body.i, !llvm.loop !34
 
 for.end.i:                                        ; preds = %ZSTD_MLcode.exit.i, %entry
   %longLengthType.i = getelementptr inbounds i8, ptr %seqStorePtr, i64 72
@@ -15536,14 +15527,14 @@ if.else.i.i.i:                                    ; preds = %if.else.i.i.i, %for
   %indvars.iv.next.i.i = add nsw i64 %indvars.iv.i.i, 1
   %lftr.wideiv = trunc i64 %indvars.iv.next.i.i to i32
   %exitcond = icmp eq i32 %indvars.iv.i, %lftr.wideiv
-  br i1 %exitcond, label %for.end.i.i.i, label %if.else.i.i.i, !llvm.loop !93
+  br i1 %exitcond, label %for.end.i.i.i, label %if.else.i.i.i, !llvm.loop !89
 
 for.end.i.i.i:                                    ; preds = %if.else.i.i.i
   %15 = add i32 %cellNb.i.015.i.i, 16
   %inc17.i.i.i = add nuw nsw i32 %rowNb.i.014.i.i, 1
   %exitcond17.not.i.i = icmp eq i32 %inc17.i.i.i, %div.i.i.i
   %indvars.iv.next.i = add i32 %indvars.iv.i, 16
-  br i1 %exitcond17.not.i.i, label %ZSTD_reduceTable.exit.i, label %for.cond1.i.preheader.i.i, !llvm.loop !94
+  br i1 %exitcond17.not.i.i, label %ZSTD_reduceTable.exit.i, label %for.cond1.i.preheader.i.i, !llvm.loop !90
 
 ZSTD_reduceTable.exit.i:                          ; preds = %for.end.i.i.i, %if.then
   %16 = load i32, ptr %strategy, align 4
@@ -15598,14 +15589,14 @@ land.lhs.true.i.i.i:                              ; preds = %land.lhs.true.i.i.i
   %indvars.iv.next.i25.i = add nsw i64 %indvars.iv.i21.i, 1
   %lftr.wideiv35 = trunc i64 %indvars.iv.next.i25.i to i32
   %exitcond36 = icmp eq i32 %indvars.iv80.i, %lftr.wideiv35
-  br i1 %exitcond36, label %for.end.i.i28.i, label %land.lhs.true.i.i.i, !llvm.loop !93
+  br i1 %exitcond36, label %for.end.i.i28.i, label %land.lhs.true.i.i.i, !llvm.loop !89
 
 for.end.i.i28.i:                                  ; preds = %land.lhs.true.i.i.i
   %25 = add i32 %cellNb.i.015.i19.i, 16
   %inc17.i.i29.i = add nuw nsw i32 %rowNb.i.014.i20.i, 1
   %exitcond17.not.i30.i = icmp eq i32 %inc17.i.i29.i, %div.i.i15.i
   %indvars.iv.next81.i = add i32 %indvars.iv80.i, 16
-  br i1 %exitcond17.not.i30.i, label %if.end8.i, label %for.cond1.i.preheader.i18.i, !llvm.loop !94
+  br i1 %exitcond17.not.i30.i, label %if.end8.i, label %for.cond1.i.preheader.i18.i, !llvm.loop !90
 
 if.else.i:                                        ; preds = %if.then.i
   br i1 %cmp.i13.i17.i, label %for.cond1.i.preheader.i34.i, label %if.end8.i
@@ -15628,14 +15619,14 @@ if.else.i.i37.i:                                  ; preds = %if.else.i.i37.i, %f
   %indvars.iv.next.i43.i = add nsw i64 %indvars.iv.i38.i, 1
   %lftr.wideiv33 = trunc i64 %indvars.iv.next.i43.i to i32
   %exitcond34 = icmp eq i32 %indvars.iv76.i, %lftr.wideiv33
-  br i1 %exitcond34, label %for.end.i.i46.i, label %if.else.i.i37.i, !llvm.loop !93
+  br i1 %exitcond34, label %for.end.i.i46.i, label %if.else.i.i37.i, !llvm.loop !89
 
 for.end.i.i46.i:                                  ; preds = %if.else.i.i37.i
   %28 = add i32 %cellNb.i.015.i35.i, 16
   %inc17.i.i47.i = add nuw nsw i32 %rowNb.i.014.i36.i, 1
   %exitcond17.not.i48.i = icmp eq i32 %inc17.i.i47.i, %div.i.i15.i
   %indvars.iv.next77.i = add i32 %indvars.iv76.i, 16
-  br i1 %exitcond17.not.i48.i, label %if.end8.i, label %for.cond1.i.preheader.i34.i, !llvm.loop !94
+  br i1 %exitcond17.not.i48.i, label %if.end8.i, label %for.cond1.i.preheader.i34.i, !llvm.loop !90
 
 if.end8.i:                                        ; preds = %for.end.i.i46.i, %for.end.i.i28.i, %if.else.i, %if.then6.i, %ZSTD_allocateChainTable.exit.i, %lor.rhs.i.i
   %hashLog3.i = getelementptr inbounds i8, ptr %ms, i64 48
@@ -15669,14 +15660,14 @@ if.else.i.i56.i:                                  ; preds = %if.else.i.i56.i, %f
   %indvars.iv.next.i62.i = add nsw i64 %indvars.iv.i57.i, 1
   %lftr.wideiv37 = trunc i64 %indvars.iv.next.i62.i to i32
   %exitcond38 = icmp eq i32 %indvars.iv84.i, %lftr.wideiv37
-  br i1 %exitcond38, label %for.end.i.i65.i, label %if.else.i.i56.i, !llvm.loop !93
+  br i1 %exitcond38, label %for.end.i.i65.i, label %if.else.i.i56.i, !llvm.loop !89
 
 for.end.i.i65.i:                                  ; preds = %if.else.i.i56.i
   %33 = add i32 %cellNb.i.015.i54.i, 16
   %inc17.i.i66.i = add nuw nsw i32 %rowNb.i.014.i55.i, 1
   %exitcond17.not.i67.i = icmp eq i32 %inc17.i.i66.i, %div.i.i50.i
   %indvars.iv.next85.i = add i32 %indvars.iv84.i, 16
-  br i1 %exitcond17.not.i67.i, label %ZSTD_reduceIndex.exit, label %for.cond1.i.preheader.i53.i, !llvm.loop !94
+  br i1 %exitcond17.not.i67.i, label %ZSTD_reduceIndex.exit, label %for.cond1.i.preheader.i53.i, !llvm.loop !90
 
 ZSTD_reduceIndex.exit:                            ; preds = %for.end.i.i65.i, %if.end8.i, %if.then10.i
   %34 = load ptr, ptr %tableValidEnd.i, align 8
@@ -15807,7 +15798,7 @@ for.body:                                         ; preds = %ZSTD_matchState_dic
   store i32 %13, ptr %arrayidx35, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 3
-  br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !95
+  br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !91
 
 for.end:                                          ; preds = %for.body
   %externSeqStore36 = getelementptr inbounds i8, ptr %zc, i64 3160
@@ -15938,7 +15929,7 @@ for.body.i:                                       ; preds = %if.then124, %for.bo
   %add3.i = add i64 %matchLenSum.08.i, %conv2.i
   %inc.i = add nuw i64 %i.010.i, 1
   %exitcond.not.i = icmp eq i64 %inc.i, %retval.0.i
-  br i1 %exitcond.not.i, label %ZSTD_fastSequenceLengthSum.exit, label %for.body.i, !llvm.loop !96
+  br i1 %exitcond.not.i, label %ZSTD_fastSequenceLengthSum.exit, label %for.body.i, !llvm.loop !92
 
 ZSTD_fastSequenceLengthSum.exit:                  ; preds = %for.body.i
   %40 = add i64 %add3.i, %add.i109
@@ -15948,7 +15939,7 @@ ZSTD_fastSequenceLengthSum.exit:                  ; preds = %for.body.i
 do.body141:                                       ; preds = %if.then124, %ZSTD_fastSequenceLengthSum.exit
   %searchForExternalRepcodes = getelementptr inbounds i8, ptr %zc, i64 440
   %41 = load i32, ptr %searchForExternalRepcodes, align 8
-  %call145 = call i64 @ZSTD_copySequencesToSeqStoreExplicitBlockDelim(ptr noundef %zc, ptr noundef nonnull %seqPos, ptr noundef %37, i64 noundef %retval.0.i, ptr noundef %src, i64 noundef %srcSize, i32 noundef %41), !range !97
+  %call145 = call i64 @ZSTD_copySequencesToSeqStoreExplicitBlockDelim(ptr noundef %zc, ptr noundef nonnull %seqPos, ptr noundef %37, i64 noundef %retval.0.i, ptr noundef %src, i64 noundef %srcSize, i32 noundef %41)
   %cmp.i110 = icmp ult i64 %call145, -119
   br i1 %cmp.i110, label %do.end158, label %return
 
@@ -16034,7 +16025,7 @@ declare i64 @ZSTD_ldm_blockCompress(ptr noundef, ptr noundef, ptr noundef, ptr n
 declare i64 @ZSTD_ldm_generateSequences(ptr noundef, ptr noundef, ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #9
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
-define internal fastcc noundef i32 @ZSTD_isRLE(ptr noundef %src, i64 noundef %length) unnamed_addr #21 {
+define internal fastcc range(i32 0, 2) i32 @ZSTD_isRLE(ptr noundef %src, i64 noundef %length) unnamed_addr #21 {
 entry:
   %0 = load i8, ptr %src, align 1
   %conv = zext i8 %0 to i64
@@ -16062,7 +16053,7 @@ if.then.i:                                        ; preds = %land.lhs.true
   br i1 %tobool.not.i, label %while.cond.i, label %if.then2.i
 
 if.then2.i:                                       ; preds = %if.then.i
-  %1 = tail call i64 @llvm.cttz.i64(i64 %xor.i, i1 true), !range !98
+  %1 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %xor.i, i1 true)
   %shr.i.i = lshr i64 %1, 3
   br label %ZSTD_count.exit
 
@@ -16079,10 +16070,10 @@ while.body.i:                                     ; preds = %while.cond.i
   %pIn.addr.0.val.i = load i64, ptr %pIn.addr.0.i, align 1
   %xor11.i = xor i64 %pIn.addr.0.val.i, %pMatch.addr.0.val.i
   %tobool12.not.i = icmp eq i64 %xor11.i, 0
-  br i1 %tobool12.not.i, label %while.cond.i, label %if.end16.i, !llvm.loop !99
+  br i1 %tobool12.not.i, label %while.cond.i, label %if.end16.i, !llvm.loop !93
 
 if.end16.i:                                       ; preds = %while.body.i
-  %2 = tail call i64 @llvm.cttz.i64(i64 %xor11.i, i1 true), !range !98
+  %2 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %xor11.i, i1 true)
   %shr.i35.i = lshr i64 %2, 3
   %add.ptr18.i = getelementptr inbounds i8, ptr %pIn.addr.0.i, i64 %shr.i35.i
   %sub.ptr.lhs.cast.i = ptrtoint ptr %add.ptr18.i to i64
@@ -16165,7 +16156,7 @@ for.cond9.preheader:                              ; preds = %if.end6, %for.inc20
 for.cond9:                                        ; preds = %for.body12
   %add = add nuw nsw i64 %u.017, 8
   %cmp10 = icmp ult i64 %u.017, 24
-  br i1 %cmp10, label %for.body12, label %for.inc20, !llvm.loop !100
+  br i1 %cmp10, label %for.body12, label %for.inc20, !llvm.loop !94
 
 for.body12:                                       ; preds = %for.cond9.preheader, %for.cond9
   %u.017 = phi i64 [ 0, %for.cond9.preheader ], [ %add, %for.cond9 ]
@@ -16177,7 +16168,7 @@ for.body12:                                       ; preds = %for.cond9.preheader
 for.inc20:                                        ; preds = %for.cond9
   %add21 = add i64 %i.019, 32
   %cmp7.not = icmp eq i64 %add21, %length
-  br i1 %cmp7.not, label %return, label %for.cond9.preheader, !llvm.loop !101
+  br i1 %cmp7.not, label %return, label %for.cond9.preheader, !llvm.loop !95
 
 return:                                           ; preds = %for.inc20, %for.body12, %if.end6, %ZSTD_count.exit, %entry
   %retval.0 = phi i32 [ 1, %entry ], [ 0, %ZSTD_count.exit ], [ 1, %if.end6 ], [ 0, %for.body12 ], [ 1, %for.inc20 ]
@@ -16371,7 +16362,7 @@ if.end24.sink.split.i48.i:                        ; preds = %cond.end.i41.i, %if
 ZSTD_updateRep.exit58.i:                          ; preds = %if.end24.sink.split.i48.i, %if.else.i36.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %do.body1, label %for.body.i, !llvm.loop !102
+  br i1 %exitcond.not.i, label %do.body1, label %for.body.i, !llvm.loop !96
 
 do.body1:                                         ; preds = %ZSTD_updateRep.exit58.i, %cond.end.i, %entry
   %cmp = icmp ult i64 %dstCapacity, 3
@@ -16402,7 +16393,7 @@ do.end29:                                         ; preds = %do.end13
   br i1 %or.cond, label %land.lhs.true33, label %if.end37
 
 land.lhs.true33:                                  ; preds = %do.end29
-  %call34 = tail call fastcc i32 @ZSTD_isRLE(ptr noundef %src, i64 noundef %srcSize), !range !41
+  %call34 = tail call fastcc i32 @ZSTD_isRLE(ptr noundef %src, i64 noundef %srcSize)
   %tobool35.not = icmp eq i32 %call34, 0
   %spec.select = select i1 %tobool35.not, i64 %call, i64 1
   br label %if.end37
@@ -16553,7 +16544,7 @@ for.inc.i:                                        ; preds = %land.lhs.true.i, %f
   %literalsBytes.1.i = phi i64 [ %add.i, %for.body.i ], [ %spec.select.i, %land.lhs.true.i ]
   %inc.i = add nuw i64 %i.011.i, 1
   %exitcond.not.i = icmp eq i64 %inc.i, %umax.i
-  br i1 %exitcond.not.i, label %ZSTD_countSeqStoreLiteralsBytes.exit, label %for.body.i, !llvm.loop !42
+  br i1 %exitcond.not.i, label %ZSTD_countSeqStoreLiteralsBytes.exit, label %for.body.i, !llvm.loop !39
 
 ZSTD_countSeqStoreLiteralsBytes.exit:             ; preds = %for.inc.i, %if.then
   %literalsBytes.0.lcssa.i = phi i64 [ 0, %if.then ], [ %literalsBytes.1.i, %for.inc.i ]
@@ -16646,7 +16637,7 @@ for.inc.i50:                                      ; preds = %land.lhs.true.i55, 
   %literalsBytes.1.i51 = phi i64 [ %add.i48, %for.body.i42 ], [ %spec.select.i58, %land.lhs.true.i55 ]
   %inc.i52 = add nuw i64 %i.011.i44, 1
   %exitcond.not.i53 = icmp eq i64 %inc.i52, %umax.i41
-  br i1 %exitcond.not.i53, label %ZSTD_countSeqStoreLiteralsBytes.exit59, label %for.body.i42, !llvm.loop !42
+  br i1 %exitcond.not.i53, label %ZSTD_countSeqStoreLiteralsBytes.exit59, label %for.body.i42, !llvm.loop !39
 
 ZSTD_countSeqStoreLiteralsBytes.exit59:           ; preds = %for.inc.i50, %if.else27
   %literalsBytes.0.lcssa.i54 = phi i64 [ 0, %if.else27 ], [ %literalsBytes.1.i51, %for.inc.i50 ]
@@ -16870,7 +16861,7 @@ while.body.us.i.i.i:                              ; preds = %while.cond.preheade
   %cSymbolTypeSizeEstimateInBits.2.us.i.i.i = add i64 %cSymbolTypeSizeEstimateInBits.120.us.i.i.i, %conv.pn.us.i.i.i
   %incdec.ptr.us.i.i.i = getelementptr inbounds i8, ptr %ctp.019.us.i.i.i, i64 1
   %cmp14.us.i.i.i = icmp ult ptr %incdec.ptr.us.i.i.i, %add.ptr.i.i.i
-  br i1 %cmp14.us.i.i.i, label %while.body.us.i.i.i, label %while.end.i.i.i, !llvm.loop !103
+  br i1 %cmp14.us.i.i.i, label %while.body.us.i.i.i, label %while.end.i.i.i, !llvm.loop !97
 
 if.then12.i.i.i:                                  ; preds = %if.end10.i.i.i
   %mul.i.i.i = mul i64 %sub.ptr.div, 10
@@ -16935,7 +16926,7 @@ while.body.i.i.i:                                 ; preds = %while.cond.preheade
   %cSymbolTypeSizeEstimateInBits.2.i.i.i = add i64 %cSymbolTypeSizeEstimateInBits.120.i.i.i, %conv.pn.i.i.i
   %incdec.ptr.i.i.i = getelementptr inbounds i8, ptr %ctp.019.i.i.i, i64 1
   %cmp14.i.i.i = icmp ult ptr %incdec.ptr.i.i.i, %add.ptr.i19.i.i
-  br i1 %cmp14.i.i.i, label %while.body.i.i.i, label %while.end.i24.i.i, !llvm.loop !103
+  br i1 %cmp14.i.i.i, label %while.body.i.i.i, label %while.end.i24.i.i, !llvm.loop !97
 
 while.end.i24.i.i:                                ; preds = %while.body.i.i.i, %while.cond.preheader.i21.i.i
   %cSymbolTypeSizeEstimateInBits.1.lcssa.i25.i.i = phi i64 [ %cSymbolTypeSizeEstimateInBits.024.i22.i.i, %while.cond.preheader.i21.i.i ], [ %cSymbolTypeSizeEstimateInBits.2.i.i.i, %while.body.i.i.i ]
@@ -16997,7 +16988,7 @@ while.body.i52.i.i:                               ; preds = %while.cond.preheade
   %cSymbolTypeSizeEstimateInBits.2.i59.i.i = add i64 %cSymbolTypeSizeEstimateInBits.120.i53.i.i, %conv.pn.i58.i.i
   %incdec.ptr.i60.i.i = getelementptr inbounds i8, ptr %ctp.019.i54.i.i, i64 1
   %cmp14.i61.i.i = icmp ult ptr %incdec.ptr.i60.i.i, %add.ptr.i42.i.i
-  br i1 %cmp14.i61.i.i, label %while.body.i52.i.i, label %while.end.i47.i.i, !llvm.loop !103
+  br i1 %cmp14.i61.i.i, label %while.body.i52.i.i, label %while.end.i47.i.i, !llvm.loop !97
 
 while.end.i47.i.i:                                ; preds = %while.body.i52.i.i, %while.cond.preheader.i44.i.i
   %cSymbolTypeSizeEstimateInBits.1.lcssa.i48.i.i = phi i64 [ %cSymbolTypeSizeEstimateInBits.024.i45.i.i, %while.cond.preheader.i44.i.i ], [ %cSymbolTypeSizeEstimateInBits.2.i59.i.i, %while.body.i52.i.i ]
@@ -17103,9 +17094,8 @@ ZSTD_literalsCompressionIsDisabled.exit.i:        ; preds = %land.rhs.i.i, %sw.b
 do.end38.i:                                       ; preds = %ZSTD_literalsCompressionIsDisabled.exit.i
   %add.ptr39.i = getelementptr inbounds i8, ptr %dst, i64 %call27.i
   %sub.ptr.lhs.cast41.i = ptrtoint ptr %add.ptr.i to i64
-  %sub.ptr.rhs.cast42.i = ptrtoint ptr %add.ptr39.i to i64
-  %sub.ptr.sub43.i = sub i64 %sub.ptr.lhs.cast41.i, %sub.ptr.rhs.cast42.i
-  %cmp44.i = icmp slt i64 %sub.ptr.sub43.i, 4
+  %gepdiff.i = sub nsw i64 %dstCapacity, %call27.i
+  %cmp44.i = icmp slt i64 %gepdiff.i, 4
   br i1 %cmp44.i, label %ZSTD_entropyCompressSeqStore_internal.exit.thread, label %do.end55.i
 
 do.end55.i:                                       ; preds = %do.end38.i
@@ -17414,7 +17404,7 @@ ZSTD_updateRep.exit:                              ; preds = %if.else.i, %if.end2
   %add84 = add i64 %literalsRead.063, %conv83
   %inc = add nuw i64 %i.064, 1
   %exitcond.not = icmp eq i64 %inc, %umax
-  br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !104
+  br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !98
 
 for.end:                                          ; preds = %ZSTD_updateRep.exit, %entry
   %literalsRead.0.lcssa = phi i64 [ 0, %entry ], [ %add84, %ZSTD_updateRep.exit ]
@@ -17492,7 +17482,6 @@ do.end24:                                         ; preds = %if.then20
   br label %return
 
 if.end40:                                         ; preds = %if.then20, %if.end17
-  %add.ptr.i = getelementptr inbounds i8, ptr %dict, i64 %dictSize
   %noDictIDFlag.i = getelementptr inbounds i8, ptr %params, i64 40
   %0 = load i32, ptr %noDictIDFlag.i, align 8
   %tobool.not.i = icmp eq i32 %0, 0
@@ -17512,10 +17501,8 @@ cond.end.i:                                       ; preds = %cond.false.i, %if.e
 
 do.end12.i:                                       ; preds = %cond.end.i
   %add.ptr13.i = getelementptr inbounds i8, ptr %dict, i64 %call2.i
-  %sub.ptr.lhs.cast.i = ptrtoint ptr %add.ptr.i to i64
-  %sub.ptr.rhs.cast.i = ptrtoint ptr %add.ptr13.i to i64
-  %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
-  tail call fastcc void @ZSTD_loadDictionaryContent(ptr noundef %ms, ptr noundef null, ptr noundef %ws, ptr noundef nonnull %params, ptr noundef nonnull %add.ptr13.i, i64 noundef %sub.ptr.sub.i, i32 noundef %dtlm, i32 noundef %tfp)
+  %gepdiff.i = sub nsw i64 %dictSize, %call2.i
+  tail call fastcc void @ZSTD_loadDictionaryContent(ptr noundef %ms, ptr noundef null, ptr noundef %ws, ptr noundef nonnull %params, ptr noundef nonnull %add.ptr13.i, i64 noundef %gepdiff.i, i32 noundef %dtlm, i32 noundef %tfp)
   br label %return
 
 return:                                           ; preds = %do.end12.i, %cond.end.i, %if.then20, %do.body2, %do.end24, %if.then16
@@ -17928,101 +17915,95 @@ attributes #31 = { nounwind willreturn memory(read) }
 !4 = !{i64 1753084}
 !5 = !{i64 1753182}
 !6 = !{i64 1753296}
-!7 = !{i64 -40, i64 1}
-!8 = !{i32 0, i32 33}
-!9 = !{!10}
-!10 = distinct !{!10, !11, !"ZSTD_makeCCtxParamsFromCParams: %agg.result"}
-!11 = distinct !{!11, !"ZSTD_makeCCtxParamsFromCParams"}
-!12 = !{}
-!13 = !{!14}
-!14 = distinct !{!14, !15, !"ZSTD_getCParamsFromCCtxParams: %agg.result"}
-!15 = distinct !{!15, !"ZSTD_getCParamsFromCCtxParams"}
-!16 = !{!17}
-!17 = distinct !{!17, !18, !"ZSTD_getCParamsFromCCtxParams: %agg.result"}
-!18 = distinct !{!18, !"ZSTD_getCParamsFromCCtxParams"}
-!19 = !{!20}
-!20 = distinct !{!20, !21, !"ZSTD_getCParamsFromCCtxParams: %agg.result"}
-!21 = distinct !{!21, !"ZSTD_getCParamsFromCCtxParams"}
-!22 = !{!23}
-!23 = distinct !{!23, !24, !"ZSTD_getCParams_internal: %agg.result"}
-!24 = distinct !{!24, !"ZSTD_getCParams_internal"}
-!25 = distinct !{!25, !26}
-!26 = !{!"llvm.loop.mustprogress"}
-!27 = distinct !{!27, !26}
-!28 = !{!29}
-!29 = distinct !{!29, !30, !"ZSTD_makeCCtxParamsFromCParams: %agg.result"}
-!30 = distinct !{!30, !"ZSTD_makeCCtxParamsFromCParams"}
-!31 = !{!32}
-!32 = distinct !{!32, !33, !"ZSTD_getCParams_internal: %agg.result"}
-!33 = distinct !{!33, !"ZSTD_getCParams_internal"}
-!34 = distinct !{!34, !26}
-!35 = distinct !{!35, !26}
-!36 = distinct !{!36, !26}
-!37 = distinct !{!37, !26}
-!38 = !{!39}
-!39 = distinct !{!39, !40, !"ZSTD_buildDummySequencesStatistics: %agg.result"}
-!40 = distinct !{!40, !"ZSTD_buildDummySequencesStatistics"}
-!41 = !{i32 0, i32 2}
-!42 = distinct !{!42, !26}
-!43 = distinct !{!43, !26}
-!44 = distinct !{!44, !26}
-!45 = distinct !{!45, !26}
-!46 = distinct !{!46, !26}
-!47 = distinct !{!47, !26}
-!48 = distinct !{!48, !26}
-!49 = !{!50, !52}
-!50 = distinct !{!50, !51, !"ZSTD_getCParams_internal: %agg.result"}
-!51 = distinct !{!51, !"ZSTD_getCParams_internal"}
+!7 = !{!8}
+!8 = distinct !{!8, !9, !"ZSTD_makeCCtxParamsFromCParams: %agg.result"}
+!9 = distinct !{!9, !"ZSTD_makeCCtxParamsFromCParams"}
+!10 = !{}
+!11 = !{!12}
+!12 = distinct !{!12, !13, !"ZSTD_getCParamsFromCCtxParams: %agg.result"}
+!13 = distinct !{!13, !"ZSTD_getCParamsFromCCtxParams"}
+!14 = !{!15}
+!15 = distinct !{!15, !16, !"ZSTD_getCParamsFromCCtxParams: %agg.result"}
+!16 = distinct !{!16, !"ZSTD_getCParamsFromCCtxParams"}
+!17 = !{!18}
+!18 = distinct !{!18, !19, !"ZSTD_getCParamsFromCCtxParams: %agg.result"}
+!19 = distinct !{!19, !"ZSTD_getCParamsFromCCtxParams"}
+!20 = !{!21}
+!21 = distinct !{!21, !22, !"ZSTD_getCParams_internal: %agg.result"}
+!22 = distinct !{!22, !"ZSTD_getCParams_internal"}
+!23 = distinct !{!23, !24}
+!24 = !{!"llvm.loop.mustprogress"}
+!25 = distinct !{!25, !24}
+!26 = !{!27}
+!27 = distinct !{!27, !28, !"ZSTD_makeCCtxParamsFromCParams: %agg.result"}
+!28 = distinct !{!28, !"ZSTD_makeCCtxParamsFromCParams"}
+!29 = !{!30}
+!30 = distinct !{!30, !31, !"ZSTD_getCParams_internal: %agg.result"}
+!31 = distinct !{!31, !"ZSTD_getCParams_internal"}
+!32 = distinct !{!32, !24}
+!33 = distinct !{!33, !24}
+!34 = distinct !{!34, !24}
+!35 = distinct !{!35, !24}
+!36 = !{!37}
+!37 = distinct !{!37, !38, !"ZSTD_buildDummySequencesStatistics: %agg.result"}
+!38 = distinct !{!38, !"ZSTD_buildDummySequencesStatistics"}
+!39 = distinct !{!39, !24}
+!40 = distinct !{!40, !24}
+!41 = distinct !{!41, !24}
+!42 = distinct !{!42, !24}
+!43 = distinct !{!43, !24}
+!44 = distinct !{!44, !24}
+!45 = distinct !{!45, !24}
+!46 = !{!47, !49}
+!47 = distinct !{!47, !48, !"ZSTD_getCParams_internal: %agg.result"}
+!48 = distinct !{!48, !"ZSTD_getCParams_internal"}
+!49 = distinct !{!49, !50, !"ZSTD_getParams_internal: %agg.result"}
+!50 = distinct !{!50, !"ZSTD_getParams_internal"}
+!51 = !{!52}
 !52 = distinct !{!52, !53, !"ZSTD_getParams_internal: %agg.result"}
 !53 = distinct !{!53, !"ZSTD_getParams_internal"}
 !54 = !{!55}
 !55 = distinct !{!55, !56, !"ZSTD_getParams_internal: %agg.result"}
 !56 = distinct !{!56, !"ZSTD_getParams_internal"}
 !57 = !{!58}
-!58 = distinct !{!58, !59, !"ZSTD_getParams_internal: %agg.result"}
-!59 = distinct !{!59, !"ZSTD_getParams_internal"}
+!58 = distinct !{!58, !59, !"ZSTD_dedicatedDictSearch_getCParams: %agg.result"}
+!59 = distinct !{!59, !"ZSTD_dedicatedDictSearch_getCParams"}
 !60 = !{!61}
-!61 = distinct !{!61, !62, !"ZSTD_dedicatedDictSearch_getCParams: %agg.result"}
-!62 = distinct !{!62, !"ZSTD_dedicatedDictSearch_getCParams"}
+!61 = distinct !{!61, !62, !"ZSTD_getCParamsFromCCtxParams: %agg.result"}
+!62 = distinct !{!62, !"ZSTD_getCParamsFromCCtxParams"}
 !63 = !{!64}
 !64 = distinct !{!64, !65, !"ZSTD_getCParamsFromCCtxParams: %agg.result"}
 !65 = distinct !{!65, !"ZSTD_getCParamsFromCCtxParams"}
 !66 = !{!67}
-!67 = distinct !{!67, !68, !"ZSTD_getCParamsFromCCtxParams: %agg.result"}
-!68 = distinct !{!68, !"ZSTD_getCParamsFromCCtxParams"}
-!69 = !{i64 -64, i64 1}
-!70 = !{!71}
-!71 = distinct !{!71, !72, !"ZSTD_getCParams: %agg.result"}
-!72 = distinct !{!72, !"ZSTD_getCParams"}
-!73 = !{!74}
-!74 = distinct !{!74, !75, !"ZSTD_getCParamsFromCCtxParams: %agg.result"}
-!75 = distinct !{!75, !"ZSTD_getCParamsFromCCtxParams"}
-!76 = distinct !{!76, !26}
-!77 = distinct !{!77, !26}
-!78 = distinct !{!78, !26}
-!79 = distinct !{!79, !26}
-!80 = distinct !{!80, !26}
-!81 = distinct !{!81, !26}
-!82 = !{ptr @ZSTD_copySequencesToSeqStoreExplicitBlockDelim, ptr @ZSTD_copySequencesToSeqStoreNoBlockDelim}
-!83 = distinct !{!83, !26}
-!84 = !{!85}
-!85 = distinct !{!85, !86, !"inBuffer_forEndFlush: %agg.result"}
-!86 = distinct !{!86, !"inBuffer_forEndFlush"}
-!87 = !{!88}
-!88 = distinct !{!88, !89, !"inBuffer_forEndFlush: %agg.result"}
-!89 = distinct !{!89, !"inBuffer_forEndFlush"}
-!90 = !{!91}
-!91 = distinct !{!91, !92, !"ZSTD_getParams_internal: %agg.result"}
-!92 = distinct !{!92, !"ZSTD_getParams_internal"}
-!93 = distinct !{!93, !26}
-!94 = distinct !{!94, !26}
-!95 = distinct !{!95, !26}
-!96 = distinct !{!96, !26}
-!97 = !{i64 -107, i64 1}
-!98 = !{i64 0, i64 65}
-!99 = distinct !{!99, !26}
-!100 = distinct !{!100, !26}
-!101 = distinct !{!101, !26}
-!102 = distinct !{!102, !26}
-!103 = distinct !{!103, !26}
-!104 = distinct !{!104, !26}
+!67 = distinct !{!67, !68, !"ZSTD_getCParams: %agg.result"}
+!68 = distinct !{!68, !"ZSTD_getCParams"}
+!69 = !{!70}
+!70 = distinct !{!70, !71, !"ZSTD_getCParamsFromCCtxParams: %agg.result"}
+!71 = distinct !{!71, !"ZSTD_getCParamsFromCCtxParams"}
+!72 = distinct !{!72, !24}
+!73 = distinct !{!73, !24}
+!74 = distinct !{!74, !24}
+!75 = distinct !{!75, !24}
+!76 = distinct !{!76, !24}
+!77 = distinct !{!77, !24}
+!78 = !{ptr @ZSTD_copySequencesToSeqStoreExplicitBlockDelim, ptr @ZSTD_copySequencesToSeqStoreNoBlockDelim}
+!79 = distinct !{!79, !24}
+!80 = !{!81}
+!81 = distinct !{!81, !82, !"inBuffer_forEndFlush: %agg.result"}
+!82 = distinct !{!82, !"inBuffer_forEndFlush"}
+!83 = !{!84}
+!84 = distinct !{!84, !85, !"inBuffer_forEndFlush: %agg.result"}
+!85 = distinct !{!85, !"inBuffer_forEndFlush"}
+!86 = !{!87}
+!87 = distinct !{!87, !88, !"ZSTD_getParams_internal: %agg.result"}
+!88 = distinct !{!88, !"ZSTD_getParams_internal"}
+!89 = distinct !{!89, !24}
+!90 = distinct !{!90, !24}
+!91 = distinct !{!91, !24}
+!92 = distinct !{!92, !24}
+!93 = distinct !{!93, !24}
+!94 = distinct !{!94, !24}
+!95 = distinct !{!95, !24}
+!96 = distinct !{!96, !24}
+!97 = distinct !{!97, !24}
+!98 = distinct !{!98, !24}

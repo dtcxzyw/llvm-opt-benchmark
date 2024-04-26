@@ -19646,14 +19646,14 @@ if.then17:                                        ; preds = %for.cond
 
 if.then19:                                        ; preds = %if.then17
   %2 = load i32, ptr %__p.0, align 4
-  %add.ptr21.idx58 = shl nsw i64 %__n.0, 2
-  %add.ptr21 = getelementptr inbounds i8, ptr %__p.0, i64 %add.ptr21.idx58
+  %add.ptr21.idx = shl nsw i64 %__n.0, 2
+  %add.ptr21 = getelementptr inbounds i8, ptr %__p.0, i64 %add.ptr21.idx
   %tobool.not.i.i.i.i.i = icmp eq i64 %__n.0, 1
   br i1 %tobool.not.i.i.i.i.i, label %_ZSt4moveIPiS0_ET0_T_S2_S1_.exit, label %if.then.i.i.i.i.i
 
 if.then.i.i.i.i.i:                                ; preds = %if.then19
   %add.ptr20 = getelementptr inbounds i8, ptr %__p.0, i64 4
-  %gepdiff = add nsw i64 %add.ptr21.idx58, -4
+  %gepdiff = add nsw i64 %add.ptr21.idx, -4
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 4 %__p.0, ptr nonnull align 4 %add.ptr20, i64 %gepdiff, i1 false)
   br label %_ZSt4moveIPiS0_ET0_T_S2_S1_.exit
 
@@ -19663,26 +19663,26 @@ _ZSt4moveIPiS0_ET0_T_S2_S1_.exit:                 ; preds = %if.then19, %if.then
   br label %return
 
 if.end25:                                         ; preds = %if.then17
-  %cmp2968 = icmp sgt i64 %sub15, 0
-  br i1 %cmp2968, label %for.body.preheader, label %for.end
+  %cmp2967 = icmp sgt i64 %sub15, 0
+  br i1 %cmp2967, label %for.body.preheader, label %for.end
 
 for.body.preheader:                               ; preds = %if.end25
   %add.ptr26 = getelementptr i32, ptr %__p.0, i64 %__k.0
   br label %for.body
 
 for.body:                                         ; preds = %for.body.preheader, %for.body
-  %__i.071 = phi i64 [ %inc, %for.body ], [ 0, %for.body.preheader ]
-  %__q.070 = phi ptr [ %incdec.ptr30, %for.body ], [ %add.ptr26, %for.body.preheader ]
-  %__p.169 = phi ptr [ %incdec.ptr, %for.body ], [ %__p.0, %for.body.preheader ]
-  %3 = load i32, ptr %__p.169, align 4
-  %4 = load i32, ptr %__q.070, align 4
-  store i32 %4, ptr %__p.169, align 4
-  store i32 %3, ptr %__q.070, align 4
-  %incdec.ptr = getelementptr inbounds i8, ptr %__p.169, i64 4
-  %incdec.ptr30 = getelementptr inbounds i8, ptr %__q.070, i64 4
-  %inc = add nuw nsw i64 %__i.071, 1
-  %exitcond78.not = icmp eq i64 %inc, %sub15
-  br i1 %exitcond78.not, label %for.end, label %for.body, !llvm.loop !142
+  %__i.070 = phi i64 [ %inc, %for.body ], [ 0, %for.body.preheader ]
+  %__q.069 = phi ptr [ %incdec.ptr30, %for.body ], [ %add.ptr26, %for.body.preheader ]
+  %__p.168 = phi ptr [ %incdec.ptr, %for.body ], [ %__p.0, %for.body.preheader ]
+  %3 = load i32, ptr %__p.168, align 4
+  %4 = load i32, ptr %__q.069, align 4
+  store i32 %4, ptr %__p.168, align 4
+  store i32 %3, ptr %__q.069, align 4
+  %incdec.ptr = getelementptr inbounds i8, ptr %__p.168, i64 4
+  %incdec.ptr30 = getelementptr inbounds i8, ptr %__q.069, i64 4
+  %inc = add nuw nsw i64 %__i.070, 1
+  %exitcond77.not = icmp eq i64 %inc, %sub15
+  br i1 %exitcond77.not, label %for.end, label %for.body, !llvm.loop !142
 
 for.end:                                          ; preds = %for.body, %if.end25
   %__p.1.lcssa = phi ptr [ %__p.0, %if.end25 ], [ %incdec.ptr, %for.body ]
@@ -19722,20 +19722,20 @@ _ZSt13move_backwardIPiS0_ET0_T_S2_S1_.exit:       ; preds = %if.then38, %if.then
 if.end46:                                         ; preds = %if.else35
   %idx.neg = sub i64 0, %sub15
   %add.ptr49 = getelementptr inbounds i32, ptr %add.ptr40, i64 %idx.neg
-  %cmp5364 = icmp sgt i64 %__k.0, 0
-  br i1 %cmp5364, label %for.body54, label %for.end59
+  %cmp5363 = icmp sgt i64 %__k.0, 0
+  br i1 %cmp5363, label %for.body54, label %for.end59
 
 for.body54:                                       ; preds = %if.end46, %for.body54
-  %__i50.067 = phi i64 [ %inc58, %for.body54 ], [ 0, %if.end46 ]
-  %__q47.066 = phi ptr [ %incdec.ptr56, %for.body54 ], [ %add.ptr40, %if.end46 ]
-  %__p.265 = phi ptr [ %incdec.ptr55, %for.body54 ], [ %add.ptr49, %if.end46 ]
-  %incdec.ptr55 = getelementptr inbounds i8, ptr %__p.265, i64 -4
-  %incdec.ptr56 = getelementptr inbounds i8, ptr %__q47.066, i64 -4
+  %__i50.066 = phi i64 [ %inc58, %for.body54 ], [ 0, %if.end46 ]
+  %__q47.065 = phi ptr [ %incdec.ptr56, %for.body54 ], [ %add.ptr40, %if.end46 ]
+  %__p.264 = phi ptr [ %incdec.ptr55, %for.body54 ], [ %add.ptr49, %if.end46 ]
+  %incdec.ptr55 = getelementptr inbounds i8, ptr %__p.264, i64 -4
+  %incdec.ptr56 = getelementptr inbounds i8, ptr %__q47.065, i64 -4
   %6 = load i32, ptr %incdec.ptr55, align 4
   %7 = load i32, ptr %incdec.ptr56, align 4
   store i32 %7, ptr %incdec.ptr55, align 4
   store i32 %6, ptr %incdec.ptr56, align 4
-  %inc58 = add nuw nsw i64 %__i50.067, 1
+  %inc58 = add nuw nsw i64 %__i50.066, 1
   %exitcond.not = icmp eq i64 %inc58, %__k.0
   br i1 %exitcond.not, label %for.end59, label %for.body54, !llvm.loop !143
 
@@ -20175,24 +20175,13 @@ entry:
   %sub.ptr.sub68 = sub i64 %sub.ptr.lhs.cast, %sub.ptr.rhs.cast67
   %sub.ptr.div69 = ashr exact i64 %sub.ptr.sub68, 2
   %cmp.not70 = icmp slt i64 %sub.ptr.div69, %mul
-  br i1 %cmp.not70, label %while.end, label %while.body.lr.ph
-
-while.body.lr.ph:                                 ; preds = %entry
   %cmp225.i.not = icmp eq i64 %__step_size, 0
-  br i1 %cmp225.i.not, label %"_ZSt12__move_mergeIPiS0_N9__gnu_cxx5__ops15_Iter_comp_iterIZN8facebook5velox9MapVector12canonicalizeERKSt10shared_ptrIS6_EbE3$_0EEET0_T_SE_SE_SE_SD_T1_.exit.us", label %while.body
+  %or.cond = or i1 %cmp.not70, %cmp225.i.not
+  br i1 %or.cond, label %while.end, label %while.body
 
-"_ZSt12__move_mergeIPiS0_N9__gnu_cxx5__ops15_Iter_comp_iterIZN8facebook5velox9MapVector12canonicalizeERKSt10shared_ptrIS6_EbE3$_0EEET0_T_SE_SE_SE_SD_T1_.exit.us": ; preds = %while.body.lr.ph, %"_ZSt12__move_mergeIPiS0_N9__gnu_cxx5__ops15_Iter_comp_iterIZN8facebook5velox9MapVector12canonicalizeERKSt10shared_ptrIS6_EbE3$_0EEET0_T_SE_SE_SE_SD_T1_.exit.us"
-  %__first.addr.072.us = phi ptr [ %add.ptr3.us, %"_ZSt12__move_mergeIPiS0_N9__gnu_cxx5__ops15_Iter_comp_iterIZN8facebook5velox9MapVector12canonicalizeERKSt10shared_ptrIS6_EbE3$_0EEET0_T_SE_SE_SE_SD_T1_.exit.us" ], [ %__first, %while.body.lr.ph ]
-  %add.ptr3.us = getelementptr inbounds i32, ptr %__first.addr.072.us, i64 %mul
-  %sub.ptr.rhs.cast.us = ptrtoint ptr %add.ptr3.us to i64
-  %sub.ptr.sub.us = sub i64 %sub.ptr.lhs.cast, %sub.ptr.rhs.cast.us
-  %sub.ptr.div.us = ashr exact i64 %sub.ptr.sub.us, 2
-  %cmp.not.us = icmp slt i64 %sub.ptr.div.us, %mul
-  br i1 %cmp.not.us, label %while.end, label %"_ZSt12__move_mergeIPiS0_N9__gnu_cxx5__ops15_Iter_comp_iterIZN8facebook5velox9MapVector12canonicalizeERKSt10shared_ptrIS6_EbE3$_0EEET0_T_SE_SE_SE_SD_T1_.exit.us", !llvm.loop !147
-
-while.body:                                       ; preds = %while.body.lr.ph, %"_ZSt12__move_mergeIPiS0_N9__gnu_cxx5__ops15_Iter_comp_iterIZN8facebook5velox9MapVector12canonicalizeERKSt10shared_ptrIS6_EbE3$_0EEET0_T_SE_SE_SE_SD_T1_.exit"
-  %__first.addr.072 = phi ptr [ %add.ptr3, %"_ZSt12__move_mergeIPiS0_N9__gnu_cxx5__ops15_Iter_comp_iterIZN8facebook5velox9MapVector12canonicalizeERKSt10shared_ptrIS6_EbE3$_0EEET0_T_SE_SE_SE_SD_T1_.exit" ], [ %__first, %while.body.lr.ph ]
-  %__result.addr.071 = phi ptr [ %add.ptr.i.i.i.i.i19.i, %"_ZSt12__move_mergeIPiS0_N9__gnu_cxx5__ops15_Iter_comp_iterIZN8facebook5velox9MapVector12canonicalizeERKSt10shared_ptrIS6_EbE3$_0EEET0_T_SE_SE_SE_SD_T1_.exit" ], [ %__result, %while.body.lr.ph ]
+while.body:                                       ; preds = %entry, %"_ZSt12__move_mergeIPiS0_N9__gnu_cxx5__ops15_Iter_comp_iterIZN8facebook5velox9MapVector12canonicalizeERKSt10shared_ptrIS6_EbE3$_0EEET0_T_SE_SE_SE_SD_T1_.exit"
+  %__first.addr.072 = phi ptr [ %add.ptr3, %"_ZSt12__move_mergeIPiS0_N9__gnu_cxx5__ops15_Iter_comp_iterIZN8facebook5velox9MapVector12canonicalizeERKSt10shared_ptrIS6_EbE3$_0EEET0_T_SE_SE_SE_SD_T1_.exit" ], [ %__first, %entry ]
+  %__result.addr.071 = phi ptr [ %add.ptr.i.i.i.i.i19.i, %"_ZSt12__move_mergeIPiS0_N9__gnu_cxx5__ops15_Iter_comp_iterIZN8facebook5velox9MapVector12canonicalizeERKSt10shared_ptrIS6_EbE3$_0EEET0_T_SE_SE_SE_SD_T1_.exit" ], [ %__result, %entry ]
   %add.ptr = getelementptr inbounds i32, ptr %__first.addr.072, i64 %__step_size
   %add.ptr3 = getelementptr inbounds i32, ptr %__first.addr.072, i64 %mul
   br label %while.body.i
@@ -20232,7 +20221,7 @@ if.end.i.i.i.i.i:                                 ; preds = %while.body.i
   %cmp.i = icmp ne ptr %__first1.addr.1.i, %add.ptr
   %cmp2.i = icmp ne ptr %__first2.addr.1.i, %add.ptr3
   %4 = select i1 %cmp.i, i1 %cmp2.i, i1 false
-  br i1 %4, label %while.body.i, label %while.end.i.loopexit, !llvm.loop !148
+  br i1 %4, label %while.body.i, label %while.end.i.loopexit, !llvm.loop !147
 
 while.end.i.loopexit:                             ; preds = %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN8facebook5velox9MapVector12canonicalizeERKSt10shared_ptrIS4_EbE3$_0EclIPiSC_EEbT_T0_.exit.i"
   %sub.ptr.lhs.cast.i.i.i.i.i.i = ptrtoint ptr %add.ptr to i64
@@ -20262,12 +20251,12 @@ if.then.i.i.i.i.i18.i:                            ; preds = %_ZSt4moveIPiS0_ET0_
   %sub.ptr.sub = sub i64 %sub.ptr.lhs.cast, %sub.ptr.lhs.cast.i.i.i.i.i14.i
   %sub.ptr.div = ashr exact i64 %sub.ptr.sub, 2
   %cmp.not = icmp slt i64 %sub.ptr.div, %mul
-  br i1 %cmp.not, label %while.end, label %while.body, !llvm.loop !147
+  br i1 %cmp.not, label %while.end, label %while.body, !llvm.loop !148
 
-while.end:                                        ; preds = %"_ZSt12__move_mergeIPiS0_N9__gnu_cxx5__ops15_Iter_comp_iterIZN8facebook5velox9MapVector12canonicalizeERKSt10shared_ptrIS6_EbE3$_0EEET0_T_SE_SE_SE_SD_T1_.exit", %"_ZSt12__move_mergeIPiS0_N9__gnu_cxx5__ops15_Iter_comp_iterIZN8facebook5velox9MapVector12canonicalizeERKSt10shared_ptrIS6_EbE3$_0EEET0_T_SE_SE_SE_SD_T1_.exit.us", %entry
-  %__result.addr.0.lcssa = phi ptr [ %__result, %entry ], [ %__result, %"_ZSt12__move_mergeIPiS0_N9__gnu_cxx5__ops15_Iter_comp_iterIZN8facebook5velox9MapVector12canonicalizeERKSt10shared_ptrIS6_EbE3$_0EEET0_T_SE_SE_SE_SD_T1_.exit.us" ], [ %add.ptr.i.i.i.i.i19.i, %"_ZSt12__move_mergeIPiS0_N9__gnu_cxx5__ops15_Iter_comp_iterIZN8facebook5velox9MapVector12canonicalizeERKSt10shared_ptrIS6_EbE3$_0EEET0_T_SE_SE_SE_SD_T1_.exit" ]
-  %__first.addr.0.lcssa = phi ptr [ %__first, %entry ], [ %add.ptr3.us, %"_ZSt12__move_mergeIPiS0_N9__gnu_cxx5__ops15_Iter_comp_iterIZN8facebook5velox9MapVector12canonicalizeERKSt10shared_ptrIS6_EbE3$_0EEET0_T_SE_SE_SE_SD_T1_.exit.us" ], [ %add.ptr3, %"_ZSt12__move_mergeIPiS0_N9__gnu_cxx5__ops15_Iter_comp_iterIZN8facebook5velox9MapVector12canonicalizeERKSt10shared_ptrIS6_EbE3$_0EEET0_T_SE_SE_SE_SD_T1_.exit" ]
-  %sub.ptr.div.lcssa = phi i64 [ %sub.ptr.div69, %entry ], [ %sub.ptr.div.us, %"_ZSt12__move_mergeIPiS0_N9__gnu_cxx5__ops15_Iter_comp_iterIZN8facebook5velox9MapVector12canonicalizeERKSt10shared_ptrIS6_EbE3$_0EEET0_T_SE_SE_SE_SD_T1_.exit.us" ], [ %sub.ptr.div, %"_ZSt12__move_mergeIPiS0_N9__gnu_cxx5__ops15_Iter_comp_iterIZN8facebook5velox9MapVector12canonicalizeERKSt10shared_ptrIS6_EbE3$_0EEET0_T_SE_SE_SE_SD_T1_.exit" ]
+while.end:                                        ; preds = %"_ZSt12__move_mergeIPiS0_N9__gnu_cxx5__ops15_Iter_comp_iterIZN8facebook5velox9MapVector12canonicalizeERKSt10shared_ptrIS6_EbE3$_0EEET0_T_SE_SE_SE_SD_T1_.exit", %entry
+  %__result.addr.0.lcssa = phi ptr [ %__result, %entry ], [ %add.ptr.i.i.i.i.i19.i, %"_ZSt12__move_mergeIPiS0_N9__gnu_cxx5__ops15_Iter_comp_iterIZN8facebook5velox9MapVector12canonicalizeERKSt10shared_ptrIS6_EbE3$_0EEET0_T_SE_SE_SE_SD_T1_.exit" ]
+  %__first.addr.0.lcssa = phi ptr [ %__first, %entry ], [ %add.ptr3, %"_ZSt12__move_mergeIPiS0_N9__gnu_cxx5__ops15_Iter_comp_iterIZN8facebook5velox9MapVector12canonicalizeERKSt10shared_ptrIS6_EbE3$_0EEET0_T_SE_SE_SE_SD_T1_.exit" ]
+  %sub.ptr.div.lcssa = phi i64 [ %sub.ptr.div69, %entry ], [ %sub.ptr.div, %"_ZSt12__move_mergeIPiS0_N9__gnu_cxx5__ops15_Iter_comp_iterIZN8facebook5velox9MapVector12canonicalizeERKSt10shared_ptrIS6_EbE3$_0EEET0_T_SE_SE_SE_SD_T1_.exit" ]
   %.sroa.speculated = tail call i64 @llvm.smin.i64(i64 %sub.ptr.div.lcssa, i64 %__step_size)
   %add.ptr12 = getelementptr inbounds i32, ptr %__first.addr.0.lcssa, i64 %.sroa.speculated
   %cmp24.i16 = icmp ne i64 %.sroa.speculated, 0
@@ -20310,7 +20299,7 @@ if.end.i.i.i.i.i58:                               ; preds = %while.body.i35
   %cmp.i56 = icmp ne ptr %__first1.addr.1.i53, %add.ptr12
   %cmp2.i57 = icmp ne ptr %__first2.addr.1.i51, %__last
   %10 = select i1 %cmp.i56, i1 %cmp2.i57, i1 false
-  br i1 %10, label %while.body.i35, label %while.end.i18, !llvm.loop !148
+  br i1 %10, label %while.body.i35, label %while.end.i18, !llvm.loop !147
 
 while.end.i18:                                    ; preds = %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN8facebook5velox9MapVector12canonicalizeERKSt10shared_ptrIS4_EbE3$_0EclIPiSC_EEbT_T0_.exit.i47", %while.end
   %__first2.addr.0.lcssa.i19 = phi ptr [ %add.ptr12, %while.end ], [ %__first2.addr.1.i51, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN8facebook5velox9MapVector12canonicalizeERKSt10shared_ptrIS4_EbE3$_0EclIPiSC_EEbT_T0_.exit.i47" ]

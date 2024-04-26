@@ -360,7 +360,7 @@ define hidden void @"_ZN110_$LT$hashbrown..raw..inner..alloc..inner..Global$u20$
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define hidden noundef i8 @_ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.llvm.6578722319504587490(ptr noundef nonnull align 8 %0) unnamed_addr #4 {
+define hidden noundef range(i8 0, 3) i8 @_ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.llvm.6578722319504587490(ptr noundef nonnull align 8 %0) unnamed_addr #4 {
   %2 = getelementptr inbounds i8, ptr %0, i64 16
   %3 = load atomic i8, ptr %2 monotonic, align 8
   %4 = icmp ult i8 %3, 3
@@ -381,7 +381,7 @@ define internal noundef i128 @_ZN12tracing_core8callsite8Callsite15private_type_
 }
 
 ; Function Attrs: alwaysinline mustprogress nofree norecurse nounwind nonlazybind willreturn memory(readwrite, argmem: none, inaccessiblemem: none) uwtable
-define hidden noundef i64 @_ZN12tracing_core8metadata11LevelFilter7current17hfcb861495eba2193E.llvm.6578722319504587490() unnamed_addr #5 {
+define hidden noundef range(i64 0, 6) i64 @_ZN12tracing_core8metadata11LevelFilter7current17hfcb861495eba2193E.llvm.6578722319504587490() unnamed_addr #5 {
   %1 = load atomic i64, ptr @_ZN12tracing_core8metadata9MAX_LEVEL17hfaf74736e3729d76E monotonic, align 8
   ret i64 %1
 }
@@ -3517,7 +3517,7 @@ define hidden void @_ZN4core9core_arch3x864sse214_mm_load_si12817h8494eca0ceb20a
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
-define hidden noundef i32 @_ZN4core9core_arch3x864sse217_mm_movemask_epi817hdb9731819c04f2e9E.llvm.6578722319504587490(ptr noalias nocapture noundef readonly align 16 dereferenceable(16) %0) unnamed_addr #15 {
+define hidden noundef range(i32 0, 65536) i32 @_ZN4core9core_arch3x864sse217_mm_movemask_epi817hdb9731819c04f2e9E.llvm.6578722319504587490(ptr noalias nocapture noundef readonly align 16 dereferenceable(16) %0) unnamed_addr #15 {
   %2 = load <16 x i8>, ptr %0, align 16
   %3 = icmp slt <16 x i8> %2, zeroinitializer
   %4 = bitcast <16 x i1> %3 to i16
@@ -25043,7 +25043,7 @@ define hidden { ptr, i32 } @_ZN14ide_completion7context17CompletionContext11famo
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden noundef i8 @_ZN14ide_completion7context17CompletionContext14def_is_visible17h59dbae7916d1f654E.llvm.6578722319504587490(ptr nocapture noundef nonnull readonly align 8 %0, ptr noalias noundef readonly align 4 dereferenceable(20) %1) unnamed_addr #6 personality ptr @rust_eh_personality {
+define hidden noundef range(i8 0, 3) i8 @_ZN14ide_completion7context17CompletionContext14def_is_visible17h59dbae7916d1f654E.llvm.6578722319504587490(ptr nocapture noundef nonnull readonly align 8 %0, ptr noalias noundef readonly align 4 dereferenceable(20) %1) unnamed_addr #6 personality ptr @rust_eh_personality {
   %3 = alloca { { i32, i32, i32 } }, align 4
   %4 = alloca { i32, i32, i32 }, align 4
   %5 = alloca { i8, [15 x i8] }, align 4
@@ -25762,7 +25762,7 @@ _ZN14ide_completion7context17CompletionContext10is_visible17hea184219167bd7e7E.e
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden noundef i8 @_ZN14ide_completion7context17CompletionContext10is_visible17h3bcf02439b9fbc41E.llvm.6578722319504587490(ptr nocapture noundef nonnull readonly align 8 %0, ptr noalias noundef readonly align 4 dereferenceable(4) %1) unnamed_addr #6 personality ptr @rust_eh_personality {
+define hidden noundef range(i8 0, 3) i8 @_ZN14ide_completion7context17CompletionContext10is_visible17h3bcf02439b9fbc41E.llvm.6578722319504587490(ptr nocapture noundef nonnull readonly align 8 %0, ptr noalias noundef readonly align 4 dereferenceable(4) %1) unnamed_addr #6 personality ptr @rust_eh_personality {
   %3 = alloca { { i32, i32, i32 } }, align 4
   %4 = alloca { i32, i32, i32 }, align 4
   %5 = alloca { i8, [15 x i8] }, align 4
@@ -25875,7 +25875,7 @@ _ZN14ide_completion7context17CompletionContext15is_visible_impl17ha3e330efc6c34f
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc noundef i8 @_ZN14ide_completion7context17CompletionContext10is_visible17haee140aa381e67efE(ptr nocapture noundef nonnull readonly align 8 %0, ptr noalias noundef readonly align 4 dereferenceable(4) %1) unnamed_addr #6 personality ptr @rust_eh_personality {
+define internal fastcc noundef range(i8 0, 3) i8 @_ZN14ide_completion7context17CompletionContext10is_visible17haee140aa381e67efE(ptr nocapture noundef nonnull readonly align 8 %0, ptr noalias noundef readonly align 4 dereferenceable(4) %1) unnamed_addr #6 personality ptr @rust_eh_personality {
   %3 = alloca { { i32, i32, i32 } }, align 4
   %4 = alloca { i32, i32, i32 }, align 4
   %5 = alloca { i8, [15 x i8] }, align 4
@@ -25988,7 +25988,7 @@ _ZN14ide_completion7context17CompletionContext15is_visible_impl17ha3e330efc6c34f
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc noundef i8 @_ZN14ide_completion7context17CompletionContext10is_visible17hb60d3f7a1568870eE(ptr nocapture noundef nonnull readonly align 8 %0, ptr noalias noundef readonly align 4 dereferenceable(8) %1) unnamed_addr #6 personality ptr @rust_eh_personality {
+define internal fastcc noundef range(i8 0, 3) i8 @_ZN14ide_completion7context17CompletionContext10is_visible17hb60d3f7a1568870eE(ptr nocapture noundef nonnull readonly align 8 %0, ptr noalias noundef readonly align 4 dereferenceable(8) %1) unnamed_addr #6 personality ptr @rust_eh_personality {
   %3 = alloca { { i32, i32, i32 } }, align 4
   %4 = alloca { i32, i32, i32 }, align 4
   %5 = alloca { i8, [15 x i8] }, align 4
@@ -26103,7 +26103,7 @@ _ZN14ide_completion7context17CompletionContext15is_visible_impl17ha3e330efc6c34f
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden noundef i8 @_ZN14ide_completion7context17CompletionContext10is_visible17hcb17858946ef0659E.llvm.6578722319504587490(ptr nocapture noundef nonnull readonly align 8 %0, ptr noalias noundef readonly align 4 dereferenceable(4) %1) unnamed_addr #6 personality ptr @rust_eh_personality {
+define hidden noundef range(i8 0, 3) i8 @_ZN14ide_completion7context17CompletionContext10is_visible17hcb17858946ef0659E.llvm.6578722319504587490(ptr nocapture noundef nonnull readonly align 8 %0, ptr noalias noundef readonly align 4 dereferenceable(4) %1) unnamed_addr #6 personality ptr @rust_eh_personality {
   %3 = alloca { { i32, i32, i32 } }, align 4
   %4 = alloca { i32, i32, i32 }, align 4
   %5 = alloca { i8, [15 x i8] }, align 4
@@ -27680,7 +27680,7 @@ _ZN7tracing4span4Span7entered17h75bf4b6a528220f6E.llvm.6578722319504587490.exit:
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden noundef i8 @_ZN14ide_completion7context17CompletionContext15is_visible_impl17ha3e330efc6c34f0dE.llvm.6578722319504587490(ptr nocapture noundef nonnull readonly align 8 %0, ptr noalias nocapture noundef readonly align 4 dereferenceable(16) %1, ptr noalias noundef readonly align 8 dereferenceable(8) %2, i32 noundef %3) unnamed_addr #6 {
+define hidden noundef range(i8 0, 3) i8 @_ZN14ide_completion7context17CompletionContext15is_visible_impl17ha3e330efc6c34f0dE.llvm.6578722319504587490(ptr nocapture noundef nonnull readonly align 8 %0, ptr noalias nocapture noundef readonly align 4 dereferenceable(16) %1, ptr noalias noundef readonly align 8 dereferenceable(8) %2, i32 noundef %3) unnamed_addr #6 {
   %5 = alloca { { i32, i32, i32 } }, align 4
   %6 = alloca { i32, i32, i32 }, align 4
   %7 = alloca { i8, [15 x i8] }, align 4

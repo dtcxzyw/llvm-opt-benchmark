@@ -46,7 +46,7 @@ define dso_local i64 @HUF_writeCTable_wksp(ptr noundef %0, i64 noundef %1, ptr n
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 1, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %22 = trunc i64 %indvars.iv to i32
+  %22 = trunc nuw i64 %indvars.iv to i32
   %23 = sub i32 %19, %22
   %24 = trunc i32 %23 to i8
   %25 = getelementptr inbounds [13 x i8], ptr %18, i64 0, i64 %indvars.iv
@@ -78,132 +78,129 @@ define dso_local i64 @HUF_writeCTable_wksp(ptr noundef %0, i64 noundef %1, ptr n
   %37 = getelementptr inbounds i8, ptr %.0.i, i64 493
   %38 = zext nneg i32 %3 to i64
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %8)
-  %39 = getelementptr inbounds i8, ptr %0, i64 %1
   store i32 12, ptr %8, align 4
-  %40 = ptrtoint ptr %.0.i to i64
-  %41 = sub i64 0, %40
-  %42 = and i64 %41, 3
-  %43 = getelementptr inbounds i8, ptr %.0.i, i64 %42
-  %.not55.i = icmp eq i64 %42, 0
-  br i1 %.not55.i, label %44, label %HUF_compressWeights.exit.thread
+  %39 = ptrtoint ptr %.0.i to i64
+  %40 = sub i64 0, %39
+  %41 = and i64 %40, 3
+  %42 = getelementptr inbounds i8, ptr %.0.i, i64 %41
+  %.not55.i = icmp eq i64 %41, 0
+  br i1 %.not55.i, label %43, label %HUF_compressWeights.exit.thread
 
-44:                                               ; preds = %34
-  %45 = icmp ult i32 %3, 2
-  br i1 %45, label %.thread, label %46
+43:                                               ; preds = %34
+  %44 = icmp ult i32 %3, 2
+  br i1 %44, label %.thread, label %45
 
-46:                                               ; preds = %44
-  %47 = getelementptr inbounds i8, ptr %43, i64 400
-  %48 = call i32 @HIST_count_simple(ptr noundef nonnull %47, ptr noundef nonnull %8, ptr noundef nonnull %37, i64 noundef %38) #13
-  %49 = icmp eq i32 %48, %3
-  %50 = icmp eq i32 %48, 1
-  %or.cond = or i1 %49, %50
-  br i1 %or.cond, label %.thread, label %51
+45:                                               ; preds = %43
+  %46 = getelementptr inbounds i8, ptr %42, i64 400
+  %47 = call i32 @HIST_count_simple(ptr noundef nonnull %46, ptr noundef nonnull %8, ptr noundef nonnull %37, i64 noundef %38) #13
+  %48 = icmp eq i32 %47, %3
+  %49 = icmp eq i32 %47, 1
+  %or.cond = or i1 %48, %49
+  br i1 %or.cond, label %.thread, label %50
 
-51:                                               ; preds = %46
-  %52 = load i32, ptr %8, align 4
-  %53 = call i32 @FSE_optimalTableLog(i32 noundef 6, i64 noundef %38, i32 noundef %52) #13
-  %54 = getelementptr inbounds i8, ptr %43, i64 452
-  %55 = load i32, ptr %8, align 4
-  %56 = call i64 @FSE_normalizeCount(ptr noundef nonnull %54, i32 noundef %53, ptr noundef nonnull %47, i64 noundef %38, i32 noundef %55, i32 noundef 0) #13
-  %57 = icmp ult i64 %56, -119
-  br i1 %57, label %58, label %HUF_compressWeights.exit.thread
+50:                                               ; preds = %45
+  %51 = load i32, ptr %8, align 4
+  %52 = call i32 @FSE_optimalTableLog(i32 noundef 6, i64 noundef %38, i32 noundef %51) #13
+  %53 = getelementptr inbounds i8, ptr %42, i64 452
+  %54 = load i32, ptr %8, align 4
+  %55 = call i64 @FSE_normalizeCount(ptr noundef nonnull %53, i32 noundef %52, ptr noundef nonnull %46, i64 noundef %38, i32 noundef %54, i32 noundef 0) #13
+  %56 = icmp ult i64 %55, -119
+  br i1 %56, label %57, label %HUF_compressWeights.exit.thread
 
-58:                                               ; preds = %51
-  %59 = ptrtoint ptr %39 to i64
-  %60 = ptrtoint ptr %35 to i64
-  %61 = load i32, ptr %8, align 4
-  %62 = call i64 @FSE_writeNCount(ptr noundef nonnull %35, i64 noundef %36, ptr noundef nonnull %54, i32 noundef %61, i32 noundef %53) #13
-  %63 = icmp ult i64 %62, -119
-  br i1 %63, label %64, label %HUF_compressWeights.exit.thread
+57:                                               ; preds = %50
+  %58 = ptrtoint ptr %35 to i64
+  %59 = load i32, ptr %8, align 4
+  %60 = call i64 @FSE_writeNCount(ptr noundef nonnull %35, i64 noundef %36, ptr noundef nonnull %53, i32 noundef %59, i32 noundef %52) #13
+  %61 = icmp ult i64 %60, -119
+  br i1 %61, label %62, label %HUF_compressWeights.exit.thread
 
-64:                                               ; preds = %58
-  %65 = getelementptr inbounds i8, ptr %35, i64 %62
-  %66 = load i32, ptr %8, align 4
-  %67 = getelementptr inbounds i8, ptr %43, i64 236
-  %68 = call i64 @FSE_buildCTable_wksp(ptr noundef %43, ptr noundef nonnull %54, i32 noundef %66, i32 noundef %53, ptr noundef nonnull %67, i64 noundef 164) #13
-  %69 = icmp ult i64 %68, -119
-  br i1 %69, label %70, label %HUF_compressWeights.exit.thread
+62:                                               ; preds = %57
+  %63 = getelementptr inbounds i8, ptr %35, i64 %60
+  %64 = load i32, ptr %8, align 4
+  %65 = getelementptr inbounds i8, ptr %42, i64 236
+  %66 = call i64 @FSE_buildCTable_wksp(ptr noundef %42, ptr noundef nonnull %53, i32 noundef %64, i32 noundef %52, ptr noundef nonnull %65, i64 noundef 164) #13
+  %67 = icmp ult i64 %66, -119
+  br i1 %67, label %68, label %HUF_compressWeights.exit.thread
 
-70:                                               ; preds = %64
-  %71 = ptrtoint ptr %65 to i64
-  %72 = sub i64 %59, %71
-  %73 = call i64 @FSE_compress_usingCTable(ptr noundef nonnull %65, i64 noundef %72, ptr noundef nonnull %37, i64 noundef %38, ptr noundef %43) #13
-  %74 = icmp ult i64 %73, -119
-  br i1 %74, label %75, label %HUF_compressWeights.exit.thread
+68:                                               ; preds = %62
+  %gepdiff.i = sub nsw i64 %36, %60
+  %69 = call i64 @FSE_compress_usingCTable(ptr noundef nonnull %63, i64 noundef %gepdiff.i, ptr noundef nonnull %37, i64 noundef %38, ptr noundef %42) #13
+  %70 = icmp ult i64 %69, -119
+  br i1 %70, label %71, label %HUF_compressWeights.exit.thread
 
-75:                                               ; preds = %70
-  %76 = icmp eq i64 %73, 0
-  br i1 %76, label %.thread, label %HUF_compressWeights.exit
+71:                                               ; preds = %68
+  %72 = icmp eq i64 %69, 0
+  br i1 %72, label %.thread, label %HUF_compressWeights.exit
 
-HUF_compressWeights.exit.thread:                  ; preds = %34, %51, %58, %64, %70
-  %.0.i56.ph = phi i64 [ %73, %70 ], [ %68, %64 ], [ %62, %58 ], [ %56, %51 ], [ -1, %34 ]
+HUF_compressWeights.exit.thread:                  ; preds = %34, %50, %57, %62, %68
+  %.0.i56.ph = phi i64 [ %69, %68 ], [ %66, %62 ], [ %60, %57 ], [ %55, %50 ], [ -1, %34 ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8)
   br label %.loopexit
 
-.thread:                                          ; preds = %75, %46, %44
+.thread:                                          ; preds = %71, %45, %43
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8)
-  br label %90
+  br label %86
 
-HUF_compressWeights.exit:                         ; preds = %75
-  %77 = getelementptr inbounds i8, ptr %65, i64 %73
-  %78 = ptrtoint ptr %77 to i64
-  %79 = sub i64 %78, %60
+HUF_compressWeights.exit:                         ; preds = %71
+  %73 = getelementptr inbounds i8, ptr %63, i64 %69
+  %74 = ptrtoint ptr %73 to i64
+  %75 = sub i64 %74, %58
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8)
-  %80 = icmp ult i64 %79, -119
-  br i1 %80, label %81, label %.loopexit
+  %76 = icmp ult i64 %75, -119
+  br i1 %76, label %77, label %.loopexit
 
-81:                                               ; preds = %HUF_compressWeights.exit
-  %82 = icmp ugt i64 %79, 1
-  %83 = lshr i32 %3, 1
-  %84 = zext nneg i32 %83 to i64
-  %85 = icmp ult i64 %79, %84
-  %86 = and i1 %82, %85
-  br i1 %86, label %87, label %90
+77:                                               ; preds = %HUF_compressWeights.exit
+  %78 = icmp ugt i64 %75, 1
+  %79 = lshr i32 %3, 1
+  %80 = zext nneg i32 %79 to i64
+  %81 = icmp ult i64 %75, %80
+  %82 = and i1 %78, %81
+  br i1 %82, label %83, label %86
 
-87:                                               ; preds = %81
-  %88 = trunc i64 %79 to i8
-  store i8 %88, ptr %0, align 1
-  %89 = add nuw nsw i64 %79, 1
+83:                                               ; preds = %77
+  %84 = trunc i64 %75 to i8
+  store i8 %84, ptr %0, align 1
+  %85 = add nuw nsw i64 %75, 1
   br label %.loopexit
 
-90:                                               ; preds = %.thread, %81
-  %91 = icmp ugt i32 %3, 128
-  br i1 %91, label %.loopexit, label %92
+86:                                               ; preds = %.thread, %77
+  %87 = icmp ugt i32 %3, 128
+  br i1 %87, label %.loopexit, label %88
 
-92:                                               ; preds = %90
-  %93 = add nuw nsw i32 %3, 1
-  %94 = lshr i32 %93, 1
-  %95 = add nuw nsw i32 %94, 1
-  %96 = zext nneg i32 %95 to i64
-  %97 = icmp ugt i64 %96, %1
-  br i1 %97, label %.loopexit, label %98
+88:                                               ; preds = %86
+  %89 = add nuw nsw i32 %3, 1
+  %90 = lshr i32 %89, 1
+  %91 = add nuw nsw i32 %90, 1
+  %92 = zext nneg i32 %91 to i64
+  %93 = icmp ugt i64 %92, %1
+  br i1 %93, label %.loopexit, label %94
 
-98:                                               ; preds = %92
-  %99 = trunc i32 %3 to i8
-  %100 = add nuw i8 %99, 127
-  store i8 %100, ptr %0, align 1
-  %101 = getelementptr inbounds [255 x i8], ptr %37, i64 0, i64 %38
-  store i8 0, ptr %101, align 1
+94:                                               ; preds = %88
+  %95 = trunc nuw i32 %3 to i8
+  %96 = add nuw i8 %95, 127
+  store i8 %96, ptr %0, align 1
+  %97 = getelementptr inbounds [255 x i8], ptr %37, i64 0, i64 %38
+  store i8 0, ptr %97, align 1
   br i1 %.not, label %.loopexit, label %.lr.ph72
 
-.lr.ph72:                                         ; preds = %98, %.lr.ph72
-  %indvars.iv80 = phi i64 [ %indvars.iv.next81, %.lr.ph72 ], [ 0, %98 ]
-  %102 = getelementptr inbounds [255 x i8], ptr %37, i64 0, i64 %indvars.iv80
+.lr.ph72:                                         ; preds = %94, %.lr.ph72
+  %indvars.iv80 = phi i64 [ %indvars.iv.next81, %.lr.ph72 ], [ 0, %94 ]
+  %98 = getelementptr inbounds [255 x i8], ptr %37, i64 0, i64 %indvars.iv80
+  %99 = load i8, ptr %98, align 1
+  %100 = shl i8 %99, 4
+  %101 = or disjoint i64 %indvars.iv80, 1
+  %102 = getelementptr inbounds [255 x i8], ptr %37, i64 0, i64 %101
   %103 = load i8, ptr %102, align 1
-  %104 = shl i8 %103, 4
-  %105 = or disjoint i64 %indvars.iv80, 1
-  %106 = getelementptr inbounds [255 x i8], ptr %37, i64 0, i64 %105
-  %107 = load i8, ptr %106, align 1
-  %108 = add i8 %104, %107
-  %109 = lshr exact i64 %indvars.iv80, 1
-  %gep = getelementptr i8, ptr %35, i64 %109
-  store i8 %108, ptr %gep, align 1
+  %104 = add i8 %100, %103
+  %105 = lshr exact i64 %indvars.iv80, 1
+  %gep = getelementptr i8, ptr %35, i64 %105
+  store i8 %104, ptr %gep, align 1
   %indvars.iv.next81 = add nuw nsw i64 %indvars.iv80, 2
-  %110 = icmp ult i64 %indvars.iv.next81, %38
-  br i1 %110, label %.lr.ph72, label %.loopexit, !llvm.loop !8
+  %106 = icmp ult i64 %indvars.iv.next81, %38
+  br i1 %106, label %.lr.ph72, label %.loopexit, !llvm.loop !8
 
-.loopexit:                                        ; preds = %.lr.ph72, %98, %HUF_compressWeights.exit.thread, %92, %90, %HUF_compressWeights.exit, %._crit_edge, %15, %7, %87
-  %.0 = phi i64 [ %89, %87 ], [ -1, %7 ], [ -46, %15 ], [ -70, %._crit_edge ], [ %79, %HUF_compressWeights.exit ], [ -1, %90 ], [ -70, %92 ], [ %.0.i56.ph, %HUF_compressWeights.exit.thread ], [ %96, %98 ], [ %96, %.lr.ph72 ]
+.loopexit:                                        ; preds = %.lr.ph72, %94, %HUF_compressWeights.exit.thread, %88, %86, %HUF_compressWeights.exit, %._crit_edge, %15, %7, %83
+  %.0 = phi i64 [ %85, %83 ], [ -1, %7 ], [ -46, %15 ], [ -70, %._crit_edge ], [ %75, %HUF_compressWeights.exit ], [ -1, %86 ], [ -70, %88 ], [ %.0.i56.ph, %HUF_compressWeights.exit.thread ], [ %92, %94 ], [ %92, %.lr.ph72 ]
   ret i64 %.0
 }
 
@@ -259,7 +256,7 @@ define dso_local i64 @HUF_readCTable(ptr nocapture noundef %0, ptr nocapture nou
   br label %._crit_edge63
 
 .lr.ph59:                                         ; preds = %.preheader54
-  %29 = trunc i32 %19 to i8
+  %29 = trunc nuw i32 %19 to i8
   %30 = add nuw nsw i8 %29, 1
   %wide.trip.count78 = zext i32 %22 to i64
   br label %37
@@ -384,7 +381,7 @@ declare i64 @HUF_readStats(ptr noundef, i64 noundef, ptr noundef, ptr noundef, p
 declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local i32 @HUF_getNbBitsFromCTable(ptr nocapture noundef readonly %0, i32 noundef %1) local_unnamed_addr #3 {
+define dso_local range(i32 0, 256) i32 @HUF_getNbBitsFromCTable(ptr nocapture noundef readonly %0, i32 noundef %1) local_unnamed_addr #3 {
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   %4 = zext i32 %1 to i64
   %5 = getelementptr inbounds i64, ptr %3, i64 %4
@@ -395,7 +392,7 @@ define dso_local i32 @HUF_getNbBitsFromCTable(ptr nocapture noundef readonly %0,
 }
 
 ; Function Attrs: nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define dso_local i64 @HUF_buildCTable_wksp(ptr nocapture noundef %0, ptr nocapture noundef readonly %1, i32 noundef %2, i32 noundef %3, ptr noundef %4, i64 noundef %5) local_unnamed_addr #4 {
+define dso_local range(i64 -66, 13) i64 @HUF_buildCTable_wksp(ptr nocapture noundef %0, ptr nocapture noundef readonly %1, i32 noundef %2, i32 noundef %3, ptr noundef %4, i64 noundef %5) local_unnamed_addr #4 {
   %7 = alloca [13 x i16], align 16
   %8 = alloca [13 x i16], align 16
   %9 = alloca [14 x i32], align 16
@@ -427,7 +424,7 @@ define dso_local i64 @HUF_buildCTable_wksp(ptr nocapture noundef %0, ptr nocaptu
   %23 = getelementptr inbounds i32, ptr %1, i64 %indvars.iv.i
   %24 = load i32, ptr %23, align 4
   %25 = icmp ult i32 %24, 165
-  %26 = tail call i32 @llvm.ctlz.i32(i32 %24, i1 true), !range !14
+  %26 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %24, i1 true)
   %27 = sub nuw nsw i32 189, %26
   %28 = select i1 %25, i32 %24, i32 %27
   %29 = zext nneg i32 %28 to i64
@@ -437,7 +434,7 @@ define dso_local i64 @HUF_buildCTable_wksp(ptr nocapture noundef %0, ptr nocaptu
   store i16 %32, ptr %30, align 2
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %.preheader49.preheader.i, label %22, !llvm.loop !15
+  br i1 %exitcond.not.i, label %.preheader49.preheader.i, label %22, !llvm.loop !14
 
 .preheader49.preheader.i:                         ; preds = %22
   %.phi.trans.insert.i = getelementptr inbounds i8, ptr %.0.i, i64 4860
@@ -459,14 +456,14 @@ define dso_local i64 @HUF_buildCTable_wksp(ptr nocapture noundef %0, ptr nocaptu
   %37 = getelementptr inbounds i8, ptr %34, i64 2
   store i16 %36, ptr %37, align 2
   %.not46.i = icmp eq i64 %indvars.iv.next56.i, 0
-  br i1 %.not46.i, label %.preheader48.i, label %.preheader49.i, !llvm.loop !16
+  br i1 %.not46.i, label %.preheader48.i, label %.preheader49.i, !llvm.loop !15
 
 38:                                               ; preds = %38, %.preheader48.i
   %indvars.iv58.i = phi i64 [ 0, %.preheader48.i ], [ %indvars.iv.next59.i, %38 ]
   %39 = getelementptr inbounds i32, ptr %1, i64 %indvars.iv58.i
   %40 = load i32, ptr %39, align 4
   %41 = icmp ult i32 %40, 165
-  %42 = tail call i32 @llvm.ctlz.i32(i32 %40, i1 true), !range !14
+  %42 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %40, i1 true)
   %43 = sub nuw nsw i32 189, %42
   %44 = select i1 %41, i32 %40, i32 %43
   %45 = zext nneg i32 %44 to i64
@@ -482,7 +479,7 @@ define dso_local i64 @HUF_buildCTable_wksp(ptr nocapture noundef %0, ptr nocaptu
   store i8 %50, ptr %51, align 2
   %indvars.iv.next59.i = add nuw nsw i64 %indvars.iv58.i, 1
   %exitcond62.not.i = icmp eq i64 %indvars.iv.next59.i, %wide.trip.count.i
-  br i1 %exitcond62.not.i, label %.preheader.i, label %38, !llvm.loop !17
+  br i1 %exitcond62.not.i, label %.preheader.i, label %38, !llvm.loop !16
 
 .preheader.i:                                     ; preds = %38, %64
   %indvars.iv63.i = phi i64 [ %indvars.iv.next64.i, %64 ], [ 165, %38 ]
@@ -506,7 +503,7 @@ define dso_local i64 @HUF_buildCTable_wksp(ptr nocapture noundef %0, ptr nocaptu
 64:                                               ; preds = %60, %.preheader.i
   %indvars.iv.next64.i = add nuw nsw i64 %indvars.iv63.i, 1
   %exitcond66.not.i = icmp eq i64 %indvars.iv.next64.i, 191
-  br i1 %exitcond66.not.i, label %HUF_sort.exit, label %.preheader.i, !llvm.loop !18
+  br i1 %exitcond66.not.i, label %HUF_sort.exit, label %.preheader.i, !llvm.loop !17
 
 HUF_sort.exit:                                    ; preds = %64
   %65 = zext nneg i32 %2 to i64
@@ -526,12 +523,12 @@ HUF_sort.exit:                                    ; preds = %64
   %indvars.iv.next114.i = add i32 %indvars.iv113.i, -1
   %indvars.iv.next122.i = add i32 %indvars.iv121.i, -1
   %indvars.iv.next = add i32 %indvars.iv, -1
-  br i1 %71, label %68, label %72, !llvm.loop !19
+  br i1 %71, label %68, label %72, !llvm.loop !18
 
 72:                                               ; preds = %68
   %73 = getelementptr inbounds %struct.nodeElt_s, ptr %14, i64 %indvars.iv.i24
   %spec.store.select = select i1 %19, i32 11, i32 %3
-  %74 = trunc i64 %indvars.iv.i24 to i32
+  %74 = trunc nsw i64 %indvars.iv.i24 to i32
   %75 = add nsw i32 %74, 255
   %76 = getelementptr i8, ptr %73, i64 -8
   %77 = load i32, ptr %76, align 4
@@ -557,7 +554,7 @@ HUF_sort.exit:                                    ; preds = %64
   store i32 1073741824, ptr %84, align 4
   %indvars.iv.next108.i = add nuw nsw i64 %indvars.iv107.i, 1
   %exitcond.not = icmp eq i64 %indvars.iv107.i, %umax
-  br i1 %exitcond.not, label %.lr.ph96.preheader.i, label %.lr.ph.i, !llvm.loop !20
+  br i1 %exitcond.not, label %.lr.ph96.preheader.i, label %.lr.ph.i, !llvm.loop !19
 
 ._crit_edge97.thread.i:                           ; preds = %72
   store i32 -2147483648, ptr %.0.i, align 4
@@ -616,7 +613,7 @@ HUF_sort.exit:                                    ; preds = %64
   store i16 %114, ptr %116, align 4
   %indvars.iv.next111.i = add nuw nsw i64 %indvars.iv110.i, 1
   %exitcond65.not = icmp eq i64 %indvars.iv110.i, %umax
-  br i1 %exitcond65.not, label %._crit_edge97.i, label %.lr.ph96.i, !llvm.loop !21
+  br i1 %exitcond65.not, label %._crit_edge97.i, label %.lr.ph96.i, !llvm.loop !20
 
 ._crit_edge97.i:                                  ; preds = %.lr.ph96.i
   %117 = zext nneg i32 %75 to i64
@@ -645,9 +642,9 @@ HUF_sort.exit:                                    ; preds = %64
   %127 = getelementptr inbounds i8, ptr %120, i64 7
   store i8 %126, ptr %127, align 1
   %indvars.iv.next116.i = add nsw i64 %indvars.iv115.i, -1
-  %128 = trunc i64 %indvars.iv115.i to i32
+  %128 = trunc nuw i64 %indvars.iv115.i to i32
   %129 = icmp sgt i32 %128, 256
-  br i1 %129, label %.lr.ph100.i, label %.preheader.i26, !llvm.loop !22
+  br i1 %129, label %.lr.ph100.i, label %.preheader.i26, !llvm.loop !21
 
 .lr.ph103.i:                                      ; preds = %.lr.ph103.i, %.lr.ph103.preheader.i
   %indvars.iv118.i = phi i64 [ 0, %.lr.ph103.preheader.i ], [ %indvars.iv.next119.i, %.lr.ph103.i ]
@@ -662,7 +659,7 @@ HUF_sort.exit:                                    ; preds = %64
   store i8 %136, ptr %137, align 1
   %indvars.iv.next119.i = add nuw nsw i64 %indvars.iv118.i, 1
   %exitcond.not.i28 = icmp eq i64 %indvars.iv.next119.i, %wide.trip.count.i27
-  br i1 %exitcond.not.i28, label %HUF_buildTree.exit, label %.lr.ph103.i, !llvm.loop !23
+  br i1 %exitcond.not.i28, label %HUF_buildTree.exit, label %.lr.ph103.i, !llvm.loop !22
 
 HUF_buildTree.exit:                               ; preds = %.lr.ph103.i, %.preheader.i26
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %9)
@@ -685,11 +682,11 @@ HUF_buildTree.exit:                               ; preds = %.lr.ph103.i, %.preh
   br i1 %149, label %.lr.ph.i36, label %.preheader108.i
 
 .lr.ph.i36:                                       ; preds = %142
-  %150 = trunc i32 %spec.store.select to i8
+  %150 = trunc nuw i32 %spec.store.select to i8
   br label %152
 
 .preheader108.loopexit.i:                         ; preds = %152
-  %151 = trunc i64 %indvars.iv.next.i38 to i32
+  %151 = trunc nsw i64 %indvars.iv.next.i38 to i32
   %sext.i = shl i64 %indvars.iv.next.i38, 32
   %.pre.i39 = ashr exact i64 %sext.i, 32
   br label %.preheader108.i
@@ -715,7 +712,7 @@ HUF_buildTree.exit:                               ; preds = %.lr.ph103.i, %.preh
   %159 = load i8, ptr %158, align 1
   %160 = zext i8 %159 to i32
   %161 = icmp ult i32 %spec.store.select, %160
-  br i1 %161, label %152, label %.preheader108.loopexit.i, !llvm.loop !24
+  br i1 %161, label %152, label %.preheader108.loopexit.i, !llvm.loop !23
 
 162:                                              ; preds = %162, %.preheader108.i
   %indvars.iv151.i = phi i32 [ %indvars.iv.next152.i, %162 ], [ %.084.lcssa.i, %.preheader108.i ]
@@ -726,7 +723,7 @@ HUF_buildTree.exit:                               ; preds = %.lr.ph103.i, %.preh
   %166 = icmp eq i32 %spec.store.select, %165
   %indvars.iv.next149.i = add nsw i64 %indvars.iv148.i, -1
   %indvars.iv.next152.i = add i32 %indvars.iv151.i, -1
-  br i1 %166, label %162, label %167, !llvm.loop !25
+  br i1 %166, label %162, label %167, !llvm.loop !24
 
 167:                                              ; preds = %162
   %168 = ashr i32 %.083.lcssa.i, %143
@@ -753,14 +750,14 @@ HUF_buildTree.exit:                               ; preds = %.lr.ph103.i, %.preh
   br i1 %.not103.i, label %176, label %.lr.ph115._crit_edge.i
 
 .lr.ph115._crit_edge.i:                           ; preds = %.lr.ph115.i
-  %.pre168.i = trunc i64 %indvars.iv153.i to i32
+  %.pre168.i = trunc nuw i64 %indvars.iv153.i to i32
   br label %181
 
 176:                                              ; preds = %.lr.ph115.i
   %177 = sub nsw i32 %spec.store.select, %175
   %178 = zext i32 %177 to i64
   %179 = getelementptr inbounds [14 x i32], ptr %9, i64 0, i64 %178
-  %180 = trunc i64 %indvars.iv153.i to i32
+  %180 = trunc nuw i64 %indvars.iv153.i to i32
   store i32 %180, ptr %179, align 4
   br label %181
 
@@ -769,7 +766,7 @@ HUF_buildTree.exit:                               ; preds = %.lr.ph103.i, %.preh
   %.188.i = phi i32 [ %.087114.i, %.lr.ph115._crit_edge.i ], [ %175, %176 ]
   %indvars.iv.next154.i = add nsw i64 %indvars.iv153.i, -1
   %182 = icmp sgt i32 %.pre-phi169.i, 0
-  br i1 %182, label %.lr.ph115.i, label %.preheader107.i, !llvm.loop !26
+  br i1 %182, label %.lr.ph115.i, label %.preheader107.i, !llvm.loop !25
 
 .preheader106.i:                                  ; preds = %235, %.preheader107.i
   %.1.lcssa.i = phi i32 [ %168, %.preheader107.i ], [ %215, %235 ]
@@ -783,7 +780,7 @@ HUF_buildTree.exit:                               ; preds = %.lr.ph103.i, %.preh
 
 .lr.ph130.i:                                      ; preds = %.preheader107.i, %235
   %.1129.i = phi i32 [ %215, %235 ], [ %168, %.preheader107.i ]
-  %185 = tail call i32 @llvm.ctlz.i32(i32 %.1129.i, i1 true), !range !14
+  %185 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %.1129.i, i1 true)
   %.not141.i = icmp eq i32 %185, 31
   br i1 %.not141.i, label %.lr.ph125.preheader.i, label %.lr.ph117.preheader.i
 
@@ -821,10 +818,10 @@ HUF_buildTree.exit:                               ; preds = %.lr.ph103.i, %.preh
 204:                                              ; preds = %196, %.lr.ph117.i
   %205 = and i64 %indvars.iv.next157.i, 4294967294
   %.not170.i = icmp eq i64 %205, 0
-  br i1 %.not170.i, label %.lr.ph125.preheader.i, label %.lr.ph117.i, !llvm.loop !27
+  br i1 %.not170.i, label %.lr.ph125.preheader.i, label %.lr.ph117.i, !llvm.loop !26
 
 ._crit_edge.i33:                                  ; preds = %196, %194
-  %206 = trunc i64 %indvars.iv156.i to i32
+  %206 = trunc nuw i64 %indvars.iv156.i to i32
   %207 = icmp ult i32 %206, 13
   br i1 %207, label %.lr.ph125.preheader.i, label %.critedge.i
 
@@ -843,10 +840,10 @@ HUF_buildTree.exit:                               ; preds = %.lr.ph103.i, %.preh
 212:                                              ; preds = %.lr.ph125.i
   %indvars.iv.next160.i = add nuw nsw i64 %indvars.iv159.i, 1
   %exitcond.not.i35 = icmp eq i64 %indvars.iv.next160.i, 13
-  br i1 %exitcond.not.i35, label %.critedge.i, label %.lr.ph125.i, !llvm.loop !28
+  br i1 %exitcond.not.i35, label %.critedge.i, label %.lr.ph125.i, !llvm.loop !27
 
 .critedge.loopexit.split.loop.exit177.i:          ; preds = %.lr.ph125.i
-  %213 = trunc i64 %indvars.iv159.i to i32
+  %213 = trunc nuw nsw i64 %indvars.iv159.i to i32
   br label %.critedge.i
 
 .critedge.i:                                      ; preds = %212, %.critedge.loopexit.split.loop.exit177.i, %._crit_edge.i33
@@ -886,7 +883,7 @@ HUF_buildTree.exit:                               ; preds = %.lr.ph103.i, %.preh
   %storemerge.i34 = phi i32 [ %spec.store.select.i, %228 ], [ -252645136, %.critedge.i ]
   store i32 %storemerge.i34, ptr %217, align 4
   %236 = icmp sgt i32 %215, 0
-  br i1 %236, label %.lr.ph130.i, label %.preheader106.i, !llvm.loop !29
+  br i1 %236, label %.lr.ph130.i, label %.preheader106.i, !llvm.loop !28
 
 237:                                              ; preds = %255, %.lr.ph133.i
   %238 = phi i32 [ %254, %.lr.ph133.i ], [ %256, %255 ]
@@ -906,19 +903,19 @@ HUF_buildTree.exit:                               ; preds = %.lr.ph103.i, %.preh
   %244 = zext i8 %243 to i32
   %245 = icmp eq i32 %spec.store.select, %244
   %indvars.iv.next165.i = add nsw i64 %indvars.iv164.i, -1
-  br i1 %245, label %241, label %.outer.i, !llvm.loop !30
+  br i1 %245, label %241, label %.outer.i, !llvm.loop !29
 
 .outer.i:                                         ; preds = %241
-  %246 = trunc i64 %indvars.iv164.i to i32
+  %246 = trunc nsw i64 %indvars.iv164.i to i32
   %247 = add nsw i32 %246, 1
   %248 = sext i32 %247 to i64
   %249 = getelementptr inbounds %struct.nodeElt_s, ptr %14, i64 %248, i32 3
   %250 = load i8, ptr %249, align 1
   %251 = add i8 %250, -1
   store i8 %251, ptr %249, align 1
-  %252 = add nsw i32 %.2132.i, 1
+  %252 = add nuw nsw i32 %.2132.i, 1
   %253 = icmp slt i32 %.2132.i, -1
-  br i1 %253, label %.lr.ph133.i, label %HUF_setMaxHeight.exit, !llvm.loop !31
+  br i1 %253, label %.lr.ph133.i, label %HUF_setMaxHeight.exit, !llvm.loop !30
 
 .lr.ph133.i:                                      ; preds = %.outer.i, %.lr.ph133.lr.ph.i
   %254 = phi i32 [ %.promoted139.i, %.lr.ph133.lr.ph.i ], [ %247, %.outer.i ]
@@ -933,9 +930,9 @@ HUF_buildTree.exit:                               ; preds = %.lr.ph103.i, %.preh
   %259 = load i8, ptr %258, align 1
   %260 = add i8 %259, -1
   store i8 %260, ptr %258, align 1
-  %261 = add i32 %.2132.i, 1
+  %261 = add nuw i32 %.2132.i, 1
   %exitcond163.not.i = icmp eq i32 %.2132.i, -1
-  br i1 %exitcond163.not.i, label %HUF_setMaxHeight.exit, label %237, !llvm.loop !31
+  br i1 %exitcond163.not.i, label %HUF_setMaxHeight.exit, label %237, !llvm.loop !30
 
 HUF_setMaxHeight.exit:                            ; preds = %.outer.i, %255, %HUF_buildTree.exit, %.preheader106.i
   %.0.i31 = phi i32 [ %141, %HUF_buildTree.exit ], [ %spec.store.select, %.preheader106.i ], [ %spec.store.select, %255 ], [ %spec.store.select, %.outer.i ]
@@ -975,7 +972,7 @@ HUF_setMaxHeight.exit:                            ; preds = %.outer.i, %255, %HU
   store i16 %272, ptr %270, align 2
   %indvars.iv.next.i44 = add nuw nsw i64 %indvars.iv.i43, 1
   %exitcond.not.i45 = icmp eq i64 %indvars.iv.next.i44, %wide.trip.count.i41
-  br i1 %exitcond.not.i45, label %.preheader36.i, label %.lr.ph.i42, !llvm.loop !32
+  br i1 %exitcond.not.i45, label %.preheader36.i, label %.lr.ph.i42, !llvm.loop !31
 
 .lr.ph41.i:                                       ; preds = %.lr.ph41.i, %.lr.ph41.preheader.i
   %indvars.iv49.i = phi i64 [ %266, %.lr.ph41.preheader.i ], [ %indvars.iv.next50.i, %.lr.ph41.i ]
@@ -988,7 +985,7 @@ HUF_setMaxHeight.exit:                            ; preds = %.outer.i, %255, %HU
   %277 = lshr i16 %276, 1
   %indvars.iv.next50.i = add nsw i64 %indvars.iv49.i, -1
   %278 = icmp ugt i64 %indvars.iv49.i, 1
-  br i1 %278, label %.lr.ph41.i, label %.lr.ph44.i.preheader, !llvm.loop !33
+  br i1 %278, label %.lr.ph41.i, label %.lr.ph44.i.preheader, !llvm.loop !32
 
 .lr.ph44.i.preheader:                             ; preds = %.lr.ph41.i, %.preheader36.i
   br label %.lr.ph44.i
@@ -1006,7 +1003,7 @@ HUF_setMaxHeight.exit:                            ; preds = %.outer.i, %255, %HU
   store i64 %286, ptr %283, align 8
   %indvars.iv.next52.i = add nuw nsw i64 %indvars.iv51.i, 1
   %exitcond55.not.i = icmp eq i64 %indvars.iv.next52.i, %wide.trip.count.i
-  br i1 %exitcond55.not.i, label %.lr.ph47.i, label %.lr.ph44.i, !llvm.loop !34
+  br i1 %exitcond55.not.i, label %.lr.ph47.i, label %.lr.ph44.i, !llvm.loop !33
 
 .lr.ph47.i:                                       ; preds = %.lr.ph44.i, %HUF_setValue.exit.i
   %indvars.iv56.i = phi i64 [ %indvars.iv.next57.i, %HUF_setValue.exit.i ], [ 0, %.lr.ph44.i ]
@@ -1031,7 +1028,7 @@ HUF_setMaxHeight.exit:                            ; preds = %.outer.i, %255, %HU
 HUF_setValue.exit.i:                              ; preds = %293, %.lr.ph47.i
   %indvars.iv.next57.i = add nuw nsw i64 %indvars.iv56.i, 1
   %exitcond60.not.i = icmp eq i64 %indvars.iv.next57.i, %wide.trip.count.i
-  br i1 %exitcond60.not.i, label %HUF_buildCTableFromTree.exit, label %.lr.ph47.i, !llvm.loop !35
+  br i1 %exitcond60.not.i, label %HUF_buildCTableFromTree.exit, label %.lr.ph47.i, !llvm.loop !34
 
 HUF_buildCTableFromTree.exit:                     ; preds = %HUF_setValue.exit.i
   %298 = zext nneg i32 %.0.i31 to i64
@@ -1046,7 +1043,7 @@ HUF_buildCTableFromTree.exit:                     ; preds = %HUF_setValue.exit.i
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read) uwtable
-define dso_local i64 @HUF_estimateCompressedSize(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, i32 noundef %2) local_unnamed_addr #5 {
+define dso_local range(i64 0, 2305843009213693952) i64 @HUF_estimateCompressedSize(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, i32 noundef %2) local_unnamed_addr #5 {
   %4 = getelementptr inbounds i8, ptr %0, i64 8
   %.not10 = icmp slt i32 %2, 0
   br i1 %.not10, label %._crit_edge, label %.lr.ph.preheader
@@ -1069,7 +1066,7 @@ define dso_local i64 @HUF_estimateCompressedSize(ptr nocapture noundef readonly 
   %13 = add i64 %12, %.0911
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !36
+  br i1 %exitcond.not, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !35
 
 ._crit_edge.loopexit:                             ; preds = %.lr.ph
   %14 = lshr i64 %13, 3
@@ -1081,7 +1078,7 @@ define dso_local i64 @HUF_estimateCompressedSize(ptr nocapture noundef readonly 
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read) uwtable
-define dso_local i32 @HUF_validateCTable(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, i32 noundef %2) local_unnamed_addr #5 {
+define dso_local range(i32 0, 2) i32 @HUF_validateCTable(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, i32 noundef %2) local_unnamed_addr #5 {
   %4 = getelementptr inbounds i8, ptr %0, i64 8
   %.not11 = icmp slt i32 %2, 0
   br i1 %.not11, label %._crit_edge, label %.lr.ph.preheader
@@ -1106,7 +1103,7 @@ define dso_local i32 @HUF_validateCTable(ptr nocapture noundef readonly %0, ptr 
   %15 = or i32 %.0912, %14
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !37
+  br i1 %exitcond.not, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !36
 
 ._crit_edge.loopexit:                             ; preds = %.lr.ph
   %16 = icmp eq i32 %15, 0
@@ -1185,10 +1182,10 @@ define internal fastcc i64 @HUF_compress1X_usingCTable_internal(ptr noundef %0, 
   %34 = add i64 %29, %.sroa.262.03279
   %35 = add nsw i32 %.025613282, -1
   %36 = icmp ugt i32 %.025613282, 1
-  br i1 %36, label %.preheader3125, label %37, !llvm.loop !38
+  br i1 %36, label %.preheader3125, label %37, !llvm.loop !37
 
 37:                                               ; preds = %.preheader3125
-  %38 = trunc i64 %indvars.iv.next3495 to i32
+  %38 = trunc nsw i64 %indvars.iv.next3495 to i32
   %39 = and i64 %34, 255
   %40 = lshr i64 %39, 3
   %41 = sub nsw i64 64, %39
@@ -1229,7 +1226,7 @@ define internal fastcc i64 @HUF_compress1X_usingCTable_internal(ptr noundef %0, 
   %58 = add i64 %54, %.sroa.262.23283
   %indvars.iv.next3498 = add nuw nsw i64 %indvars.iv3497, 1
   %exitcond3500.not = icmp eq i64 %indvars.iv.next3498, 4
-  br i1 %exitcond3500.not, label %59, label %.preheader3124, !llvm.loop !39
+  br i1 %exitcond3500.not, label %59, label %.preheader3124, !llvm.loop !38
 
 59:                                               ; preds = %.preheader3124
   %60 = add nsw i32 %.12563, -4
@@ -1291,7 +1288,7 @@ define internal fastcc i64 @HUF_compress1X_usingCTable_internal(ptr noundef %0, 
   %92 = add i64 %88, %.sroa.262.53286
   %indvars.iv.next3502 = add nuw nsw i64 %indvars.iv3501, 1
   %exitcond3504.not = icmp eq i64 %indvars.iv.next3502, 4
-  br i1 %exitcond3504.not, label %93, label %82, !llvm.loop !40
+  br i1 %exitcond3504.not, label %93, label %82, !llvm.loop !39
 
 93:                                               ; preds = %82
   %94 = add nsw i64 %indvars.iv3509, -4
@@ -1330,7 +1327,7 @@ define internal fastcc i64 @HUF_compress1X_usingCTable_internal(ptr noundef %0, 
   %121 = add i64 %117, %.sroa.384.03290
   %indvars.iv.next3506 = add nuw nsw i64 %indvars.iv3505, 1
   %exitcond3508.not = icmp eq i64 %indvars.iv.next3506, 4
-  br i1 %exitcond3508.not, label %122, label %111, !llvm.loop !41
+  br i1 %exitcond3508.not, label %122, label %111, !llvm.loop !40
 
 122:                                              ; preds = %111
   %123 = and i64 %104, 7
@@ -1360,7 +1357,7 @@ define internal fastcc i64 @HUF_compress1X_usingCTable_internal(ptr noundef %0, 
   %spec.store.select2664 = select i1 %143, ptr %12, ptr %142
   %indvars.iv.next3510 = add nsw i64 %indvars.iv3509, -8
   %144 = icmp sgt i64 %indvars.iv3509, 8
-  br i1 %144, label %.preheader, label %.loopexit, !llvm.loop !42
+  br i1 %144, label %.preheader, label %.loopexit, !llvm.loop !41
 
 145:                                              ; preds = %13
   switch i32 %7, label %743 [
@@ -1399,10 +1396,10 @@ define internal fastcc i64 @HUF_compress1X_usingCTable_internal(ptr noundef %0, 
   %159 = add i64 %154, %.sroa.262.63235
   %160 = add nsw i32 %.025733237, -1
   %161 = icmp ugt i32 %.025733237, 1
-  br i1 %161, label %.preheader3133, label %162, !llvm.loop !38
+  br i1 %161, label %.preheader3133, label %162, !llvm.loop !37
 
 162:                                              ; preds = %.preheader3133
-  %163 = trunc i64 %indvars.iv.next3459 to i32
+  %163 = trunc nsw i64 %indvars.iv.next3459 to i32
   %164 = and i64 %159, 255
   %165 = lshr i64 %164, 3
   %166 = sub nsw i64 64, %164
@@ -1441,7 +1438,7 @@ define internal fastcc i64 @HUF_compress1X_usingCTable_internal(ptr noundef %0, 
   %182 = add i64 %178, %.sroa.262.83239
   %indvars.iv.next3462 = add nuw nsw i64 %indvars.iv3461, 1
   %exitcond3464.not = icmp eq i64 %indvars.iv.next3462, 5
-  br i1 %exitcond3464.not, label %183, label %.preheader3132, !llvm.loop !39
+  br i1 %exitcond3464.not, label %183, label %.preheader3132, !llvm.loop !38
 
 183:                                              ; preds = %.preheader3132
   %184 = add nsw i32 %.12570, -5
@@ -1501,7 +1498,7 @@ define internal fastcc i64 @HUF_compress1X_usingCTable_internal(ptr noundef %0, 
   %215 = add i64 %211, %.sroa.262.113242
   %indvars.iv.next3466 = add nuw nsw i64 %indvars.iv3465, 1
   %exitcond3468.not = icmp eq i64 %indvars.iv.next3466, 5
-  br i1 %exitcond3468.not, label %216, label %205, !llvm.loop !40
+  br i1 %exitcond3468.not, label %216, label %205, !llvm.loop !39
 
 216:                                              ; preds = %205
   %217 = add nsw i64 %indvars.iv3473, -5
@@ -1537,7 +1534,7 @@ define internal fastcc i64 @HUF_compress1X_usingCTable_internal(ptr noundef %0, 
   %241 = add i64 %237, %.sroa.384.13246
   %indvars.iv.next3470 = add nuw nsw i64 %indvars.iv3469, 1
   %exitcond3472.not = icmp eq i64 %indvars.iv.next3470, 5
-  br i1 %exitcond3472.not, label %242, label %231, !llvm.loop !41
+  br i1 %exitcond3472.not, label %242, label %231, !llvm.loop !40
 
 242:                                              ; preds = %231
   %243 = lshr i64 %228, 3
@@ -1566,7 +1563,7 @@ define internal fastcc i64 @HUF_compress1X_usingCTable_internal(ptr noundef %0, 
   %264 = getelementptr inbounds i8, ptr %245, i64 %260
   %indvars.iv.next3474 = add nsw i64 %indvars.iv3473, -10
   %265 = icmp sgt i64 %indvars.iv3473, 10
-  br i1 %265, label %.preheader3130, label %.loopexit, !llvm.loop !42
+  br i1 %265, label %.preheader3130, label %.loopexit, !llvm.loop !41
 
 266:                                              ; preds = %145
   %267 = srem i32 %20, 5
@@ -1596,10 +1593,10 @@ define internal fastcc i64 @HUF_compress1X_usingCTable_internal(ptr noundef %0, 
   %279 = add i64 %274, %.sroa.262.123213
   %280 = add nsw i32 %.025563215, -1
   %281 = icmp ugt i32 %.025563215, 1
-  br i1 %281, label %.preheader3137, label %282, !llvm.loop !38
+  br i1 %281, label %.preheader3137, label %282, !llvm.loop !37
 
 282:                                              ; preds = %.preheader3137
-  %283 = trunc i64 %indvars.iv.next3441 to i32
+  %283 = trunc nsw i64 %indvars.iv.next3441 to i32
   %284 = and i64 %279, 255
   %285 = lshr i64 %284, 3
   %286 = sub nsw i64 64, %284
@@ -1638,7 +1635,7 @@ define internal fastcc i64 @HUF_compress1X_usingCTable_internal(ptr noundef %0, 
   %302 = add i64 %298, %.sroa.262.143217
   %indvars.iv.next3444 = add nuw nsw i64 %indvars.iv3443, 1
   %exitcond3446.not = icmp eq i64 %indvars.iv.next3444, 5
-  br i1 %exitcond3446.not, label %303, label %.preheader3136, !llvm.loop !39
+  br i1 %exitcond3446.not, label %303, label %.preheader3136, !llvm.loop !38
 
 303:                                              ; preds = %.preheader3136
   %304 = add nsw i32 %.12553, -5
@@ -1697,7 +1694,7 @@ define internal fastcc i64 @HUF_compress1X_usingCTable_internal(ptr noundef %0, 
   %334 = add i64 %330, %.sroa.262.173220
   %indvars.iv.next3448 = add nuw nsw i64 %indvars.iv3447, 1
   %exitcond3450.not = icmp eq i64 %indvars.iv.next3448, 5
-  br i1 %exitcond3450.not, label %335, label %324, !llvm.loop !40
+  br i1 %exitcond3450.not, label %335, label %324, !llvm.loop !39
 
 335:                                              ; preds = %324
   %336 = add nsw i64 %indvars.iv3455, -5
@@ -1732,7 +1729,7 @@ define internal fastcc i64 @HUF_compress1X_usingCTable_internal(ptr noundef %0, 
   %359 = add i64 %355, %.sroa.384.23224
   %indvars.iv.next3452 = add nuw nsw i64 %indvars.iv3451, 1
   %exitcond3454.not = icmp eq i64 %indvars.iv.next3452, 5
-  br i1 %exitcond3454.not, label %360, label %349, !llvm.loop !41
+  br i1 %exitcond3454.not, label %360, label %349, !llvm.loop !40
 
 360:                                              ; preds = %349
   %361 = lshr i64 %346, 3
@@ -1760,7 +1757,7 @@ define internal fastcc i64 @HUF_compress1X_usingCTable_internal(ptr noundef %0, 
   %381 = getelementptr inbounds i8, ptr %363, i64 %377
   %indvars.iv.next3456 = add nsw i64 %indvars.iv3455, -10
   %382 = icmp sgt i64 %indvars.iv3455, 10
-  br i1 %382, label %.preheader3134, label %.loopexit, !llvm.loop !42
+  br i1 %382, label %.preheader3134, label %.loopexit, !llvm.loop !41
 
 383:                                              ; preds = %145
   %384 = srem i32 %20, 6
@@ -1790,10 +1787,10 @@ define internal fastcc i64 @HUF_compress1X_usingCTable_internal(ptr noundef %0, 
   %396 = add i64 %391, %.sroa.262.183191
   %397 = add nsw i32 %.025483193, -1
   %398 = icmp ugt i32 %.025483193, 1
-  br i1 %398, label %.preheader3141, label %399, !llvm.loop !38
+  br i1 %398, label %.preheader3141, label %399, !llvm.loop !37
 
 399:                                              ; preds = %.preheader3141
-  %400 = trunc i64 %indvars.iv.next3423 to i32
+  %400 = trunc nsw i64 %indvars.iv.next3423 to i32
   %401 = and i64 %396, 255
   %402 = lshr i64 %401, 3
   %403 = sub nsw i64 64, %401
@@ -1832,7 +1829,7 @@ define internal fastcc i64 @HUF_compress1X_usingCTable_internal(ptr noundef %0, 
   %419 = add i64 %415, %.sroa.262.203195
   %indvars.iv.next3426 = add nuw nsw i64 %indvars.iv3425, 1
   %exitcond3428.not = icmp eq i64 %indvars.iv.next3426, 6
-  br i1 %exitcond3428.not, label %420, label %.preheader3140, !llvm.loop !39
+  br i1 %exitcond3428.not, label %420, label %.preheader3140, !llvm.loop !38
 
 420:                                              ; preds = %.preheader3140
   %421 = add nsw i32 %.12545, -6
@@ -1892,7 +1889,7 @@ define internal fastcc i64 @HUF_compress1X_usingCTable_internal(ptr noundef %0, 
   %452 = add i64 %448, %.sroa.262.233198
   %indvars.iv.next3430 = add nuw nsw i64 %indvars.iv3429, 1
   %exitcond3432.not = icmp eq i64 %indvars.iv.next3430, 6
-  br i1 %exitcond3432.not, label %453, label %442, !llvm.loop !40
+  br i1 %exitcond3432.not, label %453, label %442, !llvm.loop !39
 
 453:                                              ; preds = %442
   %454 = add nsw i64 %indvars.iv3437, -6
@@ -1928,7 +1925,7 @@ define internal fastcc i64 @HUF_compress1X_usingCTable_internal(ptr noundef %0, 
   %478 = add i64 %474, %.sroa.384.33202
   %indvars.iv.next3434 = add nuw nsw i64 %indvars.iv3433, 1
   %exitcond3436.not = icmp eq i64 %indvars.iv.next3434, 6
-  br i1 %exitcond3436.not, label %479, label %468, !llvm.loop !41
+  br i1 %exitcond3436.not, label %479, label %468, !llvm.loop !40
 
 479:                                              ; preds = %468
   %480 = lshr i64 %465, 3
@@ -1957,7 +1954,7 @@ define internal fastcc i64 @HUF_compress1X_usingCTable_internal(ptr noundef %0, 
   %501 = getelementptr inbounds i8, ptr %482, i64 %497
   %indvars.iv.next3438 = add nsw i64 %indvars.iv3437, -12
   %502 = icmp sgt i64 %indvars.iv3437, 12
-  br i1 %502, label %.preheader3138, label %.loopexit, !llvm.loop !42
+  br i1 %502, label %.preheader3138, label %.loopexit, !llvm.loop !41
 
 503:                                              ; preds = %145
   %504 = srem i32 %20, 7
@@ -1987,10 +1984,10 @@ define internal fastcc i64 @HUF_compress1X_usingCTable_internal(ptr noundef %0, 
   %516 = add i64 %511, %.sroa.262.243169
   %517 = add nsw i32 %.025403171, -1
   %518 = icmp ugt i32 %.025403171, 1
-  br i1 %518, label %.preheader3145, label %519, !llvm.loop !38
+  br i1 %518, label %.preheader3145, label %519, !llvm.loop !37
 
 519:                                              ; preds = %.preheader3145
-  %520 = trunc i64 %indvars.iv.next3405 to i32
+  %520 = trunc nsw i64 %indvars.iv.next3405 to i32
   %521 = and i64 %516, 255
   %522 = lshr i64 %521, 3
   %523 = sub nsw i64 64, %521
@@ -2029,7 +2026,7 @@ define internal fastcc i64 @HUF_compress1X_usingCTable_internal(ptr noundef %0, 
   %539 = add i64 %535, %.sroa.262.263173
   %indvars.iv.next3408 = add nuw nsw i64 %indvars.iv3407, 1
   %exitcond3410.not = icmp eq i64 %indvars.iv.next3408, 7
-  br i1 %exitcond3410.not, label %540, label %.preheader3144, !llvm.loop !39
+  br i1 %exitcond3410.not, label %540, label %.preheader3144, !llvm.loop !38
 
 540:                                              ; preds = %.preheader3144
   %541 = add nsw i32 %.12537, -7
@@ -2089,7 +2086,7 @@ define internal fastcc i64 @HUF_compress1X_usingCTable_internal(ptr noundef %0, 
   %572 = add i64 %568, %.sroa.262.293176
   %indvars.iv.next3412 = add nuw nsw i64 %indvars.iv3411, 1
   %exitcond3414.not = icmp eq i64 %indvars.iv.next3412, 7
-  br i1 %exitcond3414.not, label %573, label %562, !llvm.loop !40
+  br i1 %exitcond3414.not, label %573, label %562, !llvm.loop !39
 
 573:                                              ; preds = %562
   %574 = add nsw i64 %indvars.iv3419, -7
@@ -2125,7 +2122,7 @@ define internal fastcc i64 @HUF_compress1X_usingCTable_internal(ptr noundef %0, 
   %598 = add i64 %594, %.sroa.384.43180
   %indvars.iv.next3416 = add nuw nsw i64 %indvars.iv3415, 1
   %exitcond3418.not = icmp eq i64 %indvars.iv.next3416, 7
-  br i1 %exitcond3418.not, label %599, label %588, !llvm.loop !41
+  br i1 %exitcond3418.not, label %599, label %588, !llvm.loop !40
 
 599:                                              ; preds = %588
   %600 = lshr i64 %585, 3
@@ -2154,7 +2151,7 @@ define internal fastcc i64 @HUF_compress1X_usingCTable_internal(ptr noundef %0, 
   %621 = getelementptr inbounds i8, ptr %602, i64 %617
   %indvars.iv.next3420 = add nsw i64 %indvars.iv3419, -14
   %622 = icmp sgt i64 %indvars.iv3419, 14
-  br i1 %622, label %.preheader3142, label %.loopexit, !llvm.loop !42
+  br i1 %622, label %.preheader3142, label %.loopexit, !llvm.loop !41
 
 623:                                              ; preds = %145
   %624 = srem i32 %20, 8
@@ -2184,10 +2181,10 @@ define internal fastcc i64 @HUF_compress1X_usingCTable_internal(ptr noundef %0, 
   %636 = add i64 %631, %.sroa.262.303150
   %637 = add nsw i32 %.025323152, -1
   %638 = icmp ugt i32 %.025323152, 1
-  br i1 %638, label %.preheader3149, label %639, !llvm.loop !38
+  br i1 %638, label %.preheader3149, label %639, !llvm.loop !37
 
 639:                                              ; preds = %.preheader3149
-  %640 = trunc i64 %indvars.iv.next to i32
+  %640 = trunc nsw i64 %indvars.iv.next to i32
   %641 = and i64 %636, 255
   %642 = lshr i64 %641, 3
   %643 = sub nsw i64 64, %641
@@ -2226,7 +2223,7 @@ define internal fastcc i64 @HUF_compress1X_usingCTable_internal(ptr noundef %0, 
   %659 = add i64 %655, %.sroa.262.323154
   %indvars.iv.next3391 = add nuw nsw i64 %indvars.iv3390, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next3391, 8
-  br i1 %exitcond.not, label %660, label %.preheader3148, !llvm.loop !39
+  br i1 %exitcond.not, label %660, label %.preheader3148, !llvm.loop !38
 
 660:                                              ; preds = %.preheader3148
   %661 = add nsw i32 %.12529, -8
@@ -2286,7 +2283,7 @@ define internal fastcc i64 @HUF_compress1X_usingCTable_internal(ptr noundef %0, 
   %692 = add i64 %688, %.sroa.262.353157
   %indvars.iv.next3394 = add nuw nsw i64 %indvars.iv3393, 1
   %exitcond3396.not = icmp eq i64 %indvars.iv.next3394, 8
-  br i1 %exitcond3396.not, label %693, label %682, !llvm.loop !40
+  br i1 %exitcond3396.not, label %693, label %682, !llvm.loop !39
 
 693:                                              ; preds = %682
   %694 = add nsw i64 %indvars.iv3401, -8
@@ -2322,7 +2319,7 @@ define internal fastcc i64 @HUF_compress1X_usingCTable_internal(ptr noundef %0, 
   %718 = add i64 %714, %.sroa.384.53161
   %indvars.iv.next3398 = add nuw nsw i64 %indvars.iv3397, 1
   %exitcond3400.not = icmp eq i64 %indvars.iv.next3398, 8
-  br i1 %exitcond3400.not, label %719, label %708, !llvm.loop !41
+  br i1 %exitcond3400.not, label %719, label %708, !llvm.loop !40
 
 719:                                              ; preds = %708
   %720 = lshr i64 %705, 3
@@ -2351,7 +2348,7 @@ define internal fastcc i64 @HUF_compress1X_usingCTable_internal(ptr noundef %0, 
   %741 = getelementptr inbounds i8, ptr %722, i64 %737
   %indvars.iv.next3402 = add nsw i64 %indvars.iv3401, -16
   %742 = icmp sgt i64 %indvars.iv3401, 16
-  br i1 %742, label %.preheader3146, label %.loopexit, !llvm.loop !42
+  br i1 %742, label %.preheader3146, label %.loopexit, !llvm.loop !41
 
 743:                                              ; preds = %145
   %744 = srem i32 %20, 9
@@ -2381,10 +2378,10 @@ define internal fastcc i64 @HUF_compress1X_usingCTable_internal(ptr noundef %0, 
   %756 = add i64 %751, %.sroa.262.363257
   %757 = add nsw i32 %.025243259, -1
   %758 = icmp ugt i32 %.025243259, 1
-  br i1 %758, label %.preheader3129, label %759, !llvm.loop !38
+  br i1 %758, label %.preheader3129, label %759, !llvm.loop !37
 
 759:                                              ; preds = %.preheader3129
-  %760 = trunc i64 %indvars.iv.next3477 to i32
+  %760 = trunc nsw i64 %indvars.iv.next3477 to i32
   %761 = and i64 %756, 255
   %762 = lshr i64 %761, 3
   %763 = sub nsw i64 64, %761
@@ -2423,7 +2420,7 @@ define internal fastcc i64 @HUF_compress1X_usingCTable_internal(ptr noundef %0, 
   %779 = add i64 %775, %.sroa.262.383261
   %indvars.iv.next3480 = add nuw nsw i64 %indvars.iv3479, 1
   %exitcond3482.not = icmp eq i64 %indvars.iv.next3480, 9
-  br i1 %exitcond3482.not, label %780, label %.preheader3128, !llvm.loop !39
+  br i1 %exitcond3482.not, label %780, label %.preheader3128, !llvm.loop !38
 
 780:                                              ; preds = %.preheader3128
   %781 = add nsw i32 %.1, -9
@@ -2482,7 +2479,7 @@ define internal fastcc i64 @HUF_compress1X_usingCTable_internal(ptr noundef %0, 
   %811 = add i64 %807, %.sroa.262.413264
   %indvars.iv.next3484 = add nuw nsw i64 %indvars.iv3483, 1
   %exitcond3486.not = icmp eq i64 %indvars.iv.next3484, 9
-  br i1 %exitcond3486.not, label %812, label %801, !llvm.loop !40
+  br i1 %exitcond3486.not, label %812, label %801, !llvm.loop !39
 
 812:                                              ; preds = %801
   %813 = add nsw i64 %indvars.iv3491, -9
@@ -2517,7 +2514,7 @@ define internal fastcc i64 @HUF_compress1X_usingCTable_internal(ptr noundef %0, 
   %836 = add i64 %832, %.sroa.384.63268
   %indvars.iv.next3488 = add nuw nsw i64 %indvars.iv3487, 1
   %exitcond3490.not = icmp eq i64 %indvars.iv.next3488, 9
-  br i1 %exitcond3490.not, label %837, label %826, !llvm.loop !41
+  br i1 %exitcond3490.not, label %837, label %826, !llvm.loop !40
 
 837:                                              ; preds = %826
   %838 = lshr i64 %823, 3
@@ -2545,7 +2542,7 @@ define internal fastcc i64 @HUF_compress1X_usingCTable_internal(ptr noundef %0, 
   %858 = getelementptr inbounds i8, ptr %840, i64 %854
   %indvars.iv.next3492 = add nsw i64 %indvars.iv3491, -18
   %859 = icmp sgt i64 %indvars.iv3491, 18
-  br i1 %859, label %.preheader3126, label %.loopexit, !llvm.loop !42
+  br i1 %859, label %.preheader3126, label %.loopexit, !llvm.loop !41
 
 .loopexit:                                        ; preds = %719, %599, %479, %360, %242, %837, %122, %679, %559, %439, %321, %202, %798, %79
   %.sroa.262.42 = phi i64 [ %.sroa.262.3, %79 ], [ %.sroa.262.39, %798 ], [ %.sroa.262.9, %202 ], [ %.sroa.262.15, %321 ], [ %.sroa.262.21, %439 ], [ %.sroa.262.27, %559 ], [ %.sroa.262.33, %679 ], [ %141, %122 ], [ %857, %837 ], [ %263, %242 ], [ %380, %360 ], [ %500, %479 ], [ %620, %599 ], [ %740, %719 ]
@@ -2611,7 +2608,7 @@ define internal fastcc i64 @HUF_compress4X_usingCTable_internal(ptr noundef %0, 
   br i1 %or.cond, label %59, label %19
 
 19:                                               ; preds = %17
-  %20 = trunc i64 %15 to i16
+  %20 = trunc nuw i64 %15 to i16
   store i16 %20, ptr %0, align 1
   %21 = getelementptr inbounds i8, ptr %13, i64 %15
   %22 = getelementptr inbounds i8, ptr %2, i64 %7
@@ -2628,7 +2625,7 @@ define internal fastcc i64 @HUF_compress4X_usingCTable_internal(ptr noundef %0, 
 
 29:                                               ; preds = %27
   %30 = getelementptr inbounds i8, ptr %0, i64 2
-  %31 = trunc i64 %25 to i16
+  %31 = trunc nuw i64 %25 to i16
   store i16 %31, ptr %30, align 1
   %32 = getelementptr inbounds i8, ptr %21, i64 %25
   %33 = getelementptr inbounds i8, ptr %22, i64 %7
@@ -2645,7 +2642,7 @@ define internal fastcc i64 @HUF_compress4X_usingCTable_internal(ptr noundef %0, 
 
 40:                                               ; preds = %38
   %41 = getelementptr inbounds i8, ptr %0, i64 4
-  %42 = trunc i64 %36 to i16
+  %42 = trunc nuw i64 %36 to i16
   store i16 %42, ptr %41, align 1
   %43 = getelementptr inbounds i8, ptr %32, i64 %36
   %44 = getelementptr inbounds i8, ptr %33, i64 %7
@@ -2695,7 +2692,7 @@ define dso_local i32 @HUF_cardinality(ptr nocapture noundef readonly %0, i32 nou
   %spec.select = add i32 %.067, %6
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !43
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !42
 
 ._crit_edge:                                      ; preds = %.lr.ph, %2
   %.06.lcssa = phi i32 [ 0, %2 ], [ %spec.select, %.lr.ph ]
@@ -2703,8 +2700,8 @@ define dso_local i32 @HUF_cardinality(ptr nocapture noundef readonly %0, i32 nou
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define dso_local i32 @HUF_minTableLog(i32 noundef %0) local_unnamed_addr #6 {
-  %2 = tail call i32 @llvm.ctlz.i32(i32 %0, i1 true), !range !14
+define dso_local range(i32 1, 33) i32 @HUF_minTableLog(i32 noundef %0) local_unnamed_addr #6 {
+  %2 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %0, i1 true)
   %3 = sub nuw nsw i32 32, %2
   ret i32 %3
 }
@@ -2740,10 +2737,10 @@ define dso_local i32 @HUF_optimalTableLog(i32 noundef %0, i64 noundef %1, i32 no
   %spec.select.i = add i32 %.067.i, %18
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %HUF_cardinality.exit, label %.lr.ph.i, !llvm.loop !43
+  br i1 %exitcond.not.i, label %HUF_cardinality.exit, label %.lr.ph.i, !llvm.loop !42
 
 HUF_cardinality.exit:                             ; preds = %.lr.ph.i
-  %19 = tail call i32 @llvm.ctlz.i32(i32 %spec.select.i, i1 true), !range !14
+  %19 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %spec.select.i, i1 true)
   %20 = sub nuw nsw i32 32, %19
   %.not4959 = icmp ugt i32 %20, %0
   br i1 %.not4959, label %.loopexit, label %.lr.ph
@@ -2762,7 +2759,7 @@ HUF_cardinality.exit:                             ; preds = %.lr.ph.i
   %.062.us = phi i32 [ %38, %37 ], [ %22, %.lr.ph.split.us.preheader ]
   %.04461.us = phi i32 [ %.1.us, %37 ], [ %0, %.lr.ph.split.us.preheader ]
   %.04560.us = phi i64 [ %.146.us, %37 ], [ -2, %.lr.ph.split.us.preheader ]
-  %23 = tail call i64 @HUF_buildCTable_wksp(ptr noundef %5, ptr noundef %6, i32 noundef %2, i32 noundef %.062.us, ptr noundef %3, i64 noundef %4), !range !44
+  %23 = tail call i64 @HUF_buildCTable_wksp(ptr noundef %5, ptr noundef %6, i32 noundef %2, i32 noundef %.062.us, ptr noundef %3, i64 noundef %4)
   %24 = icmp ult i64 %23, -119
   br i1 %24, label %25, label %37
 
@@ -2774,7 +2771,7 @@ HUF_cardinality.exit:                             ; preds = %.lr.ph.i
   br i1 %or.cond.us, label %.loopexit, label %29
 
 29:                                               ; preds = %25
-  %30 = trunc i64 %23 to i32
+  %30 = trunc nsw i64 %23 to i32
   %31 = tail call i64 @HUF_writeCTable_wksp(ptr noundef nonnull %13, i64 noundef %14, ptr noundef %5, i32 noundef %2, i32 noundef %30, ptr noundef %3, i64 noundef %4)
   %32 = icmp ult i64 %31, -119
   br i1 %32, label %HUF_estimateCompressedSize.exit.us, label %37
@@ -2795,13 +2792,13 @@ HUF_estimateCompressedSize.exit.us:               ; preds = %29
   %.1.us = phi i32 [ %.04461.us, %.lr.ph.split.us ], [ %.04461.us, %29 ], [ %spec.select52.us, %35 ]
   %38 = add i32 %.062.us, 1
   %.not49.us = icmp ugt i32 %38, %0
-  br i1 %.not49.us, label %.loopexit, label %.lr.ph.split.us, !llvm.loop !45
+  br i1 %.not49.us, label %.loopexit, label %.lr.ph.split.us, !llvm.loop !43
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %63
   %.062 = phi i32 [ %64, %63 ], [ %20, %.lr.ph ]
   %.04461 = phi i32 [ %.1, %63 ], [ %0, %.lr.ph ]
   %.04560 = phi i64 [ %.146, %63 ], [ -2, %.lr.ph ]
-  %39 = tail call i64 @HUF_buildCTable_wksp(ptr noundef %5, ptr noundef %6, i32 noundef %2, i32 noundef %.062, ptr noundef %3, i64 noundef %4), !range !44
+  %39 = tail call i64 @HUF_buildCTable_wksp(ptr noundef %5, ptr noundef %6, i32 noundef %2, i32 noundef %.062, ptr noundef %3, i64 noundef %4)
   %40 = icmp ult i64 %39, -119
   br i1 %40, label %41, label %63
 
@@ -2813,7 +2810,7 @@ HUF_estimateCompressedSize.exit.us:               ; preds = %29
   br i1 %or.cond, label %.loopexit, label %45
 
 45:                                               ; preds = %41
-  %46 = trunc i64 %39 to i32
+  %46 = trunc nsw i64 %39 to i32
   %47 = tail call i64 @HUF_writeCTable_wksp(ptr noundef nonnull %13, i64 noundef %14, ptr noundef %5, i32 noundef %2, i32 noundef %46, ptr noundef %3, i64 noundef %4)
   %48 = icmp ult i64 %47, -119
   br i1 %48, label %.lr.ph.i55, label %63
@@ -2831,7 +2828,7 @@ HUF_estimateCompressedSize.exit.us:               ; preds = %29
   %56 = add i64 %55, %.0911.i
   %indvars.iv.next.i57 = add nuw nsw i64 %indvars.iv.i56, 1
   %exitcond.not.i58 = icmp eq i64 %indvars.iv.next.i57, %wide.trip.count.i54
-  br i1 %exitcond.not.i58, label %._crit_edge.loopexit.i, label %.lr.ph.i55, !llvm.loop !36
+  br i1 %exitcond.not.i58, label %._crit_edge.loopexit.i, label %.lr.ph.i55, !llvm.loop !35
 
 ._crit_edge.loopexit.i:                           ; preds = %.lr.ph.i55
   %57 = lshr i64 %56, 3
@@ -2851,7 +2848,7 @@ HUF_estimateCompressedSize.exit.us:               ; preds = %29
   %.1 = phi i32 [ %.04461, %.lr.ph.split ], [ %.04461, %45 ], [ %spec.select52, %61 ]
   %64 = add i32 %.062, 1
   %.not49 = icmp ugt i32 %64, %0
-  br i1 %.not49, label %.loopexit, label %.lr.ph.split, !llvm.loop !45
+  br i1 %.not49, label %.loopexit, label %.lr.ph.split, !llvm.loop !43
 
 .loopexit:                                        ; preds = %41, %._crit_edge.loopexit.i, %63, %25, %HUF_estimateCompressedSize.exit.us, %37, %HUF_cardinality.exit, %10
   %.047 = phi i32 [ %11, %10 ], [ %0, %HUF_cardinality.exit ], [ %.04461.us, %25 ], [ %.04461.us, %HUF_estimateCompressedSize.exit.us ], [ %.1.us, %37 ], [ %.04461, %41 ], [ %.04461, %._crit_edge.loopexit.i ], [ %.1, %63 ]
@@ -3004,7 +3001,7 @@ define internal fastcc i64 @HUF_compress_internal(ptr noundef %0, i64 noundef %1
   %83 = or i32 %.0912.i, %82
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %HUF_validateCTable.exit, label %.lr.ph.i, !llvm.loop !37
+  br i1 %exitcond.not.i, label %HUF_validateCTable.exit, label %.lr.ph.i, !llvm.loop !36
 
 HUF_validateCTable.exit:                          ; preds = %.lr.ph.i
   %.not191 = icmp eq i32 %83, 0
@@ -3029,12 +3026,12 @@ HUF_validateCTable.exit.thread.thread:            ; preds = %HUF_validateCTable.
   %88 = getelementptr inbounds i8, ptr %.0.i, i64 1024
   %89 = call i32 @HUF_optimalTableLog(i32 noundef %spec.store.select, i64 noundef %3, i32 noundef %87, ptr noundef nonnull %56, i64 noundef 4864, ptr noundef nonnull %88, ptr noundef %.0.i, i32 noundef %11)
   %90 = load i32, ptr %13, align 4
-  %91 = call i64 @HUF_buildCTable_wksp(ptr noundef nonnull %88, ptr noundef %.0.i, i32 noundef %90, i32 noundef %89, ptr noundef nonnull %56, i64 noundef 4864), !range !44
+  %91 = call i64 @HUF_buildCTable_wksp(ptr noundef nonnull %88, ptr noundef %.0.i, i32 noundef %90, i32 noundef %89, ptr noundef nonnull %56, i64 noundef 4864)
   %92 = icmp ult i64 %91, -119
   br i1 %92, label %93, label %138
 
 93:                                               ; preds = %.thread
-  %94 = trunc i64 %91 to i32
+  %94 = trunc nsw i64 %91 to i32
   %95 = load i32, ptr %13, align 4
   %96 = add i32 %95, 2
   %97 = zext i32 %96 to i64
@@ -3078,7 +3075,7 @@ HUF_validateCTable.exit.thread.thread:            ; preds = %HUF_validateCTable.
   %117 = add i64 %116, %.0911.i
   %indvars.iv.next.i160 = add nuw nsw i64 %indvars.iv.i159, 1
   %exitcond.not.i161 = icmp eq i64 %indvars.iv.next.i160, %wide.trip.count.i157
-  br i1 %exitcond.not.i161, label %HUF_estimateCompressedSize.exit, label %.lr.ph.i158, !llvm.loop !36
+  br i1 %exitcond.not.i161, label %HUF_estimateCompressedSize.exit, label %.lr.ph.i158, !llvm.loop !35
 
 HUF_estimateCompressedSize.exit:                  ; preds = %.lr.ph.i158
   %118 = getelementptr inbounds i8, ptr %.0.i, i64 1032
@@ -3097,7 +3094,7 @@ HUF_estimateCompressedSize.exit:                  ; preds = %.lr.ph.i158
   %126 = add i64 %125, %.0911.i169
   %indvars.iv.next.i170 = add nuw nsw i64 %indvars.iv.i168, 1
   %exitcond.not.i171 = icmp eq i64 %indvars.iv.next.i170, %wide.trip.count.i157
-  br i1 %exitcond.not.i171, label %._crit_edge.loopexit.i172, label %.lr.ph.i167, !llvm.loop !36
+  br i1 %exitcond.not.i171, label %._crit_edge.loopexit.i172, label %.lr.ph.i167, !llvm.loop !35
 
 ._crit_edge.loopexit.i172:                        ; preds = %.lr.ph.i167
   %127 = lshr i64 %117, 3
@@ -3206,7 +3203,7 @@ define internal fastcc void @HUF_simpleQuickSort(ptr noundef %0, i32 noundef %1,
   %22 = load i64, ptr %17, align 4
   store i64 %22, ptr %21, align 4
   %23 = icmp sgt i64 %indvars.iv57, 1
-  br i1 %23, label %15, label %.critedge, !llvm.loop !46
+  br i1 %23, label %15, label %.critedge, !llvm.loop !44
 
 .critedge:                                        ; preds = %20, %15
   %.046.in.lcssa = phi i64 [ 0, %20 ], [ %indvars.iv57, %15 ]
@@ -3216,7 +3213,7 @@ define internal fastcc void @HUF_simpleQuickSort(ptr noundef %0, i32 noundef %1,
   store <2 x i32> %13, ptr %25, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !47
+  br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !45
 
 .lr.ph.preheader.i:                               ; preds = %.preheader, %53
   %.04350 = phi i32 [ %.1, %53 ], [ %2, %.preheader ]
@@ -3250,7 +3247,7 @@ define internal fastcc void @HUF_simpleQuickSort(ptr noundef %0, i32 noundef %1,
   %.1.i = phi i32 [ %35, %34 ], [ %.01920.i, %.lr.ph.i ]
   %indvars.iv.next.i = add nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %26
-  br i1 %exitcond.not.i, label %HUF_quickSortPartition.exit, label %.lr.ph.i, !llvm.loop !48
+  br i1 %exitcond.not.i, label %HUF_quickSortPartition.exit, label %.lr.ph.i, !llvm.loop !46
 
 HUF_quickSortPartition.exit:                      ; preds = %40
   %41 = add nsw i32 %.1.i, 1
@@ -3279,7 +3276,7 @@ HUF_quickSortPartition.exit:                      ; preds = %40
   %.145 = phi i32 [ %50, %49 ], [ %.04449, %51 ]
   %.1 = phi i32 [ %.04350, %49 ], [ %.1.i, %51 ]
   %54 = icmp slt i32 %.145, %.1
-  br i1 %54, label %.lr.ph.preheader.i, label %.loopexit, !llvm.loop !49
+  br i1 %54, label %.lr.ph.preheader.i, label %.loopexit, !llvm.loop !47
 
 .loopexit:                                        ; preds = %53, %.critedge, %.preheader, %7
   ret void
@@ -3379,7 +3376,7 @@ attributes #13 = { nounwind }
 !11 = distinct !{!11, !6}
 !12 = distinct !{!12, !6}
 !13 = distinct !{!13, !6}
-!14 = !{i32 0, i32 33}
+!14 = distinct !{!14, !6}
 !15 = distinct !{!15, !6}
 !16 = distinct !{!16, !6}
 !17 = distinct !{!17, !6}
@@ -3409,9 +3406,7 @@ attributes #13 = { nounwind }
 !41 = distinct !{!41, !6}
 !42 = distinct !{!42, !6}
 !43 = distinct !{!43, !6}
-!44 = !{i64 -66, i64 13}
+!44 = distinct !{!44, !6}
 !45 = distinct !{!45, !6}
 !46 = distinct !{!46, !6}
 !47 = distinct !{!47, !6}
-!48 = distinct !{!48, !6}
-!49 = distinct !{!49, !6}

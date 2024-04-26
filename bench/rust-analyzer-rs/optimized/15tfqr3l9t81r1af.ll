@@ -7629,7 +7629,7 @@ _ZN4core4iter6traits8iterator8Iterator10advance_by17hd6dc7f8ae7c2cad2E.exit.i.i.
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define hidden noundef i8 @_ZN4core4iter6traits8iterator8Iterator8try_fold17h96e61fa0089ef5faE.llvm.10712026466629435290(ptr noalias nocapture noundef align 8 dereferenceable(8) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(16) %1, ptr noalias nocapture nonnull readnone align 1 %2) unnamed_addr #5 personality ptr @rust_eh_personality {
+define hidden noundef range(i8 0, 3) i8 @_ZN4core4iter6traits8iterator8Iterator8try_fold17h96e61fa0089ef5faE.llvm.10712026466629435290(ptr noalias nocapture noundef align 8 dereferenceable(8) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(16) %1, ptr noalias nocapture nonnull readnone align 1 %2) unnamed_addr #5 personality ptr @rust_eh_personality {
   %4 = alloca { i8, [15 x i8] }, align 4
   %5 = alloca ptr, align 8
   %6 = alloca { i8, [15 x i8] }, align 4
@@ -8074,7 +8074,7 @@ common.resume:                                    ; preds = %"_ZN4core3ptr60drop
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define hidden noundef i8 @_ZN4core4iter6traits8iterator8Iterator8try_fold17hc725787578c346e2E.llvm.10712026466629435290(ptr noalias nocapture noundef align 8 dereferenceable(8) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(8) %1, ptr noalias nocapture nonnull readnone align 1 %2) unnamed_addr #5 personality ptr @rust_eh_personality {
+define hidden noundef range(i8 0, 3) i8 @_ZN4core4iter6traits8iterator8Iterator8try_fold17hc725787578c346e2E.llvm.10712026466629435290(ptr noalias nocapture noundef align 8 dereferenceable(8) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(8) %1, ptr noalias nocapture nonnull readnone align 1 %2) unnamed_addr #5 personality ptr @rust_eh_personality {
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
   %.promoted = load ptr, ptr %0, align 8, !alias.scope !2383
@@ -13465,7 +13465,7 @@ define hidden { i64, ptr } @"_ZN5rowan3api125_$LT$impl$u20$rowan..utility_types.
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden noundef i16 @"_ZN5rowan3api125_$LT$impl$u20$rowan..utility_types..NodeOrToken$LT$rowan..api..SyntaxNode$LT$L$GT$$C$rowan..api..SyntaxToken$LT$L$GT$$GT$$GT$4kind17h9f6cfdb73617f013E"(ptr noalias nocapture noundef readonly align 8 dereferenceable(16) %0) unnamed_addr #3 {
+define hidden noundef range(i16 0, 273) i16 @"_ZN5rowan3api125_$LT$impl$u20$rowan..utility_types..NodeOrToken$LT$rowan..api..SyntaxNode$LT$L$GT$$C$rowan..api..SyntaxToken$LT$L$GT$$GT$$GT$4kind17h9f6cfdb73617f013E"(ptr noalias nocapture noundef readonly align 8 dereferenceable(16) %0) unnamed_addr #3 {
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8, !nonnull !8, !noundef !8
   %4 = load i64, ptr %3, align 8, !range !110, !noalias !8, !noundef !8
@@ -13902,7 +13902,7 @@ define hidden void @"_ZN67_$LT$rowan..cursor..SyntaxNode$u20$as$u20$core..ops..d
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
-define hidden noundef i8 @"_ZN67_$LT$text_size..size..TextSize$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17hbac1c8f49687bd5bE.llvm.10712026466629435290"(ptr noalias nocapture noundef readonly align 4 dereferenceable(4) %0, ptr noalias nocapture noundef readonly align 4 dereferenceable(4) %1) unnamed_addr #20 {
+define hidden noundef range(i8 -1, 2) i8 @"_ZN67_$LT$text_size..size..TextSize$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17hbac1c8f49687bd5bE.llvm.10712026466629435290"(ptr noalias nocapture noundef readonly align 4 dereferenceable(4) %0, ptr noalias nocapture noundef readonly align 4 dereferenceable(4) %1) unnamed_addr #20 {
   %3 = load i32, ptr %0, align 4, !noundef !8
   %4 = load i32, ptr %1, align 4, !noundef !8
   %5 = icmp ult i32 %3, %4
@@ -30859,7 +30859,7 @@ _ZN3ide19syntax_highlighting4tags5HlTag6as_str17he1fb88e91100e558E.exit: ; preds
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(inaccessiblemem: write) uwtable
-define noundef i32 @_ZN3ide19syntax_highlighting4tags5HlMod4mask17h44c63d702329f3aaE(i8 noundef %0) unnamed_addr #18 {
+define noundef range(i32 1, 2097153) i32 @_ZN3ide19syntax_highlighting4tags5HlMod4mask17h44c63d702329f3aaE(i8 noundef %0) unnamed_addr #18 {
   %2 = icmp ult i8 %0, 22
   tail call void @llvm.assume(i1 %2)
   %3 = zext nneg i8 %0 to i32
@@ -30929,7 +30929,7 @@ switch.lookup:                                    ; preds = %_ZN4core4iter6trait
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define i64 @"_ZN126_$LT$ide..syntax_highlighting..tags..Highlight$u20$as$u20$core..convert..From$LT$ide..syntax_highlighting..tags..HlTag$GT$$GT$4from17hece33b720b9b5fb3E"(i8 noundef %0, i8 %1) unnamed_addr #4 {
+define range(i64 0, 281474976710656) i64 @"_ZN126_$LT$ide..syntax_highlighting..tags..Highlight$u20$as$u20$core..convert..From$LT$ide..syntax_highlighting..tags..HlTag$GT$$GT$4from17hece33b720b9b5fb3E"(i8 noundef %0, i8 %1) unnamed_addr #4 {
   %.sroa.3.0.insert.ext.i = zext i8 %1 to i64
   %.sroa.3.0.insert.shift.i = shl nuw nsw i64 %.sroa.3.0.insert.ext.i, 40
   %.sroa.2.0.insert.ext.i = zext i8 %0 to i64
@@ -30939,7 +30939,7 @@ define i64 @"_ZN126_$LT$ide..syntax_highlighting..tags..Highlight$u20$as$u20$cor
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define i64 @"_ZN131_$LT$ide..syntax_highlighting..tags..Highlight$u20$as$u20$core..convert..From$LT$ide..syntax_highlighting..tags..HlOperator$GT$$GT$4from17hecf871bd5402fc70E"(i8 noundef %0) unnamed_addr #4 {
+define range(i64 0, 281474976710656) i64 @"_ZN131_$LT$ide..syntax_highlighting..tags..Highlight$u20$as$u20$core..convert..From$LT$ide..syntax_highlighting..tags..HlOperator$GT$$GT$4from17hecf871bd5402fc70E"(i8 noundef %0) unnamed_addr #4 {
   %.sroa.3.0.insert.ext.i = zext i8 %0 to i64
   %.sroa.3.0.insert.shift.i = shl nuw nsw i64 %.sroa.3.0.insert.ext.i, 40
   %.sroa.2.0.insert.insert.i = or disjoint i64 %.sroa.3.0.insert.shift.i, 51539607552
@@ -30947,7 +30947,7 @@ define i64 @"_ZN131_$LT$ide..syntax_highlighting..tags..Highlight$u20$as$u20$cor
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define i64 @"_ZN128_$LT$ide..syntax_highlighting..tags..Highlight$u20$as$u20$core..convert..From$LT$ide..syntax_highlighting..tags..HlPunct$GT$$GT$4from17h9334625cab29cb04E"(i8 noundef %0) unnamed_addr #4 {
+define range(i64 0, 281474976710656) i64 @"_ZN128_$LT$ide..syntax_highlighting..tags..Highlight$u20$as$u20$core..convert..From$LT$ide..syntax_highlighting..tags..HlPunct$GT$$GT$4from17h9334625cab29cb04E"(i8 noundef %0) unnamed_addr #4 {
   %.sroa.3.0.insert.ext.i = zext i8 %0 to i64
   %.sroa.3.0.insert.shift.i = shl nuw nsw i64 %.sroa.3.0.insert.ext.i, 40
   %.sroa.2.0.insert.insert.i = or disjoint i64 %.sroa.3.0.insert.shift.i, 55834574848
@@ -30955,14 +30955,14 @@ define i64 @"_ZN128_$LT$ide..syntax_highlighting..tags..Highlight$u20$as$u20$cor
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define i64 @"_ZN107_$LT$ide..syntax_highlighting..tags..Highlight$u20$as$u20$core..convert..From$LT$ide_db..SymbolKind$GT$$GT$4from17h734b19ec2e7feb0cE"(i8 noundef %0) unnamed_addr #4 {
+define range(i64 0, 281474976710656) i64 @"_ZN107_$LT$ide..syntax_highlighting..tags..Highlight$u20$as$u20$core..convert..From$LT$ide_db..SymbolKind$GT$$GT$4from17h734b19ec2e7feb0cE"(i8 noundef %0) unnamed_addr #4 {
   %.sroa.3.0.insert.ext.i = zext i8 %0 to i64
   %.sroa.3.0.insert.shift.i = shl nuw nsw i64 %.sroa.3.0.insert.ext.i, 40
   ret i64 %.sroa.3.0.insert.shift.i
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define hidden i64 @_ZN3ide19syntax_highlighting4tags9Highlight3new17h9be8a83474ec7c67E(i8 noundef %0, i8 %1) unnamed_addr #4 {
+define hidden range(i64 0, 281474976710656) i64 @_ZN3ide19syntax_highlighting4tags9Highlight3new17h9be8a83474ec7c67E(i8 noundef %0, i8 %1) unnamed_addr #4 {
   %.sroa.3.0.insert.ext = zext i8 %1 to i64
   %.sroa.3.0.insert.shift = shl nuw nsw i64 %.sroa.3.0.insert.ext, 40
   %.sroa.2.0.insert.ext = zext i8 %0 to i64

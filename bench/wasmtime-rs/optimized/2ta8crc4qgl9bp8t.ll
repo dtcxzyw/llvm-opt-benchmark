@@ -19469,7 +19469,7 @@ define hidden { i64, i64 } @"_ZN59_$LT$usize$u20$as$u20$gimli..read..reader..Rea
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define hidden noundef i64 @"_ZN59_$LT$usize$u20$as$u20$gimli..read..reader..ReaderOffset$GT$7from_u817h315321604b2a368bE.llvm.12393783928750787229"(i8 noundef %0) unnamed_addr #8 {
+define hidden noundef range(i64 0, 256) i64 @"_ZN59_$LT$usize$u20$as$u20$gimli..read..reader..ReaderOffset$GT$7from_u817h315321604b2a368bE.llvm.12393783928750787229"(i8 noundef %0) unnamed_addr #8 {
   %2 = zext i8 %0 to i64
   ret i64 %2
 }
@@ -25127,7 +25127,7 @@ define hidden { i64, i64 } @"_ZN5alloc7raw_vec14handle_reserve28_$u7b$$u7b$closu
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define hidden noundef i64 @"_ZN5gimli4read3str66_$LT$impl$u20$gimli..common..DebugStrOffsetsBase$LT$Offset$GT$$GT$29default_for_encoding_and_file17h63b4b64e435f6eaaE"(i32 %0, i1 noundef zeroext %1) unnamed_addr #6 {
+define hidden noundef range(i64 0, 256) i64 @"_ZN5gimli4read3str66_$LT$impl$u20$gimli..common..DebugStrOffsetsBase$LT$Offset$GT$$GT$29default_for_encoding_and_file17h63b4b64e435f6eaaE"(i32 %0, i1 noundef zeroext %1) unnamed_addr #6 {
   %.sroa.5.0.extract.shift = lshr i32 %0, 16
   %.sroa.5.0.extract.trunc = trunc nuw i32 %.sroa.5.0.extract.shift to i16
   %3 = icmp ugt i16 %.sroa.5.0.extract.trunc, 4
@@ -25180,7 +25180,7 @@ define hidden { i64, i64 } @"_ZN5gimli4read4unit57_$LT$impl$u20$gimli..common..D
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define hidden noundef i64 @"_ZN5gimli4read8loclists64_$LT$impl$u20$gimli..common..DebugLocListsBase$LT$Offset$GT$$GT$29default_for_encoding_and_file17h2edc3f7e5e38e5a6E"(i32 %0, i1 noundef zeroext %1) unnamed_addr #6 {
+define hidden noundef range(i64 0, 256) i64 @"_ZN5gimli4read8loclists64_$LT$impl$u20$gimli..common..DebugLocListsBase$LT$Offset$GT$$GT$29default_for_encoding_and_file17h2edc3f7e5e38e5a6E"(i32 %0, i1 noundef zeroext %1) unnamed_addr #6 {
   %.sroa.5.0.extract.shift = lshr i32 %0, 16
   %.sroa.5.0.extract.trunc = trunc nuw i32 %.sroa.5.0.extract.shift to i16
   %3 = icmp ugt i16 %.sroa.5.0.extract.trunc, 4
@@ -25193,7 +25193,7 @@ define hidden noundef i64 @"_ZN5gimli4read8loclists64_$LT$impl$u20$gimli..common
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define hidden noundef i64 @"_ZN5gimli4read8rnglists64_$LT$impl$u20$gimli..common..DebugRngListsBase$LT$Offset$GT$$GT$29default_for_encoding_and_file17hc2a2bc1c8a02f8deE"(i32 %0, i1 noundef zeroext %1) unnamed_addr #6 {
+define hidden noundef range(i64 0, 256) i64 @"_ZN5gimli4read8rnglists64_$LT$impl$u20$gimli..common..DebugRngListsBase$LT$Offset$GT$$GT$29default_for_encoding_and_file17hc2a2bc1c8a02f8deE"(i32 %0, i1 noundef zeroext %1) unnamed_addr #6 {
   %.sroa.5.0.extract.shift = lshr i32 %0, 16
   %.sroa.5.0.extract.trunc = trunc nuw i32 %.sroa.5.0.extract.shift to i16
   %3 = icmp ugt i16 %.sroa.5.0.extract.trunc, 4
@@ -33521,7 +33521,7 @@ _ZN6object4read4coff6symbol11ImageSymbol13is_definition17h83abc3d7137b2e36E.exit
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden noundef i8 @"_ZN89_$LT$object..read..any..Symbol$LT$R$GT$$u20$as$u20$object..read..traits..ObjectSymbol$GT$4kind17h8a9482ce8c947810E"(ptr noalias noundef readonly align 8 dereferenceable(40) %0) unnamed_addr #0 {
+define hidden noundef range(i8 0, 8) i8 @"_ZN89_$LT$object..read..any..Symbol$LT$R$GT$$u20$as$u20$object..read..traits..ObjectSymbol$GT$4kind17h8a9482ce8c947810E"(ptr noalias noundef readonly align 8 dereferenceable(40) %0) unnamed_addr #0 {
   %2 = alloca { ptr, [1 x i64] }, align 8
   %3 = alloca { ptr, [1 x i64] }, align 8
   %4 = load i64, ptr %0, align 8, !range !4, !noundef !5

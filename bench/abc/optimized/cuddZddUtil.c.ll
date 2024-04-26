@@ -43,7 +43,7 @@ target triple = "x86_64-pc-linux-gnu"
 @switch.table.Cudd_zddCoverPathToString = private unnamed_addr constant [11 x i8] c"-0-?1?1?-0-", align 1
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @Cudd_zddPrintMinterm(ptr nocapture noundef %0, ptr noundef %1) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @Cudd_zddPrintMinterm(ptr nocapture noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds i8, ptr %0, i64 140
   %4 = load i32, ptr %3, align 4
   %5 = sext i32 %4 to i64
@@ -220,7 +220,7 @@ tailrecurse.outer.backedge:                       ; preds = %61, %62
 declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @Cudd_zddPrintCover(ptr nocapture noundef %0, ptr noundef %1) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @Cudd_zddPrintCover(ptr nocapture noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds i8, ptr %0, i64 140
   %4 = load i32, ptr %3, align 4
   %5 = and i32 %4, 1
@@ -401,7 +401,7 @@ tailrecurse.outer.backedge:                       ; preds = %67, %68
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @Cudd_zddPrintDebug(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @Cudd_zddPrintDebug(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #0 {
   %5 = getelementptr inbounds i8, ptr %0, i64 48
   %6 = load ptr, ptr %5, align 8
   %7 = icmp eq ptr %6, %1
@@ -436,11 +436,12 @@ define i32 @Cudd_zddPrintDebug(ptr noundef %0, ptr noundef %1, i32 noundef %2, i
   br i1 %25, label %cuddZddP.exit.thread, label %cuddZddP.exit
 
 cuddZddP.exit:                                    ; preds = %23
-  %26 = tail call fastcc i32 @zp2(ptr noundef nonnull %0, ptr noundef %1, ptr noundef nonnull %24), !range !9
+  %26 = tail call fastcc i32 @zp2(ptr noundef nonnull %0, ptr noundef %1, ptr noundef nonnull %24)
   tail call void @st__free_table(ptr noundef nonnull %24) #11
   %27 = load ptr, ptr %19, align 8
   %28 = tail call i32 @fputc(i32 noundef 10, ptr noundef %27)
-  %.not = icmp eq i32 %26, 0
+  %.fr = freeze i32 %26
+  %.not = icmp eq i32 %.fr, 0
   br i1 %.not, label %cuddZddP.exit.thread, label %29
 
 cuddZddP.exit.thread:                             ; preds = %23, %cuddZddP.exit
@@ -496,9 +497,9 @@ Cudd_zddPrintMinterm.exit:                        ; preds = %.lr.ph.i, %.prehead
   br label %.sink.split
 
 .sink.split:                                      ; preds = %43, %29, %9
-  %.sink39 = phi ptr [ %10, %9 ], [ %19, %29 ], [ %19, %43 ]
+  %.sink40 = phi ptr [ %10, %9 ], [ %19, %29 ], [ %19, %43 ]
   %.029.ph = phi i32 [ 1, %9 ], [ %.2, %29 ], [ %44, %43 ]
-  %46 = load ptr, ptr %.sink39, align 8
+  %46 = load ptr, ptr %.sink40, align 8
   %47 = tail call i32 @fflush(ptr noundef %46)
   br label %48
 
@@ -518,13 +519,13 @@ declare i32 @Cudd_zddDagSize(ptr noundef) local_unnamed_addr #5
 declare double @Cudd_zddCountMinterm(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #5
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @cuddZddP(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @cuddZddP(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = tail call ptr @st__init_table(ptr noundef nonnull @st__ptrcmp, ptr noundef nonnull @st__ptrhash) #11
   %4 = icmp eq ptr %3, null
   br i1 %4, label %10, label %5
 
 5:                                                ; preds = %2
-  %6 = tail call fastcc i32 @zp2(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %3), !range !9
+  %6 = tail call fastcc i32 @zp2(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %3)
   tail call void @st__free_table(ptr noundef nonnull %3) #11
   %7 = getelementptr inbounds i8, ptr %0, i64 608
   %8 = load ptr, ptr %7, align 8
@@ -593,7 +594,7 @@ define noalias noundef ptr @Cudd_zddFirstPath(ptr noundef %0, ptr noundef %1, pt
   store i32 2, ptr %27, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !10
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !9
 
 ._crit_edge:                                      ; preds = %.lr.ph, %.preheader93
   %28 = add i32 %19, 1
@@ -727,7 +728,7 @@ thread-pre-split._crit_edge:                      ; preds = %thread-pre-split, %
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define noundef i32 @Cudd_zddNextPath(ptr nocapture noundef %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #6 {
+define range(i32 0, 2) i32 @Cudd_zddNextPath(ptr nocapture noundef %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #6 {
   %3 = load ptr, ptr %0, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 32
   %5 = load i32, ptr %4, align 8
@@ -951,7 +952,7 @@ switch.lookup:                                    ; preds = %.lr.ph
   store i8 %.sink, ptr %28, align 1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !11
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !10
 
 ._crit_edge:                                      ; preds = %27, %15
   %29 = sext i32 %8 to i64
@@ -965,7 +966,7 @@ switch.lookup:                                    ; preds = %.lr.ph
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @Cudd_zddDumpDot(ptr noundef %0, i32 noundef %1, ptr nocapture noundef readonly %2, ptr noundef readonly %3, ptr noundef readonly %4, ptr nocapture noundef %5) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @Cudd_zddDumpDot(ptr noundef %0, i32 noundef %1, ptr nocapture noundef readonly %2, ptr noundef readonly %3, ptr noundef readonly %4, ptr nocapture noundef %5) local_unnamed_addr #0 {
   %7 = alloca ptr, align 8
   %8 = getelementptr inbounds i8, ptr %0, i64 140
   %9 = load i32, ptr %8, align 4
@@ -1030,13 +1031,13 @@ define noundef i32 @Cudd_zddDumpDot(ptr noundef %0, i32 noundef %1, ptr nocaptur
   store ptr %35, ptr %7, align 8
   %36 = load i32, ptr %35, align 8
   %.not239 = icmp eq i32 %36, 2147483647
-  br i1 %.not239, label %._crit_edge, label %.lr.ph270, !llvm.loop !12
+  br i1 %.not239, label %._crit_edge, label %.lr.ph270, !llvm.loop !11
 
 ._crit_edge:                                      ; preds = %.lr.ph270, %23
   tail call void @Cudd_RecursiveDeref(ptr noundef %0, ptr noundef nonnull %21) #11
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge273, label %.lr.ph272, !llvm.loop !13
+  br i1 %exitcond.not, label %._crit_edge273, label %.lr.ph272, !llvm.loop !12
 
 ._crit_edge273:                                   ; preds = %._crit_edge
   %37 = tail call ptr @st__init_table(ptr noundef nonnull @st__ptrcmp, ptr noundef nonnull @st__ptrhash) #11
@@ -1058,7 +1059,7 @@ define noundef i32 @Cudd_zddDumpDot(ptr noundef %0, i32 noundef %1, ptr nocaptur
 41:                                               ; preds = %.lr.ph275
   %indvars.iv.next348 = add nuw nsw i64 %indvars.iv347, 1
   %exitcond351.not = icmp eq i64 %indvars.iv.next348, %wide.trip.count350
-  br i1 %exitcond351.not, label %._crit_edge276, label %.lr.ph275, !llvm.loop !14
+  br i1 %exitcond351.not, label %._crit_edge276, label %.lr.ph275, !llvm.loop !13
 
 .lr.ph275:                                        ; preds = %.lr.ph275.preheader, %41
   %indvars.iv347 = phi i64 [ 0, %.lr.ph275.preheader ], [ %indvars.iv.next348, %41 ]
@@ -1085,7 +1086,7 @@ define noundef i32 @Cudd_zddDumpDot(ptr noundef %0, i32 noundef %1, ptr nocaptur
   %54 = or i64 %53, %.0192278
   %55 = call i32 @st__gen(ptr noundef %49, ptr noundef nonnull %7, ptr noundef null) #11
   %.not = icmp eq i32 %55, 0
-  br i1 %.not, label %._crit_edge281, label %.lr.ph280, !llvm.loop !15
+  br i1 %.not, label %._crit_edge281, label %.lr.ph280, !llvm.loop !14
 
 ._crit_edge281:                                   ; preds = %.lr.ph280, %._crit_edge276
   %.0192.lcssa = phi i64 [ 0, %._crit_edge276 ], [ %54, %.lr.ph280 ]
@@ -1101,7 +1102,7 @@ define noundef i32 @Cudd_zddDumpDot(ptr noundef %0, i32 noundef %1, ptr nocaptur
   %59 = add nuw nsw i32 %.3199282, 4
   %60 = icmp ult i32 %.3199282, 60
   %or.cond = and i1 %.not223, %60
-  br i1 %or.cond, label %56, label %61, !llvm.loop !16
+  br i1 %or.cond, label %56, label %61, !llvm.loop !15
 
 61:                                               ; preds = %56
   %62 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %5, ptr noundef nonnull @.str.3) #11
@@ -1169,7 +1170,7 @@ define noundef i32 @Cudd_zddDumpDot(ptr noundef %0, i32 noundef %1, ptr nocaptur
 94:                                               ; preds = %78, %92
   %indvars.iv.next353 = add nuw nsw i64 %indvars.iv352, 1
   %exitcond356.not = icmp eq i64 %indvars.iv.next353, %wide.trip.count355
-  br i1 %exitcond356.not, label %._crit_edge285, label %78, !llvm.loop !17
+  br i1 %exitcond356.not, label %._crit_edge285, label %78, !llvm.loop !16
 
 ._crit_edge285:                                   ; preds = %94, %.preheader260
   %95 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %5, ptr noundef nonnull @.str.10) #11
@@ -1194,7 +1195,7 @@ define noundef i32 @Cudd_zddDumpDot(ptr noundef %0, i32 noundef %1, ptr nocaptur
 103:                                              ; preds = %117
   %indvars.iv.next358 = add nuw nsw i64 %indvars.iv357, 1
   %exitcond361.not = icmp eq i64 %indvars.iv.next358, %wide.trip.count360
-  br i1 %exitcond361.not, label %.preheader256, label %107, !llvm.loop !18
+  br i1 %exitcond361.not, label %.preheader256, label %107, !llvm.loop !17
 
 .preheader256:                                    ; preds = %103, %.preheader258
   br i1 %14, label %.lr.ph299, label %._crit_edge300
@@ -1314,12 +1315,12 @@ define noundef i32 @Cudd_zddDumpDot(ptr noundef %0, i32 noundef %1, ptr nocaptur
   %storemerge234 = load ptr, ptr %163, align 8
   store ptr %storemerge234, ptr %7, align 8
   %.not235 = icmp eq ptr %storemerge234, null
-  br i1 %.not235, label %._crit_edge293, label %.lr.ph292, !llvm.loop !19
+  br i1 %.not235, label %._crit_edge293, label %.lr.ph292, !llvm.loop !18
 
 ._crit_edge293:                                   ; preds = %161, %.lr.ph296
   %indvars.iv.next363 = add nuw nsw i64 %indvars.iv362, 1
   %exitcond366.not = icmp eq i64 %indvars.iv.next363, %wide.trip.count365
-  br i1 %exitcond366.not, label %._crit_edge297, label %.lr.ph296, !llvm.loop !20
+  br i1 %exitcond366.not, label %._crit_edge297, label %.lr.ph296, !llvm.loop !19
 
 ._crit_edge297:                                   ; preds = %._crit_edge293, %144
   %164 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %5, ptr noundef nonnull @.str.20) #11
@@ -1329,7 +1330,7 @@ define noundef i32 @Cudd_zddDumpDot(ptr noundef %0, i32 noundef %1, ptr nocaptur
 166:                                              ; preds = %121, %._crit_edge297
   %indvars.iv.next368 = add nuw nsw i64 %indvars.iv367, 1
   %exitcond371.not = icmp eq i64 %indvars.iv.next368, %wide.trip.count370
-  br i1 %exitcond371.not, label %._crit_edge300, label %121, !llvm.loop !21
+  br i1 %exitcond371.not, label %._crit_edge300, label %121, !llvm.loop !20
 
 ._crit_edge300:                                   ; preds = %166, %.preheader256
   %167 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %5, ptr noundef nonnull @.str.21) #11
@@ -1378,12 +1379,12 @@ define noundef i32 @Cudd_zddDumpDot(ptr noundef %0, i32 noundef %1, ptr nocaptur
   %storemerge230 = load ptr, ptr %187, align 8
   store ptr %storemerge230, ptr %7, align 8
   %.not231 = icmp eq ptr %storemerge230, null
-  br i1 %.not231, label %._crit_edge306, label %.lr.ph305, !llvm.loop !22
+  br i1 %.not231, label %._crit_edge306, label %.lr.ph305, !llvm.loop !21
 
 ._crit_edge306:                                   ; preds = %185, %.lr.ph309
   %indvars.iv.next373 = add nuw nsw i64 %indvars.iv372, 1
   %exitcond376.not = icmp eq i64 %indvars.iv.next373, %wide.trip.count375
-  br i1 %exitcond376.not, label %._crit_edge310, label %.lr.ph309, !llvm.loop !23
+  br i1 %exitcond376.not, label %._crit_edge310, label %.lr.ph309, !llvm.loop !22
 
 ._crit_edge310:                                   ; preds = %._crit_edge306, %169
   %188 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %5, ptr noundef nonnull @.str.22) #11
@@ -1401,7 +1402,7 @@ define noundef i32 @Cudd_zddDumpDot(ptr noundef %0, i32 noundef %1, ptr nocaptur
 191:                                              ; preds = %204
   %indvars.iv.next378 = add nuw nsw i64 %indvars.iv377, 1
   %exitcond381.not = icmp eq i64 %indvars.iv.next378, %wide.trip.count380
-  br i1 %exitcond381.not, label %.preheader, label %194, !llvm.loop !24
+  br i1 %exitcond381.not, label %.preheader, label %194, !llvm.loop !23
 
 .preheader:                                       ; preds = %191, %.preheader252
   br i1 %14, label %.lr.ph323, label %._crit_edge324
@@ -1519,17 +1520,17 @@ define noundef i32 @Cudd_zddDumpDot(ptr noundef %0, i32 noundef %1, ptr nocaptur
   %storemerge227 = load ptr, ptr %259, align 8
   store ptr %storemerge227, ptr %7, align 8
   %.not228 = icmp eq ptr %storemerge227, null
-  br i1 %.not228, label %._crit_edge318, label %.lr.ph317, !llvm.loop !25
+  br i1 %.not228, label %._crit_edge318, label %.lr.ph317, !llvm.loop !24
 
 ._crit_edge318:                                   ; preds = %257, %.lr.ph321
   %indvars.iv.next383 = add nuw nsw i64 %indvars.iv382, 1
   %exitcond386.not = icmp eq i64 %indvars.iv.next383, %wide.trip.count385
-  br i1 %exitcond386.not, label %.loopexit251, label %.lr.ph321, !llvm.loop !26
+  br i1 %exitcond386.not, label %.loopexit251, label %.lr.ph321, !llvm.loop !25
 
 .loopexit251:                                     ; preds = %._crit_edge318, %220, %213
   %indvars.iv.next388 = add nuw nsw i64 %indvars.iv387, 1
   %exitcond391.not = icmp eq i64 %indvars.iv.next388, %wide.trip.count390
-  br i1 %exitcond391.not, label %._crit_edge324, label %213, !llvm.loop !27
+  br i1 %exitcond391.not, label %._crit_edge324, label %213, !llvm.loop !26
 
 ._crit_edge324:                                   ; preds = %.loopexit251, %.preheader
   %260 = load ptr, ptr %170, align 8
@@ -1573,12 +1574,12 @@ define noundef i32 @Cudd_zddDumpDot(ptr noundef %0, i32 noundef %1, ptr nocaptur
   %storemerge = load ptr, ptr %277, align 8
   store ptr %storemerge, ptr %7, align 8
   %.not224 = icmp eq ptr %storemerge, null
-  br i1 %.not224, label %._crit_edge330, label %.lr.ph329, !llvm.loop !28
+  br i1 %.not224, label %._crit_edge330, label %.lr.ph329, !llvm.loop !27
 
 ._crit_edge330:                                   ; preds = %275, %.lr.ph333
   %indvars.iv.next393 = add nuw nsw i64 %indvars.iv392, 1
   %exitcond396.not = icmp eq i64 %indvars.iv.next393, %wide.trip.count395
-  br i1 %exitcond396.not, label %._crit_edge334, label %.lr.ph333, !llvm.loop !29
+  br i1 %exitcond396.not, label %._crit_edge334, label %.lr.ph333, !llvm.loop !28
 
 ._crit_edge334:                                   ; preds = %._crit_edge330, %._crit_edge324
   %278 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %5, ptr noundef nonnull @.str.20) #11
@@ -1628,7 +1629,7 @@ declare i32 @st__lookup(ptr noundef, ptr noundef, ptr noundef) local_unnamed_add
 declare void @st__free_table(ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @zp2(ptr noundef %0, ptr noundef %1, ptr noundef %2) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @zp2(ptr noundef %0, ptr noundef %1, ptr noundef %2) unnamed_addr #0 {
   %4 = getelementptr inbounds i8, ptr %0, i64 40
   %5 = load ptr, ptr %4, align 8
   %6 = icmp eq ptr %1, null
@@ -1710,7 +1711,7 @@ define internal fastcc noundef i32 @zp2(ptr noundef %0, ptr noundef %1, ptr noun
   %59 = udiv i64 %50, 40
   %60 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %54, ptr noundef nonnull @.str.32, i64 noundef %59) #11
   %61 = load ptr, ptr %48, align 8
-  %62 = tail call fastcc i32 @zp2(ptr noundef nonnull %0, ptr noundef %61, ptr noundef %2), !range !9
+  %62 = tail call fastcc i32 @zp2(ptr noundef nonnull %0, ptr noundef %61, ptr noundef %2)
   %63 = icmp eq i32 %62, 0
   br i1 %63, label %70, label %64
 
@@ -1719,7 +1720,7 @@ define internal fastcc noundef i32 @zp2(ptr noundef %0, ptr noundef %1, ptr noun
 
 65:                                               ; preds = %64
   %66 = load ptr, ptr %33, align 8
-  %67 = tail call fastcc i32 @zp2(ptr noundef nonnull %0, ptr noundef %66, ptr noundef %2), !range !9
+  %67 = tail call fastcc i32 @zp2(ptr noundef nonnull %0, ptr noundef %66, ptr noundef %2)
   %68 = icmp eq i32 %67, 0
   br i1 %68, label %70, label %69
 
@@ -1769,7 +1770,7 @@ attributes #11 = { nounwind }
 !6 = distinct !{!6, !5}
 !7 = distinct !{!7, !5}
 !8 = distinct !{!8, !5}
-!9 = !{i32 0, i32 2}
+!9 = distinct !{!9, !5}
 !10 = distinct !{!10, !5}
 !11 = distinct !{!11, !5}
 !12 = distinct !{!12, !5}
@@ -1789,4 +1790,3 @@ attributes #11 = { nounwind }
 !26 = distinct !{!26, !5}
 !27 = distinct !{!27, !5}
 !28 = distinct !{!28, !5}
-!29 = distinct !{!29, !5}

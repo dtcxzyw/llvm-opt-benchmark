@@ -3030,7 +3030,7 @@ if.else.i24:                                      ; preds = %if.end33
 if.then.i.i.i:                                    ; preds = %if.else.i24
   %cmp.i2.i.i.i = icmp ugt i64 %add.i21, 15
   tail call void @llvm.assume(i1 %cmp.i2.i.i.i)
-  %11 = tail call i64 @llvm.ctlz.i64(i64 %add.i21, i1 true), !range !27
+  %11 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %add.i21, i1 true)
   %sub.i.i.i.i = sub nuw nsw i64 59, %11
   %cached_block_length_.i.i.i.i = getelementptr inbounds i8, ptr %10, i64 80
   %12 = load i8, ptr %cached_block_length_.i.i.i.i, align 8
@@ -3055,12 +3055,10 @@ _ZSt4copyIPPN6google8protobuf8internal11SerialArena11CachedBlockES6_ET0_T_S8_S7_
 
 for.body.preheader.i.i.i.i.i.i.i:                 ; preds = %_ZSt4copyIPPN6google8protobuf8internal11SerialArena11CachedBlockES6_ET0_T_S8_S7_.exit.i.i.i.i, %if.then.i.i.i.i
   %idx.ext1117.i.i.i.i = phi i64 [ %14, %_ZSt4copyIPPN6google8protobuf8internal11SerialArena11CachedBlockES6_ET0_T_S8_S7_.exit.i.i.i.i ], [ 0, %if.then.i.i.i.i ]
-  %add.ptr13.i.i.i.i = getelementptr inbounds ptr, ptr %add.ptr.i.i22, i64 %div10.i.i.i.i
-  %add.ptr12.i.i.i.i = getelementptr inbounds ptr, ptr %add.ptr.i.i22, i64 %idx.ext1117.i.i.i.i
-  %__last5.i.i.i.i.i.i.i = ptrtoint ptr %add.ptr13.i.i.i.i to i64
-  %__first6.i.i.i.i.i.i.i = ptrtoint ptr %add.ptr12.i.i.i.i to i64
-  %reass.sub.i.i.i.i.i.i = sub i64 %__last5.i.i.i.i.i.i.i, %__first6.i.i.i.i.i.i.i
-  %15 = and i64 %reass.sub.i.i.i.i.i.i, -8
+  %add.ptr12.idx.i.i.i.i = shl nuw nsw i64 %idx.ext1117.i.i.i.i, 3
+  %add.ptr12.i.i.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i22, i64 %add.ptr12.idx.i.i.i.i
+  %gepdiff.i.i.i.i = sub nsw i64 %add.i21, %add.ptr12.idx.i.i.i.i
+  %15 = and i64 %gepdiff.i.i.i.i, -8
   tail call void @llvm.memset.p0.i64(ptr nonnull align 8 %add.ptr12.i.i.i.i, i8 0, i64 %15, i1 false)
   br label %_ZSt4fillIPPN6google8protobuf8internal11SerialArena11CachedBlockEDnEvT_S7_RKT0_.exit.i.i.i.i
 
@@ -3246,7 +3244,7 @@ _ZZN6google8protobuf8internal12VarintParserIjLb0EEEPKcPvS4_PNS1_12ParseContextEE
   %cmp13.i.i.i = icmp eq i32 %total_size.0.i.i.i, %16
   tail call void @llvm.assume(i1 %cmp13.i.i.i)
   %cmp.i21 = icmp ult ptr %retval.0.i.ph.i, %6
-  br i1 %cmp.i21, label %while.body.i, label %if.end7.loopexit, !llvm.loop !28
+  br i1 %cmp.i21, label %while.body.i, label %if.end7.loopexit, !llvm.loop !27
 
 if.end7.loopexit:                                 ; preds = %_ZZN6google8protobuf8internal12VarintParserIjLb0EEEPKcPvS4_PNS1_12ParseContextEENKUlmE_clEm.exit.i
   %.pre = load ptr, ptr %buffer_end_, align 8
@@ -3338,7 +3336,7 @@ _ZZN6google8protobuf8internal12VarintParserIjLb0EEEPKcPvS4_PNS1_12ParseContextEE
   %cmp13.i.i.i60 = icmp eq i32 %total_size.0.i.i.i52, %27
   call void @llvm.assume(i1 %cmp13.i.i.i60)
   %cmp.i61 = icmp ult ptr %retval.0.i.ph.i49, %add.ptr
-  br i1 %cmp.i61, label %while.body.i28, label %_ZN6google8protobuf8internal21ReadPackedVarintArrayIZNS1_12VarintParserIjLb0EEEPKcPvS5_PNS1_12ParseContextEEUlmE_EES5_S5_S5_T_.exit65, !llvm.loop !28
+  br i1 %cmp.i61, label %while.body.i28, label %_ZN6google8protobuf8internal21ReadPackedVarintArrayIZNS1_12VarintParserIjLb0EEEPKcPvS5_PNS1_12ParseContextEEUlmE_EES5_S5_S5_T_.exit65, !llvm.loop !27
 
 _ZN6google8protobuf8internal21ReadPackedVarintArrayIZNS1_12VarintParserIjLb0EEEPKcPvS5_PNS1_12ParseContextEEUlmE_EES5_S5_S5_T_.exit65: ; preds = %_ZZN6google8protobuf8internal12VarintParserIjLb0EEEPKcPvS4_PNS1_12ParseContextEENKUlmE_clEm.exit.i51, %while.end
   %retval.0.i24 = phi ptr [ %add.ptr32, %while.end ], [ %retval.0.i.ph.i49, %_ZZN6google8protobuf8internal12VarintParserIjLb0EEEPKcPvS4_PNS1_12ParseContextEENKUlmE_clEm.exit.i51 ]
@@ -3389,7 +3387,7 @@ if.end60:                                         ; preds = %if.end56
   %sub.ptr.sub66 = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast65
   %chunk_size.0 = trunc i64 %sub.ptr.sub66 to i32
   %cmp = icmp sgt i32 %sub48, %chunk_size.0
-  br i1 %cmp, label %while.body, label %while.end68, !llvm.loop !29
+  br i1 %cmp, label %while.body, label %while.end68, !llvm.loop !28
 
 while.end68:                                      ; preds = %if.end60, %if.end
   %ptr.addr.0.lcssa = phi ptr [ %storemerge.i.ph, %if.end ], [ %add.ptr62, %if.end60 ]
@@ -3469,7 +3467,7 @@ _ZZN6google8protobuf8internal12VarintParserIjLb0EEEPKcPvS4_PNS1_12ParseContextEE
   %cmp13.i.i.i108 = icmp eq i32 %total_size.0.i.i.i100, %43
   tail call void @llvm.assume(i1 %cmp13.i.i.i108)
   %cmp.i109 = icmp ult ptr %retval.0.i.ph.i97, %add.ptr71
-  br i1 %cmp.i109, label %while.body.i76, label %_ZN6google8protobuf8internal21ReadPackedVarintArrayIZNS1_12VarintParserIjLb0EEEPKcPvS5_PNS1_12ParseContextEEUlmE_EES5_S5_S5_T_.exit113, !llvm.loop !28
+  br i1 %cmp.i109, label %while.body.i76, label %_ZN6google8protobuf8internal21ReadPackedVarintArrayIZNS1_12VarintParserIjLb0EEEPKcPvS5_PNS1_12ParseContextEEUlmE_EES5_S5_S5_T_.exit113, !llvm.loop !27
 
 _ZN6google8protobuf8internal21ReadPackedVarintArrayIZNS1_12VarintParserIjLb0EEEPKcPvS5_PNS1_12ParseContextEEUlmE_EES5_S5_S5_T_.exit113: ; preds = %_ZZN6google8protobuf8internal12VarintParserIjLb0EEEPKcPvS4_PNS1_12ParseContextEENKUlmE_clEm.exit.i99, %for.cond.i.i.i.i89, %while.end68
   %retval.0.i72 = phi ptr [ %ptr.addr.0.lcssa, %while.end68 ], [ null, %for.cond.i.i.i.i89 ], [ %retval.0.i.ph.i97, %_ZZN6google8protobuf8internal12VarintParserIjLb0EEEPKcPvS4_PNS1_12ParseContextEENKUlmE_clEm.exit.i99 ]
@@ -3572,7 +3570,7 @@ if.else.i24:                                      ; preds = %if.end33
 if.then.i.i.i:                                    ; preds = %if.else.i24
   %cmp.i2.i.i.i = icmp ugt i64 %add.i21, 15
   tail call void @llvm.assume(i1 %cmp.i2.i.i.i)
-  %11 = tail call i64 @llvm.ctlz.i64(i64 %add.i21, i1 true), !range !27
+  %11 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %add.i21, i1 true)
   %sub.i.i.i.i = sub nuw nsw i64 59, %11
   %cached_block_length_.i.i.i.i = getelementptr inbounds i8, ptr %10, i64 80
   %12 = load i8, ptr %cached_block_length_.i.i.i.i, align 8
@@ -3597,12 +3595,10 @@ _ZSt4copyIPPN6google8protobuf8internal11SerialArena11CachedBlockES6_ET0_T_S8_S7_
 
 for.body.preheader.i.i.i.i.i.i.i:                 ; preds = %_ZSt4copyIPPN6google8protobuf8internal11SerialArena11CachedBlockES6_ET0_T_S8_S7_.exit.i.i.i.i, %if.then.i.i.i.i
   %idx.ext1117.i.i.i.i = phi i64 [ %14, %_ZSt4copyIPPN6google8protobuf8internal11SerialArena11CachedBlockES6_ET0_T_S8_S7_.exit.i.i.i.i ], [ 0, %if.then.i.i.i.i ]
-  %add.ptr13.i.i.i.i = getelementptr inbounds ptr, ptr %add.ptr.i.i22, i64 %div10.i.i.i.i
-  %add.ptr12.i.i.i.i = getelementptr inbounds ptr, ptr %add.ptr.i.i22, i64 %idx.ext1117.i.i.i.i
-  %__last5.i.i.i.i.i.i.i = ptrtoint ptr %add.ptr13.i.i.i.i to i64
-  %__first6.i.i.i.i.i.i.i = ptrtoint ptr %add.ptr12.i.i.i.i to i64
-  %reass.sub.i.i.i.i.i.i = sub i64 %__last5.i.i.i.i.i.i.i, %__first6.i.i.i.i.i.i.i
-  %15 = and i64 %reass.sub.i.i.i.i.i.i, -8
+  %add.ptr12.idx.i.i.i.i = shl nuw nsw i64 %idx.ext1117.i.i.i.i, 3
+  %add.ptr12.i.i.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i22, i64 %add.ptr12.idx.i.i.i.i
+  %gepdiff.i.i.i.i = sub nsw i64 %add.i21, %add.ptr12.idx.i.i.i.i
+  %15 = and i64 %gepdiff.i.i.i.i, -8
   tail call void @llvm.memset.p0.i64(ptr nonnull align 8 %add.ptr12.i.i.i.i, i8 0, i64 %15, i1 false)
   br label %_ZSt4fillIPPN6google8protobuf8internal11SerialArena11CachedBlockEDnEvT_S7_RKT0_.exit.i.i.i.i
 
@@ -3771,7 +3767,7 @@ _ZZN6google8protobuf8internal12VarintParserIlLb0EEEPKcPvS4_PNS1_12ParseContextEE
   %cmp13.i.i.i = icmp eq i32 %total_size.0.i.i.i, %16
   tail call void @llvm.assume(i1 %cmp13.i.i.i)
   %cmp.i20 = icmp ult ptr %retval.0.i.ph.i, %6
-  br i1 %cmp.i20, label %while.body.i, label %if.end7.loopexit, !llvm.loop !30
+  br i1 %cmp.i20, label %while.body.i, label %if.end7.loopexit, !llvm.loop !29
 
 if.end7.loopexit:                                 ; preds = %_ZZN6google8protobuf8internal12VarintParserIlLb0EEEPKcPvS4_PNS1_12ParseContextEENKUlmE_clEm.exit.i
   %.pre = load ptr, ptr %buffer_end_, align 8
@@ -3862,7 +3858,7 @@ _ZZN6google8protobuf8internal12VarintParserIlLb0EEEPKcPvS4_PNS1_12ParseContextEE
   %cmp13.i.i.i58 = icmp eq i32 %total_size.0.i.i.i51, %27
   call void @llvm.assume(i1 %cmp13.i.i.i58)
   %cmp.i59 = icmp ult ptr %retval.0.i.ph.i48, %add.ptr
-  br i1 %cmp.i59, label %while.body.i27, label %_ZN6google8protobuf8internal21ReadPackedVarintArrayIZNS1_12VarintParserIlLb0EEEPKcPvS5_PNS1_12ParseContextEEUlmE_EES5_S5_S5_T_.exit63, !llvm.loop !30
+  br i1 %cmp.i59, label %while.body.i27, label %_ZN6google8protobuf8internal21ReadPackedVarintArrayIZNS1_12VarintParserIlLb0EEEPKcPvS5_PNS1_12ParseContextEEUlmE_EES5_S5_S5_T_.exit63, !llvm.loop !29
 
 _ZN6google8protobuf8internal21ReadPackedVarintArrayIZNS1_12VarintParserIlLb0EEEPKcPvS5_PNS1_12ParseContextEEUlmE_EES5_S5_S5_T_.exit63: ; preds = %_ZZN6google8protobuf8internal12VarintParserIlLb0EEEPKcPvS4_PNS1_12ParseContextEENKUlmE_clEm.exit.i50, %while.end
   %retval.0.i23 = phi ptr [ %add.ptr32, %while.end ], [ %retval.0.i.ph.i48, %_ZZN6google8protobuf8internal12VarintParserIlLb0EEEPKcPvS4_PNS1_12ParseContextEENKUlmE_clEm.exit.i50 ]
@@ -3913,7 +3909,7 @@ if.end60:                                         ; preds = %if.end56
   %sub.ptr.sub66 = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast65
   %chunk_size.0 = trunc i64 %sub.ptr.sub66 to i32
   %cmp = icmp sgt i32 %sub48, %chunk_size.0
-  br i1 %cmp, label %while.body, label %while.end68, !llvm.loop !31
+  br i1 %cmp, label %while.body, label %while.end68, !llvm.loop !30
 
 while.end68:                                      ; preds = %if.end60, %if.end
   %ptr.addr.0.lcssa = phi ptr [ %storemerge.i.ph, %if.end ], [ %add.ptr62, %if.end60 ]
@@ -3992,7 +3988,7 @@ _ZZN6google8protobuf8internal12VarintParserIlLb0EEEPKcPvS4_PNS1_12ParseContextEE
   %cmp13.i.i.i105 = icmp eq i32 %total_size.0.i.i.i98, %43
   tail call void @llvm.assume(i1 %cmp13.i.i.i105)
   %cmp.i106 = icmp ult ptr %retval.0.i.ph.i95, %add.ptr71
-  br i1 %cmp.i106, label %while.body.i74, label %_ZN6google8protobuf8internal21ReadPackedVarintArrayIZNS1_12VarintParserIlLb0EEEPKcPvS5_PNS1_12ParseContextEEUlmE_EES5_S5_S5_T_.exit110, !llvm.loop !30
+  br i1 %cmp.i106, label %while.body.i74, label %_ZN6google8protobuf8internal21ReadPackedVarintArrayIZNS1_12VarintParserIlLb0EEEPKcPvS5_PNS1_12ParseContextEEUlmE_EES5_S5_S5_T_.exit110, !llvm.loop !29
 
 _ZN6google8protobuf8internal21ReadPackedVarintArrayIZNS1_12VarintParserIlLb0EEEPKcPvS5_PNS1_12ParseContextEEUlmE_EES5_S5_S5_T_.exit110: ; preds = %_ZZN6google8protobuf8internal12VarintParserIlLb0EEEPKcPvS4_PNS1_12ParseContextEENKUlmE_clEm.exit.i97, %for.cond.i.i.i.i87, %while.end68
   %retval.0.i70 = phi ptr [ %ptr.addr.0.lcssa, %while.end68 ], [ null, %for.cond.i.i.i.i87 ], [ %retval.0.i.ph.i95, %_ZZN6google8protobuf8internal12VarintParserIlLb0EEEPKcPvS4_PNS1_12ParseContextEENKUlmE_clEm.exit.i97 ]
@@ -4095,7 +4091,7 @@ if.else.i23:                                      ; preds = %if.end33
 if.then.i.i.i:                                    ; preds = %if.else.i23
   %cmp.i2.i.i.i = icmp ugt i64 %add.i, 15
   tail call void @llvm.assume(i1 %cmp.i2.i.i.i)
-  %12 = tail call i64 @llvm.ctlz.i64(i64 %add.i, i1 true), !range !27
+  %12 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %add.i, i1 true)
   %sub.i.i.i.i = sub nuw nsw i64 59, %12
   %cached_block_length_.i.i.i.i = getelementptr inbounds i8, ptr %11, i64 80
   %13 = load i8, ptr %cached_block_length_.i.i.i.i, align 8
@@ -4120,13 +4116,10 @@ _ZSt4copyIPPN6google8protobuf8internal11SerialArena11CachedBlockES6_ET0_T_S8_S7_
 
 for.body.preheader.i.i.i.i.i.i.i:                 ; preds = %_ZSt4copyIPPN6google8protobuf8internal11SerialArena11CachedBlockES6_ET0_T_S8_S7_.exit.i.i.i.i, %if.then.i.i.i.i
   %idx.ext1117.i.i.i.i = phi i64 [ %15, %_ZSt4copyIPPN6google8protobuf8internal11SerialArena11CachedBlockES6_ET0_T_S8_S7_.exit.i.i.i.i ], [ 0, %if.then.i.i.i.i ]
-  %add.ptr13.i.i.i.i = getelementptr inbounds i8, ptr %6, i64 %mul.i20
-  %add.ptr12.i.i.i.i = getelementptr inbounds ptr, ptr %add.ptr.i.i21, i64 %idx.ext1117.i.i.i.i
-  %__last5.i.i.i.i.i.i.i = ptrtoint ptr %add.ptr13.i.i.i.i to i64
-  %__first6.i.i.i.i.i.i.i = ptrtoint ptr %add.ptr12.i.i.i.i to i64
-  %reass.sub.i.i.i.i.i.i = sub i64 %__last5.i.i.i.i.i.i.i, %__first6.i.i.i.i.i.i.i
-  %16 = and i64 %reass.sub.i.i.i.i.i.i, -8
-  tail call void @llvm.memset.p0.i64(ptr nonnull align 8 %add.ptr12.i.i.i.i, i8 0, i64 %16, i1 false)
+  %add.ptr12.idx.i.i.i.i = shl nuw nsw i64 %idx.ext1117.i.i.i.i, 3
+  %add.ptr12.i.i.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i21, i64 %add.ptr12.idx.i.i.i.i
+  %gepdiff.i.i.i.i = sub nsw i64 %add.i, %add.ptr12.idx.i.i.i.i
+  tail call void @llvm.memset.p0.i64(ptr nonnull align 8 %add.ptr12.i.i.i.i, i8 0, i64 %gepdiff.i.i.i.i, i1 false)
   br label %_ZSt4fillIPPN6google8protobuf8internal11SerialArena11CachedBlockEDnEvT_S7_RKT0_.exit.i.i.i.i
 
 _ZSt4fillIPPN6google8protobuf8internal11SerialArena11CachedBlockEDnEvT_S7_RKT0_.exit.i.i.i.i: ; preds = %for.body.preheader.i.i.i.i.i.i.i, %_ZSt4copyIPPN6google8protobuf8internal11SerialArena11CachedBlockES6_ET0_T_S8_S7_.exit.i.i.i.i
@@ -4138,10 +4131,10 @@ _ZSt4fillIPPN6google8protobuf8internal11SerialArena11CachedBlockEDnEvT_S7_RKT0_.
 
 if.end.i.i.i.i:                                   ; preds = %if.then.i.i.i
   %cached_blocks_19.i.i.i.i = getelementptr inbounds i8, ptr %11, i64 88
-  %17 = load ptr, ptr %cached_blocks_19.i.i.i.i, align 8
-  %arrayidx.i.i.i.i = getelementptr inbounds ptr, ptr %17, i64 %sub.i.i.i.i
-  %18 = load ptr, ptr %arrayidx.i.i.i.i, align 8
-  store ptr %18, ptr %add.ptr.i.i21, align 8
+  %16 = load ptr, ptr %cached_blocks_19.i.i.i.i, align 8
+  %arrayidx.i.i.i.i = getelementptr inbounds ptr, ptr %16, i64 %sub.i.i.i.i
+  %17 = load ptr, ptr %arrayidx.i.i.i.i, align 8
+  store ptr %17, ptr %add.ptr.i.i21, align 8
   store ptr %add.ptr.i.i21, ptr %arrayidx.i.i.i.i, align 8
   br label %if.end34
 
@@ -4294,7 +4287,7 @@ _ZZN6google8protobuf8internal12VarintParserImLb0EEEPKcPvS4_PNS1_12ParseContextEE
   %cmp13.i.i.i = icmp eq i32 %total_size.0.i.i.i, %16
   tail call void @llvm.assume(i1 %cmp13.i.i.i)
   %cmp.i20 = icmp ult ptr %retval.0.i.ph.i, %6
-  br i1 %cmp.i20, label %while.body.i, label %if.end7.loopexit, !llvm.loop !32
+  br i1 %cmp.i20, label %while.body.i, label %if.end7.loopexit, !llvm.loop !31
 
 if.end7.loopexit:                                 ; preds = %_ZZN6google8protobuf8internal12VarintParserImLb0EEEPKcPvS4_PNS1_12ParseContextEENKUlmE_clEm.exit.i
   %.pre = load ptr, ptr %buffer_end_, align 8
@@ -4385,7 +4378,7 @@ _ZZN6google8protobuf8internal12VarintParserImLb0EEEPKcPvS4_PNS1_12ParseContextEE
   %cmp13.i.i.i58 = icmp eq i32 %total_size.0.i.i.i51, %27
   call void @llvm.assume(i1 %cmp13.i.i.i58)
   %cmp.i59 = icmp ult ptr %retval.0.i.ph.i48, %add.ptr
-  br i1 %cmp.i59, label %while.body.i27, label %_ZN6google8protobuf8internal21ReadPackedVarintArrayIZNS1_12VarintParserImLb0EEEPKcPvS5_PNS1_12ParseContextEEUlmE_EES5_S5_S5_T_.exit63, !llvm.loop !32
+  br i1 %cmp.i59, label %while.body.i27, label %_ZN6google8protobuf8internal21ReadPackedVarintArrayIZNS1_12VarintParserImLb0EEEPKcPvS5_PNS1_12ParseContextEEUlmE_EES5_S5_S5_T_.exit63, !llvm.loop !31
 
 _ZN6google8protobuf8internal21ReadPackedVarintArrayIZNS1_12VarintParserImLb0EEEPKcPvS5_PNS1_12ParseContextEEUlmE_EES5_S5_S5_T_.exit63: ; preds = %_ZZN6google8protobuf8internal12VarintParserImLb0EEEPKcPvS4_PNS1_12ParseContextEENKUlmE_clEm.exit.i50, %while.end
   %retval.0.i23 = phi ptr [ %add.ptr32, %while.end ], [ %retval.0.i.ph.i48, %_ZZN6google8protobuf8internal12VarintParserImLb0EEEPKcPvS4_PNS1_12ParseContextEENKUlmE_clEm.exit.i50 ]
@@ -4436,7 +4429,7 @@ if.end60:                                         ; preds = %if.end56
   %sub.ptr.sub66 = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast65
   %chunk_size.0 = trunc i64 %sub.ptr.sub66 to i32
   %cmp = icmp sgt i32 %sub48, %chunk_size.0
-  br i1 %cmp, label %while.body, label %while.end68, !llvm.loop !33
+  br i1 %cmp, label %while.body, label %while.end68, !llvm.loop !32
 
 while.end68:                                      ; preds = %if.end60, %if.end
   %ptr.addr.0.lcssa = phi ptr [ %storemerge.i.ph, %if.end ], [ %add.ptr62, %if.end60 ]
@@ -4515,7 +4508,7 @@ _ZZN6google8protobuf8internal12VarintParserImLb0EEEPKcPvS4_PNS1_12ParseContextEE
   %cmp13.i.i.i105 = icmp eq i32 %total_size.0.i.i.i98, %43
   tail call void @llvm.assume(i1 %cmp13.i.i.i105)
   %cmp.i106 = icmp ult ptr %retval.0.i.ph.i95, %add.ptr71
-  br i1 %cmp.i106, label %while.body.i74, label %_ZN6google8protobuf8internal21ReadPackedVarintArrayIZNS1_12VarintParserImLb0EEEPKcPvS5_PNS1_12ParseContextEEUlmE_EES5_S5_S5_T_.exit110, !llvm.loop !32
+  br i1 %cmp.i106, label %while.body.i74, label %_ZN6google8protobuf8internal21ReadPackedVarintArrayIZNS1_12VarintParserImLb0EEEPKcPvS5_PNS1_12ParseContextEEUlmE_EES5_S5_S5_T_.exit110, !llvm.loop !31
 
 _ZN6google8protobuf8internal21ReadPackedVarintArrayIZNS1_12VarintParserImLb0EEEPKcPvS5_PNS1_12ParseContextEEUlmE_EES5_S5_S5_T_.exit110: ; preds = %_ZZN6google8protobuf8internal12VarintParserImLb0EEEPKcPvS4_PNS1_12ParseContextEENKUlmE_clEm.exit.i97, %for.cond.i.i.i.i87, %while.end68
   %retval.0.i70 = phi ptr [ %ptr.addr.0.lcssa, %while.end68 ], [ null, %for.cond.i.i.i.i87 ], [ %retval.0.i.ph.i95, %_ZZN6google8protobuf8internal12VarintParserImLb0EEEPKcPvS4_PNS1_12ParseContextEENKUlmE_clEm.exit.i97 ]
@@ -4618,7 +4611,7 @@ if.else.i23:                                      ; preds = %if.end33
 if.then.i.i.i:                                    ; preds = %if.else.i23
   %cmp.i2.i.i.i = icmp ugt i64 %add.i, 15
   tail call void @llvm.assume(i1 %cmp.i2.i.i.i)
-  %12 = tail call i64 @llvm.ctlz.i64(i64 %add.i, i1 true), !range !27
+  %12 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %add.i, i1 true)
   %sub.i.i.i.i = sub nuw nsw i64 59, %12
   %cached_block_length_.i.i.i.i = getelementptr inbounds i8, ptr %11, i64 80
   %13 = load i8, ptr %cached_block_length_.i.i.i.i, align 8
@@ -4643,13 +4636,10 @@ _ZSt4copyIPPN6google8protobuf8internal11SerialArena11CachedBlockES6_ET0_T_S8_S7_
 
 for.body.preheader.i.i.i.i.i.i.i:                 ; preds = %_ZSt4copyIPPN6google8protobuf8internal11SerialArena11CachedBlockES6_ET0_T_S8_S7_.exit.i.i.i.i, %if.then.i.i.i.i
   %idx.ext1117.i.i.i.i = phi i64 [ %15, %_ZSt4copyIPPN6google8protobuf8internal11SerialArena11CachedBlockES6_ET0_T_S8_S7_.exit.i.i.i.i ], [ 0, %if.then.i.i.i.i ]
-  %add.ptr13.i.i.i.i = getelementptr inbounds i8, ptr %6, i64 %mul.i20
-  %add.ptr12.i.i.i.i = getelementptr inbounds ptr, ptr %add.ptr.i.i21, i64 %idx.ext1117.i.i.i.i
-  %__last5.i.i.i.i.i.i.i = ptrtoint ptr %add.ptr13.i.i.i.i to i64
-  %__first6.i.i.i.i.i.i.i = ptrtoint ptr %add.ptr12.i.i.i.i to i64
-  %reass.sub.i.i.i.i.i.i = sub i64 %__last5.i.i.i.i.i.i.i, %__first6.i.i.i.i.i.i.i
-  %16 = and i64 %reass.sub.i.i.i.i.i.i, -8
-  tail call void @llvm.memset.p0.i64(ptr nonnull align 8 %add.ptr12.i.i.i.i, i8 0, i64 %16, i1 false)
+  %add.ptr12.idx.i.i.i.i = shl nuw nsw i64 %idx.ext1117.i.i.i.i, 3
+  %add.ptr12.i.i.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i21, i64 %add.ptr12.idx.i.i.i.i
+  %gepdiff.i.i.i.i = sub nsw i64 %add.i, %add.ptr12.idx.i.i.i.i
+  tail call void @llvm.memset.p0.i64(ptr nonnull align 8 %add.ptr12.i.i.i.i, i8 0, i64 %gepdiff.i.i.i.i, i1 false)
   br label %_ZSt4fillIPPN6google8protobuf8internal11SerialArena11CachedBlockEDnEvT_S7_RKT0_.exit.i.i.i.i
 
 _ZSt4fillIPPN6google8protobuf8internal11SerialArena11CachedBlockEDnEvT_S7_RKT0_.exit.i.i.i.i: ; preds = %for.body.preheader.i.i.i.i.i.i.i, %_ZSt4copyIPPN6google8protobuf8internal11SerialArena11CachedBlockES6_ET0_T_S8_S7_.exit.i.i.i.i
@@ -4661,10 +4651,10 @@ _ZSt4fillIPPN6google8protobuf8internal11SerialArena11CachedBlockEDnEvT_S7_RKT0_.
 
 if.end.i.i.i.i:                                   ; preds = %if.then.i.i.i
   %cached_blocks_19.i.i.i.i = getelementptr inbounds i8, ptr %11, i64 88
-  %17 = load ptr, ptr %cached_blocks_19.i.i.i.i, align 8
-  %arrayidx.i.i.i.i = getelementptr inbounds ptr, ptr %17, i64 %sub.i.i.i.i
-  %18 = load ptr, ptr %arrayidx.i.i.i.i, align 8
-  store ptr %18, ptr %add.ptr.i.i21, align 8
+  %16 = load ptr, ptr %cached_blocks_19.i.i.i.i, align 8
+  %arrayidx.i.i.i.i = getelementptr inbounds ptr, ptr %16, i64 %sub.i.i.i.i
+  %17 = load ptr, ptr %arrayidx.i.i.i.i, align 8
+  store ptr %17, ptr %add.ptr.i.i21, align 8
   store ptr %add.ptr.i.i21, ptr %arrayidx.i.i.i.i, align 8
   br label %if.end34
 
@@ -4822,7 +4812,7 @@ _ZZN6google8protobuf8internal12VarintParserIiLb1EEEPKcPvS4_PNS1_12ParseContextEE
   %cmp13.i.i.i = icmp eq i32 %total_size.0.i.i.i, %16
   tail call void @llvm.assume(i1 %cmp13.i.i.i)
   %cmp.i21 = icmp ult ptr %retval.0.i.ph.i, %6
-  br i1 %cmp.i21, label %while.body.i, label %if.end7.loopexit, !llvm.loop !34
+  br i1 %cmp.i21, label %while.body.i, label %if.end7.loopexit, !llvm.loop !33
 
 if.end7.loopexit:                                 ; preds = %_ZZN6google8protobuf8internal12VarintParserIiLb1EEEPKcPvS4_PNS1_12ParseContextEENKUlmE_clEm.exit.i
   %.pre = load ptr, ptr %buffer_end_, align 8
@@ -4918,7 +4908,7 @@ _ZZN6google8protobuf8internal12VarintParserIiLb1EEEPKcPvS4_PNS1_12ParseContextEE
   %cmp13.i.i.i64 = icmp eq i32 %total_size.0.i.i.i52, %27
   call void @llvm.assume(i1 %cmp13.i.i.i64)
   %cmp.i65 = icmp ult ptr %retval.0.i.ph.i49, %add.ptr
-  br i1 %cmp.i65, label %while.body.i28, label %_ZN6google8protobuf8internal21ReadPackedVarintArrayIZNS1_12VarintParserIiLb1EEEPKcPvS5_PNS1_12ParseContextEEUlmE_EES5_S5_S5_T_.exit69, !llvm.loop !34
+  br i1 %cmp.i65, label %while.body.i28, label %_ZN6google8protobuf8internal21ReadPackedVarintArrayIZNS1_12VarintParserIiLb1EEEPKcPvS5_PNS1_12ParseContextEEUlmE_EES5_S5_S5_T_.exit69, !llvm.loop !33
 
 _ZN6google8protobuf8internal21ReadPackedVarintArrayIZNS1_12VarintParserIiLb1EEEPKcPvS5_PNS1_12ParseContextEEUlmE_EES5_S5_S5_T_.exit69: ; preds = %_ZZN6google8protobuf8internal12VarintParserIiLb1EEEPKcPvS4_PNS1_12ParseContextEENKUlmE_clEm.exit.i51, %while.end
   %retval.0.i24 = phi ptr [ %add.ptr32, %while.end ], [ %retval.0.i.ph.i49, %_ZZN6google8protobuf8internal12VarintParserIiLb1EEEPKcPvS4_PNS1_12ParseContextEENKUlmE_clEm.exit.i51 ]
@@ -4969,7 +4959,7 @@ if.end60:                                         ; preds = %if.end56
   %sub.ptr.sub66 = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast65
   %chunk_size.0 = trunc i64 %sub.ptr.sub66 to i32
   %cmp = icmp sgt i32 %sub48, %chunk_size.0
-  br i1 %cmp, label %while.body, label %while.end68, !llvm.loop !35
+  br i1 %cmp, label %while.body, label %while.end68, !llvm.loop !34
 
 while.end68:                                      ; preds = %if.end60, %if.end
   %ptr.addr.0.lcssa = phi ptr [ %storemerge.i.ph, %if.end ], [ %add.ptr62, %if.end60 ]
@@ -5053,7 +5043,7 @@ _ZZN6google8protobuf8internal12VarintParserIiLb1EEEPKcPvS4_PNS1_12ParseContextEE
   %cmp13.i.i.i116 = icmp eq i32 %total_size.0.i.i.i104, %43
   tail call void @llvm.assume(i1 %cmp13.i.i.i116)
   %cmp.i117 = icmp ult ptr %retval.0.i.ph.i101, %add.ptr71
-  br i1 %cmp.i117, label %while.body.i80, label %_ZN6google8protobuf8internal21ReadPackedVarintArrayIZNS1_12VarintParserIiLb1EEEPKcPvS5_PNS1_12ParseContextEEUlmE_EES5_S5_S5_T_.exit121, !llvm.loop !34
+  br i1 %cmp.i117, label %while.body.i80, label %_ZN6google8protobuf8internal21ReadPackedVarintArrayIZNS1_12VarintParserIiLb1EEEPKcPvS5_PNS1_12ParseContextEEUlmE_EES5_S5_S5_T_.exit121, !llvm.loop !33
 
 _ZN6google8protobuf8internal21ReadPackedVarintArrayIZNS1_12VarintParserIiLb1EEEPKcPvS5_PNS1_12ParseContextEEUlmE_EES5_S5_S5_T_.exit121: ; preds = %_ZZN6google8protobuf8internal12VarintParserIiLb1EEEPKcPvS4_PNS1_12ParseContextEENKUlmE_clEm.exit.i103, %for.cond.i.i.i.i93, %while.end68
   %retval.0.i76 = phi ptr [ %ptr.addr.0.lcssa, %while.end68 ], [ null, %for.cond.i.i.i.i93 ], [ %retval.0.i.ph.i101, %_ZZN6google8protobuf8internal12VarintParserIiLb1EEEPKcPvS4_PNS1_12ParseContextEENKUlmE_clEm.exit.i103 ]
@@ -5212,7 +5202,7 @@ _ZZN6google8protobuf8internal12VarintParserIlLb1EEEPKcPvS4_PNS1_12ParseContextEE
   %cmp13.i.i.i = icmp eq i32 %total_size.0.i.i.i, %16
   tail call void @llvm.assume(i1 %cmp13.i.i.i)
   %cmp.i20 = icmp ult ptr %retval.0.i.ph.i, %6
-  br i1 %cmp.i20, label %while.body.i, label %if.end7.loopexit, !llvm.loop !36
+  br i1 %cmp.i20, label %while.body.i, label %if.end7.loopexit, !llvm.loop !35
 
 if.end7.loopexit:                                 ; preds = %_ZZN6google8protobuf8internal12VarintParserIlLb1EEEPKcPvS4_PNS1_12ParseContextEENKUlmE_clEm.exit.i
   %.pre = load ptr, ptr %buffer_end_, align 8
@@ -5307,7 +5297,7 @@ _ZZN6google8protobuf8internal12VarintParserIlLb1EEEPKcPvS4_PNS1_12ParseContextEE
   %cmp13.i.i.i62 = icmp eq i32 %total_size.0.i.i.i51, %27
   call void @llvm.assume(i1 %cmp13.i.i.i62)
   %cmp.i63 = icmp ult ptr %retval.0.i.ph.i48, %add.ptr
-  br i1 %cmp.i63, label %while.body.i27, label %_ZN6google8protobuf8internal21ReadPackedVarintArrayIZNS1_12VarintParserIlLb1EEEPKcPvS5_PNS1_12ParseContextEEUlmE_EES5_S5_S5_T_.exit67, !llvm.loop !36
+  br i1 %cmp.i63, label %while.body.i27, label %_ZN6google8protobuf8internal21ReadPackedVarintArrayIZNS1_12VarintParserIlLb1EEEPKcPvS5_PNS1_12ParseContextEEUlmE_EES5_S5_S5_T_.exit67, !llvm.loop !35
 
 _ZN6google8protobuf8internal21ReadPackedVarintArrayIZNS1_12VarintParserIlLb1EEEPKcPvS5_PNS1_12ParseContextEEUlmE_EES5_S5_S5_T_.exit67: ; preds = %_ZZN6google8protobuf8internal12VarintParserIlLb1EEEPKcPvS4_PNS1_12ParseContextEENKUlmE_clEm.exit.i50, %while.end
   %retval.0.i23 = phi ptr [ %add.ptr32, %while.end ], [ %retval.0.i.ph.i48, %_ZZN6google8protobuf8internal12VarintParserIlLb1EEEPKcPvS4_PNS1_12ParseContextEENKUlmE_clEm.exit.i50 ]
@@ -5358,7 +5348,7 @@ if.end60:                                         ; preds = %if.end56
   %sub.ptr.sub66 = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast65
   %chunk_size.0 = trunc i64 %sub.ptr.sub66 to i32
   %cmp = icmp sgt i32 %sub48, %chunk_size.0
-  br i1 %cmp, label %while.body, label %while.end68, !llvm.loop !37
+  br i1 %cmp, label %while.body, label %while.end68, !llvm.loop !36
 
 while.end68:                                      ; preds = %if.end60, %if.end
   %ptr.addr.0.lcssa = phi ptr [ %storemerge.i.ph, %if.end ], [ %add.ptr62, %if.end60 ]
@@ -5441,7 +5431,7 @@ _ZZN6google8protobuf8internal12VarintParserIlLb1EEEPKcPvS4_PNS1_12ParseContextEE
   %cmp13.i.i.i113 = icmp eq i32 %total_size.0.i.i.i102, %43
   tail call void @llvm.assume(i1 %cmp13.i.i.i113)
   %cmp.i114 = icmp ult ptr %retval.0.i.ph.i99, %add.ptr71
-  br i1 %cmp.i114, label %while.body.i78, label %_ZN6google8protobuf8internal21ReadPackedVarintArrayIZNS1_12VarintParserIlLb1EEEPKcPvS5_PNS1_12ParseContextEEUlmE_EES5_S5_S5_T_.exit118, !llvm.loop !36
+  br i1 %cmp.i114, label %while.body.i78, label %_ZN6google8protobuf8internal21ReadPackedVarintArrayIZNS1_12VarintParserIlLb1EEEPKcPvS5_PNS1_12ParseContextEEUlmE_EES5_S5_S5_T_.exit118, !llvm.loop !35
 
 _ZN6google8protobuf8internal21ReadPackedVarintArrayIZNS1_12VarintParserIlLb1EEEPKcPvS5_PNS1_12ParseContextEEUlmE_EES5_S5_S5_T_.exit118: ; preds = %_ZZN6google8protobuf8internal12VarintParserIlLb1EEEPKcPvS4_PNS1_12ParseContextEENKUlmE_clEm.exit.i101, %for.cond.i.i.i.i91, %while.end68
   %retval.0.i74 = phi ptr [ %ptr.addr.0.lcssa, %while.end68 ], [ null, %for.cond.i.i.i.i91 ], [ %retval.0.i.ph.i99, %_ZZN6google8protobuf8internal12VarintParserIlLb1EEEPKcPvS4_PNS1_12ParseContextEENKUlmE_clEm.exit.i101 ]
@@ -5598,7 +5588,7 @@ _ZZN6google8protobuf8internal12VarintParserIbLb0EEEPKcPvS4_PNS1_12ParseContextEE
   %cmp14.i.i.i = icmp eq i32 %total_size.0.i.i.i, %16
   tail call void @llvm.assume(i1 %cmp14.i.i.i)
   %cmp.i20 = icmp ult ptr %retval.0.i.ph.i, %6
-  br i1 %cmp.i20, label %while.body.i, label %if.end7.loopexit, !llvm.loop !38
+  br i1 %cmp.i20, label %while.body.i, label %if.end7.loopexit, !llvm.loop !37
 
 if.end7.loopexit:                                 ; preds = %_ZZN6google8protobuf8internal12VarintParserIbLb0EEEPKcPvS4_PNS1_12ParseContextEENKUlmE_clEm.exit.i
   %.pre = load ptr, ptr %buffer_end_, align 8
@@ -5691,7 +5681,7 @@ _ZZN6google8protobuf8internal12VarintParserIbLb0EEEPKcPvS4_PNS1_12ParseContextEE
   %cmp14.i.i.i60 = icmp eq i32 %total_size.0.i.i.i51, %27
   call void @llvm.assume(i1 %cmp14.i.i.i60)
   %cmp.i61 = icmp ult ptr %retval.0.i.ph.i48, %add.ptr
-  br i1 %cmp.i61, label %while.body.i27, label %_ZN6google8protobuf8internal21ReadPackedVarintArrayIZNS1_12VarintParserIbLb0EEEPKcPvS5_PNS1_12ParseContextEEUlmE_EES5_S5_S5_T_.exit65, !llvm.loop !38
+  br i1 %cmp.i61, label %while.body.i27, label %_ZN6google8protobuf8internal21ReadPackedVarintArrayIZNS1_12VarintParserIbLb0EEEPKcPvS5_PNS1_12ParseContextEEUlmE_EES5_S5_S5_T_.exit65, !llvm.loop !37
 
 _ZN6google8protobuf8internal21ReadPackedVarintArrayIZNS1_12VarintParserIbLb0EEEPKcPvS5_PNS1_12ParseContextEEUlmE_EES5_S5_S5_T_.exit65: ; preds = %_ZZN6google8protobuf8internal12VarintParserIbLb0EEEPKcPvS4_PNS1_12ParseContextEENKUlmE_clEm.exit.i50, %while.end
   %retval.0.i23 = phi ptr [ %add.ptr32, %while.end ], [ %retval.0.i.ph.i48, %_ZZN6google8protobuf8internal12VarintParserIbLb0EEEPKcPvS4_PNS1_12ParseContextEENKUlmE_clEm.exit.i50 ]
@@ -5742,7 +5732,7 @@ if.end60:                                         ; preds = %if.end56
   %sub.ptr.sub66 = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast65
   %chunk_size.0 = trunc i64 %sub.ptr.sub66 to i32
   %cmp = icmp sgt i32 %sub48, %chunk_size.0
-  br i1 %cmp, label %while.body, label %while.end68, !llvm.loop !39
+  br i1 %cmp, label %while.body, label %while.end68, !llvm.loop !38
 
 while.end68:                                      ; preds = %if.end60, %if.end
   %ptr.addr.0.lcssa = phi ptr [ %storemerge.i.ph, %if.end ], [ %add.ptr62, %if.end60 ]
@@ -5823,7 +5813,7 @@ _ZZN6google8protobuf8internal12VarintParserIbLb0EEEPKcPvS4_PNS1_12ParseContextEE
   %cmp14.i.i.i109 = icmp eq i32 %total_size.0.i.i.i100, %43
   tail call void @llvm.assume(i1 %cmp14.i.i.i109)
   %cmp.i110 = icmp ult ptr %retval.0.i.ph.i97, %add.ptr71
-  br i1 %cmp.i110, label %while.body.i76, label %_ZN6google8protobuf8internal21ReadPackedVarintArrayIZNS1_12VarintParserIbLb0EEEPKcPvS5_PNS1_12ParseContextEEUlmE_EES5_S5_S5_T_.exit114, !llvm.loop !38
+  br i1 %cmp.i110, label %while.body.i76, label %_ZN6google8protobuf8internal21ReadPackedVarintArrayIZNS1_12VarintParserIbLb0EEEPKcPvS5_PNS1_12ParseContextEEUlmE_EES5_S5_S5_T_.exit114, !llvm.loop !37
 
 _ZN6google8protobuf8internal21ReadPackedVarintArrayIZNS1_12VarintParserIbLb0EEEPKcPvS5_PNS1_12ParseContextEEUlmE_EES5_S5_S5_T_.exit114: ; preds = %_ZZN6google8protobuf8internal12VarintParserIbLb0EEEPKcPvS4_PNS1_12ParseContextEENKUlmE_clEm.exit.i99, %for.cond.i.i.i.i89, %while.end68
   %retval.0.i72 = phi ptr [ %ptr.addr.0.lcssa, %while.end68 ], [ null, %for.cond.i.i.i.i89 ], [ %retval.0.i.ph.i97, %_ZZN6google8protobuf8internal12VarintParserIbLb0EEEPKcPvS4_PNS1_12ParseContextEENKUlmE_clEm.exit.i99 ]
@@ -5923,7 +5913,7 @@ if.else.i22:                                      ; preds = %if.end33
 if.then.i.i.i:                                    ; preds = %if.else.i22
   %cmp.i2.i.i.i = icmp ugt i64 %add.i19, 15
   tail call void @llvm.assume(i1 %cmp.i2.i.i.i)
-  %11 = tail call i64 @llvm.ctlz.i64(i64 %add.i19, i1 true), !range !27
+  %11 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %add.i19, i1 true)
   %sub.i.i.i.i = sub nuw nsw i64 59, %11
   %cached_block_length_.i.i.i.i = getelementptr inbounds i8, ptr %10, i64 80
   %12 = load i8, ptr %cached_block_length_.i.i.i.i, align 8
@@ -5948,12 +5938,10 @@ _ZSt4copyIPPN6google8protobuf8internal11SerialArena11CachedBlockES6_ET0_T_S8_S7_
 
 for.body.preheader.i.i.i.i.i.i.i:                 ; preds = %_ZSt4copyIPPN6google8protobuf8internal11SerialArena11CachedBlockES6_ET0_T_S8_S7_.exit.i.i.i.i, %if.then.i.i.i.i
   %idx.ext1117.i.i.i.i = phi i64 [ %14, %_ZSt4copyIPPN6google8protobuf8internal11SerialArena11CachedBlockES6_ET0_T_S8_S7_.exit.i.i.i.i ], [ 0, %if.then.i.i.i.i ]
-  %add.ptr13.i.i.i.i = getelementptr inbounds ptr, ptr %add.ptr.i.i20, i64 %div10.i.i.i.i
-  %add.ptr12.i.i.i.i = getelementptr inbounds ptr, ptr %add.ptr.i.i20, i64 %idx.ext1117.i.i.i.i
-  %__last5.i.i.i.i.i.i.i = ptrtoint ptr %add.ptr13.i.i.i.i to i64
-  %__first6.i.i.i.i.i.i.i = ptrtoint ptr %add.ptr12.i.i.i.i to i64
-  %reass.sub.i.i.i.i.i.i = sub i64 %__last5.i.i.i.i.i.i.i, %__first6.i.i.i.i.i.i.i
-  %15 = and i64 %reass.sub.i.i.i.i.i.i, -8
+  %add.ptr12.idx.i.i.i.i = shl nuw nsw i64 %idx.ext1117.i.i.i.i, 3
+  %add.ptr12.i.i.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i20, i64 %add.ptr12.idx.i.i.i.i
+  %gepdiff.i.i.i.i = sub nsw i64 %add.i19, %add.ptr12.idx.i.i.i.i
+  %15 = and i64 %gepdiff.i.i.i.i, -8
   tail call void @llvm.memset.p0.i64(ptr nonnull align 8 %add.ptr12.i.i.i.i, i8 0, i64 %15, i1 false)
   br label %_ZSt4fillIPPN6google8protobuf8internal11SerialArena11CachedBlockEDnEvT_S7_RKT0_.exit.i.i.i.i
 
@@ -6077,7 +6065,7 @@ if.end14:                                         ; preds = %if.end10
   %sub.ptr.sub22 = sub i64 %sub.ptr.lhs.cast20, %sub.ptr.rhs.cast21
   %nbytes.0 = trunc i64 %sub.ptr.sub22 to i32
   %cmp = icmp sgt i32 %sub, %nbytes.0
-  br i1 %cmp, label %while.body, label %while.end, !llvm.loop !40
+  br i1 %cmp, label %while.body, label %while.end, !llvm.loop !39
 
 while.end:                                        ; preds = %if.end14, %if.end
   %size.addr.0.lcssa = phi i32 [ %size, %if.end ], [ %sub, %if.end14 ]
@@ -6290,7 +6278,7 @@ if.end14:                                         ; preds = %if.end10
   %sub.ptr.sub22 = sub i64 %sub.ptr.lhs.cast20, %sub.ptr.rhs.cast21
   %nbytes.0 = trunc i64 %sub.ptr.sub22 to i32
   %cmp = icmp sgt i32 %sub, %nbytes.0
-  br i1 %cmp, label %while.body, label %while.end, !llvm.loop !41
+  br i1 %cmp, label %while.body, label %while.end, !llvm.loop !40
 
 while.end:                                        ; preds = %if.end14, %if.end
   %size.addr.0.lcssa = phi i32 [ %size, %if.end ], [ %sub, %if.end14 ]
@@ -6492,7 +6480,7 @@ if.end14:                                         ; preds = %if.end10
   %sub.ptr.sub22 = sub i64 %sub.ptr.lhs.cast20, %sub.ptr.rhs.cast21
   %nbytes.0 = trunc i64 %sub.ptr.sub22 to i32
   %cmp = icmp sgt i32 %sub, %nbytes.0
-  br i1 %cmp, label %while.body, label %while.end, !llvm.loop !42
+  br i1 %cmp, label %while.body, label %while.end, !llvm.loop !41
 
 while.end:                                        ; preds = %if.end14, %if.end
   %size.addr.0.lcssa = phi i32 [ %size, %if.end ], [ %sub, %if.end14 ]
@@ -6694,7 +6682,7 @@ if.end14:                                         ; preds = %if.end10
   %sub.ptr.sub22 = sub i64 %sub.ptr.lhs.cast20, %sub.ptr.rhs.cast21
   %nbytes.0 = trunc i64 %sub.ptr.sub22 to i32
   %cmp = icmp sgt i32 %sub, %nbytes.0
-  br i1 %cmp, label %while.body, label %while.end, !llvm.loop !43
+  br i1 %cmp, label %while.body, label %while.end, !llvm.loop !42
 
 while.end:                                        ; preds = %if.end14, %if.end
   %size.addr.0.lcssa = phi i32 [ %size, %if.end ], [ %sub, %if.end14 ]
@@ -6896,7 +6884,7 @@ if.end14:                                         ; preds = %if.end10
   %sub.ptr.sub22 = sub i64 %sub.ptr.lhs.cast20, %sub.ptr.rhs.cast21
   %nbytes.0 = trunc i64 %sub.ptr.sub22 to i32
   %cmp = icmp sgt i32 %sub, %nbytes.0
-  br i1 %cmp, label %while.body, label %while.end, !llvm.loop !44
+  br i1 %cmp, label %while.body, label %while.end, !llvm.loop !43
 
 while.end:                                        ; preds = %if.end14, %if.end
   %size.addr.0.lcssa = phi i32 [ %size, %if.end ], [ %sub, %if.end14 ]
@@ -7091,7 +7079,7 @@ if.else.i24:                                      ; preds = %if.end33
 if.then.i.i.i:                                    ; preds = %if.else.i24
   %cmp.i2.i.i.i = icmp ugt i64 %add.i21, 15
   tail call void @llvm.assume(i1 %cmp.i2.i.i.i)
-  %11 = tail call i64 @llvm.ctlz.i64(i64 %add.i21, i1 true), !range !27
+  %11 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %add.i21, i1 true)
   %sub.i.i.i.i = sub nuw nsw i64 59, %11
   %cached_block_length_.i.i.i.i = getelementptr inbounds i8, ptr %10, i64 80
   %12 = load i8, ptr %cached_block_length_.i.i.i.i, align 8
@@ -7116,12 +7104,10 @@ _ZSt4copyIPPN6google8protobuf8internal11SerialArena11CachedBlockES6_ET0_T_S8_S7_
 
 for.body.preheader.i.i.i.i.i.i.i:                 ; preds = %_ZSt4copyIPPN6google8protobuf8internal11SerialArena11CachedBlockES6_ET0_T_S8_S7_.exit.i.i.i.i, %if.then.i.i.i.i
   %idx.ext1117.i.i.i.i = phi i64 [ %14, %_ZSt4copyIPPN6google8protobuf8internal11SerialArena11CachedBlockES6_ET0_T_S8_S7_.exit.i.i.i.i ], [ 0, %if.then.i.i.i.i ]
-  %add.ptr13.i.i.i.i = getelementptr inbounds ptr, ptr %add.ptr.i.i22, i64 %div10.i.i.i.i
-  %add.ptr12.i.i.i.i = getelementptr inbounds ptr, ptr %add.ptr.i.i22, i64 %idx.ext1117.i.i.i.i
-  %__last5.i.i.i.i.i.i.i = ptrtoint ptr %add.ptr13.i.i.i.i to i64
-  %__first6.i.i.i.i.i.i.i = ptrtoint ptr %add.ptr12.i.i.i.i to i64
-  %reass.sub.i.i.i.i.i.i = sub i64 %__last5.i.i.i.i.i.i.i, %__first6.i.i.i.i.i.i.i
-  %15 = and i64 %reass.sub.i.i.i.i.i.i, -8
+  %add.ptr12.idx.i.i.i.i = shl nuw nsw i64 %idx.ext1117.i.i.i.i, 3
+  %add.ptr12.i.i.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i22, i64 %add.ptr12.idx.i.i.i.i
+  %gepdiff.i.i.i.i = sub nsw i64 %add.i21, %add.ptr12.idx.i.i.i.i
+  %15 = and i64 %gepdiff.i.i.i.i, -8
   tail call void @llvm.memset.p0.i64(ptr nonnull align 8 %add.ptr12.i.i.i.i, i8 0, i64 %15, i1 false)
   br label %_ZSt4fillIPPN6google8protobuf8internal11SerialArena11CachedBlockEDnEvT_S7_RKT0_.exit.i.i.i.i
 
@@ -7245,7 +7231,7 @@ if.end14:                                         ; preds = %if.end10
   %sub.ptr.sub22 = sub i64 %sub.ptr.lhs.cast20, %sub.ptr.rhs.cast21
   %nbytes.0 = trunc i64 %sub.ptr.sub22 to i32
   %cmp = icmp sgt i32 %sub, %nbytes.0
-  br i1 %cmp, label %while.body, label %while.end, !llvm.loop !45
+  br i1 %cmp, label %while.body, label %while.end, !llvm.loop !44
 
 while.end:                                        ; preds = %if.end14, %if.end
   %size.addr.0.lcssa = phi i32 [ %size, %if.end ], [ %sub, %if.end14 ]
@@ -7440,7 +7426,7 @@ if.else.i23:                                      ; preds = %if.end33
 if.then.i.i.i:                                    ; preds = %if.else.i23
   %cmp.i2.i.i.i = icmp ugt i64 %add.i, 15
   tail call void @llvm.assume(i1 %cmp.i2.i.i.i)
-  %12 = tail call i64 @llvm.ctlz.i64(i64 %add.i, i1 true), !range !27
+  %12 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %add.i, i1 true)
   %sub.i.i.i.i = sub nuw nsw i64 59, %12
   %cached_block_length_.i.i.i.i = getelementptr inbounds i8, ptr %11, i64 80
   %13 = load i8, ptr %cached_block_length_.i.i.i.i, align 8
@@ -7465,13 +7451,10 @@ _ZSt4copyIPPN6google8protobuf8internal11SerialArena11CachedBlockES6_ET0_T_S8_S7_
 
 for.body.preheader.i.i.i.i.i.i.i:                 ; preds = %_ZSt4copyIPPN6google8protobuf8internal11SerialArena11CachedBlockES6_ET0_T_S8_S7_.exit.i.i.i.i, %if.then.i.i.i.i
   %idx.ext1117.i.i.i.i = phi i64 [ %15, %_ZSt4copyIPPN6google8protobuf8internal11SerialArena11CachedBlockES6_ET0_T_S8_S7_.exit.i.i.i.i ], [ 0, %if.then.i.i.i.i ]
-  %add.ptr13.i.i.i.i = getelementptr inbounds i8, ptr %6, i64 %mul.i20
-  %add.ptr12.i.i.i.i = getelementptr inbounds ptr, ptr %add.ptr.i.i21, i64 %idx.ext1117.i.i.i.i
-  %__last5.i.i.i.i.i.i.i = ptrtoint ptr %add.ptr13.i.i.i.i to i64
-  %__first6.i.i.i.i.i.i.i = ptrtoint ptr %add.ptr12.i.i.i.i to i64
-  %reass.sub.i.i.i.i.i.i = sub i64 %__last5.i.i.i.i.i.i.i, %__first6.i.i.i.i.i.i.i
-  %16 = and i64 %reass.sub.i.i.i.i.i.i, -8
-  tail call void @llvm.memset.p0.i64(ptr nonnull align 8 %add.ptr12.i.i.i.i, i8 0, i64 %16, i1 false)
+  %add.ptr12.idx.i.i.i.i = shl nuw nsw i64 %idx.ext1117.i.i.i.i, 3
+  %add.ptr12.i.i.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i21, i64 %add.ptr12.idx.i.i.i.i
+  %gepdiff.i.i.i.i = sub nsw i64 %add.i, %add.ptr12.idx.i.i.i.i
+  tail call void @llvm.memset.p0.i64(ptr nonnull align 8 %add.ptr12.i.i.i.i, i8 0, i64 %gepdiff.i.i.i.i, i1 false)
   br label %_ZSt4fillIPPN6google8protobuf8internal11SerialArena11CachedBlockEDnEvT_S7_RKT0_.exit.i.i.i.i
 
 _ZSt4fillIPPN6google8protobuf8internal11SerialArena11CachedBlockEDnEvT_S7_RKT0_.exit.i.i.i.i: ; preds = %for.body.preheader.i.i.i.i.i.i.i, %_ZSt4copyIPPN6google8protobuf8internal11SerialArena11CachedBlockES6_ET0_T_S8_S7_.exit.i.i.i.i
@@ -7483,10 +7466,10 @@ _ZSt4fillIPPN6google8protobuf8internal11SerialArena11CachedBlockEDnEvT_S7_RKT0_.
 
 if.end.i.i.i.i:                                   ; preds = %if.then.i.i.i
   %cached_blocks_19.i.i.i.i = getelementptr inbounds i8, ptr %11, i64 88
-  %17 = load ptr, ptr %cached_blocks_19.i.i.i.i, align 8
-  %arrayidx.i.i.i.i = getelementptr inbounds ptr, ptr %17, i64 %sub.i.i.i.i
-  %18 = load ptr, ptr %arrayidx.i.i.i.i, align 8
-  store ptr %18, ptr %add.ptr.i.i21, align 8
+  %16 = load ptr, ptr %cached_blocks_19.i.i.i.i, align 8
+  %arrayidx.i.i.i.i = getelementptr inbounds ptr, ptr %16, i64 %sub.i.i.i.i
+  %17 = load ptr, ptr %arrayidx.i.i.i.i, align 8
+  store ptr %17, ptr %add.ptr.i.i21, align 8
   store ptr %add.ptr.i.i21, ptr %arrayidx.i.i.i.i, align 8
   br label %if.end34
 
@@ -7861,7 +7844,7 @@ attributes #21 = { allocsize(0) }
 !24 = distinct !{!24, !5}
 !25 = distinct !{!25, !5}
 !26 = distinct !{!26, !5}
-!27 = !{i64 0, i64 65}
+!27 = distinct !{!27, !5}
 !28 = distinct !{!28, !5}
 !29 = distinct !{!29, !5}
 !30 = distinct !{!30, !5}
@@ -7879,4 +7862,3 @@ attributes #21 = { allocsize(0) }
 !42 = distinct !{!42, !5}
 !43 = distinct !{!43, !5}
 !44 = distinct !{!44, !5}
-!45 = distinct !{!45, !5}

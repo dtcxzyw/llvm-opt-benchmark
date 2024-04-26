@@ -82,7 +82,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.67 = private unnamed_addr constant [10 x i8] c"misc_code\00", align 1
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef i32 @_Z17cmFortran_yyparsePv(ptr noundef %0) local_unnamed_addr #0 {
+define dso_local noundef range(i32 0, 3) i32 @_Z17cmFortran_yyparsePv(ptr noundef %0) local_unnamed_addr #0 {
   %2 = alloca %struct.cmFortran_yystype, align 8
   %3 = alloca [200 x i8], align 16
   %4 = alloca [200 x %struct.cmFortran_yystype], align 16
@@ -102,7 +102,7 @@ define dso_local noundef i32 @_Z17cmFortran_yyparsePv(ptr noundef %0) local_unna
   %.0208 = phi i32 [ %.6, %._crit_edge410 ], [ %.5, %204 ], [ -2, %46 ]
   %.0219.add = add nsw i64 %.0219.idx, 1
   %.1220.ptr = getelementptr inbounds i8, ptr %3, i64 %.0219.add
-  %8 = trunc i32 %.0213 to i8
+  %8 = trunc nsw i32 %.0213 to i8
   store i8 %8, ptr %.1220.ptr, align 1
   %.not = icmp slt i64 %.0219.idx, 198
   br i1 %.not, label %9, label %251
@@ -550,7 +550,7 @@ define dso_local noundef i32 @_Z17cmFortran_yyparsePv(ptr noundef %0) local_unna
 228:                                              ; preds = %217, %227, %225, %219
   %.2283 = phi ptr [ %.1282350, %217 ], [ %5, %227 ], [ %224, %225 ], [ %.1282350, %219 ]
   %.0207 = phi ptr [ @.str.2, %217 ], [ @.str.2, %227 ], [ %224, %225 ], [ %.1282350, %219 ]
-  %.0 = phi i32 [ %218, %217 ], [ -2, %227 ], [ %226, %225 ], [ 0, %219 ]
+  %.0 = phi i32 [ -2, %217 ], [ -2, %227 ], [ %226, %225 ], [ 0, %219 ]
   %229 = call noundef ptr @_Z21cmFortran_yyget_extraPv(ptr noundef %0)
   call void @_Z21cmFortranParser_ErrorP17cmFortranParser_sPKc(ptr noundef %229, ptr noundef %.0207)
   %230 = icmp eq i32 %.0, -2
@@ -740,7 +740,7 @@ declare void @_Z24cmFortranParser_RuleElseP17cmFortranParser_s(ptr noundef) loca
 declare void @_Z25cmFortranParser_RuleEndifP17cmFortranParser_s(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc noundef i32 @_ZL14yysyntax_errorPlPPcPK12yypcontext_t(ptr nocapture noundef %0, ptr %.0.val, ptr nocapture readonly %.0.val1, i32 %.8.val) unnamed_addr #3 {
+define internal fastcc noundef range(i32 -2, 1) i32 @_ZL14yysyntax_errorPlPPcPK12yypcontext_t(ptr nocapture noundef %0, ptr %.0.val, ptr nocapture readonly %.0.val1, i32 %.8.val) unnamed_addr #3 {
   %2 = alloca [5 x i32], align 16
   %.not.i = icmp eq i32 %.8.val, -2
   br i1 %.not.i, label %_ZL25yy_syntax_error_argumentsPK12yypcontext_tP15yysymbol_kind_ti.exit.thread8, label %3
@@ -778,7 +778,7 @@ define internal fastcc noundef i32 @_ZL14yysyntax_errorPlPPcPK12yypcontext_t(ptr
   %21 = getelementptr inbounds [434 x i8], ptr @_ZL7yycheck, i64 0, i64 %20
   %22 = load i8, ptr %21, align 1
   %23 = sext i8 %22 to i32
-  %24 = trunc i64 %indvars.iv.i.i to i32
+  %24 = trunc nsw i64 %indvars.iv.i.i to i32
   %25 = icmp eq i32 %24, %23
   %26 = icmp ne i64 %indvars.iv.i.i, 1
   %or.cond.i.i = and i1 %26, %25

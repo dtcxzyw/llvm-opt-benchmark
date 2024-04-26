@@ -1260,7 +1260,7 @@ define noundef zeroext i1 @_ZNK13pmpaddr_csr_t19next_locked_and_torEv(ptr nocapt
 declare void @_ZN5mmu_t9flush_tlbEv(ptr noundef nonnull align 8 dereferenceable(43168)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define noundef i64 @_ZNK13pmpaddr_csr_t9tor_paddrEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(64) %0) local_unnamed_addr #11 align 2 personality ptr @__gxx_personality_v0 {
+define noundef range(i64 0, -3) i64 @_ZNK13pmpaddr_csr_t9tor_paddrEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(64) %0) local_unnamed_addr #11 align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 40
   %3 = load i64, ptr %2, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 8
@@ -1275,7 +1275,7 @@ define noundef i64 @_ZNK13pmpaddr_csr_t9tor_paddrEv(ptr nocapture noundef nonnul
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define noundef i64 @_ZNK13pmpaddr_csr_t14tor_base_paddrEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(64) %0) local_unnamed_addr #11 align 2 personality ptr @__gxx_personality_v0 {
+define noundef range(i64 0, -3) i64 @_ZNK13pmpaddr_csr_t14tor_base_paddrEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(64) %0) local_unnamed_addr #11 align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 56
   %3 = load i64, ptr %2, align 8
   %4 = icmp eq i64 %3, 0
@@ -1306,7 +1306,7 @@ define noundef i64 @_ZNK13pmpaddr_csr_t14tor_base_paddrEv(ptr nocapture noundef 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define noundef i64 @_ZNK13pmpaddr_csr_t10napot_maskEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(64) %0) local_unnamed_addr #11 align 2 personality ptr @__gxx_personality_v0 {
+define noundef range(i64 0, -3) i64 @_ZNK13pmpaddr_csr_t10napot_maskEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(64) %0) local_unnamed_addr #11 align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 48
   %3 = load i8, ptr %2, align 8
   %4 = and i8 %3, 24
@@ -1962,171 +1962,168 @@ define noundef zeroext i1 @_ZN13mseccfg_csr_t14unlogged_writeEm(ptr noundef nonn
   %5 = getelementptr inbounds i8, ptr %4, i64 659624
   %6 = load i64, ptr %5, align 8
   %7 = icmp ne i64 %6, 0
-  br i1 %7, label %8, label %76
+  br i1 %7, label %8, label %75
 
 8:                                                ; preds = %2
   %9 = getelementptr inbounds i8, ptr %0, i64 16
   %10 = load ptr, ptr %9, align 8
   %11 = getelementptr inbounds i8, ptr %10, i64 2160
-  %12 = getelementptr inbounds %"class.std::shared_ptr.59", ptr %11, i64 %6
-  %13 = ptrtoint ptr %12 to i64
-  %14 = ashr i64 %6, 2
-  %15 = icmp sgt i64 %14, 0
-  br i1 %15, label %.lr.ph.preheader.i.i.i.i.i, label %._crit_edge.i.i.i.i.i
+  %.idx12 = shl nsw i64 %6, 4
+  %12 = getelementptr inbounds i8, ptr %11, i64 %.idx12
+  %13 = ashr i64 %6, 2
+  %14 = icmp sgt i64 %13, 0
+  br i1 %14, label %.lr.ph.preheader.i.i.i.i.i, label %._crit_edge.i.i.i.i.i
 
 .lr.ph.preheader.i.i.i.i.i:                       ; preds = %8
-  %.idx = shl nsw i64 %6, 4
-  %16 = and i64 %.idx, -64
-  %scevgep.i.i.i.i.i = getelementptr i8, ptr %11, i64 %16
+  %15 = and i64 %.idx12, -64
+  %scevgep.i.i.i.i.i = getelementptr i8, ptr %11, i64 %15
   br label %.lr.ph.i.i.i.i.i
 
-.lr.ph.i.i.i.i.i:                                 ; preds = %31, %.lr.ph.preheader.i.i.i.i.i
-  %.044.i.i.i.i.i = phi i64 [ %33, %31 ], [ %14, %.lr.ph.preheader.i.i.i.i.i ]
-  %.02943.i.i.i.i.i = phi ptr [ %32, %31 ], [ %11, %.lr.ph.preheader.i.i.i.i.i ]
+.lr.ph.i.i.i.i.i:                                 ; preds = %30, %.lr.ph.preheader.i.i.i.i.i
+  %.044.i.i.i.i.i = phi i64 [ %32, %30 ], [ %13, %.lr.ph.preheader.i.i.i.i.i ]
+  %.02943.i.i.i.i.i = phi ptr [ %31, %30 ], [ %11, %.lr.ph.preheader.i.i.i.i.i ]
   %.029.val.i.i.i.i.i = load ptr, ptr %.02943.i.i.i.i.i, align 8
-  %17 = getelementptr i8, ptr %.029.val.i.i.i.i.i, i64 48
-  %.029.val.val.i.i.i.i.i = load i8, ptr %17, align 8
-  %18 = icmp slt i8 %.029.val.val.i.i.i.i.i, 0
-  br i1 %18, label %.loopexit, label %19
+  %16 = getelementptr i8, ptr %.029.val.i.i.i.i.i, i64 48
+  %.029.val.val.i.i.i.i.i = load i8, ptr %16, align 8
+  %17 = icmp slt i8 %.029.val.val.i.i.i.i.i, 0
+  br i1 %17, label %.loopexit, label %18
 
-19:                                               ; preds = %.lr.ph.i.i.i.i.i
-  %20 = getelementptr inbounds i8, ptr %.02943.i.i.i.i.i, i64 16
-  %.val.i.i.i.i.i = load ptr, ptr %20, align 8
-  %21 = getelementptr i8, ptr %.val.i.i.i.i.i, i64 48
-  %.val.val.i.i.i.i.i = load i8, ptr %21, align 8
-  %22 = icmp slt i8 %.val.val.i.i.i.i.i, 0
-  br i1 %22, label %.loopexit.loopexit.split.loop.exit26, label %23
+18:                                               ; preds = %.lr.ph.i.i.i.i.i
+  %19 = getelementptr inbounds i8, ptr %.02943.i.i.i.i.i, i64 16
+  %.val.i.i.i.i.i = load ptr, ptr %19, align 8
+  %20 = getelementptr i8, ptr %.val.i.i.i.i.i, i64 48
+  %.val.val.i.i.i.i.i = load i8, ptr %20, align 8
+  %21 = icmp slt i8 %.val.val.i.i.i.i.i, 0
+  br i1 %21, label %.loopexit.loopexit.split.loop.exit27, label %22
 
-23:                                               ; preds = %19
-  %24 = getelementptr inbounds i8, ptr %.02943.i.i.i.i.i, i64 32
-  %.val30.i.i.i.i.i = load ptr, ptr %24, align 8
-  %25 = getelementptr i8, ptr %.val30.i.i.i.i.i, i64 48
-  %.val30.val.i.i.i.i.i = load i8, ptr %25, align 8
-  %26 = icmp slt i8 %.val30.val.i.i.i.i.i, 0
-  br i1 %26, label %.loopexit.loopexit.split.loop.exit24, label %27
+22:                                               ; preds = %18
+  %23 = getelementptr inbounds i8, ptr %.02943.i.i.i.i.i, i64 32
+  %.val30.i.i.i.i.i = load ptr, ptr %23, align 8
+  %24 = getelementptr i8, ptr %.val30.i.i.i.i.i, i64 48
+  %.val30.val.i.i.i.i.i = load i8, ptr %24, align 8
+  %25 = icmp slt i8 %.val30.val.i.i.i.i.i, 0
+  br i1 %25, label %.loopexit.loopexit.split.loop.exit25, label %26
 
-27:                                               ; preds = %23
-  %28 = getelementptr inbounds i8, ptr %.02943.i.i.i.i.i, i64 48
-  %.val31.i.i.i.i.i = load ptr, ptr %28, align 8
-  %29 = getelementptr i8, ptr %.val31.i.i.i.i.i, i64 48
-  %.val31.val.i.i.i.i.i = load i8, ptr %29, align 8
-  %30 = icmp slt i8 %.val31.val.i.i.i.i.i, 0
-  br i1 %30, label %.loopexit.loopexit.split.loop.exit, label %31
+26:                                               ; preds = %22
+  %27 = getelementptr inbounds i8, ptr %.02943.i.i.i.i.i, i64 48
+  %.val31.i.i.i.i.i = load ptr, ptr %27, align 8
+  %28 = getelementptr i8, ptr %.val31.i.i.i.i.i, i64 48
+  %.val31.val.i.i.i.i.i = load i8, ptr %28, align 8
+  %29 = icmp slt i8 %.val31.val.i.i.i.i.i, 0
+  br i1 %29, label %.loopexit.loopexit.split.loop.exit, label %30
 
-31:                                               ; preds = %27
-  %32 = getelementptr inbounds i8, ptr %.02943.i.i.i.i.i, i64 64
-  %33 = add nsw i64 %.044.i.i.i.i.i, -1
-  %34 = icmp sgt i64 %.044.i.i.i.i.i, 1
-  br i1 %34, label %.lr.ph.i.i.i.i.i, label %._crit_edge.loopexit.i.i.i.i.i, !llvm.loop !8
+30:                                               ; preds = %26
+  %31 = getelementptr inbounds i8, ptr %.02943.i.i.i.i.i, i64 64
+  %32 = add nsw i64 %.044.i.i.i.i.i, -1
+  %33 = icmp sgt i64 %.044.i.i.i.i.i, 1
+  br i1 %33, label %.lr.ph.i.i.i.i.i, label %._crit_edge.loopexit.i.i.i.i.i, !llvm.loop !8
 
-._crit_edge.loopexit.i.i.i.i.i:                   ; preds = %31
-  %.pre.i.i.i.i.i = ptrtoint ptr %scevgep.i.i.i.i.i to i64
-  %.pre49.i.i.i.i.i = sub i64 %13, %.pre.i.i.i.i.i
-  %35 = ashr exact i64 %.pre49.i.i.i.i.i, 4
+._crit_edge.loopexit.i.i.i.i.i:                   ; preds = %30
+  %34 = and i64 %6, 3
   br label %._crit_edge.i.i.i.i.i
 
 ._crit_edge.i.i.i.i.i:                            ; preds = %._crit_edge.loopexit.i.i.i.i.i, %8
-  %.pre-phi50.i.i.i.i.i = phi i64 [ %35, %._crit_edge.loopexit.i.i.i.i.i ], [ %6, %8 ]
+  %.pre-phi50.i.i.i.i.i = phi i64 [ %34, %._crit_edge.loopexit.i.i.i.i.i ], [ %6, %8 ]
   %.029.lcssa.i.i.i.i.i = phi ptr [ %scevgep.i.i.i.i.i, %._crit_edge.loopexit.i.i.i.i.i ], [ %11, %8 ]
-  switch i64 %.pre-phi50.i.i.i.i.i, label %49 [
-    i64 3, label %36
-    i64 2, label %41
-    i64 1, label %46
+  switch i64 %.pre-phi50.i.i.i.i.i, label %48 [
+    i64 3, label %35
+    i64 2, label %40
+    i64 1, label %45
   ]
 
-36:                                               ; preds = %._crit_edge.i.i.i.i.i
+35:                                               ; preds = %._crit_edge.i.i.i.i.i
   %.029.val32.i.i.i.i.i = load ptr, ptr %.029.lcssa.i.i.i.i.i, align 8
-  %37 = getelementptr i8, ptr %.029.val32.i.i.i.i.i, i64 48
-  %.029.val32.val.i.i.i.i.i = load i8, ptr %37, align 8
-  %38 = icmp slt i8 %.029.val32.val.i.i.i.i.i, 0
-  br i1 %38, label %.loopexit, label %39
+  %36 = getelementptr i8, ptr %.029.val32.i.i.i.i.i, i64 48
+  %.029.val32.val.i.i.i.i.i = load i8, ptr %36, align 8
+  %37 = icmp slt i8 %.029.val32.val.i.i.i.i.i, 0
+  br i1 %37, label %.loopexit, label %38
 
-39:                                               ; preds = %36
-  %40 = getelementptr inbounds i8, ptr %.029.lcssa.i.i.i.i.i, i64 16
-  br label %41
+38:                                               ; preds = %35
+  %39 = getelementptr inbounds i8, ptr %.029.lcssa.i.i.i.i.i, i64 16
+  br label %40
 
-41:                                               ; preds = %39, %._crit_edge.i.i.i.i.i
-  %.1.i.i.i.i.i = phi ptr [ %.029.lcssa.i.i.i.i.i, %._crit_edge.i.i.i.i.i ], [ %40, %39 ]
+40:                                               ; preds = %38, %._crit_edge.i.i.i.i.i
+  %.1.i.i.i.i.i = phi ptr [ %.029.lcssa.i.i.i.i.i, %._crit_edge.i.i.i.i.i ], [ %39, %38 ]
   %.1.val.i.i.i.i.i = load ptr, ptr %.1.i.i.i.i.i, align 8
-  %42 = getelementptr i8, ptr %.1.val.i.i.i.i.i, i64 48
-  %.1.val.val.i.i.i.i.i = load i8, ptr %42, align 8
-  %43 = icmp slt i8 %.1.val.val.i.i.i.i.i, 0
-  br i1 %43, label %.loopexit, label %44
+  %41 = getelementptr i8, ptr %.1.val.i.i.i.i.i, i64 48
+  %.1.val.val.i.i.i.i.i = load i8, ptr %41, align 8
+  %42 = icmp slt i8 %.1.val.val.i.i.i.i.i, 0
+  br i1 %42, label %.loopexit, label %43
 
-44:                                               ; preds = %41
-  %45 = getelementptr inbounds i8, ptr %.1.i.i.i.i.i, i64 16
-  br label %46
+43:                                               ; preds = %40
+  %44 = getelementptr inbounds i8, ptr %.1.i.i.i.i.i, i64 16
+  br label %45
 
-46:                                               ; preds = %44, %._crit_edge.i.i.i.i.i
-  %.2.i.i.i.i.i = phi ptr [ %.029.lcssa.i.i.i.i.i, %._crit_edge.i.i.i.i.i ], [ %45, %44 ]
+45:                                               ; preds = %43, %._crit_edge.i.i.i.i.i
+  %.2.i.i.i.i.i = phi ptr [ %.029.lcssa.i.i.i.i.i, %._crit_edge.i.i.i.i.i ], [ %44, %43 ]
   %.2.val.i.i.i.i.i = load ptr, ptr %.2.i.i.i.i.i, align 8
-  %47 = getelementptr i8, ptr %.2.val.i.i.i.i.i, i64 48
-  %.2.val.val.i.i.i.i.i = load i8, ptr %47, align 8
-  %48 = icmp slt i8 %.2.val.val.i.i.i.i.i, 0
-  br i1 %48, label %.loopexit, label %49
+  %46 = getelementptr i8, ptr %.2.val.i.i.i.i.i, i64 48
+  %.2.val.val.i.i.i.i.i = load i8, ptr %46, align 8
+  %47 = icmp slt i8 %.2.val.val.i.i.i.i.i, 0
+  br i1 %47, label %.loopexit, label %48
 
-49:                                               ; preds = %46, %._crit_edge.i.i.i.i.i
+48:                                               ; preds = %45, %._crit_edge.i.i.i.i.i
   br label %.loopexit
 
-.loopexit.loopexit.split.loop.exit:               ; preds = %27
-  %50 = getelementptr inbounds i8, ptr %.02943.i.i.i.i.i, i64 48
+.loopexit.loopexit.split.loop.exit:               ; preds = %26
+  %49 = getelementptr inbounds i8, ptr %.02943.i.i.i.i.i, i64 48
   br label %.loopexit
 
-.loopexit.loopexit.split.loop.exit24:             ; preds = %23
-  %51 = getelementptr inbounds i8, ptr %.02943.i.i.i.i.i, i64 32
+.loopexit.loopexit.split.loop.exit25:             ; preds = %22
+  %50 = getelementptr inbounds i8, ptr %.02943.i.i.i.i.i, i64 32
   br label %.loopexit
 
-.loopexit.loopexit.split.loop.exit26:             ; preds = %19
-  %52 = getelementptr inbounds i8, ptr %.02943.i.i.i.i.i, i64 16
+.loopexit.loopexit.split.loop.exit27:             ; preds = %18
+  %51 = getelementptr inbounds i8, ptr %.02943.i.i.i.i.i, i64 16
   br label %.loopexit
 
-.loopexit:                                        ; preds = %.lr.ph.i.i.i.i.i, %.loopexit.loopexit.split.loop.exit, %.loopexit.loopexit.split.loop.exit24, %.loopexit.loopexit.split.loop.exit26, %49, %46, %41, %36
-  %.028.i.i.i.i.i = phi ptr [ %12, %49 ], [ %.029.lcssa.i.i.i.i.i, %36 ], [ %.1.i.i.i.i.i, %41 ], [ %.2.i.i.i.i.i, %46 ], [ %50, %.loopexit.loopexit.split.loop.exit ], [ %51, %.loopexit.loopexit.split.loop.exit24 ], [ %52, %.loopexit.loopexit.split.loop.exit26 ], [ %.02943.i.i.i.i.i, %.lr.ph.i.i.i.i.i ]
+.loopexit:                                        ; preds = %.lr.ph.i.i.i.i.i, %.loopexit.loopexit.split.loop.exit, %.loopexit.loopexit.split.loop.exit25, %.loopexit.loopexit.split.loop.exit27, %48, %45, %40, %35
+  %.028.i.i.i.i.i = phi ptr [ %12, %48 ], [ %.029.lcssa.i.i.i.i.i, %35 ], [ %.1.i.i.i.i.i, %40 ], [ %.2.i.i.i.i.i, %45 ], [ %49, %.loopexit.loopexit.split.loop.exit ], [ %50, %.loopexit.loopexit.split.loop.exit25 ], [ %51, %.loopexit.loopexit.split.loop.exit27 ], [ %.02943.i.i.i.i.i, %.lr.ph.i.i.i.i.i ]
   %.not = icmp eq ptr %.028.i.i.i.i.i, %12
-  %53 = load ptr, ptr %0, align 8
-  %54 = getelementptr inbounds i8, ptr %53, i64 8
-  %55 = load ptr, ptr %54, align 8
-  %56 = tail call noundef i64 %55(ptr noundef nonnull align 8 dereferenceable(48) %0) #26
-  br i1 %.not, label %64, label %57
+  %52 = load ptr, ptr %0, align 8
+  %53 = getelementptr inbounds i8, ptr %52, i64 8
+  %54 = load ptr, ptr %53, align 8
+  %55 = tail call noundef i64 %54(ptr noundef nonnull align 8 dereferenceable(48) %0) #26
+  br i1 %.not, label %63, label %56
 
-57:                                               ; preds = %.loopexit
-  %58 = load ptr, ptr %0, align 8
-  %59 = getelementptr inbounds i8, ptr %58, i64 8
-  %60 = load ptr, ptr %59, align 8
-  %61 = tail call noundef i64 %60(ptr noundef nonnull align 8 dereferenceable(48) %0) #26
-  %62 = and i64 %61, 4
-  %63 = icmp eq i64 %62, 0
-  br i1 %63, label %68, label %64
+56:                                               ; preds = %.loopexit
+  %57 = load ptr, ptr %0, align 8
+  %58 = getelementptr inbounds i8, ptr %57, i64 8
+  %59 = load ptr, ptr %58, align 8
+  %60 = tail call noundef i64 %59(ptr noundef nonnull align 8 dereferenceable(48) %0) #26
+  %61 = and i64 %60, 4
+  %62 = icmp eq i64 %61, 0
+  br i1 %62, label %67, label %63
 
-64:                                               ; preds = %57, %.loopexit
-  %65 = and i64 %56, -5
-  %66 = and i64 %1, 4
-  %67 = or disjoint i64 %65, %66
-  br label %68
+63:                                               ; preds = %56, %.loopexit
+  %64 = and i64 %55, -5
+  %65 = and i64 %1, 4
+  %66 = or disjoint i64 %64, %65
+  br label %67
 
-68:                                               ; preds = %64, %57
-  %.0 = phi i64 [ %56, %57 ], [ %67, %64 ]
-  %69 = load ptr, ptr %3, align 8
-  %70 = getelementptr inbounds i8, ptr %69, i64 40
-  %71 = load ptr, ptr %70, align 8
-  invoke void @_ZN5mmu_t9flush_tlbEv(ptr noundef nonnull align 8 dereferenceable(43168) %71)
-          to label %72 unwind label %77
+67:                                               ; preds = %63, %56
+  %.0 = phi i64 [ %55, %56 ], [ %66, %63 ]
+  %68 = load ptr, ptr %3, align 8
+  %69 = getelementptr inbounds i8, ptr %68, i64 40
+  %70 = load ptr, ptr %69, align 8
+  invoke void @_ZN5mmu_t9flush_tlbEv(ptr noundef nonnull align 8 dereferenceable(43168) %70)
+          to label %71 unwind label %76
 
-72:                                               ; preds = %68
-  %73 = and i64 %1, 3
-  %74 = or i64 %.0, %73
-  %75 = getelementptr inbounds i8, ptr %0, i64 40
-  store i64 %74, ptr %75, align 8
-  br label %76
+71:                                               ; preds = %67
+  %72 = and i64 %1, 3
+  %73 = or i64 %.0, %72
+  %74 = getelementptr inbounds i8, ptr %0, i64 40
+  store i64 %73, ptr %74, align 8
+  br label %75
 
-76:                                               ; preds = %2, %72
+75:                                               ; preds = %2, %71
   ret i1 %7
 
-77:                                               ; preds = %68
-  %78 = landingpad { ptr, i32 }
+76:                                               ; preds = %67
+  %77 = landingpad { ptr, i32 }
           catch ptr null
-  %79 = extractvalue { ptr, i32 } %78, 0
-  tail call void @__clang_call_terminate(ptr %79) #28
+  %78 = extractvalue { ptr, i32 } %77, 0
+  tail call void @__clang_call_terminate(ptr %78) #28
   unreachable
 }
 
@@ -2517,7 +2514,7 @@ _ZNK17base_status_csr_t26compute_sstatus_write_maskEv.exit: ; preds = %27, %34
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define noundef i64 @_ZNK17base_status_csr_t26compute_sstatus_write_maskEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(56) %0) local_unnamed_addr #11 align 2 personality ptr @__gxx_personality_v0 {
+define noundef range(i64 0, 1048576) i64 @_ZNK17base_status_csr_t26compute_sstatus_write_maskEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(56) %0) local_unnamed_addr #11 align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds i8, ptr %3, i64 968
@@ -3106,7 +3103,7 @@ _ZNK13mstatus_csr_t29compute_mstatus_initial_valueEv.exit: ; preds = %67, %69, %
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define noundef i64 @_ZNK13mstatus_csr_t29compute_mstatus_initial_valueEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(64) %0) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define noundef range(i64 0, 274877906944) i64 @_ZNK13mstatus_csr_t29compute_mstatus_initial_valueEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(64) %0) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds i8, ptr %3, i64 968
@@ -3392,7 +3389,7 @@ _ZNSt10shared_ptrI5csr_tEC2ERKS1_.exit:           ; preds = %4, %25, %28
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define noundef i64 @_ZNK14rv32_low_csr_t4readEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(56) %0) unnamed_addr #5 align 2 {
+define noundef range(i64 0, 4294967296) i64 @_ZNK14rv32_low_csr_t4readEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(56) %0) unnamed_addr #5 align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 40
   %3 = load ptr, ptr %2, align 8
   %4 = load ptr, ptr %3, align 8
@@ -3432,7 +3429,7 @@ define noundef zeroext i1 @_ZN14rv32_low_csr_t14unlogged_writeEm(ptr nocapture n
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define noundef i64 @_ZNK14rv32_low_csr_t13written_valueEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(56) %0) unnamed_addr #5 align 2 {
+define noundef range(i64 0, 4294967296) i64 @_ZNK14rv32_low_csr_t13written_valueEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(56) %0) unnamed_addr #5 align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 40
   %3 = load ptr, ptr %2, align 8
   %4 = load ptr, ptr %3, align 8
@@ -3494,7 +3491,7 @@ _ZNSt10shared_ptrI5csr_tEC2ERKS1_.exit:           ; preds = %4, %25, %28
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define noundef i64 @_ZNK15rv32_high_csr_t4readEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(56) %0) unnamed_addr #5 align 2 {
+define noundef range(i64 0, 4294967296) i64 @_ZNK15rv32_high_csr_t4readEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(56) %0) unnamed_addr #5 align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 40
   %3 = load ptr, ptr %2, align 8
   %4 = load ptr, ptr %3, align 8
@@ -3534,7 +3531,7 @@ define noundef zeroext i1 @_ZN15rv32_high_csr_t14unlogged_writeEm(ptr nocapture 
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define noundef i64 @_ZNK15rv32_high_csr_t13written_valueEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(56) %0) unnamed_addr #5 align 2 {
+define noundef range(i64 0, 4294967296) i64 @_ZNK15rv32_high_csr_t13written_valueEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(56) %0) unnamed_addr #5 align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 40
   %3 = load ptr, ptr %2, align 8
   %4 = load ptr, ptr %3, align 8
@@ -5225,7 +5222,7 @@ define void @_ZN9mip_csr_t24backdoor_write_with_maskEmm(ptr nocapture noundef no
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define noundef i64 @_ZNK9mip_csr_t10write_maskEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(48) %0) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define noundef range(i64 0, 8744) i64 @_ZNK9mip_csr_t10write_maskEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(48) %0) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds i8, ptr %3, i64 968
@@ -5299,7 +5296,7 @@ define void @_ZN9mie_csr_tC2EP11processor_tm(ptr nocapture noundef nonnull write
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define noundef i64 @_ZNK9mie_csr_t10write_maskEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(48) %0) unnamed_addr #11 align 2 personality ptr @__gxx_personality_v0 {
+define noundef range(i64 2048, 16384) i64 @_ZNK9mie_csr_t10write_maskEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(48) %0) unnamed_addr #11 align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds i8, ptr %3, i64 968
@@ -8922,7 +8919,7 @@ define void @_ZNK10dcsr_csr_t18verify_permissionsE6insn_tb(ptr nocapture noundef
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef i64 @_ZNK10dcsr_csr_t4readEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(47) %0) unnamed_addr #14 align 2 {
+define noundef range(i64 1073741824, 1074003968) i64 @_ZNK10dcsr_csr_t4readEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(47) %0) unnamed_addr #14 align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 39
   %3 = load i8, ptr %2, align 1
   %4 = zext i8 %3 to i64

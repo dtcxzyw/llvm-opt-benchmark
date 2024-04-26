@@ -395,7 +395,7 @@ declare void @strvec_clear(ptr noundef) local_unnamed_addr #1
 declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #3
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @unpack_trees(i32 noundef %len, ptr noundef %t, ptr noundef %o) local_unnamed_addr #0 {
+define dso_local range(i32 -2, 1) i32 @unpack_trees(i32 noundef %len, ptr noundef %t, ptr noundef %o) local_unnamed_addr #0 {
 entry:
   %path.i = alloca %struct.strbuf, align 8
   %ce_prefix.i = alloca %struct.strbuf, align 8
@@ -614,14 +614,14 @@ lor.lhs.false:                                    ; preds = %if.end41
 if.end45.thread:                                  ; preds = %if.end41, %lor.lhs.false
   %skip_sparse_checkout = getelementptr inbounds i8, ptr %o, i64 44
   store i32 1, ptr %skip_sparse_checkout, align 4
-  %skip_sparse_checkout46262 = getelementptr inbounds i8, ptr %o, i64 44
+  %skip_sparse_checkout46263 = getelementptr inbounds i8, ptr %o, i64 44
   br label %if.end49
 
 if.end45:                                         ; preds = %lor.lhs.false
   %skip_sparse_checkout46.phi.trans.insert = getelementptr inbounds i8, ptr %o, i64 44
-  %.pre256 = load i32, ptr %skip_sparse_checkout46.phi.trans.insert, align 4
+  %.pre257 = load i32, ptr %skip_sparse_checkout46.phi.trans.insert, align 4
   %skip_sparse_checkout46 = getelementptr inbounds i8, ptr %o, i64 44
-  %tobool47.not.not = icmp eq i32 %.pre256, 0
+  %tobool47.not.not = icmp eq i32 %.pre257, 0
   br i1 %tobool47.not.not, label %if.then48, label %if.end49
 
 if.then48:                                        ; preds = %if.end45
@@ -639,8 +639,8 @@ if.else.i:                                        ; preds = %if.then48
   br label %if.end49
 
 if.end49:                                         ; preds = %if.end45.thread, %if.else.i, %if.then.i, %if.end45
-  %tobool47.not.not265 = phi i1 [ false, %if.end45.thread ], [ true, %if.else.i ], [ true, %if.then.i ], [ false, %if.end45 ]
-  %skip_sparse_checkout46264 = phi ptr [ %skip_sparse_checkout46262, %if.end45.thread ], [ %skip_sparse_checkout46, %if.else.i ], [ %skip_sparse_checkout46, %if.then.i ], [ %skip_sparse_checkout46, %if.end45 ]
+  %tobool47.not.not266 = phi i1 [ false, %if.end45.thread ], [ true, %if.else.i ], [ true, %if.then.i ], [ false, %if.end45 ]
+  %skip_sparse_checkout46265 = phi ptr [ %skip_sparse_checkout46263, %if.end45.thread ], [ %skip_sparse_checkout46, %if.else.i ], [ %skip_sparse_checkout46, %if.then.i ], [ %skip_sparse_checkout46, %if.end45 ]
   %result = getelementptr inbounds i8, ptr %o, i64 848
   %src_index51 = getelementptr inbounds i8, ptr %o, i64 136
   %27 = load ptr, ptr %src_index51, align 8
@@ -741,11 +741,11 @@ for.body.i:                                       ; preds = %if.end104, %for.bod
   br i1 %cmp.i135, label %for.body.i, label %mark_all_ce_unused.exit.loopexit, !llvm.loop !8
 
 mark_all_ce_unused.exit.loopexit:                 ; preds = %for.body.i
-  %.pre257 = load ptr, ptr %src_index51, align 8
+  %.pre258 = load ptr, ptr %src_index51, align 8
   br label %mark_all_ce_unused.exit
 
 mark_all_ce_unused.exit:                          ; preds = %mark_all_ce_unused.exit.loopexit, %if.end104
-  %46 = phi ptr [ %.pre257, %mark_all_ce_unused.exit.loopexit ], [ %38, %if.end104 ]
+  %46 = phi ptr [ %.pre258, %mark_all_ce_unused.exit.loopexit ], [ %38, %if.end104 ]
   %fsmonitor_last_update = getelementptr inbounds i8, ptr %46, i64 208
   %47 = load ptr, ptr %fsmonitor_last_update, align 8
   %tobool.not.i136 = icmp eq ptr %47, null
@@ -753,11 +753,11 @@ mark_all_ce_unused.exit:                          ; preds = %mark_all_ce_unused.
 
 cond.true.i:                                      ; preds = %mark_all_ce_unused.exit
   %call.i137 = call ptr @xstrdup(ptr noundef nonnull %47) #17
-  %.pre258 = load ptr, ptr %src_index51, align 8
+  %.pre259 = load ptr, ptr %src_index51, align 8
   br label %xstrdup_or_null.exit
 
 xstrdup_or_null.exit:                             ; preds = %mark_all_ce_unused.exit, %cond.true.i
-  %48 = phi ptr [ %.pre258, %cond.true.i ], [ %46, %mark_all_ce_unused.exit ]
+  %48 = phi ptr [ %.pre259, %cond.true.i ], [ %46, %mark_all_ce_unused.exit ]
   %cond.i = phi ptr [ %call.i137, %cond.true.i ], [ null, %mark_all_ce_unused.exit ]
   %fsmonitor_last_update115 = getelementptr inbounds i8, ptr %o, i64 1056
   store ptr %cond.i, ptr %fsmonitor_last_update115, align 8
@@ -789,7 +789,7 @@ if.then141:                                       ; preds = %land.lhs.true136
   br label %if.end144
 
 if.end144:                                        ; preds = %if.then141, %land.lhs.true136, %land.lhs.true132, %xstrdup_or_null.exit
-  %51 = load i32, ptr %skip_sparse_checkout46264, align 4
+  %51 = load i32, ptr %skip_sparse_checkout46265, align 4
   %tobool146.not = icmp eq i32 %51, 0
   br i1 %tobool146.not, label %if.then147, label %if.end151
 
@@ -951,8 +951,8 @@ if.end181:                                        ; preds = %if.end172, %while.b
   %trace_perf_key.val130 = load i8, ptr getelementptr inbounds (%struct.trace_key, ptr @trace_perf_key, i64 0, i32 2), align 4
   %tobool.not.i153 = icmp eq i32 %trace_perf_key.val, 0
   %bf.clear.i = and i8 %trace_perf_key.val130, 1
-  %tobool186.not232 = icmp ne i8 %bf.clear.i, 0
-  %tobool186.not = select i1 %tobool.not.i153, i1 %tobool186.not232, i1 false
+  %tobool186.not233 = icmp ne i8 %bf.clear.i, 0
+  %tobool186.not = select i1 %tobool.not.i153, i1 %tobool186.not233, i1 false
   br i1 %tobool186.not, label %do.end, label %if.then187
 
 if.then187:                                       ; preds = %if.end181
@@ -970,9 +970,9 @@ if.end193:                                        ; preds = %do.end, %if.end155
   br i1 %tobool194.not, label %if.end193.if.end207_crit_edge, label %while.body196.preheader
 
 if.end193.if.end207_crit_edge:                    ; preds = %if.end193
-  %.pre259 = load ptr, ptr %src_index51, align 8
-  %cache_nr.i168.phi.trans.insert = getelementptr inbounds i8, ptr %.pre259, i64 12
-  %.pre260 = load i32, ptr %cache_nr.i168.phi.trans.insert, align 4
+  %.pre260 = load ptr, ptr %src_index51, align 8
+  %cache_nr.i168.phi.trans.insert = getelementptr inbounds i8, ptr %.pre260, i64 12
+  %.pre261 = load i32, ptr %cache_nr.i168.phi.trans.insert, align 4
   br label %if.end207
 
 while.body196.preheader:                          ; preds = %if.end193
@@ -1014,14 +1014,14 @@ if.end201:                                        ; preds = %while.body.i158
   br i1 %cmp203, label %return_failed, label %while.body196
 
 if.end207:                                        ; preds = %while.body196, %if.end193.if.end207_crit_edge
-  %89 = phi i32 [ %.pre260, %if.end193.if.end207_crit_edge ], [ %83, %while.body196 ]
-  %90 = phi ptr [ %.pre259, %if.end193.if.end207_crit_edge ], [ %o.val128, %while.body196 ]
+  %89 = phi i32 [ %.pre261, %if.end193.if.end207_crit_edge ], [ %83, %while.body196 ]
+  %90 = phi ptr [ %.pre260, %if.end193.if.end207_crit_edge ], [ %o.val128, %while.body196 ]
   %cmp4.not.i169 = icmp eq i32 %89, 0
   br i1 %cmp4.not.i169, label %mark_all_ce_unused.exit177, label %for.body.i170.preheader
 
 for.body.i170.preheader:                          ; preds = %while.cond.i164, %if.end207
   %91 = phi ptr [ %90, %if.end207 ], [ %o.val128, %while.cond.i164 ]
-  %cache_nr.i168268 = getelementptr inbounds i8, ptr %91, i64 12
+  %cache_nr.i168269 = getelementptr inbounds i8, ptr %91, i64 12
   br label %for.body.i170
 
 for.body.i170:                                    ; preds = %for.body.i170.preheader, %for.body.i170
@@ -1034,7 +1034,7 @@ for.body.i170:                                    ; preds = %for.body.i170.prehe
   %and.i174 = and i32 %94, -50855937
   store i32 %and.i174, ptr %ce_flags.i173, align 8
   %indvars.iv.next.i175 = add nuw nsw i64 %indvars.iv.i171, 1
-  %95 = load i32, ptr %cache_nr.i168268, align 4
+  %95 = load i32, ptr %cache_nr.i168269, align 4
   %96 = zext i32 %95 to i64
   %cmp.i176 = icmp ult i64 %indvars.iv.next.i175, %96
   br i1 %cmp.i176, label %for.body.i170, label %mark_all_ce_unused.exit177, !llvm.loop !8
@@ -1068,7 +1068,7 @@ if.then3.i:                                       ; preds = %land.lhs.true.i179
   br label %done
 
 if.end215:                                        ; preds = %land.lhs.true210, %mark_all_ce_unused.exit177
-  %101 = load i32, ptr %skip_sparse_checkout46264, align 4
+  %101 = load i32, ptr %skip_sparse_checkout46265, align 4
   %tobool217.not = icmp eq i32 %101, 0
   br i1 %tobool217.not, label %if.then218, label %if.end252
 
@@ -1079,12 +1079,12 @@ if.then218:                                       ; preds = %if.end215
   call fastcc void @mark_new_skip_worktree(ptr noundef %102, ptr noundef nonnull %result, i32 noundef 524288, i32 noundef 1107296256, i32 noundef %103)
   %cache_nr = getelementptr inbounds i8, ptr %o, i64 860
   %104 = load i32, ptr %cache_nr, align 4
-  %cmp226243.not = icmp eq i32 %104, 0
-  br i1 %cmp226243.not, label %if.end252, label %for.body
+  %cmp226244.not = icmp eq i32 %104, 0
+  br i1 %cmp226244.not, label %if.end252, label %for.body
 
 for.body:                                         ; preds = %if.then218, %if.end236
   %indvars.iv = phi i64 [ %indvars.iv.next, %if.end236 ], [ 0, %if.then218 ]
-  %ret.0244 = phi i32 [ %spec.select126, %if.end236 ], [ 0, %if.then218 ]
+  %ret.0245 = phi i32 [ %spec.select126, %if.end236 ], [ 0, %if.then218 ]
   %105 = load ptr, ptr %result, align 8
   %arrayidx = getelementptr inbounds ptr, ptr %105, i64 %indvars.iv
   %106 = load ptr, ptr %arrayidx, align 8
@@ -1095,7 +1095,7 @@ for.body:                                         ; preds = %if.then218, %if.end
   br i1 %tobool231.not, label %if.end236, label %land.lhs.true232
 
 land.lhs.true232:                                 ; preds = %for.body
-  %108 = load i32, ptr %skip_sparse_checkout46264, align 4
+  %108 = load i32, ptr %skip_sparse_checkout46265, align 4
   %tobool.not.i182 = icmp ne i32 %108, 0
   %and.i188 = and i32 %107, 33554432
   %tobool1.not.i189 = icmp eq i32 %and.i188, 0
@@ -1103,23 +1103,24 @@ land.lhs.true232:                                 ; preds = %for.body
   br i1 %or.cond, label %verify_absent.exit, label %verify_absent.exit.thread
 
 verify_absent.exit:                               ; preds = %land.lhs.true232
-  %call.i184 = call fastcc i32 @verify_absent_1(ptr noundef nonnull %106, i32 noundef 11, i32 noundef 0, ptr noundef nonnull %o), !range !10
-  %tobool234.not = icmp eq i32 %call.i184, 0
+  %call.i184 = call fastcc i32 @verify_absent_1(ptr noundef nonnull %106, i32 noundef 11, i32 noundef 0, ptr noundef nonnull %o)
+  %call.i184.fr = freeze i32 %call.i184
+  %tobool234.not = icmp eq i32 %call.i184.fr, 0
   br i1 %tobool234.not, label %verify_absent.exit.thread, label %if.end236
 
 verify_absent.exit.thread:                        ; preds = %land.lhs.true232, %verify_absent.exit
   br label %if.end236
 
 if.end236:                                        ; preds = %verify_absent.exit.thread, %verify_absent.exit, %for.body
-  %ret.1 = phi i32 [ %ret.0244, %for.body ], [ %ret.0244, %verify_absent.exit.thread ], [ 1, %verify_absent.exit ]
-  %call239 = call fastcc i32 @apply_sparse_checkout(ptr noundef nonnull %result, ptr noundef nonnull %106, ptr noundef nonnull %o), !range !10
+  %ret.1 = phi i32 [ %ret.0245, %for.body ], [ %ret.0245, %verify_absent.exit.thread ], [ 1, %verify_absent.exit ]
+  %call239 = call fastcc i32 @apply_sparse_checkout(ptr noundef nonnull %result, ptr noundef nonnull %106, ptr noundef nonnull %o)
   %tobool240.not = icmp eq i32 %call239, 0
   %spec.select126 = select i1 %tobool240.not, i32 %ret.1, i32 1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %109 = load i32, ptr %cache_nr, align 4
   %110 = zext i32 %109 to i64
   %cmp226 = icmp ult i64 %indvars.iv.next, %110
-  br i1 %cmp226, label %for.body, label %for.end, !llvm.loop !11
+  br i1 %cmp226, label %for.body, label %for.end, !llvm.loop !10
 
 for.end:                                          ; preds = %if.end236
   %111 = icmp eq i32 %spec.select126, 1
@@ -1136,7 +1137,7 @@ if.then249:                                       ; preds = %if.then245
   br label %if.end252
 
 if.end252:                                        ; preds = %if.then218, %if.then245, %if.then249, %for.end, %if.end215
-  %call255 = call fastcc i32 @check_updates(ptr noundef nonnull %o, ptr noundef nonnull %result), !range !12
+  %call255 = call fastcc i32 @check_updates(ptr noundef nonnull %o, ptr noundef nonnull %result)
   %tobool256.not = icmp eq i32 %call255, 0
   %cond257 = select i1 %tobool256.not, i32 0, i32 -2
   %dst_index258 = getelementptr inbounds i8, ptr %o, i64 128
@@ -1196,7 +1197,7 @@ if.end296:                                        ; preds = %if.else293, %if.end
 
 done:                                             ; preds = %if.then3.i, %land.lhs.true.i179, %if.then213, %mark_all_ce_unused.exit213, %if.end296
   %ret.3 = phi i32 [ %spec.store.select, %mark_all_ce_unused.exit213 ], [ %cond257, %if.end296 ], [ -1, %if.then213 ], [ -1, %land.lhs.true.i179 ], [ -1, %if.then3.i ]
-  br i1 %tobool47.not.not265, label %if.then299, label %if.end300
+  br i1 %tobool47.not.not266, label %if.then299, label %if.end300
 
 if.then299:                                       ; preds = %done
   call void @clear_pattern_list(ptr noundef nonnull %pl) #17
@@ -1219,8 +1220,8 @@ if.end309:                                        ; preds = %if.then304, %if.end
   %trace_perf_key.val132 = load i8, ptr getelementptr inbounds (%struct.trace_key, ptr @trace_perf_key, i64 0, i32 2), align 4
   %tobool.not.i190 = icmp eq i32 %trace_perf_key.val131, 0
   %bf.clear.i191 = and i8 %trace_perf_key.val132, 1
-  %tobool312.not233 = icmp ne i8 %bf.clear.i191, 0
-  %tobool312.not = select i1 %tobool.not.i190, i1 %tobool312.not233, i1 false
+  %tobool312.not234 = icmp ne i8 %bf.clear.i191, 0
+  %tobool312.not = select i1 %tobool.not.i190, i1 %tobool312.not234, i1 false
   br i1 %tobool312.not, label %do.end316, label %if.then313
 
 if.then313:                                       ; preds = %if.end309
@@ -1267,7 +1268,7 @@ for.body6.i:                                      ; preds = %for.body6.i, %for.b
   %indvars.iv.next.i196 = add nuw nsw i64 %indvars.iv.i195, 1
   %126 = load i64, ptr %nr.i, align 8
   %cmp4.i = icmp ugt i64 %126, %indvars.iv.next.i196
-  br i1 %cmp4.i, label %for.body6.i, label %land.lhs.true.i197, !llvm.loop !13
+  br i1 %cmp4.i, label %for.body6.i, label %land.lhs.true.i197, !llvm.loop !11
 
 land.lhs.true.i197:                               ; preds = %for.body6.i
   %arrayidx11.i = getelementptr inbounds [12 x ptr], ptr %msgs.i, i64 0, i64 %indvars.iv21.i
@@ -1294,7 +1295,7 @@ if.end.i201:                                      ; preds = %cond.end.i, %for.bo
   call void @string_list_clear(ptr noundef nonnull %arrayidx.i194, i32 noundef 0) #17
   %indvars.iv.next22.i = add nuw nsw i64 %indvars.iv21.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next22.i, 8
-  br i1 %exitcond.not.i, label %for.end23.i, label %for.body.i193, !llvm.loop !14
+  br i1 %exitcond.not.i, label %for.end23.i, label %for.body.i193, !llvm.loop !12
 
 for.end23.i:                                      ; preds = %if.end.i201
   %tobool24.not.i = icmp eq i32 %error_displayed.1.i, 0
@@ -1403,7 +1404,7 @@ for.body.us:                                      ; preds = %for.body.lr.ph, %fo
   %5 = load i32, ptr %cache_nr, align 4
   %6 = zext i32 %5 to i64
   %cmp.us = icmp ult i64 %indvars.iv.next18, %6
-  br i1 %cmp.us, label %for.body.us, label %for.end, !llvm.loop !15
+  br i1 %cmp.us, label %for.body.us, label %for.end, !llvm.loop !13
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.inc
   %indvars.iv = phi i64 [ %indvars.iv.next, %for.inc ], [ 0, %for.body.lr.ph ]
@@ -1430,7 +1431,7 @@ for.inc:                                          ; preds = %if.end, %for.body
   %11 = load i32, ptr %cache_nr, align 4
   %12 = zext i32 %11 to i64
   %cmp = icmp ult i64 %indvars.iv.next, %12
-  br i1 %cmp, label %for.body, label %for.end, !llvm.loop !15
+  br i1 %cmp, label %for.body, label %for.end, !llvm.loop !13
 
 for.end:                                          ; preds = %for.inc, %for.body.us, %entry
   call void @llvm.lifetime.start.p0(i64 100, ptr nonnull %label.i)
@@ -1515,7 +1516,7 @@ while.cond:                                       ; preds = %while.cond, %entry
   %1 = load i32, ptr %mode, align 4
   %tobool.not = icmp eq i32 %1, 0
   %incdec.ptr = getelementptr inbounds i8, ptr %p.0, i64 56
-  br i1 %tobool.not, label %while.cond, label %while.end, !llvm.loop !16
+  br i1 %tobool.not, label %while.cond, label %while.end, !llvm.loop !14
 
 while.end:                                        ; preds = %while.cond
   %mode.le = getelementptr inbounds i8, ptr %p.0, i64 52
@@ -1555,7 +1556,7 @@ debug_name_entry.exit.i:                          ; preds = %cond.true.i.i, %for
   %call.i.i = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.55, i32 noundef %5, i32 noundef %cond.i.i, ptr noundef nonnull %spec.select.i.i)
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %if.end, label %for.body.i, !llvm.loop !17
+  br i1 %exitcond.not.i, label %if.end, label %for.body.i, !llvm.loop !15
 
 if.end:                                           ; preds = %debug_name_entry.exit.i, %if.then, %while.end
   %6 = load i32, ptr %0, align 8
@@ -1652,7 +1653,7 @@ do.cond.i.i:                                      ; preds = %do.body.i.i
   %25 = load i8, ptr %str.addr.0.i.i, align 1
   %incdec.ptr1.i.i = getelementptr inbounds i8, ptr %prefix.addr.0.i.i, i64 1
   %cmp.i.i = icmp eq i8 %25, %24
-  br i1 %cmp.i.i, label %do.body.i.i, label %if.end32, !llvm.loop !18
+  br i1 %cmp.i.i, label %do.body.i.i, label %if.end32, !llvm.loop !16
 
 lor.lhs.false18.i:                                ; preds = %do.body.i.i
   %26 = load ptr, ptr %path1.i, align 8
@@ -1718,7 +1719,7 @@ sparse_dir_matches_path.exit.i:                   ; preds = %if.end.i.i, %land.r
 if.end37.i:                                       ; preds = %sparse_dir_matches_path.exit.i, %if.end.i.i, %land.lhs.true10.i.i, %land.lhs.true.i.i, %if.then.i22.i, %if.end31.i
   %dec.i = add nsw i32 %pos.032.i, -1
   %cmp11.i = icmp sgt i32 %pos.032.i, 0
-  br i1 %cmp11.i, label %while.body.i63, label %if.end32, !llvm.loop !19
+  br i1 %cmp11.i, label %while.body.i63, label %if.end32, !llvm.loop !17
 
 if.end9:                                          ; preds = %if.else
   %src_index.i = getelementptr inbounds i8, ptr %18, i64 136
@@ -1937,7 +1938,7 @@ while.body.i.i:                                   ; preds = %land.rhs.i.i104
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %65 = trunc nsw i64 %indvars.iv.next.i.i to i32
   %cmp9.i.i106 = icmp ugt i32 %60, %65
-  br i1 %cmp9.i.i106, label %land.rhs.i.i104, label %while.end.i.i, !llvm.loop !20
+  br i1 %cmp9.i.i106, label %land.rhs.i.i104, label %while.end.i.i, !llvm.loop !18
 
 while.end.split.loop.exit.i.i:                    ; preds = %land.rhs.i.i104
   %66 = trunc nsw i64 %indvars.iv.i.i to i32
@@ -1953,7 +1954,7 @@ mark_ce_used.exit.i:                              ; preds = %while.end.i.i, %lan
   %67 = load i32, ptr %cache_nr.i92, align 4
   %68 = zext i32 %67 to i64
   %cmp2.i = icmp ult i64 %indvars.iv.next.i101, %68
-  br i1 %cmp2.i, label %for.body.i94, label %add_same_unmerged.exit, !llvm.loop !21
+  br i1 %cmp2.i, label %for.body.i94, label %add_same_unmerged.exit, !llvm.loop !19
 
 add_same_unmerged.exit:                           ; preds = %for.body.i94, %lor.lhs.false.i97, %mark_ce_used.exit.i, %if.end.i91
   %conv = trunc i64 %mask to i32
@@ -2053,7 +2054,7 @@ while.body.i.i140:                                ; preds = %land.rhs.i.i134
   %indvars.iv.next.i.i141 = add nuw nsw i64 %indvars.iv.i.i135, 1
   %88 = trunc nsw i64 %indvars.iv.next.i.i141 to i32
   %cmp9.i.i142 = icmp ugt i32 %83, %88
-  br i1 %cmp9.i.i142, label %land.rhs.i.i134, label %while.end.i.i143, !llvm.loop !20
+  br i1 %cmp9.i.i142, label %land.rhs.i.i134, label %while.end.i.i143, !llvm.loop !18
 
 while.end.split.loop.exit.i.i145:                 ; preds = %land.rhs.i.i134
   %89 = trunc nsw i64 %indvars.iv.i.i135 to i32
@@ -2069,7 +2070,7 @@ mark_ce_used.exit.i127:                           ; preds = %while.end.i.i143, %
   %90 = load i32, ptr %cache_nr.i112, align 4
   %91 = zext i32 %90 to i64
   %cmp.i129 = icmp ult i64 %indvars.iv.next.i128, %91
-  br i1 %cmp.i129, label %for.body.i116, label %if.end52, !llvm.loop !22
+  br i1 %cmp.i129, label %for.body.i116, label %if.end52, !llvm.loop !20
 
 if.else49:                                        ; preds = %if.then41
   %or.i = or i32 %71, 16777216
@@ -2105,7 +2106,7 @@ while.body.i158:                                  ; preds = %land.rhs.i
   %indvars.iv.next.i159 = add nuw nsw i64 %indvars.iv.i155, 1
   %99 = trunc nsw i64 %indvars.iv.next.i159 to i32
   %cmp9.i = icmp ugt i32 %94, %99
-  br i1 %cmp9.i, label %land.rhs.i, label %while.end.i, !llvm.loop !20
+  br i1 %cmp9.i, label %land.rhs.i, label %while.end.i, !llvm.loop !18
 
 while.end.split.loop.exit.i:                      ; preds = %land.rhs.i
   %100 = trunc nsw i64 %indvars.iv.i155 to i32
@@ -2274,12 +2275,12 @@ for.body.preheader.i.i:                           ; preds = %for.cond.preheader.
 for.cond.i.i:                                     ; preds = %for.body.i.i
   %indvars.iv.next.i.i248 = add nuw nsw i64 %indvars.iv.i.i245, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i248, %wide.trip.count.i.i
-  br i1 %exitcond.not.i.i, label %all_trees_same_as_cache_tree.exit.i, label %for.body.i.i, !llvm.loop !23
+  br i1 %exitcond.not.i.i, label %all_trees_same_as_cache_tree.exit.i, label %for.body.i.i, !llvm.loop !21
 
 for.body.i.i:                                     ; preds = %for.cond.i.i, %for.body.preheader.i.i
   %indvars.iv.i.i245 = phi i64 [ 1, %for.body.preheader.i.i ], [ %indvars.iv.next.i.i248, %for.cond.i.i ]
   %add.ptr.i.i246 = getelementptr inbounds %struct.name_entry, ptr %names, i64 %indvars.iv.i.i245
-  %call.i.i247 = call fastcc i32 @are_same_oid(ptr noundef %names, ptr noundef nonnull %add.ptr.i.i246), !range !12
+  %call.i.i247 = call fastcc i32 @are_same_oid(ptr noundef %names, ptr noundef nonnull %add.ptr.i.i246)
   %tobool4.not.i.i = icmp eq i32 %call.i.i247, 0
   br i1 %tobool4.not.i.i, label %while.cond.i194.preheader, label %for.cond.i.i
 
@@ -2478,7 +2479,7 @@ for.body15.i.i:                                   ; preds = %if.then8.i.i, %for.
   store ptr %call.i76.i, ptr %arrayidx17.i.i, align 8
   %indvars.iv.next.i79.i = add nuw nsw i64 %indvars.iv.i78.i, 1
   %exitcond.not.i80.i = icmp eq i64 %indvars.iv.next.i79.i, %wide.trip.count.i70.i
-  br i1 %exitcond.not.i80.i, label %if.end18.i.i, label %for.body15.i.i, !llvm.loop !24
+  br i1 %exitcond.not.i80.i, label %if.end18.i.i, label %for.body15.i.i, !llvm.loop !22
 
 if.end18.i.i:                                     ; preds = %for.body15.i.i, %if.then8.i.i, %for.body.i71.i
   %ce_len.1.i.i = phi i32 [ %ce_len.06.i.i, %for.body.i71.i ], [ %shl.i.i, %if.then8.i.i ], [ %shl.i.i, %for.body15.i.i ]
@@ -2546,7 +2547,7 @@ while.body.i.i.i:                                 ; preds = %land.rhs.i.i.i
   %indvars.iv.next.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i, 1
   %173 = trunc nsw i64 %indvars.iv.next.i.i.i to i32
   %cmp9.i.i.i = icmp ugt i32 %168, %173
-  br i1 %cmp9.i.i.i, label %land.rhs.i.i.i, label %while.end.i.i.i, !llvm.loop !20
+  br i1 %cmp9.i.i.i, label %land.rhs.i.i.i, label %while.end.i.i.i, !llvm.loop !18
 
 while.end.split.loop.exit.i.i.i:                  ; preds = %land.rhs.i.i.i
   %174 = trunc nsw i64 %indvars.iv.i.i.i to i32
@@ -2560,7 +2561,7 @@ while.end.i.i.i:                                  ; preds = %while.body.i.i.i, %
 mark_ce_used.exit.i.i:                            ; preds = %while.end.i.i.i, %land.lhs.true.i.i.i, %if.end34.i.i
   %indvars.iv.next14.i.i = add nuw nsw i64 %indvars.iv13.i.i, 1
   %exitcond18.not.i.i = icmp eq i64 %indvars.iv.next14.i.i, %wide.trip.count17.i.i
-  br i1 %exitcond18.not.i.i, label %for.end38.i.i, label %for.body.i71.i, !llvm.loop !25
+  br i1 %exitcond18.not.i.i, label %for.end38.i.i, label %for.body.i71.i, !llvm.loop !23
 
 for.end38.i.i:                                    ; preds = %mark_ce_used.exit.i.i
   call void @free(ptr noundef %tree_ce.1.i.i) #17
@@ -2596,7 +2597,7 @@ while.cond.i194:                                  ; preds = %while.cond.i194.pre
   %182 = load i32, ptr %mode.i195, align 4
   %tobool8.not.i = icmp eq i32 %182, 0
   %incdec.ptr.i = getelementptr inbounds i8, ptr %p.0.i, i64 56
-  br i1 %tobool8.not.i, label %while.cond.i194, label %while.end.i196, !llvm.loop !26
+  br i1 %tobool8.not.i, label %while.cond.i194, label %while.end.i196, !llvm.loop !24
 
 while.end.i196:                                   ; preds = %while.cond.i194
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %newinfo.i, ptr noundef nonnull align 8 dereferenceable(88) %info, i64 88, i1 false)
@@ -2674,7 +2675,7 @@ land.lhs.true.i207:                               ; preds = %for.body.i205
   %arrayidx.i208 = getelementptr inbounds %struct.name_entry, ptr %names, i64 %indvars.iv.i206
   %188 = add nsw i64 %indvars.iv.i206, -1
   %arrayidx30.i = getelementptr inbounds %struct.name_entry, ptr %names, i64 %188
-  %call31.i = call fastcc i32 @are_same_oid(ptr noundef nonnull %arrayidx.i208, ptr noundef %arrayidx30.i), !range !12
+  %call31.i = call fastcc i32 @are_same_oid(ptr noundef nonnull %arrayidx.i208, ptr noundef %arrayidx30.i)
   %tobool32.not.i = icmp eq i32 %call31.i, 0
   br i1 %tobool32.not.i, label %if.else.i, label %if.then33.i
 
@@ -2691,7 +2692,7 @@ if.else.i:                                        ; preds = %land.lhs.true.i207
 land.lhs.true41.i:                                ; preds = %if.else.i
   %189 = add nsw i64 %indvars.iv.i206, -2
   %arrayidx46.i = getelementptr inbounds %struct.name_entry, ptr %names, i64 %189
-  %call47.i = call fastcc i32 @are_same_oid(ptr noundef nonnull %arrayidx.i208, ptr noundef %arrayidx46.i), !range !12
+  %call47.i = call fastcc i32 @are_same_oid(ptr noundef nonnull %arrayidx.i208, ptr noundef %arrayidx46.i)
   %tobool48.not.i = icmp eq i32 %call47.i, 0
   br i1 %tobool48.not.i, label %if.else55.i, label %if.then49.i
 
@@ -2720,7 +2721,7 @@ for.inc.i:                                        ; preds = %if.else55.i, %if.th
   %indvars.iv.next.i209 = add nuw nsw i64 %indvars.iv.i206, 1
   %shr.i = lshr i64 %dirmask.addr.0117.i, 1
   %exitcond.not.i210 = icmp eq i64 %indvars.iv.next.i209, %wide.trip.count.i204
-  br i1 %exitcond.not.i210, label %for.end.i, label %for.body.i205, !llvm.loop !27
+  br i1 %exitcond.not.i210, label %for.end.i, label %for.body.i205, !llvm.loop !25
 
 for.end.i:                                        ; preds = %for.inc.i, %st_mult.exit.i
   %nr_buf.0.lcssa.i = phi i32 [ 0, %st_mult.exit.i ], [ %nr_buf.1.i, %for.inc.i ]
@@ -2789,7 +2790,7 @@ for.body73.i:                                     ; preds = %for.body73.i, %for.
   call void @free(ptr noundef %198) #17
   %indvars.iv.next127.i = add nuw nsw i64 %indvars.iv126.i, 1
   %exitcond130.not.i = icmp eq i64 %indvars.iv.next127.i, %wide.trip.count129.i
-  br i1 %exitcond130.not.i, label %for.end78.i, label %for.body73.i, !llvm.loop !28
+  br i1 %exitcond130.not.i, label %for.end78.i, label %for.body73.i, !llvm.loop !26
 
 for.end78.i:                                      ; preds = %for.body73.i, %restore_cache_bottom.exit.i
   call void @free(ptr noundef %call24.i) #17
@@ -2816,7 +2817,7 @@ return:                                           ; preds = %if.then18, %travers
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @ce_in_traverse_path(ptr noundef %ce, ptr nocapture noundef readonly %info) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @ce_in_traverse_path(ptr noundef %ce, ptr nocapture noundef readonly %info) unnamed_addr #0 {
 entry:
   %prev = getelementptr inbounds i8, ptr %info, i64 8
   %0 = load ptr, ptr %prev, align 8
@@ -2927,7 +2928,7 @@ while.body.i:                                     ; preds = %land.rhs.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %8 = trunc nsw i64 %indvars.iv.next.i to i32
   %cmp9.i = icmp ugt i32 %3, %8
-  br i1 %cmp9.i, label %land.rhs.i, label %while.end.i, !llvm.loop !20
+  br i1 %cmp9.i, label %land.rhs.i, label %while.end.i, !llvm.loop !18
 
 while.end.split.loop.exit.i:                      ; preds = %land.rhs.i
   %9 = trunc nsw i64 %indvars.iv.i to i32
@@ -3039,7 +3040,7 @@ while.body.i.i:                                   ; preds = %land.rhs.i.i
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %32 = trunc nsw i64 %indvars.iv.next.i.i to i32
   %cmp9.i.i = icmp ugt i32 %27, %32
-  br i1 %cmp9.i.i, label %land.rhs.i.i, label %while.end.i.i, !llvm.loop !20
+  br i1 %cmp9.i.i, label %land.rhs.i.i, label %while.end.i.i, !llvm.loop !18
 
 while.end.split.loop.exit.i.i:                    ; preds = %land.rhs.i.i
   %33 = trunc nsw i64 %indvars.iv.i.i to i32
@@ -3055,7 +3056,7 @@ mark_ce_used.exit.i:                              ; preds = %while.end.i.i, %lan
   %34 = load i32, ptr %cache_nr.i13, align 4
   %35 = zext i32 %34 to i64
   %cmp.i19 = icmp ult i64 %indvars.iv.next.i18, %35
-  br i1 %cmp.i19, label %for.body.i, label %return, !llvm.loop !22
+  br i1 %cmp.i19, label %for.body.i, label %return, !llvm.loop !20
 
 return:                                           ; preds = %mark_ce_used.exit.i, %lor.lhs.false.i, %for.body.i, %if.then8, %if.end3, %if.then2
   %retval.0 = phi i32 [ 0, %if.then2 ], [ %spec.store.select.i, %if.end3 ], [ %spec.store.select.i, %if.then8 ], [ %spec.store.select.i, %for.body.i ], [ %spec.store.select.i, %lor.lhs.false.i ], [ %spec.store.select.i, %mark_ce_used.exit.i ]
@@ -3071,7 +3072,7 @@ declare void @trace_performance_leave_fl(ptr noundef, i32 noundef, i64 noundef, 
 declare i64 @getnanotime() local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @apply_sparse_checkout(ptr noundef %istate, ptr noundef %ce, ptr noundef %o) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @apply_sparse_checkout(ptr noundef %istate, ptr noundef %ce, ptr noundef %o) unnamed_addr #0 {
 entry:
   %ce_flags = getelementptr inbounds i8, ptr %ce, i64 56
   %0 = load i32, ptr %ce_flags, align 8
@@ -3151,7 +3152,7 @@ if.then33:                                        ; preds = %land.lhs.true29
   br i1 %tobool36.not, label %land.lhs.true37, label %if.end42
 
 land.lhs.true37:                                  ; preds = %if.then33
-  %call.i25 = tail call fastcc noundef i32 @verify_uptodate_1(ptr noundef nonnull %ce, ptr noundef %o, i32 noundef 9), !range !10
+  %call.i25 = tail call fastcc i32 @verify_uptodate_1(ptr noundef nonnull %ce, ptr noundef %o, i32 noundef 9)
   %tobool38.not = icmp eq i32 %call.i25, 0
   %.pre = load i32, ptr %ce_flags, align 8
   br i1 %tobool38.not, label %if.end42, label %if.then39
@@ -3173,7 +3174,7 @@ land.lhs.true49:                                  ; preds = %land.lhs.true, %if.
   br i1 %tobool52.not, label %if.then53, label %return
 
 if.then53:                                        ; preds = %land.lhs.true49
-  %call.i26 = tail call fastcc noundef i32 @verify_absent_1(ptr noundef nonnull %ce, i32 noundef 11, i32 noundef 0, ptr noundef %o), !range !10
+  %call.i26 = tail call fastcc i32 @verify_absent_1(ptr noundef nonnull %ce, i32 noundef 11, i32 noundef 0, ptr noundef %o)
   %tobool55.not = icmp eq i32 %call.i26, 0
   br i1 %tobool55.not, label %if.end57, label %return
 
@@ -3225,7 +3226,7 @@ for.body6:                                        ; preds = %for.body6.preheader
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %3 = load i64, ptr %nr, align 8
   %cmp4 = icmp ugt i64 %3, %indvars.iv.next
-  br i1 %cmp4, label %for.body6, label %land.lhs.true, !llvm.loop !29
+  br i1 %cmp4, label %for.body6, label %land.lhs.true, !llvm.loop !27
 
 land.lhs.true:                                    ; preds = %for.body6
   %arrayidx11 = getelementptr inbounds [12 x ptr], ptr %msgs, i64 0, i64 %indvars.iv21
@@ -3252,7 +3253,7 @@ if.end:                                           ; preds = %cond.end, %for.body
   call void @string_list_clear(ptr noundef nonnull %arrayidx, i32 noundef 0) #17
   %indvars.iv.next22 = add nuw nsw i64 %indvars.iv21, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next22, 12
-  br i1 %exitcond.not, label %for.end21, label %for.body, !llvm.loop !30
+  br i1 %exitcond.not, label %for.end21, label %for.body, !llvm.loop !28
 
 for.end21:                                        ; preds = %if.end
   %tobool22.not = icmp eq i32 %warning_displayed.1, 0
@@ -3278,7 +3279,7 @@ if.end26:                                         ; preds = %_.exit, %for.end21
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @check_updates(ptr noundef %o, ptr noundef %index) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @check_updates(ptr noundef %o, ptr noundef %index) unnamed_addr #0 {
 entry:
   %list.i = alloca %struct.string_list, align 8
   %cnt = alloca i32, align 4
@@ -3353,7 +3354,7 @@ for.body.i:                                       ; preds = %if.then16, %for.bod
   %8 = load i32, ptr %cache_nr.i, align 4
   %9 = zext i32 %8 to i64
   %cmp.i = icmp ult i64 %indvars.iv.next.i, %9
-  br i1 %cmp.i, label %for.body.i, label %if.end17, !llvm.loop !31
+  br i1 %cmp.i, label %for.body.i, label %if.end17, !llvm.loop !29
 
 if.end17:                                         ; preds = %for.body.i
   %.pre = load i32, ptr %update, align 4
@@ -3390,7 +3391,7 @@ for.body.i39:                                     ; preds = %for.body.i39, %for.
   %spec.select.i = add i32 %total.08.i, %inc.i
   %indvars.iv.next.i44 = add nuw nsw i64 %indvars.iv.i40, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i44, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %for.end.loopexit.i, label %for.body.i39, !llvm.loop !32
+  br i1 %exitcond.not.i, label %for.end.loopexit.i, label %for.body.i39, !llvm.loop !30
 
 for.end.loopexit.i:                               ; preds = %for.body.i39
   %15 = zext i32 %spec.select.i to i64
@@ -3476,7 +3477,7 @@ for.inc:                                          ; preds = %for.body, %if.then2
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %31 = zext i32 %29 to i64
   %cmp = icmp ult i64 %indvars.iv.next, %31
-  br i1 %cmp, label %for.body, label %for.end, !llvm.loop !33
+  br i1 %cmp, label %for.body, label %for.end, !llvm.loop !31
 
 for.end:                                          ; preds = %for.inc, %if.end22
   %32 = phi i32 [ 0, %if.end22 ], [ %30, %for.inc ]
@@ -3584,7 +3585,7 @@ for.inc69:                                        ; preds = %for.body44, %if.the
   %47 = load i32, ptr %cache_nr, align 4
   %48 = zext i32 %47 to i64
   %cmp42 = icmp ult i64 %indvars.iv.next97, %48
-  br i1 %cmp42, label %for.body44, label %for.end71, !llvm.loop !34
+  br i1 %cmp42, label %for.body44, label %for.end71, !llvm.loop !32
 
 for.end71:                                        ; preds = %for.inc69, %if.end39
   %errs.0.lcssa = phi i32 [ 0, %if.end39 ], [ %errs.1, %for.inc69 ]
@@ -3653,7 +3654,7 @@ for.inc.i:                                        ; preds = %if.end.i, %for.body
   %indvars.iv.next.i75 = add nuw nsw i64 %indvars.iv.i69, 1
   %61 = zext i32 %60 to i64
   %cmp.i76 = icmp ult i64 %indvars.iv.next.i75, %61
-  br i1 %cmp.i76, label %for.body.i68, label %for.end.i77, !llvm.loop !35
+  br i1 %cmp.i76, label %for.body.i68, label %for.end.i77, !llvm.loop !33
 
 for.end.i77:                                      ; preds = %for.inc.i, %if.then82
   %cmp3.i = getelementptr inbounds i8, ptr %list.i, i64 32
@@ -3690,7 +3691,7 @@ for.body11.i:                                     ; preds = %_.exit.i81, %for.bo
   %indvars.iv.next17.i = add nuw nsw i64 %indvars.iv16.i, 1
   %68 = load i64, ptr %nr.i, align 8
   %cmp9.i = icmp ugt i64 %68, %indvars.iv.next17.i
-  br i1 %cmp9.i, label %for.body11.i, label %report_collided_checkout.exit, !llvm.loop !36
+  br i1 %cmp9.i, label %for.body11.i, label %report_collided_checkout.exit, !llvm.loop !34
 
 report_collided_checkout.exit:                    ; preds = %for.body11.i, %for.end.i77, %_.exit.i81
   call void @string_list_clear(ptr noundef nonnull %list.i, i32 noundef 0) #17
@@ -3741,7 +3742,7 @@ declare void @clear_pattern_list(ptr noundef) local_unnamed_addr #1
 declare void @dir_clear(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @update_sparsity(ptr noundef %o, ptr noundef %pl) local_unnamed_addr #0 {
+define dso_local range(i32 -2, 2) i32 @update_sparsity(ptr noundef %o, ptr noundef %pl) local_unnamed_addr #0 {
 entry:
   %show_all_errors = getelementptr inbounds i8, ptr %o, i64 228
   %0 = load i32, ptr %show_all_errors, align 4
@@ -3913,7 +3914,7 @@ land.rhs.i:                                       ; preds = %while.cond.i
   %name5.i = getelementptr inbounds i8, ptr %35, i64 108
   %call7.i = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %name.i, ptr noundef nonnull dereferenceable(1) %name5.i) #18
   %tobool.not.i = icmp eq i32 %call7.i, 0
-  br i1 %tobool.not.i, label %while.cond.i, label %warn_conflicted_path.exit, !llvm.loop !37
+  br i1 %tobool.not.i, label %while.cond.i, label %warn_conflicted_path.exit, !llvm.loop !35
 
 warn_conflicted_path.exit:                        ; preds = %while.cond.i, %land.rhs.i
   %36 = trunc nuw nsw i64 %indvars.iv.next.i44 to i32
@@ -3922,7 +3923,7 @@ warn_conflicted_path.exit:                        ; preds = %while.cond.i, %land
   br label %for.inc
 
 if.end32:                                         ; preds = %for.body
-  %call34 = tail call fastcc i32 @apply_sparse_checkout(ptr noundef nonnull %22, ptr noundef nonnull %24, ptr noundef nonnull %o), !range !10
+  %call34 = tail call fastcc i32 @apply_sparse_checkout(ptr noundef nonnull %22, ptr noundef nonnull %24, ptr noundef nonnull %o)
   %tobool35.not = icmp eq i32 %call34, 0
   %spec.select = select i1 %tobool35.not, i32 %ret.051, i32 1
   br label %for.inc
@@ -3935,12 +3936,12 @@ for.inc:                                          ; preds = %if.end32, %warn_con
   %cache_nr = getelementptr inbounds i8, ptr %37, i64 12
   %38 = load i32, ptr %cache_nr, align 4
   %cmp26 = icmp ult i32 %inc, %38
-  br i1 %cmp26, label %for.body, label %for.end, !llvm.loop !38
+  br i1 %cmp26, label %for.body, label %for.end, !llvm.loop !36
 
 for.end:                                          ; preds = %for.inc, %mark_all_ce_unused.exit
   %ret.0.lcssa = phi i32 [ 0, %mark_all_ce_unused.exit ], [ %ret.1, %for.inc ]
   %.lcssa = phi ptr [ %20, %mark_all_ce_unused.exit ], [ %37, %for.inc ]
-  %call39 = tail call fastcc i32 @check_updates(ptr noundef nonnull %o, ptr noundef nonnull %.lcssa), !range !12
+  %call39 = tail call fastcc i32 @check_updates(ptr noundef nonnull %o, ptr noundef nonnull %.lcssa)
   tail call fastcc void @display_warning_msgs(ptr noundef nonnull %o)
   store i32 %0, ptr %show_all_errors, align 4
   br i1 %tobool12.not.not, label %if.then46, label %do.body
@@ -3977,7 +3978,7 @@ declare void @expand_index(ptr noundef, ptr noundef) local_unnamed_addr #1
 declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #6
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @verify_uptodate(ptr noundef %ce, ptr noundef %o) local_unnamed_addr #0 {
+define dso_local range(i32 -1, 1) i32 @verify_uptodate(ptr noundef %ce, ptr noundef %o) local_unnamed_addr #0 {
 entry:
   %skip_sparse_checkout = getelementptr inbounds i8, ptr %o, i64 44
   %0 = load i32, ptr %skip_sparse_checkout, align 4
@@ -3992,7 +3993,7 @@ land.lhs.true:                                    ; preds = %entry
   br i1 %or.cond.not, label %return, label %if.end
 
 if.end:                                           ; preds = %land.lhs.true, %entry
-  %call = tail call fastcc i32 @verify_uptodate_1(ptr noundef %ce, ptr noundef nonnull %o, i32 noundef 1), !range !10
+  %call = tail call fastcc i32 @verify_uptodate_1(ptr noundef %ce, ptr noundef nonnull %o, i32 noundef 1)
   br label %return
 
 return:                                           ; preds = %land.lhs.true, %if.end
@@ -4001,7 +4002,7 @@ return:                                           ; preds = %land.lhs.true, %if.
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @verify_uptodate_1(ptr noundef %ce, ptr noundef %o, i32 noundef %error_type) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @verify_uptodate_1(ptr noundef %ce, ptr noundef %o, i32 noundef %error_type) unnamed_addr #0 {
 entry:
   %st = alloca %struct.stat, align 8
   %index_only = getelementptr inbounds i8, ptr %o, i64 16
@@ -4041,7 +4042,7 @@ if.then15:                                        ; preds = %if.end13
 if.then19:                                        ; preds = %if.then15
   %oid = getelementptr inbounds i8, ptr %ce, i64 72
   %call20 = call ptr @oid_to_hex(ptr noundef nonnull %oid) #17
-  %call21 = call fastcc i32 @check_submodule_move_head(ptr noundef nonnull %ce, ptr noundef nonnull @.str.68, ptr noundef %call20, ptr noundef nonnull %o), !range !10
+  %call21 = call fastcc i32 @check_submodule_move_head(ptr noundef nonnull %ce, ptr noundef nonnull @.str.68, ptr noundef %call20, ptr noundef nonnull %o)
   %tobool22.not = icmp eq i32 %call21, 0
   br i1 %tobool22.not, label %return, label %if.then23
 
@@ -4188,7 +4189,7 @@ for.inc:                                          ; preds = %lor.lhs.false, %for
   %no_anc_exists.1 = phi i32 [ %no_anc_exists.0460, %for.body ], [ %spec.select153, %lor.lhs.false ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !39
+  br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !37
 
 for.end:                                          ; preds = %for.inc, %entry
   %any_anc_missing.0.lcssa = phi i32 [ 0, %entry ], [ %any_anc_missing.1, %for.inc ]
@@ -4437,7 +4438,7 @@ same.exit230.thread427:                           ; preds = %same.exit230, %same
   %42 = phi i32 [ %.pre-phi, %if.end.i195 ], [ %remote_match.0465, %same.exit192._crit_edge ], [ %remote_match.0465, %same.exit192.thread418 ], [ %remote_match.0465, %if.end14.i204 ], [ %remote_match.0465, %if.end10.i198 ], [ %remote_match.0465, %same.exit192.thread ], [ %spec.select456, %same.exit230 ]
   %indvars.iv.next480 = add nuw nsw i64 %indvars.iv479, 1
   %exitcond483.not = icmp eq i64 %indvars.iv.next480, %wide.trip.count482
-  br i1 %exitcond483.not, label %if.end40, label %for.body24, !llvm.loop !40
+  br i1 %exitcond483.not, label %if.end40, label %for.body24, !llvm.loop !38
 
 if.end40:                                         ; preds = %same.exit230.thread427
   %or.cond.not149 = and i1 %cmp12, %tobool.i
@@ -4609,7 +4610,7 @@ if.end14.i.i:                                     ; preds = %if.end.i.i308
   br label %return
 
 if.end61:                                         ; preds = %same.exit306, %same.exit268, %if.then47
-  %call62 = tail call fastcc i32 @merged_entry(ptr noundef nonnull %remote.0, ptr noundef %6, ptr noundef %o), !range !41
+  %call62 = tail call fastcc i32 @merged_entry(ptr noundef nonnull %remote.0, ptr noundef %6, ptr noundef %o)
   br label %return
 
 if.end63:                                         ; preds = %same.exit, %for.cond21.preheader, %if.end.i, %if.end40
@@ -4781,7 +4782,7 @@ same.exit401:                                     ; preds = %if.then.i.i.i397, %
   br i1 %retval.0.in.i.i.i395.not, label %if.then80, label %if.end82
 
 if.then80:                                        ; preds = %same.exit401
-  %call81 = tail call fastcc i32 @merged_entry(ptr noundef nonnull %spec.select, ptr noundef %6, ptr noundef %o), !range !41
+  %call81 = tail call fastcc i32 @merged_entry(ptr noundef nonnull %spec.select, ptr noundef %6, ptr noundef %o)
   br label %return
 
 if.end82:                                         ; preds = %if.end14.i375, %if.end10.i369, %if.then77, %same.exit401
@@ -4791,7 +4792,7 @@ if.end82:                                         ; preds = %if.end14.i375, %if.
   br i1 %or.cond4, label %if.end98, label %if.then88
 
 if.then88:                                        ; preds = %if.end82
-  %call89 = tail call fastcc i32 @merged_entry(ptr noundef nonnull %spec.select, ptr noundef %6, ptr noundef %o), !range !41
+  %call89 = tail call fastcc i32 @merged_entry(ptr noundef nonnull %spec.select, ptr noundef %6, ptr noundef %o)
   br label %return
 
 if.end91:                                         ; preds = %if.end75
@@ -4823,7 +4824,7 @@ for.body117.preheader:                            ; preds = %if.then100
 for.cond114:                                      ; preds = %for.body117
   %indvars.iv.next485 = add nuw nsw i64 %indvars.iv484, 1
   %exitcond488.not = icmp eq i64 %indvars.iv.next485, %wide.trip.count487
-  br i1 %exitcond488.not, label %if.end135, label %for.body117, !llvm.loop !42
+  br i1 %exitcond488.not, label %if.end135, label %for.body117, !llvm.loop !39
 
 for.body117:                                      ; preds = %for.body117.preheader, %for.cond114
   %indvars.iv484 = phi i64 [ 1, %for.body117.preheader ], [ %indvars.iv.next485, %for.cond114 ]
@@ -4849,7 +4850,7 @@ if.then151:                                       ; preds = %if.end135
   br i1 %tobool64.not, label %if.then153, label %if.end155
 
 if.then153:                                       ; preds = %if.then151
-  %call154 = tail call fastcc i32 @deleted_entry(ptr noundef nonnull %6, ptr noundef nonnull %6, ptr noundef %o), !range !41
+  %call154 = tail call fastcc i32 @deleted_entry(ptr noundef nonnull %6, ptr noundef nonnull %6, ptr noundef %o)
   br label %return
 
 if.end155:                                        ; preds = %if.then151
@@ -4871,7 +4872,7 @@ land.lhs.true.i:                                  ; preds = %if.then159
   br i1 %tobool1.not.i, label %verify_absent.exit, label %if.end164
 
 verify_absent.exit:                               ; preds = %if.then159, %land.lhs.true.i
-  %call.i = tail call fastcc i32 @verify_absent_1(ptr noundef nonnull %ce.0, i32 noundef 5, i32 noundef 0, ptr noundef nonnull %o), !range !10
+  %call.i = tail call fastcc i32 @verify_absent_1(ptr noundef nonnull %ce.0, i32 noundef 5, i32 noundef 0, ptr noundef nonnull %o)
   %tobool161.not = icmp eq i32 %call.i, 0
   br i1 %tobool161.not, label %if.end164, label %return
 
@@ -4885,12 +4886,12 @@ if.end165:                                        ; preds = %if.end135
   br i1 %or.cond14, label %land.lhs.true171, label %if.end177
 
 land.lhs.true171:                                 ; preds = %if.end165
-  %call172 = tail call fastcc i32 @same(ptr noundef nonnull %spec.select, ptr noundef nonnull %remote.0), !range !12
+  %call172 = tail call fastcc i32 @same(ptr noundef nonnull %spec.select, ptr noundef nonnull %remote.0)
   %tobool173.not = icmp eq i32 %call172, 0
   br i1 %tobool173.not, label %if.end177, label %if.then174
 
 if.then174:                                       ; preds = %land.lhs.true171
-  %call175 = tail call fastcc i32 @merged_entry(ptr noundef nonnull %spec.select, ptr noundef %6, ptr noundef %o), !range !41
+  %call175 = tail call fastcc i32 @merged_entry(ptr noundef nonnull %spec.select, ptr noundef %6, ptr noundef %o)
   br label %return
 
 if.end177:                                        ; preds = %if.end165, %land.lhs.true171, %if.end98
@@ -4920,7 +4921,7 @@ land.lhs.true.i411:                               ; preds = %if.end184
   br i1 %or.cond.not.i, label %if.end189, label %verify_uptodate.exit
 
 verify_uptodate.exit:                             ; preds = %if.end184, %land.lhs.true.i411
-  %call.i409 = tail call fastcc i32 @verify_uptodate_1(ptr noundef nonnull %6, ptr noundef nonnull %o, i32 noundef 1), !range !10
+  %call.i409 = tail call fastcc i32 @verify_uptodate_1(ptr noundef nonnull %6, ptr noundef nonnull %o, i32 noundef 1)
   %tobool186.not = icmp eq i32 %call.i409, 0
   br i1 %tobool186.not, label %if.end189, label %return
 
@@ -4958,7 +4959,7 @@ if.then206:                                       ; preds = %land.lhs.true201
 for.inc212:                                       ; preds = %for.body197, %land.lhs.true201
   %indvars.iv.next490 = add nuw nsw i64 %indvars.iv489, 1
   %exitcond493.not = icmp eq i64 %indvars.iv.next490, %wide.trip.count492
-  br i1 %exitcond493.not, label %if.end215, label %for.body197, !llvm.loop !43
+  br i1 %exitcond493.not, label %if.end215, label %for.body197, !llvm.loop !40
 
 if.end215:                                        ; preds = %for.inc212, %for.cond194.preheader, %if.then206, %if.end189
   %count.0 = phi i32 [ 0, %if.end189 ], [ 1, %if.then206 ], [ 0, %for.cond194.preheader ], [ 0, %for.inc212 ]
@@ -4984,7 +4985,7 @@ return:                                           ; preds = %if.end14.i.i353, %l
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define internal fastcc i32 @same(ptr noundef readonly %a, ptr noundef readonly %b) unnamed_addr #7 {
+define internal fastcc range(i32 0, 2) i32 @same(ptr noundef readonly %a, ptr noundef readonly %b) unnamed_addr #7 {
 entry:
   %tobool = icmp ne ptr %a, null
   %tobool2 = icmp ne ptr %b, null
@@ -5154,7 +5155,7 @@ cond.end:                                         ; preds = %for.body, %is_null_
   store ptr %call12, ptr %arrayidx14, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !44
+  br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !41
 
 for.end:                                          ; preds = %cond.end
   %src_index15 = getelementptr inbounds i8, ptr %o, i64 136
@@ -5173,7 +5174,7 @@ for.body20:                                       ; preds = %for.body20.preheade
   call void @free(ptr noundef %13) #17
   %indvars.iv.next26 = add nuw nsw i64 %indvars.iv25, 1
   %exitcond29.not = icmp eq i64 %indvars.iv.next26, %wide.trip.count28
-  br i1 %exitcond29.not, label %for.end25, label %for.body20, !llvm.loop !45
+  br i1 %exitcond29.not, label %for.end25, label %for.body20, !llvm.loop !42
 
 for.end25:                                        ; preds = %for.body20, %for.end.thread, %for.end
   %call1732 = phi i32 [ %call1731, %for.end.thread ], [ %call17, %for.end ], [ %call17, %for.body20 ]
@@ -5216,7 +5217,7 @@ add_rejected_path.exit:                           ; preds = %entry, %land.lhs.tr
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @merged_entry(ptr noundef %ce, ptr noundef %old, ptr noundef %o) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 2) i32 @merged_entry(ptr noundef %ce, ptr noundef %old, ptr noundef %o) unnamed_addr #0 {
 entry:
   %result = getelementptr inbounds i8, ptr %o, i64 848
   %call = tail call ptr @dup_cache_entry(ptr noundef %ce, ptr noundef nonnull %result) #17
@@ -5234,7 +5235,7 @@ if.then:                                          ; preds = %entry
   br i1 %tobool.not.i, label %invalidate_ce_path.exit, label %verify_absent.exit
 
 verify_absent.exit:                               ; preds = %if.then
-  %call.i = tail call fastcc i32 @verify_absent_1(ptr noundef nonnull %call, i32 noundef 4, i32 noundef 0, ptr noundef nonnull %o), !range !10
+  %call.i = tail call fastcc i32 @verify_absent_1(ptr noundef nonnull %call, i32 noundef 4, i32 noundef 0, ptr noundef nonnull %o)
   %tobool3.not = icmp eq i32 %call.i, 0
   br i1 %tobool3.not, label %invalidate_ce_path.exit, label %if.then4
 
@@ -5262,7 +5263,7 @@ land.lhs.true:                                    ; preds = %invalidate_ce_path.
 if.then9:                                         ; preds = %land.lhs.true
   %oid = getelementptr inbounds i8, ptr %ce, i64 72
   %call10 = tail call ptr @oid_to_hex(ptr noundef nonnull %oid) #17
-  %call11 = tail call fastcc i32 @check_submodule_move_head(ptr noundef %ce, ptr noundef null, ptr noundef %call10, ptr noundef nonnull %o), !range !10
+  %call11 = tail call fastcc i32 @check_submodule_move_head(ptr noundef %ce, ptr noundef null, ptr noundef %call10, ptr noundef nonnull %o)
   %tobool12.not = icmp eq i32 %call11, 0
   br i1 %tobool12.not, label %if.end55, label %return
 
@@ -5355,7 +5356,7 @@ if.else22:                                        ; preds = %if.end14.i, %if.end
   br i1 %or.cond, label %invalidate_ce_path.exit59, label %verify_uptodate.exit
 
 verify_uptodate.exit:                             ; preds = %if.else22
-  %call.i51 = tail call fastcc i32 @verify_uptodate_1(ptr noundef nonnull %old, ptr noundef nonnull %o, i32 noundef 1), !range !10
+  %call.i51 = tail call fastcc i32 @verify_uptodate_1(ptr noundef nonnull %old, ptr noundef nonnull %o, i32 noundef 1)
   %tobool24.not = icmp eq i32 %call.i51, 0
   br i1 %tobool24.not, label %verify_uptodate.exit.invalidate_ce_path.exit59_crit_edge, label %if.then25
 
@@ -5396,7 +5397,7 @@ if.then38:                                        ; preds = %land.lhs.true33
   %call41 = tail call ptr @oid_to_hex(ptr noundef nonnull %oid40) #17
   %oid42 = getelementptr inbounds i8, ptr %ce, i64 72
   %call43 = tail call ptr @oid_to_hex(ptr noundef nonnull %oid42) #17
-  %call44 = tail call fastcc i32 @check_submodule_move_head(ptr noundef %ce, ptr noundef %call41, ptr noundef %call43, ptr noundef %o), !range !10
+  %call44 = tail call fastcc i32 @check_submodule_move_head(ptr noundef %ce, ptr noundef %call41, ptr noundef %call43, ptr noundef %o)
   %tobool45.not = icmp eq i32 %call44, 0
   br i1 %tobool45.not, label %if.end55, label %return
 
@@ -5414,7 +5415,7 @@ land.lhs.true.i65:                                ; preds = %if.else49
   br i1 %tobool1.not.i68, label %verify_absent_if_directory.exit, label %invalidate_ce_path.exit73
 
 verify_absent_if_directory.exit:                  ; preds = %if.else49, %land.lhs.true.i65
-  %call.i63 = tail call fastcc i32 @verify_absent_1(ptr noundef %call, i32 noundef 4, i32 noundef 1, ptr noundef nonnull %o), !range !10
+  %call.i63 = tail call fastcc i32 @verify_absent_1(ptr noundef %call, i32 noundef 4, i32 noundef 1, ptr noundef nonnull %o)
   %tobool51.not = icmp eq i32 %call.i63, 0
   br i1 %tobool51.not, label %invalidate_ce_path.exit73, label %if.then52
 
@@ -5452,7 +5453,7 @@ return:                                           ; preds = %if.end55, %if.then3
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @deleted_entry(ptr noundef %ce, ptr noundef %old, ptr noundef %o) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 2) i32 @deleted_entry(ptr noundef %ce, ptr noundef %old, ptr noundef %o) unnamed_addr #0 {
 entry:
   %tobool.not = icmp eq ptr %old, null
   %skip_sparse_checkout.i = getelementptr inbounds i8, ptr %o, i64 44
@@ -5471,8 +5472,9 @@ land.lhs.true.i:                                  ; preds = %if.then
   br i1 %tobool1.not.i, label %verify_absent.exit, label %verify_absent.exit.thread
 
 verify_absent.exit:                               ; preds = %if.then, %land.lhs.true.i
-  %call.i = tail call fastcc i32 @verify_absent_1(ptr noundef %ce, i32 noundef 5, i32 noundef 0, ptr noundef nonnull %o), !range !10
-  %tobool1.not = icmp eq i32 %call.i, 0
+  %call.i = tail call fastcc i32 @verify_absent_1(ptr noundef %ce, i32 noundef 5, i32 noundef 0, ptr noundef nonnull %o)
+  %call.i.fr = freeze i32 %call.i
+  %tobool1.not = icmp eq i32 %call.i.fr, 0
   br i1 %tobool1.not, label %verify_absent.exit.thread, label %return
 
 verify_absent.exit.thread:                        ; preds = %land.lhs.true.i, %verify_absent.exit
@@ -5489,7 +5491,7 @@ land.lhs.true.i15:                                ; preds = %if.else
   br i1 %tobool1.not.i18, label %verify_absent_if_directory.exit, label %if.end7
 
 verify_absent_if_directory.exit:                  ; preds = %if.else, %land.lhs.true.i15
-  %call.i13 = tail call fastcc i32 @verify_absent_1(ptr noundef %ce, i32 noundef 5, i32 noundef 1, ptr noundef nonnull %o), !range !10
+  %call.i13 = tail call fastcc i32 @verify_absent_1(ptr noundef %ce, i32 noundef 5, i32 noundef 1, ptr noundef nonnull %o)
   %tobool4.not = icmp eq i32 %call.i13, 0
   br i1 %tobool4.not, label %if.end7, label %return
 
@@ -5509,7 +5511,7 @@ land.lhs.true:                                    ; preds = %if.end7
   br i1 %or.cond, label %if.end12, label %verify_uptodate.exit
 
 verify_uptodate.exit:                             ; preds = %land.lhs.true
-  %call.i22 = tail call fastcc i32 @verify_uptodate_1(ptr noundef nonnull %old, ptr noundef nonnull %o, i32 noundef 1), !range !10
+  %call.i22 = tail call fastcc i32 @verify_uptodate_1(ptr noundef nonnull %old, ptr noundef nonnull %o, i32 noundef 1)
   %tobool10.not = icmp eq i32 %call.i22, 0
   br i1 %tobool10.not, label %if.end12, label %return
 
@@ -5680,11 +5682,11 @@ if.then19:                                        ; preds = %lor.lhs.false
   br i1 %tobool20.not, label %if.then21, label %if.else
 
 if.then21:                                        ; preds = %if.end.i, %if.then19
-  %call22 = tail call fastcc i32 @deleted_entry(ptr noundef nonnull %0, ptr noundef nonnull %0, ptr noundef nonnull %o), !range !41
+  %call22 = tail call fastcc i32 @deleted_entry(ptr noundef nonnull %0, ptr noundef nonnull %0, ptr noundef nonnull %o)
   br label %return
 
 if.else:                                          ; preds = %same.exit, %if.then19
-  %call23 = tail call fastcc i32 @merged_entry(ptr noundef nonnull %spec.store.select8, ptr noundef nonnull %0, ptr noundef nonnull %o), !range !41
+  %call23 = tail call fastcc i32 @merged_entry(ptr noundef nonnull %spec.store.select8, ptr noundef nonnull %0, ptr noundef nonnull %o)
   br label %return
 
 if.end24:                                         ; preds = %lor.lhs.false
@@ -5839,12 +5841,12 @@ same.exit166:                                     ; preds = %if.then.i.i.i162, %
   br i1 %retval.0.in.i.i.i160.not, label %if.then53, label %land.lhs.true47
 
 land.lhs.true47:                                  ; preds = %if.end14.i140, %if.end10.i134, %same.exit166
-  %call48 = tail call fastcc i32 @same(ptr noundef nonnull %spec.store.select, ptr noundef nonnull %spec.store.select8), !range !12
+  %call48 = tail call fastcc i32 @same(ptr noundef nonnull %spec.store.select, ptr noundef nonnull %spec.store.select8)
   %tobool49.not = icmp eq i32 %call48, 0
   br i1 %tobool49.not, label %land.lhs.true50, label %land.lhs.true68
 
 land.lhs.true50:                                  ; preds = %land.lhs.true47
-  %call51 = tail call fastcc i32 @same(ptr noundef nonnull %0, ptr noundef nonnull %spec.store.select8), !range !12
+  %call51 = tail call fastcc i32 @same(ptr noundef nonnull %0, ptr noundef nonnull %spec.store.select8)
   %tobool52.not = icmp eq i32 %call51, 0
   br i1 %tobool52.not, label %land.lhs.true68, label %if.then53
 
@@ -5875,26 +5877,26 @@ if.else55:                                        ; preds = %lor.lhs.false36
   br i1 %or.cond4, label %if.else96, label %land.lhs.true59
 
 land.lhs.true59:                                  ; preds = %if.else55
-  %call60 = tail call fastcc i32 @same(ptr noundef nonnull %0, ptr noundef nonnull %spec.store.select), !range !12
+  %call60 = tail call fastcc i32 @same(ptr noundef nonnull %0, ptr noundef nonnull %spec.store.select)
   %tobool61.not = icmp eq i32 %call60, 0
   br i1 %tobool61.not, label %if.else96, label %if.then62
 
 if.then62:                                        ; preds = %land.lhs.true59
-  %call63 = tail call fastcc i32 @deleted_entry(ptr noundef nonnull %spec.store.select, ptr noundef nonnull %0, ptr noundef nonnull %o), !range !41
+  %call63 = tail call fastcc i32 @deleted_entry(ptr noundef nonnull %spec.store.select, ptr noundef nonnull %0, ptr noundef nonnull %o)
   br label %return
 
 land.lhs.true68:                                  ; preds = %land.lhs.true47, %land.lhs.true50
-  %call69 = tail call fastcc i32 @same(ptr noundef nonnull %0, ptr noundef nonnull %spec.store.select), !range !12
+  %call69 = tail call fastcc i32 @same(ptr noundef nonnull %0, ptr noundef nonnull %spec.store.select)
   %tobool70.not = icmp eq i32 %call69, 0
   br i1 %tobool70.not, label %if.else96, label %land.lhs.true71
 
 land.lhs.true71:                                  ; preds = %land.lhs.true68
-  %call72 = tail call fastcc i32 @same(ptr noundef nonnull %0, ptr noundef nonnull %spec.store.select8), !range !12
+  %call72 = tail call fastcc i32 @same(ptr noundef nonnull %0, ptr noundef nonnull %spec.store.select8)
   %tobool73.not = icmp eq i32 %call72, 0
   br i1 %tobool73.not, label %if.then74, label %if.else96
 
 if.then74:                                        ; preds = %land.lhs.true71
-  %call75 = tail call fastcc i32 @merged_entry(ptr noundef nonnull %spec.store.select8, ptr noundef nonnull %0, ptr noundef nonnull %o), !range !41
+  %call75 = tail call fastcc i32 @merged_entry(ptr noundef nonnull %spec.store.select8, ptr noundef nonnull %0, ptr noundef nonnull %o)
   br label %return
 
 land.lhs.true82:                                  ; preds = %if.end10.i96, %same.exit128
@@ -5908,7 +5910,7 @@ land.lhs.true82:                                  ; preds = %if.end10.i96, %same
   br i1 %or.cond236, label %if.then94, label %if.else96
 
 if.then94:                                        ; preds = %land.lhs.true82
-  %call95 = tail call fastcc i32 @merged_entry(ptr noundef nonnull %spec.store.select8, ptr noundef nonnull %0, ptr noundef nonnull %o), !range !41
+  %call95 = tail call fastcc i32 @merged_entry(ptr noundef nonnull %spec.store.select8, ptr noundef nonnull %0, ptr noundef nonnull %o)
   br label %return
 
 if.else96:                                        ; preds = %if.else55, %land.lhs.true59, %land.lhs.true68, %land.lhs.true71, %land.lhs.true82
@@ -6001,7 +6003,7 @@ if.end114:                                        ; preds = %if.end14.i181, %if.
   br label %return
 
 if.end116:                                        ; preds = %land.lhs.true108, %if.then106
-  %call117 = tail call fastcc i32 @merged_entry(ptr noundef nonnull %spec.store.select8, ptr noundef null, ptr noundef nonnull %o), !range !41
+  %call117 = tail call fastcc i32 @merged_entry(ptr noundef nonnull %spec.store.select8, ptr noundef null, ptr noundef nonnull %o)
   br label %return
 
 if.end119:                                        ; preds = %if.else104
@@ -6018,8 +6020,9 @@ land.lhs.true.i.i211:                             ; preds = %if.end119
   br i1 %tobool1.not.i.i212, label %verify_absent.exit.i, label %verify_absent.exit.thread.i
 
 verify_absent.exit.i:                             ; preds = %land.lhs.true.i.i211, %if.end119
-  %call.i.i209 = tail call fastcc i32 @verify_absent_1(ptr noundef %spec.store.select, i32 noundef 5, i32 noundef 0, ptr noundef nonnull %o), !range !10
-  %tobool1.not.i = icmp eq i32 %call.i.i209, 0
+  %call.i.i209 = tail call fastcc i32 @verify_absent_1(ptr noundef %spec.store.select, i32 noundef 5, i32 noundef 0, ptr noundef nonnull %o)
+  %call.i.fr.i = freeze i32 %call.i.i209
+  %tobool1.not.i = icmp eq i32 %call.i.fr.i, 0
   br i1 %tobool1.not.i, label %verify_absent.exit.thread.i, label %return
 
 verify_absent.exit.thread.i:                      ; preds = %verify_absent.exit.i, %land.lhs.true.i.i211
@@ -6033,7 +6036,7 @@ return:                                           ; preds = %verify_absent.exit.
 declare i32 @error(ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @bind_merge(ptr nocapture noundef readonly %src, ptr noundef %o) local_unnamed_addr #0 {
+define dso_local range(i32 -1, 2) i32 @bind_merge(ptr nocapture noundef readonly %src, ptr noundef %o) local_unnamed_addr #0 {
 entry:
   %0 = load ptr, ptr %src, align 8
   %arrayidx1 = getelementptr inbounds i8, ptr %src, i64 8
@@ -6101,7 +6104,7 @@ invalidate_ce_path.exit.i:                        ; preds = %if.then29
   br label %return
 
 if.else:                                          ; preds = %if.end27
-  %call31 = tail call fastcc i32 @merged_entry(ptr noundef nonnull %1, ptr noundef null, ptr noundef nonnull %o), !range !41
+  %call31 = tail call fastcc i32 @merged_entry(ptr noundef nonnull %1, ptr noundef null, ptr noundef nonnull %o)
   br label %return
 
 return:                                           ; preds = %invalidate_ce_path.exit.i, %if.then29, %land.lhs.true9, %if.then6, %if.else, %if.then
@@ -6185,7 +6188,7 @@ return:                                           ; preds = %if.end5.thread, %if
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @oneway_merge(ptr nocapture noundef readonly %src, ptr noundef %o) local_unnamed_addr #0 {
+define dso_local range(i32 -1, 2) i32 @oneway_merge(ptr nocapture noundef readonly %src, ptr noundef %o) local_unnamed_addr #0 {
 entry:
   %st = alloca %struct.stat, align 8
   %0 = load ptr, ptr %src, align 8
@@ -6211,7 +6214,7 @@ lor.lhs.false:                                    ; preds = %if.end
   br i1 %cmp5, label %if.then6, label %if.end8
 
 if.then6:                                         ; preds = %lor.lhs.false, %if.end
-  %call7 = tail call fastcc i32 @deleted_entry(ptr noundef %0, ptr noundef %0, ptr noundef nonnull %o), !range !41
+  %call7 = tail call fastcc i32 @deleted_entry(ptr noundef %0, ptr noundef %0, ptr noundef nonnull %o)
   br label %return
 
 if.end8:                                          ; preds = %lor.lhs.false
@@ -6219,7 +6222,7 @@ if.end8:                                          ; preds = %lor.lhs.false
   br i1 %tobool9.not, label %if.end8.split, label %if.end10.i
 
 if.end8.split:                                    ; preds = %if.end8
-  %call5129 = tail call fastcc i32 @merged_entry(ptr noundef nonnull %1, ptr noundef null, ptr noundef nonnull %o), !range !41
+  %call5129 = tail call fastcc i32 @merged_entry(ptr noundef nonnull %1, ptr noundef null, ptr noundef nonnull %o)
   br label %return
 
 if.end10.i:                                       ; preds = %if.end8
@@ -6280,7 +6283,7 @@ same.exit:                                        ; preds = %if.then.i.i.i, %if.
   br i1 %retval.0.in.i.i.i.not, label %if.then12, label %land.lhs.true.split
 
 land.lhs.true.split:                              ; preds = %if.end14.i, %if.end10.i, %same.exit
-  %call5130 = tail call fastcc i32 @merged_entry(ptr noundef nonnull %1, ptr noundef nonnull %0, ptr noundef nonnull %o), !range !41
+  %call5130 = tail call fastcc i32 @merged_entry(ptr noundef nonnull %1, ptr noundef nonnull %0, ptr noundef nonnull %o)
   br label %return
 
 if.then12:                                        ; preds = %same.exit
@@ -6345,8 +6348,9 @@ land.lhs.true.i:                                  ; preds = %land.lhs.true44
   br i1 %or.cond.not.i, label %verify_uptodate.exit.thread, label %verify_uptodate.exit
 
 verify_uptodate.exit:                             ; preds = %land.lhs.true44, %land.lhs.true.i
-  %call.i = call fastcc i32 @verify_uptodate_1(ptr noundef nonnull %0, ptr noundef nonnull %o, i32 noundef 1), !range !10
-  %tobool46.not = icmp eq i32 %call.i, 0
+  %call.i = call fastcc i32 @verify_uptodate_1(ptr noundef nonnull %0, ptr noundef nonnull %o, i32 noundef 1)
+  %call.i.fr = freeze i32 %call.i
+  %tobool46.not = icmp eq i32 %call.i.fr, 0
   br i1 %tobool46.not, label %verify_uptodate.exit.thread, label %if.end49
 
 verify_uptodate.exit.thread:                      ; preds = %land.lhs.true.i, %verify_uptodate.exit
@@ -6377,7 +6381,7 @@ declare i32 @ie_match_stat(ptr noundef, ptr noundef, ptr noundef, i32 noundef) l
 declare i32 @should_update_submodules() local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @stash_worktree_untracked_merge(ptr nocapture noundef readonly %src, ptr noundef %o) local_unnamed_addr #0 {
+define dso_local range(i32 -1, 2) i32 @stash_worktree_untracked_merge(ptr nocapture noundef readonly %src, ptr noundef %o) local_unnamed_addr #0 {
 entry:
   %arrayidx = getelementptr inbounds i8, ptr %src, i64 8
   %0 = load ptr, ptr %arrayidx, align 8
@@ -6418,7 +6422,7 @@ _.exit:                                           ; preds = %if.then5, %if.end3.
 
 if.end9:                                          ; preds = %if.end
   %cond = select i1 %tobool, ptr %0, ptr %1
-  %call11 = tail call fastcc i32 @merged_entry(ptr noundef %cond, ptr noundef null, ptr noundef nonnull %o), !range !41
+  %call11 = tail call fastcc i32 @merged_entry(ptr noundef %cond, ptr noundef null, ptr noundef nonnull %o)
   br label %return
 
 return:                                           ; preds = %if.end9, %_.exit
@@ -6497,7 +6501,7 @@ while.cond.backedge:                              ; preds = %if.then4.i79, %if.e
   %progress_nr.addr.0.be = phi i32 [ %inc68, %if.end66 ], [ %inc, %if.then ], [ %add, %if.end.i ], [ %add, %if.then4.i ], [ %add45, %if.end.i77 ], [ %add45, %if.then4.i79 ]
   %cache.addr.0.be = phi ptr [ %incdec.ptr67, %if.end66 ], [ %incdec.ptr, %if.then ], [ %add.ptr33, %if.end.i ], [ %add.ptr33, %if.then4.i ], [ %add.ptr44, %if.end.i77 ], [ %add.ptr44, %if.then4.i79 ]
   %cmp.not = icmp eq ptr %cache.addr.0.be, %add.ptr
-  br i1 %cmp.not, label %while.end, label %while.body, !llvm.loop !46
+  br i1 %cmp.not, label %while.end, label %while.body, !llvm.loop !43
 
 if.end:                                           ; preds = %land.lhs.true, %while.body
   %3 = load i64, ptr getelementptr inbounds (%struct.strbuf, ptr @clear_ce_flags.prefix, i64 0, i32 1), align 8
@@ -6589,7 +6593,7 @@ for.body.i:                                       ; preds = %for.body.i.lr.ph, %
 for.inc.i:                                        ; preds = %for.body.i
   %incdec.ptr.i = getelementptr inbounds i8, ptr %cache_end.0.i9, i64 8
   %cmp2.not.i = icmp eq ptr %incdec.ptr.i, %add.ptr.i
-  br i1 %cmp2.not.i, label %for.end.i, label %for.body.i, !llvm.loop !47
+  br i1 %cmp2.not.i, label %for.end.i, label %for.body.i, !llvm.loop !44
 
 for.end.i:                                        ; preds = %for.inc.i, %for.body.i, %strbuf_addch.exit103
   %cache_end.0.i.lcssa = phi ptr [ %cache.addr.015, %strbuf_addch.exit103 ], [ %cache_end.0.i9, %for.body.i ], [ %add.ptr.i, %for.inc.i ]
@@ -6616,7 +6620,7 @@ while.body.i:                                     ; preds = %if.then12.i, %while
   store i32 %and.i, ptr %ce_flags.i, align 8
   %incdec.ptr17.i = getelementptr inbounds i8, ptr %ce13.0.i12, i64 8
   %cmp15.i = icmp ult ptr %incdec.ptr17.i, %cache_end.0.i.lcssa
-  br i1 %cmp15.i, label %while.body.i, label %clear_ce_flags_dir.exit, !llvm.loop !48
+  br i1 %cmp15.i, label %while.body.i, label %clear_ce_flags_dir.exit, !llvm.loop !45
 
 if.else18.i:                                      ; preds = %for.end.i
   %cmp22.i = icmp eq i32 %call.i, 0
@@ -6744,7 +6748,7 @@ if.then4.i79:                                     ; preds = %if.end.i77
 if.else.i.i:                                      ; preds = %if.end10
   %35 = getelementptr i8, ptr %0, i64 52
   %.val = load i32, ptr %35, align 4
-  %36 = call i32 asm "bswap $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %.val) #22, !srcloc !49
+  %36 = call i32 asm "bswap $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %.val) #22, !srcloc !46
   %and.i83 = and i32 %36, 61440
   %37 = add nsw i32 %and.i83, -16384
   %38 = call i32 @llvm.fshl.i32(i32 %37, i32 %37, i32 19)
@@ -6806,9 +6810,9 @@ declare i32 @strncmp(ptr nocapture noundef, ptr nocapture noundef, i64 noundef) 
 declare ptr @strchr(ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nofree nosync nounwind memory(none) uwtable
-define internal fastcc noundef i32 @ce_to_dtype(i32 %ce.52.val) unnamed_addr #10 {
+define internal fastcc range(i32 0, 11) i32 @ce_to_dtype(i32 %ce.52.val) unnamed_addr #10 {
 entry:
-  %0 = tail call i32 asm "bswap $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %ce.52.val) #22, !srcloc !49
+  %0 = tail call i32 asm "bswap $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %ce.52.val) #22, !srcloc !46
   %and = and i32 %0, 61440
   %1 = add nsw i32 %and, -16384
   %2 = tail call i32 @llvm.fshl.i32(i32 %1, i32 %1, i32 19)
@@ -6862,7 +6866,7 @@ while.cond:                                       ; preds = %if.then, %while.con
   %5 = load i32, ptr %mode, align 4
   %tobool3.not = icmp eq i32 %5, 0
   %incdec.ptr = getelementptr inbounds i8, ptr %p.0, i64 56
-  br i1 %tobool3.not, label %while.cond, label %while.end, !llvm.loop !50
+  br i1 %tobool3.not, label %while.cond, label %while.end, !llvm.loop !47
 
 while.end:                                        ; preds = %while.cond
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %dirpath.i)
@@ -7044,7 +7048,7 @@ for.inc.sink.split:                               ; preds = %if.then21, %if.end4
 for.inc:                                          ; preds = %for.inc.sink.split, %if.end23
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !51
+  br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !48
 
 for.end:                                          ; preds = %for.inc
   %36 = load i32, ptr %0, align 8
@@ -7094,7 +7098,7 @@ if.then70:                                        ; preds = %for.body62
 for.inc72:                                        ; preds = %for.body62, %if.then70
   %inc73 = add nuw nsw i32 %i.177, 1
   %exitcond84.not = icmp eq i32 %inc73, %n
-  br i1 %exitcond84.not, label %return, label %for.body62, !llvm.loop !52
+  br i1 %exitcond84.not, label %return, label %for.body62, !llvm.loop !49
 
 for.body79:                                       ; preds = %for.body79.lr.ph, %for.inc97
   %indvars.iv85 = phi i64 [ 0, %for.body79.lr.ph ], [ %indvars.iv.next86, %for.inc97 ]
@@ -7120,7 +7124,7 @@ if.then89:                                        ; preds = %land.lhs.true83
 for.inc97:                                        ; preds = %for.body79, %land.lhs.true83, %if.then89
   %indvars.iv.next86 = add nuw nsw i64 %indvars.iv85, 1
   %exitcond89.not = icmp eq i64 %indvars.iv.next86, %wide.trip.count88
-  br i1 %exitcond89.not, label %return, label %for.body79, !llvm.loop !53
+  br i1 %exitcond89.not, label %return, label %for.body79, !llvm.loop !50
 
 return.sink.split:                                ; preds = %entry_is_new_sparse_dir.exit.thread, %entry_is_new_sparse_dir.exit.thread65
   store i32 0, ptr %is_new_sparse_dir, align 4
@@ -7213,7 +7217,7 @@ if.then7:                                         ; preds = %if.then
   br label %for.inc
 
 if.end10:                                         ; preds = %for.body
-  %call = tail call fastcc i32 @ce_in_traverse_path(ptr noundef nonnull %7, ptr noundef %info), !range !12
+  %call = tail call fastcc i32 @ce_in_traverse_path(ptr noundef nonnull %7, ptr noundef %info)
   %tobool11.not = icmp eq i32 %call, 0
   br i1 %tobool11.not, label %if.then12, label %if.end23
 
@@ -7286,7 +7290,7 @@ for.inc:                                          ; preds = %land.lhs.true47, %i
   %16 = load i32, ptr %cache_nr, align 4
   %17 = trunc nsw i64 %indvars.iv.next to i32
   %cmp = icmp ugt i32 %16, %17
-  br i1 %cmp, label %for.body, label %return, !llvm.loop !54
+  br i1 %cmp, label %for.body, label %return, !llvm.loop !51
 
 return:                                           ; preds = %if.end41, %land.lhs.true, %land.lhs.true47, %if.then14, %for.inc, %entry, %if.then34
   %retval.0 = phi i32 [ %cond, %if.then34 ], [ -1, %entry ], [ -1, %for.inc ], [ -1, %if.then14 ], [ -1, %land.lhs.true47 ], [ -1, %land.lhs.true ], [ -1, %if.end41 ]
@@ -7453,7 +7457,7 @@ declare i32 @add_index_entry(ptr noundef, ptr noundef, i32 noundef) local_unname
 declare ptr @xmalloc(i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @are_same_oid(ptr nocapture noundef readonly %name_j, ptr nocapture noundef readonly %name_k) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @are_same_oid(ptr nocapture noundef readonly %name_j, ptr nocapture noundef readonly %name_k) unnamed_addr #0 {
 entry:
   %call.i = tail call ptr @null_oid() #17
   %algo.i.i = getelementptr inbounds i8, ptr %name_j, i64 32
@@ -7589,7 +7593,7 @@ declare void @untracked_cache_invalidate_path(ptr noundef, ptr noundef, i32 noun
 declare void @trace_printf_key_fl(ptr noundef, i32 noundef, ptr noundef, ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @verify_absent_1(ptr noundef %ce, i32 noundef %error_type, i32 noundef %absent_type, ptr noundef %o) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @verify_absent_1(ptr noundef %ce, i32 noundef %error_type, i32 noundef %absent_type, ptr noundef %o) unnamed_addr #0 {
 entry:
   %st = alloca %struct.stat, align 8
   %index_only = getelementptr inbounds i8, ptr %o, i64 16
@@ -7681,11 +7685,11 @@ if.else27:                                        ; preds = %if.then18
 if.then30:                                        ; preds = %if.else27
   %oid = getelementptr inbounds i8, ptr %ce, i64 72
   %call31 = tail call ptr @oid_to_hex(ptr noundef nonnull %oid) #17
-  %call32 = tail call fastcc i32 @check_submodule_move_head(ptr noundef nonnull %ce, ptr noundef %call31, ptr noundef null, ptr noundef nonnull %o), !range !10
+  %call32 = tail call fastcc i32 @check_submodule_move_head(ptr noundef nonnull %ce, ptr noundef %call31, ptr noundef null, ptr noundef nonnull %o)
   br label %if.end36
 
 if.else33:                                        ; preds = %if.else27
-  %call34 = call fastcc i32 @check_ok_to_remove(ptr noundef %call21, i32 noundef %call14, i32 noundef 0, ptr noundef null, ptr noundef nonnull %st, i32 noundef %error_type, i32 noundef %absent_type, ptr noundef nonnull %o), !range !10
+  %call34 = call fastcc i32 @check_ok_to_remove(ptr noundef %call21, i32 noundef %call14, i32 noundef 0, ptr noundef null, ptr noundef nonnull %st, i32 noundef %error_type, i32 noundef %absent_type, ptr noundef nonnull %o)
   br label %if.end36
 
 if.end36:                                         ; preds = %if.then30, %if.else33, %if.then24
@@ -7716,7 +7720,7 @@ if.else52:                                        ; preds = %if.else37
 if.then55:                                        ; preds = %if.else52
   %oid56 = getelementptr inbounds i8, ptr %ce, i64 72
   %call57 = tail call ptr @oid_to_hex(ptr noundef nonnull %oid56) #17
-  %call58 = tail call fastcc i32 @check_submodule_move_head(ptr noundef nonnull %ce, ptr noundef %call57, ptr noundef null, ptr noundef nonnull %o), !range !10
+  %call58 = tail call fastcc i32 @check_submodule_move_head(ptr noundef nonnull %ce, ptr noundef %call57, ptr noundef null, ptr noundef nonnull %o)
   br label %return
 
 if.end59:                                         ; preds = %if.else52
@@ -7724,7 +7728,7 @@ if.end59:                                         ; preds = %if.else52
   %12 = getelementptr i8, ptr %ce, i64 52
   %ce.val = load i32, ptr %12, align 4
   %call63 = tail call fastcc i32 @ce_to_dtype(i32 %ce.val)
-  %call64 = call fastcc i32 @check_ok_to_remove(ptr noundef nonnull %name12, i32 noundef %11, i32 noundef %call63, ptr noundef nonnull %ce, ptr noundef nonnull %st, i32 noundef %error_type, i32 noundef %absent_type, ptr noundef nonnull %o), !range !10
+  %call64 = call fastcc i32 @check_ok_to_remove(ptr noundef nonnull %name12, i32 noundef %11, i32 noundef %call63, ptr noundef nonnull %ce, ptr noundef nonnull %st, i32 noundef %error_type, i32 noundef %absent_type, ptr noundef nonnull %o)
   br label %return
 
 return:                                           ; preds = %if.end14.i, %land.lhs.true.i, %if.then6, %if.then42, %if.end11, %if.then2, %land.lhs.true, %entry, %lor.lhs.false, %if.end59, %if.then55, %if.then46, %if.end36
@@ -7741,7 +7745,7 @@ declare i32 @error_errno(ptr noundef, ...) local_unnamed_addr #1
 declare ptr @submodule_from_ce(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @check_submodule_move_head(ptr noundef %ce, ptr noundef %old_id, ptr noundef %new_id, ptr noundef %o) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @check_submodule_move_head(ptr noundef %ce, ptr noundef %old_id, ptr noundef %new_id, ptr noundef %o) unnamed_addr #0 {
 entry:
   %call = tail call ptr @submodule_from_ce(ptr noundef %ce) #17
   %tobool.not = icmp eq ptr %call, null
@@ -7794,7 +7798,7 @@ return:                                           ; preds = %if.end14.i, %land.l
 declare ptr @oid_to_hex(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @check_ok_to_remove(ptr noundef %name, i32 noundef %len, i32 noundef %dtype, ptr noundef %ce, ptr noundef %st, i32 noundef %error_type, i32 noundef %absent_type, ptr noundef %o) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @check_ok_to_remove(ptr noundef %name, i32 noundef %len, i32 noundef %dtype, ptr noundef %ce, ptr noundef %st, i32 noundef %error_type, i32 noundef %absent_type, ptr noundef %o) unnamed_addr #0 {
 entry:
   %d.i = alloca %struct.dir_struct, align 8
   %oid.i = alloca %struct.object_id, align 4
@@ -7962,7 +7966,7 @@ if.then31.i:                                      ; preds = %if.end28.i
   br i1 %or.cond.i, label %if.end35.i, label %verify_uptodate.exit.i
 
 verify_uptodate.exit.i:                           ; preds = %if.then31.i
-  %call.i45.i = call fastcc i32 @verify_uptodate_1(ptr noundef nonnull %18, ptr noundef nonnull %o, i32 noundef 1), !range !10
+  %call.i45.i = call fastcc i32 @verify_uptodate_1(ptr noundef nonnull %18, ptr noundef nonnull %o, i32 noundef 1)
   %tobool33.not.i = icmp eq i32 %call.i45.i, 0
   br i1 %tobool33.not.i, label %if.end35.i, label %verify_clean_subdirectory.exit.thread
 
@@ -8010,7 +8014,7 @@ while.body.i.i:                                   ; preds = %land.rhs.i.i
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %36 = trunc nsw i64 %indvars.iv.next.i.i to i32
   %cmp9.i.i = icmp ugt i32 %31, %36
-  br i1 %cmp9.i.i, label %land.rhs.i.i, label %while.end.i.i, !llvm.loop !20
+  br i1 %cmp9.i.i, label %land.rhs.i.i, label %while.end.i.i, !llvm.loop !18
 
 while.end.split.loop.exit.i.i:                    ; preds = %land.rhs.i.i
   %37 = trunc nsw i64 %indvars.iv.i.i to i32
@@ -8028,7 +8032,7 @@ if.end36.i:                                       ; preds = %while.end.i.i, %lan
   %39 = load i32, ptr %cache_nr.i, align 4
   %40 = zext i32 %39 to i64
   %cmp10.i = icmp ult i64 %indvars.iv.next.i, %40
-  br i1 %cmp10.i, label %for.body.i, label %for.end.i, !llvm.loop !55
+  br i1 %cmp10.i, label %for.body.i, label %for.end.i, !llvm.loop !52
 
 for.end.i:                                        ; preds = %if.end36.i, %lor.lhs.false20.i, %lor.lhs.false.i, %for.body.i, %if.end8.i
   %call40.i = call ptr (ptr, ...) @xstrfmt(ptr noundef nonnull @.str.69, i32 noundef %11, ptr noundef nonnull %name.i.i) #17
@@ -8131,10 +8135,11 @@ verify_clean_subdirectory.exit.thread29:          ; preds = %oideq.exit.i, %land
 verify_clean_subdirectory.exit:                   ; preds = %cond.end.i
   %oid.i.i = getelementptr inbounds i8, ptr %ce, i64 72
   %call1.i.i = call ptr @oid_to_hex(ptr noundef nonnull %oid.i.i) #17
-  %call2.i.i = call fastcc i32 @check_submodule_move_head(ptr noundef nonnull %ce, ptr noundef %cond.i, ptr noundef %call1.i.i, ptr noundef nonnull %o), !range !10
+  %call2.i.i = call fastcc i32 @check_submodule_move_head(ptr noundef nonnull %ce, ptr noundef %cond.i, ptr noundef %call1.i.i, ptr noundef nonnull %o)
   call void @llvm.lifetime.end.p0(i64 312, ptr nonnull %d.i)
   call void @llvm.lifetime.end.p0(i64 36, ptr nonnull %oid.i)
-  %cmp12 = icmp slt i32 %call2.i.i, 0
+  %call2.i.i.fr = freeze i32 %call2.i.i
+  %cmp12 = icmp slt i32 %call2.i.i.fr, 0
   br i1 %cmp12, label %53, label %return
 
 53:                                               ; preds = %verify_clean_subdirectory.exit.thread, %verify_clean_subdirectory.exit
@@ -8246,7 +8251,7 @@ declare i32 @repo_has_promisor_remote(ptr noundef) local_unnamed_addr #1
 declare void @prefetch_cache_entries(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal i32 @must_checkout(ptr nocapture noundef readonly %ce) #13 {
+define internal range(i32 0, 65537) i32 @must_checkout(ptr nocapture noundef readonly %ce) #13 {
 entry:
   %ce_flags = getelementptr inbounds i8, ptr %ce, i64 56
   %0 = load i32, ptr %ce_flags, align 8
@@ -8412,9 +8417,9 @@ attributes #22 = { nounwind memory(none) }
 !7 = distinct !{!7, !6}
 !8 = distinct !{!8, !6}
 !9 = distinct !{!9, !6}
-!10 = !{i32 -1, i32 1}
+!10 = distinct !{!10, !6}
 !11 = distinct !{!11, !6}
-!12 = !{i32 0, i32 2}
+!12 = distinct !{!12, !6}
 !13 = distinct !{!13, !6}
 !14 = distinct !{!14, !6}
 !15 = distinct !{!15, !6}
@@ -8443,18 +8448,15 @@ attributes #22 = { nounwind memory(none) }
 !38 = distinct !{!38, !6}
 !39 = distinct !{!39, !6}
 !40 = distinct !{!40, !6}
-!41 = !{i32 -1, i32 2}
+!41 = distinct !{!41, !6}
 !42 = distinct !{!42, !6}
 !43 = distinct !{!43, !6}
 !44 = distinct !{!44, !6}
 !45 = distinct !{!45, !6}
-!46 = distinct !{!46, !6}
+!46 = !{i64 3487238}
 !47 = distinct !{!47, !6}
 !48 = distinct !{!48, !6}
-!49 = !{i64 3487238}
+!49 = distinct !{!49, !6}
 !50 = distinct !{!50, !6}
 !51 = distinct !{!51, !6}
 !52 = distinct !{!52, !6}
-!53 = distinct !{!53, !6}
-!54 = distinct !{!54, !6}
-!55 = distinct !{!55, !6}

@@ -96,7 +96,7 @@ land.lhs.true44:                                  ; preds = %while.body, %for.in
   ]
 
 for.inc54:                                        ; preds = %land.lhs.true44
-  %inc55 = add nuw i64 %i.377, 1
+  %inc55 = add i64 %i.377, 1
   %exitcond86.not = icmp eq i64 %inc55, %uriLen
   br i1 %exitcond86.not, label %for.end56, label %land.lhs.true44, !llvm.loop !6
 
@@ -185,12 +185,9 @@ if.end107:                                        ; preds = %if.then105, %if.end
   %add.ptr111 = getelementptr inbounds i8, ptr %const_uri, i64 %idx.ext110
   %data = getelementptr inbounds i8, ptr %out, i64 24
   store ptr %add.ptr111, ptr %data, align 8
-  %add.ptr112 = getelementptr inbounds i8, ptr %const_uri, i64 %uriLen
-  %sub.ptr.lhs.cast = ptrtoint ptr %add.ptr112 to i64
-  %sub.ptr.rhs.cast = ptrtoint ptr %add.ptr111 to i64
-  %sub.ptr.sub = sub i64 %sub.ptr.lhs.cast, %sub.ptr.rhs.cast
+  %gepdiff = sub nsw i64 %uriLen, %idx.ext110
   %dataLength = getelementptr inbounds i8, ptr %out, i64 32
-  store i64 %sub.ptr.sub, ptr %dataLength, align 8
+  store i64 %gepdiff, ptr %dataLength, align 8
   br label %return
 
 return:                                           ; preds = %if.then2, %entry, %if.end107

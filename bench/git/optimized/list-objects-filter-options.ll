@@ -72,7 +72,7 @@ switch.lookup:                                    ; preds = %entry
 declare void @BUG_fl(ptr noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @gently_parse_list_objects_filter(ptr noundef %filter_options, ptr noundef %arg, ptr noundef %errbuf) local_unnamed_addr #0 {
+define dso_local range(i32 0, 2) i32 @gently_parse_list_objects_filter(ptr noundef %filter_options, ptr noundef %arg, ptr noundef %errbuf) local_unnamed_addr #0 {
 entry:
   %tobool.not = icmp eq ptr %arg, null
   br i1 %tobool.not, label %return, label %if.end
@@ -290,7 +290,7 @@ do.cond.i82:                                      ; preds = %do.body.i78
   br i1 %cmp.i85, label %do.body.i78, label %if.end54, !llvm.loop !5
 
 if.then46:                                        ; preds = %do.body.i78
-  %call47 = tail call fastcc i32 @parse_combine_filter(ptr noundef %filter_options, ptr noundef nonnull %scevgep124, ptr noundef %errbuf), !range !7
+  %call47 = tail call fastcc i32 @parse_combine_filter(ptr noundef %filter_options, ptr noundef nonnull %scevgep124, ptr noundef %errbuf)
   br label %return
 
 if.end54:                                         ; preds = %do.cond.i82, %if.then8
@@ -349,7 +349,7 @@ declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #2
 declare void @strbuf_addf(ptr noundef, ptr noundef, ...) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @parse_combine_filter(ptr noundef %filter_options, ptr noundef %arg, ptr noundef %errbuf) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @parse_combine_filter(ptr noundef %filter_options, ptr noundef %arg, ptr noundef %errbuf) unnamed_addr #0 {
 entry:
   %call.i = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %arg) #13
   %call1.i = tail call ptr @strbuf_split_buf(ptr noundef %arg, i64 noundef %call.i, i32 noundef 43, i32 noundef 0) #14
@@ -481,7 +481,7 @@ if.end.i:                                         ; preds = %lor.lhs.false.i
   %incdec.ptr.i = getelementptr inbounds i8, ptr %c.03.i, i64 1
   %17 = load i8, ptr %incdec.ptr.i, align 1
   %tobool.not.i23 = icmp eq i8 %17, 0
-  br i1 %tobool.not.i23, label %lor.rhs.i, label %while.body.i, !llvm.loop !8
+  br i1 %tobool.not.i23, label %lor.rhs.i, label %while.body.i, !llvm.loop !7
 
 has_reserved_character.exit:                      ; preds = %if.then.i21, %if.end3.i.i
   %18 = phi i8 [ %.pre.i, %if.end3.i.i ], [ %15, %if.then.i21 ]
@@ -493,7 +493,7 @@ has_reserved_character.exit:                      ; preds = %if.then.i21, %if.en
 lor.rhs.i:                                        ; preds = %if.end.i, %do.end.i
   %19 = load ptr, ptr %sub.i, align 8
   %arrayidx29.i = getelementptr inbounds %struct.list_objects_filter_options, ptr %19, i64 %6
-  %call30.i = tail call i32 @gently_parse_list_objects_filter(ptr noundef %arrayidx29.i, ptr noundef %call26.i, ptr noundef %errbuf), !range !7
+  %call30.i = tail call i32 @gently_parse_list_objects_filter(ptr noundef %arrayidx29.i, ptr noundef %call26.i, ptr noundef %errbuf)
   br label %parse_combine_subfilter.exit
 
 parse_combine_subfilter.exit:                     ; preds = %has_reserved_character.exit, %lor.rhs.i
@@ -502,14 +502,15 @@ parse_combine_subfilter.exit:                     ; preds = %has_reserved_charac
   %20 = load ptr, ptr %arrayidx5, align 8
   %tobool3 = icmp ne ptr %20, null
   %tobool4.not = icmp eq i32 %lor.ext.i, 0
-  %21 = and i1 %tobool4.not, %tobool3
-  br i1 %21, label %for.body, label %cleanup, !llvm.loop !9
+  %21 = select i1 %tobool3, i1 %tobool4.not, i1 false
+  br i1 %21, label %for.body, label %cleanup, !llvm.loop !8
 
 cleanup:                                          ; preds = %parse_combine_subfilter.exit
   %choice = getelementptr inbounds i8, ptr %filter_options, i64 24
   store i32 6, ptr %choice, align 8
   tail call void @strbuf_list_free(ptr noundef nonnull %call1.i) #14
-  br i1 %tobool4.not, label %if.end16, label %if.then15
+  %tobool14.not = icmp eq i32 %lor.ext.i, 0
+  br i1 %tobool14.not, label %if.end16, label %if.then15
 
 if.then15:                                        ; preds = %cleanup.thread, %cleanup
   tail call void @list_objects_filter_release(ptr noundef %filter_options)
@@ -572,7 +573,7 @@ if.end:                                           ; preds = %entry
 if.then2:                                         ; preds = %if.end
   %call.i = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %arg) #13
   tail call void @strbuf_add(ptr noundef nonnull %filter_options, ptr noundef %arg, i64 noundef %call.i) #14
-  %call = call i32 @gently_parse_list_objects_filter(ptr noundef nonnull %filter_options, ptr noundef %arg, ptr noundef nonnull %errbuf), !range !7
+  %call = call i32 @gently_parse_list_objects_filter(ptr noundef nonnull %filter_options, ptr noundef %arg, ptr noundef nonnull %errbuf)
   br label %if.end37
 
 if.end.i:                                         ; preds = %if.end
@@ -723,7 +724,7 @@ do.end:                                           ; preds = %do.body8.do.end_cri
   %24 = load ptr, ptr %sub29, align 8
   %arrayidx = getelementptr inbounds %struct.list_objects_filter_options, ptr %24, i64 %18
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %arrayidx, ptr noundef nonnull align 8 dereferenceable(88) @__const.list_objects_filter_init.blank, i64 88, i1 false)
-  %call36 = call i32 @gently_parse_list_objects_filter(ptr noundef %arrayidx, ptr noundef %arg, ptr noundef nonnull %errbuf), !range !7
+  %call36 = call i32 @gently_parse_list_objects_filter(ptr noundef %arrayidx, ptr noundef %arg, ptr noundef nonnull %errbuf)
   br label %if.end37
 
 if.end37:                                         ; preds = %do.end, %if.then2
@@ -854,7 +855,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   %inc = add nuw i64 %sub.010, 1
   %3 = load i64, ptr %sub_nr, align 8
   %cmp = icmp ult i64 %inc, %3
-  br i1 %cmp, label %for.body, label %for.end, !llvm.loop !10
+  br i1 %cmp, label %for.body, label %for.end, !llvm.loop !9
 
 for.end:                                          ; preds = %for.body, %if.end
   %sub2 = getelementptr inbounds i8, ptr %filter_options, i64 80
@@ -967,7 +968,7 @@ if.end:                                           ; preds = %lor.lhs.false
   %call.i = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #13
   tail call void @strbuf_add(ptr noundef %filter_options, ptr noundef nonnull %1, i64 noundef %call.i) #14
   %2 = load ptr, ptr %partial_clone_filter, align 8
-  %call4 = call i32 @gently_parse_list_objects_filter(ptr noundef %filter_options, ptr noundef %2, ptr noundef nonnull %errbuf), !range !7
+  %call4 = call i32 @gently_parse_list_objects_filter(ptr noundef %filter_options, ptr noundef %2, ptr noundef nonnull %errbuf)
   call void @strbuf_release(ptr noundef nonnull %errbuf) #14
   br label %return
 
@@ -1027,7 +1028,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %5 = load i64, ptr %sub_nr, align 8
   %cmp = icmp ugt i64 %5, %indvars.iv.next
-  br i1 %cmp, label %for.body, label %for.end, !llvm.loop !11
+  br i1 %cmp, label %for.body, label %for.end, !llvm.loop !10
 
 for.end:                                          ; preds = %for.body, %st_mult.exit
   ret void
@@ -1059,7 +1060,7 @@ declare void @strbuf_grow(ptr noundef, i64 noundef) local_unnamed_addr #3
 declare void @strbuf_addstr_urlencode(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(none) uwtable
-define internal i32 @allow_unencoded(i8 noundef signext %ch) #9 {
+define internal range(i32 0, 2) i32 @allow_unencoded(i8 noundef signext %ch) #9 {
 entry:
   %cmp = icmp slt i8 %ch, 33
   br i1 %cmp, label %return, label %switch.early.test
@@ -1115,8 +1116,7 @@ attributes #14 = { nounwind }
 !4 = !{i32 7, !"frame-pointer", i32 2}
 !5 = distinct !{!5, !6}
 !6 = !{!"llvm.loop.mustprogress"}
-!7 = !{i32 0, i32 2}
+!7 = distinct !{!7, !6}
 !8 = distinct !{!8, !6}
 !9 = distinct !{!9, !6}
 !10 = distinct !{!10, !6}
-!11 = distinct !{!11, !6}

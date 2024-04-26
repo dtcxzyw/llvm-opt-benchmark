@@ -241,12 +241,12 @@ define i64 @strftime(ptr nocapture noundef writeonly %0, i64 noundef %1, ptr noc
   br label %.loopexit
 
 87:                                               ; preds = %.preheader
-  %88 = tail call fastcc i32 @get_week_num(ptr noundef %3), !range !8
+  %88 = tail call fastcc i32 @get_week_num(ptr noundef %3)
   %89 = load i32, ptr %12, align 4
   %90 = load i32, ptr %17, align 4
   %91 = icmp slt i32 %90, 3
   %92 = icmp ne i32 %88, 1
-  %or.cond.i = and i1 %92, %91
+  %or.cond.i = select i1 %91, i1 %92, i1 false
   br i1 %or.cond.i, label %93, label %95
 
 93:                                               ; preds = %87
@@ -256,7 +256,7 @@ define i64 @strftime(ptr nocapture noundef writeonly %0, i64 noundef %1, ptr noc
 95:                                               ; preds = %87
   %96 = icmp sgt i32 %90, 360
   %97 = icmp eq i32 %88, 1
-  %or.cond3.i = and i1 %97, %96
+  %or.cond3.i = select i1 %96, i1 %97, i1 false
   %spec.select.v.i = select i1 %or.cond3.i, i32 1901, i32 1900
   %spec.select.i = add nsw i32 %spec.select.v.i, %89
   br label %get_week_year.exit
@@ -270,12 +270,12 @@ get_week_year.exit:                               ; preds = %93, %95
 
 101:                                              ; preds = %.preheader
   %102 = zext nneg i32 %.0171234 to i64
-  %103 = tail call fastcc i32 @get_week_num(ptr noundef %3), !range !8
+  %103 = tail call fastcc i32 @get_week_num(ptr noundef %3)
   %104 = load i32, ptr %12, align 4
   %105 = load i32, ptr %17, align 4
   %106 = icmp slt i32 %105, 3
   %107 = icmp ne i32 %103, 1
-  %or.cond.i188 = and i1 %107, %106
+  %or.cond.i188 = select i1 %106, i1 %107, i1 false
   br i1 %or.cond.i188, label %108, label %110
 
 108:                                              ; preds = %101
@@ -285,7 +285,7 @@ get_week_year.exit:                               ; preds = %93, %95
 110:                                              ; preds = %101
   %111 = icmp sgt i32 %105, 360
   %112 = icmp eq i32 %103, 1
-  %or.cond3.i189 = and i1 %112, %111
+  %or.cond3.i189 = select i1 %111, i1 %112, i1 false
   %spec.select.v.i190 = select i1 %or.cond3.i189, i32 1901, i32 1900
   %spec.select.i191 = add nsw i32 %spec.select.v.i190, %104
   br label %get_week_year.exit193
@@ -438,7 +438,7 @@ get_week_year.exit193:                            ; preds = %108, %110
   br label %.loopexit
 
 207:                                              ; preds = %.preheader
-  %208 = tail call fastcc i32 @get_week_num(ptr noundef %3), !range !8
+  %208 = tail call fastcc i32 @get_week_num(ptr noundef %3)
   %209 = zext nneg i32 %.0171234 to i64
   %210 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %.0172233, i64 noundef %209, ptr noundef nonnull @.str.1, i32 noundef %208) #6
   br label %.loopexit
@@ -497,7 +497,7 @@ get_week_year.exit193:                            ; preds = %108, %110
   %250 = sdiv i64 %249, 3600
   %251 = trunc i64 %250 to i32
   %252 = srem i64 %249, 3600
-  %.lhs.trunc = trunc i64 %252 to i16
+  %.lhs.trunc = trunc nsw i64 %252 to i16
   %253 = sdiv i16 %.lhs.trunc, 60
   %254 = sext i16 %253 to i32
   %255 = mul nsw i32 %251, 100
@@ -548,7 +548,7 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias
 declare noundef i64 @mktime(ptr nocapture noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal fastcc noundef i32 @get_week_num(ptr nocapture noundef readonly %0) unnamed_addr #5 {
+define internal fastcc range(i32 -306783378, 306783380) i32 @get_week_num(ptr nocapture noundef readonly %0) unnamed_addr #5 {
   %2 = getelementptr inbounds i8, ptr %0, i64 28
   %3 = load i32, ptr %2, align 4
   %4 = add nsw i32 %3, 7
@@ -587,7 +587,7 @@ define internal fastcc noundef i32 @get_week_num(ptr nocapture noundef readonly 
   br i1 %24, label %25, label %is_leap.exit.thread23
 
 25:                                               ; preds = %18
-  %.lhs.trunc = trunc i32 %22 to i16
+  %.lhs.trunc = trunc nsw i32 %22 to i16
   %26 = srem i16 %.lhs.trunc, 100
   %.not.i = icmp ne i16 %26, 0
   %27 = srem i16 %.lhs.trunc, 400
@@ -647,4 +647,3 @@ attributes #6 = { nounwind }
 !5 = !{i32 7, !"frame-pointer", i32 2}
 !6 = distinct !{!6, !7}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = !{i32 -306783378, i32 306783380}

@@ -861,18 +861,18 @@ define hidden noundef ptr @_ZN9hashbrown3raw5alloc5inner8do_alloc17h7ce3995f241a
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define noundef i64 @_ZN5salsa10durability10Durability5index17hb9340e4dc76d2fd3E(i8 noundef %0) unnamed_addr #10 {
+define noundef range(i64 0, 256) i64 @_ZN5salsa10durability10Durability5index17hb9340e4dc76d2fd3E(i8 noundef %0) unnamed_addr #10 {
   %2 = zext i8 %0 to i64
   ret i64 %2
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define hidden noundef i32 @_ZN5salsa8revision8Revision5start17h5651651fa3036e7aE() unnamed_addr #10 {
+define hidden noundef range(i32 1, 0) i32 @_ZN5salsa8revision8Revision5start17h5651651fa3036e7aE() unnamed_addr #10 {
   ret i32 1
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden noundef i32 @_ZN5salsa8revision8Revision4from17hb93d0eb08db12490E.llvm.11287192499721329835(i32 noundef returned %0) unnamed_addr #2 {
+define hidden noundef range(i32 1, 0) i32 @_ZN5salsa8revision8Revision4from17hb93d0eb08db12490E.llvm.11287192499721329835(i32 noundef returned %0) unnamed_addr #2 {
   %2 = icmp eq i32 %0, 0
   br i1 %2, label %3, label %4
 
@@ -885,7 +885,7 @@ define hidden noundef i32 @_ZN5salsa8revision8Revision4from17hb93d0eb08db12490E.
 }
 
 ; Function Attrs: nonlazybind uwtable
-define noundef i32 @_ZN5salsa8revision8Revision4next17h0b22022c6aa3c044E(i32 noundef %0) unnamed_addr #2 {
+define noundef range(i32 1, 0) i32 @_ZN5salsa8revision8Revision4next17h0b22022c6aa3c044E(i32 noundef %0) unnamed_addr #2 {
   %2 = icmp ne i32 %0, 0
   tail call void @llvm.assume(i1 %2)
   %3 = add i32 %0, 1
@@ -901,7 +901,7 @@ _ZN5salsa8revision8Revision4from17hb93d0eb08db12490E.llvm.11287192499721329835.e
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(inaccessiblemem: write) uwtable
-define hidden noundef i32 @_ZN5salsa8revision8Revision6as_u3217h9e226893e214e7caE.llvm.11287192499721329835(i32 noundef returned %0) unnamed_addr #13 {
+define hidden noundef range(i32 1, 0) i32 @_ZN5salsa8revision8Revision6as_u3217h9e226893e214e7caE.llvm.11287192499721329835(i32 noundef returned %0) unnamed_addr #13 {
   %2 = icmp ne i32 %0, 0
   tail call void @llvm.assume(i1 %2)
   ret i32 %0
@@ -932,7 +932,7 @@ define noundef zeroext i1 @"_ZN62_$LT$salsa..revision..Revision$u20$as$u20$core.
 }
 
 ; Function Attrs: nonlazybind uwtable
-define noundef i32 @_ZN5salsa8revision14AtomicRevision4load17h37bfb12256a446d3E(ptr nocapture noundef nonnull readonly align 4 %0) unnamed_addr #2 {
+define noundef range(i32 1, 0) i32 @_ZN5salsa8revision14AtomicRevision4load17h37bfb12256a446d3E(ptr nocapture noundef nonnull readonly align 4 %0) unnamed_addr #2 {
   %2 = load atomic i32, ptr %0 seq_cst, align 4
   %3 = icmp eq i32 %2, 0
   br i1 %3, label %4, label %_ZN5salsa8revision8Revision4from17hb93d0eb08db12490E.llvm.11287192499721329835.exit
@@ -954,7 +954,7 @@ define void @_ZN5salsa8revision14AtomicRevision5store17ha68888389602ab5eE(ptr no
 }
 
 ; Function Attrs: nonlazybind uwtable
-define noundef i32 @_ZN5salsa8revision14AtomicRevision20fetch_then_increment17hc700835bfc29cb0bE(ptr nocapture noundef nonnull align 4 %0) unnamed_addr #2 {
+define noundef range(i32 1, 0) i32 @_ZN5salsa8revision14AtomicRevision20fetch_then_increment17hc700835bfc29cb0bE(ptr nocapture noundef nonnull align 4 %0) unnamed_addr #2 {
   %2 = alloca { { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }, align 8
   %3 = atomicrmw add ptr %0, i32 1 seq_cst, align 4
   switch i32 %3, label %_ZN5salsa8revision8Revision4from17hb93d0eb08db12490E.llvm.11287192499721329835.exit [

@@ -743,7 +743,7 @@ define void @Bbl_ManSortCubes(ptr nocapture noundef %0, i32 noundef %1, i32 noun
   %indvars.iv33 = phi i64 [ 0, %.lr.ph28 ], [ %indvars.iv.next34, %._crit_edge ]
   %indvars.iv = phi i64 [ 1, %.lr.ph28 ], [ %indvars.iv.next, %._crit_edge ]
   %indvars.iv.next34 = add nuw nsw i64 %indvars.iv33, 1
-  %7 = trunc i64 %indvars.iv33 to i32
+  %7 = trunc nuw nsw i64 %indvars.iv33 to i32
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
@@ -756,7 +756,7 @@ define void @Bbl_ManSortCubes(ptr nocapture noundef %0, i32 noundef %1, i32 noun
   %12 = load ptr, ptr %11, align 8
   %13 = tail call i32 @memcmp(ptr noundef %9, ptr noundef %12, i64 noundef %6) #26
   %14 = icmp slt i32 %13, 0
-  %15 = trunc i64 %indvars.iv30 to i32
+  %15 = trunc nuw nsw i64 %indvars.iv30 to i32
   %spec.select = select i1 %14, i32 %15, i32 %.025
   %indvars.iv.next31 = add nuw nsw i64 %indvars.iv30, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next31, %wide.trip.count
@@ -828,7 +828,7 @@ define noalias noundef ptr @Bbl_ManSortSop(ptr noundef %0, i32 noundef %1) local
 .lr.ph.preheader.i:                               ; preds = %._crit_edge.i, %.lr.ph28.i
   %indvars.iv33.i = phi i64 [ 0, %.lr.ph28.i ], [ %indvars.iv.next34.i, %._crit_edge.i ]
   %indvars.iv.i = phi i64 [ 1, %.lr.ph28.i ], [ %indvars.iv.next.i, %._crit_edge.i ]
-  %25 = trunc i64 %indvars.iv33.i to i32
+  %25 = trunc nuw nsw i64 %indvars.iv33.i to i32
   br label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %.lr.ph.i, %.lr.ph.preheader.i
@@ -841,7 +841,7 @@ define noalias noundef ptr @Bbl_ManSortSop(ptr noundef %0, i32 noundef %1) local
   %30 = load ptr, ptr %29, align 8
   %31 = tail call i32 @memcmp(ptr noundef %27, ptr noundef %30, i64 noundef %24) #26
   %32 = icmp slt i32 %31, 0
-  %33 = trunc i64 %indvars.iv30.i to i32
+  %33 = trunc nuw nsw i64 %indvars.iv30.i to i32
   %spec.select.i = select i1 %32, i32 %33, i32 %.025.i
   %indvars.iv.next31.i = add nuw nsw i64 %indvars.iv30.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next31.i, %13
@@ -1418,7 +1418,7 @@ define void @Bbl_ManAddFanin(ptr nocapture noundef readonly %0, i32 noundef %1, 
 
 15:                                               ; preds = %3
   %16 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.10, i32 noundef %1)
-  br label %45
+  br label %41
 
 17:                                               ; preds = %3
   %18 = sext i32 %2 to i64
@@ -1434,7 +1434,7 @@ define void @Bbl_ManAddFanin(ptr nocapture noundef readonly %0, i32 noundef %1, 
 
 25:                                               ; preds = %17
   %26 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.11, i32 noundef %2)
-  br label %45
+  br label %41
 
 27:                                               ; preds = %17
   %28 = getelementptr inbounds i8, ptr %0, i64 40
@@ -1449,27 +1449,24 @@ define void @Bbl_ManAddFanin(ptr nocapture noundef readonly %0, i32 noundef %1, 
 
 34:                                               ; preds = %27
   %35 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.12, i32 noundef %1, i32 noundef %33)
-  br label %45
+  br label %41
 
 36:                                               ; preds = %27
   %37 = add nsw i32 %32, 1
   store i32 %37, ptr %31, align 4
-  %38 = ptrtoint ptr %12 to i64
-  %39 = ptrtoint ptr %22 to i64
-  %40 = sub i64 %38, %39
-  %41 = trunc i64 %40 to i32
-  %42 = getelementptr inbounds i8, ptr %12, i64 12
-  %43 = sext i32 %32 to i64
-  %44 = getelementptr inbounds [0 x i32], ptr %42, i64 0, i64 %43
-  store i32 %41, ptr %44, align 4
-  br label %45
+  %gepdiff = sub i32 %10, %20
+  %38 = getelementptr inbounds i8, ptr %12, i64 12
+  %39 = sext i32 %32 to i64
+  %40 = getelementptr inbounds [0 x i32], ptr %38, i64 0, i64 %39
+  store i32 %gepdiff, ptr %40, align 4
+  br label %41
 
-45:                                               ; preds = %36, %34, %25, %15
+41:                                               ; preds = %36, %34, %25, %15
   ret void
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define i32 @Bbl_ManCheck(ptr nocapture noundef readonly %0) local_unnamed_addr #3 {
+define range(i32 0, 2) i32 @Bbl_ManCheck(ptr nocapture noundef readonly %0) local_unnamed_addr #3 {
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds i8, ptr %3, i64 4
@@ -1587,7 +1584,7 @@ define i32 @Bbl_ManCheck(ptr nocapture noundef readonly %0) local_unnamed_addr #
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define i32 @Bbl_ObjIsInput(ptr nocapture noundef readonly %0) local_unnamed_addr #13 {
+define range(i32 0, 2) i32 @Bbl_ObjIsInput(ptr nocapture noundef readonly %0) local_unnamed_addr #13 {
   %2 = getelementptr i8, ptr %0, i64 8
   %.val = load i32, ptr %2, align 4
   %3 = and i32 %.val, 1
@@ -1595,7 +1592,7 @@ define i32 @Bbl_ObjIsInput(ptr nocapture noundef readonly %0) local_unnamed_addr
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define i32 @Bbl_ObjIsOutput(ptr nocapture noundef readonly %0) local_unnamed_addr #13 {
+define range(i32 0, 2) i32 @Bbl_ObjIsOutput(ptr nocapture noundef readonly %0) local_unnamed_addr #13 {
   %2 = getelementptr i8, ptr %0, i64 8
   %.val = load i32, ptr %2, align 4
   %3 = lshr i32 %.val, 1
@@ -1604,7 +1601,7 @@ define i32 @Bbl_ObjIsOutput(ptr nocapture noundef readonly %0) local_unnamed_add
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define i32 @Bbl_ObjIsLut(ptr nocapture noundef readonly %0) local_unnamed_addr #13 {
+define range(i32 0, 2) i32 @Bbl_ObjIsLut(ptr nocapture noundef readonly %0) local_unnamed_addr #13 {
   %2 = getelementptr i8, ptr %0, i64 8
   %.val = load i32, ptr %2, align 4
   %3 = and i32 %.val, 1
@@ -1636,7 +1633,7 @@ define i32 @Bbl_ObjIdOriginal(ptr nocapture noundef readonly %0, ptr nocapture n
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define i32 @Bbl_ObjFaninNumber(ptr nocapture noundef readonly %0) local_unnamed_addr #13 {
+define range(i32 0, 268435456) i32 @Bbl_ObjFaninNumber(ptr nocapture noundef readonly %0) local_unnamed_addr #13 {
   %2 = getelementptr i8, ptr %0, i64 8
   %.val = load i32, ptr %2, align 4
   %3 = lshr i32 %.val, 4
@@ -1658,7 +1655,7 @@ define nonnull ptr @Bbl_ObjSop(ptr nocapture noundef readonly %0, ptr nocapture 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define i32 @Bbl_ObjIsMarked(ptr nocapture noundef readonly %0) local_unnamed_addr #13 {
+define range(i32 0, 2) i32 @Bbl_ObjIsMarked(ptr nocapture noundef readonly %0) local_unnamed_addr #13 {
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   %3 = load i32, ptr %2, align 4
   %4 = lshr i32 %3, 3
@@ -1779,7 +1776,7 @@ define ptr @Bbl_ObjFaninNext(ptr noundef readonly %0, ptr noundef readnone %1) l
   br i1 %exitcond.not, label %.critedge.thread, label %.lr.ph.split, !llvm.loop !16
 
 .critedge.loopexit:                               ; preds = %.lr.ph.split
-  %14 = trunc i64 %indvars.iv to i32
+  %14 = trunc nuw nsw i64 %indvars.iv to i32
   br label %.critedge
 
 .critedge:                                        ; preds = %.critedge.loopexit, %2
@@ -1889,7 +1886,7 @@ define void @Bbl_ManDumpBlif(ptr nocapture noundef readonly %0, ptr nocapture no
   br i1 %exitcond.not.i, label %._crit_edge, label %.lr.ph.split.i, !llvm.loop !16
 
 .critedge.loopexit.i:                             ; preds = %.lr.ph.split.i
-  %37 = trunc i64 %indvars.iv.i to i32
+  %37 = trunc nuw nsw i64 %indvars.iv.i to i32
   br label %.critedge.i
 
 .critedge.i:                                      ; preds = %.critedge.loopexit.i, %28
@@ -1993,7 +1990,7 @@ select.unfold._crit_edge:                         ; preds = %select.unfold
   br i1 %exitcond.not.i70, label %._crit_edge89, label %.lr.ph.split.i67, !llvm.loop !16
 
 .critedge.loopexit.i71:                           ; preds = %.lr.ph.split.i67
-  %80 = trunc i64 %indvars.iv.i68 to i32
+  %80 = trunc nuw nsw i64 %indvars.iv.i68 to i32
   br label %.critedge.i72
 
 .critedge.i72:                                    ; preds = %.critedge.loopexit.i71, %71
@@ -2267,7 +2264,7 @@ define noalias noundef ptr @Bbl_ManSopToTruth(ptr noundef readonly %0, i32 nound
 
 34:                                               ; preds = %.preheader24.us.us.i, %34
   %indvars.iv62.i = phi i64 [ 0, %.preheader24.us.us.i ], [ %indvars.iv.next63.i, %34 ]
-  %35 = trunc i64 %indvars.iv62.i to i32
+  %35 = trunc nuw nsw i64 %indvars.iv62.i to i32
   %36 = and i32 %46, %35
   %.not.us.us.i = icmp ne i32 %36, 0
   %37 = getelementptr inbounds i32, ptr %48, i64 %indvars.iv62.i
@@ -2573,438 +2570,414 @@ define void @Bbl_ManSimpleDemo() local_unnamed_addr #0 {
 32:                                               ; preds = %23
   %33 = add nsw i32 %28, 1
   store i32 %33, ptr %27, align 4
-  %34 = ptrtoint ptr %9 to i64
-  %35 = ptrtoint ptr %18 to i64
-  %36 = sub i64 %34, %35
-  %37 = trunc i64 %36 to i32
-  %38 = getelementptr inbounds i8, ptr %9, i64 12
-  %39 = sext i32 %28 to i64
-  %40 = getelementptr inbounds [0 x i32], ptr %38, i64 0, i64 %39
-  store i32 %37, ptr %40, align 4
+  %gepdiff.i = sub i32 %7, %16
+  %34 = getelementptr inbounds i8, ptr %9, i64 12
+  %35 = sext i32 %28 to i64
+  %36 = getelementptr inbounds [0 x i32], ptr %34, i64 0, i64 %35
+  store i32 %gepdiff.i, ptr %36, align 4
   br label %Bbl_ManAddFanin.exit
 
 Bbl_ManAddFanin.exit:                             ; preds = %12, %21, %30, %32
   %.val23.val.i21 = load ptr, ptr %4, align 8
   %.val24.val.i22 = load ptr, ptr %5, align 8
-  %41 = getelementptr inbounds i8, ptr %.val24.val.i22, i64 24
-  %42 = load i32, ptr %41, align 4
-  %43 = sext i32 %42 to i64
-  %44 = getelementptr inbounds i8, ptr %.val23.val.i21, i64 %43
-  %45 = getelementptr i8, ptr %44, i64 8
-  %.val27.i23 = load i32, ptr %45, align 4
-  %46 = and i32 %.val27.i23, 1
-  %.not.i24 = icmp eq i32 %46, 0
-  br i1 %.not.i24, label %49, label %47
+  %37 = getelementptr inbounds i8, ptr %.val24.val.i22, i64 24
+  %38 = load i32, ptr %37, align 4
+  %39 = sext i32 %38 to i64
+  %40 = getelementptr inbounds i8, ptr %.val23.val.i21, i64 %39
+  %41 = getelementptr i8, ptr %40, i64 8
+  %.val27.i23 = load i32, ptr %41, align 4
+  %42 = and i32 %.val27.i23, 1
+  %.not.i24 = icmp eq i32 %42, 0
+  br i1 %.not.i24, label %45, label %43
 
-47:                                               ; preds = %Bbl_ManAddFanin.exit
-  %48 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.10, i32 noundef 6)
-  br label %Bbl_ManAddFanin.exit29
+43:                                               ; preds = %Bbl_ManAddFanin.exit
+  %44 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.10, i32 noundef 6)
+  br label %Bbl_ManAddFanin.exit30
 
-49:                                               ; preds = %Bbl_ManAddFanin.exit
-  %50 = getelementptr inbounds i8, ptr %.val24.val.i22, i64 8
-  %51 = load i32, ptr %50, align 4
-  %52 = sext i32 %51 to i64
-  %53 = getelementptr inbounds i8, ptr %.val23.val.i21, i64 %52
-  %54 = getelementptr i8, ptr %53, i64 8
-  %.val28.i25 = load i32, ptr %54, align 4
-  %55 = and i32 %.val28.i25, 2
-  %.not21.i26 = icmp eq i32 %55, 0
-  br i1 %.not21.i26, label %58, label %56
+45:                                               ; preds = %Bbl_ManAddFanin.exit
+  %46 = getelementptr inbounds i8, ptr %.val24.val.i22, i64 8
+  %47 = load i32, ptr %46, align 4
+  %48 = sext i32 %47 to i64
+  %49 = getelementptr inbounds i8, ptr %.val23.val.i21, i64 %48
+  %50 = getelementptr i8, ptr %49, i64 8
+  %.val28.i25 = load i32, ptr %50, align 4
+  %51 = and i32 %.val28.i25, 2
+  %.not21.i26 = icmp eq i32 %51, 0
+  br i1 %.not21.i26, label %54, label %52
 
-56:                                               ; preds = %49
-  %57 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.11, i32 noundef 2)
-  br label %Bbl_ManAddFanin.exit29
+52:                                               ; preds = %45
+  %53 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.11, i32 noundef 2)
+  br label %Bbl_ManAddFanin.exit30
 
-58:                                               ; preds = %49
-  %59 = getelementptr inbounds i8, ptr %1, i64 40
-  %60 = load ptr, ptr %59, align 8
-  %61 = getelementptr i8, ptr %60, i64 8
-  %.val29.i27 = load ptr, ptr %61, align 8
-  %62 = getelementptr inbounds i8, ptr %.val29.i27, i64 24
-  %63 = load i32, ptr %62, align 4
-  %64 = lshr i32 %.val27.i23, 4
-  %.not22.i28 = icmp slt i32 %63, %64
-  br i1 %.not22.i28, label %67, label %65
+54:                                               ; preds = %45
+  %55 = getelementptr inbounds i8, ptr %1, i64 40
+  %56 = load ptr, ptr %55, align 8
+  %57 = getelementptr i8, ptr %56, i64 8
+  %.val29.i27 = load ptr, ptr %57, align 8
+  %58 = getelementptr inbounds i8, ptr %.val29.i27, i64 24
+  %59 = load i32, ptr %58, align 4
+  %60 = lshr i32 %.val27.i23, 4
+  %.not22.i28 = icmp slt i32 %59, %60
+  br i1 %.not22.i28, label %63, label %61
 
-65:                                               ; preds = %58
-  %66 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.12, i32 noundef 6, i32 noundef %64)
-  br label %Bbl_ManAddFanin.exit29
+61:                                               ; preds = %54
+  %62 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.12, i32 noundef 6, i32 noundef %60)
+  br label %Bbl_ManAddFanin.exit30
 
-67:                                               ; preds = %58
-  %68 = add nsw i32 %63, 1
-  store i32 %68, ptr %62, align 4
-  %69 = ptrtoint ptr %44 to i64
-  %70 = ptrtoint ptr %53 to i64
-  %71 = sub i64 %69, %70
-  %72 = trunc i64 %71 to i32
-  %73 = getelementptr inbounds i8, ptr %44, i64 12
-  %74 = sext i32 %63 to i64
-  %75 = getelementptr inbounds [0 x i32], ptr %73, i64 0, i64 %74
-  store i32 %72, ptr %75, align 4
-  br label %Bbl_ManAddFanin.exit29
+63:                                               ; preds = %54
+  %64 = add nsw i32 %59, 1
+  store i32 %64, ptr %58, align 4
+  %gepdiff.i29 = sub i32 %38, %47
+  %65 = getelementptr inbounds i8, ptr %40, i64 12
+  %66 = sext i32 %59 to i64
+  %67 = getelementptr inbounds [0 x i32], ptr %65, i64 0, i64 %66
+  store i32 %gepdiff.i29, ptr %67, align 4
+  br label %Bbl_ManAddFanin.exit30
 
-Bbl_ManAddFanin.exit29:                           ; preds = %47, %56, %65, %67
-  %.val23.val.i32 = load ptr, ptr %4, align 8
-  %.val24.val.i33 = load ptr, ptr %5, align 8
-  %76 = getelementptr inbounds i8, ptr %.val24.val.i33, i64 24
-  %77 = load i32, ptr %76, align 4
-  %78 = sext i32 %77 to i64
-  %79 = getelementptr inbounds i8, ptr %.val23.val.i32, i64 %78
-  %80 = getelementptr i8, ptr %79, i64 8
-  %.val27.i34 = load i32, ptr %80, align 4
-  %81 = and i32 %.val27.i34, 1
-  %.not.i35 = icmp eq i32 %81, 0
-  br i1 %.not.i35, label %84, label %82
+Bbl_ManAddFanin.exit30:                           ; preds = %43, %52, %61, %63
+  %.val23.val.i33 = load ptr, ptr %4, align 8
+  %.val24.val.i34 = load ptr, ptr %5, align 8
+  %68 = getelementptr inbounds i8, ptr %.val24.val.i34, i64 24
+  %69 = load i32, ptr %68, align 4
+  %70 = sext i32 %69 to i64
+  %71 = getelementptr inbounds i8, ptr %.val23.val.i33, i64 %70
+  %72 = getelementptr i8, ptr %71, i64 8
+  %.val27.i35 = load i32, ptr %72, align 4
+  %73 = and i32 %.val27.i35, 1
+  %.not.i36 = icmp eq i32 %73, 0
+  br i1 %.not.i36, label %76, label %74
 
-82:                                               ; preds = %Bbl_ManAddFanin.exit29
-  %83 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.10, i32 noundef 6)
-  br label %Bbl_ManAddFanin.exit40
+74:                                               ; preds = %Bbl_ManAddFanin.exit30
+  %75 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.10, i32 noundef 6)
+  br label %Bbl_ManAddFanin.exit42
 
-84:                                               ; preds = %Bbl_ManAddFanin.exit29
-  %85 = getelementptr inbounds i8, ptr %.val24.val.i33, i64 12
-  %86 = load i32, ptr %85, align 4
-  %87 = sext i32 %86 to i64
-  %88 = getelementptr inbounds i8, ptr %.val23.val.i32, i64 %87
-  %89 = getelementptr i8, ptr %88, i64 8
-  %.val28.i36 = load i32, ptr %89, align 4
-  %90 = and i32 %.val28.i36, 2
-  %.not21.i37 = icmp eq i32 %90, 0
-  br i1 %.not21.i37, label %93, label %91
+76:                                               ; preds = %Bbl_ManAddFanin.exit30
+  %77 = getelementptr inbounds i8, ptr %.val24.val.i34, i64 12
+  %78 = load i32, ptr %77, align 4
+  %79 = sext i32 %78 to i64
+  %80 = getelementptr inbounds i8, ptr %.val23.val.i33, i64 %79
+  %81 = getelementptr i8, ptr %80, i64 8
+  %.val28.i37 = load i32, ptr %81, align 4
+  %82 = and i32 %.val28.i37, 2
+  %.not21.i38 = icmp eq i32 %82, 0
+  br i1 %.not21.i38, label %85, label %83
 
-91:                                               ; preds = %84
-  %92 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.11, i32 noundef 3)
-  br label %Bbl_ManAddFanin.exit40
+83:                                               ; preds = %76
+  %84 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.11, i32 noundef 3)
+  br label %Bbl_ManAddFanin.exit42
 
-93:                                               ; preds = %84
-  %94 = getelementptr inbounds i8, ptr %1, i64 40
-  %95 = load ptr, ptr %94, align 8
-  %96 = getelementptr i8, ptr %95, i64 8
-  %.val29.i38 = load ptr, ptr %96, align 8
-  %97 = getelementptr inbounds i8, ptr %.val29.i38, i64 24
-  %98 = load i32, ptr %97, align 4
-  %99 = lshr i32 %.val27.i34, 4
-  %.not22.i39 = icmp slt i32 %98, %99
-  br i1 %.not22.i39, label %102, label %100
+85:                                               ; preds = %76
+  %86 = getelementptr inbounds i8, ptr %1, i64 40
+  %87 = load ptr, ptr %86, align 8
+  %88 = getelementptr i8, ptr %87, i64 8
+  %.val29.i39 = load ptr, ptr %88, align 8
+  %89 = getelementptr inbounds i8, ptr %.val29.i39, i64 24
+  %90 = load i32, ptr %89, align 4
+  %91 = lshr i32 %.val27.i35, 4
+  %.not22.i40 = icmp slt i32 %90, %91
+  br i1 %.not22.i40, label %94, label %92
 
-100:                                              ; preds = %93
-  %101 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.12, i32 noundef 6, i32 noundef %99)
-  br label %Bbl_ManAddFanin.exit40
+92:                                               ; preds = %85
+  %93 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.12, i32 noundef 6, i32 noundef %91)
+  br label %Bbl_ManAddFanin.exit42
 
-102:                                              ; preds = %93
-  %103 = add nsw i32 %98, 1
-  store i32 %103, ptr %97, align 4
-  %104 = ptrtoint ptr %79 to i64
-  %105 = ptrtoint ptr %88 to i64
-  %106 = sub i64 %104, %105
-  %107 = trunc i64 %106 to i32
-  %108 = getelementptr inbounds i8, ptr %79, i64 12
-  %109 = sext i32 %98 to i64
-  %110 = getelementptr inbounds [0 x i32], ptr %108, i64 0, i64 %109
-  store i32 %107, ptr %110, align 4
-  br label %Bbl_ManAddFanin.exit40
+94:                                               ; preds = %85
+  %95 = add nsw i32 %90, 1
+  store i32 %95, ptr %89, align 4
+  %gepdiff.i41 = sub i32 %69, %78
+  %96 = getelementptr inbounds i8, ptr %71, i64 12
+  %97 = sext i32 %90 to i64
+  %98 = getelementptr inbounds [0 x i32], ptr %96, i64 0, i64 %97
+  store i32 %gepdiff.i41, ptr %98, align 4
+  br label %Bbl_ManAddFanin.exit42
 
-Bbl_ManAddFanin.exit40:                           ; preds = %82, %91, %100, %102
-  %.val23.val.i43 = load ptr, ptr %4, align 8
-  %.val24.val.i44 = load ptr, ptr %5, align 8
-  %111 = getelementptr inbounds i8, ptr %.val24.val.i44, i64 28
-  %112 = load i32, ptr %111, align 4
-  %113 = sext i32 %112 to i64
-  %114 = getelementptr inbounds i8, ptr %.val23.val.i43, i64 %113
-  %115 = getelementptr i8, ptr %114, i64 8
-  %.val27.i45 = load i32, ptr %115, align 4
-  %116 = and i32 %.val27.i45, 1
-  %.not.i46 = icmp eq i32 %116, 0
-  br i1 %.not.i46, label %119, label %117
+Bbl_ManAddFanin.exit42:                           ; preds = %74, %83, %92, %94
+  %.val23.val.i45 = load ptr, ptr %4, align 8
+  %.val24.val.i46 = load ptr, ptr %5, align 8
+  %99 = getelementptr inbounds i8, ptr %.val24.val.i46, i64 28
+  %100 = load i32, ptr %99, align 4
+  %101 = sext i32 %100 to i64
+  %102 = getelementptr inbounds i8, ptr %.val23.val.i45, i64 %101
+  %103 = getelementptr i8, ptr %102, i64 8
+  %.val27.i47 = load i32, ptr %103, align 4
+  %104 = and i32 %.val27.i47, 1
+  %.not.i48 = icmp eq i32 %104, 0
+  br i1 %.not.i48, label %107, label %105
 
-117:                                              ; preds = %Bbl_ManAddFanin.exit40
-  %118 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.10, i32 noundef 7)
-  br label %Bbl_ManAddFanin.exit51
+105:                                              ; preds = %Bbl_ManAddFanin.exit42
+  %106 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.10, i32 noundef 7)
+  br label %Bbl_ManAddFanin.exit54
 
-119:                                              ; preds = %Bbl_ManAddFanin.exit40
-  %120 = getelementptr inbounds i8, ptr %.val24.val.i44, i64 4
+107:                                              ; preds = %Bbl_ManAddFanin.exit42
+  %108 = getelementptr inbounds i8, ptr %.val24.val.i46, i64 4
+  %109 = load i32, ptr %108, align 4
+  %110 = sext i32 %109 to i64
+  %111 = getelementptr inbounds i8, ptr %.val23.val.i45, i64 %110
+  %112 = getelementptr i8, ptr %111, i64 8
+  %.val28.i49 = load i32, ptr %112, align 4
+  %113 = and i32 %.val28.i49, 2
+  %.not21.i50 = icmp eq i32 %113, 0
+  br i1 %.not21.i50, label %116, label %114
+
+114:                                              ; preds = %107
+  %115 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.11, i32 noundef 1)
+  br label %Bbl_ManAddFanin.exit54
+
+116:                                              ; preds = %107
+  %117 = getelementptr inbounds i8, ptr %1, i64 40
+  %118 = load ptr, ptr %117, align 8
+  %119 = getelementptr i8, ptr %118, i64 8
+  %.val29.i51 = load ptr, ptr %119, align 8
+  %120 = getelementptr inbounds i8, ptr %.val29.i51, i64 28
   %121 = load i32, ptr %120, align 4
-  %122 = sext i32 %121 to i64
-  %123 = getelementptr inbounds i8, ptr %.val23.val.i43, i64 %122
-  %124 = getelementptr i8, ptr %123, i64 8
-  %.val28.i47 = load i32, ptr %124, align 4
-  %125 = and i32 %.val28.i47, 2
-  %.not21.i48 = icmp eq i32 %125, 0
-  br i1 %.not21.i48, label %128, label %126
+  %122 = lshr i32 %.val27.i47, 4
+  %.not22.i52 = icmp slt i32 %121, %122
+  br i1 %.not22.i52, label %125, label %123
 
-126:                                              ; preds = %119
-  %127 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.11, i32 noundef 1)
-  br label %Bbl_ManAddFanin.exit51
+123:                                              ; preds = %116
+  %124 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.12, i32 noundef 7, i32 noundef %122)
+  br label %Bbl_ManAddFanin.exit54
 
-128:                                              ; preds = %119
-  %129 = getelementptr inbounds i8, ptr %1, i64 40
-  %130 = load ptr, ptr %129, align 8
-  %131 = getelementptr i8, ptr %130, i64 8
-  %.val29.i49 = load ptr, ptr %131, align 8
-  %132 = getelementptr inbounds i8, ptr %.val29.i49, i64 28
-  %133 = load i32, ptr %132, align 4
-  %134 = lshr i32 %.val27.i45, 4
-  %.not22.i50 = icmp slt i32 %133, %134
-  br i1 %.not22.i50, label %137, label %135
+125:                                              ; preds = %116
+  %126 = add nsw i32 %121, 1
+  store i32 %126, ptr %120, align 4
+  %gepdiff.i53 = sub i32 %100, %109
+  %127 = getelementptr inbounds i8, ptr %102, i64 12
+  %128 = sext i32 %121 to i64
+  %129 = getelementptr inbounds [0 x i32], ptr %127, i64 0, i64 %128
+  store i32 %gepdiff.i53, ptr %129, align 4
+  br label %Bbl_ManAddFanin.exit54
 
-135:                                              ; preds = %128
-  %136 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.12, i32 noundef 7, i32 noundef %134)
-  br label %Bbl_ManAddFanin.exit51
+Bbl_ManAddFanin.exit54:                           ; preds = %105, %114, %123, %125
+  %.val23.val.i57 = load ptr, ptr %4, align 8
+  %.val24.val.i58 = load ptr, ptr %5, align 8
+  %130 = getelementptr inbounds i8, ptr %.val24.val.i58, i64 28
+  %131 = load i32, ptr %130, align 4
+  %132 = sext i32 %131 to i64
+  %133 = getelementptr inbounds i8, ptr %.val23.val.i57, i64 %132
+  %134 = getelementptr i8, ptr %133, i64 8
+  %.val27.i59 = load i32, ptr %134, align 4
+  %135 = and i32 %.val27.i59, 1
+  %.not.i60 = icmp eq i32 %135, 0
+  br i1 %.not.i60, label %138, label %136
 
-137:                                              ; preds = %128
-  %138 = add nsw i32 %133, 1
-  store i32 %138, ptr %132, align 4
-  %139 = ptrtoint ptr %114 to i64
-  %140 = ptrtoint ptr %123 to i64
-  %141 = sub i64 %139, %140
-  %142 = trunc i64 %141 to i32
-  %143 = getelementptr inbounds i8, ptr %114, i64 12
-  %144 = sext i32 %133 to i64
-  %145 = getelementptr inbounds [0 x i32], ptr %143, i64 0, i64 %144
-  store i32 %142, ptr %145, align 4
-  br label %Bbl_ManAddFanin.exit51
+136:                                              ; preds = %Bbl_ManAddFanin.exit54
+  %137 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.10, i32 noundef 7)
+  br label %Bbl_ManAddFanin.exit66
 
-Bbl_ManAddFanin.exit51:                           ; preds = %117, %126, %135, %137
-  %.val23.val.i54 = load ptr, ptr %4, align 8
-  %.val24.val.i55 = load ptr, ptr %5, align 8
-  %146 = getelementptr inbounds i8, ptr %.val24.val.i55, i64 28
-  %147 = load i32, ptr %146, align 4
-  %148 = sext i32 %147 to i64
-  %149 = getelementptr inbounds i8, ptr %.val23.val.i54, i64 %148
+138:                                              ; preds = %Bbl_ManAddFanin.exit54
+  %139 = getelementptr inbounds i8, ptr %.val24.val.i58, i64 8
+  %140 = load i32, ptr %139, align 4
+  %141 = sext i32 %140 to i64
+  %142 = getelementptr inbounds i8, ptr %.val23.val.i57, i64 %141
+  %143 = getelementptr i8, ptr %142, i64 8
+  %.val28.i61 = load i32, ptr %143, align 4
+  %144 = and i32 %.val28.i61, 2
+  %.not21.i62 = icmp eq i32 %144, 0
+  br i1 %.not21.i62, label %147, label %145
+
+145:                                              ; preds = %138
+  %146 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.11, i32 noundef 2)
+  br label %Bbl_ManAddFanin.exit66
+
+147:                                              ; preds = %138
+  %148 = getelementptr inbounds i8, ptr %1, i64 40
+  %149 = load ptr, ptr %148, align 8
   %150 = getelementptr i8, ptr %149, i64 8
-  %.val27.i56 = load i32, ptr %150, align 4
-  %151 = and i32 %.val27.i56, 1
-  %.not.i57 = icmp eq i32 %151, 0
-  br i1 %.not.i57, label %154, label %152
+  %.val29.i63 = load ptr, ptr %150, align 8
+  %151 = getelementptr inbounds i8, ptr %.val29.i63, i64 28
+  %152 = load i32, ptr %151, align 4
+  %153 = lshr i32 %.val27.i59, 4
+  %.not22.i64 = icmp slt i32 %152, %153
+  br i1 %.not22.i64, label %156, label %154
 
-152:                                              ; preds = %Bbl_ManAddFanin.exit51
-  %153 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.10, i32 noundef 7)
-  br label %Bbl_ManAddFanin.exit62
+154:                                              ; preds = %147
+  %155 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.12, i32 noundef 7, i32 noundef %153)
+  br label %Bbl_ManAddFanin.exit66
 
-154:                                              ; preds = %Bbl_ManAddFanin.exit51
-  %155 = getelementptr inbounds i8, ptr %.val24.val.i55, i64 8
-  %156 = load i32, ptr %155, align 4
-  %157 = sext i32 %156 to i64
-  %158 = getelementptr inbounds i8, ptr %.val23.val.i54, i64 %157
-  %159 = getelementptr i8, ptr %158, i64 8
-  %.val28.i58 = load i32, ptr %159, align 4
-  %160 = and i32 %.val28.i58, 2
-  %.not21.i59 = icmp eq i32 %160, 0
-  br i1 %.not21.i59, label %163, label %161
+156:                                              ; preds = %147
+  %157 = add nsw i32 %152, 1
+  store i32 %157, ptr %151, align 4
+  %gepdiff.i65 = sub i32 %131, %140
+  %158 = getelementptr inbounds i8, ptr %133, i64 12
+  %159 = sext i32 %152 to i64
+  %160 = getelementptr inbounds [0 x i32], ptr %158, i64 0, i64 %159
+  store i32 %gepdiff.i65, ptr %160, align 4
+  br label %Bbl_ManAddFanin.exit66
 
-161:                                              ; preds = %154
-  %162 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.11, i32 noundef 2)
-  br label %Bbl_ManAddFanin.exit62
+Bbl_ManAddFanin.exit66:                           ; preds = %136, %145, %154, %156
+  %.val23.val.i69 = load ptr, ptr %4, align 8
+  %.val24.val.i70 = load ptr, ptr %5, align 8
+  %161 = getelementptr inbounds i8, ptr %.val24.val.i70, i64 28
+  %162 = load i32, ptr %161, align 4
+  %163 = sext i32 %162 to i64
+  %164 = getelementptr inbounds i8, ptr %.val23.val.i69, i64 %163
+  %165 = getelementptr i8, ptr %164, i64 8
+  %.val27.i71 = load i32, ptr %165, align 4
+  %166 = and i32 %.val27.i71, 1
+  %.not.i72 = icmp eq i32 %166, 0
+  br i1 %.not.i72, label %169, label %167
 
-163:                                              ; preds = %154
-  %164 = getelementptr inbounds i8, ptr %1, i64 40
-  %165 = load ptr, ptr %164, align 8
-  %166 = getelementptr i8, ptr %165, i64 8
-  %.val29.i60 = load ptr, ptr %166, align 8
-  %167 = getelementptr inbounds i8, ptr %.val29.i60, i64 28
-  %168 = load i32, ptr %167, align 4
-  %169 = lshr i32 %.val27.i56, 4
-  %.not22.i61 = icmp slt i32 %168, %169
-  br i1 %.not22.i61, label %172, label %170
+167:                                              ; preds = %Bbl_ManAddFanin.exit66
+  %168 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.10, i32 noundef 7)
+  br label %Bbl_ManAddFanin.exit78
 
-170:                                              ; preds = %163
-  %171 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.12, i32 noundef 7, i32 noundef %169)
-  br label %Bbl_ManAddFanin.exit62
+169:                                              ; preds = %Bbl_ManAddFanin.exit66
+  %170 = getelementptr inbounds i8, ptr %.val24.val.i70, i64 12
+  %171 = load i32, ptr %170, align 4
+  %172 = sext i32 %171 to i64
+  %173 = getelementptr inbounds i8, ptr %.val23.val.i69, i64 %172
+  %174 = getelementptr i8, ptr %173, i64 8
+  %.val28.i73 = load i32, ptr %174, align 4
+  %175 = and i32 %.val28.i73, 2
+  %.not21.i74 = icmp eq i32 %175, 0
+  br i1 %.not21.i74, label %178, label %176
 
-172:                                              ; preds = %163
-  %173 = add nsw i32 %168, 1
-  store i32 %173, ptr %167, align 4
-  %174 = ptrtoint ptr %149 to i64
-  %175 = ptrtoint ptr %158 to i64
-  %176 = sub i64 %174, %175
-  %177 = trunc i64 %176 to i32
-  %178 = getelementptr inbounds i8, ptr %149, i64 12
-  %179 = sext i32 %168 to i64
-  %180 = getelementptr inbounds [0 x i32], ptr %178, i64 0, i64 %179
-  store i32 %177, ptr %180, align 4
-  br label %Bbl_ManAddFanin.exit62
+176:                                              ; preds = %169
+  %177 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.11, i32 noundef 3)
+  br label %Bbl_ManAddFanin.exit78
 
-Bbl_ManAddFanin.exit62:                           ; preds = %152, %161, %170, %172
-  %.val23.val.i65 = load ptr, ptr %4, align 8
-  %.val24.val.i66 = load ptr, ptr %5, align 8
-  %181 = getelementptr inbounds i8, ptr %.val24.val.i66, i64 28
-  %182 = load i32, ptr %181, align 4
-  %183 = sext i32 %182 to i64
-  %184 = getelementptr inbounds i8, ptr %.val23.val.i65, i64 %183
-  %185 = getelementptr i8, ptr %184, i64 8
-  %.val27.i67 = load i32, ptr %185, align 4
-  %186 = and i32 %.val27.i67, 1
-  %.not.i68 = icmp eq i32 %186, 0
-  br i1 %.not.i68, label %189, label %187
+178:                                              ; preds = %169
+  %179 = getelementptr inbounds i8, ptr %1, i64 40
+  %180 = load ptr, ptr %179, align 8
+  %181 = getelementptr i8, ptr %180, i64 8
+  %.val29.i75 = load ptr, ptr %181, align 8
+  %182 = getelementptr inbounds i8, ptr %.val29.i75, i64 28
+  %183 = load i32, ptr %182, align 4
+  %184 = lshr i32 %.val27.i71, 4
+  %.not22.i76 = icmp slt i32 %183, %184
+  br i1 %.not22.i76, label %187, label %185
 
-187:                                              ; preds = %Bbl_ManAddFanin.exit62
-  %188 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.10, i32 noundef 7)
-  br label %Bbl_ManAddFanin.exit73
+185:                                              ; preds = %178
+  %186 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.12, i32 noundef 7, i32 noundef %184)
+  br label %Bbl_ManAddFanin.exit78
 
-189:                                              ; preds = %Bbl_ManAddFanin.exit62
-  %190 = getelementptr inbounds i8, ptr %.val24.val.i66, i64 12
-  %191 = load i32, ptr %190, align 4
-  %192 = sext i32 %191 to i64
-  %193 = getelementptr inbounds i8, ptr %.val23.val.i65, i64 %192
-  %194 = getelementptr i8, ptr %193, i64 8
-  %.val28.i69 = load i32, ptr %194, align 4
-  %195 = and i32 %.val28.i69, 2
-  %.not21.i70 = icmp eq i32 %195, 0
-  br i1 %.not21.i70, label %198, label %196
+187:                                              ; preds = %178
+  %188 = add nsw i32 %183, 1
+  store i32 %188, ptr %182, align 4
+  %gepdiff.i77 = sub i32 %162, %171
+  %189 = getelementptr inbounds i8, ptr %164, i64 12
+  %190 = sext i32 %183 to i64
+  %191 = getelementptr inbounds [0 x i32], ptr %189, i64 0, i64 %190
+  store i32 %gepdiff.i77, ptr %191, align 4
+  br label %Bbl_ManAddFanin.exit78
 
-196:                                              ; preds = %189
-  %197 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.11, i32 noundef 3)
-  br label %Bbl_ManAddFanin.exit73
+Bbl_ManAddFanin.exit78:                           ; preds = %167, %176, %185, %187
+  %.val23.val.i81 = load ptr, ptr %4, align 8
+  %.val24.val.i82 = load ptr, ptr %5, align 8
+  %192 = getelementptr inbounds i8, ptr %.val24.val.i82, i64 16
+  %193 = load i32, ptr %192, align 4
+  %194 = sext i32 %193 to i64
+  %195 = getelementptr inbounds i8, ptr %.val23.val.i81, i64 %194
+  %196 = getelementptr i8, ptr %195, i64 8
+  %.val27.i83 = load i32, ptr %196, align 4
+  %197 = and i32 %.val27.i83, 1
+  %.not.i84 = icmp eq i32 %197, 0
+  br i1 %.not.i84, label %200, label %198
 
-198:                                              ; preds = %189
-  %199 = getelementptr inbounds i8, ptr %1, i64 40
-  %200 = load ptr, ptr %199, align 8
-  %201 = getelementptr i8, ptr %200, i64 8
-  %.val29.i71 = load ptr, ptr %201, align 8
-  %202 = getelementptr inbounds i8, ptr %.val29.i71, i64 28
-  %203 = load i32, ptr %202, align 4
-  %204 = lshr i32 %.val27.i67, 4
-  %.not22.i72 = icmp slt i32 %203, %204
-  br i1 %.not22.i72, label %207, label %205
+198:                                              ; preds = %Bbl_ManAddFanin.exit78
+  %199 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.10, i32 noundef 4)
+  br label %Bbl_ManAddFanin.exit90
 
-205:                                              ; preds = %198
-  %206 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.12, i32 noundef 7, i32 noundef %204)
-  br label %Bbl_ManAddFanin.exit73
+200:                                              ; preds = %Bbl_ManAddFanin.exit78
+  %201 = getelementptr inbounds i8, ptr %.val24.val.i82, i64 24
+  %202 = load i32, ptr %201, align 4
+  %203 = sext i32 %202 to i64
+  %204 = getelementptr inbounds i8, ptr %.val23.val.i81, i64 %203
+  %205 = getelementptr i8, ptr %204, i64 8
+  %.val28.i85 = load i32, ptr %205, align 4
+  %206 = and i32 %.val28.i85, 2
+  %.not21.i86 = icmp eq i32 %206, 0
+  br i1 %.not21.i86, label %209, label %207
 
-207:                                              ; preds = %198
-  %208 = add nsw i32 %203, 1
-  store i32 %208, ptr %202, align 4
-  %209 = ptrtoint ptr %184 to i64
-  %210 = ptrtoint ptr %193 to i64
-  %211 = sub i64 %209, %210
-  %212 = trunc i64 %211 to i32
-  %213 = getelementptr inbounds i8, ptr %184, i64 12
-  %214 = sext i32 %203 to i64
-  %215 = getelementptr inbounds [0 x i32], ptr %213, i64 0, i64 %214
-  store i32 %212, ptr %215, align 4
-  br label %Bbl_ManAddFanin.exit73
+207:                                              ; preds = %200
+  %208 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.11, i32 noundef 6)
+  br label %Bbl_ManAddFanin.exit90
 
-Bbl_ManAddFanin.exit73:                           ; preds = %187, %196, %205, %207
-  %.val23.val.i76 = load ptr, ptr %4, align 8
-  %.val24.val.i77 = load ptr, ptr %5, align 8
-  %216 = getelementptr inbounds i8, ptr %.val24.val.i77, i64 16
-  %217 = load i32, ptr %216, align 4
-  %218 = sext i32 %217 to i64
-  %219 = getelementptr inbounds i8, ptr %.val23.val.i76, i64 %218
-  %220 = getelementptr i8, ptr %219, i64 8
-  %.val27.i78 = load i32, ptr %220, align 4
-  %221 = and i32 %.val27.i78, 1
-  %.not.i79 = icmp eq i32 %221, 0
-  br i1 %.not.i79, label %224, label %222
+209:                                              ; preds = %200
+  %210 = getelementptr inbounds i8, ptr %1, i64 40
+  %211 = load ptr, ptr %210, align 8
+  %212 = getelementptr i8, ptr %211, i64 8
+  %.val29.i87 = load ptr, ptr %212, align 8
+  %213 = getelementptr inbounds i8, ptr %.val29.i87, i64 16
+  %214 = load i32, ptr %213, align 4
+  %215 = lshr i32 %.val27.i83, 4
+  %.not22.i88 = icmp slt i32 %214, %215
+  br i1 %.not22.i88, label %218, label %216
 
-222:                                              ; preds = %Bbl_ManAddFanin.exit73
-  %223 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.10, i32 noundef 4)
-  br label %Bbl_ManAddFanin.exit84
+216:                                              ; preds = %209
+  %217 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.12, i32 noundef 4, i32 noundef %215)
+  br label %Bbl_ManAddFanin.exit90
 
-224:                                              ; preds = %Bbl_ManAddFanin.exit73
-  %225 = getelementptr inbounds i8, ptr %.val24.val.i77, i64 24
-  %226 = load i32, ptr %225, align 4
-  %227 = sext i32 %226 to i64
-  %228 = getelementptr inbounds i8, ptr %.val23.val.i76, i64 %227
-  %229 = getelementptr i8, ptr %228, i64 8
-  %.val28.i80 = load i32, ptr %229, align 4
-  %230 = and i32 %.val28.i80, 2
-  %.not21.i81 = icmp eq i32 %230, 0
-  br i1 %.not21.i81, label %233, label %231
+218:                                              ; preds = %209
+  %219 = add nsw i32 %214, 1
+  store i32 %219, ptr %213, align 4
+  %gepdiff.i89 = sub i32 %193, %202
+  %220 = getelementptr inbounds i8, ptr %195, i64 12
+  %221 = sext i32 %214 to i64
+  %222 = getelementptr inbounds [0 x i32], ptr %220, i64 0, i64 %221
+  store i32 %gepdiff.i89, ptr %222, align 4
+  br label %Bbl_ManAddFanin.exit90
 
-231:                                              ; preds = %224
-  %232 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.11, i32 noundef 6)
-  br label %Bbl_ManAddFanin.exit84
+Bbl_ManAddFanin.exit90:                           ; preds = %198, %207, %216, %218
+  %.val23.val.i93 = load ptr, ptr %4, align 8
+  %.val24.val.i94 = load ptr, ptr %5, align 8
+  %223 = getelementptr inbounds i8, ptr %.val24.val.i94, i64 20
+  %224 = load i32, ptr %223, align 4
+  %225 = sext i32 %224 to i64
+  %226 = getelementptr inbounds i8, ptr %.val23.val.i93, i64 %225
+  %227 = getelementptr i8, ptr %226, i64 8
+  %.val27.i95 = load i32, ptr %227, align 4
+  %228 = and i32 %.val27.i95, 1
+  %.not.i96 = icmp eq i32 %228, 0
+  br i1 %.not.i96, label %231, label %229
 
-233:                                              ; preds = %224
-  %234 = getelementptr inbounds i8, ptr %1, i64 40
-  %235 = load ptr, ptr %234, align 8
+229:                                              ; preds = %Bbl_ManAddFanin.exit90
+  %230 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.10, i32 noundef 5)
+  br label %Bbl_ManAddFanin.exit102
+
+231:                                              ; preds = %Bbl_ManAddFanin.exit90
+  %232 = getelementptr inbounds i8, ptr %.val24.val.i94, i64 28
+  %233 = load i32, ptr %232, align 4
+  %234 = sext i32 %233 to i64
+  %235 = getelementptr inbounds i8, ptr %.val23.val.i93, i64 %234
   %236 = getelementptr i8, ptr %235, i64 8
-  %.val29.i82 = load ptr, ptr %236, align 8
-  %237 = getelementptr inbounds i8, ptr %.val29.i82, i64 16
-  %238 = load i32, ptr %237, align 4
-  %239 = lshr i32 %.val27.i78, 4
-  %.not22.i83 = icmp slt i32 %238, %239
-  br i1 %.not22.i83, label %242, label %240
+  %.val28.i97 = load i32, ptr %236, align 4
+  %237 = and i32 %.val28.i97, 2
+  %.not21.i98 = icmp eq i32 %237, 0
+  br i1 %.not21.i98, label %240, label %238
 
-240:                                              ; preds = %233
-  %241 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.12, i32 noundef 4, i32 noundef %239)
-  br label %Bbl_ManAddFanin.exit84
+238:                                              ; preds = %231
+  %239 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.11, i32 noundef 7)
+  br label %Bbl_ManAddFanin.exit102
 
-242:                                              ; preds = %233
-  %243 = add nsw i32 %238, 1
-  store i32 %243, ptr %237, align 4
-  %244 = ptrtoint ptr %219 to i64
-  %245 = ptrtoint ptr %228 to i64
-  %246 = sub i64 %244, %245
-  %247 = trunc i64 %246 to i32
-  %248 = getelementptr inbounds i8, ptr %219, i64 12
-  %249 = sext i32 %238 to i64
-  %250 = getelementptr inbounds [0 x i32], ptr %248, i64 0, i64 %249
-  store i32 %247, ptr %250, align 4
-  br label %Bbl_ManAddFanin.exit84
+240:                                              ; preds = %231
+  %241 = getelementptr inbounds i8, ptr %1, i64 40
+  %242 = load ptr, ptr %241, align 8
+  %243 = getelementptr i8, ptr %242, i64 8
+  %.val29.i99 = load ptr, ptr %243, align 8
+  %244 = getelementptr inbounds i8, ptr %.val29.i99, i64 20
+  %245 = load i32, ptr %244, align 4
+  %246 = lshr i32 %.val27.i95, 4
+  %.not22.i100 = icmp slt i32 %245, %246
+  br i1 %.not22.i100, label %249, label %247
 
-Bbl_ManAddFanin.exit84:                           ; preds = %222, %231, %240, %242
-  %.val23.val.i87 = load ptr, ptr %4, align 8
-  %.val24.val.i88 = load ptr, ptr %5, align 8
-  %251 = getelementptr inbounds i8, ptr %.val24.val.i88, i64 20
-  %252 = load i32, ptr %251, align 4
-  %253 = sext i32 %252 to i64
-  %254 = getelementptr inbounds i8, ptr %.val23.val.i87, i64 %253
-  %255 = getelementptr i8, ptr %254, i64 8
-  %.val27.i89 = load i32, ptr %255, align 4
-  %256 = and i32 %.val27.i89, 1
-  %.not.i90 = icmp eq i32 %256, 0
-  br i1 %.not.i90, label %259, label %257
+247:                                              ; preds = %240
+  %248 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.12, i32 noundef 5, i32 noundef %246)
+  br label %Bbl_ManAddFanin.exit102
 
-257:                                              ; preds = %Bbl_ManAddFanin.exit84
-  %258 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.10, i32 noundef 5)
-  br label %Bbl_ManAddFanin.exit95
+249:                                              ; preds = %240
+  %250 = add nsw i32 %245, 1
+  store i32 %250, ptr %244, align 4
+  %gepdiff.i101 = sub i32 %224, %233
+  %251 = getelementptr inbounds i8, ptr %226, i64 12
+  %252 = sext i32 %245 to i64
+  %253 = getelementptr inbounds [0 x i32], ptr %251, i64 0, i64 %252
+  store i32 %gepdiff.i101, ptr %253, align 4
+  br label %Bbl_ManAddFanin.exit102
 
-259:                                              ; preds = %Bbl_ManAddFanin.exit84
-  %260 = getelementptr inbounds i8, ptr %.val24.val.i88, i64 28
-  %261 = load i32, ptr %260, align 4
-  %262 = sext i32 %261 to i64
-  %263 = getelementptr inbounds i8, ptr %.val23.val.i87, i64 %262
-  %264 = getelementptr i8, ptr %263, i64 8
-  %.val28.i91 = load i32, ptr %264, align 4
-  %265 = and i32 %.val28.i91, 2
-  %.not21.i92 = icmp eq i32 %265, 0
-  br i1 %.not21.i92, label %268, label %266
-
-266:                                              ; preds = %259
-  %267 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.11, i32 noundef 7)
-  br label %Bbl_ManAddFanin.exit95
-
-268:                                              ; preds = %259
-  %269 = getelementptr inbounds i8, ptr %1, i64 40
-  %270 = load ptr, ptr %269, align 8
-  %271 = getelementptr i8, ptr %270, i64 8
-  %.val29.i93 = load ptr, ptr %271, align 8
-  %272 = getelementptr inbounds i8, ptr %.val29.i93, i64 20
-  %273 = load i32, ptr %272, align 4
-  %274 = lshr i32 %.val27.i89, 4
-  %.not22.i94 = icmp slt i32 %273, %274
-  br i1 %.not22.i94, label %277, label %275
-
-275:                                              ; preds = %268
-  %276 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.12, i32 noundef 5, i32 noundef %274)
-  br label %Bbl_ManAddFanin.exit95
-
-277:                                              ; preds = %268
-  %278 = add nsw i32 %273, 1
-  store i32 %278, ptr %272, align 4
-  %279 = ptrtoint ptr %254 to i64
-  %280 = ptrtoint ptr %263 to i64
-  %281 = sub i64 %279, %280
-  %282 = trunc i64 %281 to i32
-  %283 = getelementptr inbounds i8, ptr %254, i64 12
-  %284 = sext i32 %273 to i64
-  %285 = getelementptr inbounds [0 x i32], ptr %283, i64 0, i64 %284
-  store i32 %282, ptr %285, align 4
-  br label %Bbl_ManAddFanin.exit95
-
-Bbl_ManAddFanin.exit95:                           ; preds = %257, %266, %275, %277
-  %286 = tail call i32 @Bbl_ManCheck(ptr noundef nonnull %1), !range !32
+Bbl_ManAddFanin.exit102:                          ; preds = %229, %238, %247, %249
+  %254 = tail call i32 @Bbl_ManCheck(ptr noundef nonnull %1)
   tail call void @Bbl_ManDumpBlif(ptr noundef nonnull %1, ptr noundef nonnull @.str.34)
   tail call void @Bbl_ManDumpBinaryBlif(ptr noundef nonnull %1, ptr noundef nonnull @.str.35)
   tail call void @Bbl_ManStop(ptr noundef nonnull %1)
@@ -3094,4 +3067,3 @@ attributes #26 = { nounwind willreturn memory(read) }
 !29 = distinct !{!29, !5}
 !30 = distinct !{!30, !5}
 !31 = distinct !{!31, !5}
-!32 = !{i32 0, i32 2}

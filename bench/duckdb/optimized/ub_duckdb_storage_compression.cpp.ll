@@ -10682,7 +10682,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef i64 @_ZN6duckdb20ValidityFinalAnalyzeERNS_12AnalyzeStateE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %state_p) #10 {
+define noundef range(i64 0, 2305843009213693952) i64 @_ZN6duckdb20ValidityFinalAnalyzeERNS_12AnalyzeStateE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %state_p) #10 {
 entry:
   %count = getelementptr inbounds i8, ptr %state_p, i64 8
   %0 = load i64, ptr %count, align 8, !tbaa !387
@@ -11354,7 +11354,7 @@ cleanup:                                          ; preds = %_ZN6duckdb21Templat
 }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(argmem: readwrite) uwtable
-define noundef i64 @_ZN6duckdb22ValidityFinalizeAppendERNS_13ColumnSegmentERNS_17SegmentStatisticsE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(224) %segment, ptr nocapture nonnull readnone align 8 %stats) #18 personality ptr @__gxx_personality_v0 {
+define noundef range(i64 0, 2305843009213693697) i64 @_ZN6duckdb22ValidityFinalizeAppendERNS_13ColumnSegmentERNS_17SegmentStatisticsE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(224) %segment, ptr nocapture nonnull readnone align 8 %stats) #18 personality ptr @__gxx_personality_v0 {
 entry:
   %count = getelementptr inbounds i8, ptr %segment, i64 8
   %0 = load atomic i64, ptr %count seq_cst, align 8
@@ -11480,7 +11480,7 @@ lpad:                                             ; preds = %entry
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef zeroext i8 @_ZN6duckdb24BitpackingModeFromStringERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(32) %str) local_unnamed_addr #1 personality ptr @__gxx_personality_v0 {
+define noundef zeroext range(i8 0, 6) i8 @_ZN6duckdb24BitpackingModeFromStringERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(32) %str) local_unnamed_addr #1 personality ptr @__gxx_personality_v0 {
 entry:
   %mode = alloca %"class.std::__cxx11::basic_string", align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %mode) #28
@@ -53341,8 +53341,6 @@ while.body.lr.ph:                                 ; preds = %entry
   %add.ptr25 = getelementptr i8, ptr %0, i64 %result_offset
   %current_constant31 = getelementptr inbounds i8, ptr %call, i64 2098
   %current_frame_of_reference = getelementptr i8, ptr %call, i64 2097
-  %add.ptr11 = getelementptr inbounds i8, ptr %add.ptr25, i64 %scan_count
-  %sub.ptr.lhs.cast.i.i.i = ptrtoint ptr %add.ptr11 to i64
   %current_group_ptr = getelementptr i8, ptr %call, i64 2112
   %current_width = getelementptr inbounds i8, ptr %call, i64 2096
   %decompression_buffer = getelementptr inbounds i8, ptr %call, i64 40
@@ -53379,10 +53377,8 @@ if.then6:                                         ; preds = %if.end
   %sub8 = sub i64 2048, %2
   %cond.i = tail call noundef i64 @llvm.umin.i64(i64 %sub41, i64 %sub8)
   %add.ptr10 = getelementptr inbounds i8, ptr %add.ptr25, i64 %scanned.0183
-  %sub.ptr.rhs.cast.i.i.i = ptrtoint ptr %add.ptr10 to i64
-  %sub.ptr.sub.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i, %sub.ptr.rhs.cast.i.i.i
   %4 = load i8, ptr %current_constant31, align 2, !tbaa !115
-  tail call void @llvm.memset.p0.i64(ptr align 1 %add.ptr10, i8 %4, i64 %sub.ptr.sub.i.i.i, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr align 1 %add.ptr10, i8 %4, i64 %sub41, i1 false)
   %5 = load i64, ptr %current_group_offset, align 8, !tbaa !1349
   %add13 = add i64 %5, %cond.i
   br label %cleanup
@@ -68654,8 +68650,6 @@ while.body.lr.ph:                                 ; preds = %entry
   %add.ptr25 = getelementptr i8, ptr %0, i64 %result_offset
   %current_constant31 = getelementptr inbounds i8, ptr %call, i64 2098
   %current_frame_of_reference = getelementptr i8, ptr %call, i64 2097
-  %add.ptr11 = getelementptr inbounds i8, ptr %add.ptr25, i64 %scan_count
-  %sub.ptr.lhs.cast.i.i.i = ptrtoint ptr %add.ptr11 to i64
   %current_group_ptr = getelementptr i8, ptr %call, i64 2112
   %current_width = getelementptr inbounds i8, ptr %call, i64 2096
   %decompression_buffer = getelementptr inbounds i8, ptr %call, i64 40
@@ -68692,10 +68686,8 @@ if.then6:                                         ; preds = %if.end
   %sub8 = sub i64 2048, %2
   %cond.i = tail call noundef i64 @llvm.umin.i64(i64 %sub41, i64 %sub8)
   %add.ptr10 = getelementptr inbounds i8, ptr %add.ptr25, i64 %scanned.0182
-  %sub.ptr.rhs.cast.i.i.i = ptrtoint ptr %add.ptr10 to i64
-  %sub.ptr.sub.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i, %sub.ptr.rhs.cast.i.i.i
   %4 = load i8, ptr %current_constant31, align 2, !tbaa !115
-  tail call void @llvm.memset.p0.i64(ptr align 1 %add.ptr10, i8 %4, i64 %sub.ptr.sub.i.i.i, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr align 1 %add.ptr10, i8 %4, i64 %sub41, i1 false)
   %5 = load i64, ptr %current_group_offset, align 8, !tbaa !1685
   %add13 = add i64 %5, %cond.i
   br label %cleanup

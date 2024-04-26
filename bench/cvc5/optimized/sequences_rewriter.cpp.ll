@@ -26963,16 +26963,16 @@ lpad179:                                          ; preds = %lpad179.loopexit.sp
 
 if.then184:                                       ; preds = %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit824
   %189 = load ptr, ptr %node_vec, align 8
-  %add.ptr.i826 = getelementptr inbounds %"class.cvc5::internal::NodeTemplate", ptr %189, i64 %lastIdx.01173
-  %add.ptr.i827 = getelementptr inbounds %"class.cvc5::internal::NodeTemplate", ptr %189, i64 %i.01174
+  %add.ptr.i826.idx = shl nsw i64 %lastIdx.01173, 3
+  %add.ptr.i826 = getelementptr inbounds i8, ptr %189, i64 %add.ptr.i826.idx
+  %add.ptr.i827.idx = shl nsw i64 %i.01174, 3
+  %add.ptr.i827 = getelementptr inbounds i8, ptr %189, i64 %add.ptr.i827.idx
   %cmp.i.not.i.i = icmp eq i64 %lastIdx.01173, %i.01174
   br i1 %cmp.i.not.i.i, label %invoke.cont199, label %if.then.i.i828
 
 if.then.i.i828:                                   ; preds = %if.then184
-  %sub.ptr.lhs.cast.i.i.i = ptrtoint ptr %add.ptr.i827 to i64
-  %sub.ptr.rhs.cast.i.i.i = ptrtoint ptr %add.ptr.i826 to i64
-  %sub.ptr.sub.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i, %sub.ptr.rhs.cast.i.i.i
-  %sub.ptr.div.i.i.i = ashr exact i64 %sub.ptr.sub.i.i.i, 3
+  %gepdiff = sub nsw i64 %add.ptr.i827.idx, %add.ptr.i826.idx
+  %sub.ptr.div.i.i.i = ashr exact i64 %gepdiff, 3
   %190 = call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %sub.ptr.div.i.i.i, i1 true)
   %sub.i.i.i = shl nuw nsw i64 %190, 1
   %mul.i.i = xor i64 %sub.i.i.i, 126
@@ -26980,7 +26980,7 @@ if.then.i.i828:                                   ; preds = %if.then184
           to label %.noexc832 unwind label %lpad179.loopexit.split-lp
 
 .noexc832:                                        ; preds = %if.then.i.i828
-  %cmp.i1.i.i = icmp sgt i64 %sub.ptr.sub.i.i.i, 128
+  %cmp.i1.i.i = icmp sgt i64 %gepdiff, 128
   br i1 %cmp.i1.i.i, label %if.then.i.i.i830, label %if.else.i.i.i829
 
 if.then.i.i.i830:                                 ; preds = %.noexc832

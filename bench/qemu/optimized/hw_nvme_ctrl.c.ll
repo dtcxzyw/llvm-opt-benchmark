@@ -828,7 +828,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @llvm.global.annotations = appending global [4 x { ptr, ptr, ptr, i32, ptr }] [{ ptr, ptr, ptr, i32, ptr } { ptr @bdrv_block_status, ptr @.str.523, ptr @.str.524, i32 135, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @bdrv_block_status, ptr @.str.525, ptr @.str.524, i32 135, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @blk_flush, ptr @.str.523, ptr @.str.526, i32 215, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @blk_flush, ptr @.str.525, ptr @.str.526, i32 215, ptr null }], section "llvm.metadata"
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local noundef zeroext i16 @nvme_map_dptr(ptr noundef %n, ptr noundef %sg, i64 noundef %len, ptr nocapture noundef readonly %cmd) local_unnamed_addr #0 {
+define dso_local zeroext i16 @nvme_map_dptr(ptr noundef %n, ptr noundef %sg, i64 noundef %len, ptr nocapture noundef readonly %cmd) local_unnamed_addr #0 {
 entry:
   %_now.i.i93.i = alloca %struct.timeval, align 8
   %_now.i.i79.i = alloca %struct.timeval, align 8
@@ -979,7 +979,7 @@ nvme_sg_init.exit.i:                              ; preds = %if.else.i.i, %if.th
   %26 = phi ptr [ %24, %if.else.i.i ], [ %23, %if.then.i.i ]
   %or.i.i = phi i32 [ %25, %if.else.i.i ], [ 3, %if.then.i.i ]
   store i32 %or.i.i, ptr %sg, align 8
-  %call6.i = tail call fastcc zeroext i16 @nvme_map_addr(ptr noundef nonnull %n, ptr noundef nonnull %sg, i64 noundef %2, i64 noundef %cond.i), !range !5
+  %call6.i = tail call fastcc zeroext i16 @nvme_map_addr(ptr noundef nonnull %n, ptr noundef nonnull %sg, i64 noundef %2, i64 noundef %cond.i)
   %tobool.not.i = icmp eq i16 %call6.i, 0
   br i1 %tobool.not.i, label %if.end.i, label %unmap.i
 
@@ -1117,7 +1117,7 @@ if.then98.i:                                      ; preds = %if.end86.i
 if.end99.i:                                       ; preds = %if.end86.i
   %cond107.i = tail call i32 @llvm.umin.i32(i32 %len.addr.0122.i, i32 %44)
   %conv108.i = zext i32 %cond107.i to i64
-  %call109.i = tail call fastcc zeroext i16 @nvme_map_addr(ptr noundef nonnull %n, ptr noundef nonnull %sg, i64 noundef %prp_ent.0.i, i64 noundef %conv108.i), !range !5
+  %call109.i = tail call fastcc zeroext i16 @nvme_map_addr(ptr noundef nonnull %n, ptr noundef nonnull %sg, i64 noundef %prp_ent.0.i, i64 noundef %conv108.i)
   %tobool110.not.i = icmp eq i16 %call109.i, 0
   br i1 %tobool110.not.i, label %if.end112.i, label %cleanup.thread.i
 
@@ -1125,7 +1125,7 @@ if.end112.i:                                      ; preds = %if.end99.i
   %sub114.i = sub i32 %len.addr.0122.i, %cond107.i
   %inc.i = add i32 %i.1.i, 1
   %cmp41.not.i = icmp eq i32 %sub114.i, 0
-  br i1 %cmp41.not.i, label %cleanup.i, label %while.body.i, !llvm.loop !6
+  br i1 %cmp41.not.i, label %cleanup.i, label %while.body.i, !llvm.loop !5
 
 cleanup.thread.i:                                 ; preds = %if.end99.i, %if.then98.i, %if.then81.i, %if.then59.i, %trace_pci_nvme_err_addr_read.exit.i
   %status.1.ph.i = phi i16 [ 16403, %if.then98.i ], [ 4, %if.then81.i ], [ 16403, %if.then59.i ], [ 4, %trace_pci_nvme_err_addr_read.exit.i ], [ %call109.i, %if.end99.i ]
@@ -1182,7 +1182,7 @@ trace_pci_nvme_err_invalid_prp2_align.exit.i:     ; preds = %if.else.i.i102.i, %
 
 if.end128.i:                                      ; preds = %if.else.i
   %conv129.i = zext i32 %conv9.i to i64
-  %call130.i = tail call fastcc zeroext i16 @nvme_map_addr(ptr noundef nonnull %n, ptr noundef nonnull %sg, i64 noundef %3, i64 noundef %conv129.i), !range !5
+  %call130.i = tail call fastcc zeroext i16 @nvme_map_addr(ptr noundef nonnull %n, ptr noundef nonnull %sg, i64 noundef %3, i64 noundef %conv129.i)
   %tobool131.not.i = icmp eq i16 %call130.i, 0
   br i1 %tobool131.not.i, label %return, label %unmap.i
 
@@ -1224,7 +1224,7 @@ return:                                           ; preds = %if.end5.i.i, %unmap
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc noundef zeroext i16 @nvme_map_sgl(ptr noundef %n, ptr noundef %sg, i64 %sgl.coerce0, i64 %sgl.coerce1, i64 noundef %len) unnamed_addr #0 {
+define internal fastcc zeroext i16 @nvme_map_sgl(ptr noundef %n, ptr noundef %sg, i64 %sgl.coerce0, i64 %sgl.coerce1, i64 noundef %len) unnamed_addr #0 {
 entry:
   %_now.i.i41 = alloca %struct.timeval, align 8
   %_now.i.i = alloca %struct.timeval, align 8
@@ -1449,7 +1449,7 @@ if.end39:                                         ; preds = %if.end34
   %sub40 = add nsw i64 %nsgld.014, -256
   %add = add i64 %addr.115, 4096
   %cmp29 = icmp ugt i64 %sub40, 256
-  br i1 %cmp29, label %while.body, label %while.end, !llvm.loop !8
+  br i1 %cmp29, label %while.body, label %while.end, !llvm.loop !7
 
 while.end:                                        ; preds = %if.end39, %if.end27
   %nsgld.0.lcssa = phi i64 [ %div39, %if.end27 ], [ %sub40, %if.end39 ]
@@ -1524,7 +1524,7 @@ return:                                           ; preds = %if.end22, %sw.epilo
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local noundef zeroext i16 @nvme_bounce_data(ptr noundef %n, ptr noundef %ptr, i32 noundef %len, i32 noundef %dir, ptr noundef %req) local_unnamed_addr #0 {
+define dso_local zeroext range(i16 0, 16387) i16 @nvme_bounce_data(ptr noundef %n, ptr noundef %ptr, i32 noundef %len, i32 noundef %dir, ptr noundef %req) local_unnamed_addr #0 {
 entry:
   %ns1 = getelementptr inbounds i8, ptr %req, i64 8
   %0 = load ptr, ptr %ns1, align 8
@@ -1563,7 +1563,7 @@ if.then:                                          ; preds = %land.lhs.true, %lan
   %8 = load i64, ptr %lbasz, align 8
   %conv20 = trunc i64 %8 to i32
   %conv23 = zext i16 %.pre to i32
-  %call24 = tail call fastcc zeroext i16 @nvme_tx_interleaved(ptr noundef %n, ptr noundef nonnull %sg, ptr noundef %ptr, i32 noundef %len, i32 noundef %conv20, i32 noundef %conv23, i64 noundef 0, i32 noundef %dir), !range !9
+  %call24 = tail call fastcc zeroext i16 @nvme_tx_interleaved(ptr noundef %n, ptr noundef nonnull %sg, ptr noundef %ptr, i32 noundef %len, i32 noundef %conv20, i32 noundef %conv23, i64 noundef 0, i32 noundef %dir)
   br label %return
 
 if.end:                                           ; preds = %land.lhs.true16, %entry
@@ -1577,7 +1577,7 @@ return:                                           ; preds = %if.end, %if.then
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc noundef zeroext i16 @nvme_tx_interleaved(ptr noundef %n, ptr nocapture noundef readonly %sg, ptr noundef %ptr, i32 noundef %len, i32 noundef %bytes, i32 noundef %skip_bytes, i64 noundef %offset, i32 noundef %dir) unnamed_addr #0 {
+define internal fastcc zeroext range(i16 0, 5) i16 @nvme_tx_interleaved(ptr noundef %n, ptr nocapture noundef readonly %sg, ptr noundef %ptr, i32 noundef %len, i32 noundef %bytes, i32 noundef %skip_bytes, i64 noundef %offset, i32 noundef %dir) unnamed_addr #0 {
 entry:
   %0 = load i32, ptr %sg, align 8
   %and = and i32 %0, 2
@@ -1744,7 +1744,7 @@ if.then15.i:                                      ; preds = %nvme_addr_is_pmr.ex
 if.end18.i:                                       ; preds = %nvme_addr_is_pmr.exit.i, %if.end9.i
   %call.i73.i = tail call ptr @object_dynamic_cast_assert(ptr noundef nonnull %n, ptr noundef nonnull @.str.6, ptr noundef nonnull @.str.7, i32 noundef 10, ptr noundef nonnull @__func__.PCI_DEVICE) #17
   %bus_master_as.i.i.i.i = getelementptr inbounds i8, ptr %call.i73.i, i64 576
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #17, !srcloc !10
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #17, !srcloc !8
   fence seq_cst
   %call.i.i.i.i.i = tail call i32 @address_space_rw(ptr noundef nonnull %bus_master_as.i.i.i.i, i64 noundef %addr.0, i32 1, ptr noundef %ptr.addr.0.ph89, i64 noundef %conv.i, i1 noundef zeroext true) #17
   br label %if.end47
@@ -1773,7 +1773,7 @@ if.end50:                                         ; preds = %if.end50.sink.split
   %add59 = sext i32 %narrow to i64
   %offset.addr.1 = add i64 %add54, %add59
   %tobool4.not = icmp eq i32 %sub51, 0
-  br i1 %tobool4.not, label %return, label %while.body.lr.ph, !llvm.loop !11
+  br i1 %tobool4.not, label %return, label %while.body.lr.ph, !llvm.loop !9
 
 while.body.lr.ph:                                 ; preds = %while.body.lr.ph.lr.ph, %if.end50
   %ptr.addr.0.ph89 = phi ptr [ %ptr, %while.body.lr.ph.lr.ph ], [ %add.ptr, %if.end50 ]
@@ -1813,7 +1813,7 @@ return:                                           ; preds = %if.else45, %if.end4
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc noundef zeroext i16 @nvme_tx(ptr noundef %sg, ptr noundef %ptr, i32 noundef %len, i32 noundef %dir) unnamed_addr #0 {
+define internal fastcc zeroext range(i16 0, 16387) i16 @nvme_tx(ptr noundef %sg, ptr noundef %ptr, i32 noundef %len, i32 noundef %dir) unnamed_addr #0 {
 entry:
   %_now.i.i15 = alloca %struct.timeval, align 8
   %_now.i.i = alloca %struct.timeval, align 8
@@ -1949,7 +1949,7 @@ return:                                           ; preds = %if.end10, %if.end26
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local noundef zeroext i16 @nvme_bounce_mdata(ptr noundef %n, ptr noundef %ptr, i32 noundef %len, i32 noundef %dir, ptr noundef %req) local_unnamed_addr #0 {
+define dso_local zeroext i16 @nvme_bounce_mdata(ptr noundef %n, ptr noundef %ptr, i32 noundef %len, i32 noundef %dir, ptr noundef %req) local_unnamed_addr #0 {
 entry:
   %ns1 = getelementptr inbounds i8, ptr %req, i64 8
   %0 = load ptr, ptr %ns1, align 8
@@ -1967,7 +1967,7 @@ if.then:                                          ; preds = %entry
   %lbasz = getelementptr inbounds i8, ptr %0, i64 8472
   %4 = load i64, ptr %lbasz, align 8
   %conv2 = trunc i64 %4 to i32
-  %call4 = tail call fastcc zeroext i16 @nvme_tx_interleaved(ptr noundef %n, ptr noundef nonnull %sg5, ptr noundef %ptr, i32 noundef %len, i32 noundef %conv, i32 noundef %conv2, i64 noundef %4, i32 noundef %dir), !range !9
+  %call4 = tail call fastcc zeroext i16 @nvme_tx_interleaved(ptr noundef %n, ptr noundef nonnull %sg5, ptr noundef %ptr, i32 noundef %len, i32 noundef %conv, i32 noundef %conv2, i64 noundef %4, i32 noundef %dir)
   br label %return
 
 if.end:                                           ; preds = %entry
@@ -2014,7 +2014,7 @@ return:                                           ; preds = %nvme_sg_unmap.exit,
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc noundef zeroext i16 @nvme_map_mptr(ptr noundef %n, ptr noundef %sg, i64 noundef %len, i8 %cmd.1.val, i64 %cmd.16.val) unnamed_addr #0 {
+define internal fastcc zeroext i16 @nvme_map_mptr(ptr noundef %n, ptr noundef %sg, i64 noundef %len, i8 %cmd.1.val, i64 %cmd.16.val) unnamed_addr #0 {
 entry:
   %sgl = alloca %struct.NvmeSglDescriptor, align 8
   %.mask = and i8 %cmd.1.val, -64
@@ -2122,7 +2122,7 @@ nvme_sg_init.exit:                                ; preds = %if.then.i, %if.else
   %18 = phi ptr [ %16, %if.else.i ], [ %15, %if.then.i ]
   %or.i = phi i32 [ %17, %if.else.i ], [ 3, %if.then.i ]
   store i32 %or.i, ptr %sg, align 8
-  %call16 = tail call fastcc zeroext i16 @nvme_map_addr(ptr noundef nonnull %n, ptr noundef nonnull %sg, i64 noundef %cmd.16.val, i64 noundef %len), !range !5
+  %call16 = tail call fastcc zeroext i16 @nvme_map_addr(ptr noundef nonnull %n, ptr noundef nonnull %sg, i64 noundef %cmd.16.val, i64 noundef %len)
   %tobool17.not = icmp eq i16 %call16, 0
   br i1 %tobool17.not, label %return, label %if.then18
 
@@ -2372,7 +2372,7 @@ if.end18.i:                                       ; preds = %if.end.i19
   br i1 %cmp.i.i, label %return.sink.split.i, label %if.end9
 
 return.sink.split.i:                              ; preds = %if.end18.i, %trace_pci_nvme_zoned_zrwa_implicit_flush.exit.i.i
-  %call4.i.i = tail call fastcc zeroext i16 @nvme_zrm_finish(ptr noundef nonnull %0, ptr noundef nonnull %arrayidx.i.i), !range !12
+  %call4.i.i = tail call fastcc zeroext i16 @nvme_zrm_finish(ptr noundef nonnull %0, ptr noundef nonnull %arrayidx.i.i)
   br label %if.end9
 
 if.end9:                                          ; preds = %return.sink.split.i, %if.end18.i, %trace_pci_nvme_zoned_zrwa_implicit_flush.exit.i.i, %if.then7.i, %land.lhs.true, %if.end
@@ -2705,7 +2705,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc noundef zeroext i16 @nvme_map_addr(ptr nocapture noundef readonly %n, ptr noundef %sg, i64 noundef %addr, i64 noundef %len) unnamed_addr #0 {
+define internal fastcc zeroext range(i16 0, 16403) i16 @nvme_map_addr(ptr nocapture noundef readonly %n, ptr noundef %sg, i64 noundef %addr, i64 noundef %len) unnamed_addr #0 {
 entry:
   %_now.i.i40 = alloca %struct.timeval, align 8
   %_now.i.i = alloca %struct.timeval, align 8
@@ -2843,11 +2843,11 @@ if.end16:                                         ; preds = %if.end14
   br i1 %retval.0.i5761, label %if.then18, label %if.else20
 
 if.then18:                                        ; preds = %if.end16
-  %call19 = tail call fastcc zeroext i16 @nvme_map_addr_cmb(ptr noundef nonnull %n, ptr noundef nonnull %19, i64 noundef %addr, i64 noundef %len), !range !9
+  %call19 = tail call fastcc zeroext i16 @nvme_map_addr_cmb(ptr noundef nonnull %n, ptr noundef nonnull %19, i64 noundef %addr, i64 noundef %len)
   br label %return
 
 if.else20:                                        ; preds = %if.end16
-  %call21 = tail call fastcc zeroext i16 @nvme_map_addr_pmr(ptr noundef nonnull %n, ptr noundef nonnull %19, i64 noundef %addr, i64 noundef %len), !range !9
+  %call21 = tail call fastcc zeroext i16 @nvme_map_addr_pmr(ptr noundef nonnull %n, ptr noundef nonnull %19, i64 noundef %addr, i64 noundef %len)
   br label %return
 
 if.end22:                                         ; preds = %if.else, %int128_get64.exit.i36
@@ -3025,7 +3025,7 @@ if.then15:                                        ; preds = %nvme_addr_is_pmr.ex
 if.end18:                                         ; preds = %if.end9, %nvme_addr_is_pmr.exit69, %nvme_addr_is_pmr.exit
   %call.i73 = tail call ptr @object_dynamic_cast_assert(ptr noundef nonnull %n, ptr noundef nonnull @.str.6, ptr noundef nonnull @.str.7, i32 noundef 10, ptr noundef nonnull @__func__.PCI_DEVICE) #17
   %bus_master_as.i.i.i = getelementptr inbounds i8, ptr %call.i73, i64 576
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #17, !srcloc !10
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #17, !srcloc !8
   fence seq_cst
   %call.i.i.i.i = tail call i32 @address_space_rw(ptr noundef nonnull %bus_master_as.i.i.i, i64 noundef %addr, i32 1, ptr noundef %buf, i64 noundef %conv, i1 noundef zeroext false) #17
   br label %return
@@ -3131,7 +3131,7 @@ declare void @qemu_sglist_init(ptr noundef, ptr noundef, i32 noundef, ptr nounde
 declare ptr @object_dynamic_cast_assert(ptr noundef, ptr noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc noundef zeroext i16 @nvme_map_addr_cmb(ptr nocapture noundef readonly %n, ptr noundef %iov, i64 noundef %addr, i64 noundef %len) unnamed_addr #0 {
+define internal fastcc zeroext range(i16 0, 5) i16 @nvme_map_addr_cmb(ptr nocapture noundef readonly %n, ptr noundef %iov, i64 noundef %addr, i64 noundef %len) unnamed_addr #0 {
 entry:
   %_now.i.i = alloca %struct.timeval, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %_now.i.i)
@@ -3219,7 +3219,7 @@ return:                                           ; preds = %trace_pci_nvme_map_
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc noundef zeroext i16 @nvme_map_addr_pmr(ptr nocapture noundef readonly %n, ptr noundef %iov, i64 noundef %addr, i64 noundef %len) unnamed_addr #0 {
+define internal fastcc zeroext range(i16 0, 5) i16 @nvme_map_addr_pmr(ptr nocapture noundef readonly %n, ptr noundef %iov, i64 noundef %addr, i64 noundef %len) unnamed_addr #0 {
 entry:
   %cmse.i = getelementptr inbounds i8, ptr %n, i64 7832
   %0 = load i8, ptr %cmse.i, align 8
@@ -3284,7 +3284,7 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias
 declare i32 @address_space_rw(ptr noundef, i64 noundef, i32, ptr noundef, i64 noundef, i1 noundef zeroext) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc noundef zeroext i16 @nvme_map_sgl_data(ptr nocapture noundef readonly %n, ptr noundef %sg, ptr nocapture noundef readonly %segment, i64 noundef %nsgld, ptr nocapture noundef %len) unnamed_addr #0 {
+define internal fastcc zeroext i16 @nvme_map_sgl_data(ptr nocapture noundef readonly %n, ptr noundef %sg, ptr nocapture noundef readonly %segment, i64 noundef %nsgld, ptr nocapture noundef %len) unnamed_addr #0 {
 entry:
   %_now.i.i = alloca %struct.timeval, align 8
   %cmp1.not = icmp eq i64 %nsgld, 0
@@ -3367,7 +3367,7 @@ if.end19:                                         ; preds = %if.end
   br i1 %cmp28, label %return, label %if.end31
 
 if.end31:                                         ; preds = %if.end19
-  %call32 = tail call fastcc zeroext i16 @nvme_map_addr(ptr noundef %n, ptr noundef %sg, i64 noundef %11, i64 noundef %cond), !range !5
+  %call32 = tail call fastcc zeroext i16 @nvme_map_addr(ptr noundef %n, ptr noundef %sg, i64 noundef %11, i64 noundef %cond)
   %tobool33.not = icmp eq i16 %call32, 0
   br i1 %tobool33.not, label %if.end35, label %return
 
@@ -3381,7 +3381,7 @@ for.inc:                                          ; preds = %sw.epilog, %if.end3
   %inc = add i32 %i.02, 1
   %conv = sext i32 %inc to i64
   %cmp = icmp ult i64 %conv, %nsgld
-  br i1 %cmp, label %for.body, label %return, !llvm.loop !13
+  br i1 %cmp, label %for.body, label %return, !llvm.loop !10
 
 return.loopexit:                                  ; preds = %for.body, %for.body
   br label %return
@@ -3414,7 +3414,7 @@ declare void @error_setg_errno_internal(ptr noundef, ptr noundef, i32 noundef, p
 declare void @error_report_err(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc noundef zeroext i16 @nvme_zrm_finish(ptr nocapture noundef %ns, ptr noundef %zone) unnamed_addr #0 {
+define internal fastcc zeroext range(i16 0, 448) i16 @nvme_zrm_finish(ptr nocapture noundef %ns, ptr noundef %zone) unnamed_addr #0 {
 entry:
   %0 = getelementptr i8, ptr %zone, i64 1
   %zone.val = load i8, ptr %0, align 1
@@ -3708,7 +3708,7 @@ sw.epilog.i:                                      ; preds = %sw.bb4.i, %sw.bb3.i
 for.inc:                                          ; preds = %sw.epilog.i, %if.end.i, %if.then30, %for.body
   %indvars.iv.next = add nuw nsw i32 %indvars.iv, 1
   %exitcond.not = icmp eq i32 %indvars.iv.next, 6
-  br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !14
+  br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !11
 
 for.end:                                          ; preds = %for.inc, %entry, %if.then12
   ret void
@@ -4069,7 +4069,7 @@ trace_pci_nvme_aer_post_cqe.exit:                 ; preds = %do.body, %land.lhs.
 
 for.inc:                                          ; preds = %trace_pci_nvme_aer_post_cqe.exit, %trace_pci_nvme_aer_masked.exit
   %tobool.not = icmp eq ptr %8, null
-  br i1 %tobool.not, label %for.end, label %land.rhs, !llvm.loop !15
+  br i1 %tobool.not, label %for.end, label %land.rhs, !llvm.loop !12
 
 for.end:                                          ; preds = %for.inc, %trace_pci_nvme_process_aers.exit, %trace_pci_nvme_no_outstanding_aers.exit
   ret void
@@ -4180,7 +4180,7 @@ if.then28.i:                                      ; preds = %if.then25.i
 if.end32.i:                                       ; preds = %if.then25.i
   %size.i = getelementptr inbounds i8, ptr %12, i64 40
   %13 = load i64, ptr %size.i, align 8
-  %14 = tail call i64 @llvm.ctpop.i64(i64 %13), !range !16
+  %14 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %13)
   %or.cond64.i = icmp eq i64 %14, 1
   br i1 %or.cond64.i, label %if.end37.i, label %if.then36.i
 
@@ -4449,7 +4449,7 @@ for.body.i:                                       ; preds = %for.body.i, %for.bo
   %42 = trunc nuw nsw i64 %indvars.iv.next.i to i16
   store i16 %42, ptr %vfn.i, align 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %for.end.i, label %for.body.i, !llvm.loop !17
+  br i1 %exitcond.not.i, label %for.end.i, label %for.body.i, !llvm.loop !13
 
 for.end.i:                                        ; preds = %for.body.i, %if.end.for.end_crit_edge.i
   %43 = phi i16 [ %.pre85.i, %if.end.for.end_crit_edge.i ], [ %41, %for.body.i ]
@@ -4628,7 +4628,7 @@ if.end10.i:                                       ; preds = %if.then9.i, %nvme_a
   %conv21.i.i = zext nneg i32 %div2014.i.i to i64
   %add22.i.i = add nsw i64 %conv21.i.i, -1
   %sub.i.i.i = add nsw i64 %add22.i.i, %div1012.i.i
-  %65 = call i64 @llvm.ctlz.i64(i64 %sub.i.i.i, i1 true), !range !16
+  %65 = call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %sub.i.i.i, i1 true)
   %sub2.i.i.i = add nuw nsw i64 %65, 4294967295
   %sh_prom.i.i.i = and i64 %sub2.i.i.i, 4294967295
   %shr.i.i.i = lshr exact i64 -9223372036854775808, %sh_prom.i.i.i
@@ -4793,7 +4793,7 @@ if.then51.i63:                                    ; preds = %land.lhs.true.i61
   %conv21.i.i.i = zext nneg i32 %div2014.i.i.i to i64
   %add22.i.i.i = add nsw i64 %conv21.i.i.i, -1
   %sub.i.i.i.i = add nsw i64 %add22.i.i.i, %div1012.i.i.i
-  %88 = call i64 @llvm.ctlz.i64(i64 %sub.i.i.i.i, i1 true), !range !16
+  %88 = call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %sub.i.i.i.i, i1 true)
   %sub2.i.i.i.i = add nuw nsw i64 %88, 4294967295
   %sh_prom.i.i.i.i = and i64 %sub2.i.i.i.i, 4294967295
   %shr.i.i.i.i = lshr exact i64 -9223372036854775808, %sh_prom.i.i.i.i
@@ -5071,10 +5071,10 @@ for.body.i:                                       ; preds = %for.body.i, %for.bo
   %indvars.iv.i = phi i64 [ 0, %for.body.lr.ph.i ], [ %indvars.iv.next.i, %for.body.i ]
   %arrayidx.i = getelementptr [127 x %struct.NvmeSecCtrlEntry], ptr %sec.i, i64 0, i64 %indvars.iv.i
   %2 = load i16, ptr %arrayidx.i, align 1
-  %call15.i = tail call fastcc zeroext i16 @nvme_virt_set_state(ptr noundef %call.i, i16 noundef zeroext %2, i1 noundef zeroext false), !range !18
+  %call15.i = tail call fastcc zeroext i16 @nvme_virt_set_state(ptr noundef %call.i, i16 noundef zeroext %2, i1 noundef zeroext false)
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %nvme_sriov_pre_write_ctrl.exit, label %for.body.i, !llvm.loop !19
+  br i1 %exitcond.not.i, label %nvme_sriov_pre_write_ctrl.exit, label %for.body.i, !llvm.loop !14
 
 nvme_sriov_pre_write_ctrl.exit:                   ; preds = %for.body.i, %entry, %if.end.i, %if.then8.i
   tail call void @pci_default_write_config(ptr noundef %dev, i32 noundef %address, i32 noundef %val, i32 noundef %len) #17
@@ -5113,7 +5113,7 @@ if.then3:                                         ; preds = %nvme_ns.exit
 for.inc:                                          ; preds = %nvme_ns.exit, %if.then3
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 257
-  br i1 %exitcond.not, label %for.end, label %nvme_ns.exit, !llvm.loop !20
+  br i1 %exitcond.not, label %for.end, label %nvme_ns.exit, !llvm.loop !15
 
 for.end:                                          ; preds = %for.inc
   %3 = load ptr, ptr %subsys, align 8
@@ -6174,7 +6174,7 @@ if.end7.i.i:                                      ; preds = %nvme_ns.exit.i.i
 for.inc.i.i:                                      ; preds = %if.end7.i.i, %nvme_ns.exit.i.i
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, 257
-  br i1 %exitcond.not.i.i, label %nvme_ctrl_shutdown.exit.i, label %nvme_ns.exit.i.i, !llvm.loop !21
+  br i1 %exitcond.not.i.i, label %nvme_ctrl_shutdown.exit.i, label %nvme_ns.exit.i.i, !llvm.loop !16
 
 nvme_ctrl_shutdown.exit.i:                        ; preds = %for.inc.i.i
   %and129.i = and i32 %csts10.val.i, -13
@@ -7687,7 +7687,7 @@ if.then85.i:                                      ; preds = %land.lhs.true.i
   %bus_master_as.i.i.i = getelementptr inbounds i8, ptr %call.i.i34, i64 576
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %val.addr.i.i.i)
   store i32 %conv50.i, ptr %val.addr.i.i.i, align 4
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #17, !srcloc !10
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #17, !srcloc !8
   fence seq_cst
   %call.i.i.i.i.i.i = call i32 @address_space_rw(ptr noundef nonnull %bus_master_as.i.i.i, i64 noundef %272, i32 1, ptr noundef nonnull %val.addr.i.i.i, i64 noundef 4, i1 noundef zeroext true) #17
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %val.addr.i.i.i)
@@ -7710,7 +7710,7 @@ for.body.i:                                       ; preds = %if.then117.i, %for.
   %entry119.i = getelementptr inbounds i8, ptr %sq.0204.i, i64 112
   %sq.0.i = load ptr, ptr %entry119.i, align 8
   %tobool118.not.i = icmp eq ptr %sq.0.i, null
-  br i1 %tobool118.not.i, label %for.end.i, label %for.body.i, !llvm.loop !22
+  br i1 %tobool118.not.i, label %for.end.i, label %for.body.i, !llvm.loop !17
 
 for.end.i:                                        ; preds = %for.body.i, %if.then117.i
   %bh120.i = getelementptr inbounds i8, ptr %251, i64 56
@@ -7932,7 +7932,7 @@ if.then204.i62:                                   ; preds = %land.lhs.true200.i
   %bus_master_as.i.i196.i = getelementptr inbounds i8, ptr %call.i.i34, i64 576
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %val.addr.i.i195.i)
   store i32 %conv167.i, ptr %val.addr.i.i195.i, align 4
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #17, !srcloc !10
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #17, !srcloc !8
   fence seq_cst
   %call.i.i.i.i.i197.i = call i32 @address_space_rw(ptr noundef nonnull %bus_master_as.i.i196.i, i64 noundef %307, i32 1, ptr noundef nonnull %val.addr.i.i195.i, i64 noundef 4, i1 noundef zeroext true) #17
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %val.addr.i.i195.i)
@@ -8150,7 +8150,7 @@ if.end:                                           ; preds = %nvme_ns.exit
 for.inc:                                          ; preds = %nvme_ns.exit, %if.end
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 257
-  br i1 %exitcond.not, label %for.cond2.preheader, label %nvme_ns.exit, !llvm.loop !23
+  br i1 %exitcond.not, label %for.cond2.preheader, label %nvme_ns.exit, !llvm.loop !18
 
 for.cond14.preheader:                             ; preds = %for.inc11
   %cmp1884.not = icmp eq i32 %5, -1
@@ -8180,7 +8180,7 @@ for.inc11:                                        ; preds = %for.body4, %if.then
   %inc12 = add nuw i32 %i.182, 1
   %add = add i32 %5, 1
   %cmp3 = icmp ult i32 %inc12, %add
-  br i1 %cmp3, label %for.body4, label %for.cond14.preheader, !llvm.loop !24
+  br i1 %cmp3, label %for.body4, label %for.cond14.preheader, !llvm.loop !19
 
 while.cond.preheader:                             ; preds = %for.inc28, %for.cond2.preheader, %for.cond14.preheader
   %aer_queue = getelementptr inbounds i8, ptr %n, i64 7864
@@ -8212,7 +8212,7 @@ for.inc28:                                        ; preds = %for.body19, %if.the
   %inc29 = add nuw i32 %i.285, 1
   %add17 = add i32 %10, 1
   %cmp18 = icmp ult i32 %inc29, %add17
-  br i1 %cmp18, label %for.body19, label %while.cond.preheader, !llvm.loop !25
+  br i1 %cmp18, label %for.body19, label %while.cond.preheader, !llvm.loop !20
 
 while.body:                                       ; preds = %while.body.lr.ph, %while.body
   %11 = phi ptr [ %6, %while.body.lr.ph ], [ %15, %while.body ]
@@ -8229,7 +8229,7 @@ while.body:                                       ; preds = %while.body.lr.ph, %
   tail call void @g_free(ptr noundef nonnull %11) #17
   %15 = load ptr, ptr %aer_queue, align 8
   %cmp31.not = icmp eq ptr %15, null
-  br i1 %cmp31.not, label %while.end, label %while.body, !llvm.loop !26
+  br i1 %cmp31.not, label %while.end, label %while.body, !llvm.loop !21
 
 while.end:                                        ; preds = %while.body, %while.cond.preheader
   %sriov_max_vfs = getelementptr inbounds i8, ptr %n, i64 7287
@@ -8257,12 +8257,12 @@ for.body62:                                       ; preds = %for.body62.lr.ph, %
   %indvars.iv91 = phi i64 [ 0, %for.body62.lr.ph ], [ %indvars.iv.next92, %for.body62 ]
   %arrayidx65 = getelementptr [127 x %struct.NvmeSecCtrlEntry], ptr %sec, i64 0, i64 %indvars.iv91
   %19 = load i16, ptr %arrayidx65, align 1
-  %call67 = tail call fastcc zeroext i16 @nvme_virt_set_state(ptr noundef nonnull %n, i16 noundef zeroext %19, i1 noundef zeroext false), !range !18
+  %call67 = tail call fastcc zeroext i16 @nvme_virt_set_state(ptr noundef nonnull %n, i16 noundef zeroext %19, i1 noundef zeroext false)
   %indvars.iv.next92 = add nuw nsw i64 %indvars.iv91, 1
   %20 = load i8, ptr %sec_ctrl_list, align 8
   %21 = zext i8 %20 to i64
   %cmp60 = icmp ult i64 %indvars.iv.next92, %21
-  br i1 %cmp60, label %for.body62, label %for.end70, !llvm.loop !27
+  br i1 %cmp60, label %for.body62, label %for.end70, !llvm.loop !22
 
 for.end70:                                        ; preds = %for.body62, %for.cond59.preheader
   %cond62 = icmp eq i32 %rst, 1
@@ -8845,7 +8845,7 @@ for.body:                                         ; preds = %entry, %for.body
   %inc = add nuw i32 %i.062, 1
   %7 = load i32, ptr %size3, align 4
   %cmp = icmp ult i32 %inc, %7
-  br i1 %cmp, label %for.body, label %for.end, !llvm.loop !28
+  br i1 %cmp, label %for.body, label %for.end, !llvm.loop !23
 
 for.end:                                          ; preds = %for.body, %entry
   %8 = load ptr, ptr %sq, align 8
@@ -9026,7 +9026,7 @@ sw.epilog.sink.split.i:                           ; preds = %if.then15.i, %sw.bb
 for.inc:                                          ; preds = %sw.epilog.sink.split.i, %sw.bb4.i, %sw.bb.i, %if.end, %nvme_ns.exit
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 257
-  br i1 %exitcond.not, label %for.end, label %nvme_ns.exit, !llvm.loop !29
+  br i1 %exitcond.not, label %for.end, label %nvme_ns.exit, !llvm.loop !24
 
 for.end:                                          ; preds = %for.inc
   ret void
@@ -9123,7 +9123,7 @@ nvme_update_cq_eventidx.exit:                     ; preds = %if.then, %land.lhs.
   %bus_master_as.i.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 576
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %val.addr.i.i.i)
   store i32 %15, ptr %val.addr.i.i.i, align 4
-  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #17, !srcloc !10
+  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #17, !srcloc !8
   fence seq_cst
   %call.i.i.i.i.i.i = call i32 @address_space_rw(ptr noundef nonnull %bus_master_as.i.i.i, i64 noundef %14, i32 1, ptr noundef nonnull %val.addr.i.i.i, i64 noundef 4, i1 noundef zeroext true) #17
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %val.addr.i.i.i)
@@ -9167,7 +9167,7 @@ if.end5:                                          ; preds = %if.end
   %add = add i64 %24, %conv19
   %call.i = call ptr @object_dynamic_cast_assert(ptr noundef nonnull %0, ptr noundef nonnull @.str.6, ptr noundef nonnull @.str.7, i32 noundef 10, ptr noundef nonnull @__func__.PCI_DEVICE) #17
   %bus_master_as.i.i.i47 = getelementptr inbounds i8, ptr %call.i, i64 576
-  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #17, !srcloc !10
+  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #17, !srcloc !8
   fence seq_cst
   %call.i.i.i.i = call i32 @address_space_rw(ptr noundef nonnull %bus_master_as.i.i.i47, i64 noundef %add, i32 1, ptr noundef nonnull %cqe, i64 noundef 16, i1 noundef zeroext true) #17
   %tobool23.not = icmp eq i32 %call.i.i.i.i, 0
@@ -9306,7 +9306,7 @@ nvme_sg_unmap.exit:                               ; preds = %nvme_inc_cq_tail.ex
   store ptr %req.086, ptr %46, align 8
   store ptr %entry1, ptr %tql_prev50, align 8
   %tobool.not = icmp eq ptr %4, null
-  br i1 %tobool.not, label %for.end, label %land.rhs, !llvm.loop !30
+  br i1 %tobool.not, label %for.end, label %land.rhs, !llvm.loop !25
 
 for.end:                                          ; preds = %if.end, %nvme_sg_unmap.exit, %entry, %trace_pci_nvme_err_cfs.exit
   %47 = load i32, ptr %tail, align 4
@@ -9550,7 +9550,7 @@ entry:
   %1 = load i64, ptr %db_addr, align 8
   %head = getelementptr inbounds i8, ptr %cq, i64 16
   %bus_master_as.i.i = getelementptr inbounds i8, ptr %call.i, i64 576
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #17, !srcloc !10
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #17, !srcloc !8
   fence seq_cst
   %call.i.i.i.i.i = tail call i32 @address_space_rw(ptr noundef nonnull %bus_master_as.i.i, i64 noundef %1, i32 1, ptr noundef nonnull %head, i64 noundef 4, i1 noundef zeroext false) #17
   %cqid = getelementptr inbounds i8, ptr %cq, i64 10
@@ -10210,7 +10210,7 @@ sw.bb48.i:                                        ; preds = %if.end38.i
   br label %cond.end
 
 sw.bb50.i:                                        ; preds = %if.end38.i
-  %call51.i = call fastcc zeroext i16 @nvme_compare(ptr noundef nonnull %0, ptr noundef nonnull %25), !range !31
+  %call51.i = call fastcc zeroext i16 @nvme_compare(ptr noundef nonnull %0, ptr noundef nonnull %25)
   br label %cond.end
 
 sw.bb52.i:                                        ; preds = %if.end38.i
@@ -10222,7 +10222,7 @@ sw.bb54.i:                                        ; preds = %if.end38.i
   br label %cond.end
 
 sw.bb56.i:                                        ; preds = %if.end38.i
-  %call57.i = call fastcc zeroext i16 @nvme_copy(ptr noundef nonnull %0, ptr noundef nonnull %25), !range !31
+  %call57.i = call fastcc zeroext i16 @nvme_copy(ptr noundef nonnull %0, ptr noundef nonnull %25)
   br label %cond.end
 
 sw.bb58.i:                                        ; preds = %if.end38.i
@@ -10551,7 +10551,7 @@ if.end13.i673:                                    ; preds = %while.body.i
   call void @blk_aio_cancel(ptr noundef nonnull %100) #17
   %101 = load ptr, ptr %out_req_list.i, align 8
   %cmp.not.i674 = icmp eq ptr %101, null
-  br i1 %cmp.not.i674, label %if.end20.i675, label %while.body.i, !llvm.loop !32
+  br i1 %cmp.not.i674, label %if.end20.i675, label %while.body.i, !llvm.loop !26
 
 if.end20.i675:                                    ; preds = %if.end13.i673, %trace_pci_nvme_del_sq.exit.i
   %cqid.i676 = getelementptr inbounds i8, ptr %97, i64 10
@@ -10620,7 +10620,7 @@ do.body55.i:                                      ; preds = %land.rhs.i
 
 for.inc.i682:                                     ; preds = %do.body55.i, %land.rhs.i
   %tobool49.not.i = icmp eq ptr %110, null
-  br i1 %tobool49.not.i, label %if.end95.i, label %land.rhs.i, !llvm.loop !33
+  br i1 %tobool49.not.i, label %if.end95.i, label %land.rhs.i, !llvm.loop !27
 
 if.end95.i:                                       ; preds = %for.inc.i682, %if.then23.i, %nvme_check_cqid.exit.i679, %if.end20.i675
   call fastcc void @nvme_free_sq(ptr noundef %97, ptr noundef %0)
@@ -11557,7 +11557,7 @@ trace_pci_nvme_identify_pri_ctrl_cap.exit.i.i:    ; preds = %if.else.i.i.i.i, %i
 
 if.end.i.i.i:                                     ; preds = %trace_pci_nvme_identify_pri_ctrl_cap.exit.i.i
   %call2.i.i.i = call fastcc zeroext i16 @nvme_tx(ptr noundef nonnull %sg.i.i.i, ptr noundef nonnull %pri_ctrl_cap.i38.i, i32 noundef 4096, i32 noundef 1)
-  br label %cond.end
+  br label %if.then55
 
 sw.bb12.i:                                        ; preds = %trace_pci_nvme_identify.exit.i
   call void @llvm.lifetime.start.p0(i64 4096, ptr nonnull %list.i.i)
@@ -11592,7 +11592,7 @@ if.then.i.i428:                                   ; preds = %for.body.i.i
 for.inc.i.i430:                                   ; preds = %for.body.i.i
   %indvars.iv.next.i.i431 = add nuw nsw i64 %indvars.iv.i.i426, 1
   %exitcond.not.i.i432 = icmp eq i64 %indvars.iv.next.i.i431, %wide.trip.count.i.i
-  br i1 %exitcond.not.i.i432, label %for.end.i.i, label %for.body.i.i, !llvm.loop !34
+  br i1 %exitcond.not.i.i432, label %for.end.i.i, label %for.body.i.i, !llvm.loop !28
 
 for.end.i.i:                                      ; preds = %for.inc.i.i430, %if.then.i.i428, %sw.bb12.i
   %conv12.i.i.i39.i = phi i32 [ 0, %sw.bb12.i ], [ %255, %if.then.i.i428 ], [ 0, %for.inc.i.i430 ]
@@ -11694,7 +11694,7 @@ trace_pci_nvme_identify_ctrl.exit.i.i:            ; preds = %if.else.i.i.i77.i, 
 
 if.end.i.i70.i:                                   ; preds = %trace_pci_nvme_identify_ctrl.exit.i.i
   %call2.i.i71.i = call fastcc zeroext i16 @nvme_tx(ptr noundef nonnull %sg.i.i65.i, ptr noundef nonnull %id_ctrl.i.i, i32 noundef 4096, i32 noundef 1)
-  br label %cond.end
+  br label %if.then55
 
 sw.bb20.i421:                                     ; preds = %trace_pci_nvme_identify.exit.i
   call void @llvm.lifetime.start.p0(i64 4096, ptr nonnull %id.i.i)
@@ -12147,7 +12147,7 @@ if.end122.us.i:                                   ; preds = %nvme_ns.exit108.us.
 for.inc137.us.i:                                  ; preds = %if.end122.us.i, %nvme_ns.exit108.us.i
   %indvars.iv.next134.i = add nuw nsw i64 %indvars.iv133.i, 1
   %exitcond136.not.i = icmp eq i64 %indvars.iv.next134.i, 257
-  br i1 %exitcond136.not.i, label %if.then55, label %nvme_ns.exit108.us.i, !llvm.loop !35
+  br i1 %exitcond136.not.i, label %if.then55, label %nvme_ns.exit108.us.i, !llvm.loop !29
 
 sw.bb.i377:                                       ; preds = %if.end50.i
   %328 = and i32 %.fr.i, 983040
@@ -12220,7 +12220,7 @@ if.then96.i:                                      ; preds = %if.end91.i
 for.inc.i376:                                     ; preds = %if.then96.i, %if.end91.i, %nvme_ns.exit101.i
   %indvars.iv.next142.i = add nuw nsw i64 %indvars.iv141.i, 1
   %exitcond144.not.i = icmp eq i64 %indvars.iv.next142.i, 257
-  br i1 %exitcond144.not.i, label %if.then55, label %nvme_ns.exit101.i, !llvm.loop !36
+  br i1 %exitcond144.not.i, label %if.then55, label %nvme_ns.exit101.i, !llvm.loop !30
 
 if.end99.i:                                       ; preds = %sw.bb82.i
   %tobool100.not.i = icmp eq ptr %ns.0.i, null
@@ -12268,7 +12268,7 @@ if.end132.i:                                      ; preds = %if.then128.i, %if.e
 for.inc137.i:                                     ; preds = %if.end132.i, %nvme_ns.exit108.i
   %indvars.iv.next138.i = add nuw nsw i64 %indvars.iv137.i, 1
   %exitcond140.not.i = icmp eq i64 %indvars.iv.next138.i, 257
-  br i1 %exitcond140.not.i, label %if.then55, label %nvme_ns.exit108.i, !llvm.loop !35
+  br i1 %exitcond140.not.i, label %if.then55, label %nvme_ns.exit108.i, !llvm.loop !29
 
 sw.bb140.i:                                       ; preds = %if.end50.i
   %342 = load i8, ptr %qs_created.i, align 2
@@ -12337,7 +12337,7 @@ if.then188.i:                                     ; preds = %if.end180.i
 for.inc198.i:                                     ; preds = %if.then188.i, %if.end180.i, %nvme_ns.exit115.i
   %indvars.iv.next.i366 = add nuw nsw i64 %indvars.iv.i365, 1
   %exitcond.not.i367 = icmp eq i64 %indvars.iv.next.i366, 257
-  br i1 %exitcond.not.i367, label %if.then55, label %nvme_ns.exit115.i, !llvm.loop !37
+  br i1 %exitcond.not.i367, label %if.then55, label %nvme_ns.exit115.i, !llvm.loop !31
 
 sw.bb201.i:                                       ; preds = %if.end50.i
   %and202.i = and i32 %.fr.i, 511
@@ -12521,7 +12521,7 @@ if.end61.i:                                       ; preds = %nvme_ns.exit85.i
 for.inc.i322:                                     ; preds = %if.end61.i, %nvme_ns.exit85.i
   %indvars.iv.next.i323 = add nuw nsw i64 %indvars.iv.i321, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i323, 257
-  br i1 %exitcond.not.i, label %for.end.i324, label %nvme_ns.exit85.i, !llvm.loop !38
+  br i1 %exitcond.not.i, label %for.end.i324, label %nvme_ns.exit85.i, !llvm.loop !32
 
 for.end.i324:                                     ; preds = %for.inc.i322, %if.end61.i
   %tobool67.not.i = phi ptr [ @.str.396, %if.end61.i ], [ @.str.397, %for.inc.i322 ]
@@ -13019,7 +13019,7 @@ if.end.i65.i:                                     ; preds = %nvme_ns.exit.i.i243
 for.inc.i.i:                                      ; preds = %if.end.i65.i, %nvme_ns.exit.i.i243
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, 257
-  br i1 %exitcond.not.i.i, label %sw.epilog.i, label %nvme_ns.exit.i.i243, !llvm.loop !39
+  br i1 %exitcond.not.i.i, label %sw.epilog.i, label %nvme_ns.exit.i.i243, !llvm.loop !33
 
 sw.epilog.i:                                      ; preds = %for.inc.i.i, %sw.epilog.sink.split.i.i, %sw.bb4.i.i253, %sw.bb.i.i, %nvme_attach_ns.exit.i
   %changed_nsids.i = getelementptr inbounds i8, ptr %438, i64 7888
@@ -13040,7 +13040,7 @@ for.inc.i245:                                     ; preds = %if.then53.i, %sw.ep
   %457 = load i16, ptr %list.i, align 16
   %458 = zext i16 %457 to i64
   %cmp23.i = icmp ult i64 %indvars.iv.next.i, %458
-  br i1 %cmp23.i, label %for.body.i240, label %nvme_ns_attachment.exit, !llvm.loop !40
+  br i1 %cmp23.i, label %for.body.i240, label %nvme_ns_attachment.exit, !llvm.loop !34
 
 nvme_ns_attachment.exit:                          ; preds = %for.body.i240, %if.end.i41.i, %if.end.i41.i, %if.end31.i, %nvme_ns.exit.i246, %land.lhs.true.i247, %nvme_ns.exit62.i, %for.inc.i245, %trace_pci_nvme_ns_attachment.exit.i, %if.end.i228, %nvme_subsys_ns.exit.i, %if.end11.i, %nvme_h2c.exit.i, %if.end15.i
   %retval.0.i227 = phi i16 [ 16395, %trace_pci_nvme_ns_attachment.exit.i ], [ 16386, %nvme_subsys_ns.exit.i ], [ %call2.i.i237, %nvme_h2c.exit.i ], [ 16668, %if.end15.i ], [ 16386, %if.end.i228 ], [ %call.i.i236, %if.end11.i ], [ 16664, %nvme_ns.exit.i246 ], [ 16665, %land.lhs.true.i247 ], [ 16666, %nvme_ns.exit62.i ], [ 16386, %if.end31.i ], [ 0, %for.inc.i245 ], [ 16668, %for.body.i240 ], [ 16668, %if.end.i41.i ], [ 16668, %if.end.i41.i ]
@@ -13121,7 +13121,7 @@ for.body.preheader.i.i.i:                         ; preds = %sw.bb.i201
 for.cond.i.i.i:                                   ; preds = %for.body.i.i.i
   %indvars.iv.next.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i, 1
   %exitcond.not.i.i.i = icmp eq i64 %indvars.iv.next.i.i.i, %wide.trip.count.i.i.i
-  br i1 %exitcond.not.i.i.i, label %if.then55, label %for.body.i.i.i, !llvm.loop !41
+  br i1 %exitcond.not.i.i.i, label %if.then55, label %for.body.i.i.i, !llvm.loop !35
 
 for.body.i.i.i:                                   ; preds = %for.cond.i.i.i, %for.body.preheader.i.i.i
   %indvars.iv.i.i.i = phi i64 [ 0, %for.body.preheader.i.i.i ], [ %indvars.iv.next.i.i.i, %for.cond.i.i.i ]
@@ -13221,11 +13221,11 @@ if.end17.i.i:                                     ; preds = %if.else.i.i200, %if
   br label %cond.end
 
 sw.bb22.i:                                        ; preds = %if.end.i198
-  %call23.i = call fastcc zeroext i16 @nvme_virt_set_state(ptr noundef nonnull %0, i16 noundef zeroext %conv7.i, i1 noundef zeroext true), !range !18
+  %call23.i = call fastcc zeroext i16 @nvme_virt_set_state(ptr noundef nonnull %0, i16 noundef zeroext %conv7.i, i1 noundef zeroext true)
   br label %if.then55
 
 sw.bb24.i:                                        ; preds = %if.end.i198
-  %call25.i = call fastcc zeroext i16 @nvme_virt_set_state(ptr noundef nonnull %0, i16 noundef zeroext %conv7.i, i1 noundef zeroext false), !range !18
+  %call25.i = call fastcc zeroext i16 @nvme_virt_set_state(ptr noundef nonnull %0, i16 noundef zeroext %conv7.i, i1 noundef zeroext false)
   br label %if.then55
 
 sw.bb47.i:                                        ; preds = %if.end20.i
@@ -13287,7 +13287,7 @@ if.then16.i:                                      ; preds = %for.body.i
   %bf.clear24.i = or disjoint i32 %bf.set.i, 1
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %val.addr.i.i.i151)
   store i32 %484, ptr %val.addr.i.i.i151, align 4
-  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #17, !srcloc !10
+  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #17, !srcloc !8
   fence seq_cst
   %call.i.i.i.i.i.i165 = call i32 @address_space_rw(ptr noundef nonnull %bus_master_as.i.i.i159, i64 noundef %add18.i, i32 %bf.clear24.i, ptr noundef nonnull %val.addr.i.i.i151, i64 noundef 4, i1 noundef zeroext true) #17
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %val.addr.i.i.i151)
@@ -13339,7 +13339,7 @@ if.then65.i:                                      ; preds = %if.end63.i
   %bf.clear82.i = or disjoint i32 %bf.set80.i, 1
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %val.addr.i.i64.i)
   store i32 %488, ptr %val.addr.i.i64.i, align 4
-  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #17, !srcloc !10
+  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #17, !srcloc !8
   fence seq_cst
   %call.i.i.i.i.i66.i = call i32 @address_space_rw(ptr noundef nonnull %bus_master_as.i.i.i159, i64 noundef %add69.i, i32 %bf.clear82.i, ptr noundef nonnull %val.addr.i.i64.i, i64 noundef 4, i1 noundef zeroext true) #17
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %val.addr.i.i64.i)
@@ -13377,7 +13377,7 @@ for.inc.i:                                        ; preds = %if.then121.i, %if.t
   %493 = load i32, ptr %max_ioqpairs.i, align 4
   %add.i167 = add i32 %493, 1
   %cmp.i168 = icmp ult i32 %inc.i, %add.i167
-  br i1 %cmp.i168, label %for.body.i, label %for.end.i, !llvm.loop !42
+  br i1 %cmp.i168, label %for.body.i, label %for.end.i, !llvm.loop !36
 
 for.end.i:                                        ; preds = %for.inc.i, %if.end.i158
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %_now.i.i.i150)
@@ -13554,13 +13554,13 @@ sw.default.i79:                                   ; preds = %if.end20.i
   call void @__assert_fail(ptr noundef nonnull @.str.176, ptr noundef nonnull @.str.1, i32 noundef 6972, ptr noundef nonnull @__PRETTY_FUNCTION__.nvme_admin_cmd) #18
   unreachable
 
-cond.end:                                         ; preds = %nvme_directive_receive.exit, %nvme_ns_attachment.exit, %nvme_get_feature.exit, %sw.bb.i558, %sw.bb32.i557, %sw.bb35.i556, %sw.bb38.i555, %sw.bb41.i554, %sw.bb44.i553, %sw.bb47.i551, %sw.bb50.i550, %sw.bb53.i548, %sw.bb56.i547, %sw.bb.i434, %sw.bb4.i, %sw.bb6.i, %sw.bb8.i, %trace_pci_nvme_identify_pri_ctrl_cap.exit.i.i, %if.end.i.i.i, %nvme_identify_sec_ctrl_list.exit.i, %sw.bb14.i, %sw.bb16.i, %trace_pci_nvme_identify_ctrl.exit.i.i, %if.end.i.i70.i, %nvme_identify_ctrl_csi.exit.i, %sw.bb22.i419, %sw.bb24.i417, %sw.bb26.i, %sw.bb28.i, %nvme_identify_ns_descr_list.exit.i, %nvme_identify_cmd_set.exit.i, %sw.bb165.i, %sw.bb167.i, %sw.bb208.i, %if.end30.i.i, %if.end17.i.i, %sw.bb64.i, %sw.bb62.i, %sw.bb60.i, %sw.bb58.i, %sw.bb56.i, %sw.bb54.i, %sw.bb52.i, %sw.bb50.i, %sw.bb48.i, %sw.bb46.i, %sw.bb44.i, %sw.bb.i, %if.end28.i
-  %cond.in = phi i16 [ %call65.i, %sw.bb64.i ], [ %call63.i, %sw.bb62.i ], [ %call61.i, %sw.bb60.i ], [ %call59.i, %sw.bb58.i ], [ %call57.i, %sw.bb56.i ], [ %call55.i, %sw.bb54.i ], [ %call53.i, %sw.bb52.i ], [ %call51.i, %sw.bb50.i ], [ %call49.i, %sw.bb48.i ], [ %call.i66.i, %sw.bb46.i ], [ %call.i65.i, %sw.bb44.i ], [ %call.i.i, %sw.bb.i ], [ %59, %if.end28.i ], [ %retval.0.i135, %nvme_directive_receive.exit ], [ %retval.0.i227, %nvme_ns_attachment.exit ], [ %retval.0.i305, %nvme_get_feature.exit ], [ %call58.i, %sw.bb56.i547 ], [ %call55.i549, %sw.bb53.i548 ], [ %call52.i, %sw.bb50.i550 ], [ %call49.i552, %sw.bb47.i551 ], [ %call46.i, %sw.bb44.i553 ], [ %call43.i, %sw.bb41.i554 ], [ %call40.i, %sw.bb38.i555 ], [ %call37.i, %sw.bb35.i556 ], [ %call34.i, %sw.bb32.i557 ], [ %call31.i, %sw.bb.i558 ], [ %retval.0.i.i135.i, %nvme_identify_cmd_set.exit.i ], [ %retval.0.i110.i, %nvme_identify_ns_descr_list.exit.i ], [ %call29.i, %sw.bb28.i ], [ %call27.i, %sw.bb26.i ], [ %call25.i418, %sw.bb24.i417 ], [ %call23.i420, %sw.bb22.i419 ], [ %retval.0.i90.i, %nvme_identify_ctrl_csi.exit.i ], [ %call17.i, %sw.bb16.i ], [ %call15.i425, %sw.bb14.i ], [ %retval.0.i.i47.i, %nvme_identify_sec_ctrl_list.exit.i ], [ %call9.i, %sw.bb8.i ], [ %call7.i, %sw.bb6.i ], [ %call5.i, %sw.bb4.i ], [ %call3.i, %sw.bb.i434 ], [ %call2.i.i.i, %if.end.i.i.i ], [ %call.i.i.i, %trace_pci_nvme_identify_pri_ctrl_cap.exit.i.i ], [ %call2.i.i71.i, %if.end.i.i70.i ], [ %call.i.i67.i, %trace_pci_nvme_identify_ctrl.exit.i.i ], [ %call209.i, %sw.bb208.i ], [ %call166.i, %sw.bb165.i ], [ %call169.i, %sw.bb167.i ], [ %473, %if.end30.i.i ], [ %475, %if.end17.i.i ]
+cond.end:                                         ; preds = %nvme_directive_receive.exit, %nvme_ns_attachment.exit, %nvme_get_feature.exit, %sw.bb.i558, %sw.bb32.i557, %sw.bb35.i556, %sw.bb38.i555, %sw.bb41.i554, %sw.bb44.i553, %sw.bb47.i551, %sw.bb50.i550, %sw.bb53.i548, %sw.bb56.i547, %sw.bb.i434, %sw.bb4.i, %sw.bb6.i, %sw.bb8.i, %trace_pci_nvme_identify_pri_ctrl_cap.exit.i.i, %nvme_identify_sec_ctrl_list.exit.i, %sw.bb14.i, %sw.bb16.i, %trace_pci_nvme_identify_ctrl.exit.i.i, %nvme_identify_ctrl_csi.exit.i, %sw.bb22.i419, %sw.bb24.i417, %sw.bb26.i, %sw.bb28.i, %nvme_identify_ns_descr_list.exit.i, %nvme_identify_cmd_set.exit.i, %sw.bb165.i, %sw.bb167.i, %sw.bb208.i, %if.end30.i.i, %if.end17.i.i, %sw.bb64.i, %sw.bb62.i, %sw.bb60.i, %sw.bb58.i, %sw.bb56.i, %sw.bb54.i, %sw.bb52.i, %sw.bb50.i, %sw.bb48.i, %sw.bb46.i, %sw.bb44.i, %sw.bb.i, %if.end28.i
+  %cond.in = phi i16 [ %call65.i, %sw.bb64.i ], [ %call63.i, %sw.bb62.i ], [ %call61.i, %sw.bb60.i ], [ %call59.i, %sw.bb58.i ], [ %call57.i, %sw.bb56.i ], [ %call55.i, %sw.bb54.i ], [ %call53.i, %sw.bb52.i ], [ %call51.i, %sw.bb50.i ], [ %call49.i, %sw.bb48.i ], [ %call.i66.i, %sw.bb46.i ], [ %call.i65.i, %sw.bb44.i ], [ %call.i.i, %sw.bb.i ], [ %59, %if.end28.i ], [ %retval.0.i135, %nvme_directive_receive.exit ], [ %retval.0.i227, %nvme_ns_attachment.exit ], [ %retval.0.i305, %nvme_get_feature.exit ], [ %call58.i, %sw.bb56.i547 ], [ %call55.i549, %sw.bb53.i548 ], [ %call52.i, %sw.bb50.i550 ], [ %call49.i552, %sw.bb47.i551 ], [ %call46.i, %sw.bb44.i553 ], [ %call43.i, %sw.bb41.i554 ], [ %call40.i, %sw.bb38.i555 ], [ %call37.i, %sw.bb35.i556 ], [ %call34.i, %sw.bb32.i557 ], [ %call31.i, %sw.bb.i558 ], [ %retval.0.i.i135.i, %nvme_identify_cmd_set.exit.i ], [ %retval.0.i110.i, %nvme_identify_ns_descr_list.exit.i ], [ %call29.i, %sw.bb28.i ], [ %call27.i, %sw.bb26.i ], [ %call25.i418, %sw.bb24.i417 ], [ %call23.i420, %sw.bb22.i419 ], [ %retval.0.i90.i, %nvme_identify_ctrl_csi.exit.i ], [ %call17.i, %sw.bb16.i ], [ %call15.i425, %sw.bb14.i ], [ %retval.0.i.i47.i, %nvme_identify_sec_ctrl_list.exit.i ], [ %call9.i, %sw.bb8.i ], [ %call7.i, %sw.bb6.i ], [ %call5.i, %sw.bb4.i ], [ %call3.i, %sw.bb.i434 ], [ %call.i.i.i, %trace_pci_nvme_identify_pri_ctrl_cap.exit.i.i ], [ %call.i.i67.i, %trace_pci_nvme_identify_ctrl.exit.i.i ], [ %call209.i, %sw.bb208.i ], [ %call166.i, %sw.bb165.i ], [ %call169.i, %sw.bb167.i ], [ %473, %if.end30.i.i ], [ %475, %if.end17.i.i ]
   %cmp53.not = icmp eq i16 %cond.in, -1
   br i1 %cmp53.not, label %if.end57, label %if.then55
 
-if.then55:                                        ; preds = %for.cond.i.i.i, %for.inc198.i, %for.inc137.us.i, %for.inc137.i, %for.inc.i376, %out.i, %sw.bb47.i, %trace_pci_nvme_dbbuf_config.exit.i, %if.end7.i.i, %if.end.i26.i, %sw.bb20.i, %sw.bb.i201, %if.end13.i.i204, %if.end3.i.i, %if.end.i22.i, %if.end.i198, %trace_pci_nvme_virt_mngmt.exit.i, %sw.bb22.i, %sw.bb24.i, %trace_pci_nvme_aer_aerl_exceeded.exit.i, %if.end.i94.i, %if.then80.i, %if.end153.i, %sw.bb163.i, %sw.bb.i377, %lor.lhs.false.i, %if.then110.i, %if.end103.i, %sw.bb201.i, %if.end50.i, %if.end143.i, %lor.lhs.false147.i, %sw.bb140.i, %if.end57.i, %if.end44.i, %if.then39.i, %nvme_ns.exit.i359, %if.then22.i, %if.end.i355, %land.lhs.true.i353, %if.then204.i, %sw.default210.i, %trace_pci_nvme_err_invalid_identify_cns.exit.i, %if.end104.i470, %if.then100.i, %if.then87.i, %if.then76.i, %if.then63.i, %trace_pci_nvme_err_invalid_create_cq_size.exit.i, %trace_pci_nvme_err_invalid_create_cq_cqid.exit.i, %trace_pci_nvme_err_invalid_create_cq_entry_size.exit.i, %trace_pci_nvme_del_cq.exit.i, %trace_pci_nvme_err_invalid_del_cq_notempty.exit.i, %trace_pci_nvme_err_invalid_del_cq_cqid.exit.i, %nvme_check_mdts.exit.i, %sw.bb27.i, %nvme_cid.exit71.i, %if.end70.i, %if.then66.i, %if.then53.i621, %if.then42.i, %trace_pci_nvme_err_invalid_create_sq_sqid.exit.i, %trace_pci_nvme_err_invalid_create_sq_cqid.exit.i, %if.end95.i, %trace_pci_nvme_err_invalid_del_sq.exit.i, %if.end20.i, %nvme_check_sqid.exit.i.i, %sw.bb35.i, %if.end13.i, %if.end.i73, %trace_pci_nvme_err_invalid_admin_opc.exit.i, %if.end14.i, %out.i.i, %if.end32.i, %nvme_ns.exit.i, %trace_pci_nvme_io_cmd.exit.i, %trace_pci_nvme_err_invalid_opc.exit.i, %cond.end
-  %cond.in686 = phi i16 [ %cond.in, %cond.end ], [ %status.0.i, %out.i ], [ 16386, %sw.bb47.i ], [ 0, %trace_pci_nvme_dbbuf_config.exit.i ], [ 16674, %if.end7.i.i ], [ 16673, %if.end.i26.i ], [ 16671, %sw.bb20.i ], [ 16671, %sw.bb.i201 ], [ 16674, %if.end13.i.i204 ], [ 16673, %if.end3.i.i ], [ 16672, %if.end.i22.i ], [ 16386, %if.end.i198 ], [ 16674, %trace_pci_nvme_virt_mngmt.exit.i ], [ %call23.i, %sw.bb22.i ], [ %call25.i, %sw.bb24.i ], [ 261, %trace_pci_nvme_aer_aerl_exceeded.exit.i ], [ 0, %if.end.i94.i ], [ 0, %if.then80.i ], [ 0, %if.end153.i ], [ 0, %sw.bb163.i ], [ 0, %sw.bb.i377 ], [ 0, %lor.lhs.false.i ], [ 0, %if.then110.i ], [ 0, %if.end103.i ], [ 0, %sw.bb201.i ], [ 16396, %if.end50.i ], [ 16386, %if.end143.i ], [ 16386, %lor.lhs.false147.i ], [ 16396, %sw.bb140.i ], [ 16386, %if.end57.i ], [ 16654, %if.end44.i ], [ %..i, %if.then39.i ], [ 16386, %nvme_ns.exit.i359 ], [ 16395, %if.then22.i ], [ 16386, %if.end.i355 ], [ 16653, %land.lhs.true.i353 ], [ 16427, %if.then204.i ], [ 16654, %sw.default210.i ], [ 16386, %trace_pci_nvme_err_invalid_identify_cns.exit.i ], [ 0, %if.end104.i470 ], [ 16386, %if.then100.i ], [ 16648, %if.then87.i ], [ 16648, %if.then76.i ], [ 16403, %if.then63.i ], [ 16642, %trace_pci_nvme_err_invalid_create_cq_size.exit.i ], [ 16641, %trace_pci_nvme_err_invalid_create_cq_cqid.exit.i ], [ 16642, %trace_pci_nvme_err_invalid_create_cq_entry_size.exit.i ], [ 0, %trace_pci_nvme_del_cq.exit.i ], [ 268, %trace_pci_nvme_err_invalid_del_cq_notempty.exit.i ], [ 16640, %trace_pci_nvme_err_invalid_del_cq_cqid.exit.i ], [ 16386, %nvme_check_mdts.exit.i ], [ 16386, %sw.bb27.i ], [ 16386, %nvme_cid.exit71.i ], [ 0, %if.end70.i ], [ 16386, %if.then66.i ], [ 16403, %if.then53.i621 ], [ 16642, %if.then42.i ], [ 16641, %trace_pci_nvme_err_invalid_create_sq_sqid.exit.i ], [ 16640, %trace_pci_nvme_err_invalid_create_sq_cqid.exit.i ], [ 0, %if.end95.i ], [ 16641, %trace_pci_nvme_err_invalid_del_sq.exit.i ], [ 16386, %if.end20.i ], [ %spec.select.i.i, %nvme_check_sqid.exit.i.i ], [ 16386, %sw.bb35.i ], [ 2, %if.end13.i ], [ 16386, %if.end.i73 ], [ 16385, %trace_pci_nvme_err_invalid_admin_opc.exit.i ], [ 16386, %if.end14.i ], [ %status.0.i.i, %out.i.i ], [ 2, %if.end32.i ], [ 16386, %nvme_ns.exit.i ], [ 16395, %trace_pci_nvme_io_cmd.exit.i ], [ 16385, %trace_pci_nvme_err_invalid_opc.exit.i ], [ 0, %for.inc.i376 ], [ 0, %for.inc137.i ], [ 0, %for.inc137.us.i ], [ 0, %for.inc198.i ], [ 16671, %for.cond.i.i.i ]
+if.then55:                                        ; preds = %for.cond.i.i.i, %for.inc198.i, %for.inc137.us.i, %for.inc137.i, %for.inc.i376, %out.i, %sw.bb47.i, %trace_pci_nvme_dbbuf_config.exit.i, %if.end7.i.i, %if.end.i26.i, %sw.bb20.i, %sw.bb.i201, %if.end13.i.i204, %if.end3.i.i, %if.end.i22.i, %if.end.i198, %trace_pci_nvme_virt_mngmt.exit.i, %sw.bb22.i, %sw.bb24.i, %trace_pci_nvme_aer_aerl_exceeded.exit.i, %if.end.i94.i, %if.then80.i, %if.end153.i, %sw.bb163.i, %sw.bb.i377, %lor.lhs.false.i, %if.then110.i, %if.end103.i, %sw.bb201.i, %if.end50.i, %if.end143.i, %lor.lhs.false147.i, %sw.bb140.i, %if.end57.i, %if.end44.i, %if.then39.i, %nvme_ns.exit.i359, %if.then22.i, %if.end.i355, %land.lhs.true.i353, %if.then204.i, %sw.default210.i, %if.end.i.i70.i, %if.end.i.i.i, %trace_pci_nvme_err_invalid_identify_cns.exit.i, %if.end104.i470, %if.then100.i, %if.then87.i, %if.then76.i, %if.then63.i, %trace_pci_nvme_err_invalid_create_cq_size.exit.i, %trace_pci_nvme_err_invalid_create_cq_cqid.exit.i, %trace_pci_nvme_err_invalid_create_cq_entry_size.exit.i, %trace_pci_nvme_del_cq.exit.i, %trace_pci_nvme_err_invalid_del_cq_notempty.exit.i, %trace_pci_nvme_err_invalid_del_cq_cqid.exit.i, %nvme_check_mdts.exit.i, %sw.bb27.i, %nvme_cid.exit71.i, %if.end70.i, %if.then66.i, %if.then53.i621, %if.then42.i, %trace_pci_nvme_err_invalid_create_sq_sqid.exit.i, %trace_pci_nvme_err_invalid_create_sq_cqid.exit.i, %if.end95.i, %trace_pci_nvme_err_invalid_del_sq.exit.i, %if.end20.i, %nvme_check_sqid.exit.i.i, %sw.bb35.i, %if.end13.i, %if.end.i73, %trace_pci_nvme_err_invalid_admin_opc.exit.i, %if.end14.i, %out.i.i, %if.end32.i, %nvme_ns.exit.i, %trace_pci_nvme_io_cmd.exit.i, %trace_pci_nvme_err_invalid_opc.exit.i, %cond.end
+  %cond.in686 = phi i16 [ %cond.in, %cond.end ], [ %status.0.i, %out.i ], [ 16386, %sw.bb47.i ], [ 0, %trace_pci_nvme_dbbuf_config.exit.i ], [ 16674, %if.end7.i.i ], [ 16673, %if.end.i26.i ], [ 16671, %sw.bb20.i ], [ 16671, %sw.bb.i201 ], [ 16674, %if.end13.i.i204 ], [ 16673, %if.end3.i.i ], [ 16672, %if.end.i22.i ], [ 16386, %if.end.i198 ], [ 16674, %trace_pci_nvme_virt_mngmt.exit.i ], [ %call23.i, %sw.bb22.i ], [ %call25.i, %sw.bb24.i ], [ 261, %trace_pci_nvme_aer_aerl_exceeded.exit.i ], [ 0, %if.end.i94.i ], [ 0, %if.then80.i ], [ 0, %if.end153.i ], [ 0, %sw.bb163.i ], [ 0, %sw.bb.i377 ], [ 0, %lor.lhs.false.i ], [ 0, %if.then110.i ], [ 0, %if.end103.i ], [ 0, %sw.bb201.i ], [ 16396, %if.end50.i ], [ 16386, %if.end143.i ], [ 16386, %lor.lhs.false147.i ], [ 16396, %sw.bb140.i ], [ 16386, %if.end57.i ], [ 16654, %if.end44.i ], [ %..i, %if.then39.i ], [ 16386, %nvme_ns.exit.i359 ], [ 16395, %if.then22.i ], [ 16386, %if.end.i355 ], [ 16653, %land.lhs.true.i353 ], [ 16427, %if.then204.i ], [ 16654, %sw.default210.i ], [ %call2.i.i71.i, %if.end.i.i70.i ], [ %call2.i.i.i, %if.end.i.i.i ], [ 16386, %trace_pci_nvme_err_invalid_identify_cns.exit.i ], [ 0, %if.end104.i470 ], [ 16386, %if.then100.i ], [ 16648, %if.then87.i ], [ 16648, %if.then76.i ], [ 16403, %if.then63.i ], [ 16642, %trace_pci_nvme_err_invalid_create_cq_size.exit.i ], [ 16641, %trace_pci_nvme_err_invalid_create_cq_cqid.exit.i ], [ 16642, %trace_pci_nvme_err_invalid_create_cq_entry_size.exit.i ], [ 0, %trace_pci_nvme_del_cq.exit.i ], [ 268, %trace_pci_nvme_err_invalid_del_cq_notempty.exit.i ], [ 16640, %trace_pci_nvme_err_invalid_del_cq_cqid.exit.i ], [ 16386, %nvme_check_mdts.exit.i ], [ 16386, %sw.bb27.i ], [ 16386, %nvme_cid.exit71.i ], [ 0, %if.end70.i ], [ 16386, %if.then66.i ], [ 16403, %if.then53.i621 ], [ 16642, %if.then42.i ], [ 16641, %trace_pci_nvme_err_invalid_create_sq_sqid.exit.i ], [ 16640, %trace_pci_nvme_err_invalid_create_sq_cqid.exit.i ], [ 0, %if.end95.i ], [ 16641, %trace_pci_nvme_err_invalid_del_sq.exit.i ], [ 16386, %if.end20.i ], [ %spec.select.i.i, %nvme_check_sqid.exit.i.i ], [ 16386, %sw.bb35.i ], [ 2, %if.end13.i ], [ 16386, %if.end.i73 ], [ 16385, %trace_pci_nvme_err_invalid_admin_opc.exit.i ], [ 16386, %if.end14.i ], [ %status.0.i.i, %out.i.i ], [ 2, %if.end32.i ], [ 16386, %nvme_ns.exit.i ], [ 16395, %trace_pci_nvme_io_cmd.exit.i ], [ 16385, %trace_pci_nvme_err_invalid_opc.exit.i ], [ 0, %for.inc.i376 ], [ 0, %for.inc137.i ], [ 0, %for.inc137.us.i ], [ 0, %for.inc198.i ], [ 16671, %for.cond.i.i.i ]
   %status56 = getelementptr inbounds i8, ptr %25, i64 24
   store i16 %cond.in686, ptr %status56, align 8
   call fastcc void @nvme_enqueue_req_completion(ptr noundef %3, ptr noundef %25)
@@ -13618,7 +13618,7 @@ nvme_update_sq_eventidx.exit:                     ; preds = %if.then60, %land.lh
   %bus_master_as.i.i.i = getelementptr inbounds i8, ptr %call.i.i111, i64 576
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %val.addr.i.i.i)
   store i32 %533, ptr %val.addr.i.i.i, align 4
-  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #17, !srcloc !10
+  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #17, !srcloc !8
   fence seq_cst
   %call.i.i.i.i.i.i = call i32 @address_space_rw(ptr noundef nonnull %bus_master_as.i.i.i, i64 noundef %532, i32 1, ptr noundef nonnull %val.addr.i.i.i, i64 noundef 4, i1 noundef zeroext true) #17
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %val.addr.i.i.i)
@@ -13629,7 +13629,7 @@ if.end61:                                         ; preds = %nvme_update_sq_even
   %opaque.val = load i32, ptr %5, align 4
   %opaque.val43 = load i32, ptr %6, align 8
   %cmp.i.not = icmp eq i32 %opaque.val, %opaque.val43
-  br i1 %cmp.i.not, label %while.end, label %lor.rhs, !llvm.loop !43
+  br i1 %cmp.i.not, label %while.end, label %lor.rhs, !llvm.loop !37
 
 while.end:                                        ; preds = %lor.rhs, %if.end61, %if.end, %trace_pci_nvme_err_cfs.exit
   ret void
@@ -13645,7 +13645,7 @@ entry:
   %1 = load i64, ptr %db_addr, align 8
   %tail = getelementptr inbounds i8, ptr %sq, i64 16
   %bus_master_as.i.i = getelementptr inbounds i8, ptr %call.i, i64 576
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #17, !srcloc !10
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #17, !srcloc !8
   fence seq_cst
   %call.i.i.i.i.i = tail call i32 @address_space_rw(ptr noundef nonnull %bus_master_as.i.i, i64 noundef %1, i32 1, ptr noundef nonnull %tail, i64 noundef 4, i1 noundef zeroext false) #17
   %sqid = getelementptr inbounds i8, ptr %sq, i64 8
@@ -13935,7 +13935,7 @@ if.end.i81:                                       ; preds = %nvme_get_zone_by_sl
   %ns.val.i = load i64, ptr %42, align 8
   %43 = getelementptr i8, ptr %arrayidx.i.i, i64 16
   %call.val.i = load i64, ptr %43, align 8
-  %call2.i = tail call fastcc zeroext i16 @nvme_check_zone_state_for_read(ptr noundef nonnull %arrayidx.i.i), !range !44
+  %call2.i = tail call fastcc zeroext i16 @nvme_check_zone_state_for_read(ptr noundef nonnull %arrayidx.i.i)
   %tobool3.not.i = icmp eq i16 %call2.i, 0
   br i1 %tobool3.not.i, label %if.else5.i, label %if.then43
 
@@ -13953,7 +13953,7 @@ if.then10.i:                                      ; preds = %if.else5.i
 do.body.i:                                        ; preds = %if.then10.i, %do.cond.i
   %zone.0.i = phi ptr [ %incdec.ptr.i, %do.cond.i ], [ %arrayidx.i.i, %if.then10.i ]
   %incdec.ptr.i = getelementptr i8, ptr %zone.0.i, i64 88
-  %call14.i = tail call fastcc zeroext i16 @nvme_check_zone_state_for_read(ptr noundef %incdec.ptr.i), !range !44
+  %call14.i = tail call fastcc zeroext i16 @nvme_check_zone_state_for_read(ptr noundef %incdec.ptr.i)
   %tobool15.not.i = icmp eq i16 %call14.i, 0
   br i1 %tobool15.not.i, label %do.cond.i, label %if.then43
 
@@ -13963,7 +13963,7 @@ do.cond.i:                                        ; preds = %do.body.i
   %incdec.ptr.val.i = load i64, ptr %45, align 8
   %add.i14.i = add i64 %incdec.ptr.val.i, %ns.val13.i
   %cmp19.i = icmp ugt i64 %add.i, %add.i14.i
-  br i1 %cmp19.i, label %do.body.i, label %if.end45, !llvm.loop !45
+  br i1 %cmp19.i, label %do.body.i, label %if.end45, !llvm.loop !38
 
 if.then43:                                        ; preds = %do.body.i, %if.end.i81, %if.then10.i
   %status.0.i.ph = phi i16 [ 440, %if.then10.i ], [ %call2.i, %if.end.i81 ], [ %call14.i, %do.body.i ]
@@ -14015,7 +14015,7 @@ if.end45:                                         ; preds = %do.cond.i, %if.else
 if.then48:                                        ; preds = %if.end45
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %err.i)
   store ptr null, ptr %err.i, align 8
-  %call.i = tail call fastcc i32 @nvme_block_status_all(ptr noundef nonnull %0, i64 noundef %1, i32 noundef %add, i32 noundef 1), !range !46
+  %call.i = tail call fastcc i32 @nvme_block_status_all(ptr noundef nonnull %0, i64 noundef %1, i32 noundef %add, i32 noundef 1)
   %tobool.not.i101 = icmp eq i32 %call.i, 0
   br i1 %tobool.not.i101, label %nvme_check_dulbe.exit, label %if.then.i102
 
@@ -14078,7 +14078,7 @@ return:                                           ; preds = %invalid, %if.end65,
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc noundef zeroext i16 @nvme_compare(ptr noundef %n, ptr noundef %req) unnamed_addr #0 {
+define internal fastcc zeroext range(i16 1, 0) i16 @nvme_compare(ptr noundef %n, ptr noundef %req) unnamed_addr #0 {
 nvme_nsid.exit:
   %err.i = alloca ptr, align 8
   %_now.i.i.i59 = alloca %struct.timeval, align 8
@@ -14277,7 +14277,7 @@ if.end32:                                         ; preds = %if.end28
 if.then35:                                        ; preds = %if.end32
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %err.i)
   store ptr null, ptr %err.i, align 8
-  %call.i = tail call fastcc i32 @nvme_block_status_all(ptr noundef nonnull %0, i64 noundef %2, i32 noundef %add, i32 noundef 1), !range !46
+  %call.i = tail call fastcc i32 @nvme_block_status_all(ptr noundef nonnull %0, i64 noundef %2, i32 noundef %add, i32 noundef 1)
   %tobool.not.i77 = icmp eq i32 %call.i, 0
   br i1 %tobool.not.i77, label %nvme_check_dulbe.exit, label %if.then.i78
 
@@ -14331,7 +14331,7 @@ return:                                           ; preds = %nvme_check_dulbe.ex
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc noundef zeroext i16 @nvme_dsm(ptr noundef %n, ptr noundef %req) unnamed_addr #0 {
+define internal fastcc zeroext i16 @nvme_dsm(ptr noundef %n, ptr noundef %req) unnamed_addr #0 {
 entry:
   %_now.i.i = alloca %struct.timeval, align 8
   %ns1 = getelementptr inbounds i8, ptr %req, i64 8
@@ -14581,7 +14581,7 @@ if.end36:                                         ; preds = %if.end32
 if.then39:                                        ; preds = %if.end36
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %err.i)
   store ptr null, ptr %err.i, align 8
-  %call.i = tail call fastcc i32 @nvme_block_status_all(ptr noundef nonnull %0, i64 noundef %2, i32 noundef %add, i32 noundef 1), !range !46
+  %call.i = tail call fastcc i32 @nvme_block_status_all(ptr noundef nonnull %0, i64 noundef %2, i32 noundef %add, i32 noundef 1)
   %tobool.not.i49 = icmp eq i32 %call.i, 0
   br i1 %tobool.not.i49, label %nvme_check_dulbe.exit, label %if.then.i50
 
@@ -14632,7 +14632,7 @@ return:                                           ; preds = %nvme_check_dulbe.ex
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc zeroext i16 @nvme_copy(ptr noundef %n, ptr noundef %req) unnamed_addr #0 {
+define internal fastcc zeroext range(i16 1, 0) i16 @nvme_copy(ptr noundef %n, ptr noundef %req) unnamed_addr #0 {
 nvme_nsid.exit:
   %_now.i.i71 = alloca %struct.timeval, align 8
   %_now.i.i = alloca %struct.timeval, align 8
@@ -14856,7 +14856,7 @@ if.end82:                                         ; preds = %nvme_get_zone_by_sl
   br i1 %tobool85.not, label %if.end88, label %invalid
 
 if.end88:                                         ; preds = %if.end82, %if.end72
-  %call89 = tail call fastcc zeroext i16 @nvme_check_copy_mcl(ptr noundef nonnull %0, ptr noundef nonnull %call, i16 noundef zeroext %add), !range !47
+  %call89 = tail call fastcc zeroext i16 @nvme_check_copy_mcl(ptr noundef nonnull %0, ptr noundef nonnull %call, i16 noundef zeroext %add)
   %tobool90.not = icmp eq i16 %call89, 0
   br i1 %tobool90.not, label %if.end92, label %invalid
 
@@ -14949,7 +14949,7 @@ entry:
 
 if.then:                                          ; preds = %entry
   %cmd1 = getelementptr inbounds i8, ptr %req, i64 56
-  %call = call fastcc zeroext i16 @nvme_get_mgmt_zone_slba_idx(ptr noundef %0, ptr noundef nonnull %cmd1, ptr noundef nonnull %slba, ptr noundef nonnull %zone_idx), !range !48
+  %call = call fastcc zeroext i16 @nvme_get_mgmt_zone_slba_idx(ptr noundef %0, ptr noundef nonnull %cmd1, ptr noundef nonnull %slba, ptr noundef nonnull %zone_idx)
   %tobool6.not = icmp eq i16 %call, 0
   br i1 %tobool6.not, label %if.then.if.end8_crit_edge, label %return
 
@@ -15102,7 +15102,7 @@ trace_pci_nvme_close_zone.exit:                   ; preds = %sw.bb24, %land.lhs.
   br i1 %tobool.not.not, label %if.then.i, label %if.then14.i
 
 if.then.i:                                        ; preds = %trace_pci_nvme_close_zone.exit
-  %call.i242 = tail call fastcc noundef zeroext i16 @nvme_zrm_close(ptr noundef nonnull %0, ptr noundef %arrayidx), !range !12
+  %call.i242 = tail call fastcc zeroext i16 @nvme_zrm_close(ptr noundef nonnull %0, ptr noundef %arrayidx)
   br label %sw.epilog
 
 if.then14.i:                                      ; preds = %trace_pci_nvme_close_zone.exit
@@ -15113,7 +15113,7 @@ if.then14.i:                                      ; preds = %trace_pci_nvme_clos
 
 for.cond15.i:                                     ; preds = %land.rhs17.i, %nvme_bulk_proc_zone.exit74.i
   %tobool16.not.i = icmp eq ptr %28, null
-  br i1 %tobool16.not.i, label %for.end31.i, label %land.rhs17.i, !llvm.loop !49
+  br i1 %tobool16.not.i, label %for.end31.i, label %land.rhs17.i, !llvm.loop !39
 
 land.rhs17.i:                                     ; preds = %if.then14.i, %for.cond15.i
   %zone.addr.2111.i = phi ptr [ %28, %for.cond15.i ], [ %27, %if.then14.i ]
@@ -15126,10 +15126,10 @@ land.rhs17.i:                                     ; preds = %if.then14.i, %for.c
   br i1 %switch, label %nvme_bulk_proc_zone.exit74.i, label %for.cond15.i
 
 nvme_bulk_proc_zone.exit74.i:                     ; preds = %land.rhs17.i
-  %call.i241 = tail call fastcc noundef zeroext i16 @nvme_zrm_close(ptr noundef %0, ptr noundef nonnull %zone.addr.2111.i), !range !12
+  %call.i241 = tail call fastcc zeroext i16 @nvme_zrm_close(ptr noundef %0, ptr noundef nonnull %zone.addr.2111.i)
   %31 = add nsw i16 %call.i241, -1
   %or.cond1.i = icmp ult i16 %31, -2
-  br i1 %or.cond1.i, label %sw.epilog, label %for.cond15.i, !llvm.loop !49
+  br i1 %or.cond1.i, label %sw.epilog, label %for.cond15.i, !llvm.loop !39
 
 for.end31.i:                                      ; preds = %for.cond15.i, %if.then14.i
   %exp_open_zones.i = getelementptr inbounds i8, ptr %0, i64 8544
@@ -15139,7 +15139,7 @@ for.end31.i:                                      ; preds = %for.cond15.i, %if.t
 
 for.cond32.i:                                     ; preds = %land.rhs34.i, %nvme_bulk_proc_zone.exit86.i
   %tobool33.not.i = icmp eq ptr %33, null
-  br i1 %tobool33.not.i, label %return, label %land.rhs34.i, !llvm.loop !50
+  br i1 %tobool33.not.i, label %return, label %land.rhs34.i, !llvm.loop !40
 
 land.rhs34.i:                                     ; preds = %for.end31.i, %for.cond32.i
   %zone.addr.3114.i = phi ptr [ %33, %for.cond32.i ], [ %32, %for.end31.i ]
@@ -15152,10 +15152,10 @@ land.rhs34.i:                                     ; preds = %for.end31.i, %for.c
   br i1 %switch275.not, label %nvme_bulk_proc_zone.exit86.i, label %for.cond32.i
 
 nvme_bulk_proc_zone.exit86.i:                     ; preds = %land.rhs34.i
-  %call.i = tail call fastcc noundef zeroext i16 @nvme_zrm_close(ptr noundef %0, ptr noundef nonnull %zone.addr.3114.i), !range !12
+  %call.i = tail call fastcc zeroext i16 @nvme_zrm_close(ptr noundef %0, ptr noundef nonnull %zone.addr.3114.i)
   %36 = add nsw i16 %call.i, -1
   %or.cond2.i = icmp ult i16 %36, -2
-  br i1 %or.cond2.i, label %sw.epilog, label %for.cond32.i, !llvm.loop !50
+  br i1 %or.cond2.i, label %sw.epilog, label %for.cond32.i, !llvm.loop !40
 
 sw.bb31:                                          ; preds = %if.end16
   %spec.select69 = select i1 %tobool.not.not, i32 0, i32 3
@@ -15197,7 +15197,7 @@ trace_pci_nvme_finish_zone.exit:                  ; preds = %sw.bb31, %land.lhs.
   br i1 %tobool.not.not, label %if.then.i160, label %if.else.i114
 
 if.then.i160:                                     ; preds = %trace_pci_nvme_finish_zone.exit
-  %call.i246 = tail call fastcc noundef zeroext i16 @nvme_zrm_finish(ptr noundef nonnull %0, ptr noundef %arrayidx), !range !12
+  %call.i246 = tail call fastcc zeroext i16 @nvme_zrm_finish(ptr noundef nonnull %0, ptr noundef %arrayidx)
   br label %sw.epilog
 
 if.else.i114:                                     ; preds = %trace_pci_nvme_finish_zone.exit
@@ -15208,7 +15208,7 @@ if.else.i114:                                     ; preds = %trace_pci_nvme_fini
 
 for.cond.i:                                       ; preds = %land.rhs.i, %nvme_bulk_proc_zone.exit.i
   %tobool4.not.i = icmp eq ptr %44, null
-  br i1 %tobool4.not.i, label %if.end11.i, label %land.rhs.i, !llvm.loop !51
+  br i1 %tobool4.not.i, label %if.end11.i, label %land.rhs.i, !llvm.loop !41
 
 land.rhs.i:                                       ; preds = %if.else.i114, %for.cond.i
   %zone.addr.0109.i = phi ptr [ %44, %for.cond.i ], [ %43, %if.else.i114 ]
@@ -15222,10 +15222,10 @@ land.rhs.i:                                       ; preds = %if.else.i114, %for.
   br i1 %switch252, label %nvme_bulk_proc_zone.exit.i, label %for.cond.i
 
 nvme_bulk_proc_zone.exit.i:                       ; preds = %land.rhs.i
-  %call.i245 = tail call fastcc noundef zeroext i16 @nvme_zrm_finish(ptr noundef %0, ptr noundef nonnull %zone.addr.0109.i), !range !12
+  %call.i245 = tail call fastcc zeroext i16 @nvme_zrm_finish(ptr noundef %0, ptr noundef nonnull %zone.addr.0109.i)
   %47 = add nsw i16 %call.i245, -1
   %or.cond.i = icmp ult i16 %47, -2
-  br i1 %or.cond.i, label %sw.epilog, label %for.cond.i, !llvm.loop !51
+  br i1 %or.cond.i, label %sw.epilog, label %for.cond.i, !llvm.loop !41
 
 if.end11.i:                                       ; preds = %for.cond.i, %if.else.i114
   %and12.i = and i32 %spec.select69, 1
@@ -15245,7 +15245,7 @@ land.rhs17.lr.ph.i118:                            ; preds = %if.then14.i115
 
 for.cond15.i128:                                  ; preds = %nvme_bulk_proc_zone.exit74.i156, %sw.epilog.i66.i125, %land.rhs17.i119
   %tobool16.not.i130 = icmp eq ptr %51, null
-  br i1 %tobool16.not.i130, label %for.end31.i131, label %land.rhs17.i119, !llvm.loop !49
+  br i1 %tobool16.not.i130, label %for.end31.i131, label %land.rhs17.i119, !llvm.loop !39
 
 land.rhs17.i119:                                  ; preds = %for.cond15.i128, %land.rhs17.lr.ph.i118
   %zone.addr.2111.i120 = phi ptr [ %48, %land.rhs17.lr.ph.i118 ], [ %51, %for.cond15.i128 ]
@@ -15269,10 +15269,10 @@ sw.epilog.i66.i125:                               ; preds = %sw.bb1.i72.i159, %l
   br i1 %tobool13.i68.i127, label %nvme_bulk_proc_zone.exit74.i156, label %for.cond15.i128
 
 nvme_bulk_proc_zone.exit74.i156:                  ; preds = %sw.epilog.i66.i125
-  %call.i244 = tail call fastcc noundef zeroext i16 @nvme_zrm_finish(ptr noundef %0, ptr noundef nonnull %zone.addr.2111.i120), !range !12
+  %call.i244 = tail call fastcc zeroext i16 @nvme_zrm_finish(ptr noundef %0, ptr noundef nonnull %zone.addr.2111.i120)
   %54 = add nsw i16 %call.i244, -1
   %or.cond1.i158 = icmp ult i16 %54, -2
-  br i1 %or.cond1.i158, label %sw.epilog, label %for.cond15.i128, !llvm.loop !49
+  br i1 %or.cond1.i158, label %sw.epilog, label %for.cond15.i128, !llvm.loop !39
 
 for.end31.i131:                                   ; preds = %for.cond15.i128, %if.then14.i115
   %exp_open_zones.i133 = getelementptr inbounds i8, ptr %0, i64 8544
@@ -15287,7 +15287,7 @@ land.rhs34.lr.ph.i135:                            ; preds = %for.end31.i131
 
 for.cond32.i145:                                  ; preds = %nvme_bulk_proc_zone.exit86.i152, %sw.epilog.i78.i142, %land.rhs34.i136
   %tobool33.not.i147 = icmp eq ptr %58, null
-  br i1 %tobool33.not.i147, label %return, label %land.rhs34.i136, !llvm.loop !50
+  br i1 %tobool33.not.i147, label %return, label %land.rhs34.i136, !llvm.loop !40
 
 land.rhs34.i136:                                  ; preds = %for.cond32.i145, %land.rhs34.lr.ph.i135
   %zone.addr.3114.i137 = phi ptr [ %55, %land.rhs34.lr.ph.i135 ], [ %58, %for.cond32.i145 ]
@@ -15311,10 +15311,10 @@ sw.epilog.i78.i142:                               ; preds = %sw.bb1.i84.i155, %l
   br i1 %tobool13.i80.i144, label %nvme_bulk_proc_zone.exit86.i152, label %for.cond32.i145
 
 nvme_bulk_proc_zone.exit86.i152:                  ; preds = %sw.epilog.i78.i142
-  %call.i243 = tail call fastcc noundef zeroext i16 @nvme_zrm_finish(ptr noundef %0, ptr noundef nonnull %zone.addr.3114.i137), !range !12
+  %call.i243 = tail call fastcc zeroext i16 @nvme_zrm_finish(ptr noundef %0, ptr noundef nonnull %zone.addr.3114.i137)
   %61 = add nsw i16 %call.i243, -1
   %or.cond2.i154 = icmp ult i16 %61, -2
-  br i1 %or.cond2.i154, label %sw.epilog, label %for.cond32.i145, !llvm.loop !50
+  br i1 %or.cond2.i154, label %sw.epilog, label %for.cond32.i145, !llvm.loop !40
 
 sw.bb38:                                          ; preds = %if.end16
   %conv40 = zext nneg i8 %3 to i32
@@ -15544,7 +15544,7 @@ if.end26.i:                                       ; preds = %if.end22.i
   br i1 %cmp.i.i, label %if.then.i.i208, label %return
 
 if.then.i.i208:                                   ; preds = %if.end26.i
-  %call4.i.i = tail call fastcc zeroext i16 @nvme_zrm_finish(ptr noundef nonnull %req.val, ptr noundef nonnull %arrayidx), !range !12
+  %call4.i.i = tail call fastcc zeroext i16 @nvme_zrm_finish(ptr noundef nonnull %req.val, ptr noundef nonnull %arrayidx)
   br label %return
 
 sw.default:                                       ; preds = %if.end16
@@ -15647,7 +15647,7 @@ return:                                           ; preds = %for.cond32.i145, %f
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc noundef zeroext i16 @nvme_zone_mgmt_recv(ptr noundef %n, ptr noundef %req) unnamed_addr #0 {
+define internal fastcc zeroext i16 @nvme_zone_mgmt_recv(ptr noundef %n, ptr noundef %req) unnamed_addr #0 {
 entry:
   %_now.i.i.i = alloca %struct.timeval, align 8
   %zone_idx = alloca i32, align 4
@@ -15664,7 +15664,7 @@ entry:
   %.fr112 = freeze i32 %2
   %status4 = getelementptr inbounds i8, ptr %req, i64 24
   store i16 0, ptr %status4, align 8
-  %call5 = call fastcc zeroext i16 @nvme_get_mgmt_zone_slba_idx(ptr noundef %0, ptr noundef nonnull %cmd1, ptr noundef nonnull %slba, ptr noundef nonnull %zone_idx), !range !48
+  %call5 = call fastcc zeroext i16 @nvme_get_mgmt_zone_slba_idx(ptr noundef %0, ptr noundef nonnull %cmd1, ptr noundef nonnull %slba, ptr noundef nonnull %zone_idx)
   %tobool.not = icmp eq i16 %call5, 0
   br i1 %tobool.not, label %if.end, label %return
 
@@ -15834,7 +15834,7 @@ for.cond.us:                                      ; preds = %nvme_zone_matches_f
   %19 = phi i64 [ %inc87.us, %nvme_zone_matches_filter.exit.thread.us ], [ %nr_zones.0104.us, %nvme_zone_matches_filter.exit.us ], [ %nr_zones.0104.us, %sw.bb12.i.us ], [ %nr_zones.0104.us, %sw.bb10.i.us ], [ %nr_zones.0104.us, %sw.bb8.i.us ], [ %nr_zones.0104.us, %sw.bb6.i.us ], [ %nr_zones.0104.us, %sw.bb4.i.us ], [ %nr_zones.0104.us, %sw.bb2.i.us ]
   %inc51.us = add nuw i32 %i.0106.us, 1
   %exitcond114.not = icmp eq i32 %inc51.us, %14
-  br i1 %exitcond114.not, label %for.end, label %for.body.us, !llvm.loop !52
+  br i1 %exitcond114.not, label %for.end, label %for.body.us, !llvm.loop !42
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.cond
   %i.0106 = phi i32 [ %inc51, %for.cond ], [ %13, %for.body.lr.ph ]
@@ -15899,7 +15899,7 @@ for.cond:                                         ; preds = %sw.bb2.i, %sw.bb4.i
   %22 = phi i64 [ %inc87, %nvme_zone_matches_filter.exit.thread ], [ %nr_zones.0104, %nvme_zone_matches_filter.exit ], [ %nr_zones.0104, %sw.bb12.i ], [ %nr_zones.0104, %sw.bb10.i ], [ %nr_zones.0104, %sw.bb8.i ], [ %nr_zones.0104, %sw.bb6.i ], [ %nr_zones.0104, %sw.bb4.i ], [ %nr_zones.0104, %sw.bb2.i ]
   %inc51 = add nuw i32 %i.0106, 1
   %exitcond.not = icmp eq i32 %inc51, %14
-  br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !52
+  br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !42
 
 for.end:                                          ; preds = %for.cond, %for.body, %for.cond.us
   %nr_zones.0.lcssa = phi i64 [ %19, %for.cond.us ], [ %nr_zones.0104, %for.body ], [ %22, %for.cond ]
@@ -16045,7 +16045,7 @@ for.inc105:                                       ; preds = %sw.bb2.i75, %sw.bb4
   %cmp56 = icmp ult i32 %inc106, %43
   %cmp58 = icmp ne i64 %max_zones.1, 0
   %45 = select i1 %cmp56, i1 %cmp58, i1 false
-  br i1 %45, label %for.body60, label %for.end107, !llvm.loop !53
+  br i1 %45, label %for.body60, label %for.end107, !llvm.loop !43
 
 for.end107:                                       ; preds = %for.inc105, %for.end.thread, %for.end
   %call108 = tail call fastcc zeroext i16 @nvme_c2h(ptr noundef %n, ptr noundef nonnull %call39, i32 noundef %shl, ptr noundef %req)
@@ -16058,7 +16058,7 @@ return:                                           ; preds = %nvme_check_mdts.exi
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc noundef zeroext i16 @nvme_io_mgmt_recv(ptr noundef %n, ptr noundef %req) unnamed_addr #0 {
+define internal fastcc zeroext i16 @nvme_io_mgmt_recv(ptr noundef %n, ptr noundef %req) unnamed_addr #0 {
 entry:
   %cdw102 = getelementptr inbounds i8, ptr %req, i64 96
   %0 = load i32, ptr %cdw102, align 1
@@ -16175,7 +16175,7 @@ for.body38.i:                                     ; preds = %for.body38.i, %for.
   %22 = load i16, ptr %nrg.i, align 2
   %23 = zext i16 %22 to i64
   %cmp36.i = icmp ult i64 %indvars.iv.next.i, %23
-  br i1 %cmp36.i, label %for.body38.i, label %for.inc47.loopexit.i, !llvm.loop !54
+  br i1 %cmp36.i, label %for.body38.i, label %for.inc47.loopexit.i, !llvm.loop !44
 
 for.inc47.loopexit.i:                             ; preds = %for.body38.i
   %.pre.i = load i16, ptr %fdp13.i, align 8
@@ -16188,7 +16188,7 @@ for.inc47.i:                                      ; preds = %for.inc47.loopexit.
   %inc48.i = add nuw i16 %ph.036.i, 1
   %incdec.ptr49.i = getelementptr i8, ptr %ruhid.035.i, i64 2
   %cmp28.i = icmp ult i16 %inc48.i, %24
-  br i1 %cmp28.i, label %for.body.i, label %for.end50.i, !llvm.loop !55
+  br i1 %cmp28.i, label %for.body.i, label %for.end50.i, !llvm.loop !45
 
 for.end50.i:                                      ; preds = %for.inc47.i, %for.body.lr.ph.i, %if.end11.i
   %sg.i.i = getelementptr inbounds i8, ptr %req, i64 144
@@ -16217,7 +16217,7 @@ return:                                           ; preds = %entry, %sw.default,
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc noundef zeroext i16 @nvme_io_mgmt_send(ptr noundef %n, ptr noundef %req) unnamed_addr #0 {
+define internal fastcc zeroext i16 @nvme_io_mgmt_send(ptr noundef %n, ptr noundef %req) unnamed_addr #0 {
 entry:
   %cdw102 = getelementptr inbounds i8, ptr %req, i64 96
   %0 = load i32, ptr %cdw102, align 1
@@ -16276,7 +16276,7 @@ nvme_h2c.exit.i:                                  ; preds = %if.end19.i
 for.cond.i:                                       ; preds = %for.body.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %conv20.i
-  br i1 %exitcond.not.i, label %nvme_io_mgmt_send_ruh_update.exit, label %for.body.i, !llvm.loop !57
+  br i1 %exitcond.not.i, label %nvme_io_mgmt_send_ruh_update.exit, label %for.body.i, !llvm.loop !47
 
 for.body.i:                                       ; preds = %nvme_h2c.exit.i, %for.cond.i
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %for.cond.i ], [ 0, %nvme_h2c.exit.i ]
@@ -16417,7 +16417,7 @@ nvme_ns.exit:                                     ; preds = %for.body, %if.end.i
   %retval.0.i = phi ptr [ %4, %if.end.i ], [ null, %for.body ]
   store ptr %retval.0.i, ptr %ns, align 8
   %tobool6.not = icmp eq ptr %retval.0.i, null
-  br i1 %tobool6.not, label %for.cond, label %if.then7, !llvm.loop !58
+  br i1 %tobool6.not, label %for.cond, label %if.then7, !llvm.loop !48
 
 if.then7:                                         ; preds = %nvme_ns.exit
   store i32 %i.0, ptr %nsid, align 8
@@ -17075,7 +17075,7 @@ if.end24.i:                                       ; preds = %while.body.i
   %conv28.i = sub i32 %nlb.addr.020.i, %81
   %call29.i = tail call fastcc zeroext i1 @nvme_update_ruh(ptr noundef %n, ptr noundef %60, i16 noundef zeroext %63)
   %tobool.not.i133 = icmp eq i32 %conv28.i, 0
-  br i1 %tobool.not.i133, label %if.end150, label %while.body.i, !llvm.loop !59
+  br i1 %tobool.not.i133, label %if.end150, label %while.body.i, !llvm.loop !49
 
 if.end150:                                        ; preds = %if.end24.i, %if.then21.i, %if.else142, %land.lhs.true144, %if.end131, %if.then137
   %slba.1 = phi i64 [ %slba.0, %if.end131 ], [ %slba.0, %if.then137 ], [ %1, %land.lhs.true144 ], [ %1, %if.else142 ], [ %1, %if.then21.i ], [ %1, %if.end24.i ]
@@ -17506,7 +17506,7 @@ return:                                           ; preds = %trace_pci_nvme_err_
 declare zeroext i16 @nvme_dif_rw(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc noundef zeroext i16 @nvme_map_data(ptr noundef %n, i32 noundef %nlb, ptr noundef %req) unnamed_addr #0 {
+define internal fastcc zeroext i16 @nvme_map_data(ptr noundef %n, i32 noundef %nlb, ptr noundef %req) unnamed_addr #0 {
 entry:
   %sg = alloca %struct.NvmeSg, align 8
   %ns1 = getelementptr inbounds i8, ptr %req, i64 8
@@ -17931,13 +17931,13 @@ do.body.i:                                        ; preds = %if.then.i
   %8 = load ptr, ptr %entry5.i, align 8
   store ptr %8, ptr %7, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %entry5.i, i8 0, i64 16, i1 false)
-  %call.i = tail call fastcc zeroext i16 @nvme_zrm_close(ptr noundef nonnull %ns, ptr noundef nonnull %5), !range !12
+  %call.i = tail call fastcc zeroext i16 @nvme_zrm_close(ptr noundef nonnull %ns, ptr noundef nonnull %5)
   br label %if.end
 
 if.end:                                           ; preds = %do.body.i, %if.then.i, %land.lhs.true.i, %if.then, %sw.bb1
   %and = lshr i32 %flags, 1
   %and.lobit = and i32 %and, 1
-  %call3 = tail call fastcc zeroext i16 @nvme_zns_check_resources(ptr noundef %ns, i32 noundef %act.0, i32 noundef 1, i32 noundef %and.lobit), !range !60
+  %call3 = tail call fastcc zeroext i16 @nvme_zns_check_resources(ptr noundef %ns, i32 noundef %act.0, i32 noundef 1, i32 noundef %and.lobit)
   %tobool4.not = icmp eq i16 %call3, 0
   br i1 %tobool4.not, label %if.end6, label %return
 
@@ -18130,7 +18130,7 @@ return:                                           ; preds = %entry, %sw.bb19, %i
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc zeroext i16 @nvme_zns_check_resources(ptr nocapture noundef readonly %ns, i32 noundef %act, i32 noundef %opn, i32 noundef %zrwa) unnamed_addr #0 {
+define internal fastcc zeroext range(i16 0, 16831) i16 @nvme_zns_check_resources(ptr nocapture noundef readonly %ns, i32 noundef %act, i32 noundef %opn, i32 noundef %zrwa) unnamed_addr #0 {
 entry:
   %_now.i.i10 = alloca %struct.timeval, align 8
   %_now.i.i = alloca %struct.timeval, align 8
@@ -18246,7 +18246,7 @@ return:                                           ; preds = %if.end16, %trace_pc
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc noundef zeroext i16 @nvme_zrm_close(ptr nocapture noundef %ns, ptr noundef %zone) unnamed_addr #0 {
+define internal fastcc zeroext range(i16 0, 448) i16 @nvme_zrm_close(ptr nocapture noundef %ns, ptr noundef %zone) unnamed_addr #0 {
 entry:
   %0 = getelementptr i8, ptr %zone, i64 1
   %zone.val = load i8, ptr %0, align 1
@@ -18627,7 +18627,7 @@ if.end71.us:                                      ; preds = %cond.end68.us, %if.
   %spec.select.us = add i32 %sg_idx.043.us, %inc.us
   %spec.select41.us = select i1 %cmp72.us, i64 0, i64 %add52.us
   %tobool7.not.us = icmp eq i64 %sub49.us, 0
-  br i1 %tobool7.not.us, label %while.end, label %while.body.us, !llvm.loop !61
+  br i1 %tobool7.not.us, label %while.end, label %while.body.us, !llvm.loop !50
 
 if.else:                                          ; preds = %entry
   tail call void @__assert_fail(ptr noundef nonnull @.str.27, ptr noundef nonnull @.str.1, i32 noundef 748, ptr noundef nonnull @__PRETTY_FUNCTION__.nvme_sg_split) #18
@@ -18694,7 +18694,7 @@ if.end71:                                         ; preds = %cond.end68, %if.end
   %spec.select = add i32 %sg_idx.043, %inc
   %spec.select41 = select i1 %cmp72, i64 0, i64 %add52
   %tobool7.not = icmp eq i64 %sub49, 0
-  br i1 %tobool7.not, label %while.end, label %while.body, !llvm.loop !61
+  br i1 %tobool7.not, label %while.end, label %while.body, !llvm.loop !50
 
 while.end:                                        ; preds = %if.end71, %if.end71.us, %while.cond.preheader
   ret void
@@ -18743,7 +18743,7 @@ declare ptr @dma_blk_read(ptr noundef, ptr noundef, i64 noundef, i32 noundef, pt
 declare ptr @blk_aio_preadv(ptr noundef, i64 noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc noundef zeroext i16 @nvme_check_zone_state_for_read(ptr nocapture noundef readonly %zone) unnamed_addr #0 {
+define internal fastcc zeroext range(i16 0, 444) i16 @nvme_check_zone_state_for_read(ptr nocapture noundef readonly %zone) unnamed_addr #0 {
 entry:
   %_now.i.i = alloca %struct.timeval, align 8
   %0 = getelementptr i8, ptr %zone, i64 1
@@ -18808,7 +18808,7 @@ return:                                           ; preds = %entry, %entry, %ent
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc i32 @nvme_block_status_all(ptr nocapture noundef readonly %ns, i64 noundef %slba, i32 noundef %nlb, i32 noundef %flags) unnamed_addr #0 {
+define internal fastcc range(i32 -2147483648, 2) i32 @nvme_block_status_all(ptr nocapture noundef readonly %ns, i64 noundef %slba, i32 noundef %nlb, i32 noundef %flags) unnamed_addr #0 {
 entry:
   %_now.i.i = alloca %struct.timeval, align 8
   %pnum = alloca i64, align 8
@@ -18880,7 +18880,7 @@ if.end9:                                          ; preds = %trace_pci_nvme_bloc
   %10 = load i64, ptr %pnum, align 8
   %add = add i64 %10, %offset.0
   %cmp10.not = icmp eq i64 %10, %sub
-  br i1 %cmp10.not, label %return, label %do.body, !llvm.loop !62
+  br i1 %cmp10.not, label %return, label %do.body, !llvm.loop !51
 
 return:                                           ; preds = %if.end9, %trace_pci_nvme_block_status.exit, %do.body
   %retval.0 = phi i32 [ %call3, %do.body ], [ 1, %trace_pci_nvme_block_status.exit ], [ 0, %if.end9 ]
@@ -18996,7 +18996,7 @@ if.then.i:                                        ; preds = %land.lhs.true16.i, 
   %20 = load i64, ptr %lbasz.i, align 8
   %conv20.i = trunc i64 %20 to i32
   %conv23.i = zext i16 %.pre.i to i32
-  %call24.i = tail call fastcc zeroext i16 @nvme_tx_interleaved(ptr noundef %opaque.val36.val, ptr noundef nonnull %sg.i, ptr noundef %call7, i32 noundef %conv, i32 noundef %conv20.i, i32 noundef %conv23.i, i64 noundef 0, i32 noundef 0), !range !9
+  %call24.i = tail call fastcc zeroext i16 @nvme_tx_interleaved(ptr noundef %opaque.val36.val, ptr noundef nonnull %sg.i, ptr noundef %call7, i32 noundef %conv, i32 noundef %conv20.i, i32 noundef %conv23.i, i64 noundef 0, i32 noundef 0)
   br label %nvme_bounce_data.exit
 
 if.end.i41:                                       ; preds = %land.lhs.true16.i, %if.end
@@ -19258,7 +19258,7 @@ for.inc:                                          ; preds = %for.body
   %add.ptr84 = getelementptr i8, ptr %bufp.059, i64 %idx.ext83
   %add.ptr89 = getelementptr i8, ptr %mbufp.060, i64 %idx.ext83
   %cmp = icmp ult ptr %add.ptr89, %add.ptr
-  br i1 %cmp, label %for.body, label %out, !llvm.loop !63
+  br i1 %cmp, label %for.body, label %out, !llvm.loop !52
 
 if.end90:                                         ; preds = %if.end28
   %bounce92 = getelementptr inbounds i8, ptr %8, i64 88
@@ -19308,7 +19308,7 @@ declare zeroext i16 @nvme_dif_check(ptr noundef, ptr noundef, i64 noundef, ptr n
 declare ptr @blk_aio_get(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc noundef zeroext i16 @nvme_h2c(ptr noundef %n, ptr noundef %ptr, i32 noundef %len, ptr noundef %req) unnamed_addr #0 {
+define internal fastcc zeroext i16 @nvme_h2c(ptr noundef %n, ptr noundef %ptr, i32 noundef %len, ptr noundef %req) unnamed_addr #0 {
 entry:
   %sg = getelementptr inbounds i8, ptr %req, i64 144
   %conv = zext i32 %len to i64
@@ -19632,7 +19632,7 @@ if.end:                                           ; preds = %lor.lhs.false5
   %6 = load i64, ptr %slba7, align 1
   %nlb8 = getelementptr inbounds i8, ptr %arrayidx, i64 4
   %7 = load i32, ptr %nlb8, align 1
-  %call10 = tail call fastcc i32 @nvme_block_status_all(ptr noundef nonnull %1, i64 noundef %6, i32 noundef %7, i32 noundef 2), !range !46
+  %call10 = tail call fastcc i32 @nvme_block_status_all(ptr noundef nonnull %1, i64 noundef %6, i32 noundef %7, i32 noundef 2)
   %tobool11.not = icmp eq i32 %call10, 0
   br i1 %tobool11.not, label %if.end16, label %if.then12
 
@@ -19905,7 +19905,7 @@ out:                                              ; preds = %if.end, %if.end30, 
 declare zeroext i16 @nvme_dif_mangle_mdata(ptr noundef, ptr noundef, i64 noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc zeroext i16 @nvme_check_copy_mcl(ptr nocapture noundef readonly %ns, ptr nocapture noundef readonly %iocb, i16 noundef zeroext %nr) unnamed_addr #0 {
+define internal fastcc zeroext range(i16 0, 16772) i16 @nvme_check_copy_mcl(ptr nocapture noundef readonly %ns, ptr nocapture noundef readonly %iocb, i16 noundef zeroext %nr) unnamed_addr #0 {
 entry:
   %cmp6.not = icmp eq i16 %nr, 0
   br i1 %cmp6.not, label %for.end, label %for.body.lr.ph
@@ -19934,7 +19934,7 @@ for.body.us:                                      ; preds = %for.body.lr.ph.spli
   %add3.us = add i32 %add.us, %nlb.0.in.us
   %indvars.iv.next12 = add nuw nsw i64 %indvars.iv11, 1
   %exitcond15.not = icmp eq i64 %indvars.iv.next12, %wide.trip.count14
-  br i1 %exitcond15.not, label %for.end, label %for.body.us, !llvm.loop !64
+  br i1 %exitcond15.not, label %for.end, label %for.body.us, !llvm.loop !53
 
 for.body:                                         ; preds = %for.body.lr.ph.split, %for.body
   %indvars.iv = phi i64 [ %indvars.iv.next, %for.body ], [ 0, %for.body.lr.ph.split ]
@@ -19946,7 +19946,7 @@ for.body:                                         ; preds = %for.body.lr.ph.spli
   %add3 = add i32 %add, %nlb.0.in
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count14
-  br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !64
+  br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !53
 
 sw.default.i:                                     ; preds = %for.body.lr.ph
   tail call void @abort() #18
@@ -20119,7 +20119,7 @@ if.end16:                                         ; preds = %if.end13
 if.then18:                                        ; preds = %if.end16
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %err.i)
   store ptr null, ptr %err.i, align 8
-  %call.i = tail call fastcc i32 @nvme_block_status_all(ptr noundef nonnull %1, i64 noundef %slba.0, i32 noundef %nlb.0, i32 noundef 1), !range !46
+  %call.i = tail call fastcc i32 @nvme_block_status_all(ptr noundef nonnull %1, i64 noundef %slba.0, i32 noundef %nlb.0, i32 noundef 1)
   %tobool.not.i = icmp eq i32 %call.i, 0
   br i1 %tobool.not.i, label %nvme_check_dulbe.exit, label %if.then.i29
 
@@ -20191,7 +20191,7 @@ if.end.i:                                         ; preds = %nvme_get_zone_by_sl
   %ns.val.i = load i64, ptr %30, align 8
   %31 = getelementptr i8, ptr %arrayidx.i.i, i64 16
   %call.val.i = load i64, ptr %31, align 8
-  %call2.i = tail call fastcc zeroext i16 @nvme_check_zone_state_for_read(ptr noundef nonnull %arrayidx.i.i), !range !44
+  %call2.i = tail call fastcc zeroext i16 @nvme_check_zone_state_for_read(ptr noundef nonnull %arrayidx.i.i)
   %tobool3.not.i = icmp eq i16 %call2.i, 0
   br i1 %tobool3.not.i, label %if.else5.i, label %invalid
 
@@ -20209,7 +20209,7 @@ if.then10.i:                                      ; preds = %if.else5.i
 do.body.i:                                        ; preds = %if.then10.i, %do.cond.i
   %zone.0.i = phi ptr [ %incdec.ptr.i, %do.cond.i ], [ %arrayidx.i.i, %if.then10.i ]
   %incdec.ptr.i = getelementptr i8, ptr %zone.0.i, i64 88
-  %call14.i = tail call fastcc zeroext i16 @nvme_check_zone_state_for_read(ptr noundef %incdec.ptr.i), !range !44
+  %call14.i = tail call fastcc zeroext i16 @nvme_check_zone_state_for_read(ptr noundef %incdec.ptr.i)
   %tobool15.not.i = icmp eq i16 %call14.i, 0
   br i1 %tobool15.not.i, label %do.cond.i, label %invalid
 
@@ -20219,7 +20219,7 @@ do.cond.i:                                        ; preds = %do.body.i
   %incdec.ptr.val.i = load i64, ptr %33, align 8
   %add.i14.i = add i64 %incdec.ptr.val.i, %ns.val13.i
   %cmp19.i = icmp ugt i64 %add.i, %add.i14.i
-  br i1 %cmp19.i, label %do.body.i, label %if.end30, !llvm.loop !45
+  br i1 %cmp19.i, label %do.body.i, label %if.end30, !llvm.loop !38
 
 if.end30:                                         ; preds = %do.cond.i, %if.else5.i, %if.end23
   %iov = getelementptr inbounds i8, ptr %iocb, i64 96
@@ -20898,7 +20898,7 @@ if.then10:                                        ; preds = %if.end9
   br i1 %cmp.i, label %if.then.i, label %if.end11
 
 if.then.i:                                        ; preds = %if.then10
-  %call4.i = tail call fastcc zeroext i16 @nvme_zrm_finish(ptr noundef nonnull %1, ptr noundef nonnull %7), !range !12
+  %call4.i = tail call fastcc zeroext i16 @nvme_zrm_finish(ptr noundef nonnull %1, ptr noundef nonnull %7)
   br label %if.end11
 
 if.end11:                                         ; preds = %if.end9.if.end11_crit_edge, %if.then.i, %if.then10
@@ -20918,7 +20918,7 @@ out:                                              ; preds = %if.else, %if.end11,
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc noundef zeroext i16 @nvme_get_mgmt_zone_slba_idx(ptr nocapture noundef readonly %ns, ptr nocapture noundef readonly %c, ptr nocapture noundef writeonly %slba, ptr nocapture noundef writeonly %zone_idx) unnamed_addr #0 {
+define internal fastcc zeroext range(i16 0, 16513) i16 @nvme_get_mgmt_zone_slba_idx(ptr nocapture noundef readonly %ns, ptr nocapture noundef readonly %c, ptr nocapture noundef writeonly %slba, ptr nocapture noundef writeonly %zone_idx) unnamed_addr #0 {
 entry:
   %_now.i.i12 = alloca %struct.timeval, align 8
   %_now.i.i = alloca %struct.timeval, align 8
@@ -21066,7 +21066,7 @@ if.then:                                          ; preds = %entry
   %zone.val = load i8, ptr %0, align 1
   %1 = lshr i8 %zone.val, 4
   %shr.i = zext nneg i8 %1 to i32
-  %call1 = tail call zeroext i16 %op_hndlr(ptr noundef %ns, ptr noundef %zone, i32 noundef %shr.i, ptr noundef %req) #17, !callees !65
+  %call1 = tail call zeroext i16 %op_hndlr(ptr noundef %ns, ptr noundef %zone, i32 noundef %shr.i, ptr noundef %req) #17, !callees !54
   br label %out
 
 if.else:                                          ; preds = %entry
@@ -21089,7 +21089,7 @@ land.rhs.lr.ph:                                   ; preds = %if.then3
 for.cond:                                         ; preds = %land.rhs, %sw.epilog.i, %nvme_bulk_proc_zone.exit
   %status.0.i129 = phi i16 [ %call14.i, %nvme_bulk_proc_zone.exit ], [ 0, %sw.epilog.i ], [ 0, %land.rhs ]
   %tobool4.not = icmp eq ptr %6, null
-  br i1 %tobool4.not, label %if.end11, label %land.rhs, !llvm.loop !51
+  br i1 %tobool4.not, label %if.end11, label %land.rhs, !llvm.loop !41
 
 land.rhs:                                         ; preds = %land.rhs.lr.ph, %for.cond
   %zone.addr.0109 = phi ptr [ %2, %land.rhs.lr.ph ], [ %6, %for.cond ]
@@ -21118,10 +21118,10 @@ sw.epilog.i:                                      ; preds = %land.rhs, %land.rhs
   br i1 %tobool13.i, label %nvme_bulk_proc_zone.exit, label %for.cond
 
 nvme_bulk_proc_zone.exit:                         ; preds = %sw.epilog.i
-  %call14.i = tail call zeroext i16 %op_hndlr(ptr noundef %ns, ptr noundef nonnull %zone.addr.0109, i32 noundef %shr.i.i, ptr noundef %req) #17, !callees !65
+  %call14.i = tail call zeroext i16 %op_hndlr(ptr noundef %ns, ptr noundef nonnull %zone.addr.0109, i32 noundef %shr.i.i, ptr noundef %req) #17, !callees !54
   %9 = add i16 %call14.i, -1
   %or.cond = icmp ult i16 %9, -2
-  br i1 %or.cond, label %out, label %for.cond, !llvm.loop !51
+  br i1 %or.cond, label %out, label %for.cond, !llvm.loop !41
 
 if.end11:                                         ; preds = %for.cond, %if.then3, %if.else
   %zone.addr.1 = phi ptr [ %zone, %if.else ], [ null, %if.then3 ], [ null, %for.cond ]
@@ -21145,7 +21145,7 @@ land.rhs17.lr.ph:                                 ; preds = %if.then14
 for.cond15:                                       ; preds = %land.rhs17, %sw.epilog.i66, %nvme_bulk_proc_zone.exit74
   %status.0.i69132 = phi i16 [ %call14.i71, %nvme_bulk_proc_zone.exit74 ], [ 0, %sw.epilog.i66 ], [ 0, %land.rhs17 ]
   %tobool16.not = icmp eq ptr %14, null
-  br i1 %tobool16.not, label %for.end31, label %land.rhs17, !llvm.loop !49
+  br i1 %tobool16.not, label %for.end31, label %land.rhs17, !llvm.loop !39
 
 land.rhs17:                                       ; preds = %land.rhs17.lr.ph, %for.cond15
   %zone.addr.2111 = phi ptr [ %10, %land.rhs17.lr.ph ], [ %14, %for.cond15 ]
@@ -21174,10 +21174,10 @@ sw.epilog.i66:                                    ; preds = %land.rhs17, %land.r
   br i1 %tobool13.i68, label %nvme_bulk_proc_zone.exit74, label %for.cond15
 
 nvme_bulk_proc_zone.exit74:                       ; preds = %sw.epilog.i66
-  %call14.i71 = tail call zeroext i16 %op_hndlr(ptr noundef %ns, ptr noundef nonnull %zone.addr.2111, i32 noundef %shr.i.i64, ptr noundef %req) #17, !callees !65
+  %call14.i71 = tail call zeroext i16 %op_hndlr(ptr noundef %ns, ptr noundef nonnull %zone.addr.2111, i32 noundef %shr.i.i64, ptr noundef %req) #17, !callees !54
   %17 = add i16 %call14.i71, -1
   %or.cond1 = icmp ult i16 %17, -2
-  br i1 %or.cond1, label %out, label %for.cond15, !llvm.loop !49
+  br i1 %or.cond1, label %out, label %for.cond15, !llvm.loop !39
 
 for.end31:                                        ; preds = %for.cond15, %if.then14
   %status.2.lcssa = phi i16 [ %status.1, %if.then14 ], [ %status.0.i69132, %for.cond15 ]
@@ -21195,7 +21195,7 @@ land.rhs34.lr.ph:                                 ; preds = %for.end31
 for.cond32:                                       ; preds = %land.rhs34, %sw.epilog.i78, %nvme_bulk_proc_zone.exit86
   %status.0.i81135 = phi i16 [ %call14.i83, %nvme_bulk_proc_zone.exit86 ], [ 0, %sw.epilog.i78 ], [ 0, %land.rhs34 ]
   %tobool33.not = icmp eq ptr %22, null
-  br i1 %tobool33.not, label %if.end70, label %land.rhs34, !llvm.loop !50
+  br i1 %tobool33.not, label %if.end70, label %land.rhs34, !llvm.loop !40
 
 land.rhs34:                                       ; preds = %land.rhs34.lr.ph, %for.cond32
   %zone.addr.3114 = phi ptr [ %18, %land.rhs34.lr.ph ], [ %22, %for.cond32 ]
@@ -21224,10 +21224,10 @@ sw.epilog.i78:                                    ; preds = %land.rhs34, %land.r
   br i1 %tobool13.i80, label %nvme_bulk_proc_zone.exit86, label %for.cond32
 
 nvme_bulk_proc_zone.exit86:                       ; preds = %sw.epilog.i78
-  %call14.i83 = tail call zeroext i16 %op_hndlr(ptr noundef %ns, ptr noundef nonnull %zone.addr.3114, i32 noundef %shr.i.i76, ptr noundef %req) #17, !callees !65
+  %call14.i83 = tail call zeroext i16 %op_hndlr(ptr noundef %ns, ptr noundef nonnull %zone.addr.3114, i32 noundef %shr.i.i76, ptr noundef %req) #17, !callees !54
   %25 = add i16 %call14.i83, -1
   %or.cond2 = icmp ult i16 %25, -2
-  br i1 %or.cond2, label %out, label %for.cond32, !llvm.loop !50
+  br i1 %or.cond2, label %out, label %for.cond32, !llvm.loop !40
 
 if.end70:                                         ; preds = %for.cond32, %for.end31, %if.end11
   %zone.addr.4 = phi ptr [ %zone.addr.1, %if.end11 ], [ null, %for.end31 ], [ null, %for.cond32 ]
@@ -21275,7 +21275,7 @@ sw.epilog.i90:                                    ; preds = %for.body77, %for.bo
   br i1 %tobool13.i92, label %nvme_bulk_proc_zone.exit98, label %for.inc87
 
 nvme_bulk_proc_zone.exit98:                       ; preds = %sw.epilog.i90
-  %call14.i95 = tail call zeroext i16 %op_hndlr(ptr noundef nonnull %ns, ptr noundef nonnull %zone.addr.7117, i32 noundef %shr.i.i88, ptr noundef %req) #17, !callees !65
+  %call14.i95 = tail call zeroext i16 %op_hndlr(ptr noundef nonnull %ns, ptr noundef nonnull %zone.addr.7117, i32 noundef %shr.i.i88, ptr noundef %req) #17, !callees !54
   %33 = add i16 %call14.i95, -1
   %or.cond4 = icmp ult i16 %33, -2
   br i1 %or.cond4, label %out, label %nvme_bulk_proc_zone.exit98.for.inc87_crit_edge
@@ -21290,7 +21290,7 @@ for.inc87:                                        ; preds = %nvme_bulk_proc_zone
   %inc = add nuw i32 %i.0118, 1
   %incdec.ptr = getelementptr i8, ptr %zone.addr.7117, i64 88
   %cmp75 = icmp ult i32 %inc, %34
-  br i1 %cmp75, label %for.body77, label %out, !llvm.loop !66
+  br i1 %cmp75, label %for.body77, label %out, !llvm.loop !55
 
 out:                                              ; preds = %nvme_bulk_proc_zone.exit, %nvme_bulk_proc_zone.exit74, %nvme_bulk_proc_zone.exit86, %nvme_bulk_proc_zone.exit98, %for.inc87, %for.cond74.preheader, %if.then, %if.end70
   %status.8 = phi i16 [ %status.4, %if.end70 ], [ %call1, %if.then ], [ %status.4, %for.cond74.preheader ], [ %call14.i95, %nvme_bulk_proc_zone.exit98 ], [ %status.0.i93101, %for.inc87 ], [ %call14.i83, %nvme_bulk_proc_zone.exit86 ], [ %call14.i71, %nvme_bulk_proc_zone.exit74 ], [ %call14.i, %nvme_bulk_proc_zone.exit ]
@@ -21557,7 +21557,7 @@ sw.bb:                                            ; preds = %while.body
 while.cond.backedge:                              ; preds = %sw.bb, %while.body
   %29 = load i32, ptr %num_zones, align 8
   %cmp14 = icmp ult i32 %inc, %29
-  br i1 %cmp14, label %while.body, label %done, !llvm.loop !67
+  br i1 %cmp14, label %while.body, label %done, !llvm.loop !56
 
 sw.bb22:                                          ; preds = %while.body, %while.body, %while.body, %while.body
   store ptr %arrayidx, ptr %zone, align 8
@@ -21629,7 +21629,7 @@ return:                                           ; preds = %done, %trace_pci_nv
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal noundef zeroext i16 @nvme_offline_zone(ptr nocapture noundef writeonly %ns, ptr nocapture noundef %zone, i32 noundef %state, ptr nocapture readnone %req) #12 {
+define internal zeroext range(i16 0, 448) i16 @nvme_offline_zone(ptr nocapture noundef writeonly %ns, ptr nocapture noundef %zone, i32 noundef %state, ptr nocapture readnone %req) #12 {
 entry:
   switch i32 %state, label %sw.default [
     i32 13, label %sw.bb
@@ -21743,7 +21743,7 @@ entry:
   br i1 %cmp, label %if.then, label %return
 
 if.then:                                          ; preds = %entry
-  %call.i = tail call fastcc zeroext i16 @nvme_zns_check_resources(ptr noundef %ns, i32 noundef 1, i32 noundef 0, i32 noundef 0), !range !60
+  %call.i = tail call fastcc zeroext i16 @nvme_zns_check_resources(ptr noundef %ns, i32 noundef 1, i32 noundef 0, i32 noundef 0)
   %tobool.not = icmp eq i16 %call.i, 0
   br i1 %tobool.not, label %if.end, label %return
 
@@ -21957,7 +21957,7 @@ return:                                           ; preds = %out, %if.end
 declare noalias ptr @g_malloc0(i64 noundef) local_unnamed_addr #11
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc noundef zeroext i16 @nvme_c2h(ptr noundef %n, ptr noundef %ptr, i32 noundef %len, ptr noundef %req) unnamed_addr #0 {
+define internal fastcc zeroext i16 @nvme_c2h(ptr noundef %n, ptr noundef %ptr, i32 noundef %len, ptr noundef %req) unnamed_addr #0 {
 entry:
   %sg = getelementptr inbounds i8, ptr %req, i64 144
   %conv = zext i32 %len to i64
@@ -22156,7 +22156,7 @@ _nocheck__trace_pci_nvme_err_invalid_create_sq_qflags.exit: ; preds = %entry, %l
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc noundef zeroext i16 @nvme_error_info(ptr noundef %n, i8 noundef zeroext %rae, i32 noundef %buf_len, i64 noundef %off, ptr noundef %req) unnamed_addr #0 {
+define internal fastcc zeroext i16 @nvme_error_info(ptr noundef %n, i8 noundef zeroext %rae, i32 noundef %buf_len, i64 noundef %off, ptr noundef %req) unnamed_addr #0 {
 entry:
   %errlog = alloca %struct.NvmeErrorLog, align 1
   %cmp = icmp ugt i64 %off, 63
@@ -22202,7 +22202,7 @@ return:                                           ; preds = %if.end.i, %if.end2,
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc noundef zeroext i16 @nvme_smart_info(ptr noundef %n, i8 noundef zeroext %rae, i32 noundef %buf_len, i64 noundef %off, ptr noundef %req) unnamed_addr #0 {
+define internal fastcc zeroext i16 @nvme_smart_info(ptr noundef %n, i8 noundef zeroext %rae, i32 noundef %buf_len, i64 noundef %off, ptr noundef %req) unnamed_addr #0 {
 entry:
   %smart = alloca %struct.NvmeSmartLog, align 1
   %nsid1 = getelementptr inbounds i8, ptr %req, i64 60
@@ -22283,7 +22283,7 @@ for.inc:                                          ; preds = %nvme_ns.exit29, %if
   %stats.sroa.16.1 = phi i64 [ %stats.sroa.16.068, %nvme_ns.exit29 ], [ %add8.i41, %if.end11 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 257
-  br i1 %exitcond.not, label %if.end12, label %nvme_ns.exit29, !llvm.loop !68
+  br i1 %exitcond.not, label %if.end12, label %nvme_ns.exit29, !llvm.loop !57
 
 if.end12:                                         ; preds = %for.inc, %if.end6
   %stats.sroa.0.2 = phi i64 [ %5, %if.end6 ], [ %stats.sroa.0.1, %for.inc ]
@@ -22375,7 +22375,7 @@ return:                                           ; preds = %if.then3, %if.end.i
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc noundef zeroext i16 @nvme_fw_log_info(ptr noundef %n, i32 noundef %buf_len, i64 noundef %off, ptr noundef %req) unnamed_addr #0 {
+define internal fastcc zeroext i16 @nvme_fw_log_info(ptr noundef %n, i32 noundef %buf_len, i64 noundef %off, ptr noundef %req) unnamed_addr #0 {
 entry:
   %fw_log = alloca %struct.NvmeFwSlotInfoLog, align 1
   %0 = getelementptr inbounds i8, ptr %fw_log, i64 1
@@ -22408,7 +22408,7 @@ return:                                           ; preds = %if.end.i, %if.end, 
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc noundef zeroext i16 @nvme_changed_nslist(ptr noundef %n, i8 noundef zeroext %rae, i32 noundef %buf_len, i64 noundef %off, ptr noundef %req) unnamed_addr #0 {
+define internal fastcc zeroext i16 @nvme_changed_nslist(ptr noundef %n, i8 noundef zeroext %rae, i32 noundef %buf_len, i64 noundef %off, ptr noundef %req) unnamed_addr #0 {
 entry:
   %_now.i.i = alloca %struct.timeval, align 8
   %nslist = alloca [1024 x i32], align 16
@@ -22476,10 +22476,10 @@ for.inc.i:                                        ; preds = %for.body.i
   %incdec.ptr.i = getelementptr i8, ptr %addr.addr.010.i, i64 8
   %add3.i = add nuw nsw i64 %result.011.i, 64
   %cmp.i = icmp ult i64 %result.011.i, 193
-  br i1 %cmp.i, label %for.body.i, label %while.end, !llvm.loop !69
+  br i1 %cmp.i, label %for.body.i, label %while.end, !llvm.loop !58
 
 find_first_bit.exit:                              ; preds = %for.body.i
-  %7 = tail call i64 @llvm.cttz.i64(i64 %6, i1 true), !range !16
+  %7 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %6, i1 true)
   %add.i = or disjoint i64 %7, %result.011.i
   %cond.i = tail call i64 @llvm.umin.i64(i64 %add.i, i64 257)
   %conv5 = trunc nuw nsw i64 %cond.i to i32
@@ -22507,7 +22507,7 @@ if.end13:                                         ; preds = %while.body
   %8 = load i64, ptr %add.ptr.i, align 8
   %and.i = and i64 %8, %not.i
   store i64 %and.i, ptr %add.ptr.i, align 8
-  br label %while.cond, !llvm.loop !70
+  br label %while.cond, !llvm.loop !59
 
 while.end:                                        ; preds = %find_first_bit.exit, %for.inc.i
   %.pr = load i32, ptr %nslist, align 16
@@ -22554,7 +22554,7 @@ return:                                           ; preds = %if.end.i, %if.end26
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc noundef zeroext i16 @nvme_cmd_effects(ptr noundef %n, i8 noundef zeroext %csi, i32 noundef %buf_len, i64 noundef %off, ptr noundef %req) unnamed_addr #0 {
+define internal fastcc zeroext i16 @nvme_cmd_effects(ptr noundef %n, i8 noundef zeroext %csi, i32 noundef %buf_len, i64 noundef %off, ptr noundef %req) unnamed_addr #0 {
 entry:
   %_now.i.i = alloca %struct.timeval, align 8
   %log = alloca %struct.NvmeEffectsLog, align 4
@@ -22651,7 +22651,7 @@ return:                                           ; preds = %if.end.i, %if.end8,
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc noundef zeroext i16 @nvme_endgrp_info(ptr noundef %n, i32 noundef %buf_len, i64 noundef %off, ptr noundef %req) unnamed_addr #0 {
+define internal fastcc zeroext i16 @nvme_endgrp_info(ptr noundef %n, i32 noundef %buf_len, i64 noundef %off, ptr noundef %req) unnamed_addr #0 {
 entry:
   %info = alloca %struct.NvmeEndGrpLog, align 1
   %cdw11 = getelementptr inbounds i8, ptr %req, i64 100
@@ -22709,7 +22709,7 @@ for.inc:                                          ; preds = %for.body, %nvme_sub
   %stats.sroa.11.1 = phi i64 [ %stats.sroa.11.031, %nvme_subsys_ns.exit ], [ %add8.i, %if.end13 ], [ %stats.sroa.11.031, %for.body ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 257
-  br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !71
+  br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !60
 
 for.end:                                          ; preds = %for.inc
   %div = udiv i64 %stats.sroa.0.1, 1000000000
@@ -22749,7 +22749,7 @@ return:                                           ; preds = %if.end.i16, %for.en
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc noundef zeroext i16 @nvme_fdp_confs(ptr noundef %n, i32 noundef %endgrpid, i32 noundef %buf_len, i64 noundef %off, ptr noundef %req) unnamed_addr #0 {
+define internal fastcc zeroext i16 @nvme_fdp_confs(ptr noundef %n, i32 noundef %endgrpid, i32 noundef %buf_len, i64 noundef %off, ptr noundef %req) unnamed_addr #0 {
 entry:
   %cmp.not = icmp eq i32 %endgrpid, 1
   br i1 %cmp.not, label %lor.lhs.false, label %cleanup
@@ -22839,7 +22839,7 @@ for.body:                                         ; preds = %if.then30, %for.bod
   %inc = add i32 %i.043, 1
   %conv64 = sext i32 %inc to i64
   %cmp65 = icmp ugt i64 %nruh.0, %conv64
-  br i1 %cmp65, label %for.body, label %if.end80, !llvm.loop !72
+  br i1 %cmp65, label %for.body, label %if.end80, !llvm.loop !61
 
 if.else67:                                        ; preds = %if.end13
   %nrg70 = getelementptr i8, ptr %call20, i64 20
@@ -22875,7 +22875,7 @@ cleanup:                                          ; preds = %if.end.i, %if.end80
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc noundef zeroext i16 @nvme_fdp_ruh_usage(ptr noundef %n, i32 noundef %endgrpid, i32 noundef %buf_len, i64 noundef %off, ptr noundef %req) unnamed_addr #0 {
+define internal fastcc zeroext i16 @nvme_fdp_ruh_usage(ptr noundef %n, i32 noundef %endgrpid, i32 noundef %buf_len, i64 noundef %off, ptr noundef %req) unnamed_addr #0 {
 entry:
   %cmp.not = icmp eq i32 %endgrpid, 1
   br i1 %cmp.not, label %lor.lhs.false, label %cleanup
@@ -22927,7 +22927,7 @@ for.body:                                         ; preds = %if.end12, %for.body
   %incdec.ptr31 = getelementptr i8, ptr %ruh.020, i64 40
   %7 = load i16, ptr %nruh, align 8
   %cmp28 = icmp ult i16 %inc, %7
-  br i1 %cmp28, label %for.body, label %for.end, !llvm.loop !73
+  br i1 %cmp28, label %for.body, label %for.end, !llvm.loop !62
 
 for.end:                                          ; preds = %for.body, %if.end12
   %sg.i = getelementptr inbounds i8, ptr %req, i64 144
@@ -22949,7 +22949,7 @@ cleanup:                                          ; preds = %if.end.i, %for.end,
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc noundef zeroext i16 @nvme_fdp_stats(ptr noundef %n, i32 noundef %endgrpid, i32 noundef %buf_len, i64 noundef %off, ptr noundef %req) unnamed_addr #0 {
+define internal fastcc zeroext i16 @nvme_fdp_stats(ptr noundef %n, i32 noundef %endgrpid, i32 noundef %buf_len, i64 noundef %off, ptr noundef %req) unnamed_addr #0 {
 entry:
   %log = alloca %struct.NvmeFdpStatsLog, align 8
   %0 = getelementptr inbounds i8, ptr %log, i64 8
@@ -23004,7 +23004,7 @@ return:                                           ; preds = %if.end.i, %if.end8,
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc noundef zeroext i16 @nvme_fdp_events(ptr noundef %n, i32 noundef %endgrpid, i32 noundef %buf_len, i64 noundef %off, ptr noundef %req) unnamed_addr #0 {
+define internal fastcc zeroext i16 @nvme_fdp_events(ptr noundef %n, i32 noundef %endgrpid, i32 noundef %buf_len, i64 noundef %off, ptr noundef %req) unnamed_addr #0 {
 entry:
   %cdw10 = getelementptr inbounds i8, ptr %req, i64 96
   %0 = load i32, ptr %cdw10, align 1
@@ -23335,7 +23335,7 @@ _nocheck__trace_pci_nvme_err_invalid_create_cq_qflags.exit: ; preds = %entry, %l
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc noundef zeroext i16 @nvme_identify_ns(ptr noundef %n, ptr noundef %req, i1 noundef zeroext %active) unnamed_addr #0 {
+define internal fastcc zeroext i16 @nvme_identify_ns(ptr noundef %n, ptr noundef %req, i1 noundef zeroext %active) unnamed_addr #0 {
 entry:
   %id.i22 = alloca [4096 x i8], align 16
   %id.i = alloca [4096 x i8], align 16
@@ -23477,7 +23477,7 @@ return:                                           ; preds = %switch.early.test, 
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc noundef zeroext i16 @nvme_identify_ctrl_list(ptr noundef %n, ptr noundef %req, i1 noundef zeroext %attached) unnamed_addr #0 {
+define internal fastcc zeroext i16 @nvme_identify_ctrl_list(ptr noundef %n, ptr noundef %req, i1 noundef zeroext %attached) unnamed_addr #0 {
 entry:
   %_now.i.i = alloca %struct.timeval, align 8
   %list = alloca [2048 x i16], align 16
@@ -23601,7 +23601,7 @@ for.inc.us:                                       ; preds = %if.end26.us, %if.en
   %nr_ids.1.us = phi i32 [ %inc.us, %if.end26.us ], [ %nr_ids.037.us, %if.end20.us ], [ %nr_ids.037.us, %nvme_subsys_ctrl.exit.us ], [ %nr_ids.037.us, %nvme_subsys_ctrl.exit.us ]
   %indvars.iv.next44 = add nuw nsw i64 %indvars.iv43, 1
   %exitcond46.not = icmp eq i64 %indvars.iv.next44, 256
-  br i1 %exitcond46.not, label %for.end, label %nvme_subsys_ctrl.exit.us, !llvm.loop !74
+  br i1 %exitcond46.not, label %for.end, label %nvme_subsys_ctrl.exit.us, !llvm.loop !63
 
 nvme_subsys_ctrl.exit:                            ; preds = %nvme_subsys_ctrl.exit.preheader, %for.inc
   %indvars.iv = phi i64 [ %13, %nvme_subsys_ctrl.exit.preheader ], [ %indvars.iv.next, %for.inc ]
@@ -23626,7 +23626,7 @@ for.inc:                                          ; preds = %nvme_subsys_ctrl.ex
   %nr_ids.1 = phi i32 [ %inc, %if.end20 ], [ %nr_ids.037, %nvme_subsys_ctrl.exit ], [ %nr_ids.037, %nvme_subsys_ctrl.exit ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 256
-  br i1 %exitcond.not, label %for.end, label %nvme_subsys_ctrl.exit, !llvm.loop !74
+  br i1 %exitcond.not, label %for.end, label %nvme_subsys_ctrl.exit, !llvm.loop !63
 
 for.end:                                          ; preds = %for.inc, %for.inc.us, %if.end12.thread, %if.end12
   %nr_ids.0.lcssa = phi i32 [ 0, %if.end12 ], [ 0, %if.end12.thread ], [ %nr_ids.1.us, %for.inc.us ], [ %nr_ids.1, %for.inc ]
@@ -23648,7 +23648,7 @@ return:                                           ; preds = %if.end.i28, %for.en
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc noundef zeroext i16 @nvme_identify_ns_csi(ptr noundef %n, ptr noundef %req, i1 noundef zeroext %active) unnamed_addr #0 {
+define internal fastcc zeroext i16 @nvme_identify_ns_csi(ptr noundef %n, ptr noundef %req, i1 noundef zeroext %active) unnamed_addr #0 {
 entry:
   %id.i27 = alloca [4096 x i8], align 16
   %id.i = alloca [4096 x i8], align 16
@@ -23810,7 +23810,7 @@ return:                                           ; preds = %switch.early.test, 
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc noundef zeroext i16 @nvme_identify_nslist(ptr noundef %n, ptr noundef %req, i1 noundef zeroext %active) unnamed_addr #0 {
+define internal fastcc zeroext i16 @nvme_identify_nslist(ptr noundef %n, ptr noundef %req, i1 noundef zeroext %active) unnamed_addr #0 {
 entry:
   %_now.i.i = alloca %struct.timeval, align 8
   %list = alloca [4096 x i8], align 16
@@ -23885,7 +23885,7 @@ for.inc.us:                                       ; preds = %nvme_ns.exit.us, %i
   %j.1.us = phi i32 [ %j.026.us, %if.end11.us ], [ %inc.us, %if.end15.us ], [ %j.026.us, %nvme_ns.exit.us ]
   %indvars.iv.next30 = add nuw nsw i64 %indvars.iv29, 1
   %exitcond32.not = icmp eq i64 %indvars.iv.next30, 257
-  br i1 %exitcond32.not, label %for.end, label %nvme_ns.exit.us, !llvm.loop !75
+  br i1 %exitcond32.not, label %for.end, label %nvme_ns.exit.us, !llvm.loop !64
 
 nvme_ns.exit:                                     ; preds = %for.cond.preheader, %for.inc
   %indvars.iv = phi i64 [ %indvars.iv.next, %for.inc ], [ 1, %for.cond.preheader ]
@@ -23926,7 +23926,7 @@ for.inc:                                          ; preds = %if.then3, %if.end15
   %j.1 = phi i32 [ %j.026, %if.end11 ], [ %inc, %if.end15 ], [ %j.026, %nvme_subsys_ns.exit ], [ %j.026, %if.then3 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 257
-  br i1 %exitcond.not, label %for.end, label %nvme_ns.exit, !llvm.loop !75
+  br i1 %exitcond.not, label %for.end, label %nvme_ns.exit, !llvm.loop !64
 
 for.end:                                          ; preds = %for.inc, %if.end15, %if.end15.us, %for.inc.us
   %sg.i = getelementptr inbounds i8, ptr %req, i64 144
@@ -23945,7 +23945,7 @@ return:                                           ; preds = %if.end.i19, %for.en
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc noundef zeroext i16 @nvme_identify_nslist_csi(ptr noundef %n, ptr noundef %req, i1 noundef zeroext %active) unnamed_addr #0 {
+define internal fastcc zeroext i16 @nvme_identify_nslist_csi(ptr noundef %n, ptr noundef %req, i1 noundef zeroext %active) unnamed_addr #0 {
 entry:
   %_now.i.i = alloca %struct.timeval, align 8
   %list = alloca [4096 x i8], align 16
@@ -24039,7 +24039,7 @@ for.inc.us:                                       ; preds = %nvme_ns.exit.us, %i
   %j.1.us = phi i32 [ %j.031.us, %if.end23.us ], [ %j.031.us, %lor.lhs.false.us ], [ %inc.us, %if.end34.us ], [ %j.031.us, %nvme_ns.exit.us ]
   %indvars.iv.next35 = add nuw nsw i64 %indvars.iv34, 1
   %exitcond37.not = icmp eq i64 %indvars.iv.next35, 257
-  br i1 %exitcond37.not, label %for.end, label %nvme_ns.exit.us, !llvm.loop !76
+  br i1 %exitcond37.not, label %for.end, label %nvme_ns.exit.us, !llvm.loop !65
 
 nvme_ns.exit:                                     ; preds = %if.end11, %for.inc
   %indvars.iv = phi i64 [ %indvars.iv.next, %for.inc ], [ 1, %if.end11 ]
@@ -24086,7 +24086,7 @@ for.inc:                                          ; preds = %if.then15, %if.end3
   %j.1 = phi i32 [ %j.031, %if.end23 ], [ %j.031, %lor.lhs.false ], [ %inc, %if.end34 ], [ %j.031, %nvme_subsys_ns.exit ], [ %j.031, %if.then15 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 257
-  br i1 %exitcond.not, label %for.end, label %nvme_ns.exit, !llvm.loop !76
+  br i1 %exitcond.not, label %for.end, label %nvme_ns.exit, !llvm.loop !65
 
 for.end:                                          ; preds = %for.inc, %if.end34, %if.end34.us, %for.inc.us
   %sg.i = getelementptr inbounds i8, ptr %req, i64 144
@@ -24157,7 +24157,7 @@ _nocheck__trace_pci_nvme_setfeat_numq.exit:       ; preds = %entry, %land.lhs.tr
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc noundef zeroext i16 @nvme_set_feature_timestamp(ptr noundef %n, ptr noundef %req) unnamed_addr #0 {
+define internal fastcc zeroext i16 @nvme_set_feature_timestamp(ptr noundef %n, ptr noundef %req) unnamed_addr #0 {
 entry:
   %timestamp = alloca i64, align 8
   %sg.i = getelementptr inbounds i8, ptr %req, i64 144
@@ -24223,7 +24223,7 @@ _nocheck__trace_pci_nvme_err_invalid_iocsci.exit: ; preds = %entry, %land.lhs.tr
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc noundef zeroext i16 @nvme_set_feature_fdp_events(ptr noundef %n, ptr noundef readonly %ns, ptr noundef %req) unnamed_addr #0 {
+define internal fastcc zeroext i16 @nvme_set_feature_fdp_events(ptr noundef %n, ptr noundef readonly %ns, ptr noundef %req) unnamed_addr #0 {
 entry:
   %cdw112 = getelementptr inbounds i8, ptr %req, i64 100
   %0 = load i32, ptr %cdw112, align 1
@@ -24298,7 +24298,7 @@ for.body:                                         ; preds = %for.cond.preheader,
   %conv37 = or i8 %event_mask.024, %10
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %conv8
-  br i1 %exitcond.not, label %for.end.loopexit, label %for.body, !llvm.loop !77
+  br i1 %exitcond.not, label %for.end.loopexit, label %for.body, !llvm.loop !66
 
 for.end.loopexit:                                 ; preds = %for.body
   %11 = zext i8 %conv37 to i64
@@ -24365,7 +24365,7 @@ _nocheck__trace_pci_nvme_getfeat_vwcache.exit:    ; preds = %entry, %land.lhs.tr
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc noundef zeroext i16 @nvme_get_feature_timestamp(ptr noundef %n, ptr noundef %req) unnamed_addr #0 {
+define internal fastcc zeroext i16 @nvme_get_feature_timestamp(ptr noundef %n, ptr noundef %req) unnamed_addr #0 {
 entry:
   %timestamp = alloca i64, align 8
   %call = tail call fastcc i64 @nvme_get_timestamp(ptr noundef %n)
@@ -24386,7 +24386,7 @@ nvme_c2h.exit:                                    ; preds = %entry, %if.end.i
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc noundef zeroext i16 @nvme_get_feature_fdp_events(ptr noundef %n, ptr nocapture noundef readonly %ns, ptr noundef %req, ptr nocapture noundef writeonly %result) unnamed_addr #0 {
+define internal fastcc zeroext i16 @nvme_get_feature_fdp_events(ptr noundef %n, ptr nocapture noundef readonly %ns, ptr noundef %req, ptr nocapture noundef writeonly %result) unnamed_addr #0 {
 entry:
   %cdw112 = getelementptr inbounds i8, ptr %req, i64 100
   %0 = load i32, ptr %cdw112, align 1
@@ -24474,7 +24474,7 @@ for.inc:                                          ; preds = %if.end37, %for.body
   %nentries.1 = phi i32 [ %nentries.025, %for.body ], [ %inc, %if.end37 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %cmp29.not = icmp eq i64 %indvars.iv.next, 255
-  br i1 %cmp29.not, label %for.end, label %for.body, !llvm.loop !78
+  br i1 %cmp29.not, label %for.end, label %for.body, !llvm.loop !67
 
 for.end:                                          ; preds = %if.end37, %for.inc
   %nentries.2 = phi i32 [ %inc, %if.end37 ], [ %nentries.1, %for.inc ]
@@ -24500,7 +24500,7 @@ cleanup:                                          ; preds = %for.end, %nvme_c2h.
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc noundef zeroext i16 @nvme_virt_set_state(ptr noundef %n, i16 noundef zeroext %cntlid, i1 noundef zeroext %online) unnamed_addr #0 {
+define internal fastcc zeroext range(i16 0, 16673) i16 @nvme_virt_set_state(ptr noundef %n, i16 noundef zeroext %cntlid, i1 noundef zeroext %online) unnamed_addr #0 {
 entry:
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %n, ptr noundef nonnull @.str.6, ptr noundef nonnull @.str.7, i32 noundef 10, ptr noundef nonnull @__func__.PCI_DEVICE) #17
   %sec_ctrl_list.i = getelementptr inbounds i8, ptr %n, i64 27768
@@ -24516,7 +24516,7 @@ for.body.preheader.i:                             ; preds = %entry
 for.cond.i:                                       ; preds = %for.body.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %return, label %for.body.i, !llvm.loop !41
+  br i1 %exitcond.not.i, label %return, label %for.body.i, !llvm.loop !35
 
 for.body.i:                                       ; preds = %for.cond.i, %for.body.preheader.i
   %indvars.iv.i = phi i64 [ 0, %for.body.preheader.i ], [ %indvars.iv.next.i, %for.cond.i ]
@@ -24653,7 +24653,7 @@ nvme_ns.exit:                                     ; preds = %for.body, %if.end.i
   %retval.0.i = phi ptr [ %6, %if.end.i ], [ null, %for.body ]
   store ptr %retval.0.i, ptr %ns, align 8
   %tobool11.not = icmp eq ptr %retval.0.i, null
-  br i1 %tobool11.not, label %for.cond, label %if.then12, !llvm.loop !79
+  br i1 %tobool11.not, label %for.cond, label %if.then12, !llvm.loop !68
 
 if.then12:                                        ; preds = %nvme_ns.exit
   store i32 %i.0, ptr %nsid, align 8
@@ -25066,78 +25066,67 @@ attributes #20 = { nounwind allocsize(0) }
 !2 = !{i32 7, !"PIE Level", i32 2}
 !3 = !{i32 7, !"uwtable", i32 2}
 !4 = !{i32 7, !"frame-pointer", i32 2}
-!5 = !{i16 0, i16 16403}
-!6 = distinct !{!6, !7}
-!7 = !{!"llvm.loop.mustprogress"}
-!8 = distinct !{!8, !7}
-!9 = !{i16 0, i16 5}
-!10 = !{i64 2152351320}
-!11 = distinct !{!11, !7}
-!12 = !{i16 0, i16 448}
-!13 = distinct !{!13, !7}
-!14 = distinct !{!14, !7}
-!15 = distinct !{!15, !7}
-!16 = !{i64 0, i64 65}
-!17 = distinct !{!17, !7}
-!18 = !{i16 0, i16 16673}
-!19 = distinct !{!19, !7}
-!20 = distinct !{!20, !7}
-!21 = distinct !{!21, !7}
-!22 = distinct !{!22, !7}
-!23 = distinct !{!23, !7}
-!24 = distinct !{!24, !7}
-!25 = distinct !{!25, !7}
-!26 = distinct !{!26, !7}
-!27 = distinct !{!27, !7}
-!28 = distinct !{!28, !7}
-!29 = distinct !{!29, !7}
-!30 = distinct !{!30, !7}
-!31 = !{i16 1, i16 0}
-!32 = distinct !{!32, !7}
-!33 = distinct !{!33, !7}
-!34 = distinct !{!34, !7}
-!35 = distinct !{!35, !7}
-!36 = distinct !{!36, !7}
-!37 = distinct !{!37, !7}
-!38 = distinct !{!38, !7}
-!39 = distinct !{!39, !7}
-!40 = distinct !{!40, !7}
-!41 = distinct !{!41, !7}
-!42 = distinct !{!42, !7}
-!43 = distinct !{!43, !7}
-!44 = !{i16 0, i16 444}
-!45 = distinct !{!45, !7}
-!46 = !{i32 -2147483648, i32 2}
-!47 = !{i16 0, i16 16772}
-!48 = !{i16 0, i16 16513}
-!49 = distinct !{!49, !7}
-!50 = distinct !{!50, !7}
-!51 = distinct !{!51, !7}
-!52 = distinct !{!52, !7}
-!53 = distinct !{!53, !7}
-!54 = distinct !{!54, !7}
-!55 = distinct !{!55, !7, !56}
-!56 = !{!"llvm.loop.unswitch.partial.disable"}
-!57 = distinct !{!57, !7}
-!58 = distinct !{!58, !7}
-!59 = distinct !{!59, !7}
-!60 = !{i16 0, i16 16831}
-!61 = distinct !{!61, !7}
-!62 = distinct !{!62, !7}
-!63 = distinct !{!63, !7}
-!64 = distinct !{!64, !7}
-!65 = distinct !{null, null, ptr @nvme_offline_zone, ptr @nvme_open_zone}
-!66 = distinct !{!66, !7}
-!67 = distinct !{!67, !7}
-!68 = distinct !{!68, !7}
-!69 = distinct !{!69, !7}
-!70 = distinct !{!70, !7}
-!71 = distinct !{!71, !7, !56}
-!72 = distinct !{!72, !7}
-!73 = distinct !{!73, !7}
-!74 = distinct !{!74, !7}
-!75 = distinct !{!75, !7}
-!76 = distinct !{!76, !7}
-!77 = distinct !{!77, !7}
-!78 = distinct !{!78, !7}
-!79 = distinct !{!79, !7}
+!5 = distinct !{!5, !6}
+!6 = !{!"llvm.loop.mustprogress"}
+!7 = distinct !{!7, !6}
+!8 = !{i64 2152351320}
+!9 = distinct !{!9, !6}
+!10 = distinct !{!10, !6}
+!11 = distinct !{!11, !6}
+!12 = distinct !{!12, !6}
+!13 = distinct !{!13, !6}
+!14 = distinct !{!14, !6}
+!15 = distinct !{!15, !6}
+!16 = distinct !{!16, !6}
+!17 = distinct !{!17, !6}
+!18 = distinct !{!18, !6}
+!19 = distinct !{!19, !6}
+!20 = distinct !{!20, !6}
+!21 = distinct !{!21, !6}
+!22 = distinct !{!22, !6}
+!23 = distinct !{!23, !6}
+!24 = distinct !{!24, !6}
+!25 = distinct !{!25, !6}
+!26 = distinct !{!26, !6}
+!27 = distinct !{!27, !6}
+!28 = distinct !{!28, !6}
+!29 = distinct !{!29, !6}
+!30 = distinct !{!30, !6}
+!31 = distinct !{!31, !6}
+!32 = distinct !{!32, !6}
+!33 = distinct !{!33, !6}
+!34 = distinct !{!34, !6}
+!35 = distinct !{!35, !6}
+!36 = distinct !{!36, !6}
+!37 = distinct !{!37, !6}
+!38 = distinct !{!38, !6}
+!39 = distinct !{!39, !6}
+!40 = distinct !{!40, !6}
+!41 = distinct !{!41, !6}
+!42 = distinct !{!42, !6}
+!43 = distinct !{!43, !6}
+!44 = distinct !{!44, !6}
+!45 = distinct !{!45, !6, !46}
+!46 = !{!"llvm.loop.unswitch.partial.disable"}
+!47 = distinct !{!47, !6}
+!48 = distinct !{!48, !6}
+!49 = distinct !{!49, !6}
+!50 = distinct !{!50, !6}
+!51 = distinct !{!51, !6}
+!52 = distinct !{!52, !6}
+!53 = distinct !{!53, !6}
+!54 = distinct !{null, null, ptr @nvme_offline_zone, ptr @nvme_open_zone}
+!55 = distinct !{!55, !6}
+!56 = distinct !{!56, !6}
+!57 = distinct !{!57, !6}
+!58 = distinct !{!58, !6}
+!59 = distinct !{!59, !6}
+!60 = distinct !{!60, !6, !46}
+!61 = distinct !{!61, !6}
+!62 = distinct !{!62, !6}
+!63 = distinct !{!63, !6}
+!64 = distinct !{!64, !6}
+!65 = distinct !{!65, !6}
+!66 = distinct !{!66, !6}
+!67 = distinct !{!67, !6}
+!68 = distinct !{!68, !6}

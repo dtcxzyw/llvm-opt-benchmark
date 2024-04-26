@@ -6178,7 +6178,7 @@ _ZN7mitsuba10Properties17PropertiesPrivateaSERKS1_.exit: ; preds = %2, %5
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @_ZNK7mitsuba10Properties4typeERKNSt3__112basic_stringIcNS1_11char_traitsIcEENS1_9allocatorIcEEEE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(24) %1) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define noundef range(i32 0, 13) i32 @_ZNK7mitsuba10Properties4typeERKNSt3__112basic_stringIcNS1_11char_traitsIcEENS1_9allocatorIcEEEE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(24) %1) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.std::__1::basic_string", align 8
   %4 = load ptr, ptr %0, align 8
   %5 = getelementptr inbounds i8, ptr %4, i64 8
@@ -6244,7 +6244,7 @@ _ZNSt3__13mapINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsub
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef i32 @_ZN7mitsuba7variantIJbldN5drjit5ArrayIdLm3EEENSt3__112basic_stringIcNS4_11char_traitsIcEENS4_9allocatorIcEEEENS_9TransformINS_5PointIdLm3EEEEENSB_INSC_IdLm4EEEEENS4_10shared_ptrIvEENS_5ColorIdLm3EEENS_14NamedReferenceENS_3refINS_6ObjectEEEPKvEE5visitINS_12_GLOBAL__N_119PropertyTypeVisitorEEEDTclsr11helper_typeE5visitdtdefpT9type_infoaddtdefpT4datafp_EEOT_(ptr readnone %.256.val) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef range(i32 0, 13) i32 @_ZN7mitsuba7variantIJbldN5drjit5ArrayIdLm3EEENSt3__112basic_stringIcNS4_11char_traitsIcEENS4_9allocatorIcEEEENS_9TransformINS_5PointIdLm3EEEEENSB_INSC_IdLm4EEEEENS4_10shared_ptrIvEENS_5ColorIdLm3EEENS_14NamedReferenceENS_3refINS_6ObjectEEEPKvEE5visitINS_12_GLOBAL__N_119PropertyTypeVisitorEEEDTclsr11helper_typeE5visitdtdefpT9type_infoaddtdefpT4datafp_EEOT_(ptr readnone %.256.val) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %1 = icmp eq ptr %.256.val, @_ZTIb
   br i1 %1, label %_ZN7mitsuba6detail14variant_helperIJbldN5drjit5ArrayIdLm3EEENSt3__112basic_stringIcNS5_11char_traitsIcEENS5_9allocatorIcEEEENS_9TransformINS_5PointIdLm3EEEEENSC_INSD_IdLm4EEEEENS5_10shared_ptrIvEENS_5ColorIdLm3EEENS_14NamedReferenceENS_3refINS_6ObjectEEEPKvEE5visitINS_12_GLOBAL__N_119PropertyTypeVisitorEEEDTclfp1_clL_ZNS5_7declvalB8ne190000IbEEDTclsr3stdE9__declvalIT_ELi0EEEvEEEEPKSt9type_infoPvRSX_.exit, label %2
 
@@ -13703,7 +13703,7 @@ define linkonce_odr hidden noundef nonnull align 8 dereferenceable(24) ptr @_ZN5
   br i1 %15, label %._crit_edge, label %.lr.ph
 
 ._crit_edge:                                      ; preds = %.lr.ph, %2
-  %.lcssa = phi i64 [ %13, %2 ], [ %38, %.lr.ph ]
+  %.lcssa = phi i64 [ %13, %2 ], [ %35, %.lr.ph ]
   %16 = load ptr, ptr %5, align 8
   %17 = getelementptr inbounds i8, ptr %16, i64 %.lcssa
   store ptr %17, ptr %5, align 8
@@ -13730,17 +13730,15 @@ define linkonce_odr hidden noundef nonnull align 8 dereferenceable(24) ptr @_ZN5
   store ptr %31, ptr %4, align 8
   %32 = getelementptr inbounds i8, ptr %30, i64 %27
   store ptr %32, ptr %5, align 8
-  %33 = ptrtoint ptr %31 to i64
-  %34 = ptrtoint ptr %32 to i64
-  %35 = sub i64 %33, %34
+  %gepdiff = sub nsw i64 %24, %27
   call void @llvm.va_start.p0(ptr nonnull %3)
-  %36 = load ptr, ptr %5, align 8
-  %37 = call i32 @vsnprintf(ptr noundef %36, i64 noundef %35, ptr noundef %1, ptr noundef nonnull %3) #26
-  %38 = sext i32 %37 to i64
+  %33 = load ptr, ptr %5, align 8
+  %34 = call i32 @vsnprintf(ptr noundef %33, i64 noundef %gepdiff, ptr noundef %1, ptr noundef nonnull %3) #26
+  %35 = sext i32 %34 to i64
   call void @llvm.va_end.p0(ptr nonnull %3)
-  %39 = add nsw i64 %38, 1
-  %40 = icmp ult i64 %39, %35
-  br i1 %40, label %._crit_edge, label %.lr.ph, !llvm.loop !111
+  %36 = add nsw i64 %35, 1
+  %37 = icmp ult i64 %36, %gepdiff
+  br i1 %37, label %._crit_edge, label %.lr.ph, !llvm.loop !111
 }
 
 ; Function Attrs: nofree nounwind

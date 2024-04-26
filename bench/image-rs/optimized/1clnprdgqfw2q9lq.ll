@@ -29637,7 +29637,7 @@ define hidden void @_ZN4core9core_arch3x864sse215_mm_loadu_si12817h6e27a46ce99be
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
-define hidden noundef i32 @_ZN4core9core_arch3x864sse217_mm_movemask_epi817h8af1f1ceaa8c46e9E.llvm.6924994955228445577(ptr noalias nocapture noundef readonly align 16 dereferenceable(16) %0) unnamed_addr #15 {
+define hidden noundef range(i32 0, 65536) i32 @_ZN4core9core_arch3x864sse217_mm_movemask_epi817h8af1f1ceaa8c46e9E.llvm.6924994955228445577(ptr noalias nocapture noundef readonly align 16 dereferenceable(16) %0) unnamed_addr #15 {
   %2 = load <16 x i8>, ptr %0, align 16
   %3 = icmp slt <16 x i8> %2, zeroinitializer
   %4 = bitcast <16 x i1> %3 to i16
@@ -38279,7 +38279,7 @@ default.unreachable9:                             ; preds = %21, %2
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
-define noundef i8 @"_ZN65_$LT$image..flat..NormalForm$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17h1cc101ee97cf367eE"(ptr noalias nocapture noundef readonly align 1 dereferenceable(1) %0, ptr noalias nocapture noundef readonly align 1 dereferenceable(1) %1) unnamed_addr #17 {
+define noundef range(i8 -1, 3) i8 @"_ZN65_$LT$image..flat..NormalForm$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17h1cc101ee97cf367eE"(ptr noalias nocapture noundef readonly align 1 dereferenceable(1) %0, ptr noalias nocapture noundef readonly align 1 dereferenceable(1) %1) unnamed_addr #17 {
   %3 = load i8, ptr %0, align 1, !range !5680, !noundef !4
   %4 = load i8, ptr %1, align 1, !range !5680, !noundef !4
   switch i8 %3, label %default.unreachable19 [
@@ -39138,7 +39138,7 @@ define { i8, i8 } @"_ZN84_$LT$image..codecs..webp..encoder..WebPQuality$u20$as$u
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
-define noundef i8 @"_ZN111_$LT$image..codecs..webp..encoder..WebPEncoder$LT$W$GT$..build_huffman_tree..Item$u20$as$u20$core..cmp..Ord$GT$3cmp17hcec2f8ca5424b094E"(ptr noalias nocapture noundef readonly align 4 dereferenceable(8) %0, ptr noalias nocapture noundef readonly align 4 dereferenceable(8) %1) unnamed_addr #17 {
+define noundef range(i8 -1, 2) i8 @"_ZN111_$LT$image..codecs..webp..encoder..WebPEncoder$LT$W$GT$..build_huffman_tree..Item$u20$as$u20$core..cmp..Ord$GT$3cmp17hcec2f8ca5424b094E"(ptr noalias nocapture noundef readonly align 4 dereferenceable(8) %0, ptr noalias nocapture noundef readonly align 4 dereferenceable(8) %1) unnamed_addr #17 {
   %3 = load i32, ptr %1, align 4, !noundef !4
   %4 = load i32, ptr %0, align 4, !noundef !4
   %5 = icmp ult i32 %3, %4
@@ -39149,7 +39149,7 @@ define noundef i8 @"_ZN111_$LT$image..codecs..webp..encoder..WebPEncoder$LT$W$GT
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read, inaccessiblemem: read) uwtable
-define noundef i8 @"_ZN118_$LT$image..codecs..webp..encoder..WebPEncoder$LT$W$GT$..build_huffman_tree..Item$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17h9a075843cfd5c883E"(ptr noalias nocapture noundef readonly align 4 dereferenceable(8) %0, ptr noalias nocapture noundef readonly align 4 dereferenceable(8) %1) unnamed_addr #27 {
+define noundef range(i8 -1, 2) i8 @"_ZN118_$LT$image..codecs..webp..encoder..WebPEncoder$LT$W$GT$..build_huffman_tree..Item$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17h9a075843cfd5c883E"(ptr noalias nocapture noundef readonly align 4 dereferenceable(8) %0, ptr noalias nocapture noundef readonly align 4 dereferenceable(8) %1) unnamed_addr #27 {
   tail call void @llvm.experimental.noalias.scope.decl(metadata !7323)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !7326)
   %3 = load i32, ptr %1, align 4, !alias.scope !7326, !noalias !7323, !noundef !4
@@ -39326,7 +39326,7 @@ declare hidden void @"_ZN95_$LT$exr..image..Layer$LT$Channels$GT$$u20$as$u20$exr
 declare hidden void @"_ZN95_$LT$exr..image..Layer$LT$Channels$GT$$u20$as$u20$exr..image..write..layers..WritableLayers$GT$13infer_headers17h2bddec133e2cd19aE"(ptr noalias nocapture noundef sret({ { i64, [534 x i64] }, i64 }) align 8 dereferenceable(4288), ptr noalias noundef readonly align 8 dereferenceable(1200), ptr noalias noundef readonly align 8 dereferenceable(136)) unnamed_addr #0
 
 ; Function Attrs: nonlazybind
-define hidden noundef i32 @__rust_try.llvm.6924994955228445577(ptr nocapture noundef nonnull readonly %0, ptr noundef %1, ptr nocapture noundef nonnull readonly %2) unnamed_addr #33 personality ptr @rust_eh_personality {
+define hidden noundef range(i32 0, 2) i32 @__rust_try.llvm.6924994955228445577(ptr nocapture noundef nonnull readonly %0, ptr noundef %1, ptr nocapture noundef nonnull readonly %2) unnamed_addr #33 personality ptr @rust_eh_personality {
   invoke void %0(ptr %1)
           to label %common.ret unwind label %4
 

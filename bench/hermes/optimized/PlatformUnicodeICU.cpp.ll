@@ -28,7 +28,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @__dso_handle = external hidden global i8
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef i32 @_ZN6hermes16platform_unicode13localeCompareEN4llvh8ArrayRefIDsEES3_(ptr %left.coerce0, i64 %left.coerce1, ptr %right.coerce0, i64 %right.coerce1) local_unnamed_addr #0 {
+define hidden noundef range(i32 -1, 2) i32 @_ZN6hermes16platform_unicode13localeCompareEN4llvh8ArrayRefIDsEES3_(ptr %left.coerce0, i64 %left.coerce1, ptr %right.coerce0, i64 %right.coerce1) local_unnamed_addr #0 {
 entry:
   %0 = load atomic i8, ptr @_ZGVZN6hermes16platform_unicode12_GLOBAL__N_120getUCollatorInstanceEvE4coll acquire, align 8
   %guard.uninitialized.i = icmp eq i8 %0, 0
@@ -504,14 +504,13 @@ if.end28.i:                                       ; preds = %if.then.i.i.i.i.i30
 
 if.then.i.i:                                      ; preds = %if.end28.i
   %19 = load ptr, ptr %dest, align 8
-  %add.ptr.i65.i = getelementptr inbounds i16, ptr %19, i64 %conv.i34.i
-  %add.ptr30.i = getelementptr inbounds i16, ptr %19, i64 %CurSize.0.i
+  %add.ptr30.idx.i = shl nuw nsw i64 %CurSize.0.i, 1
+  %add.ptr30.i = getelementptr inbounds i8, ptr %19, i64 %add.ptr30.idx.i
   %20 = load ptr, ptr %buf, align 8
   %add.ptr33.i = getelementptr inbounds i16, ptr %20, i64 %CurSize.0.i
-  %sub.ptr.lhs.cast.i.i = ptrtoint ptr %add.ptr.i65.i to i64
-  %sub.ptr.rhs.cast.i.i = ptrtoint ptr %add.ptr30.i to i64
-  %sub.ptr.sub.i.i = sub i64 %sub.ptr.lhs.cast.i.i, %sub.ptr.rhs.cast.i.i
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %add.ptr33.i, ptr align 2 %add.ptr30.i, i64 %sub.ptr.sub.i.i, i1 false)
+  %21 = sub nsw i64 %conv.i34.i, %CurSize.0.i
+  %gepdiff.i = shl nsw i64 %21, 1
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %add.ptr33.i, ptr align 2 %add.ptr30.i, i64 %gepdiff.i, i1 false)
   br label %return.sink.split.i
 
 return.sink.split.i:                              ; preds = %if.then.i.i, %if.end28.i, %if.then.i.i.i.i.i.i, %if.then4.i
@@ -519,12 +518,12 @@ return.sink.split.i:                              ; preds = %if.then.i.i, %if.en
   br label %_ZN4llvh15SmallVectorImplIDsEaSERKS1_.exit
 
 _ZN4llvh15SmallVectorImplIDsEaSERKS1_.exit:       ; preds = %if.end, %return.sink.split.i
-  %21 = load ptr, ptr %dest, align 8
-  %cmp.i.i.i = icmp eq ptr %21, %add.ptr.i.i.i.i.i
+  %22 = load ptr, ptr %dest, align 8
+  %cmp.i.i.i = icmp eq ptr %22, %add.ptr.i.i.i.i.i
   br i1 %cmp.i.i.i, label %_ZN4llvh11SmallVectorIDsLj64EED2Ev.exit, label %if.then.i.i39
 
 if.then.i.i39:                                    ; preds = %_ZN4llvh15SmallVectorImplIDsEaSERKS1_.exit
-  call void @free(ptr noundef %21) #8
+  call void @free(ptr noundef %22) #8
   br label %_ZN4llvh11SmallVectorIDsLj64EED2Ev.exit
 
 _ZN4llvh11SmallVectorIDsLj64EED2Ev.exit:          ; preds = %_ZN4llvh15SmallVectorImplIDsEaSERKS1_.exit, %if.then.i.i39
@@ -717,14 +716,13 @@ if.end28.i:                                       ; preds = %if.then.i.i.i.i.i30
 
 if.then.i.i:                                      ; preds = %if.end28.i
   %19 = load ptr, ptr %dest, align 8
-  %add.ptr.i65.i = getelementptr inbounds i16, ptr %19, i64 %conv.i34.i
-  %add.ptr30.i = getelementptr inbounds i16, ptr %19, i64 %CurSize.0.i
+  %add.ptr30.idx.i = shl nuw nsw i64 %CurSize.0.i, 1
+  %add.ptr30.i = getelementptr inbounds i8, ptr %19, i64 %add.ptr30.idx.i
   %20 = load ptr, ptr %buf, align 8
   %add.ptr33.i = getelementptr inbounds i16, ptr %20, i64 %CurSize.0.i
-  %sub.ptr.lhs.cast.i.i = ptrtoint ptr %add.ptr.i65.i to i64
-  %sub.ptr.rhs.cast.i.i = ptrtoint ptr %add.ptr30.i to i64
-  %sub.ptr.sub.i.i = sub i64 %sub.ptr.lhs.cast.i.i, %sub.ptr.rhs.cast.i.i
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %add.ptr33.i, ptr align 2 %add.ptr30.i, i64 %sub.ptr.sub.i.i, i1 false)
+  %21 = sub nsw i64 %conv.i34.i, %CurSize.0.i
+  %gepdiff.i = shl nsw i64 %21, 1
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %add.ptr33.i, ptr align 2 %add.ptr30.i, i64 %gepdiff.i, i1 false)
   br label %return.sink.split.i
 
 return.sink.split.i:                              ; preds = %if.then.i.i, %if.end28.i, %if.then.i.i.i.i.i.i, %if.then4.i
@@ -732,12 +730,12 @@ return.sink.split.i:                              ; preds = %if.then.i.i, %if.en
   br label %_ZN4llvh15SmallVectorImplIDsEaSERKS1_.exit
 
 _ZN4llvh15SmallVectorImplIDsEaSERKS1_.exit:       ; preds = %if.end, %return.sink.split.i
-  %21 = load ptr, ptr %dest, align 8
-  %cmp.i.i.i = icmp eq ptr %21, %add.ptr.i.i.i.i.i
+  %22 = load ptr, ptr %dest, align 8
+  %cmp.i.i.i = icmp eq ptr %22, %add.ptr.i.i.i.i.i
   br i1 %cmp.i.i.i, label %_ZN4llvh11SmallVectorIDsLj64EED2Ev.exit, label %if.then.i.i38
 
 if.then.i.i38:                                    ; preds = %_ZN4llvh15SmallVectorImplIDsEaSERKS1_.exit
-  call void @free(ptr noundef %21) #8
+  call void @free(ptr noundef %22) #8
   br label %_ZN4llvh11SmallVectorIDsLj64EED2Ev.exit
 
 _ZN4llvh11SmallVectorIDsLj64EED2Ev.exit:          ; preds = %_ZN4llvh15SmallVectorImplIDsEaSERKS1_.exit, %if.then.i.i38

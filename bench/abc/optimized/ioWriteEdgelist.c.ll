@@ -243,7 +243,7 @@ define internal fastcc void @Io_NtkEdgelistWriteOne(ptr noundef %0, ptr noundef 
   %11 = getelementptr i8, ptr %.val5464.i, i64 4
   %.val54.val65.i = load i32, ptr %11, align 4
   %12 = icmp sgt i32 %.val54.val65.i, 0
-  br i1 %12, label %.lr.ph70.i, label %Io_NtkEdgelistWritePis.exit.thread163
+  br i1 %12, label %.lr.ph70.i, label %Io_NtkEdgelistWritePis.exit.thread164
 
 .lr.ph.i:                                         ; preds = %.preheader56.i, %.lr.ph.i
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %.lr.ph.i ], [ 0, %.preheader56.i ]
@@ -315,27 +315,27 @@ Io_NtkEdgelistWritePis.exit:                      ; preds = %.lr.ph.i, %.lr.ph70
   %.not = icmp eq i32 %.val84, 6
   br i1 %.not, label %48, label %52
 
-Io_NtkEdgelistWritePis.exit.thread163:            ; preds = %.preheader.i
+Io_NtkEdgelistWritePis.exit.thread164:            ; preds = %.preheader.i
   %46 = getelementptr i8, ptr %1, i64 4
-  %.val84164 = load i32, ptr %46, align 4
-  %.not165 = icmp eq i32 %.val84164, 6
-  br i1 %.not165, label %48, label %.thread166
+  %.val84165 = load i32, ptr %46, align 4
+  %.not166 = icmp eq i32 %.val84165, 6
+  br i1 %.not166, label %48, label %.thread167
 
-.thread166:                                       ; preds = %Io_NtkEdgelistWritePis.exit.thread163
+.thread167:                                       ; preds = %Io_NtkEdgelistWritePis.exit.thread164
   tail call void @Io_WriteTimingInfo(ptr noundef %0, ptr noundef nonnull %1) #11
   br label %.critedge
 
 Io_NtkEdgelistWritePis.exit.thread:               ; preds = %.preheader56.i
   %47 = getelementptr i8, ptr %1, i64 4
-  %.val84161 = load i32, ptr %47, align 4
-  %.not162 = icmp eq i32 %.val84161, 6
-  br i1 %.not162, label %48, label %.thread
+  %.val84162 = load i32, ptr %47, align 4
+  %.not163 = icmp eq i32 %.val84162, 6
+  br i1 %.not163, label %48, label %.thread
 
 .thread:                                          ; preds = %Io_NtkEdgelistWritePis.exit.thread
   tail call void @Io_WriteTimingInfo(ptr noundef %0, ptr noundef nonnull %1) #11
   br label %53
 
-48:                                               ; preds = %Io_NtkEdgelistWritePis.exit.thread163, %Io_NtkEdgelistWritePis.exit.thread, %Io_NtkEdgelistWritePis.exit
+48:                                               ; preds = %Io_NtkEdgelistWritePis.exit.thread164, %Io_NtkEdgelistWritePis.exit.thread, %Io_NtkEdgelistWritePis.exit
   %.not80 = icmp eq i32 %3, 0
   br i1 %.not80, label %50, label %49
 
@@ -355,15 +355,15 @@ Io_NtkEdgelistWritePis.exit.thread:               ; preds = %.preheader56.i
   %54 = phi ptr [ %47, %.thread ], [ %45, %52 ]
   %55 = getelementptr i8, ptr %1, i64 128
   %.val85 = load i32, ptr %55, align 8
-  %.not131 = icmp eq i32 %.val85, 0
-  br i1 %.not131, label %.critedge, label %.preheader
+  %.not132 = icmp eq i32 %.val85, 0
+  br i1 %.not132, label %.critedge, label %.preheader
 
 .preheader:                                       ; preds = %53
   %56 = getelementptr inbounds i8, ptr %1, i64 80
   %57 = load ptr, ptr %56, align 8
   %58 = getelementptr i8, ptr %57, i64 4
-  %.val83139 = load i32, ptr %58, align 4
-  %59 = icmp sgt i32 %.val83139, 0
+  %.val83140 = load i32, ptr %58, align 4
+  %59 = icmp sgt i32 %.val83140, 0
   br i1 %59, label %.lr.ph, label %.critedge
 
 .lr.ph:                                           ; preds = %.preheader
@@ -380,8 +380,8 @@ Io_NtkEdgelistWritePis.exit.thread:               ; preds = %.preheader56.i
   %65 = getelementptr i8, ptr %64, i64 20
   %.val89 = load i32, ptr %65, align 4
   %66 = and i32 %.val89, 15
-  %.not132 = icmp eq i32 %66, 8
-  br i1 %.not132, label %67, label %104
+  %.not133 = icmp eq i32 %66, 8
+  br i1 %.not133, label %67, label %104
 
 67:                                               ; preds = %60
   %.val20.i = load ptr, ptr %64, align 8
@@ -460,8 +460,8 @@ Io_NtkEdgelistWriteLatch.exit:                    ; preds = %91, %95
   %108 = icmp slt i64 %indvars.iv.next, %107
   br i1 %108, label %60, label %.critedge, !llvm.loop !8
 
-.critedge:                                        ; preds = %104, %.thread166, %.preheader, %53, %52
-  %109 = phi ptr [ %54, %.preheader ], [ %54, %53 ], [ %45, %52 ], [ %46, %.thread166 ], [ %54, %104 ]
+.critedge:                                        ; preds = %104, %.thread167, %.preheader, %53, %52
+  %109 = phi ptr [ %54, %.preheader ], [ %54, %53 ], [ %45, %52 ], [ %46, %.thread167 ], [ %54, %104 ]
   %110 = getelementptr i8, ptr %1, i64 136
   %.val90 = load i32, ptr %110, align 8
   %111 = icmp sgt i32 %.val90, 0
@@ -478,71 +478,71 @@ Io_NtkEdgelistWriteLatch.exit:                    ; preds = %91, %95
   %116 = getelementptr inbounds i8, ptr %1, i64 80
   %117 = load ptr, ptr %116, align 8
   %118 = getelementptr i8, ptr %117, i64 4
-  %.val82141 = load i32, ptr %118, align 4
-  %119 = icmp sgt i32 %.val82141, 0
-  br i1 %119, label %.lr.ph143, label %.critedge2
+  %.val82142 = load i32, ptr %118, align 4
+  %119 = icmp sgt i32 %.val82142, 0
+  br i1 %119, label %.lr.ph144, label %.critedge2
 
-.lr.ph143:                                        ; preds = %115, %127
+.lr.ph144:                                        ; preds = %115, %127
   %120 = phi ptr [ %128, %127 ], [ %117, %115 ]
-  %indvars.iv153 = phi i64 [ %indvars.iv.next154, %127 ], [ 0, %115 ]
+  %indvars.iv154 = phi i64 [ %indvars.iv.next155, %127 ], [ 0, %115 ]
   %121 = getelementptr i8, ptr %120, i64 8
   %.val87.val = load ptr, ptr %121, align 8
-  %122 = getelementptr inbounds ptr, ptr %.val87.val, i64 %indvars.iv153
+  %122 = getelementptr inbounds ptr, ptr %.val87.val, i64 %indvars.iv154
   %123 = load ptr, ptr %122, align 8
   %124 = getelementptr i8, ptr %123, i64 20
   %.val92 = load i32, ptr %124, align 4
   %125 = and i32 %.val92, 15
-  %.not136 = icmp eq i32 %125, 10
-  br i1 %.not136, label %126, label %127
+  %.not137 = icmp eq i32 %125, 10
+  br i1 %.not137, label %126, label %127
 
-126:                                              ; preds = %.lr.ph143
+126:                                              ; preds = %.lr.ph144
   tail call fastcc void @Io_NtkEdgelistWriteSubckt(ptr noundef %0, ptr noundef nonnull %123)
-  %.pre159 = load ptr, ptr %116, align 8
+  %.pre160 = load ptr, ptr %116, align 8
   br label %127
 
-127:                                              ; preds = %126, %.lr.ph143
-  %128 = phi ptr [ %.pre159, %126 ], [ %120, %.lr.ph143 ]
-  %indvars.iv.next154 = add nuw nsw i64 %indvars.iv153, 1
+127:                                              ; preds = %126, %.lr.ph144
+  %128 = phi ptr [ %.pre160, %126 ], [ %120, %.lr.ph144 ]
+  %indvars.iv.next155 = add nuw nsw i64 %indvars.iv154, 1
   %129 = getelementptr i8, ptr %128, i64 4
   %.val82 = load i32, ptr %129, align 4
   %130 = sext i32 %.val82 to i64
-  %131 = icmp slt i64 %indvars.iv.next154, %130
-  br i1 %131, label %.lr.ph143, label %.critedge2, !llvm.loop !9
+  %131 = icmp slt i64 %indvars.iv.next155, %130
+  br i1 %131, label %.lr.ph144, label %.critedge2, !llvm.loop !9
 
 .critedge2:                                       ; preds = %127, %115
   %fputc73 = tail call i32 @fputc(i32 10, ptr %0)
   %132 = load ptr, ptr %116, align 8
   %133 = getelementptr i8, ptr %132, i64 4
-  %.val81144 = load i32, ptr %133, align 4
-  %134 = icmp sgt i32 %.val81144, 0
-  br i1 %134, label %.lr.ph146, label %.critedge4
+  %.val81145 = load i32, ptr %133, align 4
+  %134 = icmp sgt i32 %.val81145, 0
+  br i1 %134, label %.lr.ph147, label %.critedge4
 
-.lr.ph146:                                        ; preds = %.critedge2, %142
+.lr.ph147:                                        ; preds = %.critedge2, %142
   %135 = phi ptr [ %143, %142 ], [ %132, %.critedge2 ]
-  %indvars.iv156 = phi i64 [ %indvars.iv.next157, %142 ], [ 0, %.critedge2 ]
+  %indvars.iv157 = phi i64 [ %indvars.iv.next158, %142 ], [ 0, %.critedge2 ]
   %136 = getelementptr i8, ptr %135, i64 8
   %.val88.val = load ptr, ptr %136, align 8
-  %137 = getelementptr inbounds ptr, ptr %.val88.val, i64 %indvars.iv156
+  %137 = getelementptr inbounds ptr, ptr %.val88.val, i64 %indvars.iv157
   %138 = load ptr, ptr %137, align 8
   %139 = getelementptr i8, ptr %138, i64 20
   %.val93 = load i32, ptr %139, align 4
   %140 = and i32 %.val93, 15
-  %.not135 = icmp eq i32 %140, 9
-  br i1 %.not135, label %141, label %142
+  %.not136 = icmp eq i32 %140, 9
+  br i1 %.not136, label %141, label %142
 
-141:                                              ; preds = %.lr.ph146
+141:                                              ; preds = %.lr.ph147
   tail call fastcc void @Io_NtkEdgelistWriteSubckt(ptr noundef %0, ptr noundef nonnull %138)
-  %.pre160 = load ptr, ptr %116, align 8
+  %.pre161 = load ptr, ptr %116, align 8
   br label %142
 
-142:                                              ; preds = %141, %.lr.ph146
-  %143 = phi ptr [ %.pre160, %141 ], [ %135, %.lr.ph146 ]
-  %indvars.iv.next157 = add nuw nsw i64 %indvars.iv156, 1
+142:                                              ; preds = %141, %.lr.ph147
+  %143 = phi ptr [ %.pre161, %141 ], [ %135, %.lr.ph147 ]
+  %indvars.iv.next158 = add nuw nsw i64 %indvars.iv157, 1
   %144 = getelementptr i8, ptr %143, i64 4
   %.val81 = load i32, ptr %144, align 4
   %145 = sext i32 %.val81 to i64
-  %146 = icmp slt i64 %indvars.iv.next157, %145
-  br i1 %146, label %.lr.ph146, label %.critedge4, !llvm.loop !10
+  %146 = icmp slt i64 %indvars.iv.next158, %145
+  br i1 %146, label %.lr.ph147, label %.critedge4, !llvm.loop !10
 
 .critedge4:                                       ; preds = %142, %.critedge2
   %fputc74 = tail call i32 @fputc(i32 10, ptr %0)
@@ -550,8 +550,8 @@ Io_NtkEdgelistWriteLatch.exit:                    ; preds = %91, %95
 
 147:                                              ; preds = %.critedge4, %112
   %.val94 = load i32, ptr %109, align 4
-  %.not133 = icmp eq i32 %.val94, 4
-  br i1 %.not133, label %148, label %152
+  %.not134 = icmp eq i32 %.val94, 4
+  br i1 %.not134, label %148, label %152
 
 148:                                              ; preds = %147
   %149 = getelementptr inbounds i8, ptr %1, i64 256
@@ -568,21 +568,21 @@ Io_NtkEdgelistWriteLatch.exit:                    ; preds = %91, %95
   %156 = tail call ptr @Extra_ProgressBarStart(ptr noundef %153, i32 noundef %.val95.val) #11
   %157 = load ptr, ptr %154, align 8
   %158 = getelementptr i8, ptr %157, i64 4
-  %.val147 = load i32, ptr %158, align 4
-  %159 = icmp sgt i32 %.val147, 0
-  br i1 %159, label %.lr.ph149, label %.critedge6
+  %.val148 = load i32, ptr %158, align 4
+  %159 = icmp sgt i32 %.val148, 0
+  br i1 %159, label %.lr.ph150, label %.critedge6
 
-.lr.ph149:                                        ; preds = %152
+.lr.ph150:                                        ; preds = %152
   %.not.i101 = icmp eq ptr %156, null
   %.not66.i.i = icmp eq i32 %5, 0
   br label %160
 
-160:                                              ; preds = %.lr.ph149, %302
-  %161 = phi ptr [ %157, %.lr.ph149 ], [ %304, %302 ]
-  %.3148 = phi i32 [ 0, %.lr.ph149 ], [ %303, %302 ]
+160:                                              ; preds = %.lr.ph150, %302
+  %161 = phi ptr [ %157, %.lr.ph150 ], [ %304, %302 ]
+  %.3149 = phi i32 [ 0, %.lr.ph150 ], [ %303, %302 ]
   %162 = getelementptr i8, ptr %161, i64 8
   %.val96.val = load ptr, ptr %162, align 8
-  %163 = sext i32 %.3148 to i64
+  %163 = sext i32 %.3149 to i64
   %164 = getelementptr inbounds ptr, ptr %.val96.val, i64 %163
   %165 = load ptr, ptr %164, align 8
   %166 = icmp eq ptr %165, null
@@ -592,19 +592,19 @@ Io_NtkEdgelistWriteLatch.exit:                    ; preds = %91, %95
   %168 = getelementptr i8, ptr %165, i64 20
   %.val97 = load i32, ptr %168, align 4
   %169 = and i32 %.val97, 15
-  %.not134 = icmp eq i32 %169, 7
-  br i1 %.not134, label %170, label %302
+  %.not135 = icmp eq i32 %169, 7
+  br i1 %.not135, label %170, label %302
 
 170:                                              ; preds = %167
   br i1 %.not.i101, label %174, label %171
 
 171:                                              ; preds = %170
   %172 = load i32, ptr %156, align 4
-  %173 = icmp sgt i32 %172, %.3148
+  %173 = icmp sgt i32 %172, %.3149
   br i1 %173, label %Extra_ProgressBarUpdate.exit, label %174
 
 174:                                              ; preds = %171, %170
-  tail call void @Extra_ProgressBarUpdate_int(ptr noundef %156, i32 noundef %.3148, ptr noundef null) #11
+  tail call void @Extra_ProgressBarUpdate_int(ptr noundef %156, i32 noundef %.3149, ptr noundef null) #11
   br label %Extra_ProgressBarUpdate.exit
 
 Extra_ProgressBarUpdate.exit:                     ; preds = %171, %174
@@ -872,23 +872,24 @@ Abc_UtilStrsav.exit.i.i:                          ; preds = %229, %223, %214
   br i1 %299, label %191, label %Io_NtkEdgelistWriteNode.exit.thread, !llvm.loop !12
 
 Io_NtkEdgelistWriteNode.exit:                     ; preds = %177, %179, %Abc_ObjIsBarBuf.exit.i
-  %300 = tail call i32 @Io_NtkEdgelistWriteNodeGate(ptr noundef %0, ptr noundef nonnull %165, i32 poison, i32 noundef %5), !range !13
+  %300 = tail call i32 @Io_NtkEdgelistWriteNodeGate(ptr noundef %0, ptr noundef nonnull %165, i32 poison, i32 noundef %5)
   %fputc.i = tail call i32 @fputc(i32 10, ptr %0)
-  %.not77 = icmp eq i32 %300, 0
-  %301 = add nsw i32 %.3148, 1
+  %.fr = freeze i32 %300
+  %.not77 = icmp eq i32 %.fr, 0
+  %301 = add nsw i32 %.3149, 1
   br i1 %.not77, label %Io_NtkEdgelistWriteNode.exit.thread, label %302
 
 Io_NtkEdgelistWriteNode.exit.thread:              ; preds = %297, %185, %184, %Io_NtkEdgelistWriteNode.exit
   br label %302
 
 302:                                              ; preds = %Io_NtkEdgelistWriteNode.exit.thread, %Io_NtkEdgelistWriteNode.exit, %167, %160
-  %.4 = phi i32 [ %.3148, %160 ], [ %.3148, %167 ], [ %.3148, %Io_NtkEdgelistWriteNode.exit.thread ], [ %301, %Io_NtkEdgelistWriteNode.exit ]
+  %.4 = phi i32 [ %.3149, %160 ], [ %.3149, %167 ], [ %.3149, %Io_NtkEdgelistWriteNode.exit.thread ], [ %301, %Io_NtkEdgelistWriteNode.exit ]
   %303 = add nsw i32 %.4, 1
   %304 = load ptr, ptr %154, align 8
   %305 = getelementptr i8, ptr %304, i64 4
   %.val = load i32, ptr %305, align 4
   %306 = icmp slt i32 %303, %.val
-  br i1 %306, label %160, label %.critedge6, !llvm.loop !14
+  br i1 %306, label %160, label %.critedge6, !llvm.loop !13
 
 .critedge6:                                       ; preds = %302, %152
   br i1 %.not.i, label %.preheader.i116, label %.preheader56.i105
@@ -939,7 +940,7 @@ Io_NtkEdgelistWriteNode.exit.thread:              ; preds = %297, %185, %184, %I
   %.val48.val.i115 = load i32, ptr %326, align 4
   %327 = sext i32 %.val48.val.i115 to i64
   %328 = icmp slt i64 %indvars.iv.next.i113, %327
-  br i1 %328, label %.lr.ph.i106, label %Io_NtkEdgelistWritePos.exit, !llvm.loop !15
+  br i1 %328, label %.lr.ph.i106, label %Io_NtkEdgelistWritePos.exit, !llvm.loop !14
 
 .lr.ph70.i119:                                    ; preds = %.preheader.i116, %.lr.ph70.i119
   %indvars.iv73.i120 = phi i64 [ %indvars.iv.next74.i126, %.lr.ph70.i119 ], [ 0, %.preheader.i116 ]
@@ -971,7 +972,7 @@ Io_NtkEdgelistWriteNode.exit.thread:              ; preds = %297, %185, %184, %I
   %.val54.val.i128 = load i32, ptr %342, align 4
   %343 = sext i32 %.val54.val.i128 to i64
   %344 = icmp slt i64 %indvars.iv.next74.i126, %343
-  br i1 %344, label %.lr.ph70.i119, label %Io_NtkEdgelistWritePos.exit, !llvm.loop !16
+  br i1 %344, label %.lr.ph70.i119, label %Io_NtkEdgelistWritePos.exit, !llvm.loop !15
 
 Io_NtkEdgelistWritePos.exit:                      ; preds = %.lr.ph.i106, %.lr.ph70.i119, %.preheader56.i105, %.preheader.i116
   tail call void @Extra_ProgressBarStop(ptr noundef %156) #11
@@ -1081,7 +1082,7 @@ Io_NtkEdgelistWritePis.exit:                      ; preds = %.lr.ph.i, %14
   %47 = getelementptr i8, ptr %.val, i64 4
   %.val.val = load i32, ptr %47, align 4
   %48 = icmp slt i32 %46, %.val.val
-  br i1 %48, label %.lr.ph, label %._crit_edge, !llvm.loop !17
+  br i1 %48, label %.lr.ph, label %._crit_edge, !llvm.loop !16
 
 ._crit_edge:                                      ; preds = %.lr.ph, %Io_NtkEdgelistWritePis.exit
   %49 = tail call i64 @fwrite(ptr nonnull @.str.13, i64 3, i64 1, ptr %0)
@@ -1121,7 +1122,7 @@ Io_NtkEdgelistWritePis.exit:                      ; preds = %.lr.ph.i, %14
   %.val25.val = load i32, ptr %66, align 4
   %67 = sext i32 %.val25.val to i64
   %68 = icmp slt i64 %indvars.iv.next, %67
-  br i1 %68, label %14, label %.critedge, !llvm.loop !18
+  br i1 %68, label %14, label %.critedge, !llvm.loop !17
 
 .critedge:                                        ; preds = %65, %9
   ret void
@@ -1237,7 +1238,7 @@ define void @Io_NtkEdgelistWriteSubcktFanins(ptr nocapture noundef %0, ptr nocap
   %.val38 = load i32, ptr %12, align 4
   %38 = sext i32 %.val38 to i64
   %39 = icmp slt i64 %indvars.iv.next, %38
-  br i1 %39, label %15, label %.critedge.loopexit, !llvm.loop !19
+  br i1 %39, label %15, label %.critedge.loopexit, !llvm.loop !18
 
 .critedge.loopexit:                               ; preds = %32
   %40 = icmp eq i32 %37, 0
@@ -1280,7 +1281,7 @@ define void @Io_NtkEdgelistWriteSubcktFanins(ptr nocapture noundef %0, ptr nocap
 declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @Io_NtkEdgelistWriteNodeGate(ptr nocapture noundef %0, ptr noundef %1, i32 %2, i32 noundef %3) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @Io_NtkEdgelistWriteNodeGate(ptr nocapture noundef %0, ptr noundef %1, i32 %2, i32 noundef %3) local_unnamed_addr #0 {
   %5 = getelementptr inbounds i8, ptr %1, i64 56
   %6 = load ptr, ptr %5, align 8
   %7 = tail call ptr @Mio_GateReadPins(ptr noundef %6) #11
@@ -1312,7 +1313,7 @@ define noundef i32 @Io_NtkEdgelistWriteNodeGate(ptr nocapture noundef %0, ptr no
   %18 = tail call ptr @Mio_PinReadNext(ptr noundef nonnull %.03248.us) #11
   %indvars.iv.next53 = add nuw nsw i64 %indvars.iv52, 1
   %.not.us = icmp eq ptr %18, null
-  br i1 %.not.us, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !20
+  br i1 %.not.us, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !19
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %.lr.ph.split
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph.split ], [ 0, %.lr.ph ]
@@ -1333,7 +1334,7 @@ define noundef i32 @Io_NtkEdgelistWriteNodeGate(ptr nocapture noundef %0, ptr no
   %28 = tail call ptr @Mio_PinReadNext(ptr noundef nonnull %.03248) #11
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %.not = icmp eq ptr %28, null
-  br i1 %.not, label %._crit_edge, label %.lr.ph.split, !llvm.loop !20
+  br i1 %.not, label %._crit_edge, label %.lr.ph.split, !llvm.loop !19
 
 ._crit_edge:                                      ; preds = %.lr.ph.split, %.lr.ph.split.us, %4
   %.not34 = icmp eq i32 %3, 0
@@ -1510,7 +1511,7 @@ define void @Io_NtkEdgelistWriteNodeInt(ptr nocapture noundef %0, ptr nocapture 
   %.val151 = load i32, ptr %11, align 4
   %37 = sext i32 %.val151 to i64
   %38 = icmp slt i64 %indvars.iv.next206, %37
-  br i1 %38, label %27, label %.critedge, !llvm.loop !21
+  br i1 %38, label %27, label %.critedge, !llvm.loop !20
 
 .critedge:                                        ; preds = %27, %.preheader
   %.val133 = load ptr, ptr %1, align 8
@@ -1540,7 +1541,7 @@ define void @Io_NtkEdgelistWriteNodeInt(ptr nocapture noundef %0, ptr nocapture 
   store i32 %51, ptr %52, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.critedge2, label %49, !llvm.loop !22
+  br i1 %exitcond.not, label %.critedge2, label %49, !llvm.loop !21
 
 .critedge2:                                       ; preds = %49, %.preheader174
   %53 = icmp eq i32 %.val152, 7
@@ -1704,7 +1705,7 @@ Io_NtkWriteEdgelistDeriveSop.exit:                ; preds = %109, %116, %118, %1
   %135 = load i32, ptr %indvars.iv202.sroa.phi, align 4
   %136 = sext i32 %135 to i64
   %137 = icmp slt i64 %indvars.iv.next200, %136
-  br i1 %137, label %.lr.ph181, label %._crit_edge182, !llvm.loop !23
+  br i1 %137, label %.lr.ph181, label %._crit_edge182, !llvm.loop !22
 
 ._crit_edge182:                                   ; preds = %.lr.ph181, %Io_NtkWriteEdgelistDeriveSop.exit
   %.val125 = load ptr, ptr %1, align 8
@@ -1721,7 +1722,7 @@ Io_NtkWriteEdgelistDeriveSop.exit:                ; preds = %109, %116, %118, %1
   %144 = trunc nuw nsw i64 %indvars.iv202 to i32
   %145 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.33, ptr noundef %143, i32 noundef %144) #11
   %fputs119 = call i32 @fputs(ptr %.0.i, ptr %0)
-  br i1 %110, label %109, label %.loopexit, !llvm.loop !24
+  br i1 %110, label %109, label %.loopexit, !llvm.loop !23
 
 146:                                              ; preds = %55
   %147 = call i64 @If_Dec7Perform(ptr noundef nonnull %6, i32 noundef 1) #11
@@ -1783,7 +1784,7 @@ Io_NtkWriteEdgelistDeriveSop.exit:                ; preds = %109, %116, %118, %1
   store i32 %177, ptr %178, align 4
   %indvars.iv.next190 = add nuw nsw i64 %indvars.iv189, 1
   %exitcond192.not = icmp eq i64 %indvars.iv.next190, 4
-  br i1 %exitcond192.not, label %179, label %171, !llvm.loop !25
+  br i1 %exitcond192.not, label %179, label %171, !llvm.loop !24
 
 179:                                              ; preds = %171
   %180 = getelementptr inbounds [2 x [10 x i32]], ptr %10, i64 0, i64 %indvars.iv196
@@ -1830,7 +1831,7 @@ Io_NtkWriteEdgelistDeriveSop.exit:                ; preds = %109, %116, %118, %1
   %200 = load i32, ptr %181, align 4
   %201 = sext i32 %200 to i64
   %202 = icmp slt i64 %indvars.iv.next194, %201
-  br i1 %202, label %.lr.ph178, label %._crit_edge, !llvm.loop !26
+  br i1 %202, label %.lr.ph178, label %._crit_edge, !llvm.loop !25
 
 ._crit_edge:                                      ; preds = %194, %179
   %.val = load ptr, ptr %1, align 8
@@ -1881,7 +1882,7 @@ Io_NtkWriteEdgelistDeriveSop.exit160:             ; preds = %._crit_edge, %216, 
   %fputs = call i32 @fputs(ptr %.0.i159, ptr %0)
   %indvars.iv.next197 = add nsw i64 %indvars.iv196, -1
   %.not208 = icmp eq i64 %indvars.iv196, 0
-  br i1 %.not208, label %.loopexit, label %165, !llvm.loop !27
+  br i1 %.not208, label %.loopexit, label %165, !llvm.loop !26
 
 .loopexit:                                        ; preds = %Io_NtkWriteEdgelistDeriveSop.exit160, %._crit_edge182, %156, %.critedge, %13
   ret void
@@ -1932,7 +1933,7 @@ define void @Io_NtkEdgelistWriteNodeIntStruct(ptr nocapture noundef %0, ptr noca
 19:                                               ; preds = %.lr.ph
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !28
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !27
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %19
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %19 ]
@@ -1983,8 +1984,8 @@ define void @Io_NtkEdgelistWriteNodeIntStruct(ptr nocapture noundef %0, ptr noca
 
 51:                                               ; preds = %36
   %fputc = tail call i32 @fputc(i32 10, ptr %0)
-  %52 = tail call noundef i32 @llvm.smax.i32(i32 %29, i32 %43)
-  %53 = tail call noundef i32 @llvm.smax.i32(i32 %37, i32 %52)
+  %52 = tail call i32 @llvm.smax.i32(i32 %29, i32 %43)
+  %53 = tail call i32 @llvm.smax.i32(i32 %37, i32 %52)
   %.not = icmp sgt i32 %.val186, %53
   br i1 %.not, label %78, label %.preheader211
 
@@ -2016,7 +2017,7 @@ define void @Io_NtkEdgelistWriteNodeIntStruct(ptr nocapture noundef %0, ptr noca
   %.val185 = load i32, ptr %13, align 4
   %66 = sext i32 %.val185 to i64
   %67 = icmp slt i64 %indvars.iv.next237, %66
-  br i1 %67, label %56, label %.critedge, !llvm.loop !29
+  br i1 %67, label %56, label %.critedge, !llvm.loop !28
 
 .critedge:                                        ; preds = %56, %.preheader211
   %.val173 = load ptr, ptr %1, align 8
@@ -2050,7 +2051,7 @@ define void @Io_NtkEdgelistWriteNodeIntStruct(ptr nocapture noundef %0, ptr noca
   store ptr %81, ptr %82, align 8
   %indvars.iv.next240 = add nuw nsw i64 %indvars.iv239, 1
   %exitcond242.not = icmp eq i64 %indvars.iv.next240, 16
-  br i1 %exitcond242.not, label %.preheader208, label %.preheader210, !llvm.loop !30
+  br i1 %exitcond242.not, label %.preheader208, label %.preheader210, !llvm.loop !29
 
 .preheader208:                                    ; preds = %.preheader210, %89
   %indvars.iv247 = phi i64 [ %indvars.iv.next248, %89 ], [ 0, %.preheader210 ]
@@ -2066,12 +2067,12 @@ define void @Io_NtkEdgelistWriteNodeIntStruct(ptr nocapture noundef %0, ptr noca
   store i64 %84, ptr %88, align 8
   %indvars.iv.next244 = add nuw nsw i64 %indvars.iv243, 1
   %exitcond246.not = icmp eq i64 %indvars.iv.next244, 1024
-  br i1 %exitcond246.not, label %89, label %86, !llvm.loop !31
+  br i1 %exitcond246.not, label %89, label %86, !llvm.loop !30
 
 89:                                               ; preds = %86
   %indvars.iv.next248 = add nuw nsw i64 %indvars.iv247, 1
   %exitcond250.not = icmp eq i64 %indvars.iv.next248, 6
-  br i1 %exitcond250.not, label %.preheader206, label %.preheader208, !llvm.loop !32
+  br i1 %exitcond250.not, label %.preheader206, label %.preheader208, !llvm.loop !31
 
 .preheader206:                                    ; preds = %89, %100
   %indvars.iv255 = phi i64 [ %indvars.iv.next256, %100 ], [ 6, %89 ]
@@ -2092,12 +2093,12 @@ define void @Io_NtkEdgelistWriteNodeIntStruct(ptr nocapture noundef %0, ptr noca
   store i64 %97, ptr %99, align 8
   %indvars.iv.next252 = add nuw nsw i64 %indvars.iv251, 1
   %exitcond254.not = icmp eq i64 %indvars.iv.next252, 1024
-  br i1 %exitcond254.not, label %100, label %94, !llvm.loop !33
+  br i1 %exitcond254.not, label %100, label %94, !llvm.loop !32
 
 100:                                              ; preds = %94
   %indvars.iv.next256 = add nuw nsw i64 %indvars.iv255, 1
   %exitcond258.not = icmp eq i64 %indvars.iv.next256, 16
-  br i1 %exitcond258.not, label %.loopexit, label %.preheader206, !llvm.loop !34
+  br i1 %exitcond258.not, label %.loopexit, label %.preheader206, !llvm.loop !33
 
 .loopexit:                                        ; preds = %100, %78
   %101 = getelementptr i8, ptr %1, i64 56
@@ -2121,7 +2122,7 @@ select.unfold.i:                                  ; preds = %108, %.loopexit
   %110 = getelementptr inbounds i32, ptr %6, i64 %109
   %111 = load i32, ptr %110, align 4
   %.not.i = icmp eq i32 %111, 0
-  br i1 %.not.i, label %select.unfold.i, label %select.unfold.i191, !llvm.loop !35
+  br i1 %.not.i, label %select.unfold.i, label %select.unfold.i191, !llvm.loop !34
 
 select.unfold.i191:                               ; preds = %108, %114
   %indvars.iv.i192 = phi i64 [ %115, %114 ], [ %105, %108 ]
@@ -2134,7 +2135,7 @@ select.unfold.i191:                               ; preds = %108, %114
   %116 = getelementptr inbounds i32, ptr %6, i64 %115
   %117 = load i32, ptr %116, align 4
   %.not.i194 = icmp eq i32 %117, -1
-  br i1 %.not.i194, label %select.unfold.i191, label %132, !llvm.loop !36
+  br i1 %.not.i194, label %select.unfold.i191, label %132, !llvm.loop !35
 
 Kit_TruthIsConst0.exit:                           ; preds = %select.unfold.i, %select.unfold.i191
   %.val171 = load ptr, ptr %1, align 8
@@ -2162,7 +2163,7 @@ select.unfold.i196:                               ; preds = %127, %Kit_TruthIsCo
   %129 = getelementptr inbounds i32, ptr %6, i64 %128
   %130 = load i32, ptr %129, align 4
   %.not.i199 = icmp eq i32 %130, -1
-  br i1 %.not.i199, label %select.unfold.i196, label %Kit_TruthIsConst1.exit200, !llvm.loop !36
+  br i1 %.not.i199, label %select.unfold.i196, label %Kit_TruthIsConst1.exit200, !llvm.loop !35
 
 Kit_TruthIsConst1.exit200:                        ; preds = %select.unfold.i196, %127
   %.05.i198 = phi i32 [ 0, %127 ], [ 1, %select.unfold.i196 ]
@@ -2257,7 +2258,7 @@ Kit_TruthIsConst1.exit200:                        ; preds = %select.unfold.i196,
   %178 = load i8, ptr %11, align 16
   %179 = sext i8 %178 to i64
   %180 = icmp slt i64 %indvars.iv.next260, %179
-  br i1 %180, label %164, label %._crit_edge225, !llvm.loop !37
+  br i1 %180, label %164, label %._crit_edge225, !llvm.loop !36
 
 ._crit_edge225:                                   ; preds = %164, %160
   %.val165 = load ptr, ptr %1, align 8
@@ -2327,7 +2328,7 @@ Kit_TruthIsConst1.exit200:                        ; preds = %select.unfold.i196,
   %215 = load i8, ptr %12, align 16
   %216 = sext i8 %215 to i64
   %217 = icmp slt i64 %indvars.iv.next263, %216
-  br i1 %217, label %198, label %._crit_edge228, !llvm.loop !38
+  br i1 %217, label %198, label %._crit_edge228, !llvm.loop !37
 
 ._crit_edge228:                                   ; preds = %209
   %.val161 = load ptr, ptr %1, align 8
@@ -2412,7 +2413,7 @@ Kit_TruthIsConst1.exit200:                        ; preds = %select.unfold.i196,
   %259 = load i8, ptr %10, align 16
   %260 = sext i8 %259 to i64
   %261 = icmp slt i64 %indvars.iv.next266, %260
-  br i1 %261, label %236, label %._crit_edge232, !llvm.loop !39
+  br i1 %261, label %236, label %._crit_edge232, !llvm.loop !38
 
 ._crit_edge232:                                   ; preds = %253, %231
   %.val = load ptr, ptr %1, align 8
@@ -2483,7 +2484,7 @@ define void @Io_NtkEdgelistWriteModelIntStruct(ptr nocapture noundef %0, ptr noc
 19:                                               ; preds = %.lr.ph
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !40
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !39
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %19
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %19 ]
@@ -2533,8 +2534,8 @@ define void @Io_NtkEdgelistWriteModelIntStruct(ptr nocapture noundef %0, ptr noc
   br label %210
 
 51:                                               ; preds = %36
-  %52 = tail call noundef i32 @llvm.smax.i32(i32 %29, i32 %43)
-  %53 = tail call noundef i32 @llvm.smax.i32(i32 %37, i32 %52)
+  %52 = tail call i32 @llvm.smax.i32(i32 %29, i32 %43)
+  %53 = tail call i32 @llvm.smax.i32(i32 %37, i32 %52)
   %.not = icmp sgt i32 %.val154, %53
   br i1 %.not, label %61, label %.preheader179
 
@@ -2549,7 +2550,7 @@ define void @Io_NtkEdgelistWriteModelIntStruct(ptr nocapture noundef %0, ptr noc
   %56 = add nuw nsw i32 %.1129183, 1
   %.val153 = load i32, ptr %13, align 4
   %57 = icmp slt i32 %56, %.val153
-  br i1 %57, label %.lr.ph184, label %.critedge, !llvm.loop !41
+  br i1 %57, label %.lr.ph184, label %.critedge, !llvm.loop !40
 
 .critedge:                                        ; preds = %.lr.ph184, %.preheader179
   %58 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.23, ptr noundef nonnull @.str.50) #11
@@ -2571,7 +2572,7 @@ define void @Io_NtkEdgelistWriteModelIntStruct(ptr nocapture noundef %0, ptr noc
   store ptr %64, ptr %65, align 8
   %indvars.iv.next205 = add nuw nsw i64 %indvars.iv204, 1
   %exitcond207.not = icmp eq i64 %indvars.iv.next205, 16
-  br i1 %exitcond207.not, label %.preheader176, label %.preheader178, !llvm.loop !42
+  br i1 %exitcond207.not, label %.preheader176, label %.preheader178, !llvm.loop !41
 
 .preheader176:                                    ; preds = %.preheader178, %72
   %indvars.iv212 = phi i64 [ %indvars.iv.next213, %72 ], [ 0, %.preheader178 ]
@@ -2587,12 +2588,12 @@ define void @Io_NtkEdgelistWriteModelIntStruct(ptr nocapture noundef %0, ptr noc
   store i64 %67, ptr %71, align 8
   %indvars.iv.next209 = add nuw nsw i64 %indvars.iv208, 1
   %exitcond211.not = icmp eq i64 %indvars.iv.next209, 1024
-  br i1 %exitcond211.not, label %72, label %69, !llvm.loop !43
+  br i1 %exitcond211.not, label %72, label %69, !llvm.loop !42
 
 72:                                               ; preds = %69
   %indvars.iv.next213 = add nuw nsw i64 %indvars.iv212, 1
   %exitcond215.not = icmp eq i64 %indvars.iv.next213, 6
-  br i1 %exitcond215.not, label %.preheader174, label %.preheader176, !llvm.loop !44
+  br i1 %exitcond215.not, label %.preheader174, label %.preheader176, !llvm.loop !43
 
 .preheader174:                                    ; preds = %72, %83
   %indvars.iv220 = phi i64 [ %indvars.iv.next221, %83 ], [ 6, %72 ]
@@ -2613,12 +2614,12 @@ define void @Io_NtkEdgelistWriteModelIntStruct(ptr nocapture noundef %0, ptr noc
   store i64 %80, ptr %82, align 8
   %indvars.iv.next217 = add nuw nsw i64 %indvars.iv216, 1
   %exitcond219.not = icmp eq i64 %indvars.iv.next217, 1024
-  br i1 %exitcond219.not, label %83, label %77, !llvm.loop !45
+  br i1 %exitcond219.not, label %83, label %77, !llvm.loop !44
 
 83:                                               ; preds = %77
   %indvars.iv.next221 = add nuw nsw i64 %indvars.iv220, 1
   %exitcond223.not = icmp eq i64 %indvars.iv.next221, 16
-  br i1 %exitcond223.not, label %.loopexit, label %.preheader174, !llvm.loop !46
+  br i1 %exitcond223.not, label %.loopexit, label %.preheader174, !llvm.loop !45
 
 .loopexit:                                        ; preds = %83, %61
   %84 = getelementptr i8, ptr %1, i64 56
@@ -2642,7 +2643,7 @@ select.unfold.i:                                  ; preds = %91, %.loopexit
   %93 = getelementptr inbounds i32, ptr %6, i64 %92
   %94 = load i32, ptr %93, align 4
   %.not.i = icmp eq i32 %94, 0
-  br i1 %.not.i, label %select.unfold.i, label %select.unfold.i159, !llvm.loop !35
+  br i1 %.not.i, label %select.unfold.i, label %select.unfold.i159, !llvm.loop !34
 
 select.unfold.i159:                               ; preds = %91, %97
   %indvars.iv.i160 = phi i64 [ %98, %97 ], [ %88, %91 ]
@@ -2658,7 +2659,7 @@ select.unfold.i164.preheader:                     ; preds = %select.unfold.i, %s
   %99 = getelementptr inbounds i32, ptr %6, i64 %98
   %100 = load i32, ptr %99, align 4
   %.not.i162 = icmp eq i32 %100, -1
-  br i1 %.not.i162, label %select.unfold.i159, label %109, !llvm.loop !36
+  br i1 %.not.i162, label %select.unfold.i159, label %109, !llvm.loop !35
 
 select.unfold.i164:                               ; preds = %select.unfold.i164.preheader, %103
   %indvars.iv.i165 = phi i64 [ %104, %103 ], [ %88, %select.unfold.i164.preheader ]
@@ -2671,7 +2672,7 @@ select.unfold.i164:                               ; preds = %select.unfold.i164.
   %105 = getelementptr inbounds i32, ptr %6, i64 %104
   %106 = load i32, ptr %105, align 4
   %.not.i167 = icmp eq i32 %106, -1
-  br i1 %.not.i167, label %select.unfold.i164, label %Kit_TruthIsConst1.exit168, !llvm.loop !36
+  br i1 %.not.i167, label %select.unfold.i164, label %Kit_TruthIsConst1.exit168, !llvm.loop !35
 
 Kit_TruthIsConst1.exit168:                        ; preds = %select.unfold.i164, %103
   %.05.i166 = phi i32 [ 0, %103 ], [ 1, %select.unfold.i164 ]
@@ -2752,7 +2753,7 @@ Kit_TruthIsConst1.exit168:                        ; preds = %select.unfold.i164,
   %146 = load i8, ptr %11, align 16
   %147 = sext i8 %146 to i64
   %148 = icmp slt i64 %indvars.iv.next225, %147
-  br i1 %148, label %.lr.ph192, label %._crit_edge193, !llvm.loop !47
+  br i1 %148, label %.lr.ph192, label %._crit_edge193, !llvm.loop !46
 
 ._crit_edge193:                                   ; preds = %.lr.ph192, %137
   %149 = call i64 @fwrite(ptr nonnull @.str.54, i64 6, i64 1, ptr %0)
@@ -2792,7 +2793,7 @@ Kit_TruthIsConst1.exit168:                        ; preds = %select.unfold.i164,
   %169 = load i8, ptr %12, align 16
   %170 = sext i8 %169 to i64
   %171 = icmp slt i64 %indvars.iv.next228, %170
-  br i1 %171, label %.lr.ph195, label %._crit_edge196, !llvm.loop !48
+  br i1 %171, label %.lr.ph195, label %._crit_edge196, !llvm.loop !47
 
 ._crit_edge196:                                   ; preds = %168
   %172 = call i64 @fwrite(ptr nonnull @.str.56, i64 6, i64 1, ptr %0)
@@ -2846,7 +2847,7 @@ Kit_TruthIsConst1.exit168:                        ; preds = %select.unfold.i164,
   %199 = load i8, ptr %10, align 16
   %200 = sext i8 %199 to i64
   %201 = icmp slt i64 %indvars.iv.next231, %200
-  br i1 %201, label %183, label %._crit_edge200, !llvm.loop !49
+  br i1 %201, label %183, label %._crit_edge200, !llvm.loop !48
 
 ._crit_edge200:                                   ; preds = %198, %179
   %202 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.11, ptr noundef nonnull @.str.50) #11
@@ -2951,7 +2952,7 @@ define internal fastcc void @Io_NtkEdgelistWriteSubckt(ptr nocapture noundef %0,
   %.val.val = load i32, ptr %42, align 4
   %43 = sext i32 %.val.val to i64
   %44 = icmp slt i64 %indvars.iv.next, %43
-  br i1 %44, label %15, label %.critedge.preheader, !llvm.loop !50
+  br i1 %44, label %15, label %.critedge.preheader, !llvm.loop !49
 
 .critedge:                                        ; preds = %.lr.ph51, %.critedge
   %indvars.iv53 = phi i64 [ 0, %.lr.ph51 ], [ %indvars.iv.next54, %.critedge ]
@@ -3003,7 +3004,7 @@ define internal fastcc void @Io_NtkEdgelistWriteSubckt(ptr nocapture noundef %0,
   %.val32.val = load i32, ptr %71, align 4
   %72 = sext i32 %.val32.val to i64
   %73 = icmp slt i64 %indvars.iv.next54, %72
-  br i1 %73, label %.critedge, label %.critedge2, !llvm.loop !51
+  br i1 %73, label %.critedge, label %.critedge2, !llvm.loop !50
 
 .critedge2:                                       ; preds = %.critedge, %.critedge.preheader
   %fputc = tail call i32 @fputc(i32 10, ptr %0)
@@ -3084,7 +3085,7 @@ attributes #13 = { nounwind allocsize(0) }
 !10 = distinct !{!10, !5}
 !11 = !{}
 !12 = distinct !{!12, !5}
-!13 = !{i32 0, i32 2}
+!13 = distinct !{!13, !5}
 !14 = distinct !{!14, !5}
 !15 = distinct !{!15, !5}
 !16 = distinct !{!16, !5}
@@ -3122,4 +3123,3 @@ attributes #13 = { nounwind allocsize(0) }
 !48 = distinct !{!48, !5}
 !49 = distinct !{!49, !5}
 !50 = distinct !{!50, !5}
-!51 = distinct !{!51, !5}

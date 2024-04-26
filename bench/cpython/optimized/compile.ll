@@ -3478,7 +3478,7 @@ return:                                           ; preds = %entry, %entry, %ent
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @_PyCompile_EnsureArrayLargeEnough(i32 noundef %idx, ptr nocapture noundef %array, ptr nocapture noundef %alloc, i32 noundef %default_alloc, i64 noundef %item_size) local_unnamed_addr #1 {
+define hidden range(i32 -1, 1) i32 @_PyCompile_EnsureArrayLargeEnough(i32 noundef %idx, ptr nocapture noundef %array, ptr nocapture noundef %alloc, i32 noundef %default_alloc, i64 noundef %item_size) local_unnamed_addr #1 {
 entry:
   %0 = load ptr, ptr %array, align 8
   %cmp = icmp eq ptr %0, null
@@ -3558,12 +3558,12 @@ declare ptr @PyObject_Realloc(ptr noundef, i64 noundef) local_unnamed_addr #2
 declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #3
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @_PyCompile_InstructionSequence_UseLabel(ptr nocapture noundef %seq, i32 noundef %lbl) local_unnamed_addr #1 {
+define hidden range(i32 -1, 1) i32 @_PyCompile_InstructionSequence_UseLabel(ptr nocapture noundef %seq, i32 noundef %lbl) local_unnamed_addr #1 {
 entry:
   %s_labelmap_size = getelementptr inbounds i8, ptr %seq, i64 24
   %0 = load i32, ptr %s_labelmap_size, align 8
   %s_labelmap = getelementptr inbounds i8, ptr %seq, i64 16
-  %call = tail call i32 @_PyCompile_EnsureArrayLargeEnough(i32 noundef %lbl, ptr noundef nonnull %s_labelmap, ptr noundef nonnull %s_labelmap_size, i32 noundef 10, i64 noundef 4), !range !5
+  %call = tail call i32 @_PyCompile_EnsureArrayLargeEnough(i32 noundef %lbl, ptr noundef nonnull %s_labelmap, ptr noundef nonnull %s_labelmap_size, i32 noundef 10, i64 noundef 4)
   %cmp = icmp eq i32 %call, -1
   br i1 %cmp, label %return, label %for.cond.preheader
 
@@ -3585,7 +3585,7 @@ for.body:                                         ; preds = %for.body.preheader,
   %4 = load i32, ptr %s_labelmap_size, align 8
   %5 = sext i32 %4 to i64
   %cmp3 = icmp slt i64 %indvars.iv.next, %5
-  br i1 %cmp3, label %for.body, label %for.end, !llvm.loop !6
+  br i1 %cmp3, label %for.body, label %for.end, !llvm.loop !5
 
 for.end:                                          ; preds = %for.body, %for.cond.preheader
   %s_used = getelementptr inbounds i8, ptr %seq, i64 12
@@ -3602,13 +3602,13 @@ return:                                           ; preds = %entry, %for.end
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @_PyCompile_InstructionSequence_Addop(ptr nocapture noundef %seq, i32 noundef %opcode, i32 noundef %oparg, i64 %loc.coerce0, i64 %loc.coerce1) local_unnamed_addr #1 {
+define hidden range(i32 -1, 1) i32 @_PyCompile_InstructionSequence_Addop(ptr nocapture noundef %seq, i32 noundef %opcode, i32 noundef %oparg, i64 %loc.coerce0, i64 %loc.coerce1) local_unnamed_addr #1 {
 entry:
   %s_used.i = getelementptr inbounds i8, ptr %seq, i64 12
   %0 = load i32, ptr %s_used.i, align 4
   %add.i = add i32 %0, 1
   %s_allocated.i = getelementptr inbounds i8, ptr %seq, i64 8
-  %call.i = tail call i32 @_PyCompile_EnsureArrayLargeEnough(i32 noundef %add.i, ptr noundef %seq, ptr noundef nonnull %s_allocated.i, i32 noundef 100, i64 noundef 44), !range !5
+  %call.i = tail call i32 @_PyCompile_EnsureArrayLargeEnough(i32 noundef %add.i, ptr noundef %seq, ptr noundef nonnull %s_allocated.i, i32 noundef 100, i64 noundef 44)
   %cmp.i = icmp eq i32 %call.i, -1
   br i1 %cmp.i, label %return, label %instr_sequence_next_inst.exit
 
@@ -3649,7 +3649,7 @@ entry:
 
 if.end:                                           ; preds = %entry
   %0 = load i32, ptr %mod, align 8
-  %call.i = tail call fastcc i32 @compiler_codegen(ptr noundef nonnull %call, ptr noundef nonnull %mod), !range !5
+  %call.i = tail call fastcc i32 @compiler_codegen(ptr noundef nonnull %call, ptr noundef nonnull %mod)
   %cmp1.i = icmp slt i32 %call.i, 0
   br i1 %cmp1.i, label %compiler_mod.exit, label %if.end.i
 
@@ -3857,7 +3857,7 @@ Py_XDECREF.exit21:                                ; preds = %Py_XDECREF.exit13, 
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @_PyCompile_AstOptimize(ptr noundef %mod, ptr noundef %filename, ptr nocapture noundef readonly %cf, i32 noundef %optimize, ptr noundef %arena) local_unnamed_addr #1 {
+define hidden range(i32 -1, 1) i32 @_PyCompile_AstOptimize(ptr noundef %mod, ptr noundef %filename, ptr nocapture noundef readonly %cf, i32 noundef %optimize, ptr noundef %arena) local_unnamed_addr #1 {
 entry:
   %future = alloca %struct.PyFutureFeatures, align 4
   %call = call i32 @_PyFuture_FromAST(ptr noundef %mod, ptr noundef %filename, ptr noundef nonnull %future) #11
@@ -3896,14 +3896,14 @@ declare ptr @_Py_GetConfig() local_unnamed_addr #2
 declare i32 @_PyAST_Optimize(ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define dso_local i32 @PyCompile_OpcodeStackEffectWithJump(i32 noundef %opcode, i32 noundef %oparg, i32 noundef %jump) local_unnamed_addr #0 {
+define dso_local range(i32 -2147483647, -2147483648) i32 @PyCompile_OpcodeStackEffectWithJump(i32 noundef %opcode, i32 noundef %oparg, i32 noundef %jump) local_unnamed_addr #0 {
 entry:
-  %call = tail call fastcc i32 @stack_effect(i32 noundef %opcode, i32 noundef %oparg, i32 noundef %jump), !range !8
+  %call = tail call fastcc i32 @stack_effect(i32 noundef %opcode, i32 noundef %oparg, i32 noundef %jump)
   ret i32 %call
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal fastcc i32 @stack_effect(i32 noundef %opcode, i32 noundef %oparg, i32 noundef %jump) unnamed_addr #0 {
+define internal fastcc range(i32 -2147483647, -2147483648) i32 @stack_effect(i32 noundef %opcode, i32 noundef %oparg, i32 noundef %jump) unnamed_addr #0 {
 entry:
   %or.cond = icmp ult i32 %opcode, 255
   br i1 %or.cond, label %if.then, label %if.end41
@@ -3998,14 +3998,14 @@ return:                                           ; preds = %if.end41, %if.end41
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define dso_local i32 @PyCompile_OpcodeStackEffect(i32 noundef %opcode, i32 noundef %oparg) local_unnamed_addr #0 {
+define dso_local range(i32 -2147483647, -2147483648) i32 @PyCompile_OpcodeStackEffect(i32 noundef %opcode, i32 noundef %oparg) local_unnamed_addr #0 {
 entry:
-  %call = tail call fastcc i32 @stack_effect(i32 noundef %opcode, i32 noundef %oparg, i32 noundef -1), !range !8
+  %call = tail call fastcc i32 @stack_effect(i32 noundef %opcode, i32 noundef %oparg, i32 noundef -1)
   ret i32 %call
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define dso_local i32 @_PyCompile_OpcodeIsValid(i32 noundef %opcode) local_unnamed_addr #0 {
+define dso_local range(i32 0, 2) i32 @_PyCompile_OpcodeIsValid(i32 noundef %opcode) local_unnamed_addr #0 {
 entry:
   %or.cond = icmp ult i32 %opcode, 512
   br i1 %or.cond, label %land.rhs, label %land.end
@@ -4024,7 +4024,7 @@ land.end:                                         ; preds = %land.rhs, %entry
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define dso_local i32 @_PyCompile_OpcodeHasArg(i32 noundef %opcode) local_unnamed_addr #0 {
+define dso_local range(i32 0, 2) i32 @_PyCompile_OpcodeHasArg(i32 noundef %opcode) local_unnamed_addr #0 {
 entry:
   %idxprom = sext i32 %opcode to i64
   %flags = getelementptr [512 x %struct.opcode_metadata], ptr @_PyOpcode_opcode_metadata, i64 0, i64 %idxprom, i32 2
@@ -4034,7 +4034,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define dso_local i32 @_PyCompile_OpcodeHasConst(i32 noundef %opcode) local_unnamed_addr #0 {
+define dso_local range(i32 0, 3) i32 @_PyCompile_OpcodeHasConst(i32 noundef %opcode) local_unnamed_addr #0 {
 entry:
   %idxprom = sext i32 %opcode to i64
   %flags = getelementptr [512 x %struct.opcode_metadata], ptr @_PyOpcode_opcode_metadata, i64 0, i64 %idxprom, i32 2
@@ -4044,7 +4044,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define dso_local i32 @_PyCompile_OpcodeHasName(i32 noundef %opcode) local_unnamed_addr #0 {
+define dso_local range(i32 0, 5) i32 @_PyCompile_OpcodeHasName(i32 noundef %opcode) local_unnamed_addr #0 {
 entry:
   %idxprom = sext i32 %opcode to i64
   %flags = getelementptr [512 x %struct.opcode_metadata], ptr @_PyOpcode_opcode_metadata, i64 0, i64 %idxprom, i32 2
@@ -4054,7 +4054,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define dso_local i32 @_PyCompile_OpcodeHasJump(i32 noundef %opcode) local_unnamed_addr #0 {
+define dso_local range(i32 0, 9) i32 @_PyCompile_OpcodeHasJump(i32 noundef %opcode) local_unnamed_addr #0 {
 entry:
   %idxprom = sext i32 %opcode to i64
   %flags = getelementptr [512 x %struct.opcode_metadata], ptr @_PyOpcode_opcode_metadata, i64 0, i64 %idxprom, i32 2
@@ -4064,7 +4064,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define dso_local i32 @_PyCompile_OpcodeHasFree(i32 noundef %opcode) local_unnamed_addr #0 {
+define dso_local range(i32 0, 17) i32 @_PyCompile_OpcodeHasFree(i32 noundef %opcode) local_unnamed_addr #0 {
 entry:
   %idxprom = sext i32 %opcode to i64
   %flags = getelementptr [512 x %struct.opcode_metadata], ptr @_PyOpcode_opcode_metadata, i64 0, i64 %idxprom, i32 2
@@ -4074,7 +4074,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define dso_local i32 @_PyCompile_OpcodeHasLocal(i32 noundef %opcode) local_unnamed_addr #0 {
+define dso_local range(i32 0, 33) i32 @_PyCompile_OpcodeHasLocal(i32 noundef %opcode) local_unnamed_addr #0 {
 entry:
   %idxprom = sext i32 %opcode to i64
   %flags = getelementptr [512 x %struct.opcode_metadata], ptr @_PyOpcode_opcode_metadata, i64 0, i64 %idxprom, i32 2
@@ -4084,7 +4084,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define dso_local noundef i32 @_PyCompile_OpcodeHasExc(i32 noundef %opcode) local_unnamed_addr #0 {
+define dso_local range(i32 0, 2) i32 @_PyCompile_OpcodeHasExc(i32 noundef %opcode) local_unnamed_addr #0 {
 entry:
   %0 = add i32 %opcode, -264
   %narrow = icmp ult i32 %0, 3
@@ -4093,7 +4093,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @_PyCompile_ConstCacheMergeOne(ptr noundef %const_cache, ptr nocapture noundef %obj) local_unnamed_addr #1 {
+define hidden range(i32 -1, 1) i32 @_PyCompile_ConstCacheMergeOne(ptr noundef %const_cache, ptr nocapture noundef %obj) local_unnamed_addr #1 {
 entry:
   %0 = load ptr, ptr %obj, align 8
   %call = tail call ptr @_PyCode_ConstantKey(ptr noundef %0) #11
@@ -4217,7 +4217,7 @@ land.rhs:                                         ; preds = %while.cond
   %incdec.ptr = getelementptr i8, ptr %p.0, i64 1
   %3 = load i8, ptr %p.0, align 1
   %cmp6.not = icmp eq i8 %3, 10
-  br i1 %cmp6.not, label %while.end, label %while.cond, !llvm.loop !9
+  br i1 %cmp6.not, label %while.end, label %while.cond, !llvm.loop !7
 
 while.end:                                        ; preds = %while.cond, %land.rhs
   %p.1 = phi ptr [ %incdec.ptr, %land.rhs ], [ %p.0, %while.cond ]
@@ -4234,7 +4234,7 @@ while.cond12:                                     ; preds = %while.cond12, %whil
   %4 = load i8, ptr %p.3, align 1
   %cmp14 = icmp eq i8 %4, 32
   %incdec.ptr17 = getelementptr i8, ptr %p.3, i64 1
-  br i1 %cmp14, label %while.cond12, label %while.end18, !llvm.loop !10
+  br i1 %cmp14, label %while.cond12, label %while.end18, !llvm.loop !8
 
 while.end18:                                      ; preds = %while.cond12
   %cmp19 = icmp uge ptr %p.3, %add.ptr
@@ -4256,12 +4256,12 @@ land.rhs34:                                       ; preds = %while.cond31
   %incdec.ptr35 = getelementptr i8, ptr %p.4, i64 1
   %5 = load i8, ptr %p.4, align 1
   %cmp37.not = icmp eq i8 %5, 10
-  br i1 %cmp37.not, label %while.end41, label %while.cond31, !llvm.loop !11
+  br i1 %cmp37.not, label %while.end41, label %while.cond31, !llvm.loop !9
 
 while.end41:                                      ; preds = %while.cond31, %land.rhs34
   %p.5 = phi ptr [ %incdec.ptr35, %land.rhs34 ], [ %p.4, %while.cond31 ]
   %cmp9 = icmp ult ptr %p.5, %add.ptr
-  br i1 %cmp9, label %while.cond12.preheader, label %while.end42, !llvm.loop !12
+  br i1 %cmp9, label %while.cond12.preheader, label %while.end42, !llvm.loop !10
 
 while.end42:                                      ; preds = %while.end41, %while.end
   %margin.0.lcssa = phi i64 [ 9223372036854775807, %while.end ], [ %margin.1, %while.end41 ]
@@ -4273,7 +4273,7 @@ while.cond47:                                     ; preds = %while.cond47, %whil
   %6 = load i8, ptr %p.6, align 1
   %cmp49 = icmp eq i8 %6, 32
   %incdec.ptr52 = getelementptr i8, ptr %p.6, i64 1
-  br i1 %cmp49, label %while.cond47, label %while.end53, !llvm.loop !13
+  br i1 %cmp49, label %while.cond47, label %while.end53, !llvm.loop !11
 
 while.end53:                                      ; preds = %while.cond47
   %spec.store.select = select i1 %cmp43, i64 0, i64 %margin.0.lcssa
@@ -4319,7 +4319,7 @@ while.body70:                                     ; preds = %while.cond67
   %incdec.ptr72 = getelementptr i8, ptr %w.0, i64 1
   store i8 %9, ptr %w.0, align 1
   %cmp74 = icmp eq i8 %9, 10
-  br i1 %cmp74, label %while.end78, label %while.cond67, !llvm.loop !14
+  br i1 %cmp74, label %while.end78, label %while.cond67, !llvm.loop !12
 
 while.end78:                                      ; preds = %while.body70, %while.cond67
   %w.1 = phi ptr [ %incdec.ptr72, %while.body70 ], [ %w.0, %while.cond67 ]
@@ -4360,19 +4360,19 @@ while.body94.us:                                  ; preds = %while.cond91.us
   %incdec.ptr97.us = getelementptr i8, ptr %w.3.us, i64 1
   store i8 %11, ptr %w.3.us, align 1
   %cmp99.us = icmp eq i8 %11, 10
-  br i1 %cmp99.us, label %while.end103.us, label %while.cond91.us, !llvm.loop !15
+  br i1 %cmp99.us, label %while.end103.us, label %while.cond91.us, !llvm.loop !13
 
 while.end103.us:                                  ; preds = %while.body94.us, %while.cond91.us
   %w.4.us = phi ptr [ %incdec.ptr97.us, %while.body94.us ], [ %w.3.us, %while.cond91.us ]
   %p.12.us = phi ptr [ %incdec.ptr96.us, %while.body94.us ], [ %p.11.us, %while.cond91.us ]
   %cmp80.us = icmp ult ptr %p.12.us, %add.ptr
-  br i1 %cmp80.us, label %for.cond.preheader.us, label %while.end104, !llvm.loop !16
+  br i1 %cmp80.us, label %for.cond.preheader.us, label %while.end104, !llvm.loop !14
 
 for.inc.us:                                       ; preds = %for.body.us
   %inc.us = add nuw nsw i64 %i.062.us, 1
   %incdec.ptr90.us = getelementptr i8, ptr %p.1061.us, i64 1
   %exitcond.not = icmp eq i64 %inc.us, %spec.store.select
-  br i1 %exitcond.not, label %while.cond91.us.preheader, label %for.body.us, !llvm.loop !17
+  br i1 %exitcond.not, label %while.cond91.us.preheader, label %for.body.us, !llvm.loop !15
 
 while.cond91:                                     ; preds = %for.cond.preheader.lr.ph, %while.cond91.backedge
   %w.3 = phi ptr [ %w.3.be, %while.cond91.backedge ], [ %w.1, %for.cond.preheader.lr.ph ]
@@ -4391,7 +4391,7 @@ while.body94:                                     ; preds = %while.cond91
 while.cond91.backedge:                            ; preds = %while.body94, %while.end103
   %w.3.be = phi ptr [ %incdec.ptr97, %while.body94 ], [ %w.4, %while.end103 ]
   %p.11.be = phi ptr [ %incdec.ptr96, %while.body94 ], [ %p.12, %while.end103 ]
-  br label %while.cond91, !llvm.loop !16
+  br label %while.cond91, !llvm.loop !14
 
 while.end103:                                     ; preds = %while.body94, %while.cond91
   %w.4 = phi ptr [ %incdec.ptr97, %while.body94 ], [ %w.3, %while.cond91 ]
@@ -4480,7 +4480,7 @@ if.then12:                                        ; preds = %if.end9
   br label %return
 
 if.end13:                                         ; preds = %if.end9
-  %call14 = tail call fastcc i32 @compiler_codegen(ptr noundef nonnull %call10, ptr noundef nonnull %call4), !range !5
+  %call14 = tail call fastcc i32 @compiler_codegen(ptr noundef nonnull %call10, ptr noundef nonnull %call4)
   %cmp15 = icmp slt i32 %call14, 0
   br i1 %cmp15, label %Py_XDECREF.exit88, label %if.end17
 
@@ -4656,7 +4656,7 @@ do.end110:                                        ; preds = %Py_XDECREF.exit79
   %18 = load i32, ptr %call4, align 8
   %cmp111 = icmp ne i32 %18, 3
   %conv = zext i1 %cmp111 to i32
-  %call112 = tail call fastcc i32 @add_return_at_end(ptr noundef nonnull %call10, i32 noundef %conv), !range !5
+  %call112 = tail call fastcc i32 @add_return_at_end(ptr noundef nonnull %call10, i32 noundef %conv)
   %cmp113 = icmp slt i32 %call112, 0
   br i1 %cmp113, label %if.then.i81, label %if.end116
 
@@ -4726,9 +4726,9 @@ declare i32 @_PyAST_Validate(ptr noundef) local_unnamed_addr #2
 declare void @_PyArena_Free(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @compiler_codegen(ptr noundef %c, ptr noundef %mod) unnamed_addr #1 {
+define internal fastcc range(i32 -1, 1) i32 @compiler_codegen(ptr noundef %c, ptr noundef %mod) unnamed_addr #1 {
 entry:
-  %call = tail call fastcc i32 @compiler_enter_scope(ptr noundef %c, ptr noundef nonnull getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 37, i32 0, i32 3, i32 0, i32 4), i32 noundef 0, ptr noundef %mod, i32 noundef 1), !range !5
+  %call = tail call fastcc i32 @compiler_enter_scope(ptr noundef %c, ptr noundef nonnull getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 37, i32 0, i32 3, i32 0, i32 4), i32 noundef 0, ptr noundef %mod, i32 noundef 1)
   %cmp = icmp eq i32 %call, -1
   br i1 %cmp, label %return, label %if.end
 
@@ -4765,7 +4765,7 @@ if.then9:                                         ; preds = %sw.bb5
   %4 = load i32, ptr %s_used.i.i.i, align 4
   %add.i.i.i = add i32 %4, 1
   %s_allocated.i.i.i = getelementptr inbounds i8, ptr %3, i64 32
-  %call.i.i.i = tail call i32 @_PyCompile_EnsureArrayLargeEnough(i32 noundef %add.i.i.i, ptr noundef nonnull %u_instr_sequence, ptr noundef nonnull %s_allocated.i.i.i, i32 noundef 100, i64 noundef 44), !range !5
+  %call.i.i.i = tail call i32 @_PyCompile_EnsureArrayLargeEnough(i32 noundef %add.i.i.i, ptr noundef nonnull %u_instr_sequence, ptr noundef nonnull %s_allocated.i.i.i, i32 noundef 100, i64 noundef 44)
   %cmp.i.i.i = icmp eq i32 %call.i.i.i, -1
   br i1 %cmp.i.i.i, label %return, label %instr_sequence_next_inst.exit.i.i
 
@@ -4810,7 +4810,7 @@ for.body:                                         ; preds = %for.cond
   %call21 = tail call fastcc i32 @compiler_visit_stmt(ptr noundef %c, ptr noundef %9)
   %cmp22 = icmp slt i32 %call21, 0
   %inc = add i32 %_i.0, 1
-  br i1 %cmp22, label %if.then24, label %for.cond, !llvm.loop !18
+  br i1 %cmp22, label %if.then24, label %for.cond, !llvm.loop !16
 
 if.then24:                                        ; preds = %for.body
   tail call fastcc void @compiler_exit_scope(ptr noundef %c)
@@ -4819,7 +4819,7 @@ if.then24:                                        ; preds = %for.body
 sw.bb26:                                          ; preds = %if.end
   %v27 = getelementptr inbounds i8, ptr %mod, i64 8
   %10 = load ptr, ptr %v27, align 8
-  %call29 = tail call fastcc i32 @compiler_visit_expr(ptr noundef %c, ptr noundef %10), !range !5
+  %call29 = tail call fastcc i32 @compiler_visit_expr(ptr noundef %c, ptr noundef %10)
   %cmp30 = icmp slt i32 %call29, 0
   br i1 %cmp30, label %if.then32, label %return
 
@@ -4870,7 +4870,7 @@ if.end:                                           ; preds = %if.end.i, %if.then1
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @add_return_at_end(ptr nocapture noundef readonly %c, i32 noundef %addNone) unnamed_addr #1 {
+define internal fastcc range(i32 -1, 1) i32 @add_return_at_end(ptr nocapture noundef readonly %c, i32 noundef %addNone) unnamed_addr #1 {
 entry:
   %tobool.not = icmp eq i32 %addNone, 0
   br i1 %tobool.not, label %if.end2, label %if.then
@@ -4880,7 +4880,7 @@ if.then:                                          ; preds = %entry
   %0 = load ptr, ptr %c_const_cache, align 8
   %u = getelementptr inbounds i8, ptr %c, i64 64
   %1 = load ptr, ptr %u, align 8
-  %call = tail call fastcc i32 @compiler_addop_load_const(ptr noundef %0, ptr noundef %1, i64 -1, i64 -1, ptr noundef nonnull @_Py_NoneStruct), !range !5
+  %call = tail call fastcc i32 @compiler_addop_load_const(ptr noundef %0, ptr noundef %1, i64 -1, i64 -1, ptr noundef nonnull @_Py_NoneStruct)
   %cmp = icmp eq i32 %call, -1
   br i1 %cmp, label %return, label %if.end2
 
@@ -4892,7 +4892,7 @@ if.end2:                                          ; preds = %if.then, %entry
   %3 = load i32, ptr %s_used.i.i.i, align 4
   %add.i.i.i = add i32 %3, 1
   %s_allocated.i.i.i = getelementptr inbounds i8, ptr %2, i64 32
-  %call.i.i.i = tail call i32 @_PyCompile_EnsureArrayLargeEnough(i32 noundef %add.i.i.i, ptr noundef nonnull %u_instr_sequence, ptr noundef nonnull %s_allocated.i.i.i, i32 noundef 100, i64 noundef 44), !range !5
+  %call.i.i.i = tail call i32 @_PyCompile_EnsureArrayLargeEnough(i32 noundef %add.i.i.i, ptr noundef nonnull %u_instr_sequence, ptr noundef nonnull %s_allocated.i.i.i, i32 noundef 100, i64 noundef 44)
   %cmp.i.i.i = icmp eq i32 %call.i.i.i, -1
   br i1 %cmp.i.i.i, label %return, label %instr_sequence_next_inst.exit.i.i
 
@@ -4941,7 +4941,7 @@ for.cond:                                         ; preds = %Py_DECREF.exit
   %1 = load i32, ptr %s_used, align 4
   %2 = sext i32 %1 to i64
   %cmp1 = icmp slt i64 %indvars.iv.next, %2
-  br i1 %cmp1, label %for.body, label %return, !llvm.loop !19
+  br i1 %cmp1, label %for.body, label %return, !llvm.loop !17
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.cond
   %indvars.iv = phi i64 [ 0, %for.body.lr.ph ], [ %indvars.iv.next, %for.cond ]
@@ -5232,7 +5232,7 @@ if.end43.i:                                       ; preds = %lor.lhs.false38.i
 for.inc.i:                                        ; preds = %if.end43.i, %if.end15.i
   %inc.i = add nuw nsw i64 %i.052.i, 1
   %exitcond.not.i = icmp eq i64 %inc.i, %instructions.val.i
-  br i1 %exitcond.not.i, label %for.body52.lr.ph.i, label %for.body.i, !llvm.loop !20
+  br i1 %exitcond.not.i, label %for.body52.lr.ph.i, label %for.body.i, !llvm.loop !18
 
 for.body52.i:                                     ; preds = %for.inc138.i, %for.body52.lr.ph.i
   %spec.select.i89 = phi i32 [ 0, %for.body52.lr.ph.i ], [ %spec.select.i88, %for.inc138.i ]
@@ -5316,7 +5316,7 @@ for.body.i.i:                                     ; preds = %for.body.i.i, %for.
   store i32 -111, ptr %arrayidx.i.i, align 4
   %indvars.iv.next.i.i = add nsw i64 %indvars.iv.i.i, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next.i.i, %17
-  br i1 %exitcond.not, label %_PyCompile_InstructionSequence_UseLabel.exit.i, label %for.body.i.i, !llvm.loop !6
+  br i1 %exitcond.not, label %_PyCompile_InstructionSequence_UseLabel.exit.i, label %for.body.i.i, !llvm.loop !5
 
 _PyCompile_InstructionSequence_UseLabel.exit.i:   ; preds = %for.body.i.i, %for.cond.preheader.i.i
   %arrayidx7.i.i = getelementptr i32, ptr %arr.0.i27, i64 %conv4955.i
@@ -5481,7 +5481,7 @@ for.inc138.i:                                     ; preds = %instr_sequence_next
   %inc139.i = add i32 %i47.054.i, 1
   %conv49.i = sext i32 %inc139.i to i64
   %cmp50.i = icmp sgt i64 %instructions.val.i, %conv49.i
-  br i1 %cmp50.i, label %for.body52.i, label %if.end.loopexit, !llvm.loop !21
+  br i1 %cmp50.i, label %for.body52.i, label %if.end.loopexit, !llvm.loop !19
 
 error.sink.split.i:                               ; preds = %lor.lhs.false38.i, %if.end35.i, %lor.lhs.false.i, %for.body.i, %lor.lhs.false70.i, %if.end62.i
   %32 = phi ptr [ %arr.0.i80, %if.end62.i ], [ %arr.0.i80, %lor.lhs.false70.i ], [ null, %for.body.i ], [ null, %lor.lhs.false.i ], [ null, %if.end35.i ], [ null, %lor.lhs.false38.i ]
@@ -5674,7 +5674,7 @@ _Py_NewRef.exit:                                  ; preds = %if.end7, %if.end.i.
   store ptr %6, ptr %arrayidx.i, align 8
   %call2 = call i32 @PyDict_Next(ptr noundef %dict, ptr noundef nonnull %pos, ptr noundef nonnull %k, ptr noundef nonnull %v) #11
   %tobool.not = icmp eq i32 %call2, 0
-  br i1 %tobool.not, label %return, label %while.body, !llvm.loop !22
+  br i1 %tobool.not, label %return, label %while.body, !llvm.loop !20
 
 return:                                           ; preds = %_Py_NewRef.exit, %while.cond.preheader, %entry
   ret ptr %call1
@@ -5783,7 +5783,7 @@ if.end:                                           ; preds = %land.lhs.true71.i, 
 
 if.then.i7:                                       ; preds = %if.end
   %10 = load ptr, ptr %c_const_cache, align 8
-  %call.i9 = tail call fastcc i32 @compiler_addop_load_const(ptr noundef %10, ptr noundef %.pre17.pre, i64 -1, i64 -1, ptr noundef nonnull @_Py_NoneStruct), !range !5
+  %call.i9 = tail call fastcc i32 @compiler_addop_load_const(ptr noundef %10, ptr noundef %.pre17.pre, i64 -1, i64 -1, ptr noundef nonnull @_Py_NoneStruct)
   %cmp.i10 = icmp eq i32 %call.i9, -1
   br i1 %cmp.i10, label %return, label %if.then.i7.if.end2.i_crit_edge
 
@@ -5798,7 +5798,7 @@ if.end2.i:                                        ; preds = %if.then.i7.if.end2.
   %12 = load i32, ptr %s_used.i.i.i.i, align 4
   %add.i.i.i.i = add i32 %12, 1
   %s_allocated.i.i.i.i = getelementptr inbounds i8, ptr %11, i64 32
-  %call.i.i.i.i = tail call i32 @_PyCompile_EnsureArrayLargeEnough(i32 noundef %add.i.i.i.i, ptr noundef nonnull %u_instr_sequence.i, ptr noundef nonnull %s_allocated.i.i.i.i, i32 noundef 100, i64 noundef 44), !range !5
+  %call.i.i.i.i = tail call i32 @_PyCompile_EnsureArrayLargeEnough(i32 noundef %add.i.i.i.i, ptr noundef nonnull %u_instr_sequence.i, ptr noundef nonnull %s_allocated.i.i.i.i, i32 noundef 100, i64 noundef 44)
   %cmp.i.i.i.i = icmp eq i32 %call.i.i.i.i, -1
   br i1 %cmp.i.i.i.i, label %return, label %instr_sequence_next_inst.exit.i.i.i
 
@@ -5948,7 +5948,7 @@ for.body:                                         ; preds = %for.cond.preheader,
   %4 = load i32, ptr %s_used, align 4
   %5 = sext i32 %4 to i64
   %cmp8 = icmp slt i64 %indvars.iv.next, %5
-  br i1 %cmp8, label %for.body, label %for.cond10.preheader, !llvm.loop !23
+  br i1 %cmp8, label %for.body, label %for.cond10.preheader, !llvm.loop !21
 
 for.cond26.preheader.loopexit:                    ; preds = %for.inc22
   %.pre51 = load i32, ptr %s_used, align 4
@@ -5985,14 +5985,14 @@ for.inc22:                                        ; preds = %for.body13, %if.the
   %indvars.iv.next46 = add nuw nsw i64 %indvars.iv45, 1
   %12 = sext i32 %11 to i64
   %cmp11 = icmp slt i64 %indvars.iv.next46, %12
-  br i1 %cmp11, label %for.body13, label %for.cond26.preheader.loopexit, !llvm.loop !24
+  br i1 %cmp11, label %for.body13, label %for.cond26.preheader.loopexit, !llvm.loop !22
 
 for.cond26:                                       ; preds = %if.end63
   %indvars.iv.next49 = add nuw nsw i64 %indvars.iv48, 1
   %13 = load i32, ptr %s_used, align 4
   %14 = sext i32 %13 to i64
   %cmp28 = icmp slt i64 %indvars.iv.next49, %14
-  br i1 %cmp28, label %for.body30, label %for.end71, !llvm.loop !25
+  br i1 %cmp28, label %for.body30, label %for.end71, !llvm.loop !23
 
 for.body30:                                       ; preds = %for.body30.lr.ph, %for.cond26
   %indvars.iv48 = phi i64 [ 0, %for.body30.lr.ph ], [ %indvars.iv.next49, %for.cond26 ]
@@ -6072,7 +6072,7 @@ declare i32 @_PyCfgBuilder_CheckSize(ptr noundef) local_unnamed_addr #2
 declare void @_Py_Dealloc(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @compiler_enter_scope(ptr nocapture noundef %c, ptr noundef %name, i32 noundef %scope_type, ptr noundef %key, i32 noundef %lineno) unnamed_addr #1 {
+define internal fastcc range(i32 -1, 1) i32 @compiler_enter_scope(ptr nocapture noundef %c, ptr noundef %name, i32 noundef %scope_type, ptr noundef %key, i32 noundef %lineno) unnamed_addr #1 {
 entry:
   %call = tail call ptr @PyObject_Calloc(i64 noundef 1, i64 noundef 640) #11
   %tobool.not = icmp eq ptr %call, null
@@ -6198,7 +6198,7 @@ if.then1.i.i:                                     ; preds = %if.end.i.i62
 for.inc.i:                                        ; preds = %if.then1.i.i, %if.end.i.i62, %if.end9.i
   %inc.i = add nuw nsw i64 %i.022.i, 1
   %exitcond.not.i = icmp eq i64 %inc.i, %call1.i
-  br i1 %exitcond.not.i, label %if.end19, label %for.body.i, !llvm.loop !26
+  br i1 %exitcond.not.i, label %if.end19, label %for.body.i, !llvm.loop !24
 
 return.sink.split.i:                              ; preds = %if.end.i13.i, %if.end.i31.i
   tail call void @_Py_Dealloc(ptr noundef nonnull %call.i) #11
@@ -6413,7 +6413,7 @@ if.end100:                                        ; preds = %_Py_XNewRef.exit, %
   br i1 %cmp103, label %if.end110, label %if.else
 
 if.else:                                          ; preds = %if.end100
-  %call106 = tail call fastcc i32 @compiler_set_qualname(ptr noundef nonnull %c), !range !5
+  %call106 = tail call fastcc i32 @compiler_set_qualname(ptr noundef nonnull %c)
   %cmp107 = icmp eq i32 %call106, -1
   br i1 %cmp107, label %return, label %if.else.if.end110_crit_edge
 
@@ -6429,7 +6429,7 @@ if.end110:                                        ; preds = %if.else.if.end110_c
   %loc.sroa.4.0.insert.ext = zext i32 %lineno to i64
   %loc.sroa.4.0.insert.shift = shl nuw i64 %loc.sroa.4.0.insert.ext, 32
   %loc.sroa.0.0.insert.insert = or disjoint i64 %loc.sroa.4.0.insert.shift, %loc.sroa.0.0
-  %call112 = tail call fastcc i32 @codegen_addop_i(ptr noundef nonnull %u_instr_sequence, i32 noundef 149, i64 noundef 0, i64 %loc.sroa.0.0.insert.insert, i64 0), !range !5
+  %call112 = tail call fastcc i32 @codegen_addop_i(ptr noundef nonnull %u_instr_sequence, i32 noundef 149, i64 noundef 0, i64 %loc.sroa.0.0.insert.insert, i64 0)
   %cmp113 = icmp eq i32 %call112, -1
   %spec.select = sext i1 %cmp113 to i32
   br label %return
@@ -6440,7 +6440,7 @@ return:                                           ; preds = %if.end110, %if.else
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @compiler_body(ptr noundef %c, i64 %loc.coerce0, ptr noundef %stmts) unnamed_addr #1 {
+define internal fastcc range(i32 -1, 1) i32 @compiler_body(ptr noundef %c, i64 %loc.coerce0, ptr noundef %stmts) unnamed_addr #1 {
 entry:
   %loc.sroa.0.0.extract.trunc = trunc i64 %loc.coerce0 to i32
   %loc.sroa.3.0.extract.shift = lshr i64 %loc.coerce0, 32
@@ -6494,7 +6494,7 @@ if.then6:                                         ; preds = %if.end
   %12 = load i32, ptr %s_used.i.i.i, align 4
   %add.i.i.i = add i32 %12, 1
   %s_allocated.i.i.i = getelementptr inbounds i8, ptr %0, i64 32
-  %call.i.i.i = tail call i32 @_PyCompile_EnsureArrayLargeEnough(i32 noundef %add.i.i.i, ptr noundef nonnull %u_instr_sequence, ptr noundef nonnull %s_allocated.i.i.i, i32 noundef 100, i64 noundef 44), !range !5
+  %call.i.i.i = tail call i32 @_PyCompile_EnsureArrayLargeEnough(i32 noundef %add.i.i.i, ptr noundef nonnull %u_instr_sequence, ptr noundef nonnull %s_allocated.i.i.i, i32 noundef 100, i64 noundef 44)
   %cmp.i.i.i = icmp eq i32 %call.i.i.i, -1
   br i1 %cmp.i.i.i, label %return, label %instr_sequence_next_inst.exit.i.i
 
@@ -6566,7 +6566,7 @@ if.end30:                                         ; preds = %if.then26
   %loc33.sroa.5.8.insert.shift = shl nuw i64 %loc33.sroa.5.8.insert.ext, 32
   %loc33.sroa.3.8.insert.ext = zext i32 %22 to i64
   %loc33.sroa.3.8.insert.insert = or disjoint i64 %loc33.sroa.5.8.insert.shift, %loc33.sroa.3.8.insert.ext
-  %call49 = tail call fastcc i32 @compiler_addop_load_const(ptr noundef %24, ptr noundef %25, i64 %loc33.sroa.0.0.insert.insert, i64 %loc33.sroa.3.8.insert.insert, ptr noundef nonnull %call27), !range !5
+  %call49 = tail call fastcc i32 @compiler_addop_load_const(ptr noundef %24, ptr noundef %25, i64 %loc33.sroa.0.0.insert.insert, i64 %loc33.sroa.3.8.insert.insert, ptr noundef nonnull %call27)
   %cmp50 = icmp eq i32 %call49, -1
   br i1 %cmp50, label %return, label %if.end52
 
@@ -6587,7 +6587,7 @@ if.then1.i:                                       ; preds = %if.end.i
   br label %Py_DECREF.exit
 
 Py_DECREF.exit:                                   ; preds = %if.end52, %if.then1.i, %if.end.i
-  %call53 = tail call fastcc i32 @compiler_nameop(ptr noundef nonnull %c, i64 -1, i64 -1, ptr noundef nonnull getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 37, i32 0, i32 3, i32 1, i32 51), i32 noundef 2), !range !5
+  %call53 = tail call fastcc i32 @compiler_nameop(ptr noundef nonnull %c, i64 -1, i64 -1, ptr noundef nonnull getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 37, i32 0, i32 3, i32 1, i32 51), i32 noundef 2)
   %cmp54 = icmp eq i32 %call53, -1
   br i1 %cmp54, label %return, label %if.end58
 
@@ -6604,7 +6604,7 @@ cond.end64:                                       ; preds = %for.body
   %conv = sext i32 %inc to i64
   %29 = load i64, ptr %stmts, align 8
   %cmp66 = icmp sgt i64 %29, %conv
-  br i1 %cmp66, label %for.body, label %return, !llvm.loop !27
+  br i1 %cmp66, label %for.body, label %return, !llvm.loop !25
 
 for.body:                                         ; preds = %if.end58, %cond.end64
   %conv36 = phi i64 [ %conv, %cond.end64 ], [ %conv33, %if.end58 ]
@@ -6768,7 +6768,7 @@ for.body70:                                       ; preds = %cond.end66
   %20 = load ptr, ptr %body77, align 8
   %call78 = tail call fastcc zeroext i1 @find_ann(ptr noundef %20)
   %inc = add i32 %j.0, 1
-  br i1 %call78, label %return, label %for.cond56, !llvm.loop !28
+  br i1 %call78, label %return, label %for.cond56, !llvm.loop !26
 
 for.end:                                          ; preds = %cond.end66
   %v58.le = getelementptr inbounds i8, ptr %1, i64 8
@@ -6801,7 +6801,7 @@ for.body109:                                      ; preds = %for.cond94
   %25 = load ptr, ptr %body117, align 8
   %call118 = tail call fastcc zeroext i1 @find_ann(ptr noundef %25)
   %inc122 = add i32 %j.1, 1
-  br i1 %call118, label %return, label %for.cond94, !llvm.loop !29
+  br i1 %call118, label %return, label %for.cond94, !llvm.loop !27
 
 for.end123:                                       ; preds = %for.cond94, %for.cond94.preheader
   %v96.le = getelementptr inbounds i8, ptr %1, i64 8
@@ -6828,7 +6828,7 @@ for.body155:                                      ; preds = %for.cond141
   %29 = load ptr, ptr %body161, align 8
   %call162 = tail call fastcc zeroext i1 @find_ann(ptr noundef %29)
   %inc166 = add i32 %j.2, 1
-  br i1 %call162, label %return, label %for.cond141, !llvm.loop !30
+  br i1 %call162, label %return, label %for.cond141, !llvm.loop !28
 
 sw.epilog:                                        ; preds = %lor.lhs.false128
   %orelse135 = getelementptr inbounds i8, ptr %1, i64 24
@@ -6838,7 +6838,7 @@ sw.epilog:                                        ; preds = %lor.lhs.false128
 
 for.inc170:                                       ; preds = %for.cond141, %for.cond141.preheader, %lor.rhs86, %lor.rhs38, %lor.rhs26, %lor.rhs14, %lor.rhs, %sw.bb45, %sw.bb50, %for.body, %sw.epilog
   %inc171 = add i32 %i.0, 1
-  br label %for.cond, !llvm.loop !31
+  br label %for.cond, !llvm.loop !29
 
 return:                                           ; preds = %lor.rhs86, %lor.rhs38, %lor.rhs26, %lor.rhs14, %lor.rhs, %sw.bb45, %sw.bb50, %cond.end, %sw.epilog, %for.end123, %lor.lhs.false128, %for.end, %lor.lhs.false, %sw.bb33, %sw.bb21, %sw.bb9, %sw.bb4, %for.body, %for.body155, %for.body109, %for.body70
   %cmp263 = phi i1 [ true, %for.body70 ], [ true, %for.body109 ], [ true, %for.body155 ], [ %cmp2, %lor.rhs86 ], [ true, %lor.rhs38 ], [ true, %lor.rhs26 ], [ true, %lor.rhs14 ], [ true, %lor.rhs ], [ true, %sw.bb45 ], [ true, %sw.bb50 ], [ false, %cond.end ], [ %cmp2, %sw.epilog ], [ %cmp2, %for.end123 ], [ %cmp2, %lor.lhs.false128 ], [ %cmp2, %for.end ], [ %cmp2, %lor.lhs.false ], [ true, %sw.bb33 ], [ true, %sw.bb21 ], [ true, %sw.bb9 ], [ true, %sw.bb4 ], [ true, %for.body ]
@@ -6846,13 +6846,13 @@ return:                                           ; preds = %lor.rhs86, %lor.rhs
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @codegen_addop_noarg(ptr nocapture noundef %seq, i32 noundef %opcode, i64 %loc.coerce0, i64 %loc.coerce1) unnamed_addr #1 {
+define internal fastcc range(i32 -1, 1) i32 @codegen_addop_noarg(ptr nocapture noundef %seq, i32 noundef %opcode, i64 %loc.coerce0, i64 %loc.coerce1) unnamed_addr #1 {
 entry:
   %s_used.i.i = getelementptr inbounds i8, ptr %seq, i64 12
   %0 = load i32, ptr %s_used.i.i, align 4
   %add.i.i = add i32 %0, 1
   %s_allocated.i.i = getelementptr inbounds i8, ptr %seq, i64 8
-  %call.i.i = tail call i32 @_PyCompile_EnsureArrayLargeEnough(i32 noundef %add.i.i, ptr noundef %seq, ptr noundef nonnull %s_allocated.i.i, i32 noundef 100, i64 noundef 44), !range !5
+  %call.i.i = tail call i32 @_PyCompile_EnsureArrayLargeEnough(i32 noundef %add.i.i, ptr noundef %seq, ptr noundef nonnull %s_allocated.i.i, i32 noundef 100, i64 noundef 44)
   %cmp.i.i = icmp eq i32 %call.i.i, -1
   br i1 %cmp.i.i, label %_PyCompile_InstructionSequence_Addop.exit, label %instr_sequence_next_inst.exit.i
 
@@ -6882,7 +6882,7 @@ _PyCompile_InstructionSequence_Addop.exit:        ; preds = %entry, %instr_seque
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @compiler_visit_stmt(ptr noundef %c, ptr noundef %s) unnamed_addr #1 {
+define internal fastcc i32 @compiler_visit_stmt(ptr noundef %c, ptr noundef %s) unnamed_addr #1 {
 entry:
   %loc.i677 = alloca %struct._PyCompilerSrcLocation, align 8
   %loop.i678 = alloca ptr, align 8
@@ -6921,7 +6921,7 @@ entry:
   ]
 
 sw.bb:                                            ; preds = %entry
-  %call = tail call fastcc i32 @compiler_function(ptr noundef %c, ptr noundef nonnull %s, i32 noundef 0), !range !5
+  %call = tail call fastcc i32 @compiler_function(ptr noundef %c, ptr noundef nonnull %s, i32 noundef 0)
   br label %return
 
 sw.bb1:                                           ; preds = %entry
@@ -6941,13 +6941,13 @@ for.cond.i775:                                    ; preds = %for.body.i771
   %inc.i776 = add nuw nsw i64 %i.07.i, 1
   %3 = load i64, ptr %1, align 8
   %cmp1.i777 = icmp slt i64 %inc.i776, %3
-  br i1 %cmp1.i777, label %for.body.i771, label %cond.end.i, !llvm.loop !32
+  br i1 %cmp1.i777, label %for.body.i771, label %cond.end.i, !llvm.loop !30
 
 for.body.i771:                                    ; preds = %for.cond.preheader.i767, %for.cond.i775
   %i.07.i = phi i64 [ %inc.i776, %for.cond.i775 ], [ 0, %for.cond.preheader.i767 ]
   %arrayidx.i772 = getelementptr [1 x ptr], ptr %typed_elements.i768, i64 0, i64 %i.07.i
   %4 = load ptr, ptr %arrayidx.i772, align 8
-  %call.i773 = tail call fastcc i32 @compiler_visit_expr(ptr noundef %c, ptr noundef %4), !range !5
+  %call.i773 = tail call fastcc i32 @compiler_visit_expr(ptr noundef %c, ptr noundef %4)
   %cmp2.i774 = icmp eq i32 %call.i773, -1
   br i1 %cmp2.i774, label %return, label %for.cond.i775
 
@@ -7012,7 +7012,7 @@ _Py_NewRef.exit:                                  ; preds = %do.body.i, %if.end.
   br i1 %tobool26.not.i, label %return, label %if.end28.i
 
 if.end28.i:                                       ; preds = %_Py_NewRef.exit
-  %call29.i = tail call fastcc i32 @compiler_enter_scope(ptr noundef nonnull %c, ptr noundef nonnull %call25.i, i32 noundef 6, ptr noundef nonnull %14, i32 noundef %firstlineno.0.i), !range !5
+  %call29.i = tail call fastcc i32 @compiler_enter_scope(ptr noundef nonnull %c, ptr noundef nonnull %call25.i, i32 noundef 6, ptr noundef nonnull %14, i32 noundef %firstlineno.0.i)
   %cmp30.i = icmp eq i32 %call29.i, -1
   %21 = load i64, ptr %call25.i, align 8
   %22 = and i64 %21, 2147483648
@@ -7046,7 +7046,7 @@ if.then1.i174.i:                                  ; preds = %if.end.i171.i
   br label %Py_DECREF.exit176.i
 
 Py_DECREF.exit176.i:                              ; preds = %if.then1.i174.i, %if.end.i171.i, %if.end33.i
-  %call34.i = tail call fastcc i32 @compiler_type_params(ptr noundef nonnull %c, ptr noundef nonnull %14), !range !5
+  %call34.i = tail call fastcc i32 @compiler_type_params(ptr noundef nonnull %c, ptr noundef nonnull %14)
   %cmp35.i = icmp slt i32 %call34.i, 0
   br i1 %cmp35.i, label %if.then37.i, label %if.end38.i
 
@@ -7063,7 +7063,7 @@ if.end38.i:                                       ; preds = %Py_DECREF.exit176.i
   %loc.sroa.26.8.insert.shift.i = shl nuw i64 %loc.sroa.26.8.insert.ext.i, 32
   %loc.sroa.14.8.insert.ext.i = zext i32 %12 to i64
   %loc.sroa.14.8.insert.insert.i = or disjoint i64 %loc.sroa.26.8.insert.shift.i, %loc.sroa.14.8.insert.ext.i
-  %call39.i = tail call fastcc i32 @compiler_nameop(ptr noundef nonnull %c, i64 %loc.sroa.0.0.insert.insert.i, i64 %loc.sroa.14.8.insert.insert.i, ptr noundef nonnull getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 37, i32 0, i32 3, i32 0, i32 24), i32 noundef 2), !range !5
+  %call39.i = tail call fastcc i32 @compiler_nameop(ptr noundef nonnull %c, i64 %loc.sroa.0.0.insert.insert.i, i64 %loc.sroa.14.8.insert.insert.i, ptr noundef nonnull getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 37, i32 0, i32 3, i32 0, i32 24), i32 noundef 2)
   %cmp40.i = icmp slt i32 %call39.i, 0
   br i1 %cmp40.i, label %if.then42.i, label %if.end44.i
 
@@ -7072,17 +7072,17 @@ if.then42.i:                                      ; preds = %if.end38.i
   br label %return
 
 if.end44.i:                                       ; preds = %if.end38.i
-  %call45.i = tail call fastcc i32 @compiler_class_body(ptr noundef nonnull %c, ptr noundef nonnull %s, i32 noundef %firstlineno.0.i), !range !5
+  %call45.i = tail call fastcc i32 @compiler_class_body(ptr noundef nonnull %c, ptr noundef nonnull %s, i32 noundef %firstlineno.0.i)
   %cmp46.i = icmp slt i32 %call45.i, 0
   br i1 %cmp46.i, label %if.then48.i, label %if.end52.i
 
 if.end44.i.thread1092:                            ; preds = %cond.end16.i
-  %call45.i1093 = tail call fastcc i32 @compiler_class_body(ptr noundef %c, ptr noundef nonnull %s, i32 noundef %firstlineno.0.i), !range !5
+  %call45.i1093 = tail call fastcc i32 @compiler_class_body(ptr noundef %c, ptr noundef nonnull %s, i32 noundef %firstlineno.0.i)
   %cmp46.i1094 = icmp slt i32 %call45.i1093, 0
   br i1 %cmp46.i1094, label %return, label %if.else.i
 
 if.end44.i.thread:                                ; preds = %if.end4.i
-  %call45.i982 = tail call fastcc i32 @compiler_class_body(ptr noundef %c, ptr noundef nonnull %s, i32 noundef %firstlineno.0.i), !range !5
+  %call45.i982 = tail call fastcc i32 @compiler_class_body(ptr noundef %c, ptr noundef nonnull %s, i32 noundef %firstlineno.0.i)
   %cmp46.i983 = icmp slt i32 %call45.i982, 0
   br i1 %cmp46.i983, label %return, label %if.else.i
 
@@ -7105,7 +7105,7 @@ if.then54.i:                                      ; preds = %if.end52.i
   %loc.sroa.26.8.insert.shift143.i = shl nuw i64 %loc.sroa.26.8.insert.ext142.i, 32
   %loc.sroa.14.8.insert.ext106.i = zext i32 %12 to i64
   %loc.sroa.14.8.insert.insert108.i = or disjoint i64 %loc.sroa.26.8.insert.shift143.i, %loc.sroa.14.8.insert.ext106.i
-  %call55.i = tail call fastcc i32 @compiler_nameop(ptr noundef nonnull %c, i64 %loc.sroa.0.0.insert.insert26.i, i64 %loc.sroa.14.8.insert.insert108.i, ptr noundef nonnull getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 37, i32 0, i32 3, i32 0, i32 24), i32 noundef 1), !range !5
+  %call55.i = tail call fastcc i32 @compiler_nameop(ptr noundef nonnull %c, i64 %loc.sroa.0.0.insert.insert26.i, i64 %loc.sroa.14.8.insert.insert108.i, ptr noundef nonnull getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 37, i32 0, i32 3, i32 0, i32 24), i32 noundef 1)
   %cmp56.i = icmp slt i32 %call55.i, 0
   br i1 %cmp56.i, label %if.then58.i, label %if.end59.i
 
@@ -7117,7 +7117,7 @@ if.end59.i:                                       ; preds = %if.then54.i
   %u60.i = getelementptr inbounds i8, ptr %c, i64 64
   %23 = load ptr, ptr %u60.i, align 8
   %u_instr_sequence.i = getelementptr inbounds i8, ptr %23, i64 24
-  %call61.i = tail call fastcc i32 @codegen_addop_i(ptr noundef nonnull %u_instr_sequence.i, i32 noundef 55, i64 noundef 10, i64 %loc.sroa.0.0.insert.insert26.i, i64 %loc.sroa.14.8.insert.insert108.i), !range !5
+  %call61.i = tail call fastcc i32 @codegen_addop_i(ptr noundef nonnull %u_instr_sequence.i, i32 noundef 55, i64 noundef 10, i64 %loc.sroa.0.0.insert.insert26.i, i64 %loc.sroa.14.8.insert.insert108.i)
   %cmp62.i = icmp slt i32 %call61.i, 0
   br i1 %cmp62.i, label %if.then64.i, label %if.end65.i
 
@@ -7126,7 +7126,7 @@ if.then64.i:                                      ; preds = %if.end59.i
   br label %return
 
 if.end65.i:                                       ; preds = %if.end59.i
-  %call66.i = tail call fastcc i32 @compiler_nameop(ptr noundef nonnull %c, i64 %loc.sroa.0.0.insert.insert26.i, i64 %loc.sroa.14.8.insert.insert108.i, ptr noundef nonnull getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 37, i32 0, i32 3, i32 0, i32 17), i32 noundef 2), !range !5
+  %call66.i = tail call fastcc i32 @compiler_nameop(ptr noundef nonnull %c, i64 %loc.sroa.0.0.insert.insert26.i, i64 %loc.sroa.14.8.insert.insert108.i, ptr noundef nonnull getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 37, i32 0, i32 3, i32 0, i32 17), i32 noundef 2)
   %cmp67.i = icmp slt i32 %call66.i, 0
   br i1 %cmp67.i, label %if.then69.i, label %if.end70.i
 
@@ -7175,7 +7175,7 @@ for.body.i:                                       ; preds = %for.body.i.lr.ph, %
   store ptr %28, ptr %arrayidx94.i, align 8
   %inc.i = add nuw nsw i64 %i.0.i1051, 1
   %exitcond1086.not = icmp eq i64 %inc.i, %cond80.i
-  br i1 %exitcond1086.not, label %for.end.i, label %for.body.i, !llvm.loop !33
+  br i1 %exitcond1086.not, label %for.end.i, label %for.body.i, !llvm.loop !31
 
 for.end.i:                                        ; preds = %for.body.i, %for.cond.i.preheader
   %29 = load ptr, ptr %c_arena.i, align 8
@@ -7193,7 +7193,7 @@ if.end104.i:                                      ; preds = %for.end.i
   store ptr %call100.i, ptr %arrayidx106.i, align 8
   %keywords.i = getelementptr inbounds i8, ptr %s, i64 24
   %30 = load ptr, ptr %keywords.i, align 8
-  %call108.i = tail call fastcc i32 @compiler_call_helper(ptr noundef nonnull %c, i64 %loc.sroa.0.0.insert.insert26.i, i64 %loc.sroa.14.8.insert.insert108.i, i32 noundef 2, ptr noundef nonnull %call82.i, ptr noundef %30), !range !5
+  %call108.i = tail call fastcc i32 @compiler_call_helper(ptr noundef nonnull %c, i64 %loc.sroa.0.0.insert.insert26.i, i64 %loc.sroa.14.8.insert.insert108.i, i32 noundef 2, ptr noundef nonnull %call82.i, ptr noundef %30)
   %cmp109.i = icmp slt i32 %call108.i, 0
   br i1 %cmp109.i, label %if.then111.i, label %if.end112.i
 
@@ -7208,7 +7208,7 @@ if.end112.i:                                      ; preds = %if.end104.i
   br i1 %cmp114.i, label %return, label %if.end117.i
 
 if.end117.i:                                      ; preds = %if.end112.i
-  %call118.i = tail call fastcc i32 @compiler_make_closure(ptr noundef nonnull %c, i64 %loc.sroa.0.0.insert.insert26.i, i64 %loc.sroa.14.8.insert.insert108.i, ptr noundef nonnull %call113.i, i64 noundef 0), !range !5
+  %call118.i = tail call fastcc i32 @compiler_make_closure(ptr noundef nonnull %c, i64 %loc.sroa.0.0.insert.insert26.i, i64 %loc.sroa.14.8.insert.insert108.i, ptr noundef nonnull %call113.i, i64 noundef 0)
   %cmp119.i = icmp slt i32 %call118.i, 0
   %31 = load i64, ptr %call113.i, align 8
   %32 = and i64 %31, 2147483648
@@ -7244,14 +7244,14 @@ if.then1.i.i:                                     ; preds = %if.end.i.i
 Py_DECREF.exit.i:                                 ; preds = %if.then1.i.i, %if.end.i.i, %if.end122.i
   %33 = load ptr, ptr %u60.i, align 8
   %u_instr_sequence124.i = getelementptr inbounds i8, ptr %33, i64 24
-  %call125.i = tail call fastcc i32 @codegen_addop_noarg(ptr noundef nonnull %u_instr_sequence124.i, i32 noundef 34, i64 %loc.sroa.0.0.insert.insert26.i, i64 %loc.sroa.14.8.insert.insert108.i), !range !5
+  %call125.i = tail call fastcc i32 @codegen_addop_noarg(ptr noundef nonnull %u_instr_sequence124.i, i32 noundef 34, i64 %loc.sroa.0.0.insert.insert26.i, i64 %loc.sroa.14.8.insert.insert108.i)
   %cmp126.i = icmp eq i32 %call125.i, -1
   br i1 %cmp126.i, label %return, label %if.end129.i
 
 if.end129.i:                                      ; preds = %Py_DECREF.exit.i
   %34 = load ptr, ptr %u60.i, align 8
   %u_instr_sequence131.i = getelementptr inbounds i8, ptr %34, i64 24
-  %call132.i = tail call fastcc i32 @codegen_addop_i(ptr noundef nonnull %u_instr_sequence131.i, i32 noundef 53, i64 noundef 0, i64 %loc.sroa.0.0.insert.insert26.i, i64 %loc.sroa.14.8.insert.insert108.i), !range !5
+  %call132.i = tail call fastcc i32 @codegen_addop_i(ptr noundef nonnull %u_instr_sequence131.i, i32 noundef 53, i64 noundef 0, i64 %loc.sroa.0.0.insert.insert26.i, i64 %loc.sroa.14.8.insert.insert108.i)
   %cmp133.i = icmp eq i32 %call132.i, -1
   br i1 %cmp133.i, label %return, label %if.end146.i
 
@@ -7268,12 +7268,12 @@ if.else.i:                                        ; preds = %if.end44.i.thread10
   %loc.sroa.26.8.insert.shift178.i = shl nuw i64 %loc.sroa.26.8.insert.ext177.i, 32
   %loc.sroa.14.8.insert.ext134.i = zext i32 %12 to i64
   %loc.sroa.14.8.insert.insert136.i = or disjoint i64 %loc.sroa.26.8.insert.shift178.i, %loc.sroa.14.8.insert.ext134.i
-  %call141.i = tail call fastcc i32 @compiler_call_helper(ptr noundef %c, i64 %loc.sroa.0.0.insert.insert54.i, i64 %loc.sroa.14.8.insert.insert136.i, i32 noundef 2, ptr noundef %35, ptr noundef %36), !range !5
+  %call141.i = tail call fastcc i32 @compiler_call_helper(ptr noundef %c, i64 %loc.sroa.0.0.insert.insert54.i, i64 %loc.sroa.14.8.insert.insert136.i, i32 noundef 2, ptr noundef %35, ptr noundef %36)
   %cmp142.i = icmp eq i32 %call141.i, -1
   br i1 %cmp142.i, label %return, label %if.end146.i
 
 if.end146.i:                                      ; preds = %if.else.i, %if.end129.i
-  %call147.i = tail call fastcc i32 @compiler_apply_decorators(ptr noundef %c, ptr noundef %1), !range !5
+  %call147.i = tail call fastcc i32 @compiler_apply_decorators(ptr noundef %c, ptr noundef %1)
   %cmp148.i = icmp eq i32 %call147.i, -1
   br i1 %cmp148.i, label %return, label %if.end151.i
 
@@ -7287,7 +7287,7 @@ if.end151.i:                                      ; preds = %if.end146.i
   %loc.sroa.26.8.insert.shift183.i = shl nuw i64 %loc.sroa.26.8.insert.ext182.i, 32
   %loc.sroa.14.8.insert.ext138.i = zext i32 %12 to i64
   %loc.sroa.14.8.insert.insert140.i = or disjoint i64 %loc.sroa.26.8.insert.shift183.i, %loc.sroa.14.8.insert.ext138.i
-  %call154.i = tail call fastcc i32 @compiler_nameop(ptr noundef %c, i64 %loc.sroa.0.0.insert.insert58.i, i64 %loc.sroa.14.8.insert.insert140.i, ptr noundef %37, i32 noundef 2), !range !5
+  %call154.i = tail call fastcc i32 @compiler_nameop(ptr noundef %c, i64 %loc.sroa.0.0.insert.insert58.i, i64 %loc.sroa.14.8.insert.insert140.i, ptr noundef %37, i32 noundef 2)
   %cmp155.i = icmp eq i32 %call154.i, -1
   %..i = sext i1 %cmp155.i to i32
   br label %return
@@ -7327,7 +7327,7 @@ if.then.i:                                        ; preds = %cond.end.i98
   br i1 %tobool10.not.i, label %return, label %if.end.i110
 
 if.end.i110:                                      ; preds = %if.then.i
-  %call13.i = tail call fastcc i32 @compiler_enter_scope(ptr noundef %c, ptr noundef nonnull %call.i109, i32 noundef 6, ptr noundef nonnull %42, i32 noundef %38), !range !5
+  %call13.i = tail call fastcc i32 @compiler_enter_scope(ptr noundef %c, ptr noundef nonnull %call.i109, i32 noundef 6, ptr noundef nonnull %42, i32 noundef %38)
   %cmp14.i = icmp eq i32 %call13.i, -1
   %48 = load i64, ptr %call.i109, align 8
   %49 = and i64 %48, 2147483648
@@ -7373,7 +7373,7 @@ Py_DECREF.exit99.i:                               ; preds = %if.then1.i97.i, %if
   %loc.sroa.18.8.insert.shift.i = shl nuw i64 %loc.sroa.18.8.insert.ext.i, 32
   %loc.sroa.10.8.insert.ext.i = zext i32 %40 to i64
   %loc.sroa.10.8.insert.insert.i = or disjoint i64 %loc.sroa.18.8.insert.shift.i, %loc.sroa.10.8.insert.ext.i
-  %call18.i = tail call fastcc i32 @compiler_addop_load_const(ptr noundef %50, ptr noundef %51, i64 %loc.sroa.0.0.insert.insert.i113, i64 %loc.sroa.10.8.insert.insert.i, ptr noundef %47), !range !5
+  %call18.i = tail call fastcc i32 @compiler_addop_load_const(ptr noundef %50, ptr noundef %51, i64 %loc.sroa.0.0.insert.insert.i113, i64 %loc.sroa.10.8.insert.insert.i, ptr noundef %47)
   %cmp19.i = icmp slt i32 %call18.i, 0
   br i1 %cmp19.i, label %if.then21.i, label %if.end22.i
 
@@ -7382,7 +7382,7 @@ if.then21.i:                                      ; preds = %Py_DECREF.exit99.i
   br label %return
 
 if.end22.i:                                       ; preds = %Py_DECREF.exit99.i
-  %call23.i = tail call fastcc i32 @compiler_type_params(ptr noundef nonnull %c, ptr noundef nonnull %42), !range !5
+  %call23.i = tail call fastcc i32 @compiler_type_params(ptr noundef nonnull %c, ptr noundef nonnull %42)
   %cmp24.i = icmp slt i32 %call23.i, 0
   br i1 %cmp24.i, label %if.then26.i, label %if.end42.i
 
@@ -7404,14 +7404,14 @@ if.else.i99:                                      ; preds = %cond.end.i98, %cond
   %loc.sroa.18.8.insert.shift96.i = shl nuw i64 %loc.sroa.18.8.insert.ext95.i, 32
   %loc.sroa.10.8.insert.ext71.i = zext i32 %40 to i64
   %loc.sroa.10.8.insert.insert73.i = or disjoint i64 %loc.sroa.18.8.insert.shift96.i, %loc.sroa.10.8.insert.ext71.i
-  %call30.i = tail call fastcc i32 @compiler_addop_load_const(ptr noundef %53, ptr noundef %54, i64 %loc.sroa.0.0.insert.insert19.i, i64 %loc.sroa.10.8.insert.insert73.i, ptr noundef %52), !range !5
+  %call30.i = tail call fastcc i32 @compiler_addop_load_const(ptr noundef %53, ptr noundef %54, i64 %loc.sroa.0.0.insert.insert19.i, i64 %loc.sroa.10.8.insert.insert73.i, ptr noundef %52)
   %cmp31.i = icmp eq i32 %call30.i, -1
   br i1 %cmp31.i, label %return, label %if.end34.i
 
 if.end34.i:                                       ; preds = %if.else.i99
   %55 = load ptr, ptr %c_const_cache28.i, align 8
   %56 = load ptr, ptr %u29.i, align 8
-  %call37.i = tail call fastcc i32 @compiler_addop_load_const(ptr noundef %55, ptr noundef %56, i64 %loc.sroa.0.0.insert.insert19.i, i64 %loc.sroa.10.8.insert.insert73.i, ptr noundef nonnull @_Py_NoneStruct), !range !5
+  %call37.i = tail call fastcc i32 @compiler_addop_load_const(ptr noundef %55, ptr noundef %56, i64 %loc.sroa.0.0.insert.insert19.i, i64 %loc.sroa.10.8.insert.insert73.i, ptr noundef nonnull @_Py_NoneStruct)
   %cmp38.i = icmp eq i32 %call37.i, -1
   br i1 %cmp38.i, label %return, label %if.end42.i
 
@@ -7425,7 +7425,7 @@ if.end42.i:                                       ; preds = %if.end34.i, %if.end
   %62 = load ptr, ptr %v.i96, align 8
   %v6.i.i = getelementptr inbounds i8, ptr %62, i64 8
   %63 = load ptr, ptr %v6.i.i, align 8
-  %call.i.i = tail call fastcc i32 @compiler_enter_scope(ptr noundef nonnull %c, ptr noundef %63, i32 noundef 2, ptr noundef nonnull %s, i32 noundef %58), !range !5
+  %call.i.i = tail call fastcc i32 @compiler_enter_scope(ptr noundef nonnull %c, ptr noundef %63, i32 noundef 2, ptr noundef nonnull %s, i32 noundef %58)
   %cmp.i155.i = icmp eq i32 %call.i.i, -1
   br i1 %cmp.i155.i, label %if.then46.i, label %if.end.i81.i.i
 
@@ -7457,7 +7457,7 @@ compiler_add_const.exit.i.i:                      ; preds = %if.then1.i.i.i.i, %
 if.end11.i.i:                                     ; preds = %compiler_add_const.exit.i.i
   %value.i.i = getelementptr inbounds i8, ptr %s, i64 24
   %68 = load ptr, ptr %value.i.i, align 8
-  %call13.i.i = tail call fastcc i32 @compiler_visit_expr(ptr noundef nonnull %c, ptr noundef %68), !range !5
+  %call13.i.i = tail call fastcc i32 @compiler_visit_expr(ptr noundef nonnull %c, ptr noundef %68)
   %cmp14.i.i = icmp slt i32 %call13.i.i, 0
   br i1 %cmp14.i.i, label %if.then15.i.i, label %if.end16.i.i
 
@@ -7480,7 +7480,7 @@ if.end16.i.i:                                     ; preds = %if.end11.i.i
   %70 = load i32, ptr %s_used.i.i.i.i.i, align 4
   %add.i.i.i.i.i = add i32 %70, 1
   %s_allocated.i.i.i.i.i = getelementptr inbounds i8, ptr %69, i64 32
-  %call.i.i.i.i.i = tail call i32 @_PyCompile_EnsureArrayLargeEnough(i32 noundef %add.i.i.i.i.i, ptr noundef nonnull %u_instr_sequence.i.i, ptr noundef nonnull %s_allocated.i.i.i.i.i, i32 noundef 100, i64 noundef 44), !range !5
+  %call.i.i.i.i.i = tail call i32 @_PyCompile_EnsureArrayLargeEnough(i32 noundef %add.i.i.i.i.i, ptr noundef nonnull %u_instr_sequence.i.i, ptr noundef nonnull %s_allocated.i.i.i.i.i, i32 noundef 100, i64 noundef 44)
   %cmp.i.i.i.i.i = icmp eq i32 %call.i.i.i.i.i, -1
   br i1 %cmp.i.i.i.i.i, label %if.then20.i.i, label %instr_sequence_next_inst.exit.i.i.i.i
 
@@ -7512,7 +7512,7 @@ if.end21.i.i:                                     ; preds = %instr_sequence_next
   br i1 %cmp23.i.i, label %if.then46.i, label %if.end25.i.i
 
 if.end25.i.i:                                     ; preds = %if.end21.i.i
-  %call26.i.i = tail call fastcc i32 @compiler_make_closure(ptr noundef nonnull %c, i64 %loc.sroa.0.0.insert.insert.i.i, i64 %loc.sroa.7.8.insert.insert.i.i, ptr noundef nonnull %call22.i.i, i64 noundef 0), !range !5
+  %call26.i.i = tail call fastcc i32 @compiler_make_closure(ptr noundef nonnull %c, i64 %loc.sroa.0.0.insert.insert.i.i, i64 %loc.sroa.7.8.insert.insert.i.i, ptr noundef nonnull %call22.i.i, i64 noundef 0)
   %cmp27.i.i = icmp slt i32 %call26.i.i, 0
   %73 = load i64, ptr %call22.i.i, align 8
   %74 = and i64 %73, 2147483648
@@ -7552,7 +7552,7 @@ Py_DECREF.exit.i.i:                               ; preds = %if.then1.i.i.i, %if
   %76 = load i32, ptr %s_used.i.i.i84.i.i, align 4
   %add.i.i.i85.i.i = add i32 %76, 1
   %s_allocated.i.i.i86.i.i = getelementptr inbounds i8, ptr %75, i64 32
-  %call.i.i.i87.i.i = tail call i32 @_PyCompile_EnsureArrayLargeEnough(i32 noundef %add.i.i.i85.i.i, ptr noundef nonnull %u_instr_sequence31.i.i, ptr noundef nonnull %s_allocated.i.i.i86.i.i, i32 noundef 100, i64 noundef 44), !range !5
+  %call.i.i.i87.i.i = tail call i32 @_PyCompile_EnsureArrayLargeEnough(i32 noundef %add.i.i.i85.i.i, ptr noundef nonnull %u_instr_sequence31.i.i, ptr noundef nonnull %s_allocated.i.i.i86.i.i, i32 noundef 100, i64 noundef 44)
   %cmp.i.i.i88.i.i = icmp eq i32 %call.i.i.i87.i.i, -1
   br i1 %cmp.i.i.i88.i.i, label %if.then46.i, label %instr_sequence_next_inst.exit.i.i89.i.i
 
@@ -7580,7 +7580,7 @@ if.end35.i.i:                                     ; preds = %instr_sequence_next
   %80 = load i32, ptr %s_used.i.i.i99.i.i, align 4
   %add.i.i.i100.i.i = add i32 %80, 1
   %s_allocated.i.i.i101.i.i = getelementptr inbounds i8, ptr %79, i64 32
-  %call.i.i.i102.i.i = tail call i32 @_PyCompile_EnsureArrayLargeEnough(i32 noundef %add.i.i.i100.i.i, ptr noundef nonnull %u_instr_sequence37.i.i, ptr noundef nonnull %s_allocated.i.i.i101.i.i, i32 noundef 100, i64 noundef 44), !range !5
+  %call.i.i.i102.i.i = tail call i32 @_PyCompile_EnsureArrayLargeEnough(i32 noundef %add.i.i.i100.i.i, ptr noundef nonnull %u_instr_sequence37.i.i, ptr noundef nonnull %s_allocated.i.i.i101.i.i, i32 noundef 100, i64 noundef 44)
   %cmp.i.i.i103.i.i = icmp eq i32 %call.i.i.i102.i.i, -1
   br i1 %cmp.i.i.i103.i.i, label %if.then46.i, label %instr_sequence_next_inst.exit.i.i104.i.i
 
@@ -7637,7 +7637,7 @@ if.end57.i:                                       ; preds = %if.then52.i
   %loc.sroa.18.8.insert.shift106.i = shl nuw i64 %loc.sroa.18.8.insert.ext105.i, 32
   %loc.sroa.10.8.insert.ext79.i = zext i32 %40 to i64
   %loc.sroa.10.8.insert.insert81.i = or disjoint i64 %loc.sroa.18.8.insert.shift106.i, %loc.sroa.10.8.insert.ext79.i
-  %call58.i = tail call fastcc i32 @compiler_make_closure(ptr noundef nonnull %c, i64 %loc.sroa.0.0.insert.insert27.i, i64 %loc.sroa.10.8.insert.insert81.i, ptr noundef nonnull %call53.i, i64 noundef 0), !range !5
+  %call58.i = tail call fastcc i32 @compiler_make_closure(ptr noundef nonnull %c, i64 %loc.sroa.0.0.insert.insert27.i, i64 %loc.sroa.10.8.insert.insert81.i, ptr noundef nonnull %call53.i, i64 noundef 0)
   %cmp59.i = icmp slt i32 %call58.i, 0
   %83 = load i64, ptr %call53.i, align 8
   %84 = and i64 %83, 2147483648
@@ -7677,7 +7677,7 @@ Py_DECREF.exit.i102:                              ; preds = %if.then1.i.i107, %i
   %86 = load i32, ptr %s_used.i.i.i.i, align 4
   %add.i.i.i.i = add i32 %86, 1
   %s_allocated.i.i.i.i = getelementptr inbounds i8, ptr %85, i64 32
-  %call.i.i.i.i = tail call i32 @_PyCompile_EnsureArrayLargeEnough(i32 noundef %add.i.i.i.i, ptr noundef nonnull %u_instr_sequence.i103, ptr noundef nonnull %s_allocated.i.i.i.i, i32 noundef 100, i64 noundef 44), !range !5
+  %call.i.i.i.i = tail call i32 @_PyCompile_EnsureArrayLargeEnough(i32 noundef %add.i.i.i.i, ptr noundef nonnull %u_instr_sequence.i103, ptr noundef nonnull %s_allocated.i.i.i.i, i32 noundef 100, i64 noundef 44)
   %cmp.i.i.i156.i = icmp eq i32 %call.i.i.i.i, -1
   br i1 %cmp.i.i.i156.i, label %return, label %instr_sequence_next_inst.exit.i.i.i
 
@@ -7705,7 +7705,7 @@ if.end68.i:                                       ; preds = %instr_sequence_next
   %90 = load i32, ptr %s_used.i.i.i159.i, align 4
   %add.i.i.i160.i = add i32 %90, 1
   %s_allocated.i.i.i161.i = getelementptr inbounds i8, ptr %89, i64 32
-  %call.i.i.i162.i = tail call i32 @_PyCompile_EnsureArrayLargeEnough(i32 noundef %add.i.i.i160.i, ptr noundef nonnull %u_instr_sequence70.i, ptr noundef nonnull %s_allocated.i.i.i161.i, i32 noundef 100, i64 noundef 44), !range !5
+  %call.i.i.i162.i = tail call i32 @_PyCompile_EnsureArrayLargeEnough(i32 noundef %add.i.i.i160.i, ptr noundef nonnull %u_instr_sequence70.i, ptr noundef nonnull %s_allocated.i.i.i161.i, i32 noundef 100, i64 noundef 44)
   %cmp.i.i.i163.i = icmp eq i32 %call.i.i.i162.i, -1
   br i1 %cmp.i.i.i163.i, label %return, label %instr_sequence_next_inst.exit.i.i164.i
 
@@ -7732,7 +7732,7 @@ codegen_addop_i.exit.i:                           ; preds = %instr_sequence_next
 if.end76.i:                                       ; preds = %codegen_addop_i.exit.i, %if.end50.if.end76_crit_edge.i
   %loc.sroa.10.8.insert.insert93.pre-phi.i = phi i64 [ %.pre191.i, %if.end50.if.end76_crit_edge.i ], [ %loc.sroa.10.8.insert.insert81.i, %codegen_addop_i.exit.i ]
   %loc.sroa.0.0.insert.insert39.pre-phi.i = phi i64 [ %.pre187.i, %if.end50.if.end76_crit_edge.i ], [ %loc.sroa.0.0.insert.insert27.i, %codegen_addop_i.exit.i ]
-  %call77.i = tail call fastcc i32 @compiler_nameop(ptr noundef nonnull %c, i64 %loc.sroa.0.0.insert.insert39.pre-phi.i, i64 %loc.sroa.10.8.insert.insert93.pre-phi.i, ptr noundef %57, i32 noundef 2), !range !5
+  %call77.i = tail call fastcc i32 @compiler_nameop(ptr noundef nonnull %c, i64 %loc.sroa.0.0.insert.insert39.pre-phi.i, i64 %loc.sroa.10.8.insert.insert93.pre-phi.i, ptr noundef %57, i32 noundef 2)
   %cmp78.i = icmp eq i32 %call77.i, -1
   %..i100 = sext i1 %cmp78.i to i32
   br label %return
@@ -7805,7 +7805,7 @@ if.end25.i.thread:                                ; preds = %land.lhs.true.i
   br i1 %97, label %if.then27.i, label %if.then37.i125
 
 if.then27.i:                                      ; preds = %if.end25.i.thread, %if.end25.i
-  %call30.i135 = tail call fastcc i32 @compiler_visit_expr(ptr noundef nonnull %c, ptr noundef %102), !range !5
+  %call30.i135 = tail call fastcc i32 @compiler_visit_expr(ptr noundef nonnull %c, ptr noundef %102)
   %cmp31.i136 = icmp eq i32 %call30.i135, -1
   br i1 %cmp31.i136, label %compiler_return.exit, label %if.end60.i
 
@@ -7817,7 +7817,7 @@ if.then37.i125:                                   ; preds = %if.end25.i.thread
   %u_instr_sequence.i126 = getelementptr inbounds i8, ptr %103, i64 24
   %110 = load i64, ptr %loc.i, align 16
   %111 = load i64, ptr %col_offset.i, align 8
-  %call55.i127 = tail call fastcc i32 @codegen_addop_noarg(ptr noundef nonnull %u_instr_sequence.i126, i32 noundef 30, i64 %110, i64 %111), !range !5
+  %call55.i127 = tail call fastcc i32 @codegen_addop_noarg(ptr noundef nonnull %u_instr_sequence.i126, i32 noundef 30, i64 %110, i64 %111)
   %cmp56.i128 = icmp eq i32 %call55.i127, -1
   br i1 %cmp56.i128, label %compiler_return.exit, label %if.end60.i
 
@@ -7845,12 +7845,12 @@ if.then69.i129:                                   ; preds = %if.end25.i.if.then6
   %u_instr_sequence80.i = getelementptr inbounds i8, ptr %117, i64 24
   %118 = load i64, ptr %loc.i, align 16
   %119 = load i64, ptr %col_offset.i, align 8
-  %call81.i = tail call fastcc i32 @codegen_addop_noarg(ptr noundef nonnull %u_instr_sequence80.i, i32 noundef 30, i64 %118, i64 %119), !range !5
+  %call81.i = tail call fastcc i32 @codegen_addop_noarg(ptr noundef nonnull %u_instr_sequence80.i, i32 noundef 30, i64 %118, i64 %119)
   %cmp82.i = icmp eq i32 %call81.i, -1
   br i1 %cmp82.i, label %compiler_return.exit, label %if.end85.i
 
 if.end85.i:                                       ; preds = %if.then69.i129, %lor.lhs.false.i
-  %call86.i = call fastcc i32 @compiler_unwind_fblock_stack(ptr noundef nonnull %c, ptr noundef nonnull %loc.i, i32 noundef %land.ext.i, ptr noundef null), !range !5
+  %call86.i = call fastcc i32 @compiler_unwind_fblock_stack(ptr noundef nonnull %c, ptr noundef nonnull %loc.i, i32 noundef %land.ext.i, ptr noundef null)
   %cmp87.i130 = icmp eq i32 %call86.i, -1
   br i1 %cmp87.i130, label %compiler_return.exit, label %if.end89.i
 
@@ -7865,7 +7865,7 @@ if.then93.i:                                      ; preds = %if.end89.i
   %122 = load ptr, ptr %u.i119, align 8
   %123 = load i64, ptr %loc.i, align 16
   %124 = load i64, ptr %col_offset.i, align 8
-  %call95.i = tail call fastcc i32 @compiler_addop_load_const(ptr noundef %121, ptr noundef %122, i64 %123, i64 %124, ptr noundef nonnull @_Py_NoneStruct), !range !5
+  %call95.i = tail call fastcc i32 @compiler_addop_load_const(ptr noundef %121, ptr noundef %122, i64 %123, i64 %124, ptr noundef nonnull @_Py_NoneStruct)
   %cmp96.i = icmp eq i32 %call95.i, -1
   br i1 %cmp96.i, label %compiler_return.exit, label %if.end113.i
 
@@ -7880,7 +7880,7 @@ if.then101.i:                                     ; preds = %if.else99.i
   %127 = load ptr, ptr %v106.i, align 8
   %128 = load i64, ptr %loc.i, align 16
   %129 = load i64, ptr %col_offset.i, align 8
-  %call108.i131 = tail call fastcc i32 @compiler_addop_load_const(ptr noundef %125, ptr noundef %126, i64 %128, i64 %129, ptr noundef %127), !range !5
+  %call108.i131 = tail call fastcc i32 @compiler_addop_load_const(ptr noundef %125, ptr noundef %126, i64 %128, i64 %129, ptr noundef %127)
   %cmp109.i132 = icmp eq i32 %call108.i131, -1
   br i1 %cmp109.i132, label %compiler_return.exit, label %if.end113.i
 
@@ -7889,7 +7889,7 @@ if.end113.i:                                      ; preds = %if.then101.i, %if.e
   %u_instr_sequence115.i = getelementptr inbounds i8, ptr %130, i64 24
   %131 = load i64, ptr %loc.i, align 16
   %132 = load i64, ptr %col_offset.i, align 8
-  %call116.i = tail call fastcc i32 @codegen_addop_noarg(ptr noundef nonnull %u_instr_sequence115.i, i32 noundef 36, i64 %131, i64 %132), !range !5
+  %call116.i = tail call fastcc i32 @codegen_addop_noarg(ptr noundef nonnull %u_instr_sequence115.i, i32 noundef 36, i64 %131, i64 %132)
   %cmp117.i = icmp eq i32 %call116.i, -1
   %..i133 = sext i1 %cmp117.i to i32
   br label %compiler_return.exit
@@ -7923,10 +7923,10 @@ cond.end:                                         ; preds = %for.cond, %cond.fal
 for.body:                                         ; preds = %cond.end
   %arrayidx = getelementptr [1 x ptr], ptr %typed_elements, i64 0, i64 %conv
   %135 = load ptr, ptr %arrayidx, align 8
-  %call11 = tail call fastcc i32 @compiler_visit_expr(ptr noundef %c, ptr noundef %135), !range !5
+  %call11 = tail call fastcc i32 @compiler_visit_expr(ptr noundef %c, ptr noundef %135)
   %cmp12 = icmp eq i32 %call11, -1
   %inc = add i32 %_i.0, 1
-  br i1 %cmp12, label %return, label %for.cond, !llvm.loop !34
+  br i1 %cmp12, label %return, label %for.cond, !llvm.loop !32
 
 sw.bb14:                                          ; preds = %entry
   %v15 = getelementptr inbounds i8, ptr %s, i64 8
@@ -7942,7 +7942,7 @@ cond.end24:                                       ; preds = %sw.bb14, %cond.fals
   %cond25 = phi i64 [ %137, %cond.false20 ], [ 0, %sw.bb14 ]
   %value = getelementptr inbounds i8, ptr %s, i64 16
   %138 = load ptr, ptr %value, align 8
-  %call27 = tail call fastcc i32 @compiler_visit_expr(ptr noundef %c, ptr noundef %138), !range !5
+  %call27 = tail call fastcc i32 @compiler_visit_expr(ptr noundef %c, ptr noundef %138)
   %cmp28 = icmp eq i32 %call27, -1
   br i1 %cmp28, label %return, label %for.cond32.preheader
 
@@ -7962,7 +7962,7 @@ for.body35.lr.ph:                                 ; preds = %for.cond32.preheade
 for.cond32:                                       ; preds = %if.end48
   %inc59 = add nuw nsw i64 %i.01046, 1
   %exitcond1085.not = icmp eq i64 %inc59, %cond25
-  br i1 %exitcond1085.not, label %return, label %for.body35, !llvm.loop !35
+  br i1 %exitcond1085.not, label %return, label %for.body35, !llvm.loop !33
 
 for.body35:                                       ; preds = %for.body35.lr.ph, %for.cond32
   %i.01046 = phi i64 [ 0, %for.body35.lr.ph ], [ %inc59, %for.cond32 ]
@@ -7988,7 +7988,7 @@ if.then38:                                        ; preds = %for.body35
   %144 = load i32, ptr %s_used.i.i.i, align 4
   %add.i.i.i = add i32 %144, 1
   %s_allocated.i.i.i = getelementptr inbounds i8, ptr %139, i64 32
-  %call.i.i.i = tail call i32 @_PyCompile_EnsureArrayLargeEnough(i32 noundef %add.i.i.i, ptr noundef nonnull %u_instr_sequence, ptr noundef nonnull %s_allocated.i.i.i, i32 noundef 100, i64 noundef 44), !range !5
+  %call.i.i.i = tail call i32 @_PyCompile_EnsureArrayLargeEnough(i32 noundef %add.i.i.i, ptr noundef nonnull %u_instr_sequence, ptr noundef nonnull %s_allocated.i.i.i, i32 noundef 100, i64 noundef 44)
   %cmp.i.i.i138 = icmp eq i32 %call.i.i.i, -1
   br i1 %cmp.i.i.i138, label %return, label %instr_sequence_next_inst.exit.i.i
 
@@ -8017,7 +8017,7 @@ if.end48:                                         ; preds = %codegen_addop_i.exi
   %typed_elements51 = getelementptr inbounds i8, ptr %147, i64 16
   %arrayidx52 = getelementptr [1 x ptr], ptr %typed_elements51, i64 0, i64 %i.01046
   %148 = load ptr, ptr %arrayidx52, align 8
-  %call53 = tail call fastcc i32 @compiler_visit_expr(ptr noundef %c, ptr noundef %148), !range !5
+  %call53 = tail call fastcc i32 @compiler_visit_expr(ptr noundef %c, ptr noundef %148)
   %cmp54 = icmp eq i32 %call53, -1
   br i1 %cmp54, label %return, label %for.cond32
 
@@ -8042,7 +8042,7 @@ sw.bb61:                                          ; preds = %entry
 sw.bb.i:                                          ; preds = %sw.bb61
   %v5.i = getelementptr inbounds i8, ptr %149, i64 8
   %155 = load ptr, ptr %v5.i, align 8
-  %call.i170 = tail call fastcc i32 @compiler_visit_expr(ptr noundef %c, ptr noundef %155), !range !5
+  %call.i170 = tail call fastcc i32 @compiler_visit_expr(ptr noundef %c, ptr noundef %155)
   %cmp.i171 = icmp eq i32 %call.i170, -1
   br i1 %cmp.i171, label %return, label %if.end.i172
 
@@ -8062,7 +8062,7 @@ if.end.i172:                                      ; preds = %sw.bb.i
   %157 = load i32, ptr %s_used.i.i.i.i177, align 4
   %add.i.i.i.i178 = add i32 %157, 1
   %s_allocated.i.i.i.i179 = getelementptr inbounds i8, ptr %156, i64 32
-  %call.i.i.i.i180 = tail call i32 @_PyCompile_EnsureArrayLargeEnough(i32 noundef %add.i.i.i.i178, ptr noundef nonnull %u_instr_sequence.i174, ptr noundef nonnull %s_allocated.i.i.i.i179, i32 noundef 100, i64 noundef 44), !range !5
+  %call.i.i.i.i180 = tail call i32 @_PyCompile_EnsureArrayLargeEnough(i32 noundef %add.i.i.i.i178, ptr noundef nonnull %u_instr_sequence.i174, ptr noundef nonnull %s_allocated.i.i.i.i179, i32 noundef 100, i64 noundef 44)
   %cmp.i.i.i.i181 = icmp eq i32 %call.i.i.i.i180, -1
   br i1 %cmp.i.i.i.i181, label %return, label %instr_sequence_next_inst.exit.i.i.i182
 
@@ -8126,14 +8126,14 @@ update_start_location_to_match_attr.exit.i:       ; preds = %if.then21.i.i, %if.
   %163 = load ptr, ptr %u.i173, align 8
   %u_names.i = getelementptr inbounds i8, ptr %163, i64 568
   %164 = load ptr, ptr %u_names.i, align 8
-  %call14.i = tail call fastcc i32 @compiler_addop_name(ptr noundef %163, i64 %loc.sroa.0.sroa.0.0.insert.insert.i.i, i64 %loc.sroa.11.1.i.i, i32 noundef 82, ptr noundef %164, ptr noundef %.pre.i190), !range !5
+  %call14.i = tail call fastcc i32 @compiler_addop_name(ptr noundef %163, i64 %loc.sroa.0.sroa.0.0.insert.insert.i.i, i64 %loc.sroa.11.1.i.i, i32 noundef 82, ptr noundef %164, ptr noundef %.pre.i190)
   %cmp15.i = icmp eq i32 %call14.i, -1
   br i1 %cmp15.i, label %return, label %sw.epilog.i
 
 sw.bb18.i:                                        ; preds = %sw.bb61
   %v19.i = getelementptr inbounds i8, ptr %149, i64 8
   %165 = load ptr, ptr %v19.i, align 8
-  %call21.i = tail call fastcc i32 @compiler_visit_expr(ptr noundef %c, ptr noundef %165), !range !5
+  %call21.i = tail call fastcc i32 @compiler_visit_expr(ptr noundef %c, ptr noundef %165)
   %cmp22.i = icmp eq i32 %call21.i, -1
   br i1 %cmp22.i, label %return, label %if.end24.i
 
@@ -8151,7 +8151,7 @@ is_two_element_slice.exit.i:                      ; preds = %if.end24.i
   br i1 %cmp1.i.i, label %if.then27.i166, label %if.else.i165
 
 if.then27.i166:                                   ; preds = %is_two_element_slice.exit.i
-  %call30.i167 = tail call fastcc i32 @compiler_slice(ptr noundef %c, ptr noundef nonnull %166), !range !36
+  %call30.i167 = tail call fastcc i32 @compiler_slice(ptr noundef %c, ptr noundef nonnull %166)
   %cmp31.i168 = icmp eq i32 %call30.i167, -1
   br i1 %cmp31.i168, label %return, label %if.end33.i169
 
@@ -8171,7 +8171,7 @@ if.end33.i169:                                    ; preds = %if.then27.i166
   %170 = load i32, ptr %s_used.i.i.i460.i, align 4
   %add.i.i.i461.i = add i32 %170, 1
   %s_allocated.i.i.i462.i = getelementptr inbounds i8, ptr %169, i64 32
-  %call.i.i.i463.i = tail call i32 @_PyCompile_EnsureArrayLargeEnough(i32 noundef %add.i.i.i461.i, ptr noundef nonnull %u_instr_sequence35.i, ptr noundef nonnull %s_allocated.i.i.i462.i, i32 noundef 100, i64 noundef 44), !range !5
+  %call.i.i.i463.i = tail call i32 @_PyCompile_EnsureArrayLargeEnough(i32 noundef %add.i.i.i461.i, ptr noundef nonnull %u_instr_sequence35.i, ptr noundef nonnull %s_allocated.i.i.i462.i, i32 noundef 100, i64 noundef 44)
   %cmp.i.i.i464.i = icmp eq i32 %call.i.i.i463.i, -1
   br i1 %cmp.i.i.i464.i, label %return, label %instr_sequence_next_inst.exit.i.i465.i
 
@@ -8199,7 +8199,7 @@ if.end39.i:                                       ; preds = %instr_sequence_next
   %174 = load i32, ptr %s_used.i.i.i476.i, align 4
   %add.i.i.i477.i = add i32 %174, 1
   %s_allocated.i.i.i478.i = getelementptr inbounds i8, ptr %173, i64 32
-  %call.i.i.i479.i = tail call i32 @_PyCompile_EnsureArrayLargeEnough(i32 noundef %add.i.i.i477.i, ptr noundef nonnull %u_instr_sequence41.i, ptr noundef nonnull %s_allocated.i.i.i478.i, i32 noundef 100, i64 noundef 44), !range !5
+  %call.i.i.i479.i = tail call i32 @_PyCompile_EnsureArrayLargeEnough(i32 noundef %add.i.i.i477.i, ptr noundef nonnull %u_instr_sequence41.i, ptr noundef nonnull %s_allocated.i.i.i478.i, i32 noundef 100, i64 noundef 44)
   %cmp.i.i.i480.i = icmp eq i32 %call.i.i.i479.i, -1
   br i1 %cmp.i.i.i480.i, label %return, label %instr_sequence_next_inst.exit.i.i481.i
 
@@ -8223,19 +8223,19 @@ if.end45.i:                                       ; preds = %instr_sequence_next
   store i64 %loc.sroa.31.8.insert.insert213.i, ptr %loc.sroa.2.0.i_loc.sroa_idx.i.i489.i, align 4
   %177 = load ptr, ptr %u34.i, align 8
   %u_instr_sequence47.i = getelementptr inbounds i8, ptr %177, i64 24
-  %call48.i = tail call fastcc i32 @codegen_addop_i(ptr noundef nonnull %u_instr_sequence47.i, i32 noundef 61, i64 noundef 3, i64 %loc.sroa.0.0.insert.insert12.i, i64 %loc.sroa.31.8.insert.insert213.i), !range !5
+  %call48.i = tail call fastcc i32 @codegen_addop_i(ptr noundef nonnull %u_instr_sequence47.i, i32 noundef 61, i64 noundef 3, i64 %loc.sroa.0.0.insert.insert12.i, i64 %loc.sroa.31.8.insert.insert213.i)
   %cmp49.i = icmp eq i32 %call48.i, -1
   br i1 %cmp49.i, label %return, label %if.end51.i
 
 if.end51.i:                                       ; preds = %if.end45.i
   %178 = load ptr, ptr %u34.i, align 8
   %u_instr_sequence53.i = getelementptr inbounds i8, ptr %178, i64 24
-  %call54.i = tail call fastcc i32 @codegen_addop_noarg(ptr noundef nonnull %u_instr_sequence53.i, i32 noundef 4, i64 %loc.sroa.0.0.insert.insert12.i, i64 %loc.sroa.31.8.insert.insert213.i), !range !5
+  %call54.i = tail call fastcc i32 @codegen_addop_noarg(ptr noundef nonnull %u_instr_sequence53.i, i32 noundef 4, i64 %loc.sroa.0.0.insert.insert12.i, i64 %loc.sroa.31.8.insert.insert213.i)
   %cmp55.i = icmp eq i32 %call54.i, -1
   br i1 %cmp55.i, label %return, label %sw.epilog.i
 
 if.else.i165:                                     ; preds = %is_two_element_slice.exit.i, %if.end24.i
-  %call60.i = tail call fastcc i32 @compiler_visit_expr(ptr noundef %c, ptr noundef nonnull %166), !range !5
+  %call60.i = tail call fastcc i32 @compiler_visit_expr(ptr noundef %c, ptr noundef nonnull %166)
   %cmp61.i = icmp eq i32 %call60.i, -1
   br i1 %cmp61.i, label %return, label %if.end63.i
 
@@ -8255,7 +8255,7 @@ if.end63.i:                                       ; preds = %if.else.i165
   %180 = load i32, ptr %s_used.i.i.i492.i, align 4
   %add.i.i.i493.i = add i32 %180, 1
   %s_allocated.i.i.i494.i = getelementptr inbounds i8, ptr %179, i64 32
-  %call.i.i.i495.i = tail call i32 @_PyCompile_EnsureArrayLargeEnough(i32 noundef %add.i.i.i493.i, ptr noundef nonnull %u_instr_sequence65.i, ptr noundef nonnull %s_allocated.i.i.i494.i, i32 noundef 100, i64 noundef 44), !range !5
+  %call.i.i.i495.i = tail call i32 @_PyCompile_EnsureArrayLargeEnough(i32 noundef %add.i.i.i493.i, ptr noundef nonnull %u_instr_sequence65.i, ptr noundef nonnull %s_allocated.i.i.i494.i, i32 noundef 100, i64 noundef 44)
   %cmp.i.i.i496.i = icmp eq i32 %call.i.i.i495.i, -1
   br i1 %cmp.i.i.i496.i, label %return, label %instr_sequence_next_inst.exit.i.i497.i
 
@@ -8283,7 +8283,7 @@ if.end69.i:                                       ; preds = %instr_sequence_next
   %184 = load i32, ptr %s_used.i.i.i508.i, align 4
   %add.i.i.i509.i = add i32 %184, 1
   %s_allocated.i.i.i510.i = getelementptr inbounds i8, ptr %183, i64 32
-  %call.i.i.i511.i = tail call i32 @_PyCompile_EnsureArrayLargeEnough(i32 noundef %add.i.i.i509.i, ptr noundef nonnull %u_instr_sequence71.i, ptr noundef nonnull %s_allocated.i.i.i510.i, i32 noundef 100, i64 noundef 44), !range !5
+  %call.i.i.i511.i = tail call i32 @_PyCompile_EnsureArrayLargeEnough(i32 noundef %add.i.i.i509.i, ptr noundef nonnull %u_instr_sequence71.i, ptr noundef nonnull %s_allocated.i.i.i510.i, i32 noundef 100, i64 noundef 44)
   %cmp.i.i.i512.i = icmp eq i32 %call.i.i.i511.i, -1
   br i1 %cmp.i.i.i512.i, label %return, label %instr_sequence_next_inst.exit.i.i513.i
 
@@ -8307,7 +8307,7 @@ if.end75.i:                                       ; preds = %instr_sequence_next
   store i64 %loc.sroa.31.8.insert.insert229.i, ptr %loc.sroa.2.0.i_loc.sroa_idx.i.i521.i, align 4
   %187 = load ptr, ptr %u64.i, align 8
   %u_instr_sequence77.i = getelementptr inbounds i8, ptr %187, i64 24
-  %call78.i = tail call fastcc i32 @codegen_addop_noarg(ptr noundef nonnull %u_instr_sequence77.i, i32 noundef 5, i64 %loc.sroa.0.0.insert.insert28.i, i64 %loc.sroa.31.8.insert.insert229.i), !range !5
+  %call78.i = tail call fastcc i32 @codegen_addop_noarg(ptr noundef nonnull %u_instr_sequence77.i, i32 noundef 5, i64 %loc.sroa.0.0.insert.insert28.i, i64 %loc.sroa.31.8.insert.insert229.i)
   %cmp79.i = icmp eq i32 %call78.i, -1
   br i1 %cmp79.i, label %return, label %sw.epilog.i
 
@@ -8322,7 +8322,7 @@ sw.bb83.i:                                        ; preds = %sw.bb61
   %loc.sroa.59.8.insert.shift338.i = shl nuw i64 %loc.sroa.59.8.insert.ext337.i, 32
   %loc.sroa.31.8.insert.ext239.i = zext i32 %152 to i64
   %loc.sroa.31.8.insert.insert241.i = or disjoint i64 %loc.sroa.59.8.insert.shift338.i, %loc.sroa.31.8.insert.ext239.i
-  %call85.i = tail call fastcc i32 @compiler_nameop(ptr noundef %c, i64 %loc.sroa.0.0.insert.insert40.i, i64 %loc.sroa.31.8.insert.insert241.i, ptr noundef %188, i32 noundef 1), !range !5
+  %call85.i = tail call fastcc i32 @compiler_nameop(ptr noundef %c, i64 %loc.sroa.0.0.insert.insert40.i, i64 %loc.sroa.31.8.insert.insert241.i, ptr noundef %188, i32 noundef 1)
   %cmp86.i = icmp eq i32 %call85.i, -1
   br i1 %cmp86.i, label %return, label %sw.epilog.i
 
@@ -8342,7 +8342,7 @@ sw.epilog.i:                                      ; preds = %sw.bb83.i, %if.end7
   %193 = load i32, ptr %end_col_offset98.i, align 4
   %value100.i = getelementptr inbounds i8, ptr %s, i64 24
   %194 = load ptr, ptr %value100.i, align 8
-  %call101.i = tail call fastcc i32 @compiler_visit_expr(ptr noundef %c, ptr noundef %194), !range !5
+  %call101.i = tail call fastcc i32 @compiler_visit_expr(ptr noundef %c, ptr noundef %194)
   %cmp102.i = icmp eq i32 %call101.i, -1
   br i1 %cmp102.i, label %return, label %if.end104.i146
 
@@ -8377,7 +8377,7 @@ switch.lookup:                                    ; preds = %if.end104.i146
   %200 = load i32, ptr %s_used.i.i.i.i.i149, align 4
   %add.i.i.i.i.i150 = add i32 %200, 1
   %s_allocated.i.i.i.i.i151 = getelementptr inbounds i8, ptr %199, i64 32
-  %call.i.i.i.i.i152 = tail call i32 @_PyCompile_EnsureArrayLargeEnough(i32 noundef %add.i.i.i.i.i150, ptr noundef nonnull %u_instr_sequence.i.i148, ptr noundef nonnull %s_allocated.i.i.i.i.i151, i32 noundef 100, i64 noundef 44), !range !5
+  %call.i.i.i.i.i152 = tail call i32 @_PyCompile_EnsureArrayLargeEnough(i32 noundef %add.i.i.i.i.i150, ptr noundef nonnull %u_instr_sequence.i.i148, ptr noundef nonnull %s_allocated.i.i.i.i.i151, i32 noundef 100, i64 noundef 44)
   %cmp.i.i.i.i.i153 = icmp eq i32 %call.i.i.i.i.i152, -1
   br i1 %cmp.i.i.i.i.i153, label %return, label %instr_sequence_next_inst.exit.i.i.i.i154
 
@@ -8452,7 +8452,7 @@ update_start_location_to_match_attr.exit558.i:    ; preds = %if.then21.i540.i, %
   %211 = load i32, ptr %s_used.i.i.i559.i, align 4
   %add.i.i.i560.i = add i32 %211, 1
   %s_allocated.i.i.i561.i = getelementptr inbounds i8, ptr %210, i64 32
-  %call.i.i.i562.i = tail call i32 @_PyCompile_EnsureArrayLargeEnough(i32 noundef %add.i.i.i560.i, ptr noundef nonnull %u_instr_sequence124.i162, ptr noundef nonnull %s_allocated.i.i.i561.i, i32 noundef 100, i64 noundef 44), !range !5
+  %call.i.i.i562.i = tail call i32 @_PyCompile_EnsureArrayLargeEnough(i32 noundef %add.i.i.i560.i, ptr noundef nonnull %u_instr_sequence124.i162, ptr noundef nonnull %s_allocated.i.i.i561.i, i32 noundef 100, i64 noundef 44)
   %cmp.i.i.i563.i = icmp eq i32 %call.i.i.i562.i, -1
   br i1 %cmp.i.i.i563.i, label %return, label %instr_sequence_next_inst.exit.i.i564.i
 
@@ -8479,7 +8479,7 @@ if.end128.i:                                      ; preds = %instr_sequence_next
   %215 = load ptr, ptr %u_names132.i, align 8
   %attr134.i = getelementptr inbounds i8, ptr %149, i64 16
   %216 = load ptr, ptr %attr134.i, align 8
-  %call135.i = tail call fastcc i32 @compiler_addop_name(ptr noundef %214, i64 %loc.sroa.0.sroa.0.0.insert.insert.i555.i, i64 %loc.sroa.11.1.i549.i, i32 noundef 108, ptr noundef %215, ptr noundef %216), !range !5
+  %call135.i = tail call fastcc i32 @compiler_addop_name(ptr noundef %214, i64 %loc.sroa.0.sroa.0.0.insert.insert.i555.i, i64 %loc.sroa.11.1.i549.i, i32 noundef 108, ptr noundef %215, ptr noundef %216)
   %cmp136.i = icmp eq i32 %call135.i, -1
   br i1 %cmp136.i, label %return, label %sw.epilog193.i
 
@@ -8507,28 +8507,28 @@ if.then143.i:                                     ; preds = %is_two_element_slic
   %loc.sroa.59.8.insert.shift363.i = shl nuw i64 %loc.sroa.59.8.insert.ext362.i, 32
   %loc.sroa.31.8.insert.ext259.i = zext i32 %205 to i64
   %loc.sroa.31.8.insert.insert261.i = or disjoint i64 %loc.sroa.59.8.insert.shift363.i, %loc.sroa.31.8.insert.ext259.i
-  %call146.i = tail call fastcc i32 @codegen_addop_i(ptr noundef nonnull %u_instr_sequence145.i, i32 noundef 115, i64 noundef 4, i64 %loc.sroa.0.0.insert.insert60.i, i64 %loc.sroa.31.8.insert.insert261.i), !range !5
+  %call146.i = tail call fastcc i32 @codegen_addop_i(ptr noundef nonnull %u_instr_sequence145.i, i32 noundef 115, i64 noundef 4, i64 %loc.sroa.0.0.insert.insert60.i, i64 %loc.sroa.31.8.insert.insert261.i)
   %cmp147.i = icmp eq i32 %call146.i, -1
   br i1 %cmp147.i, label %return, label %if.end149.i
 
 if.end149.i:                                      ; preds = %if.then143.i
   %221 = load ptr, ptr %u.i.i147, align 8
   %u_instr_sequence151.i = getelementptr inbounds i8, ptr %221, i64 24
-  %call152.i = tail call fastcc i32 @codegen_addop_i(ptr noundef nonnull %u_instr_sequence151.i, i32 noundef 115, i64 noundef 3, i64 %loc.sroa.0.0.insert.insert60.i, i64 %loc.sroa.31.8.insert.insert261.i), !range !5
+  %call152.i = tail call fastcc i32 @codegen_addop_i(ptr noundef nonnull %u_instr_sequence151.i, i32 noundef 115, i64 noundef 3, i64 %loc.sroa.0.0.insert.insert60.i, i64 %loc.sroa.31.8.insert.insert261.i)
   %cmp153.i = icmp eq i32 %call152.i, -1
   br i1 %cmp153.i, label %return, label %if.end155.i
 
 if.end155.i:                                      ; preds = %if.end149.i
   %222 = load ptr, ptr %u.i.i147, align 8
   %u_instr_sequence157.i = getelementptr inbounds i8, ptr %222, i64 24
-  %call158.i = tail call fastcc i32 @codegen_addop_i(ptr noundef nonnull %u_instr_sequence157.i, i32 noundef 115, i64 noundef 2, i64 %loc.sroa.0.0.insert.insert60.i, i64 %loc.sroa.31.8.insert.insert261.i), !range !5
+  %call158.i = tail call fastcc i32 @codegen_addop_i(ptr noundef nonnull %u_instr_sequence157.i, i32 noundef 115, i64 noundef 2, i64 %loc.sroa.0.0.insert.insert60.i, i64 %loc.sroa.31.8.insert.insert261.i)
   %cmp159.i = icmp eq i32 %call158.i, -1
   br i1 %cmp159.i, label %return, label %if.end161.i
 
 if.end161.i:                                      ; preds = %if.end155.i
   %223 = load ptr, ptr %u.i.i147, align 8
   %u_instr_sequence163.i = getelementptr inbounds i8, ptr %223, i64 24
-  %call164.i = tail call fastcc i32 @codegen_addop_noarg(ptr noundef nonnull %u_instr_sequence163.i, i32 noundef 38, i64 %loc.sroa.0.0.insert.insert60.i, i64 %loc.sroa.31.8.insert.insert261.i), !range !5
+  %call164.i = tail call fastcc i32 @codegen_addop_noarg(ptr noundef nonnull %u_instr_sequence163.i, i32 noundef 38, i64 %loc.sroa.0.0.insert.insert60.i, i64 %loc.sroa.31.8.insert.insert261.i)
   %cmp165.i = icmp eq i32 %call164.i, -1
   br i1 %cmp165.i, label %return, label %sw.epilog193.i
 
@@ -8543,21 +8543,21 @@ if.else168.i:                                     ; preds = %is_two_element_slic
   %loc.sroa.59.8.insert.shift383.i = shl nuw i64 %loc.sroa.59.8.insert.ext382.i, 32
   %loc.sroa.31.8.insert.ext275.i = zext i32 %205 to i64
   %loc.sroa.31.8.insert.insert277.i = or disjoint i64 %loc.sroa.59.8.insert.shift383.i, %loc.sroa.31.8.insert.ext275.i
-  %call171.i = tail call fastcc i32 @codegen_addop_i(ptr noundef nonnull %u_instr_sequence170.i, i32 noundef 115, i64 noundef 3, i64 %loc.sroa.0.0.insert.insert76.i, i64 %loc.sroa.31.8.insert.insert277.i), !range !5
+  %call171.i = tail call fastcc i32 @codegen_addop_i(ptr noundef nonnull %u_instr_sequence170.i, i32 noundef 115, i64 noundef 3, i64 %loc.sroa.0.0.insert.insert76.i, i64 %loc.sroa.31.8.insert.insert277.i)
   %cmp172.i = icmp eq i32 %call171.i, -1
   br i1 %cmp172.i, label %return, label %if.end174.i
 
 if.end174.i:                                      ; preds = %if.else168.i
   %225 = load ptr, ptr %u.i.i147, align 8
   %u_instr_sequence176.i = getelementptr inbounds i8, ptr %225, i64 24
-  %call177.i = tail call fastcc i32 @codegen_addop_i(ptr noundef nonnull %u_instr_sequence176.i, i32 noundef 115, i64 noundef 2, i64 %loc.sroa.0.0.insert.insert76.i, i64 %loc.sroa.31.8.insert.insert277.i), !range !5
+  %call177.i = tail call fastcc i32 @codegen_addop_i(ptr noundef nonnull %u_instr_sequence176.i, i32 noundef 115, i64 noundef 2, i64 %loc.sroa.0.0.insert.insert76.i, i64 %loc.sroa.31.8.insert.insert277.i)
   %cmp178.i = icmp eq i32 %call177.i, -1
   br i1 %cmp178.i, label %return, label %if.end180.i
 
 if.end180.i:                                      ; preds = %if.end174.i
   %226 = load ptr, ptr %u.i.i147, align 8
   %u_instr_sequence182.i = getelementptr inbounds i8, ptr %226, i64 24
-  %call183.i = tail call fastcc i32 @codegen_addop_noarg(ptr noundef nonnull %u_instr_sequence182.i, i32 noundef 39, i64 %loc.sroa.0.0.insert.insert76.i, i64 %loc.sroa.31.8.insert.insert277.i), !range !5
+  %call183.i = tail call fastcc i32 @codegen_addop_noarg(ptr noundef nonnull %u_instr_sequence182.i, i32 noundef 39, i64 %loc.sroa.0.0.insert.insert76.i, i64 %loc.sroa.31.8.insert.insert277.i)
   %cmp184.i = icmp eq i32 %call183.i, -1
   br i1 %cmp184.i, label %return, label %sw.epilog193.i
 
@@ -8572,7 +8572,7 @@ sw.bb188.i:                                       ; preds = %if.end109.i
   %loc.sroa.59.8.insert.shift398.i = shl nuw i64 %loc.sroa.59.8.insert.ext397.i, 32
   %loc.sroa.31.8.insert.ext287.i = zext i32 %205 to i64
   %loc.sroa.31.8.insert.insert289.i = or disjoint i64 %loc.sroa.59.8.insert.shift398.i, %loc.sroa.31.8.insert.ext287.i
-  %call191.i = tail call fastcc i32 @compiler_nameop(ptr noundef nonnull %c, i64 %loc.sroa.0.0.insert.insert88.i, i64 %loc.sroa.31.8.insert.insert289.i, ptr noundef %227, i32 noundef 2), !range !5
+  %call191.i = tail call fastcc i32 @compiler_nameop(ptr noundef nonnull %c, i64 %loc.sroa.0.0.insert.insert88.i, i64 %loc.sroa.31.8.insert.insert289.i, ptr noundef %227, i32 noundef 2)
   br label %return
 
 sw.default192.i:                                  ; preds = %if.end109.i
@@ -8598,12 +8598,12 @@ sw.bb63:                                          ; preds = %entry
   br i1 %tobool.not.i196, label %if.end13.i, label %if.then.i197
 
 if.then.i197:                                     ; preds = %sw.bb63
-  %call.i198 = tail call fastcc i32 @compiler_visit_expr(ptr noundef %c, ptr noundef nonnull %233), !range !5
+  %call.i198 = tail call fastcc i32 @compiler_visit_expr(ptr noundef %c, ptr noundef nonnull %233)
   %cmp.i199 = icmp eq i32 %call.i198, -1
   br i1 %cmp.i199, label %return, label %if.end.i200
 
 if.end.i200:                                      ; preds = %if.then.i197
-  %call9.i = tail call fastcc i32 @compiler_visit_expr(ptr noundef %c, ptr noundef %232), !range !5
+  %call9.i = tail call fastcc i32 @compiler_visit_expr(ptr noundef %c, ptr noundef %232)
   %cmp10.i = icmp eq i32 %call9.i, -1
   br i1 %cmp10.i, label %return, label %if.end13.i
 
@@ -8658,12 +8658,12 @@ if.then24.i:                                      ; preds = %land.lhs.true.i229
   br i1 %tobool25.not.i, label %if.else.i250, label %if.then26.i231
 
 if.then26.i231:                                   ; preds = %if.then24.i
-  %call28.i = tail call fastcc i32 @compiler_visit_annexpr(ptr noundef nonnull %c, ptr noundef %240), !range !5
+  %call28.i = tail call fastcc i32 @compiler_visit_annexpr(ptr noundef nonnull %c, ptr noundef %240)
   %cmp29.i = icmp eq i32 %call28.i, -1
   br i1 %cmp29.i, label %return, label %if.end38.i232
 
 if.else.i250:                                     ; preds = %if.then24.i
-  %call34.i251 = tail call fastcc i32 @compiler_visit_expr(ptr noundef nonnull %c, ptr noundef %240), !range !5
+  %call34.i251 = tail call fastcc i32 @compiler_visit_expr(ptr noundef nonnull %c, ptr noundef %240)
   %cmp35.i252 = icmp eq i32 %call34.i251, -1
   br i1 %cmp35.i252, label %return, label %if.end38.i232
 
@@ -8671,7 +8671,7 @@ if.end38.i232:                                    ; preds = %if.else.i250, %if.t
   %241 = load ptr, ptr %u.i230, align 8
   %u_names.i233 = getelementptr inbounds i8, ptr %241, i64 568
   %242 = load ptr, ptr %u_names.i233, align 8
-  %call41.i = tail call fastcc i32 @compiler_addop_name(ptr noundef %241, i64 %loc.sroa.0.0.insert.insert.i226, i64 %loc.sroa.7.8.insert.insert.i, i32 noundef 92, ptr noundef %242, ptr noundef nonnull getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 37, i32 0, i32 3, i32 1, i32 22)), !range !5
+  %call41.i = tail call fastcc i32 @compiler_addop_name(ptr noundef %241, i64 %loc.sroa.0.0.insert.insert.i226, i64 %loc.sroa.7.8.insert.insert.i, i32 noundef 92, ptr noundef %242, ptr noundef nonnull getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 37, i32 0, i32 3, i32 1, i32 22))
   %cmp42.i = icmp eq i32 %call41.i, -1
   br i1 %cmp42.i, label %return, label %if.end44.i234
 
@@ -8688,7 +8688,7 @@ if.end51.i238:                                    ; preds = %if.end44.i234
   %c_const_cache.i239 = getelementptr inbounds i8, ptr %c, i64 56
   %246 = load ptr, ptr %c_const_cache.i239, align 8
   %247 = load ptr, ptr %u.i230, align 8
-  %call53.i240 = tail call fastcc i32 @compiler_addop_load_const(ptr noundef %246, ptr noundef %247, i64 %loc.sroa.0.0.insert.insert.i226, i64 %loc.sroa.7.8.insert.insert.i, ptr noundef nonnull %call48.i236), !range !5
+  %call53.i240 = tail call fastcc i32 @compiler_addop_load_const(ptr noundef %246, ptr noundef %247, i64 %loc.sroa.0.0.insert.insert.i226, i64 %loc.sroa.7.8.insert.insert.i, ptr noundef nonnull %call48.i236)
   %cmp54.i241 = icmp slt i32 %call53.i240, 0
   %248 = load i64, ptr %call48.i236, align 8
   %249 = and i64 %248, 2147483648
@@ -8724,7 +8724,7 @@ if.then1.i.i249:                                  ; preds = %if.end.i.i246
 Py_DECREF.exit.i242:                              ; preds = %if.then1.i.i249, %if.end.i.i246, %if.end56.i
   %250 = load ptr, ptr %u.i230, align 8
   %u_instr_sequence.i243 = getelementptr inbounds i8, ptr %250, i64 24
-  %call58.i244 = tail call fastcc i32 @codegen_addop_noarg(ptr noundef nonnull %u_instr_sequence.i243, i32 noundef 39, i64 %loc.sroa.0.0.insert.insert.i226, i64 %loc.sroa.7.8.insert.insert.i), !range !5
+  %call58.i244 = tail call fastcc i32 @codegen_addop_noarg(ptr noundef nonnull %u_instr_sequence.i243, i32 noundef 39, i64 %loc.sroa.0.0.insert.insert.i226, i64 %loc.sroa.7.8.insert.insert.i)
   %cmp59.i245 = icmp eq i32 %call58.i244, -1
   br i1 %cmp59.i245, label %return, label %sw.epilog.i201
 
@@ -8755,7 +8755,7 @@ if.end67.i:                                       ; preds = %sw.bb63.i
 
 land.lhs.true71.i:                                ; preds = %if.end67.i
   %253 = load ptr, ptr %v64.i, align 8
-  %call.i126.i = tail call fastcc i32 @compiler_visit_expr(ptr noundef %c, ptr noundef %253), !range !5
+  %call.i126.i = tail call fastcc i32 @compiler_visit_expr(ptr noundef %c, ptr noundef %253)
   %cmp.i127.i = icmp eq i32 %call.i126.i, -1
   br i1 %cmp.i127.i, label %return, label %if.end.i128.i
 
@@ -8783,7 +8783,7 @@ if.end.i128.i:                                    ; preds = %land.lhs.true71.i
   %259 = load i32, ptr %s_used.i.i.i.i.i211, align 4
   %add.i.i.i.i.i212 = add i32 %259, 1
   %s_allocated.i.i.i.i.i213 = getelementptr inbounds i8, ptr %254, i64 32
-  %call.i.i.i.i.i214 = tail call i32 @_PyCompile_EnsureArrayLargeEnough(i32 noundef %add.i.i.i.i.i212, ptr noundef nonnull %u_instr_sequence.i.i210, ptr noundef nonnull %s_allocated.i.i.i.i.i213, i32 noundef 100, i64 noundef 44), !range !5
+  %call.i.i.i.i.i214 = tail call i32 @_PyCompile_EnsureArrayLargeEnough(i32 noundef %add.i.i.i.i.i212, ptr noundef nonnull %u_instr_sequence.i.i210, ptr noundef nonnull %s_allocated.i.i.i.i.i213, i32 noundef 100, i64 noundef 44)
   %cmp.i.i.i.i.i215 = icmp eq i32 %call.i.i.i.i.i214, -1
   br i1 %cmp.i.i.i.i.i215, label %return, label %instr_sequence_next_inst.exit.i.i.i.i216
 
@@ -8815,7 +8815,7 @@ sw.bb78.i:                                        ; preds = %if.end13.i
 land.lhs.true82.i:                                ; preds = %sw.bb78.i
   %v83.i = getelementptr inbounds i8, ptr %232, i64 8
   %263 = load ptr, ptr %v83.i, align 8
-  %call.i130.i = tail call fastcc i32 @compiler_visit_expr(ptr noundef %c, ptr noundef %263), !range !5
+  %call.i130.i = tail call fastcc i32 @compiler_visit_expr(ptr noundef %c, ptr noundef %263)
   %cmp.i131.i = icmp eq i32 %call.i130.i, -1
   br i1 %cmp.i131.i, label %return, label %if.end.i132.i
 
@@ -8843,7 +8843,7 @@ if.end.i132.i:                                    ; preds = %land.lhs.true82.i
   %269 = load i32, ptr %s_used.i.i.i.i147.i, align 4
   %add.i.i.i.i148.i = add i32 %269, 1
   %s_allocated.i.i.i.i149.i = getelementptr inbounds i8, ptr %264, i64 32
-  %call.i.i.i.i150.i = tail call i32 @_PyCompile_EnsureArrayLargeEnough(i32 noundef %add.i.i.i.i148.i, ptr noundef nonnull %u_instr_sequence.i134.i, ptr noundef nonnull %s_allocated.i.i.i.i149.i, i32 noundef 100, i64 noundef 44), !range !5
+  %call.i.i.i.i150.i = tail call i32 @_PyCompile_EnsureArrayLargeEnough(i32 noundef %add.i.i.i.i148.i, ptr noundef nonnull %u_instr_sequence.i134.i, ptr noundef nonnull %s_allocated.i.i.i.i149.i, i32 noundef 100, i64 noundef 44)
   %cmp.i.i.i.i151.i = icmp eq i32 %call.i.i.i.i150.i, -1
   br i1 %cmp.i.i.i.i151.i, label %return, label %instr_sequence_next_inst.exit.i.i.i152.i
 
@@ -8867,7 +8867,7 @@ lor.lhs.false87.i:                                ; preds = %instr_sequence_next
   store i64 %.compoundliteral.sroa.3.8.insert.insert.i146.i, ptr %loc.sroa.2.0.i_loc.sroa_idx.i.i.i160.i, align 4
   %slice.i206 = getelementptr inbounds i8, ptr %232, i64 16
   %272 = load ptr, ptr %slice.i206, align 8
-  %call89.i = tail call fastcc i32 @check_ann_subscr(ptr noundef nonnull %c, ptr noundef %272), !range !5
+  %call89.i = tail call fastcc i32 @check_ann_subscr(ptr noundef nonnull %c, ptr noundef %272)
   %cmp90.i = icmp slt i32 %call89.i, 0
   br i1 %cmp90.i, label %return, label %sw.epilog.i201
 
@@ -8900,7 +8900,7 @@ if.end.i165.i:                                    ; preds = %land.lhs.true98.i
 if.then4.i.i:                                     ; preds = %if.end.i165.i
   %annotation.i.i = getelementptr inbounds i8, ptr %s, i64 16
   %278 = load ptr, ptr %annotation.i.i, align 8
-  %call.i.i.i203 = tail call fastcc i32 @compiler_visit_expr(ptr noundef nonnull %c, ptr noundef %278), !range !5
+  %call.i.i.i203 = tail call fastcc i32 @compiler_visit_expr(ptr noundef nonnull %c, ptr noundef %278)
   %cmp.i.i.i204 = icmp eq i32 %call.i.i.i203, -1
   br i1 %cmp.i.i.i204, label %return, label %if.end.i.i.i205
 
@@ -8927,7 +8927,7 @@ if.end.i.i.i205:                                  ; preds = %if.then4.i.i
   %284 = load i32, ptr %s_used.i.i.i.i.i.i, align 4
   %add.i.i.i.i.i.i = add i32 %284, 1
   %s_allocated.i.i.i.i.i.i = getelementptr inbounds i8, ptr %279, i64 32
-  %call.i.i.i.i.i.i = tail call i32 @_PyCompile_EnsureArrayLargeEnough(i32 noundef %add.i.i.i.i.i.i, ptr noundef nonnull %u_instr_sequence.i.i.i, ptr noundef nonnull %s_allocated.i.i.i.i.i.i, i32 noundef 100, i64 noundef 44), !range !5
+  %call.i.i.i.i.i.i = tail call i32 @_PyCompile_EnsureArrayLargeEnough(i32 noundef %add.i.i.i.i.i.i, ptr noundef nonnull %u_instr_sequence.i.i.i, ptr noundef nonnull %s_allocated.i.i.i.i.i.i, i32 noundef 100, i64 noundef 44)
   %cmp.i.i.i.i.i.i = icmp eq i32 %call.i.i.i.i.i.i, -1
   br i1 %cmp.i.i.i.i.i.i, label %return, label %instr_sequence_next_inst.exit.i.i.i.i.i
 
@@ -9031,41 +9031,41 @@ if.end34.i269:                                    ; preds = %if.end28.i266
   %v.i270 = getelementptr inbounds i8, ptr %s, i64 8
   %iter.i = getelementptr inbounds i8, ptr %s, i64 16
   %301 = load ptr, ptr %iter.i, align 8
-  %call35.i = tail call fastcc i32 @compiler_visit_expr(ptr noundef nonnull %c, ptr noundef %301), !range !5
+  %call35.i = tail call fastcc i32 @compiler_visit_expr(ptr noundef nonnull %c, ptr noundef %301)
   %cmp36.i = icmp eq i32 %call35.i, -1
   br i1 %cmp36.i, label %return, label %if.end38.i271
 
 if.end38.i271:                                    ; preds = %if.end34.i269
   %302 = load ptr, ptr %u.i258, align 8
   %u_instr_sequence40.i = getelementptr inbounds i8, ptr %302, i64 24
-  %call41.i272 = tail call fastcc i32 @codegen_addop_noarg(ptr noundef nonnull %u_instr_sequence40.i, i32 noundef 19, i64 %loc.sroa.0.0.insert.insert.i268, i64 %loc.sroa.5.8.insert.insert.i), !range !5
+  %call41.i272 = tail call fastcc i32 @codegen_addop_noarg(ptr noundef nonnull %u_instr_sequence40.i, i32 noundef 19, i64 %loc.sroa.0.0.insert.insert.i268, i64 %loc.sroa.5.8.insert.insert.i)
   %cmp42.i273 = icmp eq i32 %call41.i272, -1
   br i1 %cmp42.i273, label %return, label %if.end44.i274
 
 if.end44.i274:                                    ; preds = %if.end38.i271
   %303 = load ptr, ptr %u.i258, align 8
   %u_instr_sequence46.i = getelementptr inbounds i8, ptr %303, i64 24
-  %call48.i275 = tail call i32 @_PyCompile_InstructionSequence_UseLabel(ptr noundef nonnull %u_instr_sequence46.i, i32 noundef %inc.i794), !range !5
+  %call48.i275 = tail call i32 @_PyCompile_InstructionSequence_UseLabel(ptr noundef nonnull %u_instr_sequence46.i, i32 noundef %inc.i794)
   %cmp49.i276 = icmp eq i32 %call48.i275, -1
   br i1 %cmp49.i276, label %return, label %if.end51.i277
 
 if.end51.i277:                                    ; preds = %if.end44.i274
   %304 = load ptr, ptr %u.i258, align 8
   %u_instr_sequence53.i278 = getelementptr inbounds i8, ptr %304, i64 24
-  %call55.i279 = tail call fastcc i32 @codegen_addop_j(ptr noundef nonnull %u_instr_sequence53.i278, i64 %loc.sroa.0.0.insert.insert.i268, i64 %loc.sroa.5.8.insert.insert.i, i32 noundef 72, i32 %inc.i790), !range !5
+  %call55.i279 = tail call fastcc i32 @codegen_addop_j(ptr noundef nonnull %u_instr_sequence53.i278, i64 %loc.sroa.0.0.insert.insert.i268, i64 %loc.sroa.5.8.insert.insert.i, i32 noundef 72, i32 %inc.i790)
   %cmp56.i280 = icmp eq i32 %call55.i279, -1
   br i1 %cmp56.i280, label %return, label %if.end58.i
 
 if.end58.i:                                       ; preds = %if.end51.i277
   %305 = load ptr, ptr %u.i258, align 8
   %u_instr_sequence60.i = getelementptr inbounds i8, ptr %305, i64 24
-  %call62.i = tail call i32 @_PyCompile_InstructionSequence_UseLabel(ptr noundef nonnull %u_instr_sequence60.i, i32 noundef %inc.i792), !range !5
+  %call62.i = tail call i32 @_PyCompile_InstructionSequence_UseLabel(ptr noundef nonnull %u_instr_sequence60.i, i32 noundef %inc.i792)
   %cmp63.i281 = icmp eq i32 %call62.i, -1
   br i1 %cmp63.i281, label %return, label %if.end65.i282
 
 if.end65.i282:                                    ; preds = %if.end58.i
   %306 = load ptr, ptr %v.i270, align 8
-  %call67.i = tail call fastcc i32 @compiler_visit_expr(ptr noundef nonnull %c, ptr noundef %306), !range !5
+  %call67.i = tail call fastcc i32 @compiler_visit_expr(ptr noundef nonnull %c, ptr noundef %306)
   %cmp68.i = icmp eq i32 %call67.i, -1
   br i1 %cmp68.i, label %return, label %if.end70.i283
 
@@ -9096,26 +9096,26 @@ for.body.i299:                                    ; preds = %cond.end.i286
   %call77.i301 = tail call fastcc i32 @compiler_visit_stmt(ptr noundef %c, ptr noundef %309)
   %cmp78.i302 = icmp eq i32 %call77.i301, -1
   %inc.i303 = add i32 %_i.0.i, 1
-  br i1 %cmp78.i302, label %return, label %for.cond.i284, !llvm.loop !37
+  br i1 %cmp78.i302, label %return, label %for.cond.i284, !llvm.loop !34
 
 for.end.i288:                                     ; preds = %cond.end.i286
   %310 = load ptr, ptr %u.i258, align 8
   %u_instr_sequence83.i = getelementptr inbounds i8, ptr %310, i64 24
-  %call85.i289 = tail call fastcc i32 @codegen_addop_j(ptr noundef nonnull %u_instr_sequence83.i, i64 -1, i64 -1, i32 noundef 256, i32 %inc.i794), !range !5
+  %call85.i289 = tail call fastcc i32 @codegen_addop_j(ptr noundef nonnull %u_instr_sequence83.i, i64 -1, i64 -1, i32 noundef 256, i32 %inc.i794)
   %cmp86.i290 = icmp eq i32 %call85.i289, -1
   br i1 %cmp86.i290, label %return, label %if.end89.i291
 
 if.end89.i291:                                    ; preds = %for.end.i288
   %311 = load ptr, ptr %u.i258, align 8
   %u_instr_sequence91.i = getelementptr inbounds i8, ptr %311, i64 24
-  %call93.i = tail call i32 @_PyCompile_InstructionSequence_UseLabel(ptr noundef nonnull %u_instr_sequence91.i, i32 noundef %inc.i790), !range !5
+  %call93.i = tail call i32 @_PyCompile_InstructionSequence_UseLabel(ptr noundef nonnull %u_instr_sequence91.i, i32 noundef %inc.i790)
   %cmp94.i = icmp eq i32 %call93.i, -1
   br i1 %cmp94.i, label %return, label %if.end97.i
 
 if.end97.i:                                       ; preds = %if.end89.i291
   %312 = load ptr, ptr %u.i258, align 8
   %u_instr_sequence99.i = getelementptr inbounds i8, ptr %312, i64 24
-  %call100.i292 = tail call fastcc i32 @codegen_addop_noarg(ptr noundef nonnull %u_instr_sequence99.i, i32 noundef 11, i64 -1, i64 -1), !range !5
+  %call100.i292 = tail call fastcc i32 @codegen_addop_noarg(ptr noundef nonnull %u_instr_sequence99.i, i32 noundef 11, i64 -1, i64 -1)
   %cmp101.i293 = icmp eq i32 %call100.i292, -1
   br i1 %cmp101.i293, label %return, label %if.end104.i294
 
@@ -9151,12 +9151,12 @@ for.body120.i:                                    ; preds = %cond.end116.i
   %call125.i297 = tail call fastcc i32 @compiler_visit_stmt(ptr noundef %c, ptr noundef %316)
   %cmp126.i298 = icmp eq i32 %call125.i297, -1
   %inc131.i = add i32 %_i106.0.i, 1
-  br i1 %cmp126.i298, label %return, label %for.cond109.i, !llvm.loop !38
+  br i1 %cmp126.i298, label %return, label %for.cond109.i, !llvm.loop !35
 
 for.end132.i:                                     ; preds = %cond.end116.i
   %317 = load ptr, ptr %u.i258, align 8
   %u_instr_sequence134.i = getelementptr inbounds i8, ptr %317, i64 24
-  %call136.i = tail call i32 @_PyCompile_InstructionSequence_UseLabel(ptr noundef nonnull %u_instr_sequence134.i, i32 noundef %inc.i788), !range !5
+  %call136.i = tail call i32 @_PyCompile_InstructionSequence_UseLabel(ptr noundef nonnull %u_instr_sequence134.i, i32 noundef %inc.i788)
   %cmp137.i = icmp eq i32 %call136.i, -1
   %..i295 = sext i1 %cmp137.i to i32
   br label %return
@@ -9201,7 +9201,7 @@ if.end16.i:                                       ; preds = %if.end8.i
 if.end24.i312:                                    ; preds = %if.end16.i
   %326 = load ptr, ptr %u.i304, align 8
   %u_instr_sequence26.i = getelementptr inbounds i8, ptr %326, i64 24
-  %call28.i313 = tail call i32 @_PyCompile_InstructionSequence_UseLabel(ptr noundef nonnull %u_instr_sequence26.i, i32 noundef %inc.i819), !range !5
+  %call28.i313 = tail call i32 @_PyCompile_InstructionSequence_UseLabel(ptr noundef nonnull %u_instr_sequence26.i, i32 noundef %inc.i819)
   %cmp29.i314 = icmp eq i32 %call28.i313, -1
   br i1 %cmp29.i314, label %return, label %if.end31.i
 
@@ -9254,7 +9254,7 @@ if.end41.i:                                       ; preds = %if.end31.i
 if.end55.i:                                       ; preds = %if.end41.i
   %334 = load ptr, ptr %u.i304, align 8
   %u_instr_sequence57.i = getelementptr inbounds i8, ptr %334, i64 24
-  %call59.i = tail call i32 @_PyCompile_InstructionSequence_UseLabel(ptr noundef nonnull %u_instr_sequence57.i, i32 noundef %inc.i817), !range !5
+  %call59.i = tail call i32 @_PyCompile_InstructionSequence_UseLabel(ptr noundef nonnull %u_instr_sequence57.i, i32 noundef %inc.i817)
   %cmp60.i = icmp eq i32 %call59.i, -1
   br i1 %cmp60.i, label %return, label %if.end62.i316
 
@@ -9285,7 +9285,7 @@ for.body.i334:                                    ; preds = %cond.end.i321
   %call69.i = tail call fastcc i32 @compiler_visit_stmt(ptr noundef %c, ptr noundef %337)
   %cmp70.i = icmp eq i32 %call69.i, -1
   %inc.i338 = add i32 %_i.0.i318, 1
-  br i1 %cmp70.i, label %return, label %for.cond.i317, !llvm.loop !39
+  br i1 %cmp70.i, label %return, label %for.cond.i317, !llvm.loop !36
 
 for.end.i324:                                     ; preds = %cond.end.i321
   %338 = load ptr, ptr %v.i315, align 8
@@ -9301,7 +9301,7 @@ if.end90.i:                                       ; preds = %for.end.i324
   store i32 %dec.i796, ptr %u_nfblocks.i795, align 8
   %340 = load ptr, ptr %u.i304, align 8
   %u_instr_sequence93.i = getelementptr inbounds i8, ptr %340, i64 24
-  %call95.i328 = tail call i32 @_PyCompile_InstructionSequence_UseLabel(ptr noundef nonnull %u_instr_sequence93.i, i32 noundef %inc.i813), !range !5
+  %call95.i328 = tail call i32 @_PyCompile_InstructionSequence_UseLabel(ptr noundef nonnull %u_instr_sequence93.i, i32 noundef %inc.i813)
   %cmp96.i329 = icmp eq i32 %call95.i328, -1
   br i1 %cmp96.i329, label %return, label %if.end99.i
 
@@ -9325,7 +9325,7 @@ for.cond106.i:                                    ; preds = %for.body117.i
   %conv107.i = sext i32 %inc128.i to i64
   %343 = load i64, ptr %341, align 8
   %cmp115.i = icmp sgt i64 %343, %conv107.i
-  br i1 %cmp115.i, label %for.body117.i, label %if.end130.i, !llvm.loop !40
+  br i1 %cmp115.i, label %for.body117.i, label %if.end130.i, !llvm.loop !37
 
 for.body117.i:                                    ; preds = %for.body117.i.lr.ph, %for.cond106.i
   %conv107.i1044 = phi i64 [ 0, %for.body117.i.lr.ph ], [ %conv107.i, %for.cond106.i ]
@@ -9339,7 +9339,7 @@ for.body117.i:                                    ; preds = %for.body117.i.lr.ph
 if.end130.i:                                      ; preds = %for.cond106.i, %for.cond106.i.preheader, %if.end99.i
   %345 = load ptr, ptr %u.i304, align 8
   %u_instr_sequence132.i = getelementptr inbounds i8, ptr %345, i64 24
-  %call134.i = tail call i32 @_PyCompile_InstructionSequence_UseLabel(ptr noundef nonnull %u_instr_sequence132.i, i32 noundef %inc.i815), !range !5
+  %call134.i = tail call i32 @_PyCompile_InstructionSequence_UseLabel(ptr noundef nonnull %u_instr_sequence132.i, i32 noundef %inc.i815)
   %cmp135.i = icmp eq i32 %call134.i, -1
   %..i332 = sext i1 %cmp135.i to i32
   br label %return
@@ -9409,7 +9409,7 @@ for.body.i380:                                    ; preds = %cond.end31.i
   %call35.i383 = tail call fastcc i32 @compiler_visit_stmt(ptr noundef %c, ptr noundef %356)
   %cmp36.i384 = icmp eq i32 %call35.i383, -1
   %inc.i386 = add i32 %_i.0.i361, 1
-  br i1 %cmp36.i384, label %return, label %for.cond.i360, !llvm.loop !41
+  br i1 %cmp36.i384, label %return, label %for.cond.i360, !llvm.loop !38
 
 for.end.i364:                                     ; preds = %cond.end31.i
   %357 = load ptr, ptr %orelse.i345, align 8
@@ -9424,14 +9424,14 @@ cond.false45.i:                                   ; preds = %for.end.i364
 if.then52.i366:                                   ; preds = %cond.false45.i
   %360 = load ptr, ptr %u.i339, align 8
   %u_instr_sequence54.i = getelementptr inbounds i8, ptr %360, i64 24
-  %call56.i = tail call fastcc i32 @codegen_addop_j(ptr noundef nonnull %u_instr_sequence54.i, i64 -1, i64 -1, i32 noundef 256, i32 %inc.i823), !range !5
+  %call56.i = tail call fastcc i32 @codegen_addop_j(ptr noundef nonnull %u_instr_sequence54.i, i64 -1, i64 -1, i32 noundef 256, i32 %inc.i823)
   %cmp57.i = icmp eq i32 %call56.i, -1
   br i1 %cmp57.i, label %return, label %if.end60.i367
 
 if.end60.i367:                                    ; preds = %if.then52.i366
   %361 = load ptr, ptr %u.i339, align 8
   %u_instr_sequence62.i = getelementptr inbounds i8, ptr %361, i64 24
-  %call64.i = tail call i32 @_PyCompile_InstructionSequence_UseLabel(ptr noundef nonnull %u_instr_sequence62.i, i32 noundef %next.sroa.0.0.i), !range !5
+  %call64.i = tail call i32 @_PyCompile_InstructionSequence_UseLabel(ptr noundef nonnull %u_instr_sequence62.i, i32 noundef %next.sroa.0.0.i)
   %cmp65.i368 = icmp eq i32 %call64.i, -1
   br i1 %cmp65.i368, label %return, label %if.end68.i369
 
@@ -9461,12 +9461,12 @@ for.body84.i:                                     ; preds = %cond.end80.i
   %call89.i378 = tail call fastcc i32 @compiler_visit_stmt(ptr noundef %c, ptr noundef %364)
   %cmp90.i379 = icmp eq i32 %call89.i378, -1
   %inc95.i = add i32 %_i69.0.i, 1
-  br i1 %cmp90.i379, label %return, label %for.cond73.i, !llvm.loop !42
+  br i1 %cmp90.i379, label %return, label %for.cond73.i, !llvm.loop !39
 
 if.end97.i372:                                    ; preds = %cond.end80.i, %cond.false45.i, %for.end.i364
   %365 = load ptr, ptr %u.i339, align 8
   %u_instr_sequence99.i373 = getelementptr inbounds i8, ptr %365, i64 24
-  %call101.i374 = tail call i32 @_PyCompile_InstructionSequence_UseLabel(ptr noundef nonnull %u_instr_sequence99.i373, i32 noundef %inc.i823), !range !5
+  %call101.i374 = tail call i32 @_PyCompile_InstructionSequence_UseLabel(ptr noundef nonnull %u_instr_sequence99.i373, i32 noundef %inc.i823)
   %cmp102.i375 = icmp eq i32 %call101.i374, -1
   %..i376 = sext i1 %cmp102.i375 to i32
   br label %return
@@ -9477,7 +9477,7 @@ sw.bb71:                                          ; preds = %entry
   store ptr null, ptr %fail_pop.i, align 8
   %v.i824 = getelementptr inbounds i8, ptr %s, i64 8
   %366 = load ptr, ptr %v.i824, align 8
-  %call.i825 = tail call fastcc i32 @compiler_visit_expr(ptr noundef %c, ptr noundef %366), !range !5
+  %call.i825 = tail call fastcc i32 @compiler_visit_expr(ptr noundef %c, ptr noundef %366)
   %cmp.i826 = icmp eq i32 %call.i825, -1
   br i1 %cmp.i826, label %compiler_match_inner.exit, label %if.end.i827
 
@@ -9536,7 +9536,7 @@ for.body.i847.lr.ph:                              ; preds = %land.end.i841
 for.cond.i842:                                    ; preds = %if.end179.i
   %inc199.i = add nuw nsw i64 %i.0.i8431041, 1
   %exitcond1084.not = icmp eq i64 %inc199.i, %sub16.i
-  br i1 %exitcond1084.not, label %for.end200.i, label %for.body.i847, !llvm.loop !43
+  br i1 %exitcond1084.not, label %for.end200.i, label %for.body.i847, !llvm.loop !40
 
 for.body.i847:                                    ; preds = %for.body.i847.lr.ph, %for.cond.i842
   %i.0.i8431041 = phi i64 [ 0, %for.body.i847.lr.ph ], [ %inc199.i, %for.cond.i842 ]
@@ -9571,7 +9571,7 @@ if.then28.i:                                      ; preds = %for.body.i847
   %384 = load i32, ptr %s_used.i.i.i.i857, align 4
   %add.i.i.i.i858 = add i32 %384, 1
   %s_allocated.i.i.i.i859 = getelementptr inbounds i8, ptr %378, i64 32
-  %call.i.i.i.i860 = tail call i32 @_PyCompile_EnsureArrayLargeEnough(i32 noundef %add.i.i.i.i858, ptr noundef nonnull %u_instr_sequence30.i, ptr noundef nonnull %s_allocated.i.i.i.i859, i32 noundef 100, i64 noundef 44), !range !5
+  %call.i.i.i.i860 = tail call i32 @_PyCompile_EnsureArrayLargeEnough(i32 noundef %add.i.i.i.i858, ptr noundef nonnull %u_instr_sequence30.i, ptr noundef nonnull %s_allocated.i.i.i.i859, i32 noundef 100, i64 noundef 44)
   %cmp.i.i.i.i861 = icmp eq i32 %call.i.i.i.i860, -1
   br i1 %cmp.i.i.i.i861, label %compiler_match_inner.exit, label %instr_sequence_next_inst.exit.i.i.i862
 
@@ -9611,7 +9611,7 @@ if.end50.i876:                                    ; preds = %if.end44.i874
   store i32 %lor.ext.i, ptr %allow_irrefutable.i, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %fail_pop.i, i8 0, i64 24, i1 false)
   %389 = load ptr, ptr %377, align 8
-  %call57.i = call fastcc i32 @compiler_pattern(ptr noundef nonnull %c, ptr noundef %389, ptr noundef nonnull %pc.i), !range !5
+  %call57.i = call fastcc i32 @compiler_pattern(ptr noundef nonnull %c, ptr noundef %389, ptr noundef nonnull %pc.i)
   %cmp58.i = icmp slt i32 %call57.i, 0
   %390 = load ptr, ptr %pc.i, align 8
   br i1 %cmp58.i, label %if.then60.i, label %if.end62.i879
@@ -9645,7 +9645,7 @@ for.body68.i.lr.ph:                               ; preds = %if.end62.i879
 for.cond65.i:                                     ; preds = %for.body68.i
   %inc.i913 = add nuw nsw i64 %n.0.i1038, 1
   %exitcond.not = icmp eq i64 %inc.i913, %.val.i880
-  br i1 %exitcond.not, label %for.end.i881, label %for.body68.i, !llvm.loop !44
+  br i1 %exitcond.not, label %for.end.i881, label %for.body68.i, !llvm.loop !41
 
 for.body68.i:                                     ; preds = %for.body68.i.lr.ph, %for.cond65.i
   %n.0.i1038 = phi i64 [ 0, %for.body68.i.lr.ph ], [ %inc.i913, %for.cond65.i ]
@@ -9669,7 +9669,7 @@ for.body68.i:                                     ; preds = %for.body68.i.lr.ph,
   %.compoundliteral72.sroa.5.8.insert.shift.i = shl nuw i64 %.compoundliteral72.sroa.5.8.insert.ext.i, 32
   %.compoundliteral72.sroa.3.8.insert.ext.i = zext i32 %399 to i64
   %.compoundliteral72.sroa.3.8.insert.insert.i = or disjoint i64 %.compoundliteral72.sroa.5.8.insert.shift.i, %.compoundliteral72.sroa.3.8.insert.ext.i
-  %call85.i910 = tail call fastcc i32 @compiler_nameop(ptr noundef %c, i64 %.compoundliteral72.sroa.0.0.insert.insert.i, i64 %.compoundliteral72.sroa.3.8.insert.insert.i, ptr noundef %395, i32 noundef 2), !range !5
+  %call85.i910 = tail call fastcc i32 @compiler_nameop(ptr noundef %c, i64 %.compoundliteral72.sroa.0.0.insert.insert.i, i64 %.compoundliteral72.sroa.3.8.insert.insert.i, ptr noundef %395, i32 noundef 2)
   %cmp86.i911 = icmp slt i32 %call85.i910, 0
   br i1 %cmp86.i911, label %if.then88.i, label %for.cond65.i
 
@@ -9744,7 +9744,7 @@ if.end11.i.i904:                                  ; preds = %while.body.i.i
   %arrayidx.i.i905 = getelementptr %struct._PyCfgJumpTargetLabel, ptr %call.i.i899, i64 %407
   store i32 %inc.i.i.i902, ptr %arrayidx.i.i905, align 4
   %cmp7.i.i = icmp ugt i64 %407, 9223372036854775806
-  br i1 %cmp7.i.i, label %while.body.i.i, label %if.end99.i886.loopexit, !llvm.loop !45
+  br i1 %cmp7.i.i, label %while.body.i.i, label %if.end99.i886.loopexit, !llvm.loop !42
 
 if.end99.i886.loopexit:                           ; preds = %if.end11.i.i904
   store i64 %inc.i114.i, ptr %fail_pop_size.i, align 8
@@ -9786,7 +9786,7 @@ if.then128.i:                                     ; preds = %if.end122.i889
   %419 = load i32, ptr %s_used.i.i.i115.i, align 4
   %add.i.i.i116.i = add i32 %419, 1
   %s_allocated.i.i.i117.i = getelementptr inbounds i8, ptr %413, i64 32
-  %call.i.i.i118.i = tail call i32 @_PyCompile_EnsureArrayLargeEnough(i32 noundef %add.i.i.i116.i, ptr noundef nonnull %u_instr_sequence130.i, ptr noundef nonnull %s_allocated.i.i.i117.i, i32 noundef 100, i64 noundef 44), !range !5
+  %call.i.i.i118.i = tail call i32 @_PyCompile_EnsureArrayLargeEnough(i32 noundef %add.i.i.i116.i, ptr noundef nonnull %u_instr_sequence130.i, ptr noundef nonnull %s_allocated.i.i.i117.i, i32 noundef 100, i64 noundef 44)
   %cmp.i.i.i119.i = icmp eq i32 %call.i.i.i118.i, -1
   br i1 %cmp.i.i.i119.i, label %compiler_match_inner.exit, label %instr_sequence_next_inst.exit.i.i120.i
 
@@ -9830,7 +9830,7 @@ for.body161.i:                                    ; preds = %for.cond150.i
   %call164.i897 = tail call fastcc i32 @compiler_visit_stmt(ptr noundef %c, ptr noundef %424)
   %cmp165.i898 = icmp eq i32 %call164.i897, -1
   %inc170.i = add i32 %_i.0.i894, 1
-  br i1 %cmp165.i898, label %compiler_match_inner.exit, label %for.cond150.i, !llvm.loop !46
+  br i1 %cmp165.i898, label %compiler_match_inner.exit, label %for.cond150.i, !llvm.loop !43
 
 for.end171.i:                                     ; preds = %for.cond150.i, %if.end149.i892
   %425 = load ptr, ptr %u.i828, align 8
@@ -9839,7 +9839,7 @@ for.end171.i:                                     ; preds = %for.cond150.i, %if.
   %426 = load i32, ptr %s_used.i.i.i130.i, align 4
   %add.i.i.i131.i = add i32 %426, 1
   %s_allocated.i.i.i132.i = getelementptr inbounds i8, ptr %425, i64 32
-  %call.i.i.i133.i = tail call i32 @_PyCompile_EnsureArrayLargeEnough(i32 noundef %add.i.i.i131.i, ptr noundef nonnull %u_instr_sequence173.i, ptr noundef nonnull %s_allocated.i.i.i132.i, i32 noundef 100, i64 noundef 44), !range !5
+  %call.i.i.i133.i = tail call i32 @_PyCompile_EnsureArrayLargeEnough(i32 noundef %add.i.i.i131.i, ptr noundef nonnull %u_instr_sequence173.i, ptr noundef nonnull %s_allocated.i.i.i132.i, i32 noundef 100, i64 noundef 44)
   %cmp.i.i.i134.i = icmp eq i32 %call.i.i.i133.i, -1
   br i1 %cmp.i.i.i134.i, label %compiler_match_inner.exit, label %instr_sequence_next_inst.exit.i.i135.i
 
@@ -9876,7 +9876,7 @@ if.end179.i:                                      ; preds = %instr_sequence_next
   %.compoundliteral180.sroa.5.8.insert.shift.i = shl nuw i64 %.compoundliteral180.sroa.5.8.insert.ext.i, 32
   %.compoundliteral180.sroa.3.8.insert.ext.i = zext i32 %432 to i64
   %.compoundliteral180.sroa.3.8.insert.insert.i = or disjoint i64 %.compoundliteral180.sroa.5.8.insert.shift.i, %.compoundliteral180.sroa.3.8.insert.ext.i
-  %call193.i = call fastcc i32 @emit_and_reset_fail_pop(ptr noundef nonnull %c, i64 %.compoundliteral180.sroa.0.0.insert.insert.i, i64 %.compoundliteral180.sroa.3.8.insert.insert.i, ptr noundef nonnull %pc.i), !range !5
+  %call193.i = call fastcc i32 @emit_and_reset_fail_pop(ptr noundef nonnull %c, i64 %.compoundliteral180.sroa.0.0.insert.insert.i, i64 %.compoundliteral180.sroa.3.8.insert.insert.i, ptr noundef nonnull %pc.i)
   %cmp194.i = icmp eq i32 %call193.i, -1
   br i1 %cmp194.i, label %compiler_match_inner.exit, label %for.cond.i842
 
@@ -9911,12 +9911,12 @@ if.then202.i:                                     ; preds = %for.end200.i
   br i1 %cmp208.i, label %if.then210.i, label %if.else.i846
 
 if.then210.i:                                     ; preds = %if.then202.i
-  %call226.i = tail call fastcc i32 @codegen_addop_noarg(ptr noundef nonnull %u_instr_sequence212.i, i32 noundef 32, i64 %.compoundliteral213.sroa.0.0.insert.insert.i, i64 %.compoundliteral213.sroa.3.8.insert.insert.i), !range !5
+  %call226.i = tail call fastcc i32 @codegen_addop_noarg(ptr noundef nonnull %u_instr_sequence212.i, i32 noundef 32, i64 %.compoundliteral213.sroa.0.0.insert.insert.i, i64 %.compoundliteral213.sroa.3.8.insert.insert.i)
   %cmp227.i = icmp eq i32 %call226.i, -1
   br i1 %cmp227.i, label %compiler_match_inner.exit, label %if.end251.i
 
 if.else.i846:                                     ; preds = %if.then202.i
-  %call246.i = tail call fastcc i32 @codegen_addop_noarg(ptr noundef nonnull %u_instr_sequence212.i, i32 noundef 30, i64 %.compoundliteral213.sroa.0.0.insert.insert.i, i64 %.compoundliteral213.sroa.3.8.insert.insert.i), !range !5
+  %call246.i = tail call fastcc i32 @codegen_addop_noarg(ptr noundef nonnull %u_instr_sequence212.i, i32 noundef 30, i64 %.compoundliteral213.sroa.0.0.insert.insert.i, i64 %.compoundliteral213.sroa.3.8.insert.insert.i)
   %cmp247.i = icmp eq i32 %call246.i, -1
   br i1 %cmp247.i, label %compiler_match_inner.exit, label %if.end251.i
 
@@ -9958,12 +9958,12 @@ for.body290.i:                                    ; preds = %cond.end286.i
   %call295.i = tail call fastcc i32 @compiler_visit_stmt(ptr noundef %c, ptr noundef %445)
   %cmp296.i = icmp eq i32 %call295.i, -1
   %inc301.i = add i32 %_i276.0.i, 1
-  br i1 %cmp296.i, label %compiler_match_inner.exit, label %for.cond279.i, !llvm.loop !47
+  br i1 %cmp296.i, label %compiler_match_inner.exit, label %for.cond279.i, !llvm.loop !44
 
 if.end303.i:                                      ; preds = %cond.end286.i, %for.end200.i
   %446 = load ptr, ptr %u.i828, align 8
   %u_instr_sequence305.i = getelementptr inbounds i8, ptr %446, i64 24
-  %call307.i = tail call i32 @_PyCompile_InstructionSequence_UseLabel(ptr noundef nonnull %u_instr_sequence305.i, i32 noundef %inc.i.i831), !range !5
+  %call307.i = tail call i32 @_PyCompile_InstructionSequence_UseLabel(ptr noundef nonnull %u_instr_sequence305.i, i32 noundef %inc.i.i831)
   %cmp308.i = icmp eq i32 %call307.i, -1
   %..i844 = sext i1 %cmp308.i to i32
   br label %compiler_match_inner.exit
@@ -9982,7 +9982,7 @@ sw.bb73:                                          ; preds = %entry
   br i1 %tobool.not, label %if.end97, label %if.then76
 
 if.then76:                                        ; preds = %sw.bb73
-  %call79 = tail call fastcc i32 @compiler_visit_expr(ptr noundef %c, ptr noundef nonnull %448), !range !5
+  %call79 = tail call fastcc i32 @compiler_visit_expr(ptr noundef %c, ptr noundef nonnull %448)
   %cmp80 = icmp eq i32 %call79, -1
   br i1 %cmp80, label %return, label %if.end83
 
@@ -9993,7 +9993,7 @@ if.end83:                                         ; preds = %if.then76
   br i1 %tobool86.not, label %if.end97, label %if.then87
 
 if.then87:                                        ; preds = %if.end83
-  %call90 = tail call fastcc i32 @compiler_visit_expr(ptr noundef %c, ptr noundef nonnull %449), !range !5
+  %call90 = tail call fastcc i32 @compiler_visit_expr(ptr noundef %c, ptr noundef nonnull %449)
   %cmp91 = icmp eq i32 %call90, -1
   br i1 %cmp91, label %return, label %if.end97
 
@@ -10022,7 +10022,7 @@ if.end97:                                         ; preds = %if.then87, %if.end8
   %455 = load i32, ptr %s_used.i.i.i389, align 4
   %add.i.i.i390 = add i32 %455, 1
   %s_allocated.i.i.i391 = getelementptr inbounds i8, ptr %450, i64 32
-  %call.i.i.i392 = tail call i32 @_PyCompile_EnsureArrayLargeEnough(i32 noundef %add.i.i.i390, ptr noundef nonnull %u_instr_sequence99, ptr noundef nonnull %s_allocated.i.i.i391, i32 noundef 100, i64 noundef 44), !range !5
+  %call.i.i.i392 = tail call i32 @_PyCompile_EnsureArrayLargeEnough(i32 noundef %add.i.i.i390, ptr noundef nonnull %u_instr_sequence99, ptr noundef nonnull %s_allocated.i.i.i391, i32 noundef 100, i64 noundef 44)
   %cmp.i.i.i393 = icmp eq i32 %call.i.i.i392, -1
   br i1 %cmp.i.i.i393, label %return, label %instr_sequence_next_inst.exit.i.i394
 
@@ -10058,11 +10058,11 @@ cond.end.i406:                                    ; preds = %sw.bb116
   br i1 %tobool5.not.i, label %if.else.i410, label %if.then.i407
 
 if.then.i407:                                     ; preds = %cond.end.i406
-  %call.i408 = tail call fastcc i32 @compiler_try_finally(ptr noundef %c, ptr noundef nonnull %s), !range !5
+  %call.i408 = tail call fastcc i32 @compiler_try_finally(ptr noundef %c, ptr noundef nonnull %s)
   br label %return
 
 if.else.i410:                                     ; preds = %cond.end.i406, %sw.bb116
-  %call6.i = tail call fastcc i32 @compiler_try_except(ptr noundef %c, ptr noundef nonnull %s), !range !5
+  %call6.i = tail call fastcc i32 @compiler_try_except(ptr noundef %c, ptr noundef nonnull %s)
   br label %return
 
 sw.bb118:                                         ; preds = %entry
@@ -10077,7 +10077,7 @@ cond.end.i413:                                    ; preds = %sw.bb118
   br i1 %tobool5.not.i414, label %if.else.i418, label %if.then.i415
 
 if.then.i415:                                     ; preds = %cond.end.i413
-  %call.i416 = tail call fastcc i32 @compiler_try_star_finally(ptr noundef %c, ptr noundef nonnull %s), !range !5
+  %call.i416 = tail call fastcc i32 @compiler_try_star_finally(ptr noundef %c, ptr noundef nonnull %s)
   br label %return
 
 if.else.i418:                                     ; preds = %cond.end.i413, %sw.bb118
@@ -10137,7 +10137,7 @@ if.then.i449:                                     ; preds = %land.lhs.true19.i, 
   %.compoundliteral.sroa.5.8.insert.shift.i455 = shl nuw i64 %.compoundliteral.sroa.5.8.insert.ext.i454, 32
   %.compoundliteral.sroa.3.8.insert.ext.i456 = zext i32 %473 to i64
   %.compoundliteral.sroa.3.8.insert.insert.i457 = or disjoint i64 %.compoundliteral.sroa.5.8.insert.shift.i455, %.compoundliteral.sroa.3.8.insert.ext.i456
-  %call30.i458 = tail call i32 (ptr, i64, i64, ptr, ...) @compiler_warn(ptr noundef %c, i64 %.compoundliteral.sroa.0.0.insert.insert.i453, i64 %.compoundliteral.sroa.3.8.insert.insert.i457, ptr noundef nonnull @.str.371), !range !5
+  %call30.i458 = tail call i32 (ptr, i64, i64, ptr, ...) @compiler_warn(ptr noundef %c, i64 %.compoundliteral.sroa.0.0.insert.insert.i453, i64 %.compoundliteral.sroa.3.8.insert.insert.i457, ptr noundef nonnull @.str.371)
   %cmp31.i459 = icmp eq i32 %call30.i458, -1
   br i1 %cmp31.i459, label %return, label %if.end33.i423
 
@@ -10186,7 +10186,7 @@ if.end56.i430:                                    ; preds = %if.end40.i
   %484 = load i32, ptr %s_used.i.i.i.i431, align 4
   %add.i.i.i.i432 = add i32 %484, 1
   %s_allocated.i.i.i.i433 = getelementptr inbounds i8, ptr %479, i64 32
-  %call.i.i.i.i434 = tail call i32 @_PyCompile_EnsureArrayLargeEnough(i32 noundef %add.i.i.i.i432, ptr noundef nonnull %u_instr_sequence58.i, ptr noundef nonnull %s_allocated.i.i.i.i433, i32 noundef 100, i64 noundef 44), !range !5
+  %call.i.i.i.i434 = tail call i32 @_PyCompile_EnsureArrayLargeEnough(i32 noundef %add.i.i.i.i432, ptr noundef nonnull %u_instr_sequence58.i, ptr noundef nonnull %s_allocated.i.i.i.i433, i32 noundef 100, i64 noundef 44)
   %cmp.i.i.i.i435 = icmp eq i32 %call.i.i.i.i434, -1
   br i1 %cmp.i.i.i.i435, label %return, label %instr_sequence_next_inst.exit.i.i.i436
 
@@ -10214,7 +10214,7 @@ if.end71.i:                                       ; preds = %instr_sequence_next
   br i1 %tobool73.not.i, label %if.end96.i, label %if.then74.i
 
 if.then74.i:                                      ; preds = %if.end71.i
-  %call77.i444 = tail call fastcc i32 @compiler_visit_expr(ptr noundef nonnull %c, ptr noundef nonnull %487), !range !5
+  %call77.i444 = tail call fastcc i32 @compiler_visit_expr(ptr noundef nonnull %c, ptr noundef nonnull %487)
   %cmp78.i445 = icmp eq i32 %call77.i444, -1
   br i1 %cmp78.i445, label %return, label %if.end80.i
 
@@ -10237,7 +10237,7 @@ if.end80.i:                                       ; preds = %if.then74.i
   %493 = load i32, ptr %s_used.i.i.i40.i, align 4
   %add.i.i.i41.i = add i32 %493, 1
   %s_allocated.i.i.i42.i = getelementptr inbounds i8, ptr %488, i64 32
-  %call.i.i.i43.i = tail call i32 @_PyCompile_EnsureArrayLargeEnough(i32 noundef %add.i.i.i41.i, ptr noundef nonnull %u_instr_sequence82.i, ptr noundef nonnull %s_allocated.i.i.i42.i, i32 noundef 100, i64 noundef 44), !range !5
+  %call.i.i.i43.i = tail call i32 @_PyCompile_EnsureArrayLargeEnough(i32 noundef %add.i.i.i41.i, ptr noundef nonnull %u_instr_sequence82.i, ptr noundef nonnull %s_allocated.i.i.i42.i, i32 noundef 100, i64 noundef 44)
   %cmp.i.i.i44.i = icmp eq i32 %call.i.i.i43.i, -1
   br i1 %cmp.i.i.i44.i, label %return, label %instr_sequence_next_inst.exit.i.i45.i
 
@@ -10285,7 +10285,7 @@ if.end96.i:                                       ; preds = %codegen_addop_i.exi
   %502 = load i32, ptr %s_used.i.i.i55.i, align 4
   %add.i.i.i56.i = add i32 %502, 1
   %s_allocated.i.i.i57.i = getelementptr inbounds i8, ptr %496, i64 32
-  %call.i.i.i58.i = tail call i32 @_PyCompile_EnsureArrayLargeEnough(i32 noundef %add.i.i.i56.i, ptr noundef nonnull %u_instr_sequence98.i, ptr noundef nonnull %s_allocated.i.i.i57.i, i32 noundef 100, i64 noundef 44), !range !5
+  %call.i.i.i58.i = tail call i32 @_PyCompile_EnsureArrayLargeEnough(i32 noundef %add.i.i.i56.i, ptr noundef nonnull %u_instr_sequence98.i, ptr noundef nonnull %s_allocated.i.i.i57.i, i32 noundef 100, i64 noundef 44)
   %cmp.i.i.i59.i = icmp eq i32 %call.i.i.i58.i, -1
   br i1 %cmp.i.i.i59.i, label %return, label %instr_sequence_next_inst.exit.i.i60.i
 
@@ -10311,7 +10311,7 @@ if.end119.i:                                      ; preds = %instr_sequence_next
   %s_labelmap_size.i.i = getelementptr inbounds i8, ptr %505, i64 48
   %506 = load i32, ptr %s_labelmap_size.i.i, align 8
   %s_labelmap.i.i = getelementptr inbounds i8, ptr %505, i64 40
-  %call.i.i447 = tail call i32 @_PyCompile_EnsureArrayLargeEnough(i32 noundef %inc.i.i, ptr noundef nonnull %s_labelmap.i.i, ptr noundef nonnull %s_labelmap_size.i.i, i32 noundef 10, i64 noundef 4), !range !5
+  %call.i.i447 = tail call i32 @_PyCompile_EnsureArrayLargeEnough(i32 noundef %inc.i.i, ptr noundef nonnull %s_labelmap.i.i, ptr noundef nonnull %s_labelmap_size.i.i, i32 noundef 10, i64 noundef 4)
   %cmp.i71.i = icmp eq i32 %call.i.i447, -1
   br i1 %cmp.i71.i, label %return, label %for.cond.preheader.i.i
 
@@ -10333,7 +10333,7 @@ for.body.i.i:                                     ; preds = %for.body.i.i, %for.
   %510 = load i32, ptr %s_labelmap_size.i.i, align 8
   %511 = sext i32 %510 to i64
   %cmp3.i.i = icmp slt i64 %indvars.iv.next.i.i, %511
-  br i1 %cmp3.i.i, label %for.body.i.i, label %_PyCompile_InstructionSequence_UseLabel.exit.i, !llvm.loop !6
+  br i1 %cmp3.i.i, label %for.body.i.i, label %_PyCompile_InstructionSequence_UseLabel.exit.i, !llvm.loop !5
 
 _PyCompile_InstructionSequence_UseLabel.exit.i:   ; preds = %for.body.i.i, %for.cond.preheader.i.i
   %s_used.i.i = getelementptr inbounds i8, ptr %505, i64 36
@@ -10384,14 +10384,14 @@ for.body.i480:                                    ; preds = %for.inc.i493, %for.
   %521 = load ptr, ptr %arrayidx.i482, align 8
   %522 = load ptr, ptr %c_const_cache.i470, align 8
   %523 = load ptr, ptr %u.i471, align 8
-  %call10.i = tail call fastcc i32 @compiler_addop_load_const(ptr noundef %522, ptr noundef %523, i64 %loc.sroa.0.0.insert.insert.i475, i64 %loc.sroa.7.8.insert.insert.i479, ptr noundef nonnull getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 37, i32 0, i32 0, i64 5)), !range !5
+  %call10.i = tail call fastcc i32 @compiler_addop_load_const(ptr noundef %522, ptr noundef %523, i64 %loc.sroa.0.0.insert.insert.i475, i64 %loc.sroa.7.8.insert.insert.i479, ptr noundef nonnull getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 37, i32 0, i32 0, i64 5))
   %cmp11.i483 = icmp eq i32 %call10.i, -1
   br i1 %cmp11.i483, label %return, label %if.end.i484
 
 if.end.i484:                                      ; preds = %for.body.i480
   %524 = load ptr, ptr %c_const_cache.i470, align 8
   %525 = load ptr, ptr %u.i471, align 8
-  %call14.i485 = tail call fastcc i32 @compiler_addop_load_const(ptr noundef %524, ptr noundef %525, i64 %loc.sroa.0.0.insert.insert.i475, i64 %loc.sroa.7.8.insert.insert.i479, ptr noundef nonnull @_Py_NoneStruct), !range !5
+  %call14.i485 = tail call fastcc i32 @compiler_addop_load_const(ptr noundef %524, ptr noundef %525, i64 %loc.sroa.0.0.insert.insert.i475, i64 %loc.sroa.7.8.insert.insert.i479, ptr noundef nonnull @_Py_NoneStruct)
   %cmp15.i486 = icmp eq i32 %call14.i485, -1
   br i1 %cmp15.i486, label %return, label %if.end17.i487
 
@@ -10400,7 +10400,7 @@ if.end17.i487:                                    ; preds = %if.end.i484
   %u_names.i488 = getelementptr inbounds i8, ptr %526, i64 568
   %527 = load ptr, ptr %u_names.i488, align 8
   %528 = load ptr, ptr %521, align 8
-  %call20.i = tail call fastcc i32 @compiler_addop_name(ptr noundef %526, i64 %loc.sroa.0.0.insert.insert.i475, i64 %loc.sroa.7.8.insert.insert.i479, i32 noundef 75, ptr noundef %527, ptr noundef %528), !range !5
+  %call20.i = tail call fastcc i32 @compiler_addop_name(ptr noundef %526, i64 %loc.sroa.0.0.insert.insert.i475, i64 %loc.sroa.7.8.insert.insert.i479, i32 noundef 75, ptr noundef %527, ptr noundef %528)
   %cmp21.i = icmp eq i32 %call20.i, -1
   br i1 %cmp21.i, label %return, label %if.end23.i
 
@@ -10450,7 +10450,7 @@ if.end.i38.i.i:                                   ; preds = %if.end11.i.i497
   %534 = load i32, ptr %s_used.i.i.i.i.i.i500, align 4
   %add.i.i.i.i.i.i501 = add i32 %534, 1
   %s_allocated.i.i.i.i.i.i502 = getelementptr inbounds i8, ptr %532, i64 32
-  %call.i.i.i.i.i.i503 = tail call i32 @_PyCompile_EnsureArrayLargeEnough(i32 noundef %add.i.i.i.i.i.i501, ptr noundef nonnull %u_instr_sequence.i.i.i499, ptr noundef nonnull %s_allocated.i.i.i.i.i.i502, i32 noundef 100, i64 noundef 44), !range !5
+  %call.i.i.i.i.i.i503 = tail call i32 @_PyCompile_EnsureArrayLargeEnough(i32 noundef %add.i.i.i.i.i.i501, ptr noundef nonnull %u_instr_sequence.i.i.i499, ptr noundef nonnull %s_allocated.i.i.i.i.i.i502, i32 noundef 100, i64 noundef 44)
   %cmp.i.i.i.i.i.i504 = icmp eq i32 %call.i.i.i.i.i.i503, -1
   br i1 %cmp.i.i.i.i.i.i504, label %if.then15.i.i532, label %instr_sequence_next_inst.exit.i.i.i.i.i505
 
@@ -10513,7 +10513,7 @@ if.end19.i.i:                                     ; preds = %Py_DECREF.exit.i.i5
   %542 = load i32, ptr %s_used.i.i.i.i.i516, align 4
   %add.i.i.i.i.i517 = add i32 %542, 1
   %s_allocated.i.i.i.i.i518 = getelementptr inbounds i8, ptr %541, i64 32
-  %call.i.i.i.i.i519 = tail call i32 @_PyCompile_EnsureArrayLargeEnough(i32 noundef %add.i.i.i.i.i517, ptr noundef nonnull %u_instr_sequence.i.i515, ptr noundef nonnull %s_allocated.i.i.i.i.i518, i32 noundef 100, i64 noundef 44), !range !5
+  %call.i.i.i.i.i519 = tail call i32 @_PyCompile_EnsureArrayLargeEnough(i32 noundef %add.i.i.i.i.i517, ptr noundef nonnull %u_instr_sequence.i.i515, ptr noundef nonnull %s_allocated.i.i.i.i.i518, i32 noundef 100, i64 noundef 44)
   %cmp.i.i.i39.i.i = icmp eq i32 %call.i.i.i.i.i519, -1
   br i1 %cmp.i.i.i39.i.i, label %return, label %instr_sequence_next_inst.exit.i.i.i.i520
 
@@ -10541,7 +10541,7 @@ if.end24.i.i:                                     ; preds = %instr_sequence_next
   %546 = load i32, ptr %s_used.i.i.i40.i.i, align 4
   %add.i.i.i41.i.i = add i32 %546, 1
   %s_allocated.i.i.i42.i.i = getelementptr inbounds i8, ptr %545, i64 32
-  %call.i.i.i43.i.i = tail call i32 @_PyCompile_EnsureArrayLargeEnough(i32 noundef %add.i.i.i41.i.i, ptr noundef nonnull %u_instr_sequence26.i.i, ptr noundef nonnull %s_allocated.i.i.i42.i.i, i32 noundef 100, i64 noundef 44), !range !5
+  %call.i.i.i43.i.i = tail call i32 @_PyCompile_EnsureArrayLargeEnough(i32 noundef %add.i.i.i41.i.i, ptr noundef nonnull %u_instr_sequence26.i.i, ptr noundef nonnull %s_allocated.i.i.i42.i.i, i32 noundef 100, i64 noundef 44)
   %cmp.i.i.i44.i.i = icmp eq i32 %call.i.i.i43.i.i, -1
   br i1 %cmp.i.i.i44.i.i, label %return, label %instr_sequence_next_inst.exit.i.i45.i.i
 
@@ -10569,7 +10569,7 @@ codegen_addop_noarg.exit.i.i:                     ; preds = %instr_sequence_next
   br i1 %cmp5.i.i, label %return, label %if.end7.i.i
 
 while.end.i.i:                                    ; preds = %Py_DECREF.exit.i.i514
-  %call31.i.i = tail call fastcc i32 @compiler_nameop(ptr noundef nonnull %c, i64 %loc.sroa.0.0.insert.insert.i475, i64 %loc.sroa.7.8.insert.insert.i479, ptr noundef nonnull %529, i32 noundef 2), !range !5
+  %call31.i.i = tail call fastcc i32 @compiler_nameop(ptr noundef nonnull %c, i64 %loc.sroa.0.0.insert.insert.i475, i64 %loc.sroa.7.8.insert.insert.i479, ptr noundef nonnull %529, i32 noundef 2)
   %cmp32.i.i = icmp eq i32 %call31.i.i, -1
   br i1 %cmp32.i.i, label %return, label %if.end34.i.i
 
@@ -10580,7 +10580,7 @@ if.end34.i.i:                                     ; preds = %while.end.i.i
   %550 = load i32, ptr %s_used.i.i.i55.i.i, align 4
   %add.i.i.i56.i.i = add i32 %550, 1
   %s_allocated.i.i.i57.i.i = getelementptr inbounds i8, ptr %549, i64 32
-  %call.i.i.i58.i.i = tail call i32 @_PyCompile_EnsureArrayLargeEnough(i32 noundef %add.i.i.i56.i.i, ptr noundef nonnull %u_instr_sequence36.i.i, ptr noundef nonnull %s_allocated.i.i.i57.i.i, i32 noundef 100, i64 noundef 44), !range !5
+  %call.i.i.i58.i.i = tail call i32 @_PyCompile_EnsureArrayLargeEnough(i32 noundef %add.i.i.i56.i.i, ptr noundef nonnull %u_instr_sequence36.i.i, ptr noundef nonnull %s_allocated.i.i.i57.i.i, i32 noundef 100, i64 noundef 44)
   %cmp.i.i.i59.i.i = icmp eq i32 %call.i.i.i58.i.i, -1
   br i1 %cmp.i.i.i59.i.i, label %return, label %instr_sequence_next_inst.exit.i.i60.i.i
 
@@ -10605,7 +10605,7 @@ compiler_import_as.exit.thread105.i:              ; preds = %instr_sequence_next
   br label %for.inc.i493
 
 compiler_import_as.exit.i:                        ; preds = %if.then24.i492
-  %call42.i.i = tail call fastcc i32 @compiler_nameop(ptr noundef nonnull %c, i64 %loc.sroa.0.0.insert.insert.i475, i64 %loc.sroa.7.8.insert.insert.i479, ptr noundef nonnull %529, i32 noundef 2), !range !5
+  %call42.i.i = tail call fastcc i32 @compiler_nameop(ptr noundef nonnull %c, i64 %loc.sroa.0.0.insert.insert.i475, i64 %loc.sroa.7.8.insert.insert.i479, ptr noundef nonnull %529, i32 noundef 2)
   %cmp28.i = icmp eq i32 %call42.i.i, -1
   br i1 %cmp28.i, label %return, label %for.inc.i493
 
@@ -10614,7 +10614,7 @@ if.else.i533:                                     ; preds = %if.end23.i
   br i1 %cmp36.not.i534, label %if.end43.thread.i, label %if.then37.i535
 
 if.end43.thread.i:                                ; preds = %if.else.i533
-  %call44109.i = tail call fastcc i32 @compiler_nameop(ptr noundef nonnull %c, i64 %loc.sroa.0.0.insert.insert.i475, i64 %loc.sroa.7.8.insert.insert.i479, ptr noundef nonnull %530, i32 noundef 2), !range !5
+  %call44109.i = tail call fastcc i32 @compiler_nameop(ptr noundef nonnull %c, i64 %loc.sroa.0.0.insert.insert.i475, i64 %loc.sroa.7.8.insert.insert.i479, ptr noundef nonnull %530, i32 noundef 2)
   br label %if.end47.i
 
 if.then37.i535:                                   ; preds = %if.else.i533
@@ -10624,7 +10624,7 @@ if.then37.i535:                                   ; preds = %if.else.i533
   br i1 %cmp40.i537, label %return, label %if.then46.i538
 
 if.then46.i538:                                   ; preds = %if.then37.i535
-  %call44.i = tail call fastcc i32 @compiler_nameop(ptr noundef nonnull %c, i64 %loc.sroa.0.0.insert.insert.i475, i64 %loc.sroa.7.8.insert.insert.i479, ptr noundef nonnull %call39.i536, i32 noundef 2), !range !5
+  %call44.i = tail call fastcc i32 @compiler_nameop(ptr noundef nonnull %c, i64 %loc.sroa.0.0.insert.insert.i475, i64 %loc.sroa.7.8.insert.insert.i479, ptr noundef nonnull %call39.i536, i32 noundef 2)
   %554 = load i64, ptr %call39.i536, align 8
   %555 = and i64 %554, 2147483648
   %cmp.i53.not.i = icmp eq i64 %555, 0
@@ -10648,7 +10648,7 @@ if.end47.i:                                       ; preds = %if.then1.i.i542, %i
 for.inc.i493:                                     ; preds = %if.end47.i, %compiler_import_as.exit.i, %compiler_import_as.exit.thread105.i
   %inc.i494 = add nuw nsw i64 %i.0115.i, 1
   %exitcond.not.i = icmp eq i64 %inc.i494, %519
-  br i1 %exitcond.not.i, label %return, label %for.body.i480, !llvm.loop !48
+  br i1 %exitcond.not.i, label %return, label %for.body.i480, !llvm.loop !45
 
 sw.bb124:                                         ; preds = %entry
   %v.i543 = getelementptr inbounds i8, ptr %s, i64 8
@@ -10691,7 +10691,7 @@ if.end.i551:                                      ; preds = %cond.end.i546
   %.compoundliteral.sroa.5.8.insert.shift.i562 = shl nuw i64 %.compoundliteral.sroa.5.8.insert.ext.i561, 32
   %.compoundliteral.sroa.3.8.insert.ext.i563 = zext i32 %563 to i64
   %.compoundliteral.sroa.3.8.insert.insert.i564 = or disjoint i64 %.compoundliteral.sroa.5.8.insert.shift.i562, %.compoundliteral.sroa.3.8.insert.ext.i563
-  %call10.i565 = tail call fastcc i32 @compiler_addop_load_const(ptr noundef %559, ptr noundef %560, i64 %.compoundliteral.sroa.0.0.insert.insert.i560, i64 %.compoundliteral.sroa.3.8.insert.insert.i564, ptr noundef nonnull %call.i549), !range !5
+  %call10.i565 = tail call fastcc i32 @compiler_addop_load_const(ptr noundef %559, ptr noundef %560, i64 %.compoundliteral.sroa.0.0.insert.insert.i560, i64 %.compoundliteral.sroa.3.8.insert.insert.i564, ptr noundef nonnull %call.i549)
   %cmp11.i566 = icmp slt i32 %call10.i565, 0
   %565 = load i64, ptr %call.i549, align 8
   %566 = and i64 %565, 2147483648
@@ -10758,7 +10758,7 @@ _Py_NewRef.exit.i:                                ; preds = %if.end.i.i.i613, %f
   store ptr %569, ptr %arrayidx.i.i614, align 8
   %inc.i615 = add nuw nsw i64 %i.0107.i, 1
   %exitcond.not.i616 = icmp eq i64 %inc.i615, %cond.i547
-  br i1 %exitcond.not.i616, label %for.end.i569, label %for.body.i608, !llvm.loop !49
+  br i1 %exitcond.not.i616, label %for.end.i569, label %for.body.i608, !llvm.loop !46
 
 for.end.i569:                                     ; preds = %_Py_NewRef.exit.i, %for.cond.preheader.i
   %571 = load i32, ptr %lineno6.i, align 8
@@ -10841,7 +10841,7 @@ if.end58.i571:                                    ; preds = %land.lhs.true37.if.
   %.compoundliteral61.sroa.5.8.insert.shift.i = shl nuw i64 %.compoundliteral61.sroa.5.8.insert.ext.i, 32
   %.compoundliteral61.sroa.3.8.insert.ext.i = zext i32 %588 to i64
   %.compoundliteral61.sroa.3.8.insert.insert.i = or disjoint i64 %.compoundliteral61.sroa.5.8.insert.shift.i, %.compoundliteral61.sroa.3.8.insert.ext.i
-  %call70.i = tail call fastcc i32 @compiler_addop_load_const(ptr noundef %585, ptr noundef %586, i64 %.compoundliteral61.sroa.0.0.insert.insert.i, i64 %.compoundliteral61.sroa.3.8.insert.insert.i, ptr noundef nonnull %call16.i), !range !5
+  %call70.i = tail call fastcc i32 @compiler_addop_load_const(ptr noundef %585, ptr noundef %586, i64 %.compoundliteral61.sroa.0.0.insert.insert.i, i64 %.compoundliteral61.sroa.3.8.insert.insert.i, ptr noundef nonnull %call16.i)
   %cmp71.i = icmp slt i32 %call70.i, 0
   %590 = load i64, ptr %call16.i, align 8
   %591 = and i64 %590, 2147483648
@@ -10895,12 +10895,12 @@ Py_DECREF.exit.i572:                              ; preds = %if.then1.i.i602, %i
   br i1 %tobool77.not.i, label %if.else.i597, label %if.then78.i
 
 if.then78.i:                                      ; preds = %Py_DECREF.exit.i572
-  %call92.i = tail call fastcc i32 @compiler_addop_name(ptr noundef nonnull %593, i64 %.compoundliteral98.sroa.0.0.insert.insert.i, i64 %.compoundliteral98.sroa.3.8.insert.insert.i, i32 noundef 75, ptr noundef %598, ptr noundef nonnull %592), !range !5
+  %call92.i = tail call fastcc i32 @compiler_addop_name(ptr noundef nonnull %593, i64 %.compoundliteral98.sroa.0.0.insert.insert.i, i64 %.compoundliteral98.sroa.3.8.insert.insert.i, i32 noundef 75, ptr noundef %598, ptr noundef nonnull %592)
   %cmp93.i = icmp eq i32 %call92.i, -1
   br i1 %cmp93.i, label %return, label %if.end115.i
 
 if.else.i597:                                     ; preds = %Py_DECREF.exit.i572
-  %call110.i = tail call fastcc i32 @compiler_addop_name(ptr noundef nonnull %593, i64 %.compoundliteral98.sroa.0.0.insert.insert.i, i64 %.compoundliteral98.sroa.3.8.insert.insert.i, i32 noundef 75, ptr noundef %598, ptr noundef nonnull getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 37, i32 0, i32 3, i32 0, i32 16)), !range !5
+  %call110.i = tail call fastcc i32 @compiler_addop_name(ptr noundef nonnull %593, i64 %.compoundliteral98.sroa.0.0.insert.insert.i, i64 %.compoundliteral98.sroa.3.8.insert.insert.i, i32 noundef 75, ptr noundef %598, ptr noundef nonnull getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 37, i32 0, i32 3, i32 0, i32 16))
   %cmp111.i598 = icmp eq i32 %call110.i, -1
   br i1 %cmp111.i598, label %return, label %if.end115.i
 
@@ -10910,7 +10910,7 @@ if.end115.i:                                      ; preds = %if.else.i597, %if.t
 for.cond117.i:                                    ; preds = %if.end175.i
   %inc196.i = add nuw nsw i64 %i116.0109.i, 1
   %exitcond110.not.i = icmp eq i64 %inc196.i, %cond.i547
-  br i1 %exitcond110.not.i, label %for.end197.i, label %for.body120.i586, !llvm.loop !50
+  br i1 %exitcond110.not.i, label %for.end197.i, label %for.body120.i586, !llvm.loop !47
 
 for.body120.i586:                                 ; preds = %if.end115.i, %for.cond117.i
   %i116.0109.i = phi i64 [ %inc196.i, %for.cond117.i ], [ 0, %if.end115.i ]
@@ -11016,14 +11016,14 @@ if.then133.i:                                     ; preds = %PyUnicode_READ_CHAR
   %.compoundliteral135.sroa.5.8.insert.shift.i = shl nuw i64 %.compoundliteral135.sroa.5.8.insert.ext.i, 32
   %.compoundliteral135.sroa.3.8.insert.ext.i = zext i32 %614 to i64
   %.compoundliteral135.sroa.3.8.insert.insert.i = or disjoint i64 %.compoundliteral135.sroa.5.8.insert.shift.i, %.compoundliteral135.sroa.3.8.insert.ext.i
-  %call144.i = tail call fastcc i32 @codegen_addop_i(ptr noundef nonnull %u_instr_sequence.i592, i32 noundef 55, i64 noundef 2, i64 %.compoundliteral135.sroa.0.0.insert.insert.i, i64 %.compoundliteral135.sroa.3.8.insert.insert.i), !range !5
+  %call144.i = tail call fastcc i32 @codegen_addop_i(ptr noundef nonnull %u_instr_sequence.i592, i32 noundef 55, i64 noundef 2, i64 %.compoundliteral135.sroa.0.0.insert.insert.i, i64 %.compoundliteral135.sroa.3.8.insert.insert.i)
   %cmp145.i = icmp eq i32 %call144.i, -1
   br i1 %cmp145.i, label %return, label %if.end148.i
 
 if.end148.i:                                      ; preds = %if.then133.i
   %616 = load ptr, ptr %u.i553, align 8
   %u_instr_sequence150.i = getelementptr inbounds i8, ptr %616, i64 24
-  %call151.i = tail call fastcc i32 @codegen_addop_noarg(ptr noundef nonnull %u_instr_sequence150.i, i32 noundef 32, i64 -1, i64 -1), !range !5
+  %call151.i = tail call fastcc i32 @codegen_addop_noarg(ptr noundef nonnull %u_instr_sequence150.i, i32 noundef 32, i64 -1, i64 -1)
   %cmp152.i = icmp eq i32 %call151.i, -1
   %..i593 = sext i1 %cmp152.i to i32
   br label %return
@@ -11044,7 +11044,7 @@ if.end156.i:                                      ; preds = %PyUnicode_READ_CHAR
   %.compoundliteral158.sroa.5.8.insert.shift.i = shl nuw i64 %.compoundliteral158.sroa.5.8.insert.ext.i, 32
   %.compoundliteral158.sroa.3.8.insert.ext.i = zext i32 %620 to i64
   %.compoundliteral158.sroa.3.8.insert.insert.i = or disjoint i64 %.compoundliteral158.sroa.5.8.insert.shift.i, %.compoundliteral158.sroa.3.8.insert.ext.i
-  %call171.i588 = tail call fastcc i32 @compiler_addop_name(ptr noundef %617, i64 %.compoundliteral158.sroa.0.0.insert.insert.i, i64 %.compoundliteral158.sroa.3.8.insert.insert.i, i32 noundef 74, ptr noundef %622, ptr noundef %.pre111.i), !range !5
+  %call171.i588 = tail call fastcc i32 @compiler_addop_name(ptr noundef %617, i64 %.compoundliteral158.sroa.0.0.insert.insert.i, i64 %.compoundliteral158.sroa.3.8.insert.insert.i, i32 noundef 74, ptr noundef %622, ptr noundef %.pre111.i)
   %cmp172.i589 = icmp eq i32 %call171.i588, -1
   br i1 %cmp172.i589, label %return, label %if.end175.i
 
@@ -11066,7 +11066,7 @@ if.end175.i:                                      ; preds = %if.end156.i
   %.compoundliteral181.sroa.5.8.insert.shift.i = shl nuw i64 %.compoundliteral181.sroa.5.8.insert.ext.i, 32
   %.compoundliteral181.sroa.3.8.insert.ext.i = zext i32 %627 to i64
   %.compoundliteral181.sroa.3.8.insert.insert.i = or disjoint i64 %.compoundliteral181.sroa.5.8.insert.shift.i, %.compoundliteral181.sroa.3.8.insert.ext.i
-  %call190.i = tail call fastcc i32 @compiler_nameop(ptr noundef nonnull %c, i64 %.compoundliteral181.sroa.0.0.insert.insert.i, i64 %.compoundliteral181.sroa.3.8.insert.insert.i, ptr noundef %spec.select.i, i32 noundef 2), !range !5
+  %call190.i = tail call fastcc i32 @compiler_nameop(ptr noundef nonnull %c, i64 %.compoundliteral181.sroa.0.0.insert.insert.i, i64 %.compoundliteral181.sroa.3.8.insert.insert.i, ptr noundef %spec.select.i, i32 noundef 2)
   %cmp191.i = icmp eq i32 %call190.i, -1
   br i1 %cmp191.i, label %return, label %for.cond117.i
 
@@ -11089,7 +11089,7 @@ for.end197.i:                                     ; preds = %for.cond117.i, %if.
   %634 = load i32, ptr %s_used.i.i.i.i573, align 4
   %add.i.i.i.i574 = add i32 %634, 1
   %s_allocated.i.i.i.i575 = getelementptr inbounds i8, ptr %629, i64 32
-  %call.i.i.i.i576 = tail call i32 @_PyCompile_EnsureArrayLargeEnough(i32 noundef %add.i.i.i.i574, ptr noundef nonnull %u_instr_sequence199.i, ptr noundef nonnull %s_allocated.i.i.i.i575, i32 noundef 100, i64 noundef 44), !range !5
+  %call.i.i.i.i576 = tail call i32 @_PyCompile_EnsureArrayLargeEnough(i32 noundef %add.i.i.i.i574, ptr noundef nonnull %u_instr_sequence199.i, ptr noundef nonnull %s_allocated.i.i.i.i575, i32 noundef 100, i64 noundef 44)
   %cmp.i.i.i.i577 = icmp eq i32 %call.i.i.i.i576, -1
   br i1 %cmp.i.i.i.i577, label %return, label %instr_sequence_next_inst.exit.i.i.i578
 
@@ -11144,7 +11144,7 @@ land.lhs.true.i618:                               ; preds = %sw.bb127
   br i1 %cmp.i619, label %if.then.i626, label %if.end13.i620
 
 if.then.i626:                                     ; preds = %land.lhs.true.i618
-  %call.i627 = tail call fastcc i32 @compiler_visit_expr(ptr noundef nonnull %c, ptr noundef %641), !range !5
+  %call.i627 = tail call fastcc i32 @compiler_visit_expr(ptr noundef nonnull %c, ptr noundef %641)
   %cmp1.i628 = icmp eq i32 %call.i627, -1
   br i1 %cmp1.i628, label %return, label %if.end.i629
 
@@ -11156,7 +11156,7 @@ if.end.i629:                                      ; preds = %if.then.i626
   %645 = load i32, ptr %s_used.i.i.i.i632, align 4
   %add.i.i.i.i633 = add i32 %645, 1
   %s_allocated.i.i.i.i634 = getelementptr inbounds i8, ptr %644, i64 32
-  %call.i.i.i.i635 = tail call i32 @_PyCompile_EnsureArrayLargeEnough(i32 noundef %add.i.i.i.i633, ptr noundef nonnull %u_instr_sequence.i631, ptr noundef nonnull %s_allocated.i.i.i.i634, i32 noundef 100, i64 noundef 44), !range !5
+  %call.i.i.i.i635 = tail call i32 @_PyCompile_EnsureArrayLargeEnough(i32 noundef %add.i.i.i.i633, ptr noundef nonnull %u_instr_sequence.i631, ptr noundef nonnull %s_allocated.i.i.i.i634, i32 noundef 100, i64 noundef 44)
   %cmp.i.i.i.i636 = icmp eq i32 %call.i.i.i.i635, -1
   br i1 %cmp.i.i.i.i636, label %return, label %instr_sequence_next_inst.exit.i.i.i637
 
@@ -11184,7 +11184,7 @@ if.end6.i:                                        ; preds = %instr_sequence_next
   %649 = load i32, ptr %s_used.i.i.i14.i, align 4
   %add.i.i.i15.i = add i32 %649, 1
   %s_allocated.i.i.i16.i = getelementptr inbounds i8, ptr %648, i64 32
-  %call.i.i.i17.i = tail call i32 @_PyCompile_EnsureArrayLargeEnough(i32 noundef %add.i.i.i15.i, ptr noundef nonnull %u_instr_sequence8.i, ptr noundef nonnull %s_allocated.i.i.i16.i, i32 noundef 100, i64 noundef 44), !range !5
+  %call.i.i.i17.i = tail call i32 @_PyCompile_EnsureArrayLargeEnough(i32 noundef %add.i.i.i15.i, ptr noundef nonnull %u_instr_sequence8.i, ptr noundef nonnull %s_allocated.i.i.i16.i, i32 noundef 100, i64 noundef 44)
   %cmp.i.i.i18.i = icmp eq i32 %call.i.i.i17.i, -1
   br i1 %cmp.i.i.i18.i, label %return, label %instr_sequence_next_inst.exit.i.i19.i
 
@@ -11219,7 +11219,7 @@ if.then15.i:                                      ; preds = %if.end13.i620
   %654 = load i32, ptr %s_used.i.i.i29.i, align 4
   %add.i.i.i30.i = add i32 %654, 1
   %s_allocated.i.i.i31.i = getelementptr inbounds i8, ptr %653, i64 32
-  %call.i.i.i32.i = tail call i32 @_PyCompile_EnsureArrayLargeEnough(i32 noundef %add.i.i.i30.i, ptr noundef nonnull %u_instr_sequence17.i, ptr noundef nonnull %s_allocated.i.i.i31.i, i32 noundef 100, i64 noundef 44), !range !5
+  %call.i.i.i32.i = tail call i32 @_PyCompile_EnsureArrayLargeEnough(i32 noundef %add.i.i.i30.i, ptr noundef nonnull %u_instr_sequence17.i, ptr noundef nonnull %s_allocated.i.i.i31.i, i32 noundef 100, i64 noundef 44)
   %cmp.i.i.i33.i = icmp eq i32 %call.i.i.i32.i, -1
   br i1 %cmp.i.i.i33.i, label %return, label %instr_sequence_next_inst.exit.i.i34.i
 
@@ -11244,7 +11244,7 @@ codegen_addop_noarg.exit44.i:                     ; preds = %instr_sequence_next
   br label %return
 
 if.end22.i622:                                    ; preds = %if.end13.i620
-  %call23.i623 = tail call fastcc i32 @compiler_visit_expr(ptr noundef nonnull %c, ptr noundef nonnull %641), !range !5
+  %call23.i623 = tail call fastcc i32 @compiler_visit_expr(ptr noundef nonnull %c, ptr noundef nonnull %641)
   %cmp24.i624 = icmp eq i32 %call23.i623, -1
   br i1 %cmp24.i624, label %return, label %if.end26.i
 
@@ -11256,7 +11256,7 @@ if.end26.i:                                       ; preds = %if.end22.i622
   %658 = load i32, ptr %s_used.i.i.i45.i, align 4
   %add.i.i.i46.i = add i32 %658, 1
   %s_allocated.i.i.i47.i = getelementptr inbounds i8, ptr %657, i64 32
-  %call.i.i.i48.i = tail call i32 @_PyCompile_EnsureArrayLargeEnough(i32 noundef %add.i.i.i46.i, ptr noundef nonnull %u_instr_sequence28.i, ptr noundef nonnull %s_allocated.i.i.i47.i, i32 noundef 100, i64 noundef 44), !range !5
+  %call.i.i.i48.i = tail call i32 @_PyCompile_EnsureArrayLargeEnough(i32 noundef %add.i.i.i46.i, ptr noundef nonnull %u_instr_sequence28.i, ptr noundef nonnull %s_allocated.i.i.i47.i, i32 noundef 100, i64 noundef 44)
   %cmp.i.i.i49.i = icmp eq i32 %call.i.i.i48.i, -1
   br i1 %cmp.i.i.i49.i, label %return, label %instr_sequence_next_inst.exit.i.i50.i
 
@@ -11302,7 +11302,7 @@ sw.bb140:                                         ; preds = %entry
   %666 = load i32, ptr %s_used.i.i.i646, align 4
   %add.i.i.i647 = add i32 %666, 1
   %s_allocated.i.i.i648 = getelementptr inbounds i8, ptr %661, i64 32
-  %call.i.i.i649 = tail call i32 @_PyCompile_EnsureArrayLargeEnough(i32 noundef %add.i.i.i647, ptr noundef nonnull %u_instr_sequence142, ptr noundef nonnull %s_allocated.i.i.i648, i32 noundef 100, i64 noundef 44), !range !5
+  %call.i.i.i649 = tail call i32 @_PyCompile_EnsureArrayLargeEnough(i32 noundef %add.i.i.i647, ptr noundef nonnull %u_instr_sequence142, ptr noundef nonnull %s_allocated.i.i.i648, i32 noundef 100, i64 noundef 44)
   %cmp.i.i.i650 = icmp eq i32 %call.i.i.i649, -1
   br i1 %cmp.i.i.i650, label %return, label %instr_sequence_next_inst.exit.i.i651
 
@@ -11356,7 +11356,7 @@ sw.bb157:                                         ; preds = %entry
   %675 = load i32, ptr %s_used.i.i.i918, align 4
   %add.i.i.i919 = add i32 %675, 1
   %s_allocated.i.i.i920 = getelementptr inbounds i8, ptr %674, i64 32
-  %call.i.i.i921 = tail call i32 @_PyCompile_EnsureArrayLargeEnough(i32 noundef %add.i.i.i919, ptr noundef nonnull %u_instr_sequence.i663, ptr noundef nonnull %s_allocated.i.i.i920, i32 noundef 100, i64 noundef 44), !range !5
+  %call.i.i.i921 = tail call i32 @_PyCompile_EnsureArrayLargeEnough(i32 noundef %add.i.i.i919, ptr noundef nonnull %u_instr_sequence.i663, ptr noundef nonnull %s_allocated.i.i.i920, i32 noundef 100, i64 noundef 44)
   %cmp.i.i.i922 = icmp eq i32 %call.i.i.i921, -1
   br i1 %cmp.i.i.i922, label %compiler_break.exit, label %instr_sequence_next_inst.exit.i.i923
 
@@ -11378,7 +11378,7 @@ if.end.i666:                                      ; preds = %instr_sequence_next
   store i64 %.compoundliteral158.sroa.0.0.insert.insert, ptr %i_loc.i.i930, align 4
   %loc.sroa.2.0.i_loc.sroa_idx.i.i931 = getelementptr inbounds i8, ptr %arrayidx.i.i928, i64 16
   store i64 %.compoundliteral158.sroa.3.8.insert.insert, ptr %loc.sroa.2.0.i_loc.sroa_idx.i.i931, align 4
-  %call1.i = call fastcc i32 @compiler_unwind_fblock_stack(ptr noundef nonnull %c, ptr noundef nonnull %loc.i661, i32 noundef 0, ptr noundef nonnull %loop.i), !range !5
+  %call1.i = call fastcc i32 @compiler_unwind_fblock_stack(ptr noundef nonnull %c, ptr noundef nonnull %loc.i661, i32 noundef 0, ptr noundef nonnull %loop.i)
   %cmp2.i = icmp eq i32 %call1.i, -1
   br i1 %cmp2.i, label %compiler_break.exit, label %if.end4.i667
 
@@ -11392,7 +11392,7 @@ if.then6.i:                                       ; preds = %if.end4.i667
   br label %compiler_break.exit
 
 if.end8.i668:                                     ; preds = %if.end4.i667
-  %call9.i669 = call fastcc i32 @compiler_unwind_fblock(ptr noundef nonnull %c, ptr noundef nonnull %loc.i661, ptr noundef nonnull %678, i32 noundef 0), !range !5
+  %call9.i669 = call fastcc i32 @compiler_unwind_fblock(ptr noundef nonnull %c, ptr noundef nonnull %loc.i661, ptr noundef nonnull %678, i32 noundef 0)
   %cmp10.i670 = icmp eq i32 %call9.i669, -1
   br i1 %cmp10.i670, label %compiler_break.exit, label %if.end12.i671
 
@@ -11404,7 +11404,7 @@ if.end12.i671:                                    ; preds = %if.end8.i668
   %681 = load i64, ptr %loc.i661, align 8
   %682 = load i64, ptr %673, align 8
   %683 = load i32, ptr %fb_exit.i, align 8
-  %call15.i673 = call fastcc i32 @codegen_addop_j(ptr noundef nonnull %u_instr_sequence14.i672, i64 %681, i64 %682, i32 noundef 256, i32 %683), !range !5
+  %call15.i673 = call fastcc i32 @codegen_addop_j(ptr noundef nonnull %u_instr_sequence14.i672, i64 %681, i64 %682, i32 noundef 256, i32 %683)
   %cmp16.i = icmp eq i32 %call15.i673, -1
   %..i674 = sext i1 %cmp16.i to i32
   br label %compiler_break.exit
@@ -11445,7 +11445,7 @@ sw.bb168:                                         ; preds = %entry
   %690 = load i32, ptr %s_used.i.i.i934, align 4
   %add.i.i.i935 = add i32 %690, 1
   %s_allocated.i.i.i936 = getelementptr inbounds i8, ptr %689, i64 32
-  %call.i.i.i937 = tail call i32 @_PyCompile_EnsureArrayLargeEnough(i32 noundef %add.i.i.i935, ptr noundef nonnull %u_instr_sequence.i680, ptr noundef nonnull %s_allocated.i.i.i936, i32 noundef 100, i64 noundef 44), !range !5
+  %call.i.i.i937 = tail call i32 @_PyCompile_EnsureArrayLargeEnough(i32 noundef %add.i.i.i935, ptr noundef nonnull %u_instr_sequence.i680, ptr noundef nonnull %s_allocated.i.i.i936, i32 noundef 100, i64 noundef 44)
   %cmp.i.i.i938 = icmp eq i32 %call.i.i.i937, -1
   br i1 %cmp.i.i.i938, label %compiler_continue.exit, label %instr_sequence_next_inst.exit.i.i939
 
@@ -11467,7 +11467,7 @@ if.end.i683:                                      ; preds = %instr_sequence_next
   store i64 %.compoundliteral169.sroa.0.0.insert.insert, ptr %i_loc.i.i946, align 4
   %loc.sroa.2.0.i_loc.sroa_idx.i.i947 = getelementptr inbounds i8, ptr %arrayidx.i.i944, i64 16
   store i64 %.compoundliteral169.sroa.3.8.insert.insert, ptr %loc.sroa.2.0.i_loc.sroa_idx.i.i947, align 4
-  %call1.i684 = call fastcc i32 @compiler_unwind_fblock_stack(ptr noundef nonnull %c, ptr noundef nonnull %loc.i677, i32 noundef 0, ptr noundef nonnull %loop.i678), !range !5
+  %call1.i684 = call fastcc i32 @compiler_unwind_fblock_stack(ptr noundef nonnull %c, ptr noundef nonnull %loc.i677, i32 noundef 0, ptr noundef nonnull %loop.i678)
   %cmp2.i685 = icmp eq i32 %call1.i684, -1
   br i1 %cmp2.i685, label %compiler_continue.exit, label %if.end4.i686
 
@@ -11487,7 +11487,7 @@ if.end8.i688:                                     ; preds = %if.end4.i686
   %695 = load i64, ptr %loc.i677, align 8
   %696 = load i64, ptr %688, align 8
   %697 = load i32, ptr %fb_block.i, align 4
-  %call11.i690 = call fastcc i32 @codegen_addop_j(ptr noundef nonnull %u_instr_sequence10.i689, i64 %695, i64 %696, i32 noundef 256, i32 %697), !range !5
+  %call11.i690 = call fastcc i32 @codegen_addop_j(ptr noundef nonnull %u_instr_sequence10.i689, i64 %695, i64 %696, i32 noundef 256, i32 %697)
   %cmp12.i691 = icmp eq i32 %call11.i690, -1
   %..i692 = sext i1 %cmp12.i691 to i32
   br label %compiler_continue.exit
@@ -11499,15 +11499,15 @@ compiler_continue.exit:                           ; preds = %sw.bb168, %instr_se
   br label %return
 
 sw.bb179:                                         ; preds = %entry
-  %call180 = tail call fastcc i32 @compiler_with(ptr noundef %c, ptr noundef nonnull %s, i32 noundef 0), !range !5
+  %call180 = tail call fastcc i32 @compiler_with(ptr noundef %c, ptr noundef nonnull %s, i32 noundef 0)
   br label %return
 
 sw.bb181:                                         ; preds = %entry
-  %call182 = tail call fastcc i32 @compiler_function(ptr noundef %c, ptr noundef nonnull %s, i32 noundef 1), !range !5
+  %call182 = tail call fastcc i32 @compiler_function(ptr noundef %c, ptr noundef nonnull %s, i32 noundef 1)
   br label %return
 
 sw.bb183:                                         ; preds = %entry
-  %call184 = tail call fastcc i32 @compiler_async_with(ptr noundef %c, ptr noundef nonnull %s, i32 noundef 0), !range !5
+  %call184 = tail call fastcc i32 @compiler_async_with(ptr noundef %c, ptr noundef nonnull %s, i32 noundef 0)
   br label %return
 
 sw.bb185:                                         ; preds = %entry
@@ -11592,7 +11592,7 @@ if.end31.i718:                                    ; preds = %if.end23.i716
   %v.i719 = getelementptr inbounds i8, ptr %s, i64 8
   %iter.i720 = getelementptr inbounds i8, ptr %s, i64 16
   %712 = load ptr, ptr %iter.i720, align 8
-  %call32.i = tail call fastcc i32 @compiler_visit_expr(ptr noundef nonnull %c, ptr noundef %712), !range !5
+  %call32.i = tail call fastcc i32 @compiler_visit_expr(ptr noundef nonnull %c, ptr noundef %712)
   %cmp33.i721 = icmp eq i32 %call32.i, -1
   br i1 %cmp33.i721, label %return, label %if.end35.i
 
@@ -11607,14 +11607,14 @@ if.end35.i:                                       ; preds = %if.end31.i718
   %loc.sroa.24.8.insert.shift123.i = shl nuw i64 %loc.sroa.24.8.insert.ext122.i, 32
   %loc.sroa.13.8.insert.ext90.i = zext i32 %700 to i64
   %loc.sroa.13.8.insert.insert92.i = or disjoint i64 %loc.sroa.24.8.insert.shift123.i, %loc.sroa.13.8.insert.ext90.i
-  %call38.i722 = tail call fastcc i32 @codegen_addop_noarg(ptr noundef nonnull %u_instr_sequence37.i, i32 noundef 16, i64 %loc.sroa.0.0.insert.insert20.i, i64 %loc.sroa.13.8.insert.insert92.i), !range !5
+  %call38.i722 = tail call fastcc i32 @codegen_addop_noarg(ptr noundef nonnull %u_instr_sequence37.i, i32 noundef 16, i64 %loc.sroa.0.0.insert.insert20.i, i64 %loc.sroa.13.8.insert.insert92.i)
   %cmp39.i723 = icmp eq i32 %call38.i722, -1
   br i1 %cmp39.i723, label %return, label %if.end41.i724
 
 if.end41.i724:                                    ; preds = %if.end35.i
   %714 = load ptr, ptr %u11.i, align 8
   %u_instr_sequence43.i = getelementptr inbounds i8, ptr %714, i64 24
-  %call45.i725 = tail call i32 @_PyCompile_InstructionSequence_UseLabel(ptr noundef nonnull %u_instr_sequence43.i, i32 noundef %inc.i972), !range !5
+  %call45.i725 = tail call i32 @_PyCompile_InstructionSequence_UseLabel(ptr noundef nonnull %u_instr_sequence43.i, i32 noundef %inc.i972)
   %cmp46.i726 = icmp eq i32 %call45.i725, -1
   br i1 %cmp46.i726, label %return, label %if.end48.i
 
@@ -11644,14 +11644,14 @@ if.end54.i:                                       ; preds = %if.end48.i
   store ptr null, ptr %fb_datum.i962, align 8
   %717 = load ptr, ptr %u11.i, align 8
   %u_instr_sequence56.i = getelementptr inbounds i8, ptr %717, i64 24
-  %call58.i727 = tail call fastcc i32 @codegen_addop_j(ptr noundef nonnull %u_instr_sequence56.i, i64 %loc.sroa.0.0.insert.insert20.i, i64 %loc.sroa.13.8.insert.insert92.i, i32 noundef 265, i32 %inc.i970), !range !5
+  %call58.i727 = tail call fastcc i32 @codegen_addop_j(ptr noundef nonnull %u_instr_sequence56.i, i64 %loc.sroa.0.0.insert.insert20.i, i64 %loc.sroa.13.8.insert.insert92.i, i32 noundef 265, i32 %inc.i970)
   %cmp59.i728 = icmp eq i32 %call58.i727, -1
   br i1 %cmp59.i728, label %return, label %if.end61.i
 
 if.end61.i:                                       ; preds = %if.end54.i
   %718 = load ptr, ptr %u11.i, align 8
   %u_instr_sequence63.i = getelementptr inbounds i8, ptr %718, i64 24
-  %call64.i729 = tail call fastcc i32 @codegen_addop_noarg(ptr noundef nonnull %u_instr_sequence63.i, i32 noundef 18, i64 %loc.sroa.0.0.insert.insert20.i, i64 %loc.sroa.13.8.insert.insert92.i), !range !5
+  %call64.i729 = tail call fastcc i32 @codegen_addop_noarg(ptr noundef nonnull %u_instr_sequence63.i, i32 noundef 18, i64 %loc.sroa.0.0.insert.insert20.i, i64 %loc.sroa.13.8.insert.insert92.i)
   %cmp65.i730 = icmp eq i32 %call64.i729, -1
   br i1 %cmp65.i730, label %return, label %if.end67.i731
 
@@ -11659,25 +11659,25 @@ if.end67.i731:                                    ; preds = %if.end61.i
   %c_const_cache.i732 = getelementptr inbounds i8, ptr %c, i64 56
   %719 = load ptr, ptr %c_const_cache.i732, align 8
   %720 = load ptr, ptr %u11.i, align 8
-  %call69.i733 = tail call fastcc i32 @compiler_addop_load_const(ptr noundef %719, ptr noundef %720, i64 %loc.sroa.0.0.insert.insert20.i, i64 %loc.sroa.13.8.insert.insert92.i, ptr noundef nonnull @_Py_NoneStruct), !range !5
+  %call69.i733 = tail call fastcc i32 @compiler_addop_load_const(ptr noundef %719, ptr noundef %720, i64 %loc.sroa.0.0.insert.insert20.i, i64 %loc.sroa.13.8.insert.insert92.i, ptr noundef nonnull @_Py_NoneStruct)
   %cmp70.i734 = icmp eq i32 %call69.i733, -1
   br i1 %cmp70.i734, label %return, label %if.end72.i
 
 if.end72.i:                                       ; preds = %if.end67.i731
-  %call73.i = tail call fastcc i32 @compiler_add_yield_from(ptr noundef nonnull %c, i64 %loc.sroa.0.0.insert.insert20.i, i64 %loc.sroa.13.8.insert.insert92.i, i32 noundef 1), !range !5
+  %call73.i = tail call fastcc i32 @compiler_add_yield_from(ptr noundef nonnull %c, i64 %loc.sroa.0.0.insert.insert20.i, i64 %loc.sroa.13.8.insert.insert92.i, i32 noundef 1)
   %cmp74.i = icmp eq i32 %call73.i, -1
   br i1 %cmp74.i, label %return, label %if.end76.i735
 
 if.end76.i735:                                    ; preds = %if.end72.i
   %721 = load ptr, ptr %u11.i, align 8
   %u_instr_sequence78.i = getelementptr inbounds i8, ptr %721, i64 24
-  %call79.i = tail call fastcc i32 @codegen_addop_noarg(ptr noundef nonnull %u_instr_sequence78.i, i32 noundef 263, i64 %loc.sroa.0.0.insert.insert20.i, i64 %loc.sroa.13.8.insert.insert92.i), !range !5
+  %call79.i = tail call fastcc i32 @codegen_addop_noarg(ptr noundef nonnull %u_instr_sequence78.i, i32 noundef 263, i64 %loc.sroa.0.0.insert.insert20.i, i64 %loc.sroa.13.8.insert.insert92.i)
   %cmp80.i = icmp eq i32 %call79.i, -1
   br i1 %cmp80.i, label %return, label %if.end82.i
 
 if.end82.i:                                       ; preds = %if.end76.i735
   %722 = load ptr, ptr %v.i719, align 8
-  %call84.i = tail call fastcc i32 @compiler_visit_expr(ptr noundef nonnull %c, ptr noundef %722), !range !5
+  %call84.i = tail call fastcc i32 @compiler_visit_expr(ptr noundef nonnull %c, ptr noundef %722)
   %cmp85.i = icmp eq i32 %call84.i, -1
   br i1 %cmp85.i, label %return, label %if.end87.i
 
@@ -11708,12 +11708,12 @@ for.body.i753:                                    ; preds = %cond.end.i741
   %call93.i756 = tail call fastcc i32 @compiler_visit_stmt(ptr noundef %c, ptr noundef %725)
   %cmp94.i757 = icmp eq i32 %call93.i756, -1
   %inc.i759 = add i32 %_i.0.i738, 1
-  br i1 %cmp94.i757, label %return, label %for.cond.i737, !llvm.loop !51
+  br i1 %cmp94.i757, label %return, label %for.cond.i737, !llvm.loop !48
 
 for.end.i743:                                     ; preds = %cond.end.i741
   %726 = load ptr, ptr %u11.i, align 8
   %u_instr_sequence99.i744 = getelementptr inbounds i8, ptr %726, i64 24
-  %call101.i745 = tail call fastcc i32 @codegen_addop_j(ptr noundef nonnull %u_instr_sequence99.i744, i64 -1, i64 -1, i32 noundef 256, i32 %inc.i972), !range !5
+  %call101.i745 = tail call fastcc i32 @codegen_addop_j(ptr noundef nonnull %u_instr_sequence99.i744, i64 -1, i64 -1, i32 noundef 256, i32 %inc.i972)
   %cmp102.i746 = icmp eq i32 %call101.i745, -1
   br i1 %cmp102.i746, label %return, label %if.end105.i
 
@@ -11725,7 +11725,7 @@ if.end105.i:                                      ; preds = %for.end.i743
   store i32 %dec.i951, ptr %u_nfblocks.i950, align 8
   %728 = load ptr, ptr %u11.i, align 8
   %u_instr_sequence108.i = getelementptr inbounds i8, ptr %728, i64 24
-  %call110.i748 = tail call i32 @_PyCompile_InstructionSequence_UseLabel(ptr noundef nonnull %u_instr_sequence108.i, i32 noundef %inc.i970), !range !5
+  %call110.i748 = tail call i32 @_PyCompile_InstructionSequence_UseLabel(ptr noundef nonnull %u_instr_sequence108.i, i32 noundef %inc.i970)
   %cmp111.i749 = icmp eq i32 %call110.i748, -1
   br i1 %cmp111.i749, label %return, label %if.end114.i
 
@@ -11749,7 +11749,7 @@ if.end114.i:                                      ; preds = %if.end105.i
   %loc.sroa.24.8.insert.shift158.i = shl nuw i64 %loc.sroa.24.8.insert.ext157.i, 32
   %loc.sroa.13.8.insert.ext118.i = zext i32 %732 to i64
   %loc.sroa.13.8.insert.insert120.i = or disjoint i64 %loc.sroa.24.8.insert.shift158.i, %loc.sroa.13.8.insert.ext118.i
-  %call133.i = tail call fastcc i32 @codegen_addop_noarg(ptr noundef nonnull %u_instr_sequence132.i750, i32 noundef 10, i64 %loc.sroa.0.0.insert.insert48.i, i64 %loc.sroa.13.8.insert.insert120.i), !range !5
+  %call133.i = tail call fastcc i32 @codegen_addop_noarg(ptr noundef nonnull %u_instr_sequence132.i750, i32 noundef 10, i64 %loc.sroa.0.0.insert.insert48.i, i64 %loc.sroa.13.8.insert.insert120.i)
   %cmp134.i = icmp eq i32 %call133.i, -1
   br i1 %cmp134.i, label %return, label %if.end137.i
 
@@ -11780,12 +11780,12 @@ for.body152.i:                                    ; preds = %cond.end148.i
   %call157.i = tail call fastcc i32 @compiler_visit_stmt(ptr noundef %c, ptr noundef %737)
   %cmp158.i = icmp eq i32 %call157.i, -1
   %inc163.i = add i32 %_i138.0.i, 1
-  br i1 %cmp158.i, label %return, label %for.cond141.i, !llvm.loop !52
+  br i1 %cmp158.i, label %return, label %for.cond141.i, !llvm.loop !49
 
 for.end164.i:                                     ; preds = %cond.end148.i
   %738 = load ptr, ptr %u11.i, align 8
   %u_instr_sequence166.i = getelementptr inbounds i8, ptr %738, i64 24
-  %call168.i = tail call i32 @_PyCompile_InstructionSequence_UseLabel(ptr noundef nonnull %u_instr_sequence166.i, i32 noundef %inc.i968), !range !5
+  %call168.i = tail call i32 @_PyCompile_InstructionSequence_UseLabel(ptr noundef nonnull %u_instr_sequence166.i, i32 noundef %inc.i968)
   %cmp169.i = icmp eq i32 %call168.i, -1
   %..i752 = sext i1 %cmp169.i to i32
   br label %return
@@ -11796,7 +11796,7 @@ return:                                           ; preds = %for.body.i753, %for
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @compiler_visit_expr(ptr noundef %c, ptr noundef %e) unnamed_addr #1 {
+define internal fastcc range(i32 -1, 1) i32 @compiler_visit_expr(ptr noundef %c, ptr noundef %e) unnamed_addr #1 {
 entry:
   %lineno1.i = getelementptr inbounds i8, ptr %e, i64 32
   %0 = load i32, ptr %lineno1.i, align 8
@@ -11841,7 +11841,7 @@ sw.bb.i:                                          ; preds = %entry
   %v.i = getelementptr inbounds i8, ptr %e, i64 8
   %value.i = getelementptr inbounds i8, ptr %e, i64 16
   %5 = load ptr, ptr %value.i, align 8
-  %call.i = tail call fastcc i32 @compiler_visit_expr(ptr noundef %c, ptr noundef %5), !range !5
+  %call.i = tail call fastcc i32 @compiler_visit_expr(ptr noundef %c, ptr noundef %5)
   %cmp.i = icmp eq i32 %call.i, -1
   br i1 %cmp.i, label %compiler_visit_expr1.exit, label %if.end.i
 
@@ -11861,7 +11861,7 @@ if.end.i:                                         ; preds = %sw.bb.i
   %7 = load i32, ptr %s_used.i.i.i595, align 4
   %add.i.i.i596 = add i32 %7, 1
   %s_allocated.i.i.i597 = getelementptr inbounds i8, ptr %6, i64 32
-  %call.i.i.i598 = tail call i32 @_PyCompile_EnsureArrayLargeEnough(i32 noundef %add.i.i.i596, ptr noundef nonnull %u_instr_sequence.i, ptr noundef nonnull %s_allocated.i.i.i597, i32 noundef 100, i64 noundef 44), !range !5
+  %call.i.i.i598 = tail call i32 @_PyCompile_EnsureArrayLargeEnough(i32 noundef %add.i.i.i596, ptr noundef nonnull %u_instr_sequence.i, ptr noundef nonnull %s_allocated.i.i.i597, i32 noundef 100, i64 noundef 44)
   %cmp.i.i.i599 = icmp eq i32 %call.i.i.i598, -1
   br i1 %cmp.i.i.i599, label %compiler_visit_expr1.exit, label %instr_sequence_next_inst.exit.i.i600
 
@@ -11884,7 +11884,7 @@ if.end8.i:                                        ; preds = %instr_sequence_next
   %loc.sroa.2.0.i_loc.sroa_idx.i.i608 = getelementptr inbounds i8, ptr %arrayidx.i.i605, i64 16
   store i64 %loc.sroa.38.8.insert.insert.i, ptr %loc.sroa.2.0.i_loc.sroa_idx.i.i608, align 4
   %10 = load ptr, ptr %v.i, align 8
-  %call10.i = tail call fastcc i32 @compiler_visit_expr(ptr noundef nonnull %c, ptr noundef %10), !range !5
+  %call10.i = tail call fastcc i32 @compiler_visit_expr(ptr noundef nonnull %c, ptr noundef %10)
   %cmp11.i = icmp eq i32 %call10.i, -1
   br i1 %cmp11.i, label %compiler_visit_expr1.exit, label %sw.epilog342.i
 
@@ -11930,7 +11930,7 @@ for.body.i557:                                    ; preds = %for.body.i557.lr.ph
   %i.0.i531752 = phi i64 [ 0, %for.body.i557.lr.ph ], [ %inc.i594, %for.inc.i593 ]
   %arrayidx.i559 = getelementptr [1 x ptr], ptr %typed_elements.i558, i64 0, i64 %i.0.i531752
   %17 = load ptr, ptr %arrayidx.i559, align 8
-  %call11.i560 = tail call fastcc i32 @compiler_visit_expr(ptr noundef nonnull %c, ptr noundef %17), !range !5
+  %call11.i560 = tail call fastcc i32 @compiler_visit_expr(ptr noundef nonnull %c, ptr noundef %17)
   %cmp12.i561 = icmp eq i32 %call11.i560, -1
   br i1 %cmp12.i561, label %compiler_visit_expr1.exit, label %if.end14.i562
 
@@ -11941,7 +11941,7 @@ if.end14.i562:                                    ; preds = %for.body.i557
   %19 = load i32, ptr %s_used.i.i.i.i567, align 4
   %add.i.i.i.i568 = add i32 %19, 1
   %s_allocated.i.i.i.i569 = getelementptr inbounds i8, ptr %18, i64 32
-  %call.i.i.i.i570 = tail call i32 @_PyCompile_EnsureArrayLargeEnough(i32 noundef %add.i.i.i.i568, ptr noundef nonnull %u_instr_sequence16.i, ptr noundef nonnull %s_allocated.i.i.i.i569, i32 noundef 100, i64 noundef 44), !range !5
+  %call.i.i.i.i570 = tail call i32 @_PyCompile_EnsureArrayLargeEnough(i32 noundef %add.i.i.i.i568, ptr noundef nonnull %u_instr_sequence16.i, ptr noundef nonnull %s_allocated.i.i.i.i569, i32 noundef 100, i64 noundef 44)
   %cmp.i.i.i.i571 = icmp eq i32 %call.i.i.i.i570, -1
   br i1 %cmp.i.i.i.i571, label %compiler_visit_expr1.exit, label %instr_sequence_next_inst.exit.i.i.i572
 
@@ -11969,7 +11969,7 @@ if.end20.i:                                       ; preds = %instr_sequence_next
   %23 = load i32, ptr %s_used.i.i.i76.i, align 4
   %add.i.i.i77.i = add i32 %23, 1
   %s_allocated.i.i.i78.i = getelementptr inbounds i8, ptr %22, i64 32
-  %call.i.i.i79.i = tail call i32 @_PyCompile_EnsureArrayLargeEnough(i32 noundef %add.i.i.i77.i, ptr noundef nonnull %u_instr_sequence22.i, ptr noundef nonnull %s_allocated.i.i.i78.i, i32 noundef 100, i64 noundef 44), !range !5
+  %call.i.i.i79.i = tail call i32 @_PyCompile_EnsureArrayLargeEnough(i32 noundef %add.i.i.i77.i, ptr noundef nonnull %u_instr_sequence22.i, ptr noundef nonnull %s_allocated.i.i.i78.i, i32 noundef 100, i64 noundef 44)
   %cmp.i.i.i80.i = icmp eq i32 %call.i.i.i79.i, -1
   br i1 %cmp.i.i.i80.i, label %compiler_visit_expr1.exit, label %instr_sequence_next_inst.exit.i.i81.i
 
@@ -11997,7 +11997,7 @@ if.end26.i586:                                    ; preds = %instr_sequence_next
   %27 = load i32, ptr %s_used.i.i.i91.i, align 4
   %add.i.i.i92.i = add i32 %27, 1
   %s_allocated.i.i.i93.i = getelementptr inbounds i8, ptr %26, i64 32
-  %call.i.i.i94.i = tail call i32 @_PyCompile_EnsureArrayLargeEnough(i32 noundef %add.i.i.i92.i, ptr noundef nonnull %u_instr_sequence28.i587, ptr noundef nonnull %s_allocated.i.i.i93.i, i32 noundef 100, i64 noundef 44), !range !5
+  %call.i.i.i94.i = tail call i32 @_PyCompile_EnsureArrayLargeEnough(i32 noundef %add.i.i.i92.i, ptr noundef nonnull %u_instr_sequence28.i587, ptr noundef nonnull %s_allocated.i.i.i93.i, i32 noundef 100, i64 noundef 44)
   %cmp.i.i.i95.i = icmp eq i32 %call.i.i.i94.i, -1
   br i1 %cmp.i.i.i95.i, label %compiler_visit_expr1.exit, label %instr_sequence_next_inst.exit.i.i96.i
 
@@ -12025,7 +12025,7 @@ if.end33.i590:                                    ; preds = %instr_sequence_next
   %31 = load i32, ptr %s_used.i.i.i106.i, align 4
   %add.i.i.i107.i = add i32 %31, 1
   %s_allocated.i.i.i108.i = getelementptr inbounds i8, ptr %30, i64 32
-  %call.i.i.i109.i = tail call i32 @_PyCompile_EnsureArrayLargeEnough(i32 noundef %add.i.i.i107.i, ptr noundef nonnull %u_instr_sequence35.i591, ptr noundef nonnull %s_allocated.i.i.i108.i, i32 noundef 100, i64 noundef 44), !range !5
+  %call.i.i.i109.i = tail call i32 @_PyCompile_EnsureArrayLargeEnough(i32 noundef %add.i.i.i107.i, ptr noundef nonnull %u_instr_sequence35.i591, ptr noundef nonnull %s_allocated.i.i.i108.i, i32 noundef 100, i64 noundef 44)
   %cmp.i.i.i110.i = icmp eq i32 %call.i.i.i109.i, -1
   br i1 %cmp.i.i.i110.i, label %compiler_visit_expr1.exit, label %instr_sequence_next_inst.exit.i.i111.i
 
@@ -12049,14 +12049,14 @@ for.inc.i593:                                     ; preds = %instr_sequence_next
   store i64 %loc.sroa.6.8.insert.insert.i566, ptr %loc.sroa.2.0.i_loc.sroa_idx.i.i119.i, align 4
   %inc.i594 = add nuw nsw i64 %i.0.i531752, 1
   %exitcond771.not = icmp eq i64 %inc.i594, %16
-  br i1 %exitcond771.not, label %for.end.i533, label %for.body.i557, !llvm.loop !53
+  br i1 %exitcond771.not, label %for.end.i533, label %for.body.i557, !llvm.loop !50
 
 for.end.i533:                                     ; preds = %for.inc.i593, %if.end7.i524, %cond.end.i528
   %cond.i529786 = phi i64 [ %16, %cond.end.i528 ], [ -1, %if.end7.i524 ], [ %16, %for.inc.i593 ]
   %typed_elements40.i = getelementptr inbounds i8, ptr %14, i64 16
   %arrayidx41.i = getelementptr [1 x ptr], ptr %typed_elements40.i, i64 0, i64 %cond.i529786
   %34 = load ptr, ptr %arrayidx41.i, align 8
-  %call42.i534 = tail call fastcc i32 @compiler_visit_expr(ptr noundef nonnull %c, ptr noundef %34), !range !5
+  %call42.i534 = tail call fastcc i32 @compiler_visit_expr(ptr noundef nonnull %c, ptr noundef %34)
   %cmp43.i535 = icmp eq i32 %call42.i534, -1
   br i1 %cmp43.i535, label %compiler_visit_expr1.exit, label %if.end45.i536
 
@@ -12065,7 +12065,7 @@ if.end45.i536:                                    ; preds = %for.end.i533
   %s_labelmap_size.i.i537 = getelementptr inbounds i8, ptr %35, i64 48
   %36 = load i32, ptr %s_labelmap_size.i.i537, align 8
   %s_labelmap.i.i538 = getelementptr inbounds i8, ptr %35, i64 40
-  %call.i.i539 = tail call i32 @_PyCompile_EnsureArrayLargeEnough(i32 noundef %inc.i.i522, ptr noundef nonnull %s_labelmap.i.i538, ptr noundef nonnull %s_labelmap_size.i.i537, i32 noundef 10, i64 noundef 4), !range !5
+  %call.i.i539 = tail call i32 @_PyCompile_EnsureArrayLargeEnough(i32 noundef %inc.i.i522, ptr noundef nonnull %s_labelmap.i.i538, ptr noundef nonnull %s_labelmap_size.i.i537, i32 noundef 10, i64 noundef 4)
   %cmp.i.i540 = icmp eq i32 %call.i.i539, -1
   br i1 %cmp.i.i540, label %compiler_visit_expr1.exit, label %for.cond.preheader.i.i541
 
@@ -12087,7 +12087,7 @@ for.body.i.i552:                                  ; preds = %for.body.i.i552, %f
   %40 = load i32, ptr %s_labelmap_size.i.i537, align 8
   %41 = sext i32 %40 to i64
   %cmp3.i.i556 = icmp slt i64 %indvars.iv.next.i.i555, %41
-  br i1 %cmp3.i.i556, label %for.body.i.i552, label %_PyCompile_InstructionSequence_UseLabel.exit.i547, !llvm.loop !6
+  br i1 %cmp3.i.i556, label %for.body.i.i552, label %_PyCompile_InstructionSequence_UseLabel.exit.i547, !llvm.loop !5
 
 _PyCompile_InstructionSequence_UseLabel.exit.i547: ; preds = %for.body.i.i552, %for.cond.preheader.i.i541
   %s_used.i.i544 = getelementptr inbounds i8, ptr %35, i64 36
@@ -12101,14 +12101,14 @@ _PyCompile_InstructionSequence_UseLabel.exit.i547: ; preds = %for.body.i.i552, %
 sw.bb16.i:                                        ; preds = %entry
   %v17.i = getelementptr inbounds i8, ptr %e, i64 8
   %44 = load ptr, ptr %v17.i, align 8
-  %call18.i = tail call fastcc i32 @compiler_visit_expr(ptr noundef %c, ptr noundef %44), !range !5
+  %call18.i = tail call fastcc i32 @compiler_visit_expr(ptr noundef %c, ptr noundef %44)
   %cmp19.i = icmp eq i32 %call18.i, -1
   br i1 %cmp19.i, label %compiler_visit_expr1.exit, label %if.end21.i
 
 if.end21.i:                                       ; preds = %sw.bb16.i
   %right.i = getelementptr inbounds i8, ptr %e, i64 24
   %45 = load ptr, ptr %right.i, align 8
-  %call23.i = tail call fastcc i32 @compiler_visit_expr(ptr noundef %c, ptr noundef %45), !range !5
+  %call23.i = tail call fastcc i32 @compiler_visit_expr(ptr noundef %c, ptr noundef %45)
   %cmp24.i = icmp eq i32 %call23.i, -1
   br i1 %cmp24.i, label %compiler_visit_expr1.exit, label %if.end26.i
 
@@ -12123,14 +12123,14 @@ if.end26.i:                                       ; preds = %if.end21.i
   %loc.sroa.74.8.insert.shift412.i = shl nuw i64 %loc.sroa.74.8.insert.ext411.i, 32
   %loc.sroa.38.8.insert.ext286.i = zext i32 %2 to i64
   %loc.sroa.38.8.insert.insert288.i = or disjoint i64 %loc.sroa.74.8.insert.shift412.i, %loc.sroa.38.8.insert.ext286.i
-  %call28.i = tail call fastcc i32 @addop_binary(ptr noundef %c, i64 %loc.sroa.0.0.insert.insert6.i, i64 %loc.sroa.38.8.insert.insert288.i, i32 noundef %46, i1 noundef zeroext false), !range !5
+  %call28.i = tail call fastcc i32 @addop_binary(ptr noundef %c, i64 %loc.sroa.0.0.insert.insert6.i, i64 %loc.sroa.38.8.insert.insert288.i, i32 noundef %46, i1 noundef zeroext false)
   %cmp29.i = icmp eq i32 %call28.i, -1
   br i1 %cmp29.i, label %compiler_visit_expr1.exit, label %sw.epilog342.i
 
 sw.bb32.i:                                        ; preds = %entry
   %operand.i = getelementptr inbounds i8, ptr %e, i64 16
   %47 = load ptr, ptr %operand.i, align 8
-  %call34.i = tail call fastcc i32 @compiler_visit_expr(ptr noundef %c, ptr noundef %47), !range !5
+  %call34.i = tail call fastcc i32 @compiler_visit_expr(ptr noundef %c, ptr noundef %47)
   %cmp35.i = icmp eq i32 %call34.i, -1
   br i1 %cmp35.i, label %compiler_visit_expr1.exit, label %if.end37.i
 
@@ -12154,7 +12154,7 @@ if.then41.i:                                      ; preds = %if.end37.i
   %loc.sroa.74.8.insert.shift417.i = shl nuw i64 %loc.sroa.74.8.insert.ext416.i, 32
   %loc.sroa.38.8.insert.ext290.i = zext i32 %2 to i64
   %loc.sroa.38.8.insert.insert292.i = or disjoint i64 %loc.sroa.74.8.insert.shift417.i, %loc.sroa.38.8.insert.ext290.i
-  %call44.i = tail call fastcc i32 @codegen_addop_i(ptr noundef nonnull %u_instr_sequence66.i, i32 noundef 55, i64 noundef 5, i64 %loc.sroa.0.0.insert.insert10.i, i64 %loc.sroa.38.8.insert.insert292.i), !range !5
+  %call44.i = tail call fastcc i32 @codegen_addop_i(ptr noundef nonnull %u_instr_sequence66.i, i32 noundef 55, i64 noundef 5, i64 %loc.sroa.0.0.insert.insert10.i, i64 %loc.sroa.38.8.insert.insert292.i)
   %cmp45.i = icmp eq i32 %call44.i, -1
   br i1 %cmp45.i, label %compiler_visit_expr1.exit, label %sw.epilog342.i
 
@@ -12167,19 +12167,19 @@ if.then51.i:                                      ; preds = %if.end37.i
   %loc.sroa.74.8.insert.shift422.i = shl nuw i64 %loc.sroa.74.8.insert.ext421.i, 32
   %loc.sroa.38.8.insert.ext294.i = zext i32 %2 to i64
   %loc.sroa.38.8.insert.insert296.i = or disjoint i64 %loc.sroa.74.8.insert.shift422.i, %loc.sroa.38.8.insert.ext294.i
-  %call54.i = tail call fastcc i32 @codegen_addop_noarg(ptr noundef nonnull %u_instr_sequence66.i, i32 noundef 40, i64 %loc.sroa.0.0.insert.insert14.i, i64 %loc.sroa.38.8.insert.insert296.i), !range !5
+  %call54.i = tail call fastcc i32 @codegen_addop_noarg(ptr noundef nonnull %u_instr_sequence66.i, i32 noundef 40, i64 %loc.sroa.0.0.insert.insert14.i, i64 %loc.sroa.38.8.insert.insert296.i)
   %cmp55.i = icmp eq i32 %call54.i, -1
   br i1 %cmp55.i, label %compiler_visit_expr1.exit, label %if.end57.i
 
 if.end57.i:                                       ; preds = %if.then51.i
   %50 = load ptr, ptr %u65.i, align 8
   %u_instr_sequence59.i = getelementptr inbounds i8, ptr %50, i64 24
-  %call60.i = tail call fastcc i32 @codegen_addop_noarg(ptr noundef nonnull %u_instr_sequence59.i, i32 noundef 43, i64 %loc.sroa.0.0.insert.insert14.i, i64 %loc.sroa.38.8.insert.insert296.i), !range !5
+  %call60.i = tail call fastcc i32 @codegen_addop_noarg(ptr noundef nonnull %u_instr_sequence59.i, i32 noundef 43, i64 %loc.sroa.0.0.insert.insert14.i, i64 %loc.sroa.38.8.insert.insert296.i)
   %cmp61.i = icmp eq i32 %call60.i, -1
   br i1 %cmp61.i, label %compiler_visit_expr1.exit, label %sw.epilog342.i
 
 if.else64.i:                                      ; preds = %if.end37.i
-  %call69.i = tail call fastcc i32 @unaryop(i32 noundef %48), !range !54
+  %call69.i = tail call fastcc i32 @unaryop(i32 noundef %48)
   %loc.sroa.36.0.insert.ext149.i = zext i32 %1 to i64
   %loc.sroa.36.0.insert.shift150.i = shl nuw i64 %loc.sroa.36.0.insert.ext149.i, 32
   %loc.sroa.0.0.insert.ext20.i = zext i32 %0 to i64
@@ -12188,14 +12188,14 @@ if.else64.i:                                      ; preds = %if.end37.i
   %loc.sroa.74.8.insert.shift432.i = shl nuw i64 %loc.sroa.74.8.insert.ext431.i, 32
   %loc.sroa.38.8.insert.ext302.i = zext i32 %2 to i64
   %loc.sroa.38.8.insert.insert304.i = or disjoint i64 %loc.sroa.74.8.insert.shift432.i, %loc.sroa.38.8.insert.ext302.i
-  %call70.i = tail call fastcc i32 @codegen_addop_noarg(ptr noundef nonnull %u_instr_sequence66.i, i32 noundef %call69.i, i64 %loc.sroa.0.0.insert.insert22.i, i64 %loc.sroa.38.8.insert.insert304.i), !range !5
+  %call70.i = tail call fastcc i32 @codegen_addop_noarg(ptr noundef nonnull %u_instr_sequence66.i, i32 noundef %call69.i, i64 %loc.sroa.0.0.insert.insert22.i, i64 %loc.sroa.38.8.insert.insert304.i)
   %cmp71.i = icmp eq i32 %call70.i, -1
   br i1 %cmp71.i, label %compiler_visit_expr1.exit, label %sw.epilog342.i
 
 sw.bb76.i:                                        ; preds = %entry
   %v.i452 = getelementptr inbounds i8, ptr %e, i64 8
   %51 = load ptr, ptr %v.i452, align 8
-  %call.i453 = tail call fastcc i32 @compiler_check_debug_args(ptr noundef %c, ptr noundef %51), !range !5
+  %call.i453 = tail call fastcc i32 @compiler_check_debug_args(ptr noundef %c, ptr noundef %51)
   %cmp.i454 = icmp eq i32 %call.i453, -1
   br i1 %cmp.i454, label %compiler_visit_expr1.exit, label %if.end.i455
 
@@ -12223,7 +12223,7 @@ cond.end.i.i465:                                  ; preds = %if.end.i455
   br i1 %cmp3.i.i466, label %if.then.i.i, label %if.end6.i.i
 
 if.then.i.i:                                      ; preds = %cond.end.i.i465
-  %call.i.i511 = tail call fastcc i32 @compiler_visit_defaults(ptr noundef %c, ptr noundef nonnull %51, i64 %loc.sroa.0.0.insert.insert.i459, i64 %loc.sroa.4.8.insert.insert.i463), !range !5
+  %call.i.i511 = tail call fastcc i32 @compiler_visit_defaults(ptr noundef %c, ptr noundef nonnull %51, i64 %loc.sroa.0.0.insert.insert.i459, i64 %loc.sroa.4.8.insert.insert.i463)
   %cmp4.i.i = icmp eq i32 %call.i.i511, -1
   br i1 %cmp4.i.i, label %compiler_visit_expr1.exit, label %if.end6.i.i
 
@@ -12237,7 +12237,7 @@ if.end6.i.i:                                      ; preds = %if.then.i.i, %cond.
 if.then8.i.i:                                     ; preds = %if.end6.i.i
   %kw_defaults.i.i = getelementptr inbounds i8, ptr %51, i64 32
   %59 = load ptr, ptr %kw_defaults.i.i, align 8
-  %call10.i.i467 = tail call fastcc i32 @compiler_visit_kwonlydefaults(ptr noundef %c, i64 %loc.sroa.0.0.insert.insert.i459, i64 %loc.sroa.4.8.insert.insert.i463, ptr noundef nonnull %58, ptr noundef %59), !range !55
+  %call10.i.i467 = tail call fastcc i32 @compiler_visit_kwonlydefaults(ptr noundef %c, i64 %loc.sroa.0.0.insert.insert.i459, i64 %loc.sroa.4.8.insert.insert.i463, ptr noundef nonnull %58, ptr noundef %59)
   %cmp11.i.i = icmp eq i32 %call10.i.i467, -1
   br i1 %cmp11.i.i, label %compiler_visit_expr1.exit, label %if.end13.i.i
 
@@ -12250,7 +12250,7 @@ if.end13.i.i:                                     ; preds = %if.then8.i.i
 if.end9.i:                                        ; preds = %if.end6.i.i, %if.end13.i.i
   %retval.0.i.i468 = phi i64 [ %funcflags.0.i.i, %if.end6.i.i ], [ %spec.select.i.i, %if.end13.i.i ]
   %60 = load i32, ptr %lineno1.i, align 8
-  %call11.i470 = tail call fastcc i32 @compiler_enter_scope(ptr noundef %c, ptr noundef nonnull getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 37, i32 0, i32 3, i32 0, i32 2), i32 noundef 4, ptr noundef nonnull %e, i32 noundef %60), !range !5
+  %call11.i470 = tail call fastcc i32 @compiler_enter_scope(ptr noundef %c, ptr noundef nonnull getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 37, i32 0, i32 3, i32 0, i32 2), i32 noundef 4, ptr noundef nonnull %e, i32 noundef %60)
   %cmp12.i471 = icmp eq i32 %call11.i470, -1
   br i1 %cmp12.i471, label %compiler_visit_expr1.exit, label %if.end.i63.i
 
@@ -12322,7 +12322,7 @@ cond.end37.i:                                     ; preds = %cond.false34.i, %co
   store i64 %cond38.i, ptr %u_kwonlyargcount.i, align 8
   %body.i482 = getelementptr inbounds i8, ptr %e, i64 16
   %74 = load ptr, ptr %body.i482, align 8
-  %call42.i = tail call fastcc i32 @compiler_visit_expr(ptr noundef nonnull %c, ptr noundef %74), !range !5
+  %call42.i = tail call fastcc i32 @compiler_visit_expr(ptr noundef nonnull %c, ptr noundef %74)
   %cmp43.i483 = icmp slt i32 %call42.i, 0
   br i1 %cmp43.i483, label %if.then44.i, label %if.end45.i
 
@@ -12349,7 +12349,7 @@ if.else.i491:                                     ; preds = %if.end45.i
   %79 = load i32, ptr %s_used.i.i.i.i493, align 4
   %add.i.i.i.i494 = add i32 %79, 1
   %s_allocated.i.i.i.i495 = getelementptr inbounds i8, ptr %75, i64 32
-  %call.i.i.i.i496 = tail call i32 @_PyCompile_EnsureArrayLargeEnough(i32 noundef %add.i.i.i.i494, ptr noundef nonnull %u_instr_sequence.i492, ptr noundef nonnull %s_allocated.i.i.i.i495, i32 noundef 100, i64 noundef 44), !range !5
+  %call.i.i.i.i496 = tail call i32 @_PyCompile_EnsureArrayLargeEnough(i32 noundef %add.i.i.i.i494, ptr noundef nonnull %u_instr_sequence.i492, ptr noundef nonnull %s_allocated.i.i.i.i495, i32 noundef 100, i64 noundef 44)
   %cmp.i.i.i.i497 = icmp eq i32 %call.i.i.i.i496, -1
   br i1 %cmp.i.i.i.i497, label %if.then59.i, label %instr_sequence_next_inst.exit.i.i.i498
 
@@ -12385,7 +12385,7 @@ if.end62.i485:                                    ; preds = %if.end45.i, %if.end
   br i1 %cmp63.i, label %compiler_visit_expr1.exit, label %if.end65.i
 
 if.end65.i:                                       ; preds = %if.end62.i485
-  %call66.i = tail call fastcc i32 @compiler_make_closure(ptr noundef nonnull %c, i64 %loc.sroa.0.0.insert.insert.i459, i64 %loc.sroa.4.8.insert.insert.i463, ptr noundef nonnull %call61.i, i64 noundef %retval.0.i.i468), !range !5
+  %call66.i = tail call fastcc i32 @compiler_make_closure(ptr noundef nonnull %c, i64 %loc.sroa.0.0.insert.insert.i459, i64 %loc.sroa.4.8.insert.insert.i463, ptr noundef nonnull %call61.i, i64 noundef %retval.0.i.i468)
   %cmp67.i = icmp slt i32 %call66.i, 0
   %82 = load i64, ptr %call61.i, align 8
   %83 = and i64 %82, 2147483648
@@ -12447,7 +12447,7 @@ if.end8.i416:                                     ; preds = %if.end.i414
 if.end17.i419:                                    ; preds = %if.end8.i416
   %body.i = getelementptr inbounds i8, ptr %e, i64 16
   %89 = load ptr, ptr %body.i, align 8
-  %call19.i420 = tail call fastcc i32 @compiler_visit_expr(ptr noundef nonnull %c, ptr noundef %89), !range !5
+  %call19.i420 = tail call fastcc i32 @compiler_visit_expr(ptr noundef nonnull %c, ptr noundef %89)
   %cmp20.i421 = icmp eq i32 %call19.i420, -1
   br i1 %cmp20.i421, label %compiler_visit_expr1.exit, label %if.end22.i422
 
@@ -12458,7 +12458,7 @@ if.end22.i422:                                    ; preds = %if.end17.i419
   %91 = load i32, ptr %s_used.i.i.i.i423, align 4
   %add.i.i.i.i424 = add i32 %91, 1
   %s_allocated.i.i.i.i425 = getelementptr inbounds i8, ptr %90, i64 32
-  %call.i.i.i.i426 = tail call i32 @_PyCompile_EnsureArrayLargeEnough(i32 noundef %add.i.i.i.i424, ptr noundef nonnull %u_instr_sequence24.i, ptr noundef nonnull %s_allocated.i.i.i.i425, i32 noundef 100, i64 noundef 44), !range !5
+  %call.i.i.i.i426 = tail call i32 @_PyCompile_EnsureArrayLargeEnough(i32 noundef %add.i.i.i.i424, ptr noundef nonnull %u_instr_sequence24.i, ptr noundef nonnull %s_allocated.i.i.i.i425, i32 noundef 100, i64 noundef 44)
   %cmp.i.i.i.i427 = icmp eq i32 %call.i.i.i.i426, -1
   br i1 %cmp.i.i.i.i427, label %compiler_visit_expr1.exit, label %instr_sequence_next_inst.exit.i.i.i428
 
@@ -12482,7 +12482,7 @@ if.end29.i:                                       ; preds = %instr_sequence_next
   %s_labelmap_size.i.i = getelementptr inbounds i8, ptr %94, i64 48
   %95 = load i32, ptr %s_labelmap_size.i.i, align 8
   %s_labelmap.i.i = getelementptr inbounds i8, ptr %94, i64 40
-  %call.i.i440 = tail call i32 @_PyCompile_EnsureArrayLargeEnough(i32 noundef %inc.i19.i, ptr noundef nonnull %s_labelmap.i.i, ptr noundef nonnull %s_labelmap_size.i.i, i32 noundef 10, i64 noundef 4), !range !5
+  %call.i.i440 = tail call i32 @_PyCompile_EnsureArrayLargeEnough(i32 noundef %inc.i19.i, ptr noundef nonnull %s_labelmap.i.i, ptr noundef nonnull %s_labelmap_size.i.i, i32 noundef 10, i64 noundef 4)
   %cmp.i.i441 = icmp eq i32 %call.i.i440, -1
   br i1 %cmp.i.i441, label %compiler_visit_expr1.exit, label %for.cond.preheader.i.i
 
@@ -12504,7 +12504,7 @@ for.body.i.i449:                                  ; preds = %for.body.i.i449, %f
   %99 = load i32, ptr %s_labelmap_size.i.i, align 8
   %100 = sext i32 %99 to i64
   %cmp3.i.i451 = icmp slt i64 %indvars.iv.next.i.i, %100
-  br i1 %cmp3.i.i451, label %for.body.i.i449, label %if.end36.i, !llvm.loop !6
+  br i1 %cmp3.i.i451, label %for.body.i.i449, label %if.end36.i, !llvm.loop !5
 
 if.end36.i:                                       ; preds = %for.body.i.i449, %for.cond.preheader.i.i
   %s_used.i.i = getelementptr inbounds i8, ptr %94, i64 36
@@ -12515,7 +12515,7 @@ if.end36.i:                                       ; preds = %for.body.i.i449, %f
   store i32 %101, ptr %arrayidx7.i.i, align 4
   %orelse.i = getelementptr inbounds i8, ptr %e, i64 24
   %103 = load ptr, ptr %orelse.i, align 8
-  %call38.i443 = tail call fastcc i32 @compiler_visit_expr(ptr noundef %c, ptr noundef %103), !range !5
+  %call38.i443 = tail call fastcc i32 @compiler_visit_expr(ptr noundef %c, ptr noundef %103)
   %cmp39.i444 = icmp eq i32 %call38.i443, -1
   br i1 %cmp39.i444, label %compiler_visit_expr1.exit, label %if.end41.i445
 
@@ -12524,7 +12524,7 @@ if.end41.i445:                                    ; preds = %if.end36.i
   %s_labelmap_size.i20.i = getelementptr inbounds i8, ptr %104, i64 48
   %105 = load i32, ptr %s_labelmap_size.i20.i, align 8
   %s_labelmap.i21.i = getelementptr inbounds i8, ptr %104, i64 40
-  %call.i22.i = tail call i32 @_PyCompile_EnsureArrayLargeEnough(i32 noundef %inc.i.i412, ptr noundef nonnull %s_labelmap.i21.i, ptr noundef nonnull %s_labelmap_size.i20.i, i32 noundef 10, i64 noundef 4), !range !5
+  %call.i22.i = tail call i32 @_PyCompile_EnsureArrayLargeEnough(i32 noundef %inc.i.i412, ptr noundef nonnull %s_labelmap.i21.i, ptr noundef nonnull %s_labelmap_size.i20.i, i32 noundef 10, i64 noundef 4)
   %cmp.i23.i = icmp eq i32 %call.i22.i, -1
   br i1 %cmp.i23.i, label %compiler_visit_expr1.exit, label %for.cond.preheader.i24.i
 
@@ -12546,7 +12546,7 @@ for.body.i32.i:                                   ; preds = %for.body.i32.i, %fo
   %109 = load i32, ptr %s_labelmap_size.i20.i, align 8
   %110 = sext i32 %109 to i64
   %cmp3.i36.i = icmp slt i64 %indvars.iv.next.i35.i, %110
-  br i1 %cmp3.i36.i, label %for.body.i32.i, label %_PyCompile_InstructionSequence_UseLabel.exit37.i, !llvm.loop !6
+  br i1 %cmp3.i36.i, label %for.body.i32.i, label %_PyCompile_InstructionSequence_UseLabel.exit37.i, !llvm.loop !5
 
 _PyCompile_InstructionSequence_UseLabel.exit37.i: ; preds = %for.body.i32.i, %for.cond.preheader.i24.i
   %s_used.i27.i = getelementptr inbounds i8, ptr %104, i64 36
@@ -12598,7 +12598,7 @@ if.then.i379:                                     ; preds = %for.body.i372
 
 if.then11.i:                                      ; preds = %if.then.i379
   %sub.i380 = sub i64 %i.0.i363746, %elements.0.i747
-  %call.i381 = tail call fastcc i32 @compiler_subdict(ptr noundef %c, ptr noundef nonnull %e, i64 noundef %sub.i380, i64 noundef %i.0.i363746), !range !5
+  %call.i381 = tail call fastcc i32 @compiler_subdict(ptr noundef %c, ptr noundef nonnull %e, i64 noundef %sub.i380, i64 noundef %i.0.i363746)
   %cmp12.i = icmp eq i32 %call.i381, -1
   br i1 %cmp12.i, label %compiler_visit_expr1.exit, label %if.end.i382
 
@@ -12613,7 +12613,7 @@ if.then16.i:                                      ; preds = %if.end.i382
   %118 = load i32, ptr %s_used.i.i.i.i387, align 4
   %add.i.i.i.i388 = add i32 %118, 1
   %s_allocated.i.i.i.i389 = getelementptr inbounds i8, ptr %117, i64 32
-  %call.i.i.i.i390 = tail call i32 @_PyCompile_EnsureArrayLargeEnough(i32 noundef %add.i.i.i.i388, ptr noundef nonnull %u_instr_sequence.i384, ptr noundef nonnull %s_allocated.i.i.i.i389, i32 noundef 100, i64 noundef 44), !range !5
+  %call.i.i.i.i390 = tail call i32 @_PyCompile_EnsureArrayLargeEnough(i32 noundef %add.i.i.i.i388, ptr noundef nonnull %u_instr_sequence.i384, ptr noundef nonnull %s_allocated.i.i.i.i389, i32 noundef 100, i64 noundef 44)
   %cmp.i.i.i.i391 = icmp eq i32 %call.i.i.i.i390, -1
   br i1 %cmp.i.i.i.i391, label %compiler_visit_expr1.exit, label %instr_sequence_next_inst.exit.i.i.i392
 
@@ -12642,7 +12642,7 @@ if.then26.i:                                      ; preds = %if.end23.i
   %122 = load i32, ptr %s_used.i.i.i129.i, align 4
   %add.i.i.i130.i = add i32 %122, 1
   %s_allocated.i.i.i131.i = getelementptr inbounds i8, ptr %121, i64 32
-  %call.i.i.i132.i = tail call i32 @_PyCompile_EnsureArrayLargeEnough(i32 noundef %add.i.i.i130.i, ptr noundef nonnull %u_instr_sequence28.i407, ptr noundef nonnull %s_allocated.i.i.i131.i, i32 noundef 100, i64 noundef 44), !range !5
+  %call.i.i.i132.i = tail call i32 @_PyCompile_EnsureArrayLargeEnough(i32 noundef %add.i.i.i130.i, ptr noundef nonnull %u_instr_sequence28.i407, ptr noundef nonnull %s_allocated.i.i.i131.i, i32 noundef 100, i64 noundef 44)
   %cmp.i.i.i133.i = icmp eq i32 %call.i.i.i132.i, -1
   br i1 %cmp.i.i.i133.i, label %compiler_visit_expr1.exit, label %instr_sequence_next_inst.exit.i.i134.i
 
@@ -12677,7 +12677,7 @@ if.end34.i405:                                    ; preds = %if.end34.i405.sink.
   %typed_elements37.i = getelementptr inbounds i8, ptr %125, i64 16
   %arrayidx38.i = getelementptr [1 x ptr], ptr %typed_elements37.i, i64 0, i64 %i.0.i363746
   %126 = load ptr, ptr %arrayidx38.i, align 8
-  %call39.i = tail call fastcc i32 @compiler_visit_expr(ptr noundef %c, ptr noundef %126), !range !5
+  %call39.i = tail call fastcc i32 @compiler_visit_expr(ptr noundef %c, ptr noundef %126)
   %cmp40.i = icmp eq i32 %call39.i, -1
   br i1 %cmp40.i, label %compiler_visit_expr1.exit, label %if.end43.i
 
@@ -12688,7 +12688,7 @@ if.end43.i:                                       ; preds = %if.end34.i405
   %128 = load i32, ptr %s_used.i.i.i145.i, align 4
   %add.i.i.i146.i = add i32 %128, 1
   %s_allocated.i.i.i147.i = getelementptr inbounds i8, ptr %127, i64 32
-  %call.i.i.i148.i = tail call i32 @_PyCompile_EnsureArrayLargeEnough(i32 noundef %add.i.i.i146.i, ptr noundef nonnull %u_instr_sequence45.i, ptr noundef nonnull %s_allocated.i.i.i147.i, i32 noundef 100, i64 noundef 44), !range !5
+  %call.i.i.i148.i = tail call i32 @_PyCompile_EnsureArrayLargeEnough(i32 noundef %add.i.i.i146.i, ptr noundef nonnull %u_instr_sequence45.i, ptr noundef nonnull %s_allocated.i.i.i147.i, i32 noundef 100, i64 noundef 44)
   %cmp.i.i.i149.i = icmp eq i32 %call.i.i.i148.i, -1
   br i1 %cmp.i.i.i149.i, label %compiler_visit_expr1.exit, label %instr_sequence_next_inst.exit.i.i150.i
 
@@ -12720,7 +12720,7 @@ if.else.i375:                                     ; preds = %for.body.i372
 if.then53.i:                                      ; preds = %if.else.i375
   %sub54.i = sub i64 %i.0.i363746, %elements.0.i747
   %add.i = add nuw nsw i64 %i.0.i363746, 1
-  %call55.i = tail call fastcc i32 @compiler_subdict(ptr noundef %c, ptr noundef nonnull %e, i64 noundef %sub54.i, i64 noundef %add.i), !range !5
+  %call55.i = tail call fastcc i32 @compiler_subdict(ptr noundef %c, ptr noundef nonnull %e, i64 noundef %sub54.i, i64 noundef %add.i)
   %cmp56.i = icmp eq i32 %call55.i, -1
   br i1 %cmp56.i, label %compiler_visit_expr1.exit, label %if.end59.i
 
@@ -12735,7 +12735,7 @@ if.then61.i:                                      ; preds = %if.end59.i
   %132 = load i32, ptr %s_used.i.i.i161.i, align 4
   %add.i.i.i162.i = add i32 %132, 1
   %s_allocated.i.i.i163.i = getelementptr inbounds i8, ptr %131, i64 32
-  %call.i.i.i164.i = tail call i32 @_PyCompile_EnsureArrayLargeEnough(i32 noundef %add.i.i.i162.i, ptr noundef nonnull %u_instr_sequence63.i, ptr noundef nonnull %s_allocated.i.i.i163.i, i32 noundef 100, i64 noundef 44), !range !5
+  %call.i.i.i164.i = tail call i32 @_PyCompile_EnsureArrayLargeEnough(i32 noundef %add.i.i.i162.i, ptr noundef nonnull %u_instr_sequence63.i, ptr noundef nonnull %s_allocated.i.i.i163.i, i32 noundef 100, i64 noundef 44)
   %cmp.i.i.i165.i = icmp eq i32 %call.i.i.i164.i, -1
   br i1 %cmp.i.i.i165.i, label %compiler_visit_expr1.exit, label %instr_sequence_next_inst.exit.i.i166.i
 
@@ -12768,7 +12768,7 @@ for.inc.i378:                                     ; preds = %codegen_addop_i.exi
   %have_dict.3.i = phi i32 [ %have_dict.2.i, %codegen_addop_i.exit160.i ], [ %have_dict.0.i748, %if.else70.i ], [ 1, %codegen_addop_i.exit176.i ], [ 1, %if.end59.i ]
   %inc73.i = add nuw nsw i64 %i.0.i363746, 1
   %exitcond770.not = icmp eq i64 %inc73.i, %114
-  br i1 %exitcond770.not, label %for.end.i365, label %for.body.i372, !llvm.loop !56
+  br i1 %exitcond770.not, label %for.end.i365, label %for.body.i372, !llvm.loop !51
 
 for.end.i365:                                     ; preds = %for.inc.i378
   %135 = icmp eq i32 %have_dict.3.i, 0
@@ -12777,7 +12777,7 @@ for.end.i365:                                     ; preds = %for.inc.i378
 
 if.then75.i:                                      ; preds = %for.end.i365
   %sub76.i = sub i64 %114, %elements.2.i
-  %call77.i366 = tail call fastcc i32 @compiler_subdict(ptr noundef %c, ptr noundef nonnull %e, i64 noundef %sub76.i, i64 noundef %114), !range !5
+  %call77.i366 = tail call fastcc i32 @compiler_subdict(ptr noundef %c, ptr noundef nonnull %e, i64 noundef %sub76.i, i64 noundef %114)
   %cmp78.i = icmp eq i32 %call77.i366, -1
   %brmerge = select i1 %cmp78.i, i1 true, i1 %135
   %.mux = sext i1 %cmp78.i to i32
@@ -12799,7 +12799,7 @@ if.then83.i:                                      ; preds = %if.then75.i
   %137 = load i32, ptr %s_used.i.i.i177.i, align 4
   %add.i.i.i178.i = add i32 %137, 1
   %s_allocated.i.i.i179.i = getelementptr inbounds i8, ptr %136, i64 32
-  %call.i.i.i180.i = tail call i32 @_PyCompile_EnsureArrayLargeEnough(i32 noundef %add.i.i.i178.i, ptr noundef nonnull %u_instr_sequence85.i, ptr noundef nonnull %s_allocated.i.i.i179.i, i32 noundef 100, i64 noundef 44), !range !5
+  %call.i.i.i180.i = tail call i32 @_PyCompile_EnsureArrayLargeEnough(i32 noundef %add.i.i.i178.i, ptr noundef nonnull %u_instr_sequence85.i, ptr noundef nonnull %s_allocated.i.i.i179.i, i32 noundef 100, i64 noundef 44)
   %cmp.i.i.i181.i = icmp eq i32 %call.i.i.i180.i, -1
   br i1 %cmp.i.i.i181.i, label %compiler_visit_expr1.exit, label %instr_sequence_next_inst.exit.i.i182.i
 
@@ -12842,7 +12842,7 @@ if.then94.i:                                      ; preds = %cond.end.i360, %sw.
   %141 = load i32, ptr %s_used.i.i.i193.i, align 4
   %add.i.i.i194.i = add i32 %141, 1
   %s_allocated.i.i.i195.i = getelementptr inbounds i8, ptr %140, i64 32
-  %call.i.i.i196.i = tail call i32 @_PyCompile_EnsureArrayLargeEnough(i32 noundef %add.i.i.i194.i, ptr noundef nonnull %u_instr_sequence96.i, ptr noundef nonnull %s_allocated.i.i.i195.i, i32 noundef 100, i64 noundef 44), !range !5
+  %call.i.i.i196.i = tail call i32 @_PyCompile_EnsureArrayLargeEnough(i32 noundef %add.i.i.i194.i, ptr noundef nonnull %u_instr_sequence96.i, ptr noundef nonnull %s_allocated.i.i.i195.i, i32 noundef 100, i64 noundef 44)
   %cmp.i.i.i197.i = icmp eq i32 %call.i.i.i196.i, -1
   br i1 %cmp.i.i.i197.i, label %compiler_visit_expr1.exit, label %instr_sequence_next_inst.exit.i.i198.i
 
@@ -12877,7 +12877,7 @@ sw.bb82.i:                                        ; preds = %entry
   %loc.sroa.5.8.insert.shift.i = shl nuw i64 %loc.sroa.5.8.insert.ext.i351, 32
   %loc.sroa.3.8.insert.ext.i = zext i32 %2 to i64
   %loc.sroa.3.8.insert.insert.i = or disjoint i64 %loc.sroa.5.8.insert.shift.i, %loc.sroa.3.8.insert.ext.i
-  %call.i352 = tail call fastcc i32 @starunpack_helper(ptr noundef %c, i64 %loc.sroa.0.0.insert.insert.i350, i64 %loc.sroa.3.8.insert.insert.i, ptr noundef %144, i32 noundef 0, i32 noundef 49, i32 noundef 105, i32 noundef 107, i32 noundef 0), !range !5
+  %call.i352 = tail call fastcc i32 @starunpack_helper(ptr noundef %c, i64 %loc.sroa.0.0.insert.insert.i350, i64 %loc.sroa.3.8.insert.insert.i, ptr noundef %144, i32 noundef 0, i32 noundef 49, i32 noundef 105, i32 noundef 107, i32 noundef 0)
   br label %compiler_visit_expr1.exit
 
 sw.bb84.i:                                        ; preds = %entry
@@ -12885,7 +12885,7 @@ sw.bb84.i:                                        ; preds = %entry
   %generators.i342 = getelementptr inbounds i8, ptr %e, i64 16
   %145 = load ptr, ptr %generators.i342, align 8
   %146 = load ptr, ptr %v.i341, align 8
-  %call.i343 = tail call fastcc i32 @compiler_comprehension(ptr noundef %c, ptr noundef nonnull %e, i32 noundef 0, ptr noundef nonnull getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 37, i32 0, i32 3, i32 0, i32 1), ptr noundef %145, ptr noundef %146, ptr noundef null), !range !5
+  %call.i343 = tail call fastcc i32 @compiler_comprehension(ptr noundef %c, ptr noundef nonnull %e, i32 noundef 0, ptr noundef nonnull getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 37, i32 0, i32 3, i32 0, i32 1), ptr noundef %145, ptr noundef %146, ptr noundef null)
   br label %compiler_visit_expr1.exit
 
 sw.bb86.i:                                        ; preds = %entry
@@ -12893,7 +12893,7 @@ sw.bb86.i:                                        ; preds = %entry
   %generators.i339 = getelementptr inbounds i8, ptr %e, i64 16
   %147 = load ptr, ptr %generators.i339, align 8
   %148 = load ptr, ptr %v.i338, align 8
-  %call.i340 = tail call fastcc i32 @compiler_comprehension(ptr noundef %c, ptr noundef nonnull %e, i32 noundef 1, ptr noundef nonnull getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 37, i32 0, i32 3, i32 0, i32 3), ptr noundef %147, ptr noundef %148, ptr noundef null), !range !5
+  %call.i340 = tail call fastcc i32 @compiler_comprehension(ptr noundef %c, ptr noundef nonnull %e, i32 noundef 1, ptr noundef nonnull getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 37, i32 0, i32 3, i32 0, i32 3), ptr noundef %147, ptr noundef %148, ptr noundef null)
   br label %compiler_visit_expr1.exit
 
 sw.bb88.i:                                        ; preds = %entry
@@ -12901,7 +12901,7 @@ sw.bb88.i:                                        ; preds = %entry
   %generators.i336 = getelementptr inbounds i8, ptr %e, i64 16
   %149 = load ptr, ptr %generators.i336, align 8
   %150 = load ptr, ptr %v.i335, align 8
-  %call.i337 = tail call fastcc i32 @compiler_comprehension(ptr noundef %c, ptr noundef nonnull %e, i32 noundef 2, ptr noundef nonnull getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 37, i32 0, i32 3, i32 0, i32 6), ptr noundef %149, ptr noundef %150, ptr noundef null), !range !5
+  %call.i337 = tail call fastcc i32 @compiler_comprehension(ptr noundef %c, ptr noundef nonnull %e, i32 noundef 2, ptr noundef nonnull getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 37, i32 0, i32 3, i32 0, i32 6), ptr noundef %149, ptr noundef %150, ptr noundef null)
   br label %compiler_visit_expr1.exit
 
 sw.bb90.i:                                        ; preds = %entry
@@ -12911,7 +12911,7 @@ sw.bb90.i:                                        ; preds = %entry
   %152 = load ptr, ptr %v.i332, align 8
   %value.i333 = getelementptr inbounds i8, ptr %e, i64 16
   %153 = load ptr, ptr %value.i333, align 8
-  %call.i334 = tail call fastcc i32 @compiler_comprehension(ptr noundef %c, ptr noundef nonnull %e, i32 noundef 3, ptr noundef nonnull getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 37, i32 0, i32 3), ptr noundef %151, ptr noundef %152, ptr noundef %153), !range !5
+  %call.i334 = tail call fastcc i32 @compiler_comprehension(ptr noundef %c, ptr noundef nonnull %e, i32 noundef 3, ptr noundef nonnull getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 37, i32 0, i32 3), ptr noundef %151, ptr noundef %152, ptr noundef %153)
   br label %compiler_visit_expr1.exit
 
 sw.bb92.i:                                        ; preds = %entry
@@ -12941,7 +12941,7 @@ if.end97.i:                                       ; preds = %sw.bb92.i
   br i1 %tobool100.not.i, label %if.else108.i, label %if.then101.i
 
 if.then101.i:                                     ; preds = %if.end97.i
-  %call104.i = tail call fastcc i32 @compiler_visit_expr(ptr noundef nonnull %c, ptr noundef nonnull %156), !range !5
+  %call104.i = tail call fastcc i32 @compiler_visit_expr(ptr noundef nonnull %c, ptr noundef nonnull %156)
   %cmp105.i = icmp eq i32 %call104.i, -1
   br i1 %cmp105.i, label %compiler_visit_expr1.exit, label %if.then101.i.if.end114.i_crit_edge
 
@@ -12968,14 +12968,14 @@ if.else108.i:                                     ; preds = %if.end97.i
   %loc.sroa.74.8.insert.shift442.i = shl nuw i64 %loc.sroa.74.8.insert.ext441.i, 32
   %loc.sroa.38.8.insert.ext310.i = zext i32 %2 to i64
   %loc.sroa.38.8.insert.insert312.i = or disjoint i64 %loc.sroa.74.8.insert.shift442.i, %loc.sroa.38.8.insert.ext310.i
-  %call110.i = tail call fastcc i32 @compiler_addop_load_const(ptr noundef %157, ptr noundef %158, i64 %loc.sroa.0.0.insert.insert30.i, i64 %loc.sroa.38.8.insert.insert312.i, ptr noundef nonnull @_Py_NoneStruct), !range !5
+  %call110.i = tail call fastcc i32 @compiler_addop_load_const(ptr noundef %157, ptr noundef %158, i64 %loc.sroa.0.0.insert.insert30.i, i64 %loc.sroa.38.8.insert.insert312.i, ptr noundef nonnull @_Py_NoneStruct)
   %cmp111.i = icmp eq i32 %call110.i, -1
   br i1 %cmp111.i, label %compiler_visit_expr1.exit, label %if.end114.i
 
 if.end114.i:                                      ; preds = %if.then101.i.if.end114.i_crit_edge, %if.else108.i
   %loc.sroa.38.8.insert.insert316.i.pre-phi = phi i64 [ %.pre783, %if.then101.i.if.end114.i_crit_edge ], [ %loc.sroa.38.8.insert.insert312.i, %if.else108.i ]
   %loc.sroa.0.0.insert.insert34.i.pre-phi = phi i64 [ %.pre779, %if.then101.i.if.end114.i_crit_edge ], [ %loc.sroa.0.0.insert.insert30.i, %if.else108.i ]
-  %call115.i = tail call fastcc i32 @addop_yield(ptr noundef nonnull %c, i64 %loc.sroa.0.0.insert.insert34.i.pre-phi, i64 %loc.sroa.38.8.insert.insert316.i.pre-phi), !range !5
+  %call115.i = tail call fastcc i32 @addop_yield(ptr noundef nonnull %c, i64 %loc.sroa.0.0.insert.insert34.i.pre-phi, i64 %loc.sroa.38.8.insert.insert316.i.pre-phi)
   %cmp116.i = icmp eq i32 %call115.i, -1
   br i1 %cmp116.i, label %compiler_visit_expr1.exit, label %sw.epilog342.i
 
@@ -13021,7 +13021,7 @@ if.then129.i:                                     ; preds = %if.end126.i
 if.end131.i:                                      ; preds = %if.end126.i
   %v132.i = getelementptr inbounds i8, ptr %e, i64 8
   %163 = load ptr, ptr %v132.i, align 8
-  %call134.i = tail call fastcc i32 @compiler_visit_expr(ptr noundef nonnull %c, ptr noundef %163), !range !5
+  %call134.i = tail call fastcc i32 @compiler_visit_expr(ptr noundef nonnull %c, ptr noundef %163)
   %cmp135.i = icmp eq i32 %call134.i, -1
   br i1 %cmp135.i, label %compiler_visit_expr1.exit, label %if.end137.i
 
@@ -13036,7 +13036,7 @@ if.end137.i:                                      ; preds = %if.end131.i
   %loc.sroa.74.8.insert.shift462.i = shl nuw i64 %loc.sroa.74.8.insert.ext461.i, 32
   %loc.sroa.38.8.insert.ext326.i = zext i32 %2 to i64
   %loc.sroa.38.8.insert.insert328.i = or disjoint i64 %loc.sroa.74.8.insert.shift462.i, %loc.sroa.38.8.insert.ext326.i
-  %call140.i = tail call fastcc i32 @codegen_addop_noarg(ptr noundef nonnull %u_instr_sequence139.i, i32 noundef 21, i64 %loc.sroa.0.0.insert.insert46.i, i64 %loc.sroa.38.8.insert.insert328.i), !range !5
+  %call140.i = tail call fastcc i32 @codegen_addop_noarg(ptr noundef nonnull %u_instr_sequence139.i, i32 noundef 21, i64 %loc.sroa.0.0.insert.insert46.i, i64 %loc.sroa.38.8.insert.insert328.i)
   %cmp141.i = icmp eq i32 %call140.i, -1
   br i1 %cmp141.i, label %compiler_visit_expr1.exit, label %if.end143.i
 
@@ -13044,12 +13044,12 @@ if.end143.i:                                      ; preds = %if.end137.i
   %c_const_cache144.i = getelementptr inbounds i8, ptr %c, i64 56
   %165 = load ptr, ptr %c_const_cache144.i, align 8
   %166 = load ptr, ptr %u120.i, align 8
-  %call146.i = tail call fastcc i32 @compiler_addop_load_const(ptr noundef %165, ptr noundef %166, i64 %loc.sroa.0.0.insert.insert46.i, i64 %loc.sroa.38.8.insert.insert328.i, ptr noundef nonnull @_Py_NoneStruct), !range !5
+  %call146.i = tail call fastcc i32 @compiler_addop_load_const(ptr noundef %165, ptr noundef %166, i64 %loc.sroa.0.0.insert.insert46.i, i64 %loc.sroa.38.8.insert.insert328.i, ptr noundef nonnull @_Py_NoneStruct)
   %cmp147.i = icmp eq i32 %call146.i, -1
   br i1 %cmp147.i, label %compiler_visit_expr1.exit, label %if.end149.i
 
 if.end149.i:                                      ; preds = %if.end143.i
-  %call150.i = tail call fastcc i32 @compiler_add_yield_from(ptr noundef nonnull %c, i64 %loc.sroa.0.0.insert.insert46.i, i64 %loc.sroa.38.8.insert.insert328.i, i32 noundef 0), !range !5
+  %call150.i = tail call fastcc i32 @compiler_add_yield_from(ptr noundef nonnull %c, i64 %loc.sroa.0.0.insert.insert46.i, i64 %loc.sroa.38.8.insert.insert328.i, i32 noundef 0)
   %cmp151.i = icmp eq i32 %call150.i, -1
   br i1 %cmp151.i, label %compiler_visit_expr1.exit, label %sw.epilog342.i
 
@@ -13111,7 +13111,7 @@ if.then174.i:                                     ; preds = %if.end166.i
 if.end177.i:                                      ; preds = %if.end166.i, %if.end166.i, %land.lhs.true.i
   %v178.i = getelementptr inbounds i8, ptr %e, i64 8
   %171 = load ptr, ptr %v178.i, align 8
-  %call180.i = tail call fastcc i32 @compiler_visit_expr(ptr noundef nonnull %c, ptr noundef %171), !range !5
+  %call180.i = tail call fastcc i32 @compiler_visit_expr(ptr noundef nonnull %c, ptr noundef %171)
   %cmp181.i = icmp eq i32 %call180.i, -1
   br i1 %cmp181.i, label %compiler_visit_expr1.exit, label %if.end183.i
 
@@ -13127,7 +13127,7 @@ if.end183.i:                                      ; preds = %if.end177.i
   %loc.sroa.74.8.insert.shift487.i = shl nuw i64 %loc.sroa.74.8.insert.ext486.i, 32
   %loc.sroa.38.8.insert.ext346.i = zext i32 %2 to i64
   %loc.sroa.38.8.insert.insert348.i = or disjoint i64 %loc.sroa.74.8.insert.shift487.i, %loc.sroa.38.8.insert.ext346.i
-  %call186.i = tail call fastcc i32 @codegen_addop_i(ptr noundef nonnull %u_instr_sequence185.i, i32 noundef 73, i64 noundef 0, i64 %loc.sroa.0.0.insert.insert66.i, i64 %loc.sroa.38.8.insert.insert348.i), !range !5
+  %call186.i = tail call fastcc i32 @codegen_addop_i(ptr noundef nonnull %u_instr_sequence185.i, i32 noundef 73, i64 noundef 0, i64 %loc.sroa.0.0.insert.insert66.i, i64 %loc.sroa.38.8.insert.insert348.i)
   %cmp187.i = icmp eq i32 %call186.i, -1
   br i1 %cmp187.i, label %compiler_visit_expr1.exit, label %if.end189.i
 
@@ -13135,24 +13135,24 @@ if.end189.i:                                      ; preds = %if.end183.i
   %c_const_cache190.i = getelementptr inbounds i8, ptr %c, i64 56
   %173 = load ptr, ptr %c_const_cache190.i, align 8
   %174 = load ptr, ptr %u184.i, align 8
-  %call192.i = tail call fastcc i32 @compiler_addop_load_const(ptr noundef %173, ptr noundef %174, i64 %loc.sroa.0.0.insert.insert66.i, i64 %loc.sroa.38.8.insert.insert348.i, ptr noundef nonnull @_Py_NoneStruct), !range !5
+  %call192.i = tail call fastcc i32 @compiler_addop_load_const(ptr noundef %173, ptr noundef %174, i64 %loc.sroa.0.0.insert.insert66.i, i64 %loc.sroa.38.8.insert.insert348.i, ptr noundef nonnull @_Py_NoneStruct)
   %cmp193.i = icmp eq i32 %call192.i, -1
   br i1 %cmp193.i, label %compiler_visit_expr1.exit, label %if.end195.i
 
 if.end195.i:                                      ; preds = %if.end189.i
-  %call196.i = tail call fastcc i32 @compiler_add_yield_from(ptr noundef nonnull %c, i64 %loc.sroa.0.0.insert.insert66.i, i64 %loc.sroa.38.8.insert.insert348.i, i32 noundef 1), !range !5
+  %call196.i = tail call fastcc i32 @compiler_add_yield_from(ptr noundef nonnull %c, i64 %loc.sroa.0.0.insert.insert66.i, i64 %loc.sroa.38.8.insert.insert348.i, i32 noundef 1)
   %cmp197.i = icmp eq i32 %call196.i, -1
   br i1 %cmp197.i, label %compiler_visit_expr1.exit, label %sw.epilog342.i
 
 sw.bb200.i:                                       ; preds = %entry
-  %call.i274 = tail call fastcc i32 @check_compare(ptr noundef %c, ptr noundef nonnull %e), !range !5
+  %call.i274 = tail call fastcc i32 @check_compare(ptr noundef %c, ptr noundef nonnull %e)
   %cmp.i275 = icmp eq i32 %call.i274, -1
   br i1 %cmp.i275, label %compiler_visit_expr1.exit, label %if.end.i276
 
 if.end.i276:                                      ; preds = %sw.bb200.i
   %v.i277 = getelementptr inbounds i8, ptr %e, i64 8
   %175 = load ptr, ptr %v.i277, align 8
-  %call5.i278 = tail call fastcc i32 @compiler_visit_expr(ptr noundef %c, ptr noundef %175), !range !5
+  %call5.i278 = tail call fastcc i32 @compiler_visit_expr(ptr noundef %c, ptr noundef %175)
   %cmp6.i279 = icmp eq i32 %call5.i278, -1
   br i1 %cmp6.i279, label %compiler_visit_expr1.exit, label %if.end8.i280
 
@@ -13173,7 +13173,7 @@ if.then14.i:                                      ; preds = %cond.end.i283
   %178 = load ptr, ptr %comparators.i, align 8
   %typed_elements.i326 = getelementptr inbounds i8, ptr %178, i64 16
   %179 = load ptr, ptr %typed_elements.i326, align 8
-  %call16.i327 = tail call fastcc i32 @compiler_visit_expr(ptr noundef %c, ptr noundef %179), !range !5
+  %call16.i327 = tail call fastcc i32 @compiler_visit_expr(ptr noundef %c, ptr noundef %179)
   %cmp17.i328 = icmp eq i32 %call16.i327, -1
   br i1 %cmp17.i328, label %compiler_visit_expr1.exit, label %if.end19.i329
 
@@ -13189,7 +13189,7 @@ if.end19.i329:                                    ; preds = %if.then14.i
   %loc.sroa.25.8.insert.shift.i = shl nuw i64 %loc.sroa.25.8.insert.ext.i, 32
   %loc.sroa.13.8.insert.ext.i = zext i32 %2 to i64
   %loc.sroa.13.8.insert.insert.i = or disjoint i64 %loc.sroa.25.8.insert.shift.i, %loc.sroa.13.8.insert.ext.i
-  %call24.i = tail call fastcc i32 @compiler_addcompare(ptr noundef %c, i64 %loc.sroa.0.0.insert.insert.i331, i64 %loc.sroa.13.8.insert.insert.i, i32 noundef %181), !range !5
+  %call24.i = tail call fastcc i32 @compiler_addcompare(ptr noundef %c, i64 %loc.sroa.0.0.insert.insert.i331, i64 %loc.sroa.13.8.insert.insert.i, i32 noundef %181)
   %cmp25.i = icmp eq i32 %call24.i, -1
   br i1 %cmp25.i, label %compiler_visit_expr1.exit, label %if.end143.i297
 
@@ -13235,7 +13235,7 @@ for.body.i299:                                    ; preds = %for.body.i299.lr.ph
   %typed_elements35.i = getelementptr inbounds i8, ptr %186, i64 16
   %arrayidx36.i = getelementptr [1 x ptr], ptr %typed_elements35.i, i64 0, i64 %i.0.i292744
   %187 = load ptr, ptr %arrayidx36.i, align 8
-  %call37.i = tail call fastcc i32 @compiler_visit_expr(ptr noundef nonnull %c, ptr noundef %187), !range !5
+  %call37.i = tail call fastcc i32 @compiler_visit_expr(ptr noundef nonnull %c, ptr noundef %187)
   %cmp38.i = icmp eq i32 %call37.i, -1
   br i1 %cmp38.i, label %compiler_visit_expr1.exit, label %if.end40.i
 
@@ -13246,7 +13246,7 @@ if.end40.i:                                       ; preds = %for.body.i299
   %189 = load i32, ptr %s_used.i.i.i.i302, align 4
   %add.i.i.i.i303 = add i32 %189, 1
   %s_allocated.i.i.i.i304 = getelementptr inbounds i8, ptr %188, i64 32
-  %call.i.i.i.i305 = tail call i32 @_PyCompile_EnsureArrayLargeEnough(i32 noundef %add.i.i.i.i303, ptr noundef nonnull %u_instr_sequence42.i, ptr noundef nonnull %s_allocated.i.i.i.i304, i32 noundef 100, i64 noundef 44), !range !5
+  %call.i.i.i.i305 = tail call i32 @_PyCompile_EnsureArrayLargeEnough(i32 noundef %add.i.i.i.i303, ptr noundef nonnull %u_instr_sequence42.i, ptr noundef nonnull %s_allocated.i.i.i.i304, i32 noundef 100, i64 noundef 44)
   %cmp.i.i.i.i306 = icmp eq i32 %call.i.i.i.i305, -1
   br i1 %cmp.i.i.i.i306, label %compiler_visit_expr1.exit, label %instr_sequence_next_inst.exit.i.i.i307
 
@@ -13274,7 +13274,7 @@ if.end46.i:                                       ; preds = %instr_sequence_next
   %193 = load i32, ptr %s_used.i.i.i224.i, align 4
   %add.i.i.i225.i = add i32 %193, 1
   %s_allocated.i.i.i226.i = getelementptr inbounds i8, ptr %192, i64 32
-  %call.i.i.i227.i = tail call i32 @_PyCompile_EnsureArrayLargeEnough(i32 noundef %add.i.i.i225.i, ptr noundef nonnull %u_instr_sequence48.i, ptr noundef nonnull %s_allocated.i.i.i226.i, i32 noundef 100, i64 noundef 44), !range !5
+  %call.i.i.i227.i = tail call i32 @_PyCompile_EnsureArrayLargeEnough(i32 noundef %add.i.i.i225.i, ptr noundef nonnull %u_instr_sequence48.i, ptr noundef nonnull %s_allocated.i.i.i226.i, i32 noundef 100, i64 noundef 44)
   %cmp.i.i.i228.i = icmp eq i32 %call.i.i.i227.i, -1
   br i1 %cmp.i.i.i228.i, label %compiler_visit_expr1.exit, label %instr_sequence_next_inst.exit.i.i229.i
 
@@ -13300,7 +13300,7 @@ if.end52.i:                                       ; preds = %instr_sequence_next
   %typed_elements55.i = getelementptr inbounds i8, ptr %196, i64 16
   %arrayidx56.i = getelementptr [1 x i32], ptr %typed_elements55.i, i64 0, i64 %i.0.i292744
   %197 = load i32, ptr %arrayidx56.i, align 4
-  %call57.i = tail call fastcc i32 @compiler_addcompare(ptr noundef nonnull %c, i64 %loc.sroa.0.0.insert.insert14.i301, i64 %loc.sroa.13.8.insert.insert104.i, i32 noundef %197), !range !5
+  %call57.i = tail call fastcc i32 @compiler_addcompare(ptr noundef nonnull %c, i64 %loc.sroa.0.0.insert.insert14.i301, i64 %loc.sroa.13.8.insert.insert104.i, i32 noundef %197)
   %cmp58.i = icmp eq i32 %call57.i, -1
   br i1 %cmp58.i, label %compiler_visit_expr1.exit, label %if.end60.i
 
@@ -13311,7 +13311,7 @@ if.end60.i:                                       ; preds = %if.end52.i
   %199 = load i32, ptr %s_used.i.i.i240.i, align 4
   %add.i.i.i241.i = add i32 %199, 1
   %s_allocated.i.i.i242.i = getelementptr inbounds i8, ptr %198, i64 32
-  %call.i.i.i243.i = tail call i32 @_PyCompile_EnsureArrayLargeEnough(i32 noundef %add.i.i.i241.i, ptr noundef nonnull %u_instr_sequence62.i, ptr noundef nonnull %s_allocated.i.i.i242.i, i32 noundef 100, i64 noundef 44), !range !5
+  %call.i.i.i243.i = tail call i32 @_PyCompile_EnsureArrayLargeEnough(i32 noundef %add.i.i.i241.i, ptr noundef nonnull %u_instr_sequence62.i, ptr noundef nonnull %s_allocated.i.i.i242.i, i32 noundef 100, i64 noundef 44)
   %cmp.i.i.i244.i = icmp eq i32 %call.i.i.i243.i, -1
   br i1 %cmp.i.i.i244.i, label %compiler_visit_expr1.exit, label %instr_sequence_next_inst.exit.i.i245.i
 
@@ -13339,7 +13339,7 @@ if.end66.i:                                       ; preds = %instr_sequence_next
   %203 = load i32, ptr %s_used.i.i.i256.i, align 4
   %add.i.i.i257.i = add i32 %203, 1
   %s_allocated.i.i.i258.i = getelementptr inbounds i8, ptr %202, i64 32
-  %call.i.i.i259.i = tail call i32 @_PyCompile_EnsureArrayLargeEnough(i32 noundef %add.i.i.i257.i, ptr noundef nonnull %u_instr_sequence68.i, ptr noundef nonnull %s_allocated.i.i.i258.i, i32 noundef 100, i64 noundef 44), !range !5
+  %call.i.i.i259.i = tail call i32 @_PyCompile_EnsureArrayLargeEnough(i32 noundef %add.i.i.i257.i, ptr noundef nonnull %u_instr_sequence68.i, ptr noundef nonnull %s_allocated.i.i.i258.i, i32 noundef 100, i64 noundef 44)
   %cmp.i.i.i260.i = icmp eq i32 %call.i.i.i259.i, -1
   br i1 %cmp.i.i.i260.i, label %compiler_visit_expr1.exit, label %instr_sequence_next_inst.exit.i.i261.i
 
@@ -13367,7 +13367,7 @@ if.end72.i:                                       ; preds = %instr_sequence_next
   %207 = load i32, ptr %s_used.i.i.i271.i, align 4
   %add.i.i.i272.i = add i32 %207, 1
   %s_allocated.i.i.i273.i = getelementptr inbounds i8, ptr %206, i64 32
-  %call.i.i.i274.i = tail call i32 @_PyCompile_EnsureArrayLargeEnough(i32 noundef %add.i.i.i272.i, ptr noundef nonnull %u_instr_sequence74.i, ptr noundef nonnull %s_allocated.i.i.i273.i, i32 noundef 100, i64 noundef 44), !range !5
+  %call.i.i.i274.i = tail call i32 @_PyCompile_EnsureArrayLargeEnough(i32 noundef %add.i.i.i272.i, ptr noundef nonnull %u_instr_sequence74.i, ptr noundef nonnull %s_allocated.i.i.i273.i, i32 noundef 100, i64 noundef 44)
   %cmp.i.i.i275.i = icmp eq i32 %call.i.i.i274.i, -1
   br i1 %cmp.i.i.i275.i, label %compiler_visit_expr1.exit, label %instr_sequence_next_inst.exit.i.i276.i
 
@@ -13395,7 +13395,7 @@ if.end79.i:                                       ; preds = %instr_sequence_next
   %211 = load i32, ptr %s_used.i.i.i286.i, align 4
   %add.i.i.i287.i = add i32 %211, 1
   %s_allocated.i.i.i288.i = getelementptr inbounds i8, ptr %210, i64 32
-  %call.i.i.i289.i = tail call i32 @_PyCompile_EnsureArrayLargeEnough(i32 noundef %add.i.i.i287.i, ptr noundef nonnull %u_instr_sequence81.i322, ptr noundef nonnull %s_allocated.i.i.i288.i, i32 noundef 100, i64 noundef 44), !range !5
+  %call.i.i.i289.i = tail call i32 @_PyCompile_EnsureArrayLargeEnough(i32 noundef %add.i.i.i287.i, ptr noundef nonnull %u_instr_sequence81.i322, ptr noundef nonnull %s_allocated.i.i.i288.i, i32 noundef 100, i64 noundef 44)
   %cmp.i.i.i290.i = icmp eq i32 %call.i.i.i289.i, -1
   br i1 %cmp.i.i.i290.i, label %compiler_visit_expr1.exit, label %instr_sequence_next_inst.exit.i.i291.i
 
@@ -13419,7 +13419,7 @@ for.inc.i324:                                     ; preds = %instr_sequence_next
   store i64 %loc.sroa.13.8.insert.insert104.i, ptr %loc.sroa.2.0.i_loc.sroa_idx.i.i299.i, align 4
   %inc.i325 = add nuw nsw i64 %i.0.i292744, 1
   %exitcond769.not = icmp eq i64 %inc.i325, %sub.i
-  br i1 %exitcond769.not, label %for.end.i294, label %for.body.i299, !llvm.loop !57
+  br i1 %exitcond769.not, label %for.end.i294, label %for.body.i299, !llvm.loop !52
 
 for.end.i294:                                     ; preds = %for.inc.i324, %if.else.i286.thread, %for.cond.i291.preheader
   %sub.i662801810 = phi i64 [ %sub.i, %for.cond.i291.preheader ], [ -1, %if.else.i286.thread ], [ %sub.i, %for.inc.i324 ]
@@ -13430,7 +13430,7 @@ for.end.i294:                                     ; preds = %for.inc.i324, %if.e
   %typed_elements88.i = getelementptr inbounds i8, ptr %214, i64 16
   %arrayidx89.i = getelementptr [1 x ptr], ptr %typed_elements88.i, i64 0, i64 %sub.i662801810
   %215 = load ptr, ptr %arrayidx89.i, align 8
-  %call90.i = tail call fastcc i32 @compiler_visit_expr(ptr noundef nonnull %c, ptr noundef %215), !range !5
+  %call90.i = tail call fastcc i32 @compiler_visit_expr(ptr noundef nonnull %c, ptr noundef %215)
   %cmp91.i = icmp eq i32 %call90.i, -1
   br i1 %cmp91.i, label %compiler_visit_expr1.exit, label %if.end93.i
 
@@ -13447,7 +13447,7 @@ if.end93.i:                                       ; preds = %for.end.i294
   %loc.sroa.25.8.insert.shift178.i = shl nuw i64 %loc.sroa.25.8.insert.ext177.i, 32
   %loc.sroa.13.8.insert.ext130.i = zext i32 %2 to i64
   %loc.sroa.13.8.insert.insert132.i = or disjoint i64 %loc.sroa.25.8.insert.shift178.i, %loc.sroa.13.8.insert.ext130.i
-  %call98.i = tail call fastcc i32 @compiler_addcompare(ptr noundef nonnull %c, i64 %loc.sroa.0.0.insert.insert42.i296, i64 %loc.sroa.13.8.insert.insert132.i, i32 noundef %217), !range !5
+  %call98.i = tail call fastcc i32 @compiler_addcompare(ptr noundef nonnull %c, i64 %loc.sroa.0.0.insert.insert42.i296, i64 %loc.sroa.13.8.insert.insert132.i, i32 noundef %217)
   %cmp99.i = icmp eq i32 %call98.i, -1
   br i1 %cmp99.i, label %compiler_visit_expr1.exit, label %if.end101.i
 
@@ -13463,35 +13463,35 @@ if.end101.i:                                      ; preds = %if.end93.i
 if.end109.i:                                      ; preds = %if.end101.i
   %220 = load ptr, ptr %u.i287802809, align 8
   %u_instr_sequence111.i = getelementptr inbounds i8, ptr %220, i64 24
-  %call113.i = tail call fastcc i32 @codegen_addop_j(ptr noundef nonnull %u_instr_sequence111.i, i64 -1, i64 -1, i32 noundef 256, i32 %inc.i303.i), !range !5
+  %call113.i = tail call fastcc i32 @codegen_addop_j(ptr noundef nonnull %u_instr_sequence111.i, i64 -1, i64 -1, i32 noundef 256, i32 %inc.i303.i)
   %cmp114.i = icmp eq i32 %call113.i, -1
   br i1 %cmp114.i, label %compiler_visit_expr1.exit, label %if.end116.i
 
 if.end116.i:                                      ; preds = %if.end109.i
   %221 = load ptr, ptr %u.i287802809, align 8
   %u_instr_sequence118.i = getelementptr inbounds i8, ptr %221, i64 24
-  %call120.i = tail call i32 @_PyCompile_InstructionSequence_UseLabel(ptr noundef nonnull %u_instr_sequence118.i, i32 noundef %inc.i.i289803808), !range !5
+  %call120.i = tail call i32 @_PyCompile_InstructionSequence_UseLabel(ptr noundef nonnull %u_instr_sequence118.i, i32 noundef %inc.i.i289803808)
   %cmp121.i = icmp eq i32 %call120.i, -1
   br i1 %cmp121.i, label %compiler_visit_expr1.exit, label %if.end123.i
 
 if.end123.i:                                      ; preds = %if.end116.i
   %222 = load ptr, ptr %u.i287802809, align 8
   %u_instr_sequence125.i = getelementptr inbounds i8, ptr %222, i64 24
-  %call126.i = tail call fastcc i32 @codegen_addop_i(ptr noundef nonnull %u_instr_sequence125.i, i32 noundef 115, i64 noundef 2, i64 %loc.sroa.0.0.insert.insert42.i296, i64 %loc.sroa.13.8.insert.insert132.i), !range !5
+  %call126.i = tail call fastcc i32 @codegen_addop_i(ptr noundef nonnull %u_instr_sequence125.i, i32 noundef 115, i64 noundef 2, i64 %loc.sroa.0.0.insert.insert42.i296, i64 %loc.sroa.13.8.insert.insert132.i)
   %cmp127.i = icmp eq i32 %call126.i, -1
   br i1 %cmp127.i, label %compiler_visit_expr1.exit, label %if.end129.i
 
 if.end129.i:                                      ; preds = %if.end123.i
   %223 = load ptr, ptr %u.i287802809, align 8
   %u_instr_sequence131.i = getelementptr inbounds i8, ptr %223, i64 24
-  %call132.i = tail call fastcc i32 @codegen_addop_noarg(ptr noundef nonnull %u_instr_sequence131.i, i32 noundef 32, i64 %loc.sroa.0.0.insert.insert42.i296, i64 %loc.sroa.13.8.insert.insert132.i), !range !5
+  %call132.i = tail call fastcc i32 @codegen_addop_noarg(ptr noundef nonnull %u_instr_sequence131.i, i32 noundef 32, i64 %loc.sroa.0.0.insert.insert42.i296, i64 %loc.sroa.13.8.insert.insert132.i)
   %cmp133.i = icmp eq i32 %call132.i, -1
   br i1 %cmp133.i, label %compiler_visit_expr1.exit, label %if.end135.i
 
 if.end135.i:                                      ; preds = %if.end129.i
   %224 = load ptr, ptr %u.i287802809, align 8
   %u_instr_sequence137.i = getelementptr inbounds i8, ptr %224, i64 24
-  %call139.i = tail call i32 @_PyCompile_InstructionSequence_UseLabel(ptr noundef nonnull %u_instr_sequence137.i, i32 noundef %inc.i303.i), !range !5
+  %call139.i = tail call i32 @_PyCompile_InstructionSequence_UseLabel(ptr noundef nonnull %u_instr_sequence137.i, i32 noundef %inc.i303.i)
   %cmp140.i = icmp eq i32 %call139.i, -1
   br i1 %cmp140.i, label %compiler_visit_expr1.exit, label %if.end143.i297
 
@@ -13502,7 +13502,7 @@ sw.bb202.i:                                       ; preds = %entry
   %v.i203 = getelementptr inbounds i8, ptr %e, i64 8
   %keywords.i = getelementptr inbounds i8, ptr %e, i64 24
   %225 = load ptr, ptr %keywords.i, align 8
-  %call.i204 = tail call fastcc i32 @validate_keywords(ptr noundef %c, ptr noundef %225), !range !5
+  %call.i204 = tail call fastcc i32 @validate_keywords(ptr noundef %c, ptr noundef %225)
   %cmp.i205 = icmp eq i32 %call.i204, -1
   br i1 %cmp.i205, label %compiler_visit_expr1.exit, label %if.end.i206
 
@@ -13577,7 +13577,7 @@ for.body.i.i265.lr.ph:                            ; preds = %for.cond.i.i261.pre
 for.cond.i.i261:                                  ; preds = %for.body.i.i265
   %inc.i.i269 = add nuw nsw i64 %i.0.i.i262740, 1
   %exitcond767.not = icmp eq i64 %inc.i.i269, %cond.i.i260
-  br i1 %exitcond767.not, label %for.cond30.i.i.preheader, label %for.body.i.i265, !llvm.loop !58
+  br i1 %exitcond767.not, label %for.cond30.i.i.preheader, label %for.body.i.i265, !llvm.loop !53
 
 for.cond30.i.i.preheader:                         ; preds = %for.cond.i.i261, %for.cond.i.i261.preheader
   %cmp31.i.i741 = icmp sgt i64 %cond15.i.i, 0
@@ -13598,7 +13598,7 @@ for.body.i.i265:                                  ; preds = %for.body.i.i265.lr.
 for.cond30.i.i:                                   ; preds = %for.body33.i.i
   %inc41.i.i = add nuw nsw i64 %i.1.i.i742, 1
   %exitcond768.not = icmp eq i64 %inc41.i.i, %cond15.i.i
-  br i1 %exitcond768.not, label %for.end42.i.i, label %for.body33.i.i, !llvm.loop !59
+  br i1 %exitcond768.not, label %for.end42.i.i, label %for.body33.i.i, !llvm.loop !54
 
 for.body33.i.i:                                   ; preds = %for.body33.i.i.lr.ph, %for.cond30.i.i
   %i.1.i.i742 = phi i64 [ 0, %for.body33.i.i.lr.ph ], [ %inc41.i.i, %for.cond30.i.i ]
@@ -13617,13 +13617,13 @@ for.end42.i.i:                                    ; preds = %for.cond30.i.i, %fo
   %244 = load i32, ptr %col_offset45.i.i, align 4
   %end_col_offset46.i.i = getelementptr inbounds i8, ptr %226, i64 44
   %245 = load i32, ptr %end_col_offset46.i.i, align 4
-  %call47.i.i = tail call fastcc i32 @can_optimize_super_call(ptr noundef %c, ptr noundef nonnull %226), !range !60
+  %call47.i.i = tail call fastcc i32 @can_optimize_super_call(ptr noundef %c, ptr noundef nonnull %226)
   %tobool48.not.i.i = icmp eq i32 %call47.i.i, 0
   %246 = load ptr, ptr %v4.i.i255, align 8
   br i1 %tobool48.not.i.i, label %if.else.i.i, label %if.then49.i.i
 
 if.then49.i.i:                                    ; preds = %for.end42.i.i
-  %call52.i.i = tail call fastcc i32 @load_args_for_super(ptr noundef %c, ptr noundef %246), !range !5
+  %call52.i.i = tail call fastcc i32 @load_args_for_super(ptr noundef %c, ptr noundef %246)
   %cmp53.i.i = icmp eq i32 %call52.i.i, -1
   br i1 %cmp53.i.i, label %maybe_optimize_method_call.exit.i.thread, label %if.end56.i.i
 
@@ -13656,7 +13656,7 @@ cond.end70.i.i:                                   ; preds = %cond.false64.i.i, %
   %loc.sroa.27.8.insert.shift.i.i = shl nuw i64 %loc.sroa.27.8.insert.ext.i.i, 32
   %loc.sroa.14.8.insert.ext.i.i = zext i32 %244 to i64
   %loc.sroa.14.8.insert.insert.i.i = or disjoint i64 %loc.sroa.27.8.insert.shift.i.i, %loc.sroa.14.8.insert.ext.i.i
-  %call76.i.i = tail call fastcc i32 @compiler_addop_name(ptr noundef %252, i64 %loc.sroa.0.0.insert.insert.i.i264, i64 %loc.sroa.14.8.insert.insert.i.i, i32 noundef %cond71.i.i, ptr noundef %253, ptr noundef %254), !range !5
+  %call76.i.i = tail call fastcc i32 @compiler_addop_name(ptr noundef %252, i64 %loc.sroa.0.0.insert.insert.i.i264, i64 %loc.sroa.14.8.insert.insert.i.i, i32 noundef %cond71.i.i, ptr noundef %253, ptr noundef %254)
   %cmp77.i.i = icmp eq i32 %call76.i.i, -1
   br i1 %cmp77.i.i, label %maybe_optimize_method_call.exit.i.thread, label %if.end80.i.i
 
@@ -13666,12 +13666,12 @@ if.end80.i.i:                                     ; preds = %cond.end70.i.i
   %256 = extractvalue { i64, i64 } %call81.i.i, 1
   %257 = load ptr, ptr %u.i.i, align 8
   %u_instr_sequence.i.i = getelementptr inbounds i8, ptr %257, i64 24
-  %call83.i.i = tail call fastcc i32 @codegen_addop_noarg(ptr noundef nonnull %u_instr_sequence.i.i, i32 noundef 30, i64 %255, i64 %256), !range !5
+  %call83.i.i = tail call fastcc i32 @codegen_addop_noarg(ptr noundef nonnull %u_instr_sequence.i.i, i32 noundef 30, i64 %255, i64 %256)
   %cmp84.i.i = icmp eq i32 %call83.i.i, -1
   br i1 %cmp84.i.i, label %maybe_optimize_method_call.exit.i.thread, label %if.end108.i.i
 
 if.else.i.i:                                      ; preds = %for.end42.i.i
-  %call90.i.i = tail call fastcc i32 @compiler_visit_expr(ptr noundef %c, ptr noundef %246), !range !5
+  %call90.i.i = tail call fastcc i32 @compiler_visit_expr(ptr noundef %c, ptr noundef %246)
   %cmp91.i.i = icmp eq i32 %call90.i.i, -1
   br i1 %cmp91.i.i, label %maybe_optimize_method_call.exit.i.thread, label %if.end94.i.i
 
@@ -13693,7 +13693,7 @@ if.end94.i.i:                                     ; preds = %if.else.i.i
   %261 = load ptr, ptr %u_names100.i.i, align 8
   %attr102.i.i = getelementptr inbounds i8, ptr %226, i64 16
   %262 = load ptr, ptr %attr102.i.i, align 8
-  %call103.i.i = tail call fastcc i32 @compiler_addop_name(ptr noundef %260, i64 %258, i64 %259, i32 noundef 259, ptr noundef %261, ptr noundef %262), !range !5
+  %call103.i.i = tail call fastcc i32 @compiler_addop_name(ptr noundef %260, i64 %258, i64 %259, i32 noundef 259, ptr noundef %261, ptr noundef %262)
   %cmp104.i.i = icmp eq i32 %call103.i.i, -1
   br i1 %cmp104.i.i, label %maybe_optimize_method_call.exit.i.thread, label %if.end108.i.i
 
@@ -13722,10 +13722,10 @@ cond.end118.i.i:                                  ; preds = %cond.false116.i.i, 
 for.body122.i.i:                                  ; preds = %cond.end118.i.i
   %arrayidx125.i.i = getelementptr [1 x ptr], ptr %typed_elements124.i.i, i64 0, i64 %conv112.i.i
   %265 = load ptr, ptr %arrayidx125.i.i, align 8
-  %call126.i.i = tail call fastcc i32 @compiler_visit_expr(ptr noundef %c, ptr noundef %265), !range !5
+  %call126.i.i = tail call fastcc i32 @compiler_visit_expr(ptr noundef %c, ptr noundef %265)
   %cmp127.i.i = icmp eq i32 %call126.i.i, -1
   %inc132.i.i = add i32 %_i.0.i.i, 1
-  br i1 %cmp127.i.i, label %maybe_optimize_method_call.exit.i.thread, label %for.cond111.i.i, !llvm.loop !61
+  br i1 %cmp127.i.i, label %maybe_optimize_method_call.exit.i.thread, label %for.cond111.i.i, !llvm.loop !55
 
 for.end133.i.i:                                   ; preds = %cond.end118.i.i
   br i1 %cmp16.i.i, label %for.cond138.i.i.preheader, label %if.else185.i.i
@@ -13753,13 +13753,13 @@ for.body149.i.i:                                  ; preds = %cond.end145.i.i
   %267 = load ptr, ptr %arrayidx153.i.i, align 8
   %value.i611 = getelementptr inbounds i8, ptr %267, i64 8
   %268 = load ptr, ptr %value.i611, align 8
-  %call.i612 = tail call fastcc i32 @compiler_visit_expr(ptr noundef %c, ptr noundef %268), !range !5
+  %call.i612 = tail call fastcc i32 @compiler_visit_expr(ptr noundef %c, ptr noundef %268)
   %cmp.i613 = icmp eq i32 %call.i612, -1
   %inc160.i.i = add i32 %_i136.0.i.i, 1
-  br i1 %cmp.i613, label %maybe_optimize_method_call.exit.i.thread, label %for.cond138.i.i, !llvm.loop !62
+  br i1 %cmp.i613, label %maybe_optimize_method_call.exit.i.thread, label %for.cond138.i.i, !llvm.loop !56
 
 for.end161.i.i:                                   ; preds = %cond.end145.i.i
-  %call162.i.i = tail call fastcc i32 @compiler_call_simple_kw_helper(ptr noundef %c, i64 %loc.sroa.0.0.in.i.i, i64 %loc.sroa.14.0.in.i.i, ptr noundef %228, i64 noundef %cond15.i.i), !range !5
+  %call162.i.i = tail call fastcc i32 @compiler_call_simple_kw_helper(ptr noundef %c, i64 %loc.sroa.0.0.in.i.i, i64 %loc.sroa.14.0.in.i.i, ptr noundef %228, i64 noundef %cond15.i.i)
   %cmp163.i.i = icmp eq i32 %call162.i.i, -1
   br i1 %cmp163.i.i, label %maybe_optimize_method_call.exit.i.thread, label %if.end166.i.i
 
@@ -13782,7 +13782,7 @@ if.end166.i.i:                                    ; preds = %for.end161.i.i
   %u177.i.i = getelementptr inbounds i8, ptr %c, i64 64
   %275 = load ptr, ptr %u177.i.i, align 8
   %u_instr_sequence178.i.i = getelementptr inbounds i8, ptr %275, i64 24
-  %call180.i.i = tail call fastcc i32 @codegen_addop_i(ptr noundef nonnull %u_instr_sequence178.i.i, i32 noundef 57, i64 noundef %add.i.i, i64 %273, i64 %274), !range !5
+  %call180.i.i = tail call fastcc i32 @codegen_addop_i(ptr noundef nonnull %u_instr_sequence178.i.i, i32 noundef 57, i64 noundef %add.i.i, i64 %273, i64 %274)
   %cmp181.i.i = icmp eq i32 %call180.i.i, -1
   br i1 %cmp181.i.i, label %maybe_optimize_method_call.exit.i.thread, label %compiler_visit_expr1.exit
 
@@ -13805,7 +13805,7 @@ if.else185.i.i:                                   ; preds = %for.end133.i.i
   %u197.i.i = getelementptr inbounds i8, ptr %c, i64 64
   %282 = load ptr, ptr %u197.i.i, align 8
   %u_instr_sequence198.i.i = getelementptr inbounds i8, ptr %282, i64 24
-  %call199.i.i = tail call fastcc i32 @codegen_addop_i(ptr noundef nonnull %u_instr_sequence198.i.i, i32 noundef 53, i64 noundef %cond.i.i260, i64 %280, i64 %281), !range !5
+  %call199.i.i = tail call fastcc i32 @codegen_addop_i(ptr noundef nonnull %u_instr_sequence198.i.i, i32 noundef 53, i64 noundef %cond.i.i260, i64 %280, i64 %281)
   %cmp200.i.i = icmp eq i32 %call199.i.i, -1
   br i1 %cmp200.i.i, label %maybe_optimize_method_call.exit.i.thread, label %compiler_visit_expr1.exit
 
@@ -13889,7 +13889,7 @@ check_caller.exit.i:                              ; preds = %sw.bb.i.i209, %sw.b
   %loc.sroa.5.8.insert.shift.i.i217 = shl nuw i64 %loc.sroa.5.8.insert.ext.i.i216, 32
   %loc.sroa.3.8.insert.ext.i.i218 = zext i32 %287 to i64
   %loc.sroa.3.8.insert.insert.i.i219 = or disjoint i64 %loc.sroa.5.8.insert.shift.i.i217, %loc.sroa.3.8.insert.ext.i.i218
-  %call5.i.i = tail call i32 (ptr, i64, i64, ptr, ...) @compiler_warn(ptr noundef %c, i64 %loc.sroa.0.0.insert.insert.i39.i, i64 %loc.sroa.3.8.insert.insert.i.i219, ptr noundef nonnull @.str.387, ptr noundef %291), !range !5
+  %call5.i.i = tail call i32 (ptr, i64, i64, ptr, ...) @compiler_warn(ptr noundef %c, i64 %loc.sroa.0.0.insert.insert.i39.i, i64 %loc.sroa.3.8.insert.insert.i.i219, ptr noundef nonnull @.str.387, ptr noundef %291)
   %cmp10.i = icmp eq i32 %call5.i.i, -1
   br i1 %cmp10.i, label %compiler_visit_expr1.exit, label %check_caller.exit.i.if.end12.i_crit_edge
 
@@ -13899,7 +13899,7 @@ check_caller.exit.i.if.end12.i_crit_edge:         ; preds = %check_caller.exit.i
 
 if.end12.i:                                       ; preds = %check_caller.exit.i.if.end12.i_crit_edge, %if.end7.i
   %292 = phi ptr [ %.pre773, %check_caller.exit.i.if.end12.i_crit_edge ], [ %283, %if.end7.i ]
-  %call15.i220 = tail call fastcc i32 @compiler_visit_expr(ptr noundef %c, ptr noundef %292), !range !5
+  %call15.i220 = tail call fastcc i32 @compiler_visit_expr(ptr noundef %c, ptr noundef %292)
   %cmp16.i = icmp eq i32 %call15.i220, -1
   br i1 %cmp16.i, label %compiler_visit_expr1.exit, label %if.end18.i
 
@@ -13928,7 +13928,7 @@ if.end18.i:                                       ; preds = %if.end12.i
   %299 = load i32, ptr %s_used.i.i.i.i227, align 4
   %add.i.i.i.i228 = add i32 %299, 1
   %s_allocated.i.i.i.i229 = getelementptr inbounds i8, ptr %298, i64 32
-  %call.i.i.i.i230 = tail call i32 @_PyCompile_EnsureArrayLargeEnough(i32 noundef %add.i.i.i.i228, ptr noundef nonnull %u_instr_sequence.i222, ptr noundef nonnull %s_allocated.i.i.i.i229, i32 noundef 100, i64 noundef 44), !range !5
+  %call.i.i.i.i230 = tail call i32 @_PyCompile_EnsureArrayLargeEnough(i32 noundef %add.i.i.i.i228, ptr noundef nonnull %u_instr_sequence.i222, ptr noundef nonnull %s_allocated.i.i.i.i229, i32 noundef 100, i64 noundef 44)
   %cmp.i.i.i.i231 = icmp eq i32 %call.i.i.i.i230, -1
   br i1 %cmp.i.i.i.i231, label %compiler_visit_expr1.exit, label %instr_sequence_next_inst.exit.i.i.i232
 
@@ -13964,7 +13964,7 @@ if.end34.i:                                       ; preds = %instr_sequence_next
   %loc.sroa.10.8.insert.shift16.i = shl nuw i64 %loc.sroa.10.8.insert.ext15.i, 32
   %loc.sroa.6.8.insert.ext11.i = zext i32 %304 to i64
   %loc.sroa.6.8.insert.insert13.i = or disjoint i64 %loc.sroa.10.8.insert.shift16.i, %loc.sroa.6.8.insert.ext11.i
-  %call46.i = tail call fastcc i32 @compiler_call_helper(ptr noundef nonnull %c, i64 %loc.sroa.0.0.insert.insert4.i244, i64 %loc.sroa.6.8.insert.insert13.i, i32 noundef 0, ptr noundef %306, ptr noundef %307), !range !5
+  %call46.i = tail call fastcc i32 @compiler_call_helper(ptr noundef nonnull %c, i64 %loc.sroa.0.0.insert.insert4.i244, i64 %loc.sroa.6.8.insert.insert13.i, i32 noundef 0, ptr noundef %306, ptr noundef %307)
   br label %compiler_visit_expr1.exit
 
 sw.bb204.i:                                       ; preds = %entry
@@ -13982,7 +13982,7 @@ sw.bb204.i:                                       ; preds = %entry
   %loc.sroa.74.8.insert.shift502.i = shl nuw i64 %loc.sroa.74.8.insert.ext501.i, 32
   %loc.sroa.38.8.insert.ext358.i = zext i32 %2 to i64
   %loc.sroa.38.8.insert.insert360.i = or disjoint i64 %loc.sroa.74.8.insert.shift502.i, %loc.sroa.38.8.insert.ext358.i
-  %call209.i = tail call fastcc i32 @compiler_addop_load_const(ptr noundef %308, ptr noundef %309, i64 %loc.sroa.0.0.insert.insert78.i, i64 %loc.sroa.38.8.insert.insert360.i, ptr noundef %310), !range !5
+  %call209.i = tail call fastcc i32 @compiler_addop_load_const(ptr noundef %308, ptr noundef %309, i64 %loc.sroa.0.0.insert.insert78.i, i64 %loc.sroa.38.8.insert.insert360.i, ptr noundef %310)
   %cmp210.i = icmp eq i32 %call209.i, -1
   br i1 %cmp210.i, label %compiler_visit_expr1.exit, label %sw.epilog342.i
 
@@ -14020,7 +14020,7 @@ _Py_NewRef.exit.i:                                ; preds = %if.end.i.i.i167, %i
   %loc.sroa.17.8.insert.shift.i = shl nuw i64 %loc.sroa.17.8.insert.ext.i, 32
   %loc.sroa.9.8.insert.ext.i173 = zext i32 %2 to i64
   %loc.sroa.9.8.insert.insert.i = or disjoint i64 %loc.sroa.17.8.insert.shift.i, %loc.sroa.9.8.insert.ext.i173
-  %call10.i174 = tail call fastcc i32 @compiler_addop_load_const(ptr noundef %314, ptr noundef %315, i64 %loc.sroa.0.0.insert.insert.i172, i64 %loc.sroa.9.8.insert.insert.i, ptr noundef nonnull getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 37, i32 0, i32 3, i32 0, i32 16)), !range !5
+  %call10.i174 = tail call fastcc i32 @compiler_addop_load_const(ptr noundef %314, ptr noundef %315, i64 %loc.sroa.0.0.insert.insert.i172, i64 %loc.sroa.9.8.insert.insert.i, ptr noundef nonnull getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 37, i32 0, i32 3, i32 0, i32 16))
   %cmp11.i175 = icmp slt i32 %call10.i174, 0
   %316 = load i64, ptr getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 37, i32 0, i32 3, i32 0, i32 16), align 8
   %317 = and i64 %316, 2147483648
@@ -14057,7 +14057,7 @@ Py_DECREF.exit124.i:                              ; preds = %if.then1.i122.i, %i
   %318 = load ptr, ptr %u.i170, align 8
   %u_names.i176 = getelementptr inbounds i8, ptr %318, i64 568
   %319 = load ptr, ptr %u_names.i176, align 8
-  %call16.i = tail call fastcc i32 @compiler_addop_name(ptr noundef %318, i64 %loc.sroa.0.0.insert.insert.i172, i64 %loc.sroa.9.8.insert.insert.i, i32 noundef 259, ptr noundef %319, ptr noundef nonnull getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 37, i32 0, i32 3, i32 1, i32 437)), !range !5
+  %call16.i = tail call fastcc i32 @compiler_addop_name(ptr noundef %318, i64 %loc.sroa.0.0.insert.insert.i172, i64 %loc.sroa.9.8.insert.insert.i, i32 noundef 259, ptr noundef %319, ptr noundef nonnull getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 37, i32 0, i32 3, i32 1, i32 437))
   %cmp17.i = icmp eq i32 %call16.i, -1
   br i1 %cmp17.i, label %compiler_visit_expr1.exit, label %if.end19.i
 
@@ -14068,7 +14068,7 @@ if.end19.i:                                       ; preds = %Py_DECREF.exit124.i
   %321 = load i32, ptr %s_used.i.i.i.i178, align 4
   %add.i.i.i.i179 = add i32 %321, 1
   %s_allocated.i.i.i.i180 = getelementptr inbounds i8, ptr %320, i64 32
-  %call.i.i.i.i181 = tail call i32 @_PyCompile_EnsureArrayLargeEnough(i32 noundef %add.i.i.i.i179, ptr noundef nonnull %u_instr_sequence.i177, ptr noundef nonnull %s_allocated.i.i.i.i180, i32 noundef 100, i64 noundef 44), !range !5
+  %call.i.i.i.i181 = tail call i32 @_PyCompile_EnsureArrayLargeEnough(i32 noundef %add.i.i.i.i179, ptr noundef nonnull %u_instr_sequence.i177, ptr noundef nonnull %s_allocated.i.i.i.i180, i32 noundef 100, i64 noundef 44)
   %cmp.i.i.i.i182 = icmp eq i32 %call.i.i.i.i181, -1
   br i1 %cmp.i.i.i.i182, label %compiler_visit_expr1.exit, label %instr_sequence_next_inst.exit.i.i.i183
 
@@ -14111,7 +14111,7 @@ for.body.i195:                                    ; preds = %cond.end33.i
   %typed_elements.i196 = getelementptr inbounds i8, ptr %324, i64 16
   %arrayidx.i197 = getelementptr [1 x ptr], ptr %typed_elements.i196, i64 0, i64 %i.0.i
   %326 = load ptr, ptr %arrayidx.i197, align 8
-  %call38.i = tail call fastcc i32 @compiler_visit_expr(ptr noundef nonnull %c, ptr noundef %326), !range !5
+  %call38.i = tail call fastcc i32 @compiler_visit_expr(ptr noundef nonnull %c, ptr noundef %326)
   %cmp39.i = icmp eq i32 %call38.i, -1
   br i1 %cmp39.i, label %compiler_visit_expr1.exit, label %if.end41.i198
 
@@ -14122,7 +14122,7 @@ if.end41.i198:                                    ; preds = %for.body.i195
   %328 = load i32, ptr %s_used.i.i.i156.i, align 4
   %add.i.i.i157.i = add i32 %328, 1
   %s_allocated.i.i.i158.i = getelementptr inbounds i8, ptr %327, i64 32
-  %call.i.i.i159.i = tail call i32 @_PyCompile_EnsureArrayLargeEnough(i32 noundef %add.i.i.i157.i, ptr noundef nonnull %u_instr_sequence43.i199, ptr noundef nonnull %s_allocated.i.i.i158.i, i32 noundef 100, i64 noundef 44), !range !5
+  %call.i.i.i159.i = tail call i32 @_PyCompile_EnsureArrayLargeEnough(i32 noundef %add.i.i.i157.i, ptr noundef nonnull %u_instr_sequence43.i199, ptr noundef nonnull %s_allocated.i.i.i158.i, i32 noundef 100, i64 noundef 44)
   %cmp.i.i.i160.i = icmp eq i32 %call.i.i.i159.i, -1
   br i1 %cmp.i.i.i160.i, label %compiler_visit_expr1.exit, label %instr_sequence_next_inst.exit.i.i161.i
 
@@ -14145,7 +14145,7 @@ for.inc.i201:                                     ; preds = %instr_sequence_next
   %loc.sroa.2.0.i_loc.sroa_idx.i.i169.i = getelementptr inbounds i8, ptr %arrayidx.i.i166.i, i64 16
   store i64 %loc.sroa.9.8.insert.insert.i, ptr %loc.sroa.2.0.i_loc.sroa_idx.i.i169.i, align 4
   %inc.i202 = add nuw nsw i64 %i.0.i, 1
-  br label %for.cond.i192, !llvm.loop !63
+  br label %for.cond.i192, !llvm.loop !57
 
 for.end.i:                                        ; preds = %cond.end33.i
   %331 = load ptr, ptr %u.i170, align 8
@@ -14154,7 +14154,7 @@ for.end.i:                                        ; preds = %cond.end33.i
   %332 = load i32, ptr %s_used.i.i.i172.i, align 4
   %add.i.i.i173.i = add i32 %332, 1
   %s_allocated.i.i.i174.i = getelementptr inbounds i8, ptr %331, i64 32
-  %call.i.i.i175.i = tail call i32 @_PyCompile_EnsureArrayLargeEnough(i32 noundef %add.i.i.i173.i, ptr noundef nonnull %u_instr_sequence49.i, ptr noundef nonnull %s_allocated.i.i.i174.i, i32 noundef 100, i64 noundef 44), !range !5
+  %call.i.i.i175.i = tail call i32 @_PyCompile_EnsureArrayLargeEnough(i32 noundef %add.i.i.i173.i, ptr noundef nonnull %u_instr_sequence49.i, ptr noundef nonnull %s_allocated.i.i.i174.i, i32 noundef 100, i64 noundef 44)
   %cmp.i.i.i176.i = icmp eq i32 %call.i.i.i175.i, -1
   br i1 %cmp.i.i.i176.i, label %compiler_visit_expr1.exit, label %instr_sequence_next_inst.exit.i.i177.i
 
@@ -14200,10 +14200,10 @@ cond.end62.i:                                     ; preds = %cond.false60.i, %fo
 for.body66.i:                                     ; preds = %cond.end62.i
   %arrayidx68.i = getelementptr [1 x ptr], ptr %typed_elements67.i, i64 0, i64 %conv.i158
   %336 = load ptr, ptr %arrayidx68.i, align 8
-  %call69.i163 = tail call fastcc i32 @compiler_visit_expr(ptr noundef %c, ptr noundef %336), !range !5
+  %call69.i163 = tail call fastcc i32 @compiler_visit_expr(ptr noundef %c, ptr noundef %336)
   %cmp70.i = icmp eq i32 %call69.i163, -1
   %inc75.i = add i32 %_i.0.i157, 1
-  br i1 %cmp70.i, label %compiler_visit_expr1.exit, label %for.cond56.i, !llvm.loop !64
+  br i1 %cmp70.i, label %compiler_visit_expr1.exit, label %for.cond56.i, !llvm.loop !58
 
 for.end76.i:                                      ; preds = %cond.end62.i
   %cmp77.i = icmp sgt i64 %cond.i154687, 1
@@ -14226,7 +14226,7 @@ if.then79.i:                                      ; preds = %for.end76.i
   %338 = load i32, ptr %s_used.i.i.i188.i, align 4
   %add.i.i.i189.i = add i32 %338, 1
   %s_allocated.i.i.i190.i = getelementptr inbounds i8, ptr %337, i64 32
-  %call.i.i.i191.i = tail call i32 @_PyCompile_EnsureArrayLargeEnough(i32 noundef %add.i.i.i189.i, ptr noundef nonnull %u_instr_sequence81.i, ptr noundef nonnull %s_allocated.i.i.i190.i, i32 noundef 100, i64 noundef 44), !range !5
+  %call.i.i.i191.i = tail call i32 @_PyCompile_EnsureArrayLargeEnough(i32 noundef %add.i.i.i189.i, ptr noundef nonnull %u_instr_sequence81.i, ptr noundef nonnull %s_allocated.i.i.i190.i, i32 noundef 100, i64 noundef 44)
   %cmp.i.i.i192.i = icmp eq i32 %call.i.i.i191.i, -1
   br i1 %cmp.i.i.i192.i, label %compiler_visit_expr1.exit, label %instr_sequence_next_inst.exit.i.i193.i
 
@@ -14277,7 +14277,7 @@ _Py_NewRef.exit207.i:                             ; preds = %if.end.i.i206.i, %i
   %loc.sroa.17.8.insert.shift121.i = shl nuw i64 %loc.sroa.17.8.insert.ext120.i, 32
   %loc.sroa.9.8.insert.ext91.i = zext i32 %2 to i64
   %loc.sroa.9.8.insert.insert93.i = or disjoint i64 %loc.sroa.17.8.insert.shift121.i, %loc.sroa.9.8.insert.ext91.i
-  %call99.i = tail call fastcc i32 @compiler_addop_load_const(ptr noundef %342, ptr noundef %343, i64 %loc.sroa.0.0.insert.insert39.i, i64 %loc.sroa.9.8.insert.insert93.i, ptr noundef nonnull getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 37, i32 0, i32 3, i32 0, i32 16)), !range !5
+  %call99.i = tail call fastcc i32 @compiler_addop_load_const(ptr noundef %342, ptr noundef %343, i64 %loc.sroa.0.0.insert.insert39.i, i64 %loc.sroa.9.8.insert.insert93.i, ptr noundef nonnull getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 37, i32 0, i32 3, i32 0, i32 16))
   %cmp100.i = icmp slt i32 %call99.i, 0
   %344 = load i64, ptr getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 37, i32 0, i32 3, i32 0, i32 16), align 8
   %345 = and i64 %344, 2147483648
@@ -14315,7 +14315,7 @@ sw.bb215.i:                                       ; preds = %entry
   %conversion1.i = getelementptr inbounds i8, ptr %e, i64 16
   %346 = load i32, ptr %conversion1.i, align 8
   %347 = load ptr, ptr %v.i107, align 8
-  %call.i108 = tail call fastcc i32 @compiler_visit_expr(ptr noundef %c, ptr noundef %347), !range !5
+  %call.i108 = tail call fastcc i32 @compiler_visit_expr(ptr noundef %c, ptr noundef %347)
   %cmp.i109 = icmp eq i32 %call.i108, -1
   br i1 %cmp.i109, label %compiler_visit_expr1.exit, label %if.end.i110
 
@@ -14359,7 +14359,7 @@ sw.epilog.i111:                                   ; preds = %sw.bb10.i, %sw.bb9.
   %354 = load i32, ptr %s_used.i.i.i.i122, align 4
   %add.i.i.i.i123 = add i32 %354, 1
   %s_allocated.i.i.i.i124 = getelementptr inbounds i8, ptr %353, i64 32
-  %call.i.i.i.i125 = tail call i32 @_PyCompile_EnsureArrayLargeEnough(i32 noundef %add.i.i.i.i123, ptr noundef nonnull %u_instr_sequence.i113, ptr noundef nonnull %s_allocated.i.i.i.i124, i32 noundef 100, i64 noundef 44), !range !5
+  %call.i.i.i.i125 = tail call i32 @_PyCompile_EnsureArrayLargeEnough(i32 noundef %add.i.i.i.i123, ptr noundef nonnull %u_instr_sequence.i113, ptr noundef nonnull %s_allocated.i.i.i.i124, i32 noundef 100, i64 noundef 44)
   %cmp.i.i.i.i126 = icmp eq i32 %call.i.i.i.i125, -1
   br i1 %cmp.i.i.i.i126, label %compiler_visit_expr1.exit, label %instr_sequence_next_inst.exit.i.i.i127
 
@@ -14390,7 +14390,7 @@ if.end17.i:                                       ; preds = %codegen_addop_i.exi
   br i1 %tobool.not.i138, label %if.else.i142, label %if.then19.i
 
 if.then19.i:                                      ; preds = %if.end17.i
-  %call22.i = tail call fastcc i32 @compiler_visit_expr(ptr noundef %c, ptr noundef nonnull %357), !range !5
+  %call22.i = tail call fastcc i32 @compiler_visit_expr(ptr noundef %c, ptr noundef nonnull %357)
   %cmp23.i = icmp eq i32 %call22.i, -1
   br i1 %cmp23.i, label %compiler_visit_expr1.exit, label %if.end26.i139
 
@@ -14410,7 +14410,7 @@ if.end26.i139:                                    ; preds = %if.then19.i
   %359 = load i32, ptr %s_used.i.i.i51.i, align 4
   %add.i.i.i52.i = add i32 %359, 1
   %s_allocated.i.i.i53.i = getelementptr inbounds i8, ptr %358, i64 32
-  %call.i.i.i54.i = tail call i32 @_PyCompile_EnsureArrayLargeEnough(i32 noundef %add.i.i.i52.i, ptr noundef nonnull %u_instr_sequence28.i, ptr noundef nonnull %s_allocated.i.i.i53.i, i32 noundef 100, i64 noundef 44), !range !5
+  %call.i.i.i54.i = tail call i32 @_PyCompile_EnsureArrayLargeEnough(i32 noundef %add.i.i.i52.i, ptr noundef nonnull %u_instr_sequence28.i, ptr noundef nonnull %s_allocated.i.i.i53.i, i32 noundef 100, i64 noundef 44)
   %cmp.i.i.i55.i = icmp eq i32 %call.i.i.i54.i, -1
   br i1 %cmp.i.i.i55.i, label %compiler_visit_expr1.exit, label %instr_sequence_next_inst.exit.i.i56.i
 
@@ -14450,7 +14450,7 @@ if.else.i142:                                     ; preds = %if.end17.i
   %363 = load i32, ptr %s_used.i.i.i66.i, align 4
   %add.i.i.i67.i = add i32 %363, 1
   %s_allocated.i.i.i68.i = getelementptr inbounds i8, ptr %362, i64 32
-  %call.i.i.i69.i = tail call i32 @_PyCompile_EnsureArrayLargeEnough(i32 noundef %add.i.i.i67.i, ptr noundef nonnull %u_instr_sequence35.i, ptr noundef nonnull %s_allocated.i.i.i68.i, i32 noundef 100, i64 noundef 44), !range !5
+  %call.i.i.i69.i = tail call i32 @_PyCompile_EnsureArrayLargeEnough(i32 noundef %add.i.i.i67.i, ptr noundef nonnull %u_instr_sequence35.i, ptr noundef nonnull %s_allocated.i.i.i68.i, i32 noundef 100, i64 noundef 44)
   %cmp.i.i.i70.i = icmp eq i32 %call.i.i.i69.i, -1
   br i1 %cmp.i.i.i70.i, label %compiler_visit_expr1.exit, label %instr_sequence_next_inst.exit.i.i71.i
 
@@ -14482,13 +14482,13 @@ sw.bb217.i:                                       ; preds = %entry
   br i1 %cmp219.i, label %land.lhs.true220.i, label %if.end254.i
 
 land.lhs.true220.i:                               ; preds = %sw.bb217.i
-  %call221.i = tail call fastcc i32 @can_optimize_super_call(ptr noundef %c, ptr noundef nonnull %e), !range !60
+  %call221.i = tail call fastcc i32 @can_optimize_super_call(ptr noundef %c, ptr noundef nonnull %e)
   %tobool222.not.i = icmp eq i32 %call221.i, 0
   br i1 %tobool222.not.i, label %if.end254.i, label %if.then223.i
 
 if.then223.i:                                     ; preds = %land.lhs.true220.i
   %367 = load ptr, ptr %v218.i, align 8
-  %call226.i = tail call fastcc i32 @load_args_for_super(ptr noundef %c, ptr noundef %367), !range !5
+  %call226.i = tail call fastcc i32 @load_args_for_super(ptr noundef %c, ptr noundef %367)
   %cmp227.i = icmp eq i32 %call226.i, -1
   br i1 %cmp227.i, label %compiler_visit_expr1.exit, label %if.end229.i
 
@@ -14521,7 +14521,7 @@ cond.end.i:                                       ; preds = %cond.false.i, %if.e
   %loc.sroa.74.8.insert.shift507.i = shl nuw i64 %loc.sroa.74.8.insert.ext506.i, 32
   %loc.sroa.38.8.insert.ext362.i = zext i32 %2 to i64
   %loc.sroa.38.8.insert.insert364.i = or disjoint i64 %loc.sroa.74.8.insert.shift507.i, %loc.sroa.38.8.insert.ext362.i
-  %call243.i = tail call fastcc i32 @compiler_addop_name(ptr noundef %373, i64 %loc.sroa.0.0.insert.insert82.i, i64 %loc.sroa.38.8.insert.insert364.i, i32 noundef %cond.i, ptr noundef %374, ptr noundef %375), !range !5
+  %call243.i = tail call fastcc i32 @compiler_addop_name(ptr noundef %373, i64 %loc.sroa.0.0.insert.insert82.i, i64 %loc.sroa.38.8.insert.insert364.i, i32 noundef %cond.i, ptr noundef %374, ptr noundef %375)
   %cmp244.i = icmp eq i32 %call243.i, -1
   br i1 %cmp244.i, label %compiler_visit_expr1.exit, label %if.end246.i
 
@@ -14531,14 +14531,14 @@ if.end246.i:                                      ; preds = %cond.end.i
   %377 = extractvalue { i64, i64 } %call247.i, 1
   %378 = load ptr, ptr %u240.i, align 8
   %u_instr_sequence249.i = getelementptr inbounds i8, ptr %378, i64 24
-  %call250.i = tail call fastcc i32 @codegen_addop_noarg(ptr noundef nonnull %u_instr_sequence249.i, i32 noundef 30, i64 %376, i64 %377), !range !5
+  %call250.i = tail call fastcc i32 @codegen_addop_noarg(ptr noundef nonnull %u_instr_sequence249.i, i32 noundef 30, i64 %376, i64 %377)
   %cmp251.i = icmp eq i32 %call250.i, -1
   %..i = sext i1 %cmp251.i to i32
   br label %compiler_visit_expr1.exit
 
 if.end254.i:                                      ; preds = %land.lhs.true220.i, %sw.bb217.i
   %379 = load ptr, ptr %v218.i, align 8
-  %call257.i = tail call fastcc i32 @compiler_visit_expr(ptr noundef %c, ptr noundef %379), !range !5
+  %call257.i = tail call fastcc i32 @compiler_visit_expr(ptr noundef %c, ptr noundef %379)
   %cmp258.i = icmp eq i32 %call257.i, -1
   br i1 %cmp258.i, label %compiler_visit_expr1.exit, label %if.end260.i
 
@@ -14572,7 +14572,7 @@ sw.bb273.i:                                       ; preds = %if.end260.i
   %388 = load ptr, ptr %u_names277.i, align 8
   %attr279.i = getelementptr inbounds i8, ptr %e, i64 16
   %389 = load ptr, ptr %attr279.i, align 8
-  %call280.i = tail call fastcc i32 @compiler_addop_name(ptr noundef %387, i64 %384, i64 %385, i32 noundef 82, ptr noundef %388, ptr noundef %389), !range !5
+  %call280.i = tail call fastcc i32 @compiler_addop_name(ptr noundef %387, i64 %384, i64 %385, i32 noundef 82, ptr noundef %388, ptr noundef %389)
   %cmp281.i = icmp eq i32 %call280.i, -1
   br i1 %cmp281.i, label %compiler_visit_expr1.exit, label %sw.epilog342.i
 
@@ -14588,7 +14588,7 @@ if.end291.i:                                      ; preds = %sw.bb284.i
   %u_names295.i = getelementptr inbounds i8, ptr %391, i64 568
   %392 = load ptr, ptr %u_names295.i, align 8
   %393 = load ptr, ptr %attr286.i, align 8
-  %call298.i = tail call fastcc i32 @compiler_addop_name(ptr noundef %391, i64 %384, i64 %385, i32 noundef 108, ptr noundef %392, ptr noundef %393), !range !5
+  %call298.i = tail call fastcc i32 @compiler_addop_name(ptr noundef %391, i64 %384, i64 %385, i32 noundef 108, ptr noundef %392, ptr noundef %393)
   %cmp299.i = icmp eq i32 %call298.i, -1
   br i1 %cmp299.i, label %compiler_visit_expr1.exit, label %sw.epilog342.i
 
@@ -14599,7 +14599,7 @@ sw.bb302.i:                                       ; preds = %if.end260.i
   %395 = load ptr, ptr %u_names306.i, align 8
   %attr308.i = getelementptr inbounds i8, ptr %e, i64 16
   %396 = load ptr, ptr %attr308.i, align 8
-  %call309.i = tail call fastcc i32 @compiler_addop_name(ptr noundef %394, i64 %384, i64 %385, i32 noundef 63, ptr noundef %395, ptr noundef %396), !range !5
+  %call309.i = tail call fastcc i32 @compiler_addop_name(ptr noundef %394, i64 %384, i64 %385, i32 noundef 63, ptr noundef %395, ptr noundef %396)
   %cmp310.i = icmp eq i32 %call309.i, -1
   br i1 %cmp310.i, label %compiler_visit_expr1.exit, label %sw.epilog342.i
 
@@ -14738,7 +14738,7 @@ check_subscripter.exit.i:                         ; preds = %sw.bb25.i.i, %sw.bb
   %loc.sroa.5.8.insert.shift.i.i = shl nuw i64 %loc.sroa.5.8.insert.ext.i.i, 32
   %loc.sroa.3.8.insert.ext.i.i = zext i32 %405 to i64
   %loc.sroa.3.8.insert.insert.i.i = or disjoint i64 %loc.sroa.5.8.insert.shift.i.i, %loc.sroa.3.8.insert.ext.i.i
-  %call31.i.i = tail call i32 (ptr, i64, i64, ptr, ...) @compiler_warn(ptr noundef %c, i64 %loc.sroa.0.0.insert.insert.i.i, i64 %loc.sroa.3.8.insert.insert.i.i, ptr noundef nonnull @.str.390, ptr noundef %410), !range !5
+  %call31.i.i = tail call i32 (ptr, i64, i64, ptr, ...) @compiler_warn(ptr noundef %c, i64 %loc.sroa.0.0.insert.insert.i.i, i64 %loc.sroa.3.8.insert.insert.i.i, ptr noundef nonnull @.str.390, ptr noundef %410)
   %cmp7.i = icmp eq i32 %call31.i.i, -1
   br i1 %cmp7.i, label %compiler_visit_expr1.exit, label %if.end.i101
 
@@ -14895,7 +14895,7 @@ check_index.exit.i:                               ; preds = %sw.bb18.thread.i.i,
   %loc.sroa.5.8.insert.shift.i70.i = shl nuw i64 %loc.sroa.5.8.insert.ext.i69.i, 32
   %loc.sroa.3.8.insert.ext.i71.i = zext i32 %431 to i64
   %loc.sroa.3.8.insert.insert.i72.i = or disjoint i64 %loc.sroa.5.8.insert.shift.i70.i, %loc.sroa.3.8.insert.ext.i71.i
-  %call25.i.i = tail call i32 (ptr, i64, i64, ptr, ...) @compiler_warn(ptr noundef %c, i64 %loc.sroa.0.0.insert.insert.i68.i, i64 %loc.sroa.3.8.insert.insert.i72.i, ptr noundef nonnull @.str.391, ptr noundef %434, ptr noundef %435), !range !5
+  %call25.i.i = tail call i32 (ptr, i64, i64, ptr, ...) @compiler_warn(ptr noundef %c, i64 %loc.sroa.0.0.insert.insert.i68.i, i64 %loc.sroa.3.8.insert.insert.i72.i, ptr noundef nonnull @.str.391, ptr noundef %434, ptr noundef %435)
   %cmp13.i104 = icmp eq i32 %call25.i.i, -1
   br i1 %cmp13.i104, label %compiler_visit_expr1.exit, label %check_index.exit.i.if.end16.i_crit_edge
 
@@ -14905,7 +14905,7 @@ check_index.exit.i.if.end16.i_crit_edge:          ; preds = %check_index.exit.i
 
 if.end16.i:                                       ; preds = %check_index.exit.i.if.end16.i_crit_edge, %sw.bb.i74.i, %if.end.i101, %if.end.i.i103, %infer_type.exit.i58.i, %lor.lhs.false.i.i, %sw.bb313.i
   %436 = phi ptr [ %.pre, %check_index.exit.i.if.end16.i_crit_edge ], [ %411, %sw.bb.i74.i ], [ %411, %if.end.i101 ], [ %411, %if.end.i.i103 ], [ %411, %infer_type.exit.i58.i ], [ %411, %lor.lhs.false.i.i ], [ %.pre772, %sw.bb313.i ]
-  %call19.i = tail call fastcc i32 @compiler_visit_expr(ptr noundef %c, ptr noundef %436), !range !5
+  %call19.i = tail call fastcc i32 @compiler_visit_expr(ptr noundef %c, ptr noundef %436)
   %cmp20.i = icmp eq i32 %call19.i, -1
   br i1 %cmp20.i, label %compiler_visit_expr1.exit, label %if.end22.i
 
@@ -14925,7 +14925,7 @@ is_two_element_slice.exit.i:                      ; preds = %if.end22.i
   br i1 %or.cond.i, label %if.then27.i, label %if.else47.i
 
 if.then27.i:                                      ; preds = %is_two_element_slice.exit.i
-  %call30.i = tail call fastcc i32 @compiler_slice(ptr noundef %c, ptr noundef nonnull %437), !range !36
+  %call30.i = tail call fastcc i32 @compiler_slice(ptr noundef %c, ptr noundef nonnull %437)
   %cmp31.i = icmp eq i32 %call30.i, -1
   br i1 %cmp31.i, label %compiler_visit_expr1.exit, label %if.end33.i
 
@@ -14945,7 +14945,7 @@ if.end33.i:                                       ; preds = %if.then27.i
   %441 = load i32, ptr %s_used.i.i.i.i, align 4
   %add.i.i.i.i = add i32 %441, 1
   %s_allocated.i.i.i.i = getelementptr inbounds i8, ptr %440, i64 32
-  %call.i.i.i.i = tail call i32 @_PyCompile_EnsureArrayLargeEnough(i32 noundef %add.i.i.i.i, ptr noundef nonnull %u_instr_sequence.i95, ptr noundef nonnull %s_allocated.i.i.i.i, i32 noundef 100, i64 noundef 44), !range !5
+  %call.i.i.i.i = tail call i32 @_PyCompile_EnsureArrayLargeEnough(i32 noundef %add.i.i.i.i, ptr noundef nonnull %u_instr_sequence.i95, ptr noundef nonnull %s_allocated.i.i.i.i, i32 noundef 100, i64 noundef 44)
   %cmp.i.i.i.i = icmp eq i32 %call.i.i.i.i, -1
   br i1 %cmp.i91, label %if.then35.i, label %if.else.i
 
@@ -14996,7 +14996,7 @@ codegen_addop_noarg.exit99.i:                     ; preds = %instr_sequence_next
   br label %compiler_visit_expr1.exit
 
 if.else47.i:                                      ; preds = %if.end22.i, %is_two_element_slice.exit.i
-  %call50.i = tail call fastcc i32 @compiler_visit_expr(ptr noundef %c, ptr noundef nonnull %437), !range !5
+  %call50.i = tail call fastcc i32 @compiler_visit_expr(ptr noundef %c, ptr noundef nonnull %437)
   %cmp51.i = icmp eq i32 %call50.i, -1
   br i1 %cmp51.i, label %compiler_visit_expr1.exit, label %if.end53.i
 
@@ -15028,7 +15028,7 @@ sw.epilog.i:                                      ; preds = %switch.lookup, %if.
   %449 = load i32, ptr %s_used.i.i.i100.i, align 4
   %add.i.i.i101.i = add i32 %449, 1
   %s_allocated.i.i.i102.i = getelementptr inbounds i8, ptr %448, i64 32
-  %call.i.i.i103.i = tail call i32 @_PyCompile_EnsureArrayLargeEnough(i32 noundef %add.i.i.i101.i, ptr noundef nonnull %u_instr_sequence57.i, ptr noundef nonnull %s_allocated.i.i.i102.i, i32 noundef 100, i64 noundef 44), !range !5
+  %call.i.i.i103.i = tail call i32 @_PyCompile_EnsureArrayLargeEnough(i32 noundef %add.i.i.i101.i, ptr noundef nonnull %u_instr_sequence57.i, ptr noundef nonnull %s_allocated.i.i.i102.i, i32 noundef 100, i64 noundef 44)
   %cmp.i.i.i104.i = icmp eq i32 %call.i.i.i103.i, -1
   br i1 %cmp.i.i.i104.i, label %compiler_visit_expr1.exit, label %instr_sequence_next_inst.exit.i.i105.i
 
@@ -15075,7 +15075,7 @@ sw.default.i:                                     ; preds = %sw.bb315.i
   br label %compiler_visit_expr1.exit
 
 sw.bb321.i:                                       ; preds = %entry
-  %call322.i = tail call fastcc i32 @compiler_slice(ptr noundef %c, ptr noundef nonnull %e), !range !36
+  %call322.i = tail call fastcc i32 @compiler_slice(ptr noundef %c, ptr noundef nonnull %e)
   %cmp323.i = icmp eq i32 %call322.i, -1
   br i1 %cmp323.i, label %compiler_visit_expr1.exit, label %if.end325.i
 
@@ -15095,7 +15095,7 @@ if.end325.i:                                      ; preds = %sw.bb321.i
   %454 = load i32, ptr %s_used.i.i.i, align 4
   %add.i.i.i = add i32 %454, 1
   %s_allocated.i.i.i = getelementptr inbounds i8, ptr %453, i64 32
-  %call.i.i.i = tail call i32 @_PyCompile_EnsureArrayLargeEnough(i32 noundef %add.i.i.i, ptr noundef nonnull %u_instr_sequence327.i, ptr noundef nonnull %s_allocated.i.i.i, i32 noundef 100, i64 noundef 44), !range !5
+  %call.i.i.i = tail call i32 @_PyCompile_EnsureArrayLargeEnough(i32 noundef %add.i.i.i, ptr noundef nonnull %u_instr_sequence327.i, ptr noundef nonnull %s_allocated.i.i.i, i32 noundef 100, i64 noundef 44)
   %cmp.i.i.i = icmp eq i32 %call.i.i.i, -1
   br i1 %cmp.i.i.i, label %compiler_visit_expr1.exit, label %instr_sequence_next_inst.exit.i.i
 
@@ -15132,7 +15132,7 @@ sw.bb333.i:                                       ; preds = %entry
   %loc.sroa.74.8.insert.shift562.i = shl nuw i64 %loc.sroa.74.8.insert.ext561.i, 32
   %loc.sroa.38.8.insert.ext406.i = zext i32 %2 to i64
   %loc.sroa.38.8.insert.insert408.i = or disjoint i64 %loc.sroa.74.8.insert.shift562.i, %loc.sroa.38.8.insert.ext406.i
-  %call337.i = tail call fastcc i32 @compiler_nameop(ptr noundef %c, i64 %loc.sroa.0.0.insert.insert126.i, i64 %loc.sroa.38.8.insert.insert408.i, ptr noundef %457, i32 noundef %458), !range !5
+  %call337.i = tail call fastcc i32 @compiler_nameop(ptr noundef %c, i64 %loc.sroa.0.0.insert.insert126.i, i64 %loc.sroa.38.8.insert.insert408.i, ptr noundef %457, i32 noundef %458)
   br label %compiler_visit_expr1.exit
 
 sw.bb338.i:                                       ; preds = %entry
@@ -15164,12 +15164,12 @@ if.then.i33:                                      ; preds = %sw.bb338.i
 
 cond.end.i.i45:                                   ; preds = %if.then.i33
   %461 = load i64, ptr %459, align 8
-  %call9.i.i44 = tail call fastcc i32 @unpack_helper(ptr noundef %c, i64 %loc.sroa.0.0.insert.insert.i37, i64 %loc.sroa.4.8.insert.insert.i41, ptr noundef nonnull %459), !range !5
+  %call9.i.i44 = tail call fastcc i32 @unpack_helper(ptr noundef %c, i64 %loc.sroa.0.0.insert.insert.i37, i64 %loc.sroa.4.8.insert.insert.i41, ptr noundef nonnull %459)
   %cmp1.i.i48 = icmp eq i32 %call9.i.i44, -1
   br i1 %cmp1.i.i48, label %compiler_visit_expr1.exit, label %for.cond.i.i49.preheader
 
 cond.end.i.i45.thread:                            ; preds = %if.then.i33
-  %call10.i.i67 = tail call fastcc i32 @unpack_helper(ptr noundef %c, i64 %loc.sroa.0.0.insert.insert.i37, i64 %loc.sroa.4.8.insert.insert.i41, ptr noundef null), !range !5
+  %call10.i.i67 = tail call fastcc i32 @unpack_helper(ptr noundef %c, i64 %loc.sroa.0.0.insert.insert.i37, i64 %loc.sroa.4.8.insert.insert.i41, ptr noundef null)
   %cmp1.i.i48813 = icmp eq i32 %call10.i.i67, -1
   %spec.select = sext i1 %cmp1.i.i48813 to i32
   br label %compiler_visit_expr1.exit
@@ -15185,7 +15185,7 @@ for.body.i.i54.lr.ph:                             ; preds = %for.cond.i.i49.preh
 for.cond.i.i49:                                   ; preds = %cond.end6.i.i58
   %inc.i.i63 = add nuw nsw i64 %i.0.i.i50736, 1
   %exitcond766.not = icmp eq i64 %inc.i.i63, %461
-  br i1 %exitcond766.not, label %compiler_visit_expr1.exit, label %for.body.i.i54, !llvm.loop !65
+  br i1 %exitcond766.not, label %compiler_visit_expr1.exit, label %for.body.i.i54, !llvm.loop !59
 
 for.body.i.i54:                                   ; preds = %for.body.i.i54.lr.ph, %for.cond.i.i49
   %i.0.i.i50736 = phi i64 [ 0, %for.body.i.i54.lr.ph ], [ %inc.i.i63, %for.cond.i.i49 ]
@@ -15202,7 +15202,7 @@ cond.false5.i.i64:                                ; preds = %for.body.i.i54
 
 cond.end6.i.i58:                                  ; preds = %cond.false5.i.i64, %for.body.i.i54
   %cond7.i.i59 = phi ptr [ %464, %cond.false5.i.i64 ], [ %462, %for.body.i.i54 ]
-  %call8.i.i60 = tail call fastcc i32 @compiler_visit_expr(ptr noundef %c, ptr noundef %cond7.i.i59), !range !5
+  %call8.i.i60 = tail call fastcc i32 @compiler_visit_expr(ptr noundef %c, ptr noundef %cond7.i.i59)
   %cmp9.i.i61 = icmp eq i32 %call8.i.i60, -1
   br i1 %cmp9.i.i61, label %compiler_visit_expr1.exit, label %for.cond.i.i49
 
@@ -15215,7 +15215,7 @@ if.then10.i22:                                    ; preds = %sw.bb338.i
   %loc.sroa.7.8.insert.shift22.i28 = shl nuw i64 %loc.sroa.7.8.insert.ext21.i27, 32
   %loc.sroa.4.8.insert.ext17.i29 = zext i32 %2 to i64
   %loc.sroa.4.8.insert.insert19.i30 = or disjoint i64 %loc.sroa.7.8.insert.shift22.i28, %loc.sroa.4.8.insert.ext17.i29
-  %call11.i31 = tail call fastcc i32 @starunpack_helper(ptr noundef %c, i64 %loc.sroa.0.0.insert.insert10.i26, i64 %loc.sroa.4.8.insert.insert19.i30, ptr noundef %459, i32 noundef 0, i32 noundef 47, i32 noundef 80, i32 noundef 81, i32 noundef 0), !range !5
+  %call11.i31 = tail call fastcc i32 @starunpack_helper(ptr noundef %c, i64 %loc.sroa.0.0.insert.insert10.i26, i64 %loc.sroa.4.8.insert.insert19.i30, ptr noundef %459, i32 noundef 0, i32 noundef 47, i32 noundef 80, i32 noundef 81, i32 noundef 0)
   br label %compiler_visit_expr1.exit
 
 for.cond.i68:                                     ; preds = %for.body.i76, %for.cond.i68.preheader
@@ -15235,10 +15235,10 @@ cond.end.i73:                                     ; preds = %cond.false.i72, %fo
 for.body.i76:                                     ; preds = %cond.end.i73
   %arrayidx.i78 = getelementptr [1 x ptr], ptr %typed_elements.i77, i64 0, i64 %conv.i70
   %466 = load ptr, ptr %arrayidx.i78, align 8
-  %call17.i79 = tail call fastcc i32 @compiler_visit_expr(ptr noundef %c, ptr noundef %466), !range !5
+  %call17.i79 = tail call fastcc i32 @compiler_visit_expr(ptr noundef %c, ptr noundef %466)
   %cmp18.i80 = icmp eq i32 %call17.i79, -1
   %inc.i82 = add i32 %_i.0.i69, 1
-  br i1 %cmp18.i80, label %compiler_visit_expr1.exit, label %for.cond.i68, !llvm.loop !66
+  br i1 %cmp18.i80, label %compiler_visit_expr1.exit, label %for.cond.i68, !llvm.loop !60
 
 sw.bb340.i:                                       ; preds = %entry
   %v.i5 = getelementptr inbounds i8, ptr %e, i64 8
@@ -15269,12 +15269,12 @@ if.then.i:                                        ; preds = %sw.bb340.i
 
 cond.end.i.i:                                     ; preds = %if.then.i
   %469 = load i64, ptr %467, align 8
-  %call9.i.i = tail call fastcc i32 @unpack_helper(ptr noundef %c, i64 %loc.sroa.0.0.insert.insert.i11, i64 %loc.sroa.4.8.insert.insert.i, ptr noundef nonnull %467), !range !5
+  %call9.i.i = tail call fastcc i32 @unpack_helper(ptr noundef %c, i64 %loc.sroa.0.0.insert.insert.i11, i64 %loc.sroa.4.8.insert.insert.i, ptr noundef nonnull %467)
   %cmp1.i.i = icmp eq i32 %call9.i.i, -1
   br i1 %cmp1.i.i, label %compiler_visit_expr1.exit, label %for.cond.i.i.preheader
 
 cond.end.i.i.thread:                              ; preds = %if.then.i
-  %call10.i.i = tail call fastcc i32 @unpack_helper(ptr noundef %c, i64 %loc.sroa.0.0.insert.insert.i11, i64 %loc.sroa.4.8.insert.insert.i, ptr noundef null), !range !5
+  %call10.i.i = tail call fastcc i32 @unpack_helper(ptr noundef %c, i64 %loc.sroa.0.0.insert.insert.i11, i64 %loc.sroa.4.8.insert.insert.i, ptr noundef null)
   %cmp1.i.i819 = icmp eq i32 %call10.i.i, -1
   %spec.select839 = sext i1 %cmp1.i.i819 to i32
   br label %compiler_visit_expr1.exit
@@ -15290,7 +15290,7 @@ for.body.i.i.lr.ph:                               ; preds = %for.cond.i.i.prehea
 for.cond.i.i:                                     ; preds = %cond.end6.i.i
   %inc.i.i = add nuw nsw i64 %i.0.i.i733, 1
   %exitcond.not = icmp eq i64 %inc.i.i, %469
-  br i1 %exitcond.not, label %compiler_visit_expr1.exit, label %for.body.i.i, !llvm.loop !65
+  br i1 %exitcond.not, label %compiler_visit_expr1.exit, label %for.body.i.i, !llvm.loop !59
 
 for.body.i.i:                                     ; preds = %for.body.i.i.lr.ph, %for.cond.i.i
   %i.0.i.i733 = phi i64 [ 0, %for.body.i.i.lr.ph ], [ %inc.i.i, %for.cond.i.i ]
@@ -15307,7 +15307,7 @@ cond.false5.i.i:                                  ; preds = %for.body.i.i
 
 cond.end6.i.i:                                    ; preds = %cond.false5.i.i, %for.body.i.i
   %cond7.i.i = phi ptr [ %472, %cond.false5.i.i ], [ %470, %for.body.i.i ]
-  %call8.i.i = tail call fastcc i32 @compiler_visit_expr(ptr noundef %c, ptr noundef %cond7.i.i), !range !5
+  %call8.i.i = tail call fastcc i32 @compiler_visit_expr(ptr noundef %c, ptr noundef %cond7.i.i)
   %cmp9.i.i = icmp eq i32 %call8.i.i, -1
   br i1 %cmp9.i.i, label %compiler_visit_expr1.exit, label %for.cond.i.i
 
@@ -15320,7 +15320,7 @@ if.then10.i:                                      ; preds = %sw.bb340.i
   %loc.sroa.7.8.insert.shift22.i = shl nuw i64 %loc.sroa.7.8.insert.ext21.i, 32
   %loc.sroa.4.8.insert.ext17.i = zext i32 %2 to i64
   %loc.sroa.4.8.insert.insert19.i = or disjoint i64 %loc.sroa.7.8.insert.shift22.i, %loc.sroa.4.8.insert.ext17.i
-  %call11.i = tail call fastcc i32 @starunpack_helper(ptr noundef %c, i64 %loc.sroa.0.0.insert.insert10.i8, i64 %loc.sroa.4.8.insert.insert19.i, ptr noundef %467, i32 noundef 0, i32 noundef 47, i32 noundef 80, i32 noundef 81, i32 noundef 1), !range !5
+  %call11.i = tail call fastcc i32 @starunpack_helper(ptr noundef %c, i64 %loc.sroa.0.0.insert.insert10.i8, i64 %loc.sroa.4.8.insert.insert19.i, ptr noundef %467, i32 noundef 0, i32 noundef 47, i32 noundef 80, i32 noundef 81, i32 noundef 1)
   br label %compiler_visit_expr1.exit
 
 for.cond.i:                                       ; preds = %for.body.i, %for.cond.i.preheader
@@ -15340,10 +15340,10 @@ cond.end.i14:                                     ; preds = %cond.false.i13, %fo
 for.body.i:                                       ; preds = %cond.end.i14
   %arrayidx.i = getelementptr [1 x ptr], ptr %typed_elements.i, i64 0, i64 %conv.i12
   %474 = load ptr, ptr %arrayidx.i, align 8
-  %call17.i = tail call fastcc i32 @compiler_visit_expr(ptr noundef %c, ptr noundef %474), !range !5
+  %call17.i = tail call fastcc i32 @compiler_visit_expr(ptr noundef %c, ptr noundef %474)
   %cmp18.i = icmp eq i32 %call17.i, -1
   %inc.i = add i32 %_i.0.i, 1
-  br i1 %cmp18.i, label %compiler_visit_expr1.exit, label %for.cond.i, !llvm.loop !67
+  br i1 %cmp18.i, label %compiler_visit_expr1.exit, label %for.cond.i, !llvm.loop !61
 
 sw.epilog342.i:                                   ; preds = %codegen_addop_i.exit, %sw.bb302.i, %if.end291.i, %sw.bb273.i, %if.end260.i, %sw.bb204.i, %if.end195.i, %if.end149.i, %if.end114.i, %if.else64.i, %if.end57.i, %if.then41.i, %if.end26.i, %if.end8.i, %entry
   br label %compiler_visit_expr1.exit
@@ -15761,7 +15761,7 @@ for.inc:                                          ; preds = %for.body, %if.end27
   %i.1 = phi i64 [ %inc, %if.end27 ], [ %inc, %if.then1.i36 ], [ %inc, %if.end.i33 ], [ %i.040, %for.body ]
   %inc29 = add nuw nsw i64 %key_i.039, 1
   %exitcond.not = icmp eq i64 %inc29, %call1.val
-  br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !68
+  br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !62
 
 for.end:                                          ; preds = %for.inc, %if.end8
   %17 = load i64, ptr %call1, align 8
@@ -15853,7 +15853,7 @@ declare ptr @PyCapsule_New(ptr noundef, ptr noundef, ptr noundef) local_unnamed_
 declare i32 @PyList_Append(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @compiler_set_qualname(ptr nocapture noundef readonly %c) unnamed_addr #1 {
+define internal fastcc range(i32 -1, 1) i32 @compiler_set_qualname(ptr nocapture noundef readonly %c) unnamed_addr #1 {
 entry:
   %name = alloca ptr, align 8
   %u1 = getelementptr inbounds i8, ptr %c, i64 64
@@ -16021,14 +16021,14 @@ return:                                           ; preds = %return.sink.split, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @codegen_addop_i(ptr nocapture noundef %seq, i32 noundef %opcode, i64 noundef %oparg, i64 %loc.coerce0, i64 %loc.coerce1) unnamed_addr #1 {
+define internal fastcc range(i32 -1, 1) i32 @codegen_addop_i(ptr nocapture noundef %seq, i32 noundef %opcode, i64 noundef %oparg, i64 %loc.coerce0, i64 %loc.coerce1) unnamed_addr #1 {
 entry:
   %conv = trunc i64 %oparg to i32
   %s_used.i.i = getelementptr inbounds i8, ptr %seq, i64 12
   %0 = load i32, ptr %s_used.i.i, align 4
   %add.i.i = add i32 %0, 1
   %s_allocated.i.i = getelementptr inbounds i8, ptr %seq, i64 8
-  %call.i.i = tail call i32 @_PyCompile_EnsureArrayLargeEnough(i32 noundef %add.i.i, ptr noundef %seq, ptr noundef nonnull %s_allocated.i.i, i32 noundef 100, i64 noundef 44), !range !5
+  %call.i.i = tail call i32 @_PyCompile_EnsureArrayLargeEnough(i32 noundef %add.i.i, ptr noundef %seq, ptr noundef nonnull %s_allocated.i.i, i32 noundef 100, i64 noundef 44)
   %cmp.i.i = icmp eq i32 %call.i.i, -1
   br i1 %cmp.i.i, label %_PyCompile_InstructionSequence_Addop.exit, label %instr_sequence_next_inst.exit.i
 
@@ -16086,7 +16086,7 @@ declare void @PyUnicode_Append(ptr noundef, ptr noundef) local_unnamed_addr #2
 declare ptr @_PyAST_GetDocString(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @compiler_addop_load_const(ptr noundef %const_cache, ptr nocapture noundef %u, i64 %loc.coerce0, i64 %loc.coerce1, ptr noundef %o) unnamed_addr #1 {
+define internal fastcc range(i32 -1, 1) i32 @compiler_addop_load_const(ptr noundef %const_cache, ptr nocapture noundef %u, i64 %loc.coerce0, i64 %loc.coerce1, ptr noundef %o) unnamed_addr #1 {
 entry:
   %call.i = tail call fastcc ptr @merge_consts_recursive(ptr noundef %const_cache, ptr noundef %o)
   %cmp.i = icmp eq ptr %call.i, null
@@ -16122,7 +16122,7 @@ if.end:                                           ; preds = %compiler_add_const.
   %3 = load i32, ptr %s_used.i.i.i, align 4
   %add.i.i.i = add i32 %3, 1
   %s_allocated.i.i.i = getelementptr inbounds i8, ptr %u, i64 32
-  %call.i.i.i = tail call i32 @_PyCompile_EnsureArrayLargeEnough(i32 noundef %add.i.i.i, ptr noundef nonnull %u_instr_sequence, ptr noundef nonnull %s_allocated.i.i.i, i32 noundef 100, i64 noundef 44), !range !5
+  %call.i.i.i = tail call i32 @_PyCompile_EnsureArrayLargeEnough(i32 noundef %add.i.i.i, ptr noundef nonnull %u_instr_sequence, ptr noundef nonnull %s_allocated.i.i.i, i32 noundef 100, i64 noundef 44)
   %cmp.i.i.i = icmp eq i32 %call.i.i.i, -1
   br i1 %cmp.i.i.i, label %return, label %instr_sequence_next_inst.exit.i.i
 
@@ -16152,7 +16152,7 @@ return:                                           ; preds = %entry, %if.end.i.i4
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @compiler_nameop(ptr nocapture noundef readonly %c, i64 %loc.coerce0, i64 %loc.coerce1, ptr noundef %name, i32 noundef %ctx) unnamed_addr #1 {
+define internal fastcc range(i32 -1, 1) i32 @compiler_nameop(ptr nocapture noundef readonly %c, i64 %loc.coerce0, i64 %loc.coerce1, ptr noundef %name, i32 noundef %ctx) unnamed_addr #1 {
 entry:
   %item = alloca ptr, align 8
   %u = getelementptr inbounds i8, ptr %c, i64 64
@@ -16262,7 +16262,7 @@ land.lhs.true:                                    ; preds = %sw.bb36
 
 if.then42:                                        ; preds = %land.lhs.true
   %u_instr_sequence = getelementptr inbounds i8, ptr %15, i64 24
-  %call44 = tail call fastcc i32 @codegen_addop_noarg(ptr noundef nonnull %u_instr_sequence, i32 noundef 25, i64 %loc.coerce0, i64 %loc.coerce1), !range !5
+  %call44 = tail call fastcc i32 @codegen_addop_noarg(ptr noundef nonnull %u_instr_sequence, i32 noundef 25, i64 %loc.coerce0, i64 %loc.coerce1)
   %cmp45 = icmp slt i32 %call44, 0
   br i1 %cmp45, label %error, label %sw.epilog116
 
@@ -16275,7 +16275,7 @@ if.else48:                                        ; preds = %land.lhs.true, %sw.
 if.then52:                                        ; preds = %if.else48
   %u_freevars56 = getelementptr inbounds i8, ptr %15, i64 592
   %19 = load ptr, ptr %u_freevars56, align 8
-  %call57 = tail call fastcc i32 @compiler_addop_o(ptr noundef nonnull %15, i64 %loc.coerce0, i64 %loc.coerce1, i32 noundef 84, ptr noundef %19, ptr noundef nonnull getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 37, i32 0, i32 3, i32 1, i32 37)), !range !5
+  %call57 = tail call fastcc i32 @compiler_addop_o(ptr noundef nonnull %15, i64 %loc.coerce0, i64 %loc.coerce1, i32 noundef 84, ptr noundef %19, ptr noundef nonnull getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 37, i32 0, i32 3, i32 1, i32 37))
   %cmp58 = icmp slt i32 %call57, 0
   br i1 %cmp58, label %error, label %sw.epilog116
 
@@ -16312,7 +16312,7 @@ if.end.i66:                                       ; preds = %sw.epilog71
   %24 = load i32, ptr %s_used.i.i.i.i, align 4
   %add.i.i.i.i = add i32 %24, 1
   %s_allocated.i.i.i.i = getelementptr inbounds i8, ptr %22, i64 32
-  %call.i.i.i.i = call i32 @_PyCompile_EnsureArrayLargeEnough(i32 noundef %add.i.i.i.i, ptr noundef nonnull %u_instr_sequence.i, ptr noundef nonnull %s_allocated.i.i.i.i, i32 noundef 100, i64 noundef 44), !range !5
+  %call.i.i.i.i = call i32 @_PyCompile_EnsureArrayLargeEnough(i32 noundef %add.i.i.i.i, ptr noundef nonnull %u_instr_sequence.i, ptr noundef nonnull %s_allocated.i.i.i.i, i32 noundef 100, i64 noundef 44)
   %cmp.i.i.i.i = icmp eq i32 %call.i.i.i.i, -1
   br i1 %cmp.i.i.i.i, label %if.then77, label %instr_sequence_next_inst.exit.i.i.i
 
@@ -16385,7 +16385,7 @@ sw.bb80:                                          ; preds = %sw.bb79
 if.then90:                                        ; preds = %sw.bb80
   %u_freevars94 = getelementptr inbounds i8, ptr %31, i64 592
   %33 = load ptr, ptr %u_freevars94, align 8
-  %call95 = tail call fastcc i32 @compiler_addop_o(ptr noundef nonnull %31, i64 %loc.coerce0, i64 %loc.coerce1, i32 noundef 84, ptr noundef %33, ptr noundef nonnull getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 37, i32 0, i32 3, i32 1, i32 37)), !range !5
+  %call95 = tail call fastcc i32 @compiler_addop_o(ptr noundef nonnull %31, i64 %loc.coerce0, i64 %loc.coerce1, i32 noundef 84, ptr noundef %33, ptr noundef nonnull getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 37, i32 0, i32 3, i32 1, i32 37))
   %cmp96 = icmp slt i32 %call95, 0
   br i1 %cmp96, label %error, label %sw.epilog116
 
@@ -16458,7 +16458,7 @@ if.end120.split:                                  ; preds = %if.end120
   %42 = load i32, ptr %s_used.i.i.i, align 4
   %add.i.i.i = add i32 %42, 1
   %s_allocated.i.i.i = getelementptr inbounds i8, ptr %41, i64 32
-  %call.i.i.i = call i32 @_PyCompile_EnsureArrayLargeEnough(i32 noundef %add.i.i.i, ptr noundef nonnull %u_instr_sequence12561, ptr noundef nonnull %s_allocated.i.i.i, i32 noundef 100, i64 noundef 44), !range !5
+  %call.i.i.i = call i32 @_PyCompile_EnsureArrayLargeEnough(i32 noundef %add.i.i.i, ptr noundef nonnull %u_instr_sequence12561, ptr noundef nonnull %s_allocated.i.i.i, i32 noundef 100, i64 noundef 44)
   %cmp.i.i.i68 = icmp eq i32 %call.i.i.i, -1
   br i1 %cmp.i.i.i68, label %return, label %instr_sequence_next_inst.exit.i.i
 
@@ -16488,7 +16488,7 @@ if.then122.split:                                 ; preds = %if.end120
   %45 = load i32, ptr %s_used.i.i.i70, align 4
   %add.i.i.i71 = add i32 %45, 1
   %s_allocated.i.i.i72 = getelementptr inbounds i8, ptr %41, i64 32
-  %call.i.i.i73 = call i32 @_PyCompile_EnsureArrayLargeEnough(i32 noundef %add.i.i.i71, ptr noundef nonnull %u_instr_sequence12561, ptr noundef nonnull %s_allocated.i.i.i72, i32 noundef 100, i64 noundef 44), !range !5
+  %call.i.i.i73 = call i32 @_PyCompile_EnsureArrayLargeEnough(i32 noundef %add.i.i.i71, ptr noundef nonnull %u_instr_sequence12561, ptr noundef nonnull %s_allocated.i.i.i72, i32 noundef 100, i64 noundef 44)
   %cmp.i.i.i74 = icmp eq i32 %call.i.i.i73, -1
   br i1 %cmp.i.i.i74, label %return, label %instr_sequence_next_inst.exit.i.i75
 
@@ -16686,7 +16686,7 @@ if.then1.i124:                                    ; preds = %if.end.i121
 for.inc:                                          ; preds = %if.end.i121, %if.then1.i124, %if.end26
   %inc = add nuw nsw i64 %i.096, 1
   %exitcond.not = icmp eq i64 %inc, %o.val71
-  br i1 %exitcond.not, label %return, label %for.body, !llvm.loop !69
+  br i1 %exitcond.not, label %return, label %for.body, !llvm.loop !63
 
 if.else27:                                        ; preds = %if.end8
   %cmp.i80.not = icmp eq ptr %o.val70, @PyFrozenSet_Type
@@ -16809,7 +16809,7 @@ if.end56:                                         ; preds = %if.end47, %if.end.i
   %inc57 = add i64 %i40.094, 1
   %call42 = call i32 @_PySet_NextEntry(ptr noundef %o, ptr noundef nonnull %pos, ptr noundef nonnull %item41, ptr noundef nonnull %hash) #11
   %tobool43.not = icmp eq i32 %call42, 0
-  br i1 %tobool43.not, label %while.end, label %while.body, !llvm.loop !70
+  br i1 %tobool43.not, label %while.end, label %while.body, !llvm.loop !64
 
 while.end:                                        ; preds = %if.end56, %if.end39
   %call58 = call ptr @PyFrozenSet_New(ptr noundef nonnull %call36) #11
@@ -16911,7 +16911,7 @@ return:                                           ; preds = %return.sink.split, 
 declare i32 @PyDict_GetItemRef(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @compiler_addop_o(ptr nocapture noundef %u, i64 %loc.coerce0, i64 %loc.coerce1, i32 noundef %opcode, ptr noundef %dict, ptr noundef %o) unnamed_addr #1 {
+define internal fastcc range(i32 -1, 1) i32 @compiler_addop_o(ptr nocapture noundef %u, i64 %loc.coerce0, i64 %loc.coerce1, i32 noundef %opcode, ptr noundef %dict, ptr noundef %o) unnamed_addr #1 {
 entry:
   %call = tail call fastcc i64 @dict_add_o(ptr noundef %dict, ptr noundef %o)
   %cmp = icmp slt i64 %call, 0
@@ -16924,7 +16924,7 @@ if.end:                                           ; preds = %entry
   %0 = load i32, ptr %s_used.i.i.i, align 4
   %add.i.i.i = add i32 %0, 1
   %s_allocated.i.i.i = getelementptr inbounds i8, ptr %u, i64 32
-  %call.i.i.i = tail call i32 @_PyCompile_EnsureArrayLargeEnough(i32 noundef %add.i.i.i, ptr noundef nonnull %u_instr_sequence, ptr noundef nonnull %s_allocated.i.i.i, i32 noundef 100, i64 noundef 44), !range !5
+  %call.i.i.i = tail call i32 @_PyCompile_EnsureArrayLargeEnough(i32 noundef %add.i.i.i, ptr noundef nonnull %u_instr_sequence, ptr noundef nonnull %s_allocated.i.i.i, i32 noundef 100, i64 noundef 44)
   %cmp.i.i.i = icmp eq i32 %call.i.i.i, -1
   br i1 %cmp.i.i.i, label %return, label %instr_sequence_next_inst.exit.i.i
 
@@ -17052,7 +17052,7 @@ declare ptr @Py_BuildValue(ptr noundef, ...) local_unnamed_addr #2
 declare void @PyErr_SetObject(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @compiler_function(ptr noundef %c, ptr noundef %s, i32 noundef %is_async) unnamed_addr #1 {
+define internal fastcc range(i32 -1, 1) i32 @compiler_function(ptr noundef %c, ptr noundef %s, i32 noundef %is_async) unnamed_addr #1 {
 entry:
   %annotations_len.i = alloca i64, align 8
   %args.0.in = getelementptr inbounds i8, ptr %s, i64 16
@@ -17065,7 +17065,7 @@ entry:
   %decos.0 = load ptr, ptr %decos.0.in, align 8
   %type_params.0.in = getelementptr inbounds i8, ptr %s, i64 56
   %type_params.0 = load ptr, ptr %type_params.0.in, align 8
-  %call = tail call fastcc i32 @compiler_check_debug_args(ptr noundef %c, ptr noundef %args.0), !range !5
+  %call = tail call fastcc i32 @compiler_check_debug_args(ptr noundef %c, ptr noundef %args.0)
   %cmp = icmp eq i32 %call, -1
   br i1 %cmp, label %return, label %if.end20
 
@@ -17083,13 +17083,13 @@ for.cond.i:                                       ; preds = %for.body.i
   %inc.i = add nuw nsw i64 %i.07.i, 1
   %1 = load i64, ptr %decos.0, align 8
   %cmp1.i = icmp slt i64 %inc.i, %1
-  br i1 %cmp1.i, label %for.body.i, label %cond.end, !llvm.loop !32
+  br i1 %cmp1.i, label %for.body.i, label %cond.end, !llvm.loop !30
 
 for.body.i:                                       ; preds = %for.cond.preheader.i, %for.cond.i
   %i.07.i = phi i64 [ %inc.i, %for.cond.i ], [ 0, %for.cond.preheader.i ]
   %arrayidx.i = getelementptr [1 x ptr], ptr %typed_elements.i, i64 0, i64 %i.07.i
   %2 = load ptr, ptr %arrayidx.i, align 8
-  %call.i = tail call fastcc i32 @compiler_visit_expr(ptr noundef %c, ptr noundef %2), !range !5
+  %call.i = tail call fastcc i32 @compiler_visit_expr(ptr noundef %c, ptr noundef %2)
   %cmp2.i = icmp eq i32 %call.i, -1
   br i1 %cmp2.i, label %return, label %for.cond.i
 
@@ -17163,10 +17163,10 @@ for.cond.i.i:                                     ; preds = %for.body.i.i, %if.t
 for.body.i.i:                                     ; preds = %for.cond.i.i
   %arrayidx.i.i = getelementptr [1 x ptr], ptr %typed_elements.i.i, i64 0, i64 %conv.i.i
   %16 = load ptr, ptr %arrayidx.i.i, align 8
-  %call.i.i = tail call fastcc i32 @compiler_visit_expr(ptr noundef %c, ptr noundef %16) #12, !range !5
+  %call.i.i = tail call fastcc i32 @compiler_visit_expr(ptr noundef %c, ptr noundef %16) #12
   %cmp4.i.i = icmp eq i32 %call.i.i, -1
   %inc.i.i = add i32 %_i.0.i.i, 1
-  br i1 %cmp4.i.i, label %return, label %for.cond.i.i, !llvm.loop !71
+  br i1 %cmp4.i.i, label %return, label %for.cond.i.i, !llvm.loop !65
 
 for.end.i.i:                                      ; preds = %for.cond.i.i
   %.pre.i.i = load ptr, ptr %defaults.i, align 8
@@ -17187,7 +17187,7 @@ cond.end13.i.i:                                   ; preds = %cond.false10.i.i, %
   %20 = load i32, ptr %s_used.i.i.i.i.i, align 4
   %add.i.i.i.i.i = add i32 %20, 1
   %s_allocated.i.i.i.i.i = getelementptr inbounds i8, ptr %17, i64 32
-  %call.i.i.i.i.i = tail call i32 @_PyCompile_EnsureArrayLargeEnough(i32 noundef %add.i.i.i.i.i, ptr noundef nonnull %u_instr_sequence17.i.i, ptr noundef nonnull %s_allocated.i.i.i.i.i, i32 noundef 100, i64 noundef 44), !range !5
+  %call.i.i.i.i.i = tail call i32 @_PyCompile_EnsureArrayLargeEnough(i32 noundef %add.i.i.i.i.i, ptr noundef nonnull %u_instr_sequence17.i.i, ptr noundef nonnull %s_allocated.i.i.i.i.i, i32 noundef 100, i64 noundef 44)
   %cmp.i.i.i.i.i = icmp eq i32 %call.i.i.i.i.i, -1
   br i1 %cmp.i.i.i.i.i, label %return, label %instr_sequence_next_inst.exit.i.i.i.i
 
@@ -17221,7 +17221,7 @@ if.end6.i:                                        ; preds = %compiler_visit_defa
 if.then8.i:                                       ; preds = %if.end6.i
   %kw_defaults.i = getelementptr inbounds i8, ptr %args.0, i64 32
   %24 = load ptr, ptr %kw_defaults.i, align 8
-  %call10.i = tail call fastcc i32 @compiler_visit_kwonlydefaults(ptr noundef %c, i64 %loc.sroa.0.0.insert.insert, i64 %loc.sroa.14.8.insert.insert, ptr noundef nonnull %23, ptr noundef %24), !range !55
+  %call10.i = tail call fastcc i32 @compiler_visit_kwonlydefaults(ptr noundef %c, i64 %loc.sroa.0.0.insert.insert, i64 %loc.sroa.14.8.insert.insert, ptr noundef nonnull %23, ptr noundef %24)
   %cmp11.i = icmp eq i32 %call10.i, -1
   br i1 %cmp11.i, label %return, label %if.end13.i
 
@@ -17237,8 +17237,9 @@ if.end46:                                         ; preds = %if.end13.i, %if.end
 
 if.then48:                                        ; preds = %if.end46
   %25 = trunc nuw nsw i64 %retval.0.i285 to i32
+  %spec.select = and i32 %25, 1
   %26 = lshr i32 %25, 1
-  %num_typeparam_args.1 = sub i32 %25, %26
+  %num_typeparam_args.1 = add nuw nsw i32 %26, %spec.select
   %cmp57 = icmp eq i32 %num_typeparam_args.1, 2
   br i1 %cmp57, label %if.then59, label %if.end65
 
@@ -17250,7 +17251,7 @@ if.then59:                                        ; preds = %if.then48
   %28 = load i32, ptr %s_used.i.i.i, align 4
   %add.i.i.i = add i32 %28, 1
   %s_allocated.i.i.i = getelementptr inbounds i8, ptr %27, i64 32
-  %call.i.i.i = tail call i32 @_PyCompile_EnsureArrayLargeEnough(i32 noundef %add.i.i.i, ptr noundef nonnull %u_instr_sequence, ptr noundef nonnull %s_allocated.i.i.i, i32 noundef 100, i64 noundef 44), !range !5
+  %call.i.i.i = tail call i32 @_PyCompile_EnsureArrayLargeEnough(i32 noundef %add.i.i.i, ptr noundef nonnull %u_instr_sequence, ptr noundef nonnull %s_allocated.i.i.i, i32 noundef 100, i64 noundef 44)
   %cmp.i.i.i = icmp eq i32 %call.i.i.i, -1
   br i1 %cmp.i.i.i, label %return, label %instr_sequence_next_inst.exit.i.i
 
@@ -17280,7 +17281,7 @@ if.end65:                                         ; preds = %codegen_addop_i.exi
   br i1 %tobool67.not, label %return, label %if.end69
 
 if.end69:                                         ; preds = %if.end65
-  %call70 = tail call fastcc i32 @compiler_enter_scope(ptr noundef %c, ptr noundef nonnull %call66, i32 noundef 6, ptr noundef %type_params.0, i32 noundef %firstlineno.0), !range !5
+  %call70 = tail call fastcc i32 @compiler_enter_scope(ptr noundef %c, ptr noundef nonnull %call66, i32 noundef 6, ptr noundef %type_params.0, i32 noundef %firstlineno.0)
   %cmp71 = icmp eq i32 %call70, -1
   %31 = load i64, ptr %call66, align 8
   %32 = and i64 %31, 2147483648
@@ -17314,7 +17315,7 @@ if.then1.i197:                                    ; preds = %if.end.i194
   br label %Py_DECREF.exit199
 
 Py_DECREF.exit199:                                ; preds = %if.end74, %if.then1.i197, %if.end.i194
-  %call75 = tail call fastcc i32 @compiler_type_params(ptr noundef %c, ptr noundef %type_params.0), !range !5
+  %call75 = tail call fastcc i32 @compiler_type_params(ptr noundef %c, ptr noundef %type_params.0)
   %cmp76 = icmp slt i32 %call75, 0
   br i1 %cmp76, label %if.then78, label %for.cond.preheader
 
@@ -17338,7 +17339,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   %34 = load i32, ptr %s_used.i.i.i287, align 4
   %add.i.i.i288 = add i32 %34, 1
   %s_allocated.i.i.i289 = getelementptr inbounds i8, ptr %33, i64 32
-  %call.i.i.i290 = tail call i32 @_PyCompile_EnsureArrayLargeEnough(i32 noundef %add.i.i.i288, ptr noundef nonnull %u_instr_sequence83, ptr noundef nonnull %s_allocated.i.i.i289, i32 noundef 100, i64 noundef 44), !range !5
+  %call.i.i.i290 = tail call i32 @_PyCompile_EnsureArrayLargeEnough(i32 noundef %add.i.i.i288, ptr noundef nonnull %u_instr_sequence83, ptr noundef nonnull %s_allocated.i.i.i289, i32 noundef 100, i64 noundef 44)
   %cmp.i.i.i291 = icmp eq i32 %call.i.i.i290, -1
   br i1 %cmp.i.i.i291, label %if.then88, label %instr_sequence_next_inst.exit.i.i292
 
@@ -17366,7 +17367,7 @@ for.inc:                                          ; preds = %instr_sequence_next
   store i64 %loc.sroa.14.8.insert.insert, ptr %loc.sroa.2.0.i_loc.sroa_idx.i.i300, align 4
   %inc = add nuw nsw i32 %i.0397, 1
   %exitcond.not = icmp eq i32 %inc, %num_typeparam_args.1
-  br i1 %exitcond.not, label %if.end90, label %for.body, !llvm.loop !72
+  br i1 %exitcond.not, label %if.end90, label %for.body, !llvm.loop !66
 
 if.end90:                                         ; preds = %for.inc, %for.cond.preheader, %if.end46
   %num_typeparam_args.2 = phi i32 [ 0, %if.end46 ], [ 0, %for.cond.preheader ], [ %num_typeparam_args.1, %for.inc ]
@@ -17391,10 +17392,10 @@ for.body.i.i316:                                  ; preds = %for.cond.i.i305
   %40 = load ptr, ptr %39, align 8
   %annotation.i.i = getelementptr inbounds i8, ptr %39, i64 8
   %41 = load ptr, ptr %annotation.i.i, align 8
-  %call.i.i318 = call fastcc i32 @compiler_visit_argannotation(ptr noundef %c, ptr noundef %40, ptr noundef %41, ptr noundef nonnull %annotations_len.i, i64 %loc.sroa.0.0.insert.insert, i64 %loc.sroa.14.8.insert.insert), !range !5
+  %call.i.i318 = call fastcc i32 @compiler_visit_argannotation(ptr noundef %c, ptr noundef %40, ptr noundef %41, ptr noundef nonnull %annotations_len.i, i64 %loc.sroa.0.0.insert.insert, i64 %loc.sroa.14.8.insert.insert)
   %cmp5.i.i = icmp eq i32 %call.i.i318, -1
   %inc.i.i319 = add i32 %i.0.i.i, 1
-  br i1 %cmp5.i.i, label %if.then94, label %for.cond.i.i305, !llvm.loop !73
+  br i1 %cmp5.i.i, label %if.then94, label %for.cond.i.i305, !llvm.loop !67
 
 if.end.i308:                                      ; preds = %for.cond.i.i305, %if.end90
   %42 = load ptr, ptr %args.0, align 8
@@ -17415,10 +17416,10 @@ for.body.i40.i:                                   ; preds = %for.cond.i35.i
   %45 = load ptr, ptr %44, align 8
   %annotation.i42.i = getelementptr inbounds i8, ptr %44, i64 8
   %46 = load ptr, ptr %annotation.i42.i, align 8
-  %call.i43.i = call fastcc i32 @compiler_visit_argannotation(ptr noundef %c, ptr noundef %45, ptr noundef %46, ptr noundef nonnull %annotations_len.i, i64 %loc.sroa.0.0.insert.insert, i64 %loc.sroa.14.8.insert.insert), !range !5
+  %call.i43.i = call fastcc i32 @compiler_visit_argannotation(ptr noundef %c, ptr noundef %45, ptr noundef %46, ptr noundef nonnull %annotations_len.i, i64 %loc.sroa.0.0.insert.insert, i64 %loc.sroa.14.8.insert.insert)
   %cmp5.i44.i = icmp eq i32 %call.i43.i, -1
   %inc.i45.i = add i32 %i.0.i36.i, 1
-  br i1 %cmp5.i44.i, label %if.then94, label %for.cond.i35.i, !llvm.loop !73
+  br i1 %cmp5.i44.i, label %if.then94, label %for.cond.i35.i, !llvm.loop !67
 
 if.end5.i:                                        ; preds = %for.cond.i35.i, %if.end.i308
   %vararg.i = getelementptr inbounds i8, ptr %args.0, i64 16
@@ -17434,7 +17435,7 @@ land.lhs.true.i:                                  ; preds = %if.end5.i
 
 if.then8.i311:                                    ; preds = %land.lhs.true.i
   %49 = load ptr, ptr %47, align 8
-  %call12.i = call fastcc i32 @compiler_visit_argannotation(ptr noundef %c, ptr noundef %49, ptr noundef nonnull %48, ptr noundef nonnull %annotations_len.i, i64 %loc.sroa.0.0.insert.insert, i64 %loc.sroa.14.8.insert.insert), !range !5
+  %call12.i = call fastcc i32 @compiler_visit_argannotation(ptr noundef %c, ptr noundef %49, ptr noundef nonnull %48, ptr noundef nonnull %annotations_len.i, i64 %loc.sroa.0.0.insert.insert, i64 %loc.sroa.14.8.insert.insert)
   %cmp13.i = icmp eq i32 %call12.i, -1
   br i1 %cmp13.i, label %if.then94, label %if.end16.i
 
@@ -17457,10 +17458,10 @@ for.body.i54.i:                                   ; preds = %for.cond.i49.i
   %53 = load ptr, ptr %52, align 8
   %annotation.i56.i = getelementptr inbounds i8, ptr %52, i64 8
   %54 = load ptr, ptr %annotation.i56.i, align 8
-  %call.i57.i = call fastcc i32 @compiler_visit_argannotation(ptr noundef %c, ptr noundef %53, ptr noundef %54, ptr noundef nonnull %annotations_len.i, i64 %loc.sroa.0.0.insert.insert, i64 %loc.sroa.14.8.insert.insert), !range !5
+  %call.i57.i = call fastcc i32 @compiler_visit_argannotation(ptr noundef %c, ptr noundef %53, ptr noundef %54, ptr noundef nonnull %annotations_len.i, i64 %loc.sroa.0.0.insert.insert, i64 %loc.sroa.14.8.insert.insert)
   %cmp5.i58.i = icmp eq i32 %call.i57.i, -1
   %inc.i59.i = add i32 %i.0.i50.i, 1
-  br i1 %cmp5.i58.i, label %if.then94, label %for.cond.i49.i, !llvm.loop !73
+  br i1 %cmp5.i58.i, label %if.then94, label %for.cond.i49.i, !llvm.loop !67
 
 if.end20.i:                                       ; preds = %for.cond.i49.i, %if.end16.i
   %kwarg.i = getelementptr inbounds i8, ptr %args.0, i64 40
@@ -17476,12 +17477,12 @@ land.lhs.true22.i:                                ; preds = %if.end20.i
 
 if.then26.i:                                      ; preds = %land.lhs.true22.i
   %57 = load ptr, ptr %55, align 8
-  %call31.i = call fastcc i32 @compiler_visit_argannotation(ptr noundef %c, ptr noundef %57, ptr noundef nonnull %56, ptr noundef nonnull %annotations_len.i, i64 %loc.sroa.0.0.insert.insert, i64 %loc.sroa.14.8.insert.insert), !range !5
+  %call31.i = call fastcc i32 @compiler_visit_argannotation(ptr noundef %c, ptr noundef %57, ptr noundef nonnull %56, ptr noundef nonnull %annotations_len.i, i64 %loc.sroa.0.0.insert.insert, i64 %loc.sroa.14.8.insert.insert)
   %cmp32.i = icmp eq i32 %call31.i, -1
   br i1 %cmp32.i, label %if.then94, label %if.end35.i
 
 if.end35.i:                                       ; preds = %if.then26.i, %land.lhs.true22.i, %if.end20.i
-  %call36.i = call fastcc i32 @compiler_visit_argannotation(ptr noundef %c, ptr noundef nonnull getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 37, i32 0, i32 3, i32 1, i32 586), ptr noundef %returns.0, ptr noundef nonnull %annotations_len.i, i64 %loc.sroa.0.0.insert.insert, i64 %loc.sroa.14.8.insert.insert), !range !5
+  %call36.i = call fastcc i32 @compiler_visit_argannotation(ptr noundef %c, ptr noundef nonnull getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 37, i32 0, i32 3, i32 1, i32 586), ptr noundef %returns.0, ptr noundef nonnull %annotations_len.i, i64 %loc.sroa.0.0.insert.insert, i64 %loc.sroa.14.8.insert.insert)
   %cmp37.i = icmp eq i32 %call36.i, -1
   br i1 %cmp37.i, label %if.then94, label %if.end39.i
 
@@ -17499,7 +17500,7 @@ if.then41.i:                                      ; preds = %if.end39.i
   %60 = load i32, ptr %s_used.i.i.i.i, align 4
   %add.i.i.i.i = add i32 %60, 1
   %s_allocated.i.i.i.i = getelementptr inbounds i8, ptr %59, i64 32
-  %call.i.i.i.i = tail call i32 @_PyCompile_EnsureArrayLargeEnough(i32 noundef %add.i.i.i.i, ptr noundef nonnull %u_instr_sequence.i, ptr noundef nonnull %s_allocated.i.i.i.i, i32 noundef 100, i64 noundef 44), !range !5
+  %call.i.i.i.i = tail call i32 @_PyCompile_EnsureArrayLargeEnough(i32 noundef %add.i.i.i.i, ptr noundef nonnull %u_instr_sequence.i, ptr noundef nonnull %s_allocated.i.i.i.i, i32 noundef 100, i64 noundef 44)
   %cmp.i.i.i.i313 = icmp eq i32 %call.i.i.i.i, -1
   br i1 %cmp.i.i.i.i313, label %if.then94, label %instr_sequence_next_inst.exit.i.i.i
 
@@ -17545,7 +17546,7 @@ if.end.i322:                                      ; preds = %if.end98, %63
   %66 = load ptr, ptr %name.0.in, align 8
   %67 = load ptr, ptr %args.0.in, align 8
   %. = select i1 %tobool.not.i320, i32 2, i32 3
-  %call53.i = tail call fastcc i32 @compiler_enter_scope(ptr noundef %c, ptr noundef %66, i32 noundef %., ptr noundef %s, i32 noundef %firstlineno.0), !range !5
+  %call53.i = tail call fastcc i32 @compiler_enter_scope(ptr noundef %c, ptr noundef %66, i32 noundef %., ptr noundef %s, i32 noundef %firstlineno.0)
   %cmp.i323 = icmp eq i32 %call53.i, -1
   br i1 %cmp.i323, label %if.then106, label %if.end13.i324
 
@@ -17691,7 +17692,7 @@ for.body.i332:                                    ; preds = %for.cond.i328
   %call67.i = tail call fastcc i32 @compiler_visit_stmt(ptr noundef %c, ptr noundef %86)
   %cmp68.i = icmp slt i32 %call67.i, 0
   %inc.i335 = add nuw nsw i64 %i.0.i, 1
-  br i1 %cmp68.i, label %if.then70.i, label %for.cond.i328, !llvm.loop !74
+  br i1 %cmp68.i, label %if.then70.i, label %for.cond.i328, !llvm.loop !68
 
 if.then70.i:                                      ; preds = %for.body.i332
   tail call fastcc void @compiler_exit_scope(ptr noundef %c)
@@ -17707,7 +17708,7 @@ for.end.i:                                        ; preds = %for.cond.i328, %con
   br i1 %or.cond.i, label %if.end87.i, label %if.then81.i
 
 if.then81.i:                                      ; preds = %for.end.i
-  %call82.i = tail call fastcc i32 @wrap_in_stopiteration_handler(ptr noundef nonnull %c), !range !5
+  %call82.i = tail call fastcc i32 @wrap_in_stopiteration_handler(ptr noundef nonnull %c)
   %cmp83.i = icmp slt i32 %call82.i, 0
   br i1 %cmp83.i, label %if.then85.i, label %if.end87.i
 
@@ -17734,7 +17735,7 @@ if.end92.i:                                       ; preds = %if.end87.i
   %loc.sroa.5.8.insert.shift.i = shl nuw i64 %loc.sroa.5.8.insert.ext.i, 32
   %loc.sroa.3.8.insert.ext.i = zext i32 %92 to i64
   %loc.sroa.3.8.insert.insert.i = or disjoint i64 %loc.sroa.5.8.insert.shift.i, %loc.sroa.3.8.insert.ext.i
-  %call97.i = tail call fastcc i32 @compiler_make_closure(ptr noundef nonnull %c, i64 %loc.sroa.0.0.insert.insert.i, i64 %loc.sroa.3.8.insert.insert.i, ptr noundef nonnull %call88.i, i64 noundef %64), !range !5
+  %call97.i = tail call fastcc i32 @compiler_make_closure(ptr noundef nonnull %c, i64 %loc.sroa.0.0.insert.insert.i, i64 %loc.sroa.3.8.insert.insert.i, ptr noundef nonnull %call88.i, i64 noundef %64)
   %cmp98.i = icmp slt i32 %call97.i, 0
   %94 = load i64, ptr %call88.i, align 8
   %95 = and i64 %94, 2147483648
@@ -17784,7 +17785,7 @@ if.then112:                                       ; preds = %if.end110
   %97 = load i32, ptr %s_used.i.i.i336, align 4
   %add.i.i.i337 = add i32 %97, 1
   %s_allocated.i.i.i338 = getelementptr inbounds i8, ptr %96, i64 32
-  %call.i.i.i339 = tail call i32 @_PyCompile_EnsureArrayLargeEnough(i32 noundef %add.i.i.i337, ptr noundef nonnull %u_instr_sequence114, ptr noundef nonnull %s_allocated.i.i.i338, i32 noundef 100, i64 noundef 44), !range !5
+  %call.i.i.i339 = tail call i32 @_PyCompile_EnsureArrayLargeEnough(i32 noundef %add.i.i.i337, ptr noundef nonnull %u_instr_sequence114, ptr noundef nonnull %s_allocated.i.i.i338, i32 noundef 100, i64 noundef 44)
   %cmp.i.i.i340 = icmp eq i32 %call.i.i.i339, -1
   br i1 %cmp.i.i.i340, label %if.then118, label %instr_sequence_next_inst.exit.i.i341
 
@@ -17812,7 +17813,7 @@ if.end119:                                        ; preds = %instr_sequence_next
   store i64 %loc.sroa.14.8.insert.insert, ptr %loc.sroa.2.0.i_loc.sroa_idx.i.i349, align 4
   %100 = load ptr, ptr %u.i325, align 8
   %u_instr_sequence121 = getelementptr inbounds i8, ptr %100, i64 24
-  %call122 = tail call fastcc i32 @codegen_addop_i(ptr noundef nonnull %u_instr_sequence121, i32 noundef 56, i64 noundef 4, i64 %loc.sroa.0.0.insert.insert, i64 %loc.sroa.14.8.insert.insert), !range !5
+  %call122 = tail call fastcc i32 @codegen_addop_i(ptr noundef nonnull %u_instr_sequence121, i32 noundef 56, i64 noundef 4, i64 %loc.sroa.0.0.insert.insert, i64 %loc.sroa.14.8.insert.insert)
   %cmp123 = icmp slt i32 %call122, 0
   br i1 %cmp123, label %if.then125, label %if.end126
 
@@ -17831,7 +17832,7 @@ if.end126:                                        ; preds = %if.end119
   br i1 %cmp130, label %return, label %if.end133
 
 if.end133:                                        ; preds = %if.end126
-  %call134 = tail call fastcc i32 @compiler_make_closure(ptr noundef nonnull %c, i64 %loc.sroa.0.0.insert.insert, i64 %loc.sroa.14.8.insert.insert, ptr noundef nonnull %call129, i64 noundef 0), !range !5
+  %call134 = tail call fastcc i32 @compiler_make_closure(ptr noundef nonnull %c, i64 %loc.sroa.0.0.insert.insert, i64 %loc.sroa.14.8.insert.insert, ptr noundef nonnull %call129, i64 noundef 0)
   %cmp135 = icmp slt i32 %call134, 0
   %102 = load i64, ptr %call129, align 8
   %103 = and i64 %102, 2147483648
@@ -17873,7 +17874,7 @@ Py_DECREF.exit:                                   ; preds = %if.end138, %if.then
 if.then141:                                       ; preds = %Py_DECREF.exit
   %add144 = add nuw nsw i32 %num_typeparam_args.2, 1
   %conv145 = zext nneg i32 %add144 to i64
-  %call146 = tail call fastcc i32 @codegen_addop_i(ptr noundef nonnull %u_instr_sequence143, i32 noundef 115, i64 noundef %conv145, i64 %loc.sroa.0.0.insert.insert, i64 %loc.sroa.14.8.insert.insert), !range !5
+  %call146 = tail call fastcc i32 @codegen_addop_i(ptr noundef nonnull %u_instr_sequence143, i32 noundef 115, i64 noundef %conv145, i64 %loc.sroa.0.0.insert.insert, i64 %loc.sroa.14.8.insert.insert)
   %cmp147 = icmp eq i32 %call146, -1
   br i1 %cmp147, label %return, label %if.end150
 
@@ -17882,29 +17883,29 @@ if.end150:                                        ; preds = %if.then141
   %u_instr_sequence152 = getelementptr inbounds i8, ptr %105, i64 24
   %sub = add nsw i32 %num_typeparam_args.2, -1
   %conv153 = zext nneg i32 %sub to i64
-  %call154 = tail call fastcc i32 @codegen_addop_i(ptr noundef nonnull %u_instr_sequence152, i32 noundef 53, i64 noundef %conv153, i64 %loc.sroa.0.0.insert.insert, i64 %loc.sroa.14.8.insert.insert), !range !5
+  %call154 = tail call fastcc i32 @codegen_addop_i(ptr noundef nonnull %u_instr_sequence152, i32 noundef 53, i64 noundef %conv153, i64 %loc.sroa.0.0.insert.insert, i64 %loc.sroa.14.8.insert.insert)
   %cmp155 = icmp eq i32 %call154, -1
   br i1 %cmp155, label %return, label %if.end175
 
 if.else159:                                       ; preds = %Py_DECREF.exit
-  %call162 = tail call fastcc i32 @codegen_addop_noarg(ptr noundef nonnull %u_instr_sequence143, i32 noundef 34, i64 %loc.sroa.0.0.insert.insert, i64 %loc.sroa.14.8.insert.insert), !range !5
+  %call162 = tail call fastcc i32 @codegen_addop_noarg(ptr noundef nonnull %u_instr_sequence143, i32 noundef 34, i64 %loc.sroa.0.0.insert.insert, i64 %loc.sroa.14.8.insert.insert)
   %cmp163 = icmp eq i32 %call162, -1
   br i1 %cmp163, label %return, label %if.end166
 
 if.end166:                                        ; preds = %if.else159
   %106 = load ptr, ptr %u.i325, align 8
   %u_instr_sequence168 = getelementptr inbounds i8, ptr %106, i64 24
-  %call169 = tail call fastcc i32 @codegen_addop_i(ptr noundef nonnull %u_instr_sequence168, i32 noundef 53, i64 noundef 0, i64 %loc.sroa.0.0.insert.insert, i64 %loc.sroa.14.8.insert.insert), !range !5
+  %call169 = tail call fastcc i32 @codegen_addop_i(ptr noundef nonnull %u_instr_sequence168, i32 noundef 53, i64 noundef 0, i64 %loc.sroa.0.0.insert.insert, i64 %loc.sroa.14.8.insert.insert)
   %cmp170 = icmp eq i32 %call169, -1
   br i1 %cmp170, label %return, label %if.end175
 
 if.end175:                                        ; preds = %if.end150, %if.end166, %if.end110
-  %call176 = tail call fastcc i32 @compiler_apply_decorators(ptr noundef nonnull %c, ptr noundef %decos.0), !range !5
+  %call176 = tail call fastcc i32 @compiler_apply_decorators(ptr noundef nonnull %c, ptr noundef %decos.0)
   %cmp177 = icmp eq i32 %call176, -1
   br i1 %cmp177, label %return, label %if.end180
 
 if.end180:                                        ; preds = %if.end175
-  %call181 = tail call fastcc i32 @compiler_nameop(ptr noundef nonnull %c, i64 %loc.sroa.0.0.insert.insert, i64 %loc.sroa.14.8.insert.insert, ptr noundef %name.0, i32 noundef 2), !range !5
+  %call181 = tail call fastcc i32 @compiler_nameop(ptr noundef nonnull %c, i64 %loc.sroa.0.0.insert.insert, i64 %loc.sroa.14.8.insert.insert, ptr noundef %name.0, i32 noundef 2)
   br label %return
 
 return:                                           ; preds = %for.body.i, %for.body.i.i, %if.then59, %instr_sequence_next_inst.exit.i.i, %cond.end13.i.i, %instr_sequence_next_inst.exit.i.i.i.i, %if.then8.i, %if.end175, %if.end166, %if.else159, %if.end150, %if.then141, %if.end.i185, %if.then1.i188, %if.then137, %if.end126, %if.then106, %if.then108, %if.then94, %if.then96, %if.end.i203, %if.then1.i206, %if.then73, %if.end65, %entry, %if.end180, %if.then125, %if.then118, %if.then88, %if.then78
@@ -17913,7 +17914,7 @@ return:                                           ; preds = %for.body.i, %for.bo
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @compiler_with(ptr noundef %c, ptr noundef %s, i32 noundef %pos) unnamed_addr #1 {
+define internal fastcc range(i32 -1, 1) i32 @compiler_with(ptr noundef %c, ptr noundef %s, i32 noundef %pos) unnamed_addr #1 {
 entry:
   %v = getelementptr inbounds i8, ptr %s, i64 8
   %0 = load ptr, ptr %v, align 8
@@ -17959,7 +17960,7 @@ if.end16:                                         ; preds = %if.end8
 
 if.end24:                                         ; preds = %if.end16
   %10 = load ptr, ptr %1, align 8
-  %call25 = tail call fastcc i32 @compiler_visit_expr(ptr noundef nonnull %c, ptr noundef %10), !range !5
+  %call25 = tail call fastcc i32 @compiler_visit_expr(ptr noundef nonnull %c, ptr noundef %10)
   %cmp26 = icmp eq i32 %call25, -1
   br i1 %cmp26, label %return, label %if.end28
 
@@ -17986,7 +17987,7 @@ if.end28:                                         ; preds = %if.end24
   %16 = load i32, ptr %s_used.i.i.i, align 4
   %add.i.i.i = add i32 %16, 1
   %s_allocated.i.i.i = getelementptr inbounds i8, ptr %15, i64 32
-  %call.i.i.i = tail call i32 @_PyCompile_EnsureArrayLargeEnough(i32 noundef %add.i.i.i, ptr noundef nonnull %u_instr_sequence34, ptr noundef nonnull %s_allocated.i.i.i, i32 noundef 100, i64 noundef 44), !range !5
+  %call.i.i.i = tail call i32 @_PyCompile_EnsureArrayLargeEnough(i32 noundef %add.i.i.i, ptr noundef nonnull %u_instr_sequence34, ptr noundef nonnull %s_allocated.i.i.i, i32 noundef 100, i64 noundef 44)
   %cmp.i.i.i = icmp eq i32 %call.i.i.i, -1
   br i1 %cmp.i.i.i, label %return, label %instr_sequence_next_inst.exit.i.i
 
@@ -18014,7 +18015,7 @@ if.end38:                                         ; preds = %instr_sequence_next
   %20 = load i32, ptr %s_used.i.i.i226, align 4
   %add.i.i.i227 = add i32 %20, 1
   %s_allocated.i.i.i228 = getelementptr inbounds i8, ptr %19, i64 32
-  %call.i.i.i229 = tail call i32 @_PyCompile_EnsureArrayLargeEnough(i32 noundef %add.i.i.i227, ptr noundef nonnull %u_instr_sequence40, ptr noundef nonnull %s_allocated.i.i.i228, i32 noundef 100, i64 noundef 44), !range !5
+  %call.i.i.i229 = tail call i32 @_PyCompile_EnsureArrayLargeEnough(i32 noundef %add.i.i.i227, ptr noundef nonnull %u_instr_sequence40, ptr noundef nonnull %s_allocated.i.i.i228, i32 noundef 100, i64 noundef 44)
   %cmp.i.i.i230 = icmp eq i32 %call.i.i.i229, -1
   br i1 %cmp.i.i.i230, label %return, label %instr_sequence_next_inst.exit.i.i231
 
@@ -18040,7 +18041,7 @@ if.end45:                                         ; preds = %instr_sequence_next
   %s_labelmap_size.i = getelementptr inbounds i8, ptr %23, i64 48
   %24 = load i32, ptr %s_labelmap_size.i, align 8
   %s_labelmap.i = getelementptr inbounds i8, ptr %23, i64 40
-  %call.i = tail call i32 @_PyCompile_EnsureArrayLargeEnough(i32 noundef %inc.i, ptr noundef nonnull %s_labelmap.i, ptr noundef nonnull %s_labelmap_size.i, i32 noundef 10, i64 noundef 4), !range !5
+  %call.i = tail call i32 @_PyCompile_EnsureArrayLargeEnough(i32 noundef %inc.i, ptr noundef nonnull %s_labelmap.i, ptr noundef nonnull %s_labelmap_size.i, i32 noundef 10, i64 noundef 4)
   %cmp.i = icmp eq i32 %call.i, -1
   br i1 %cmp.i, label %return, label %for.cond.preheader.i
 
@@ -18062,7 +18063,7 @@ for.body.i:                                       ; preds = %for.body.i, %for.bo
   %28 = load i32, ptr %s_labelmap_size.i, align 8
   %29 = sext i32 %28 to i64
   %cmp3.i = icmp slt i64 %indvars.iv.next.i, %29
-  br i1 %cmp3.i, label %for.body.i, label %if.end52, !llvm.loop !6
+  br i1 %cmp3.i, label %for.body.i, label %if.end52, !llvm.loop !5
 
 if.end52:                                         ; preds = %for.body.i, %for.cond.preheader.i
   %s_used.i = getelementptr inbounds i8, ptr %23, i64 36
@@ -18100,14 +18101,14 @@ if.end58:                                         ; preds = %if.end52
   br i1 %tobool.not, label %if.else, label %if.then59
 
 if.then59:                                        ; preds = %if.end58
-  %call61 = tail call fastcc i32 @compiler_visit_expr(ptr noundef nonnull %c, ptr noundef nonnull %34), !range !5
+  %call61 = tail call fastcc i32 @compiler_visit_expr(ptr noundef nonnull %c, ptr noundef nonnull %34)
   %cmp62 = icmp eq i32 %call61, -1
   br i1 %cmp62, label %return, label %if.end71
 
 if.else:                                          ; preds = %if.end58
   %35 = load ptr, ptr %u, align 8
   %u_instr_sequence66 = getelementptr inbounds i8, ptr %35, i64 24
-  %call67 = tail call fastcc i32 @codegen_addop_noarg(ptr noundef nonnull %u_instr_sequence66, i32 noundef 32, i64 %loc.sroa.0.0.insert.insert, i64 %loc.sroa.14.8.insert.insert), !range !5
+  %call67 = tail call fastcc i32 @codegen_addop_noarg(ptr noundef nonnull %u_instr_sequence66, i32 noundef 32, i64 %loc.sroa.0.0.insert.insert, i64 %loc.sroa.14.8.insert.insert)
   %cmp68 = icmp eq i32 %call67, -1
   br i1 %cmp68, label %return, label %if.end71
 
@@ -18147,17 +18148,17 @@ for.body:                                         ; preds = %for.cond
   %call95 = tail call fastcc i32 @compiler_visit_stmt(ptr noundef %c, ptr noundef %40)
   %cmp96 = icmp eq i32 %call95, -1
   %inc100 = add i32 %_i.0, 1
-  br i1 %cmp96, label %return, label %for.cond, !llvm.loop !75
+  br i1 %cmp96, label %return, label %for.cond, !llvm.loop !69
 
 if.else101:                                       ; preds = %cond.end
-  %call102 = tail call fastcc i32 @compiler_with(ptr noundef nonnull %c, ptr noundef nonnull %s, i32 noundef %inc), !range !5
+  %call102 = tail call fastcc i32 @compiler_with(ptr noundef nonnull %c, ptr noundef nonnull %s, i32 noundef %inc)
   %cmp103 = icmp eq i32 %call102, -1
   br i1 %cmp103, label %return, label %if.end107
 
 if.end107:                                        ; preds = %for.cond, %if.then80, %if.else101
   %41 = load ptr, ptr %u, align 8
   %u_instr_sequence109 = getelementptr inbounds i8, ptr %41, i64 24
-  %call110 = tail call fastcc i32 @codegen_addop_noarg(ptr noundef nonnull %u_instr_sequence109, i32 noundef 263, i64 -1, i64 -1), !range !5
+  %call110 = tail call fastcc i32 @codegen_addop_noarg(ptr noundef nonnull %u_instr_sequence109, i32 noundef 263, i64 -1, i64 -1)
   %cmp111 = icmp eq i32 %call110, -1
   br i1 %cmp111, label %return, label %if.end114
 
@@ -18179,61 +18180,61 @@ if.end114:                                        ; preds = %if.end107
   %loc.sroa.26.8.insert.shift139 = shl nuw i64 %loc.sroa.26.8.insert.ext138, 32
   %loc.sroa.14.8.insert.ext99 = zext i32 %45 to i64
   %loc.sroa.14.8.insert.insert101 = or disjoint i64 %loc.sroa.26.8.insert.shift139, %loc.sroa.14.8.insert.ext99
-  %call124 = tail call fastcc i32 @compiler_call_exit_with_nones(ptr noundef nonnull %c, i64 %loc.sroa.0.0.insert.insert20, i64 %loc.sroa.14.8.insert.insert101), !range !5
+  %call124 = tail call fastcc i32 @compiler_call_exit_with_nones(ptr noundef nonnull %c, i64 %loc.sroa.0.0.insert.insert20, i64 %loc.sroa.14.8.insert.insert101)
   %cmp125 = icmp eq i32 %call124, -1
   br i1 %cmp125, label %return, label %if.end128
 
 if.end128:                                        ; preds = %if.end114
   %47 = load ptr, ptr %u, align 8
   %u_instr_sequence130 = getelementptr inbounds i8, ptr %47, i64 24
-  %call131 = tail call fastcc i32 @codegen_addop_noarg(ptr noundef nonnull %u_instr_sequence130, i32 noundef 32, i64 %loc.sroa.0.0.insert.insert20, i64 %loc.sroa.14.8.insert.insert101), !range !5
+  %call131 = tail call fastcc i32 @codegen_addop_noarg(ptr noundef nonnull %u_instr_sequence130, i32 noundef 32, i64 %loc.sroa.0.0.insert.insert20, i64 %loc.sroa.14.8.insert.insert101)
   %cmp132 = icmp eq i32 %call131, -1
   br i1 %cmp132, label %return, label %if.end135
 
 if.end135:                                        ; preds = %if.end128
   %48 = load ptr, ptr %u, align 8
   %u_instr_sequence137 = getelementptr inbounds i8, ptr %48, i64 24
-  %call139 = tail call fastcc i32 @codegen_addop_j(ptr noundef nonnull %u_instr_sequence137, i64 %loc.sroa.0.0.insert.insert20, i64 %loc.sroa.14.8.insert.insert101, i32 noundef 256, i32 %inc.i223), !range !5
+  %call139 = tail call fastcc i32 @codegen_addop_j(ptr noundef nonnull %u_instr_sequence137, i64 %loc.sroa.0.0.insert.insert20, i64 %loc.sroa.14.8.insert.insert101, i32 noundef 256, i32 %inc.i223)
   %cmp140 = icmp eq i32 %call139, -1
   br i1 %cmp140, label %return, label %if.end143
 
 if.end143:                                        ; preds = %if.end135
   %49 = load ptr, ptr %u, align 8
   %u_instr_sequence145 = getelementptr inbounds i8, ptr %49, i64 24
-  %call147 = tail call i32 @_PyCompile_InstructionSequence_UseLabel(ptr noundef nonnull %u_instr_sequence145, i32 noundef %inc.i221), !range !5
+  %call147 = tail call i32 @_PyCompile_InstructionSequence_UseLabel(ptr noundef nonnull %u_instr_sequence145, i32 noundef %inc.i221)
   %cmp148 = icmp eq i32 %call147, -1
   br i1 %cmp148, label %return, label %if.end151
 
 if.end151:                                        ; preds = %if.end143
   %50 = load ptr, ptr %u, align 8
   %u_instr_sequence153 = getelementptr inbounds i8, ptr %50, i64 24
-  %call155 = tail call fastcc i32 @codegen_addop_j(ptr noundef nonnull %u_instr_sequence153, i64 %loc.sroa.0.0.insert.insert20, i64 %loc.sroa.14.8.insert.insert101, i32 noundef 264, i32 %inc.i225), !range !5
+  %call155 = tail call fastcc i32 @codegen_addop_j(ptr noundef nonnull %u_instr_sequence153, i64 %loc.sroa.0.0.insert.insert20, i64 %loc.sroa.14.8.insert.insert101, i32 noundef 264, i32 %inc.i225)
   %cmp156 = icmp eq i32 %call155, -1
   br i1 %cmp156, label %return, label %if.end159
 
 if.end159:                                        ; preds = %if.end151
   %51 = load ptr, ptr %u, align 8
   %u_instr_sequence161 = getelementptr inbounds i8, ptr %51, i64 24
-  %call162 = tail call fastcc i32 @codegen_addop_noarg(ptr noundef nonnull %u_instr_sequence161, i32 noundef 33, i64 %loc.sroa.0.0.insert.insert20, i64 %loc.sroa.14.8.insert.insert101), !range !5
+  %call162 = tail call fastcc i32 @codegen_addop_noarg(ptr noundef nonnull %u_instr_sequence161, i32 noundef 33, i64 %loc.sroa.0.0.insert.insert20, i64 %loc.sroa.14.8.insert.insert101)
   %cmp163 = icmp eq i32 %call162, -1
   br i1 %cmp163, label %return, label %if.end166
 
 if.end166:                                        ; preds = %if.end159
   %52 = load ptr, ptr %u, align 8
   %u_instr_sequence168 = getelementptr inbounds i8, ptr %52, i64 24
-  %call169 = tail call fastcc i32 @codegen_addop_noarg(ptr noundef nonnull %u_instr_sequence168, i32 noundef 44, i64 %loc.sroa.0.0.insert.insert20, i64 %loc.sroa.14.8.insert.insert101), !range !5
+  %call169 = tail call fastcc i32 @codegen_addop_noarg(ptr noundef nonnull %u_instr_sequence168, i32 noundef 44, i64 %loc.sroa.0.0.insert.insert20, i64 %loc.sroa.14.8.insert.insert101)
   %cmp170 = icmp eq i32 %call169, -1
   br i1 %cmp170, label %return, label %if.end173
 
 if.end173:                                        ; preds = %if.end166
-  %call175 = tail call fastcc i32 @compiler_with_except_finish(ptr noundef nonnull %c, i32 %inc.i225), !range !5
+  %call175 = tail call fastcc i32 @compiler_with_except_finish(ptr noundef nonnull %c, i32 %inc.i225)
   %cmp176 = icmp eq i32 %call175, -1
   br i1 %cmp176, label %return, label %if.end179
 
 if.end179:                                        ; preds = %if.end173
   %53 = load ptr, ptr %u, align 8
   %u_instr_sequence181 = getelementptr inbounds i8, ptr %53, i64 24
-  %call183 = tail call i32 @_PyCompile_InstructionSequence_UseLabel(ptr noundef nonnull %u_instr_sequence181, i32 noundef %inc.i223), !range !5
+  %call183 = tail call i32 @_PyCompile_InstructionSequence_UseLabel(ptr noundef nonnull %u_instr_sequence181, i32 noundef %inc.i223)
   %cmp184 = icmp eq i32 %call183, -1
   %. = sext i1 %cmp184 to i32
   br label %return
@@ -18244,7 +18245,7 @@ return:                                           ; preds = %for.body, %if.end45
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @compiler_async_with(ptr noundef %c, ptr noundef %s, i32 noundef %pos) unnamed_addr #1 {
+define internal fastcc range(i32 -1, 1) i32 @compiler_async_with(ptr noundef %c, ptr noundef %s, i32 noundef %pos) unnamed_addr #1 {
 entry:
   %lineno1 = getelementptr inbounds i8, ptr %s, i64 64
   %0 = load i32, ptr %lineno1, align 8
@@ -18340,7 +18341,7 @@ if.end31:                                         ; preds = %if.end23
 
 if.end39:                                         ; preds = %if.end31
   %18 = load ptr, ptr %5, align 8
-  %call40 = tail call fastcc i32 @compiler_visit_expr(ptr noundef nonnull %c, ptr noundef %18), !range !5
+  %call40 = tail call fastcc i32 @compiler_visit_expr(ptr noundef nonnull %c, ptr noundef %18)
   %cmp41 = icmp eq i32 %call40, -1
   br i1 %cmp41, label %return, label %if.end43
 
@@ -18359,7 +18360,7 @@ if.end43:                                         ; preds = %if.end39
   %20 = load i32, ptr %s_used.i.i.i, align 4
   %add.i.i.i = add i32 %20, 1
   %s_allocated.i.i.i = getelementptr inbounds i8, ptr %19, i64 32
-  %call.i.i.i = tail call i32 @_PyCompile_EnsureArrayLargeEnough(i32 noundef %add.i.i.i, ptr noundef nonnull %u_instr_sequence45, ptr noundef nonnull %s_allocated.i.i.i, i32 noundef 100, i64 noundef 44), !range !5
+  %call.i.i.i = tail call i32 @_PyCompile_EnsureArrayLargeEnough(i32 noundef %add.i.i.i, ptr noundef nonnull %u_instr_sequence45, ptr noundef nonnull %s_allocated.i.i.i, i32 noundef 100, i64 noundef 44)
   %cmp.i.i.i = icmp eq i32 %call.i.i.i, -1
   br i1 %cmp.i.i.i, label %return, label %instr_sequence_next_inst.exit.i.i
 
@@ -18387,7 +18388,7 @@ if.end49:                                         ; preds = %instr_sequence_next
   %24 = load i32, ptr %s_used.i.i.i437, align 4
   %add.i.i.i438 = add i32 %24, 1
   %s_allocated.i.i.i439 = getelementptr inbounds i8, ptr %23, i64 32
-  %call.i.i.i440 = tail call i32 @_PyCompile_EnsureArrayLargeEnough(i32 noundef %add.i.i.i438, ptr noundef nonnull %u_instr_sequence51, ptr noundef nonnull %s_allocated.i.i.i439, i32 noundef 100, i64 noundef 44), !range !5
+  %call.i.i.i440 = tail call i32 @_PyCompile_EnsureArrayLargeEnough(i32 noundef %add.i.i.i438, ptr noundef nonnull %u_instr_sequence51, ptr noundef nonnull %s_allocated.i.i.i439, i32 noundef 100, i64 noundef 44)
   %cmp.i.i.i441 = icmp eq i32 %call.i.i.i440, -1
   br i1 %cmp.i.i.i441, label %return, label %instr_sequence_next_inst.exit.i.i442
 
@@ -18412,26 +18413,26 @@ if.end55:                                         ; preds = %instr_sequence_next
   %c_const_cache = getelementptr inbounds i8, ptr %c, i64 56
   %27 = load ptr, ptr %c_const_cache, align 8
   %28 = load ptr, ptr %u11, align 8
-  %call57 = tail call fastcc i32 @compiler_addop_load_const(ptr noundef %27, ptr noundef %28, i64 %loc.sroa.0.0.insert.insert20, i64 %loc.sroa.23.8.insert.insert200, ptr noundef nonnull @_Py_NoneStruct), !range !5
+  %call57 = tail call fastcc i32 @compiler_addop_load_const(ptr noundef %27, ptr noundef %28, i64 %loc.sroa.0.0.insert.insert20, i64 %loc.sroa.23.8.insert.insert200, ptr noundef nonnull @_Py_NoneStruct)
   %cmp58 = icmp eq i32 %call57, -1
   br i1 %cmp58, label %return, label %if.end60
 
 if.end60:                                         ; preds = %if.end55
-  %call61 = tail call fastcc i32 @compiler_add_yield_from(ptr noundef nonnull %c, i64 %loc.sroa.0.0.insert.insert20, i64 %loc.sroa.23.8.insert.insert200, i32 noundef 1), !range !5
+  %call61 = tail call fastcc i32 @compiler_add_yield_from(ptr noundef nonnull %c, i64 %loc.sroa.0.0.insert.insert20, i64 %loc.sroa.23.8.insert.insert200, i32 noundef 1)
   %cmp62 = icmp eq i32 %call61, -1
   br i1 %cmp62, label %return, label %if.end64
 
 if.end64:                                         ; preds = %if.end60
   %29 = load ptr, ptr %u11, align 8
   %u_instr_sequence66 = getelementptr inbounds i8, ptr %29, i64 24
-  %call68 = tail call fastcc i32 @codegen_addop_j(ptr noundef nonnull %u_instr_sequence66, i64 %loc.sroa.0.0.insert.insert20, i64 %loc.sroa.23.8.insert.insert200, i32 noundef 266, i32 %inc.i432), !range !5
+  %call68 = tail call fastcc i32 @codegen_addop_j(ptr noundef nonnull %u_instr_sequence66, i64 %loc.sroa.0.0.insert.insert20, i64 %loc.sroa.23.8.insert.insert200, i32 noundef 266, i32 %inc.i432)
   %cmp69 = icmp eq i32 %call68, -1
   br i1 %cmp69, label %return, label %if.end71
 
 if.end71:                                         ; preds = %if.end64
   %30 = load ptr, ptr %u11, align 8
   %u_instr_sequence73 = getelementptr inbounds i8, ptr %30, i64 24
-  %call75 = tail call i32 @_PyCompile_InstructionSequence_UseLabel(ptr noundef nonnull %u_instr_sequence73, i32 noundef %inc.i), !range !5
+  %call75 = tail call i32 @_PyCompile_InstructionSequence_UseLabel(ptr noundef nonnull %u_instr_sequence73, i32 noundef %inc.i)
   %cmp76 = icmp eq i32 %call75, -1
   br i1 %cmp76, label %return, label %if.end78
 
@@ -18465,14 +18466,14 @@ if.end84:                                         ; preds = %if.end78
   br i1 %tobool85.not, label %if.else92, label %if.then86
 
 if.then86:                                        ; preds = %if.end84
-  %call88 = tail call fastcc i32 @compiler_visit_expr(ptr noundef nonnull %c, ptr noundef nonnull %33), !range !5
+  %call88 = tail call fastcc i32 @compiler_visit_expr(ptr noundef nonnull %c, ptr noundef nonnull %33)
   %cmp89 = icmp eq i32 %call88, -1
   br i1 %cmp89, label %return, label %if.end99
 
 if.else92:                                        ; preds = %if.end84
   %34 = load ptr, ptr %u11, align 8
   %u_instr_sequence94 = getelementptr inbounds i8, ptr %34, i64 24
-  %call95 = tail call fastcc i32 @codegen_addop_noarg(ptr noundef nonnull %u_instr_sequence94, i32 noundef 32, i64 %loc.sroa.0.0.insert.insert20, i64 %loc.sroa.23.8.insert.insert200), !range !5
+  %call95 = tail call fastcc i32 @codegen_addop_noarg(ptr noundef nonnull %u_instr_sequence94, i32 noundef 32, i64 %loc.sroa.0.0.insert.insert20, i64 %loc.sroa.23.8.insert.insert200)
   %cmp96 = icmp eq i32 %call95, -1
   br i1 %cmp96, label %return, label %if.end99
 
@@ -18512,10 +18513,10 @@ for.body:                                         ; preds = %for.cond
   %call123 = tail call fastcc i32 @compiler_visit_stmt(ptr noundef %c, ptr noundef %39)
   %cmp124 = icmp eq i32 %call123, -1
   %inc128 = add i32 %_i.0, 1
-  br i1 %cmp124, label %return, label %for.cond, !llvm.loop !76
+  br i1 %cmp124, label %return, label %for.cond, !llvm.loop !70
 
 if.else129:                                       ; preds = %cond.end
-  %call130 = tail call fastcc i32 @compiler_async_with(ptr noundef nonnull %c, ptr noundef nonnull %s, i32 noundef %inc), !range !5
+  %call130 = tail call fastcc i32 @compiler_async_with(ptr noundef nonnull %c, ptr noundef nonnull %s, i32 noundef %inc)
   %cmp131 = icmp eq i32 %call130, -1
   br i1 %cmp131, label %return, label %if.end135
 
@@ -18527,104 +18528,104 @@ if.end135:                                        ; preds = %for.cond, %if.then1
   store i32 %dec.i, ptr %u_nfblocks.i453, align 8
   %41 = load ptr, ptr %u11, align 8
   %u_instr_sequence138 = getelementptr inbounds i8, ptr %41, i64 24
-  %call139 = tail call fastcc i32 @codegen_addop_noarg(ptr noundef nonnull %u_instr_sequence138, i32 noundef 263, i64 %loc.sroa.0.0.insert.insert20, i64 %loc.sroa.23.8.insert.insert200), !range !5
+  %call139 = tail call fastcc i32 @codegen_addop_noarg(ptr noundef nonnull %u_instr_sequence138, i32 noundef 263, i64 %loc.sroa.0.0.insert.insert20, i64 %loc.sroa.23.8.insert.insert200)
   %cmp140 = icmp eq i32 %call139, -1
   br i1 %cmp140, label %return, label %if.end143
 
 if.end143:                                        ; preds = %if.end135
-  %call144 = tail call fastcc i32 @compiler_call_exit_with_nones(ptr noundef nonnull %c, i64 %loc.sroa.0.0.insert.insert20, i64 %loc.sroa.23.8.insert.insert200), !range !5
+  %call144 = tail call fastcc i32 @compiler_call_exit_with_nones(ptr noundef nonnull %c, i64 %loc.sroa.0.0.insert.insert20, i64 %loc.sroa.23.8.insert.insert200)
   %cmp145 = icmp eq i32 %call144, -1
   br i1 %cmp145, label %return, label %if.end148
 
 if.end148:                                        ; preds = %if.end143
   %42 = load ptr, ptr %u11, align 8
   %u_instr_sequence150 = getelementptr inbounds i8, ptr %42, i64 24
-  %call151 = tail call fastcc i32 @codegen_addop_i(ptr noundef nonnull %u_instr_sequence150, i32 noundef 73, i64 noundef 2, i64 %loc.sroa.0.0.insert.insert20, i64 %loc.sroa.23.8.insert.insert200), !range !5
+  %call151 = tail call fastcc i32 @codegen_addop_i(ptr noundef nonnull %u_instr_sequence150, i32 noundef 73, i64 noundef 2, i64 %loc.sroa.0.0.insert.insert20, i64 %loc.sroa.23.8.insert.insert200)
   %cmp152 = icmp eq i32 %call151, -1
   br i1 %cmp152, label %return, label %if.end155
 
 if.end155:                                        ; preds = %if.end148
   %43 = load ptr, ptr %c_const_cache, align 8
   %44 = load ptr, ptr %u11, align 8
-  %call158 = tail call fastcc i32 @compiler_addop_load_const(ptr noundef %43, ptr noundef %44, i64 %loc.sroa.0.0.insert.insert20, i64 %loc.sroa.23.8.insert.insert200, ptr noundef nonnull @_Py_NoneStruct), !range !5
+  %call158 = tail call fastcc i32 @compiler_addop_load_const(ptr noundef %43, ptr noundef %44, i64 %loc.sroa.0.0.insert.insert20, i64 %loc.sroa.23.8.insert.insert200, ptr noundef nonnull @_Py_NoneStruct)
   %cmp159 = icmp eq i32 %call158, -1
   br i1 %cmp159, label %return, label %if.end162
 
 if.end162:                                        ; preds = %if.end155
-  %call163 = tail call fastcc i32 @compiler_add_yield_from(ptr noundef nonnull %c, i64 %loc.sroa.0.0.insert.insert20, i64 %loc.sroa.23.8.insert.insert200, i32 noundef 1), !range !5
+  %call163 = tail call fastcc i32 @compiler_add_yield_from(ptr noundef nonnull %c, i64 %loc.sroa.0.0.insert.insert20, i64 %loc.sroa.23.8.insert.insert200, i32 noundef 1)
   %cmp164 = icmp eq i32 %call163, -1
   br i1 %cmp164, label %return, label %if.end167
 
 if.end167:                                        ; preds = %if.end162
   %45 = load ptr, ptr %u11, align 8
   %u_instr_sequence169 = getelementptr inbounds i8, ptr %45, i64 24
-  %call170 = tail call fastcc i32 @codegen_addop_noarg(ptr noundef nonnull %u_instr_sequence169, i32 noundef 32, i64 %loc.sroa.0.0.insert.insert20, i64 %loc.sroa.23.8.insert.insert200), !range !5
+  %call170 = tail call fastcc i32 @codegen_addop_noarg(ptr noundef nonnull %u_instr_sequence169, i32 noundef 32, i64 %loc.sroa.0.0.insert.insert20, i64 %loc.sroa.23.8.insert.insert200)
   %cmp171 = icmp eq i32 %call170, -1
   br i1 %cmp171, label %return, label %if.end174
 
 if.end174:                                        ; preds = %if.end167
   %46 = load ptr, ptr %u11, align 8
   %u_instr_sequence176 = getelementptr inbounds i8, ptr %46, i64 24
-  %call178 = tail call fastcc i32 @codegen_addop_j(ptr noundef nonnull %u_instr_sequence176, i64 %loc.sroa.0.0.insert.insert20, i64 %loc.sroa.23.8.insert.insert200, i32 noundef 256, i32 %inc.i434), !range !5
+  %call178 = tail call fastcc i32 @codegen_addop_j(ptr noundef nonnull %u_instr_sequence176, i64 %loc.sroa.0.0.insert.insert20, i64 %loc.sroa.23.8.insert.insert200, i32 noundef 256, i32 %inc.i434)
   %cmp179 = icmp eq i32 %call178, -1
   br i1 %cmp179, label %return, label %if.end182
 
 if.end182:                                        ; preds = %if.end174
   %47 = load ptr, ptr %u11, align 8
   %u_instr_sequence184 = getelementptr inbounds i8, ptr %47, i64 24
-  %call186 = tail call i32 @_PyCompile_InstructionSequence_UseLabel(ptr noundef nonnull %u_instr_sequence184, i32 noundef %inc.i432), !range !5
+  %call186 = tail call i32 @_PyCompile_InstructionSequence_UseLabel(ptr noundef nonnull %u_instr_sequence184, i32 noundef %inc.i432)
   %cmp187 = icmp eq i32 %call186, -1
   br i1 %cmp187, label %return, label %if.end190
 
 if.end190:                                        ; preds = %if.end182
   %48 = load ptr, ptr %u11, align 8
   %u_instr_sequence192 = getelementptr inbounds i8, ptr %48, i64 24
-  %call194 = tail call fastcc i32 @codegen_addop_j(ptr noundef nonnull %u_instr_sequence192, i64 %loc.sroa.0.0.insert.insert20, i64 %loc.sroa.23.8.insert.insert200, i32 noundef 264, i32 %inc.i436), !range !5
+  %call194 = tail call fastcc i32 @codegen_addop_j(ptr noundef nonnull %u_instr_sequence192, i64 %loc.sroa.0.0.insert.insert20, i64 %loc.sroa.23.8.insert.insert200, i32 noundef 264, i32 %inc.i436)
   %cmp195 = icmp eq i32 %call194, -1
   br i1 %cmp195, label %return, label %if.end198
 
 if.end198:                                        ; preds = %if.end190
   %49 = load ptr, ptr %u11, align 8
   %u_instr_sequence200 = getelementptr inbounds i8, ptr %49, i64 24
-  %call201 = tail call fastcc i32 @codegen_addop_noarg(ptr noundef nonnull %u_instr_sequence200, i32 noundef 33, i64 %loc.sroa.0.0.insert.insert20, i64 %loc.sroa.23.8.insert.insert200), !range !5
+  %call201 = tail call fastcc i32 @codegen_addop_noarg(ptr noundef nonnull %u_instr_sequence200, i32 noundef 33, i64 %loc.sroa.0.0.insert.insert20, i64 %loc.sroa.23.8.insert.insert200)
   %cmp202 = icmp eq i32 %call201, -1
   br i1 %cmp202, label %return, label %if.end205
 
 if.end205:                                        ; preds = %if.end198
   %50 = load ptr, ptr %u11, align 8
   %u_instr_sequence207 = getelementptr inbounds i8, ptr %50, i64 24
-  %call208 = tail call fastcc i32 @codegen_addop_noarg(ptr noundef nonnull %u_instr_sequence207, i32 noundef 44, i64 %loc.sroa.0.0.insert.insert20, i64 %loc.sroa.23.8.insert.insert200), !range !5
+  %call208 = tail call fastcc i32 @codegen_addop_noarg(ptr noundef nonnull %u_instr_sequence207, i32 noundef 44, i64 %loc.sroa.0.0.insert.insert20, i64 %loc.sroa.23.8.insert.insert200)
   %cmp209 = icmp eq i32 %call208, -1
   br i1 %cmp209, label %return, label %if.end212
 
 if.end212:                                        ; preds = %if.end205
   %51 = load ptr, ptr %u11, align 8
   %u_instr_sequence214 = getelementptr inbounds i8, ptr %51, i64 24
-  %call215 = tail call fastcc i32 @codegen_addop_i(ptr noundef nonnull %u_instr_sequence214, i32 noundef 73, i64 noundef 2, i64 %loc.sroa.0.0.insert.insert20, i64 %loc.sroa.23.8.insert.insert200), !range !5
+  %call215 = tail call fastcc i32 @codegen_addop_i(ptr noundef nonnull %u_instr_sequence214, i32 noundef 73, i64 noundef 2, i64 %loc.sroa.0.0.insert.insert20, i64 %loc.sroa.23.8.insert.insert200)
   %cmp216 = icmp eq i32 %call215, -1
   br i1 %cmp216, label %return, label %if.end219
 
 if.end219:                                        ; preds = %if.end212
   %52 = load ptr, ptr %c_const_cache, align 8
   %53 = load ptr, ptr %u11, align 8
-  %call222 = tail call fastcc i32 @compiler_addop_load_const(ptr noundef %52, ptr noundef %53, i64 %loc.sroa.0.0.insert.insert20, i64 %loc.sroa.23.8.insert.insert200, ptr noundef nonnull @_Py_NoneStruct), !range !5
+  %call222 = tail call fastcc i32 @compiler_addop_load_const(ptr noundef %52, ptr noundef %53, i64 %loc.sroa.0.0.insert.insert20, i64 %loc.sroa.23.8.insert.insert200, ptr noundef nonnull @_Py_NoneStruct)
   %cmp223 = icmp eq i32 %call222, -1
   br i1 %cmp223, label %return, label %if.end226
 
 if.end226:                                        ; preds = %if.end219
-  %call227 = tail call fastcc i32 @compiler_add_yield_from(ptr noundef nonnull %c, i64 %loc.sroa.0.0.insert.insert20, i64 %loc.sroa.23.8.insert.insert200, i32 noundef 1), !range !5
+  %call227 = tail call fastcc i32 @compiler_add_yield_from(ptr noundef nonnull %c, i64 %loc.sroa.0.0.insert.insert20, i64 %loc.sroa.23.8.insert.insert200, i32 noundef 1)
   %cmp228 = icmp eq i32 %call227, -1
   br i1 %cmp228, label %return, label %if.end231
 
 if.end231:                                        ; preds = %if.end226
-  %call233 = tail call fastcc i32 @compiler_with_except_finish(ptr noundef nonnull %c, i32 %inc.i436), !range !5
+  %call233 = tail call fastcc i32 @compiler_with_except_finish(ptr noundef nonnull %c, i32 %inc.i436)
   %cmp234 = icmp eq i32 %call233, -1
   br i1 %cmp234, label %return, label %if.end237
 
 if.end237:                                        ; preds = %if.end231
   %54 = load ptr, ptr %u11, align 8
   %u_instr_sequence239 = getelementptr inbounds i8, ptr %54, i64 24
-  %call241 = tail call i32 @_PyCompile_InstructionSequence_UseLabel(ptr noundef nonnull %u_instr_sequence239, i32 noundef %inc.i434), !range !5
+  %call241 = tail call i32 @_PyCompile_InstructionSequence_UseLabel(ptr noundef nonnull %u_instr_sequence239, i32 noundef %inc.i434)
   %cmp242 = icmp eq i32 %call241, -1
   %. = sext i1 %cmp242 to i32
   br label %return
@@ -18635,7 +18636,7 @@ return:                                           ; preds = %for.body, %if.end49
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @compiler_check_debug_args(ptr nocapture noundef readonly %c, ptr nocapture noundef readonly %args) unnamed_addr #1 {
+define internal fastcc range(i32 -1, 1) i32 @compiler_check_debug_args(ptr nocapture noundef readonly %c, ptr nocapture noundef readonly %args) unnamed_addr #1 {
 entry:
   %0 = load ptr, ptr %args, align 8
   %cmp.not.i = icmp eq ptr %0, null
@@ -18668,7 +18669,7 @@ if.then.i.i:                                      ; preds = %for.body.i
 for.inc.i:                                        ; preds = %if.then.i.i, %for.body.i
   %inc.i = add nuw nsw i64 %i.012.i, 1
   %exitcond.not.i = icmp eq i64 %inc.i, %1
-  br i1 %exitcond.not.i, label %if.end, label %for.body.i, !llvm.loop !77
+  br i1 %exitcond.not.i, label %if.end, label %for.body.i, !llvm.loop !71
 
 if.end:                                           ; preds = %for.inc.i, %entry, %cond.false.i
   %args1 = getelementptr inbounds i8, ptr %args, i64 8
@@ -18703,7 +18704,7 @@ if.then.i.i19:                                    ; preds = %for.body.i15
 for.inc.i36:                                      ; preds = %if.then.i.i19, %for.body.i15
   %inc.i37 = add nuw nsw i64 %i.012.i16, 1
   %exitcond.not.i38 = icmp eq i64 %inc.i37, %6
-  br i1 %exitcond.not.i38, label %if.end5, label %for.body.i15, !llvm.loop !77
+  br i1 %exitcond.not.i38, label %if.end5, label %for.body.i15, !llvm.loop !71
 
 if.end5:                                          ; preds = %for.inc.i36, %if.end, %cond.false.i10
   %vararg = getelementptr inbounds i8, ptr %args, i64 16
@@ -18752,7 +18753,7 @@ if.then.i.i52:                                    ; preds = %for.body.i48
 for.inc.i69:                                      ; preds = %if.then.i.i52, %for.body.i48
   %inc.i70 = add nuw nsw i64 %i.012.i49, 1
   %exitcond.not.i71 = icmp eq i64 %inc.i70, %14
-  br i1 %exitcond.not.i71, label %if.end13, label %for.body.i48, !llvm.loop !77
+  br i1 %exitcond.not.i71, label %if.end13, label %for.body.i48, !llvm.loop !71
 
 if.end13:                                         ; preds = %for.inc.i69, %if.end9, %cond.false.i43
   %kwarg = getelementptr inbounds i8, ptr %args, i64 40
@@ -18793,7 +18794,7 @@ return:                                           ; preds = %return.sink.split, 
 declare ptr @PyUnicode_FromFormat(ptr noundef, ...) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @compiler_type_params(ptr noundef %c, ptr noundef readonly %type_params) unnamed_addr #1 {
+define internal fastcc range(i32 -1, 1) i32 @compiler_type_params(ptr noundef %c, ptr noundef readonly %type_params) unnamed_addr #1 {
 entry:
   %tobool.not = icmp eq ptr %type_params, null
   br i1 %tobool.not, label %return, label %cond.false
@@ -18841,7 +18842,7 @@ sw.bb:                                            ; preds = %for.body
   %loc.sroa.33.8.insert.shift = shl nuw i64 %loc.sroa.33.8.insert.ext, 32
   %loc.sroa.17.8.insert.ext = zext i32 %4 to i64
   %loc.sroa.17.8.insert.insert = or disjoint i64 %loc.sroa.33.8.insert.shift, %loc.sroa.17.8.insert.ext
-  %call = tail call fastcc i32 @compiler_addop_load_const(ptr noundef %7, ptr noundef %8, i64 %loc.sroa.0.0.insert.insert, i64 %loc.sroa.17.8.insert.insert, ptr noundef %9), !range !5
+  %call = tail call fastcc i32 @compiler_addop_load_const(ptr noundef %7, ptr noundef %8, i64 %loc.sroa.0.0.insert.insert, i64 %loc.sroa.17.8.insert.insert, ptr noundef %9)
   %cmp6 = icmp eq i32 %call, -1
   br i1 %cmp6, label %return, label %if.end8
 
@@ -18855,12 +18856,12 @@ if.then11:                                        ; preds = %if.end8
   %11 = load ptr, ptr %v, align 8
   %lineno17 = getelementptr inbounds i8, ptr %10, i64 32
   %12 = load i32, ptr %lineno17, align 8
-  %call18 = tail call fastcc i32 @compiler_enter_scope(ptr noundef nonnull %c, ptr noundef %11, i32 noundef 6, ptr noundef nonnull %1, i32 noundef %12), !range !5
+  %call18 = tail call fastcc i32 @compiler_enter_scope(ptr noundef nonnull %c, ptr noundef %11, i32 noundef 6, ptr noundef nonnull %1, i32 noundef %12)
   %cmp19 = icmp eq i32 %call18, -1
   br i1 %cmp19, label %return, label %if.end21
 
 if.end21:                                         ; preds = %if.then11
-  %call22 = tail call fastcc i32 @compiler_visit_expr(ptr noundef nonnull %c, ptr noundef nonnull %10), !range !5
+  %call22 = tail call fastcc i32 @compiler_visit_expr(ptr noundef nonnull %c, ptr noundef nonnull %10)
   %cmp23 = icmp slt i32 %call22, 0
   br i1 %cmp23, label %if.then24, label %if.end25
 
@@ -18875,7 +18876,7 @@ if.end25:                                         ; preds = %if.end21
   %14 = load i32, ptr %s_used.i.i.i, align 4
   %add.i.i.i = add i32 %14, 1
   %s_allocated.i.i.i = getelementptr inbounds i8, ptr %13, i64 32
-  %call.i.i.i = tail call i32 @_PyCompile_EnsureArrayLargeEnough(i32 noundef %add.i.i.i, ptr noundef nonnull %u_instr_sequence, ptr noundef nonnull %s_allocated.i.i.i, i32 noundef 100, i64 noundef 44), !range !5
+  %call.i.i.i = tail call i32 @_PyCompile_EnsureArrayLargeEnough(i32 noundef %add.i.i.i, ptr noundef nonnull %u_instr_sequence, ptr noundef nonnull %s_allocated.i.i.i, i32 noundef 100, i64 noundef 44)
   %cmp.i.i.i = icmp eq i32 %call.i.i.i, -1
   br i1 %cmp.i.i.i, label %if.then29, label %instr_sequence_next_inst.exit.i.i
 
@@ -18907,7 +18908,7 @@ if.end30:                                         ; preds = %instr_sequence_next
   br i1 %cmp32, label %return, label %if.end34
 
 if.end34:                                         ; preds = %if.end30
-  %call35 = tail call fastcc i32 @compiler_make_closure(ptr noundef nonnull %c, i64 %loc.sroa.0.0.insert.insert, i64 %loc.sroa.17.8.insert.insert, ptr noundef nonnull %call31, i64 noundef 0), !range !5
+  %call35 = tail call fastcc i32 @compiler_make_closure(ptr noundef nonnull %c, i64 %loc.sroa.0.0.insert.insert, i64 %loc.sroa.17.8.insert.insert, ptr noundef nonnull %call31, i64 noundef 0)
   %cmp36 = icmp slt i32 %call35, 0
   %17 = load i64, ptr %call31, align 8
   %18 = and i64 %17, 2147483648
@@ -18950,7 +18951,7 @@ Py_DECREF.exit:                                   ; preds = %if.end38, %if.then1
   %21 = load i32, ptr %s_used.i.i.i310, align 4
   %add.i.i.i311 = add i32 %21, 1
   %s_allocated.i.i.i312 = getelementptr inbounds i8, ptr %20, i64 32
-  %call.i.i.i313 = tail call i32 @_PyCompile_EnsureArrayLargeEnough(i32 noundef %add.i.i.i311, ptr noundef nonnull %u_instr_sequence43, ptr noundef nonnull %s_allocated.i.i.i312, i32 noundef 100, i64 noundef 44), !range !5
+  %call.i.i.i313 = tail call i32 @_PyCompile_EnsureArrayLargeEnough(i32 noundef %add.i.i.i311, ptr noundef nonnull %u_instr_sequence43, ptr noundef nonnull %s_allocated.i.i.i312, i32 noundef 100, i64 noundef 44)
   %cmp.i.i.i314 = icmp eq i32 %call.i.i.i313, -1
   br i1 %cmp.i.i.i314, label %return, label %instr_sequence_next_inst.exit.i.i315
 
@@ -18975,7 +18976,7 @@ if.else:                                          ; preds = %if.end8
   %25 = load i32, ptr %s_used.i.i.i325, align 4
   %add.i.i.i326 = add i32 %25, 1
   %s_allocated.i.i.i327 = getelementptr inbounds i8, ptr %24, i64 32
-  %call.i.i.i328 = tail call i32 @_PyCompile_EnsureArrayLargeEnough(i32 noundef %add.i.i.i326, ptr noundef nonnull %u_instr_sequence50, ptr noundef nonnull %s_allocated.i.i.i327, i32 noundef 100, i64 noundef 44), !range !5
+  %call.i.i.i328 = tail call i32 @_PyCompile_EnsureArrayLargeEnough(i32 noundef %add.i.i.i326, ptr noundef nonnull %u_instr_sequence50, ptr noundef nonnull %s_allocated.i.i.i327, i32 noundef 100, i64 noundef 44)
   %cmp.i.i.i329 = icmp eq i32 %call.i.i.i328, -1
   br i1 %cmp.i.i.i329, label %return, label %instr_sequence_next_inst.exit.i.i330
 
@@ -19008,7 +19009,7 @@ if.end56:                                         ; preds = %codegen_addop_i.exi
   %29 = load i32, ptr %s_used.i.i.i341, align 4
   %add.i.i.i342 = add i32 %29, 1
   %s_allocated.i.i.i343 = getelementptr inbounds i8, ptr %28, i64 32
-  %call.i.i.i344 = tail call i32 @_PyCompile_EnsureArrayLargeEnough(i32 noundef %add.i.i.i342, ptr noundef nonnull %u_instr_sequence58, ptr noundef nonnull %s_allocated.i.i.i343, i32 noundef 100, i64 noundef 44), !range !5
+  %call.i.i.i344 = tail call i32 @_PyCompile_EnsureArrayLargeEnough(i32 noundef %add.i.i.i342, ptr noundef nonnull %u_instr_sequence58, ptr noundef nonnull %s_allocated.i.i.i343, i32 noundef 100, i64 noundef 44)
   %cmp.i.i.i345 = icmp eq i32 %call.i.i.i344, -1
   br i1 %cmp.i.i.i345, label %return, label %instr_sequence_next_inst.exit.i.i346
 
@@ -19031,7 +19032,7 @@ if.end63:                                         ; preds = %instr_sequence_next
   %loc.sroa.2.0.i_loc.sroa_idx.i.i354 = getelementptr inbounds i8, ptr %arrayidx.i.i351, i64 16
   store i64 %loc.sroa.17.8.insert.insert, ptr %loc.sroa.2.0.i_loc.sroa_idx.i.i354, align 4
   %32 = load ptr, ptr %v, align 8
-  %call66 = tail call fastcc i32 @compiler_nameop(ptr noundef nonnull %c, i64 %loc.sroa.0.0.insert.insert, i64 %loc.sroa.17.8.insert.insert, ptr noundef %32, i32 noundef 2), !range !5
+  %call66 = tail call fastcc i32 @compiler_nameop(ptr noundef nonnull %c, i64 %loc.sroa.0.0.insert.insert, i64 %loc.sroa.17.8.insert.insert, ptr noundef %32, i32 noundef 2)
   %cmp67 = icmp eq i32 %call66, -1
   br i1 %cmp67, label %return, label %for.inc
 
@@ -19048,7 +19049,7 @@ sw.bb71:                                          ; preds = %for.body
   %loc.sroa.33.8.insert.shift220 = shl nuw i64 %loc.sroa.33.8.insert.ext219, 32
   %loc.sroa.17.8.insert.ext157 = zext i32 %4 to i64
   %loc.sroa.17.8.insert.insert159 = or disjoint i64 %loc.sroa.33.8.insert.shift220, %loc.sroa.17.8.insert.ext157
-  %call76 = tail call fastcc i32 @compiler_addop_load_const(ptr noundef %33, ptr noundef %34, i64 %loc.sroa.0.0.insert.insert33, i64 %loc.sroa.17.8.insert.insert159, ptr noundef %35), !range !5
+  %call76 = tail call fastcc i32 @compiler_addop_load_const(ptr noundef %33, ptr noundef %34, i64 %loc.sroa.0.0.insert.insert33, i64 %loc.sroa.17.8.insert.insert159, ptr noundef %35)
   %cmp77 = icmp eq i32 %call76, -1
   br i1 %cmp77, label %return, label %if.end80
 
@@ -19059,7 +19060,7 @@ if.end80:                                         ; preds = %sw.bb71
   %37 = load i32, ptr %s_used.i.i.i357, align 4
   %add.i.i.i358 = add i32 %37, 1
   %s_allocated.i.i.i359 = getelementptr inbounds i8, ptr %36, i64 32
-  %call.i.i.i360 = tail call i32 @_PyCompile_EnsureArrayLargeEnough(i32 noundef %add.i.i.i358, ptr noundef nonnull %u_instr_sequence82, ptr noundef nonnull %s_allocated.i.i.i359, i32 noundef 100, i64 noundef 44), !range !5
+  %call.i.i.i360 = tail call i32 @_PyCompile_EnsureArrayLargeEnough(i32 noundef %add.i.i.i358, ptr noundef nonnull %u_instr_sequence82, ptr noundef nonnull %s_allocated.i.i.i359, i32 noundef 100, i64 noundef 44)
   %cmp.i.i.i361 = icmp eq i32 %call.i.i.i360, -1
   br i1 %cmp.i.i.i361, label %return, label %instr_sequence_next_inst.exit.i.i362
 
@@ -19087,7 +19088,7 @@ if.end87:                                         ; preds = %instr_sequence_next
   %41 = load i32, ptr %s_used.i.i.i373, align 4
   %add.i.i.i374 = add i32 %41, 1
   %s_allocated.i.i.i375 = getelementptr inbounds i8, ptr %40, i64 32
-  %call.i.i.i376 = tail call i32 @_PyCompile_EnsureArrayLargeEnough(i32 noundef %add.i.i.i374, ptr noundef nonnull %u_instr_sequence89, ptr noundef nonnull %s_allocated.i.i.i375, i32 noundef 100, i64 noundef 44), !range !5
+  %call.i.i.i376 = tail call i32 @_PyCompile_EnsureArrayLargeEnough(i32 noundef %add.i.i.i374, ptr noundef nonnull %u_instr_sequence89, ptr noundef nonnull %s_allocated.i.i.i375, i32 noundef 100, i64 noundef 44)
   %cmp.i.i.i377 = icmp eq i32 %call.i.i.i376, -1
   br i1 %cmp.i.i.i377, label %return, label %instr_sequence_next_inst.exit.i.i378
 
@@ -19110,7 +19111,7 @@ if.end94:                                         ; preds = %instr_sequence_next
   %loc.sroa.2.0.i_loc.sroa_idx.i.i386 = getelementptr inbounds i8, ptr %arrayidx.i.i383, i64 16
   store i64 %loc.sroa.17.8.insert.insert159, ptr %loc.sroa.2.0.i_loc.sroa_idx.i.i386, align 4
   %44 = load ptr, ptr %v74, align 8
-  %call97 = tail call fastcc i32 @compiler_nameop(ptr noundef nonnull %c, i64 %loc.sroa.0.0.insert.insert33, i64 %loc.sroa.17.8.insert.insert159, ptr noundef %44, i32 noundef 2), !range !5
+  %call97 = tail call fastcc i32 @compiler_nameop(ptr noundef nonnull %c, i64 %loc.sroa.0.0.insert.insert33, i64 %loc.sroa.17.8.insert.insert159, ptr noundef %44, i32 noundef 2)
   %cmp98 = icmp eq i32 %call97, -1
   br i1 %cmp98, label %return, label %for.inc
 
@@ -19127,7 +19128,7 @@ sw.bb102:                                         ; preds = %for.body
   %loc.sroa.33.8.insert.shift240 = shl nuw i64 %loc.sroa.33.8.insert.ext239, 32
   %loc.sroa.17.8.insert.ext173 = zext i32 %4 to i64
   %loc.sroa.17.8.insert.insert175 = or disjoint i64 %loc.sroa.33.8.insert.shift240, %loc.sroa.17.8.insert.ext173
-  %call107 = tail call fastcc i32 @compiler_addop_load_const(ptr noundef %45, ptr noundef %46, i64 %loc.sroa.0.0.insert.insert49, i64 %loc.sroa.17.8.insert.insert175, ptr noundef %47), !range !5
+  %call107 = tail call fastcc i32 @compiler_addop_load_const(ptr noundef %45, ptr noundef %46, i64 %loc.sroa.0.0.insert.insert49, i64 %loc.sroa.17.8.insert.insert175, ptr noundef %47)
   %cmp108 = icmp eq i32 %call107, -1
   br i1 %cmp108, label %return, label %if.end111
 
@@ -19138,7 +19139,7 @@ if.end111:                                        ; preds = %sw.bb102
   %49 = load i32, ptr %s_used.i.i.i389, align 4
   %add.i.i.i390 = add i32 %49, 1
   %s_allocated.i.i.i391 = getelementptr inbounds i8, ptr %48, i64 32
-  %call.i.i.i392 = tail call i32 @_PyCompile_EnsureArrayLargeEnough(i32 noundef %add.i.i.i390, ptr noundef nonnull %u_instr_sequence113, ptr noundef nonnull %s_allocated.i.i.i391, i32 noundef 100, i64 noundef 44), !range !5
+  %call.i.i.i392 = tail call i32 @_PyCompile_EnsureArrayLargeEnough(i32 noundef %add.i.i.i390, ptr noundef nonnull %u_instr_sequence113, ptr noundef nonnull %s_allocated.i.i.i391, i32 noundef 100, i64 noundef 44)
   %cmp.i.i.i393 = icmp eq i32 %call.i.i.i392, -1
   br i1 %cmp.i.i.i393, label %return, label %instr_sequence_next_inst.exit.i.i394
 
@@ -19166,7 +19167,7 @@ if.end118:                                        ; preds = %instr_sequence_next
   %53 = load i32, ptr %s_used.i.i.i405, align 4
   %add.i.i.i406 = add i32 %53, 1
   %s_allocated.i.i.i407 = getelementptr inbounds i8, ptr %52, i64 32
-  %call.i.i.i408 = tail call i32 @_PyCompile_EnsureArrayLargeEnough(i32 noundef %add.i.i.i406, ptr noundef nonnull %u_instr_sequence120, ptr noundef nonnull %s_allocated.i.i.i407, i32 noundef 100, i64 noundef 44), !range !5
+  %call.i.i.i408 = tail call i32 @_PyCompile_EnsureArrayLargeEnough(i32 noundef %add.i.i.i406, ptr noundef nonnull %u_instr_sequence120, ptr noundef nonnull %s_allocated.i.i.i407, i32 noundef 100, i64 noundef 44)
   %cmp.i.i.i409 = icmp eq i32 %call.i.i.i408, -1
   br i1 %cmp.i.i.i409, label %return, label %instr_sequence_next_inst.exit.i.i410
 
@@ -19189,14 +19190,14 @@ if.end125:                                        ; preds = %instr_sequence_next
   %loc.sroa.2.0.i_loc.sroa_idx.i.i418 = getelementptr inbounds i8, ptr %arrayidx.i.i415, i64 16
   store i64 %loc.sroa.17.8.insert.insert175, ptr %loc.sroa.2.0.i_loc.sroa_idx.i.i418, align 4
   %56 = load ptr, ptr %v105, align 8
-  %call128 = tail call fastcc i32 @compiler_nameop(ptr noundef nonnull %c, i64 %loc.sroa.0.0.insert.insert49, i64 %loc.sroa.17.8.insert.insert175, ptr noundef %56, i32 noundef 2), !range !5
+  %call128 = tail call fastcc i32 @compiler_nameop(ptr noundef nonnull %c, i64 %loc.sroa.0.0.insert.insert49, i64 %loc.sroa.17.8.insert.insert175, ptr noundef %56, i32 noundef 2)
   %cmp129 = icmp eq i32 %call128, -1
   br i1 %cmp129, label %return, label %for.inc
 
 for.inc:                                          ; preds = %for.body, %if.end63, %if.end94, %if.end125
   %inc = add nuw nsw i64 %i.0457, 1
   %exitcond.not = icmp eq i64 %inc, %0
-  br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !78
+  br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !72
 
 for.end:                                          ; preds = %for.inc, %cond.false
   %u133 = getelementptr inbounds i8, ptr %c, i64 64
@@ -19225,7 +19226,7 @@ for.end:                                          ; preds = %for.inc, %cond.fals
   %63 = load i32, ptr %s_used.i.i.i422, align 4
   %add.i.i.i423 = add i32 %63, 1
   %s_allocated.i.i.i424 = getelementptr inbounds i8, ptr %57, i64 32
-  %call.i.i.i425 = tail call i32 @_PyCompile_EnsureArrayLargeEnough(i32 noundef %add.i.i.i423, ptr noundef nonnull %u_instr_sequence134, ptr noundef nonnull %s_allocated.i.i.i424, i32 noundef 100, i64 noundef 44), !range !5
+  %call.i.i.i425 = tail call i32 @_PyCompile_EnsureArrayLargeEnough(i32 noundef %add.i.i.i423, ptr noundef nonnull %u_instr_sequence134, ptr noundef nonnull %s_allocated.i.i.i424, i32 noundef 100, i64 noundef 44)
   %cmp.i.i.i426 = icmp eq i32 %call.i.i.i425, -1
   br i1 %cmp.i.i.i426, label %return, label %instr_sequence_next_inst.exit.i.i427
 
@@ -19255,7 +19256,7 @@ return:                                           ; preds = %if.end118, %instr_s
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @compiler_make_closure(ptr nocapture noundef readonly %c, i64 %loc.coerce0, i64 %loc.coerce1, ptr noundef %co, i64 noundef %flags) unnamed_addr #1 {
+define internal fastcc range(i32 -1, 1) i32 @compiler_make_closure(ptr nocapture noundef readonly %c, i64 %loc.coerce0, i64 %loc.coerce1, ptr noundef %co, i64 noundef %flags) unnamed_addr #1 {
 entry:
   %co_nfreevars = getelementptr inbounds i8, ptr %co, i64 88
   %0 = load i32, ptr %co_nfreevars, align 8
@@ -19281,7 +19282,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   %ob_item = getelementptr inbounds i8, ptr %3, i64 24
   %arrayidx = getelementptr [1 x ptr], ptr %ob_item, i64 0, i64 %indvars.iv
   %4 = load ptr, ptr %arrayidx, align 8
-  %call1 = tail call fastcc i32 @get_ref_type(ptr noundef %c, ptr noundef %4), !range !79
+  %call1 = tail call fastcc i32 @get_ref_type(ptr noundef %c, ptr noundef %4)
   switch i32 %call1, label %if.else [
     i32 -1, label %return
     i32 5, label %if.then5
@@ -19349,7 +19350,7 @@ if.end20:                                         ; preds = %if.end10
   %16 = load i32, ptr %s_used.i.i.i, align 4
   %add.i.i.i = add i32 %16, 1
   %s_allocated.i.i.i = getelementptr inbounds i8, ptr %15, i64 32
-  %call.i.i.i = tail call i32 @_PyCompile_EnsureArrayLargeEnough(i32 noundef %add.i.i.i, ptr noundef nonnull %u_instr_sequence, ptr noundef nonnull %s_allocated.i.i.i, i32 noundef 100, i64 noundef 44), !range !5
+  %call.i.i.i = tail call i32 @_PyCompile_EnsureArrayLargeEnough(i32 noundef %add.i.i.i, ptr noundef nonnull %u_instr_sequence, ptr noundef nonnull %s_allocated.i.i.i, i32 noundef 100, i64 noundef 44)
   %cmp.i.i.i = icmp eq i32 %call.i.i.i, -1
   br i1 %cmp.i.i.i, label %return, label %instr_sequence_next_inst.exit.i.i
 
@@ -19375,7 +19376,7 @@ for.inc:                                          ; preds = %instr_sequence_next
   %19 = load i32, ptr %1, align 8
   %20 = sext i32 %19 to i64
   %cmp = icmp slt i64 %indvars.iv.next, %20
-  br i1 %cmp, label %for.body, label %for.end.loopexit, !llvm.loop !80
+  br i1 %cmp, label %for.body, label %for.end.loopexit, !llvm.loop !73
 
 for.end.loopexit:                                 ; preds = %for.inc
   %.pre = load i32, ptr %co_nfreevars, align 8
@@ -19391,7 +19392,7 @@ for.end:                                          ; preds = %for.end.loopexit, %
   %23 = load i32, ptr %s_used.i.i.i60, align 4
   %add.i.i.i61 = add i32 %23, 1
   %s_allocated.i.i.i62 = getelementptr inbounds i8, ptr %22, i64 32
-  %call.i.i.i63 = tail call i32 @_PyCompile_EnsureArrayLargeEnough(i32 noundef %add.i.i.i61, ptr noundef nonnull %u_instr_sequence28, ptr noundef nonnull %s_allocated.i.i.i62, i32 noundef 100, i64 noundef 44), !range !5
+  %call.i.i.i63 = tail call i32 @_PyCompile_EnsureArrayLargeEnough(i32 noundef %add.i.i.i61, ptr noundef nonnull %u_instr_sequence28, ptr noundef nonnull %s_allocated.i.i.i62, i32 noundef 100, i64 noundef 44)
   %cmp.i.i.i64 = icmp eq i32 %call.i.i.i63, -1
   br i1 %cmp.i.i.i64, label %return, label %instr_sequence_next_inst.exit.i.i65
 
@@ -19421,7 +19422,7 @@ if.end36:                                         ; preds = %codegen_addop_i.exi
   %26 = load ptr, ptr %c_const_cache, align 8
   %u37 = getelementptr inbounds i8, ptr %c, i64 64
   %27 = load ptr, ptr %u37, align 8
-  %call38 = tail call fastcc i32 @compiler_addop_load_const(ptr noundef %26, ptr noundef %27, i64 %loc.coerce0, i64 %loc.coerce1, ptr noundef nonnull %co), !range !5
+  %call38 = tail call fastcc i32 @compiler_addop_load_const(ptr noundef %26, ptr noundef %27, i64 %loc.coerce0, i64 %loc.coerce1, ptr noundef nonnull %co)
   %cmp39 = icmp eq i32 %call38, -1
   br i1 %cmp39, label %return, label %if.end42
 
@@ -19432,7 +19433,7 @@ if.end42:                                         ; preds = %if.end36
   %29 = load i32, ptr %s_used.i.i.i76, align 4
   %add.i.i.i77 = add i32 %29, 1
   %s_allocated.i.i.i78 = getelementptr inbounds i8, ptr %28, i64 32
-  %call.i.i.i79 = tail call i32 @_PyCompile_EnsureArrayLargeEnough(i32 noundef %add.i.i.i77, ptr noundef nonnull %u_instr_sequence44, ptr noundef nonnull %s_allocated.i.i.i78, i32 noundef 100, i64 noundef 44), !range !5
+  %call.i.i.i79 = tail call i32 @_PyCompile_EnsureArrayLargeEnough(i32 noundef %add.i.i.i77, ptr noundef nonnull %u_instr_sequence44, ptr noundef nonnull %s_allocated.i.i.i78, i32 noundef 100, i64 noundef 44)
   %cmp.i.i.i80 = icmp eq i32 %call.i.i.i79, -1
   br i1 %cmp.i.i.i80, label %return, label %instr_sequence_next_inst.exit.i.i81
 
@@ -19465,7 +19466,7 @@ if.then51:                                        ; preds = %if.end49
   %33 = load i32, ptr %s_used.i.i.i91, align 4
   %add.i.i.i92 = add i32 %33, 1
   %s_allocated.i.i.i93 = getelementptr inbounds i8, ptr %32, i64 32
-  %call.i.i.i94 = tail call i32 @_PyCompile_EnsureArrayLargeEnough(i32 noundef %add.i.i.i92, ptr noundef nonnull %u_instr_sequence53, ptr noundef nonnull %s_allocated.i.i.i93, i32 noundef 100, i64 noundef 44), !range !5
+  %call.i.i.i94 = tail call i32 @_PyCompile_EnsureArrayLargeEnough(i32 noundef %add.i.i.i92, ptr noundef nonnull %u_instr_sequence53, ptr noundef nonnull %s_allocated.i.i.i93, i32 noundef 100, i64 noundef 44)
   %cmp.i.i.i95 = icmp eq i32 %call.i.i.i94, -1
   br i1 %cmp.i.i.i95, label %return, label %instr_sequence_next_inst.exit.i.i96
 
@@ -19501,7 +19502,7 @@ if.then62:                                        ; preds = %if.end59
   %37 = load i32, ptr %s_used.i.i.i107, align 4
   %add.i.i.i108 = add i32 %37, 1
   %s_allocated.i.i.i109 = getelementptr inbounds i8, ptr %36, i64 32
-  %call.i.i.i110 = tail call i32 @_PyCompile_EnsureArrayLargeEnough(i32 noundef %add.i.i.i108, ptr noundef nonnull %u_instr_sequence64, ptr noundef nonnull %s_allocated.i.i.i109, i32 noundef 100, i64 noundef 44), !range !5
+  %call.i.i.i110 = tail call i32 @_PyCompile_EnsureArrayLargeEnough(i32 noundef %add.i.i.i108, ptr noundef nonnull %u_instr_sequence64, ptr noundef nonnull %s_allocated.i.i.i109, i32 noundef 100, i64 noundef 44)
   %cmp.i.i.i111 = icmp eq i32 %call.i.i.i110, -1
   br i1 %cmp.i.i.i111, label %return, label %instr_sequence_next_inst.exit.i.i112
 
@@ -19537,7 +19538,7 @@ if.then73:                                        ; preds = %if.end70
   %41 = load i32, ptr %s_used.i.i.i123, align 4
   %add.i.i.i124 = add i32 %41, 1
   %s_allocated.i.i.i125 = getelementptr inbounds i8, ptr %40, i64 32
-  %call.i.i.i126 = tail call i32 @_PyCompile_EnsureArrayLargeEnough(i32 noundef %add.i.i.i124, ptr noundef nonnull %u_instr_sequence75, ptr noundef nonnull %s_allocated.i.i.i125, i32 noundef 100, i64 noundef 44), !range !5
+  %call.i.i.i126 = tail call i32 @_PyCompile_EnsureArrayLargeEnough(i32 noundef %add.i.i.i124, ptr noundef nonnull %u_instr_sequence75, ptr noundef nonnull %s_allocated.i.i.i125, i32 noundef 100, i64 noundef 44)
   %cmp.i.i.i127 = icmp eq i32 %call.i.i.i126, -1
   br i1 %cmp.i.i.i127, label %return, label %instr_sequence_next_inst.exit.i.i128
 
@@ -19573,7 +19574,7 @@ if.then84:                                        ; preds = %if.end81
   %45 = load i32, ptr %s_used.i.i.i139, align 4
   %add.i.i.i140 = add i32 %45, 1
   %s_allocated.i.i.i141 = getelementptr inbounds i8, ptr %44, i64 32
-  %call.i.i.i142 = tail call i32 @_PyCompile_EnsureArrayLargeEnough(i32 noundef %add.i.i.i140, ptr noundef nonnull %u_instr_sequence86, ptr noundef nonnull %s_allocated.i.i.i141, i32 noundef 100, i64 noundef 44), !range !5
+  %call.i.i.i142 = tail call i32 @_PyCompile_EnsureArrayLargeEnough(i32 noundef %add.i.i.i140, ptr noundef nonnull %u_instr_sequence86, ptr noundef nonnull %s_allocated.i.i.i141, i32 noundef 100, i64 noundef 44)
   %cmp.i.i.i143 = icmp eq i32 %call.i.i.i142, -1
   br i1 %cmp.i.i.i143, label %return, label %instr_sequence_next_inst.exit.i.i144
 
@@ -19603,7 +19604,7 @@ return:                                           ; preds = %if.end20, %instr_se
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @compiler_apply_decorators(ptr nocapture noundef readonly %c, ptr noundef readonly %decos) unnamed_addr #1 {
+define internal fastcc range(i32 -1, 1) i32 @compiler_apply_decorators(ptr nocapture noundef readonly %c, ptr noundef readonly %decos) unnamed_addr #1 {
 entry:
   %tobool.not = icmp eq ptr %decos, null
   br i1 %tobool.not, label %return, label %cond.end
@@ -19645,7 +19646,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %co
   %7 = load i32, ptr %s_used.i.i.i, align 4
   %add.i.i.i = add i32 %7, 1
   %s_allocated.i.i.i = getelementptr inbounds i8, ptr %6, i64 32
-  %call.i.i.i = tail call i32 @_PyCompile_EnsureArrayLargeEnough(i32 noundef %add.i.i.i, ptr noundef nonnull %u_instr_sequence, ptr noundef nonnull %s_allocated.i.i.i, i32 noundef 100, i64 noundef 44), !range !5
+  %call.i.i.i = tail call i32 @_PyCompile_EnsureArrayLargeEnough(i32 noundef %add.i.i.i, ptr noundef nonnull %u_instr_sequence, ptr noundef nonnull %s_allocated.i.i.i, i32 noundef 100, i64 noundef 44)
   %cmp.i.i.i = icmp eq i32 %call.i.i.i, -1
   br i1 %cmp.i.i.i, label %return, label %instr_sequence_next_inst.exit.i.i
 
@@ -19669,7 +19670,7 @@ codegen_addop_i.exit:                             ; preds = %instr_sequence_next
   store i64 %loc.sroa.3.8.insert.insert, ptr %loc.sroa.2.0.i_loc.sroa_idx.i.i, align 4
   %i.0 = add nsw i64 %i.016, -1
   %cmp1 = icmp sgt i64 %i.016, 0
-  br i1 %cmp1, label %for.body, label %return, !llvm.loop !81
+  br i1 %cmp1, label %for.body, label %return, !llvm.loop !74
 
 return:                                           ; preds = %codegen_addop_i.exit, %instr_sequence_next_inst.exit.i.i, %for.body, %cond.end, %entry
   %retval.0 = phi i32 [ 0, %entry ], [ 0, %cond.end ], [ 0, %codegen_addop_i.exit ], [ -1, %instr_sequence_next_inst.exit.i.i ], [ -1, %for.body ]
@@ -19677,7 +19678,7 @@ return:                                           ; preds = %codegen_addop_i.exi
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @compiler_visit_defaults(ptr noundef %c, ptr nocapture noundef readonly %args, i64 %loc.coerce0, i64 %loc.coerce1) unnamed_addr #1 {
+define internal fastcc range(i32 -1, 1) i32 @compiler_visit_defaults(ptr noundef %c, ptr nocapture noundef readonly %args, i64 %loc.coerce0, i64 %loc.coerce1) unnamed_addr #1 {
 entry:
   %defaults = getelementptr inbounds i8, ptr %args, i64 48
   %0 = load ptr, ptr %defaults, align 8
@@ -19700,10 +19701,10 @@ for.cond:                                         ; preds = %entry, %for.body
 for.body:                                         ; preds = %for.cond
   %arrayidx = getelementptr [1 x ptr], ptr %typed_elements, i64 0, i64 %conv
   %3 = load ptr, ptr %arrayidx, align 8
-  %call = tail call fastcc i32 @compiler_visit_expr(ptr noundef %c, ptr noundef %3), !range !5
+  %call = tail call fastcc i32 @compiler_visit_expr(ptr noundef %c, ptr noundef %3)
   %cmp4 = icmp eq i32 %call, -1
   %inc = add i32 %_i.0, 1
-  br i1 %cmp4, label %return, label %for.cond, !llvm.loop !71
+  br i1 %cmp4, label %return, label %for.cond, !llvm.loop !65
 
 for.end:                                          ; preds = %for.cond
   %.pre = load ptr, ptr %defaults, align 8
@@ -19725,7 +19726,7 @@ cond.end13:                                       ; preds = %for.end.thread, %fo
   %8 = load i32, ptr %s_used.i.i.i, align 4
   %add.i.i.i = add i32 %8, 1
   %s_allocated.i.i.i = getelementptr inbounds i8, ptr %7, i64 32
-  %call.i.i.i = tail call i32 @_PyCompile_EnsureArrayLargeEnough(i32 noundef %add.i.i.i, ptr noundef nonnull %u_instr_sequence17, ptr noundef nonnull %s_allocated.i.i.i, i32 noundef 100, i64 noundef 44), !range !5
+  %call.i.i.i = tail call i32 @_PyCompile_EnsureArrayLargeEnough(i32 noundef %add.i.i.i, ptr noundef nonnull %u_instr_sequence17, ptr noundef nonnull %s_allocated.i.i.i, i32 noundef 100, i64 noundef 44)
   %cmp.i.i.i = icmp eq i32 %call.i.i.i, -1
   br i1 %cmp.i.i.i, label %return, label %instr_sequence_next_inst.exit.i.i
 
@@ -19755,7 +19756,7 @@ return:                                           ; preds = %for.body, %codegen_
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @compiler_visit_kwonlydefaults(ptr noundef %c, i64 %loc.coerce0, i64 %loc.coerce1, ptr nocapture noundef readonly %kwonlyargs, ptr nocapture noundef readonly %kw_defaults) unnamed_addr #1 {
+define internal fastcc range(i32 -1, 2) i32 @compiler_visit_kwonlydefaults(ptr noundef %c, i64 %loc.coerce0, i64 %loc.coerce1, ptr nocapture noundef readonly %kwonlyargs, ptr nocapture noundef readonly %kw_defaults) unnamed_addr #1 {
 entry:
   %0 = load i64, ptr %kwonlyargs, align 8
   %cmp251 = icmp sgt i64 %0, 0
@@ -19842,7 +19843,7 @@ Py_DECREF.exit78:                                 ; preds = %if.else, %if.then1.
 
 if.end23:                                         ; preds = %Py_DECREF.exit78, %if.end17
   %keys.1 = phi ptr [ %call13, %if.end17 ], [ %keys.052, %Py_DECREF.exit78 ]
-  %call24 = tail call fastcc i32 @compiler_visit_expr(ptr noundef nonnull %c, ptr noundef nonnull %2), !range !5
+  %call24 = tail call fastcc i32 @compiler_visit_expr(ptr noundef nonnull %c, ptr noundef nonnull %2)
   %cmp25 = icmp slt i32 %call24, 0
   br i1 %cmp25, label %if.then.i, label %if.end23.for.inc_crit_edge
 
@@ -19856,7 +19857,7 @@ for.inc:                                          ; preds = %if.end23.for.inc_cr
   %inc = add i32 %i.053, 1
   %conv = sext i32 %inc to i64
   %cmp2 = icmp sgt i64 %12, %conv
-  br i1 %cmp2, label %for.body, label %for.end, !llvm.loop !82
+  br i1 %cmp2, label %for.body, label %for.end, !llvm.loop !75
 
 for.end:                                          ; preds = %for.inc
   %cmp30.not = icmp eq ptr %keys.2, null
@@ -19890,7 +19891,7 @@ if.end38:                                         ; preds = %Py_DECREF.exit69
   %16 = load ptr, ptr %c_const_cache, align 8
   %u39 = getelementptr inbounds i8, ptr %c, i64 64
   %17 = load ptr, ptr %u39, align 8
-  %call40 = tail call fastcc i32 @compiler_addop_load_const(ptr noundef %16, ptr noundef %17, i64 %loc.coerce0, i64 %loc.coerce1, ptr noundef nonnull %call34), !range !5
+  %call40 = tail call fastcc i32 @compiler_addop_load_const(ptr noundef %16, ptr noundef %17, i64 %loc.coerce0, i64 %loc.coerce1, ptr noundef nonnull %call34)
   %cmp41 = icmp slt i32 %call40, 0
   %18 = load i64, ptr %call34, align 8
   %19 = and i64 %18, 2147483648
@@ -19931,7 +19932,7 @@ Py_DECREF.exit:                                   ; preds = %if.end44, %if.then1
   %21 = load i32, ptr %s_used.i.i.i, align 4
   %add.i.i.i = add i32 %21, 1
   %s_allocated.i.i.i = getelementptr inbounds i8, ptr %20, i64 32
-  %call.i.i.i = tail call i32 @_PyCompile_EnsureArrayLargeEnough(i32 noundef %add.i.i.i, ptr noundef nonnull %u_instr_sequence, ptr noundef nonnull %s_allocated.i.i.i, i32 noundef 100, i64 noundef 44), !range !5
+  %call.i.i.i = tail call i32 @_PyCompile_EnsureArrayLargeEnough(i32 noundef %add.i.i.i, ptr noundef nonnull %u_instr_sequence, ptr noundef nonnull %s_allocated.i.i.i, i32 noundef 100, i64 noundef 44)
   %cmp.i.i.i = icmp eq i32 %call.i.i.i, -1
   br i1 %cmp.i.i.i, label %return, label %instr_sequence_next_inst.exit.i.i
 
@@ -19983,7 +19984,7 @@ return:                                           ; preds = %entry, %if.then1.i.
 declare ptr @PyList_AsTuple(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @compiler_visit_argannotation(ptr noundef %c, ptr noundef %id, ptr noundef %annotation, ptr nocapture noundef %annotations_len, i64 %loc.coerce0, i64 %loc.coerce1) unnamed_addr #1 {
+define internal fastcc range(i32 -1, 1) i32 @compiler_visit_argannotation(ptr noundef %c, ptr noundef %id, ptr noundef %annotation, ptr nocapture noundef %annotations_len, i64 %loc.coerce0, i64 %loc.coerce1) unnamed_addr #1 {
 entry:
   %tobool.not = icmp eq ptr %annotation, null
   br i1 %tobool.not, label %return, label %if.end
@@ -20001,7 +20002,7 @@ if.end3:                                          ; preds = %if.end
   %c_const_cache = getelementptr inbounds i8, ptr %c, i64 56
   %2 = load ptr, ptr %c_const_cache, align 8
   %3 = load ptr, ptr %u, align 8
-  %call5 = tail call fastcc i32 @compiler_addop_load_const(ptr noundef %2, ptr noundef %3, i64 %loc.coerce0, i64 %loc.coerce1, ptr noundef nonnull %call), !range !5
+  %call5 = tail call fastcc i32 @compiler_addop_load_const(ptr noundef %2, ptr noundef %3, i64 %loc.coerce0, i64 %loc.coerce1, ptr noundef nonnull %call)
   %cmp = icmp eq i32 %call5, -1
   br i1 %cmp, label %return, label %if.end7
 
@@ -20052,7 +20053,7 @@ if.end.i19:                                       ; preds = %if.then9
   %loc.sroa.5.8.insert.shift.i = shl nuw i64 %loc.sroa.5.8.insert.ext.i, 32
   %loc.sroa.3.8.insert.ext.i = zext i32 %9 to i64
   %loc.sroa.3.8.insert.insert.i = or disjoint i64 %loc.sroa.5.8.insert.shift.i, %loc.sroa.3.8.insert.ext.i
-  %call5.i = tail call fastcc i32 @compiler_addop_load_const(ptr noundef %11, ptr noundef %12, i64 %loc.sroa.0.0.insert.insert.i, i64 %loc.sroa.3.8.insert.insert.i, ptr noundef nonnull %call.i), !range !5
+  %call5.i = tail call fastcc i32 @compiler_addop_load_const(ptr noundef %11, ptr noundef %12, i64 %loc.sroa.0.0.insert.insert.i, i64 %loc.sroa.3.8.insert.insert.i, ptr noundef nonnull %call.i)
   %cmp6.i = icmp slt i32 %call5.i, 0
   %13 = load i64, ptr %call.i, align 8
   %14 = and i64 %13, 2147483648
@@ -20093,7 +20094,7 @@ if.else:                                          ; preds = %Py_DECREF.exit
 if.then15:                                        ; preds = %if.else
   %v = getelementptr inbounds i8, ptr %annotation, i64 8
   %16 = load ptr, ptr %v, align 8
-  %call16 = tail call fastcc i32 @compiler_visit_expr(ptr noundef nonnull %c, ptr noundef %16), !range !5
+  %call16 = tail call fastcc i32 @compiler_visit_expr(ptr noundef nonnull %c, ptr noundef %16)
   %cmp17 = icmp eq i32 %call16, -1
   br i1 %cmp17, label %return, label %if.end19
 
@@ -20104,7 +20105,7 @@ if.end19:                                         ; preds = %if.then15
   %18 = load i32, ptr %s_used.i.i.i, align 4
   %add.i.i.i = add i32 %18, 1
   %s_allocated.i.i.i = getelementptr inbounds i8, ptr %17, i64 32
-  %call.i.i.i = tail call i32 @_PyCompile_EnsureArrayLargeEnough(i32 noundef %add.i.i.i, ptr noundef nonnull %u_instr_sequence, ptr noundef nonnull %s_allocated.i.i.i, i32 noundef 100, i64 noundef 44), !range !5
+  %call.i.i.i = tail call i32 @_PyCompile_EnsureArrayLargeEnough(i32 noundef %add.i.i.i, ptr noundef nonnull %u_instr_sequence, ptr noundef nonnull %s_allocated.i.i.i, i32 noundef 100, i64 noundef 44)
   %cmp.i.i.i = icmp eq i32 %call.i.i.i, -1
   br i1 %cmp.i.i.i, label %return, label %instr_sequence_next_inst.exit.i.i
 
@@ -20129,7 +20130,7 @@ codegen_addop_i.exit:                             ; preds = %instr_sequence_next
   br label %if.end31
 
 if.else25:                                        ; preds = %if.else
-  %call26 = tail call fastcc i32 @compiler_visit_expr(ptr noundef nonnull %c, ptr noundef nonnull %annotation), !range !5
+  %call26 = tail call fastcc i32 @compiler_visit_expr(ptr noundef nonnull %c, ptr noundef nonnull %annotation)
   %cmp27 = icmp eq i32 %call26, -1
   br i1 %cmp27, label %return, label %if.end31
 
@@ -20145,7 +20146,7 @@ return:                                           ; preds = %if.end19, %instr_se
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @compiler_visit_annexpr(ptr nocapture noundef readonly %c, ptr noundef %annotation) unnamed_addr #1 {
+define internal fastcc range(i32 -1, 1) i32 @compiler_visit_annexpr(ptr nocapture noundef readonly %c, ptr noundef %annotation) unnamed_addr #1 {
 entry:
   %lineno1 = getelementptr inbounds i8, ptr %annotation, i64 32
   %0 = load i32, ptr %lineno1, align 8
@@ -20172,7 +20173,7 @@ if.end:                                           ; preds = %entry
   %loc.sroa.5.8.insert.shift = shl nuw i64 %loc.sroa.5.8.insert.ext, 32
   %loc.sroa.3.8.insert.ext = zext i32 %2 to i64
   %loc.sroa.3.8.insert.insert = or disjoint i64 %loc.sroa.5.8.insert.shift, %loc.sroa.3.8.insert.ext
-  %call5 = tail call fastcc i32 @compiler_addop_load_const(ptr noundef %4, ptr noundef %5, i64 %loc.sroa.0.0.insert.insert, i64 %loc.sroa.3.8.insert.insert, ptr noundef nonnull %call), !range !5
+  %call5 = tail call fastcc i32 @compiler_addop_load_const(ptr noundef %4, ptr noundef %5, i64 %loc.sroa.0.0.insert.insert, i64 %loc.sroa.3.8.insert.insert, ptr noundef nonnull %call)
   %cmp6 = icmp slt i32 %call5, 0
   %6 = load i64, ptr %call, align 8
   %7 = and i64 %6, 2147483648
@@ -20210,7 +20211,7 @@ return:                                           ; preds = %return.sink.split, 
 declare ptr @_PyAST_ExprAsUnicode(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @wrap_in_stopiteration_handler(ptr nocapture noundef readonly %c) unnamed_addr #1 {
+define internal fastcc range(i32 -1, 1) i32 @wrap_in_stopiteration_handler(ptr nocapture noundef readonly %c) unnamed_addr #1 {
 entry:
   %u = getelementptr inbounds i8, ptr %c, i64 64
   %0 = load ptr, ptr %u, align 8
@@ -20228,7 +20229,7 @@ if.end:                                           ; preds = %entry
   %3 = load i32, ptr %s_used.i.i, align 4
   %add.i.i = add i32 %3, 1
   %s_allocated.i.i = getelementptr inbounds i8, ptr %2, i64 32
-  %call.i.i = tail call i32 @_PyCompile_EnsureArrayLargeEnough(i32 noundef %add.i.i, ptr noundef nonnull %u_instr_sequence2, ptr noundef nonnull %s_allocated.i.i, i32 noundef 100, i64 noundef 44), !range !5
+  %call.i.i = tail call i32 @_PyCompile_EnsureArrayLargeEnough(i32 noundef %add.i.i, ptr noundef nonnull %u_instr_sequence2, ptr noundef nonnull %s_allocated.i.i, i32 noundef 100, i64 noundef 44)
   %cmp.i.i = icmp eq i32 %call.i.i, -1
   br i1 %cmp.i.i, label %return, label %instr_sequence_next_inst.exit.i
 
@@ -20259,7 +20260,7 @@ for.body.i:                                       ; preds = %for.body.i, %for.bo
   %indvars.iv.next.i = add nsw i64 %indvars.iv.i, -1
   %cmp1.not.i = icmp eq i64 %indvars.iv.i, 0
   %7 = trunc nuw nsw i64 %indvars.iv.i to i32
-  br i1 %cmp1.not.i, label %for.end.i, label %for.body.i, !llvm.loop !83
+  br i1 %cmp1.not.i, label %for.end.i, label %for.body.i, !llvm.loop !76
 
 for.end.i:                                        ; preds = %for.body.i, %for.cond.preheader.i
   %8 = load ptr, ptr %u_instr_sequence2, align 8
@@ -20297,13 +20298,13 @@ for.inc19.i:                                      ; preds = %if.then14.i, %for.b
   %indvars.iv.next28.i = add nuw nsw i64 %indvars.iv27.i, 1
   %14 = sext i32 %13 to i64
   %cmp9.i = icmp slt i64 %indvars.iv.next28.i, %14
-  br i1 %cmp9.i, label %for.body10.i, label %if.end7, !llvm.loop !84
+  br i1 %cmp9.i, label %for.body10.i, label %if.end7, !llvm.loop !77
 
 if.end7:                                          ; preds = %for.inc19.i, %for.end.i
   %c_const_cache = getelementptr inbounds i8, ptr %c, i64 56
   %15 = load ptr, ptr %c_const_cache, align 8
   %16 = load ptr, ptr %u, align 8
-  %call9 = tail call fastcc i32 @compiler_addop_load_const(ptr noundef %15, ptr noundef %16, i64 -1, i64 -1, ptr noundef nonnull @_Py_NoneStruct), !range !5
+  %call9 = tail call fastcc i32 @compiler_addop_load_const(ptr noundef %15, ptr noundef %16, i64 -1, i64 -1, ptr noundef nonnull @_Py_NoneStruct)
   %cmp10 = icmp eq i32 %call9, -1
   br i1 %cmp10, label %return, label %if.end12
 
@@ -20314,7 +20315,7 @@ if.end12:                                         ; preds = %if.end7
   %18 = load i32, ptr %s_used.i.i.i, align 4
   %add.i.i.i = add i32 %18, 1
   %s_allocated.i.i.i = getelementptr inbounds i8, ptr %17, i64 32
-  %call.i.i.i = tail call i32 @_PyCompile_EnsureArrayLargeEnough(i32 noundef %add.i.i.i, ptr noundef nonnull %u_instr_sequence14, ptr noundef nonnull %s_allocated.i.i.i, i32 noundef 100, i64 noundef 44), !range !5
+  %call.i.i.i = tail call i32 @_PyCompile_EnsureArrayLargeEnough(i32 noundef %add.i.i.i, ptr noundef nonnull %u_instr_sequence14, ptr noundef nonnull %s_allocated.i.i.i, i32 noundef 100, i64 noundef 44)
   %cmp.i.i.i = icmp eq i32 %call.i.i.i, -1
   br i1 %cmp.i.i.i, label %return, label %instr_sequence_next_inst.exit.i.i
 
@@ -20338,7 +20339,7 @@ if.end18:                                         ; preds = %instr_sequence_next
   %s_labelmap_size.i12 = getelementptr inbounds i8, ptr %21, i64 48
   %22 = load i32, ptr %s_labelmap_size.i12, align 8
   %s_labelmap.i13 = getelementptr inbounds i8, ptr %21, i64 40
-  %call.i = tail call i32 @_PyCompile_EnsureArrayLargeEnough(i32 noundef %inc.i, ptr noundef nonnull %s_labelmap.i13, ptr noundef nonnull %s_labelmap_size.i12, i32 noundef 10, i64 noundef 4), !range !5
+  %call.i = tail call i32 @_PyCompile_EnsureArrayLargeEnough(i32 noundef %inc.i, ptr noundef nonnull %s_labelmap.i13, ptr noundef nonnull %s_labelmap_size.i12, i32 noundef 10, i64 noundef 4)
   %cmp.i14 = icmp eq i32 %call.i, -1
   br i1 %cmp.i14, label %return, label %for.cond.preheader.i15
 
@@ -20360,7 +20361,7 @@ for.body.i19:                                     ; preds = %for.body.i19, %for.
   %26 = load i32, ptr %s_labelmap_size.i12, align 8
   %27 = sext i32 %26 to i64
   %cmp3.i = icmp slt i64 %indvars.iv.next.i22, %27
-  br i1 %cmp3.i, label %for.body.i19, label %if.end25, !llvm.loop !6
+  br i1 %cmp3.i, label %for.body.i19, label %if.end25, !llvm.loop !5
 
 if.end25:                                         ; preds = %for.body.i19, %for.cond.preheader.i15
   %s_used.i = getelementptr inbounds i8, ptr %21, i64 36
@@ -20375,7 +20376,7 @@ if.end25:                                         ; preds = %for.body.i19, %for.
   %31 = load i32, ptr %s_used.i.i.i23, align 4
   %add.i.i.i24 = add i32 %31, 1
   %s_allocated.i.i.i25 = getelementptr inbounds i8, ptr %30, i64 32
-  %call.i.i.i26 = tail call i32 @_PyCompile_EnsureArrayLargeEnough(i32 noundef %add.i.i.i24, ptr noundef nonnull %u_instr_sequence27, ptr noundef nonnull %s_allocated.i.i.i25, i32 noundef 100, i64 noundef 44), !range !5
+  %call.i.i.i26 = tail call i32 @_PyCompile_EnsureArrayLargeEnough(i32 noundef %add.i.i.i24, ptr noundef nonnull %u_instr_sequence27, ptr noundef nonnull %s_allocated.i.i.i25, i32 noundef 100, i64 noundef 44)
   %cmp.i.i.i27 = icmp eq i32 %call.i.i.i26, -1
   br i1 %cmp.i.i.i27, label %return, label %instr_sequence_next_inst.exit.i.i28
 
@@ -20401,7 +20402,7 @@ if.end31:                                         ; preds = %instr_sequence_next
   %35 = load i32, ptr %s_used.i.i.i38, align 4
   %add.i.i.i39 = add i32 %35, 1
   %s_allocated.i.i.i40 = getelementptr inbounds i8, ptr %34, i64 32
-  %call.i.i.i41 = tail call i32 @_PyCompile_EnsureArrayLargeEnough(i32 noundef %add.i.i.i39, ptr noundef nonnull %u_instr_sequence33, ptr noundef nonnull %s_allocated.i.i.i40, i32 noundef 100, i64 noundef 44), !range !5
+  %call.i.i.i41 = tail call i32 @_PyCompile_EnsureArrayLargeEnough(i32 noundef %add.i.i.i39, ptr noundef nonnull %u_instr_sequence33, ptr noundef nonnull %s_allocated.i.i.i40, i32 noundef 100, i64 noundef 44)
   %cmp.i.i.i42 = icmp eq i32 %call.i.i.i41, -1
   br i1 %cmp.i.i.i42, label %return, label %instr_sequence_next_inst.exit.i.i43
 
@@ -20429,7 +20430,7 @@ return:                                           ; preds = %if.end25, %instr_se
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @get_ref_type(ptr nocapture noundef readonly %c, ptr noundef %name) unnamed_addr #1 {
+define internal fastcc range(i32 1, 0) i32 @get_ref_type(ptr nocapture noundef readonly %c, ptr noundef %name) unnamed_addr #1 {
 entry:
   %u = getelementptr inbounds i8, ptr %c, i64 64
   %0 = load ptr, ptr %u, align 8
@@ -20503,11 +20504,11 @@ declare ptr @_PyCode_GetFreevars(ptr noundef) local_unnamed_addr #2
 declare void @PyErr_Clear() local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @compiler_class_body(ptr noundef %c, ptr noundef %s, i32 noundef %firstlineno) unnamed_addr #1 {
+define internal fastcc range(i32 -1, 1) i32 @compiler_class_body(ptr noundef %c, ptr noundef %s, i32 noundef %firstlineno) unnamed_addr #1 {
 entry:
   %v = getelementptr inbounds i8, ptr %s, i64 8
   %0 = load ptr, ptr %v, align 8
-  %call = tail call fastcc i32 @compiler_enter_scope(ptr noundef %c, ptr noundef %0, i32 noundef 1, ptr noundef %s, i32 noundef %firstlineno), !range !5
+  %call = tail call fastcc i32 @compiler_enter_scope(ptr noundef %c, ptr noundef %0, i32 noundef 1, ptr noundef %s, i32 noundef %firstlineno)
   %cmp = icmp eq i32 %call, -1
   br i1 %cmp, label %return, label %if.end
 
@@ -20550,7 +20551,7 @@ if.then1.i.i:                                     ; preds = %if.end.i.i265
 Py_XDECREF.exit:                                  ; preds = %_Py_NewRef.exit, %if.then.i, %if.end.i.i265, %if.then1.i.i
   %loc.sroa.14.0.insert.ext = zext i32 %firstlineno to i64
   %loc.sroa.0.0.insert.insert = mul nuw i64 %loc.sroa.14.0.insert.ext, 4294967297
-  %call4 = tail call fastcc i32 @compiler_nameop(ptr noundef nonnull %c, i64 %loc.sroa.0.0.insert.insert, i64 0, ptr noundef nonnull getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 37, i32 0, i32 3, i32 1, i32 108), i32 noundef 1), !range !5
+  %call4 = tail call fastcc i32 @compiler_nameop(ptr noundef nonnull %c, i64 %loc.sroa.0.0.insert.insert, i64 0, ptr noundef nonnull getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 37, i32 0, i32 3, i32 1, i32 108), i32 noundef 1)
   %cmp5 = icmp slt i32 %call4, 0
   br i1 %cmp5, label %if.then6, label %if.end7
 
@@ -20559,7 +20560,7 @@ if.then6:                                         ; preds = %Py_XDECREF.exit
   br label %return
 
 if.end7:                                          ; preds = %Py_XDECREF.exit
-  %call8 = tail call fastcc i32 @compiler_nameop(ptr noundef nonnull %c, i64 %loc.sroa.0.0.insert.insert, i64 0, ptr noundef nonnull getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 37, i32 0, i32 3, i32 1, i32 105), i32 noundef 2), !range !5
+  %call8 = tail call fastcc i32 @compiler_nameop(ptr noundef nonnull %c, i64 %loc.sroa.0.0.insert.insert, i64 0, ptr noundef nonnull getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 37, i32 0, i32 3, i32 1, i32 105), i32 noundef 2)
   %cmp9 = icmp slt i32 %call8, 0
   br i1 %cmp9, label %if.then10, label %if.end11
 
@@ -20573,12 +20574,12 @@ if.end11:                                         ; preds = %if.end7
   %8 = load ptr, ptr %u, align 8
   %u_qualname = getelementptr inbounds i8, ptr %8, i64 552
   %9 = load ptr, ptr %u_qualname, align 8
-  %call14 = tail call fastcc i32 @compiler_addop_load_const(ptr noundef %7, ptr noundef %8, i64 %loc.sroa.0.0.insert.insert, i64 0, ptr noundef %9), !range !5
+  %call14 = tail call fastcc i32 @compiler_addop_load_const(ptr noundef %7, ptr noundef %8, i64 %loc.sroa.0.0.insert.insert, i64 0, ptr noundef %9)
   %cmp15 = icmp eq i32 %call14, -1
   br i1 %cmp15, label %return, label %if.end17
 
 if.end17:                                         ; preds = %if.end11
-  %call18 = tail call fastcc i32 @compiler_nameop(ptr noundef nonnull %c, i64 %loc.sroa.0.0.insert.insert, i64 0, ptr noundef nonnull getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 37, i32 0, i32 3, i32 1, i32 125), i32 noundef 2), !range !5
+  %call18 = tail call fastcc i32 @compiler_nameop(ptr noundef nonnull %c, i64 %loc.sroa.0.0.insert.insert, i64 0, ptr noundef nonnull getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 37, i32 0, i32 3, i32 1, i32 125), i32 noundef 2)
   %cmp19 = icmp slt i32 %call18, 0
   br i1 %cmp19, label %if.then20, label %if.end21
 
@@ -20598,12 +20599,12 @@ cond.end:                                         ; preds = %if.end21
   br i1 %cmp25, label %if.then26, label %if.end30
 
 if.then26:                                        ; preds = %cond.end
-  %call.i = tail call fastcc i32 @compiler_nameop(ptr noundef nonnull %c, i64 %loc.sroa.0.0.insert.insert, i64 0, ptr noundef nonnull getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 37, i32 0, i32 3, i32 0, i32 24), i32 noundef 1), !range !5
+  %call.i = tail call fastcc i32 @compiler_nameop(ptr noundef nonnull %c, i64 %loc.sroa.0.0.insert.insert, i64 0, ptr noundef nonnull getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 37, i32 0, i32 3, i32 0, i32 24), i32 noundef 1)
   %cmp.i267 = icmp eq i32 %call.i, -1
   br i1 %cmp.i267, label %if.end30, label %if.end.i268
 
 if.end.i268:                                      ; preds = %if.then26
-  %call1.i = tail call fastcc i32 @compiler_nameop(ptr noundef nonnull %c, i64 %loc.sroa.0.0.insert.insert, i64 0, ptr noundef nonnull getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 37, i32 0, i32 3, i32 1, i32 162), i32 noundef 2), !range !5
+  %call1.i = tail call fastcc i32 @compiler_nameop(ptr noundef nonnull %c, i64 %loc.sroa.0.0.insert.insert, i64 0, ptr noundef nonnull getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 37, i32 0, i32 3, i32 1, i32 162), i32 noundef 2)
   br label %if.end30
 
 if.end30:                                         ; preds = %if.end21, %if.end.i268, %if.then26, %cond.end
@@ -20621,7 +20622,7 @@ if.then33:                                        ; preds = %if.end30
   %15 = load i32, ptr %s_used.i.i.i, align 4
   %add.i.i.i = add i32 %15, 1
   %s_allocated.i.i.i = getelementptr inbounds i8, ptr %12, i64 32
-  %call.i.i.i = tail call i32 @_PyCompile_EnsureArrayLargeEnough(i32 noundef %add.i.i.i, ptr noundef nonnull %u_instr_sequence, ptr noundef nonnull %s_allocated.i.i.i, i32 noundef 100, i64 noundef 44), !range !5
+  %call.i.i.i = tail call i32 @_PyCompile_EnsureArrayLargeEnough(i32 noundef %add.i.i.i, ptr noundef nonnull %u_instr_sequence, ptr noundef nonnull %s_allocated.i.i.i, i32 noundef 100, i64 noundef 44)
   %cmp.i.i.i = icmp eq i32 %call.i.i.i, -1
   br i1 %cmp.i.i.i, label %return, label %instr_sequence_next_inst.exit.i.i
 
@@ -20657,7 +20658,7 @@ if.end.i273:                                      ; preds = %if.end38
   %20 = load i32, ptr %s_used.i.i.i.i, align 4
   %add.i.i.i.i = add i32 %20, 1
   %s_allocated.i.i.i.i = getelementptr inbounds i8, ptr %18, i64 32
-  %call.i.i.i.i = tail call i32 @_PyCompile_EnsureArrayLargeEnough(i32 noundef %add.i.i.i.i, ptr noundef nonnull %u_instr_sequence.i, ptr noundef nonnull %s_allocated.i.i.i.i, i32 noundef 100, i64 noundef 44), !range !5
+  %call.i.i.i.i = tail call i32 @_PyCompile_EnsureArrayLargeEnough(i32 noundef %add.i.i.i.i, ptr noundef nonnull %u_instr_sequence.i, ptr noundef nonnull %s_allocated.i.i.i.i, i32 noundef 100, i64 noundef 44)
   %cmp.i.i.i.i = icmp eq i32 %call.i.i.i.i, -1
   br i1 %cmp.i.i.i.i, label %if.then44, label %instr_sequence_next_inst.exit.i.i.i
 
@@ -20720,12 +20721,12 @@ if.end67:                                         ; preds = %if.then60
   %28 = load ptr, ptr %u, align 8
   %u_instr_sequence69 = getelementptr inbounds i8, ptr %28, i64 24
   %conv = zext nneg i32 %call64 to i64
-  %call70 = tail call fastcc i32 @codegen_addop_i(ptr noundef nonnull %u_instr_sequence69, i32 noundef 258, i64 noundef %conv, i64 -1, i64 -1), !range !5
+  %call70 = tail call fastcc i32 @codegen_addop_i(ptr noundef nonnull %u_instr_sequence69, i32 noundef 258, i64 noundef %conv, i64 -1, i64 -1)
   %cmp71 = icmp eq i32 %call70, -1
   br i1 %cmp71, label %return, label %if.end74
 
 if.end74:                                         ; preds = %if.end67
-  %call75 = tail call fastcc i32 @compiler_nameop(ptr noundef nonnull %c, i64 -1, i64 -1, ptr noundef nonnull getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 37, i32 0, i32 3, i32 1, i32 38), i32 noundef 2), !range !5
+  %call75 = tail call fastcc i32 @compiler_nameop(ptr noundef nonnull %c, i64 -1, i64 -1, ptr noundef nonnull getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 37, i32 0, i32 3, i32 1, i32 38), i32 noundef 2)
   %cmp76 = icmp slt i32 %call75, 0
   br i1 %cmp76, label %if.then78, label %if.end74.if.end80_crit_edge
 
@@ -20762,19 +20763,19 @@ if.end97:                                         ; preds = %if.then88
   %32 = load ptr, ptr %u, align 8
   %u_instr_sequence99 = getelementptr inbounds i8, ptr %32, i64 24
   %conv100 = zext nneg i32 %call93 to i64
-  %call101 = tail call fastcc i32 @codegen_addop_i(ptr noundef nonnull %u_instr_sequence99, i32 noundef 258, i64 noundef %conv100, i64 -1, i64 -1), !range !5
+  %call101 = tail call fastcc i32 @codegen_addop_i(ptr noundef nonnull %u_instr_sequence99, i32 noundef 258, i64 noundef %conv100, i64 -1, i64 -1)
   %cmp102 = icmp eq i32 %call101, -1
   br i1 %cmp102, label %return, label %if.end105
 
 if.end105:                                        ; preds = %if.end97
   %33 = load ptr, ptr %u, align 8
   %u_instr_sequence107 = getelementptr inbounds i8, ptr %33, i64 24
-  %call108 = tail call fastcc i32 @codegen_addop_i(ptr noundef nonnull %u_instr_sequence107, i32 noundef 61, i64 noundef 1, i64 -1, i64 -1), !range !5
+  %call108 = tail call fastcc i32 @codegen_addop_i(ptr noundef nonnull %u_instr_sequence107, i32 noundef 61, i64 noundef 1, i64 -1, i64 -1)
   %cmp109 = icmp eq i32 %call108, -1
   br i1 %cmp109, label %return, label %if.end112
 
 if.end112:                                        ; preds = %if.end105
-  %call113 = tail call fastcc i32 @compiler_nameop(ptr noundef nonnull %c, i64 -1, i64 -1, ptr noundef nonnull getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 37, i32 0, i32 3, i32 1, i32 36), i32 noundef 2), !range !5
+  %call113 = tail call fastcc i32 @compiler_nameop(ptr noundef nonnull %c, i64 -1, i64 -1, ptr noundef nonnull getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 37, i32 0, i32 3, i32 1, i32 36), i32 noundef 2)
   %cmp114 = icmp slt i32 %call113, 0
   br i1 %cmp114, label %if.then116, label %if.end125
 
@@ -20784,14 +20785,14 @@ if.then116:                                       ; preds = %if.end112
 
 if.else:                                          ; preds = %if.end80
   %34 = load ptr, ptr %c_const_cache, align 8
-  %call120 = tail call fastcc i32 @compiler_addop_load_const(ptr noundef %34, ptr noundef nonnull %29, i64 -1, i64 -1, ptr noundef nonnull @_Py_NoneStruct), !range !5
+  %call120 = tail call fastcc i32 @compiler_addop_load_const(ptr noundef %34, ptr noundef nonnull %29, i64 -1, i64 -1, ptr noundef nonnull @_Py_NoneStruct)
   %cmp121 = icmp eq i32 %call120, -1
   br i1 %cmp121, label %return, label %if.end125
 
 if.end125:                                        ; preds = %if.else, %if.end112
   %35 = load ptr, ptr %u, align 8
   %u_instr_sequence127 = getelementptr inbounds i8, ptr %35, i64 24
-  %call128 = tail call fastcc i32 @codegen_addop_noarg(ptr noundef nonnull %u_instr_sequence127, i32 noundef 36, i64 -1, i64 -1), !range !5
+  %call128 = tail call fastcc i32 @codegen_addop_noarg(ptr noundef nonnull %u_instr_sequence127, i32 noundef 36, i64 -1, i64 -1)
   %cmp129 = icmp slt i32 %call128, 0
   br i1 %cmp129, label %if.then131, label %if.end132
 
@@ -20824,19 +20825,19 @@ if.end137:                                        ; preds = %if.end132
   %loc.sroa.30.8.insert.shift188 = shl nuw i64 %loc.sroa.30.8.insert.ext187, 32
   %loc.sroa.16.8.insert.ext136 = zext i32 %38 to i64
   %loc.sroa.16.8.insert.insert138 = or disjoint i64 %loc.sroa.30.8.insert.shift188, %loc.sroa.16.8.insert.ext136
-  %call148 = tail call fastcc i32 @codegen_addop_noarg(ptr noundef nonnull %u_instr_sequence147, i32 noundef 24, i64 %loc.sroa.0.0.insert.insert39, i64 %loc.sroa.16.8.insert.insert138), !range !5
+  %call148 = tail call fastcc i32 @codegen_addop_noarg(ptr noundef nonnull %u_instr_sequence147, i32 noundef 24, i64 %loc.sroa.0.0.insert.insert39, i64 %loc.sroa.16.8.insert.insert138)
   %cmp149 = icmp eq i32 %call148, -1
   br i1 %cmp149, label %return, label %if.end152
 
 if.end152:                                        ; preds = %if.end137
   %41 = load ptr, ptr %u, align 8
   %u_instr_sequence154 = getelementptr inbounds i8, ptr %41, i64 24
-  %call155 = tail call fastcc i32 @codegen_addop_noarg(ptr noundef nonnull %u_instr_sequence154, i32 noundef 34, i64 %loc.sroa.0.0.insert.insert39, i64 %loc.sroa.16.8.insert.insert138), !range !5
+  %call155 = tail call fastcc i32 @codegen_addop_noarg(ptr noundef nonnull %u_instr_sequence154, i32 noundef 34, i64 %loc.sroa.0.0.insert.insert39, i64 %loc.sroa.16.8.insert.insert138)
   %cmp156 = icmp eq i32 %call155, -1
   br i1 %cmp156, label %return, label %if.end159
 
 if.end159:                                        ; preds = %if.end152
-  %call160 = tail call fastcc i32 @compiler_make_closure(ptr noundef nonnull %c, i64 %loc.sroa.0.0.insert.insert39, i64 %loc.sroa.16.8.insert.insert138, ptr noundef nonnull %call133, i64 noundef 0), !range !5
+  %call160 = tail call fastcc i32 @compiler_make_closure(ptr noundef nonnull %c, i64 %loc.sroa.0.0.insert.insert39, i64 %loc.sroa.16.8.insert.insert138, ptr noundef nonnull %call133, i64 noundef 0)
   %cmp161 = icmp slt i32 %call160, 0
   %42 = load i64, ptr %call133, align 8
   %43 = and i64 %42, 2147483648
@@ -20873,7 +20874,7 @@ Py_DECREF.exit:                                   ; preds = %if.end164, %if.then
   %44 = load ptr, ptr %c_const_cache, align 8
   %45 = load ptr, ptr %u, align 8
   %46 = load ptr, ptr %v, align 8
-  %call169 = tail call fastcc i32 @compiler_addop_load_const(ptr noundef %44, ptr noundef %45, i64 %loc.sroa.0.0.insert.insert39, i64 %loc.sroa.16.8.insert.insert138, ptr noundef %46), !range !5
+  %call169 = tail call fastcc i32 @compiler_addop_load_const(ptr noundef %44, ptr noundef %45, i64 %loc.sroa.0.0.insert.insert39, i64 %loc.sroa.16.8.insert.insert138, ptr noundef %46)
   %cmp170 = icmp eq i32 %call169, -1
   %. = sext i1 %cmp170 to i32
   br label %return
@@ -20888,9 +20889,9 @@ declare ptr @_Py_asdl_expr_seq_new(i64 noundef, ptr noundef) local_unnamed_addr 
 declare ptr @_PyAST_Name(ptr noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @compiler_call_helper(ptr noundef %c, i64 %loc.coerce0, i64 %loc.coerce1, i32 noundef %n, ptr noundef %args, ptr noundef %keywords) unnamed_addr #1 {
+define internal fastcc range(i32 -1, 1) i32 @compiler_call_helper(ptr noundef %c, i64 %loc.coerce0, i64 %loc.coerce1, i32 noundef %n, ptr noundef %args, ptr noundef %keywords) unnamed_addr #1 {
 entry:
-  %call = tail call fastcc i32 @validate_keywords(ptr noundef %c, ptr noundef %keywords), !range !5
+  %call = tail call fastcc i32 @validate_keywords(ptr noundef %c, ptr noundef %keywords)
   %cmp = icmp eq i32 %call, -1
   br i1 %cmp, label %return, label %if.end
 
@@ -20929,7 +20930,7 @@ for.body.lr.ph:                                   ; preds = %for.cond.preheader
 for.cond:                                         ; preds = %for.body
   %inc = add nuw nsw i64 %i.0173, 1
   %exitcond.not = icmp eq i64 %inc, %cond
-  br i1 %exitcond.not, label %for.cond15.preheader, label %for.body, !llvm.loop !85
+  br i1 %exitcond.not, label %for.cond15.preheader, label %for.body, !llvm.loop !78
 
 for.cond15.preheader:                             ; preds = %for.cond, %for.cond.preheader
   %cmp16174 = icmp sgt i64 %cond7, 0
@@ -20950,7 +20951,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
 for.cond15:                                       ; preds = %for.body17
   %inc24 = add nuw nsw i64 %i.1175, 1
   %exitcond190.not = icmp eq i64 %inc24, %cond7
-  br i1 %exitcond190.not, label %for.cond26.preheader, label %for.body17, !llvm.loop !86
+  br i1 %exitcond190.not, label %for.cond26.preheader, label %for.body17, !llvm.loop !79
 
 for.cond26.preheader:                             ; preds = %for.cond15, %for.cond15.preheader
   br i1 %cmp11172, label %for.body28.lr.ph, label %for.end38
@@ -20970,13 +20971,13 @@ for.body17:                                       ; preds = %for.body17.lr.ph, %
 for.cond26:                                       ; preds = %for.body28
   %inc37 = add nuw nsw i64 %i.2177, 1
   %exitcond191.not = icmp eq i64 %inc37, %cond
-  br i1 %exitcond191.not, label %for.end38, label %for.body28, !llvm.loop !87
+  br i1 %exitcond191.not, label %for.end38, label %for.body28, !llvm.loop !80
 
 for.body28:                                       ; preds = %for.body28.lr.ph, %for.cond26
   %i.2177 = phi i64 [ 0, %for.body28.lr.ph ], [ %inc37, %for.cond26 ]
   %arrayidx31 = getelementptr [1 x ptr], ptr %typed_elements30, i64 0, i64 %i.2177
   %6 = load ptr, ptr %arrayidx31, align 8
-  %call32 = tail call fastcc i32 @compiler_visit_expr(ptr noundef %c, ptr noundef %6), !range !5
+  %call32 = tail call fastcc i32 @compiler_visit_expr(ptr noundef %c, ptr noundef %6)
   %cmp33 = icmp eq i32 %call32, -1
   br i1 %cmp33, label %return, label %for.cond26
 
@@ -21000,10 +21001,10 @@ for.body50:                                       ; preds = %for.cond40
   %8 = load ptr, ptr %arrayidx53, align 8
   %value.i = getelementptr inbounds i8, ptr %8, i64 8
   %9 = load ptr, ptr %value.i, align 8
-  %call.i = tail call fastcc i32 @compiler_visit_expr(ptr noundef %c, ptr noundef %9), !range !5
+  %call.i = tail call fastcc i32 @compiler_visit_expr(ptr noundef %c, ptr noundef %9)
   %cmp.i = icmp eq i32 %call.i, -1
   %inc60 = add i32 %_i.0, 1
-  br i1 %cmp.i, label %return, label %for.cond40, !llvm.loop !88
+  br i1 %cmp.i, label %return, label %for.cond40, !llvm.loop !81
 
 for.end61:                                        ; preds = %for.cond40, %for.cond40.preheader
   %call.i218 = tail call ptr @PyTuple_New(i64 noundef %cond7) #11
@@ -21038,14 +21039,14 @@ _Py_NewRef.exit.i:                                ; preds = %if.end.i.i.i, %for.
   %inc.i = add i32 %i.016.i, 1
   %conv.i224 = sext i32 %inc.i to i64
   %cmp1.i = icmp sgt i64 %cond7, %conv.i224
-  br i1 %cmp1.i, label %for.body.i, label %if.end8.i, !llvm.loop !89
+  br i1 %cmp1.i, label %for.body.i, label %if.end8.i, !llvm.loop !82
 
 if.end8.i:                                        ; preds = %_Py_NewRef.exit.i, %for.cond.preheader.i
   %c_const_cache.i = getelementptr inbounds i8, ptr %c, i64 56
   %13 = load ptr, ptr %c_const_cache.i, align 8
   %u.i = getelementptr inbounds i8, ptr %c, i64 64
   %14 = load ptr, ptr %u.i, align 8
-  %call9.i = tail call fastcc i32 @compiler_addop_load_const(ptr noundef %13, ptr noundef %14, i64 %loc.coerce0, i64 %loc.coerce1, ptr noundef nonnull %call.i218), !range !5
+  %call9.i = tail call fastcc i32 @compiler_addop_load_const(ptr noundef %13, ptr noundef %14, i64 %loc.coerce0, i64 %loc.coerce1, ptr noundef nonnull %call.i218)
   %cmp10.i = icmp slt i32 %call9.i, 0
   %15 = load i64, ptr %call.i218, align 8
   %16 = and i64 %15, 2147483648
@@ -21089,7 +21090,7 @@ if.end66:                                         ; preds = %if.end.i.i, %if.end
   %18 = load i32, ptr %s_used.i.i.i226, align 4
   %add.i.i.i227 = add i32 %18, 1
   %s_allocated.i.i.i228 = getelementptr inbounds i8, ptr %17, i64 32
-  %call.i.i.i229 = tail call i32 @_PyCompile_EnsureArrayLargeEnough(i32 noundef %add.i.i.i227, ptr noundef nonnull %u_instr_sequence, ptr noundef nonnull %s_allocated.i.i.i228, i32 noundef 100, i64 noundef 44), !range !5
+  %call.i.i.i229 = tail call i32 @_PyCompile_EnsureArrayLargeEnough(i32 noundef %add.i.i.i227, ptr noundef nonnull %u_instr_sequence, ptr noundef nonnull %s_allocated.i.i.i228, i32 noundef 100, i64 noundef 44)
   %cmp.i.i.i230 = icmp eq i32 %call.i.i.i229, -1
   br i1 %cmp.i.i.i230, label %return, label %instr_sequence_next_inst.exit.i.i231
 
@@ -21123,7 +21124,7 @@ if.else:                                          ; preds = %for.end38
   %23 = load i32, ptr %s_used.i.i.i242, align 4
   %add.i.i.i243 = add i32 %23, 1
   %s_allocated.i.i.i244 = getelementptr inbounds i8, ptr %21, i64 32
-  %call.i.i.i245 = tail call i32 @_PyCompile_EnsureArrayLargeEnough(i32 noundef %add.i.i.i243, ptr noundef nonnull %u_instr_sequence76, ptr noundef nonnull %s_allocated.i.i.i244, i32 noundef 100, i64 noundef 44), !range !5
+  %call.i.i.i245 = tail call i32 @_PyCompile_EnsureArrayLargeEnough(i32 noundef %add.i.i.i243, ptr noundef nonnull %u_instr_sequence76, ptr noundef nonnull %s_allocated.i.i.i244, i32 noundef 100, i64 noundef 44)
   %cmp.i.i.i246 = icmp eq i32 %call.i.i.i245, -1
   br i1 %cmp.i.i.i246, label %return, label %instr_sequence_next_inst.exit.i.i247
 
@@ -21163,12 +21164,12 @@ land.lhs.true89:                                  ; preds = %ex_call
 if.then95:                                        ; preds = %land.lhs.true89
   %v = getelementptr inbounds i8, ptr %26, i64 8
   %28 = load ptr, ptr %v, align 8
-  %call98 = tail call fastcc i32 @compiler_visit_expr(ptr noundef %c, ptr noundef %28), !range !5
+  %call98 = tail call fastcc i32 @compiler_visit_expr(ptr noundef %c, ptr noundef %28)
   %cmp99 = icmp eq i32 %call98, -1
   br i1 %cmp99, label %return, label %if.end109
 
 if.else103:                                       ; preds = %land.lhs.true89, %ex_call
-  %call104 = tail call fastcc i32 @starunpack_helper(ptr noundef %c, i64 %loc.coerce0, i64 %loc.coerce1, ptr noundef %args, i32 noundef %n, i32 noundef 47, i32 noundef 80, i32 noundef 81, i32 noundef 1), !range !5
+  %call104 = tail call fastcc i32 @starunpack_helper(ptr noundef %c, i64 %loc.coerce0, i64 %loc.coerce1, ptr noundef %args, i32 noundef %n, i32 noundef 47, i32 noundef 80, i32 noundef 81, i32 noundef 1)
   %cmp105 = icmp eq i32 %call104, -1
   br i1 %cmp105, label %return, label %if.end109
 
@@ -21201,7 +21202,7 @@ if.then122:                                       ; preds = %for.body115
 
 if.then124:                                       ; preds = %if.then122
   %sub = sub i64 %i.3180, %nseen.0179
-  %call125 = tail call fastcc i32 @compiler_subkwargs(ptr noundef %c, i64 %loc.coerce0, i64 %loc.coerce1, ptr noundef nonnull %keywords, i64 noundef %sub, i64 noundef %i.3180), !range !5
+  %call125 = tail call fastcc i32 @compiler_subkwargs(ptr noundef %c, i64 %loc.coerce0, i64 %loc.coerce1, ptr noundef nonnull %keywords, i64 noundef %sub, i64 noundef %i.3180)
   %cmp126 = icmp eq i32 %call125, -1
   br i1 %cmp126, label %return, label %if.end129
 
@@ -21216,7 +21217,7 @@ if.then131:                                       ; preds = %if.end129
   %32 = load i32, ptr %s_used.i.i.i, align 4
   %add.i.i.i = add i32 %32, 1
   %s_allocated.i.i.i = getelementptr inbounds i8, ptr %31, i64 32
-  %call.i.i.i = tail call i32 @_PyCompile_EnsureArrayLargeEnough(i32 noundef %add.i.i.i, ptr noundef nonnull %u_instr_sequence133, ptr noundef nonnull %s_allocated.i.i.i, i32 noundef 100, i64 noundef 44), !range !5
+  %call.i.i.i = tail call i32 @_PyCompile_EnsureArrayLargeEnough(i32 noundef %add.i.i.i, ptr noundef nonnull %u_instr_sequence133, ptr noundef nonnull %s_allocated.i.i.i, i32 noundef 100, i64 noundef 44)
   %cmp.i.i.i = icmp eq i32 %call.i.i.i, -1
   br i1 %cmp.i.i.i, label %return, label %instr_sequence_next_inst.exit.i.i
 
@@ -21245,7 +21246,7 @@ if.then142:                                       ; preds = %if.end140
   %36 = load i32, ptr %s_used.i.i.i91, align 4
   %add.i.i.i92 = add i32 %36, 1
   %s_allocated.i.i.i93 = getelementptr inbounds i8, ptr %35, i64 32
-  %call.i.i.i94 = tail call i32 @_PyCompile_EnsureArrayLargeEnough(i32 noundef %add.i.i.i92, ptr noundef nonnull %u_instr_sequence144, ptr noundef nonnull %s_allocated.i.i.i93, i32 noundef 100, i64 noundef 44), !range !5
+  %call.i.i.i94 = tail call i32 @_PyCompile_EnsureArrayLargeEnough(i32 noundef %add.i.i.i92, ptr noundef nonnull %u_instr_sequence144, ptr noundef nonnull %s_allocated.i.i.i93, i32 noundef 100, i64 noundef 44)
   %cmp.i.i.i95 = icmp eq i32 %call.i.i.i94, -1
   br i1 %cmp.i.i.i95, label %return, label %instr_sequence_next_inst.exit.i.i96
 
@@ -21278,7 +21279,7 @@ if.end150:                                        ; preds = %if.end150.sink.spli
   %have_dict.2 = phi i32 [ %have_dict.0182.ph, %if.end140 ], [ 1, %if.end129 ], [ 1, %if.end150.sink.split ]
   %value151 = getelementptr inbounds i8, ptr %29, i64 8
   %39 = load ptr, ptr %value151, align 8
-  %call152 = tail call fastcc i32 @compiler_visit_expr(ptr noundef %c, ptr noundef %39), !range !5
+  %call152 = tail call fastcc i32 @compiler_visit_expr(ptr noundef %c, ptr noundef %39)
   %cmp153 = icmp eq i32 %call152, -1
   br i1 %cmp153, label %return, label %if.end156
 
@@ -21289,7 +21290,7 @@ if.end156:                                        ; preds = %if.end150
   %41 = load i32, ptr %s_used.i.i.i107, align 4
   %add.i.i.i108 = add i32 %41, 1
   %s_allocated.i.i.i109 = getelementptr inbounds i8, ptr %40, i64 32
-  %call.i.i.i110 = tail call i32 @_PyCompile_EnsureArrayLargeEnough(i32 noundef %add.i.i.i108, ptr noundef nonnull %u_instr_sequence158, ptr noundef nonnull %s_allocated.i.i.i109, i32 noundef 100, i64 noundef 44), !range !5
+  %call.i.i.i110 = tail call i32 @_PyCompile_EnsureArrayLargeEnough(i32 noundef %add.i.i.i108, ptr noundef nonnull %u_instr_sequence158, ptr noundef nonnull %s_allocated.i.i.i109, i32 noundef 100, i64 noundef 44)
   %cmp.i.i.i111 = icmp eq i32 %call.i.i.i110, -1
   br i1 %cmp.i.i.i111, label %return, label %instr_sequence_next_inst.exit.i.i112
 
@@ -21304,7 +21305,7 @@ for.inc167:                                       ; preds = %for.body115
   %inc165 = add i64 %nseen.0179, 1
   %inc168 = add nuw nsw i64 %i.3180, 1
   %exitcond193.not = icmp eq i64 %inc168, %cond7
-  br i1 %exitcond193.not, label %for.end169, label %for.body115, !llvm.loop !90
+  br i1 %exitcond193.not, label %for.end169, label %for.body115, !llvm.loop !83
 
 for.inc167.thread:                                ; preds = %instr_sequence_next_inst.exit.i.i112
   %43 = load ptr, ptr %u_instr_sequence158, align 8
@@ -21319,7 +21320,7 @@ for.inc167.thread:                                ; preds = %instr_sequence_next
   store i64 %loc.coerce1, ptr %loc.sroa.2.0.i_loc.sroa_idx.i.i120, align 4
   %inc168199 = add nuw nsw i64 %i.3180, 1
   %exitcond193.not200 = icmp eq i64 %inc168199, %cond7
-  br i1 %exitcond193.not200, label %if.end189, label %for.body115.outer, !llvm.loop !90
+  br i1 %exitcond193.not200, label %if.end189, label %for.body115.outer, !llvm.loop !83
 
 for.end169:                                       ; preds = %for.inc167
   %44 = icmp eq i32 %have_dict.0182.ph, 0
@@ -21327,7 +21328,7 @@ for.end169:                                       ; preds = %for.inc167
   br i1 %tobool170.not, label %if.end189, label %if.then171
 
 if.then171:                                       ; preds = %for.end169
-  %call173 = tail call fastcc i32 @compiler_subkwargs(ptr noundef %c, i64 %loc.coerce0, i64 %loc.coerce1, ptr noundef nonnull %keywords, i64 noundef %i.3180.ph, i64 noundef %cond7), !range !5
+  %call173 = tail call fastcc i32 @compiler_subkwargs(ptr noundef %c, i64 %loc.coerce0, i64 %loc.coerce1, ptr noundef nonnull %keywords, i64 noundef %i.3180.ph, i64 noundef %cond7)
   %cmp174 = icmp eq i32 %call173, -1
   br i1 %cmp174, label %return, label %if.end177
 
@@ -21341,7 +21342,7 @@ if.then179:                                       ; preds = %if.end177
   %46 = load i32, ptr %s_used.i.i.i123, align 4
   %add.i.i.i124 = add i32 %46, 1
   %s_allocated.i.i.i125 = getelementptr inbounds i8, ptr %45, i64 32
-  %call.i.i.i126 = tail call i32 @_PyCompile_EnsureArrayLargeEnough(i32 noundef %add.i.i.i124, ptr noundef nonnull %u_instr_sequence181, ptr noundef nonnull %s_allocated.i.i.i125, i32 noundef 100, i64 noundef 44), !range !5
+  %call.i.i.i126 = tail call i32 @_PyCompile_EnsureArrayLargeEnough(i32 noundef %add.i.i.i124, ptr noundef nonnull %u_instr_sequence181, ptr noundef nonnull %s_allocated.i.i.i125, i32 noundef 100, i64 noundef 44)
   %cmp.i.i.i127 = icmp eq i32 %call.i.i.i126, -1
   br i1 %cmp.i.i.i127, label %return, label %instr_sequence_next_inst.exit.i.i128
 
@@ -21374,7 +21375,7 @@ if.end189:                                        ; preds = %for.inc167.thread, 
   %50 = load i32, ptr %s_used.i.i.i139, align 4
   %add.i.i.i140 = add i32 %50, 1
   %s_allocated.i.i.i141 = getelementptr inbounds i8, ptr %49, i64 32
-  %call.i.i.i142 = tail call i32 @_PyCompile_EnsureArrayLargeEnough(i32 noundef %add.i.i.i140, ptr noundef nonnull %u_instr_sequence191, ptr noundef nonnull %s_allocated.i.i.i141, i32 noundef 100, i64 noundef 44), !range !5
+  %call.i.i.i142 = tail call i32 @_PyCompile_EnsureArrayLargeEnough(i32 noundef %add.i.i.i140, ptr noundef nonnull %u_instr_sequence191, ptr noundef nonnull %s_allocated.i.i.i141, i32 noundef 100, i64 noundef 44)
   %cmp.i.i.i143 = icmp eq i32 %call.i.i.i142, -1
   br i1 %cmp.i.i.i143, label %return, label %instr_sequence_next_inst.exit.i.i144
 
@@ -21404,7 +21405,7 @@ return:                                           ; preds = %for.body28, %for.bo
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @validate_keywords(ptr nocapture noundef readonly %c, ptr noundef readonly %keywords) unnamed_addr #1 {
+define internal fastcc range(i32 -1, 1) i32 @validate_keywords(ptr nocapture noundef readonly %c, ptr noundef readonly %keywords) unnamed_addr #1 {
 entry:
   %cmp = icmp eq ptr %keywords, null
   br i1 %cmp, label %return, label %cond.end
@@ -21498,12 +21499,12 @@ if.then20:                                        ; preds = %land.lhs.true
 for.inc:                                          ; preds = %for.body12, %land.lhs.true
   %j.0 = add nsw i64 %j.037, 1
   %cmp11 = icmp slt i64 %j.0, %0
-  br i1 %cmp11, label %for.body12, label %for.inc32, !llvm.loop !91
+  br i1 %cmp11, label %for.body12, label %for.inc32, !llvm.loop !84
 
 for.inc32:                                        ; preds = %for.inc, %for.body.for.inc32_crit_edge, %for.cond10.preheader
   %inc33.pre-phi = phi i64 [ %.pre, %for.body.for.inc32_crit_edge ], [ %j.035, %for.cond10.preheader ], [ %j.035, %for.inc ]
   %exitcond.not = icmp eq i64 %inc33.pre-phi, %0
-  br i1 %exitcond.not, label %return, label %for.body, !llvm.loop !92
+  br i1 %exitcond.not, label %return, label %for.body, !llvm.loop !85
 
 return:                                           ; preds = %for.inc32, %entry, %cond.end, %forbidden_name.exit.thread, %if.then20
   %retval.0 = phi i32 [ -1, %if.then20 ], [ -1, %forbidden_name.exit.thread ], [ 0, %cond.end ], [ 0, %entry ], [ 0, %for.inc32 ]
@@ -21511,7 +21512,7 @@ return:                                           ; preds = %for.inc32, %entry, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @compiler_call_simple_kw_helper(ptr nocapture noundef readonly %c, i64 %loc.coerce0, i64 %loc.coerce1, ptr nocapture noundef readonly %keywords, i64 noundef %nkwelts) unnamed_addr #1 {
+define internal fastcc range(i32 -1, 1) i32 @compiler_call_simple_kw_helper(ptr nocapture noundef readonly %c, i64 %loc.coerce0, i64 %loc.coerce1, ptr nocapture noundef readonly %keywords, i64 noundef %nkwelts) unnamed_addr #1 {
 entry:
   %call = tail call ptr @PyTuple_New(i64 noundef %nkwelts) #11
   %cmp = icmp eq ptr %call, null
@@ -21547,14 +21548,14 @@ _Py_NewRef.exit:                                  ; preds = %for.body, %if.end.i
   %inc = add i32 %i.016, 1
   %conv = sext i32 %inc to i64
   %cmp1 = icmp slt i64 %conv, %nkwelts
-  br i1 %cmp1, label %for.body, label %if.end8, !llvm.loop !89
+  br i1 %cmp1, label %for.body, label %if.end8, !llvm.loop !82
 
 if.end8:                                          ; preds = %_Py_NewRef.exit, %for.cond.preheader
   %c_const_cache = getelementptr inbounds i8, ptr %c, i64 56
   %3 = load ptr, ptr %c_const_cache, align 8
   %u = getelementptr inbounds i8, ptr %c, i64 64
   %4 = load ptr, ptr %u, align 8
-  %call9 = tail call fastcc i32 @compiler_addop_load_const(ptr noundef %3, ptr noundef %4, i64 %loc.coerce0, i64 %loc.coerce1, ptr noundef nonnull %call), !range !5
+  %call9 = tail call fastcc i32 @compiler_addop_load_const(ptr noundef %3, ptr noundef %4, i64 %loc.coerce0, i64 %loc.coerce1, ptr noundef nonnull %call)
   %cmp10 = icmp slt i32 %call9, 0
   %5 = load i64, ptr %call, align 8
   %6 = and i64 %5, 2147483648
@@ -21590,7 +21591,7 @@ return:                                           ; preds = %return.sink.split, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @starunpack_helper(ptr noundef %c, i64 %loc.coerce0, i64 %loc.coerce1, ptr noundef readonly %elts, i32 noundef %pushed, i32 noundef %build, i32 noundef %add, i32 noundef %extend, i32 noundef %tuple) unnamed_addr #1 {
+define internal fastcc range(i32 -1, 1) i32 @starunpack_helper(ptr noundef %c, i64 %loc.coerce0, i64 %loc.coerce1, ptr noundef readonly %elts, i32 noundef %pushed, i32 noundef %build, i32 noundef %add, i32 noundef %extend, i32 noundef %tuple) unnamed_addr #1 {
 entry:
   %cmp = icmp eq ptr %elts, null
   br i1 %cmp, label %if.end60.thread298, label %cond.end
@@ -21626,18 +21627,18 @@ for.cond.i:                                       ; preds = %lor.lhs.false.i.pre
   %i.05.i264318 = phi i64 [ %inc.i, %lor.lhs.false.i ], [ 0, %lor.lhs.false.i.preheader ]
   %inc.i = add nuw nsw i64 %i.05.i264318, 1
   %exitcond.i = icmp eq i64 %inc.i, %0
-  br i1 %exitcond.i, label %are_all_items_const.exit, label %for.body.i, !llvm.loop !93
+  br i1 %exitcond.i, label %are_all_items_const.exit, label %for.body.i, !llvm.loop !86
 
 for.body.i:                                       ; preds = %for.cond.i
   %arrayidx.i = getelementptr [1 x ptr], ptr %typed_elements.i, i64 0, i64 %inc.i
   %3 = load ptr, ptr %arrayidx.i, align 8
   %cmp1.i = icmp eq ptr %3, null
-  br i1 %cmp1.i, label %are_all_items_const.exit, label %lor.lhs.false.i, !llvm.loop !93
+  br i1 %cmp1.i, label %are_all_items_const.exit, label %lor.lhs.false.i, !llvm.loop !86
 
 lor.lhs.false.i:                                  ; preds = %for.body.i
   %4 = load i32, ptr %3, align 8
   %cmp2.not.i = icmp eq i32 %4, 20
-  br i1 %cmp2.not.i, label %for.cond.i, label %are_all_items_const.exit, !llvm.loop !93
+  br i1 %cmp2.not.i, label %for.cond.i, label %are_all_items_const.exit, !llvm.loop !86
 
 are_all_items_const.exit:                         ; preds = %for.cond.i, %for.body.i, %lor.lhs.false.i
   %cmp.i106.not.le = icmp slt i64 %inc.i, %0
@@ -21673,7 +21674,7 @@ _Py_NewRef.exit:                                  ; preds = %for.body, %if.end.i
   store ptr %6, ptr %arrayidx.i107, align 8
   %inc = add nuw nsw i64 %i.0268, 1
   %exitcond.not = icmp eq i64 %inc, %smax
-  br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !94
+  br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !87
 
 for.end:                                          ; preds = %_Py_NewRef.exit
   %tobool = icmp eq i32 %tuple, 0
@@ -21686,7 +21687,7 @@ if.end12:                                         ; preds = %for.end
   %8 = load ptr, ptr %c_const_cache, align 8
   %u = getelementptr inbounds i8, ptr %c, i64 64
   %9 = load ptr, ptr %u, align 8
-  %call13 = tail call fastcc i32 @compiler_addop_load_const(ptr noundef %8, ptr noundef %9, i64 %loc.coerce0, i64 %loc.coerce1, ptr noundef nonnull %call2), !range !5
+  %call13 = tail call fastcc i32 @compiler_addop_load_const(ptr noundef %8, ptr noundef %9, i64 %loc.coerce0, i64 %loc.coerce1, ptr noundef nonnull %call2)
   %cmp14 = icmp slt i32 %call13, 0
   %10 = load i64, ptr %call2, align 8
   %11 = and i64 %10, 2147483648
@@ -21753,7 +21754,7 @@ if.end23:                                         ; preds = %do.end, %if.else
   %15 = load i32, ptr %s_used.i.i.i, align 4
   %add.i.i.i = add i32 %15, 1
   %s_allocated.i.i.i = getelementptr inbounds i8, ptr %14, i64 32
-  %call.i.i.i = tail call i32 @_PyCompile_EnsureArrayLargeEnough(i32 noundef %add.i.i.i, ptr noundef nonnull %u_instr_sequence, ptr noundef nonnull %s_allocated.i.i.i, i32 noundef 100, i64 noundef 44), !range !5
+  %call.i.i.i = tail call i32 @_PyCompile_EnsureArrayLargeEnough(i32 noundef %add.i.i.i, ptr noundef nonnull %u_instr_sequence, ptr noundef nonnull %s_allocated.i.i.i, i32 noundef 100, i64 noundef 44)
   %cmp.i.i.i = icmp eq i32 %call.i.i.i, -1
   br i1 %cmp.i.i.i, label %return, label %instr_sequence_next_inst.exit.i.i
 
@@ -21778,7 +21779,7 @@ if.end34:                                         ; preds = %instr_sequence_next
   %c_const_cache35 = getelementptr inbounds i8, ptr %c, i64 56
   %18 = load ptr, ptr %c_const_cache35, align 8
   %19 = load ptr, ptr %u24, align 8
-  %call37 = tail call fastcc i32 @compiler_addop_load_const(ptr noundef %18, ptr noundef %19, i64 %loc.coerce0, i64 %loc.coerce1, ptr noundef nonnull %folded.0), !range !5
+  %call37 = tail call fastcc i32 @compiler_addop_load_const(ptr noundef %18, ptr noundef %19, i64 %loc.coerce0, i64 %loc.coerce1, ptr noundef nonnull %folded.0)
   %cmp38 = icmp slt i32 %call37, 0
   %20 = load i64, ptr %folded.0, align 8
   %21 = and i64 %20, 2147483648
@@ -21818,7 +21819,7 @@ Py_DECREF.exit:                                   ; preds = %if.end41, %if.then1
   %23 = load i32, ptr %s_used.i.i.i110, align 4
   %add.i.i.i111 = add i32 %23, 1
   %s_allocated.i.i.i112 = getelementptr inbounds i8, ptr %22, i64 32
-  %call.i.i.i113 = tail call i32 @_PyCompile_EnsureArrayLargeEnough(i32 noundef %add.i.i.i111, ptr noundef nonnull %u_instr_sequence43, ptr noundef nonnull %s_allocated.i.i.i112, i32 noundef 100, i64 noundef 44), !range !5
+  %call.i.i.i113 = tail call i32 @_PyCompile_EnsureArrayLargeEnough(i32 noundef %add.i.i.i111, ptr noundef nonnull %u_instr_sequence43, ptr noundef nonnull %s_allocated.i.i.i112, i32 noundef 100, i64 noundef 44)
   %cmp.i.i.i114 = icmp eq i32 %call.i.i.i113, -1
   br i1 %cmp.i.i.i114, label %return, label %instr_sequence_next_inst.exit.i.i115
 
@@ -21845,7 +21846,7 @@ if.end48:                                         ; preds = %instr_sequence_next
 if.then50:                                        ; preds = %if.end48
   %26 = load ptr, ptr %u24, align 8
   %u_instr_sequence52 = getelementptr inbounds i8, ptr %26, i64 24
-  %call53 = tail call fastcc i32 @codegen_addop_i(ptr noundef nonnull %u_instr_sequence52, i32 noundef 55, i64 noundef 6, i64 %loc.coerce0, i64 %loc.coerce1), !range !5
+  %call53 = tail call fastcc i32 @codegen_addop_i(ptr noundef nonnull %u_instr_sequence52, i32 noundef 55, i64 noundef 6, i64 %loc.coerce0, i64 %loc.coerce1)
   %cmp54 = icmp eq i32 %call53, -1
   br i1 %cmp54, label %return, label %if.end59
 
@@ -21868,7 +21869,7 @@ for.body69.lr.ph:                                 ; preds = %if.end60.thread, %i
 for.cond66:                                       ; preds = %for.body69
   %inc77 = add nuw nsw i64 %i65.0270, 1
   %exitcond278.not = icmp eq i64 %inc77, %0
-  br i1 %exitcond278.not, label %for.end78, label %for.body69, !llvm.loop !95
+  br i1 %exitcond278.not, label %for.end78, label %for.body69, !llvm.loop !88
 
 for.body69:                                       ; preds = %for.body69.lr.ph, %for.cond66
   %i65.0270 = phi i64 [ 0, %for.body69.lr.ph ], [ %inc77, %for.cond66 ]
@@ -21894,13 +21895,13 @@ for.body87.lr.ph:                                 ; preds = %for.cond84.preheade
 for.cond84:                                       ; preds = %for.body87
   %inc97 = add nuw nsw i64 %i83.0272, 1
   %exitcond279.not = icmp eq i64 %inc97, %0
-  br i1 %exitcond279.not, label %for.end98, label %for.body87, !llvm.loop !96
+  br i1 %exitcond279.not, label %for.end98, label %for.body87, !llvm.loop !89
 
 for.body87:                                       ; preds = %for.body87.lr.ph, %for.cond84
   %i83.0272 = phi i64 [ 0, %for.body87.lr.ph ], [ %inc97, %for.cond84 ]
   %arrayidx90 = getelementptr [1 x ptr], ptr %typed_elements89, i64 0, i64 %i83.0272
   %29 = load ptr, ptr %arrayidx90, align 8
-  %call91 = tail call fastcc i32 @compiler_visit_expr(ptr noundef %c, ptr noundef %29), !range !5
+  %call91 = tail call fastcc i32 @compiler_visit_expr(ptr noundef %c, ptr noundef %29)
   %cmp92 = icmp eq i32 %call91, -1
   br i1 %cmp92, label %return, label %for.cond84
 
@@ -21915,7 +21916,7 @@ for.end98:                                        ; preds = %for.cond84, %if.end
   %31 = load i32, ptr %s_used.i.i.i143, align 4
   %add.i.i.i144 = add i32 %31, 1
   %s_allocated.i.i.i145 = getelementptr inbounds i8, ptr %30, i64 32
-  %call.i.i.i146 = tail call i32 @_PyCompile_EnsureArrayLargeEnough(i32 noundef %add.i.i.i144, ptr noundef nonnull %u_instr_sequence112, ptr noundef nonnull %s_allocated.i.i.i145, i32 noundef 100, i64 noundef 44), !range !5
+  %call.i.i.i146 = tail call i32 @_PyCompile_EnsureArrayLargeEnough(i32 noundef %add.i.i.i144, ptr noundef nonnull %u_instr_sequence112, ptr noundef nonnull %s_allocated.i.i.i145, i32 noundef 100, i64 noundef 44)
   %cmp.i.i.i147 = icmp eq i32 %call.i.i.i146, -1
   br i1 %tobool99.not, label %if.else110, label %if.then100
 
@@ -21978,7 +21979,7 @@ if.then123:                                       ; preds = %if.end60.thread298,
   %37 = load i32, ptr %s_used.i.i.i159, align 4
   %add.i.i.i160 = add i32 %37, 1
   %s_allocated.i.i.i161 = getelementptr inbounds i8, ptr %36, i64 32
-  %call.i.i.i162 = tail call i32 @_PyCompile_EnsureArrayLargeEnough(i32 noundef %add.i.i.i160, ptr noundef nonnull %u_instr_sequence125, ptr noundef nonnull %s_allocated.i.i.i161, i32 noundef 100, i64 noundef 44), !range !5
+  %call.i.i.i162 = tail call i32 @_PyCompile_EnsureArrayLargeEnough(i32 noundef %add.i.i.i160, ptr noundef nonnull %u_instr_sequence125, ptr noundef nonnull %s_allocated.i.i.i161, i32 noundef 100, i64 noundef 44)
   %cmp.i.i.i163 = icmp eq i32 %call.i.i.i162, -1
   br i1 %cmp.i.i.i163, label %return, label %instr_sequence_next_inst.exit.i.i164
 
@@ -22031,7 +22032,7 @@ if.then147:                                       ; preds = %if.then144
   %44 = load i32, ptr %s_used.i.i.i176, align 4
   %add.i.i.i177 = add i32 %44, 1
   %s_allocated.i.i.i178 = getelementptr inbounds i8, ptr %42, i64 32
-  %call.i.i.i179 = tail call i32 @_PyCompile_EnsureArrayLargeEnough(i32 noundef %add.i.i.i177, ptr noundef nonnull %u_instr_sequence149, ptr noundef nonnull %s_allocated.i.i.i178, i32 noundef 100, i64 noundef 44), !range !5
+  %call.i.i.i179 = tail call i32 @_PyCompile_EnsureArrayLargeEnough(i32 noundef %add.i.i.i177, ptr noundef nonnull %u_instr_sequence149, ptr noundef nonnull %s_allocated.i.i.i178, i32 noundef 100, i64 noundef 44)
   %cmp.i.i.i180 = icmp eq i32 %call.i.i.i179, -1
   br i1 %cmp.i.i.i180, label %return, label %instr_sequence_next_inst.exit.i.i181
 
@@ -22058,7 +22059,7 @@ codegen_addop_i.exit191:                          ; preds = %instr_sequence_next
 if.end157:                                        ; preds = %codegen_addop_i.exit191, %if.then144
   %v158 = getelementptr inbounds i8, ptr %40, i64 8
   %47 = load ptr, ptr %v158, align 8
-  %call160 = tail call fastcc i32 @compiler_visit_expr(ptr noundef %c, ptr noundef %47), !range !5
+  %call160 = tail call fastcc i32 @compiler_visit_expr(ptr noundef %c, ptr noundef %47)
   %cmp161 = icmp eq i32 %call160, -1
   br i1 %cmp161, label %return, label %if.end164
 
@@ -22069,7 +22070,7 @@ if.end164:                                        ; preds = %if.end157
   %49 = load i32, ptr %s_used.i.i.i192, align 4
   %add.i.i.i193 = add i32 %49, 1
   %s_allocated.i.i.i194 = getelementptr inbounds i8, ptr %48, i64 32
-  %call.i.i.i195 = tail call i32 @_PyCompile_EnsureArrayLargeEnough(i32 noundef %add.i.i.i193, ptr noundef nonnull %u_instr_sequence166, ptr noundef nonnull %s_allocated.i.i.i194, i32 noundef 100, i64 noundef 44), !range !5
+  %call.i.i.i195 = tail call i32 @_PyCompile_EnsureArrayLargeEnough(i32 noundef %add.i.i.i193, ptr noundef nonnull %u_instr_sequence166, ptr noundef nonnull %s_allocated.i.i.i194, i32 noundef 100, i64 noundef 44)
   %cmp.i.i.i196 = icmp eq i32 %call.i.i.i195, -1
   br i1 %cmp.i.i.i196, label %return, label %instr_sequence_next_inst.exit.i.i197
 
@@ -22088,7 +22089,7 @@ codegen_addop_i.exit207:                          ; preds = %instr_sequence_next
   br label %for.inc189.sink.split
 
 if.else172:                                       ; preds = %for.body137
-  %call173 = tail call fastcc i32 @compiler_visit_expr(ptr noundef %c, ptr noundef nonnull %40), !range !5
+  %call173 = tail call fastcc i32 @compiler_visit_expr(ptr noundef %c, ptr noundef nonnull %40)
   %cmp174 = icmp eq i32 %call173, -1
   br i1 %cmp174, label %return, label %if.end177
 
@@ -22103,7 +22104,7 @@ if.then179:                                       ; preds = %if.end177
   %53 = load i32, ptr %s_used.i.i.i208, align 4
   %add.i.i.i209 = add i32 %53, 1
   %s_allocated.i.i.i210 = getelementptr inbounds i8, ptr %52, i64 32
-  %call.i.i.i211 = tail call i32 @_PyCompile_EnsureArrayLargeEnough(i32 noundef %add.i.i.i209, ptr noundef nonnull %u_instr_sequence181, ptr noundef nonnull %s_allocated.i.i.i210, i32 noundef 100, i64 noundef 44), !range !5
+  %call.i.i.i211 = tail call i32 @_PyCompile_EnsureArrayLargeEnough(i32 noundef %add.i.i.i209, ptr noundef nonnull %u_instr_sequence181, ptr noundef nonnull %s_allocated.i.i.i210, i32 noundef 100, i64 noundef 44)
   %cmp.i.i.i212 = icmp eq i32 %call.i.i.i211, -1
   br i1 %cmp.i.i.i212, label %return, label %instr_sequence_next_inst.exit.i.i213
 
@@ -22135,7 +22136,7 @@ for.inc189:                                       ; preds = %for.inc189.sink.spl
   %sequence_built.3 = phi i32 [ 0, %if.end177 ], [ 1, %for.inc189.sink.split ]
   %inc190 = add nuw nsw i64 %i133.0275, 1
   %exitcond280.not = icmp eq i64 %inc190, %cond242288311
-  br i1 %exitcond280.not, label %for.end191, label %for.body137, !llvm.loop !97
+  br i1 %exitcond280.not, label %for.end191, label %for.body137, !llvm.loop !90
 
 for.end191:                                       ; preds = %for.inc189, %codegen_addop_i.exit174
   %tobool192.not = icmp eq i32 %tuple, 0
@@ -22149,7 +22150,7 @@ if.then193:                                       ; preds = %for.end191
   %57 = load i32, ptr %s_used.i.i.i224, align 4
   %add.i.i.i225 = add i32 %57, 1
   %s_allocated.i.i.i226 = getelementptr inbounds i8, ptr %56, i64 32
-  %call.i.i.i227 = tail call i32 @_PyCompile_EnsureArrayLargeEnough(i32 noundef %add.i.i.i225, ptr noundef nonnull %u_instr_sequence195, ptr noundef nonnull %s_allocated.i.i.i226, i32 noundef 100, i64 noundef 44), !range !5
+  %call.i.i.i227 = tail call i32 @_PyCompile_EnsureArrayLargeEnough(i32 noundef %add.i.i.i225, ptr noundef nonnull %u_instr_sequence195, ptr noundef nonnull %s_allocated.i.i.i226, i32 noundef 100, i64 noundef 44)
   %cmp.i.i.i228 = icmp eq i32 %call.i.i.i227, -1
   br i1 %cmp.i.i.i228, label %return, label %instr_sequence_next_inst.exit.i.i229
 
@@ -22179,7 +22180,7 @@ return:                                           ; preds = %for.body87, %if.the
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @compiler_subkwargs(ptr noundef %c, i64 %loc.coerce0, i64 %loc.coerce1, ptr nocapture noundef readonly %keywords, i64 noundef %begin, i64 noundef %end) unnamed_addr #1 {
+define internal fastcc range(i32 -1, 1) i32 @compiler_subkwargs(ptr noundef %c, i64 %loc.coerce0, i64 %loc.coerce1, ptr nocapture noundef readonly %keywords, i64 noundef %begin, i64 noundef %end) unnamed_addr #1 {
 entry:
   %sub = sub i64 %end, %begin
   %mul = shl i64 %sub, 1
@@ -22199,7 +22200,7 @@ for.body.lr.ph:                                   ; preds = %for.cond.preheader
 for.cond:                                         ; preds = %for.body
   %inc = add i64 %i.0113, 1
   %exitcond.not = icmp eq i64 %inc, %end
-  br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !98
+  br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !91
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.cond
   %i.0113 = phi i64 [ %begin, %for.body.lr.ph ], [ %inc, %for.cond ]
@@ -22207,7 +22208,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   %0 = load ptr, ptr %arrayidx, align 8
   %value = getelementptr inbounds i8, ptr %0, i64 8
   %1 = load ptr, ptr %value, align 8
-  %call = tail call fastcc i32 @compiler_visit_expr(ptr noundef %c, ptr noundef %1), !range !5
+  %call = tail call fastcc i32 @compiler_visit_expr(ptr noundef %c, ptr noundef %1)
   %cmp5 = icmp eq i32 %call, -1
   br i1 %cmp5, label %return, label %for.cond
 
@@ -22249,7 +22250,7 @@ _Py_NewRef.exit:                                  ; preds = %for.body16, %if.end
   store ptr %3, ptr %arrayidx.i, align 8
   %inc22 = add nsw i64 %i.1115, 1
   %exitcond121.not = icmp eq i64 %inc22, %end
-  br i1 %exitcond121.not, label %if.end27, label %for.body16, !llvm.loop !99
+  br i1 %exitcond121.not, label %if.end27, label %for.body16, !llvm.loop !92
 
 if.end27:                                         ; preds = %_Py_NewRef.exit, %for.end.thread, %for.cond13.preheader
   %call8126128 = phi ptr [ %call8, %for.cond13.preheader ], [ %call8124, %for.end.thread ], [ %call8, %_Py_NewRef.exit ]
@@ -22257,7 +22258,7 @@ if.end27:                                         ; preds = %_Py_NewRef.exit, %f
   %5 = load ptr, ptr %c_const_cache, align 8
   %u = getelementptr inbounds i8, ptr %c, i64 64
   %6 = load ptr, ptr %u, align 8
-  %call28 = tail call fastcc i32 @compiler_addop_load_const(ptr noundef %5, ptr noundef %6, i64 %loc.coerce0, i64 %loc.coerce1, ptr noundef nonnull %call8126128), !range !5
+  %call28 = tail call fastcc i32 @compiler_addop_load_const(ptr noundef %5, ptr noundef %6, i64 %loc.coerce0, i64 %loc.coerce1, ptr noundef nonnull %call8126128)
   %cmp29 = icmp slt i32 %call28, 0
   %7 = load i64, ptr %call8126128, align 8
   %8 = and i64 %7, 2147483648
@@ -22298,7 +22299,7 @@ Py_DECREF.exit:                                   ; preds = %if.end32, %if.then1
   %10 = load i32, ptr %s_used.i.i.i, align 4
   %add.i.i.i = add i32 %10, 1
   %s_allocated.i.i.i = getelementptr inbounds i8, ptr %9, i64 32
-  %call.i.i.i = tail call i32 @_PyCompile_EnsureArrayLargeEnough(i32 noundef %add.i.i.i, ptr noundef nonnull %u_instr_sequence, ptr noundef nonnull %s_allocated.i.i.i, i32 noundef 100, i64 noundef 44), !range !5
+  %call.i.i.i = tail call i32 @_PyCompile_EnsureArrayLargeEnough(i32 noundef %add.i.i.i, ptr noundef nonnull %u_instr_sequence, ptr noundef nonnull %s_allocated.i.i.i, i32 noundef 100, i64 noundef 44)
   %cmp.i.i.i = icmp eq i32 %call.i.i.i, -1
   br i1 %cmp.i.i.i, label %return, label %instr_sequence_next_inst.exit.i.i
 
@@ -22333,7 +22334,7 @@ if.then41:                                        ; preds = %if.end39
   %14 = load i32, ptr %s_used.i.i.i54, align 4
   %add.i.i.i55 = add i32 %14, 1
   %s_allocated.i.i.i56 = getelementptr inbounds i8, ptr %13, i64 32
-  %call.i.i.i57 = tail call i32 @_PyCompile_EnsureArrayLargeEnough(i32 noundef %add.i.i.i55, ptr noundef nonnull %u_instr_sequence43, ptr noundef nonnull %s_allocated.i.i.i56, i32 noundef 100, i64 noundef 44), !range !5
+  %call.i.i.i57 = tail call i32 @_PyCompile_EnsureArrayLargeEnough(i32 noundef %add.i.i.i55, ptr noundef nonnull %u_instr_sequence43, ptr noundef nonnull %s_allocated.i.i.i56, i32 noundef 100, i64 noundef 44)
   %cmp.i.i.i58 = icmp eq i32 %call.i.i.i57, -1
   br i1 %cmp.i.i.i58, label %return, label %instr_sequence_next_inst.exit.i.i59
 
@@ -22384,14 +22385,14 @@ for.body53.us:                                    ; preds = %for.body53.lr.ph, %
   %19 = load ptr, ptr %c_const_cache56, align 8
   %20 = load ptr, ptr %u57, align 8
   %21 = load ptr, ptr %18, align 8
-  %call59.us = tail call fastcc i32 @compiler_addop_load_const(ptr noundef %19, ptr noundef %20, i64 %loc.coerce0, i64 %loc.coerce1, ptr noundef %21), !range !5
+  %call59.us = tail call fastcc i32 @compiler_addop_load_const(ptr noundef %19, ptr noundef %20, i64 %loc.coerce0, i64 %loc.coerce1, ptr noundef %21)
   %cmp60.us = icmp eq i32 %call59.us, -1
   br i1 %cmp60.us, label %return, label %if.end63.us
 
 if.end63.us:                                      ; preds = %for.body53.us
   %value64.us = getelementptr inbounds i8, ptr %18, i64 8
   %22 = load ptr, ptr %value64.us, align 8
-  %call65.us = tail call fastcc i32 @compiler_visit_expr(ptr noundef nonnull %c, ptr noundef %22), !range !5
+  %call65.us = tail call fastcc i32 @compiler_visit_expr(ptr noundef nonnull %c, ptr noundef %22)
   %cmp66.us = icmp eq i32 %call65.us, -1
   br i1 %cmp66.us, label %return, label %if.end69.us
 
@@ -22402,7 +22403,7 @@ if.end69.us:                                      ; preds = %if.end63.us
   %24 = load i32, ptr %s_used.i.i.i70.us, align 4
   %add.i.i.i71.us = add i32 %24, 1
   %s_allocated.i.i.i72.us = getelementptr inbounds i8, ptr %23, i64 32
-  %call.i.i.i73.us = tail call i32 @_PyCompile_EnsureArrayLargeEnough(i32 noundef %add.i.i.i71.us, ptr noundef nonnull %u_instr_sequence73.us, ptr noundef nonnull %s_allocated.i.i.i72.us, i32 noundef 100, i64 noundef 44), !range !5
+  %call.i.i.i73.us = tail call i32 @_PyCompile_EnsureArrayLargeEnough(i32 noundef %add.i.i.i71.us, ptr noundef nonnull %u_instr_sequence73.us, ptr noundef nonnull %s_allocated.i.i.i72.us, i32 noundef 100, i64 noundef 44)
   %cmp.i.i.i74.us = icmp eq i32 %call.i.i.i73.us, -1
   br i1 %cmp.i.i.i74.us, label %return, label %instr_sequence_next_inst.exit.i.i75.us
 
@@ -22424,7 +22425,7 @@ codegen_addop_i.exit85.us:                        ; preds = %instr_sequence_next
   %inc81.us = add i64 %i.2117.us, 1
   %exitcond123.not = icmp eq i64 %inc81.us, %end
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %i_loc.i.i82.us, i8 -1, i64 16, i1 false)
-  br i1 %exitcond123.not, label %for.end82, label %for.body53.us, !llvm.loop !100
+  br i1 %exitcond123.not, label %for.end82, label %for.body53.us, !llvm.loop !93
 
 for.body53:                                       ; preds = %for.body53.preheader, %if.end69
   %i.2117 = phi i64 [ %inc81, %if.end69 ], [ %begin, %for.body53.preheader ]
@@ -22433,21 +22434,21 @@ for.body53:                                       ; preds = %for.body53.preheade
   %28 = load ptr, ptr %c_const_cache56134, align 8
   %29 = load ptr, ptr %u57135, align 8
   %30 = load ptr, ptr %27, align 8
-  %call59 = tail call fastcc i32 @compiler_addop_load_const(ptr noundef %28, ptr noundef %29, i64 %loc.coerce0, i64 %loc.coerce1, ptr noundef %30), !range !5
+  %call59 = tail call fastcc i32 @compiler_addop_load_const(ptr noundef %28, ptr noundef %29, i64 %loc.coerce0, i64 %loc.coerce1, ptr noundef %30)
   %cmp60 = icmp eq i32 %call59, -1
   br i1 %cmp60, label %return, label %if.end63
 
 if.end63:                                         ; preds = %for.body53
   %value64 = getelementptr inbounds i8, ptr %27, i64 8
   %31 = load ptr, ptr %value64, align 8
-  %call65 = tail call fastcc i32 @compiler_visit_expr(ptr noundef nonnull %c, ptr noundef %31), !range !5
+  %call65 = tail call fastcc i32 @compiler_visit_expr(ptr noundef nonnull %c, ptr noundef %31)
   %cmp66 = icmp eq i32 %call65, -1
   br i1 %cmp66, label %return, label %if.end69
 
 if.end69:                                         ; preds = %if.end63
   %inc81 = add i64 %i.2117, 1
   %exitcond122.not = icmp eq i64 %inc81, %end
-  br i1 %exitcond122.not, label %for.end82, label %for.body53, !llvm.loop !100
+  br i1 %exitcond122.not, label %for.end82, label %for.body53, !llvm.loop !93
 
 for.end82:                                        ; preds = %if.end69, %codegen_addop_i.exit85.us, %if.end49
   br i1 %cmp, label %return, label %if.then84
@@ -22461,7 +22462,7 @@ if.then84:                                        ; preds = %if.end49.thread, %f
   %33 = load i32, ptr %s_used.i.i.i87, align 4
   %add.i.i.i88 = add i32 %33, 1
   %s_allocated.i.i.i89 = getelementptr inbounds i8, ptr %32, i64 32
-  %call.i.i.i90 = tail call i32 @_PyCompile_EnsureArrayLargeEnough(i32 noundef %add.i.i.i88, ptr noundef nonnull %u_instr_sequence86, ptr noundef nonnull %s_allocated.i.i.i89, i32 noundef 100, i64 noundef 44), !range !5
+  %call.i.i.i90 = tail call i32 @_PyCompile_EnsureArrayLargeEnough(i32 noundef %add.i.i.i88, ptr noundef nonnull %u_instr_sequence86, ptr noundef nonnull %s_allocated.i.i.i89, i32 noundef 100, i64 noundef 44)
   %cmp.i.i.i91 = icmp eq i32 %call.i.i.i90, -1
   br i1 %cmp.i.i.i91, label %return, label %instr_sequence_next_inst.exit.i.i92
 
@@ -22493,7 +22494,7 @@ return:                                           ; preds = %for.body, %for.body
 declare i32 @PyUnicode_Compare(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @compiler_unwind_fblock_stack(ptr noundef %c, ptr nocapture noundef %ploc, i32 noundef %preserve_tos, ptr noundef %loop) unnamed_addr #1 {
+define internal fastcc range(i32 -1, 1) i32 @compiler_unwind_fblock_stack(ptr noundef %c, ptr nocapture noundef %ploc, i32 noundef %preserve_tos, ptr noundef %loop) unnamed_addr #1 {
 entry:
   %copy = alloca %struct.fblockinfo, align 8
   %u = getelementptr inbounds i8, ptr %c, i64 64
@@ -22532,12 +22533,12 @@ if.then12:                                        ; preds = %if.end6
 if.end13:                                         ; preds = %if.end6
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %copy, ptr noundef nonnull align 8 dereferenceable(24) %arrayidx, i64 24, i1 false)
   store i32 %sub, ptr %u_nfblocks, align 8
-  %call16 = call fastcc i32 @compiler_unwind_fblock(ptr noundef nonnull %c, ptr noundef %ploc, ptr noundef nonnull %copy, i32 noundef %preserve_tos), !range !5
+  %call16 = call fastcc i32 @compiler_unwind_fblock(ptr noundef nonnull %c, ptr noundef %ploc, ptr noundef nonnull %copy, i32 noundef %preserve_tos)
   %cmp17 = icmp eq i32 %call16, -1
   br i1 %cmp17, label %return, label %if.end19
 
 if.end19:                                         ; preds = %if.end13
-  %call20 = tail call fastcc i32 @compiler_unwind_fblock_stack(ptr noundef nonnull %c, ptr noundef %ploc, i32 noundef %preserve_tos, ptr noundef %loop), !range !5
+  %call20 = tail call fastcc i32 @compiler_unwind_fblock_stack(ptr noundef nonnull %c, ptr noundef %ploc, i32 noundef %preserve_tos, ptr noundef %loop)
   %cmp21 = icmp eq i32 %call20, -1
   br i1 %cmp21, label %return, label %if.end23
 
@@ -22562,7 +22563,7 @@ return:                                           ; preds = %if.end19, %if.end13
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @compiler_unwind_fblock(ptr noundef %c, ptr nocapture noundef %ploc, ptr nocapture noundef readonly %info, i32 noundef %preserve_tos) unnamed_addr #1 {
+define internal fastcc range(i32 -1, 1) i32 @compiler_unwind_fblock(ptr noundef %c, ptr nocapture noundef %ploc, ptr nocapture noundef readonly %info, i32 noundef %preserve_tos) unnamed_addr #1 {
 entry:
   %0 = load i32, ptr %info, align 8
   switch i32 %0, label %sw.epilog [
@@ -22593,7 +22594,7 @@ if.then:                                          ; preds = %sw.bb1
   %3 = load i32, ptr %s_used.i.i.i, align 4
   %add.i.i.i = add i32 %3, 1
   %s_allocated.i.i.i = getelementptr inbounds i8, ptr %1, i64 32
-  %call.i.i.i = tail call i32 @_PyCompile_EnsureArrayLargeEnough(i32 noundef %add.i.i.i, ptr noundef nonnull %u_instr_sequence, ptr noundef nonnull %s_allocated.i.i.i, i32 noundef 100, i64 noundef 44), !range !5
+  %call.i.i.i = tail call i32 @_PyCompile_EnsureArrayLargeEnough(i32 noundef %add.i.i.i, ptr noundef nonnull %u_instr_sequence, ptr noundef nonnull %s_allocated.i.i.i, i32 noundef 100, i64 noundef 44)
   %cmp.i.i.i = icmp eq i32 %call.i.i.i, -1
   br i1 %cmp.i.i.i, label %return, label %instr_sequence_next_inst.exit.i.i
 
@@ -22624,7 +22625,7 @@ if.end3:                                          ; preds = %codegen_addop_i.exi
   %8 = load i32, ptr %s_used.i.i.i82, align 4
   %add.i.i.i83 = add i32 %8, 1
   %s_allocated.i.i.i84 = getelementptr inbounds i8, ptr %6, i64 32
-  %call.i.i.i85 = tail call i32 @_PyCompile_EnsureArrayLargeEnough(i32 noundef %add.i.i.i83, ptr noundef nonnull %u_instr_sequence5, ptr noundef nonnull %s_allocated.i.i.i84, i32 noundef 100, i64 noundef 44), !range !5
+  %call.i.i.i85 = tail call i32 @_PyCompile_EnsureArrayLargeEnough(i32 noundef %add.i.i.i83, ptr noundef nonnull %u_instr_sequence5, ptr noundef nonnull %s_allocated.i.i.i84, i32 noundef 100, i64 noundef 44)
   %cmp.i.i.i86 = icmp eq i32 %call.i.i.i85, -1
   br i1 %cmp.i.i.i86, label %return, label %instr_sequence_next_inst.exit.i.i87
 
@@ -22655,7 +22656,7 @@ sw.bb10:                                          ; preds = %entry
   %13 = load i32, ptr %s_used.i.i.i97, align 4
   %add.i.i.i98 = add i32 %13, 1
   %s_allocated.i.i.i99 = getelementptr inbounds i8, ptr %11, i64 32
-  %call.i.i.i100 = tail call i32 @_PyCompile_EnsureArrayLargeEnough(i32 noundef %add.i.i.i98, ptr noundef nonnull %u_instr_sequence12, ptr noundef nonnull %s_allocated.i.i.i99, i32 noundef 100, i64 noundef 44), !range !5
+  %call.i.i.i100 = tail call i32 @_PyCompile_EnsureArrayLargeEnough(i32 noundef %add.i.i.i98, ptr noundef nonnull %u_instr_sequence12, ptr noundef nonnull %s_allocated.i.i.i99, i32 noundef 100, i64 noundef 44)
   %cmp.i.i.i101 = icmp eq i32 %call.i.i.i100, -1
   br i1 %cmp.i.i.i101, label %return, label %instr_sequence_next_inst.exit.i.i102
 
@@ -22687,7 +22688,7 @@ sw.bb17:                                          ; preds = %entry
   %19 = load i32, ptr %s_used.i.i.i113, align 4
   %add.i.i.i114 = add i32 %19, 1
   %s_allocated.i.i.i115 = getelementptr inbounds i8, ptr %16, i64 32
-  %call.i.i.i116 = tail call i32 @_PyCompile_EnsureArrayLargeEnough(i32 noundef %add.i.i.i114, ptr noundef nonnull %u_instr_sequence19, ptr noundef nonnull %s_allocated.i.i.i115, i32 noundef 100, i64 noundef 44), !range !5
+  %call.i.i.i116 = tail call i32 @_PyCompile_EnsureArrayLargeEnough(i32 noundef %add.i.i.i114, ptr noundef nonnull %u_instr_sequence19, ptr noundef nonnull %s_allocated.i.i.i115, i32 noundef 100, i64 noundef 44)
   %cmp.i.i.i117 = icmp eq i32 %call.i.i.i116, -1
   br i1 %cmp.i.i.i117, label %return, label %instr_sequence_next_inst.exit.i.i118
 
@@ -22758,7 +22759,7 @@ for.body:                                         ; preds = %for.cond
   %call35 = tail call fastcc i32 @compiler_visit_stmt(ptr noundef %c, ptr noundef %28)
   %cmp36 = icmp eq i32 %call35, -1
   %inc = add i32 %_i.0, 1
-  br i1 %cmp36, label %return, label %for.cond, !llvm.loop !101
+  br i1 %cmp36, label %return, label %for.cond, !llvm.loop !94
 
 for.end:                                          ; preds = %for.cond, %if.end30
   br i1 %tobool24.not, label %if.end42, label %if.then41
@@ -22788,7 +22789,7 @@ if.then45:                                        ; preds = %sw.bb43
   %32 = load i32, ptr %s_used.i.i.i130, align 4
   %add.i.i.i131 = add i32 %32, 1
   %s_allocated.i.i.i132 = getelementptr inbounds i8, ptr %30, i64 32
-  %call.i.i.i133 = tail call i32 @_PyCompile_EnsureArrayLargeEnough(i32 noundef %add.i.i.i131, ptr noundef nonnull %u_instr_sequence47, ptr noundef nonnull %s_allocated.i.i.i132, i32 noundef 100, i64 noundef 44), !range !5
+  %call.i.i.i133 = tail call i32 @_PyCompile_EnsureArrayLargeEnough(i32 noundef %add.i.i.i131, ptr noundef nonnull %u_instr_sequence47, ptr noundef nonnull %s_allocated.i.i.i132, i32 noundef 100, i64 noundef 44)
   %cmp.i.i.i134 = icmp eq i32 %call.i.i.i133, -1
   br i1 %cmp.i.i.i134, label %return, label %instr_sequence_next_inst.exit.i.i135
 
@@ -22820,7 +22821,7 @@ if.end53:                                         ; preds = %codegen_addop_i.exi
   %38 = load i32, ptr %s_used.i.i.i146, align 4
   %add.i.i.i147 = add i32 %38, 1
   %s_allocated.i.i.i148 = getelementptr inbounds i8, ptr %35, i64 32
-  %call.i.i.i149 = tail call i32 @_PyCompile_EnsureArrayLargeEnough(i32 noundef %add.i.i.i147, ptr noundef nonnull %u_instr_sequence55, ptr noundef nonnull %s_allocated.i.i.i148, i32 noundef 100, i64 noundef 44), !range !5
+  %call.i.i.i149 = tail call i32 @_PyCompile_EnsureArrayLargeEnough(i32 noundef %add.i.i.i147, ptr noundef nonnull %u_instr_sequence55, ptr noundef nonnull %s_allocated.i.i.i148, i32 noundef 100, i64 noundef 44)
   %cmp.i.i.i150 = icmp eq i32 %call.i.i.i149, -1
   br i1 %cmp.i.i.i150, label %return, label %instr_sequence_next_inst.exit.i.i151
 
@@ -22850,7 +22851,7 @@ if.then62:                                        ; preds = %if.end60
   %43 = load i32, ptr %s_used.i.i.i162, align 4
   %add.i.i.i163 = add i32 %43, 1
   %s_allocated.i.i.i164 = getelementptr inbounds i8, ptr %41, i64 32
-  %call.i.i.i165 = tail call i32 @_PyCompile_EnsureArrayLargeEnough(i32 noundef %add.i.i.i163, ptr noundef nonnull %u_instr_sequence64, ptr noundef nonnull %s_allocated.i.i.i164, i32 noundef 100, i64 noundef 44), !range !5
+  %call.i.i.i165 = tail call i32 @_PyCompile_EnsureArrayLargeEnough(i32 noundef %add.i.i.i163, ptr noundef nonnull %u_instr_sequence64, ptr noundef nonnull %s_allocated.i.i.i164, i32 noundef 100, i64 noundef 44)
   %cmp.i.i.i166 = icmp eq i32 %call.i.i.i165, -1
   br i1 %cmp.i.i.i166, label %return, label %instr_sequence_next_inst.exit.i.i167
 
@@ -22880,7 +22881,7 @@ if.end70:                                         ; preds = %codegen_addop_i.exi
   %48 = load i32, ptr %s_used.i.i.i178, align 4
   %add.i.i.i179 = add i32 %48, 1
   %s_allocated.i.i.i180 = getelementptr inbounds i8, ptr %46, i64 32
-  %call.i.i.i181 = tail call i32 @_PyCompile_EnsureArrayLargeEnough(i32 noundef %add.i.i.i179, ptr noundef nonnull %u_instr_sequence72, ptr noundef nonnull %s_allocated.i.i.i180, i32 noundef 100, i64 noundef 44), !range !5
+  %call.i.i.i181 = tail call i32 @_PyCompile_EnsureArrayLargeEnough(i32 noundef %add.i.i.i179, ptr noundef nonnull %u_instr_sequence72, ptr noundef nonnull %s_allocated.i.i.i180, i32 noundef 100, i64 noundef 44)
   %cmp.i.i.i182 = icmp eq i32 %call.i.i.i181, -1
   br i1 %cmp.i.i.i182, label %return, label %instr_sequence_next_inst.exit.i.i183
 
@@ -22904,7 +22905,7 @@ if.end77:                                         ; preds = %instr_sequence_next
   %u_instr_sequence79 = getelementptr inbounds i8, ptr %51, i64 24
   %52 = load i64, ptr %ploc, align 4
   %53 = load i64, ptr %36, align 4
-  %call80 = tail call fastcc i32 @codegen_addop_noarg(ptr noundef nonnull %u_instr_sequence79, i32 noundef 31, i64 %52, i64 %53), !range !5
+  %call80 = tail call fastcc i32 @codegen_addop_noarg(ptr noundef nonnull %u_instr_sequence79, i32 noundef 31, i64 %52, i64 %53)
   %cmp81 = icmp eq i32 %call80, -1
   %.80 = sext i1 %cmp81 to i32
   br label %return
@@ -22924,7 +22925,7 @@ sw.bb85:                                          ; preds = %entry, %entry
   %58 = load i32, ptr %s_used.i.i.i194, align 4
   %add.i.i.i195 = add i32 %58, 1
   %s_allocated.i.i.i196 = getelementptr inbounds i8, ptr %57, i64 32
-  %call.i.i.i197 = tail call i32 @_PyCompile_EnsureArrayLargeEnough(i32 noundef %add.i.i.i195, ptr noundef nonnull %u_instr_sequence95, ptr noundef nonnull %s_allocated.i.i.i196, i32 noundef 100, i64 noundef 44), !range !5
+  %call.i.i.i197 = tail call i32 @_PyCompile_EnsureArrayLargeEnough(i32 noundef %add.i.i.i195, ptr noundef nonnull %u_instr_sequence95, ptr noundef nonnull %s_allocated.i.i.i196, i32 noundef 100, i64 noundef 44)
   %cmp.i.i.i198 = icmp eq i32 %call.i.i.i197, -1
   br i1 %cmp.i.i.i198, label %return, label %instr_sequence_next_inst.exit.i.i199
 
@@ -22955,7 +22956,7 @@ if.then102:                                       ; preds = %if.end100
   %63 = load i32, ptr %s_used.i.i.i210, align 4
   %add.i.i.i211 = add i32 %63, 1
   %s_allocated.i.i.i212 = getelementptr inbounds i8, ptr %61, i64 32
-  %call.i.i.i213 = tail call i32 @_PyCompile_EnsureArrayLargeEnough(i32 noundef %add.i.i.i211, ptr noundef nonnull %u_instr_sequence104, ptr noundef nonnull %s_allocated.i.i.i212, i32 noundef 100, i64 noundef 44), !range !5
+  %call.i.i.i213 = tail call i32 @_PyCompile_EnsureArrayLargeEnough(i32 noundef %add.i.i.i211, ptr noundef nonnull %u_instr_sequence104, ptr noundef nonnull %s_allocated.i.i.i212, i32 noundef 100, i64 noundef 44)
   %cmp.i.i.i214 = icmp eq i32 %call.i.i.i213, -1
   br i1 %cmp.i.i.i214, label %return, label %instr_sequence_next_inst.exit.i.i215
 
@@ -22980,7 +22981,7 @@ codegen_addop_i.exit225:                          ; preds = %instr_sequence_next
 if.end110:                                        ; preds = %codegen_addop_i.exit225, %if.end100
   %66 = load i64, ptr %ploc, align 4
   %67 = load i64, ptr %.compoundliteral.sroa.3.0..sroa_idx, align 4
-  %call111 = tail call fastcc i32 @compiler_call_exit_with_nones(ptr noundef nonnull %c, i64 %66, i64 %67), !range !5
+  %call111 = tail call fastcc i32 @compiler_call_exit_with_nones(ptr noundef nonnull %c, i64 %66, i64 %67)
   %cmp112 = icmp eq i32 %call111, -1
   br i1 %cmp112, label %return, label %if.end115
 
@@ -22997,7 +22998,7 @@ if.then119:                                       ; preds = %if.end115
   %71 = load i32, ptr %s_used.i.i.i226, align 4
   %add.i.i.i227 = add i32 %71, 1
   %s_allocated.i.i.i228 = getelementptr inbounds i8, ptr %69, i64 32
-  %call.i.i.i229 = tail call i32 @_PyCompile_EnsureArrayLargeEnough(i32 noundef %add.i.i.i227, ptr noundef nonnull %u_instr_sequence121, ptr noundef nonnull %s_allocated.i.i.i228, i32 noundef 100, i64 noundef 44), !range !5
+  %call.i.i.i229 = tail call i32 @_PyCompile_EnsureArrayLargeEnough(i32 noundef %add.i.i.i227, ptr noundef nonnull %u_instr_sequence121, ptr noundef nonnull %s_allocated.i.i.i228, i32 noundef 100, i64 noundef 44)
   %cmp.i.i.i230 = icmp eq i32 %call.i.i.i229, -1
   br i1 %cmp.i.i.i230, label %return, label %instr_sequence_next_inst.exit.i.i231
 
@@ -23022,14 +23023,14 @@ if.end126:                                        ; preds = %instr_sequence_next
   %75 = load ptr, ptr %u94, align 8
   %76 = load i64, ptr %ploc, align 4
   %77 = load i64, ptr %.compoundliteral.sroa.3.0..sroa_idx, align 4
-  %call128 = tail call fastcc i32 @compiler_addop_load_const(ptr noundef %74, ptr noundef %75, i64 %76, i64 %77, ptr noundef nonnull @_Py_NoneStruct), !range !5
+  %call128 = tail call fastcc i32 @compiler_addop_load_const(ptr noundef %74, ptr noundef %75, i64 %76, i64 %77, ptr noundef nonnull @_Py_NoneStruct)
   %cmp129 = icmp eq i32 %call128, -1
   br i1 %cmp129, label %return, label %if.end132
 
 if.end132:                                        ; preds = %if.end126
   %78 = load i64, ptr %ploc, align 4
   %79 = load i64, ptr %.compoundliteral.sroa.3.0..sroa_idx, align 4
-  %call133 = tail call fastcc i32 @compiler_add_yield_from(ptr noundef nonnull %c, i64 %78, i64 %79, i32 noundef 1), !range !5
+  %call133 = tail call fastcc i32 @compiler_add_yield_from(ptr noundef nonnull %c, i64 %78, i64 %79, i32 noundef 1)
   %cmp134 = icmp eq i32 %call133, -1
   br i1 %cmp134, label %return, label %if.end138
 
@@ -23041,7 +23042,7 @@ if.end138:                                        ; preds = %if.end132, %if.end1
   %82 = load i32, ptr %s_used.i.i.i242, align 4
   %add.i.i.i243 = add i32 %82, 1
   %s_allocated.i.i.i244 = getelementptr inbounds i8, ptr %80, i64 32
-  %call.i.i.i245 = tail call i32 @_PyCompile_EnsureArrayLargeEnough(i32 noundef %add.i.i.i243, ptr noundef nonnull %u_instr_sequence140, ptr noundef nonnull %s_allocated.i.i.i244, i32 noundef 100, i64 noundef 44), !range !5
+  %call.i.i.i245 = tail call i32 @_PyCompile_EnsureArrayLargeEnough(i32 noundef %add.i.i.i243, ptr noundef nonnull %u_instr_sequence140, ptr noundef nonnull %s_allocated.i.i.i244, i32 noundef 100, i64 noundef 44)
   %cmp.i.i.i246 = icmp eq i32 %call.i.i.i245, -1
   br i1 %cmp.i.i.i246, label %return, label %instr_sequence_next_inst.exit.i.i247
 
@@ -23079,7 +23080,7 @@ if.then149:                                       ; preds = %sw.bb146
   %88 = load i32, ptr %s_used.i.i.i258, align 4
   %add.i.i.i259 = add i32 %88, 1
   %s_allocated.i.i.i260 = getelementptr inbounds i8, ptr %86, i64 32
-  %call.i.i.i261 = tail call i32 @_PyCompile_EnsureArrayLargeEnough(i32 noundef %add.i.i.i259, ptr noundef nonnull %u_instr_sequence151, ptr noundef nonnull %s_allocated.i.i.i260, i32 noundef 100, i64 noundef 44), !range !5
+  %call.i.i.i261 = tail call i32 @_PyCompile_EnsureArrayLargeEnough(i32 noundef %add.i.i.i259, ptr noundef nonnull %u_instr_sequence151, ptr noundef nonnull %s_allocated.i.i.i260, i32 noundef 100, i64 noundef 44)
   %cmp.i.i.i262 = icmp eq i32 %call.i.i.i261, -1
   br i1 %cmp.i.i.i262, label %return, label %instr_sequence_next_inst.exit.i.i263
 
@@ -23114,7 +23115,7 @@ if.then159:                                       ; preds = %if.end157
   %93 = load i32, ptr %s_used.i.i.i274, align 4
   %add.i.i.i275 = add i32 %93, 1
   %s_allocated.i.i.i276 = getelementptr inbounds i8, ptr %91, i64 32
-  %call.i.i.i277 = tail call i32 @_PyCompile_EnsureArrayLargeEnough(i32 noundef %add.i.i.i275, ptr noundef nonnull %u_instr_sequence161, ptr noundef nonnull %s_allocated.i.i.i276, i32 noundef 100, i64 noundef 44), !range !5
+  %call.i.i.i277 = tail call i32 @_PyCompile_EnsureArrayLargeEnough(i32 noundef %add.i.i.i275, ptr noundef nonnull %u_instr_sequence161, ptr noundef nonnull %s_allocated.i.i.i276, i32 noundef 100, i64 noundef 44)
   %cmp.i.i.i278 = icmp eq i32 %call.i.i.i277, -1
   br i1 %cmp.i.i.i278, label %return, label %instr_sequence_next_inst.exit.i.i279
 
@@ -23146,7 +23147,7 @@ if.end167:                                        ; preds = %codegen_addop_i.exi
   %99 = load i32, ptr %s_used.i.i.i290, align 4
   %add.i.i.i291 = add i32 %99, 1
   %s_allocated.i.i.i292 = getelementptr inbounds i8, ptr %96, i64 32
-  %call.i.i.i293 = tail call i32 @_PyCompile_EnsureArrayLargeEnough(i32 noundef %add.i.i.i291, ptr noundef nonnull %u_instr_sequence169, ptr noundef nonnull %s_allocated.i.i.i292, i32 noundef 100, i64 noundef 44), !range !5
+  %call.i.i.i293 = tail call i32 @_PyCompile_EnsureArrayLargeEnough(i32 noundef %add.i.i.i291, ptr noundef nonnull %u_instr_sequence169, ptr noundef nonnull %s_allocated.i.i.i292, i32 noundef 100, i64 noundef 44)
   %cmp.i.i.i294 = icmp eq i32 %call.i.i.i293, -1
   br i1 %cmp.i.i.i294, label %return, label %instr_sequence_next_inst.exit.i.i295
 
@@ -23173,7 +23174,7 @@ if.end174:                                        ; preds = %instr_sequence_next
   %104 = load i32, ptr %s_used.i.i.i306, align 4
   %add.i.i.i307 = add i32 %104, 1
   %s_allocated.i.i.i308 = getelementptr inbounds i8, ptr %102, i64 32
-  %call.i.i.i309 = tail call i32 @_PyCompile_EnsureArrayLargeEnough(i32 noundef %add.i.i.i307, ptr noundef nonnull %u_instr_sequence176, ptr noundef nonnull %s_allocated.i.i.i308, i32 noundef 100, i64 noundef 44), !range !5
+  %call.i.i.i309 = tail call i32 @_PyCompile_EnsureArrayLargeEnough(i32 noundef %add.i.i.i307, ptr noundef nonnull %u_instr_sequence176, ptr noundef nonnull %s_allocated.i.i.i308, i32 noundef 100, i64 noundef 44)
   %cmp.i.i.i310 = icmp eq i32 %call.i.i.i309, -1
   br i1 %cmp.i.i.i310, label %return, label %instr_sequence_next_inst.exit.i.i311
 
@@ -23203,7 +23204,7 @@ if.then184:                                       ; preds = %if.end181
   %109 = load ptr, ptr %u168, align 8
   %110 = load i64, ptr %ploc, align 4
   %111 = load i64, ptr %97, align 4
-  %call187 = tail call fastcc i32 @compiler_addop_load_const(ptr noundef %108, ptr noundef %109, i64 %110, i64 %111, ptr noundef nonnull @_Py_NoneStruct), !range !5
+  %call187 = tail call fastcc i32 @compiler_addop_load_const(ptr noundef %108, ptr noundef %109, i64 %110, i64 %111, ptr noundef nonnull @_Py_NoneStruct)
   %cmp188 = icmp eq i32 %call187, -1
   br i1 %cmp188, label %return, label %if.end191
 
@@ -23211,7 +23212,7 @@ if.end191:                                        ; preds = %if.then184
   %112 = load ptr, ptr %fb_datum147, align 8
   %113 = load i64, ptr %ploc, align 4
   %114 = load i64, ptr %97, align 4
-  %call193 = tail call fastcc i32 @compiler_nameop(ptr noundef nonnull %c, i64 %113, i64 %114, ptr noundef %112, i32 noundef 2), !range !5
+  %call193 = tail call fastcc i32 @compiler_nameop(ptr noundef nonnull %c, i64 %113, i64 %114, ptr noundef %112, i32 noundef 2)
   %cmp194 = icmp eq i32 %call193, -1
   br i1 %cmp194, label %return, label %if.end197
 
@@ -23219,7 +23220,7 @@ if.end197:                                        ; preds = %if.end191
   %115 = load ptr, ptr %fb_datum147, align 8
   %116 = load i64, ptr %ploc, align 4
   %117 = load i64, ptr %97, align 4
-  %call199 = tail call fastcc i32 @compiler_nameop(ptr noundef nonnull %c, i64 %116, i64 %117, ptr noundef %115, i32 noundef 3), !range !5
+  %call199 = tail call fastcc i32 @compiler_nameop(ptr noundef nonnull %c, i64 %116, i64 %117, ptr noundef %115, i32 noundef 3)
   %cmp200 = icmp eq i32 %call199, -1
   br i1 %cmp200, label %return, label %if.end204
 
@@ -23239,7 +23240,7 @@ if.then207:                                       ; preds = %sw.bb205
   %120 = load i32, ptr %s_used.i.i.i322, align 4
   %add.i.i.i323 = add i32 %120, 1
   %s_allocated.i.i.i324 = getelementptr inbounds i8, ptr %118, i64 32
-  %call.i.i.i325 = tail call i32 @_PyCompile_EnsureArrayLargeEnough(i32 noundef %add.i.i.i323, ptr noundef nonnull %u_instr_sequence209, ptr noundef nonnull %s_allocated.i.i.i324, i32 noundef 100, i64 noundef 44), !range !5
+  %call.i.i.i325 = tail call i32 @_PyCompile_EnsureArrayLargeEnough(i32 noundef %add.i.i.i323, ptr noundef nonnull %u_instr_sequence209, ptr noundef nonnull %s_allocated.i.i.i324, i32 noundef 100, i64 noundef 44)
   %cmp.i.i.i326 = icmp eq i32 %call.i.i.i325, -1
   br i1 %cmp.i.i.i326, label %return, label %instr_sequence_next_inst.exit.i.i327
 
@@ -23270,7 +23271,7 @@ if.end215:                                        ; preds = %codegen_addop_i.exi
   %125 = load i32, ptr %s_used.i.i.i338, align 4
   %add.i.i.i339 = add i32 %125, 1
   %s_allocated.i.i.i340 = getelementptr inbounds i8, ptr %123, i64 32
-  %call.i.i.i341 = tail call i32 @_PyCompile_EnsureArrayLargeEnough(i32 noundef %add.i.i.i339, ptr noundef nonnull %u_instr_sequence217, ptr noundef nonnull %s_allocated.i.i.i340, i32 noundef 100, i64 noundef 44), !range !5
+  %call.i.i.i341 = tail call i32 @_PyCompile_EnsureArrayLargeEnough(i32 noundef %add.i.i.i339, ptr noundef nonnull %u_instr_sequence217, ptr noundef nonnull %s_allocated.i.i.i340, i32 noundef 100, i64 noundef 44)
   %cmp.i.i.i342 = icmp eq i32 %call.i.i.i341, -1
   br i1 %cmp.i.i.i342, label %return, label %instr_sequence_next_inst.exit.i.i343
 
@@ -23301,27 +23302,27 @@ return:                                           ; preds = %for.body, %if.then2
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @compiler_call_exit_with_nones(ptr nocapture noundef readonly %c, i64 %loc.coerce0, i64 %loc.coerce1) unnamed_addr #1 {
+define internal fastcc range(i32 -1, 1) i32 @compiler_call_exit_with_nones(ptr nocapture noundef readonly %c, i64 %loc.coerce0, i64 %loc.coerce1) unnamed_addr #1 {
 entry:
   %c_const_cache = getelementptr inbounds i8, ptr %c, i64 56
   %0 = load ptr, ptr %c_const_cache, align 8
   %u = getelementptr inbounds i8, ptr %c, i64 64
   %1 = load ptr, ptr %u, align 8
-  %call = tail call fastcc i32 @compiler_addop_load_const(ptr noundef %0, ptr noundef %1, i64 %loc.coerce0, i64 %loc.coerce1, ptr noundef nonnull @_Py_NoneStruct), !range !5
+  %call = tail call fastcc i32 @compiler_addop_load_const(ptr noundef %0, ptr noundef %1, i64 %loc.coerce0, i64 %loc.coerce1, ptr noundef nonnull @_Py_NoneStruct)
   %cmp = icmp eq i32 %call, -1
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
   %2 = load ptr, ptr %c_const_cache, align 8
   %3 = load ptr, ptr %u, align 8
-  %call3 = tail call fastcc i32 @compiler_addop_load_const(ptr noundef %2, ptr noundef %3, i64 %loc.coerce0, i64 %loc.coerce1, ptr noundef nonnull @_Py_NoneStruct), !range !5
+  %call3 = tail call fastcc i32 @compiler_addop_load_const(ptr noundef %2, ptr noundef %3, i64 %loc.coerce0, i64 %loc.coerce1, ptr noundef nonnull @_Py_NoneStruct)
   %cmp4 = icmp eq i32 %call3, -1
   br i1 %cmp4, label %return, label %if.end6
 
 if.end6:                                          ; preds = %if.end
   %4 = load ptr, ptr %c_const_cache, align 8
   %5 = load ptr, ptr %u, align 8
-  %call9 = tail call fastcc i32 @compiler_addop_load_const(ptr noundef %4, ptr noundef %5, i64 %loc.coerce0, i64 %loc.coerce1, ptr noundef nonnull @_Py_NoneStruct), !range !5
+  %call9 = tail call fastcc i32 @compiler_addop_load_const(ptr noundef %4, ptr noundef %5, i64 %loc.coerce0, i64 %loc.coerce1, ptr noundef nonnull @_Py_NoneStruct)
   %cmp10 = icmp eq i32 %call9, -1
   br i1 %cmp10, label %return, label %if.end12
 
@@ -23332,7 +23333,7 @@ if.end12:                                         ; preds = %if.end6
   %7 = load i32, ptr %s_used.i.i.i, align 4
   %add.i.i.i = add i32 %7, 1
   %s_allocated.i.i.i = getelementptr inbounds i8, ptr %6, i64 32
-  %call.i.i.i = tail call i32 @_PyCompile_EnsureArrayLargeEnough(i32 noundef %add.i.i.i, ptr noundef nonnull %u_instr_sequence, ptr noundef nonnull %s_allocated.i.i.i, i32 noundef 100, i64 noundef 44), !range !5
+  %call.i.i.i = tail call i32 @_PyCompile_EnsureArrayLargeEnough(i32 noundef %add.i.i.i, ptr noundef nonnull %u_instr_sequence, ptr noundef nonnull %s_allocated.i.i.i, i32 noundef 100, i64 noundef 44)
   %cmp.i.i.i = icmp eq i32 %call.i.i.i, -1
   br i1 %cmp.i.i.i, label %return, label %instr_sequence_next_inst.exit.i.i
 
@@ -23362,7 +23363,7 @@ return:                                           ; preds = %codegen_addop_i.exi
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @compiler_add_yield_from(ptr nocapture noundef readonly %c, i64 %loc.coerce0, i64 %loc.coerce1, i32 noundef %await) unnamed_addr #1 {
+define internal fastcc range(i32 -1, 1) i32 @compiler_add_yield_from(ptr nocapture noundef readonly %c, i64 %loc.coerce0, i64 %loc.coerce1, i32 noundef %await) unnamed_addr #1 {
 entry:
   %u = getelementptr inbounds i8, ptr %c, i64 64
   %0 = load ptr, ptr %u, align 8
@@ -23396,7 +23397,7 @@ if.end16:                                         ; preds = %if.end8
   %s_labelmap_size.i = getelementptr inbounds i8, ptr %6, i64 48
   %7 = load i32, ptr %s_labelmap_size.i, align 8
   %s_labelmap.i = getelementptr inbounds i8, ptr %6, i64 40
-  %call.i = tail call i32 @_PyCompile_EnsureArrayLargeEnough(i32 noundef %inc.i, ptr noundef nonnull %s_labelmap.i, ptr noundef nonnull %s_labelmap_size.i, i32 noundef 10, i64 noundef 4), !range !5
+  %call.i = tail call i32 @_PyCompile_EnsureArrayLargeEnough(i32 noundef %inc.i, ptr noundef nonnull %s_labelmap.i, ptr noundef nonnull %s_labelmap_size.i, i32 noundef 10, i64 noundef 4)
   %cmp.i = icmp eq i32 %call.i, -1
   br i1 %cmp.i, label %return, label %for.cond.preheader.i
 
@@ -23418,7 +23419,7 @@ for.body.i:                                       ; preds = %for.body.i, %for.bo
   %11 = load i32, ptr %s_labelmap_size.i, align 8
   %12 = sext i32 %11 to i64
   %cmp3.i = icmp slt i64 %indvars.iv.next.i, %12
-  br i1 %cmp3.i, label %for.body.i, label %if.end23, !llvm.loop !6
+  br i1 %cmp3.i, label %for.body.i, label %if.end23, !llvm.loop !5
 
 if.end23:                                         ; preds = %for.body.i, %for.cond.preheader.i
   %s_used.i = getelementptr inbounds i8, ptr %6, i64 36
@@ -23433,7 +23434,7 @@ if.end23:                                         ; preds = %for.body.i, %for.co
   %16 = load i32, ptr %s_used.i.i.i, align 4
   %add.i.i.i = add i32 %16, 1
   %s_allocated.i.i.i = getelementptr inbounds i8, ptr %15, i64 32
-  %call.i.i.i = tail call i32 @_PyCompile_EnsureArrayLargeEnough(i32 noundef %add.i.i.i, ptr noundef nonnull %u_instr_sequence25, ptr noundef nonnull %s_allocated.i.i.i, i32 noundef 100, i64 noundef 44), !range !5
+  %call.i.i.i = tail call i32 @_PyCompile_EnsureArrayLargeEnough(i32 noundef %add.i.i.i, ptr noundef nonnull %u_instr_sequence25, ptr noundef nonnull %s_allocated.i.i.i, i32 noundef 100, i64 noundef 44)
   %cmp.i.i.i = icmp eq i32 %call.i.i.i, -1
   br i1 %cmp.i.i.i, label %return, label %instr_sequence_next_inst.exit.i.i
 
@@ -23461,7 +23462,7 @@ if.end30:                                         ; preds = %instr_sequence_next
   %20 = load i32, ptr %s_used.i.i.i36, align 4
   %add.i.i.i37 = add i32 %20, 1
   %s_allocated.i.i.i38 = getelementptr inbounds i8, ptr %19, i64 32
-  %call.i.i.i39 = tail call i32 @_PyCompile_EnsureArrayLargeEnough(i32 noundef %add.i.i.i37, ptr noundef nonnull %u_instr_sequence32, ptr noundef nonnull %s_allocated.i.i.i38, i32 noundef 100, i64 noundef 44), !range !5
+  %call.i.i.i39 = tail call i32 @_PyCompile_EnsureArrayLargeEnough(i32 noundef %add.i.i.i37, ptr noundef nonnull %u_instr_sequence32, ptr noundef nonnull %s_allocated.i.i.i38, i32 noundef 100, i64 noundef 44)
   %cmp.i.i.i40 = icmp eq i32 %call.i.i.i39, -1
   br i1 %cmp.i.i.i40, label %return, label %instr_sequence_next_inst.exit.i.i41
 
@@ -23489,7 +23490,7 @@ if.end37:                                         ; preds = %instr_sequence_next
   %24 = load i32, ptr %s_used.i.i.i52, align 4
   %add.i.i.i53 = add i32 %24, 1
   %s_allocated.i.i.i54 = getelementptr inbounds i8, ptr %23, i64 32
-  %call.i.i.i55 = tail call i32 @_PyCompile_EnsureArrayLargeEnough(i32 noundef %add.i.i.i53, ptr noundef nonnull %u_instr_sequence39, ptr noundef nonnull %s_allocated.i.i.i54, i32 noundef 100, i64 noundef 44), !range !5
+  %call.i.i.i55 = tail call i32 @_PyCompile_EnsureArrayLargeEnough(i32 noundef %add.i.i.i53, ptr noundef nonnull %u_instr_sequence39, ptr noundef nonnull %s_allocated.i.i.i54, i32 noundef 100, i64 noundef 44)
   %cmp.i.i.i56 = icmp eq i32 %call.i.i.i55, -1
   br i1 %cmp.i.i.i56, label %return, label %instr_sequence_next_inst.exit.i.i57
 
@@ -23517,7 +23518,7 @@ if.end43:                                         ; preds = %instr_sequence_next
   %28 = load i32, ptr %s_used.i.i.i67, align 4
   %add.i.i.i68 = add i32 %28, 1
   %s_allocated.i.i.i69 = getelementptr inbounds i8, ptr %27, i64 32
-  %call.i.i.i70 = tail call i32 @_PyCompile_EnsureArrayLargeEnough(i32 noundef %add.i.i.i68, ptr noundef nonnull %u_instr_sequence45, ptr noundef nonnull %s_allocated.i.i.i69, i32 noundef 100, i64 noundef 44), !range !5
+  %call.i.i.i70 = tail call i32 @_PyCompile_EnsureArrayLargeEnough(i32 noundef %add.i.i.i68, ptr noundef nonnull %u_instr_sequence45, ptr noundef nonnull %s_allocated.i.i.i69, i32 noundef 100, i64 noundef 44)
   %cmp.i.i.i71 = icmp eq i32 %call.i.i.i70, -1
   br i1 %cmp.i.i.i71, label %return, label %instr_sequence_next_inst.exit.i.i72
 
@@ -23545,7 +23546,7 @@ if.end49:                                         ; preds = %instr_sequence_next
   %32 = load i32, ptr %s_used.i.i.i82, align 4
   %add.i.i.i83 = add i32 %32, 1
   %s_allocated.i.i.i84 = getelementptr inbounds i8, ptr %31, i64 32
-  %call.i.i.i85 = tail call i32 @_PyCompile_EnsureArrayLargeEnough(i32 noundef %add.i.i.i83, ptr noundef nonnull %u_instr_sequence51, ptr noundef nonnull %s_allocated.i.i.i84, i32 noundef 100, i64 noundef 44), !range !5
+  %call.i.i.i85 = tail call i32 @_PyCompile_EnsureArrayLargeEnough(i32 noundef %add.i.i.i83, ptr noundef nonnull %u_instr_sequence51, ptr noundef nonnull %s_allocated.i.i.i84, i32 noundef 100, i64 noundef 44)
   %cmp.i.i.i86 = icmp eq i32 %call.i.i.i85, -1
   br i1 %cmp.i.i.i86, label %return, label %instr_sequence_next_inst.exit.i.i87
 
@@ -23569,35 +23570,35 @@ if.end56:                                         ; preds = %instr_sequence_next
   store i64 %loc.coerce1, ptr %loc.sroa.2.0.i_loc.sroa_idx.i.i95, align 4
   %35 = load ptr, ptr %u, align 8
   %u_instr_sequence58 = getelementptr inbounds i8, ptr %35, i64 24
-  %call60 = tail call fastcc i32 @codegen_addop_j(ptr noundef nonnull %u_instr_sequence58, i64 %loc.coerce0, i64 %loc.coerce1, i32 noundef 257, i32 %inc.i), !range !5
+  %call60 = tail call fastcc i32 @codegen_addop_j(ptr noundef nonnull %u_instr_sequence58, i64 %loc.coerce0, i64 %loc.coerce1, i32 noundef 257, i32 %inc.i)
   %cmp61 = icmp eq i32 %call60, -1
   br i1 %cmp61, label %return, label %if.end64
 
 if.end64:                                         ; preds = %if.end56
   %36 = load ptr, ptr %u, align 8
   %u_instr_sequence66 = getelementptr inbounds i8, ptr %36, i64 24
-  %call68 = tail call i32 @_PyCompile_InstructionSequence_UseLabel(ptr noundef nonnull %u_instr_sequence66, i32 noundef %inc.i33), !range !5
+  %call68 = tail call i32 @_PyCompile_InstructionSequence_UseLabel(ptr noundef nonnull %u_instr_sequence66, i32 noundef %inc.i33)
   %cmp69 = icmp eq i32 %call68, -1
   br i1 %cmp69, label %return, label %if.end72
 
 if.end72:                                         ; preds = %if.end64
   %37 = load ptr, ptr %u, align 8
   %u_instr_sequence74 = getelementptr inbounds i8, ptr %37, i64 24
-  %call75 = tail call fastcc i32 @codegen_addop_noarg(ptr noundef nonnull %u_instr_sequence74, i32 noundef 8, i64 %loc.coerce0, i64 %loc.coerce1), !range !5
+  %call75 = tail call fastcc i32 @codegen_addop_noarg(ptr noundef nonnull %u_instr_sequence74, i32 noundef 8, i64 %loc.coerce0, i64 %loc.coerce1)
   %cmp76 = icmp eq i32 %call75, -1
   br i1 %cmp76, label %return, label %if.end79
 
 if.end79:                                         ; preds = %if.end72
   %38 = load ptr, ptr %u, align 8
   %u_instr_sequence81 = getelementptr inbounds i8, ptr %38, i64 24
-  %call83 = tail call i32 @_PyCompile_InstructionSequence_UseLabel(ptr noundef nonnull %u_instr_sequence81, i32 noundef %inc.i35), !range !5
+  %call83 = tail call i32 @_PyCompile_InstructionSequence_UseLabel(ptr noundef nonnull %u_instr_sequence81, i32 noundef %inc.i35)
   %cmp84 = icmp eq i32 %call83, -1
   br i1 %cmp84, label %return, label %if.end87
 
 if.end87:                                         ; preds = %if.end79
   %39 = load ptr, ptr %u, align 8
   %u_instr_sequence89 = getelementptr inbounds i8, ptr %39, i64 24
-  %call90 = tail call fastcc i32 @codegen_addop_noarg(ptr noundef nonnull %u_instr_sequence89, i32 noundef 12, i64 %loc.coerce0, i64 %loc.coerce1), !range !5
+  %call90 = tail call fastcc i32 @codegen_addop_noarg(ptr noundef nonnull %u_instr_sequence89, i32 noundef 12, i64 %loc.coerce0, i64 %loc.coerce1)
   %cmp91 = icmp eq i32 %call90, -1
   %. = sext i1 %cmp91 to i32
   br label %return
@@ -23608,13 +23609,13 @@ return:                                           ; preds = %if.end49, %instr_se
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @codegen_addop_j(ptr nocapture noundef %seq, i64 %loc.coerce0, i64 %loc.coerce1, i32 noundef %opcode, i32 %target.coerce) unnamed_addr #1 {
+define internal fastcc range(i32 -1, 1) i32 @codegen_addop_j(ptr nocapture noundef %seq, i64 %loc.coerce0, i64 %loc.coerce1, i32 noundef %opcode, i32 %target.coerce) unnamed_addr #1 {
 entry:
   %s_used.i.i = getelementptr inbounds i8, ptr %seq, i64 12
   %0 = load i32, ptr %s_used.i.i, align 4
   %add.i.i = add i32 %0, 1
   %s_allocated.i.i = getelementptr inbounds i8, ptr %seq, i64 8
-  %call.i.i = tail call i32 @_PyCompile_EnsureArrayLargeEnough(i32 noundef %add.i.i, ptr noundef %seq, ptr noundef nonnull %s_allocated.i.i, i32 noundef 100, i64 noundef 44), !range !5
+  %call.i.i = tail call i32 @_PyCompile_EnsureArrayLargeEnough(i32 noundef %add.i.i, ptr noundef %seq, ptr noundef nonnull %s_allocated.i.i, i32 noundef 100, i64 noundef 44)
   %cmp.i.i = icmp eq i32 %call.i.i, -1
   br i1 %cmp.i.i, label %_PyCompile_InstructionSequence_Addop.exit, label %instr_sequence_next_inst.exit.i
 
@@ -23697,7 +23698,7 @@ if.end34:                                         ; preds = %if.then, %if.then21
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @compiler_addop_name(ptr nocapture noundef %u, i64 %loc.coerce0, i64 %loc.coerce1, i32 noundef %opcode, ptr noundef %dict, ptr noundef %o) unnamed_addr #1 {
+define internal fastcc range(i32 -1, 1) i32 @compiler_addop_name(ptr nocapture noundef %u, i64 %loc.coerce0, i64 %loc.coerce1, i32 noundef %opcode, ptr noundef %dict, ptr noundef %o) unnamed_addr #1 {
 entry:
   %u_private = getelementptr inbounds i8, ptr %u, i64 16
   %0 = load ptr, ptr %u_private, align 8
@@ -23759,7 +23760,7 @@ if.end3:                                          ; preds = %Py_DECREF.exit
   %3 = load i32, ptr %s_used.i.i.i, align 4
   %add.i.i.i = add i32 %3, 1
   %s_allocated.i.i.i = getelementptr inbounds i8, ptr %u, i64 32
-  %call.i.i.i = tail call i32 @_PyCompile_EnsureArrayLargeEnough(i32 noundef %add.i.i.i, ptr noundef nonnull %u_instr_sequence, ptr noundef nonnull %s_allocated.i.i.i, i32 noundef 100, i64 noundef 44), !range !5
+  %call.i.i.i = tail call i32 @_PyCompile_EnsureArrayLargeEnough(i32 noundef %add.i.i.i, ptr noundef nonnull %u_instr_sequence, ptr noundef nonnull %s_allocated.i.i.i, i32 noundef 100, i64 noundef 44)
   %cmp.i.i.i = icmp eq i32 %call.i.i.i, -1
   br i1 %cmp.i.i.i, label %return, label %instr_sequence_next_inst.exit.i.i
 
@@ -23789,7 +23790,7 @@ return:                                           ; preds = %if.end.i.i, %instr_
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @compiler_slice(ptr noundef %c, ptr nocapture noundef readonly %s) unnamed_addr #1 {
+define internal fastcc range(i32 -1, 4) i32 @compiler_slice(ptr noundef %c, ptr nocapture noundef readonly %s) unnamed_addr #1 {
 entry:
   %v = getelementptr inbounds i8, ptr %s, i64 8
   %0 = load ptr, ptr %v, align 8
@@ -23797,7 +23798,7 @@ entry:
   br i1 %tobool.not, label %if.else, label %if.then
 
 if.then:                                          ; preds = %entry
-  %call = tail call fastcc i32 @compiler_visit_expr(ptr noundef %c, ptr noundef nonnull %0), !range !5
+  %call = tail call fastcc i32 @compiler_visit_expr(ptr noundef %c, ptr noundef nonnull %0)
   %cmp = icmp eq i32 %call, -1
   br i1 %cmp, label %return, label %if.end12
 
@@ -23822,7 +23823,7 @@ if.else:                                          ; preds = %entry
   %.compoundliteral.sroa.5.8.insert.shift = shl nuw i64 %.compoundliteral.sroa.5.8.insert.ext, 32
   %.compoundliteral.sroa.3.8.insert.ext = zext i32 %5 to i64
   %.compoundliteral.sroa.3.8.insert.insert = or disjoint i64 %.compoundliteral.sroa.5.8.insert.shift, %.compoundliteral.sroa.3.8.insert.ext
-  %call8 = tail call fastcc i32 @compiler_addop_load_const(ptr noundef %1, ptr noundef %2, i64 %.compoundliteral.sroa.0.0.insert.insert, i64 %.compoundliteral.sroa.3.8.insert.insert, ptr noundef nonnull @_Py_NoneStruct), !range !5
+  %call8 = tail call fastcc i32 @compiler_addop_load_const(ptr noundef %1, ptr noundef %2, i64 %.compoundliteral.sroa.0.0.insert.insert, i64 %.compoundliteral.sroa.3.8.insert.insert, ptr noundef nonnull @_Py_NoneStruct)
   %cmp9 = icmp eq i32 %call8, -1
   br i1 %cmp9, label %return, label %if.end12
 
@@ -23833,7 +23834,7 @@ if.end12:                                         ; preds = %if.else, %if.then
   br i1 %tobool14.not, label %if.else22, label %if.then15
 
 if.then15:                                        ; preds = %if.end12
-  %call18 = tail call fastcc i32 @compiler_visit_expr(ptr noundef %c, ptr noundef nonnull %7), !range !5
+  %call18 = tail call fastcc i32 @compiler_visit_expr(ptr noundef %c, ptr noundef nonnull %7)
   %cmp19 = icmp eq i32 %call18, -1
   br i1 %cmp19, label %return, label %if.end38
 
@@ -23858,7 +23859,7 @@ if.else22:                                        ; preds = %if.end12
   %.compoundliteral25.sroa.5.8.insert.shift = shl nuw i64 %.compoundliteral25.sroa.5.8.insert.ext, 32
   %.compoundliteral25.sroa.3.8.insert.ext = zext i32 %12 to i64
   %.compoundliteral25.sroa.3.8.insert.insert = or disjoint i64 %.compoundliteral25.sroa.5.8.insert.shift, %.compoundliteral25.sroa.3.8.insert.ext
-  %call34 = tail call fastcc i32 @compiler_addop_load_const(ptr noundef %8, ptr noundef %9, i64 %.compoundliteral25.sroa.0.0.insert.insert, i64 %.compoundliteral25.sroa.3.8.insert.insert, ptr noundef nonnull @_Py_NoneStruct), !range !5
+  %call34 = tail call fastcc i32 @compiler_addop_load_const(ptr noundef %8, ptr noundef %9, i64 %.compoundliteral25.sroa.0.0.insert.insert, i64 %.compoundliteral25.sroa.3.8.insert.insert, ptr noundef nonnull @_Py_NoneStruct)
   %cmp35 = icmp eq i32 %call34, -1
   br i1 %cmp35, label %return, label %if.end38
 
@@ -23869,7 +23870,7 @@ if.end38:                                         ; preds = %if.else22, %if.then
   br i1 %tobool40.not, label %return, label %if.then41
 
 if.then41:                                        ; preds = %if.end38
-  %call44 = tail call fastcc i32 @compiler_visit_expr(ptr noundef %c, ptr noundef nonnull %14), !range !5
+  %call44 = tail call fastcc i32 @compiler_visit_expr(ptr noundef %c, ptr noundef nonnull %14)
   %cmp45 = icmp eq i32 %call44, -1
   %spec.select = select i1 %cmp45, i32 -1, i32 3
   br label %return
@@ -23880,7 +23881,7 @@ return:                                           ; preds = %if.then41, %if.end3
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @addop_binary(ptr nocapture noundef readonly %c, i64 %loc.coerce0, i64 %loc.coerce1, i32 noundef %binop, i1 noundef zeroext %inplace) unnamed_addr #1 {
+define internal fastcc range(i32 -1, 1) i32 @addop_binary(ptr nocapture noundef readonly %c, i64 %loc.coerce0, i64 %loc.coerce1, i32 noundef %binop, i1 noundef zeroext %inplace) unnamed_addr #1 {
 entry:
   switch i32 %binop, label %sw.default [
     i32 1, label %sw.bb
@@ -23965,7 +23966,7 @@ sw.epilog:                                        ; preds = %sw.bb34, %sw.bb31, 
   %2 = load i32, ptr %s_used.i.i.i, align 4
   %add.i.i.i = add i32 %2, 1
   %s_allocated.i.i.i = getelementptr inbounds i8, ptr %1, i64 32
-  %call.i.i.i = tail call i32 @_PyCompile_EnsureArrayLargeEnough(i32 noundef %add.i.i.i, ptr noundef nonnull %u_instr_sequence, ptr noundef nonnull %s_allocated.i.i.i, i32 noundef 100, i64 noundef 44), !range !5
+  %call.i.i.i = tail call i32 @_PyCompile_EnsureArrayLargeEnough(i32 noundef %add.i.i.i, ptr noundef nonnull %u_instr_sequence, ptr noundef nonnull %s_allocated.i.i.i, i32 noundef 100, i64 noundef 44)
   %cmp.i.i.i = icmp eq i32 %call.i.i.i, -1
   br i1 %cmp.i.i.i, label %return, label %instr_sequence_next_inst.exit.i.i
 
@@ -23995,7 +23996,7 @@ return:                                           ; preds = %codegen_addop_i.exi
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @check_ann_subscr(ptr noundef %c, ptr noundef %e) unnamed_addr #1 {
+define internal fastcc range(i32 -1, 1) i32 @check_ann_subscr(ptr noundef %c, ptr noundef %e) unnamed_addr #1 {
 entry:
   %0 = load i32, ptr %e, align 8
   switch i32 %0, label %sw.default [
@@ -24010,7 +24011,7 @@ sw.bb:                                            ; preds = %entry
   br i1 %tobool.not, label %if.end, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %sw.bb
-  %call.i = tail call fastcc i32 @compiler_visit_expr(ptr noundef %c, ptr noundef nonnull %1), !range !5
+  %call.i = tail call fastcc i32 @compiler_visit_expr(ptr noundef %c, ptr noundef nonnull %1)
   %cmp.i = icmp eq i32 %call.i, -1
   br i1 %cmp.i, label %return, label %if.end.i
 
@@ -24038,7 +24039,7 @@ if.end.i:                                         ; preds = %land.lhs.true
   %7 = load i32, ptr %s_used.i.i.i.i, align 4
   %add.i.i.i.i = add i32 %7, 1
   %s_allocated.i.i.i.i = getelementptr inbounds i8, ptr %2, i64 32
-  %call.i.i.i.i = tail call i32 @_PyCompile_EnsureArrayLargeEnough(i32 noundef %add.i.i.i.i, ptr noundef nonnull %u_instr_sequence.i, ptr noundef nonnull %s_allocated.i.i.i.i, i32 noundef 100, i64 noundef 44), !range !5
+  %call.i.i.i.i = tail call i32 @_PyCompile_EnsureArrayLargeEnough(i32 noundef %add.i.i.i.i, ptr noundef nonnull %u_instr_sequence.i, ptr noundef nonnull %s_allocated.i.i.i.i, i32 noundef 100, i64 noundef 44)
   %cmp.i.i.i.i = icmp eq i32 %call.i.i.i.i, -1
   br i1 %cmp.i.i.i.i, label %return, label %instr_sequence_next_inst.exit.i.i.i
 
@@ -24069,7 +24070,7 @@ if.end:                                           ; preds = %check_ann_expr.exit
   br i1 %tobool4.not, label %if.end11, label %land.lhs.true5
 
 land.lhs.true5:                                   ; preds = %if.end
-  %call.i20 = tail call fastcc i32 @compiler_visit_expr(ptr noundef %c, ptr noundef nonnull %10), !range !5
+  %call.i20 = tail call fastcc i32 @compiler_visit_expr(ptr noundef %c, ptr noundef nonnull %10)
   %cmp.i21 = icmp eq i32 %call.i20, -1
   br i1 %cmp.i21, label %return, label %if.end.i22
 
@@ -24097,7 +24098,7 @@ if.end.i22:                                       ; preds = %land.lhs.true5
   %16 = load i32, ptr %s_used.i.i.i.i37, align 4
   %add.i.i.i.i38 = add i32 %16, 1
   %s_allocated.i.i.i.i39 = getelementptr inbounds i8, ptr %11, i64 32
-  %call.i.i.i.i40 = tail call i32 @_PyCompile_EnsureArrayLargeEnough(i32 noundef %add.i.i.i.i38, ptr noundef nonnull %u_instr_sequence.i24, ptr noundef nonnull %s_allocated.i.i.i.i39, i32 noundef 100, i64 noundef 44), !range !5
+  %call.i.i.i.i40 = tail call i32 @_PyCompile_EnsureArrayLargeEnough(i32 noundef %add.i.i.i.i38, ptr noundef nonnull %u_instr_sequence.i24, ptr noundef nonnull %s_allocated.i.i.i.i39, i32 noundef 100, i64 noundef 44)
   %cmp.i.i.i.i41 = icmp eq i32 %call.i.i.i.i40, -1
   br i1 %cmp.i.i.i.i41, label %return, label %instr_sequence_next_inst.exit.i.i.i42
 
@@ -24128,7 +24129,7 @@ if.end11:                                         ; preds = %check_ann_expr.exit
   br i1 %tobool13.not, label %return, label %land.lhs.true14
 
 land.lhs.true14:                                  ; preds = %if.end11
-  %call.i53 = tail call fastcc i32 @compiler_visit_expr(ptr noundef %c, ptr noundef nonnull %19), !range !5
+  %call.i53 = tail call fastcc i32 @compiler_visit_expr(ptr noundef %c, ptr noundef nonnull %19)
   %cmp.i54 = icmp eq i32 %call.i53, -1
   br i1 %cmp.i54, label %return, label %if.end.i55
 
@@ -24144,7 +24145,7 @@ if.end.i55:                                       ; preds = %land.lhs.true14
   %23 = load i32, ptr %s_used.i.i.i.i70, align 4
   %add.i.i.i.i71 = add i32 %23, 1
   %s_allocated.i.i.i.i72 = getelementptr inbounds i8, ptr %20, i64 32
-  %call.i.i.i.i73 = tail call i32 @_PyCompile_EnsureArrayLargeEnough(i32 noundef %add.i.i.i.i71, ptr noundef nonnull %u_instr_sequence.i57, ptr noundef nonnull %s_allocated.i.i.i.i72, i32 noundef 100, i64 noundef 44), !range !5
+  %call.i.i.i.i73 = tail call i32 @_PyCompile_EnsureArrayLargeEnough(i32 noundef %add.i.i.i.i71, ptr noundef nonnull %u_instr_sequence.i57, ptr noundef nonnull %s_allocated.i.i.i.i72, i32 noundef 100, i64 noundef 44)
   %cmp.i.i.i.i74 = icmp eq i32 %call.i.i.i.i73, -1
   br i1 %cmp.i.i.i.i74, label %return, label %instr_sequence_next_inst.exit.i.i.i75
 
@@ -24174,18 +24175,18 @@ cond.end:                                         ; preds = %sw.bb21
 for.cond:                                         ; preds = %for.body
   %inc = add nuw nsw i64 %i.0126, 1
   %exitcond.not = icmp eq i64 %inc, %30
-  br i1 %exitcond.not, label %return, label %for.body, !llvm.loop !102
+  br i1 %exitcond.not, label %return, label %for.body, !llvm.loop !95
 
 for.body:                                         ; preds = %cond.end, %for.cond
   %i.0126 = phi i64 [ %inc, %for.cond ], [ 0, %cond.end ]
   %arrayidx = getelementptr [1 x ptr], ptr %typed_elements, i64 0, i64 %i.0126
   %31 = load ptr, ptr %arrayidx, align 8
-  %call26 = tail call fastcc i32 @check_ann_subscr(ptr noundef %c, ptr noundef %31), !range !5
+  %call26 = tail call fastcc i32 @check_ann_subscr(ptr noundef %c, ptr noundef %31)
   %cmp27 = icmp eq i32 %call26, -1
   br i1 %cmp27, label %return, label %for.cond
 
 sw.default:                                       ; preds = %entry
-  %call.i86 = tail call fastcc i32 @compiler_visit_expr(ptr noundef %c, ptr noundef nonnull %e), !range !5
+  %call.i86 = tail call fastcc i32 @compiler_visit_expr(ptr noundef %c, ptr noundef nonnull %e)
   %cmp.i87 = icmp eq i32 %call.i86, -1
   br i1 %cmp.i87, label %return, label %if.end.i88
 
@@ -24201,7 +24202,7 @@ if.end.i88:                                       ; preds = %sw.default
   %35 = load i32, ptr %s_used.i.i.i.i103, align 4
   %add.i.i.i.i104 = add i32 %35, 1
   %s_allocated.i.i.i.i105 = getelementptr inbounds i8, ptr %32, i64 32
-  %call.i.i.i.i106 = tail call i32 @_PyCompile_EnsureArrayLargeEnough(i32 noundef %add.i.i.i.i104, ptr noundef nonnull %u_instr_sequence.i90, ptr noundef nonnull %s_allocated.i.i.i.i105, i32 noundef 100, i64 noundef 44), !range !5
+  %call.i.i.i.i106 = tail call i32 @_PyCompile_EnsureArrayLargeEnough(i32 noundef %add.i.i.i.i104, ptr noundef nonnull %u_instr_sequence.i90, ptr noundef nonnull %s_allocated.i.i.i.i105, i32 noundef 100, i64 noundef 44)
   %cmp.i.i.i.i107 = icmp eq i32 %call.i.i.i.i106, -1
   br i1 %cmp.i.i.i.i107, label %return, label %instr_sequence_next_inst.exit.i.i.i108
 
@@ -24236,7 +24237,7 @@ return:                                           ; preds = %for.body, %for.cond
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @compiler_jump_if(ptr noundef %c, ptr noundef %e, i32 %next.coerce, i32 noundef %cond) unnamed_addr #1 {
+define internal fastcc range(i32 -1, 1) i32 @compiler_jump_if(ptr noundef %c, ptr noundef %e, i32 %next.coerce, i32 noundef %cond) unnamed_addr #1 {
 entry:
   br label %tailrecurse
 
@@ -24307,7 +24308,7 @@ for.body.lr.ph:                                   ; preds = %if.end25
 for.cond:                                         ; preds = %for.body
   %inc = add nuw nsw i64 %i.0279, 1
   %exitcond289.not = icmp eq i64 %inc, %cond6
-  br i1 %exitcond289.not, label %for.end, label %for.body, !llvm.loop !103
+  br i1 %exitcond289.not, label %for.end, label %for.body, !llvm.loop !96
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.cond
   %i.0279 = phi i64 [ 0, %for.body.lr.ph ], [ %inc, %for.cond ]
@@ -24335,7 +24336,7 @@ if.then46:                                        ; preds = %if.end41
   %s_labelmap_size.i = getelementptr inbounds i8, ptr %12, i64 48
   %13 = load i32, ptr %s_labelmap_size.i, align 8
   %s_labelmap.i = getelementptr inbounds i8, ptr %12, i64 40
-  %call.i = tail call i32 @_PyCompile_EnsureArrayLargeEnough(i32 noundef %next2.sroa.0.0, ptr noundef nonnull %s_labelmap.i, ptr noundef nonnull %s_labelmap_size.i, i32 noundef 10, i64 noundef 4), !range !5
+  %call.i = tail call i32 @_PyCompile_EnsureArrayLargeEnough(i32 noundef %next2.sroa.0.0, ptr noundef nonnull %s_labelmap.i, ptr noundef nonnull %s_labelmap_size.i, i32 noundef 10, i64 noundef 4)
   %cmp.i = icmp eq i32 %call.i, -1
   br i1 %cmp.i, label %return, label %for.cond.preheader.i
 
@@ -24357,7 +24358,7 @@ for.body.i:                                       ; preds = %for.body.i, %for.bo
   %17 = load i32, ptr %s_labelmap_size.i, align 8
   %18 = sext i32 %17 to i64
   %cmp3.i = icmp slt i64 %indvars.iv.next.i, %18
-  br i1 %cmp3.i, label %for.body.i, label %_PyCompile_InstructionSequence_UseLabel.exit, !llvm.loop !6
+  br i1 %cmp3.i, label %for.body.i, label %_PyCompile_InstructionSequence_UseLabel.exit, !llvm.loop !5
 
 _PyCompile_InstructionSequence_UseLabel.exit:     ; preds = %for.body.i, %for.cond.preheader.i
   %s_used.i = getelementptr inbounds i8, ptr %12, i64 36
@@ -24408,7 +24409,7 @@ if.end89:                                         ; preds = %if.end82
   %28 = load i32, ptr %s_used.i.i.i, align 4
   %add.i.i.i = add i32 %28, 1
   %s_allocated.i.i.i = getelementptr inbounds i8, ptr %27, i64 32
-  %call.i.i.i = tail call i32 @_PyCompile_EnsureArrayLargeEnough(i32 noundef %add.i.i.i, ptr noundef nonnull %u_instr_sequence91, ptr noundef nonnull %s_allocated.i.i.i, i32 noundef 100, i64 noundef 44), !range !5
+  %call.i.i.i = tail call i32 @_PyCompile_EnsureArrayLargeEnough(i32 noundef %add.i.i.i, ptr noundef nonnull %u_instr_sequence91, ptr noundef nonnull %s_allocated.i.i.i, i32 noundef 100, i64 noundef 44)
   %cmp.i.i.i = icmp eq i32 %call.i.i.i, -1
   br i1 %cmp.i.i.i, label %return, label %instr_sequence_next_inst.exit.i.i
 
@@ -24430,7 +24431,7 @@ if.end97:                                         ; preds = %instr_sequence_next
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %i_loc.i.i, i8 -1, i64 16, i1 false)
   %31 = load ptr, ptr %u57, align 8
   %u_instr_sequence99 = getelementptr inbounds i8, ptr %31, i64 24
-  %call101 = tail call i32 @_PyCompile_InstructionSequence_UseLabel(ptr noundef nonnull %u_instr_sequence99, i32 noundef %inc.i149), !range !5
+  %call101 = tail call i32 @_PyCompile_InstructionSequence_UseLabel(ptr noundef nonnull %u_instr_sequence99, i32 noundef %inc.i149)
   %cmp102 = icmp eq i32 %call101, -1
   br i1 %cmp102, label %return, label %if.end105
 
@@ -24444,7 +24445,7 @@ if.end105:                                        ; preds = %if.end97
 if.end112:                                        ; preds = %if.end105
   %33 = load ptr, ptr %u57, align 8
   %u_instr_sequence114 = getelementptr inbounds i8, ptr %33, i64 24
-  %call116 = tail call i32 @_PyCompile_InstructionSequence_UseLabel(ptr noundef nonnull %u_instr_sequence114, i32 noundef %inc.i147), !range !5
+  %call116 = tail call i32 @_PyCompile_InstructionSequence_UseLabel(ptr noundef nonnull %u_instr_sequence114, i32 noundef %inc.i147)
   %cmp117 = icmp eq i32 %call116, -1
   %. = sext i1 %cmp117 to i32
   br label %return
@@ -24463,7 +24464,7 @@ cond.end131:                                      ; preds = %sw.bb121
   br i1 %cmp134, label %if.then136, label %sw.epilog
 
 if.then136:                                       ; preds = %cond.end131
-  %call137 = tail call fastcc i32 @check_compare(ptr noundef %c, ptr noundef nonnull %e.tr), !range !5
+  %call137 = tail call fastcc i32 @check_compare(ptr noundef %c, ptr noundef nonnull %e.tr)
   %cmp138 = icmp eq i32 %call137, -1
   br i1 %cmp138, label %return, label %if.end141
 
@@ -24479,7 +24480,7 @@ if.end141:                                        ; preds = %if.then136
 
 if.end150:                                        ; preds = %if.end141
   %38 = load ptr, ptr %v123, align 8
-  %call152 = tail call fastcc i32 @compiler_visit_expr(ptr noundef nonnull %c, ptr noundef %38), !range !5
+  %call152 = tail call fastcc i32 @compiler_visit_expr(ptr noundef nonnull %c, ptr noundef %38)
   %cmp153 = icmp eq i32 %call152, -1
   br i1 %cmp153, label %return, label %for.body161.lr.ph
 
@@ -24497,7 +24498,7 @@ for.body161:                                      ; preds = %for.body161.lr.ph, 
   %typed_elements163 = getelementptr inbounds i8, ptr %39, i64 16
   %arrayidx164 = getelementptr [1 x ptr], ptr %typed_elements163, i64 0, i64 %i157.0277
   %40 = load ptr, ptr %arrayidx164, align 8
-  %call165 = tail call fastcc i32 @compiler_visit_expr(ptr noundef nonnull %c, ptr noundef %40), !range !5
+  %call165 = tail call fastcc i32 @compiler_visit_expr(ptr noundef nonnull %c, ptr noundef %40)
   %cmp166 = icmp eq i32 %call165, -1
   br i1 %cmp166, label %return, label %if.end169
 
@@ -24520,7 +24521,7 @@ if.end169:                                        ; preds = %for.body161
   %46 = load i32, ptr %s_used.i.i.i152, align 4
   %add.i.i.i153 = add i32 %46, 1
   %s_allocated.i.i.i154 = getelementptr inbounds i8, ptr %41, i64 32
-  %call.i.i.i155 = tail call i32 @_PyCompile_EnsureArrayLargeEnough(i32 noundef %add.i.i.i153, ptr noundef nonnull %u_instr_sequence171, ptr noundef nonnull %s_allocated.i.i.i154, i32 noundef 100, i64 noundef 44), !range !5
+  %call.i.i.i155 = tail call i32 @_PyCompile_EnsureArrayLargeEnough(i32 noundef %add.i.i.i153, ptr noundef nonnull %u_instr_sequence171, ptr noundef nonnull %s_allocated.i.i.i154, i32 noundef 100, i64 noundef 44)
   %cmp.i.i.i156 = icmp eq i32 %call.i.i.i155, -1
   br i1 %cmp.i.i.i156, label %return, label %instr_sequence_next_inst.exit.i.i157
 
@@ -24560,7 +24561,7 @@ if.end180:                                        ; preds = %instr_sequence_next
   %54 = load i32, ptr %s_used.i.i.i167, align 4
   %add.i.i.i168 = add i32 %54, 1
   %s_allocated.i.i.i169 = getelementptr inbounds i8, ptr %49, i64 32
-  %call.i.i.i170 = tail call i32 @_PyCompile_EnsureArrayLargeEnough(i32 noundef %add.i.i.i168, ptr noundef nonnull %u_instr_sequence182, ptr noundef nonnull %s_allocated.i.i.i169, i32 noundef 100, i64 noundef 44), !range !5
+  %call.i.i.i170 = tail call i32 @_PyCompile_EnsureArrayLargeEnough(i32 noundef %add.i.i.i168, ptr noundef nonnull %u_instr_sequence182, ptr noundef nonnull %s_allocated.i.i.i169, i32 noundef 100, i64 noundef 44)
   %cmp.i.i.i171 = icmp eq i32 %call.i.i.i170, -1
   br i1 %cmp.i.i.i171, label %return, label %instr_sequence_next_inst.exit.i.i172
 
@@ -24598,7 +24599,7 @@ if.end196:                                        ; preds = %instr_sequence_next
   %.compoundliteral197.sroa.5.8.insert.shift = shl nuw i64 %.compoundliteral197.sroa.5.8.insert.ext, 32
   %.compoundliteral197.sroa.3.8.insert.ext = zext i32 %59 to i64
   %.compoundliteral197.sroa.3.8.insert.insert = or disjoint i64 %.compoundliteral197.sroa.5.8.insert.shift, %.compoundliteral197.sroa.3.8.insert.ext
-  %call210 = tail call fastcc i32 @compiler_addcompare(ptr noundef nonnull %c, i64 %.compoundliteral197.sroa.0.0.insert.insert, i64 %.compoundliteral197.sroa.3.8.insert.insert, i32 noundef %62), !range !5
+  %call210 = tail call fastcc i32 @compiler_addcompare(ptr noundef nonnull %c, i64 %.compoundliteral197.sroa.0.0.insert.insert, i64 %.compoundliteral197.sroa.3.8.insert.insert, i32 noundef %62)
   %cmp211 = icmp eq i32 %call210, -1
   br i1 %cmp211, label %return, label %if.end214
 
@@ -24621,7 +24622,7 @@ if.end214:                                        ; preds = %if.end196
   %68 = load i32, ptr %s_used.i.i.i183, align 4
   %add.i.i.i184 = add i32 %68, 1
   %s_allocated.i.i.i185 = getelementptr inbounds i8, ptr %63, i64 32
-  %call.i.i.i186 = tail call i32 @_PyCompile_EnsureArrayLargeEnough(i32 noundef %add.i.i.i184, ptr noundef nonnull %u_instr_sequence216, ptr noundef nonnull %s_allocated.i.i.i185, i32 noundef 100, i64 noundef 44), !range !5
+  %call.i.i.i186 = tail call i32 @_PyCompile_EnsureArrayLargeEnough(i32 noundef %add.i.i.i184, ptr noundef nonnull %u_instr_sequence216, ptr noundef nonnull %s_allocated.i.i.i185, i32 noundef 100, i64 noundef 44)
   %cmp.i.i.i187 = icmp eq i32 %call.i.i.i186, -1
   br i1 %cmp.i.i.i187, label %return, label %instr_sequence_next_inst.exit.i.i188
 
@@ -24661,7 +24662,7 @@ if.end230:                                        ; preds = %instr_sequence_next
   %76 = load i32, ptr %s_used.i.i.i198, align 4
   %add.i.i.i199 = add i32 %76, 1
   %s_allocated.i.i.i200 = getelementptr inbounds i8, ptr %71, i64 32
-  %call.i.i.i201 = tail call i32 @_PyCompile_EnsureArrayLargeEnough(i32 noundef %add.i.i.i199, ptr noundef nonnull %u_instr_sequence232, ptr noundef nonnull %s_allocated.i.i.i200, i32 noundef 100, i64 noundef 44), !range !5
+  %call.i.i.i201 = tail call i32 @_PyCompile_EnsureArrayLargeEnough(i32 noundef %add.i.i.i199, ptr noundef nonnull %u_instr_sequence232, ptr noundef nonnull %s_allocated.i.i.i200, i32 noundef 100, i64 noundef 44)
   %cmp.i.i.i202 = icmp eq i32 %call.i.i.i201, -1
   br i1 %cmp.i.i.i202, label %return, label %instr_sequence_next_inst.exit.i.i203
 
@@ -24685,7 +24686,7 @@ for.inc248:                                       ; preds = %instr_sequence_next
   store i64 %.compoundliteral233.sroa.3.8.insert.insert, ptr %loc.sroa.2.0.i_loc.sroa_idx.i.i211, align 4
   %inc249 = add nuw nsw i64 %i157.0277, 1
   %exitcond.not = icmp eq i64 %inc249, %sub133
-  br i1 %exitcond.not, label %for.end250, label %for.body161, !llvm.loop !104
+  br i1 %exitcond.not, label %for.end250, label %for.body161, !llvm.loop !97
 
 for.end250:                                       ; preds = %for.inc248
   %comparators252 = getelementptr inbounds i8, ptr %e.tr, i64 24
@@ -24693,7 +24694,7 @@ for.end250:                                       ; preds = %for.inc248
   %typed_elements253 = getelementptr inbounds i8, ptr %79, i64 16
   %arrayidx254 = getelementptr [1 x ptr], ptr %typed_elements253, i64 0, i64 %sub133
   %80 = load ptr, ptr %arrayidx254, align 8
-  %call255 = tail call fastcc i32 @compiler_visit_expr(ptr noundef nonnull %c, ptr noundef %80), !range !5
+  %call255 = tail call fastcc i32 @compiler_visit_expr(ptr noundef nonnull %c, ptr noundef %80)
   %cmp256 = icmp eq i32 %call255, -1
   br i1 %cmp256, label %return, label %if.end259
 
@@ -24718,7 +24719,7 @@ if.end259:                                        ; preds = %for.end250
   %.compoundliteral260.sroa.5.8.insert.shift = shl nuw i64 %.compoundliteral260.sroa.5.8.insert.ext, 32
   %.compoundliteral260.sroa.3.8.insert.ext = zext i32 %83 to i64
   %.compoundliteral260.sroa.3.8.insert.insert = or disjoint i64 %.compoundliteral260.sroa.5.8.insert.shift, %.compoundliteral260.sroa.3.8.insert.ext
-  %call273 = tail call fastcc i32 @compiler_addcompare(ptr noundef nonnull %c, i64 %.compoundliteral260.sroa.0.0.insert.insert, i64 %.compoundliteral260.sroa.3.8.insert.insert, i32 noundef %86), !range !5
+  %call273 = tail call fastcc i32 @compiler_addcompare(ptr noundef nonnull %c, i64 %.compoundliteral260.sroa.0.0.insert.insert, i64 %.compoundliteral260.sroa.3.8.insert.insert, i32 noundef %86)
   %cmp274 = icmp eq i32 %call273, -1
   br i1 %cmp274, label %return, label %if.end277
 
@@ -24737,7 +24738,7 @@ if.end277:                                        ; preds = %if.end259
   %.compoundliteral280.sroa.5.8.insert.shift = shl nuw i64 %.compoundliteral280.sroa.5.8.insert.ext, 32
   %.compoundliteral280.sroa.3.8.insert.ext = zext i32 %90 to i64
   %.compoundliteral280.sroa.3.8.insert.insert = or disjoint i64 %.compoundliteral280.sroa.5.8.insert.shift, %.compoundliteral280.sroa.3.8.insert.ext
-  %call289 = tail call fastcc i32 @codegen_addop_noarg(ptr noundef nonnull %u_instr_sequence279, i32 noundef 40, i64 %.compoundliteral280.sroa.0.0.insert.insert, i64 %.compoundliteral280.sroa.3.8.insert.insert), !range !5
+  %call289 = tail call fastcc i32 @codegen_addop_noarg(ptr noundef nonnull %u_instr_sequence279, i32 noundef 40, i64 %.compoundliteral280.sroa.0.0.insert.insert, i64 %.compoundliteral280.sroa.3.8.insert.insert)
   %cmp290 = icmp eq i32 %call289, -1
   br i1 %cmp290, label %return, label %if.end293
 
@@ -24758,7 +24759,7 @@ if.end293:                                        ; preds = %if.end277
   %.compoundliteral296.sroa.5.8.insert.shift = shl nuw i64 %.compoundliteral296.sroa.5.8.insert.ext, 32
   %.compoundliteral296.sroa.3.8.insert.ext = zext i32 %95 to i64
   %.compoundliteral296.sroa.3.8.insert.insert = or disjoint i64 %.compoundliteral296.sroa.5.8.insert.shift, %.compoundliteral296.sroa.3.8.insert.ext
-  %call308 = tail call fastcc i32 @codegen_addop_j(ptr noundef nonnull %u_instr_sequence295, i64 %.compoundliteral296.sroa.0.0.insert.insert, i64 %.compoundliteral296.sroa.3.8.insert.insert, i32 noundef %cond306, i32 %next.coerce), !range !5
+  %call308 = tail call fastcc i32 @codegen_addop_j(ptr noundef nonnull %u_instr_sequence295, i64 %.compoundliteral296.sroa.0.0.insert.insert, i64 %.compoundliteral296.sroa.3.8.insert.insert, i32 noundef %cond306, i32 %next.coerce)
   %cmp309 = icmp eq i32 %call308, -1
   br i1 %cmp309, label %return, label %if.end312
 
@@ -24774,14 +24775,14 @@ if.end312:                                        ; preds = %if.end293
 if.end322:                                        ; preds = %if.end312
   %99 = load ptr, ptr %u142, align 8
   %u_instr_sequence324 = getelementptr inbounds i8, ptr %99, i64 24
-  %call326 = tail call fastcc i32 @codegen_addop_j(ptr noundef nonnull %u_instr_sequence324, i64 -1, i64 -1, i32 noundef 256, i32 %inc.i215), !range !5
+  %call326 = tail call fastcc i32 @codegen_addop_j(ptr noundef nonnull %u_instr_sequence324, i64 -1, i64 -1, i32 noundef 256, i32 %inc.i215)
   %cmp327 = icmp eq i32 %call326, -1
   br i1 %cmp327, label %return, label %if.end330
 
 if.end330:                                        ; preds = %if.end322
   %100 = load ptr, ptr %u142, align 8
   %u_instr_sequence332 = getelementptr inbounds i8, ptr %100, i64 24
-  %call334 = tail call i32 @_PyCompile_InstructionSequence_UseLabel(ptr noundef nonnull %u_instr_sequence332, i32 noundef %inc.i151), !range !5
+  %call334 = tail call i32 @_PyCompile_InstructionSequence_UseLabel(ptr noundef nonnull %u_instr_sequence332, i32 noundef %inc.i151)
   %cmp335 = icmp eq i32 %call334, -1
   br i1 %cmp335, label %return, label %if.end338
 
@@ -24800,7 +24801,7 @@ if.end338:                                        ; preds = %if.end330
   %.compoundliteral341.sroa.5.8.insert.shift = shl nuw i64 %.compoundliteral341.sroa.5.8.insert.ext, 32
   %.compoundliteral341.sroa.3.8.insert.ext = zext i32 %104 to i64
   %.compoundliteral341.sroa.3.8.insert.insert = or disjoint i64 %.compoundliteral341.sroa.5.8.insert.shift, %.compoundliteral341.sroa.3.8.insert.ext
-  %call350 = tail call fastcc i32 @codegen_addop_noarg(ptr noundef nonnull %u_instr_sequence340, i32 noundef 32, i64 %.compoundliteral341.sroa.0.0.insert.insert, i64 %.compoundliteral341.sroa.3.8.insert.insert), !range !5
+  %call350 = tail call fastcc i32 @codegen_addop_noarg(ptr noundef nonnull %u_instr_sequence340, i32 noundef 32, i64 %.compoundliteral341.sroa.0.0.insert.insert, i64 %.compoundliteral341.sroa.3.8.insert.insert)
   %cmp351 = icmp eq i32 %call350, -1
   br i1 %cmp351, label %return, label %if.end354
 
@@ -24810,20 +24811,20 @@ if.end354:                                        ; preds = %if.end338
 if.then356:                                       ; preds = %if.end354
   %106 = load ptr, ptr %u142, align 8
   %u_instr_sequence358 = getelementptr inbounds i8, ptr %106, i64 24
-  %call360 = tail call fastcc i32 @codegen_addop_j(ptr noundef nonnull %u_instr_sequence358, i64 -1, i64 -1, i32 noundef 256, i32 %next.coerce), !range !5
+  %call360 = tail call fastcc i32 @codegen_addop_j(ptr noundef nonnull %u_instr_sequence358, i64 -1, i64 -1, i32 noundef 256, i32 %next.coerce)
   %cmp361 = icmp eq i32 %call360, -1
   br i1 %cmp361, label %return, label %if.end365
 
 if.end365:                                        ; preds = %if.then356, %if.end354
   %107 = load ptr, ptr %u142, align 8
   %u_instr_sequence367 = getelementptr inbounds i8, ptr %107, i64 24
-  %call369 = tail call i32 @_PyCompile_InstructionSequence_UseLabel(ptr noundef nonnull %u_instr_sequence367, i32 noundef %inc.i215), !range !5
+  %call369 = tail call i32 @_PyCompile_InstructionSequence_UseLabel(ptr noundef nonnull %u_instr_sequence367, i32 noundef %inc.i215)
   %cmp370 = icmp eq i32 %call369, -1
   %.144 = sext i1 %cmp370 to i32
   br label %return
 
 sw.epilog:                                        ; preds = %tailrecurse, %sw.bb, %sw.bb121, %cond.end131
-  %call375 = tail call fastcc i32 @compiler_visit_expr(ptr noundef %c, ptr noundef nonnull %e.tr), !range !5
+  %call375 = tail call fastcc i32 @compiler_visit_expr(ptr noundef %c, ptr noundef nonnull %e.tr)
   %cmp376 = icmp eq i32 %call375, -1
   br i1 %cmp376, label %return, label %if.end379
 
@@ -24851,7 +24852,7 @@ if.end379:                                        ; preds = %sw.epilog
   %113 = load i32, ptr %s_used.i.i.i216, align 4
   %add.i.i.i217 = add i32 %113, 1
   %s_allocated.i.i.i218 = getelementptr inbounds i8, ptr %108, i64 32
-  %call.i.i.i219 = tail call i32 @_PyCompile_EnsureArrayLargeEnough(i32 noundef %add.i.i.i217, ptr noundef nonnull %u_instr_sequence381, ptr noundef nonnull %s_allocated.i.i.i218, i32 noundef 100, i64 noundef 44), !range !5
+  %call.i.i.i219 = tail call i32 @_PyCompile_EnsureArrayLargeEnough(i32 noundef %add.i.i.i217, ptr noundef nonnull %u_instr_sequence381, ptr noundef nonnull %s_allocated.i.i.i218, i32 noundef 100, i64 noundef 44)
   %cmp.i.i.i220 = icmp eq i32 %call.i.i.i219, -1
   br i1 %cmp.i.i.i220, label %return, label %instr_sequence_next_inst.exit.i.i221
 
@@ -24893,7 +24894,7 @@ if.end395:                                        ; preds = %instr_sequence_next
   %121 = load i32, ptr %s_used.i.i.i232, align 4
   %add.i.i.i233 = add i32 %121, 1
   %s_allocated.i.i.i234 = getelementptr inbounds i8, ptr %116, i64 32
-  %call.i.i.i235 = tail call i32 @_PyCompile_EnsureArrayLargeEnough(i32 noundef %add.i.i.i233, ptr noundef nonnull %u_instr_sequence397, ptr noundef nonnull %s_allocated.i.i.i234, i32 noundef 100, i64 noundef 44), !range !5
+  %call.i.i.i235 = tail call i32 @_PyCompile_EnsureArrayLargeEnough(i32 noundef %add.i.i.i233, ptr noundef nonnull %u_instr_sequence397, ptr noundef nonnull %s_allocated.i.i.i234, i32 noundef 100, i64 noundef 44)
   %cmp.i.i.i236 = icmp eq i32 %call.i.i.i235, -1
   br i1 %cmp.i.i.i236, label %return, label %instr_sequence_next_inst.exit.i.i237
 
@@ -24923,7 +24924,7 @@ return:                                           ; preds = %if.end230, %instr_s
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @check_compare(ptr nocapture noundef readonly %c, ptr nocapture noundef readonly %e) unnamed_addr #1 {
+define internal fastcc range(i32 -1, 1) i32 @check_compare(ptr nocapture noundef readonly %c, ptr nocapture noundef readonly %e) unnamed_addr #1 {
 entry:
   %v = getelementptr inbounds i8, ptr %e, i64 8
   %0 = load ptr, ptr %v, align 8
@@ -24965,7 +24966,7 @@ for.body.lr.ph:                                   ; preds = %cond.end
 for.cond:                                         ; preds = %check_is_arg.exit30
   %inc = add nuw nsw i64 %i.040, 1
   %exitcond.not = icmp eq i64 %inc, %4
-  br i1 %exitcond.not, label %return, label %for.body, !llvm.loop !105
+  br i1 %exitcond.not, label %return, label %for.body, !llvm.loop !98
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.cond
   %i.040 = phi i64 [ 0, %for.body.lr.ph ], [ %inc, %for.cond ]
@@ -25067,7 +25068,7 @@ infer_type.exit:                                  ; preds = %if.then19, %sw.bb1.
   %.compoundliteral.sroa.5.8.insert.shift = shl nuw i64 %.compoundliteral.sroa.5.8.insert.ext, 32
   %.compoundliteral.sroa.3.8.insert.ext = zext i32 %14 to i64
   %.compoundliteral.sroa.3.8.insert.insert = or disjoint i64 %.compoundliteral.sroa.5.8.insert.shift, %.compoundliteral.sroa.3.8.insert.ext
-  %call32 = tail call i32 (ptr, i64, i64, ptr, ...) @compiler_warn(ptr noundef %c, i64 %.compoundliteral.sroa.0.0.insert.insert, i64 %.compoundliteral.sroa.3.8.insert.insert, ptr noundef nonnull %cond21, ptr noundef %19), !range !5
+  %call32 = tail call i32 (ptr, i64, i64, ptr, ...) @compiler_warn(ptr noundef %c, i64 %.compoundliteral.sroa.0.0.insert.insert, i64 %.compoundliteral.sroa.3.8.insert.insert, ptr noundef nonnull %cond21, ptr noundef %19)
   br label %return
 
 return:                                           ; preds = %for.cond, %check_is_arg.exit, %cond.end, %infer_type.exit
@@ -25076,7 +25077,7 @@ return:                                           ; preds = %for.cond, %check_is
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @compiler_addcompare(ptr nocapture noundef readonly %c, i64 %loc.coerce0, i64 %loc.coerce1, i32 noundef %op) unnamed_addr #1 {
+define internal fastcc range(i32 -1, 1) i32 @compiler_addcompare(ptr nocapture noundef readonly %c, i64 %loc.coerce0, i64 %loc.coerce1, i32 noundef %op) unnamed_addr #1 {
 entry:
   switch i32 %op, label %sw.default [
     i32 1, label %sw.epilog
@@ -25114,7 +25115,7 @@ sw.bb6:                                           ; preds = %entry
   %1 = load i32, ptr %s_used.i.i.i, align 4
   %add.i.i.i = add i32 %1, 1
   %s_allocated.i.i.i = getelementptr inbounds i8, ptr %0, i64 32
-  %call.i.i.i = tail call i32 @_PyCompile_EnsureArrayLargeEnough(i32 noundef %add.i.i.i, ptr noundef nonnull %u_instr_sequence, ptr noundef nonnull %s_allocated.i.i.i, i32 noundef 100, i64 noundef 44), !range !5
+  %call.i.i.i = tail call i32 @_PyCompile_EnsureArrayLargeEnough(i32 noundef %add.i.i.i, ptr noundef nonnull %u_instr_sequence, ptr noundef nonnull %s_allocated.i.i.i, i32 noundef 100, i64 noundef 44)
   %cmp.i.i.i = icmp eq i32 %call.i.i.i, -1
   br i1 %cmp.i.i.i, label %return, label %instr_sequence_next_inst.exit.i.i
 
@@ -25140,7 +25141,7 @@ sw.bb8:                                           ; preds = %entry
   %5 = load i32, ptr %s_used.i.i.i18, align 4
   %add.i.i.i19 = add i32 %5, 1
   %s_allocated.i.i.i20 = getelementptr inbounds i8, ptr %4, i64 32
-  %call.i.i.i21 = tail call i32 @_PyCompile_EnsureArrayLargeEnough(i32 noundef %add.i.i.i19, ptr noundef nonnull %u_instr_sequence10, ptr noundef nonnull %s_allocated.i.i.i20, i32 noundef 100, i64 noundef 44), !range !5
+  %call.i.i.i21 = tail call i32 @_PyCompile_EnsureArrayLargeEnough(i32 noundef %add.i.i.i19, ptr noundef nonnull %u_instr_sequence10, ptr noundef nonnull %s_allocated.i.i.i20, i32 noundef 100, i64 noundef 44)
   %cmp.i.i.i22 = icmp eq i32 %call.i.i.i21, -1
   br i1 %cmp.i.i.i22, label %return, label %instr_sequence_next_inst.exit.i.i23
 
@@ -25166,7 +25167,7 @@ sw.bb15:                                          ; preds = %entry
   %9 = load i32, ptr %s_used.i.i.i34, align 4
   %add.i.i.i35 = add i32 %9, 1
   %s_allocated.i.i.i36 = getelementptr inbounds i8, ptr %8, i64 32
-  %call.i.i.i37 = tail call i32 @_PyCompile_EnsureArrayLargeEnough(i32 noundef %add.i.i.i35, ptr noundef nonnull %u_instr_sequence17, ptr noundef nonnull %s_allocated.i.i.i36, i32 noundef 100, i64 noundef 44), !range !5
+  %call.i.i.i37 = tail call i32 @_PyCompile_EnsureArrayLargeEnough(i32 noundef %add.i.i.i35, ptr noundef nonnull %u_instr_sequence17, ptr noundef nonnull %s_allocated.i.i.i36, i32 noundef 100, i64 noundef 44)
   %cmp.i.i.i38 = icmp eq i32 %call.i.i.i37, -1
   br i1 %cmp.i.i.i38, label %return, label %instr_sequence_next_inst.exit.i.i39
 
@@ -25192,7 +25193,7 @@ sw.bb22:                                          ; preds = %entry
   %13 = load i32, ptr %s_used.i.i.i50, align 4
   %add.i.i.i51 = add i32 %13, 1
   %s_allocated.i.i.i52 = getelementptr inbounds i8, ptr %12, i64 32
-  %call.i.i.i53 = tail call i32 @_PyCompile_EnsureArrayLargeEnough(i32 noundef %add.i.i.i51, ptr noundef nonnull %u_instr_sequence24, ptr noundef nonnull %s_allocated.i.i.i52, i32 noundef 100, i64 noundef 44), !range !5
+  %call.i.i.i53 = tail call i32 @_PyCompile_EnsureArrayLargeEnough(i32 noundef %add.i.i.i51, ptr noundef nonnull %u_instr_sequence24, ptr noundef nonnull %s_allocated.i.i.i52, i32 noundef 100, i64 noundef 44)
   %cmp.i.i.i54 = icmp eq i32 %call.i.i.i53, -1
   br i1 %cmp.i.i.i54, label %return, label %instr_sequence_next_inst.exit.i.i55
 
@@ -25227,7 +25228,7 @@ sw.epilog:                                        ; preds = %entry, %sw.bb5, %sw
   %18 = load i32, ptr %s_used.i.i.i66, align 4
   %add.i.i.i67 = add i32 %18, 1
   %s_allocated.i.i.i68 = getelementptr inbounds i8, ptr %16, i64 32
-  %call.i.i.i69 = tail call i32 @_PyCompile_EnsureArrayLargeEnough(i32 noundef %add.i.i.i67, ptr noundef nonnull %u_instr_sequence30, ptr noundef nonnull %s_allocated.i.i.i68, i32 noundef 100, i64 noundef 44), !range !5
+  %call.i.i.i69 = tail call i32 @_PyCompile_EnsureArrayLargeEnough(i32 noundef %add.i.i.i67, ptr noundef nonnull %u_instr_sequence30, ptr noundef nonnull %s_allocated.i.i.i68, i32 noundef 100, i64 noundef 44)
   %cmp.i.i.i70 = icmp eq i32 %call.i.i.i69, -1
   br i1 %cmp.i.i.i70, label %return, label %instr_sequence_next_inst.exit.i.i71
 
@@ -25262,7 +25263,7 @@ return:                                           ; preds = %return.sink.split, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @compiler_warn(ptr nocapture noundef readonly %c, i64 %loc.coerce0, i64 %loc.coerce1, ptr noundef %format, ...) unnamed_addr #1 {
+define internal range(i32 -1, 1) i32 @compiler_warn(ptr nocapture noundef readonly %c, i64 %loc.coerce0, i64 %loc.coerce1, ptr noundef %format, ...) unnamed_addr #1 {
 entry:
   %vargs = alloca [1 x %struct.__va_list_tag], align 16
   call void @llvm.va_start.p0(ptr nonnull %vargs)
@@ -25332,7 +25333,7 @@ declare i32 @PyErr_ExceptionMatches(ptr noundef) local_unnamed_addr #2
 declare ptr @PyUnicode_AsUTF8(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @compiler_pattern(ptr noundef %c, ptr noundef readonly %p, ptr nocapture noundef %pc) unnamed_addr #1 {
+define internal fastcc range(i32 -1, 1) i32 @compiler_pattern(ptr noundef %c, ptr noundef readonly %p, ptr nocapture noundef %pc) unnamed_addr #1 {
 entry:
   %old_pc.sroa.7.i = alloca { i64, i64 }, align 8
   %0 = load i32, ptr %p, align 8
@@ -25376,7 +25377,7 @@ if.then.i:                                        ; preds = %sw.bb
   br label %return
 
 if.end.i:                                         ; preds = %sw.bb
-  %call8.i = tail call fastcc i32 @compiler_visit_expr(ptr noundef %c, ptr noundef nonnull %1), !range !5
+  %call8.i = tail call fastcc i32 @compiler_visit_expr(ptr noundef %c, ptr noundef nonnull %1)
   %cmp9.i = icmp eq i32 %call8.i, -1
   br i1 %cmp9.i, label %return, label %if.end11.i
 
@@ -25404,7 +25405,7 @@ if.end11.i:                                       ; preds = %if.end.i
   %13 = load i32, ptr %s_used.i.i.i66.i.i, align 4
   %add.i.i.i67.i.i = add i32 %13, 1
   %s_allocated.i.i.i68.i.i = getelementptr inbounds i8, ptr %12, i64 32
-  %call.i.i.i69.i.i = tail call i32 @_PyCompile_EnsureArrayLargeEnough(i32 noundef %add.i.i.i67.i.i, ptr noundef nonnull %u_instr_sequence30.i.i, ptr noundef nonnull %s_allocated.i.i.i68.i.i, i32 noundef 100, i64 noundef 44), !range !5
+  %call.i.i.i69.i.i = tail call i32 @_PyCompile_EnsureArrayLargeEnough(i32 noundef %add.i.i.i67.i.i, ptr noundef nonnull %u_instr_sequence30.i.i, ptr noundef nonnull %s_allocated.i.i.i68.i.i, i32 noundef 100, i64 noundef 44)
   %cmp.i.i.i70.i.i = icmp eq i32 %call.i.i.i69.i.i, -1
   br i1 %cmp.i.i.i70.i.i, label %return, label %instr_sequence_next_inst.exit.i.i71.i.i
 
@@ -25444,7 +25445,7 @@ if.end24.i:                                       ; preds = %instr_sequence_next
   %21 = load i32, ptr %s_used.i.i.i.i, align 4
   %add.i.i.i.i = add i32 %21, 1
   %s_allocated.i.i.i.i = getelementptr inbounds i8, ptr %16, i64 32
-  %call.i.i.i.i = tail call i32 @_PyCompile_EnsureArrayLargeEnough(i32 noundef %add.i.i.i.i, ptr noundef nonnull %u_instr_sequence.i, ptr noundef nonnull %s_allocated.i.i.i.i, i32 noundef 100, i64 noundef 44), !range !5
+  %call.i.i.i.i = tail call i32 @_PyCompile_EnsureArrayLargeEnough(i32 noundef %add.i.i.i.i, ptr noundef nonnull %u_instr_sequence.i, ptr noundef nonnull %s_allocated.i.i.i.i, i32 noundef 100, i64 noundef 44)
   %cmp.i.i.i.i = icmp eq i32 %call.i.i.i.i, -1
   br i1 %cmp.i.i.i.i, label %return, label %instr_sequence_next_inst.exit.i.i.i
 
@@ -25478,7 +25479,7 @@ if.end37.i:                                       ; preds = %instr_sequence_next
   %.compoundliteral38.sroa.5.8.insert.shift.i = shl nuw i64 %.compoundliteral38.sroa.5.8.insert.ext.i, 32
   %.compoundliteral38.sroa.3.8.insert.ext.i = zext i32 %26 to i64
   %.compoundliteral38.sroa.3.8.insert.insert.i = or disjoint i64 %.compoundliteral38.sroa.5.8.insert.shift.i, %.compoundliteral38.sroa.3.8.insert.ext.i
-  %call47.i = tail call fastcc i32 @jump_to_fail_pop(ptr noundef nonnull %c, i64 %.compoundliteral38.sroa.0.0.insert.insert.i, i64 %.compoundliteral38.sroa.3.8.insert.insert.i, ptr noundef %pc, i32 noundef 97), !range !5
+  %call47.i = tail call fastcc i32 @jump_to_fail_pop(ptr noundef nonnull %c, i64 %.compoundliteral38.sroa.0.0.insert.insert.i, i64 %.compoundliteral38.sroa.3.8.insert.insert.i, ptr noundef %pc, i32 noundef 97)
   %cmp48.i = icmp eq i32 %call47.i, -1
   %..i = sext i1 %cmp48.i to i32
   br label %return
@@ -25506,7 +25507,7 @@ sw.bb1:                                           ; preds = %entry
   %.compoundliteral.sroa.5.8.insert.shift.i35 = shl nuw i64 %.compoundliteral.sroa.5.8.insert.ext.i34, 32
   %.compoundliteral.sroa.3.8.insert.ext.i36 = zext i32 %32 to i64
   %.compoundliteral.sroa.3.8.insert.insert.i37 = or disjoint i64 %.compoundliteral.sroa.5.8.insert.shift.i35, %.compoundliteral.sroa.3.8.insert.ext.i36
-  %call.i38 = tail call fastcc i32 @compiler_addop_load_const(ptr noundef %28, ptr noundef %29, i64 %.compoundliteral.sroa.0.0.insert.insert.i33, i64 %.compoundliteral.sroa.3.8.insert.insert.i37, ptr noundef %34), !range !5
+  %call.i38 = tail call fastcc i32 @compiler_addop_load_const(ptr noundef %28, ptr noundef %29, i64 %.compoundliteral.sroa.0.0.insert.insert.i33, i64 %.compoundliteral.sroa.3.8.insert.insert.i37, ptr noundef %34)
   %cmp.i = icmp eq i32 %call.i38, -1
   br i1 %cmp.i, label %return, label %if.end.i39
 
@@ -25529,7 +25530,7 @@ if.end.i39:                                       ; preds = %sw.bb1
   %40 = load i32, ptr %s_used.i.i.i.i.i, align 4
   %add.i.i.i.i.i = add i32 %40, 1
   %s_allocated.i.i.i.i.i = getelementptr inbounds i8, ptr %39, i64 32
-  %call.i.i.i.i.i = tail call i32 @_PyCompile_EnsureArrayLargeEnough(i32 noundef %add.i.i.i.i.i, ptr noundef nonnull %u_instr_sequence.i.i, ptr noundef nonnull %s_allocated.i.i.i.i.i, i32 noundef 100, i64 noundef 44), !range !5
+  %call.i.i.i.i.i = tail call i32 @_PyCompile_EnsureArrayLargeEnough(i32 noundef %add.i.i.i.i.i, ptr noundef nonnull %u_instr_sequence.i.i, ptr noundef nonnull %s_allocated.i.i.i.i.i, i32 noundef 100, i64 noundef 44)
   %cmp.i.i.i.i.i = icmp eq i32 %call.i.i.i.i.i, -1
   br i1 %cmp.i.i.i.i.i, label %return, label %instr_sequence_next_inst.exit.i.i.i.i
 
@@ -25563,7 +25564,7 @@ if.end17.i:                                       ; preds = %instr_sequence_next
   %.compoundliteral18.sroa.5.8.insert.shift.i = shl nuw i64 %.compoundliteral18.sroa.5.8.insert.ext.i, 32
   %.compoundliteral18.sroa.3.8.insert.ext.i = zext i32 %45 to i64
   %.compoundliteral18.sroa.3.8.insert.insert.i = or disjoint i64 %.compoundliteral18.sroa.5.8.insert.shift.i, %.compoundliteral18.sroa.3.8.insert.ext.i
-  %call27.i = tail call fastcc i32 @jump_to_fail_pop(ptr noundef nonnull %c, i64 %.compoundliteral18.sroa.0.0.insert.insert.i, i64 %.compoundliteral18.sroa.3.8.insert.insert.i, ptr noundef %pc, i32 noundef 97), !range !5
+  %call27.i = tail call fastcc i32 @jump_to_fail_pop(ptr noundef nonnull %c, i64 %.compoundliteral18.sroa.0.0.insert.insert.i, i64 %.compoundliteral18.sroa.3.8.insert.insert.i, ptr noundef %pc, i32 noundef 97)
   %cmp28.i = icmp eq i32 %call27.i, -1
   %..i44 = sext i1 %cmp28.i to i32
   br label %return
@@ -25642,7 +25643,7 @@ for.inc.i:                                        ; preds = %land.end22.i, %for.
   %star.1.i = phi i64 [ %i.0.i472, %land.end.i ], [ %star.0.i475, %for.body.i ], [ %star.0.i475, %land.end22.i ]
   %inc.i = add nuw nsw i64 %i.0.i472, 1
   %exitcond501.not = icmp eq i64 %inc.i, %48
-  br i1 %exitcond501.not, label %for.end.i, label %for.body.i, !llvm.loop !106
+  br i1 %exitcond501.not, label %for.end.i, label %for.body.i, !llvm.loop !99
 
 for.end.i:                                        ; preds = %for.inc.i, %sw.bb3, %cond.end.i
   %cond.i505 = phi i64 [ %48, %cond.end.i ], [ 0, %sw.bb3 ], [ %48, %for.inc.i ]
@@ -25676,7 +25677,7 @@ for.end.i:                                        ; preds = %for.inc.i, %sw.bb3,
   %63 = load i32, ptr %s_used.i.i.i, align 4
   %add.i.i.i = add i32 %63, 1
   %s_allocated.i.i.i = getelementptr inbounds i8, ptr %58, i64 32
-  %call.i.i.i = tail call i32 @_PyCompile_EnsureArrayLargeEnough(i32 noundef %add.i.i.i, ptr noundef nonnull %u_instr_sequence.i49, ptr noundef nonnull %s_allocated.i.i.i, i32 noundef 100, i64 noundef 44), !range !5
+  %call.i.i.i = tail call i32 @_PyCompile_EnsureArrayLargeEnough(i32 noundef %add.i.i.i, ptr noundef nonnull %u_instr_sequence.i49, ptr noundef nonnull %s_allocated.i.i.i, i32 noundef 100, i64 noundef 44)
   %cmp.i.i.i300 = icmp eq i32 %call.i.i.i, -1
   br i1 %cmp.i.i.i300, label %return, label %instr_sequence_next_inst.exit.i.i
 
@@ -25710,7 +25711,7 @@ if.end38.i:                                       ; preds = %instr_sequence_next
   %.compoundliteral39.sroa.5.8.insert.shift.i = shl nuw i64 %.compoundliteral39.sroa.5.8.insert.ext.i, 32
   %.compoundliteral39.sroa.3.8.insert.ext.i = zext i32 %68 to i64
   %.compoundliteral39.sroa.3.8.insert.insert.i = or disjoint i64 %.compoundliteral39.sroa.5.8.insert.shift.i, %.compoundliteral39.sroa.3.8.insert.ext.i
-  %call48.i = tail call fastcc i32 @jump_to_fail_pop(ptr noundef nonnull %c, i64 %.compoundliteral39.sroa.0.0.insert.insert.i, i64 %.compoundliteral39.sroa.3.8.insert.insert.i, ptr noundef nonnull %pc, i32 noundef 97), !range !5
+  %call48.i = tail call fastcc i32 @jump_to_fail_pop(ptr noundef nonnull %c, i64 %.compoundliteral39.sroa.0.0.insert.insert.i, i64 %.compoundliteral39.sroa.3.8.insert.insert.i, ptr noundef nonnull %pc, i32 noundef 97)
   %cmp49.i = icmp eq i32 %call48.i, -1
   br i1 %cmp49.i, label %return, label %if.end51.i
 
@@ -25733,7 +25734,7 @@ if.then53.i:                                      ; preds = %if.end51.i
   %.compoundliteral56.sroa.5.8.insert.shift.i = shl nuw i64 %.compoundliteral56.sroa.5.8.insert.ext.i, 32
   %.compoundliteral56.sroa.3.8.insert.ext.i = zext i32 %73 to i64
   %.compoundliteral56.sroa.3.8.insert.insert.i = or disjoint i64 %.compoundliteral56.sroa.5.8.insert.shift.i, %.compoundliteral56.sroa.3.8.insert.ext.i
-  %call65.i = tail call fastcc i32 @codegen_addop_noarg(ptr noundef nonnull %u_instr_sequence55.i, i32 noundef 20, i64 %.compoundliteral56.sroa.0.0.insert.insert.i, i64 %.compoundliteral56.sroa.3.8.insert.insert.i), !range !5
+  %call65.i = tail call fastcc i32 @codegen_addop_noarg(ptr noundef nonnull %u_instr_sequence55.i, i32 noundef 20, i64 %.compoundliteral56.sroa.0.0.insert.insert.i, i64 %.compoundliteral56.sroa.3.8.insert.insert.i)
   %cmp66.i = icmp eq i32 %call65.i, -1
   br i1 %cmp66.i, label %return, label %if.end68.i
 
@@ -25758,7 +25759,7 @@ if.end72.i:                                       ; preds = %if.end68.i
   %.compoundliteral74.sroa.5.8.insert.shift.i = shl nuw i64 %.compoundliteral74.sroa.5.8.insert.ext.i, 32
   %.compoundliteral74.sroa.3.8.insert.ext.i = zext i32 %79 to i64
   %.compoundliteral74.sroa.3.8.insert.insert.i = or disjoint i64 %.compoundliteral74.sroa.5.8.insert.shift.i, %.compoundliteral74.sroa.3.8.insert.ext.i
-  %call83.i = tail call fastcc i32 @compiler_addop_load_const(ptr noundef %75, ptr noundef %76, i64 %.compoundliteral74.sroa.0.0.insert.insert.i, i64 %.compoundliteral74.sroa.3.8.insert.insert.i, ptr noundef nonnull %call69.i), !range !5
+  %call83.i = tail call fastcc i32 @compiler_addop_load_const(ptr noundef %75, ptr noundef %76, i64 %.compoundliteral74.sroa.0.0.insert.insert.i, i64 %.compoundliteral74.sroa.3.8.insert.insert.i, ptr noundef nonnull %call69.i)
   %cmp84.i = icmp slt i32 %call83.i, 0
   %81 = load i64, ptr %call69.i, align 8
   %82 = and i64 %81, 2147483648
@@ -25804,7 +25805,7 @@ Py_DECREF.exit245.i:                              ; preds = %if.then1.i243.i, %i
   %.compoundliteral87.sroa.5.8.insert.shift.i = shl nuw i64 %.compoundliteral87.sroa.5.8.insert.ext.i, 32
   %.compoundliteral87.sroa.3.8.insert.ext.i = zext i32 %85 to i64
   %.compoundliteral87.sroa.3.8.insert.insert.i = or disjoint i64 %.compoundliteral87.sroa.5.8.insert.shift.i, %.compoundliteral87.sroa.3.8.insert.ext.i
-  %call96.i = tail call fastcc i32 @compiler_addcompare(ptr noundef nonnull %c, i64 %.compoundliteral87.sroa.0.0.insert.insert.i, i64 %.compoundliteral87.sroa.3.8.insert.insert.i, i32 noundef 1), !range !5
+  %call96.i = tail call fastcc i32 @compiler_addcompare(ptr noundef nonnull %c, i64 %.compoundliteral87.sroa.0.0.insert.insert.i, i64 %.compoundliteral87.sroa.3.8.insert.insert.i, i32 noundef 1)
   %cmp97.i = icmp eq i32 %call96.i, -1
   br i1 %cmp97.i, label %return, label %if.end99.i
 
@@ -25821,7 +25822,7 @@ if.end99.i:                                       ; preds = %Py_DECREF.exit245.i
   %.compoundliteral100.sroa.5.8.insert.shift.i = shl nuw i64 %.compoundliteral100.sroa.5.8.insert.ext.i, 32
   %.compoundliteral100.sroa.3.8.insert.ext.i = zext i32 %89 to i64
   %.compoundliteral100.sroa.3.8.insert.insert.i = or disjoint i64 %.compoundliteral100.sroa.5.8.insert.shift.i, %.compoundliteral100.sroa.3.8.insert.ext.i
-  %call109.i = tail call fastcc i32 @jump_to_fail_pop(ptr noundef nonnull %c, i64 %.compoundliteral100.sroa.0.0.insert.insert.i, i64 %.compoundliteral100.sroa.3.8.insert.insert.i, ptr noundef nonnull %pc, i32 noundef 97), !range !5
+  %call109.i = tail call fastcc i32 @jump_to_fail_pop(ptr noundef nonnull %c, i64 %.compoundliteral100.sroa.0.0.insert.insert.i, i64 %.compoundliteral100.sroa.3.8.insert.insert.i, ptr noundef nonnull %pc, i32 noundef 97)
   %cmp110.i = icmp eq i32 %call109.i, -1
   br i1 %cmp110.i, label %return, label %if.end177.i
 
@@ -25844,7 +25845,7 @@ if.then114.i:                                     ; preds = %if.else.i
   %.compoundliteral117.sroa.5.8.insert.shift.i = shl nuw i64 %.compoundliteral117.sroa.5.8.insert.ext.i, 32
   %.compoundliteral117.sroa.3.8.insert.ext.i = zext i32 %94 to i64
   %.compoundliteral117.sroa.3.8.insert.insert.i = or disjoint i64 %.compoundliteral117.sroa.5.8.insert.shift.i, %.compoundliteral117.sroa.3.8.insert.ext.i
-  %call126.i = tail call fastcc i32 @codegen_addop_noarg(ptr noundef nonnull %u_instr_sequence116.i, i32 noundef 20, i64 %.compoundliteral117.sroa.0.0.insert.insert.i, i64 %.compoundliteral117.sroa.3.8.insert.insert.i), !range !5
+  %call126.i = tail call fastcc i32 @codegen_addop_noarg(ptr noundef nonnull %u_instr_sequence116.i, i32 noundef 20, i64 %.compoundliteral117.sroa.0.0.insert.insert.i, i64 %.compoundliteral117.sroa.3.8.insert.insert.i)
   %cmp127.i = icmp eq i32 %call126.i, -1
   br i1 %cmp127.i, label %return, label %if.end129.i
 
@@ -25870,7 +25871,7 @@ if.end134.i:                                      ; preds = %if.end129.i
   %.compoundliteral137.sroa.5.8.insert.shift.i = shl nuw i64 %.compoundliteral137.sroa.5.8.insert.ext.i, 32
   %.compoundliteral137.sroa.3.8.insert.ext.i = zext i32 %100 to i64
   %.compoundliteral137.sroa.3.8.insert.insert.i = or disjoint i64 %.compoundliteral137.sroa.5.8.insert.shift.i, %.compoundliteral137.sroa.3.8.insert.ext.i
-  %call146.i = tail call fastcc i32 @compiler_addop_load_const(ptr noundef %96, ptr noundef %97, i64 %.compoundliteral137.sroa.0.0.insert.insert.i, i64 %.compoundliteral137.sroa.3.8.insert.insert.i, ptr noundef nonnull %call131.i), !range !5
+  %call146.i = tail call fastcc i32 @compiler_addop_load_const(ptr noundef %96, ptr noundef %97, i64 %.compoundliteral137.sroa.0.0.insert.insert.i, i64 %.compoundliteral137.sroa.3.8.insert.insert.i, ptr noundef nonnull %call131.i)
   %cmp147.i = icmp slt i32 %call146.i, 0
   %102 = load i64, ptr %call131.i, align 8
   %103 = and i64 %102, 2147483648
@@ -25916,7 +25917,7 @@ Py_DECREF.exit.i:                                 ; preds = %if.then1.i.i, %if.e
   %.compoundliteral150.sroa.5.8.insert.shift.i = shl nuw i64 %.compoundliteral150.sroa.5.8.insert.ext.i, 32
   %.compoundliteral150.sroa.3.8.insert.ext.i = zext i32 %106 to i64
   %.compoundliteral150.sroa.3.8.insert.insert.i = or disjoint i64 %.compoundliteral150.sroa.5.8.insert.shift.i, %.compoundliteral150.sroa.3.8.insert.ext.i
-  %call159.i = tail call fastcc i32 @compiler_addcompare(ptr noundef nonnull %c, i64 %.compoundliteral150.sroa.0.0.insert.insert.i, i64 %.compoundliteral150.sroa.3.8.insert.insert.i, i32 noundef 6), !range !5
+  %call159.i = tail call fastcc i32 @compiler_addcompare(ptr noundef nonnull %c, i64 %.compoundliteral150.sroa.0.0.insert.insert.i, i64 %.compoundliteral150.sroa.3.8.insert.insert.i, i32 noundef 6)
   %cmp160.i = icmp eq i32 %call159.i, -1
   br i1 %cmp160.i, label %return, label %if.end162.i
 
@@ -25933,7 +25934,7 @@ if.end162.i:                                      ; preds = %Py_DECREF.exit.i
   %.compoundliteral163.sroa.5.8.insert.shift.i = shl nuw i64 %.compoundliteral163.sroa.5.8.insert.ext.i, 32
   %.compoundliteral163.sroa.3.8.insert.ext.i = zext i32 %110 to i64
   %.compoundliteral163.sroa.3.8.insert.insert.i = or disjoint i64 %.compoundliteral163.sroa.5.8.insert.shift.i, %.compoundliteral163.sroa.3.8.insert.ext.i
-  %call172.i = tail call fastcc i32 @jump_to_fail_pop(ptr noundef nonnull %c, i64 %.compoundliteral163.sroa.0.0.insert.insert.i, i64 %.compoundliteral163.sroa.3.8.insert.insert.i, ptr noundef nonnull %pc, i32 noundef 97), !range !5
+  %call172.i = tail call fastcc i32 @jump_to_fail_pop(ptr noundef nonnull %c, i64 %.compoundliteral163.sroa.0.0.insert.insert.i, i64 %.compoundliteral163.sroa.3.8.insert.insert.i, ptr noundef nonnull %pc, i32 noundef 97)
   %cmp173.i = icmp eq i32 %call172.i, -1
   br i1 %cmp173.i, label %return, label %if.end177.i
 
@@ -25959,7 +25960,7 @@ if.then180.i:                                     ; preds = %if.end177.i
   %.compoundliteral183.sroa.5.8.insert.shift.i = shl nuw i64 %.compoundliteral183.sroa.5.8.insert.ext.i, 32
   %.compoundliteral183.sroa.3.8.insert.ext.i = zext i32 %116 to i64
   %.compoundliteral183.sroa.3.8.insert.insert.i = or disjoint i64 %.compoundliteral183.sroa.5.8.insert.shift.i, %.compoundliteral183.sroa.3.8.insert.ext.i
-  %call192.i = tail call fastcc i32 @codegen_addop_noarg(ptr noundef nonnull %u_instr_sequence182.i, i32 noundef 32, i64 %.compoundliteral183.sroa.0.0.insert.insert.i, i64 %.compoundliteral183.sroa.3.8.insert.insert.i), !range !5
+  %call192.i = tail call fastcc i32 @codegen_addop_noarg(ptr noundef nonnull %u_instr_sequence182.i, i32 noundef 32, i64 %.compoundliteral183.sroa.0.0.insert.insert.i, i64 %.compoundliteral183.sroa.3.8.insert.insert.i)
   %cmp193.i = icmp eq i32 %call192.i, -1
   br i1 %cmp193.i, label %return, label %if.end227.i
 
@@ -25980,7 +25981,7 @@ if.else196.i:                                     ; preds = %if.end177.i
   br i1 %tobool197.not.i, label %if.else212.i, label %if.then198.i
 
 if.then198.i:                                     ; preds = %if.else196.i
-  %call208.i = tail call fastcc i32 @pattern_helper_sequence_subscr(ptr noundef nonnull %c, i64 %.compoundliteral213.sroa.0.0.insert.insert.i, i64 %.compoundliteral213.sroa.3.8.insert.insert.i, ptr noundef %47, i64 noundef %star.0.i.lcssa, ptr noundef nonnull %pc), !range !5
+  %call208.i = tail call fastcc i32 @pattern_helper_sequence_subscr(ptr noundef nonnull %c, i64 %.compoundliteral213.sroa.0.0.insert.insert.i, i64 %.compoundliteral213.sroa.3.8.insert.insert.i, ptr noundef %47, i64 noundef %star.0.i.lcssa, ptr noundef nonnull %pc)
   %cmp209.i = icmp eq i32 %call208.i, -1
   br i1 %cmp209.i, label %return, label %if.end227.i
 
@@ -26068,7 +26069,7 @@ if.end.i79:                                       ; preds = %cond.end9.i
   %137 = load i32, ptr %s_used.i.i.i307, align 4
   %add.i.i.i308 = add i32 %137, 1
   %s_allocated.i.i.i309 = getelementptr inbounds i8, ptr %132, i64 32
-  %call.i.i.i310 = tail call i32 @_PyCompile_EnsureArrayLargeEnough(i32 noundef %add.i.i.i308, ptr noundef nonnull %u_instr_sequence.i83, ptr noundef nonnull %s_allocated.i.i.i309, i32 noundef 100, i64 noundef 44), !range !5
+  %call.i.i.i310 = tail call i32 @_PyCompile_EnsureArrayLargeEnough(i32 noundef %add.i.i.i308, ptr noundef nonnull %u_instr_sequence.i83, ptr noundef nonnull %s_allocated.i.i.i309, i32 noundef 100, i64 noundef 44)
   %cmp.i.i.i311 = icmp eq i32 %call.i.i.i310, -1
   br i1 %cmp.i.i.i311, label %return, label %instr_sequence_next_inst.exit.i.i312
 
@@ -26102,7 +26103,7 @@ if.end29.i:                                       ; preds = %instr_sequence_next
   %.compoundliteral30.sroa.5.8.insert.shift.i = shl nuw i64 %.compoundliteral30.sroa.5.8.insert.ext.i, 32
   %.compoundliteral30.sroa.3.8.insert.ext.i = zext i32 %142 to i64
   %.compoundliteral30.sroa.3.8.insert.insert.i = or disjoint i64 %.compoundliteral30.sroa.5.8.insert.shift.i, %.compoundliteral30.sroa.3.8.insert.ext.i
-  %call39.i = tail call fastcc i32 @jump_to_fail_pop(ptr noundef nonnull %c, i64 %.compoundliteral30.sroa.0.0.insert.insert.i, i64 %.compoundliteral30.sroa.3.8.insert.insert.i, ptr noundef nonnull %pc, i32 noundef 97), !range !5
+  %call39.i = tail call fastcc i32 @jump_to_fail_pop(ptr noundef nonnull %c, i64 %.compoundliteral30.sroa.0.0.insert.insert.i, i64 %.compoundliteral30.sroa.3.8.insert.insert.i, ptr noundef nonnull %pc, i32 noundef 97)
   %cmp40.i = icmp eq i32 %call39.i, -1
   br i1 %cmp40.i, label %return, label %if.end42.i
 
@@ -26130,7 +26131,7 @@ if.then44.i:                                      ; preds = %if.end42.i
   %.compoundliteral48.sroa.5.8.insert.shift.i = shl nuw i64 %.compoundliteral48.sroa.5.8.insert.ext.i, 32
   %.compoundliteral48.sroa.3.8.insert.ext.i = zext i32 %148 to i64
   %.compoundliteral48.sroa.3.8.insert.insert.i = or disjoint i64 %.compoundliteral48.sroa.5.8.insert.shift.i, %.compoundliteral48.sroa.3.8.insert.ext.i
-  %call57.i = tail call fastcc i32 @codegen_addop_noarg(ptr noundef nonnull %u_instr_sequence47.i, i32 noundef 32, i64 %.compoundliteral48.sroa.0.0.insert.insert.i, i64 %.compoundliteral48.sroa.3.8.insert.insert.i), !range !5
+  %call57.i = tail call fastcc i32 @codegen_addop_noarg(ptr noundef nonnull %u_instr_sequence47.i, i32 noundef 32, i64 %.compoundliteral48.sroa.0.0.insert.insert.i, i64 %.compoundliteral48.sroa.3.8.insert.insert.i)
   %cmp58.i = icmp eq i32 %call57.i, -1
   %..i85 = sext i1 %cmp58.i to i32
   br label %return
@@ -26153,7 +26154,7 @@ if.then63.i:                                      ; preds = %if.end61.i
   %.compoundliteral66.sroa.5.8.insert.shift.i = shl nuw i64 %.compoundliteral66.sroa.5.8.insert.ext.i, 32
   %.compoundliteral66.sroa.3.8.insert.ext.i = zext i32 %153 to i64
   %.compoundliteral66.sroa.3.8.insert.insert.i = or disjoint i64 %.compoundliteral66.sroa.5.8.insert.shift.i, %.compoundliteral66.sroa.3.8.insert.ext.i
-  %call75.i = tail call fastcc i32 @codegen_addop_noarg(ptr noundef nonnull %u_instr_sequence65.i, i32 noundef 20, i64 %.compoundliteral66.sroa.0.0.insert.insert.i, i64 %.compoundliteral66.sroa.3.8.insert.insert.i), !range !5
+  %call75.i = tail call fastcc i32 @codegen_addop_noarg(ptr noundef nonnull %u_instr_sequence65.i, i32 noundef 20, i64 %.compoundliteral66.sroa.0.0.insert.insert.i, i64 %.compoundliteral66.sroa.3.8.insert.insert.i)
   %cmp76.i = icmp eq i32 %call75.i, -1
   br i1 %cmp76.i, label %return, label %if.end78.i
 
@@ -26178,7 +26179,7 @@ if.end82.i:                                       ; preds = %if.end78.i
   %.compoundliteral84.sroa.5.8.insert.shift.i = shl nuw i64 %.compoundliteral84.sroa.5.8.insert.ext.i, 32
   %.compoundliteral84.sroa.3.8.insert.ext.i = zext i32 %159 to i64
   %.compoundliteral84.sroa.3.8.insert.insert.i = or disjoint i64 %.compoundliteral84.sroa.5.8.insert.shift.i, %.compoundliteral84.sroa.3.8.insert.ext.i
-  %call93.i = tail call fastcc i32 @compiler_addop_load_const(ptr noundef %155, ptr noundef %156, i64 %.compoundliteral84.sroa.0.0.insert.insert.i, i64 %.compoundliteral84.sroa.3.8.insert.insert.i, ptr noundef nonnull %call79.i), !range !5
+  %call93.i = tail call fastcc i32 @compiler_addop_load_const(ptr noundef %155, ptr noundef %156, i64 %.compoundliteral84.sroa.0.0.insert.insert.i, i64 %.compoundliteral84.sroa.3.8.insert.insert.i, ptr noundef nonnull %call79.i)
   %cmp94.i = icmp slt i32 %call93.i, 0
   %161 = load i64, ptr %call79.i, align 8
   %162 = and i64 %161, 2147483648
@@ -26224,7 +26225,7 @@ Py_DECREF.exit509.i:                              ; preds = %if.then1.i507.i, %i
   %.compoundliteral97.sroa.5.8.insert.shift.i = shl nuw i64 %.compoundliteral97.sroa.5.8.insert.ext.i, 32
   %.compoundliteral97.sroa.3.8.insert.ext.i = zext i32 %165 to i64
   %.compoundliteral97.sroa.3.8.insert.insert.i = or disjoint i64 %.compoundliteral97.sroa.5.8.insert.shift.i, %.compoundliteral97.sroa.3.8.insert.ext.i
-  %call106.i = tail call fastcc i32 @compiler_addcompare(ptr noundef nonnull %c, i64 %.compoundliteral97.sroa.0.0.insert.insert.i, i64 %.compoundliteral97.sroa.3.8.insert.insert.i, i32 noundef 6), !range !5
+  %call106.i = tail call fastcc i32 @compiler_addcompare(ptr noundef nonnull %c, i64 %.compoundliteral97.sroa.0.0.insert.insert.i, i64 %.compoundliteral97.sroa.3.8.insert.insert.i, i32 noundef 6)
   %cmp107.i = icmp eq i32 %call106.i, -1
   br i1 %cmp107.i, label %return, label %if.end109.i
 
@@ -26241,7 +26242,7 @@ if.end109.i:                                      ; preds = %Py_DECREF.exit509.i
   %.compoundliteral110.sroa.5.8.insert.shift.i = shl nuw i64 %.compoundliteral110.sroa.5.8.insert.ext.i, 32
   %.compoundliteral110.sroa.3.8.insert.ext.i = zext i32 %169 to i64
   %.compoundliteral110.sroa.3.8.insert.insert.i = or disjoint i64 %.compoundliteral110.sroa.5.8.insert.shift.i, %.compoundliteral110.sroa.3.8.insert.ext.i
-  %call119.i = tail call fastcc i32 @jump_to_fail_pop(ptr noundef nonnull %c, i64 %.compoundliteral110.sroa.0.0.insert.insert.i, i64 %.compoundliteral110.sroa.3.8.insert.insert.i, ptr noundef nonnull %pc, i32 noundef 97), !range !5
+  %call119.i = tail call fastcc i32 @jump_to_fail_pop(ptr noundef nonnull %c, i64 %.compoundliteral110.sroa.0.0.insert.insert.i, i64 %.compoundliteral110.sroa.3.8.insert.insert.i, ptr noundef nonnull %pc, i32 noundef 97)
   %cmp120.i = icmp eq i32 %call119.i, -1
   br i1 %cmp120.i, label %return, label %if.end123.i
 
@@ -26372,14 +26373,14 @@ if.then194.i:                                     ; preds = %if.end162.i94
   br label %error.i
 
 if.end207.i:                                      ; preds = %if.end185.i, %if.end162.i94
-  %call208.i95 = tail call fastcc i32 @compiler_visit_expr(ptr noundef %c, ptr noundef nonnull %175), !range !5
+  %call208.i95 = tail call fastcc i32 @compiler_visit_expr(ptr noundef %c, ptr noundef nonnull %175)
   %cmp209.i96 = icmp slt i32 %call208.i95, 0
   br i1 %cmp209.i96, label %error.i, label %for.inc.i97
 
 for.inc.i97:                                      ; preds = %if.end207.i
   %inc212.i = add nuw nsw i64 %i.0.i88468, 1
   %exitcond499.not = icmp eq i64 %inc212.i, %cond.i66
-  br i1 %exitcond499.not, label %for.end.i89, label %for.body.i91, !llvm.loop !107
+  br i1 %exitcond499.not, label %for.end.i89, label %for.body.i91, !llvm.loop !100
 
 for.end.i89:                                      ; preds = %for.inc.i97, %if.end136.i.thread, %for.cond.i87.preheader
   %cmp141.i467517 = phi i1 [ false, %for.cond.i87.preheader ], [ false, %if.end136.i.thread ], [ true, %for.inc.i97 ]
@@ -26415,7 +26416,7 @@ Py_DECREF.exit500.i:                              ; preds = %if.then1.i498.i, %i
   %.compoundliteral215.sroa.5.8.insert.shift.i = shl nuw i64 %.compoundliteral215.sroa.5.8.insert.ext.i, 32
   %.compoundliteral215.sroa.3.8.insert.ext.i = zext i32 %198 to i64
   %.compoundliteral215.sroa.3.8.insert.insert.i = or disjoint i64 %.compoundliteral215.sroa.5.8.insert.shift.i, %.compoundliteral215.sroa.3.8.insert.ext.i
-  %call224.i = tail call fastcc i32 @codegen_addop_i(ptr noundef nonnull %u_instr_sequence214.i, i32 noundef 52, i64 noundef %cond.i66, i64 %.compoundliteral215.sroa.0.0.insert.insert.i, i64 %.compoundliteral215.sroa.3.8.insert.insert.i), !range !5
+  %call224.i = tail call fastcc i32 @codegen_addop_i(ptr noundef nonnull %u_instr_sequence214.i, i32 noundef 52, i64 noundef %cond.i66, i64 %.compoundliteral215.sroa.0.0.insert.insert.i, i64 %.compoundliteral215.sroa.3.8.insert.insert.i)
   %cmp225.i = icmp eq i32 %call224.i, -1
   br i1 %cmp225.i, label %return, label %if.end227.i90
 
@@ -26434,7 +26435,7 @@ if.end227.i90:                                    ; preds = %Py_DECREF.exit500.i
   %.compoundliteral230.sroa.5.8.insert.shift.i = shl nuw i64 %.compoundliteral230.sroa.5.8.insert.ext.i, 32
   %.compoundliteral230.sroa.3.8.insert.ext.i = zext i32 %203 to i64
   %.compoundliteral230.sroa.3.8.insert.insert.i = or disjoint i64 %.compoundliteral230.sroa.5.8.insert.shift.i, %.compoundliteral230.sroa.3.8.insert.ext.i
-  %call239.i = tail call fastcc i32 @codegen_addop_noarg(ptr noundef nonnull %u_instr_sequence229.i, i32 noundef 27, i64 %.compoundliteral230.sroa.0.0.insert.insert.i, i64 %.compoundliteral230.sroa.3.8.insert.insert.i), !range !5
+  %call239.i = tail call fastcc i32 @codegen_addop_noarg(ptr noundef nonnull %u_instr_sequence229.i, i32 noundef 27, i64 %.compoundliteral230.sroa.0.0.insert.insert.i, i64 %.compoundliteral230.sroa.3.8.insert.insert.i)
   %cmp240.i = icmp eq i32 %call239.i, -1
   br i1 %cmp240.i, label %return, label %if.end242.i
 
@@ -26456,7 +26457,7 @@ if.end242.i:                                      ; preds = %if.end227.i90
   %.compoundliteral246.sroa.5.8.insert.shift.i = shl nuw i64 %.compoundliteral246.sroa.5.8.insert.ext.i, 32
   %.compoundliteral246.sroa.3.8.insert.ext.i = zext i32 %209 to i64
   %.compoundliteral246.sroa.3.8.insert.insert.i = or disjoint i64 %.compoundliteral246.sroa.5.8.insert.shift.i, %.compoundliteral246.sroa.3.8.insert.ext.i
-  %call255.i = tail call fastcc i32 @codegen_addop_i(ptr noundef nonnull %u_instr_sequence245.i, i32 noundef 61, i64 noundef 1, i64 %.compoundliteral246.sroa.0.0.insert.insert.i, i64 %.compoundliteral246.sroa.3.8.insert.insert.i), !range !5
+  %call255.i = tail call fastcc i32 @codegen_addop_i(ptr noundef nonnull %u_instr_sequence245.i, i32 noundef 61, i64 noundef 1, i64 %.compoundliteral246.sroa.0.0.insert.insert.i, i64 %.compoundliteral246.sroa.3.8.insert.insert.i)
   %cmp256.i = icmp eq i32 %call255.i, -1
   br i1 %cmp256.i, label %return, label %if.end258.i
 
@@ -26476,7 +26477,7 @@ if.end258.i:                                      ; preds = %if.end242.i
   %.compoundliteral261.sroa.5.8.insert.shift.i = shl nuw i64 %.compoundliteral261.sroa.5.8.insert.ext.i, 32
   %.compoundliteral261.sroa.3.8.insert.ext.i = zext i32 %215 to i64
   %.compoundliteral261.sroa.3.8.insert.insert.i = or disjoint i64 %.compoundliteral261.sroa.5.8.insert.shift.i, %.compoundliteral261.sroa.3.8.insert.ext.i
-  %call270.i = tail call fastcc i32 @compiler_addop_load_const(ptr noundef %211, ptr noundef %212, i64 %.compoundliteral261.sroa.0.0.insert.insert.i, i64 %.compoundliteral261.sroa.3.8.insert.insert.i, ptr noundef nonnull @_Py_NoneStruct), !range !5
+  %call270.i = tail call fastcc i32 @compiler_addop_load_const(ptr noundef %211, ptr noundef %212, i64 %.compoundliteral261.sroa.0.0.insert.insert.i, i64 %.compoundliteral261.sroa.3.8.insert.insert.i, ptr noundef nonnull @_Py_NoneStruct)
   %cmp271.i = icmp eq i32 %call270.i, -1
   br i1 %cmp271.i, label %return, label %if.end273.i
 
@@ -26495,7 +26496,7 @@ if.end273.i:                                      ; preds = %if.end258.i
   %.compoundliteral276.sroa.5.8.insert.shift.i = shl nuw i64 %.compoundliteral276.sroa.5.8.insert.ext.i, 32
   %.compoundliteral276.sroa.3.8.insert.ext.i = zext i32 %220 to i64
   %.compoundliteral276.sroa.3.8.insert.insert.i = or disjoint i64 %.compoundliteral276.sroa.5.8.insert.shift.i, %.compoundliteral276.sroa.3.8.insert.ext.i
-  %call285.i = tail call fastcc i32 @codegen_addop_i(ptr noundef nonnull %u_instr_sequence275.i, i32 noundef 76, i64 noundef 1, i64 %.compoundliteral276.sroa.0.0.insert.insert.i, i64 %.compoundliteral276.sroa.3.8.insert.insert.i), !range !5
+  %call285.i = tail call fastcc i32 @codegen_addop_i(ptr noundef nonnull %u_instr_sequence275.i, i32 noundef 76, i64 noundef 1, i64 %.compoundliteral276.sroa.0.0.insert.insert.i, i64 %.compoundliteral276.sroa.3.8.insert.insert.i)
   %cmp286.i = icmp eq i32 %call285.i, -1
   br i1 %cmp286.i, label %return, label %if.end288.i
 
@@ -26512,7 +26513,7 @@ if.end288.i:                                      ; preds = %if.end273.i
   %.compoundliteral289.sroa.5.8.insert.shift.i = shl nuw i64 %.compoundliteral289.sroa.5.8.insert.ext.i, 32
   %.compoundliteral289.sroa.3.8.insert.ext.i = zext i32 %224 to i64
   %.compoundliteral289.sroa.3.8.insert.insert.i = or disjoint i64 %.compoundliteral289.sroa.5.8.insert.shift.i, %.compoundliteral289.sroa.3.8.insert.ext.i
-  %call298.i = tail call fastcc i32 @jump_to_fail_pop(ptr noundef nonnull %c, i64 %.compoundliteral289.sroa.0.0.insert.insert.i, i64 %.compoundliteral289.sroa.3.8.insert.insert.i, ptr noundef nonnull %pc, i32 noundef 97), !range !5
+  %call298.i = tail call fastcc i32 @jump_to_fail_pop(ptr noundef nonnull %c, i64 %.compoundliteral289.sroa.0.0.insert.insert.i, i64 %.compoundliteral289.sroa.3.8.insert.insert.i, ptr noundef nonnull %pc, i32 noundef 97)
   %cmp299.i = icmp eq i32 %call298.i, -1
   br i1 %cmp299.i, label %return, label %if.end301.i
 
@@ -26531,7 +26532,7 @@ if.end301.i:                                      ; preds = %if.end288.i
   %.compoundliteral304.sroa.5.8.insert.shift.i = shl nuw i64 %.compoundliteral304.sroa.5.8.insert.ext.i, 32
   %.compoundliteral304.sroa.3.8.insert.ext.i = zext i32 %229 to i64
   %.compoundliteral304.sroa.3.8.insert.insert.i = or disjoint i64 %.compoundliteral304.sroa.5.8.insert.shift.i, %.compoundliteral304.sroa.3.8.insert.ext.i
-  %call313.i = tail call fastcc i32 @codegen_addop_i(ptr noundef nonnull %u_instr_sequence303.i, i32 noundef 117, i64 noundef %cond.i66, i64 %.compoundliteral304.sroa.0.0.insert.insert.i, i64 %.compoundliteral304.sroa.3.8.insert.insert.i), !range !5
+  %call313.i = tail call fastcc i32 @codegen_addop_i(ptr noundef nonnull %u_instr_sequence303.i, i32 noundef 117, i64 noundef %cond.i66, i64 %.compoundliteral304.sroa.0.0.insert.insert.i, i64 %.compoundliteral304.sroa.3.8.insert.insert.i)
   %cmp314.i = icmp eq i32 %call313.i, -1
   br i1 %cmp314.i, label %return, label %if.end316.i
 
@@ -26555,7 +26556,7 @@ for.body323.i:                                    ; preds = %for.body323.i.lr.ph
   %arrayidx327.i = getelementptr [1 x ptr], ptr %typed_elements326.i, i64 0, i64 %i320.0.i470
   %233 = load ptr, ptr %arrayidx327.i, align 8
   store i32 1, ptr %allow_irrefutable1.i, align 8
-  %call.i303 = tail call fastcc i32 @compiler_pattern(ptr noundef %c, ptr noundef %233, ptr noundef nonnull %pc), !range !5
+  %call.i303 = tail call fastcc i32 @compiler_pattern(ptr noundef %c, ptr noundef %233, ptr noundef nonnull %pc)
   %cmp.i304 = icmp eq i32 %call.i303, -1
   br i1 %cmp.i304, label %return, label %for.inc332.i
 
@@ -26563,7 +26564,7 @@ for.inc332.i:                                     ; preds = %for.body323.i
   store i32 %.pre, ptr %allow_irrefutable1.i, align 8
   %inc333.i = add nuw nsw i64 %i320.0.i470, 1
   %exitcond500.not = icmp eq i64 %inc333.i, %cond.i66
-  br i1 %exitcond500.not, label %for.end334.i.loopexit, label %for.body323.i, !llvm.loop !108
+  br i1 %exitcond500.not, label %for.end334.i.loopexit, label %for.body323.i, !llvm.loop !101
 
 for.end334.i.loopexit:                            ; preds = %for.inc332.i
   %.pre502 = load i64, ptr %on_top.i80, align 8
@@ -26590,7 +26591,7 @@ for.end334.i:                                     ; preds = %for.end334.i.loopex
   br i1 %tobool43.i, label %if.then338.i, label %if.else460.i
 
 if.then338.i:                                     ; preds = %for.end334.i
-  %call350.i = tail call fastcc i32 @codegen_addop_i(ptr noundef nonnull %u_instr_sequence340.i, i32 noundef 48, i64 noundef 0, i64 %.compoundliteral341.sroa.0.0.insert.insert.i, i64 %.compoundliteral341.sroa.3.8.insert.insert.i), !range !5
+  %call350.i = tail call fastcc i32 @codegen_addop_i(ptr noundef nonnull %u_instr_sequence340.i, i32 noundef 48, i64 noundef 0, i64 %.compoundliteral341.sroa.0.0.insert.insert.i, i64 %.compoundliteral341.sroa.3.8.insert.insert.i)
   %cmp351.i = icmp eq i32 %call350.i, -1
   br i1 %cmp351.i, label %return, label %if.end353.i
 
@@ -26609,7 +26610,7 @@ if.end353.i:                                      ; preds = %if.then338.i
   %.compoundliteral356.sroa.5.8.insert.shift.i = shl nuw i64 %.compoundliteral356.sroa.5.8.insert.ext.i, 32
   %.compoundliteral356.sroa.3.8.insert.ext.i = zext i32 %243 to i64
   %.compoundliteral356.sroa.3.8.insert.insert.i = or disjoint i64 %.compoundliteral356.sroa.5.8.insert.shift.i, %.compoundliteral356.sroa.3.8.insert.ext.i
-  %call365.i = tail call fastcc i32 @codegen_addop_i(ptr noundef nonnull %u_instr_sequence355.i, i32 noundef 115, i64 noundef 3, i64 %.compoundliteral356.sroa.0.0.insert.insert.i, i64 %.compoundliteral356.sroa.3.8.insert.insert.i), !range !5
+  %call365.i = tail call fastcc i32 @codegen_addop_i(ptr noundef nonnull %u_instr_sequence355.i, i32 noundef 115, i64 noundef 3, i64 %.compoundliteral356.sroa.0.0.insert.insert.i, i64 %.compoundliteral356.sroa.3.8.insert.insert.i)
   %cmp366.i = icmp eq i32 %call365.i, -1
   br i1 %cmp366.i, label %return, label %if.end368.i
 
@@ -26628,7 +26629,7 @@ if.end368.i:                                      ; preds = %if.end353.i
   %.compoundliteral371.sroa.5.8.insert.shift.i = shl nuw i64 %.compoundliteral371.sroa.5.8.insert.ext.i, 32
   %.compoundliteral371.sroa.3.8.insert.ext.i = zext i32 %248 to i64
   %.compoundliteral371.sroa.3.8.insert.insert.i = or disjoint i64 %.compoundliteral371.sroa.5.8.insert.shift.i, %.compoundliteral371.sroa.3.8.insert.ext.i
-  %call380.i = tail call fastcc i32 @codegen_addop_i(ptr noundef nonnull %u_instr_sequence370.i, i32 noundef 69, i64 noundef 2, i64 %.compoundliteral371.sroa.0.0.insert.insert.i, i64 %.compoundliteral371.sroa.3.8.insert.insert.i), !range !5
+  %call380.i = tail call fastcc i32 @codegen_addop_i(ptr noundef nonnull %u_instr_sequence370.i, i32 noundef 69, i64 noundef 2, i64 %.compoundliteral371.sroa.0.0.insert.insert.i, i64 %.compoundliteral371.sroa.3.8.insert.insert.i)
   %cmp381.i = icmp eq i32 %call380.i, -1
   br i1 %cmp381.i, label %return, label %if.end383.i
 
@@ -26647,7 +26648,7 @@ if.end383.i:                                      ; preds = %if.end368.i
   %.compoundliteral386.sroa.5.8.insert.shift.i = shl nuw i64 %.compoundliteral386.sroa.5.8.insert.ext.i, 32
   %.compoundliteral386.sroa.3.8.insert.ext.i = zext i32 %253 to i64
   %.compoundliteral386.sroa.3.8.insert.insert.i = or disjoint i64 %.compoundliteral386.sroa.5.8.insert.shift.i, %.compoundliteral386.sroa.3.8.insert.ext.i
-  %call395.i = tail call fastcc i32 @codegen_addop_i(ptr noundef nonnull %u_instr_sequence385.i, i32 noundef 117, i64 noundef %cond.i66, i64 %.compoundliteral386.sroa.0.0.insert.insert.i, i64 %.compoundliteral386.sroa.3.8.insert.insert.i), !range !5
+  %call395.i = tail call fastcc i32 @codegen_addop_i(ptr noundef nonnull %u_instr_sequence385.i, i32 noundef 117, i64 noundef %cond.i66, i64 %.compoundliteral386.sroa.0.0.insert.insert.i, i64 %.compoundliteral386.sroa.3.8.insert.insert.i)
   %cmp396.i = icmp eq i32 %call395.i, -1
   br i1 %cmp396.i, label %return, label %while.cond.i
 
@@ -26673,7 +26674,7 @@ while.body.i:                                     ; preds = %while.cond.i
   %.compoundliteral404.sroa.5.8.insert.shift.i = shl nuw i64 %.compoundliteral404.sroa.5.8.insert.ext.i, 32
   %.compoundliteral404.sroa.3.8.insert.ext.i = zext i32 %258 to i64
   %.compoundliteral404.sroa.3.8.insert.insert.i = or disjoint i64 %.compoundliteral404.sroa.5.8.insert.shift.i, %.compoundliteral404.sroa.3.8.insert.ext.i
-  %call413.i = tail call fastcc i32 @codegen_addop_i(ptr noundef nonnull %u_instr_sequence401.i, i32 noundef 61, i64 noundef %add403.i, i64 %.compoundliteral404.sroa.0.0.insert.insert.i, i64 %.compoundliteral404.sroa.3.8.insert.insert.i), !range !5
+  %call413.i = tail call fastcc i32 @codegen_addop_i(ptr noundef nonnull %u_instr_sequence401.i, i32 noundef 61, i64 noundef %add403.i, i64 %.compoundliteral404.sroa.0.0.insert.insert.i, i64 %.compoundliteral404.sroa.3.8.insert.insert.i)
   %cmp414.i = icmp eq i32 %call413.i, -1
   br i1 %cmp414.i, label %return, label %if.end416.i
 
@@ -26692,7 +26693,7 @@ if.end416.i:                                      ; preds = %while.body.i
   %.compoundliteral419.sroa.5.8.insert.shift.i = shl nuw i64 %.compoundliteral419.sroa.5.8.insert.ext.i, 32
   %.compoundliteral419.sroa.3.8.insert.ext.i = zext i32 %263 to i64
   %.compoundliteral419.sroa.3.8.insert.insert.i = or disjoint i64 %.compoundliteral419.sroa.5.8.insert.shift.i, %.compoundliteral419.sroa.3.8.insert.ext.i
-  %call428.i = tail call fastcc i32 @codegen_addop_i(ptr noundef nonnull %u_instr_sequence418.i, i32 noundef 115, i64 noundef 2, i64 %.compoundliteral419.sroa.0.0.insert.insert.i, i64 %.compoundliteral419.sroa.3.8.insert.insert.i), !range !5
+  %call428.i = tail call fastcc i32 @codegen_addop_i(ptr noundef nonnull %u_instr_sequence418.i, i32 noundef 115, i64 noundef 2, i64 %.compoundliteral419.sroa.0.0.insert.insert.i, i64 %.compoundliteral419.sroa.3.8.insert.insert.i)
   %cmp429.i = icmp eq i32 %call428.i, -1
   br i1 %cmp429.i, label %return, label %if.end431.i
 
@@ -26711,9 +26712,9 @@ if.end431.i:                                      ; preds = %if.end416.i
   %.compoundliteral434.sroa.5.8.insert.shift.i = shl nuw i64 %.compoundliteral434.sroa.5.8.insert.ext.i, 32
   %.compoundliteral434.sroa.3.8.insert.ext.i = zext i32 %268 to i64
   %.compoundliteral434.sroa.3.8.insert.insert.i = or disjoint i64 %.compoundliteral434.sroa.5.8.insert.shift.i, %.compoundliteral434.sroa.3.8.insert.ext.i
-  %call443.i = tail call fastcc i32 @codegen_addop_noarg(ptr noundef nonnull %u_instr_sequence433.i, i32 noundef 9, i64 %.compoundliteral434.sroa.0.0.insert.insert.i, i64 %.compoundliteral434.sroa.3.8.insert.insert.i), !range !5
+  %call443.i = tail call fastcc i32 @codegen_addop_noarg(ptr noundef nonnull %u_instr_sequence433.i, i32 noundef 9, i64 %.compoundliteral434.sroa.0.0.insert.insert.i, i64 %.compoundliteral434.sroa.3.8.insert.insert.i)
   %cmp444.i = icmp eq i32 %call443.i, -1
-  br i1 %cmp444.i, label %return, label %while.cond.i, !llvm.loop !109
+  br i1 %cmp444.i, label %return, label %while.cond.i, !llvm.loop !102
 
 while.end.i:                                      ; preds = %while.cond.i
   %270 = load i32, ptr %lineno19.i, align 8
@@ -26728,12 +26729,12 @@ while.end.i:                                      ; preds = %while.cond.i
   %.compoundliteral447.sroa.5.8.insert.shift.i = shl nuw i64 %.compoundliteral447.sroa.5.8.insert.ext.i, 32
   %.compoundliteral447.sroa.3.8.insert.ext.i = zext i32 %272 to i64
   %.compoundliteral447.sroa.3.8.insert.insert.i = or disjoint i64 %.compoundliteral447.sroa.5.8.insert.shift.i, %.compoundliteral447.sroa.3.8.insert.ext.i
-  %call456.i = tail call fastcc i32 @pattern_helper_store_name(ptr noundef nonnull %c, i64 %.compoundliteral447.sroa.0.0.insert.insert.i, i64 %.compoundliteral447.sroa.3.8.insert.insert.i, ptr noundef nonnull %130, ptr noundef %pc), !range !5
+  %call456.i = tail call fastcc i32 @pattern_helper_store_name(ptr noundef nonnull %c, i64 %.compoundliteral447.sroa.0.0.insert.insert.i, i64 %.compoundliteral447.sroa.3.8.insert.insert.i, ptr noundef nonnull %130, ptr noundef %pc)
   %cmp457.i = icmp eq i32 %call456.i, -1
   br i1 %cmp457.i, label %return, label %if.end491.i
 
 if.else460.i:                                     ; preds = %for.end334.i
-  %call472.i = tail call fastcc i32 @codegen_addop_noarg(ptr noundef nonnull %u_instr_sequence340.i, i32 noundef 32, i64 %.compoundliteral341.sroa.0.0.insert.insert.i, i64 %.compoundliteral341.sroa.3.8.insert.insert.i), !range !5
+  %call472.i = tail call fastcc i32 @codegen_addop_noarg(ptr noundef nonnull %u_instr_sequence340.i, i32 noundef 32, i64 %.compoundliteral341.sroa.0.0.insert.insert.i, i64 %.compoundliteral341.sroa.3.8.insert.insert.i)
   %cmp473.i = icmp eq i32 %call472.i, -1
   br i1 %cmp473.i, label %return, label %if.end475.i
 
@@ -26752,7 +26753,7 @@ if.end475.i:                                      ; preds = %if.else460.i
   %.compoundliteral478.sroa.5.8.insert.shift.i = shl nuw i64 %.compoundliteral478.sroa.5.8.insert.ext.i, 32
   %.compoundliteral478.sroa.3.8.insert.ext.i = zext i32 %277 to i64
   %.compoundliteral478.sroa.3.8.insert.insert.i = or disjoint i64 %.compoundliteral478.sroa.5.8.insert.shift.i, %.compoundliteral478.sroa.3.8.insert.ext.i
-  %call487.i = tail call fastcc i32 @codegen_addop_noarg(ptr noundef nonnull %u_instr_sequence477.i, i32 noundef 32, i64 %.compoundliteral478.sroa.0.0.insert.insert.i, i64 %.compoundliteral478.sroa.3.8.insert.insert.i), !range !5
+  %call487.i = tail call fastcc i32 @codegen_addop_noarg(ptr noundef nonnull %u_instr_sequence477.i, i32 noundef 32, i64 %.compoundliteral478.sroa.0.0.insert.insert.i, i64 %.compoundliteral478.sroa.3.8.insert.insert.i)
   %cmp488.i = icmp eq i32 %call487.i, -1
   br i1 %cmp488.i, label %return, label %if.end491.i
 
@@ -26869,13 +26870,13 @@ if.end38.i123:                                    ; preds = %lor.lhs.false.i
   br i1 %tobool.not.i124, label %if.end44.i, label %if.then39.i
 
 if.then39.i:                                      ; preds = %if.end38.i123
-  %call40.i = tail call fastcc i32 @validate_kwd_attrs(ptr noundef %c, ptr noundef %282, ptr noundef %283), !range !5
+  %call40.i = tail call fastcc i32 @validate_kwd_attrs(ptr noundef %c, ptr noundef %282, ptr noundef %283)
   %cmp41.i = icmp eq i32 %call40.i, -1
   br i1 %cmp41.i, label %return, label %if.end44.i
 
 if.end44.i:                                       ; preds = %if.then39.i, %if.end38.i123
   %296 = load ptr, ptr %v.i103, align 8
-  %call47.i125 = tail call fastcc i32 @compiler_visit_expr(ptr noundef %c, ptr noundef %296), !range !5
+  %call47.i125 = tail call fastcc i32 @compiler_visit_expr(ptr noundef %c, ptr noundef %296)
   %cmp48.i126 = icmp eq i32 %call47.i125, -1
   br i1 %cmp48.i126, label %return, label %if.end50.i
 
@@ -26911,7 +26912,7 @@ _Py_NewRef.exit:                                  ; preds = %for.body.i154, %if.
   store ptr %297, ptr %arrayidx.i330, align 8
   %inc.i157 = add nuw nsw i64 %i.0.i129461, 1
   %exitcond497.not = icmp eq i64 %inc.i157, %cond11.i
-  br i1 %exitcond497.not, label %if.end59.i, label %for.body.i154, !llvm.loop !110
+  br i1 %exitcond497.not, label %if.end59.i, label %for.body.i154, !llvm.loop !103
 
 if.end59.i:                                       ; preds = %_Py_NewRef.exit, %for.cond.i128.preheader
   %c_const_cache.i130 = getelementptr inbounds i8, ptr %c, i64 56
@@ -26934,7 +26935,7 @@ if.end59.i:                                       ; preds = %_Py_NewRef.exit, %f
   %.compoundliteral60.sroa.5.8.insert.shift.i = shl nuw i64 %.compoundliteral60.sroa.5.8.insert.ext.i, 32
   %.compoundliteral60.sroa.3.8.insert.ext.i = zext i32 %303 to i64
   %.compoundliteral60.sroa.3.8.insert.insert.i = or disjoint i64 %.compoundliteral60.sroa.5.8.insert.shift.i, %.compoundliteral60.sroa.3.8.insert.ext.i
-  %call69.i132 = tail call fastcc i32 @compiler_addop_load_const(ptr noundef %299, ptr noundef %300, i64 %.compoundliteral60.sroa.0.0.insert.insert.i, i64 %.compoundliteral60.sroa.3.8.insert.insert.i, ptr noundef nonnull %call51.i), !range !5
+  %call69.i132 = tail call fastcc i32 @compiler_addop_load_const(ptr noundef %299, ptr noundef %300, i64 %.compoundliteral60.sroa.0.0.insert.insert.i, i64 %.compoundliteral60.sroa.3.8.insert.insert.i, ptr noundef nonnull %call51.i)
   %cmp70.i133 = icmp slt i32 %call69.i132, 0
   %305 = load i64, ptr %call51.i, align 8
   %306 = and i64 %305, 2147483648
@@ -26982,7 +26983,7 @@ Py_DECREF.exit.i135:                              ; preds = %if.then1.i.i153, %i
   %.compoundliteral74.sroa.5.8.insert.shift.i142 = shl nuw i64 %.compoundliteral74.sroa.5.8.insert.ext.i141, 32
   %.compoundliteral74.sroa.3.8.insert.ext.i143 = zext i32 %310 to i64
   %.compoundliteral74.sroa.3.8.insert.insert.i144 = or disjoint i64 %.compoundliteral74.sroa.5.8.insert.shift.i142, %.compoundliteral74.sroa.3.8.insert.ext.i143
-  %call83.i145 = tail call fastcc i32 @codegen_addop_i(ptr noundef nonnull %u_instr_sequence.i136, i32 noundef 96, i64 noundef %cond.i107, i64 %.compoundliteral74.sroa.0.0.insert.insert.i140, i64 %.compoundliteral74.sroa.3.8.insert.insert.i144), !range !5
+  %call83.i145 = tail call fastcc i32 @codegen_addop_i(ptr noundef nonnull %u_instr_sequence.i136, i32 noundef 96, i64 noundef %cond.i107, i64 %.compoundliteral74.sroa.0.0.insert.insert.i140, i64 %.compoundliteral74.sroa.3.8.insert.insert.i144)
   %cmp84.i146 = icmp eq i32 %call83.i145, -1
   br i1 %cmp84.i146, label %return, label %if.end86.i147
 
@@ -27001,7 +27002,7 @@ if.end86.i147:                                    ; preds = %Py_DECREF.exit.i135
   %.compoundliteral89.sroa.5.8.insert.shift.i = shl nuw i64 %.compoundliteral89.sroa.5.8.insert.ext.i, 32
   %.compoundliteral89.sroa.3.8.insert.ext.i = zext i32 %315 to i64
   %.compoundliteral89.sroa.3.8.insert.insert.i = or disjoint i64 %.compoundliteral89.sroa.5.8.insert.shift.i, %.compoundliteral89.sroa.3.8.insert.ext.i
-  %call98.i = tail call fastcc i32 @codegen_addop_i(ptr noundef nonnull %u_instr_sequence88.i, i32 noundef 61, i64 noundef 1, i64 %.compoundliteral89.sroa.0.0.insert.insert.i, i64 %.compoundliteral89.sroa.3.8.insert.insert.i), !range !5
+  %call98.i = tail call fastcc i32 @codegen_addop_i(ptr noundef nonnull %u_instr_sequence88.i, i32 noundef 61, i64 noundef 1, i64 %.compoundliteral89.sroa.0.0.insert.insert.i, i64 %.compoundliteral89.sroa.3.8.insert.insert.i)
   %cmp99.i = icmp eq i32 %call98.i, -1
   br i1 %cmp99.i, label %return, label %if.end101.i
 
@@ -27020,7 +27021,7 @@ if.end101.i:                                      ; preds = %if.end86.i147
   %.compoundliteral104.sroa.5.8.insert.shift.i = shl nuw i64 %.compoundliteral104.sroa.5.8.insert.ext.i, 32
   %.compoundliteral104.sroa.3.8.insert.ext.i = zext i32 %321 to i64
   %.compoundliteral104.sroa.3.8.insert.insert.i = or disjoint i64 %.compoundliteral104.sroa.5.8.insert.shift.i, %.compoundliteral104.sroa.3.8.insert.ext.i
-  %call113.i = tail call fastcc i32 @compiler_addop_load_const(ptr noundef %317, ptr noundef %318, i64 %.compoundliteral104.sroa.0.0.insert.insert.i, i64 %.compoundliteral104.sroa.3.8.insert.insert.i, ptr noundef nonnull @_Py_NoneStruct), !range !5
+  %call113.i = tail call fastcc i32 @compiler_addop_load_const(ptr noundef %317, ptr noundef %318, i64 %.compoundliteral104.sroa.0.0.insert.insert.i, i64 %.compoundliteral104.sroa.3.8.insert.insert.i, ptr noundef nonnull @_Py_NoneStruct)
   %cmp114.i = icmp eq i32 %call113.i, -1
   br i1 %cmp114.i, label %return, label %if.end116.i
 
@@ -27039,7 +27040,7 @@ if.end116.i:                                      ; preds = %if.end101.i
   %.compoundliteral119.sroa.5.8.insert.shift.i = shl nuw i64 %.compoundliteral119.sroa.5.8.insert.ext.i, 32
   %.compoundliteral119.sroa.3.8.insert.ext.i = zext i32 %326 to i64
   %.compoundliteral119.sroa.3.8.insert.insert.i = or disjoint i64 %.compoundliteral119.sroa.5.8.insert.shift.i, %.compoundliteral119.sroa.3.8.insert.ext.i
-  %call128.i = tail call fastcc i32 @codegen_addop_i(ptr noundef nonnull %u_instr_sequence118.i, i32 noundef 76, i64 noundef 1, i64 %.compoundliteral119.sroa.0.0.insert.insert.i, i64 %.compoundliteral119.sroa.3.8.insert.insert.i), !range !5
+  %call128.i = tail call fastcc i32 @codegen_addop_i(ptr noundef nonnull %u_instr_sequence118.i, i32 noundef 76, i64 noundef 1, i64 %.compoundliteral119.sroa.0.0.insert.insert.i, i64 %.compoundliteral119.sroa.3.8.insert.insert.i)
   %cmp129.i = icmp eq i32 %call128.i, -1
   br i1 %cmp129.i, label %return, label %if.end131.i
 
@@ -27060,7 +27061,7 @@ if.end131.i:                                      ; preds = %if.end116.i
   %.compoundliteral133.sroa.5.8.insert.shift.i = shl nuw i64 %.compoundliteral133.sroa.5.8.insert.ext.i, 32
   %.compoundliteral133.sroa.3.8.insert.ext.i = zext i32 %331 to i64
   %.compoundliteral133.sroa.3.8.insert.insert.i = or disjoint i64 %.compoundliteral133.sroa.5.8.insert.shift.i, %.compoundliteral133.sroa.3.8.insert.ext.i
-  %call142.i = tail call fastcc i32 @jump_to_fail_pop(ptr noundef nonnull %c, i64 %.compoundliteral133.sroa.0.0.insert.insert.i, i64 %.compoundliteral133.sroa.3.8.insert.insert.i, ptr noundef %pc, i32 noundef 97), !range !5
+  %call142.i = tail call fastcc i32 @jump_to_fail_pop(ptr noundef nonnull %c, i64 %.compoundliteral133.sroa.0.0.insert.insert.i, i64 %.compoundliteral133.sroa.3.8.insert.insert.i, ptr noundef %pc, i32 noundef 97)
   %cmp143.i = icmp eq i32 %call142.i, -1
   br i1 %cmp143.i, label %return, label %if.end145.i
 
@@ -27079,7 +27080,7 @@ if.end145.i:                                      ; preds = %if.end131.i
   %.compoundliteral149.sroa.5.8.insert.shift.i = shl nuw i64 %.compoundliteral149.sroa.5.8.insert.ext.i, 32
   %.compoundliteral149.sroa.3.8.insert.ext.i = zext i32 %336 to i64
   %.compoundliteral149.sroa.3.8.insert.insert.i = or disjoint i64 %.compoundliteral149.sroa.5.8.insert.shift.i, %.compoundliteral149.sroa.3.8.insert.ext.i
-  %call158.i = tail call fastcc i32 @codegen_addop_i(ptr noundef nonnull %u_instr_sequence147.i, i32 noundef 117, i64 noundef %add.i121, i64 %.compoundliteral149.sroa.0.0.insert.insert.i, i64 %.compoundliteral149.sroa.3.8.insert.insert.i), !range !5
+  %call158.i = tail call fastcc i32 @codegen_addop_i(ptr noundef nonnull %u_instr_sequence147.i, i32 noundef 117, i64 noundef %add.i121, i64 %.compoundliteral149.sroa.0.0.insert.insert.i, i64 %.compoundliteral149.sroa.3.8.insert.insert.i)
   %cmp159.i = icmp eq i32 %call158.i, -1
   br i1 %cmp159.i, label %return, label %if.end161.i
 
@@ -27132,14 +27133,14 @@ if.then183.i:                                     ; preds = %land.lhs.true.i
   %.compoundliteral186.sroa.5.8.insert.shift.i = shl nuw i64 %.compoundliteral186.sroa.5.8.insert.ext.i, 32
   %.compoundliteral186.sroa.3.8.insert.ext.i = zext i32 %345 to i64
   %.compoundliteral186.sroa.3.8.insert.insert.i = or disjoint i64 %.compoundliteral186.sroa.5.8.insert.shift.i, %.compoundliteral186.sroa.3.8.insert.ext.i
-  %call195.i = tail call fastcc i32 @codegen_addop_noarg(ptr noundef nonnull %u_instr_sequence185.i, i32 noundef 32, i64 %.compoundliteral186.sroa.0.0.insert.insert.i, i64 %.compoundliteral186.sroa.3.8.insert.insert.i), !range !5
+  %call195.i = tail call fastcc i32 @codegen_addop_noarg(ptr noundef nonnull %u_instr_sequence185.i, i32 noundef 32, i64 %.compoundliteral186.sroa.0.0.insert.insert.i, i64 %.compoundliteral186.sroa.3.8.insert.insert.i)
   %cmp196.i = icmp eq i32 %call195.i, -1
   br i1 %cmp196.i, label %return, label %for.inc204.i
 
 if.end199.i:                                      ; preds = %land.lhs.true.i, %for.body169.i
   %347 = load i32, ptr %allow_irrefutable1.i323, align 8
   store i32 1, ptr %allow_irrefutable1.i323, align 8
-  %call.i324 = tail call fastcc i32 @compiler_pattern(ptr noundef %c, ptr noundef nonnull %pattern.0.i, ptr noundef nonnull %pc), !range !5
+  %call.i324 = tail call fastcc i32 @compiler_pattern(ptr noundef %c, ptr noundef nonnull %pattern.0.i, ptr noundef nonnull %pc)
   %cmp.i325 = icmp eq i32 %call.i324, -1
   br i1 %cmp.i325, label %return, label %compiler_pattern_subpattern.exit328
 
@@ -27150,7 +27151,7 @@ compiler_pattern_subpattern.exit328:              ; preds = %if.end199.i
 for.inc204.i:                                     ; preds = %compiler_pattern_subpattern.exit328, %if.then183.i
   %inc205.i = add nuw nsw i64 %i.1.i463, 1
   %exitcond498.not = icmp eq i64 %inc205.i, %add.i121
-  br i1 %exitcond498.not, label %return, label %for.body169.i, !llvm.loop !111
+  br i1 %exitcond498.not, label %return, label %for.body169.i, !llvm.loop !104
 
 sw.bb9:                                           ; preds = %entry
   %lineno1.i158 = getelementptr inbounds i8, ptr %p, i64 40
@@ -27171,7 +27172,7 @@ sw.bb9:                                           ; preds = %entry
   %.compoundliteral.sroa.5.8.insert.shift.i168 = shl nuw i64 %.compoundliteral.sroa.5.8.insert.ext.i167, 32
   %.compoundliteral.sroa.3.8.insert.ext.i169 = zext i32 %350 to i64
   %.compoundliteral.sroa.3.8.insert.insert.i170 = or disjoint i64 %.compoundliteral.sroa.5.8.insert.shift.i168, %.compoundliteral.sroa.3.8.insert.ext.i169
-  %call.i171 = tail call fastcc i32 @pattern_helper_store_name(ptr noundef %c, i64 %.compoundliteral.sroa.0.0.insert.insert.i166, i64 %.compoundliteral.sroa.3.8.insert.insert.i170, ptr noundef %352, ptr noundef %pc), !range !5
+  %call.i171 = tail call fastcc i32 @pattern_helper_store_name(ptr noundef %c, i64 %.compoundliteral.sroa.0.0.insert.insert.i166, i64 %.compoundliteral.sroa.3.8.insert.insert.i170, ptr noundef %352, ptr noundef %pc)
   %cmp.i172 = icmp eq i32 %call.i171, -1
   %..i173 = sext i1 %cmp.i172 to i32
   br label %return
@@ -27237,7 +27238,7 @@ if.end22.i:                                       ; preds = %if.then.i193
   %.compoundliteral23.sroa.5.8.insert.shift.i = shl nuw i64 %.compoundliteral23.sroa.5.8.insert.ext.i, 32
   %.compoundliteral23.sroa.3.8.insert.ext.i = zext i32 %362 to i64
   %.compoundliteral23.sroa.3.8.insert.insert.i = or disjoint i64 %.compoundliteral23.sroa.5.8.insert.shift.i, %.compoundliteral23.sroa.3.8.insert.ext.i
-  %call34.i = tail call fastcc i32 @pattern_helper_store_name(ptr noundef %c, i64 %.compoundliteral23.sroa.0.0.insert.insert.i, i64 %.compoundliteral23.sroa.3.8.insert.insert.i, ptr noundef %364, ptr noundef nonnull %pc), !range !5
+  %call34.i = tail call fastcc i32 @pattern_helper_store_name(ptr noundef %c, i64 %.compoundliteral23.sroa.0.0.insert.insert.i, i64 %.compoundliteral23.sroa.3.8.insert.insert.i, ptr noundef %364, ptr noundef nonnull %pc)
   br label %return
 
 if.end35.i:                                       ; preds = %sw.bb11
@@ -27268,7 +27269,7 @@ if.end35.i:                                       ; preds = %sw.bb11
   %371 = load i32, ptr %s_used.i.i.i335, align 4
   %add.i.i.i336 = add i32 %371, 1
   %s_allocated.i.i.i337 = getelementptr inbounds i8, ptr %366, i64 32
-  %call.i.i.i338 = tail call i32 @_PyCompile_EnsureArrayLargeEnough(i32 noundef %add.i.i.i336, ptr noundef nonnull %u_instr_sequence.i179, ptr noundef nonnull %s_allocated.i.i.i337, i32 noundef 100, i64 noundef 44), !range !5
+  %call.i.i.i338 = tail call i32 @_PyCompile_EnsureArrayLargeEnough(i32 noundef %add.i.i.i336, ptr noundef nonnull %u_instr_sequence.i179, ptr noundef nonnull %s_allocated.i.i.i337, i32 noundef 100, i64 noundef 44)
   %cmp.i.i.i339 = icmp eq i32 %call.i.i.i338, -1
   br i1 %cmp.i.i.i339, label %return, label %instr_sequence_next_inst.exit.i.i340
 
@@ -27291,7 +27292,7 @@ if.end48.i:                                       ; preds = %instr_sequence_next
   %loc.sroa.2.0.i_loc.sroa_idx.i.i348 = getelementptr inbounds i8, ptr %arrayidx.i.i345, i64 16
   store i64 %.compoundliteral36.sroa.3.8.insert.insert.i, ptr %loc.sroa.2.0.i_loc.sroa_idx.i.i348, align 4
   %374 = load ptr, ptr %v.i174, align 8
-  %call51.i180 = tail call fastcc i32 @compiler_pattern(ptr noundef nonnull %c, ptr noundef %374, ptr noundef nonnull %pc), !range !5
+  %call51.i180 = tail call fastcc i32 @compiler_pattern(ptr noundef nonnull %c, ptr noundef %374, ptr noundef nonnull %pc)
   %cmp52.i181 = icmp eq i32 %call51.i180, -1
   br i1 %cmp52.i181, label %return, label %if.end54.i
 
@@ -27313,7 +27314,7 @@ if.end54.i:                                       ; preds = %if.end48.i
   %.compoundliteral56.sroa.5.8.insert.shift.i188 = shl nuw i64 %.compoundliteral56.sroa.5.8.insert.ext.i187, 32
   %.compoundliteral56.sroa.3.8.insert.ext.i189 = zext i32 %378 to i64
   %.compoundliteral56.sroa.3.8.insert.insert.i190 = or disjoint i64 %.compoundliteral56.sroa.5.8.insert.shift.i188, %.compoundliteral56.sroa.3.8.insert.ext.i189
-  %call67.i = tail call fastcc i32 @pattern_helper_store_name(ptr noundef nonnull %c, i64 %.compoundliteral56.sroa.0.0.insert.insert.i186, i64 %.compoundliteral56.sroa.3.8.insert.insert.i190, ptr noundef %380, ptr noundef nonnull %pc), !range !5
+  %call67.i = tail call fastcc i32 @pattern_helper_store_name(ptr noundef nonnull %c, i64 %.compoundliteral56.sroa.0.0.insert.insert.i186, i64 %.compoundliteral56.sroa.3.8.insert.insert.i190, ptr noundef %380, ptr noundef nonnull %pc)
   %cmp68.i = icmp eq i32 %call67.i, -1
   %..i191 = sext i1 %cmp68.i to i32
   br label %return
@@ -27370,7 +27371,7 @@ for.body.i269.lr.ph:                              ; preds = %Py_INCREF.exit311.i
 for.cond.i226:                                    ; preds = %lor.lhs.false100.i
   %inc.i299 = add nuw nsw i64 %i.0.i227456, 1
   %exitcond.not = icmp eq i64 %inc.i299, %cond.i225
-  br i1 %exitcond.not, label %for.end.i229, label %for.body.i269, !llvm.loop !112
+  br i1 %exitcond.not, label %for.end.i229, label %for.body.i269, !llvm.loop !105
 
 for.body.i269:                                    ; preds = %for.body.i269.lr.ph, %for.cond.i226
   %control.0.i457 = phi ptr [ null, %for.body.i269.lr.ph ], [ %control.1.i, %for.cond.i226 ]
@@ -27429,7 +27430,7 @@ do.end.i:                                         ; preds = %if.then1.i275.i, %i
   %399 = load i32, ptr %s_used.i.i.i396, align 4
   %add.i.i.i397 = add i32 %399, 1
   %s_allocated.i.i.i398 = getelementptr inbounds i8, ptr %394, i64 32
-  %call.i.i.i399 = tail call i32 @_PyCompile_EnsureArrayLargeEnough(i32 noundef %add.i.i.i397, ptr noundef nonnull %u_instr_sequence16.i, ptr noundef nonnull %s_allocated.i.i.i398, i32 noundef 100, i64 noundef 44), !range !5
+  %call.i.i.i399 = tail call i32 @_PyCompile_EnsureArrayLargeEnough(i32 noundef %add.i.i.i397, ptr noundef nonnull %u_instr_sequence16.i, ptr noundef nonnull %s_allocated.i.i.i398, i32 noundef 100, i64 noundef 44)
   %cmp.i.i.i400 = icmp eq i32 %call.i.i.i399, -1
   br i1 %cmp.i.i.i400, label %error.i263, label %instr_sequence_next_inst.exit.i.i401
 
@@ -27451,7 +27452,7 @@ lor.lhs.false.i288:                               ; preds = %instr_sequence_next
   store i64 %.compoundliteral.sroa.0.0.insert.insert.i282, ptr %i_loc.i.i408, align 4
   %loc.sroa.2.0.i_loc.sroa_idx.i.i409 = getelementptr inbounds i8, ptr %arrayidx.i.i406, i64 16
   store i64 %.compoundliteral.sroa.3.8.insert.insert.i286, ptr %loc.sroa.2.0.i_loc.sroa_idx.i.i409, align 4
-  %call23.i = tail call fastcc i32 @compiler_pattern(ptr noundef nonnull %c, ptr noundef nonnull %389, ptr noundef nonnull %pc), !range !5
+  %call23.i = tail call fastcc i32 @compiler_pattern(ptr noundef nonnull %c, ptr noundef nonnull %389, ptr noundef nonnull %pc)
   %cmp24.i289 = icmp slt i32 %call23.i, 0
   br i1 %cmp24.i289, label %error.i263, label %if.end26.i
 
@@ -27576,7 +27577,7 @@ while.body.i374.us:                               ; preds = %while.body66.i.us, 
   %419 = load i32, ptr %s_used.i.i.i.i377.us, align 4
   %add.i.i.i.i378.us = add i32 %419, 1
   %s_allocated.i.i.i.i379.us = getelementptr inbounds i8, ptr %418, i64 32
-  %call.i.i.i.i380.us = tail call i32 @_PyCompile_EnsureArrayLargeEnough(i32 noundef %add.i.i.i.i378.us, ptr noundef nonnull %u_instr_sequence.i375.us, ptr noundef nonnull %s_allocated.i.i.i.i379.us, i32 noundef 100, i64 noundef 44), !range !5
+  %call.i.i.i.i380.us = tail call i32 @_PyCompile_EnsureArrayLargeEnough(i32 noundef %add.i.i.i.i378.us, ptr noundef nonnull %u_instr_sequence.i375.us, ptr noundef nonnull %s_allocated.i.i.i.i379.us, i32 noundef 100, i64 noundef 44)
   %cmp.i.i.i.i381.us = icmp eq i32 %call.i.i.i.i380.us, -1
   br i1 %cmp.i.i.i.i381.us, label %error.i263, label %instr_sequence_next_inst.exit.i.i.i382.us
 
@@ -27599,15 +27600,15 @@ codegen_addop_i.exit.i.us:                        ; preds = %instr_sequence_next
   %loc.sroa.2.0.i_loc.sroa_idx.i.i.i389.us = getelementptr inbounds i8, ptr %arrayidx.i.i.i386.us, i64 16
   store i64 %.compoundliteral67.sroa.3.8.insert.insert.i.us, ptr %loc.sroa.2.0.i_loc.sroa_idx.i.i.i389.us, align 4
   %cmp.i390.us = icmp ugt i64 %count.addr.05.i.us, 2
-  br i1 %cmp.i390.us, label %while.body.i374.us, label %pattern_helper_rotate.exit.loopexit.us, !llvm.loop !113
+  br i1 %cmp.i390.us, label %while.body.i374.us, label %pattern_helper_rotate.exit.loopexit.us, !llvm.loop !106
 
 pattern_helper_rotate.exit.loopexit.us:           ; preds = %codegen_addop_i.exit.i.us
   %tobool65.not.i.us = icmp eq i64 %dec64.i.us, 0
-  br i1 %tobool65.not.i.us, label %if.end81.i, label %while.body66.i.us, !llvm.loop !114
+  br i1 %tobool65.not.i.us, label %if.end81.i, label %while.body66.i.us, !llvm.loop !107
 
 if.end81.i:                                       ; preds = %pattern_helper_rotate.exit.loopexit.us, %Py_DECREF.exit268.i, %if.end45.i
   %tobool39.not.i = icmp eq i64 %dec.i292454, 0
-  br i1 %tobool39.not.i, label %if.end85.i, label %while.body.i293, !llvm.loop !115
+  br i1 %tobool39.not.i, label %if.end85.i, label %while.body.i293, !llvm.loop !108
 
 if.end85.i:                                       ; preds = %if.end81.i, %if.end.i.i393, %if.then30.i, %if.else36.i
   %control.1.i = phi ptr [ %control.0.i457, %if.else36.i ], [ %402, %if.then30.i ], [ %402, %if.end.i.i393 ], [ %control.0.i457, %if.end81.i ]
@@ -27629,7 +27630,7 @@ if.end85.i:                                       ; preds = %if.end81.i, %if.end
   %427 = load i32, ptr %s_used.i.i.i357, align 4
   %add.i.i.i358 = add i32 %427, 1
   %s_allocated.i.i.i359 = getelementptr inbounds i8, ptr %422, i64 32
-  %call.i.i.i360 = tail call i32 @_PyCompile_EnsureArrayLargeEnough(i32 noundef %add.i.i.i358, ptr noundef nonnull %u_instr_sequence87.i, ptr noundef nonnull %s_allocated.i.i.i359, i32 noundef 100, i64 noundef 44), !range !5
+  %call.i.i.i360 = tail call i32 @_PyCompile_EnsureArrayLargeEnough(i32 noundef %add.i.i.i358, ptr noundef nonnull %u_instr_sequence87.i, ptr noundef nonnull %s_allocated.i.i.i359, i32 noundef 100, i64 noundef 44)
   %cmp.i.i.i361 = icmp eq i32 %call.i.i.i360, -1
   br i1 %cmp.i.i.i361, label %error.i263, label %instr_sequence_next_inst.exit.i.i362
 
@@ -27663,7 +27664,7 @@ lor.lhs.false100.i:                               ; preds = %instr_sequence_next
   %.compoundliteral101.sroa.5.8.insert.shift.i = shl nuw i64 %.compoundliteral101.sroa.5.8.insert.ext.i, 32
   %.compoundliteral101.sroa.3.8.insert.ext.i = zext i32 %432 to i64
   %.compoundliteral101.sroa.3.8.insert.insert.i = or disjoint i64 %.compoundliteral101.sroa.5.8.insert.shift.i, %.compoundliteral101.sroa.3.8.insert.ext.i
-  %call110.i = tail call fastcc i32 @emit_and_reset_fail_pop(ptr noundef nonnull %c, i64 %.compoundliteral101.sroa.0.0.insert.insert.i, i64 %.compoundliteral101.sroa.3.8.insert.insert.i, ptr noundef nonnull %pc), !range !5
+  %call110.i = tail call fastcc i32 @emit_and_reset_fail_pop(ptr noundef nonnull %c, i64 %.compoundliteral101.sroa.0.0.insert.insert.i, i64 %.compoundliteral101.sroa.3.8.insert.insert.i, ptr noundef nonnull %pc)
   %cmp111.i = icmp slt i32 %call110.i, 0
   br i1 %cmp111.i, label %error.i263, label %for.cond.i226
 
@@ -27722,7 +27723,7 @@ Py_INCREF.exit.i:                                 ; preds = %if.end.i302.i, %Py_
   %443 = load i32, ptr %s_used.i.i.i534, align 4
   %add.i.i.i535 = add i32 %443, 1
   %s_allocated.i.i.i536 = getelementptr inbounds i8, ptr %438, i64 32
-  %call.i.i.i537 = tail call i32 @_PyCompile_EnsureArrayLargeEnough(i32 noundef %add.i.i.i535, ptr noundef nonnull %u_instr_sequence118.i230, ptr noundef nonnull %s_allocated.i.i.i536, i32 noundef 100, i64 noundef 44), !range !5
+  %call.i.i.i537 = tail call i32 @_PyCompile_EnsureArrayLargeEnough(i32 noundef %add.i.i.i535, ptr noundef nonnull %u_instr_sequence118.i230, ptr noundef nonnull %s_allocated.i.i.i536, i32 noundef 100, i64 noundef 44)
   %cmp.i.i.i538 = icmp eq i32 %call.i.i.i537, -1
   br i1 %cmp.i.i.i538, label %error.i263, label %instr_sequence_next_inst.exit.i.i539
 
@@ -27756,14 +27757,14 @@ lor.lhs.false130.i:                               ; preds = %instr_sequence_next
   %.compoundliteral131.sroa.5.8.insert.shift.i = shl nuw i64 %.compoundliteral131.sroa.5.8.insert.ext.i, 32
   %.compoundliteral131.sroa.3.8.insert.ext.i = zext i32 %448 to i64
   %.compoundliteral131.sroa.3.8.insert.insert.i = or disjoint i64 %.compoundliteral131.sroa.5.8.insert.shift.i, %.compoundliteral131.sroa.3.8.insert.ext.i
-  %call140.i = tail call fastcc i32 @jump_to_fail_pop(ptr noundef nonnull %c, i64 %.compoundliteral131.sroa.0.0.insert.insert.i, i64 %.compoundliteral131.sroa.3.8.insert.insert.i, ptr noundef nonnull %pc, i32 noundef 256), !range !5
+  %call140.i = tail call fastcc i32 @jump_to_fail_pop(ptr noundef nonnull %c, i64 %.compoundliteral131.sroa.0.0.insert.insert.i, i64 %.compoundliteral131.sroa.3.8.insert.insert.i, ptr noundef nonnull %pc, i32 noundef 256)
   %cmp141.i241 = icmp slt i32 %call140.i, 0
   br i1 %cmp141.i241, label %error.i263, label %if.end143.i
 
 if.end143.i:                                      ; preds = %lor.lhs.false130.i
   %450 = load ptr, ptr %u.i217, align 8
   %u_instr_sequence145.i = getelementptr inbounds i8, ptr %450, i64 24
-  %call147.i = tail call i32 @_PyCompile_InstructionSequence_UseLabel(ptr noundef nonnull %u_instr_sequence145.i, i32 noundef %inc.i412), !range !5
+  %call147.i = tail call i32 @_PyCompile_InstructionSequence_UseLabel(ptr noundef nonnull %u_instr_sequence145.i, i32 noundef %inc.i412)
   %cmp148.i = icmp eq i32 %call147.i, -1
   br i1 %cmp148.i, label %compiler_pattern_or.exit, label %if.end150.i
 
@@ -27789,7 +27790,7 @@ for.body162.i.lr.ph:                              ; preds = %if.end150.i
 for.cond160.i:                                    ; preds = %if.end196.i
   %inc203.i = add nuw nsw i64 %i159.0.i459, 1
   %exitcond496.not = icmp eq i64 %inc203.i, %control.0.val.i
-  br i1 %exitcond496.not, label %for.end204.i, label %for.body162.i, !llvm.loop !116
+  br i1 %exitcond496.not, label %for.end204.i, label %for.body162.i, !llvm.loop !109
 
 for.body162.i:                                    ; preds = %for.body162.i.lr.ph, %for.cond160.i
   %i159.0.i459 = phi i64 [ 0, %for.body162.i.lr.ph ], [ %inc203.i, %for.cond160.i ]
@@ -27817,7 +27818,7 @@ while.body.i550:                                  ; preds = %for.body162.i, %cod
   %460 = load i32, ptr %s_used.i.i.i.i553, align 4
   %add.i.i.i.i554 = add i32 %460, 1
   %s_allocated.i.i.i.i555 = getelementptr inbounds i8, ptr %459, i64 32
-  %call.i.i.i.i556 = tail call i32 @_PyCompile_EnsureArrayLargeEnough(i32 noundef %add.i.i.i.i554, ptr noundef nonnull %u_instr_sequence.i551, ptr noundef nonnull %s_allocated.i.i.i.i555, i32 noundef 100, i64 noundef 44), !range !5
+  %call.i.i.i.i556 = tail call i32 @_PyCompile_EnsureArrayLargeEnough(i32 noundef %add.i.i.i.i554, ptr noundef nonnull %u_instr_sequence.i551, ptr noundef nonnull %s_allocated.i.i.i.i555, i32 noundef 100, i64 noundef 44)
   %cmp.i.i.i.i557 = icmp eq i32 %call.i.i.i.i556, -1
   br i1 %cmp.i.i.i.i557, label %error.i263, label %instr_sequence_next_inst.exit.i.i.i558
 
@@ -27840,7 +27841,7 @@ codegen_addop_i.exit.i:                           ; preds = %instr_sequence_next
   %loc.sroa.2.0.i_loc.sroa_idx.i.i.i565 = getelementptr inbounds i8, ptr %arrayidx.i.i.i562, i64 16
   store i64 %.compoundliteral163.sroa.3.8.insert.insert.i251, ptr %loc.sroa.2.0.i_loc.sroa_idx.i.i.i565, align 4
   %cmp.i566 = icmp ugt i64 %count.addr.05.i, 2
-  br i1 %cmp.i566, label %while.body.i550, label %if.end175.i, !llvm.loop !113
+  br i1 %cmp.i566, label %while.body.i550, label %if.end175.i, !llvm.loop !106
 
 if.end175.i:                                      ; preds = %codegen_addop_i.exit.i, %for.body162.i
   %463 = load ptr, ptr %ob_item177.i, align 8
@@ -27924,7 +27925,7 @@ Py_DECREF.exit241.i:                              ; preds = %if.then1.i239.i, %i
   %.compoundliteral208.sroa.5.8.insert.shift.i = shl nuw i64 %.compoundliteral208.sroa.5.8.insert.ext.i, 32
   %.compoundliteral208.sroa.3.8.insert.ext.i = zext i32 %478 to i64
   %.compoundliteral208.sroa.3.8.insert.insert.i = or disjoint i64 %.compoundliteral208.sroa.5.8.insert.shift.i, %.compoundliteral208.sroa.3.8.insert.ext.i
-  %call217.i = tail call fastcc i32 @codegen_addop_noarg(ptr noundef nonnull %u_instr_sequence207.i, i32 noundef 32, i64 %.compoundliteral208.sroa.0.0.insert.insert.i, i64 %.compoundliteral208.sroa.3.8.insert.insert.i), !range !5
+  %call217.i = tail call fastcc i32 @codegen_addop_noarg(ptr noundef nonnull %u_instr_sequence207.i, i32 noundef 32, i64 %.compoundliteral208.sroa.0.0.insert.insert.i, i64 %.compoundliteral208.sroa.3.8.insert.insert.i)
   %cmp218.i = icmp eq i32 %call217.i, -1
   %..i242 = sext i1 %cmp218.i to i32
   br label %compiler_pattern_or.exit
@@ -28019,7 +28020,7 @@ return:                                           ; preds = %for.inc204.i, %if.t
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @emit_and_reset_fail_pop(ptr nocapture noundef readonly %c, i64 %loc.coerce0, i64 %loc.coerce1, ptr nocapture noundef %pc) unnamed_addr #1 {
+define internal fastcc range(i32 -1, 1) i32 @emit_and_reset_fail_pop(ptr nocapture noundef readonly %c, i64 %loc.coerce0, i64 %loc.coerce1, ptr nocapture noundef %pc) unnamed_addr #1 {
 entry:
   %fail_pop_size = getelementptr inbounds i8, ptr %pc, i64 24
   %0 = load i64, ptr %fail_pop_size, align 8
@@ -28046,7 +28047,7 @@ while.body:                                       ; preds = %while.body.lr.ph, %
   %s_labelmap_size.i = getelementptr inbounds i8, ptr %1, i64 48
   %4 = load i32, ptr %s_labelmap_size.i, align 8
   %s_labelmap.i = getelementptr inbounds i8, ptr %1, i64 40
-  %call.i = tail call i32 @_PyCompile_EnsureArrayLargeEnough(i32 noundef %3, ptr noundef nonnull %s_labelmap.i, ptr noundef nonnull %s_labelmap_size.i, i32 noundef 10, i64 noundef 4), !range !5
+  %call.i = tail call i32 @_PyCompile_EnsureArrayLargeEnough(i32 noundef %3, ptr noundef nonnull %s_labelmap.i, ptr noundef nonnull %s_labelmap_size.i, i32 noundef 10, i64 noundef 4)
   %cmp.i = icmp eq i32 %call.i, -1
   br i1 %cmp.i, label %return, label %for.cond.preheader.i
 
@@ -28068,7 +28069,7 @@ for.body.i:                                       ; preds = %for.body.i, %for.bo
   %8 = load i32, ptr %s_labelmap_size.i, align 8
   %9 = sext i32 %8 to i64
   %cmp3.i = icmp slt i64 %indvars.iv.next.i, %9
-  br i1 %cmp3.i, label %for.body.i, label %if.end5, !llvm.loop !6
+  br i1 %cmp3.i, label %for.body.i, label %if.end5, !llvm.loop !5
 
 if.end5:                                          ; preds = %for.body.i, %for.cond.preheader.i
   %s_used.i = getelementptr inbounds i8, ptr %1, i64 36
@@ -28083,7 +28084,7 @@ if.end5:                                          ; preds = %for.body.i, %for.co
   %13 = load i32, ptr %s_used.i.i.i, align 4
   %add.i.i.i = add i32 %13, 1
   %s_allocated.i.i.i = getelementptr inbounds i8, ptr %12, i64 32
-  %call.i.i.i = tail call i32 @_PyCompile_EnsureArrayLargeEnough(i32 noundef %add.i.i.i, ptr noundef nonnull %u_instr_sequence7, ptr noundef nonnull %s_allocated.i.i.i, i32 noundef 100, i64 noundef 44), !range !5
+  %call.i.i.i = tail call i32 @_PyCompile_EnsureArrayLargeEnough(i32 noundef %add.i.i.i, ptr noundef nonnull %u_instr_sequence7, ptr noundef nonnull %s_allocated.i.i.i, i32 noundef 100, i64 noundef 44)
   %cmp.i.i.i = icmp eq i32 %call.i.i.i, -1
   br i1 %cmp.i.i.i, label %if.then10, label %instr_sequence_next_inst.exit.i.i
 
@@ -28109,7 +28110,7 @@ codegen_addop_noarg.exit:                         ; preds = %instr_sequence_next
   %dec = add i64 %16, -1
   store i64 %dec, ptr %fail_pop_size, align 8
   %tobool2.not = icmp eq i64 %dec, 0
-  br i1 %tobool2.not, label %while.end, label %while.body, !llvm.loop !117
+  br i1 %tobool2.not, label %while.end, label %while.body, !llvm.loop !110
 
 if.then10:                                        ; preds = %instr_sequence_next_inst.exit.i.i, %if.end5
   store i64 0, ptr %fail_pop_size, align 8
@@ -28124,7 +28125,7 @@ while.end:                                        ; preds = %codegen_addop_noarg
   %s_labelmap_size.i12 = getelementptr inbounds i8, ptr %17, i64 48
   %20 = load i32, ptr %s_labelmap_size.i12, align 8
   %s_labelmap.i13 = getelementptr inbounds i8, ptr %17, i64 40
-  %call.i14 = tail call i32 @_PyCompile_EnsureArrayLargeEnough(i32 noundef %19, ptr noundef nonnull %s_labelmap.i13, ptr noundef nonnull %s_labelmap_size.i12, i32 noundef 10, i64 noundef 4), !range !5
+  %call.i14 = tail call i32 @_PyCompile_EnsureArrayLargeEnough(i32 noundef %19, ptr noundef nonnull %s_labelmap.i13, ptr noundef nonnull %s_labelmap_size.i12, i32 noundef 10, i64 noundef 4)
   %cmp.i15 = icmp eq i32 %call.i14, -1
   br i1 %cmp.i15, label %return, label %for.cond.preheader.i16
 
@@ -28146,7 +28147,7 @@ for.body.i24:                                     ; preds = %for.body.i24, %for.
   %24 = load i32, ptr %s_labelmap_size.i12, align 8
   %25 = sext i32 %24 to i64
   %cmp3.i28 = icmp slt i64 %indvars.iv.next.i27, %25
-  br i1 %cmp3.i28, label %for.body.i24, label %if.end23, !llvm.loop !6
+  br i1 %cmp3.i28, label %for.body.i24, label %if.end23, !llvm.loop !5
 
 if.end23:                                         ; preds = %for.body.i24, %for.cond.preheader.i16
   %s_used.i19 = getelementptr inbounds i8, ptr %17, i64 36
@@ -28171,7 +28172,7 @@ return:                                           ; preds = %while.body, %return
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @jump_to_fail_pop(ptr nocapture noundef readonly %c, i64 %loc.coerce0, i64 %loc.coerce1, ptr nocapture noundef %pc, i32 noundef %op) unnamed_addr #1 {
+define internal fastcc range(i32 -1, 1) i32 @jump_to_fail_pop(ptr nocapture noundef readonly %c, i64 %loc.coerce0, i64 %loc.coerce1, ptr nocapture noundef %pc, i32 noundef %op) unnamed_addr #1 {
 entry:
   %on_top = getelementptr inbounds i8, ptr %pc, i64 32
   %0 = load i64, ptr %on_top, align 8
@@ -28222,7 +28223,7 @@ if.end11.i:                                       ; preds = %while.body.i
   store i32 %inc.i.i, ptr %arrayidx.i, align 4
   %10 = load i64, ptr %fail_pop_size.i, align 8
   %cmp7.i = icmp slt i64 %10, %add.i
-  br i1 %cmp7.i, label %while.body.i, label %if.end, !llvm.loop !45
+  br i1 %cmp7.i, label %while.body.i, label %if.end, !llvm.loop !42
 
 if.end:                                           ; preds = %if.end11.i, %entry, %if.end4.i
   %u = getelementptr inbounds i8, ptr %c, i64 64
@@ -28236,7 +28237,7 @@ if.end:                                           ; preds = %if.end11.i, %entry,
   %14 = load i32, ptr %s_used.i.i.i, align 4
   %add.i.i.i = add i32 %14, 1
   %s_allocated.i.i.i = getelementptr inbounds i8, ptr %11, i64 32
-  %call.i.i.i = tail call i32 @_PyCompile_EnsureArrayLargeEnough(i32 noundef %add.i.i.i, ptr noundef nonnull %u_instr_sequence, ptr noundef nonnull %s_allocated.i.i.i, i32 noundef 100, i64 noundef 44), !range !5
+  %call.i.i.i = tail call i32 @_PyCompile_EnsureArrayLargeEnough(i32 noundef %add.i.i.i, ptr noundef nonnull %u_instr_sequence, ptr noundef nonnull %s_allocated.i.i.i, i32 noundef 100, i64 noundef 44)
   %cmp.i.i.i = icmp eq i32 %call.i.i.i, -1
   br i1 %cmp.i.i.i, label %return, label %instr_sequence_next_inst.exit.i.i
 
@@ -28266,7 +28267,7 @@ return:                                           ; preds = %while.body.i, %code
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @pattern_helper_sequence_subscr(ptr noundef %c, i64 %loc.coerce0, i64 %loc.coerce1, ptr noundef readonly %patterns, i64 noundef %star, ptr nocapture noundef %pc) unnamed_addr #1 {
+define internal fastcc range(i32 -1, 1) i32 @pattern_helper_sequence_subscr(ptr noundef %c, i64 %loc.coerce0, i64 %loc.coerce1, ptr noundef readonly %patterns, i64 noundef %star, ptr nocapture noundef %pc) unnamed_addr #1 {
 entry:
   %on_top = getelementptr inbounds i8, ptr %pc, i64 32
   %0 = load i64, ptr %on_top, align 8
@@ -28314,7 +28315,7 @@ if.end6:                                          ; preds = %land.lhs.true, %if.
   %6 = load i32, ptr %s_used.i.i.i, align 4
   %add.i.i.i = add i32 %6, 1
   %s_allocated.i.i.i = getelementptr inbounds i8, ptr %5, i64 32
-  %call.i.i.i = tail call i32 @_PyCompile_EnsureArrayLargeEnough(i32 noundef %add.i.i.i, ptr noundef nonnull %u_instr_sequence, ptr noundef nonnull %s_allocated.i.i.i, i32 noundef 100, i64 noundef 44), !range !5
+  %call.i.i.i = tail call i32 @_PyCompile_EnsureArrayLargeEnough(i32 noundef %add.i.i.i, ptr noundef nonnull %u_instr_sequence, ptr noundef nonnull %s_allocated.i.i.i, i32 noundef 100, i64 noundef 44)
   %cmp.i.i.i = icmp eq i32 %call.i.i.i, -1
   br i1 %cmp.i.i.i, label %return, label %instr_sequence_next_inst.exit.i.i
 
@@ -28347,7 +28348,7 @@ if.then11:                                        ; preds = %if.end9
 if.end15:                                         ; preds = %if.then11
   %9 = load ptr, ptr %c_const_cache32, align 8
   %10 = load ptr, ptr %u, align 8
-  %call17 = tail call fastcc i32 @compiler_addop_load_const(ptr noundef %9, ptr noundef %10, i64 %loc.coerce0, i64 %loc.coerce1, ptr noundef nonnull %call12), !range !5
+  %call17 = tail call fastcc i32 @compiler_addop_load_const(ptr noundef %9, ptr noundef %10, i64 %loc.coerce0, i64 %loc.coerce1, ptr noundef nonnull %call12)
   %cmp18 = icmp slt i32 %call17, 0
   %11 = load i64, ptr %call12, align 8
   %12 = and i64 %11, 2147483648
@@ -28387,7 +28388,7 @@ if.else:                                          ; preds = %if.end9
   %14 = load i32, ptr %s_used.i.i.i50, align 4
   %add.i.i.i51 = add i32 %14, 1
   %s_allocated.i.i.i52 = getelementptr inbounds i8, ptr %13, i64 32
-  %call.i.i.i53 = tail call i32 @_PyCompile_EnsureArrayLargeEnough(i32 noundef %add.i.i.i51, ptr noundef nonnull %u_instr_sequence22, ptr noundef nonnull %s_allocated.i.i.i52, i32 noundef 100, i64 noundef 44), !range !5
+  %call.i.i.i53 = tail call i32 @_PyCompile_EnsureArrayLargeEnough(i32 noundef %add.i.i.i51, ptr noundef nonnull %u_instr_sequence22, ptr noundef nonnull %s_allocated.i.i.i52, i32 noundef 100, i64 noundef 44)
   %cmp.i.i.i54 = icmp eq i32 %call.i.i.i53, -1
   br i1 %cmp.i.i.i54, label %return, label %instr_sequence_next_inst.exit.i.i55
 
@@ -28417,7 +28418,7 @@ if.end26:                                         ; preds = %instr_sequence_next
 if.end31:                                         ; preds = %if.end26
   %17 = load ptr, ptr %c_const_cache32, align 8
   %18 = load ptr, ptr %u, align 8
-  %call34 = tail call fastcc i32 @compiler_addop_load_const(ptr noundef %17, ptr noundef %18, i64 %loc.coerce0, i64 %loc.coerce1, ptr noundef nonnull %call28), !range !5
+  %call34 = tail call fastcc i32 @compiler_addop_load_const(ptr noundef %17, ptr noundef %18, i64 %loc.coerce0, i64 %loc.coerce1, ptr noundef nonnull %call28)
   %cmp35 = icmp slt i32 %call34, 0
   %19 = load i64, ptr %call28, align 8
   %20 = and i64 %19, 2147483648
@@ -28457,7 +28458,7 @@ Py_DECREF.exit:                                   ; preds = %if.end37, %if.then1
   %22 = load i32, ptr %s_used.i.i.i.i, align 4
   %add.i.i.i.i = add i32 %22, 1
   %s_allocated.i.i.i.i = getelementptr inbounds i8, ptr %21, i64 32
-  %call.i.i.i.i = tail call i32 @_PyCompile_EnsureArrayLargeEnough(i32 noundef %add.i.i.i.i, ptr noundef nonnull %u_instr_sequence.i, ptr noundef nonnull %s_allocated.i.i.i.i, i32 noundef 100, i64 noundef 44), !range !5
+  %call.i.i.i.i = tail call i32 @_PyCompile_EnsureArrayLargeEnough(i32 noundef %add.i.i.i.i, ptr noundef nonnull %u_instr_sequence.i, ptr noundef nonnull %s_allocated.i.i.i.i, i32 noundef 100, i64 noundef 44)
   %cmp.i.i.i.i = icmp eq i32 %call.i.i.i.i, -1
   br i1 %cmp.i.i.i.i, label %return, label %instr_sequence_next_inst.exit.i.i.i
 
@@ -28488,7 +28489,7 @@ if.end42:                                         ; preds = %addop_binary.exit, 
   %26 = load i32, ptr %s_used.i.i.i66, align 4
   %add.i.i.i67 = add i32 %26, 1
   %s_allocated.i.i.i68 = getelementptr inbounds i8, ptr %25, i64 32
-  %call.i.i.i69 = tail call i32 @_PyCompile_EnsureArrayLargeEnough(i32 noundef %add.i.i.i67, ptr noundef nonnull %u_instr_sequence44, ptr noundef nonnull %s_allocated.i.i.i68, i32 noundef 100, i64 noundef 44), !range !5
+  %call.i.i.i69 = tail call i32 @_PyCompile_EnsureArrayLargeEnough(i32 noundef %add.i.i.i67, ptr noundef nonnull %u_instr_sequence44, ptr noundef nonnull %s_allocated.i.i.i68, i32 noundef 100, i64 noundef 44)
   %cmp.i.i.i70 = icmp eq i32 %call.i.i.i69, -1
   br i1 %cmp.i.i.i70, label %return, label %instr_sequence_next_inst.exit.i.i71
 
@@ -28512,7 +28513,7 @@ if.end48:                                         ; preds = %instr_sequence_next
   store i64 %loc.coerce1, ptr %loc.sroa.2.0.i_loc.sroa_idx.i.i79, align 4
   %29 = load i32, ptr %allow_irrefutable1.i, align 8
   store i32 1, ptr %allow_irrefutable1.i, align 8
-  %call.i = tail call fastcc i32 @compiler_pattern(ptr noundef nonnull %c, ptr noundef nonnull %2, ptr noundef %pc), !range !5
+  %call.i = tail call fastcc i32 @compiler_pattern(ptr noundef nonnull %c, ptr noundef nonnull %2, ptr noundef %pc)
   %cmp.i82 = icmp eq i32 %call.i, -1
   br i1 %cmp.i82, label %return, label %compiler_pattern_subpattern.exit
 
@@ -28523,7 +28524,7 @@ compiler_pattern_subpattern.exit:                 ; preds = %if.end48
 for.inc:                                          ; preds = %compiler_pattern_subpattern.exit, %if.end, %land.lhs.true
   %inc53 = add nuw nsw i64 %i.0114, 1
   %exitcond.not = icmp eq i64 %inc53, %1
-  br i1 %exitcond.not, label %for.end.loopexit, label %for.body, !llvm.loop !118
+  br i1 %exitcond.not, label %for.end.loopexit, label %for.body, !llvm.loop !111
 
 for.end.loopexit:                                 ; preds = %for.inc
   %.pre = load i64, ptr %on_top, align 8
@@ -28540,7 +28541,7 @@ for.end:                                          ; preds = %entry, %for.end.loo
   %32 = load i32, ptr %s_used.i.i.i85, align 4
   %add.i.i.i86 = add i32 %32, 1
   %s_allocated.i.i.i87 = getelementptr inbounds i8, ptr %31, i64 32
-  %call.i.i.i88 = tail call i32 @_PyCompile_EnsureArrayLargeEnough(i32 noundef %add.i.i.i86, ptr noundef nonnull %u_instr_sequence56, ptr noundef nonnull %s_allocated.i.i.i87, i32 noundef 100, i64 noundef 44), !range !5
+  %call.i.i.i88 = tail call i32 @_PyCompile_EnsureArrayLargeEnough(i32 noundef %add.i.i.i86, ptr noundef nonnull %u_instr_sequence56, ptr noundef nonnull %s_allocated.i.i.i87, i32 noundef 100, i64 noundef 44)
   %cmp.i.i.i89 = icmp eq i32 %call.i.i.i88, -1
   br i1 %cmp.i.i.i89, label %return, label %instr_sequence_next_inst.exit.i.i90
 
@@ -28570,7 +28571,7 @@ return:                                           ; preds = %if.end48, %if.end42
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @pattern_helper_sequence_unpack(ptr noundef %c, i64 %loc.coerce0, i64 %loc.coerce1, ptr noundef readonly %patterns, ptr nocapture noundef %pc) unnamed_addr #1 {
+define internal fastcc range(i32 -1, 1) i32 @pattern_helper_sequence_unpack(ptr noundef %c, i64 %loc.coerce0, i64 %loc.coerce1, ptr noundef readonly %patterns, ptr nocapture noundef %pc) unnamed_addr #1 {
 entry:
   %cmp.i = icmp eq ptr %patterns, null
   br i1 %cmp.i, label %if.then20.i, label %cond.end.i
@@ -28602,7 +28603,7 @@ for.body.i.us:                                    ; preds = %for.body.outer.i, %
 for.inc.i.us:                                     ; preds = %for.body.i.us
   %inc.i.us = add nuw nsw i64 %i.049.i.us, 1
   %exitcond.not.i.us = icmp eq i64 %inc.i.us, %0
-  br i1 %exitcond.not.i.us, label %for.end.i, label %for.body.i.us, !llvm.loop !119
+  br i1 %exitcond.not.i.us, label %for.end.i, label %for.body.i.us, !llvm.loop !112
 
 for.body.i:                                       ; preds = %for.body.outer.i, %if.else.i
   %i.049.i = phi i64 [ %inc.i, %if.else.i ], [ %i.049.ph.i, %for.body.outer.i ]
@@ -28632,7 +28633,7 @@ if.end.i:                                         ; preds = %lor.lhs.false.i
   %8 = load i32, ptr %s_used.i.i.i.i, align 4
   %add.i.i.i.i = add i32 %8, 1
   %s_allocated.i.i.i.i = getelementptr inbounds i8, ptr %7, i64 32
-  %call.i.i.i.i = tail call i32 @_PyCompile_EnsureArrayLargeEnough(i32 noundef %add.i.i.i.i, ptr noundef nonnull %u_instr_sequence.i, ptr noundef nonnull %s_allocated.i.i.i.i, i32 noundef 100, i64 noundef 44), !range !5
+  %call.i.i.i.i = tail call i32 @_PyCompile_EnsureArrayLargeEnough(i32 noundef %add.i.i.i.i, ptr noundef nonnull %u_instr_sequence.i, ptr noundef nonnull %s_allocated.i.i.i.i, i32 noundef 100, i64 noundef 44)
   %cmp.i.i.i.i = icmp eq i32 %call.i.i.i.i, -1
   br i1 %cmp.i.i.i.i, label %return, label %instr_sequence_next_inst.exit.i.i.i
 
@@ -28646,7 +28647,7 @@ instr_sequence_next_inst.exit.i.i.i:              ; preds = %if.end.i
 if.else.i:                                        ; preds = %for.body.i
   %inc.i = add nuw nsw i64 %i.049.i, 1
   %exitcond.not.i = icmp eq i64 %inc.i, %0
-  br i1 %exitcond.not.i, label %for.end.i, label %for.body.i, !llvm.loop !119
+  br i1 %exitcond.not.i, label %for.end.i, label %for.body.i, !llvm.loop !112
 
 for.inc.thread.i:                                 ; preds = %instr_sequence_next_inst.exit.i.i.i
   %10 = load ptr, ptr %u_instr_sequence.i, align 8
@@ -28661,7 +28662,7 @@ for.inc.thread.i:                                 ; preds = %instr_sequence_next
   store i64 %loc.coerce1, ptr %loc.sroa.2.0.i_loc.sroa_idx.i.i.i, align 4
   %inc57.i = add nuw nsw i64 %i.049.i, 1
   %exitcond.not58.i = icmp eq i64 %inc57.i, %0
-  br i1 %exitcond.not58.i, label %cond.end, label %for.body.outer.i, !llvm.loop !119
+  br i1 %exitcond.not58.i, label %cond.end, label %for.body.outer.i, !llvm.loop !112
 
 for.end.i:                                        ; preds = %if.else.i, %for.inc.i.us
   br i1 %1, label %if.then20.i, label %cond.end
@@ -28676,7 +28677,7 @@ if.then20.i:                                      ; preds = %for.end.i, %cond.en
   %12 = load i32, ptr %s_used.i.i.i24.i, align 4
   %add.i.i.i25.i = add i32 %12, 1
   %s_allocated.i.i.i26.i = getelementptr inbounds i8, ptr %11, i64 32
-  %call.i.i.i27.i = tail call i32 @_PyCompile_EnsureArrayLargeEnough(i32 noundef %add.i.i.i25.i, ptr noundef nonnull %u_instr_sequence22.i, ptr noundef nonnull %s_allocated.i.i.i26.i, i32 noundef 100, i64 noundef 44), !range !5
+  %call.i.i.i27.i = tail call i32 @_PyCompile_EnsureArrayLargeEnough(i32 noundef %add.i.i.i25.i, ptr noundef nonnull %u_instr_sequence22.i, ptr noundef nonnull %s_allocated.i.i.i26.i, i32 noundef 100, i64 noundef 44)
   %cmp.i.i.i28.i = icmp eq i32 %call.i.i.i27.i, -1
   br i1 %cmp.i.i.i28.i, label %return, label %instr_sequence_next_inst.exit.i.i29.i
 
@@ -28723,7 +28724,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   %arrayidx = getelementptr [1 x ptr], ptr %typed_elements, i64 0, i64 %i.037
   %18 = load ptr, ptr %arrayidx, align 8
   store i32 1, ptr %allow_irrefutable1.i, align 8
-  %call.i10 = tail call fastcc i32 @compiler_pattern(ptr noundef %c, ptr noundef %18, ptr noundef nonnull %pc), !range !5
+  %call.i10 = tail call fastcc i32 @compiler_pattern(ptr noundef %c, ptr noundef %18, ptr noundef nonnull %pc)
   %cmp.i11 = icmp eq i32 %call.i10, -1
   br i1 %cmp.i11, label %return, label %for.inc
 
@@ -28731,7 +28732,7 @@ for.inc:                                          ; preds = %for.body
   store i32 %.pre, ptr %allow_irrefutable1.i, align 8
   %inc = add nuw nsw i64 %i.037, 1
   %exitcond.not = icmp eq i64 %inc, %15
-  br i1 %exitcond.not, label %return, label %for.body, !llvm.loop !120
+  br i1 %exitcond.not, label %return, label %for.body, !llvm.loop !113
 
 return.sink.split:                                ; preds = %if.then.i, %lor.lhs.false.i, %for.body.i.us
   %.str.355.sink = phi ptr [ @.str.356, %for.body.i.us ], [ @.str.355, %lor.lhs.false.i ], [ @.str.355, %if.then.i ]
@@ -28750,7 +28751,7 @@ declare i32 @PySet_Contains(ptr noundef, ptr noundef) local_unnamed_addr #2
 declare i32 @PySet_Add(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @pattern_helper_store_name(ptr nocapture noundef readonly %c, i64 %loc.coerce0, i64 %loc.coerce1, ptr noundef %n, ptr nocapture noundef readonly %pc) unnamed_addr #1 {
+define internal fastcc range(i32 -1, 1) i32 @pattern_helper_store_name(ptr nocapture noundef readonly %c, i64 %loc.coerce0, i64 %loc.coerce1, ptr noundef %n, ptr nocapture noundef readonly %pc) unnamed_addr #1 {
 entry:
   %cmp = icmp eq ptr %n, null
   br i1 %cmp, label %if.then, label %if.end3
@@ -28763,7 +28764,7 @@ if.then:                                          ; preds = %entry
   %1 = load i32, ptr %s_used.i.i.i, align 4
   %add.i.i.i = add i32 %1, 1
   %s_allocated.i.i.i = getelementptr inbounds i8, ptr %0, i64 32
-  %call.i.i.i = tail call i32 @_PyCompile_EnsureArrayLargeEnough(i32 noundef %add.i.i.i, ptr noundef nonnull %u_instr_sequence, ptr noundef nonnull %s_allocated.i.i.i, i32 noundef 100, i64 noundef 44), !range !5
+  %call.i.i.i = tail call i32 @_PyCompile_EnsureArrayLargeEnough(i32 noundef %add.i.i.i, ptr noundef nonnull %u_instr_sequence, ptr noundef nonnull %s_allocated.i.i.i, i32 noundef 100, i64 noundef 44)
   %cmp.i.i.i = icmp eq i32 %call.i.i.i, -1
   br i1 %cmp.i.i.i, label %return, label %instr_sequence_next_inst.exit.i.i
 
@@ -28830,7 +28831,7 @@ while.body.i:                                     ; preds = %if.end13, %codegen_
   %9 = load i32, ptr %s_used.i.i.i.i, align 4
   %add.i.i.i.i = add i32 %9, 1
   %s_allocated.i.i.i.i = getelementptr inbounds i8, ptr %8, i64 32
-  %call.i.i.i.i = tail call i32 @_PyCompile_EnsureArrayLargeEnough(i32 noundef %add.i.i.i.i, ptr noundef nonnull %u_instr_sequence.i, ptr noundef nonnull %s_allocated.i.i.i.i, i32 noundef 100, i64 noundef 44), !range !5
+  %call.i.i.i.i = tail call i32 @_PyCompile_EnsureArrayLargeEnough(i32 noundef %add.i.i.i.i, ptr noundef nonnull %u_instr_sequence.i, ptr noundef nonnull %s_allocated.i.i.i.i, i32 noundef 100, i64 noundef 44)
   %cmp.i.i.i.i = icmp eq i32 %call.i.i.i.i, -1
   br i1 %cmp.i.i.i.i, label %return, label %instr_sequence_next_inst.exit.i.i.i
 
@@ -28853,7 +28854,7 @@ codegen_addop_i.exit.i:                           ; preds = %instr_sequence_next
   %loc.sroa.2.0.i_loc.sroa_idx.i.i.i = getelementptr inbounds i8, ptr %arrayidx.i.i.i, i64 16
   store i64 %loc.coerce1, ptr %loc.sroa.2.0.i_loc.sroa_idx.i.i.i, align 4
   %cmp.i = icmp ugt i64 %count.addr.05.i, 2
-  br i1 %cmp.i, label %while.body.i, label %if.end20.loopexit, !llvm.loop !113
+  br i1 %cmp.i, label %while.body.i, label %if.end20.loopexit, !llvm.loop !106
 
 if.end20.loopexit:                                ; preds = %codegen_addop_i.exit.i
   %.pre = load ptr, ptr %pc, align 8
@@ -28874,7 +28875,7 @@ return:                                           ; preds = %instr_sequence_next
 declare i32 @PySequence_Contains(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @validate_kwd_attrs(ptr nocapture noundef readonly %c, ptr noundef readonly %attrs, ptr nocapture noundef readonly %patterns) unnamed_addr #1 {
+define internal fastcc range(i32 -1, 1) i32 @validate_kwd_attrs(ptr nocapture noundef readonly %c, ptr noundef readonly %attrs, ptr nocapture noundef readonly %patterns) unnamed_addr #1 {
 entry:
   %cmp = icmp eq ptr %attrs, null
   br i1 %cmp, label %return, label %cond.end
@@ -28891,7 +28892,7 @@ for.body.lr.ph:                                   ; preds = %cond.end
 
 for.cond.loopexit:                                ; preds = %for.inc, %if.end
   %exitcond.not = icmp eq i64 %add, %0
-  br i1 %exitcond.not, label %return, label %for.body, !llvm.loop !121
+  br i1 %exitcond.not, label %return, label %for.body, !llvm.loop !114
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.cond.loopexit
   %i.043 = phi i64 [ 0, %for.body.lr.ph ], [ %add, %for.cond.loopexit ]
@@ -28961,7 +28962,7 @@ if.then20:                                        ; preds = %for.body16
 for.inc:                                          ; preds = %for.body16
   %inc = add nuw nsw i64 %j.041, 1
   %cmp15 = icmp slt i64 %inc, %0
-  br i1 %cmp15, label %for.body16, label %for.cond.loopexit, !llvm.loop !122
+  br i1 %cmp15, label %for.body16, label %for.cond.loopexit, !llvm.loop !115
 
 return:                                           ; preds = %for.cond.loopexit, %entry, %cond.end, %forbidden_name.exit.thread, %if.then20
   %retval.0 = phi i32 [ -1, %if.then20 ], [ -1, %forbidden_name.exit.thread ], [ 0, %cond.end ], [ 0, %entry ], [ 0, %for.cond.loopexit ]
@@ -28975,7 +28976,7 @@ declare ptr @PyList_GetSlice(ptr noundef, i64 noundef, i64 noundef) local_unname
 declare i32 @PyList_SetSlice(ptr noundef, i64 noundef, i64 noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @compiler_try_finally(ptr noundef %c, ptr nocapture noundef readonly %s) unnamed_addr #1 {
+define internal fastcc range(i32 -1, 1) i32 @compiler_try_finally(ptr noundef %c, ptr nocapture noundef readonly %s) unnamed_addr #1 {
 entry:
   %lineno1 = getelementptr inbounds i8, ptr %s, i64 64
   %0 = load i32, ptr %lineno1, align 8
@@ -29036,7 +29037,7 @@ if.end28:                                         ; preds = %if.end20
   %13 = load i32, ptr %s_used.i.i.i, align 4
   %add.i.i.i = add i32 %13, 1
   %s_allocated.i.i.i = getelementptr inbounds i8, ptr %12, i64 32
-  %call.i.i.i = tail call i32 @_PyCompile_EnsureArrayLargeEnough(i32 noundef %add.i.i.i, ptr noundef nonnull %u_instr_sequence30, ptr noundef nonnull %s_allocated.i.i.i, i32 noundef 100, i64 noundef 44), !range !5
+  %call.i.i.i = tail call i32 @_PyCompile_EnsureArrayLargeEnough(i32 noundef %add.i.i.i, ptr noundef nonnull %u_instr_sequence30, ptr noundef nonnull %s_allocated.i.i.i, i32 noundef 100, i64 noundef 44)
   %cmp.i.i.i = icmp eq i32 %call.i.i.i, -1
   br i1 %cmp.i.i.i, label %return, label %instr_sequence_next_inst.exit.i.i
 
@@ -29062,7 +29063,7 @@ if.end35:                                         ; preds = %instr_sequence_next
   %s_labelmap_size.i = getelementptr inbounds i8, ptr %16, i64 48
   %17 = load i32, ptr %s_labelmap_size.i, align 8
   %s_labelmap.i = getelementptr inbounds i8, ptr %16, i64 40
-  %call.i = tail call i32 @_PyCompile_EnsureArrayLargeEnough(i32 noundef %inc.i, ptr noundef nonnull %s_labelmap.i, ptr noundef nonnull %s_labelmap_size.i, i32 noundef 10, i64 noundef 4), !range !5
+  %call.i = tail call i32 @_PyCompile_EnsureArrayLargeEnough(i32 noundef %inc.i, ptr noundef nonnull %s_labelmap.i, ptr noundef nonnull %s_labelmap_size.i, i32 noundef 10, i64 noundef 4)
   %cmp.i = icmp eq i32 %call.i, -1
   br i1 %cmp.i, label %return, label %for.cond.preheader.i
 
@@ -29084,7 +29085,7 @@ for.body.i:                                       ; preds = %for.body.i, %for.bo
   %21 = load i32, ptr %s_labelmap_size.i, align 8
   %22 = sext i32 %21 to i64
   %cmp3.i = icmp slt i64 %indvars.iv.next.i, %22
-  br i1 %cmp3.i, label %for.body.i, label %if.end42, !llvm.loop !6
+  br i1 %cmp3.i, label %for.body.i, label %if.end42, !llvm.loop !5
 
 if.end42:                                         ; preds = %for.body.i, %for.cond.preheader.i
   %s_used.i = getelementptr inbounds i8, ptr %16, i64 36
@@ -29130,7 +29131,7 @@ cond.end:                                         ; preds = %if.end48
   br i1 %tobool55.not, label %if.else, label %if.then56
 
 if.then56:                                        ; preds = %cond.end
-  %call57 = tail call fastcc i32 @compiler_try_except(ptr noundef nonnull %c, ptr noundef nonnull %s), !range !5
+  %call57 = tail call fastcc i32 @compiler_try_except(ptr noundef nonnull %c, ptr noundef nonnull %s)
   %cmp58 = icmp eq i32 %call57, -1
   br i1 %cmp58, label %return, label %if.end77
 
@@ -29153,7 +29154,7 @@ for.body:                                         ; preds = %for.cond
   %call72 = tail call fastcc i32 @compiler_visit_stmt(ptr noundef %c, ptr noundef %32)
   %cmp73 = icmp eq i32 %call72, -1
   %inc = add i32 %_i.0, 1
-  br i1 %cmp73, label %return, label %for.cond, !llvm.loop !123
+  br i1 %cmp73, label %return, label %for.cond, !llvm.loop !116
 
 if.end77:                                         ; preds = %for.cond, %if.else, %if.then56
   %33 = load ptr, ptr %u, align 8
@@ -29162,7 +29163,7 @@ if.end77:                                         ; preds = %for.cond, %if.else,
   %34 = load i32, ptr %s_used.i.i.i132, align 4
   %add.i.i.i133 = add i32 %34, 1
   %s_allocated.i.i.i134 = getelementptr inbounds i8, ptr %33, i64 32
-  %call.i.i.i135 = tail call i32 @_PyCompile_EnsureArrayLargeEnough(i32 noundef %add.i.i.i133, ptr noundef nonnull %u_instr_sequence79, ptr noundef nonnull %s_allocated.i.i.i134, i32 noundef 100, i64 noundef 44), !range !5
+  %call.i.i.i135 = tail call i32 @_PyCompile_EnsureArrayLargeEnough(i32 noundef %add.i.i.i133, ptr noundef nonnull %u_instr_sequence79, ptr noundef nonnull %s_allocated.i.i.i134, i32 noundef 100, i64 noundef 44)
   %cmp.i.i.i136 = icmp eq i32 %call.i.i.i135, -1
   br i1 %cmp.i.i.i136, label %return, label %instr_sequence_next_inst.exit.i.i137
 
@@ -29205,33 +29206,33 @@ for.body101:                                      ; preds = %for.cond90
   %call106 = tail call fastcc i32 @compiler_visit_stmt(ptr noundef %c, ptr noundef %40)
   %cmp107 = icmp eq i32 %call106, -1
   %inc112 = add i32 %_i86.0, 1
-  br i1 %cmp107, label %return, label %for.cond90, !llvm.loop !124
+  br i1 %cmp107, label %return, label %for.cond90, !llvm.loop !117
 
 for.end113:                                       ; preds = %for.cond90, %if.end84
   %41 = load ptr, ptr %u, align 8
   %u_instr_sequence115 = getelementptr inbounds i8, ptr %41, i64 24
-  %call117 = tail call fastcc i32 @codegen_addop_j(ptr noundef nonnull %u_instr_sequence115, i64 -1, i64 -1, i32 noundef 256, i32 %inc.i124), !range !5
+  %call117 = tail call fastcc i32 @codegen_addop_j(ptr noundef nonnull %u_instr_sequence115, i64 -1, i64 -1, i32 noundef 256, i32 %inc.i124)
   %cmp118 = icmp eq i32 %call117, -1
   br i1 %cmp118, label %return, label %if.end121
 
 if.end121:                                        ; preds = %for.end113
   %42 = load ptr, ptr %u, align 8
   %u_instr_sequence123 = getelementptr inbounds i8, ptr %42, i64 24
-  %call125 = tail call i32 @_PyCompile_InstructionSequence_UseLabel(ptr noundef nonnull %u_instr_sequence123, i32 noundef %inc.i122), !range !5
+  %call125 = tail call i32 @_PyCompile_InstructionSequence_UseLabel(ptr noundef nonnull %u_instr_sequence123, i32 noundef %inc.i122)
   %cmp126 = icmp eq i32 %call125, -1
   br i1 %cmp126, label %return, label %if.end129
 
 if.end129:                                        ; preds = %if.end121
   %43 = load ptr, ptr %u, align 8
   %u_instr_sequence131 = getelementptr inbounds i8, ptr %43, i64 24
-  %call133 = tail call fastcc i32 @codegen_addop_j(ptr noundef nonnull %u_instr_sequence131, i64 -1, i64 -1, i32 noundef 264, i32 %inc.i126), !range !5
+  %call133 = tail call fastcc i32 @codegen_addop_j(ptr noundef nonnull %u_instr_sequence131, i64 -1, i64 -1, i32 noundef 264, i32 %inc.i126)
   %cmp134 = icmp eq i32 %call133, -1
   br i1 %cmp134, label %return, label %if.end137
 
 if.end137:                                        ; preds = %if.end129
   %44 = load ptr, ptr %u, align 8
   %u_instr_sequence139 = getelementptr inbounds i8, ptr %44, i64 24
-  %call140 = tail call fastcc i32 @codegen_addop_noarg(ptr noundef nonnull %u_instr_sequence139, i32 noundef 33, i64 -1, i64 -1), !range !5
+  %call140 = tail call fastcc i32 @codegen_addop_noarg(ptr noundef nonnull %u_instr_sequence139, i32 noundef 33, i64 -1, i64 -1)
   %cmp141 = icmp eq i32 %call140, -1
   br i1 %cmp141, label %return, label %if.end144
 
@@ -29277,7 +29278,7 @@ for.body166:                                      ; preds = %for.cond155
   %call171 = tail call fastcc i32 @compiler_visit_stmt(ptr noundef %c, ptr noundef %49)
   %cmp172 = icmp eq i32 %call171, -1
   %inc177 = add i32 %_i151.0, 1
-  br i1 %cmp172, label %return, label %for.cond155, !llvm.loop !125
+  br i1 %cmp172, label %return, label %for.cond155, !llvm.loop !118
 
 for.end178:                                       ; preds = %for.cond155, %if.end150
   %c.val = load ptr, ptr %u, align 8
@@ -29287,14 +29288,14 @@ for.end178:                                       ; preds = %for.cond155, %if.en
   store i32 %dec.i164, ptr %u_nfblocks.i163, align 8
   %51 = load ptr, ptr %u, align 8
   %u_instr_sequence181 = getelementptr inbounds i8, ptr %51, i64 24
-  %call182 = tail call fastcc i32 @codegen_addop_i(ptr noundef nonnull %u_instr_sequence181, i32 noundef 102, i64 noundef 0, i64 -1, i64 -1), !range !5
+  %call182 = tail call fastcc i32 @codegen_addop_i(ptr noundef nonnull %u_instr_sequence181, i32 noundef 102, i64 noundef 0, i64 -1, i64 -1)
   %cmp183 = icmp eq i32 %call182, -1
   br i1 %cmp183, label %return, label %if.end186
 
 if.end186:                                        ; preds = %for.end178
   %52 = load ptr, ptr %u, align 8
   %u_instr_sequence188 = getelementptr inbounds i8, ptr %52, i64 24
-  %call190 = tail call i32 @_PyCompile_InstructionSequence_UseLabel(ptr noundef nonnull %u_instr_sequence188, i32 noundef %inc.i126), !range !5
+  %call190 = tail call i32 @_PyCompile_InstructionSequence_UseLabel(ptr noundef nonnull %u_instr_sequence188, i32 noundef %inc.i126)
   %cmp191 = icmp eq i32 %call190, -1
   br i1 %cmp191, label %return, label %if.end194
 
@@ -29306,7 +29307,7 @@ if.end194:                                        ; preds = %if.end186
 if.end199:                                        ; preds = %if.end194
   %53 = load ptr, ptr %u, align 8
   %u_instr_sequence201 = getelementptr inbounds i8, ptr %53, i64 24
-  %call203 = tail call i32 @_PyCompile_InstructionSequence_UseLabel(ptr noundef nonnull %u_instr_sequence201, i32 noundef %inc.i124), !range !5
+  %call203 = tail call i32 @_PyCompile_InstructionSequence_UseLabel(ptr noundef nonnull %u_instr_sequence201, i32 noundef %inc.i124)
   %cmp204 = icmp eq i32 %call203, -1
   %. = sext i1 %cmp204 to i32
   br label %return
@@ -29317,7 +29318,7 @@ return:                                           ; preds = %for.body, %for.body
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @compiler_try_except(ptr noundef %c, ptr nocapture noundef readonly %s) unnamed_addr #1 {
+define internal fastcc range(i32 -1, 1) i32 @compiler_try_except(ptr noundef %c, ptr nocapture noundef readonly %s) unnamed_addr #1 {
 entry:
   %lineno1 = getelementptr inbounds i8, ptr %s, i64 64
   %0 = load i32, ptr %lineno1, align 8
@@ -29378,7 +29379,7 @@ if.end28:                                         ; preds = %if.end20
   %13 = load i32, ptr %s_used.i.i.i, align 4
   %add.i.i.i = add i32 %13, 1
   %s_allocated.i.i.i = getelementptr inbounds i8, ptr %12, i64 32
-  %call.i.i.i = tail call i32 @_PyCompile_EnsureArrayLargeEnough(i32 noundef %add.i.i.i, ptr noundef nonnull %u_instr_sequence30, ptr noundef nonnull %s_allocated.i.i.i, i32 noundef 100, i64 noundef 44), !range !5
+  %call.i.i.i = tail call i32 @_PyCompile_EnsureArrayLargeEnough(i32 noundef %add.i.i.i, ptr noundef nonnull %u_instr_sequence30, ptr noundef nonnull %s_allocated.i.i.i, i32 noundef 100, i64 noundef 44)
   %cmp.i.i.i = icmp eq i32 %call.i.i.i, -1
   br i1 %cmp.i.i.i, label %return, label %instr_sequence_next_inst.exit.i.i
 
@@ -29404,7 +29405,7 @@ if.end35:                                         ; preds = %instr_sequence_next
   %s_labelmap_size.i = getelementptr inbounds i8, ptr %16, i64 48
   %17 = load i32, ptr %s_labelmap_size.i, align 8
   %s_labelmap.i = getelementptr inbounds i8, ptr %16, i64 40
-  %call.i = tail call i32 @_PyCompile_EnsureArrayLargeEnough(i32 noundef %inc.i, ptr noundef nonnull %s_labelmap.i, ptr noundef nonnull %s_labelmap_size.i, i32 noundef 10, i64 noundef 4), !range !5
+  %call.i = tail call i32 @_PyCompile_EnsureArrayLargeEnough(i32 noundef %inc.i, ptr noundef nonnull %s_labelmap.i, ptr noundef nonnull %s_labelmap_size.i, i32 noundef 10, i64 noundef 4)
   %cmp.i = icmp eq i32 %call.i, -1
   br i1 %cmp.i, label %return, label %for.cond.preheader.i
 
@@ -29426,7 +29427,7 @@ for.body.i:                                       ; preds = %for.body.i, %for.bo
   %21 = load i32, ptr %s_labelmap_size.i, align 8
   %22 = sext i32 %21 to i64
   %cmp3.i = icmp slt i64 %indvars.iv.next.i, %22
-  br i1 %cmp3.i, label %for.body.i, label %if.end42, !llvm.loop !6
+  br i1 %cmp3.i, label %for.body.i, label %if.end42, !llvm.loop !5
 
 if.end42:                                         ; preds = %for.body.i, %for.cond.preheader.i
   %s_used.i = getelementptr inbounds i8, ptr %16, i64 36
@@ -29477,7 +29478,7 @@ for.body:                                         ; preds = %for.cond
   %call53 = tail call fastcc i32 @compiler_visit_stmt(ptr noundef %c, ptr noundef %29)
   %cmp54 = icmp eq i32 %call53, -1
   %inc = add i32 %_i.0, 1
-  br i1 %cmp54, label %return, label %for.cond, !llvm.loop !126
+  br i1 %cmp54, label %return, label %for.cond, !llvm.loop !119
 
 for.end:                                          ; preds = %for.cond, %if.end47
   %c.val295 = load ptr, ptr %u, align 8
@@ -29487,7 +29488,7 @@ for.end:                                          ; preds = %for.cond, %if.end47
   store i32 %dec.i, ptr %u_nfblocks.i307, align 8
   %31 = load ptr, ptr %u, align 8
   %u_instr_sequence60 = getelementptr inbounds i8, ptr %31, i64 24
-  %call61 = tail call fastcc i32 @codegen_addop_noarg(ptr noundef nonnull %u_instr_sequence60, i32 noundef 263, i64 -1, i64 -1), !range !5
+  %call61 = tail call fastcc i32 @codegen_addop_noarg(ptr noundef nonnull %u_instr_sequence60, i32 noundef 263, i64 -1, i64 -1)
   %cmp62 = icmp eq i32 %call61, -1
   br i1 %cmp62, label %return, label %if.end65
 
@@ -29511,7 +29512,7 @@ cond.end91:                                       ; preds = %for.body95
   %conv85 = sext i32 %inc106 to i64
   %34 = load i64, ptr %32, align 8
   %cmp93 = icmp sgt i64 %34, %conv85
-  br i1 %cmp93, label %for.body95, label %if.end108, !llvm.loop !127
+  br i1 %cmp93, label %for.body95, label %if.end108, !llvm.loop !120
 
 for.body95:                                       ; preds = %for.body95.lr.ph, %cond.end91
   %conv85412 = phi i64 [ 0, %for.body95.lr.ph ], [ %conv85, %cond.end91 ]
@@ -29525,7 +29526,7 @@ for.body95:                                       ; preds = %for.body95.lr.ph, %
 if.end108:                                        ; preds = %cond.end91, %cond.end76, %if.end65
   %36 = load ptr, ptr %u, align 8
   %u_instr_sequence110 = getelementptr inbounds i8, ptr %36, i64 24
-  %call112 = tail call fastcc i32 @codegen_addop_j(ptr noundef nonnull %u_instr_sequence110, i64 -1, i64 -1, i32 noundef 256, i32 %inc.i299), !range !5
+  %call112 = tail call fastcc i32 @codegen_addop_j(ptr noundef nonnull %u_instr_sequence110, i64 -1, i64 -1, i32 noundef 256, i32 %inc.i299)
   %cmp113 = icmp eq i32 %call112, -1
   br i1 %cmp113, label %return, label %if.end116
 
@@ -29543,21 +29544,21 @@ cond.end125:                                      ; preds = %if.end116, %cond.fa
   %cond126 = phi i64 [ %38, %cond.false121 ], [ 0, %if.end116 ]
   %39 = load ptr, ptr %u, align 8
   %u_instr_sequence128 = getelementptr inbounds i8, ptr %39, i64 24
-  %call130 = tail call i32 @_PyCompile_InstructionSequence_UseLabel(ptr noundef nonnull %u_instr_sequence128, i32 noundef %inc.i297), !range !5
+  %call130 = tail call i32 @_PyCompile_InstructionSequence_UseLabel(ptr noundef nonnull %u_instr_sequence128, i32 noundef %inc.i297)
   %cmp131 = icmp eq i32 %call130, -1
   br i1 %cmp131, label %return, label %if.end134
 
 if.end134:                                        ; preds = %cond.end125
   %40 = load ptr, ptr %u, align 8
   %u_instr_sequence136 = getelementptr inbounds i8, ptr %40, i64 24
-  %call138 = tail call fastcc i32 @codegen_addop_j(ptr noundef nonnull %u_instr_sequence136, i64 -1, i64 -1, i32 noundef 264, i32 %inc.i301), !range !5
+  %call138 = tail call fastcc i32 @codegen_addop_j(ptr noundef nonnull %u_instr_sequence136, i64 -1, i64 -1, i32 noundef 264, i32 %inc.i301)
   %cmp139 = icmp eq i32 %call138, -1
   br i1 %cmp139, label %return, label %if.end142
 
 if.end142:                                        ; preds = %if.end134
   %41 = load ptr, ptr %u, align 8
   %u_instr_sequence144 = getelementptr inbounds i8, ptr %41, i64 24
-  %call145 = tail call fastcc i32 @codegen_addop_noarg(ptr noundef nonnull %u_instr_sequence144, i32 noundef 33, i64 -1, i64 -1), !range !5
+  %call145 = tail call fastcc i32 @codegen_addop_noarg(ptr noundef nonnull %u_instr_sequence144, i32 noundef 33, i64 -1, i64 -1)
   %cmp146 = icmp eq i32 %call145, -1
   br i1 %cmp146, label %return, label %if.end149
 
@@ -29596,7 +29597,7 @@ for.body158.lr.ph:                                ; preds = %compiler_push_fbloc
 for.cond155:                                      ; preds = %if.end464
   %inc474 = add nuw nsw i64 %i.0414, 1
   %exitcond.not = icmp eq i64 %inc474, %cond126
-  br i1 %exitcond.not, label %for.end475, label %for.body158, !llvm.loop !128
+  br i1 %exitcond.not, label %for.end475, label %for.body158, !llvm.loop !121
 
 for.body158:                                      ; preds = %for.body158.lr.ph, %for.cond155
   %i.0414 = phi i64 [ 0, %for.body158.lr.ph ], [ %inc474, %for.cond155 ]
@@ -29646,7 +29647,7 @@ if.end188:                                        ; preds = %if.end179
   br i1 %tobool191.not, label %if.end215, label %if.then192
 
 if.then192:                                       ; preds = %if.end188
-  %call195 = tail call fastcc i32 @compiler_visit_expr(ptr noundef nonnull %c, ptr noundef nonnull %53), !range !5
+  %call195 = tail call fastcc i32 @compiler_visit_expr(ptr noundef nonnull %c, ptr noundef nonnull %53)
   %cmp196 = icmp eq i32 %call195, -1
   br i1 %cmp196, label %return, label %if.end199
 
@@ -29661,14 +29662,14 @@ if.end199:                                        ; preds = %if.then192
   %loc163.sroa.19.8.insert.shift110 = shl nuw i64 %loc163.sroa.19.8.insert.ext109, 32
   %loc163.sroa.10.8.insert.ext81 = zext i32 %48 to i64
   %loc163.sroa.10.8.insert.insert83 = or disjoint i64 %loc163.sroa.19.8.insert.shift110, %loc163.sroa.10.8.insert.ext81
-  %call202 = tail call fastcc i32 @codegen_addop_noarg(ptr noundef nonnull %u_instr_sequence201, i32 noundef 7, i64 %loc163.sroa.0.0.insert.insert20, i64 %loc163.sroa.10.8.insert.insert83), !range !5
+  %call202 = tail call fastcc i32 @codegen_addop_noarg(ptr noundef nonnull %u_instr_sequence201, i32 noundef 7, i64 %loc163.sroa.0.0.insert.insert20, i64 %loc163.sroa.10.8.insert.insert83)
   %cmp203 = icmp eq i32 %call202, -1
   br i1 %cmp203, label %return, label %if.end206
 
 if.end206:                                        ; preds = %if.end199
   %55 = load ptr, ptr %u, align 8
   %u_instr_sequence208 = getelementptr inbounds i8, ptr %55, i64 24
-  %call210 = tail call fastcc i32 @codegen_addop_j(ptr noundef nonnull %u_instr_sequence208, i64 %loc163.sroa.0.0.insert.insert20, i64 %loc163.sroa.10.8.insert.insert83, i32 noundef 97, i32 %inc.i324), !range !5
+  %call210 = tail call fastcc i32 @codegen_addop_j(ptr noundef nonnull %u_instr_sequence208, i64 %loc163.sroa.0.0.insert.insert20, i64 %loc163.sroa.10.8.insert.insert83, i32 noundef 97, i32 %inc.i324)
   %cmp211 = icmp eq i32 %call210, -1
   br i1 %cmp211, label %return, label %if.end215
 
@@ -29706,21 +29707,21 @@ if.end236:                                        ; preds = %if.end227
   %loc163.sroa.19.8.insert.shift120 = shl nuw i64 %loc163.sroa.19.8.insert.ext119, 32
   %loc163.sroa.10.8.insert.ext89 = zext i32 %48 to i64
   %loc163.sroa.10.8.insert.insert91 = or disjoint i64 %loc163.sroa.19.8.insert.shift120, %loc163.sroa.10.8.insert.ext89
-  %call239 = tail call fastcc i32 @compiler_nameop(ptr noundef nonnull %c, i64 %loc163.sroa.0.0.insert.insert28, i64 %loc163.sroa.10.8.insert.insert91, ptr noundef %61, i32 noundef 2), !range !5
+  %call239 = tail call fastcc i32 @compiler_nameop(ptr noundef nonnull %c, i64 %loc163.sroa.0.0.insert.insert28, i64 %loc163.sroa.10.8.insert.insert91, ptr noundef %61, i32 noundef 2)
   %cmp240 = icmp eq i32 %call239, -1
   br i1 %cmp240, label %return, label %if.end243
 
 if.end243:                                        ; preds = %if.end236
   %62 = load ptr, ptr %u, align 8
   %u_instr_sequence245 = getelementptr inbounds i8, ptr %62, i64 24
-  %call247 = tail call fastcc i32 @codegen_addop_j(ptr noundef nonnull %u_instr_sequence245, i64 %loc163.sroa.0.0.insert.insert28, i64 %loc163.sroa.10.8.insert.insert91, i32 noundef 264, i32 %inc.i347), !range !5
+  %call247 = tail call fastcc i32 @codegen_addop_j(ptr noundef nonnull %u_instr_sequence245, i64 %loc163.sroa.0.0.insert.insert28, i64 %loc163.sroa.10.8.insert.insert91, i32 noundef 264, i32 %inc.i347)
   %cmp248 = icmp eq i32 %call247, -1
   br i1 %cmp248, label %return, label %if.end251
 
 if.end251:                                        ; preds = %if.end243
   %63 = load ptr, ptr %u, align 8
   %u_instr_sequence253 = getelementptr inbounds i8, ptr %63, i64 24
-  %call255 = tail call i32 @_PyCompile_InstructionSequence_UseLabel(ptr noundef nonnull %u_instr_sequence253, i32 noundef %inc.i328), !range !5
+  %call255 = tail call i32 @_PyCompile_InstructionSequence_UseLabel(ptr noundef nonnull %u_instr_sequence253, i32 noundef %inc.i328)
   %cmp256 = icmp eq i32 %call255, -1
   br i1 %cmp256, label %return, label %if.end259
 
@@ -29768,7 +29769,7 @@ for.body283:                                      ; preds = %for.cond272
   %call288 = tail call fastcc i32 @compiler_visit_stmt(ptr noundef %c, ptr noundef %69)
   %cmp289 = icmp eq i32 %call288, -1
   %inc294 = add i32 %_i268.0, 1
-  br i1 %cmp289, label %return, label %for.cond272, !llvm.loop !129
+  br i1 %cmp289, label %return, label %for.cond272, !llvm.loop !122
 
 for.end295:                                       ; preds = %for.cond272, %if.end267
   %c.val294 = load ptr, ptr %u, align 8
@@ -29778,80 +29779,80 @@ for.end295:                                       ; preds = %for.cond272, %if.en
   store i32 %dec.i345, ptr %u_nfblocks.i344, align 8
   %71 = load ptr, ptr %u, align 8
   %u_instr_sequence298 = getelementptr inbounds i8, ptr %71, i64 24
-  %call299 = tail call fastcc i32 @codegen_addop_noarg(ptr noundef nonnull %u_instr_sequence298, i32 noundef 263, i64 -1, i64 -1), !range !5
+  %call299 = tail call fastcc i32 @codegen_addop_noarg(ptr noundef nonnull %u_instr_sequence298, i32 noundef 263, i64 -1, i64 -1)
   %cmp300 = icmp eq i32 %call299, -1
   br i1 %cmp300, label %return, label %if.end303
 
 if.end303:                                        ; preds = %for.end295
   %72 = load ptr, ptr %u, align 8
   %u_instr_sequence305 = getelementptr inbounds i8, ptr %72, i64 24
-  %call306 = tail call fastcc i32 @codegen_addop_noarg(ptr noundef nonnull %u_instr_sequence305, i32 noundef 263, i64 -1, i64 -1), !range !5
+  %call306 = tail call fastcc i32 @codegen_addop_noarg(ptr noundef nonnull %u_instr_sequence305, i32 noundef 263, i64 -1, i64 -1)
   %cmp307 = icmp eq i32 %call306, -1
   br i1 %cmp307, label %return, label %if.end310
 
 if.end310:                                        ; preds = %if.end303
   %73 = load ptr, ptr %u, align 8
   %u_instr_sequence312 = getelementptr inbounds i8, ptr %73, i64 24
-  %call313 = tail call fastcc i32 @codegen_addop_noarg(ptr noundef nonnull %u_instr_sequence312, i32 noundef 31, i64 -1, i64 -1), !range !5
+  %call313 = tail call fastcc i32 @codegen_addop_noarg(ptr noundef nonnull %u_instr_sequence312, i32 noundef 31, i64 -1, i64 -1)
   %cmp314 = icmp eq i32 %call313, -1
   br i1 %cmp314, label %return, label %if.end317
 
 if.end317:                                        ; preds = %if.end310
   %74 = load ptr, ptr %c_const_cache, align 8
   %75 = load ptr, ptr %u, align 8
-  %call319 = tail call fastcc i32 @compiler_addop_load_const(ptr noundef %74, ptr noundef %75, i64 -1, i64 -1, ptr noundef nonnull @_Py_NoneStruct), !range !5
+  %call319 = tail call fastcc i32 @compiler_addop_load_const(ptr noundef %74, ptr noundef %75, i64 -1, i64 -1, ptr noundef nonnull @_Py_NoneStruct)
   %cmp320 = icmp eq i32 %call319, -1
   br i1 %cmp320, label %return, label %if.end323
 
 if.end323:                                        ; preds = %if.end317
   %76 = load ptr, ptr %name, align 8
-  %call326 = tail call fastcc i32 @compiler_nameop(ptr noundef nonnull %c, i64 -1, i64 -1, ptr noundef %76, i32 noundef 2), !range !5
+  %call326 = tail call fastcc i32 @compiler_nameop(ptr noundef nonnull %c, i64 -1, i64 -1, ptr noundef %76, i32 noundef 2)
   %cmp327 = icmp eq i32 %call326, -1
   br i1 %cmp327, label %return, label %if.end330
 
 if.end330:                                        ; preds = %if.end323
   %77 = load ptr, ptr %name, align 8
-  %call333 = tail call fastcc i32 @compiler_nameop(ptr noundef nonnull %c, i64 -1, i64 -1, ptr noundef %77, i32 noundef 3), !range !5
+  %call333 = tail call fastcc i32 @compiler_nameop(ptr noundef nonnull %c, i64 -1, i64 -1, ptr noundef %77, i32 noundef 3)
   %cmp334 = icmp eq i32 %call333, -1
   br i1 %cmp334, label %return, label %if.end337
 
 if.end337:                                        ; preds = %if.end330
   %78 = load ptr, ptr %u, align 8
   %u_instr_sequence339 = getelementptr inbounds i8, ptr %78, i64 24
-  %call341 = tail call fastcc i32 @codegen_addop_j(ptr noundef nonnull %u_instr_sequence339, i64 -1, i64 -1, i32 noundef 256, i32 %inc.i299), !range !5
+  %call341 = tail call fastcc i32 @codegen_addop_j(ptr noundef nonnull %u_instr_sequence339, i64 -1, i64 -1, i32 noundef 256, i32 %inc.i299)
   %cmp342 = icmp eq i32 %call341, -1
   br i1 %cmp342, label %return, label %if.end345
 
 if.end345:                                        ; preds = %if.end337
   %79 = load ptr, ptr %u, align 8
   %u_instr_sequence347 = getelementptr inbounds i8, ptr %79, i64 24
-  %call349 = tail call i32 @_PyCompile_InstructionSequence_UseLabel(ptr noundef nonnull %u_instr_sequence347, i32 noundef %inc.i347), !range !5
+  %call349 = tail call i32 @_PyCompile_InstructionSequence_UseLabel(ptr noundef nonnull %u_instr_sequence347, i32 noundef %inc.i347)
   %cmp350 = icmp eq i32 %call349, -1
   br i1 %cmp350, label %return, label %if.end353
 
 if.end353:                                        ; preds = %if.end345
   %80 = load ptr, ptr %c_const_cache, align 8
   %81 = load ptr, ptr %u, align 8
-  %call356 = tail call fastcc i32 @compiler_addop_load_const(ptr noundef %80, ptr noundef %81, i64 -1, i64 -1, ptr noundef nonnull @_Py_NoneStruct), !range !5
+  %call356 = tail call fastcc i32 @compiler_addop_load_const(ptr noundef %80, ptr noundef %81, i64 -1, i64 -1, ptr noundef nonnull @_Py_NoneStruct)
   %cmp357 = icmp eq i32 %call356, -1
   br i1 %cmp357, label %return, label %if.end360
 
 if.end360:                                        ; preds = %if.end353
   %82 = load ptr, ptr %name, align 8
-  %call363 = tail call fastcc i32 @compiler_nameop(ptr noundef nonnull %c, i64 -1, i64 -1, ptr noundef %82, i32 noundef 2), !range !5
+  %call363 = tail call fastcc i32 @compiler_nameop(ptr noundef nonnull %c, i64 -1, i64 -1, ptr noundef %82, i32 noundef 2)
   %cmp364 = icmp eq i32 %call363, -1
   br i1 %cmp364, label %return, label %if.end367
 
 if.end367:                                        ; preds = %if.end360
   %83 = load ptr, ptr %name, align 8
-  %call370 = tail call fastcc i32 @compiler_nameop(ptr noundef nonnull %c, i64 -1, i64 -1, ptr noundef %83, i32 noundef 3), !range !5
+  %call370 = tail call fastcc i32 @compiler_nameop(ptr noundef nonnull %c, i64 -1, i64 -1, ptr noundef %83, i32 noundef 3)
   %cmp371 = icmp eq i32 %call370, -1
   br i1 %cmp371, label %return, label %if.end374
 
 if.end374:                                        ; preds = %if.end367
   %84 = load ptr, ptr %u, align 8
   %u_instr_sequence376 = getelementptr inbounds i8, ptr %84, i64 24
-  %call377 = tail call fastcc i32 @codegen_addop_i(ptr noundef nonnull %u_instr_sequence376, i32 noundef 102, i64 noundef 1, i64 -1, i64 -1), !range !5
+  %call377 = tail call fastcc i32 @codegen_addop_i(ptr noundef nonnull %u_instr_sequence376, i32 noundef 102, i64 noundef 1, i64 -1, i64 -1)
   %cmp378 = icmp eq i32 %call377, -1
   br i1 %cmp378, label %return, label %if.end464
 
@@ -29869,14 +29870,14 @@ if.end391:                                        ; preds = %if.else
   %loc163.sroa.19.8.insert.shift135 = shl nuw i64 %loc163.sroa.19.8.insert.ext134, 32
   %loc163.sroa.10.8.insert.ext101 = zext i32 %48 to i64
   %loc163.sroa.10.8.insert.insert103 = or disjoint i64 %loc163.sroa.19.8.insert.shift135, %loc163.sroa.10.8.insert.ext101
-  %call394 = tail call fastcc i32 @codegen_addop_noarg(ptr noundef nonnull %u_instr_sequence393, i32 noundef 32, i64 %loc163.sroa.0.0.insert.insert40, i64 %loc163.sroa.10.8.insert.insert103), !range !5
+  %call394 = tail call fastcc i32 @codegen_addop_noarg(ptr noundef nonnull %u_instr_sequence393, i32 noundef 32, i64 %loc163.sroa.0.0.insert.insert40, i64 %loc163.sroa.10.8.insert.insert103)
   %cmp395 = icmp eq i32 %call394, -1
   br i1 %cmp395, label %return, label %if.end398
 
 if.end398:                                        ; preds = %if.end391
   %86 = load ptr, ptr %u, align 8
   %u_instr_sequence400 = getelementptr inbounds i8, ptr %86, i64 24
-  %call402 = tail call i32 @_PyCompile_InstructionSequence_UseLabel(ptr noundef nonnull %u_instr_sequence400, i32 noundef %inc.i347), !range !5
+  %call402 = tail call i32 @_PyCompile_InstructionSequence_UseLabel(ptr noundef nonnull %u_instr_sequence400, i32 noundef %inc.i347)
   %cmp403 = icmp eq i32 %call402, -1
   br i1 %cmp403, label %return, label %if.end406
 
@@ -29923,7 +29924,7 @@ for.body428:                                      ; preds = %for.cond417
   %call433 = tail call fastcc i32 @compiler_visit_stmt(ptr noundef %c, ptr noundef %91)
   %cmp434 = icmp eq i32 %call433, -1
   %inc439 = add i32 %_i413.0, 1
-  br i1 %cmp434, label %return, label %for.cond417, !llvm.loop !130
+  br i1 %cmp434, label %return, label %for.cond417, !llvm.loop !123
 
 for.end440:                                       ; preds = %for.cond417, %if.end412
   %c.val293 = load ptr, ptr %u, align 8
@@ -29933,28 +29934,28 @@ for.end440:                                       ; preds = %for.cond417, %if.en
   store i32 %dec.i364, ptr %u_nfblocks.i363, align 8
   %93 = load ptr, ptr %u, align 8
   %u_instr_sequence443 = getelementptr inbounds i8, ptr %93, i64 24
-  %call444 = tail call fastcc i32 @codegen_addop_noarg(ptr noundef nonnull %u_instr_sequence443, i32 noundef 263, i64 -1, i64 -1), !range !5
+  %call444 = tail call fastcc i32 @codegen_addop_noarg(ptr noundef nonnull %u_instr_sequence443, i32 noundef 263, i64 -1, i64 -1)
   %cmp445 = icmp eq i32 %call444, -1
   br i1 %cmp445, label %return, label %if.end448
 
 if.end448:                                        ; preds = %for.end440
   %94 = load ptr, ptr %u, align 8
   %u_instr_sequence450 = getelementptr inbounds i8, ptr %94, i64 24
-  %call451 = tail call fastcc i32 @codegen_addop_noarg(ptr noundef nonnull %u_instr_sequence450, i32 noundef 31, i64 -1, i64 -1), !range !5
+  %call451 = tail call fastcc i32 @codegen_addop_noarg(ptr noundef nonnull %u_instr_sequence450, i32 noundef 31, i64 -1, i64 -1)
   %cmp452 = icmp eq i32 %call451, -1
   br i1 %cmp452, label %return, label %if.end455
 
 if.end455:                                        ; preds = %if.end448
   %95 = load ptr, ptr %u, align 8
   %u_instr_sequence457 = getelementptr inbounds i8, ptr %95, i64 24
-  %call459 = tail call fastcc i32 @codegen_addop_j(ptr noundef nonnull %u_instr_sequence457, i64 -1, i64 -1, i32 noundef 256, i32 %inc.i299), !range !5
+  %call459 = tail call fastcc i32 @codegen_addop_j(ptr noundef nonnull %u_instr_sequence457, i64 -1, i64 -1, i32 noundef 256, i32 %inc.i299)
   %cmp460 = icmp eq i32 %call459, -1
   br i1 %cmp460, label %return, label %if.end464
 
 if.end464:                                        ; preds = %if.end455, %if.end374
   %96 = load ptr, ptr %u, align 8
   %u_instr_sequence466 = getelementptr inbounds i8, ptr %96, i64 24
-  %call468 = tail call i32 @_PyCompile_InstructionSequence_UseLabel(ptr noundef nonnull %u_instr_sequence466, i32 noundef %inc.i324), !range !5
+  %call468 = tail call i32 @_PyCompile_InstructionSequence_UseLabel(ptr noundef nonnull %u_instr_sequence466, i32 noundef %inc.i324)
   %cmp469 = icmp eq i32 %call468, -1
   br i1 %cmp469, label %return, label %for.cond155
 
@@ -29966,14 +29967,14 @@ for.end475:                                       ; preds = %for.cond155, %compi
   store i32 %dec.i366, ptr %u_nfblocks.i365, align 8
   %98 = load ptr, ptr %u, align 8
   %u_instr_sequence477 = getelementptr inbounds i8, ptr %98, i64 24
-  %call478 = tail call fastcc i32 @codegen_addop_i(ptr noundef nonnull %u_instr_sequence477, i32 noundef 102, i64 noundef 0, i64 -1, i64 -1), !range !5
+  %call478 = tail call fastcc i32 @codegen_addop_i(ptr noundef nonnull %u_instr_sequence477, i32 noundef 102, i64 noundef 0, i64 -1, i64 -1)
   %cmp479 = icmp eq i32 %call478, -1
   br i1 %cmp479, label %return, label %if.end482
 
 if.end482:                                        ; preds = %for.end475
   %99 = load ptr, ptr %u, align 8
   %u_instr_sequence484 = getelementptr inbounds i8, ptr %99, i64 24
-  %call486 = tail call i32 @_PyCompile_InstructionSequence_UseLabel(ptr noundef nonnull %u_instr_sequence484, i32 noundef %inc.i301), !range !5
+  %call486 = tail call i32 @_PyCompile_InstructionSequence_UseLabel(ptr noundef nonnull %u_instr_sequence484, i32 noundef %inc.i301)
   %cmp487 = icmp eq i32 %call486, -1
   br i1 %cmp487, label %return, label %if.end490
 
@@ -29985,7 +29986,7 @@ if.end490:                                        ; preds = %if.end482
 if.end495:                                        ; preds = %if.end490
   %100 = load ptr, ptr %u, align 8
   %u_instr_sequence497 = getelementptr inbounds i8, ptr %100, i64 24
-  %call499 = tail call i32 @_PyCompile_InstructionSequence_UseLabel(ptr noundef nonnull %u_instr_sequence497, i32 noundef %inc.i299), !range !5
+  %call499 = tail call i32 @_PyCompile_InstructionSequence_UseLabel(ptr noundef nonnull %u_instr_sequence497, i32 noundef %inc.i299)
   %cmp500 = icmp eq i32 %call499, -1
   %. = sext i1 %cmp500 to i32
   br label %return
@@ -29996,7 +29997,7 @@ return:                                           ; preds = %for.body, %for.body
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @compiler_pop_except_and_reraise(ptr nocapture noundef readonly %c) unnamed_addr #1 {
+define internal fastcc range(i32 -1, 1) i32 @compiler_pop_except_and_reraise(ptr nocapture noundef readonly %c) unnamed_addr #1 {
 entry:
   %u = getelementptr inbounds i8, ptr %c, i64 64
   %0 = load ptr, ptr %u, align 8
@@ -30005,7 +30006,7 @@ entry:
   %1 = load i32, ptr %s_used.i.i.i, align 4
   %add.i.i.i = add i32 %1, 1
   %s_allocated.i.i.i = getelementptr inbounds i8, ptr %0, i64 32
-  %call.i.i.i = tail call i32 @_PyCompile_EnsureArrayLargeEnough(i32 noundef %add.i.i.i, ptr noundef nonnull %u_instr_sequence, ptr noundef nonnull %s_allocated.i.i.i, i32 noundef 100, i64 noundef 44), !range !5
+  %call.i.i.i = tail call i32 @_PyCompile_EnsureArrayLargeEnough(i32 noundef %add.i.i.i, ptr noundef nonnull %u_instr_sequence, ptr noundef nonnull %s_allocated.i.i.i, i32 noundef 100, i64 noundef 44)
   %cmp.i.i.i = icmp eq i32 %call.i.i.i, -1
   br i1 %cmp.i.i.i, label %return, label %instr_sequence_next_inst.exit.i.i
 
@@ -30031,7 +30032,7 @@ if.end:                                           ; preds = %instr_sequence_next
   %5 = load i32, ptr %s_used.i.i.i7, align 4
   %add.i.i.i8 = add i32 %5, 1
   %s_allocated.i.i.i9 = getelementptr inbounds i8, ptr %4, i64 32
-  %call.i.i.i10 = tail call i32 @_PyCompile_EnsureArrayLargeEnough(i32 noundef %add.i.i.i8, ptr noundef nonnull %u_instr_sequence2, ptr noundef nonnull %s_allocated.i.i.i9, i32 noundef 100, i64 noundef 44), !range !5
+  %call.i.i.i10 = tail call i32 @_PyCompile_EnsureArrayLargeEnough(i32 noundef %add.i.i.i8, ptr noundef nonnull %u_instr_sequence2, ptr noundef nonnull %s_allocated.i.i.i9, i32 noundef 100, i64 noundef 44)
   %cmp.i.i.i11 = icmp eq i32 %call.i.i.i10, -1
   br i1 %cmp.i.i.i11, label %return, label %instr_sequence_next_inst.exit.i.i12
 
@@ -30057,7 +30058,7 @@ if.end6:                                          ; preds = %instr_sequence_next
   %9 = load i32, ptr %s_used.i.i.i22, align 4
   %add.i.i.i23 = add i32 %9, 1
   %s_allocated.i.i.i24 = getelementptr inbounds i8, ptr %8, i64 32
-  %call.i.i.i25 = tail call i32 @_PyCompile_EnsureArrayLargeEnough(i32 noundef %add.i.i.i23, ptr noundef nonnull %u_instr_sequence8, ptr noundef nonnull %s_allocated.i.i.i24, i32 noundef 100, i64 noundef 44), !range !5
+  %call.i.i.i25 = tail call i32 @_PyCompile_EnsureArrayLargeEnough(i32 noundef %add.i.i.i23, ptr noundef nonnull %u_instr_sequence8, ptr noundef nonnull %s_allocated.i.i.i24, i32 noundef 100, i64 noundef 44)
   %cmp.i.i.i26 = icmp eq i32 %call.i.i.i25, -1
   br i1 %cmp.i.i.i26, label %return, label %instr_sequence_next_inst.exit.i.i27
 
@@ -30085,7 +30086,7 @@ return:                                           ; preds = %if.end, %instr_sequ
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @compiler_try_star_finally(ptr noundef %c, ptr nocapture noundef readonly %s) unnamed_addr #1 {
+define internal fastcc range(i32 -1, 1) i32 @compiler_try_star_finally(ptr noundef %c, ptr nocapture noundef readonly %s) unnamed_addr #1 {
 entry:
   %lineno1 = getelementptr inbounds i8, ptr %s, i64 64
   %0 = load i32, ptr %lineno1, align 8
@@ -30146,7 +30147,7 @@ if.end28:                                         ; preds = %if.end20
   %13 = load i32, ptr %s_used.i.i.i, align 4
   %add.i.i.i = add i32 %13, 1
   %s_allocated.i.i.i = getelementptr inbounds i8, ptr %12, i64 32
-  %call.i.i.i = tail call i32 @_PyCompile_EnsureArrayLargeEnough(i32 noundef %add.i.i.i, ptr noundef nonnull %u_instr_sequence30, ptr noundef nonnull %s_allocated.i.i.i, i32 noundef 100, i64 noundef 44), !range !5
+  %call.i.i.i = tail call i32 @_PyCompile_EnsureArrayLargeEnough(i32 noundef %add.i.i.i, ptr noundef nonnull %u_instr_sequence30, ptr noundef nonnull %s_allocated.i.i.i, i32 noundef 100, i64 noundef 44)
   %cmp.i.i.i = icmp eq i32 %call.i.i.i, -1
   br i1 %cmp.i.i.i, label %return, label %instr_sequence_next_inst.exit.i.i
 
@@ -30172,7 +30173,7 @@ if.end35:                                         ; preds = %instr_sequence_next
   %s_labelmap_size.i = getelementptr inbounds i8, ptr %16, i64 48
   %17 = load i32, ptr %s_labelmap_size.i, align 8
   %s_labelmap.i = getelementptr inbounds i8, ptr %16, i64 40
-  %call.i = tail call i32 @_PyCompile_EnsureArrayLargeEnough(i32 noundef %inc.i, ptr noundef nonnull %s_labelmap.i, ptr noundef nonnull %s_labelmap_size.i, i32 noundef 10, i64 noundef 4), !range !5
+  %call.i = tail call i32 @_PyCompile_EnsureArrayLargeEnough(i32 noundef %inc.i, ptr noundef nonnull %s_labelmap.i, ptr noundef nonnull %s_labelmap_size.i, i32 noundef 10, i64 noundef 4)
   %cmp.i = icmp eq i32 %call.i, -1
   br i1 %cmp.i, label %return, label %for.cond.preheader.i
 
@@ -30194,7 +30195,7 @@ for.body.i:                                       ; preds = %for.body.i, %for.bo
   %21 = load i32, ptr %s_labelmap_size.i, align 8
   %22 = sext i32 %21 to i64
   %cmp3.i = icmp slt i64 %indvars.iv.next.i, %22
-  br i1 %cmp3.i, label %for.body.i, label %if.end42, !llvm.loop !6
+  br i1 %cmp3.i, label %for.body.i, label %if.end42, !llvm.loop !5
 
 if.end42:                                         ; preds = %for.body.i, %for.cond.preheader.i
   %s_used.i = getelementptr inbounds i8, ptr %16, i64 36
@@ -30263,7 +30264,7 @@ for.body:                                         ; preds = %for.cond
   %call72 = tail call fastcc i32 @compiler_visit_stmt(ptr noundef %c, ptr noundef %32)
   %cmp73 = icmp eq i32 %call72, -1
   %inc = add i32 %_i.0, 1
-  br i1 %cmp73, label %return, label %for.cond, !llvm.loop !131
+  br i1 %cmp73, label %return, label %for.cond, !llvm.loop !124
 
 if.end77:                                         ; preds = %for.cond, %if.else, %if.then56
   %33 = load ptr, ptr %u, align 8
@@ -30272,7 +30273,7 @@ if.end77:                                         ; preds = %for.cond, %if.else,
   %34 = load i32, ptr %s_used.i.i.i132, align 4
   %add.i.i.i133 = add i32 %34, 1
   %s_allocated.i.i.i134 = getelementptr inbounds i8, ptr %33, i64 32
-  %call.i.i.i135 = tail call i32 @_PyCompile_EnsureArrayLargeEnough(i32 noundef %add.i.i.i133, ptr noundef nonnull %u_instr_sequence79, ptr noundef nonnull %s_allocated.i.i.i134, i32 noundef 100, i64 noundef 44), !range !5
+  %call.i.i.i135 = tail call i32 @_PyCompile_EnsureArrayLargeEnough(i32 noundef %add.i.i.i133, ptr noundef nonnull %u_instr_sequence79, ptr noundef nonnull %s_allocated.i.i.i134, i32 noundef 100, i64 noundef 44)
   %cmp.i.i.i136 = icmp eq i32 %call.i.i.i135, -1
   br i1 %cmp.i.i.i136, label %return, label %instr_sequence_next_inst.exit.i.i137
 
@@ -30315,33 +30316,33 @@ for.body101:                                      ; preds = %for.cond90
   %call106 = tail call fastcc i32 @compiler_visit_stmt(ptr noundef %c, ptr noundef %40)
   %cmp107 = icmp eq i32 %call106, -1
   %inc112 = add i32 %_i86.0, 1
-  br i1 %cmp107, label %return, label %for.cond90, !llvm.loop !132
+  br i1 %cmp107, label %return, label %for.cond90, !llvm.loop !125
 
 for.end113:                                       ; preds = %for.cond90, %if.end84
   %41 = load ptr, ptr %u, align 8
   %u_instr_sequence115 = getelementptr inbounds i8, ptr %41, i64 24
-  %call117 = tail call fastcc i32 @codegen_addop_j(ptr noundef nonnull %u_instr_sequence115, i64 -1, i64 -1, i32 noundef 256, i32 %inc.i124), !range !5
+  %call117 = tail call fastcc i32 @codegen_addop_j(ptr noundef nonnull %u_instr_sequence115, i64 -1, i64 -1, i32 noundef 256, i32 %inc.i124)
   %cmp118 = icmp eq i32 %call117, -1
   br i1 %cmp118, label %return, label %if.end121
 
 if.end121:                                        ; preds = %for.end113
   %42 = load ptr, ptr %u, align 8
   %u_instr_sequence123 = getelementptr inbounds i8, ptr %42, i64 24
-  %call125 = tail call i32 @_PyCompile_InstructionSequence_UseLabel(ptr noundef nonnull %u_instr_sequence123, i32 noundef %inc.i122), !range !5
+  %call125 = tail call i32 @_PyCompile_InstructionSequence_UseLabel(ptr noundef nonnull %u_instr_sequence123, i32 noundef %inc.i122)
   %cmp126 = icmp eq i32 %call125, -1
   br i1 %cmp126, label %return, label %if.end129
 
 if.end129:                                        ; preds = %if.end121
   %43 = load ptr, ptr %u, align 8
   %u_instr_sequence131 = getelementptr inbounds i8, ptr %43, i64 24
-  %call133 = tail call fastcc i32 @codegen_addop_j(ptr noundef nonnull %u_instr_sequence131, i64 -1, i64 -1, i32 noundef 264, i32 %inc.i126), !range !5
+  %call133 = tail call fastcc i32 @codegen_addop_j(ptr noundef nonnull %u_instr_sequence131, i64 -1, i64 -1, i32 noundef 264, i32 %inc.i126)
   %cmp134 = icmp eq i32 %call133, -1
   br i1 %cmp134, label %return, label %if.end137
 
 if.end137:                                        ; preds = %if.end129
   %44 = load ptr, ptr %u, align 8
   %u_instr_sequence139 = getelementptr inbounds i8, ptr %44, i64 24
-  %call140 = tail call fastcc i32 @codegen_addop_noarg(ptr noundef nonnull %u_instr_sequence139, i32 noundef 33, i64 -1, i64 -1), !range !5
+  %call140 = tail call fastcc i32 @codegen_addop_noarg(ptr noundef nonnull %u_instr_sequence139, i32 noundef 33, i64 -1, i64 -1)
   %cmp141 = icmp eq i32 %call140, -1
   br i1 %cmp141, label %return, label %if.end144
 
@@ -30387,7 +30388,7 @@ for.body166:                                      ; preds = %for.cond155
   %call171 = tail call fastcc i32 @compiler_visit_stmt(ptr noundef %c, ptr noundef %49)
   %cmp172 = icmp eq i32 %call171, -1
   %inc177 = add i32 %_i151.0, 1
-  br i1 %cmp172, label %return, label %for.cond155, !llvm.loop !133
+  br i1 %cmp172, label %return, label %for.cond155, !llvm.loop !126
 
 for.end178:                                       ; preds = %for.cond155, %if.end150
   %c.val = load ptr, ptr %u, align 8
@@ -30397,14 +30398,14 @@ for.end178:                                       ; preds = %for.cond155, %if.en
   store i32 %dec.i164, ptr %u_nfblocks.i163, align 8
   %51 = load ptr, ptr %u, align 8
   %u_instr_sequence181 = getelementptr inbounds i8, ptr %51, i64 24
-  %call182 = tail call fastcc i32 @codegen_addop_i(ptr noundef nonnull %u_instr_sequence181, i32 noundef 102, i64 noundef 0, i64 -1, i64 -1), !range !5
+  %call182 = tail call fastcc i32 @codegen_addop_i(ptr noundef nonnull %u_instr_sequence181, i32 noundef 102, i64 noundef 0, i64 -1, i64 -1)
   %cmp183 = icmp eq i32 %call182, -1
   br i1 %cmp183, label %return, label %if.end186
 
 if.end186:                                        ; preds = %for.end178
   %52 = load ptr, ptr %u, align 8
   %u_instr_sequence188 = getelementptr inbounds i8, ptr %52, i64 24
-  %call190 = tail call i32 @_PyCompile_InstructionSequence_UseLabel(ptr noundef nonnull %u_instr_sequence188, i32 noundef %inc.i126), !range !5
+  %call190 = tail call i32 @_PyCompile_InstructionSequence_UseLabel(ptr noundef nonnull %u_instr_sequence188, i32 noundef %inc.i126)
   %cmp191 = icmp eq i32 %call190, -1
   br i1 %cmp191, label %return, label %if.end194
 
@@ -30416,7 +30417,7 @@ if.end194:                                        ; preds = %if.end186
 if.end199:                                        ; preds = %if.end194
   %53 = load ptr, ptr %u, align 8
   %u_instr_sequence201 = getelementptr inbounds i8, ptr %53, i64 24
-  %call203 = tail call i32 @_PyCompile_InstructionSequence_UseLabel(ptr noundef nonnull %u_instr_sequence201, i32 noundef %inc.i124), !range !5
+  %call203 = tail call i32 @_PyCompile_InstructionSequence_UseLabel(ptr noundef nonnull %u_instr_sequence201, i32 noundef %inc.i124)
   %cmp204 = icmp eq i32 %call203, -1
   %. = sext i1 %cmp204 to i32
   br label %return
@@ -30427,7 +30428,7 @@ return:                                           ; preds = %for.body, %for.body
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @compiler_try_star_except(ptr noundef %c, ptr nocapture noundef readonly %s) unnamed_addr #1 {
+define internal fastcc i32 @compiler_try_star_except(ptr noundef %c, ptr nocapture noundef readonly %s) unnamed_addr #1 {
 entry:
   %lineno1 = getelementptr inbounds i8, ptr %s, i64 64
   %0 = load i32, ptr %lineno1, align 8
@@ -30506,7 +30507,7 @@ if.end44:                                         ; preds = %if.end36
   %17 = load i32, ptr %s_used.i.i.i, align 4
   %add.i.i.i = add i32 %17, 1
   %s_allocated.i.i.i = getelementptr inbounds i8, ptr %16, i64 32
-  %call.i.i.i = tail call i32 @_PyCompile_EnsureArrayLargeEnough(i32 noundef %add.i.i.i, ptr noundef nonnull %u_instr_sequence46, ptr noundef nonnull %s_allocated.i.i.i, i32 noundef 100, i64 noundef 44), !range !5
+  %call.i.i.i = tail call i32 @_PyCompile_EnsureArrayLargeEnough(i32 noundef %add.i.i.i, ptr noundef nonnull %u_instr_sequence46, ptr noundef nonnull %s_allocated.i.i.i, i32 noundef 100, i64 noundef 44)
   %cmp.i.i.i = icmp eq i32 %call.i.i.i, -1
   br i1 %cmp.i.i.i, label %return, label %instr_sequence_next_inst.exit.i.i
 
@@ -30532,7 +30533,7 @@ if.end51:                                         ; preds = %instr_sequence_next
   %s_labelmap_size.i = getelementptr inbounds i8, ptr %20, i64 48
   %21 = load i32, ptr %s_labelmap_size.i, align 8
   %s_labelmap.i = getelementptr inbounds i8, ptr %20, i64 40
-  %call.i = tail call i32 @_PyCompile_EnsureArrayLargeEnough(i32 noundef %inc.i, ptr noundef nonnull %s_labelmap.i, ptr noundef nonnull %s_labelmap_size.i, i32 noundef 10, i64 noundef 4), !range !5
+  %call.i = tail call i32 @_PyCompile_EnsureArrayLargeEnough(i32 noundef %inc.i, ptr noundef nonnull %s_labelmap.i, ptr noundef nonnull %s_labelmap_size.i, i32 noundef 10, i64 noundef 4)
   %cmp.i = icmp eq i32 %call.i, -1
   br i1 %cmp.i, label %return, label %for.cond.preheader.i
 
@@ -30554,7 +30555,7 @@ for.body.i:                                       ; preds = %for.body.i, %for.bo
   %25 = load i32, ptr %s_labelmap_size.i, align 8
   %26 = sext i32 %25 to i64
   %cmp3.i = icmp slt i64 %indvars.iv.next.i, %26
-  br i1 %cmp3.i, label %for.body.i, label %if.end58, !llvm.loop !6
+  br i1 %cmp3.i, label %for.body.i, label %if.end58, !llvm.loop !5
 
 if.end58:                                         ; preds = %for.body.i, %for.cond.preheader.i
   %s_used.i = getelementptr inbounds i8, ptr %20, i64 36
@@ -30605,7 +30606,7 @@ for.body:                                         ; preds = %for.cond
   %call69 = tail call fastcc i32 @compiler_visit_stmt(ptr noundef %c, ptr noundef %33)
   %cmp70 = icmp eq i32 %call69, -1
   %inc = add i32 %_i.0, 1
-  br i1 %cmp70, label %return, label %for.cond, !llvm.loop !134
+  br i1 %cmp70, label %return, label %for.cond, !llvm.loop !127
 
 for.end:                                          ; preds = %for.cond, %if.end63
   %c.val348 = load ptr, ptr %u, align 8
@@ -30615,14 +30616,14 @@ for.end:                                          ; preds = %for.cond, %if.end63
   store i32 %dec.i, ptr %u_nfblocks.i364, align 8
   %35 = load ptr, ptr %u, align 8
   %u_instr_sequence76 = getelementptr inbounds i8, ptr %35, i64 24
-  %call77 = tail call fastcc i32 @codegen_addop_noarg(ptr noundef nonnull %u_instr_sequence76, i32 noundef 263, i64 -1, i64 -1), !range !5
+  %call77 = tail call fastcc i32 @codegen_addop_noarg(ptr noundef nonnull %u_instr_sequence76, i32 noundef 263, i64 -1, i64 -1)
   %cmp78 = icmp eq i32 %call77, -1
   br i1 %cmp78, label %return, label %if.end81
 
 if.end81:                                         ; preds = %for.end
   %36 = load ptr, ptr %u, align 8
   %u_instr_sequence83 = getelementptr inbounds i8, ptr %36, i64 24
-  %call85 = tail call fastcc i32 @codegen_addop_j(ptr noundef nonnull %u_instr_sequence83, i64 -1, i64 -1, i32 noundef 256, i32 %inc.i352), !range !5
+  %call85 = tail call fastcc i32 @codegen_addop_j(ptr noundef nonnull %u_instr_sequence83, i64 -1, i64 -1, i32 noundef 256, i32 %inc.i352)
   %cmp86 = icmp eq i32 %call85, -1
   br i1 %cmp86, label %return, label %if.end89
 
@@ -30640,21 +30641,21 @@ cond.end98:                                       ; preds = %if.end89, %cond.fal
   %cond99 = phi i64 [ %38, %cond.false94 ], [ 0, %if.end89 ]
   %39 = load ptr, ptr %u, align 8
   %u_instr_sequence101 = getelementptr inbounds i8, ptr %39, i64 24
-  %call103 = tail call i32 @_PyCompile_InstructionSequence_UseLabel(ptr noundef nonnull %u_instr_sequence101, i32 noundef %inc.i350), !range !5
+  %call103 = tail call i32 @_PyCompile_InstructionSequence_UseLabel(ptr noundef nonnull %u_instr_sequence101, i32 noundef %inc.i350)
   %cmp104 = icmp eq i32 %call103, -1
   br i1 %cmp104, label %return, label %if.end107
 
 if.end107:                                        ; preds = %cond.end98
   %40 = load ptr, ptr %u, align 8
   %u_instr_sequence109 = getelementptr inbounds i8, ptr %40, i64 24
-  %call111 = tail call fastcc i32 @codegen_addop_j(ptr noundef nonnull %u_instr_sequence109, i64 -1, i64 -1, i32 noundef 264, i32 %inc.i356), !range !5
+  %call111 = tail call fastcc i32 @codegen_addop_j(ptr noundef nonnull %u_instr_sequence109, i64 -1, i64 -1, i32 noundef 264, i32 %inc.i356)
   %cmp112 = icmp eq i32 %call111, -1
   br i1 %cmp112, label %return, label %if.end115
 
 if.end115:                                        ; preds = %if.end107
   %41 = load ptr, ptr %u, align 8
   %u_instr_sequence117 = getelementptr inbounds i8, ptr %41, i64 24
-  %call118 = tail call fastcc i32 @codegen_addop_noarg(ptr noundef nonnull %u_instr_sequence117, i32 noundef 33, i64 -1, i64 -1), !range !5
+  %call118 = tail call fastcc i32 @codegen_addop_noarg(ptr noundef nonnull %u_instr_sequence117, i32 noundef 33, i64 -1, i64 -1)
   %cmp119 = icmp eq i32 %call118, -1
   br i1 %cmp119, label %return, label %if.end122
 
@@ -30745,14 +30746,14 @@ if.then174:                                       ; preds = %if.end171
   %loc136.sroa.23.8.insert.shift = shl nuw i64 %loc136.sroa.23.8.insert.ext, 32
   %loc136.sroa.12.8.insert.ext = zext i32 %48 to i64
   %loc136.sroa.12.8.insert.insert = or disjoint i64 %loc136.sroa.23.8.insert.shift, %loc136.sroa.12.8.insert.ext
-  %call177 = tail call fastcc i32 @codegen_addop_i(ptr noundef nonnull %u_instr_sequence176, i32 noundef 47, i64 noundef 0, i64 %loc136.sroa.0.0.insert.insert, i64 %loc136.sroa.12.8.insert.insert), !range !5
+  %call177 = tail call fastcc i32 @codegen_addop_i(ptr noundef nonnull %u_instr_sequence176, i32 noundef 47, i64 noundef 0, i64 %loc136.sroa.0.0.insert.insert, i64 %loc136.sroa.12.8.insert.insert)
   %cmp178 = icmp eq i32 %call177, -1
   br i1 %cmp178, label %return, label %if.end181
 
 if.end181:                                        ; preds = %if.then174
   %57 = load ptr, ptr %u, align 8
   %u_instr_sequence183 = getelementptr inbounds i8, ptr %57, i64 24
-  %call184 = tail call fastcc i32 @codegen_addop_i(ptr noundef nonnull %u_instr_sequence183, i32 noundef 61, i64 noundef 2, i64 %loc136.sroa.0.0.insert.insert, i64 %loc136.sroa.12.8.insert.insert), !range !5
+  %call184 = tail call fastcc i32 @codegen_addop_i(ptr noundef nonnull %u_instr_sequence183, i32 noundef 61, i64 noundef 2, i64 %loc136.sroa.0.0.insert.insert, i64 %loc136.sroa.12.8.insert.insert)
   %cmp185 = icmp eq i32 %call184, -1
   br i1 %cmp185, label %return, label %if.end189
 
@@ -30763,7 +30764,7 @@ if.end189:                                        ; preds = %if.end181, %if.end1
   br i1 %tobool.not, label %if.end221, label %if.then191
 
 if.then191:                                       ; preds = %if.end189
-  %call194 = tail call fastcc i32 @compiler_visit_expr(ptr noundef nonnull %c, ptr noundef nonnull %58), !range !5
+  %call194 = tail call fastcc i32 @compiler_visit_expr(ptr noundef nonnull %c, ptr noundef nonnull %58)
   %cmp195 = icmp eq i32 %call194, -1
   br i1 %cmp195, label %return, label %if.end198
 
@@ -30778,21 +30779,21 @@ if.end198:                                        ; preds = %if.then191
   %loc136.sroa.23.8.insert.shift145 = shl nuw i64 %loc136.sroa.23.8.insert.ext144, 32
   %loc136.sroa.12.8.insert.ext107 = zext i32 %48 to i64
   %loc136.sroa.12.8.insert.insert109 = or disjoint i64 %loc136.sroa.23.8.insert.shift145, %loc136.sroa.12.8.insert.ext107
-  %call201 = tail call fastcc i32 @codegen_addop_noarg(ptr noundef nonnull %u_instr_sequence200, i32 noundef 6, i64 %loc136.sroa.0.0.insert.insert28, i64 %loc136.sroa.12.8.insert.insert109), !range !5
+  %call201 = tail call fastcc i32 @codegen_addop_noarg(ptr noundef nonnull %u_instr_sequence200, i32 noundef 6, i64 %loc136.sroa.0.0.insert.insert28, i64 %loc136.sroa.12.8.insert.insert109)
   %cmp202 = icmp eq i32 %call201, -1
   br i1 %cmp202, label %return, label %if.end205
 
 if.end205:                                        ; preds = %if.end198
   %60 = load ptr, ptr %u, align 8
   %u_instr_sequence207 = getelementptr inbounds i8, ptr %60, i64 24
-  %call208 = tail call fastcc i32 @codegen_addop_i(ptr noundef nonnull %u_instr_sequence207, i32 noundef 61, i64 noundef 1, i64 %loc136.sroa.0.0.insert.insert28, i64 %loc136.sroa.12.8.insert.insert109), !range !5
+  %call208 = tail call fastcc i32 @codegen_addop_i(ptr noundef nonnull %u_instr_sequence207, i32 noundef 61, i64 noundef 1, i64 %loc136.sroa.0.0.insert.insert28, i64 %loc136.sroa.12.8.insert.insert109)
   %cmp209 = icmp eq i32 %call208, -1
   br i1 %cmp209, label %return, label %if.end212
 
 if.end212:                                        ; preds = %if.end205
   %61 = load ptr, ptr %u, align 8
   %u_instr_sequence214 = getelementptr inbounds i8, ptr %61, i64 24
-  %call216 = tail call fastcc i32 @codegen_addop_j(ptr noundef nonnull %u_instr_sequence214, i64 %loc136.sroa.0.0.insert.insert28, i64 %loc136.sroa.12.8.insert.insert109, i32 noundef 98, i32 %inc.i385), !range !5
+  %call216 = tail call fastcc i32 @codegen_addop_j(ptr noundef nonnull %u_instr_sequence214, i64 %loc136.sroa.0.0.insert.insert28, i64 %loc136.sroa.12.8.insert.insert109, i32 noundef 98, i32 %inc.i385)
   %cmp217 = icmp eq i32 %call216, -1
   br i1 %cmp217, label %return, label %if.end221
 
@@ -30829,7 +30830,7 @@ if.then242:                                       ; preds = %if.end239
   %loc136.sroa.23.8.insert.shift160 = shl nuw i64 %loc136.sroa.23.8.insert.ext159, 32
   %loc136.sroa.12.8.insert.ext119 = zext i32 %48 to i64
   %loc136.sroa.12.8.insert.insert121 = or disjoint i64 %loc136.sroa.23.8.insert.shift160, %loc136.sroa.12.8.insert.ext119
-  %call245 = tail call fastcc i32 @compiler_nameop(ptr noundef nonnull %c, i64 %loc136.sroa.0.0.insert.insert40, i64 %loc136.sroa.12.8.insert.insert121, ptr noundef nonnull %66, i32 noundef 2), !range !5
+  %call245 = tail call fastcc i32 @compiler_nameop(ptr noundef nonnull %c, i64 %loc136.sroa.0.0.insert.insert40, i64 %loc136.sroa.12.8.insert.insert121, ptr noundef nonnull %66, i32 noundef 2)
   %cmp246 = icmp eq i32 %call245, -1
   br i1 %cmp246, label %return, label %if.end257
 
@@ -30844,7 +30845,7 @@ if.else:                                          ; preds = %if.end239
   %loc136.sroa.23.8.insert.shift165 = shl nuw i64 %loc136.sroa.23.8.insert.ext164, 32
   %loc136.sroa.12.8.insert.ext123 = zext i32 %48 to i64
   %loc136.sroa.12.8.insert.insert125 = or disjoint i64 %loc136.sroa.23.8.insert.shift165, %loc136.sroa.12.8.insert.ext123
-  %call252 = tail call fastcc i32 @codegen_addop_noarg(ptr noundef nonnull %u_instr_sequence251, i32 noundef 32, i64 %loc136.sroa.0.0.insert.insert44, i64 %loc136.sroa.12.8.insert.insert125), !range !5
+  %call252 = tail call fastcc i32 @codegen_addop_noarg(ptr noundef nonnull %u_instr_sequence251, i32 noundef 32, i64 %loc136.sroa.0.0.insert.insert44, i64 %loc136.sroa.12.8.insert.insert125)
   %cmp253 = icmp eq i32 %call252, -1
   br i1 %cmp253, label %return, label %if.end257
 
@@ -30853,14 +30854,14 @@ if.end257:                                        ; preds = %if.else, %if.then24
   %loc136.sroa.0.0.insert.insert48.pre-phi = phi i64 [ %loc136.sroa.0.0.insert.insert44, %if.else ], [ %loc136.sroa.0.0.insert.insert40, %if.then242 ]
   %68 = load ptr, ptr %u, align 8
   %u_instr_sequence259 = getelementptr inbounds i8, ptr %68, i64 24
-  %call261 = tail call fastcc i32 @codegen_addop_j(ptr noundef nonnull %u_instr_sequence259, i64 %loc136.sroa.0.0.insert.insert48.pre-phi, i64 %loc136.sroa.12.8.insert.insert129.pre-phi, i32 noundef 264, i32 %inc.i387), !range !5
+  %call261 = tail call fastcc i32 @codegen_addop_j(ptr noundef nonnull %u_instr_sequence259, i64 %loc136.sroa.0.0.insert.insert48.pre-phi, i64 %loc136.sroa.12.8.insert.insert129.pre-phi, i32 noundef 264, i32 %inc.i387)
   %cmp262 = icmp eq i32 %call261, -1
   br i1 %cmp262, label %return, label %if.end265
 
 if.end265:                                        ; preds = %if.end257
   %69 = load ptr, ptr %u, align 8
   %u_instr_sequence267 = getelementptr inbounds i8, ptr %69, i64 24
-  %call269 = tail call i32 @_PyCompile_InstructionSequence_UseLabel(ptr noundef nonnull %u_instr_sequence267, i32 noundef %inc.i389), !range !5
+  %call269 = tail call i32 @_PyCompile_InstructionSequence_UseLabel(ptr noundef nonnull %u_instr_sequence267, i32 noundef %inc.i389)
   %cmp270 = icmp eq i32 %call269, -1
   br i1 %cmp270, label %return, label %if.end273
 
@@ -30908,7 +30909,7 @@ for.body297:                                      ; preds = %for.cond286
   %call302 = tail call fastcc i32 @compiler_visit_stmt(ptr noundef %c, ptr noundef %75)
   %cmp303 = icmp eq i32 %call302, -1
   %inc308 = add i32 %_i282.0, 1
-  br i1 %cmp303, label %return, label %for.cond286, !llvm.loop !135
+  br i1 %cmp303, label %return, label %for.cond286, !llvm.loop !128
 
 for.end309:                                       ; preds = %for.cond286, %if.end281
   %c.val347 = load ptr, ptr %u, align 8
@@ -30918,7 +30919,7 @@ for.end309:                                       ; preds = %for.cond286, %if.en
   store i32 %dec.i406, ptr %u_nfblocks.i405, align 8
   %77 = load ptr, ptr %u, align 8
   %u_instr_sequence312 = getelementptr inbounds i8, ptr %77, i64 24
-  %call313 = tail call fastcc i32 @codegen_addop_noarg(ptr noundef nonnull %u_instr_sequence312, i32 noundef 263, i64 -1, i64 -1), !range !5
+  %call313 = tail call fastcc i32 @codegen_addop_noarg(ptr noundef nonnull %u_instr_sequence312, i32 noundef 263, i64 -1, i64 -1)
   %cmp314 = icmp eq i32 %call313, -1
   br i1 %cmp314, label %return, label %if.end317
 
@@ -30930,33 +30931,33 @@ if.end317:                                        ; preds = %for.end309
 if.then321:                                       ; preds = %if.end317
   %79 = load ptr, ptr %c_const_cache, align 8
   %80 = load ptr, ptr %u, align 8
-  %call323 = tail call fastcc i32 @compiler_addop_load_const(ptr noundef %79, ptr noundef %80, i64 -1, i64 -1, ptr noundef nonnull @_Py_NoneStruct), !range !5
+  %call323 = tail call fastcc i32 @compiler_addop_load_const(ptr noundef %79, ptr noundef %80, i64 -1, i64 -1, ptr noundef nonnull @_Py_NoneStruct)
   %cmp324 = icmp eq i32 %call323, -1
   br i1 %cmp324, label %return, label %if.end327
 
 if.end327:                                        ; preds = %if.then321
   %81 = load ptr, ptr %name, align 8
-  %call330 = tail call fastcc i32 @compiler_nameop(ptr noundef nonnull %c, i64 -1, i64 -1, ptr noundef %81, i32 noundef 2), !range !5
+  %call330 = tail call fastcc i32 @compiler_nameop(ptr noundef nonnull %c, i64 -1, i64 -1, ptr noundef %81, i32 noundef 2)
   %cmp331 = icmp eq i32 %call330, -1
   br i1 %cmp331, label %return, label %if.end334
 
 if.end334:                                        ; preds = %if.end327
   %82 = load ptr, ptr %name, align 8
-  %call337 = tail call fastcc i32 @compiler_nameop(ptr noundef nonnull %c, i64 -1, i64 -1, ptr noundef %82, i32 noundef 3), !range !5
+  %call337 = tail call fastcc i32 @compiler_nameop(ptr noundef nonnull %c, i64 -1, i64 -1, ptr noundef %82, i32 noundef 3)
   %cmp338 = icmp eq i32 %call337, -1
   br i1 %cmp338, label %return, label %if.end342
 
 if.end342:                                        ; preds = %if.end334, %if.end317
   %83 = load ptr, ptr %u, align 8
   %u_instr_sequence344 = getelementptr inbounds i8, ptr %83, i64 24
-  %call346 = tail call fastcc i32 @codegen_addop_j(ptr noundef nonnull %u_instr_sequence344, i64 -1, i64 -1, i32 noundef 256, i32 %inc.i381), !range !5
+  %call346 = tail call fastcc i32 @codegen_addop_j(ptr noundef nonnull %u_instr_sequence344, i64 -1, i64 -1, i32 noundef 256, i32 %inc.i381)
   %cmp347 = icmp eq i32 %call346, -1
   br i1 %cmp347, label %return, label %if.end350
 
 if.end350:                                        ; preds = %if.end342
   %84 = load ptr, ptr %u, align 8
   %u_instr_sequence352 = getelementptr inbounds i8, ptr %84, i64 24
-  %call354 = tail call i32 @_PyCompile_InstructionSequence_UseLabel(ptr noundef nonnull %u_instr_sequence352, i32 noundef %inc.i387), !range !5
+  %call354 = tail call i32 @_PyCompile_InstructionSequence_UseLabel(ptr noundef nonnull %u_instr_sequence352, i32 noundef %inc.i387)
   %cmp355 = icmp eq i32 %call354, -1
   br i1 %cmp355, label %return, label %if.end358
 
@@ -30968,82 +30969,82 @@ if.end358:                                        ; preds = %if.end350
 if.then362:                                       ; preds = %if.end358
   %86 = load ptr, ptr %c_const_cache, align 8
   %87 = load ptr, ptr %u, align 8
-  %call365 = tail call fastcc i32 @compiler_addop_load_const(ptr noundef %86, ptr noundef %87, i64 -1, i64 -1, ptr noundef nonnull @_Py_NoneStruct), !range !5
+  %call365 = tail call fastcc i32 @compiler_addop_load_const(ptr noundef %86, ptr noundef %87, i64 -1, i64 -1, ptr noundef nonnull @_Py_NoneStruct)
   %cmp366 = icmp eq i32 %call365, -1
   br i1 %cmp366, label %return, label %if.end369
 
 if.end369:                                        ; preds = %if.then362
   %88 = load ptr, ptr %name, align 8
-  %call372 = tail call fastcc i32 @compiler_nameop(ptr noundef nonnull %c, i64 -1, i64 -1, ptr noundef %88, i32 noundef 2), !range !5
+  %call372 = tail call fastcc i32 @compiler_nameop(ptr noundef nonnull %c, i64 -1, i64 -1, ptr noundef %88, i32 noundef 2)
   %cmp373 = icmp eq i32 %call372, -1
   br i1 %cmp373, label %return, label %if.end376
 
 if.end376:                                        ; preds = %if.end369
   %89 = load ptr, ptr %name, align 8
-  %call379 = tail call fastcc i32 @compiler_nameop(ptr noundef nonnull %c, i64 -1, i64 -1, ptr noundef %89, i32 noundef 3), !range !5
+  %call379 = tail call fastcc i32 @compiler_nameop(ptr noundef nonnull %c, i64 -1, i64 -1, ptr noundef %89, i32 noundef 3)
   %cmp380 = icmp eq i32 %call379, -1
   br i1 %cmp380, label %return, label %if.end384
 
 if.end384:                                        ; preds = %if.end376, %if.end358
   %90 = load ptr, ptr %u, align 8
   %u_instr_sequence386 = getelementptr inbounds i8, ptr %90, i64 24
-  %call387 = tail call fastcc i32 @codegen_addop_i(ptr noundef nonnull %u_instr_sequence386, i32 noundef 80, i64 noundef 3, i64 -1, i64 -1), !range !5
+  %call387 = tail call fastcc i32 @codegen_addop_i(ptr noundef nonnull %u_instr_sequence386, i32 noundef 80, i64 noundef 3, i64 -1, i64 -1)
   %cmp388 = icmp eq i32 %call387, -1
   br i1 %cmp388, label %return, label %if.end391
 
 if.end391:                                        ; preds = %if.end384
   %91 = load ptr, ptr %u, align 8
   %u_instr_sequence393 = getelementptr inbounds i8, ptr %91, i64 24
-  %call394 = tail call fastcc i32 @codegen_addop_noarg(ptr noundef nonnull %u_instr_sequence393, i32 noundef 32, i64 -1, i64 -1), !range !5
+  %call394 = tail call fastcc i32 @codegen_addop_noarg(ptr noundef nonnull %u_instr_sequence393, i32 noundef 32, i64 -1, i64 -1)
   %cmp395 = icmp eq i32 %call394, -1
   br i1 %cmp395, label %return, label %if.end398
 
 if.end398:                                        ; preds = %if.end391
   %92 = load ptr, ptr %u, align 8
   %u_instr_sequence400 = getelementptr inbounds i8, ptr %92, i64 24
-  %call402 = tail call fastcc i32 @codegen_addop_j(ptr noundef nonnull %u_instr_sequence400, i64 -1, i64 -1, i32 noundef 256, i32 %inc.i383), !range !5
+  %call402 = tail call fastcc i32 @codegen_addop_j(ptr noundef nonnull %u_instr_sequence400, i64 -1, i64 -1, i32 noundef 256, i32 %inc.i383)
   %cmp403 = icmp eq i32 %call402, -1
   br i1 %cmp403, label %return, label %if.end406
 
 if.end406:                                        ; preds = %if.end398
   %93 = load ptr, ptr %u, align 8
   %u_instr_sequence408 = getelementptr inbounds i8, ptr %93, i64 24
-  %call410 = tail call i32 @_PyCompile_InstructionSequence_UseLabel(ptr noundef nonnull %u_instr_sequence408, i32 noundef %inc.i381), !range !5
+  %call410 = tail call i32 @_PyCompile_InstructionSequence_UseLabel(ptr noundef nonnull %u_instr_sequence408, i32 noundef %inc.i381)
   %cmp411 = icmp eq i32 %call410, -1
   br i1 %cmp411, label %return, label %if.end414
 
 if.end414:                                        ; preds = %if.end406
   %94 = load ptr, ptr %u, align 8
   %u_instr_sequence416 = getelementptr inbounds i8, ptr %94, i64 24
-  %call417 = tail call fastcc i32 @codegen_addop_noarg(ptr noundef nonnull %u_instr_sequence416, i32 noundef 30, i64 -1, i64 -1), !range !5
+  %call417 = tail call fastcc i32 @codegen_addop_noarg(ptr noundef nonnull %u_instr_sequence416, i32 noundef 30, i64 -1, i64 -1)
   %cmp418 = icmp eq i32 %call417, -1
   br i1 %cmp418, label %return, label %if.end421
 
 if.end421:                                        ; preds = %if.end414
   %95 = load ptr, ptr %u, align 8
   %u_instr_sequence423 = getelementptr inbounds i8, ptr %95, i64 24
-  %call425 = tail call fastcc i32 @codegen_addop_j(ptr noundef nonnull %u_instr_sequence423, i64 -1, i64 -1, i32 noundef 256, i32 %inc.i383), !range !5
+  %call425 = tail call fastcc i32 @codegen_addop_j(ptr noundef nonnull %u_instr_sequence423, i64 -1, i64 -1, i32 noundef 256, i32 %inc.i383)
   %cmp426 = icmp eq i32 %call425, -1
   br i1 %cmp426, label %return, label %if.end429
 
 if.end429:                                        ; preds = %if.end421
   %96 = load ptr, ptr %u, align 8
   %u_instr_sequence431 = getelementptr inbounds i8, ptr %96, i64 24
-  %call433 = tail call i32 @_PyCompile_InstructionSequence_UseLabel(ptr noundef nonnull %u_instr_sequence431, i32 noundef %inc.i385), !range !5
+  %call433 = tail call i32 @_PyCompile_InstructionSequence_UseLabel(ptr noundef nonnull %u_instr_sequence431, i32 noundef %inc.i385)
   %cmp434 = icmp eq i32 %call433, -1
   br i1 %cmp434, label %return, label %if.end437
 
 if.end437:                                        ; preds = %if.end429
   %97 = load ptr, ptr %u, align 8
   %u_instr_sequence439 = getelementptr inbounds i8, ptr %97, i64 24
-  %call440 = tail call fastcc i32 @codegen_addop_noarg(ptr noundef nonnull %u_instr_sequence439, i32 noundef 32, i64 %loc136.sroa.0.0.insert.insert48.pre-phi, i64 %loc136.sroa.12.8.insert.insert129.pre-phi), !range !5
+  %call440 = tail call fastcc i32 @codegen_addop_noarg(ptr noundef nonnull %u_instr_sequence439, i32 noundef 32, i64 %loc136.sroa.0.0.insert.insert48.pre-phi, i64 %loc136.sroa.12.8.insert.insert129.pre-phi)
   %cmp441 = icmp eq i32 %call440, -1
   br i1 %cmp441, label %return, label %if.end444
 
 if.end444:                                        ; preds = %if.end437
   %98 = load ptr, ptr %u, align 8
   %u_instr_sequence446 = getelementptr inbounds i8, ptr %98, i64 24
-  %call448 = tail call i32 @_PyCompile_InstructionSequence_UseLabel(ptr noundef nonnull %u_instr_sequence446, i32 noundef %inc.i383), !range !5
+  %call448 = tail call i32 @_PyCompile_InstructionSequence_UseLabel(ptr noundef nonnull %u_instr_sequence446, i32 noundef %inc.i383)
   %cmp449 = icmp eq i32 %call448, -1
   br i1 %cmp449, label %return, label %if.end452
 
@@ -31054,21 +31055,21 @@ if.end452:                                        ; preds = %if.end444
 if.then455:                                       ; preds = %if.end452
   %99 = load ptr, ptr %u, align 8
   %u_instr_sequence457 = getelementptr inbounds i8, ptr %99, i64 24
-  %call458 = tail call fastcc i32 @codegen_addop_i(ptr noundef nonnull %u_instr_sequence457, i32 noundef 80, i64 noundef 1, i64 -1, i64 -1), !range !5
+  %call458 = tail call fastcc i32 @codegen_addop_i(ptr noundef nonnull %u_instr_sequence457, i32 noundef 80, i64 noundef 1, i64 -1, i64 -1)
   %cmp459 = icmp eq i32 %call458, -1
   br i1 %cmp459, label %return, label %if.end462
 
 if.end462:                                        ; preds = %if.then455
   %100 = load ptr, ptr %u, align 8
   %u_instr_sequence464 = getelementptr inbounds i8, ptr %100, i64 24
-  %call466 = tail call fastcc i32 @codegen_addop_j(ptr noundef nonnull %u_instr_sequence464, i64 -1, i64 -1, i32 noundef 256, i32 %inc.i358), !range !5
+  %call466 = tail call fastcc i32 @codegen_addop_j(ptr noundef nonnull %u_instr_sequence464, i64 -1, i64 -1, i32 noundef 256, i32 %inc.i358)
   %cmp467 = icmp eq i32 %call466, -1
   br i1 %cmp467, label %return, label %for.inc472
 
 for.inc472:                                       ; preds = %if.end452, %if.end462
   %inc473 = add nuw nsw i64 %i.0427, 1
   %exitcond.not = icmp eq i64 %inc473, %cond99
-  br i1 %exitcond.not, label %for.end474, label %for.body131, !llvm.loop !136
+  br i1 %exitcond.not, label %for.end474, label %for.body131, !llvm.loop !129
 
 for.end474:                                       ; preds = %for.inc472, %compiler_push_fblock.exit379
   %c.val = load ptr, ptr %u, align 8
@@ -31087,98 +31088,98 @@ for.end474:                                       ; preds = %for.inc472, %compil
 if.end483:                                        ; preds = %for.end474
   %104 = load ptr, ptr %u, align 8
   %u_instr_sequence485 = getelementptr inbounds i8, ptr %104, i64 24
-  %call487 = tail call i32 @_PyCompile_InstructionSequence_UseLabel(ptr noundef nonnull %u_instr_sequence485, i32 noundef %inc.i358), !range !5
+  %call487 = tail call i32 @_PyCompile_InstructionSequence_UseLabel(ptr noundef nonnull %u_instr_sequence485, i32 noundef %inc.i358)
   %cmp488 = icmp eq i32 %call487, -1
   br i1 %cmp488, label %return, label %if.end491
 
 if.end491:                                        ; preds = %if.end483
   %105 = load ptr, ptr %u, align 8
   %u_instr_sequence493 = getelementptr inbounds i8, ptr %105, i64 24
-  %call494 = tail call fastcc i32 @codegen_addop_i(ptr noundef nonnull %u_instr_sequence493, i32 noundef 56, i64 noundef 1, i64 -1, i64 -1), !range !5
+  %call494 = tail call fastcc i32 @codegen_addop_i(ptr noundef nonnull %u_instr_sequence493, i32 noundef 56, i64 noundef 1, i64 -1, i64 -1)
   %cmp495 = icmp eq i32 %call494, -1
   br i1 %cmp495, label %return, label %if.end498
 
 if.end498:                                        ; preds = %if.end491
   %106 = load ptr, ptr %u, align 8
   %u_instr_sequence500 = getelementptr inbounds i8, ptr %106, i64 24
-  %call501 = tail call fastcc i32 @codegen_addop_i(ptr noundef nonnull %u_instr_sequence500, i32 noundef 61, i64 noundef 1, i64 -1, i64 -1), !range !5
+  %call501 = tail call fastcc i32 @codegen_addop_i(ptr noundef nonnull %u_instr_sequence500, i32 noundef 61, i64 noundef 1, i64 -1, i64 -1)
   %cmp502 = icmp eq i32 %call501, -1
   br i1 %cmp502, label %return, label %if.end505
 
 if.end505:                                        ; preds = %if.end498
   %107 = load ptr, ptr %u, align 8
   %u_instr_sequence507 = getelementptr inbounds i8, ptr %107, i64 24
-  %call509 = tail call fastcc i32 @codegen_addop_j(ptr noundef nonnull %u_instr_sequence507, i64 -1, i64 -1, i32 noundef 99, i32 %inc.i410), !range !5
+  %call509 = tail call fastcc i32 @codegen_addop_j(ptr noundef nonnull %u_instr_sequence507, i64 -1, i64 -1, i32 noundef 99, i32 %inc.i410)
   %cmp510 = icmp eq i32 %call509, -1
   br i1 %cmp510, label %return, label %if.end513
 
 if.end513:                                        ; preds = %if.end505
   %108 = load ptr, ptr %u, align 8
   %u_instr_sequence515 = getelementptr inbounds i8, ptr %108, i64 24
-  %call516 = tail call fastcc i32 @codegen_addop_noarg(ptr noundef nonnull %u_instr_sequence515, i32 noundef 32, i64 -1, i64 -1), !range !5
+  %call516 = tail call fastcc i32 @codegen_addop_noarg(ptr noundef nonnull %u_instr_sequence515, i32 noundef 32, i64 -1, i64 -1)
   %cmp517 = icmp eq i32 %call516, -1
   br i1 %cmp517, label %return, label %if.end520
 
 if.end520:                                        ; preds = %if.end513
   %109 = load ptr, ptr %u, align 8
   %u_instr_sequence522 = getelementptr inbounds i8, ptr %109, i64 24
-  %call523 = tail call fastcc i32 @codegen_addop_noarg(ptr noundef nonnull %u_instr_sequence522, i32 noundef 263, i64 -1, i64 -1), !range !5
+  %call523 = tail call fastcc i32 @codegen_addop_noarg(ptr noundef nonnull %u_instr_sequence522, i32 noundef 263, i64 -1, i64 -1)
   %cmp524 = icmp eq i32 %call523, -1
   br i1 %cmp524, label %return, label %if.end527
 
 if.end527:                                        ; preds = %if.end520
   %110 = load ptr, ptr %u, align 8
   %u_instr_sequence529 = getelementptr inbounds i8, ptr %110, i64 24
-  %call530 = tail call fastcc i32 @codegen_addop_noarg(ptr noundef nonnull %u_instr_sequence529, i32 noundef 31, i64 -1, i64 -1), !range !5
+  %call530 = tail call fastcc i32 @codegen_addop_noarg(ptr noundef nonnull %u_instr_sequence529, i32 noundef 31, i64 -1, i64 -1)
   %cmp531 = icmp eq i32 %call530, -1
   br i1 %cmp531, label %return, label %if.end534
 
 if.end534:                                        ; preds = %if.end527
   %111 = load ptr, ptr %u, align 8
   %u_instr_sequence536 = getelementptr inbounds i8, ptr %111, i64 24
-  %call538 = tail call fastcc i32 @codegen_addop_j(ptr noundef nonnull %u_instr_sequence536, i64 -1, i64 -1, i32 noundef 256, i32 %inc.i354), !range !5
+  %call538 = tail call fastcc i32 @codegen_addop_j(ptr noundef nonnull %u_instr_sequence536, i64 -1, i64 -1, i32 noundef 256, i32 %inc.i354)
   %cmp539 = icmp eq i32 %call538, -1
   br i1 %cmp539, label %return, label %if.end542
 
 if.end542:                                        ; preds = %if.end534
   %112 = load ptr, ptr %u, align 8
   %u_instr_sequence544 = getelementptr inbounds i8, ptr %112, i64 24
-  %call546 = tail call i32 @_PyCompile_InstructionSequence_UseLabel(ptr noundef nonnull %u_instr_sequence544, i32 noundef %inc.i410), !range !5
+  %call546 = tail call i32 @_PyCompile_InstructionSequence_UseLabel(ptr noundef nonnull %u_instr_sequence544, i32 noundef %inc.i410)
   %cmp547 = icmp eq i32 %call546, -1
   br i1 %cmp547, label %return, label %if.end550
 
 if.end550:                                        ; preds = %if.end542
   %113 = load ptr, ptr %u, align 8
   %u_instr_sequence552 = getelementptr inbounds i8, ptr %113, i64 24
-  %call553 = tail call fastcc i32 @codegen_addop_noarg(ptr noundef nonnull %u_instr_sequence552, i32 noundef 263, i64 -1, i64 -1), !range !5
+  %call553 = tail call fastcc i32 @codegen_addop_noarg(ptr noundef nonnull %u_instr_sequence552, i32 noundef 263, i64 -1, i64 -1)
   %cmp554 = icmp eq i32 %call553, -1
   br i1 %cmp554, label %return, label %if.end557
 
 if.end557:                                        ; preds = %if.end550
   %114 = load ptr, ptr %u, align 8
   %u_instr_sequence559 = getelementptr inbounds i8, ptr %114, i64 24
-  %call560 = tail call fastcc i32 @codegen_addop_i(ptr noundef nonnull %u_instr_sequence559, i32 noundef 115, i64 noundef 2, i64 -1, i64 -1), !range !5
+  %call560 = tail call fastcc i32 @codegen_addop_i(ptr noundef nonnull %u_instr_sequence559, i32 noundef 115, i64 noundef 2, i64 -1, i64 -1)
   %cmp561 = icmp eq i32 %call560, -1
   br i1 %cmp561, label %return, label %if.end564
 
 if.end564:                                        ; preds = %if.end557
   %115 = load ptr, ptr %u, align 8
   %u_instr_sequence566 = getelementptr inbounds i8, ptr %115, i64 24
-  %call567 = tail call fastcc i32 @codegen_addop_noarg(ptr noundef nonnull %u_instr_sequence566, i32 noundef 31, i64 -1, i64 -1), !range !5
+  %call567 = tail call fastcc i32 @codegen_addop_noarg(ptr noundef nonnull %u_instr_sequence566, i32 noundef 31, i64 -1, i64 -1)
   %cmp568 = icmp eq i32 %call567, -1
   br i1 %cmp568, label %return, label %if.end571
 
 if.end571:                                        ; preds = %if.end564
   %116 = load ptr, ptr %u, align 8
   %u_instr_sequence573 = getelementptr inbounds i8, ptr %116, i64 24
-  %call574 = tail call fastcc i32 @codegen_addop_i(ptr noundef nonnull %u_instr_sequence573, i32 noundef 102, i64 noundef 0, i64 -1, i64 -1), !range !5
+  %call574 = tail call fastcc i32 @codegen_addop_i(ptr noundef nonnull %u_instr_sequence573, i32 noundef 102, i64 noundef 0, i64 -1, i64 -1)
   %cmp575 = icmp eq i32 %call574, -1
   br i1 %cmp575, label %return, label %if.end578
 
 if.end578:                                        ; preds = %if.end571
   %117 = load ptr, ptr %u, align 8
   %u_instr_sequence580 = getelementptr inbounds i8, ptr %117, i64 24
-  %call582 = tail call i32 @_PyCompile_InstructionSequence_UseLabel(ptr noundef nonnull %u_instr_sequence580, i32 noundef %inc.i356), !range !5
+  %call582 = tail call i32 @_PyCompile_InstructionSequence_UseLabel(ptr noundef nonnull %u_instr_sequence580, i32 noundef %inc.i356)
   %cmp583 = icmp eq i32 %call582, -1
   br i1 %cmp583, label %return, label %if.end586
 
@@ -31190,7 +31191,7 @@ if.end586:                                        ; preds = %if.end578
 if.end591:                                        ; preds = %if.end586
   %118 = load ptr, ptr %u, align 8
   %u_instr_sequence593 = getelementptr inbounds i8, ptr %118, i64 24
-  %call595 = tail call i32 @_PyCompile_InstructionSequence_UseLabel(ptr noundef nonnull %u_instr_sequence593, i32 noundef %inc.i352), !range !5
+  %call595 = tail call i32 @_PyCompile_InstructionSequence_UseLabel(ptr noundef nonnull %u_instr_sequence593, i32 noundef %inc.i352)
   %cmp596 = icmp eq i32 %call595, -1
   br i1 %cmp596, label %return, label %if.end599
 
@@ -31214,12 +31215,12 @@ for.body615:                                      ; preds = %for.cond604
   %call620 = tail call fastcc i32 @compiler_visit_stmt(ptr noundef %c, ptr noundef %121)
   %cmp621 = icmp eq i32 %call620, -1
   %inc626 = add i32 %_i600.0, 1
-  br i1 %cmp621, label %return, label %for.cond604, !llvm.loop !137
+  br i1 %cmp621, label %return, label %for.cond604, !llvm.loop !130
 
 for.end627:                                       ; preds = %for.cond604, %if.end599
   %122 = load ptr, ptr %u, align 8
   %u_instr_sequence629 = getelementptr inbounds i8, ptr %122, i64 24
-  %call631 = tail call i32 @_PyCompile_InstructionSequence_UseLabel(ptr noundef nonnull %u_instr_sequence629, i32 noundef %inc.i354), !range !5
+  %call631 = tail call i32 @_PyCompile_InstructionSequence_UseLabel(ptr noundef nonnull %u_instr_sequence629, i32 noundef %inc.i354)
   %cmp632 = icmp eq i32 %call631, -1
   %. = sext i1 %cmp632 to i32
   br label %return
@@ -31236,7 +31237,7 @@ declare i64 @PyUnicode_FindChar(ptr noundef, i32 noundef, i64 noundef, i64 nound
 declare ptr @PyUnicode_Substring(ptr noundef, i64 noundef, i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @compiler_with_except_finish(ptr nocapture noundef readonly %c, i32 %cleanup.coerce) unnamed_addr #1 {
+define internal fastcc range(i32 -1, 1) i32 @compiler_with_except_finish(ptr nocapture noundef readonly %c, i32 %cleanup.coerce) unnamed_addr #1 {
 entry:
   %u = getelementptr inbounds i8, ptr %c, i64 64
   %0 = load ptr, ptr %u, align 8
@@ -31254,7 +31255,7 @@ if.end:                                           ; preds = %entry
   %3 = load i32, ptr %s_used.i.i.i, align 4
   %add.i.i.i = add i32 %3, 1
   %s_allocated.i.i.i = getelementptr inbounds i8, ptr %2, i64 32
-  %call.i.i.i = tail call i32 @_PyCompile_EnsureArrayLargeEnough(i32 noundef %add.i.i.i, ptr noundef nonnull %u_instr_sequence3, ptr noundef nonnull %s_allocated.i.i.i, i32 noundef 100, i64 noundef 44), !range !5
+  %call.i.i.i = tail call i32 @_PyCompile_EnsureArrayLargeEnough(i32 noundef %add.i.i.i, ptr noundef nonnull %u_instr_sequence3, ptr noundef nonnull %s_allocated.i.i.i, i32 noundef 100, i64 noundef 44)
   %cmp.i.i.i = icmp eq i32 %call.i.i.i, -1
   br i1 %cmp.i.i.i, label %return, label %instr_sequence_next_inst.exit.i.i
 
@@ -31280,7 +31281,7 @@ if.end7:                                          ; preds = %instr_sequence_next
   %7 = load i32, ptr %s_used.i.i.i19, align 4
   %add.i.i.i20 = add i32 %7, 1
   %s_allocated.i.i.i21 = getelementptr inbounds i8, ptr %6, i64 32
-  %call.i.i.i22 = tail call i32 @_PyCompile_EnsureArrayLargeEnough(i32 noundef %add.i.i.i20, ptr noundef nonnull %u_instr_sequence9, ptr noundef nonnull %s_allocated.i.i.i21, i32 noundef 100, i64 noundef 44), !range !5
+  %call.i.i.i22 = tail call i32 @_PyCompile_EnsureArrayLargeEnough(i32 noundef %add.i.i.i20, ptr noundef nonnull %u_instr_sequence9, ptr noundef nonnull %s_allocated.i.i.i21, i32 noundef 100, i64 noundef 44)
   %cmp.i.i.i23 = icmp eq i32 %call.i.i.i22, -1
   br i1 %cmp.i.i.i23, label %return, label %instr_sequence_next_inst.exit.i.i24
 
@@ -31306,7 +31307,7 @@ if.end14:                                         ; preds = %instr_sequence_next
   %11 = load i32, ptr %s_used.i.i.i34, align 4
   %add.i.i.i35 = add i32 %11, 1
   %s_allocated.i.i.i36 = getelementptr inbounds i8, ptr %10, i64 32
-  %call.i.i.i37 = tail call i32 @_PyCompile_EnsureArrayLargeEnough(i32 noundef %add.i.i.i35, ptr noundef nonnull %u_instr_sequence16, ptr noundef nonnull %s_allocated.i.i.i36, i32 noundef 100, i64 noundef 44), !range !5
+  %call.i.i.i37 = tail call i32 @_PyCompile_EnsureArrayLargeEnough(i32 noundef %add.i.i.i35, ptr noundef nonnull %u_instr_sequence16, ptr noundef nonnull %s_allocated.i.i.i36, i32 noundef 100, i64 noundef 44)
   %cmp.i.i.i38 = icmp eq i32 %call.i.i.i37, -1
   br i1 %cmp.i.i.i38, label %return, label %instr_sequence_next_inst.exit.i.i39
 
@@ -31330,7 +31331,7 @@ if.end20:                                         ; preds = %instr_sequence_next
   %s_labelmap_size.i = getelementptr inbounds i8, ptr %14, i64 48
   %15 = load i32, ptr %s_labelmap_size.i, align 8
   %s_labelmap.i = getelementptr inbounds i8, ptr %14, i64 40
-  %call.i = tail call i32 @_PyCompile_EnsureArrayLargeEnough(i32 noundef %inc.i, ptr noundef nonnull %s_labelmap.i, ptr noundef nonnull %s_labelmap_size.i, i32 noundef 10, i64 noundef 4), !range !5
+  %call.i = tail call i32 @_PyCompile_EnsureArrayLargeEnough(i32 noundef %inc.i, ptr noundef nonnull %s_labelmap.i, ptr noundef nonnull %s_labelmap_size.i, i32 noundef 10, i64 noundef 4)
   %cmp.i = icmp eq i32 %call.i, -1
   br i1 %cmp.i, label %return, label %for.cond.preheader.i
 
@@ -31352,7 +31353,7 @@ for.body.i:                                       ; preds = %for.body.i, %for.bo
   %19 = load i32, ptr %s_labelmap_size.i, align 8
   %20 = sext i32 %19 to i64
   %cmp3.i = icmp slt i64 %indvars.iv.next.i, %20
-  br i1 %cmp3.i, label %for.body.i, label %if.end27, !llvm.loop !6
+  br i1 %cmp3.i, label %for.body.i, label %if.end27, !llvm.loop !5
 
 if.end27:                                         ; preds = %for.body.i, %for.cond.preheader.i
   %s_used.i = getelementptr inbounds i8, ptr %14, i64 36
@@ -31367,7 +31368,7 @@ if.end27:                                         ; preds = %for.body.i, %for.co
   %24 = load i32, ptr %s_used.i.i.i49, align 4
   %add.i.i.i50 = add i32 %24, 1
   %s_allocated.i.i.i51 = getelementptr inbounds i8, ptr %23, i64 32
-  %call.i.i.i52 = tail call i32 @_PyCompile_EnsureArrayLargeEnough(i32 noundef %add.i.i.i50, ptr noundef nonnull %u_instr_sequence29, ptr noundef nonnull %s_allocated.i.i.i51, i32 noundef 100, i64 noundef 44), !range !5
+  %call.i.i.i52 = tail call i32 @_PyCompile_EnsureArrayLargeEnough(i32 noundef %add.i.i.i50, ptr noundef nonnull %u_instr_sequence29, ptr noundef nonnull %s_allocated.i.i.i51, i32 noundef 100, i64 noundef 44)
   %cmp.i.i.i53 = icmp eq i32 %call.i.i.i52, -1
   br i1 %cmp.i.i.i53, label %return, label %instr_sequence_next_inst.exit.i.i54
 
@@ -31393,7 +31394,7 @@ if.end33:                                         ; preds = %instr_sequence_next
   %28 = load i32, ptr %s_used.i.i.i65, align 4
   %add.i.i.i66 = add i32 %28, 1
   %s_allocated.i.i.i67 = getelementptr inbounds i8, ptr %27, i64 32
-  %call.i.i.i68 = tail call i32 @_PyCompile_EnsureArrayLargeEnough(i32 noundef %add.i.i.i66, ptr noundef nonnull %u_instr_sequence35, ptr noundef nonnull %s_allocated.i.i.i67, i32 noundef 100, i64 noundef 44), !range !5
+  %call.i.i.i68 = tail call i32 @_PyCompile_EnsureArrayLargeEnough(i32 noundef %add.i.i.i66, ptr noundef nonnull %u_instr_sequence35, ptr noundef nonnull %s_allocated.i.i.i67, i32 noundef 100, i64 noundef 44)
   %cmp.i.i.i69 = icmp eq i32 %call.i.i.i68, -1
   br i1 %cmp.i.i.i69, label %return, label %instr_sequence_next_inst.exit.i.i70
 
@@ -31419,7 +31420,7 @@ if.end39:                                         ; preds = %instr_sequence_next
   %32 = load i32, ptr %s_used.i.i.i81, align 4
   %add.i.i.i82 = add i32 %32, 1
   %s_allocated.i.i.i83 = getelementptr inbounds i8, ptr %31, i64 32
-  %call.i.i.i84 = tail call i32 @_PyCompile_EnsureArrayLargeEnough(i32 noundef %add.i.i.i82, ptr noundef nonnull %u_instr_sequence41, ptr noundef nonnull %s_allocated.i.i.i83, i32 noundef 100, i64 noundef 44), !range !5
+  %call.i.i.i84 = tail call i32 @_PyCompile_EnsureArrayLargeEnough(i32 noundef %add.i.i.i82, ptr noundef nonnull %u_instr_sequence41, ptr noundef nonnull %s_allocated.i.i.i83, i32 noundef 100, i64 noundef 44)
   %cmp.i.i.i85 = icmp eq i32 %call.i.i.i84, -1
   br i1 %cmp.i.i.i85, label %return, label %instr_sequence_next_inst.exit.i.i86
 
@@ -31445,7 +31446,7 @@ if.end45:                                         ; preds = %instr_sequence_next
   %36 = load i32, ptr %s_used.i.i.i97, align 4
   %add.i.i.i98 = add i32 %36, 1
   %s_allocated.i.i.i99 = getelementptr inbounds i8, ptr %35, i64 32
-  %call.i.i.i100 = tail call i32 @_PyCompile_EnsureArrayLargeEnough(i32 noundef %add.i.i.i98, ptr noundef nonnull %u_instr_sequence47, ptr noundef nonnull %s_allocated.i.i.i99, i32 noundef 100, i64 noundef 44), !range !5
+  %call.i.i.i100 = tail call i32 @_PyCompile_EnsureArrayLargeEnough(i32 noundef %add.i.i.i98, ptr noundef nonnull %u_instr_sequence47, ptr noundef nonnull %s_allocated.i.i.i99, i32 noundef 100, i64 noundef 44)
   %cmp.i.i.i101 = icmp eq i32 %call.i.i.i100, -1
   br i1 %cmp.i.i.i101, label %return, label %instr_sequence_next_inst.exit.i.i102
 
@@ -31467,7 +31468,7 @@ if.end51:                                         ; preds = %instr_sequence_next
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %i_loc.i.i109, i8 -1, i64 16, i1 false)
   %39 = load ptr, ptr %u, align 8
   %u_instr_sequence53 = getelementptr inbounds i8, ptr %39, i64 24
-  %call54 = tail call fastcc i32 @codegen_addop_noarg(ptr noundef nonnull %u_instr_sequence53, i32 noundef 32, i64 -1, i64 -1), !range !5
+  %call54 = tail call fastcc i32 @codegen_addop_noarg(ptr noundef nonnull %u_instr_sequence53, i32 noundef 32, i64 -1, i64 -1)
   %cmp55 = icmp eq i32 %call54, -1
   br i1 %cmp55, label %return, label %if.end57
 
@@ -31483,14 +31484,14 @@ if.end57:                                         ; preds = %if.end51
 if.end65:                                         ; preds = %if.end57
   %42 = load ptr, ptr %u, align 8
   %u_instr_sequence67 = getelementptr inbounds i8, ptr %42, i64 24
-  %call69 = tail call fastcc i32 @codegen_addop_j(ptr noundef nonnull %u_instr_sequence67, i64 -1, i64 -1, i32 noundef 256, i32 %inc.i114), !range !5
+  %call69 = tail call fastcc i32 @codegen_addop_j(ptr noundef nonnull %u_instr_sequence67, i64 -1, i64 -1, i32 noundef 256, i32 %inc.i114)
   %cmp70 = icmp eq i32 %call69, -1
   br i1 %cmp70, label %return, label %if.end72
 
 if.end72:                                         ; preds = %if.end65
   %43 = load ptr, ptr %u, align 8
   %u_instr_sequence74 = getelementptr inbounds i8, ptr %43, i64 24
-  %call76 = tail call i32 @_PyCompile_InstructionSequence_UseLabel(ptr noundef nonnull %u_instr_sequence74, i32 noundef %cleanup.coerce), !range !5
+  %call76 = tail call i32 @_PyCompile_InstructionSequence_UseLabel(ptr noundef nonnull %u_instr_sequence74, i32 noundef %cleanup.coerce)
   %cmp77 = icmp eq i32 %call76, -1
   br i1 %cmp77, label %return, label %if.end79
 
@@ -31502,7 +31503,7 @@ if.end79:                                         ; preds = %if.end72
 if.end83:                                         ; preds = %if.end79
   %44 = load ptr, ptr %u, align 8
   %u_instr_sequence85 = getelementptr inbounds i8, ptr %44, i64 24
-  %call87 = tail call i32 @_PyCompile_InstructionSequence_UseLabel(ptr noundef nonnull %u_instr_sequence85, i32 noundef %inc.i114), !range !5
+  %call87 = tail call i32 @_PyCompile_InstructionSequence_UseLabel(ptr noundef nonnull %u_instr_sequence85, i32 noundef %inc.i114)
   %cmp88 = icmp eq i32 %call87, -1
   %. = sext i1 %cmp88 to i32
   br label %return
@@ -31513,7 +31514,7 @@ return:                                           ; preds = %if.end45, %instr_se
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @unaryop(i32 noundef %op) unnamed_addr #1 {
+define internal fastcc range(i32 0, 43) i32 @unaryop(i32 noundef %op) unnamed_addr #1 {
 entry:
   switch i32 %op, label %sw.default [
     i32 1, label %return
@@ -31534,7 +31535,7 @@ return:                                           ; preds = %entry, %sw.default,
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @addop_yield(ptr nocapture noundef readonly %c, i64 %loc.coerce0, i64 %loc.coerce1) unnamed_addr #1 {
+define internal fastcc range(i32 -1, 1) i32 @addop_yield(ptr nocapture noundef readonly %c, i64 %loc.coerce0, i64 %loc.coerce1) unnamed_addr #1 {
 entry:
   %u = getelementptr inbounds i8, ptr %c, i64 64
   %0 = load ptr, ptr %u, align 8
@@ -31551,7 +31552,7 @@ if.then:                                          ; preds = %entry
   %3 = load i32, ptr %s_used.i.i.i, align 4
   %add.i.i.i = add i32 %3, 1
   %s_allocated.i.i.i = getelementptr inbounds i8, ptr %0, i64 32
-  %call.i.i.i = tail call i32 @_PyCompile_EnsureArrayLargeEnough(i32 noundef %add.i.i.i, ptr noundef nonnull %u_instr_sequence, ptr noundef nonnull %s_allocated.i.i.i, i32 noundef 100, i64 noundef 44), !range !5
+  %call.i.i.i = tail call i32 @_PyCompile_EnsureArrayLargeEnough(i32 noundef %add.i.i.i, ptr noundef nonnull %u_instr_sequence, ptr noundef nonnull %s_allocated.i.i.i, i32 noundef 100, i64 noundef 44)
   %cmp.i.i.i = icmp eq i32 %call.i.i.i, -1
   br i1 %cmp.i.i.i, label %return, label %instr_sequence_next_inst.exit.i.i
 
@@ -31583,7 +31584,7 @@ if.end10:                                         ; preds = %codegen_addop_i.exi
   %7 = load i32, ptr %s_used.i.i.i9, align 4
   %add.i.i.i10 = add i32 %7, 1
   %s_allocated.i.i.i11 = getelementptr inbounds i8, ptr %6, i64 32
-  %call.i.i.i12 = tail call i32 @_PyCompile_EnsureArrayLargeEnough(i32 noundef %add.i.i.i10, ptr noundef nonnull %u_instr_sequence12, ptr noundef nonnull %s_allocated.i.i.i11, i32 noundef 100, i64 noundef 44), !range !5
+  %call.i.i.i12 = tail call i32 @_PyCompile_EnsureArrayLargeEnough(i32 noundef %add.i.i.i10, ptr noundef nonnull %u_instr_sequence12, ptr noundef nonnull %s_allocated.i.i.i11, i32 noundef 100, i64 noundef 44)
   %cmp.i.i.i13 = icmp eq i32 %call.i.i.i12, -1
   br i1 %cmp.i.i.i13, label %return, label %instr_sequence_next_inst.exit.i.i14
 
@@ -31611,7 +31612,7 @@ if.end16:                                         ; preds = %instr_sequence_next
   %11 = load i32, ptr %s_used.i.i.i25, align 4
   %add.i.i.i26 = add i32 %11, 1
   %s_allocated.i.i.i27 = getelementptr inbounds i8, ptr %10, i64 32
-  %call.i.i.i28 = tail call i32 @_PyCompile_EnsureArrayLargeEnough(i32 noundef %add.i.i.i26, ptr noundef nonnull %u_instr_sequence18, ptr noundef nonnull %s_allocated.i.i.i27, i32 noundef 100, i64 noundef 44), !range !5
+  %call.i.i.i28 = tail call i32 @_PyCompile_EnsureArrayLargeEnough(i32 noundef %add.i.i.i26, ptr noundef nonnull %u_instr_sequence18, ptr noundef nonnull %s_allocated.i.i.i27, i32 noundef 100, i64 noundef 44)
   %cmp.i.i.i29 = icmp eq i32 %call.i.i.i28, -1
   br i1 %cmp.i.i.i29, label %return, label %instr_sequence_next_inst.exit.i.i30
 
@@ -31641,7 +31642,7 @@ return:                                           ; preds = %if.end10, %instr_se
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @can_optimize_super_call(ptr nocapture noundef readonly %c, ptr nocapture noundef readonly %attr) unnamed_addr #1 {
+define internal fastcc range(i32 0, 2) i32 @can_optimize_super_call(ptr nocapture noundef readonly %c, ptr nocapture noundef readonly %attr) unnamed_addr #1 {
 entry:
   %v = getelementptr inbounds i8, ptr %attr, i64 8
   %0 = load ptr, ptr %v, align 8
@@ -31747,7 +31748,7 @@ land.lhs.true:                                    ; preds = %if.end52
   br i1 %cmp57, label %return, label %if.end59
 
 if.end59:                                         ; preds = %land.lhs.true, %if.end52
-  %call60 = tail call fastcc i32 @get_ref_type(ptr noundef nonnull %c, ptr noundef nonnull getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 37, i32 0, i32 3, i32 1, i32 34)), !range !79
+  %call60 = tail call fastcc i32 @get_ref_type(ptr noundef nonnull %c, ptr noundef nonnull getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 37, i32 0, i32 3, i32 1, i32 34))
   %cmp61 = icmp eq i32 %call60, 4
   br label %return
 
@@ -31762,7 +31763,7 @@ return:                                           ; preds = %return.loopexit, %i
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @load_args_for_super(ptr noundef %c, ptr nocapture noundef readonly %e) unnamed_addr #1 {
+define internal fastcc range(i32 -1, 1) i32 @load_args_for_super(ptr noundef %c, ptr nocapture noundef readonly %e) unnamed_addr #1 {
 entry:
   %i = alloca i64, align 8
   %key = alloca ptr, align 8
@@ -31795,7 +31796,7 @@ entry:
   %.compoundliteral.sroa.5.8.insert.shift = shl nuw i64 %.compoundliteral.sroa.5.8.insert.ext, 32
   %.compoundliteral.sroa.3.8.insert.ext = zext i32 %8 to i64
   %.compoundliteral.sroa.3.8.insert.insert = or disjoint i64 %.compoundliteral.sroa.5.8.insert.shift, %.compoundliteral.sroa.3.8.insert.ext
-  %call = tail call fastcc i32 @compiler_nameop(ptr noundef %c, i64 %.compoundliteral.sroa.0.0.insert.insert, i64 %.compoundliteral.sroa.3.8.insert.insert, ptr noundef %5, i32 noundef 1), !range !5
+  %call = tail call fastcc i32 @compiler_nameop(ptr noundef %c, i64 %.compoundliteral.sroa.0.0.insert.insert, i64 %.compoundliteral.sroa.3.8.insert.insert, ptr noundef %5, i32 noundef 1)
   %cmp = icmp eq i32 %call, -1
   br i1 %cmp, label %return, label %if.end
 
@@ -31813,7 +31814,7 @@ cond.false:                                       ; preds = %if.end
 if.then27:                                        ; preds = %cond.false
   %typed_elements = getelementptr inbounds i8, ptr %10, i64 16
   %13 = load ptr, ptr %typed_elements, align 8
-  %call30 = tail call fastcc i32 @compiler_visit_expr(ptr noundef %c, ptr noundef %13), !range !5
+  %call30 = tail call fastcc i32 @compiler_visit_expr(ptr noundef %c, ptr noundef %13)
   %cmp31 = icmp eq i32 %call30, -1
   br i1 %cmp31, label %return, label %if.end33
 
@@ -31821,7 +31822,7 @@ if.end33:                                         ; preds = %if.then27
   %14 = load ptr, ptr %args, align 8
   %arrayidx37 = getelementptr i8, ptr %14, i64 24
   %15 = load ptr, ptr %arrayidx37, align 8
-  %call38 = tail call fastcc i32 @compiler_visit_expr(ptr noundef %c, ptr noundef %15), !range !5
+  %call38 = tail call fastcc i32 @compiler_visit_expr(ptr noundef %c, ptr noundef %15)
   %cmp39 = icmp eq i32 %call38, -1
   %. = sext i1 %cmp39 to i32
   br label %return
@@ -31835,7 +31836,7 @@ if.end42:                                         ; preds = %if.end, %cond.false
   %loc.sroa.7.8.insert.shift = shl nuw i64 %loc.sroa.7.8.insert.ext, 32
   %loc.sroa.4.8.insert.ext = zext i32 %2 to i64
   %loc.sroa.4.8.insert.insert = or disjoint i64 %loc.sroa.7.8.insert.shift, %loc.sroa.4.8.insert.ext
-  %call43 = tail call fastcc i32 @compiler_nameop(ptr noundef %c, i64 %loc.sroa.0.0.insert.insert, i64 %loc.sroa.4.8.insert.insert, ptr noundef nonnull getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 37, i32 0, i32 3, i32 1, i32 34), i32 noundef 1), !range !5
+  %call43 = tail call fastcc i32 @compiler_nameop(ptr noundef %c, i64 %loc.sroa.0.0.insert.insert, i64 %loc.sroa.4.8.insert.insert, ptr noundef nonnull getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 37, i32 0, i32 3, i32 1, i32 34), i32 noundef 1)
   %cmp44 = icmp eq i32 %call43, -1
   br i1 %cmp44, label %return, label %if.end46
 
@@ -31851,7 +31852,7 @@ if.end46:                                         ; preds = %if.end42
 
 if.end49:                                         ; preds = %if.end46
   %18 = load ptr, ptr %key, align 8
-  %call50 = call fastcc i32 @compiler_nameop(ptr noundef nonnull %c, i64 %loc.sroa.0.0.insert.insert, i64 %loc.sroa.4.8.insert.insert, ptr noundef %18, i32 noundef 1), !range !5
+  %call50 = call fastcc i32 @compiler_nameop(ptr noundef nonnull %c, i64 %loc.sroa.0.0.insert.insert, i64 %loc.sroa.4.8.insert.insert, ptr noundef %18, i32 noundef 1)
   %cmp51 = icmp eq i32 %call50, -1
   %.36 = sext i1 %cmp51 to i32
   br label %return
@@ -31862,7 +31863,7 @@ return:                                           ; preds = %if.end49, %if.end46
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @compiler_subdict(ptr noundef %c, ptr nocapture noundef readonly %e, i64 noundef %begin, i64 noundef %end) unnamed_addr #1 {
+define internal fastcc range(i32 -1, 1) i32 @compiler_subdict(ptr noundef %c, ptr nocapture noundef readonly %e, i64 noundef %begin, i64 noundef %end) unnamed_addr #1 {
 entry:
   %sub = sub i64 %end, %begin
   %mul = shl i64 %sub, 1
@@ -31901,18 +31902,18 @@ for.cond.i:                                       ; preds = %lor.lhs.false.i.pre
   %i.05.i189245 = phi i64 [ %inc.i, %lor.lhs.false.i ], [ %begin, %lor.lhs.false.i.preheader ]
   %inc.i = add i64 %i.05.i189245, 1
   %exitcond.i = icmp eq i64 %inc.i, %end
-  br i1 %exitcond.i, label %are_all_items_const.exit, label %for.body.i, !llvm.loop !93
+  br i1 %exitcond.i, label %are_all_items_const.exit, label %for.body.i, !llvm.loop !86
 
 for.body.i:                                       ; preds = %for.cond.i
   %arrayidx.i = getelementptr [1 x ptr], ptr %typed_elements.i, i64 0, i64 %inc.i
   %7 = load ptr, ptr %arrayidx.i, align 8
   %cmp1.i = icmp eq ptr %7, null
-  br i1 %cmp1.i, label %are_all_items_const.exit, label %lor.lhs.false.i, !llvm.loop !93
+  br i1 %cmp1.i, label %are_all_items_const.exit, label %lor.lhs.false.i, !llvm.loop !86
 
 lor.lhs.false.i:                                  ; preds = %for.body.i
   %8 = load i32, ptr %7, align 8
   %cmp2.not.i = icmp eq i32 %8, 20
-  br i1 %cmp2.not.i, label %for.cond.i, label %are_all_items_const.exit, !llvm.loop !93
+  br i1 %cmp2.not.i, label %for.cond.i, label %are_all_items_const.exit, !llvm.loop !86
 
 are_all_items_const.exit:                         ; preds = %for.cond.i, %for.body.i, %lor.lhs.false.i
   %cmp.i124.not.le = icmp slt i64 %inc.i, %end
@@ -31928,7 +31929,7 @@ for.body.lr.ph:                                   ; preds = %for.cond.preheader
 for.cond:                                         ; preds = %for.body
   %inc = add i64 %i.0193, 1
   %exitcond.not = icmp eq i64 %inc, %end
-  br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !138
+  br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !131
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.cond
   %i.0193 = phi i64 [ %begin, %for.body.lr.ph ], [ %inc, %for.cond ]
@@ -31936,7 +31937,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   %typed_elements = getelementptr inbounds i8, ptr %9, i64 16
   %arrayidx = getelementptr [1 x ptr], ptr %typed_elements, i64 0, i64 %i.0193
   %10 = load ptr, ptr %arrayidx, align 8
-  %call13 = tail call fastcc i32 @compiler_visit_expr(ptr noundef %c, ptr noundef %10), !range !5
+  %call13 = tail call fastcc i32 @compiler_visit_expr(ptr noundef %c, ptr noundef %10)
   %cmp14 = icmp eq i32 %call13, -1
   br i1 %cmp14, label %return, label %for.cond
 
@@ -31975,7 +31976,7 @@ _Py_NewRef.exit:                                  ; preds = %for.body25, %if.end
   store ptr %13, ptr %arrayidx.i125, align 8
   %inc34 = add nsw i64 %i.1195, 1
   %exitcond201.not = icmp eq i64 %inc34, %end
-  br i1 %exitcond201.not, label %if.end39, label %for.body25, !llvm.loop !139
+  br i1 %exitcond201.not, label %if.end39, label %for.body25, !llvm.loop !132
 
 if.end39:                                         ; preds = %_Py_NewRef.exit, %for.cond22.preheader
   %c_const_cache = getelementptr inbounds i8, ptr %c, i64 56
@@ -31990,7 +31991,7 @@ if.end39:                                         ; preds = %_Py_NewRef.exit, %f
   %loc.sroa.13.8.insert.shift = shl nuw i64 %loc.sroa.13.8.insert.ext, 32
   %loc.sroa.7.8.insert.ext = zext i32 %2 to i64
   %loc.sroa.7.8.insert.insert = or disjoint i64 %loc.sroa.13.8.insert.shift, %loc.sroa.7.8.insert.ext
-  %call40 = tail call fastcc i32 @compiler_addop_load_const(ptr noundef %15, ptr noundef %16, i64 %loc.sroa.0.0.insert.insert, i64 %loc.sroa.7.8.insert.insert, ptr noundef nonnull %call17), !range !5
+  %call40 = tail call fastcc i32 @compiler_addop_load_const(ptr noundef %15, ptr noundef %16, i64 %loc.sroa.0.0.insert.insert, i64 %loc.sroa.7.8.insert.insert, ptr noundef nonnull %call17)
   %cmp41 = icmp slt i32 %call40, 0
   %17 = load i64, ptr %call17, align 8
   %18 = and i64 %17, 2147483648
@@ -32031,7 +32032,7 @@ Py_DECREF.exit:                                   ; preds = %if.end44, %if.then1
   %20 = load i32, ptr %s_used.i.i.i, align 4
   %add.i.i.i = add i32 %20, 1
   %s_allocated.i.i.i = getelementptr inbounds i8, ptr %19, i64 32
-  %call.i.i.i = tail call i32 @_PyCompile_EnsureArrayLargeEnough(i32 noundef %add.i.i.i, ptr noundef nonnull %u_instr_sequence, ptr noundef nonnull %s_allocated.i.i.i, i32 noundef 100, i64 noundef 44), !range !5
+  %call.i.i.i = tail call i32 @_PyCompile_EnsureArrayLargeEnough(i32 noundef %add.i.i.i, ptr noundef nonnull %u_instr_sequence, ptr noundef nonnull %s_allocated.i.i.i, i32 noundef 100, i64 noundef 44)
   %cmp.i.i.i = icmp eq i32 %call.i.i.i, -1
   br i1 %cmp.i.i.i, label %return, label %instr_sequence_next_inst.exit.i.i
 
@@ -32074,7 +32075,7 @@ if.then53:                                        ; preds = %if.end51
   %24 = load i32, ptr %s_used.i.i.i128, align 4
   %add.i.i.i129 = add i32 %24, 1
   %s_allocated.i.i.i130 = getelementptr inbounds i8, ptr %23, i64 32
-  %call.i.i.i131 = tail call i32 @_PyCompile_EnsureArrayLargeEnough(i32 noundef %add.i.i.i129, ptr noundef nonnull %u_instr_sequence55, ptr noundef nonnull %s_allocated.i.i.i130, i32 noundef 100, i64 noundef 44), !range !5
+  %call.i.i.i131 = tail call i32 @_PyCompile_EnsureArrayLargeEnough(i32 noundef %add.i.i.i129, ptr noundef nonnull %u_instr_sequence55, ptr noundef nonnull %s_allocated.i.i.i130, i32 noundef 100, i64 noundef 44)
   %cmp.i.i.i132 = icmp eq i32 %call.i.i.i131, -1
   br i1 %cmp.i.i.i132, label %return, label %instr_sequence_next_inst.exit.i.i133
 
@@ -32128,7 +32129,7 @@ for.body65.us:                                    ; preds = %for.body65.us.prehe
   %typed_elements68.us = getelementptr inbounds i8, ptr %27, i64 16
   %arrayidx69.us = getelementptr [1 x ptr], ptr %typed_elements68.us, i64 0, i64 %i.2197.us
   %28 = load ptr, ptr %arrayidx69.us, align 8
-  %call70.us = tail call fastcc i32 @compiler_visit_expr(ptr noundef nonnull %c, ptr noundef %28), !range !5
+  %call70.us = tail call fastcc i32 @compiler_visit_expr(ptr noundef nonnull %c, ptr noundef %28)
   %cmp71.us = icmp eq i32 %call70.us, -1
   br i1 %cmp71.us, label %return, label %if.end74.us
 
@@ -32137,7 +32138,7 @@ if.end74.us:                                      ; preds = %for.body65.us
   %typed_elements77.us = getelementptr inbounds i8, ptr %29, i64 16
   %arrayidx78.us = getelementptr [1 x ptr], ptr %typed_elements77.us, i64 0, i64 %i.2197.us
   %30 = load ptr, ptr %arrayidx78.us, align 8
-  %call79.us = tail call fastcc i32 @compiler_visit_expr(ptr noundef %c, ptr noundef %30), !range !5
+  %call79.us = tail call fastcc i32 @compiler_visit_expr(ptr noundef %c, ptr noundef %30)
   %cmp80.us = icmp eq i32 %call79.us, -1
   br i1 %cmp80.us, label %return, label %if.end83.us
 
@@ -32148,7 +32149,7 @@ if.end83.us:                                      ; preds = %if.end74.us
   %32 = load i32, ptr %s_used.i.i.i144.us, align 4
   %add.i.i.i145.us = add i32 %32, 1
   %s_allocated.i.i.i146.us = getelementptr inbounds i8, ptr %31, i64 32
-  %call.i.i.i147.us = tail call i32 @_PyCompile_EnsureArrayLargeEnough(i32 noundef %add.i.i.i145.us, ptr noundef nonnull %u_instr_sequence87.us, ptr noundef nonnull %s_allocated.i.i.i146.us, i32 noundef 100, i64 noundef 44), !range !5
+  %call.i.i.i147.us = tail call i32 @_PyCompile_EnsureArrayLargeEnough(i32 noundef %add.i.i.i145.us, ptr noundef nonnull %u_instr_sequence87.us, ptr noundef nonnull %s_allocated.i.i.i146.us, i32 noundef 100, i64 noundef 44)
   %cmp.i.i.i148.us = icmp eq i32 %call.i.i.i147.us, -1
   br i1 %cmp.i.i.i148.us, label %return, label %instr_sequence_next_inst.exit.i.i149.us
 
@@ -32172,7 +32173,7 @@ codegen_addop_i.exit159.us:                       ; preds = %instr_sequence_next
   store i64 %loc.sroa.7.8.insert.insert51231, ptr %loc.sroa.2.0.i_loc.sroa_idx.i.i157.us, align 4
   %inc95.us = add i64 %i.2197.us, 1
   %exitcond203.not = icmp eq i64 %inc95.us, %end
-  br i1 %exitcond203.not, label %for.end96, label %for.body65.us, !llvm.loop !140
+  br i1 %exitcond203.not, label %for.end96, label %for.body65.us, !llvm.loop !133
 
 for.body65:                                       ; preds = %for.body65.preheader, %if.end83
   %i.2197 = phi i64 [ %inc95, %if.end83 ], [ %begin, %for.body65.preheader ]
@@ -32180,7 +32181,7 @@ for.body65:                                       ; preds = %for.body65.preheade
   %typed_elements68 = getelementptr inbounds i8, ptr %35, i64 16
   %arrayidx69 = getelementptr [1 x ptr], ptr %typed_elements68, i64 0, i64 %i.2197
   %36 = load ptr, ptr %arrayidx69, align 8
-  %call70 = tail call fastcc i32 @compiler_visit_expr(ptr noundef %c, ptr noundef %36), !range !5
+  %call70 = tail call fastcc i32 @compiler_visit_expr(ptr noundef %c, ptr noundef %36)
   %cmp71 = icmp eq i32 %call70, -1
   br i1 %cmp71, label %return, label %if.end74
 
@@ -32189,14 +32190,14 @@ if.end74:                                         ; preds = %for.body65
   %typed_elements77 = getelementptr inbounds i8, ptr %37, i64 16
   %arrayidx78 = getelementptr [1 x ptr], ptr %typed_elements77, i64 0, i64 %i.2197
   %38 = load ptr, ptr %arrayidx78, align 8
-  %call79 = tail call fastcc i32 @compiler_visit_expr(ptr noundef %c, ptr noundef %38), !range !5
+  %call79 = tail call fastcc i32 @compiler_visit_expr(ptr noundef %c, ptr noundef %38)
   %cmp80 = icmp eq i32 %call79, -1
   br i1 %cmp80, label %return, label %if.end83
 
 if.end83:                                         ; preds = %if.end74
   %inc95 = add i64 %i.2197, 1
   %exitcond202.not = icmp eq i64 %inc95, %end
-  br i1 %exitcond202.not, label %for.end96, label %for.body65, !llvm.loop !140
+  br i1 %exitcond202.not, label %for.end96, label %for.body65, !llvm.loop !133
 
 for.end96:                                        ; preds = %if.end83, %codegen_addop_i.exit159.us
   br i1 %cmp, label %return, label %if.then98
@@ -32218,7 +32219,7 @@ if.then98:                                        ; preds = %if.end61.thread, %f
   %40 = load i32, ptr %s_used.i.i.i161, align 4
   %add.i.i.i162 = add i32 %40, 1
   %s_allocated.i.i.i163 = getelementptr inbounds i8, ptr %39, i64 32
-  %call.i.i.i164 = tail call i32 @_PyCompile_EnsureArrayLargeEnough(i32 noundef %add.i.i.i162, ptr noundef nonnull %u_instr_sequence100, ptr noundef nonnull %s_allocated.i.i.i163, i32 noundef 100, i64 noundef 44), !range !5
+  %call.i.i.i164 = tail call i32 @_PyCompile_EnsureArrayLargeEnough(i32 noundef %add.i.i.i162, ptr noundef nonnull %u_instr_sequence100, ptr noundef nonnull %s_allocated.i.i.i163, i32 noundef 100, i64 noundef 44)
   %cmp.i.i.i165 = icmp eq i32 %call.i.i.i164, -1
   br i1 %cmp.i.i.i165, label %return, label %instr_sequence_next_inst.exit.i.i166
 
@@ -32248,7 +32249,7 @@ return:                                           ; preds = %for.body, %for.body
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @compiler_comprehension(ptr noundef %c, ptr noundef %e, i32 noundef %type, ptr noundef %name, ptr noundef %generators, ptr noundef %elt, ptr noundef %val) unnamed_addr #1 {
+define internal fastcc range(i32 -1, 1) i32 @compiler_comprehension(ptr noundef %c, ptr noundef %e, i32 noundef %type, ptr noundef %name, ptr noundef %generators, ptr noundef %elt, ptr noundef %val) unnamed_addr #1 {
 entry:
   %k.i330 = alloca ptr, align 8
   %v.i331 = alloca ptr, align 8
@@ -32314,7 +32315,7 @@ if.then13:                                        ; preds = %if.end
   %loc.sroa.17.8.insert.insert = or disjoint i64 %loc.sroa.32.8.insert.shift, %loc.sroa.17.8.insert.ext
   %iter.i = getelementptr inbounds i8, ptr %11, i64 8
   %12 = load ptr, ptr %iter.i, align 8
-  %call.i = tail call fastcc i32 @compiler_visit_expr(ptr noundef nonnull %c, ptr noundef %12), !range !5
+  %call.i = tail call fastcc i32 @compiler_visit_expr(ptr noundef nonnull %c, ptr noundef %12)
   %cmp.i293 = icmp eq i32 %call.i, -1
   br i1 %cmp.i293, label %if.then.i374, label %if.end.i294
 
@@ -32328,7 +32329,7 @@ if.end.i294:                                      ; preds = %if.then13
   %15 = load i32, ptr %s_used.i.i.i409, align 4
   %add.i.i.i410 = add i32 %15, 1
   %s_allocated.i.i.i411 = getelementptr inbounds i8, ptr %14, i64 32
-  %call.i.i.i412 = tail call i32 @_PyCompile_EnsureArrayLargeEnough(i32 noundef %add.i.i.i410, ptr noundef nonnull %u_instr_sequence7.i, ptr noundef nonnull %s_allocated.i.i.i411, i32 noundef 100, i64 noundef 44), !range !5
+  %call.i.i.i412 = tail call i32 @_PyCompile_EnsureArrayLargeEnough(i32 noundef %add.i.i.i410, ptr noundef nonnull %u_instr_sequence7.i, ptr noundef nonnull %s_allocated.i.i.i411, i32 noundef 100, i64 noundef 44)
   %cmp.i.i.i413 = icmp eq i32 %call.i.i.i412, -1
   br i1 %tobool.not.i, label %if.else.i, label %if.then1.i295
 
@@ -32595,7 +32596,7 @@ if.end108.i:                                      ; preds = %if.then100.i, %if.e
   %u_varnames.i = getelementptr inbounds i8, ptr %54, i64 576
   %55 = load ptr, ptr %u_varnames.i, align 8
   %56 = load ptr, ptr %k.i, align 8
-  %call112.i = call fastcc i32 @compiler_addop_name(ptr noundef %54, i64 %loc.sroa.0.0.insert.insert, i64 %loc.sroa.17.8.insert.insert, i32 noundef 86, ptr noundef %55, ptr noundef %56), !range !5
+  %call112.i = call fastcc i32 @compiler_addop_name(ptr noundef %54, i64 %loc.sroa.0.0.insert.insert, i64 %loc.sroa.17.8.insert.insert, i32 noundef 86, ptr noundef %55, ptr noundef %56)
   %cmp113.i = icmp eq i32 %call112.i, -1
   br i1 %cmp113.i, label %push_inlined_comprehension_state.exit.thread, label %if.end116.i
 
@@ -32612,14 +32613,14 @@ if.then119.i:                                     ; preds = %if.end116.i
 if.then122.i:                                     ; preds = %if.then119.i
   %u_freevars.i = getelementptr inbounds i8, ptr %57, i64 592
   %59 = load ptr, ptr %u_freevars.i, align 8
-  %call126.i = call fastcc i32 @compiler_addop_name(ptr noundef %57, i64 %loc.sroa.0.0.insert.insert, i64 %loc.sroa.17.8.insert.insert, i32 noundef 94, ptr noundef %59, ptr noundef %58), !range !5
+  %call126.i = call fastcc i32 @compiler_addop_name(ptr noundef %57, i64 %loc.sroa.0.0.insert.insert, i64 %loc.sroa.17.8.insert.insert, i32 noundef 94, ptr noundef %59, ptr noundef %58)
   %cmp127.i = icmp eq i32 %call126.i, -1
   br i1 %cmp127.i, label %push_inlined_comprehension_state.exit.thread, label %if.end140.i
 
 if.else.i302:                                     ; preds = %if.then119.i
   %u_cellvars.i = getelementptr inbounds i8, ptr %57, i64 584
   %60 = load ptr, ptr %u_cellvars.i, align 8
-  %call134.i = call fastcc i32 @compiler_addop_name(ptr noundef %57, i64 %loc.sroa.0.0.insert.insert, i64 %loc.sroa.17.8.insert.insert, i32 noundef 94, ptr noundef %60, ptr noundef %58), !range !5
+  %call134.i = call fastcc i32 @compiler_addop_name(ptr noundef %57, i64 %loc.sroa.0.0.insert.insert, i64 %loc.sroa.17.8.insert.insert, i32 noundef 94, ptr noundef %60, ptr noundef %58)
   %cmp135.i = icmp eq i32 %call134.i, -1
   br i1 %cmp135.i, label %push_inlined_comprehension_state.exit.thread, label %if.end140.i
 
@@ -32636,7 +32637,7 @@ if.end147.i:                                      ; preds = %if.end140.i, %lor.l
   %62 = load ptr, ptr %ste_symbols.i, align 8
   %call.i299 = call i32 @PyDict_Next(ptr noundef %62, ptr noundef nonnull %pos.i, ptr noundef nonnull %k.i, ptr noundef nonnull %v.i) #11
   %tobool5.not.i = icmp eq i32 %call.i299, 0
-  br i1 %tobool5.not.i, label %while.end.i, label %while.body.i, !llvm.loop !141
+  br i1 %tobool5.not.i, label %while.end.i, label %while.body.i, !llvm.loop !134
 
 while.end.i:                                      ; preds = %if.end147.i
   %tobool149.not.i = icmp eq ptr %inline_state.sroa.0.2, null
@@ -32653,7 +32654,7 @@ if.then150.i:                                     ; preds = %while.end.i
   %66 = load i32, ptr %s_used.i.i.i.i, align 4
   %add.i.i.i.i = add i32 %66, 1
   %s_allocated.i.i.i.i = getelementptr inbounds i8, ptr %63, i64 32
-  %call.i.i.i.i = call i32 @_PyCompile_EnsureArrayLargeEnough(i32 noundef %add.i.i.i.i, ptr noundef nonnull %u_instr_sequence.i300, ptr noundef nonnull %s_allocated.i.i.i.i, i32 noundef 100, i64 noundef 44), !range !5
+  %call.i.i.i.i = call i32 @_PyCompile_EnsureArrayLargeEnough(i32 noundef %add.i.i.i.i, ptr noundef nonnull %u_instr_sequence.i300, ptr noundef nonnull %s_allocated.i.i.i.i, i32 noundef 100, i64 noundef 44)
   %cmp.i.i.i.i = icmp eq i32 %call.i.i.i.i, -1
   br i1 %cmp.i.i.i.i, label %push_inlined_comprehension_state.exit.thread, label %instr_sequence_next_inst.exit.i.i.i
 
@@ -32699,7 +32700,7 @@ if.end175.i:                                      ; preds = %if.end165.i
   %74 = load i32, ptr %s_used.i.i.i70.i, align 4
   %add.i.i.i71.i = add i32 %74, 1
   %s_allocated.i.i.i72.i = getelementptr inbounds i8, ptr %73, i64 32
-  %call.i.i.i73.i = call i32 @_PyCompile_EnsureArrayLargeEnough(i32 noundef %add.i.i.i71.i, ptr noundef nonnull %u_instr_sequence178.i, ptr noundef nonnull %s_allocated.i.i.i72.i, i32 noundef 100, i64 noundef 44), !range !5
+  %call.i.i.i73.i = call i32 @_PyCompile_EnsureArrayLargeEnough(i32 noundef %add.i.i.i71.i, ptr noundef nonnull %u_instr_sequence178.i, ptr noundef nonnull %s_allocated.i.i.i72.i, i32 noundef 100, i64 noundef 44)
   %cmp.i.i.i74.i = icmp eq i32 %call.i.i.i73.i, -1
   br i1 %cmp.i.i.i74.i, label %push_inlined_comprehension_state.exit.thread, label %instr_sequence_next_inst.exit.i.i75.i
 
@@ -32750,7 +32751,7 @@ push_inlined_comprehension_state.exit:            ; preds = %if.end17, %while.en
   br label %if.then29
 
 if.else:                                          ; preds = %if.end
-  %call23 = tail call fastcc i32 @compiler_enter_scope(ptr noundef nonnull %c, ptr noundef %name, i32 noundef 5, ptr noundef nonnull %e, i32 noundef %7), !range !5
+  %call23 = tail call fastcc i32 @compiler_enter_scope(ptr noundef nonnull %c, ptr noundef %name, i32 noundef 5, ptr noundef nonnull %e, i32 noundef %7)
   %cmp24 = icmp slt i32 %call23, 0
   br i1 %cmp24, label %if.then.i374, label %if.then29
 
@@ -32833,7 +32834,7 @@ if.then43:                                        ; preds = %if.end41
   %83 = load i32, ptr %s_used.i.i.i, align 4
   %add.i.i.i = add i32 %83, 1
   %s_allocated.i.i.i = getelementptr inbounds i8, ptr %82, i64 32
-  %call.i.i.i = call i32 @_PyCompile_EnsureArrayLargeEnough(i32 noundef %add.i.i.i, ptr noundef nonnull %u_instr_sequence, ptr noundef nonnull %s_allocated.i.i.i, i32 noundef 100, i64 noundef 44), !range !5
+  %call.i.i.i = call i32 @_PyCompile_EnsureArrayLargeEnough(i32 noundef %add.i.i.i, ptr noundef nonnull %u_instr_sequence, ptr noundef nonnull %s_allocated.i.i.i, i32 noundef 100, i64 noundef 44)
   %cmp.i.i.i304 = icmp eq i32 %call.i.i.i, -1
   br i1 %cmp.i.i.i304, label %return, label %instr_sequence_next_inst.exit.i.i
 
@@ -32864,7 +32865,7 @@ if.then53:                                        ; preds = %if.end51
   %87 = load i32, ptr %s_used.i.i.i307, align 4
   %add.i.i.i308 = add i32 %87, 1
   %s_allocated.i.i.i309 = getelementptr inbounds i8, ptr %86, i64 32
-  %call.i.i.i310 = call i32 @_PyCompile_EnsureArrayLargeEnough(i32 noundef %add.i.i.i308, ptr noundef nonnull %u_instr_sequence55, ptr noundef nonnull %s_allocated.i.i.i309, i32 noundef 100, i64 noundef 44), !range !5
+  %call.i.i.i310 = call i32 @_PyCompile_EnsureArrayLargeEnough(i32 noundef %add.i.i.i308, ptr noundef nonnull %u_instr_sequence55, ptr noundef nonnull %s_allocated.i.i.i309, i32 noundef 100, i64 noundef 44)
   %cmp.i.i.i311 = icmp eq i32 %call.i.i.i310, -1
   br i1 %cmp.i.i.i311, label %return, label %instr_sequence_next_inst.exit.i.i312
 
@@ -32898,11 +32899,11 @@ if.end61:                                         ; preds = %if.end41.if.end61_c
   br i1 %tobool.not.i324, label %if.else.i328, label %if.then.i325
 
 if.then.i325:                                     ; preds = %if.end61
-  %call.i326 = call fastcc i32 @compiler_async_comprehension_generator(ptr noundef %c, i64 %loc.sroa.0.0.insert.insert29.pre-phi, i64 %loc.sroa.17.8.insert.insert137.pre-phi, ptr noundef nonnull %generators, i32 noundef 0, i32 noundef 0, ptr noundef %elt, ptr noundef %val, i32 noundef %type, i32 noundef %bf.cast), !range !5
+  %call.i326 = call fastcc i32 @compiler_async_comprehension_generator(ptr noundef %c, i64 %loc.sroa.0.0.insert.insert29.pre-phi, i64 %loc.sroa.17.8.insert.insert137.pre-phi, ptr noundef nonnull %generators, i32 noundef 0, i32 noundef 0, ptr noundef %elt, ptr noundef %val, i32 noundef %type, i32 noundef %bf.cast)
   br label %compiler_comprehension_generator.exit
 
 if.else.i328:                                     ; preds = %if.end61
-  %call1.i = call fastcc i32 @compiler_sync_comprehension_generator(ptr noundef %c, i64 %loc.sroa.0.0.insert.insert29.pre-phi, i64 %loc.sroa.17.8.insert.insert137.pre-phi, ptr noundef nonnull %generators, i32 noundef 0, i32 noundef 0, ptr noundef %elt, ptr noundef %val, i32 noundef %type, i32 noundef %bf.cast), !range !5
+  %call1.i = call fastcc i32 @compiler_sync_comprehension_generator(ptr noundef %c, i64 %loc.sroa.0.0.insert.insert29.pre-phi, i64 %loc.sroa.17.8.insert.insert137.pre-phi, ptr noundef nonnull %generators, i32 noundef 0, i32 noundef 0, ptr noundef %elt, ptr noundef %val, i32 noundef %type, i32 noundef %bf.cast)
   br label %compiler_comprehension_generator.exit
 
 compiler_comprehension_generator.exit:            ; preds = %if.then.i325, %if.else.i328
@@ -32940,7 +32941,7 @@ while.body.i339:                                  ; preds = %while.cond.i
   %98 = load ptr, ptr %v.i331, align 8
   %call4.i = call i32 @PyDict_SetItem(ptr noundef %96, ptr noundef %97, ptr noundef %98) #11
   %tobool5.not.i341 = icmp eq i32 %call4.i, 0
-  br i1 %tobool5.not.i341, label %while.cond.i, label %pop_inlined_comprehension_state.exit.thread, !llvm.loop !142
+  br i1 %tobool5.not.i341, label %while.cond.i, label %pop_inlined_comprehension_state.exit.thread, !llvm.loop !135
 
 if.then8.i:                                       ; preds = %while.cond.i
   %99 = load i64, ptr %inline_state.sroa.7.6, align 8
@@ -32969,7 +32970,7 @@ if.then12.i:                                      ; preds = %if.end10.i
   %102 = load i32, ptr %s_used.i.i.i.i344, align 4
   %add.i.i.i.i345 = add i32 %102, 1
   %s_allocated.i.i.i.i346 = getelementptr inbounds i8, ptr %101, i64 32
-  %call.i.i.i.i347 = call i32 @_PyCompile_EnsureArrayLargeEnough(i32 noundef %add.i.i.i.i345, ptr noundef nonnull %u_instr_sequence.i343, ptr noundef nonnull %s_allocated.i.i.i.i346, i32 noundef 100, i64 noundef 44), !range !5
+  %call.i.i.i.i347 = call i32 @_PyCompile_EnsureArrayLargeEnough(i32 noundef %add.i.i.i.i345, ptr noundef nonnull %u_instr_sequence.i343, ptr noundef nonnull %s_allocated.i.i.i.i346, i32 noundef 100, i64 noundef 44)
   %cmp.i.i.i.i348 = icmp eq i32 %call.i.i.i.i347, -1
   br i1 %cmp.i.i.i.i348, label %pop_inlined_comprehension_state.exit.thread, label %instr_sequence_next_inst.exit.i.i.i349
 
@@ -32995,7 +32996,7 @@ if.end17.i:                                       ; preds = %instr_sequence_next
   %106 = load i32, ptr %s_used.i.i.i36.i, align 4
   %add.i.i.i37.i = add i32 %106, 1
   %s_allocated.i.i.i38.i = getelementptr inbounds i8, ptr %105, i64 32
-  %call.i.i.i39.i = call i32 @_PyCompile_EnsureArrayLargeEnough(i32 noundef %add.i.i.i37.i, ptr noundef nonnull %u_instr_sequence19.i, ptr noundef nonnull %s_allocated.i.i.i38.i, i32 noundef 100, i64 noundef 44), !range !5
+  %call.i.i.i39.i = call i32 @_PyCompile_EnsureArrayLargeEnough(i32 noundef %add.i.i.i37.i, ptr noundef nonnull %u_instr_sequence19.i, ptr noundef nonnull %s_allocated.i.i.i38.i, i32 noundef 100, i64 noundef 44)
   %cmp.i.i.i40.i = icmp eq i32 %call.i.i.i39.i, -1
   br i1 %cmp.i.i.i40.i, label %pop_inlined_comprehension_state.exit.thread, label %instr_sequence_next_inst.exit.i.i41.i
 
@@ -33019,7 +33020,7 @@ if.end23.i:                                       ; preds = %instr_sequence_next
   %s_labelmap_size.i.i = getelementptr inbounds i8, ptr %109, i64 48
   %110 = load i32, ptr %s_labelmap_size.i.i, align 8
   %s_labelmap.i.i = getelementptr inbounds i8, ptr %109, i64 40
-  %call.i.i = call i32 @_PyCompile_EnsureArrayLargeEnough(i32 noundef %inline_state.sroa.14.1, ptr noundef nonnull %s_labelmap.i.i, ptr noundef nonnull %s_labelmap_size.i.i, i32 noundef 10, i64 noundef 4), !range !5
+  %call.i.i = call i32 @_PyCompile_EnsureArrayLargeEnough(i32 noundef %inline_state.sroa.14.1, ptr noundef nonnull %s_labelmap.i.i, ptr noundef nonnull %s_labelmap_size.i.i, i32 noundef 10, i64 noundef 4)
   %cmp.i51.i = icmp eq i32 %call.i.i, -1
   br i1 %cmp.i51.i, label %pop_inlined_comprehension_state.exit.thread, label %for.cond.preheader.i.i
 
@@ -33041,7 +33042,7 @@ for.body.i.i:                                     ; preds = %for.body.i.i, %for.
   %114 = load i32, ptr %s_labelmap_size.i.i, align 8
   %115 = sext i32 %114 to i64
   %cmp3.i.i = icmp slt i64 %indvars.iv.next.i.i, %115
-  br i1 %cmp3.i.i, label %for.body.i.i, label %if.end29.i, !llvm.loop !6
+  br i1 %cmp3.i.i, label %for.body.i.i, label %if.end29.i, !llvm.loop !5
 
 if.end29.i:                                       ; preds = %for.body.i.i, %for.cond.preheader.i.i
   %s_used.i.i = getelementptr inbounds i8, ptr %109, i64 36
@@ -33056,7 +33057,7 @@ if.end29.i:                                       ; preds = %for.body.i.i, %for.
   %119 = load i32, ptr %s_used.i.i.i52.i, align 4
   %add.i.i.i53.i = add i32 %119, 1
   %s_allocated.i.i.i54.i = getelementptr inbounds i8, ptr %118, i64 32
-  %call.i.i.i55.i = call i32 @_PyCompile_EnsureArrayLargeEnough(i32 noundef %add.i.i.i53.i, ptr noundef nonnull %u_instr_sequence31.i, ptr noundef nonnull %s_allocated.i.i.i54.i, i32 noundef 100, i64 noundef 44), !range !5
+  %call.i.i.i55.i = call i32 @_PyCompile_EnsureArrayLargeEnough(i32 noundef %add.i.i.i53.i, ptr noundef nonnull %u_instr_sequence31.i, ptr noundef nonnull %s_allocated.i.i.i54.i, i32 noundef 100, i64 noundef 44)
   %cmp.i.i.i56.i = icmp eq i32 %call.i.i.i55.i, -1
   br i1 %cmp.i.i.i56.i, label %pop_inlined_comprehension_state.exit.thread, label %instr_sequence_next_inst.exit.i.i57.i
 
@@ -33082,7 +33083,7 @@ if.end35.i:                                       ; preds = %instr_sequence_next
   %123 = load i32, ptr %s_used.i.i.i67.i, align 4
   %add.i.i.i68.i = add i32 %123, 1
   %s_allocated.i.i.i69.i = getelementptr inbounds i8, ptr %122, i64 32
-  %call.i.i.i70.i = call i32 @_PyCompile_EnsureArrayLargeEnough(i32 noundef %add.i.i.i68.i, ptr noundef nonnull %u_instr_sequence37.i, ptr noundef nonnull %s_allocated.i.i.i69.i, i32 noundef 100, i64 noundef 44), !range !5
+  %call.i.i.i70.i = call i32 @_PyCompile_EnsureArrayLargeEnough(i32 noundef %add.i.i.i68.i, ptr noundef nonnull %u_instr_sequence37.i, ptr noundef nonnull %s_allocated.i.i.i69.i, i32 noundef 100, i64 noundef 44)
   %cmp.i.i.i71.i = icmp eq i32 %call.i.i.i70.i, -1
   br i1 %cmp.i.i.i71.i, label %pop_inlined_comprehension_state.exit.thread, label %instr_sequence_next_inst.exit.i.i72.i
 
@@ -33112,7 +33113,7 @@ if.end41.i356:                                    ; preds = %instr_sequence_next
   %129 = load i32, ptr %s_used.i.i.i.i.i, align 4
   %add.i.i.i.i.i = add i32 %129, 1
   %s_allocated.i.i.i.i.i = getelementptr inbounds i8, ptr %127, i64 32
-  %call.i.i.i.i.i = call i32 @_PyCompile_EnsureArrayLargeEnough(i32 noundef %add.i.i.i.i.i, ptr noundef nonnull %u_instr_sequence.i.i, ptr noundef nonnull %s_allocated.i.i.i.i.i, i32 noundef 100, i64 noundef 44), !range !5
+  %call.i.i.i.i.i = call i32 @_PyCompile_EnsureArrayLargeEnough(i32 noundef %add.i.i.i.i.i, ptr noundef nonnull %u_instr_sequence.i.i, ptr noundef nonnull %s_allocated.i.i.i.i.i, i32 noundef 100, i64 noundef 44)
   %cmp.i.i.i.i.i = icmp eq i32 %call.i.i.i.i.i, -1
   br i1 %cmp.i.i.i.i.i, label %pop_inlined_comprehension_state.exit.thread, label %instr_sequence_next_inst.exit.i.i.i.i
 
@@ -33151,9 +33152,9 @@ if.end7.i.i:                                      ; preds = %for.body.i85.i
   %132 = load ptr, ptr %u, align 8
   %u_varnames.i.i = getelementptr inbounds i8, ptr %132, i64 576
   %133 = load ptr, ptr %u_varnames.i.i, align 8
-  %call10.i.i = call fastcc i32 @compiler_addop_name(ptr noundef %132, i64 %loc.sroa.0.0.insert.insert29.pre-phi, i64 %loc.sroa.17.8.insert.insert137.pre-phi, i32 noundef 267, ptr noundef %133, ptr noundef nonnull %call4.i.i), !range !5
+  %call10.i.i = call fastcc i32 @compiler_addop_name(ptr noundef %132, i64 %loc.sroa.0.0.insert.insert29.pre-phi, i64 %loc.sroa.17.8.insert.insert137.pre-phi, i32 noundef 267, ptr noundef %133, ptr noundef nonnull %call4.i.i)
   %cmp11.i.i = icmp eq i32 %call10.i.i, -1
-  br i1 %cmp11.i.i, label %pop_inlined_comprehension_state.exit.thread, label %for.cond.i.i, !llvm.loop !143
+  br i1 %cmp11.i.i, label %pop_inlined_comprehension_state.exit.thread, label %for.cond.i.i, !llvm.loop !136
 
 if.end45.i:                                       ; preds = %for.cond.i.i
   %134 = load ptr, ptr %u, align 8
@@ -33162,7 +33163,7 @@ if.end45.i:                                       ; preds = %for.cond.i.i
   %135 = load i32, ptr %s_used.i.i.i86.i, align 4
   %add.i.i.i87.i = add i32 %135, 1
   %s_allocated.i.i.i88.i = getelementptr inbounds i8, ptr %134, i64 32
-  %call.i.i.i89.i = call i32 @_PyCompile_EnsureArrayLargeEnough(i32 noundef %add.i.i.i87.i, ptr noundef nonnull %u_instr_sequence47.i, ptr noundef nonnull %s_allocated.i.i.i88.i, i32 noundef 100, i64 noundef 44), !range !5
+  %call.i.i.i89.i = call i32 @_PyCompile_EnsureArrayLargeEnough(i32 noundef %add.i.i.i87.i, ptr noundef nonnull %u_instr_sequence47.i, ptr noundef nonnull %s_allocated.i.i.i88.i, i32 noundef 100, i64 noundef 44)
   %cmp.i.i.i90.i = icmp eq i32 %call.i.i.i89.i, -1
   br i1 %cmp.i.i.i90.i, label %pop_inlined_comprehension_state.exit.thread, label %instr_sequence_next_inst.exit.i.i91.i
 
@@ -33184,7 +33185,7 @@ if.end51.i:                                       ; preds = %instr_sequence_next
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %i_loc.i.i98.i, i8 -1, i64 16, i1 false)
   %138 = load ptr, ptr %u, align 8
   %u_instr_sequence53.i = getelementptr inbounds i8, ptr %138, i64 24
-  %call56.i = call i32 @_PyCompile_InstructionSequence_UseLabel(ptr noundef nonnull %u_instr_sequence53.i, i32 noundef %inline_state.sroa.16.1), !range !5
+  %call56.i = call i32 @_PyCompile_InstructionSequence_UseLabel(ptr noundef nonnull %u_instr_sequence53.i, i32 noundef %inline_state.sroa.16.1)
   %cmp57.i = icmp eq i32 %call56.i, -1
   br i1 %cmp57.i, label %pop_inlined_comprehension_state.exit.thread, label %if.end59.i
 
@@ -33259,7 +33260,7 @@ if.then1.i107.i:                                  ; preds = %if.end.i104.i
 Py_DECREF.exit109.i:                              ; preds = %if.then1.i107.i, %if.end.i104.i, %if.end90.i364
   %call77.i = call i64 @PySet_Size(ptr noundef nonnull %inline_state.sroa.11.6) #11
   %cmp78.i365 = icmp sgt i64 %call77.i, 0
-  br i1 %cmp78.i365, label %while.body79.i, label %if.then97.i, !llvm.loop !144
+  br i1 %cmp78.i365, label %while.body79.i, label %if.then97.i, !llvm.loop !137
 
 if.then97.i:                                      ; preds = %Py_DECREF.exit109.i, %while.cond75.preheader.i
   %145 = load i64, ptr %inline_state.sroa.11.6, align 8
@@ -33317,12 +33318,12 @@ if.then74:                                        ; preds = %if.end72
   %.compoundliteral.sroa.5.8.insert.shift = shl nuw i64 %.compoundliteral.sroa.5.8.insert.ext, 32
   %.compoundliteral.sroa.3.8.insert.ext = zext i32 %150 to i64
   %.compoundliteral.sroa.3.8.insert.insert = or disjoint i64 %.compoundliteral.sroa.5.8.insert.shift, %.compoundliteral.sroa.3.8.insert.ext
-  %call85 = call fastcc i32 @codegen_addop_noarg(ptr noundef nonnull %u_instr_sequence76, i32 noundef 36, i64 %.compoundliteral.sroa.0.0.insert.insert, i64 %.compoundliteral.sroa.3.8.insert.insert), !range !5
+  %call85 = call fastcc i32 @codegen_addop_noarg(ptr noundef nonnull %u_instr_sequence76, i32 noundef 36, i64 %.compoundliteral.sroa.0.0.insert.insert, i64 %.compoundliteral.sroa.3.8.insert.insert)
   %cmp86 = icmp eq i32 %call85, -1
   br i1 %cmp86, label %return, label %if.end96
 
 if.then91:                                        ; preds = %if.end72
-  %call92 = call fastcc i32 @wrap_in_stopiteration_handler(ptr noundef %c), !range !5
+  %call92 = call fastcc i32 @wrap_in_stopiteration_handler(ptr noundef %c)
   %cmp93 = icmp slt i32 %call92, 0
   br i1 %cmp93, label %if.then162, label %if.end96
 
@@ -33358,7 +33359,7 @@ if.end110:                                        ; preds = %if.end107
   %loc.sroa.32.8.insert.shift198 = shl nuw i64 %loc.sroa.32.8.insert.ext197, 32
   %loc.sroa.17.8.insert.ext143 = zext i32 %156 to i64
   %loc.sroa.17.8.insert.insert145 = or disjoint i64 %loc.sroa.32.8.insert.shift198, %loc.sroa.17.8.insert.ext143
-  %call120 = call fastcc i32 @compiler_make_closure(ptr noundef %c, i64 %loc.sroa.0.0.insert.insert37, i64 %loc.sroa.17.8.insert.insert145, ptr noundef nonnull %call97, i64 noundef 0), !range !5
+  %call120 = call fastcc i32 @compiler_make_closure(ptr noundef %c, i64 %loc.sroa.0.0.insert.insert37, i64 %loc.sroa.17.8.insert.insert145, ptr noundef nonnull %call97, i64 noundef 0)
   %cmp121 = icmp slt i32 %call120, 0
   %158 = load i64, ptr %call97, align 8
   %159 = and i64 %158, 2147483648
@@ -33379,14 +33380,14 @@ if.then1.i:                                       ; preds = %if.end.i
   br label %do.end130
 
 do.end130:                                        ; preds = %if.then128, %if.then1.i, %if.end.i
-  %call131 = call fastcc i32 @compiler_comprehension_iter(ptr noundef %c, i64 %loc.sroa.0.0.insert.insert37, i64 %loc.sroa.17.8.insert.insert145, ptr noundef %11), !range !5
+  %call131 = call fastcc i32 @compiler_comprehension_iter(ptr noundef %c, i64 %loc.sroa.0.0.insert.insert37, i64 %loc.sroa.17.8.insert.insert145, ptr noundef %11)
   %tobool132.not = icmp eq i32 %call131, 0
   br i1 %tobool132.not, label %if.end134, label %Py_XDECREF.exit381
 
 if.end134:                                        ; preds = %do.end130
   %160 = load ptr, ptr %u, align 8
   %u_instr_sequence136 = getelementptr inbounds i8, ptr %160, i64 24
-  %call137 = call fastcc i32 @codegen_addop_i(ptr noundef nonnull %u_instr_sequence136, i32 noundef 53, i64 noundef 0, i64 %loc.sroa.0.0.insert.insert37, i64 %loc.sroa.17.8.insert.insert145), !range !5
+  %call137 = call fastcc i32 @codegen_addop_i(ptr noundef nonnull %u_instr_sequence136, i32 noundef 53, i64 noundef 0, i64 %loc.sroa.0.0.insert.insert37, i64 %loc.sroa.17.8.insert.insert145)
   %cmp138 = icmp eq i32 %call137, -1
   br i1 %cmp138, label %return, label %if.end140
 
@@ -33396,7 +33397,7 @@ if.end140:                                        ; preds = %if.end134
 if.then144:                                       ; preds = %if.end140
   %161 = load ptr, ptr %u, align 8
   %u_instr_sequence146 = getelementptr inbounds i8, ptr %161, i64 24
-  %call147 = call fastcc i32 @codegen_addop_i(ptr noundef nonnull %u_instr_sequence146, i32 noundef 73, i64 noundef 0, i64 %loc.sroa.0.0.insert.insert37, i64 %loc.sroa.17.8.insert.insert145), !range !5
+  %call147 = call fastcc i32 @codegen_addop_i(ptr noundef nonnull %u_instr_sequence146, i32 noundef 73, i64 noundef 0, i64 %loc.sroa.0.0.insert.insert37, i64 %loc.sroa.17.8.insert.insert145)
   %cmp148 = icmp eq i32 %call147, -1
   br i1 %cmp148, label %return, label %if.end150
 
@@ -33404,12 +33405,12 @@ if.end150:                                        ; preds = %if.then144
   %c_const_cache = getelementptr inbounds i8, ptr %c, i64 56
   %162 = load ptr, ptr %c_const_cache, align 8
   %163 = load ptr, ptr %u, align 8
-  %call152 = call fastcc i32 @compiler_addop_load_const(ptr noundef %162, ptr noundef %163, i64 %loc.sroa.0.0.insert.insert37, i64 %loc.sroa.17.8.insert.insert145, ptr noundef nonnull @_Py_NoneStruct), !range !5
+  %call152 = call fastcc i32 @compiler_addop_load_const(ptr noundef %162, ptr noundef %163, i64 %loc.sroa.0.0.insert.insert37, i64 %loc.sroa.17.8.insert.insert145, ptr noundef nonnull @_Py_NoneStruct)
   %cmp153 = icmp eq i32 %call152, -1
   br i1 %cmp153, label %return, label %if.end155
 
 if.end155:                                        ; preds = %if.end150
-  %call156 = call fastcc i32 @compiler_add_yield_from(ptr noundef nonnull %c, i64 %loc.sroa.0.0.insert.insert37, i64 %loc.sroa.17.8.insert.insert145, i32 noundef 1), !range !5
+  %call156 = call fastcc i32 @compiler_add_yield_from(ptr noundef nonnull %c, i64 %loc.sroa.0.0.insert.insert37, i64 %loc.sroa.17.8.insert.insert145, i32 noundef 1)
   %cmp157 = icmp eq i32 %call156, -1
   br i1 %cmp157, label %return, label %if.end160
 
@@ -33524,11 +33525,11 @@ return:                                           ; preds = %land.end, %if.then5
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @compiler_comprehension_iter(ptr noundef %c, i64 %loc.coerce0, i64 %loc.coerce1, ptr nocapture noundef readonly %comp) unnamed_addr #1 {
+define internal fastcc range(i32 -1, 1) i32 @compiler_comprehension_iter(ptr noundef %c, i64 %loc.coerce0, i64 %loc.coerce1, ptr nocapture noundef readonly %comp) unnamed_addr #1 {
 entry:
   %iter = getelementptr inbounds i8, ptr %comp, i64 8
   %0 = load ptr, ptr %iter, align 8
-  %call = tail call fastcc i32 @compiler_visit_expr(ptr noundef %c, ptr noundef %0), !range !5
+  %call = tail call fastcc i32 @compiler_visit_expr(ptr noundef %c, ptr noundef %0)
   %cmp = icmp eq i32 %call, -1
   br i1 %cmp, label %return, label %if.end
 
@@ -33543,7 +33544,7 @@ if.end:                                           ; preds = %entry
   %3 = load i32, ptr %s_used.i.i.i6, align 4
   %add.i.i.i7 = add i32 %3, 1
   %s_allocated.i.i.i8 = getelementptr inbounds i8, ptr %2, i64 32
-  %call.i.i.i9 = tail call i32 @_PyCompile_EnsureArrayLargeEnough(i32 noundef %add.i.i.i7, ptr noundef nonnull %u_instr_sequence7, ptr noundef nonnull %s_allocated.i.i.i8, i32 noundef 100, i64 noundef 44), !range !5
+  %call.i.i.i9 = tail call i32 @_PyCompile_EnsureArrayLargeEnough(i32 noundef %add.i.i.i7, ptr noundef nonnull %u_instr_sequence7, ptr noundef nonnull %s_allocated.i.i.i8, i32 noundef 100, i64 noundef 44)
   %cmp.i.i.i10 = icmp eq i32 %call.i.i.i9, -1
   br i1 %tobool.not, label %if.else, label %if.then1
 
@@ -33597,7 +33598,7 @@ return:                                           ; preds = %return.sink.split, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @compiler_comprehension_generator(ptr noundef %c, i64 %loc.coerce0, i64 %loc.coerce1, ptr noundef %generators, i32 noundef %gen_index, i32 noundef %depth, ptr noundef %elt, ptr noundef %val, i32 noundef %type, i32 noundef %iter_on_stack) unnamed_addr #1 {
+define internal fastcc range(i32 -1, 1) i32 @compiler_comprehension_generator(ptr noundef %c, i64 %loc.coerce0, i64 %loc.coerce1, ptr noundef %generators, i32 noundef %gen_index, i32 noundef %depth, ptr noundef %elt, ptr noundef %val, i32 noundef %type, i32 noundef %iter_on_stack) unnamed_addr #1 {
 entry:
   %typed_elements = getelementptr inbounds i8, ptr %generators, i64 16
   %idxprom = sext i32 %gen_index to i64
@@ -33609,11 +33610,11 @@ entry:
   br i1 %tobool.not, label %if.else, label %if.then
 
 if.then:                                          ; preds = %entry
-  %call = tail call fastcc i32 @compiler_async_comprehension_generator(ptr noundef %c, i64 %loc.coerce0, i64 %loc.coerce1, ptr noundef nonnull %generators, i32 noundef %gen_index, i32 noundef %depth, ptr noundef %elt, ptr noundef %val, i32 noundef %type, i32 noundef %iter_on_stack), !range !5
+  %call = tail call fastcc i32 @compiler_async_comprehension_generator(ptr noundef %c, i64 %loc.coerce0, i64 %loc.coerce1, ptr noundef nonnull %generators, i32 noundef %gen_index, i32 noundef %depth, ptr noundef %elt, ptr noundef %val, i32 noundef %type, i32 noundef %iter_on_stack)
   br label %return
 
 if.else:                                          ; preds = %entry
-  %call1 = tail call fastcc i32 @compiler_sync_comprehension_generator(ptr noundef %c, i64 %loc.coerce0, i64 %loc.coerce1, ptr noundef nonnull %generators, i32 noundef %gen_index, i32 noundef %depth, ptr noundef %elt, ptr noundef %val, i32 noundef %type, i32 noundef %iter_on_stack), !range !5
+  %call1 = tail call fastcc i32 @compiler_sync_comprehension_generator(ptr noundef %c, i64 %loc.coerce0, i64 %loc.coerce1, ptr noundef nonnull %generators, i32 noundef %gen_index, i32 noundef %depth, ptr noundef %elt, ptr noundef %val, i32 noundef %type, i32 noundef %iter_on_stack)
   br label %return
 
 return:                                           ; preds = %if.else, %if.then
@@ -33624,7 +33625,7 @@ return:                                           ; preds = %if.else, %if.then
 declare i32 @PyDict_Next(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @compiler_async_comprehension_generator(ptr noundef %c, i64 %loc.coerce0, i64 %loc.coerce1, ptr noundef %generators, i32 noundef %gen_index, i32 noundef %depth, ptr noundef %elt, ptr noundef %val, i32 noundef %type, i32 noundef %iter_on_stack) unnamed_addr #1 {
+define internal fastcc range(i32 -1, 1) i32 @compiler_async_comprehension_generator(ptr noundef %c, i64 %loc.coerce0, i64 %loc.coerce1, ptr noundef %generators, i32 noundef %gen_index, i32 noundef %depth, ptr noundef %elt, ptr noundef %val, i32 noundef %type, i32 noundef %iter_on_stack) unnamed_addr #1 {
 entry:
   %u = getelementptr inbounds i8, ptr %c, i64 64
   %0 = load ptr, ptr %u, align 8
@@ -33675,7 +33676,7 @@ if.then19:                                        ; preds = %if.then17
   %9 = load i32, ptr %s_used.i.i.i, align 4
   %add.i.i.i = add i32 %9, 1
   %s_allocated.i.i.i = getelementptr inbounds i8, ptr %8, i64 32
-  %call.i.i.i = tail call i32 @_PyCompile_EnsureArrayLargeEnough(i32 noundef %add.i.i.i, ptr noundef nonnull %u_instr_sequence22, ptr noundef nonnull %s_allocated.i.i.i, i32 noundef 100, i64 noundef 44), !range !5
+  %call.i.i.i = tail call i32 @_PyCompile_EnsureArrayLargeEnough(i32 noundef %add.i.i.i, ptr noundef nonnull %u_instr_sequence22, ptr noundef nonnull %s_allocated.i.i.i, i32 noundef 100, i64 noundef 44)
   %cmp.i.i.i = icmp eq i32 %call.i.i.i, -1
   br i1 %cmp.i.i.i, label %return, label %instr_sequence_next_inst.exit.i.i
 
@@ -33696,7 +33697,7 @@ codegen_addop_i.exit:                             ; preds = %instr_sequence_next
 if.else:                                          ; preds = %if.then17
   %iter = getelementptr inbounds i8, ptr %6, i64 8
   %12 = load ptr, ptr %iter, align 8
-  %call27 = tail call fastcc i32 @compiler_visit_expr(ptr noundef nonnull %c, ptr noundef %12), !range !5
+  %call27 = tail call fastcc i32 @compiler_visit_expr(ptr noundef nonnull %c, ptr noundef %12)
   %cmp28 = icmp eq i32 %call27, -1
   br i1 %cmp28, label %return, label %if.end30
 
@@ -33707,7 +33708,7 @@ if.end30:                                         ; preds = %if.else
   %14 = load i32, ptr %s_used.i.i.i188, align 4
   %add.i.i.i189 = add i32 %14, 1
   %s_allocated.i.i.i190 = getelementptr inbounds i8, ptr %13, i64 32
-  %call.i.i.i191 = tail call i32 @_PyCompile_EnsureArrayLargeEnough(i32 noundef %add.i.i.i189, ptr noundef nonnull %u_instr_sequence32, ptr noundef nonnull %s_allocated.i.i.i190, i32 noundef 100, i64 noundef 44), !range !5
+  %call.i.i.i191 = tail call i32 @_PyCompile_EnsureArrayLargeEnough(i32 noundef %add.i.i.i189, ptr noundef nonnull %u_instr_sequence32, ptr noundef nonnull %s_allocated.i.i.i190, i32 noundef 100, i64 noundef 44)
   %cmp.i.i.i192 = icmp eq i32 %call.i.i.i191, -1
   br i1 %cmp.i.i.i192, label %return, label %instr_sequence_next_inst.exit.i.i193
 
@@ -33740,7 +33741,7 @@ if.end38:                                         ; preds = %if.end38.sink.split
   %s_labelmap_size.i = getelementptr inbounds i8, ptr %17, i64 48
   %18 = load i32, ptr %s_labelmap_size.i, align 8
   %s_labelmap.i = getelementptr inbounds i8, ptr %17, i64 40
-  %call.i = tail call i32 @_PyCompile_EnsureArrayLargeEnough(i32 noundef %inc.i, ptr noundef nonnull %s_labelmap.i, ptr noundef nonnull %s_labelmap_size.i, i32 noundef 10, i64 noundef 4), !range !5
+  %call.i = tail call i32 @_PyCompile_EnsureArrayLargeEnough(i32 noundef %inc.i, ptr noundef nonnull %s_labelmap.i, ptr noundef nonnull %s_labelmap_size.i, i32 noundef 10, i64 noundef 4)
   %cmp.i = icmp eq i32 %call.i, -1
   br i1 %cmp.i, label %return, label %for.cond.preheader.i
 
@@ -33762,7 +33763,7 @@ for.body.i:                                       ; preds = %for.body.i, %for.bo
   %22 = load i32, ptr %s_labelmap_size.i, align 8
   %23 = sext i32 %22 to i64
   %cmp3.i = icmp slt i64 %indvars.iv.next.i, %23
-  br i1 %cmp3.i, label %for.body.i, label %if.end45, !llvm.loop !6
+  br i1 %cmp3.i, label %for.body.i, label %if.end45, !llvm.loop !5
 
 if.end45:                                         ; preds = %for.body.i, %for.cond.preheader.i
   %s_used.i = getelementptr inbounds i8, ptr %17, i64 36
@@ -33800,7 +33801,7 @@ if.end50:                                         ; preds = %if.end45
   %29 = load i32, ptr %s_used.i.i.i208, align 4
   %add.i.i.i209 = add i32 %29, 1
   %s_allocated.i.i.i210 = getelementptr inbounds i8, ptr %28, i64 32
-  %call.i.i.i211 = tail call i32 @_PyCompile_EnsureArrayLargeEnough(i32 noundef %add.i.i.i209, ptr noundef nonnull %u_instr_sequence52, ptr noundef nonnull %s_allocated.i.i.i210, i32 noundef 100, i64 noundef 44), !range !5
+  %call.i.i.i211 = tail call i32 @_PyCompile_EnsureArrayLargeEnough(i32 noundef %add.i.i.i209, ptr noundef nonnull %u_instr_sequence52, ptr noundef nonnull %s_allocated.i.i.i210, i32 noundef 100, i64 noundef 44)
   %cmp.i.i.i212 = icmp eq i32 %call.i.i.i211, -1
   br i1 %cmp.i.i.i212, label %return, label %instr_sequence_next_inst.exit.i.i213
 
@@ -33828,7 +33829,7 @@ if.end57:                                         ; preds = %instr_sequence_next
   %33 = load i32, ptr %s_used.i.i.i223, align 4
   %add.i.i.i224 = add i32 %33, 1
   %s_allocated.i.i.i225 = getelementptr inbounds i8, ptr %32, i64 32
-  %call.i.i.i226 = tail call i32 @_PyCompile_EnsureArrayLargeEnough(i32 noundef %add.i.i.i224, ptr noundef nonnull %u_instr_sequence59, ptr noundef nonnull %s_allocated.i.i.i225, i32 noundef 100, i64 noundef 44), !range !5
+  %call.i.i.i226 = tail call i32 @_PyCompile_EnsureArrayLargeEnough(i32 noundef %add.i.i.i224, ptr noundef nonnull %u_instr_sequence59, ptr noundef nonnull %s_allocated.i.i.i225, i32 noundef 100, i64 noundef 44)
   %cmp.i.i.i227 = icmp eq i32 %call.i.i.i226, -1
   br i1 %cmp.i.i.i227, label %return, label %instr_sequence_next_inst.exit.i.i228
 
@@ -33853,25 +33854,25 @@ if.end63:                                         ; preds = %instr_sequence_next
   %c_const_cache = getelementptr inbounds i8, ptr %c, i64 56
   %36 = load ptr, ptr %c_const_cache, align 8
   %37 = load ptr, ptr %u, align 8
-  %call65 = tail call fastcc i32 @compiler_addop_load_const(ptr noundef %36, ptr noundef %37, i64 %loc.coerce0, i64 %loc.coerce1, ptr noundef nonnull @_Py_NoneStruct), !range !5
+  %call65 = tail call fastcc i32 @compiler_addop_load_const(ptr noundef %36, ptr noundef %37, i64 %loc.coerce0, i64 %loc.coerce1, ptr noundef nonnull @_Py_NoneStruct)
   %cmp66 = icmp eq i32 %call65, -1
   br i1 %cmp66, label %return, label %if.end68
 
 if.end68:                                         ; preds = %if.end63
-  %call69 = tail call fastcc i32 @compiler_add_yield_from(ptr noundef nonnull %c, i64 %loc.coerce0, i64 %loc.coerce1, i32 noundef 1), !range !5
+  %call69 = tail call fastcc i32 @compiler_add_yield_from(ptr noundef nonnull %c, i64 %loc.coerce0, i64 %loc.coerce1, i32 noundef 1)
   %cmp70 = icmp eq i32 %call69, -1
   br i1 %cmp70, label %return, label %if.end72
 
 if.end72:                                         ; preds = %if.end68
   %38 = load ptr, ptr %u, align 8
   %u_instr_sequence74 = getelementptr inbounds i8, ptr %38, i64 24
-  %call75 = tail call fastcc i32 @codegen_addop_noarg(ptr noundef nonnull %u_instr_sequence74, i32 noundef 263, i64 %loc.coerce0, i64 %loc.coerce1), !range !5
+  %call75 = tail call fastcc i32 @codegen_addop_noarg(ptr noundef nonnull %u_instr_sequence74, i32 noundef 263, i64 %loc.coerce0, i64 %loc.coerce1)
   %cmp76 = icmp eq i32 %call75, -1
   br i1 %cmp76, label %return, label %if.end78
 
 if.end78:                                         ; preds = %if.end72
   %39 = load ptr, ptr %6, align 8
-  %call79 = tail call fastcc i32 @compiler_visit_expr(ptr noundef nonnull %c, ptr noundef %39), !range !5
+  %call79 = tail call fastcc i32 @compiler_visit_expr(ptr noundef nonnull %c, ptr noundef %39)
   %cmp80 = icmp eq i32 %call79, -1
   br i1 %cmp80, label %return, label %if.end82
 
@@ -33889,7 +33890,7 @@ cond.end:                                         ; preds = %if.end82
 for.cond:                                         ; preds = %for.body
   %inc = add nuw nsw i64 %i.0253, 1
   %exitcond.not = icmp eq i64 %inc, %41
-  br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !145
+  br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !138
 
 for.body:                                         ; preds = %cond.end, %for.cond
   %i.0253 = phi i64 [ %inc, %for.cond ], [ 0, %cond.end ]
@@ -33918,7 +33919,7 @@ cond.end101:                                      ; preds = %for.end, %cond.fals
   br i1 %cmp103, label %if.then105, label %if.end111
 
 if.then105:                                       ; preds = %cond.end101
-  %call106 = tail call fastcc i32 @compiler_comprehension_generator(ptr noundef %c, i64 %loc.coerce0, i64 %loc.coerce1, ptr noundef %generators, i32 noundef %inc95, i32 noundef %inc94, ptr noundef %elt, ptr noundef %val, i32 noundef %type, i32 noundef 0), !range !5
+  %call106 = tail call fastcc i32 @compiler_comprehension_generator(ptr noundef %c, i64 %loc.coerce0, i64 %loc.coerce1, ptr noundef %generators, i32 noundef %inc95, i32 noundef %inc94, ptr noundef %elt, ptr noundef %val, i32 noundef %type, i32 noundef 0)
   %cmp107 = icmp eq i32 %call106, -1
   br i1 %cmp107, label %return, label %if.end111
 
@@ -33943,7 +33944,7 @@ cond.end122:                                      ; preds = %if.end111, %cond.fa
   br i1 %cmp124.not, label %if.end201, label %if.then126
 
 if.then126:                                       ; preds = %cond.end122
-  %call127 = tail call fastcc i32 @compiler_visit_expr(ptr noundef %c, ptr noundef nonnull %elt), !range !5
+  %call127 = tail call fastcc i32 @compiler_visit_expr(ptr noundef %c, ptr noundef nonnull %elt)
   %cmp128 = icmp eq i32 %call127, -1
   switch i32 %type, label %default.unreachable [
     i32 0, label %sw.bb
@@ -33964,14 +33965,14 @@ if.end131:                                        ; preds = %sw.bb
   %elt_loc.sroa.18.8.insert.shift = shl nuw i64 %elt_loc.sroa.18.8.insert.ext, 32
   %elt_loc.sroa.10.8.insert.ext = zext i32 %47 to i64
   %elt_loc.sroa.10.8.insert.insert = or disjoint i64 %elt_loc.sroa.18.8.insert.shift, %elt_loc.sroa.10.8.insert.ext
-  %call132 = tail call fastcc i32 @addop_yield(ptr noundef %c, i64 %elt_loc.sroa.0.0.insert.insert, i64 %elt_loc.sroa.10.8.insert.insert), !range !5
+  %call132 = tail call fastcc i32 @addop_yield(ptr noundef %c, i64 %elt_loc.sroa.0.0.insert.insert, i64 %elt_loc.sroa.10.8.insert.insert)
   %cmp133 = icmp eq i32 %call132, -1
   br i1 %cmp133, label %return, label %if.end136
 
 if.end136:                                        ; preds = %if.end131
   %50 = load ptr, ptr %u, align 8
   %u_instr_sequence138 = getelementptr inbounds i8, ptr %50, i64 24
-  %call139 = tail call fastcc i32 @codegen_addop_noarg(ptr noundef nonnull %u_instr_sequence138, i32 noundef 32, i64 %elt_loc.sroa.0.0.insert.insert, i64 %elt_loc.sroa.10.8.insert.insert), !range !5
+  %call139 = tail call fastcc i32 @codegen_addop_noarg(ptr noundef nonnull %u_instr_sequence138, i32 noundef 32, i64 %elt_loc.sroa.0.0.insert.insert, i64 %elt_loc.sroa.10.8.insert.insert)
   %cmp140 = icmp eq i32 %call139, -1
   br i1 %cmp140, label %return, label %if.end201
 
@@ -33991,7 +33992,7 @@ if.end149:                                        ; preds = %sw.bb144
   %elt_loc.sroa.18.8.insert.shift73 = shl nuw i64 %elt_loc.sroa.18.8.insert.ext72, 32
   %elt_loc.sroa.10.8.insert.ext51 = zext i32 %47 to i64
   %elt_loc.sroa.10.8.insert.insert53 = or disjoint i64 %elt_loc.sroa.18.8.insert.shift73, %elt_loc.sroa.10.8.insert.ext51
-  %call153 = tail call fastcc i32 @codegen_addop_i(ptr noundef nonnull %u_instr_sequence151, i32 noundef 80, i64 noundef %conv152, i64 %elt_loc.sroa.0.0.insert.insert8, i64 %elt_loc.sroa.10.8.insert.insert53), !range !5
+  %call153 = tail call fastcc i32 @codegen_addop_i(ptr noundef nonnull %u_instr_sequence151, i32 noundef 80, i64 noundef %conv152, i64 %elt_loc.sroa.0.0.insert.insert8, i64 %elt_loc.sroa.10.8.insert.insert53)
   %cmp154 = icmp eq i32 %call153, -1
   br i1 %cmp154, label %return, label %if.end201
 
@@ -34011,7 +34012,7 @@ if.end163:                                        ; preds = %sw.bb158
   %elt_loc.sroa.18.8.insert.shift78 = shl nuw i64 %elt_loc.sroa.18.8.insert.ext77, 32
   %elt_loc.sroa.10.8.insert.ext55 = zext i32 %47 to i64
   %elt_loc.sroa.10.8.insert.insert57 = or disjoint i64 %elt_loc.sroa.18.8.insert.shift78, %elt_loc.sroa.10.8.insert.ext55
-  %call168 = tail call fastcc i32 @codegen_addop_i(ptr noundef nonnull %u_instr_sequence165, i32 noundef 105, i64 noundef %conv167, i64 %elt_loc.sroa.0.0.insert.insert12, i64 %elt_loc.sroa.10.8.insert.insert57), !range !5
+  %call168 = tail call fastcc i32 @codegen_addop_i(ptr noundef nonnull %u_instr_sequence165, i32 noundef 105, i64 noundef %conv167, i64 %elt_loc.sroa.0.0.insert.insert12, i64 %elt_loc.sroa.10.8.insert.insert57)
   %cmp169 = icmp eq i32 %call168, -1
   br i1 %cmp169, label %return, label %if.end201
 
@@ -34019,7 +34020,7 @@ sw.bb173:                                         ; preds = %if.then126
   br i1 %cmp128, label %return, label %if.end178
 
 if.end178:                                        ; preds = %sw.bb173
-  %call179 = tail call fastcc i32 @compiler_visit_expr(ptr noundef %c, ptr noundef %val), !range !5
+  %call179 = tail call fastcc i32 @compiler_visit_expr(ptr noundef %c, ptr noundef %val)
   %cmp180 = icmp eq i32 %call179, -1
   br i1 %cmp180, label %return, label %if.end183
 
@@ -34042,7 +34043,7 @@ if.end183:                                        ; preds = %if.end178
   %elt_loc.sroa.18.8.insert.shift83 = shl nuw i64 %elt_loc.sroa.18.8.insert.ext82, 32
   %elt_loc.sroa.10.8.insert.ext59 = zext i32 %55 to i64
   %elt_loc.sroa.10.8.insert.insert61 = or disjoint i64 %elt_loc.sroa.18.8.insert.shift83, %elt_loc.sroa.10.8.insert.ext59
-  %call196 = tail call fastcc i32 @codegen_addop_i(ptr noundef nonnull %u_instr_sequence193, i32 noundef 95, i64 noundef %conv195, i64 %elt_loc.sroa.0.0.insert.insert16, i64 %elt_loc.sroa.10.8.insert.insert61), !range !5
+  %call196 = tail call fastcc i32 @codegen_addop_i(ptr noundef nonnull %u_instr_sequence193, i32 noundef 95, i64 noundef %conv195, i64 %elt_loc.sroa.0.0.insert.insert16, i64 %elt_loc.sroa.10.8.insert.insert61)
   %cmp197 = icmp eq i32 %call196, -1
   br i1 %cmp197, label %return, label %if.end201
 
@@ -34056,7 +34057,7 @@ if.end201:                                        ; preds = %if.end136, %if.end1
   %elt_loc.sroa.0.0 = phi i32 [ %53, %if.end183 ], [ %45, %if.end163 ], [ %45, %if.end149 ], [ %45, %if.end136 ], [ %45, %cond.end122 ]
   %58 = load ptr, ptr %u, align 8
   %u_instr_sequence203 = getelementptr inbounds i8, ptr %58, i64 24
-  %call205 = tail call i32 @_PyCompile_InstructionSequence_UseLabel(ptr noundef nonnull %u_instr_sequence203, i32 noundef %inc.i187), !range !5
+  %call205 = tail call i32 @_PyCompile_InstructionSequence_UseLabel(ptr noundef nonnull %u_instr_sequence203, i32 noundef %inc.i187)
   %cmp206 = icmp eq i32 %call205, -1
   br i1 %cmp206, label %return, label %if.end209
 
@@ -34071,7 +34072,7 @@ if.end209:                                        ; preds = %if.end201
   %elt_loc.sroa.18.8.insert.shift88 = shl nuw i64 %elt_loc.sroa.18.8.insert.ext87, 32
   %elt_loc.sroa.10.8.insert.ext63 = zext i32 %elt_loc.sroa.10.0 to i64
   %elt_loc.sroa.10.8.insert.insert65 = or disjoint i64 %elt_loc.sroa.18.8.insert.shift88, %elt_loc.sroa.10.8.insert.ext63
-  %call213 = tail call fastcc i32 @codegen_addop_j(ptr noundef nonnull %u_instr_sequence211, i64 %elt_loc.sroa.0.0.insert.insert20, i64 %elt_loc.sroa.10.8.insert.insert65, i32 noundef 256, i32 %inc.i), !range !5
+  %call213 = tail call fastcc i32 @codegen_addop_j(ptr noundef nonnull %u_instr_sequence211, i64 %elt_loc.sroa.0.0.insert.insert20, i64 %elt_loc.sroa.10.8.insert.insert65, i32 noundef 256, i32 %inc.i)
   %cmp214 = icmp eq i32 %call213, -1
   br i1 %cmp214, label %return, label %if.end217
 
@@ -34083,14 +34084,14 @@ if.end217:                                        ; preds = %if.end209
   store i32 %dec.i, ptr %u_nfblocks.i239, align 8
   %61 = load ptr, ptr %u, align 8
   %u_instr_sequence220 = getelementptr inbounds i8, ptr %61, i64 24
-  %call222 = tail call i32 @_PyCompile_InstructionSequence_UseLabel(ptr noundef nonnull %u_instr_sequence220, i32 noundef %inc.i185), !range !5
+  %call222 = tail call i32 @_PyCompile_InstructionSequence_UseLabel(ptr noundef nonnull %u_instr_sequence220, i32 noundef %inc.i185)
   %cmp223 = icmp eq i32 %call222, -1
   br i1 %cmp223, label %return, label %if.end226
 
 if.end226:                                        ; preds = %if.end217
   %62 = load ptr, ptr %u, align 8
   %u_instr_sequence228 = getelementptr inbounds i8, ptr %62, i64 24
-  %call229 = tail call fastcc i32 @codegen_addop_noarg(ptr noundef nonnull %u_instr_sequence228, i32 noundef 10, i64 %loc.coerce0, i64 %loc.coerce1), !range !5
+  %call229 = tail call fastcc i32 @codegen_addop_noarg(ptr noundef nonnull %u_instr_sequence228, i32 noundef 10, i64 %loc.coerce0, i64 %loc.coerce1)
   %cmp230 = icmp eq i32 %call229, -1
   %. = sext i1 %cmp230 to i32
   br label %return
@@ -34101,7 +34102,7 @@ return:                                           ; preds = %for.body, %if.end57
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @compiler_sync_comprehension_generator(ptr noundef %c, i64 %loc.coerce0, i64 %loc.coerce1, ptr noundef %generators, i32 noundef %gen_index, i32 noundef %depth, ptr noundef %elt, ptr noundef %val, i32 noundef %type, i32 noundef %iter_on_stack) unnamed_addr #1 {
+define internal fastcc range(i32 -1, 1) i32 @compiler_sync_comprehension_generator(ptr noundef %c, i64 %loc.coerce0, i64 %loc.coerce1, ptr noundef %generators, i32 noundef %gen_index, i32 noundef %depth, ptr noundef %elt, ptr noundef %val, i32 noundef %type, i32 noundef %iter_on_stack) unnamed_addr #1 {
 entry:
   %u = getelementptr inbounds i8, ptr %c, i64 64
   %0 = load ptr, ptr %u, align 8
@@ -34152,7 +34153,7 @@ if.then19:                                        ; preds = %if.then17
   %9 = load i32, ptr %s_used.i.i.i, align 4
   %add.i.i.i = add i32 %9, 1
   %s_allocated.i.i.i = getelementptr inbounds i8, ptr %8, i64 32
-  %call.i.i.i = tail call i32 @_PyCompile_EnsureArrayLargeEnough(i32 noundef %add.i.i.i, ptr noundef nonnull %u_instr_sequence22, ptr noundef nonnull %s_allocated.i.i.i, i32 noundef 100, i64 noundef 44), !range !5
+  %call.i.i.i = tail call i32 @_PyCompile_EnsureArrayLargeEnough(i32 noundef %add.i.i.i, ptr noundef nonnull %u_instr_sequence22, ptr noundef nonnull %s_allocated.i.i.i, i32 noundef 100, i64 noundef 44)
   %cmp.i.i.i = icmp eq i32 %call.i.i.i, -1
   br i1 %cmp.i.i.i, label %return, label %instr_sequence_next_inst.exit.i.i
 
@@ -34197,12 +34198,12 @@ if.then35:                                        ; preds = %cond.end
   br i1 %cmp40.not, label %if.then50, label %if.then41
 
 if.then41:                                        ; preds = %if.then35
-  %call42 = tail call fastcc i32 @compiler_visit_expr(ptr noundef nonnull %c, ptr noundef nonnull %15), !range !5
+  %call42 = tail call fastcc i32 @compiler_visit_expr(ptr noundef nonnull %c, ptr noundef nonnull %15)
   %cmp43 = icmp eq i32 %call42, -1
   br i1 %cmp43, label %return, label %if.end82
 
 if.then50:                                        ; preds = %if.else, %sw.epilog, %if.then35, %cond.end
-  %call52 = tail call fastcc i32 @compiler_visit_expr(ptr noundef nonnull %c, ptr noundef nonnull %12), !range !5
+  %call52 = tail call fastcc i32 @compiler_visit_expr(ptr noundef nonnull %c, ptr noundef nonnull %12)
   %cmp53 = icmp eq i32 %call52, -1
   br i1 %cmp53, label %return, label %if.end55
 
@@ -34213,7 +34214,7 @@ if.end55:                                         ; preds = %if.then50
   %18 = load i32, ptr %s_used.i.i.i177, align 4
   %add.i.i.i178 = add i32 %18, 1
   %s_allocated.i.i.i179 = getelementptr inbounds i8, ptr %17, i64 32
-  %call.i.i.i180 = tail call i32 @_PyCompile_EnsureArrayLargeEnough(i32 noundef %add.i.i.i178, ptr noundef nonnull %u_instr_sequence57, ptr noundef nonnull %s_allocated.i.i.i179, i32 noundef 100, i64 noundef 44), !range !5
+  %call.i.i.i180 = tail call i32 @_PyCompile_EnsureArrayLargeEnough(i32 noundef %add.i.i.i178, ptr noundef nonnull %u_instr_sequence57, ptr noundef nonnull %s_allocated.i.i.i179, i32 noundef 100, i64 noundef 44)
   %cmp.i.i.i181 = icmp eq i32 %call.i.i.i180, -1
   br i1 %cmp.i.i.i181, label %return, label %instr_sequence_next_inst.exit.i.i182
 
@@ -34246,7 +34247,7 @@ if.then67:                                        ; preds = %if.then67.sink.spli
   %s_labelmap_size.i = getelementptr inbounds i8, ptr %21, i64 48
   %22 = load i32, ptr %s_labelmap_size.i, align 8
   %s_labelmap.i = getelementptr inbounds i8, ptr %21, i64 40
-  %call.i = tail call i32 @_PyCompile_EnsureArrayLargeEnough(i32 noundef %inc.i, ptr noundef nonnull %s_labelmap.i, ptr noundef nonnull %s_labelmap_size.i, i32 noundef 10, i64 noundef 4), !range !5
+  %call.i = tail call i32 @_PyCompile_EnsureArrayLargeEnough(i32 noundef %inc.i, ptr noundef nonnull %s_labelmap.i, ptr noundef nonnull %s_labelmap_size.i, i32 noundef 10, i64 noundef 4)
   %cmp.i = icmp eq i32 %call.i, -1
   br i1 %cmp.i, label %return, label %for.cond.preheader.i
 
@@ -34268,7 +34269,7 @@ for.body.i:                                       ; preds = %for.body.i, %for.bo
   %26 = load i32, ptr %s_labelmap_size.i, align 8
   %27 = sext i32 %26 to i64
   %cmp3.i = icmp slt i64 %indvars.iv.next.i, %27
-  br i1 %cmp3.i, label %for.body.i, label %if.end74, !llvm.loop !6
+  br i1 %cmp3.i, label %for.body.i, label %if.end74, !llvm.loop !5
 
 if.end74:                                         ; preds = %for.body.i, %for.cond.preheader.i
   %s_used.i = getelementptr inbounds i8, ptr %21, i64 36
@@ -34284,7 +34285,7 @@ if.end74:                                         ; preds = %for.body.i, %for.co
   %31 = load i32, ptr %s_used.i.i.i192, align 4
   %add.i.i.i193 = add i32 %31, 1
   %s_allocated.i.i.i194 = getelementptr inbounds i8, ptr %30, i64 32
-  %call.i.i.i195 = tail call i32 @_PyCompile_EnsureArrayLargeEnough(i32 noundef %add.i.i.i193, ptr noundef nonnull %u_instr_sequence76, ptr noundef nonnull %s_allocated.i.i.i194, i32 noundef 100, i64 noundef 44), !range !5
+  %call.i.i.i195 = tail call i32 @_PyCompile_EnsureArrayLargeEnough(i32 noundef %add.i.i.i193, ptr noundef nonnull %u_instr_sequence76, ptr noundef nonnull %s_allocated.i.i.i194, i32 noundef 100, i64 noundef 44)
   %cmp.i.i.i196 = icmp eq i32 %call.i.i.i195, -1
   br i1 %cmp.i.i.i196, label %return, label %instr_sequence_next_inst.exit.i.i197
 
@@ -34313,7 +34314,7 @@ if.end82:                                         ; preds = %codegen_addop_j.exi
   %start.sroa.0.1244 = phi i32 [ %inc.i, %codegen_addop_j.exit ], [ -1, %if.then41 ]
   %depth.addr.0 = phi i32 [ %inc, %codegen_addop_j.exit ], [ %depth, %if.then41 ]
   %34 = load ptr, ptr %6, align 8
-  %call83 = tail call fastcc i32 @compiler_visit_expr(ptr noundef nonnull %c, ptr noundef %34), !range !5
+  %call83 = tail call fastcc i32 @compiler_visit_expr(ptr noundef nonnull %c, ptr noundef %34)
   %cmp84 = icmp eq i32 %call83, -1
   br i1 %cmp84, label %return, label %if.end86
 
@@ -34331,7 +34332,7 @@ cond.end92:                                       ; preds = %if.end86
 for.cond:                                         ; preds = %for.body
   %inc103 = add nuw nsw i64 %i.0274, 1
   %exitcond.not = icmp eq i64 %inc103, %36
-  br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !146
+  br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !139
 
 for.body:                                         ; preds = %cond.end92, %for.cond
   %i.0274 = phi i64 [ %inc103, %for.cond ], [ 0, %cond.end92 ]
@@ -34367,11 +34368,11 @@ if.then114:                                       ; preds = %cond.end110.thread,
   br i1 %tobool.not.i, label %if.else.i, label %if.then.i
 
 if.then.i:                                        ; preds = %if.then114
-  %call.i208 = tail call fastcc i32 @compiler_async_comprehension_generator(ptr noundef %c, i64 %loc.coerce0, i64 %loc.coerce1, ptr noundef nonnull %generators, i32 noundef %inc104, i32 noundef %depth.addr.0, ptr noundef %elt, ptr noundef %val, i32 noundef %type, i32 noundef 0), !range !5
+  %call.i208 = tail call fastcc i32 @compiler_async_comprehension_generator(ptr noundef %c, i64 %loc.coerce0, i64 %loc.coerce1, ptr noundef nonnull %generators, i32 noundef %inc104, i32 noundef %depth.addr.0, ptr noundef %elt, ptr noundef %val, i32 noundef %type, i32 noundef 0)
   br label %compiler_comprehension_generator.exit
 
 if.else.i:                                        ; preds = %if.then114
-  %call1.i = tail call fastcc i32 @compiler_sync_comprehension_generator(ptr noundef %c, i64 %loc.coerce0, i64 %loc.coerce1, ptr noundef nonnull %generators, i32 noundef %inc104, i32 noundef %depth.addr.0, ptr noundef %elt, ptr noundef %val, i32 noundef %type, i32 noundef 0), !range !5
+  %call1.i = tail call fastcc i32 @compiler_sync_comprehension_generator(ptr noundef %c, i64 %loc.coerce0, i64 %loc.coerce1, ptr noundef nonnull %generators, i32 noundef %inc104, i32 noundef %depth.addr.0, ptr noundef %elt, ptr noundef %val, i32 noundef %type, i32 noundef 0)
   br label %compiler_comprehension_generator.exit
 
 compiler_comprehension_generator.exit:            ; preds = %if.then.i, %if.else.i
@@ -34397,7 +34398,7 @@ cond.end131:                                      ; preds = %cond.end110.thread,
   br i1 %cmp133.not, label %if.end213, label %if.then135
 
 if.then135:                                       ; preds = %cond.end131
-  %call137 = tail call fastcc i32 @compiler_visit_expr(ptr noundef %c, ptr noundef nonnull %elt), !range !5
+  %call137 = tail call fastcc i32 @compiler_visit_expr(ptr noundef %c, ptr noundef nonnull %elt)
   %cmp138 = icmp eq i32 %call137, -1
   switch i32 %type, label %default.unreachable [
     i32 0, label %sw.bb136
@@ -34418,14 +34419,14 @@ if.end141:                                        ; preds = %sw.bb136
   %elt_loc.sroa.18.8.insert.shift = shl nuw i64 %elt_loc.sroa.18.8.insert.ext, 32
   %elt_loc.sroa.10.8.insert.ext = zext i32 %44 to i64
   %elt_loc.sroa.10.8.insert.insert = or disjoint i64 %elt_loc.sroa.18.8.insert.shift, %elt_loc.sroa.10.8.insert.ext
-  %call142 = tail call fastcc i32 @addop_yield(ptr noundef %c, i64 %elt_loc.sroa.0.0.insert.insert, i64 %elt_loc.sroa.10.8.insert.insert), !range !5
+  %call142 = tail call fastcc i32 @addop_yield(ptr noundef %c, i64 %elt_loc.sroa.0.0.insert.insert, i64 %elt_loc.sroa.10.8.insert.insert)
   %cmp143 = icmp eq i32 %call142, -1
   br i1 %cmp143, label %return, label %if.end146
 
 if.end146:                                        ; preds = %if.end141
   %46 = load ptr, ptr %u, align 8
   %u_instr_sequence148 = getelementptr inbounds i8, ptr %46, i64 24
-  %call149 = tail call fastcc i32 @codegen_addop_noarg(ptr noundef nonnull %u_instr_sequence148, i32 noundef 32, i64 %elt_loc.sroa.0.0.insert.insert, i64 %elt_loc.sroa.10.8.insert.insert), !range !5
+  %call149 = tail call fastcc i32 @codegen_addop_noarg(ptr noundef nonnull %u_instr_sequence148, i32 noundef 32, i64 %elt_loc.sroa.0.0.insert.insert, i64 %elt_loc.sroa.10.8.insert.insert)
   %cmp150 = icmp eq i32 %call149, -1
   br i1 %cmp150, label %return, label %if.end213
 
@@ -34445,7 +34446,7 @@ if.end159:                                        ; preds = %sw.bb154
   %elt_loc.sroa.18.8.insert.shift73 = shl nuw i64 %elt_loc.sroa.18.8.insert.ext72, 32
   %elt_loc.sroa.10.8.insert.ext51 = zext i32 %44 to i64
   %elt_loc.sroa.10.8.insert.insert53 = or disjoint i64 %elt_loc.sroa.18.8.insert.shift73, %elt_loc.sroa.10.8.insert.ext51
-  %call163 = tail call fastcc i32 @codegen_addop_i(ptr noundef nonnull %u_instr_sequence161, i32 noundef 80, i64 noundef %conv162, i64 %elt_loc.sroa.0.0.insert.insert8, i64 %elt_loc.sroa.10.8.insert.insert53), !range !5
+  %call163 = tail call fastcc i32 @codegen_addop_i(ptr noundef nonnull %u_instr_sequence161, i32 noundef 80, i64 noundef %conv162, i64 %elt_loc.sroa.0.0.insert.insert8, i64 %elt_loc.sroa.10.8.insert.insert53)
   %cmp164 = icmp eq i32 %call163, -1
   br i1 %cmp164, label %return, label %if.end213
 
@@ -34465,7 +34466,7 @@ if.end173:                                        ; preds = %sw.bb168
   %elt_loc.sroa.18.8.insert.shift78 = shl nuw i64 %elt_loc.sroa.18.8.insert.ext77, 32
   %elt_loc.sroa.10.8.insert.ext55 = zext i32 %44 to i64
   %elt_loc.sroa.10.8.insert.insert57 = or disjoint i64 %elt_loc.sroa.18.8.insert.shift78, %elt_loc.sroa.10.8.insert.ext55
-  %call178 = tail call fastcc i32 @codegen_addop_i(ptr noundef nonnull %u_instr_sequence175, i32 noundef 105, i64 noundef %conv177, i64 %elt_loc.sroa.0.0.insert.insert12, i64 %elt_loc.sroa.10.8.insert.insert57), !range !5
+  %call178 = tail call fastcc i32 @codegen_addop_i(ptr noundef nonnull %u_instr_sequence175, i32 noundef 105, i64 noundef %conv177, i64 %elt_loc.sroa.0.0.insert.insert12, i64 %elt_loc.sroa.10.8.insert.insert57)
   %cmp179 = icmp eq i32 %call178, -1
   br i1 %cmp179, label %return, label %if.end213
 
@@ -34473,7 +34474,7 @@ sw.bb183:                                         ; preds = %if.then135
   br i1 %cmp138, label %return, label %if.end188
 
 if.end188:                                        ; preds = %sw.bb183
-  %call189 = tail call fastcc i32 @compiler_visit_expr(ptr noundef %c, ptr noundef %val), !range !5
+  %call189 = tail call fastcc i32 @compiler_visit_expr(ptr noundef %c, ptr noundef %val)
   %cmp190 = icmp eq i32 %call189, -1
   br i1 %cmp190, label %return, label %if.end193
 
@@ -34496,7 +34497,7 @@ if.end193:                                        ; preds = %if.end188
   %elt_loc.sroa.18.8.insert.shift83 = shl nuw i64 %elt_loc.sroa.18.8.insert.ext82, 32
   %elt_loc.sroa.10.8.insert.ext59 = zext i32 %51 to i64
   %elt_loc.sroa.10.8.insert.insert61 = or disjoint i64 %elt_loc.sroa.18.8.insert.shift83, %elt_loc.sroa.10.8.insert.ext59
-  %call206 = tail call fastcc i32 @codegen_addop_i(ptr noundef nonnull %u_instr_sequence203, i32 noundef 95, i64 noundef %conv205, i64 %elt_loc.sroa.0.0.insert.insert16, i64 %elt_loc.sroa.10.8.insert.insert61), !range !5
+  %call206 = tail call fastcc i32 @codegen_addop_i(ptr noundef nonnull %u_instr_sequence203, i32 noundef 95, i64 noundef %conv205, i64 %elt_loc.sroa.0.0.insert.insert16, i64 %elt_loc.sroa.10.8.insert.insert61)
   %cmp207 = icmp eq i32 %call206, -1
   br i1 %cmp207, label %return, label %if.end213
 
@@ -34512,7 +34513,7 @@ if.end213:                                        ; preds = %if.end146, %if.end1
   %s_labelmap_size.i210 = getelementptr inbounds i8, ptr %54, i64 48
   %55 = load i32, ptr %s_labelmap_size.i210, align 8
   %s_labelmap.i211 = getelementptr inbounds i8, ptr %54, i64 40
-  %call.i212 = tail call i32 @_PyCompile_EnsureArrayLargeEnough(i32 noundef %inc.i174, ptr noundef nonnull %s_labelmap.i211, ptr noundef nonnull %s_labelmap_size.i210, i32 noundef 10, i64 noundef 4), !range !5
+  %call.i212 = tail call i32 @_PyCompile_EnsureArrayLargeEnough(i32 noundef %inc.i174, ptr noundef nonnull %s_labelmap.i211, ptr noundef nonnull %s_labelmap_size.i210, i32 noundef 10, i64 noundef 4)
   %cmp.i213 = icmp eq i32 %call.i212, -1
   br i1 %cmp.i213, label %return, label %for.cond.preheader.i214
 
@@ -34534,7 +34535,7 @@ for.body.i222:                                    ; preds = %for.body.i222, %for
   %59 = load i32, ptr %s_labelmap_size.i210, align 8
   %60 = sext i32 %59 to i64
   %cmp3.i226 = icmp slt i64 %indvars.iv.next.i225, %60
-  br i1 %cmp3.i226, label %for.body.i222, label %if.end221, !llvm.loop !6
+  br i1 %cmp3.i226, label %for.body.i222, label %if.end221, !llvm.loop !5
 
 if.end221:                                        ; preds = %for.body.i222, %for.cond.preheader.i214
   %s_used.i217 = getelementptr inbounds i8, ptr %54, i64 36
@@ -34556,21 +34557,21 @@ if.then225:                                       ; preds = %if.end221
   %elt_loc.sroa.18.8.insert.shift88 = shl nuw i64 %elt_loc.sroa.18.8.insert.ext87, 32
   %elt_loc.sroa.10.8.insert.ext63 = zext i32 %elt_loc.sroa.10.0 to i64
   %elt_loc.sroa.10.8.insert.insert65 = or disjoint i64 %elt_loc.sroa.18.8.insert.shift88, %elt_loc.sroa.10.8.insert.ext63
-  %call229 = tail call fastcc i32 @codegen_addop_j(ptr noundef nonnull %u_instr_sequence227, i64 %elt_loc.sroa.0.0.insert.insert20, i64 %elt_loc.sroa.10.8.insert.insert65, i32 noundef 256, i32 %start.sroa.0.1244), !range !5
+  %call229 = tail call fastcc i32 @codegen_addop_j(ptr noundef nonnull %u_instr_sequence227, i64 %elt_loc.sroa.0.0.insert.insert20, i64 %elt_loc.sroa.10.8.insert.insert65, i32 noundef 256, i32 %start.sroa.0.1244)
   %cmp230 = icmp eq i32 %call229, -1
   br i1 %cmp230, label %return, label %if.end233
 
 if.end233:                                        ; preds = %if.then225
   %64 = load ptr, ptr %u, align 8
   %u_instr_sequence235 = getelementptr inbounds i8, ptr %64, i64 24
-  %call237 = tail call i32 @_PyCompile_InstructionSequence_UseLabel(ptr noundef nonnull %u_instr_sequence235, i32 noundef %inc.i176), !range !5
+  %call237 = tail call i32 @_PyCompile_InstructionSequence_UseLabel(ptr noundef nonnull %u_instr_sequence235, i32 noundef %inc.i176)
   %cmp238 = icmp eq i32 %call237, -1
   br i1 %cmp238, label %return, label %if.end241
 
 if.end241:                                        ; preds = %if.end233
   %65 = load ptr, ptr %u, align 8
   %u_instr_sequence243 = getelementptr inbounds i8, ptr %65, i64 24
-  %call244 = tail call fastcc i32 @codegen_addop_noarg(ptr noundef nonnull %u_instr_sequence243, i32 noundef 11, i64 -1, i64 -1), !range !5
+  %call244 = tail call fastcc i32 @codegen_addop_noarg(ptr noundef nonnull %u_instr_sequence243, i32 noundef 11, i64 -1, i64 -1)
   %cmp245 = icmp eq i32 %call244, -1
   br i1 %cmp245, label %return, label %if.end249
 
@@ -34583,7 +34584,7 @@ return:                                           ; preds = %for.body, %if.end21
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @restore_inlined_comprehension_locals(ptr nocapture noundef readonly %c, i64 %loc.coerce0, i64 %loc.coerce1, ptr %state.0.val) unnamed_addr #1 {
+define internal fastcc range(i32 -1, 1) i32 @restore_inlined_comprehension_locals(ptr nocapture noundef readonly %c, i64 %loc.coerce0, i64 %loc.coerce1, ptr %state.0.val) unnamed_addr #1 {
 entry:
   %0 = getelementptr i8, ptr %state.0.val, i64 16
   %.val = load i64, ptr %0, align 8
@@ -34596,7 +34597,7 @@ entry:
   %3 = load i32, ptr %s_used.i.i.i, align 4
   %add.i.i.i = add i32 %3, 1
   %s_allocated.i.i.i = getelementptr inbounds i8, ptr %1, i64 32
-  %call.i.i.i = tail call i32 @_PyCompile_EnsureArrayLargeEnough(i32 noundef %add.i.i.i, ptr noundef nonnull %u_instr_sequence, ptr noundef nonnull %s_allocated.i.i.i, i32 noundef 100, i64 noundef 44), !range !5
+  %call.i.i.i = tail call i32 @_PyCompile_EnsureArrayLargeEnough(i32 noundef %add.i.i.i, ptr noundef nonnull %u_instr_sequence, ptr noundef nonnull %s_allocated.i.i.i, i32 noundef 100, i64 noundef 44)
   %cmp.i.i.i = icmp eq i32 %call.i.i.i, -1
   br i1 %cmp.i.i.i, label %return, label %instr_sequence_next_inst.exit.i.i
 
@@ -34635,9 +34636,9 @@ if.end7:                                          ; preds = %for.body
   %6 = load ptr, ptr %u, align 8
   %u_varnames = getelementptr inbounds i8, ptr %6, i64 576
   %7 = load ptr, ptr %u_varnames, align 8
-  %call10 = tail call fastcc i32 @compiler_addop_name(ptr noundef %6, i64 %loc.coerce0, i64 %loc.coerce1, i32 noundef 267, ptr noundef %7, ptr noundef nonnull %call4), !range !5
+  %call10 = tail call fastcc i32 @compiler_addop_name(ptr noundef %6, i64 %loc.coerce0, i64 %loc.coerce1, i32 noundef 267, ptr noundef %7, ptr noundef nonnull %call4)
   %cmp11 = icmp eq i32 %call10, -1
-  br i1 %cmp11, label %return, label %for.cond, !llvm.loop !143
+  br i1 %cmp11, label %return, label %for.cond, !llvm.loop !136
 
 return:                                           ; preds = %for.cond, %if.end7, %for.body, %entry, %instr_sequence_next_inst.exit.i.i
   %retval.0 = phi i32 [ -1, %instr_sequence_next_inst.exit.i.i ], [ -1, %entry ], [ 0, %for.cond ], [ -1, %if.end7 ], [ -1, %for.body ]
@@ -34655,7 +34656,7 @@ declare i64 @_PyST_GetSymbol(ptr noundef, ptr noundef) local_unnamed_addr #2
 declare i32 @PyType_IsSubtype(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @unpack_helper(ptr nocapture noundef readonly %c, i64 %loc.coerce0, i64 %loc.coerce1, ptr noundef readonly %elts) unnamed_addr #1 {
+define internal fastcc range(i32 -1, 1) i32 @unpack_helper(ptr nocapture noundef readonly %c, i64 %loc.coerce0, i64 %loc.coerce1, ptr noundef readonly %elts) unnamed_addr #1 {
 entry:
   %cmp = icmp eq ptr %elts, null
   br i1 %cmp, label %if.then20, label %cond.end
@@ -34709,7 +34710,7 @@ if.end:                                           ; preds = %lor.lhs.false
   %6 = load i32, ptr %s_used.i.i.i, align 4
   %add.i.i.i = add i32 %6, 1
   %s_allocated.i.i.i = getelementptr inbounds i8, ptr %5, i64 32
-  %call.i.i.i = tail call i32 @_PyCompile_EnsureArrayLargeEnough(i32 noundef %add.i.i.i, ptr noundef nonnull %u_instr_sequence, ptr noundef nonnull %s_allocated.i.i.i, i32 noundef 100, i64 noundef 44), !range !5
+  %call.i.i.i = tail call i32 @_PyCompile_EnsureArrayLargeEnough(i32 noundef %add.i.i.i, ptr noundef nonnull %u_instr_sequence, ptr noundef nonnull %s_allocated.i.i.i, i32 noundef 100, i64 noundef 44)
   %cmp.i.i.i = icmp eq i32 %call.i.i.i, -1
   br i1 %cmp.i.i.i, label %return, label %instr_sequence_next_inst.exit.i.i
 
@@ -34731,7 +34732,7 @@ if.then15:                                        ; preds = %if.else
 for.inc:                                          ; preds = %if.else
   %inc = add nuw nsw i64 %i.049, 1
   %exitcond.not = icmp eq i64 %inc, %0
-  br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !147
+  br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !140
 
 for.inc.thread:                                   ; preds = %instr_sequence_next_inst.exit.i.i
   %8 = load ptr, ptr %u_instr_sequence, align 8
@@ -34746,7 +34747,7 @@ for.inc.thread:                                   ; preds = %instr_sequence_next
   store i64 %loc.coerce1, ptr %loc.sroa.2.0.i_loc.sroa_idx.i.i, align 4
   %inc57 = add nuw nsw i64 %i.049, 1
   %exitcond.not58 = icmp eq i64 %inc57, %0
-  br i1 %exitcond.not58, label %return, label %for.body.outer, !llvm.loop !147
+  br i1 %exitcond.not58, label %return, label %for.body.outer, !llvm.loop !140
 
 for.end:                                          ; preds = %for.inc
   br i1 %1, label %if.then20, label %return
@@ -34761,7 +34762,7 @@ if.then20:                                        ; preds = %entry, %cond.end, %
   %10 = load i32, ptr %s_used.i.i.i24, align 4
   %add.i.i.i25 = add i32 %10, 1
   %s_allocated.i.i.i26 = getelementptr inbounds i8, ptr %9, i64 32
-  %call.i.i.i27 = tail call i32 @_PyCompile_EnsureArrayLargeEnough(i32 noundef %add.i.i.i25, ptr noundef nonnull %u_instr_sequence22, ptr noundef nonnull %s_allocated.i.i.i26, i32 noundef 100, i64 noundef 44), !range !5
+  %call.i.i.i27 = tail call i32 @_PyCompile_EnsureArrayLargeEnough(i32 noundef %add.i.i.i25, ptr noundef nonnull %u_instr_sequence22, ptr noundef nonnull %s_allocated.i.i.i26, i32 noundef 100, i64 noundef 44)
   %cmp.i.i.i28 = icmp eq i32 %call.i.i.i27, -1
   br i1 %cmp.i.i.i28, label %return, label %instr_sequence_next_inst.exit.i.i29
 
@@ -34842,146 +34843,139 @@ attributes #12 = { "function-inline-cost-multiplier"="2" }
 !2 = !{i32 7, !"PIE Level", i32 2}
 !3 = !{i32 7, !"uwtable", i32 2}
 !4 = !{i32 7, !"frame-pointer", i32 2}
-!5 = !{i32 -1, i32 1}
-!6 = distinct !{!6, !7}
-!7 = !{!"llvm.loop.mustprogress"}
-!8 = !{i32 -2147483647, i32 -2147483648}
-!9 = distinct !{!9, !7}
-!10 = distinct !{!10, !7}
-!11 = distinct !{!11, !7}
-!12 = distinct !{!12, !7}
-!13 = distinct !{!13, !7}
-!14 = distinct !{!14, !7}
-!15 = distinct !{!15, !7}
-!16 = distinct !{!16, !7}
-!17 = distinct !{!17, !7}
-!18 = distinct !{!18, !7}
-!19 = distinct !{!19, !7}
-!20 = distinct !{!20, !7}
-!21 = distinct !{!21, !7}
-!22 = distinct !{!22, !7}
-!23 = distinct !{!23, !7}
-!24 = distinct !{!24, !7}
-!25 = distinct !{!25, !7}
-!26 = distinct !{!26, !7}
-!27 = distinct !{!27, !7}
-!28 = distinct !{!28, !7}
-!29 = distinct !{!29, !7}
-!30 = distinct !{!30, !7}
-!31 = distinct !{!31, !7}
-!32 = distinct !{!32, !7}
-!33 = distinct !{!33, !7}
-!34 = distinct !{!34, !7}
-!35 = distinct !{!35, !7}
-!36 = !{i32 -1, i32 4}
-!37 = distinct !{!37, !7}
-!38 = distinct !{!38, !7}
-!39 = distinct !{!39, !7}
-!40 = distinct !{!40, !7}
-!41 = distinct !{!41, !7}
-!42 = distinct !{!42, !7}
-!43 = distinct !{!43, !7}
-!44 = distinct !{!44, !7}
-!45 = distinct !{!45, !7}
-!46 = distinct !{!46, !7}
-!47 = distinct !{!47, !7}
-!48 = distinct !{!48, !7}
-!49 = distinct !{!49, !7}
-!50 = distinct !{!50, !7}
-!51 = distinct !{!51, !7}
-!52 = distinct !{!52, !7}
-!53 = distinct !{!53, !7}
-!54 = !{i32 0, i32 43}
-!55 = !{i32 -1, i32 2}
-!56 = distinct !{!56, !7}
-!57 = distinct !{!57, !7}
-!58 = distinct !{!58, !7}
-!59 = distinct !{!59, !7}
-!60 = !{i32 0, i32 2}
-!61 = distinct !{!61, !7}
-!62 = distinct !{!62, !7}
-!63 = distinct !{!63, !7}
-!64 = distinct !{!64, !7}
-!65 = distinct !{!65, !7}
-!66 = distinct !{!66, !7}
-!67 = distinct !{!67, !7}
-!68 = distinct !{!68, !7}
-!69 = distinct !{!69, !7}
-!70 = distinct !{!70, !7}
-!71 = distinct !{!71, !7}
-!72 = distinct !{!72, !7}
-!73 = distinct !{!73, !7}
-!74 = distinct !{!74, !7}
-!75 = distinct !{!75, !7}
-!76 = distinct !{!76, !7}
-!77 = distinct !{!77, !7}
-!78 = distinct !{!78, !7}
-!79 = !{i32 1, i32 0}
-!80 = distinct !{!80, !7}
-!81 = distinct !{!81, !7}
-!82 = distinct !{!82, !7}
-!83 = distinct !{!83, !7}
-!84 = distinct !{!84, !7}
-!85 = distinct !{!85, !7}
-!86 = distinct !{!86, !7}
-!87 = distinct !{!87, !7}
-!88 = distinct !{!88, !7}
-!89 = distinct !{!89, !7}
-!90 = distinct !{!90, !7}
-!91 = distinct !{!91, !7}
-!92 = distinct !{!92, !7}
-!93 = distinct !{!93, !7}
-!94 = distinct !{!94, !7}
-!95 = distinct !{!95, !7}
-!96 = distinct !{!96, !7}
-!97 = distinct !{!97, !7}
-!98 = distinct !{!98, !7}
-!99 = distinct !{!99, !7}
-!100 = distinct !{!100, !7}
-!101 = distinct !{!101, !7}
-!102 = distinct !{!102, !7}
-!103 = distinct !{!103, !7}
-!104 = distinct !{!104, !7}
-!105 = distinct !{!105, !7}
-!106 = distinct !{!106, !7}
-!107 = distinct !{!107, !7}
-!108 = distinct !{!108, !7}
-!109 = distinct !{!109, !7}
-!110 = distinct !{!110, !7}
-!111 = distinct !{!111, !7}
-!112 = distinct !{!112, !7}
-!113 = distinct !{!113, !7}
-!114 = distinct !{!114, !7}
-!115 = distinct !{!115, !7}
-!116 = distinct !{!116, !7}
-!117 = distinct !{!117, !7}
-!118 = distinct !{!118, !7}
-!119 = distinct !{!119, !7}
-!120 = distinct !{!120, !7}
-!121 = distinct !{!121, !7}
-!122 = distinct !{!122, !7}
-!123 = distinct !{!123, !7}
-!124 = distinct !{!124, !7}
-!125 = distinct !{!125, !7}
-!126 = distinct !{!126, !7}
-!127 = distinct !{!127, !7}
-!128 = distinct !{!128, !7}
-!129 = distinct !{!129, !7}
-!130 = distinct !{!130, !7}
-!131 = distinct !{!131, !7}
-!132 = distinct !{!132, !7}
-!133 = distinct !{!133, !7}
-!134 = distinct !{!134, !7}
-!135 = distinct !{!135, !7}
-!136 = distinct !{!136, !7}
-!137 = distinct !{!137, !7}
-!138 = distinct !{!138, !7}
-!139 = distinct !{!139, !7}
-!140 = distinct !{!140, !7}
-!141 = distinct !{!141, !7}
-!142 = distinct !{!142, !7}
-!143 = distinct !{!143, !7}
-!144 = distinct !{!144, !7}
-!145 = distinct !{!145, !7}
-!146 = distinct !{!146, !7}
-!147 = distinct !{!147, !7}
+!5 = distinct !{!5, !6}
+!6 = !{!"llvm.loop.mustprogress"}
+!7 = distinct !{!7, !6}
+!8 = distinct !{!8, !6}
+!9 = distinct !{!9, !6}
+!10 = distinct !{!10, !6}
+!11 = distinct !{!11, !6}
+!12 = distinct !{!12, !6}
+!13 = distinct !{!13, !6}
+!14 = distinct !{!14, !6}
+!15 = distinct !{!15, !6}
+!16 = distinct !{!16, !6}
+!17 = distinct !{!17, !6}
+!18 = distinct !{!18, !6}
+!19 = distinct !{!19, !6}
+!20 = distinct !{!20, !6}
+!21 = distinct !{!21, !6}
+!22 = distinct !{!22, !6}
+!23 = distinct !{!23, !6}
+!24 = distinct !{!24, !6}
+!25 = distinct !{!25, !6}
+!26 = distinct !{!26, !6}
+!27 = distinct !{!27, !6}
+!28 = distinct !{!28, !6}
+!29 = distinct !{!29, !6}
+!30 = distinct !{!30, !6}
+!31 = distinct !{!31, !6}
+!32 = distinct !{!32, !6}
+!33 = distinct !{!33, !6}
+!34 = distinct !{!34, !6}
+!35 = distinct !{!35, !6}
+!36 = distinct !{!36, !6}
+!37 = distinct !{!37, !6}
+!38 = distinct !{!38, !6}
+!39 = distinct !{!39, !6}
+!40 = distinct !{!40, !6}
+!41 = distinct !{!41, !6}
+!42 = distinct !{!42, !6}
+!43 = distinct !{!43, !6}
+!44 = distinct !{!44, !6}
+!45 = distinct !{!45, !6}
+!46 = distinct !{!46, !6}
+!47 = distinct !{!47, !6}
+!48 = distinct !{!48, !6}
+!49 = distinct !{!49, !6}
+!50 = distinct !{!50, !6}
+!51 = distinct !{!51, !6}
+!52 = distinct !{!52, !6}
+!53 = distinct !{!53, !6}
+!54 = distinct !{!54, !6}
+!55 = distinct !{!55, !6}
+!56 = distinct !{!56, !6}
+!57 = distinct !{!57, !6}
+!58 = distinct !{!58, !6}
+!59 = distinct !{!59, !6}
+!60 = distinct !{!60, !6}
+!61 = distinct !{!61, !6}
+!62 = distinct !{!62, !6}
+!63 = distinct !{!63, !6}
+!64 = distinct !{!64, !6}
+!65 = distinct !{!65, !6}
+!66 = distinct !{!66, !6}
+!67 = distinct !{!67, !6}
+!68 = distinct !{!68, !6}
+!69 = distinct !{!69, !6}
+!70 = distinct !{!70, !6}
+!71 = distinct !{!71, !6}
+!72 = distinct !{!72, !6}
+!73 = distinct !{!73, !6}
+!74 = distinct !{!74, !6}
+!75 = distinct !{!75, !6}
+!76 = distinct !{!76, !6}
+!77 = distinct !{!77, !6}
+!78 = distinct !{!78, !6}
+!79 = distinct !{!79, !6}
+!80 = distinct !{!80, !6}
+!81 = distinct !{!81, !6}
+!82 = distinct !{!82, !6}
+!83 = distinct !{!83, !6}
+!84 = distinct !{!84, !6}
+!85 = distinct !{!85, !6}
+!86 = distinct !{!86, !6}
+!87 = distinct !{!87, !6}
+!88 = distinct !{!88, !6}
+!89 = distinct !{!89, !6}
+!90 = distinct !{!90, !6}
+!91 = distinct !{!91, !6}
+!92 = distinct !{!92, !6}
+!93 = distinct !{!93, !6}
+!94 = distinct !{!94, !6}
+!95 = distinct !{!95, !6}
+!96 = distinct !{!96, !6}
+!97 = distinct !{!97, !6}
+!98 = distinct !{!98, !6}
+!99 = distinct !{!99, !6}
+!100 = distinct !{!100, !6}
+!101 = distinct !{!101, !6}
+!102 = distinct !{!102, !6}
+!103 = distinct !{!103, !6}
+!104 = distinct !{!104, !6}
+!105 = distinct !{!105, !6}
+!106 = distinct !{!106, !6}
+!107 = distinct !{!107, !6}
+!108 = distinct !{!108, !6}
+!109 = distinct !{!109, !6}
+!110 = distinct !{!110, !6}
+!111 = distinct !{!111, !6}
+!112 = distinct !{!112, !6}
+!113 = distinct !{!113, !6}
+!114 = distinct !{!114, !6}
+!115 = distinct !{!115, !6}
+!116 = distinct !{!116, !6}
+!117 = distinct !{!117, !6}
+!118 = distinct !{!118, !6}
+!119 = distinct !{!119, !6}
+!120 = distinct !{!120, !6}
+!121 = distinct !{!121, !6}
+!122 = distinct !{!122, !6}
+!123 = distinct !{!123, !6}
+!124 = distinct !{!124, !6}
+!125 = distinct !{!125, !6}
+!126 = distinct !{!126, !6}
+!127 = distinct !{!127, !6}
+!128 = distinct !{!128, !6}
+!129 = distinct !{!129, !6}
+!130 = distinct !{!130, !6}
+!131 = distinct !{!131, !6}
+!132 = distinct !{!132, !6}
+!133 = distinct !{!133, !6}
+!134 = distinct !{!134, !6}
+!135 = distinct !{!135, !6}
+!136 = distinct !{!136, !6}
+!137 = distinct !{!137, !6}
+!138 = distinct !{!138, !6}
+!139 = distinct !{!139, !6}
+!140 = distinct !{!140, !6}

@@ -10596,7 +10596,7 @@ define hidden { i64, ptr } @"_ZN5rowan3api125_$LT$impl$u20$rowan..utility_types.
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden noundef i16 @"_ZN5rowan3api125_$LT$impl$u20$rowan..utility_types..NodeOrToken$LT$rowan..api..SyntaxNode$LT$L$GT$$C$rowan..api..SyntaxToken$LT$L$GT$$GT$$GT$4kind17h455fc501deab930dE"(ptr noalias nocapture noundef readonly align 8 dereferenceable(16) %0) unnamed_addr #6 {
+define hidden noundef range(i16 0, 273) i16 @"_ZN5rowan3api125_$LT$impl$u20$rowan..utility_types..NodeOrToken$LT$rowan..api..SyntaxNode$LT$L$GT$$C$rowan..api..SyntaxToken$LT$L$GT$$GT$$GT$4kind17h455fc501deab930dE"(ptr noalias nocapture noundef readonly align 8 dereferenceable(16) %0) unnamed_addr #6 {
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8, !nonnull !9, !noundef !9
   %4 = load i64, ptr %3, align 8, !range !945, !noalias !9, !noundef !9
@@ -37199,7 +37199,7 @@ _ZN14ide_completion4item7Builder10add_import17ha97a60a20fcdd9b9E.exit: ; preds =
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden noundef i8 @_ZN14ide_completion6render11match_types17h21875b7bef346e1bE(ptr nocapture noundef nonnull readonly align 8 %0, ptr noalias noundef readonly align 8 dereferenceable(16) %1, ptr noalias noundef readonly align 8 dereferenceable(16) %2) unnamed_addr #6 {
+define hidden noundef range(i8 0, 3) i8 @_ZN14ide_completion6render11match_types17h21875b7bef346e1bE(ptr nocapture noundef nonnull readonly align 8 %0, ptr noalias noundef readonly align 8 dereferenceable(16) %1, ptr noalias noundef readonly align 8 dereferenceable(16) %2) unnamed_addr #6 {
   tail call void @llvm.experimental.noalias.scope.decl(metadata !7949)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !7952)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !7954)
@@ -37238,7 +37238,7 @@ define hidden noundef i8 @_ZN14ide_completion6render11match_types17h21875b7bef34
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden noundef i8 @_ZN14ide_completion6render18compute_type_match17h6063a0708be85009E(ptr noundef nonnull align 8 %0, ptr noalias noundef readonly align 8 dereferenceable(16) %1) unnamed_addr #6 {
+define hidden noundef range(i8 0, 3) i8 @_ZN14ide_completion6render18compute_type_match17h6063a0708be85009E(ptr noundef nonnull align 8 %0, ptr noalias noundef readonly align 8 dereferenceable(16) %1) unnamed_addr #6 {
   %3 = getelementptr inbounds i8, ptr %0, i64 336
   %4 = load ptr, ptr %3, align 8, !noundef !9
   %5 = icmp eq ptr %4, null
@@ -37390,7 +37390,7 @@ define hidden noundef zeroext i1 @"_ZN14ide_completion6render24compute_exact_nam
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden noundef i8 @_ZN14ide_completion6render17compute_ref_match17h3a24981e82ac77aaE(ptr noundef nonnull align 8 %0, ptr noalias noundef readonly align 8 dereferenceable(16) %1) unnamed_addr #6 personality ptr @rust_eh_personality {
+define hidden noundef range(i8 0, 3) i8 @_ZN14ide_completion6render17compute_ref_match17h3a24981e82ac77aaE(ptr noundef nonnull align 8 %0, ptr noalias noundef readonly align 8 dereferenceable(16) %1) unnamed_addr #6 personality ptr @rust_eh_personality {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
   %5 = alloca { ptr, ptr }, align 8

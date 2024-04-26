@@ -24,7 +24,7 @@ entry:
 
 cond.true:                                        ; preds = %entry
   %sub.i2 = add i32 %sub.i, -1
-  %3 = tail call i32 @llvm.ctlz.i32(i32 %sub.i2, i1 false), !range !4
+  %3 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %sub.i2, i1 false)
   %add = sub nuw nsw i32 33, %3
   %shl = shl nuw i32 1, %add
   br label %cond.end
@@ -131,7 +131,7 @@ if.end10.i:                                       ; preds = %if.end.i
   %arrayidx.i = getelementptr inbounds ptr, ptr %5, i64 %idxprom.i
   %8 = load ptr, ptr %arrayidx.i, align 8
   %cmp.i = icmp eq ptr %8, inttoptr (i64 -1 to ptr)
-  br i1 %cmp.i, label %_ZNK4llvh19SmallPtrSetImplBase13FindBucketForEPKv.exit, label %if.end.i, !llvm.loop !5
+  br i1 %cmp.i, label %_ZNK4llvh19SmallPtrSetImplBase13FindBucketForEPKv.exit, label %if.end.i, !llvm.loop !4
 
 _ZNK4llvh19SmallPtrSetImplBase13FindBucketForEPKv.exit: ; preds = %if.end10.i, %if.end12
   %Tombstone.0.lcssa.i = phi ptr [ null, %if.end12 ], [ %spec.select.i, %if.end10.i ]
@@ -251,7 +251,7 @@ if.end10.i:                                       ; preds = %if.end.i
   %arrayidx.i = getelementptr inbounds ptr, ptr %7, i64 %idxprom.i
   %10 = load ptr, ptr %arrayidx.i, align 8
   %cmp.i12 = icmp eq ptr %10, inttoptr (i64 -1 to ptr)
-  br i1 %cmp.i12, label %if.then.i13, label %if.end.i, !llvm.loop !5
+  br i1 %cmp.i12, label %if.then.i13, label %if.end.i, !llvm.loop !4
 
 _ZNK4llvh19SmallPtrSetImplBase13FindBucketForEPKv.exit: ; preds = %if.end.i, %if.then.i13
   %retval.0.i = phi ptr [ %cond.i14, %if.then.i13 ], [ %arrayidx24.i, %if.end.i ]
@@ -261,7 +261,7 @@ _ZNK4llvh19SmallPtrSetImplBase13FindBucketForEPKv.exit: ; preds = %if.end.i, %if
 for.inc:                                          ; preds = %for.body, %_ZNK4llvh19SmallPtrSetImplBase13FindBucketForEPKv.exit
   %incdec.ptr = getelementptr inbounds i8, ptr %BucketPtr.017, i64 8
   %cmp.not = icmp eq ptr %incdec.ptr, %cond.i
-  br i1 %cmp.not, label %for.end, label %for.body, !llvm.loop !7
+  br i1 %cmp.not, label %for.end, label %for.body, !llvm.loop !6
 
 for.end:                                          ; preds = %for.inc, %_ZN4llvh11safe_mallocEm.exit
   br i1 %cmp.i.i, label %if.end14, label %if.then13
@@ -328,7 +328,7 @@ if.end10:                                         ; preds = %if.end
   %arrayidx = getelementptr inbounds ptr, ptr %2, i64 %idxprom
   %5 = load ptr, ptr %arrayidx, align 8
   %cmp = icmp eq ptr %5, inttoptr (i64 -1 to ptr)
-  br i1 %cmp, label %if.then, label %if.end, !llvm.loop !5
+  br i1 %cmp, label %if.then, label %if.end, !llvm.loop !4
 
 return:                                           ; preds = %if.end, %if.then
   %retval.0 = phi ptr [ %cond, %if.then ], [ %arrayidx24, %if.end ]
@@ -829,7 +829,7 @@ for.body.i:                                       ; preds = %if.end49, %for.body
   %incdec.ptr.i = getelementptr inbounds i8, ptr %__first1.addr.06.i, i64 8
   %incdec.ptr1.i = getelementptr inbounds i8, ptr %__first2.addr.07.i, i64 8
   %cmp.not.i = icmp eq ptr %incdec.ptr.i, %add.ptr56
-  br i1 %cmp.not.i, label %_ZSt11swap_rangesIPPKvS2_ET0_T_S4_S3_.exit.loopexit, label %for.body.i, !llvm.loop !8
+  br i1 %cmp.not.i, label %_ZSt11swap_rangesIPPKvS2_ET0_T_S4_S3_.exit.loopexit, label %for.body.i, !llvm.loop !7
 
 _ZSt11swap_rangesIPPKvS2_ET0_T_S4_S3_.exit.loopexit: ; preds = %for.body.i
   %.pre = load i32, ptr %NumNonEmpty50, align 4
@@ -838,49 +838,47 @@ _ZSt11swap_rangesIPPKvS2_ET0_T_S4_S3_.exit.loopexit: ; preds = %for.body.i
 _ZSt11swap_rangesIPPKvS2_ET0_T_S4_S3_.exit:       ; preds = %_ZSt11swap_rangesIPPKvS2_ET0_T_S4_S3_.exit.loopexit, %if.end49
   %33 = phi i32 [ %.pre, %_ZSt11swap_rangesIPPKvS2_ET0_T_S4_S3_.exit.loopexit ], [ %29, %if.end49 ]
   %cmp60 = icmp ugt i32 %33, %30
+  %add.ptr64.idx = shl nuw nsw i64 %idx.ext55, 3
   br i1 %cmp60, label %if.then.i.i.i.i.i57, label %if.else
 
 if.then.i.i.i.i.i57:                              ; preds = %_ZSt11swap_rangesIPPKvS2_ET0_T_S4_S3_.exit
   %idx.ext67 = zext i32 %33 to i64
   %34 = load ptr, ptr %this, align 8
-  %add.ptr68 = getelementptr inbounds ptr, ptr %34, i64 %idx.ext67
-  br label %if.end84.sink.split
+  %add.ptr64 = getelementptr inbounds i8, ptr %34, i64 %add.ptr64.idx
+  %35 = sub nsw i64 %idx.ext67, %idx.ext55
+  %gepdiff69 = shl nsw i64 %35, 3
+  %36 = load ptr, ptr %RHS, align 8
+  %add.ptr71 = getelementptr inbounds ptr, ptr %36, i64 %idx.ext55
+  tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %add.ptr71, ptr align 8 %add.ptr64, i64 %gepdiff69, i1 false)
+  br label %if.end84
 
 if.else:                                          ; preds = %_ZSt11swap_rangesIPPKvS2_ET0_T_S4_S3_.exit
-  %35 = load i32, ptr %NumNonEmpty51, align 4
-  %tobool.not.i.i.i.i.i63 = icmp eq i32 %35, %30
+  %37 = load i32, ptr %NumNonEmpty51, align 4
+  %idx.ext78 = zext i32 %37 to i64
+  %add.ptr79.idx = shl nuw nsw i64 %idx.ext78, 3
+  %tobool.not.i.i.i.i.i63 = icmp eq i64 %add.ptr79.idx, %add.ptr64.idx
   br i1 %tobool.not.i.i.i.i.i63, label %if.end84, label %if.then.i.i.i.i.i64
 
 if.then.i.i.i.i.i64:                              ; preds = %if.else
-  %idx.ext78 = zext i32 %35 to i64
-  %36 = load ptr, ptr %RHS, align 8
-  %add.ptr79 = getelementptr inbounds ptr, ptr %36, i64 %idx.ext78
-  br label %if.end84.sink.split
-
-if.end84.sink.split:                              ; preds = %if.then.i.i.i.i.i57, %if.then.i.i.i.i.i64
-  %add.ptr79.sink = phi ptr [ %add.ptr79, %if.then.i.i.i.i.i64 ], [ %add.ptr68, %if.then.i.i.i.i.i57 ]
-  %.pn = phi ptr [ %36, %if.then.i.i.i.i.i64 ], [ %34, %if.then.i.i.i.i.i57 ]
-  %this.sink = phi ptr [ %this, %if.then.i.i.i.i.i64 ], [ %RHS, %if.then.i.i.i.i.i57 ]
-  %add.ptr75.sink69 = getelementptr inbounds ptr, ptr %.pn, i64 %idx.ext55
-  %sub.ptr.lhs.cast.i.i.i.i.i60 = ptrtoint ptr %add.ptr79.sink to i64
-  %sub.ptr.rhs.cast.i.i.i.i.i61 = ptrtoint ptr %add.ptr75.sink69 to i64
-  %sub.ptr.sub.i.i.i.i.i62 = sub i64 %sub.ptr.lhs.cast.i.i.i.i.i60, %sub.ptr.rhs.cast.i.i.i.i.i61
-  %37 = load ptr, ptr %this.sink, align 8
-  %add.ptr82 = getelementptr inbounds ptr, ptr %37, i64 %idx.ext55
-  tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %add.ptr82, ptr align 8 %add.ptr75.sink69, i64 %sub.ptr.sub.i.i.i.i.i62, i1 false)
+  %38 = load ptr, ptr %RHS, align 8
+  %add.ptr75 = getelementptr inbounds i8, ptr %38, i64 %add.ptr64.idx
+  %gepdiff = sub nsw i64 %add.ptr79.idx, %add.ptr64.idx
+  %39 = load ptr, ptr %this, align 8
+  %add.ptr82 = getelementptr inbounds ptr, ptr %39, i64 %idx.ext55
+  tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %add.ptr82, ptr align 8 %add.ptr75, i64 %gepdiff, i1 false)
   br label %if.end84
 
-if.end84:                                         ; preds = %if.end84.sink.split, %if.else
-  %38 = load i32, ptr %NumNonEmpty50, align 4
-  %39 = load i32, ptr %NumNonEmpty51, align 4
-  store i32 %39, ptr %NumNonEmpty50, align 4
-  store i32 %38, ptr %NumNonEmpty51, align 4
+if.end84:                                         ; preds = %if.then.i.i.i.i.i64, %if.else, %if.then.i.i.i.i.i57
+  %40 = load i32, ptr %NumNonEmpty50, align 4
+  %41 = load i32, ptr %NumNonEmpty51, align 4
+  store i32 %41, ptr %NumNonEmpty50, align 4
+  store i32 %40, ptr %NumNonEmpty51, align 4
   %NumTombstones87 = getelementptr inbounds i8, ptr %this, i64 24
   %NumTombstones88 = getelementptr inbounds i8, ptr %RHS, i64 24
-  %40 = load i32, ptr %NumTombstones87, align 8
-  %41 = load i32, ptr %NumTombstones88, align 8
-  store i32 %41, ptr %NumTombstones87, align 8
-  store i32 %40, ptr %NumTombstones88, align 8
+  %42 = load i32, ptr %NumTombstones87, align 8
+  %43 = load i32, ptr %NumTombstones88, align 8
+  store i32 %43, ptr %NumTombstones87, align 8
+  store i32 %42, ptr %NumTombstones88, align 8
   br label %return
 
 return:                                           ; preds = %entry, %if.end84, %_ZSt4copyIPPKvS2_ET0_T_S4_S3_.exit51, %_ZSt4copyIPPKvS2_ET0_T_S4_S3_.exit, %if.then3
@@ -927,8 +925,7 @@ attributes #15 = { nounwind allocsize(1) }
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
 !3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = !{i32 0, i32 33}
-!5 = distinct !{!5, !6}
-!6 = !{!"llvm.loop.mustprogress"}
-!7 = distinct !{!7, !6}
-!8 = distinct !{!8, !6}
+!4 = distinct !{!4, !5}
+!5 = !{!"llvm.loop.mustprogress"}
+!6 = distinct !{!6, !5}
+!7 = distinct !{!7, !5}

@@ -88,7 +88,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str.78 = private unnamed_addr constant [3 x i8] c"ok\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @setup_tests() local_unnamed_addr #0 {
+define dso_local range(i32 0, 2) i32 @setup_tests() local_unnamed_addr #0 {
 entry:
   %call = tail call ptr @fake_rand_start(ptr noundef null) #3
   store ptr %call, ptr @fake_rand, align 8
@@ -110,7 +110,7 @@ declare ptr @fake_rand_start(ptr noundef) local_unnamed_addr #1
 declare void @add_test(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @sm2_crypt_test() #0 {
+define internal range(i32 0, 2) i32 @sm2_crypt_test() #0 {
 entry:
   %call = tail call fastcc ptr @create_EC_group(ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.3, ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.5, ptr noundef nonnull @.str.6, ptr noundef nonnull @.str.7)
   %call1 = tail call i32 @test_ptr(ptr noundef nonnull @.str.9, i32 noundef 223, ptr noundef nonnull @.str.10, ptr noundef %call) #3
@@ -138,20 +138,18 @@ if.end11:                                         ; preds = %if.end6
 if.end16:                                         ; preds = %if.end11
   %call17 = tail call ptr @EVP_sm3() #3
   %call18 = tail call fastcc i32 @test_sm2_crypt(ptr noundef %call12, ptr noundef %call17, ptr noundef nonnull @.str.24, ptr noundef nonnull @.str.25, ptr noundef nonnull @.str.26)
-  %tobool19.not = icmp ne i32 %call18, 0
-  %spec.select = zext i1 %tobool19.not to i32
   br label %done
 
 done:                                             ; preds = %if.end16, %if.end11, %if.end6, %if.end, %entry
   %gm_group.0 = phi ptr [ %call12, %if.end11 ], [ null, %if.end6 ], [ null, %if.end ], [ null, %entry ], [ %call12, %if.end16 ]
-  %testresult.0 = phi i32 [ 0, %if.end11 ], [ 0, %if.end6 ], [ 0, %if.end ], [ 0, %entry ], [ %spec.select, %if.end16 ]
+  %testresult.0 = phi i32 [ 0, %if.end11 ], [ 0, %if.end6 ], [ 0, %if.end ], [ 0, %entry ], [ %call18, %if.end16 ]
   tail call void @EC_GROUP_free(ptr noundef %call) #3
   tail call void @EC_GROUP_free(ptr noundef %gm_group.0) #3
   ret i32 %testresult.0
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @sm2_sig_test() #0 {
+define internal range(i32 0, 2) i32 @sm2_sig_test() #0 {
 entry:
   %call = tail call fastcc ptr @create_EC_group(ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.3, ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.5, ptr noundef nonnull @.str.6, ptr noundef nonnull @.str.7)
   %call1 = tail call i32 @test_ptr(ptr noundef nonnull @.str.9, i32 noundef 385, ptr noundef nonnull @.str.10, ptr noundef %call) #3
@@ -200,7 +198,7 @@ entry:
 declare void @fake_rand_finish(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @create_EC_group(ptr noundef %p_hex, ptr noundef %a_hex, ptr noundef %b_hex, ptr noundef %x_hex, ptr noundef %y_hex, ptr noundef %order_hex) unnamed_addr #0 {
+define internal fastcc noundef ptr @create_EC_group(ptr noundef %p_hex, ptr noundef %a_hex, ptr noundef %b_hex, ptr noundef %x_hex, ptr noundef %y_hex, ptr noundef %order_hex) unnamed_addr #0 {
 entry:
   %p = alloca ptr, align 8
   %a = alloca ptr, align 8
@@ -339,7 +337,7 @@ if.end63:                                         ; preds = %if.then62, %done
 declare i32 @test_ptr(ptr noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @test_sm2_crypt(ptr noundef %group, ptr noundef %digest, ptr noundef %privkey_hex, ptr noundef %k_hex, ptr noundef %ctext_hex) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @test_sm2_crypt(ptr noundef %group, ptr noundef %digest, ptr noundef %privkey_hex, ptr noundef %k_hex, ptr noundef %ctext_hex) unnamed_addr #0 {
 entry:
   %priv = alloca ptr, align 8
   %ctext_len = alloca i64, align 8
@@ -593,7 +591,7 @@ declare void @EC_KEY_free(ptr noundef) local_unnamed_addr #1
 declare void @fake_rand_set_public_private_callbacks(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @get_faked_bytes(ptr nocapture noundef writeonly %buf, i64 noundef %num, ptr nocapture readnone %name, ptr nocapture readnone %ctx) #0 {
+define internal range(i32 0, 2) i32 @get_faked_bytes(ptr nocapture noundef writeonly %buf, i64 noundef %num, ptr nocapture readnone %name, ptr nocapture readnone %ctx) #0 {
 entry:
   %0 = load ptr, ptr @fake_rand_bytes, align 8
   %call = tail call i32 @test_ptr(ptr noundef nonnull @.str.9, i32 noundef 42, ptr noundef nonnull @.str.57, ptr noundef %0) #3

@@ -923,7 +923,7 @@ define hidden noundef nonnull ptr @ma_version_string() local_unnamed_addr #1 {
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define hidden noundef i32 @ma_strcpy_s(ptr noundef writeonly %0, i64 noundef %1, ptr noundef readonly %2) local_unnamed_addr #2 {
+define hidden range(i32 0, 35) i32 @ma_strcpy_s(ptr noundef writeonly %0, i64 noundef %1, ptr noundef readonly %2) local_unnamed_addr #2 {
   %4 = icmp eq ptr %0, null
   br i1 %4, label %14, label %5
 
@@ -961,7 +961,7 @@ define hidden noundef i32 @ma_strcpy_s(ptr noundef writeonly %0, i64 noundef %1,
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define hidden noundef i32 @ma_wcscpy_s(ptr noundef writeonly %0, i64 noundef %1, ptr noundef readonly %2) local_unnamed_addr #2 {
+define hidden range(i32 0, 35) i32 @ma_wcscpy_s(ptr noundef writeonly %0, i64 noundef %1, ptr noundef readonly %2) local_unnamed_addr #2 {
   %4 = icmp eq ptr %0, null
   br i1 %4, label %14, label %5
 
@@ -999,7 +999,7 @@ define hidden noundef i32 @ma_wcscpy_s(ptr noundef writeonly %0, i64 noundef %1,
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define hidden i32 @ma_strncpy_s(ptr noundef writeonly %0, i64 noundef %1, ptr noundef readonly %2, i64 noundef %3) local_unnamed_addr #2 {
+define hidden range(i32 0, 35) i32 @ma_strncpy_s(ptr noundef writeonly %0, i64 noundef %1, ptr noundef readonly %2, i64 noundef %3) local_unnamed_addr #2 {
   %5 = icmp eq ptr %0, null
   br i1 %5, label %22, label %6
 
@@ -1058,7 +1058,7 @@ define hidden i32 @ma_strncpy_s(ptr noundef writeonly %0, i64 noundef %1, ptr no
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define hidden noundef i32 @ma_strcat_s(ptr noundef %0, i64 noundef %1, ptr noundef readonly %2) local_unnamed_addr #3 {
+define hidden range(i32 0, 35) i32 @ma_strcat_s(ptr noundef %0, i64 noundef %1, ptr noundef readonly %2) local_unnamed_addr #3 {
   %4 = icmp eq ptr %0, null
   br i1 %4, label %.loopexit, label %5
 
@@ -1111,7 +1111,7 @@ define hidden noundef i32 @ma_strcat_s(ptr noundef %0, i64 noundef %1, ptr nound
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define hidden noundef i32 @ma_strncat_s(ptr noundef %0, i64 noundef %1, ptr noundef readonly %2, i64 noundef %3) local_unnamed_addr #3 {
+define hidden range(i32 0, 35) i32 @ma_strncat_s(ptr noundef %0, i64 noundef %1, ptr noundef readonly %2, i64 noundef %3) local_unnamed_addr #3 {
   %5 = icmp eq ptr %0, null
   br i1 %5, label %.loopexit, label %6
 
@@ -1173,7 +1173,7 @@ define hidden noundef i32 @ma_strncat_s(ptr noundef %0, i64 noundef %1, ptr noun
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define hidden noundef i32 @ma_itoa_s(i32 noundef %0, ptr noundef %1, i64 noundef %2, i32 noundef %3) local_unnamed_addr #3 {
+define hidden range(i32 0, 23) i32 @ma_itoa_s(i32 noundef %0, ptr noundef %1, i64 noundef %2, i32 noundef %3) local_unnamed_addr #3 {
   %5 = icmp eq ptr %1, null
   %6 = icmp eq i64 %2, 0
   %or.cond = or i1 %5, %6
@@ -1251,7 +1251,7 @@ define hidden noundef i32 @ma_itoa_s(i32 noundef %0, ptr noundef %1, i64 noundef
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
-define hidden i32 @ma_strcmp(ptr noundef readonly %0, ptr noundef readonly %1) local_unnamed_addr #4 {
+define hidden range(i32 -255, 256) i32 @ma_strcmp(ptr noundef readonly %0, ptr noundef readonly %1) local_unnamed_addr #4 {
   %3 = icmp eq ptr %0, %1
   br i1 %3, label %21, label %4
 
@@ -1303,7 +1303,7 @@ define hidden i32 @ma_strcmp(ptr noundef readonly %0, ptr noundef readonly %1) l
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define hidden noundef i32 @ma_strappend(ptr noundef %0, i64 noundef %1, ptr noundef readonly %2, ptr noundef readonly %3) local_unnamed_addr #3 {
+define hidden range(i32 0, 35) i32 @ma_strappend(ptr noundef %0, i64 noundef %1, ptr noundef readonly %2, ptr noundef readonly %3) local_unnamed_addr #3 {
   %5 = icmp eq ptr %0, null
   br i1 %5, label %ma_strncpy_s.exit.thread, label %6
 
@@ -1896,7 +1896,7 @@ define hidden void @ma_mutex_uninit(ptr noundef %0) local_unnamed_addr #5 {
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @ma_log_register_callback(ptr noundef %0, ptr %1, ptr %2) local_unnamed_addr #5 {
+define hidden range(i32 -4, 1) i32 @ma_log_register_callback(ptr noundef %0, ptr %1, ptr %2) local_unnamed_addr #5 {
   %4 = icmp eq ptr %0, null
   %5 = icmp eq ptr %1, null
   %or.cond = select i1 %4, i1 true, i1 %5
@@ -1935,7 +1935,7 @@ define hidden noundef i32 @ma_log_register_callback(ptr noundef %0, ptr %1, ptr 
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #12
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @ma_log_unregister_callback(ptr noundef %0, ptr readnone %1, ptr nocapture readnone %2) local_unnamed_addr #5 {
+define hidden range(i32 -2, 1) i32 @ma_log_unregister_callback(ptr noundef %0, ptr readnone %1, ptr nocapture readnone %2) local_unnamed_addr #5 {
   %4 = icmp eq ptr %0, null
   br i1 %4, label %29, label %5
 
@@ -1998,7 +1998,7 @@ define hidden noundef i32 @ma_log_unregister_callback(ptr noundef %0, ptr readno
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @ma_log_post(ptr noundef %0, i32 noundef %1, ptr noundef %2) local_unnamed_addr #5 {
+define hidden range(i32 -2, 1) i32 @ma_log_post(ptr noundef %0, i32 noundef %1, ptr noundef %2) local_unnamed_addr #5 {
   %4 = icmp eq ptr %0, null
   %5 = icmp eq ptr %2, null
   %or.cond = or i1 %4, %5
@@ -2044,7 +2044,7 @@ define hidden noundef i32 @ma_log_post(ptr noundef %0, i32 noundef %1, ptr nound
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @ma_log_postv(ptr noundef %0, i32 noundef %1, ptr noundef readonly %2, ptr noundef %3) local_unnamed_addr #5 {
+define hidden range(i32 -4, 1) i32 @ma_log_postv(ptr noundef %0, i32 noundef %1, ptr noundef readonly %2, ptr noundef %3) local_unnamed_addr #5 {
   %5 = alloca [1024 x i8], align 16
   %6 = icmp eq ptr %0, null
   %7 = icmp eq ptr %2, null
@@ -2176,7 +2176,7 @@ ma_free.exit:                                     ; preds = %29, %64, %.loopexit
 declare noundef i32 @vsnprintf(ptr nocapture noundef, i64 noundef, ptr nocapture noundef readonly, ptr noundef) local_unnamed_addr #8
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @ma_log_postf(ptr noundef %0, i32 noundef %1, ptr noundef %2, ...) local_unnamed_addr #5 {
+define hidden range(i32 -4, 1) i32 @ma_log_postf(ptr noundef %0, i32 noundef %1, ptr noundef %2, ...) local_unnamed_addr #5 {
   %4 = alloca [1 x %struct.__va_list_tag], align 16
   %5 = icmp eq ptr %0, null
   %6 = icmp eq ptr %2, null
@@ -2185,7 +2185,7 @@ define hidden noundef i32 @ma_log_postf(ptr noundef %0, i32 noundef %1, ptr noun
 
 7:                                                ; preds = %3
   call void @llvm.va_start.p0(ptr nonnull %4)
-  %8 = call i32 @ma_log_postv(ptr noundef nonnull %0, i32 noundef %1, ptr noundef nonnull %2, ptr noundef nonnull %4), !range !4
+  %8 = call i32 @ma_log_postv(ptr noundef nonnull %0, i32 noundef %1, ptr noundef nonnull %2, ptr noundef nonnull %4)
   call void @llvm.va_end.p0(ptr nonnull %4)
   br label %9
 
@@ -2231,7 +2231,7 @@ define hidden i64 @ma_calculate_frame_count_after_resampling(i32 noundef %0, i32
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @ma_spinlock_lock(ptr noundef %0) local_unnamed_addr #5 {
+define hidden range(i32 -2, 1) i32 @ma_spinlock_lock(ptr noundef %0) local_unnamed_addr #5 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %.loopexit9, label %.preheader8
 
@@ -2251,7 +2251,7 @@ define hidden noundef i32 @ma_spinlock_lock(ptr noundef %0) local_unnamed_addr #
   br i1 %8, label %.lr.ph, label %.loopexit
 
 .lr.ph:                                           ; preds = %.preheader, %.lr.ph
-  tail call void asm sideeffect "pause", "~{dirflag},~{fpsr},~{flags}"() #68, !srcloc !5
+  tail call void asm sideeffect "pause", "~{dirflag},~{fpsr},~{flags}"() #68, !srcloc !4
   %9 = load atomic volatile i32, ptr %0 monotonic, align 4
   %10 = icmp eq i32 %9, 1
   br i1 %10, label %.lr.ph, label %.loopexit
@@ -2262,7 +2262,7 @@ define hidden noundef i32 @ma_spinlock_lock(ptr noundef %0) local_unnamed_addr #
 }
 
 ; Function Attrs: nofree norecurse nounwind memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable
-define hidden noundef i32 @ma_spinlock_lock_noyield(ptr noundef %0) local_unnamed_addr #13 {
+define hidden range(i32 -2, 1) i32 @ma_spinlock_lock_noyield(ptr noundef %0) local_unnamed_addr #13 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %.loopexit9, label %.preheader8
 
@@ -2290,7 +2290,7 @@ define hidden noundef i32 @ma_spinlock_lock_noyield(ptr noundef %0) local_unname
 }
 
 ; Function Attrs: nofree norecurse nounwind memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable
-define hidden noundef i32 @ma_spinlock_unlock(ptr noundef %0) local_unnamed_addr #13 {
+define hidden range(i32 -2, 1) i32 @ma_spinlock_unlock(ptr noundef %0) local_unnamed_addr #13 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %4, label %3
 
@@ -2381,7 +2381,7 @@ define hidden void @ma_event_uninit(ptr noundef %0) local_unnamed_addr #5 {
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @ma_event_wait(ptr noundef %0) local_unnamed_addr #5 {
+define hidden range(i32 -2, 1) i32 @ma_event_wait(ptr noundef %0) local_unnamed_addr #5 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %14, label %3
 
@@ -2413,7 +2413,7 @@ ma_event_wait__posix.exit:                        ; preds = %9, %3
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @ma_event_signal(ptr noundef %0) local_unnamed_addr #5 {
+define hidden range(i32 -2, 1) i32 @ma_event_signal(ptr noundef %0) local_unnamed_addr #5 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %9, label %3
 
@@ -2480,7 +2480,7 @@ define hidden void @ma_semaphore_uninit(ptr noundef %0) local_unnamed_addr #5 {
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @ma_semaphore_wait(ptr noundef %0) local_unnamed_addr #5 {
+define hidden range(i32 -2, 1) i32 @ma_semaphore_wait(ptr noundef %0) local_unnamed_addr #5 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %15, label %3
 
@@ -2514,7 +2514,7 @@ ma_semaphore_wait__posix.exit:                    ; preds = %9, %3
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @ma_semaphore_release(ptr noundef %0) local_unnamed_addr #5 {
+define hidden range(i32 -2, 1) i32 @ma_semaphore_release(ptr noundef %0) local_unnamed_addr #5 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %11, label %3
 
@@ -2588,7 +2588,7 @@ ma_event_uninit.exit:                             ; preds = %1
 }
 
 ; Function Attrs: nofree norecurse nounwind memory(argmem: readwrite) uwtable
-define hidden noundef i32 @ma_fence_acquire(ptr noundef %0) local_unnamed_addr #14 {
+define hidden range(i32 -5, 1) i32 @ma_fence_acquire(ptr noundef %0) local_unnamed_addr #14 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %.loopexit, label %.preheader
 
@@ -2618,7 +2618,7 @@ define hidden noundef i32 @ma_fence_acquire(ptr noundef %0) local_unnamed_addr #
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @ma_fence_release(ptr noundef %0) local_unnamed_addr #5 {
+define hidden range(i32 -3, 1) i32 @ma_fence_release(ptr noundef %0) local_unnamed_addr #5 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %.loopexit, label %.preheader
 
@@ -2661,7 +2661,7 @@ ma_event_signal.exit:                             ; preds = %11
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @ma_fence_wait(ptr noundef %0) local_unnamed_addr #5 {
+define hidden range(i32 -2, 1) i32 @ma_fence_wait(ptr noundef %0) local_unnamed_addr #5 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %.loopexit, label %.preheader
 
@@ -2701,7 +2701,7 @@ ma_event_wait.exit:                               ; preds = %.lr.ph.i.i, %8
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @ma_async_notification_signal(ptr noundef %0) local_unnamed_addr #5 {
+define hidden range(i32 -29, -1) i32 @ma_async_notification_signal(ptr noundef %0) local_unnamed_addr #5 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %7, label %3
 
@@ -2720,7 +2720,7 @@ define hidden noundef i32 @ma_async_notification_signal(ptr noundef %0) local_un
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden noundef i32 @ma_async_notification_poll_init(ptr noundef writeonly %0) local_unnamed_addr #0 {
+define hidden range(i32 -2, 1) i32 @ma_async_notification_poll_init(ptr noundef writeonly %0) local_unnamed_addr #0 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %5, label %3
 
@@ -2814,7 +2814,7 @@ ma_async_notification_event_signal.exit:          ; preds = %1, %3
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @ma_async_notification_event_uninit(ptr noundef %0) local_unnamed_addr #5 {
+define hidden range(i32 -2, 1) i32 @ma_async_notification_event_uninit(ptr noundef %0) local_unnamed_addr #5 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %8, label %3
 
@@ -2831,7 +2831,7 @@ define hidden noundef i32 @ma_async_notification_event_uninit(ptr noundef %0) lo
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @ma_async_notification_event_wait(ptr noundef %0) local_unnamed_addr #5 {
+define hidden range(i32 -2, 1) i32 @ma_async_notification_event_wait(ptr noundef %0) local_unnamed_addr #5 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %15, label %3
 
@@ -2864,7 +2864,7 @@ ma_event_wait.exit:                               ; preds = %10, %3
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @ma_async_notification_event_signal(ptr noundef %0) local_unnamed_addr #5 {
+define hidden range(i32 -2, 1) i32 @ma_async_notification_event_signal(ptr noundef %0) local_unnamed_addr #5 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %10, label %3
 
@@ -3153,7 +3153,7 @@ ma_free.exit:                                     ; preds = %17, %15, %12, %7, %
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @ma_slot_allocator_alloc(ptr noundef %0, ptr noundef writeonly %1) local_unnamed_addr #5 {
+define hidden range(i32 -4, 1) i32 @ma_slot_allocator_alloc(ptr noundef %0, ptr noundef writeonly %1) local_unnamed_addr #5 {
   %3 = icmp eq ptr %0, null
   %4 = icmp eq ptr %1, null
   %or.cond = or i1 %3, %4
@@ -3253,7 +3253,7 @@ ma_ffs_32.exit:                                   ; preds = %.preheader, %20
   br i1 %55, label %56, label %.loopexit
 
 56:                                               ; preds = %._crit_edge
-  tail call void asm sideeffect "pause", "~{dirflag},~{fpsr},~{flags}"() #68, !srcloc !5
+  tail call void asm sideeffect "pause", "~{dirflag},~{fpsr},~{flags}"() #68, !srcloc !4
   br i1 %7, label %.preheader55, label %.loopexit
 
 .loopexit:                                        ; preds = %56, %._crit_edge, %28, %2, %34
@@ -3262,7 +3262,7 @@ ma_ffs_32.exit:                                   ; preds = %.preheader, %20
 }
 
 ; Function Attrs: nofree norecurse nounwind uwtable
-define hidden noundef i32 @ma_slot_allocator_free(ptr noundef %0, i64 noundef %1) local_unnamed_addr #17 {
+define hidden range(i32 -3, 1) i32 @ma_slot_allocator_free(ptr noundef %0, i64 noundef %1) local_unnamed_addr #17 {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %.loopexit, label %4
 
@@ -3608,7 +3608,7 @@ ma_ffs_32.exit.i:                                 ; preds = %.preheader.i, %81
   br i1 %115, label %116, label %ma_slot_allocator_alloc.exit
 
 116:                                              ; preds = %._crit_edge.i
-  tail call void asm sideeffect "pause", "~{dirflag},~{fpsr},~{flags}"() #68, !srcloc !5
+  tail call void asm sideeffect "pause", "~{dirflag},~{fpsr},~{flags}"() #68, !srcloc !4
   br i1 %68, label %.preheader55.i, label %ma_slot_allocator_alloc.exit
 
 ma_slot_allocator_alloc.exit:                     ; preds = %._crit_edge.i, %116, %89, %95
@@ -3796,7 +3796,7 @@ ma_free.exit:                                     ; preds = %39, %37, %34, %29, 
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @ma_job_queue_post(ptr noundef %0, ptr noundef readonly %1) local_unnamed_addr #5 {
+define hidden range(i32 -4, 1) i32 @ma_job_queue_post(ptr noundef %0, ptr noundef readonly %1) local_unnamed_addr #5 {
   %3 = icmp eq ptr %0, null
   %4 = icmp eq ptr %1, null
   %or.cond = or i1 %3, %4
@@ -3880,7 +3880,7 @@ ma_ffs_32.exit.i:                                 ; preds = %.preheader.i, %22
   br i1 %44, label %45, label %ma_slot_allocator_alloc.exit.thread
 
 45:                                               ; preds = %._crit_edge.i
-  tail call void asm sideeffect "pause", "~{dirflag},~{fpsr},~{flags}"() #68, !srcloc !5
+  tail call void asm sideeffect "pause", "~{dirflag},~{fpsr},~{flags}"() #68, !srcloc !4
   br i1 %9, label %.preheader55.i, label %ma_slot_allocator_alloc.exit.thread
 
 46:                                               ; preds = %30
@@ -3928,7 +3928,7 @@ ma_ffs_32.exit.i:                                 ; preds = %.preheader.i, %22
   br i1 %76, label %.lr.ph.i, label %.loopexit.i
 
 .lr.ph.i:                                         ; preds = %.preheader.i53, %.lr.ph.i
-  tail call void asm sideeffect "pause", "~{dirflag},~{fpsr},~{flags}"() #68, !srcloc !5
+  tail call void asm sideeffect "pause", "~{dirflag},~{fpsr},~{flags}"() #68, !srcloc !4
   %77 = load atomic volatile i32, ptr %70 monotonic, align 4
   %78 = icmp eq i32 %77, 1
   br i1 %78, label %.lr.ph.i, label %.loopexit.i
@@ -4003,7 +4003,7 @@ ma_slot_allocator_alloc.exit.thread:              ; preds = %45, %._crit_edge.i,
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @ma_job_queue_next(ptr noundef %0, ptr noundef %1) local_unnamed_addr #5 {
+define hidden range(i32 -51, 1) i32 @ma_job_queue_next(ptr noundef %0, ptr noundef %1) local_unnamed_addr #5 {
   %3 = icmp eq ptr %0, null
   %4 = icmp eq ptr %1, null
   %or.cond = or i1 %3, %4
@@ -4057,7 +4057,7 @@ ma_semaphore_wait.exit:                           ; preds = %16, %9
   br i1 %29, label %.lr.ph.i, label %.loopexit.i
 
 .lr.ph.i:                                         ; preds = %.preheader.i, %.lr.ph.i
-  tail call void asm sideeffect "pause", "~{dirflag},~{fpsr},~{flags}"() #68, !srcloc !5
+  tail call void asm sideeffect "pause", "~{dirflag},~{fpsr},~{flags}"() #68, !srcloc !4
   %30 = load atomic volatile i32, ptr %23 monotonic, align 4
   %31 = icmp eq i32 %30, 1
   br i1 %31, label %.lr.ph.i, label %.loopexit.i
@@ -4167,7 +4167,7 @@ ma_slot_allocator_free.exit:                      ; preds = %82, %68, %93
   br i1 %96, label %97, label %99
 
 97:                                               ; preds = %ma_slot_allocator_free.exit
-  %98 = tail call i32 @ma_job_queue_post(ptr noundef nonnull %0, ptr noundef nonnull %1), !range !4
+  %98 = tail call i32 @ma_job_queue_post(ptr noundef nonnull %0, ptr noundef nonnull %1)
   br label %99
 
 99:                                               ; preds = %ma_slot_allocator_free.exit, %2, %97, %53
@@ -4177,13 +4177,13 @@ ma_slot_allocator_free.exit:                      ; preds = %82, %68, %93
 
 ; Function Attrs: nounwind uwtable
 define hidden ptr @ma_dlopen(ptr noundef %0, ptr noundef %1) local_unnamed_addr #5 {
-  %3 = tail call i32 (ptr, i32, ptr, ...) @ma_log_postf(ptr noundef %0, i32 noundef 4, ptr noundef nonnull @.str.5, ptr noundef %1), !range !4
+  %3 = tail call i32 (ptr, i32, ptr, ...) @ma_log_postf(ptr noundef %0, i32 noundef 4, ptr noundef nonnull @.str.5, ptr noundef %1)
   %4 = tail call ptr @dlopen(ptr noundef %1, i32 noundef 2) #68
   %5 = icmp eq ptr %4, null
   br i1 %5, label %6, label %8
 
 6:                                                ; preds = %2
-  %7 = tail call i32 (ptr, i32, ptr, ...) @ma_log_postf(ptr noundef %0, i32 noundef 3, ptr noundef nonnull @.str.6, ptr noundef %1), !range !4
+  %7 = tail call i32 (ptr, i32, ptr, ...) @ma_log_postf(ptr noundef %0, i32 noundef 3, ptr noundef nonnull @.str.6, ptr noundef %1)
   br label %8
 
 8:                                                ; preds = %6, %2
@@ -4204,13 +4204,13 @@ declare i32 @dlclose(ptr noundef) local_unnamed_addr #11
 
 ; Function Attrs: nounwind uwtable
 define hidden ptr @ma_dlsym(ptr noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #5 {
-  %4 = tail call i32 (ptr, i32, ptr, ...) @ma_log_postf(ptr noundef %0, i32 noundef 4, ptr noundef nonnull @.str.7, ptr noundef %2), !range !4
+  %4 = tail call i32 (ptr, i32, ptr, ...) @ma_log_postf(ptr noundef %0, i32 noundef 4, ptr noundef nonnull @.str.7, ptr noundef %2)
   %5 = tail call ptr @dlsym(ptr noundef %1, ptr noundef %2) #68
   %6 = icmp eq ptr %5, null
   br i1 %6, label %7, label %9
 
 7:                                                ; preds = %3
-  %8 = tail call i32 (ptr, i32, ptr, ...) @ma_log_postf(ptr noundef %0, i32 noundef 2, ptr noundef nonnull @.str.8, ptr noundef %2), !range !4
+  %8 = tail call i32 (ptr, i32, ptr, ...) @ma_log_postf(ptr noundef %0, i32 noundef 2, ptr noundef nonnull @.str.8, ptr noundef %2)
   br label %9
 
 9:                                                ; preds = %7, %3
@@ -4267,7 +4267,7 @@ define hidden ptr @ma_get_backend_name(i32 noundef %0) local_unnamed_addr #1 {
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define hidden noundef i32 @ma_get_backend_from_name(ptr noundef readonly %0, ptr noundef writeonly %1) local_unnamed_addr #18 {
+define hidden range(i32 -2, 1) i32 @ma_get_backend_from_name(ptr noundef readonly %0, ptr noundef writeonly %1) local_unnamed_addr #18 {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %.loopexit, label %.preheader
 
@@ -4337,7 +4337,7 @@ ma_strcmp.exit.thread12:                          ; preds = %8, %ma_strcmp.exit
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef i32 @ma_is_backend_enabled(i32 noundef %0) local_unnamed_addr #1 {
+define hidden range(i32 0, 2) i32 @ma_is_backend_enabled(i32 noundef %0) local_unnamed_addr #1 {
   %switch.tableidx = add i32 %0, -7
   %2 = icmp ult i32 %switch.tableidx, 8
   br i1 %2, label %switch.lookup, label %4
@@ -4354,7 +4354,7 @@ switch.lookup:                                    ; preds = %1
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: write) uwtable
-define hidden noundef i32 @ma_get_enabled_backends(ptr nocapture noundef writeonly %0, i64 noundef %1, ptr noundef writeonly %2) local_unnamed_addr #19 {
+define hidden range(i32 -18, 1) i32 @ma_get_enabled_backends(ptr nocapture noundef writeonly %0, i64 noundef %1, ptr noundef writeonly %2) local_unnamed_addr #19 {
   %4 = icmp eq ptr %2, null
   br i1 %4, label %13, label %.preheader
 
@@ -4397,7 +4397,7 @@ ma_is_backend_enabled.exit:                       ; preds = %.preheader, %8
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef i32 @ma_is_loopback_supported(i32 noundef %0) local_unnamed_addr #1 {
+define hidden range(i32 0, 2) i32 @ma_is_loopback_supported(i32 noundef %0) local_unnamed_addr #1 {
   %2 = icmp ult i32 %0, 15
   br i1 %2, label %switch.lookup, label %4
 
@@ -4848,7 +4848,7 @@ ma_strncpy_s.exit116:                             ; preds = %.lr.ph.i110
   %.024.i.i = phi i32 [ %193, %.preheader.i.i ], [ 0, %189 ]
   %.01723.i.i = phi ptr [ %191, %.preheader.i.i ], [ %171, %189 ]
   %.01822.i.i = phi i64 [ %192, %.preheader.i.i ], [ 254, %189 ]
-  %190 = call fastcc zeroext i8 @ma_channel_map_init_standard_channel(i32 noundef 0, i32 noundef %170, i32 noundef %.024.i.i), !range !6
+  %190 = call fastcc zeroext i8 @ma_channel_map_init_standard_channel(i32 noundef 0, i32 noundef %170, i32 noundef %.024.i.i)
   store i8 %190, ptr %.01723.i.i, align 1
   %191 = getelementptr inbounds i8, ptr %.01723.i.i, i64 1
   %192 = add nsw i64 %.01822.i.i, -1
@@ -4930,7 +4930,7 @@ ma_channel_map_copy.exit.i:                       ; preds = %.preheader.i.i, %18
   %.024.i168.i = phi i32 [ %234, %.preheader.i167.i ], [ 0, %230 ]
   %.01723.i169.i = phi ptr [ %232, %.preheader.i167.i ], [ %212, %230 ]
   %.01822.i170.i = phi i64 [ %233, %.preheader.i167.i ], [ 254, %230 ]
-  %231 = call fastcc zeroext i8 @ma_channel_map_init_standard_channel(i32 noundef 0, i32 noundef %211, i32 noundef %.024.i168.i), !range !6
+  %231 = call fastcc zeroext i8 @ma_channel_map_init_standard_channel(i32 noundef 0, i32 noundef %211, i32 noundef %.024.i168.i)
   store i8 %231, ptr %.01723.i169.i, align 1
   %232 = getelementptr inbounds i8, ptr %.01723.i169.i, i64 1
   %233 = add nsw i64 %.01822.i170.i, -1
@@ -5573,7 +5573,7 @@ ma_device_descriptor_is_valid.exit.thread:        ; preds = %58, %54, %52, %21, 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef i32 @ma_calculate_buffer_size_in_frames_from_milliseconds(i32 noundef %0, i32 noundef %1) local_unnamed_addr #1 {
+define hidden range(i32 0, 4294968) i32 @ma_calculate_buffer_size_in_frames_from_milliseconds(i32 noundef %0, i32 noundef %1) local_unnamed_addr #1 {
   %3 = icmp eq i32 %1, 0
   br i1 %3, label %7, label %4
 
@@ -5976,7 +5976,7 @@ define internal noundef ptr @ma_device_job_thread_entry(ptr noundef %0) #5 {
 
 ma_device_job_thread_next.exit.lr.ph:             ; preds = %1
   %4 = getelementptr inbounds i8, ptr %0, i64 8
-  %5 = call i32 @ma_job_queue_next(ptr noundef nonnull %4, ptr noundef nonnull %2), !range !7
+  %5 = call i32 @ma_job_queue_next(ptr noundef nonnull %4, ptr noundef nonnull %2)
   %6 = icmp ne i32 %5, 0
   %7 = load i16, ptr %2, align 8
   %8 = icmp eq i16 %7, 0
@@ -5997,7 +5997,7 @@ ma_device_job_thread_next.exit.lr.ph:             ; preds = %1
 
 ma_job_process.exit:                              ; preds = %.lr.ph, %11
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %2, i8 0, i64 104, i1 false)
-  %16 = call i32 @ma_job_queue_next(ptr noundef nonnull %4, ptr noundef nonnull %2), !range !7
+  %16 = call i32 @ma_job_queue_next(ptr noundef nonnull %4, ptr noundef nonnull %2)
   %17 = icmp ne i32 %16, 0
   %18 = load i16, ptr %2, align 8
   %19 = icmp eq i16 %18, 0
@@ -6017,11 +6017,11 @@ define hidden void @ma_device_job_thread_uninit(ptr noundef %0, ptr noundef %1) 
 ma_device_job_thread_post.exit:                   ; preds = %2
   %5 = getelementptr inbounds i8, ptr %3, i64 2
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %3, i8 0, i64 104, i1 false)
-  store i16 -1, ptr %5, align 2, !alias.scope !8
+  store i16 -1, ptr %5, align 2, !alias.scope !5
   %6 = getelementptr inbounds i8, ptr %3, i64 8
-  store i64 -1, ptr %6, align 8, !alias.scope !8
+  store i64 -1, ptr %6, align 8, !alias.scope !5
   %7 = getelementptr inbounds i8, ptr %0, i64 8
-  %8 = call i32 @ma_job_queue_post(ptr noundef nonnull %7, ptr noundef nonnull %3), !range !4
+  %8 = call i32 @ma_job_queue_post(ptr noundef nonnull %7, ptr noundef nonnull %3)
   %9 = getelementptr inbounds i8, ptr %0, i64 200
   %10 = load i32, ptr %9, align 8
   %.not = icmp eq i32 %10, 0
@@ -6041,7 +6041,7 @@ ma_thread_wait.exit:                              ; preds = %ma_device_job_threa
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @ma_device_job_thread_post(ptr noundef %0, ptr noundef %1) local_unnamed_addr #5 {
+define hidden i32 @ma_device_job_thread_post(ptr noundef %0, ptr noundef %1) local_unnamed_addr #5 {
   %3 = icmp eq ptr %0, null
   %4 = icmp eq ptr %1, null
   %or.cond = or i1 %3, %4
@@ -6049,7 +6049,7 @@ define hidden noundef i32 @ma_device_job_thread_post(ptr noundef %0, ptr noundef
 
 5:                                                ; preds = %2
   %6 = getelementptr inbounds i8, ptr %0, i64 8
-  %7 = tail call i32 @ma_job_queue_post(ptr noundef nonnull %6, ptr noundef nonnull %1), !range !4
+  %7 = tail call i32 @ma_job_queue_post(ptr noundef nonnull %6, ptr noundef nonnull %1)
   br label %8
 
 8:                                                ; preds = %2, %5
@@ -6058,7 +6058,7 @@ define hidden noundef i32 @ma_device_job_thread_post(ptr noundef %0, ptr noundef
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @ma_device_job_thread_next(ptr noundef %0, ptr noundef %1) local_unnamed_addr #5 {
+define hidden range(i32 -51, 1) i32 @ma_device_job_thread_next(ptr noundef %0, ptr noundef %1) local_unnamed_addr #5 {
   %3 = icmp eq ptr %1, null
   br i1 %3, label %9, label %4
 
@@ -6069,7 +6069,7 @@ define hidden noundef i32 @ma_device_job_thread_next(ptr noundef %0, ptr noundef
 
 6:                                                ; preds = %4
   %7 = getelementptr inbounds i8, ptr %0, i64 8
-  %8 = tail call i32 @ma_job_queue_next(ptr noundef nonnull %7, ptr noundef nonnull %1), !range !7
+  %8 = tail call i32 @ma_job_queue_next(ptr noundef nonnull %7, ptr noundef nonnull %1)
   br label %9
 
 9:                                                ; preds = %4, %2, %6
@@ -6305,7 +6305,7 @@ ma_context_get_log.exit.thread:                   ; preds = %ma_context_get_log.
   %83 = zext nneg i32 %79 to i64
   %84 = getelementptr inbounds [15 x %struct.ma_backend_info], ptr @gBackendInfo, i64 0, i64 %83, i32 1
   %85 = load ptr, ptr %84, align 8
-  %86 = call i32 (ptr, i32, ptr, ...) @ma_log_postf(ptr noundef %82, i32 noundef 4, ptr noundef nonnull @.str.14, ptr noundef %85), !range !4
+  %86 = call i32 (ptr, i32, ptr, ...) @ma_log_postf(ptr noundef %82, i32 noundef 4, ptr noundef nonnull @.str.14, ptr noundef %85)
   %87 = load ptr, ptr %3, align 8
   %88 = call i32 %87(ptr noundef nonnull %3, ptr noundef nonnull %.094, ptr noundef nonnull %3) #68
   switch i32 %88, label %ma_get_backend_name.exit153 [
@@ -6331,7 +6331,7 @@ ma_mutex_init.exit:                               ; preds = %90
 
 ma_context_get_log.exit130:                       ; preds = %ma_mutex_init.exit
   %94 = load ptr, ptr %76, align 8
-  %95 = call i32 (ptr, i32, ptr, ...) @ma_log_postf(ptr noundef %94, i32 noundef 2, ptr noundef nonnull @.str.15), !range !4
+  %95 = call i32 (ptr, i32, ptr, ...) @ma_log_postf(ptr noundef %94, i32 noundef 2, ptr noundef nonnull @.str.15)
   br label %ma_mutex_init.exit.thread
 
 ma_mutex_init.exit.thread:                        ; preds = %90, %ma_context_get_log.exit130, %ma_mutex_init.exit
@@ -6348,21 +6348,21 @@ ma_mutex_init.exit133:                            ; preds = %ma_mutex_init.exit.
 
 ma_context_get_log.exit135:                       ; preds = %ma_mutex_init.exit133
   %99 = load ptr, ptr %76, align 8
-  %100 = call i32 (ptr, i32, ptr, ...) @ma_log_postf(ptr noundef %99, i32 noundef 2, ptr noundef nonnull @.str.16), !range !4
+  %100 = call i32 (ptr, i32, ptr, ...) @ma_log_postf(ptr noundef %99, i32 noundef 2, ptr noundef nonnull @.str.16)
   br label %ma_context_get_log.exit145
 
 ma_context_get_log.exit145:                       ; preds = %ma_mutex_init.exit.thread, %ma_context_get_log.exit135, %ma_mutex_init.exit133
   %.0.i132182 = phi i32 [ %98, %ma_context_get_log.exit135 ], [ 0, %ma_mutex_init.exit133 ], [ 0, %ma_mutex_init.exit.thread ]
   %101 = load ptr, ptr %76, align 8
-  %102 = call i32 (ptr, i32, ptr, ...) @ma_log_postf(ptr noundef %101, i32 noundef 4, ptr noundef nonnull @.str.17), !range !4
+  %102 = call i32 (ptr, i32, ptr, ...) @ma_log_postf(ptr noundef %101, i32 noundef 4, ptr noundef nonnull @.str.17)
   %103 = load ptr, ptr %76, align 8
-  %104 = call i32 (ptr, i32, ptr, ...) @ma_log_postf(ptr noundef %103, i32 noundef 4, ptr noundef nonnull @.str.18, ptr noundef nonnull @.str.19), !range !4
+  %104 = call i32 (ptr, i32, ptr, ...) @ma_log_postf(ptr noundef %103, i32 noundef 4, ptr noundef nonnull @.str.18, ptr noundef nonnull @.str.19)
   %105 = load ptr, ptr %76, align 8
-  %106 = call i32 (ptr, i32, ptr, ...) @ma_log_postf(ptr noundef %105, i32 noundef 4, ptr noundef nonnull @.str.21, ptr noundef nonnull @.str.22), !range !4
+  %106 = call i32 (ptr, i32, ptr, ...) @ma_log_postf(ptr noundef %105, i32 noundef 4, ptr noundef nonnull @.str.21, ptr noundef nonnull @.str.22)
   %107 = load ptr, ptr %76, align 8
-  %108 = call i32 (ptr, i32, ptr, ...) @ma_log_postf(ptr noundef %107, i32 noundef 4, ptr noundef nonnull @.str.24, ptr noundef nonnull @.str.23), !range !4
+  %108 = call i32 (ptr, i32, ptr, ...) @ma_log_postf(ptr noundef %107, i32 noundef 4, ptr noundef nonnull @.str.24, ptr noundef nonnull @.str.23)
   %109 = load ptr, ptr %76, align 8
-  %110 = call i32 (ptr, i32, ptr, ...) @ma_log_postf(ptr noundef %109, i32 noundef 4, ptr noundef nonnull @.str.25, ptr noundef nonnull @.str.23), !range !4
+  %110 = call i32 (ptr, i32, ptr, ...) @ma_log_postf(ptr noundef %109, i32 noundef 4, ptr noundef nonnull @.str.25, ptr noundef nonnull @.str.23)
   %111 = getelementptr inbounds i8, ptr %3, i64 104
   store i32 %79, ptr %111, align 8
   br label %ma_allocation_callbacks_init_copy.exit.thread
@@ -6382,13 +6382,13 @@ ma_context_get_log.exit147:                       ; preds = %77
 ma_get_backend_name.exit149:                      ; preds = %ma_context_get_log.exit147, %114
   %119 = phi ptr [ %115, %114 ], [ %112, %ma_context_get_log.exit147 ]
   %.0.i148 = phi ptr [ %118, %114 ], [ @.str.9, %ma_context_get_log.exit147 ]
-  %120 = call i32 (ptr, i32, ptr, ...) @ma_log_postf(ptr noundef %119, i32 noundef 4, ptr noundef nonnull @.str.26, ptr noundef %.0.i148), !range !4
+  %120 = call i32 (ptr, i32, ptr, ...) @ma_log_postf(ptr noundef %119, i32 noundef 4, ptr noundef nonnull @.str.26, ptr noundef %.0.i148)
   br label %124
 
 ma_get_backend_name.exit153:                      ; preds = %ma_context_get_log.exit.thread, %.thread171
   %121 = phi ptr [ @.str.316, %.thread171 ], [ %85, %ma_context_get_log.exit.thread ]
   %122 = load ptr, ptr %76, align 8
-  %123 = call i32 (ptr, i32, ptr, ...) @ma_log_postf(ptr noundef %122, i32 noundef 4, ptr noundef nonnull @.str.27, ptr noundef %121), !range !4
+  %123 = call i32 (ptr, i32, ptr, ...) @ma_log_postf(ptr noundef %122, i32 noundef 4, ptr noundef nonnull @.str.27, ptr noundef %121)
   br label %124
 
 124:                                              ; preds = %ma_get_backend_name.exit153, %ma_get_backend_name.exit149
@@ -6417,13 +6417,13 @@ ma_context_get_log.exit.us:                       ; preds = %3, %13
   %.0436.us = phi i64 [ 1, %13 ], [ 0, %3 ]
   %8 = getelementptr inbounds [2 x ptr], ptr @__const.ma_context_init__pulse.libpulseNames, i64 0, i64 %.0436.us
   %9 = load ptr, ptr %8, align 8
-  %10 = tail call i32 (ptr, i32, ptr, ...) @ma_log_postf(ptr noundef null, i32 noundef 4, ptr noundef nonnull @.str.5, ptr noundef %9), !range !4
+  %10 = tail call i32 (ptr, i32, ptr, ...) @ma_log_postf(ptr noundef null, i32 noundef 4, ptr noundef nonnull @.str.5, ptr noundef %9)
   %11 = tail call ptr @dlopen(ptr noundef %9, i32 noundef 2) #68
   %12 = icmp eq ptr %11, null
   br i1 %12, label %13, label %ma_context_get_log.exit234
 
 13:                                               ; preds = %ma_context_get_log.exit.us
-  %14 = tail call i32 (ptr, i32, ptr, ...) @ma_log_postf(ptr noundef null, i32 noundef 3, ptr noundef nonnull @.str.6, ptr noundef %9), !range !4
+  %14 = tail call i32 (ptr, i32, ptr, ...) @ma_log_postf(ptr noundef null, i32 noundef 3, ptr noundef nonnull @.str.6, ptr noundef %9)
   store ptr null, ptr %6, align 8
   br i1 %7, label %ma_context_get_log.exit.us, label %ma_free.exit
 
@@ -6433,13 +6433,13 @@ ma_context_get_log.exit:                          ; preds = %3, %22
   %16 = load ptr, ptr %5, align 8
   %17 = getelementptr inbounds [2 x ptr], ptr @__const.ma_context_init__pulse.libpulseNames, i64 0, i64 %.0436
   %18 = load ptr, ptr %17, align 8
-  %19 = tail call i32 (ptr, i32, ptr, ...) @ma_log_postf(ptr noundef %16, i32 noundef 4, ptr noundef nonnull @.str.5, ptr noundef %18), !range !4
+  %19 = tail call i32 (ptr, i32, ptr, ...) @ma_log_postf(ptr noundef %16, i32 noundef 4, ptr noundef nonnull @.str.5, ptr noundef %18)
   %20 = tail call ptr @dlopen(ptr noundef %18, i32 noundef 2) #68
   %21 = icmp eq ptr %20, null
   br i1 %21, label %22, label %ma_context_get_log.exit234
 
 22:                                               ; preds = %ma_context_get_log.exit
-  %23 = tail call i32 (ptr, i32, ptr, ...) @ma_log_postf(ptr noundef %16, i32 noundef 3, ptr noundef nonnull @.str.6, ptr noundef %18), !range !4
+  %23 = tail call i32 (ptr, i32, ptr, ...) @ma_log_postf(ptr noundef %16, i32 noundef 3, ptr noundef nonnull @.str.6, ptr noundef %18)
   store ptr null, ptr %6, align 8
   br i1 %15, label %ma_context_get_log.exit, label %ma_free.exit
 
@@ -6447,13 +6447,13 @@ ma_context_get_log.exit234:                       ; preds = %ma_context_get_log.
   %.us-phi = phi ptr [ %11, %ma_context_get_log.exit.us ], [ %20, %ma_context_get_log.exit ]
   store ptr %.us-phi, ptr %6, align 8
   %24 = load ptr, ptr %5, align 8
-  %25 = tail call i32 (ptr, i32, ptr, ...) @ma_log_postf(ptr noundef %24, i32 noundef 4, ptr noundef nonnull @.str.7, ptr noundef nonnull @.str.320), !range !4
+  %25 = tail call i32 (ptr, i32, ptr, ...) @ma_log_postf(ptr noundef %24, i32 noundef 4, ptr noundef nonnull @.str.7, ptr noundef nonnull @.str.320)
   %26 = tail call ptr @dlsym(ptr noundef nonnull %.us-phi, ptr noundef nonnull @.str.320) #68
   %27 = icmp eq ptr %26, null
   br i1 %27, label %28, label %ma_context_get_log.exit236
 
 28:                                               ; preds = %ma_context_get_log.exit234
-  %29 = tail call i32 (ptr, i32, ptr, ...) @ma_log_postf(ptr noundef %24, i32 noundef 2, ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.320), !range !4
+  %29 = tail call i32 (ptr, i32, ptr, ...) @ma_log_postf(ptr noundef %24, i32 noundef 2, ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.320)
   br label %ma_context_get_log.exit236
 
 ma_context_get_log.exit236:                       ; preds = %ma_context_get_log.exit234, %28
@@ -6461,13 +6461,13 @@ ma_context_get_log.exit236:                       ; preds = %ma_context_get_log.
   store ptr %26, ptr %30, align 8
   %31 = load ptr, ptr %5, align 8
   %32 = load ptr, ptr %6, align 8
-  %33 = tail call i32 (ptr, i32, ptr, ...) @ma_log_postf(ptr noundef %31, i32 noundef 4, ptr noundef nonnull @.str.7, ptr noundef nonnull @.str.321), !range !4
+  %33 = tail call i32 (ptr, i32, ptr, ...) @ma_log_postf(ptr noundef %31, i32 noundef 4, ptr noundef nonnull @.str.7, ptr noundef nonnull @.str.321)
   %34 = tail call ptr @dlsym(ptr noundef %32, ptr noundef nonnull @.str.321) #68
   %35 = icmp eq ptr %34, null
   br i1 %35, label %36, label %ma_context_get_log.exit239
 
 36:                                               ; preds = %ma_context_get_log.exit236
-  %37 = tail call i32 (ptr, i32, ptr, ...) @ma_log_postf(ptr noundef %31, i32 noundef 2, ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.321), !range !4
+  %37 = tail call i32 (ptr, i32, ptr, ...) @ma_log_postf(ptr noundef %31, i32 noundef 2, ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.321)
   br label %ma_context_get_log.exit239
 
 ma_context_get_log.exit239:                       ; preds = %ma_context_get_log.exit236, %36
@@ -6475,13 +6475,13 @@ ma_context_get_log.exit239:                       ; preds = %ma_context_get_log.
   store ptr %34, ptr %38, align 8
   %39 = load ptr, ptr %5, align 8
   %40 = load ptr, ptr %6, align 8
-  %41 = tail call i32 (ptr, i32, ptr, ...) @ma_log_postf(ptr noundef %39, i32 noundef 4, ptr noundef nonnull @.str.7, ptr noundef nonnull @.str.322), !range !4
+  %41 = tail call i32 (ptr, i32, ptr, ...) @ma_log_postf(ptr noundef %39, i32 noundef 4, ptr noundef nonnull @.str.7, ptr noundef nonnull @.str.322)
   %42 = tail call ptr @dlsym(ptr noundef %40, ptr noundef nonnull @.str.322) #68
   %43 = icmp eq ptr %42, null
   br i1 %43, label %44, label %ma_context_get_log.exit242
 
 44:                                               ; preds = %ma_context_get_log.exit239
-  %45 = tail call i32 (ptr, i32, ptr, ...) @ma_log_postf(ptr noundef %39, i32 noundef 2, ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.322), !range !4
+  %45 = tail call i32 (ptr, i32, ptr, ...) @ma_log_postf(ptr noundef %39, i32 noundef 2, ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.322)
   br label %ma_context_get_log.exit242
 
 ma_context_get_log.exit242:                       ; preds = %ma_context_get_log.exit239, %44
@@ -6489,13 +6489,13 @@ ma_context_get_log.exit242:                       ; preds = %ma_context_get_log.
   store ptr %42, ptr %46, align 8
   %47 = load ptr, ptr %5, align 8
   %48 = load ptr, ptr %6, align 8
-  %49 = tail call i32 (ptr, i32, ptr, ...) @ma_log_postf(ptr noundef %47, i32 noundef 4, ptr noundef nonnull @.str.7, ptr noundef nonnull @.str.323), !range !4
+  %49 = tail call i32 (ptr, i32, ptr, ...) @ma_log_postf(ptr noundef %47, i32 noundef 4, ptr noundef nonnull @.str.7, ptr noundef nonnull @.str.323)
   %50 = tail call ptr @dlsym(ptr noundef %48, ptr noundef nonnull @.str.323) #68
   %51 = icmp eq ptr %50, null
   br i1 %51, label %52, label %ma_context_get_log.exit245
 
 52:                                               ; preds = %ma_context_get_log.exit242
-  %53 = tail call i32 (ptr, i32, ptr, ...) @ma_log_postf(ptr noundef %47, i32 noundef 2, ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.323), !range !4
+  %53 = tail call i32 (ptr, i32, ptr, ...) @ma_log_postf(ptr noundef %47, i32 noundef 2, ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.323)
   br label %ma_context_get_log.exit245
 
 ma_context_get_log.exit245:                       ; preds = %ma_context_get_log.exit242, %52
@@ -6503,13 +6503,13 @@ ma_context_get_log.exit245:                       ; preds = %ma_context_get_log.
   store ptr %50, ptr %54, align 8
   %55 = load ptr, ptr %5, align 8
   %56 = load ptr, ptr %6, align 8
-  %57 = tail call i32 (ptr, i32, ptr, ...) @ma_log_postf(ptr noundef %55, i32 noundef 4, ptr noundef nonnull @.str.7, ptr noundef nonnull @.str.324), !range !4
+  %57 = tail call i32 (ptr, i32, ptr, ...) @ma_log_postf(ptr noundef %55, i32 noundef 4, ptr noundef nonnull @.str.7, ptr noundef nonnull @.str.324)
   %58 = tail call ptr @dlsym(ptr noundef %56, ptr noundef nonnull @.str.324) #68
   %59 = icmp eq ptr %58, null
   br i1 %59, label %60, label %ma_context_get_log.exit248
 
 60:                                               ; preds = %ma_context_get_log.exit245
-  %61 = tail call i32 (ptr, i32, ptr, ...) @ma_log_postf(ptr noundef %55, i32 noundef 2, ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.324), !range !4
+  %61 = tail call i32 (ptr, i32, ptr, ...) @ma_log_postf(ptr noundef %55, i32 noundef 2, ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.324)
   br label %ma_context_get_log.exit248
 
 ma_context_get_log.exit248:                       ; preds = %ma_context_get_log.exit245, %60
@@ -6517,13 +6517,13 @@ ma_context_get_log.exit248:                       ; preds = %ma_context_get_log.
   store ptr %58, ptr %62, align 8
   %63 = load ptr, ptr %5, align 8
   %64 = load ptr, ptr %6, align 8
-  %65 = tail call i32 (ptr, i32, ptr, ...) @ma_log_postf(ptr noundef %63, i32 noundef 4, ptr noundef nonnull @.str.7, ptr noundef nonnull @.str.325), !range !4
+  %65 = tail call i32 (ptr, i32, ptr, ...) @ma_log_postf(ptr noundef %63, i32 noundef 4, ptr noundef nonnull @.str.7, ptr noundef nonnull @.str.325)
   %66 = tail call ptr @dlsym(ptr noundef %64, ptr noundef nonnull @.str.325) #68
   %67 = icmp eq ptr %66, null
   br i1 %67, label %68, label %ma_context_get_log.exit251
 
 68:                                               ; preds = %ma_context_get_log.exit248
-  %69 = tail call i32 (ptr, i32, ptr, ...) @ma_log_postf(ptr noundef %63, i32 noundef 2, ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.325), !range !4
+  %69 = tail call i32 (ptr, i32, ptr, ...) @ma_log_postf(ptr noundef %63, i32 noundef 2, ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.325)
   br label %ma_context_get_log.exit251
 
 ma_context_get_log.exit251:                       ; preds = %ma_context_get_log.exit248, %68
@@ -6531,13 +6531,13 @@ ma_context_get_log.exit251:                       ; preds = %ma_context_get_log.
   store ptr %66, ptr %70, align 8
   %71 = load ptr, ptr %5, align 8
   %72 = load ptr, ptr %6, align 8
-  %73 = tail call i32 (ptr, i32, ptr, ...) @ma_log_postf(ptr noundef %71, i32 noundef 4, ptr noundef nonnull @.str.7, ptr noundef nonnull @.str.326), !range !4
+  %73 = tail call i32 (ptr, i32, ptr, ...) @ma_log_postf(ptr noundef %71, i32 noundef 4, ptr noundef nonnull @.str.7, ptr noundef nonnull @.str.326)
   %74 = tail call ptr @dlsym(ptr noundef %72, ptr noundef nonnull @.str.326) #68
   %75 = icmp eq ptr %74, null
   br i1 %75, label %76, label %ma_context_get_log.exit254
 
 76:                                               ; preds = %ma_context_get_log.exit251
-  %77 = tail call i32 (ptr, i32, ptr, ...) @ma_log_postf(ptr noundef %71, i32 noundef 2, ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.326), !range !4
+  %77 = tail call i32 (ptr, i32, ptr, ...) @ma_log_postf(ptr noundef %71, i32 noundef 2, ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.326)
   br label %ma_context_get_log.exit254
 
 ma_context_get_log.exit254:                       ; preds = %ma_context_get_log.exit251, %76
@@ -6545,13 +6545,13 @@ ma_context_get_log.exit254:                       ; preds = %ma_context_get_log.
   store ptr %74, ptr %78, align 8
   %79 = load ptr, ptr %5, align 8
   %80 = load ptr, ptr %6, align 8
-  %81 = tail call i32 (ptr, i32, ptr, ...) @ma_log_postf(ptr noundef %79, i32 noundef 4, ptr noundef nonnull @.str.7, ptr noundef nonnull @.str.327), !range !4
+  %81 = tail call i32 (ptr, i32, ptr, ...) @ma_log_postf(ptr noundef %79, i32 noundef 4, ptr noundef nonnull @.str.7, ptr noundef nonnull @.str.327)
   %82 = tail call ptr @dlsym(ptr noundef %80, ptr noundef nonnull @.str.327) #68
   %83 = icmp eq ptr %82, null
   br i1 %83, label %84, label %ma_context_get_log.exit257
 
 84:                                               ; preds = %ma_context_get_log.exit254
-  %85 = tail call i32 (ptr, i32, ptr, ...) @ma_log_postf(ptr noundef %79, i32 noundef 2, ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.327), !range !4
+  %85 = tail call i32 (ptr, i32, ptr, ...) @ma_log_postf(ptr noundef %79, i32 noundef 2, ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.327)
   br label %ma_context_get_log.exit257
 
 ma_context_get_log.exit257:                       ; preds = %ma_context_get_log.exit254, %84
@@ -6559,13 +6559,13 @@ ma_context_get_log.exit257:                       ; preds = %ma_context_get_log.
   store ptr %82, ptr %86, align 8
   %87 = load ptr, ptr %5, align 8
   %88 = load ptr, ptr %6, align 8
-  %89 = tail call i32 (ptr, i32, ptr, ...) @ma_log_postf(ptr noundef %87, i32 noundef 4, ptr noundef nonnull @.str.7, ptr noundef nonnull @.str.328), !range !4
+  %89 = tail call i32 (ptr, i32, ptr, ...) @ma_log_postf(ptr noundef %87, i32 noundef 4, ptr noundef nonnull @.str.7, ptr noundef nonnull @.str.328)
   %90 = tail call ptr @dlsym(ptr noundef %88, ptr noundef nonnull @.str.328) #68
   %91 = icmp eq ptr %90, null
   br i1 %91, label %92, label %ma_context_get_log.exit260
 
 92:                                               ; preds = %ma_context_get_log.exit257
-  %93 = tail call i32 (ptr, i32, ptr, ...) @ma_log_postf(ptr noundef %87, i32 noundef 2, ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.328), !range !4
+  %93 = tail call i32 (ptr, i32, ptr, ...) @ma_log_postf(ptr noundef %87, i32 noundef 2, ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.328)
   br label %ma_context_get_log.exit260
 
 ma_context_get_log.exit260:                       ; preds = %ma_context_get_log.exit257, %92
@@ -6573,13 +6573,13 @@ ma_context_get_log.exit260:                       ; preds = %ma_context_get_log.
   store ptr %90, ptr %94, align 8
   %95 = load ptr, ptr %5, align 8
   %96 = load ptr, ptr %6, align 8
-  %97 = tail call i32 (ptr, i32, ptr, ...) @ma_log_postf(ptr noundef %95, i32 noundef 4, ptr noundef nonnull @.str.7, ptr noundef nonnull @.str.329), !range !4
+  %97 = tail call i32 (ptr, i32, ptr, ...) @ma_log_postf(ptr noundef %95, i32 noundef 4, ptr noundef nonnull @.str.7, ptr noundef nonnull @.str.329)
   %98 = tail call ptr @dlsym(ptr noundef %96, ptr noundef nonnull @.str.329) #68
   %99 = icmp eq ptr %98, null
   br i1 %99, label %100, label %ma_context_get_log.exit263
 
 100:                                              ; preds = %ma_context_get_log.exit260
-  %101 = tail call i32 (ptr, i32, ptr, ...) @ma_log_postf(ptr noundef %95, i32 noundef 2, ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.329), !range !4
+  %101 = tail call i32 (ptr, i32, ptr, ...) @ma_log_postf(ptr noundef %95, i32 noundef 2, ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.329)
   br label %ma_context_get_log.exit263
 
 ma_context_get_log.exit263:                       ; preds = %ma_context_get_log.exit260, %100
@@ -6587,13 +6587,13 @@ ma_context_get_log.exit263:                       ; preds = %ma_context_get_log.
   store ptr %98, ptr %102, align 8
   %103 = load ptr, ptr %5, align 8
   %104 = load ptr, ptr %6, align 8
-  %105 = tail call i32 (ptr, i32, ptr, ...) @ma_log_postf(ptr noundef %103, i32 noundef 4, ptr noundef nonnull @.str.7, ptr noundef nonnull @.str.330), !range !4
+  %105 = tail call i32 (ptr, i32, ptr, ...) @ma_log_postf(ptr noundef %103, i32 noundef 4, ptr noundef nonnull @.str.7, ptr noundef nonnull @.str.330)
   %106 = tail call ptr @dlsym(ptr noundef %104, ptr noundef nonnull @.str.330) #68
   %107 = icmp eq ptr %106, null
   br i1 %107, label %108, label %ma_context_get_log.exit266
 
 108:                                              ; preds = %ma_context_get_log.exit263
-  %109 = tail call i32 (ptr, i32, ptr, ...) @ma_log_postf(ptr noundef %103, i32 noundef 2, ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.330), !range !4
+  %109 = tail call i32 (ptr, i32, ptr, ...) @ma_log_postf(ptr noundef %103, i32 noundef 2, ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.330)
   br label %ma_context_get_log.exit266
 
 ma_context_get_log.exit266:                       ; preds = %ma_context_get_log.exit263, %108
@@ -6601,13 +6601,13 @@ ma_context_get_log.exit266:                       ; preds = %ma_context_get_log.
   store ptr %106, ptr %110, align 8
   %111 = load ptr, ptr %5, align 8
   %112 = load ptr, ptr %6, align 8
-  %113 = tail call i32 (ptr, i32, ptr, ...) @ma_log_postf(ptr noundef %111, i32 noundef 4, ptr noundef nonnull @.str.7, ptr noundef nonnull @.str.331), !range !4
+  %113 = tail call i32 (ptr, i32, ptr, ...) @ma_log_postf(ptr noundef %111, i32 noundef 4, ptr noundef nonnull @.str.7, ptr noundef nonnull @.str.331)
   %114 = tail call ptr @dlsym(ptr noundef %112, ptr noundef nonnull @.str.331) #68
   %115 = icmp eq ptr %114, null
   br i1 %115, label %116, label %ma_context_get_log.exit269
 
 116:                                              ; preds = %ma_context_get_log.exit266
-  %117 = tail call i32 (ptr, i32, ptr, ...) @ma_log_postf(ptr noundef %111, i32 noundef 2, ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.331), !range !4
+  %117 = tail call i32 (ptr, i32, ptr, ...) @ma_log_postf(ptr noundef %111, i32 noundef 2, ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.331)
   br label %ma_context_get_log.exit269
 
 ma_context_get_log.exit269:                       ; preds = %ma_context_get_log.exit266, %116
@@ -6615,13 +6615,13 @@ ma_context_get_log.exit269:                       ; preds = %ma_context_get_log.
   store ptr %114, ptr %118, align 8
   %119 = load ptr, ptr %5, align 8
   %120 = load ptr, ptr %6, align 8
-  %121 = tail call i32 (ptr, i32, ptr, ...) @ma_log_postf(ptr noundef %119, i32 noundef 4, ptr noundef nonnull @.str.7, ptr noundef nonnull @.str.332), !range !4
+  %121 = tail call i32 (ptr, i32, ptr, ...) @ma_log_postf(ptr noundef %119, i32 noundef 4, ptr noundef nonnull @.str.7, ptr noundef nonnull @.str.332)
   %122 = tail call ptr @dlsym(ptr noundef %120, ptr noundef nonnull @.str.332) #68
   %123 = icmp eq ptr %122, null
   br i1 %123, label %124, label %ma_context_get_log.exit272
 
 124:                                              ; preds = %ma_context_get_log.exit269
-  %125 = tail call i32 (ptr, i32, ptr, ...) @ma_log_postf(ptr noundef %119, i32 noundef 2, ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.332), !range !4
+  %125 = tail call i32 (ptr, i32, ptr, ...) @ma_log_postf(ptr noundef %119, i32 noundef 2, ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.332)
   br label %ma_context_get_log.exit272
 
 ma_context_get_log.exit272:                       ; preds = %ma_context_get_log.exit269, %124
@@ -6629,13 +6629,13 @@ ma_context_get_log.exit272:                       ; preds = %ma_context_get_log.
   store ptr %122, ptr %126, align 8
   %127 = load ptr, ptr %5, align 8
   %128 = load ptr, ptr %6, align 8
-  %129 = tail call i32 (ptr, i32, ptr, ...) @ma_log_postf(ptr noundef %127, i32 noundef 4, ptr noundef nonnull @.str.7, ptr noundef nonnull @.str.333), !range !4
+  %129 = tail call i32 (ptr, i32, ptr, ...) @ma_log_postf(ptr noundef %127, i32 noundef 4, ptr noundef nonnull @.str.7, ptr noundef nonnull @.str.333)
   %130 = tail call ptr @dlsym(ptr noundef %128, ptr noundef nonnull @.str.333) #68
   %131 = icmp eq ptr %130, null
   br i1 %131, label %132, label %ma_context_get_log.exit275
 
 132:                                              ; preds = %ma_context_get_log.exit272
-  %133 = tail call i32 (ptr, i32, ptr, ...) @ma_log_postf(ptr noundef %127, i32 noundef 2, ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.333), !range !4
+  %133 = tail call i32 (ptr, i32, ptr, ...) @ma_log_postf(ptr noundef %127, i32 noundef 2, ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.333)
   br label %ma_context_get_log.exit275
 
 ma_context_get_log.exit275:                       ; preds = %ma_context_get_log.exit272, %132
@@ -6643,13 +6643,13 @@ ma_context_get_log.exit275:                       ; preds = %ma_context_get_log.
   store ptr %130, ptr %134, align 8
   %135 = load ptr, ptr %5, align 8
   %136 = load ptr, ptr %6, align 8
-  %137 = tail call i32 (ptr, i32, ptr, ...) @ma_log_postf(ptr noundef %135, i32 noundef 4, ptr noundef nonnull @.str.7, ptr noundef nonnull @.str.334), !range !4
+  %137 = tail call i32 (ptr, i32, ptr, ...) @ma_log_postf(ptr noundef %135, i32 noundef 4, ptr noundef nonnull @.str.7, ptr noundef nonnull @.str.334)
   %138 = tail call ptr @dlsym(ptr noundef %136, ptr noundef nonnull @.str.334) #68
   %139 = icmp eq ptr %138, null
   br i1 %139, label %140, label %ma_context_get_log.exit278
 
 140:                                              ; preds = %ma_context_get_log.exit275
-  %141 = tail call i32 (ptr, i32, ptr, ...) @ma_log_postf(ptr noundef %135, i32 noundef 2, ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.334), !range !4
+  %141 = tail call i32 (ptr, i32, ptr, ...) @ma_log_postf(ptr noundef %135, i32 noundef 2, ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.334)
   br label %ma_context_get_log.exit278
 
 ma_context_get_log.exit278:                       ; preds = %ma_context_get_log.exit275, %140
@@ -6657,13 +6657,13 @@ ma_context_get_log.exit278:                       ; preds = %ma_context_get_log.
   store ptr %138, ptr %142, align 8
   %143 = load ptr, ptr %5, align 8
   %144 = load ptr, ptr %6, align 8
-  %145 = tail call i32 (ptr, i32, ptr, ...) @ma_log_postf(ptr noundef %143, i32 noundef 4, ptr noundef nonnull @.str.7, ptr noundef nonnull @.str.335), !range !4
+  %145 = tail call i32 (ptr, i32, ptr, ...) @ma_log_postf(ptr noundef %143, i32 noundef 4, ptr noundef nonnull @.str.7, ptr noundef nonnull @.str.335)
   %146 = tail call ptr @dlsym(ptr noundef %144, ptr noundef nonnull @.str.335) #68
   %147 = icmp eq ptr %146, null
   br i1 %147, label %148, label %ma_context_get_log.exit281
 
 148:                                              ; preds = %ma_context_get_log.exit278
-  %149 = tail call i32 (ptr, i32, ptr, ...) @ma_log_postf(ptr noundef %143, i32 noundef 2, ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.335), !range !4
+  %149 = tail call i32 (ptr, i32, ptr, ...) @ma_log_postf(ptr noundef %143, i32 noundef 2, ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.335)
   br label %ma_context_get_log.exit281
 
 ma_context_get_log.exit281:                       ; preds = %ma_context_get_log.exit278, %148
@@ -6671,13 +6671,13 @@ ma_context_get_log.exit281:                       ; preds = %ma_context_get_log.
   store ptr %146, ptr %150, align 8
   %151 = load ptr, ptr %5, align 8
   %152 = load ptr, ptr %6, align 8
-  %153 = tail call i32 (ptr, i32, ptr, ...) @ma_log_postf(ptr noundef %151, i32 noundef 4, ptr noundef nonnull @.str.7, ptr noundef nonnull @.str.336), !range !4
+  %153 = tail call i32 (ptr, i32, ptr, ...) @ma_log_postf(ptr noundef %151, i32 noundef 4, ptr noundef nonnull @.str.7, ptr noundef nonnull @.str.336)
   %154 = tail call ptr @dlsym(ptr noundef %152, ptr noundef nonnull @.str.336) #68
   %155 = icmp eq ptr %154, null
   br i1 %155, label %156, label %ma_context_get_log.exit284
 
 156:                                              ; preds = %ma_context_get_log.exit281
-  %157 = tail call i32 (ptr, i32, ptr, ...) @ma_log_postf(ptr noundef %151, i32 noundef 2, ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.336), !range !4
+  %157 = tail call i32 (ptr, i32, ptr, ...) @ma_log_postf(ptr noundef %151, i32 noundef 2, ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.336)
   br label %ma_context_get_log.exit284
 
 ma_context_get_log.exit284:                       ; preds = %ma_context_get_log.exit281, %156
@@ -6685,13 +6685,13 @@ ma_context_get_log.exit284:                       ; preds = %ma_context_get_log.
   store ptr %154, ptr %158, align 8
   %159 = load ptr, ptr %5, align 8
   %160 = load ptr, ptr %6, align 8
-  %161 = tail call i32 (ptr, i32, ptr, ...) @ma_log_postf(ptr noundef %159, i32 noundef 4, ptr noundef nonnull @.str.7, ptr noundef nonnull @.str.337), !range !4
+  %161 = tail call i32 (ptr, i32, ptr, ...) @ma_log_postf(ptr noundef %159, i32 noundef 4, ptr noundef nonnull @.str.7, ptr noundef nonnull @.str.337)
   %162 = tail call ptr @dlsym(ptr noundef %160, ptr noundef nonnull @.str.337) #68
   %163 = icmp eq ptr %162, null
   br i1 %163, label %164, label %ma_context_get_log.exit287
 
 164:                                              ; preds = %ma_context_get_log.exit284
-  %165 = tail call i32 (ptr, i32, ptr, ...) @ma_log_postf(ptr noundef %159, i32 noundef 2, ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.337), !range !4
+  %165 = tail call i32 (ptr, i32, ptr, ...) @ma_log_postf(ptr noundef %159, i32 noundef 2, ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.337)
   br label %ma_context_get_log.exit287
 
 ma_context_get_log.exit287:                       ; preds = %ma_context_get_log.exit284, %164
@@ -6699,13 +6699,13 @@ ma_context_get_log.exit287:                       ; preds = %ma_context_get_log.
   store ptr %162, ptr %166, align 8
   %167 = load ptr, ptr %5, align 8
   %168 = load ptr, ptr %6, align 8
-  %169 = tail call i32 (ptr, i32, ptr, ...) @ma_log_postf(ptr noundef %167, i32 noundef 4, ptr noundef nonnull @.str.7, ptr noundef nonnull @.str.338), !range !4
+  %169 = tail call i32 (ptr, i32, ptr, ...) @ma_log_postf(ptr noundef %167, i32 noundef 4, ptr noundef nonnull @.str.7, ptr noundef nonnull @.str.338)
   %170 = tail call ptr @dlsym(ptr noundef %168, ptr noundef nonnull @.str.338) #68
   %171 = icmp eq ptr %170, null
   br i1 %171, label %172, label %ma_context_get_log.exit290
 
 172:                                              ; preds = %ma_context_get_log.exit287
-  %173 = tail call i32 (ptr, i32, ptr, ...) @ma_log_postf(ptr noundef %167, i32 noundef 2, ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.338), !range !4
+  %173 = tail call i32 (ptr, i32, ptr, ...) @ma_log_postf(ptr noundef %167, i32 noundef 2, ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.338)
   br label %ma_context_get_log.exit290
 
 ma_context_get_log.exit290:                       ; preds = %ma_context_get_log.exit287, %172
@@ -6713,13 +6713,13 @@ ma_context_get_log.exit290:                       ; preds = %ma_context_get_log.
   store ptr %170, ptr %174, align 8
   %175 = load ptr, ptr %5, align 8
   %176 = load ptr, ptr %6, align 8
-  %177 = tail call i32 (ptr, i32, ptr, ...) @ma_log_postf(ptr noundef %175, i32 noundef 4, ptr noundef nonnull @.str.7, ptr noundef nonnull @.str.339), !range !4
+  %177 = tail call i32 (ptr, i32, ptr, ...) @ma_log_postf(ptr noundef %175, i32 noundef 4, ptr noundef nonnull @.str.7, ptr noundef nonnull @.str.339)
   %178 = tail call ptr @dlsym(ptr noundef %176, ptr noundef nonnull @.str.339) #68
   %179 = icmp eq ptr %178, null
   br i1 %179, label %180, label %ma_context_get_log.exit293
 
 180:                                              ; preds = %ma_context_get_log.exit290
-  %181 = tail call i32 (ptr, i32, ptr, ...) @ma_log_postf(ptr noundef %175, i32 noundef 2, ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.339), !range !4
+  %181 = tail call i32 (ptr, i32, ptr, ...) @ma_log_postf(ptr noundef %175, i32 noundef 2, ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.339)
   br label %ma_context_get_log.exit293
 
 ma_context_get_log.exit293:                       ; preds = %ma_context_get_log.exit290, %180
@@ -6727,13 +6727,13 @@ ma_context_get_log.exit293:                       ; preds = %ma_context_get_log.
   store ptr %178, ptr %182, align 8
   %183 = load ptr, ptr %5, align 8
   %184 = load ptr, ptr %6, align 8
-  %185 = tail call i32 (ptr, i32, ptr, ...) @ma_log_postf(ptr noundef %183, i32 noundef 4, ptr noundef nonnull @.str.7, ptr noundef nonnull @.str.340), !range !4
+  %185 = tail call i32 (ptr, i32, ptr, ...) @ma_log_postf(ptr noundef %183, i32 noundef 4, ptr noundef nonnull @.str.7, ptr noundef nonnull @.str.340)
   %186 = tail call ptr @dlsym(ptr noundef %184, ptr noundef nonnull @.str.340) #68
   %187 = icmp eq ptr %186, null
   br i1 %187, label %188, label %ma_context_get_log.exit296
 
 188:                                              ; preds = %ma_context_get_log.exit293
-  %189 = tail call i32 (ptr, i32, ptr, ...) @ma_log_postf(ptr noundef %183, i32 noundef 2, ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.340), !range !4
+  %189 = tail call i32 (ptr, i32, ptr, ...) @ma_log_postf(ptr noundef %183, i32 noundef 2, ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.340)
   br label %ma_context_get_log.exit296
 
 ma_context_get_log.exit296:                       ; preds = %ma_context_get_log.exit293, %188
@@ -6741,13 +6741,13 @@ ma_context_get_log.exit296:                       ; preds = %ma_context_get_log.
   store ptr %186, ptr %190, align 8
   %191 = load ptr, ptr %5, align 8
   %192 = load ptr, ptr %6, align 8
-  %193 = tail call i32 (ptr, i32, ptr, ...) @ma_log_postf(ptr noundef %191, i32 noundef 4, ptr noundef nonnull @.str.7, ptr noundef nonnull @.str.341), !range !4
+  %193 = tail call i32 (ptr, i32, ptr, ...) @ma_log_postf(ptr noundef %191, i32 noundef 4, ptr noundef nonnull @.str.7, ptr noundef nonnull @.str.341)
   %194 = tail call ptr @dlsym(ptr noundef %192, ptr noundef nonnull @.str.341) #68
   %195 = icmp eq ptr %194, null
   br i1 %195, label %196, label %ma_context_get_log.exit299
 
 196:                                              ; preds = %ma_context_get_log.exit296
-  %197 = tail call i32 (ptr, i32, ptr, ...) @ma_log_postf(ptr noundef %191, i32 noundef 2, ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.341), !range !4
+  %197 = tail call i32 (ptr, i32, ptr, ...) @ma_log_postf(ptr noundef %191, i32 noundef 2, ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.341)
   br label %ma_context_get_log.exit299
 
 ma_context_get_log.exit299:                       ; preds = %ma_context_get_log.exit296, %196
@@ -6755,13 +6755,13 @@ ma_context_get_log.exit299:                       ; preds = %ma_context_get_log.
   store ptr %194, ptr %198, align 8
   %199 = load ptr, ptr %5, align 8
   %200 = load ptr, ptr %6, align 8
-  %201 = tail call i32 (ptr, i32, ptr, ...) @ma_log_postf(ptr noundef %199, i32 noundef 4, ptr noundef nonnull @.str.7, ptr noundef nonnull @.str.342), !range !4
+  %201 = tail call i32 (ptr, i32, ptr, ...) @ma_log_postf(ptr noundef %199, i32 noundef 4, ptr noundef nonnull @.str.7, ptr noundef nonnull @.str.342)
   %202 = tail call ptr @dlsym(ptr noundef %200, ptr noundef nonnull @.str.342) #68
   %203 = icmp eq ptr %202, null
   br i1 %203, label %204, label %ma_context_get_log.exit302
 
 204:                                              ; preds = %ma_context_get_log.exit299
-  %205 = tail call i32 (ptr, i32, ptr, ...) @ma_log_postf(ptr noundef %199, i32 noundef 2, ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.342), !range !4
+  %205 = tail call i32 (ptr, i32, ptr, ...) @ma_log_postf(ptr noundef %199, i32 noundef 2, ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.342)
   br label %ma_context_get_log.exit302
 
 ma_context_get_log.exit302:                       ; preds = %ma_context_get_log.exit299, %204
@@ -6769,13 +6769,13 @@ ma_context_get_log.exit302:                       ; preds = %ma_context_get_log.
   store ptr %202, ptr %206, align 8
   %207 = load ptr, ptr %5, align 8
   %208 = load ptr, ptr %6, align 8
-  %209 = tail call i32 (ptr, i32, ptr, ...) @ma_log_postf(ptr noundef %207, i32 noundef 4, ptr noundef nonnull @.str.7, ptr noundef nonnull @.str.343), !range !4
+  %209 = tail call i32 (ptr, i32, ptr, ...) @ma_log_postf(ptr noundef %207, i32 noundef 4, ptr noundef nonnull @.str.7, ptr noundef nonnull @.str.343)
   %210 = tail call ptr @dlsym(ptr noundef %208, ptr noundef nonnull @.str.343) #68
   %211 = icmp eq ptr %210, null
   br i1 %211, label %212, label %ma_context_get_log.exit305
 
 212:                                              ; preds = %ma_context_get_log.exit302
-  %213 = tail call i32 (ptr, i32, ptr, ...) @ma_log_postf(ptr noundef %207, i32 noundef 2, ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.343), !range !4
+  %213 = tail call i32 (ptr, i32, ptr, ...) @ma_log_postf(ptr noundef %207, i32 noundef 2, ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.343)
   br label %ma_context_get_log.exit305
 
 ma_context_get_log.exit305:                       ; preds = %ma_context_get_log.exit302, %212
@@ -6783,13 +6783,13 @@ ma_context_get_log.exit305:                       ; preds = %ma_context_get_log.
   store ptr %210, ptr %214, align 8
   %215 = load ptr, ptr %5, align 8
   %216 = load ptr, ptr %6, align 8
-  %217 = tail call i32 (ptr, i32, ptr, ...) @ma_log_postf(ptr noundef %215, i32 noundef 4, ptr noundef nonnull @.str.7, ptr noundef nonnull @.str.344), !range !4
+  %217 = tail call i32 (ptr, i32, ptr, ...) @ma_log_postf(ptr noundef %215, i32 noundef 4, ptr noundef nonnull @.str.7, ptr noundef nonnull @.str.344)
   %218 = tail call ptr @dlsym(ptr noundef %216, ptr noundef nonnull @.str.344) #68
   %219 = icmp eq ptr %218, null
   br i1 %219, label %220, label %ma_context_get_log.exit308
 
 220:                                              ; preds = %ma_context_get_log.exit305
-  %221 = tail call i32 (ptr, i32, ptr, ...) @ma_log_postf(ptr noundef %215, i32 noundef 2, ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.344), !range !4
+  %221 = tail call i32 (ptr, i32, ptr, ...) @ma_log_postf(ptr noundef %215, i32 noundef 2, ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.344)
   br label %ma_context_get_log.exit308
 
 ma_context_get_log.exit308:                       ; preds = %ma_context_get_log.exit305, %220
@@ -6797,13 +6797,13 @@ ma_context_get_log.exit308:                       ; preds = %ma_context_get_log.
   store ptr %218, ptr %222, align 8
   %223 = load ptr, ptr %5, align 8
   %224 = load ptr, ptr %6, align 8
-  %225 = tail call i32 (ptr, i32, ptr, ...) @ma_log_postf(ptr noundef %223, i32 noundef 4, ptr noundef nonnull @.str.7, ptr noundef nonnull @.str.345), !range !4
+  %225 = tail call i32 (ptr, i32, ptr, ...) @ma_log_postf(ptr noundef %223, i32 noundef 4, ptr noundef nonnull @.str.7, ptr noundef nonnull @.str.345)
   %226 = tail call ptr @dlsym(ptr noundef %224, ptr noundef nonnull @.str.345) #68
   %227 = icmp eq ptr %226, null
   br i1 %227, label %228, label %ma_context_get_log.exit311
 
 228:                                              ; preds = %ma_context_get_log.exit308
-  %229 = tail call i32 (ptr, i32, ptr, ...) @ma_log_postf(ptr noundef %223, i32 noundef 2, ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.345), !range !4
+  %229 = tail call i32 (ptr, i32, ptr, ...) @ma_log_postf(ptr noundef %223, i32 noundef 2, ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.345)
   br label %ma_context_get_log.exit311
 
 ma_context_get_log.exit311:                       ; preds = %ma_context_get_log.exit308, %228
@@ -6811,13 +6811,13 @@ ma_context_get_log.exit311:                       ; preds = %ma_context_get_log.
   store ptr %226, ptr %230, align 8
   %231 = load ptr, ptr %5, align 8
   %232 = load ptr, ptr %6, align 8
-  %233 = tail call i32 (ptr, i32, ptr, ...) @ma_log_postf(ptr noundef %231, i32 noundef 4, ptr noundef nonnull @.str.7, ptr noundef nonnull @.str.346), !range !4
+  %233 = tail call i32 (ptr, i32, ptr, ...) @ma_log_postf(ptr noundef %231, i32 noundef 4, ptr noundef nonnull @.str.7, ptr noundef nonnull @.str.346)
   %234 = tail call ptr @dlsym(ptr noundef %232, ptr noundef nonnull @.str.346) #68
   %235 = icmp eq ptr %234, null
   br i1 %235, label %236, label %ma_context_get_log.exit314
 
 236:                                              ; preds = %ma_context_get_log.exit311
-  %237 = tail call i32 (ptr, i32, ptr, ...) @ma_log_postf(ptr noundef %231, i32 noundef 2, ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.346), !range !4
+  %237 = tail call i32 (ptr, i32, ptr, ...) @ma_log_postf(ptr noundef %231, i32 noundef 2, ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.346)
   br label %ma_context_get_log.exit314
 
 ma_context_get_log.exit314:                       ; preds = %ma_context_get_log.exit311, %236
@@ -6825,13 +6825,13 @@ ma_context_get_log.exit314:                       ; preds = %ma_context_get_log.
   store ptr %234, ptr %238, align 8
   %239 = load ptr, ptr %5, align 8
   %240 = load ptr, ptr %6, align 8
-  %241 = tail call i32 (ptr, i32, ptr, ...) @ma_log_postf(ptr noundef %239, i32 noundef 4, ptr noundef nonnull @.str.7, ptr noundef nonnull @.str.347), !range !4
+  %241 = tail call i32 (ptr, i32, ptr, ...) @ma_log_postf(ptr noundef %239, i32 noundef 4, ptr noundef nonnull @.str.7, ptr noundef nonnull @.str.347)
   %242 = tail call ptr @dlsym(ptr noundef %240, ptr noundef nonnull @.str.347) #68
   %243 = icmp eq ptr %242, null
   br i1 %243, label %244, label %ma_context_get_log.exit317
 
 244:                                              ; preds = %ma_context_get_log.exit314
-  %245 = tail call i32 (ptr, i32, ptr, ...) @ma_log_postf(ptr noundef %239, i32 noundef 2, ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.347), !range !4
+  %245 = tail call i32 (ptr, i32, ptr, ...) @ma_log_postf(ptr noundef %239, i32 noundef 2, ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.347)
   br label %ma_context_get_log.exit317
 
 ma_context_get_log.exit317:                       ; preds = %ma_context_get_log.exit314, %244
@@ -6839,13 +6839,13 @@ ma_context_get_log.exit317:                       ; preds = %ma_context_get_log.
   store ptr %242, ptr %246, align 8
   %247 = load ptr, ptr %5, align 8
   %248 = load ptr, ptr %6, align 8
-  %249 = tail call i32 (ptr, i32, ptr, ...) @ma_log_postf(ptr noundef %247, i32 noundef 4, ptr noundef nonnull @.str.7, ptr noundef nonnull @.str.348), !range !4
+  %249 = tail call i32 (ptr, i32, ptr, ...) @ma_log_postf(ptr noundef %247, i32 noundef 4, ptr noundef nonnull @.str.7, ptr noundef nonnull @.str.348)
   %250 = tail call ptr @dlsym(ptr noundef %248, ptr noundef nonnull @.str.348) #68
   %251 = icmp eq ptr %250, null
   br i1 %251, label %252, label %ma_context_get_log.exit320
 
 252:                                              ; preds = %ma_context_get_log.exit317
-  %253 = tail call i32 (ptr, i32, ptr, ...) @ma_log_postf(ptr noundef %247, i32 noundef 2, ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.348), !range !4
+  %253 = tail call i32 (ptr, i32, ptr, ...) @ma_log_postf(ptr noundef %247, i32 noundef 2, ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.348)
   br label %ma_context_get_log.exit320
 
 ma_context_get_log.exit320:                       ; preds = %ma_context_get_log.exit317, %252
@@ -6853,13 +6853,13 @@ ma_context_get_log.exit320:                       ; preds = %ma_context_get_log.
   store ptr %250, ptr %254, align 8
   %255 = load ptr, ptr %5, align 8
   %256 = load ptr, ptr %6, align 8
-  %257 = tail call i32 (ptr, i32, ptr, ...) @ma_log_postf(ptr noundef %255, i32 noundef 4, ptr noundef nonnull @.str.7, ptr noundef nonnull @.str.349), !range !4
+  %257 = tail call i32 (ptr, i32, ptr, ...) @ma_log_postf(ptr noundef %255, i32 noundef 4, ptr noundef nonnull @.str.7, ptr noundef nonnull @.str.349)
   %258 = tail call ptr @dlsym(ptr noundef %256, ptr noundef nonnull @.str.349) #68
   %259 = icmp eq ptr %258, null
   br i1 %259, label %260, label %ma_context_get_log.exit323
 
 260:                                              ; preds = %ma_context_get_log.exit320
-  %261 = tail call i32 (ptr, i32, ptr, ...) @ma_log_postf(ptr noundef %255, i32 noundef 2, ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.349), !range !4
+  %261 = tail call i32 (ptr, i32, ptr, ...) @ma_log_postf(ptr noundef %255, i32 noundef 2, ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.349)
   br label %ma_context_get_log.exit323
 
 ma_context_get_log.exit323:                       ; preds = %ma_context_get_log.exit320, %260
@@ -6867,13 +6867,13 @@ ma_context_get_log.exit323:                       ; preds = %ma_context_get_log.
   store ptr %258, ptr %262, align 8
   %263 = load ptr, ptr %5, align 8
   %264 = load ptr, ptr %6, align 8
-  %265 = tail call i32 (ptr, i32, ptr, ...) @ma_log_postf(ptr noundef %263, i32 noundef 4, ptr noundef nonnull @.str.7, ptr noundef nonnull @.str.350), !range !4
+  %265 = tail call i32 (ptr, i32, ptr, ...) @ma_log_postf(ptr noundef %263, i32 noundef 4, ptr noundef nonnull @.str.7, ptr noundef nonnull @.str.350)
   %266 = tail call ptr @dlsym(ptr noundef %264, ptr noundef nonnull @.str.350) #68
   %267 = icmp eq ptr %266, null
   br i1 %267, label %268, label %ma_context_get_log.exit326
 
 268:                                              ; preds = %ma_context_get_log.exit323
-  %269 = tail call i32 (ptr, i32, ptr, ...) @ma_log_postf(ptr noundef %263, i32 noundef 2, ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.350), !range !4
+  %269 = tail call i32 (ptr, i32, ptr, ...) @ma_log_postf(ptr noundef %263, i32 noundef 2, ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.350)
   br label %ma_context_get_log.exit326
 
 ma_context_get_log.exit326:                       ; preds = %ma_context_get_log.exit323, %268
@@ -6881,13 +6881,13 @@ ma_context_get_log.exit326:                       ; preds = %ma_context_get_log.
   store ptr %266, ptr %270, align 8
   %271 = load ptr, ptr %5, align 8
   %272 = load ptr, ptr %6, align 8
-  %273 = tail call i32 (ptr, i32, ptr, ...) @ma_log_postf(ptr noundef %271, i32 noundef 4, ptr noundef nonnull @.str.7, ptr noundef nonnull @.str.351), !range !4
+  %273 = tail call i32 (ptr, i32, ptr, ...) @ma_log_postf(ptr noundef %271, i32 noundef 4, ptr noundef nonnull @.str.7, ptr noundef nonnull @.str.351)
   %274 = tail call ptr @dlsym(ptr noundef %272, ptr noundef nonnull @.str.351) #68
   %275 = icmp eq ptr %274, null
   br i1 %275, label %276, label %ma_context_get_log.exit329
 
 276:                                              ; preds = %ma_context_get_log.exit326
-  %277 = tail call i32 (ptr, i32, ptr, ...) @ma_log_postf(ptr noundef %271, i32 noundef 2, ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.351), !range !4
+  %277 = tail call i32 (ptr, i32, ptr, ...) @ma_log_postf(ptr noundef %271, i32 noundef 2, ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.351)
   br label %ma_context_get_log.exit329
 
 ma_context_get_log.exit329:                       ; preds = %ma_context_get_log.exit326, %276
@@ -6895,13 +6895,13 @@ ma_context_get_log.exit329:                       ; preds = %ma_context_get_log.
   store ptr %274, ptr %278, align 8
   %279 = load ptr, ptr %5, align 8
   %280 = load ptr, ptr %6, align 8
-  %281 = tail call i32 (ptr, i32, ptr, ...) @ma_log_postf(ptr noundef %279, i32 noundef 4, ptr noundef nonnull @.str.7, ptr noundef nonnull @.str.352), !range !4
+  %281 = tail call i32 (ptr, i32, ptr, ...) @ma_log_postf(ptr noundef %279, i32 noundef 4, ptr noundef nonnull @.str.7, ptr noundef nonnull @.str.352)
   %282 = tail call ptr @dlsym(ptr noundef %280, ptr noundef nonnull @.str.352) #68
   %283 = icmp eq ptr %282, null
   br i1 %283, label %284, label %ma_context_get_log.exit332
 
 284:                                              ; preds = %ma_context_get_log.exit329
-  %285 = tail call i32 (ptr, i32, ptr, ...) @ma_log_postf(ptr noundef %279, i32 noundef 2, ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.352), !range !4
+  %285 = tail call i32 (ptr, i32, ptr, ...) @ma_log_postf(ptr noundef %279, i32 noundef 2, ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.352)
   br label %ma_context_get_log.exit332
 
 ma_context_get_log.exit332:                       ; preds = %ma_context_get_log.exit329, %284
@@ -6909,13 +6909,13 @@ ma_context_get_log.exit332:                       ; preds = %ma_context_get_log.
   store ptr %282, ptr %286, align 8
   %287 = load ptr, ptr %5, align 8
   %288 = load ptr, ptr %6, align 8
-  %289 = tail call i32 (ptr, i32, ptr, ...) @ma_log_postf(ptr noundef %287, i32 noundef 4, ptr noundef nonnull @.str.7, ptr noundef nonnull @.str.353), !range !4
+  %289 = tail call i32 (ptr, i32, ptr, ...) @ma_log_postf(ptr noundef %287, i32 noundef 4, ptr noundef nonnull @.str.7, ptr noundef nonnull @.str.353)
   %290 = tail call ptr @dlsym(ptr noundef %288, ptr noundef nonnull @.str.353) #68
   %291 = icmp eq ptr %290, null
   br i1 %291, label %292, label %ma_context_get_log.exit335
 
 292:                                              ; preds = %ma_context_get_log.exit332
-  %293 = tail call i32 (ptr, i32, ptr, ...) @ma_log_postf(ptr noundef %287, i32 noundef 2, ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.353), !range !4
+  %293 = tail call i32 (ptr, i32, ptr, ...) @ma_log_postf(ptr noundef %287, i32 noundef 2, ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.353)
   br label %ma_context_get_log.exit335
 
 ma_context_get_log.exit335:                       ; preds = %ma_context_get_log.exit332, %292
@@ -6923,13 +6923,13 @@ ma_context_get_log.exit335:                       ; preds = %ma_context_get_log.
   store ptr %290, ptr %294, align 8
   %295 = load ptr, ptr %5, align 8
   %296 = load ptr, ptr %6, align 8
-  %297 = tail call i32 (ptr, i32, ptr, ...) @ma_log_postf(ptr noundef %295, i32 noundef 4, ptr noundef nonnull @.str.7, ptr noundef nonnull @.str.354), !range !4
+  %297 = tail call i32 (ptr, i32, ptr, ...) @ma_log_postf(ptr noundef %295, i32 noundef 4, ptr noundef nonnull @.str.7, ptr noundef nonnull @.str.354)
   %298 = tail call ptr @dlsym(ptr noundef %296, ptr noundef nonnull @.str.354) #68
   %299 = icmp eq ptr %298, null
   br i1 %299, label %300, label %ma_context_get_log.exit338
 
 300:                                              ; preds = %ma_context_get_log.exit335
-  %301 = tail call i32 (ptr, i32, ptr, ...) @ma_log_postf(ptr noundef %295, i32 noundef 2, ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.354), !range !4
+  %301 = tail call i32 (ptr, i32, ptr, ...) @ma_log_postf(ptr noundef %295, i32 noundef 2, ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.354)
   br label %ma_context_get_log.exit338
 
 ma_context_get_log.exit338:                       ; preds = %ma_context_get_log.exit335, %300
@@ -6937,13 +6937,13 @@ ma_context_get_log.exit338:                       ; preds = %ma_context_get_log.
   store ptr %298, ptr %302, align 8
   %303 = load ptr, ptr %5, align 8
   %304 = load ptr, ptr %6, align 8
-  %305 = tail call i32 (ptr, i32, ptr, ...) @ma_log_postf(ptr noundef %303, i32 noundef 4, ptr noundef nonnull @.str.7, ptr noundef nonnull @.str.355), !range !4
+  %305 = tail call i32 (ptr, i32, ptr, ...) @ma_log_postf(ptr noundef %303, i32 noundef 4, ptr noundef nonnull @.str.7, ptr noundef nonnull @.str.355)
   %306 = tail call ptr @dlsym(ptr noundef %304, ptr noundef nonnull @.str.355) #68
   %307 = icmp eq ptr %306, null
   br i1 %307, label %308, label %ma_context_get_log.exit341
 
 308:                                              ; preds = %ma_context_get_log.exit338
-  %309 = tail call i32 (ptr, i32, ptr, ...) @ma_log_postf(ptr noundef %303, i32 noundef 2, ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.355), !range !4
+  %309 = tail call i32 (ptr, i32, ptr, ...) @ma_log_postf(ptr noundef %303, i32 noundef 2, ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.355)
   br label %ma_context_get_log.exit341
 
 ma_context_get_log.exit341:                       ; preds = %ma_context_get_log.exit338, %308
@@ -6951,13 +6951,13 @@ ma_context_get_log.exit341:                       ; preds = %ma_context_get_log.
   store ptr %306, ptr %310, align 8
   %311 = load ptr, ptr %5, align 8
   %312 = load ptr, ptr %6, align 8
-  %313 = tail call i32 (ptr, i32, ptr, ...) @ma_log_postf(ptr noundef %311, i32 noundef 4, ptr noundef nonnull @.str.7, ptr noundef nonnull @.str.356), !range !4
+  %313 = tail call i32 (ptr, i32, ptr, ...) @ma_log_postf(ptr noundef %311, i32 noundef 4, ptr noundef nonnull @.str.7, ptr noundef nonnull @.str.356)
   %314 = tail call ptr @dlsym(ptr noundef %312, ptr noundef nonnull @.str.356) #68
   %315 = icmp eq ptr %314, null
   br i1 %315, label %316, label %ma_context_get_log.exit344
 
 316:                                              ; preds = %ma_context_get_log.exit341
-  %317 = tail call i32 (ptr, i32, ptr, ...) @ma_log_postf(ptr noundef %311, i32 noundef 2, ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.356), !range !4
+  %317 = tail call i32 (ptr, i32, ptr, ...) @ma_log_postf(ptr noundef %311, i32 noundef 2, ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.356)
   br label %ma_context_get_log.exit344
 
 ma_context_get_log.exit344:                       ; preds = %ma_context_get_log.exit341, %316
@@ -6965,13 +6965,13 @@ ma_context_get_log.exit344:                       ; preds = %ma_context_get_log.
   store ptr %314, ptr %318, align 8
   %319 = load ptr, ptr %5, align 8
   %320 = load ptr, ptr %6, align 8
-  %321 = tail call i32 (ptr, i32, ptr, ...) @ma_log_postf(ptr noundef %319, i32 noundef 4, ptr noundef nonnull @.str.7, ptr noundef nonnull @.str.357), !range !4
+  %321 = tail call i32 (ptr, i32, ptr, ...) @ma_log_postf(ptr noundef %319, i32 noundef 4, ptr noundef nonnull @.str.7, ptr noundef nonnull @.str.357)
   %322 = tail call ptr @dlsym(ptr noundef %320, ptr noundef nonnull @.str.357) #68
   %323 = icmp eq ptr %322, null
   br i1 %323, label %324, label %ma_context_get_log.exit347
 
 324:                                              ; preds = %ma_context_get_log.exit344
-  %325 = tail call i32 (ptr, i32, ptr, ...) @ma_log_postf(ptr noundef %319, i32 noundef 2, ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.357), !range !4
+  %325 = tail call i32 (ptr, i32, ptr, ...) @ma_log_postf(ptr noundef %319, i32 noundef 2, ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.357)
   br label %ma_context_get_log.exit347
 
 ma_context_get_log.exit347:                       ; preds = %ma_context_get_log.exit344, %324
@@ -6979,13 +6979,13 @@ ma_context_get_log.exit347:                       ; preds = %ma_context_get_log.
   store ptr %322, ptr %326, align 8
   %327 = load ptr, ptr %5, align 8
   %328 = load ptr, ptr %6, align 8
-  %329 = tail call i32 (ptr, i32, ptr, ...) @ma_log_postf(ptr noundef %327, i32 noundef 4, ptr noundef nonnull @.str.7, ptr noundef nonnull @.str.358), !range !4
+  %329 = tail call i32 (ptr, i32, ptr, ...) @ma_log_postf(ptr noundef %327, i32 noundef 4, ptr noundef nonnull @.str.7, ptr noundef nonnull @.str.358)
   %330 = tail call ptr @dlsym(ptr noundef %328, ptr noundef nonnull @.str.358) #68
   %331 = icmp eq ptr %330, null
   br i1 %331, label %332, label %ma_context_get_log.exit350
 
 332:                                              ; preds = %ma_context_get_log.exit347
-  %333 = tail call i32 (ptr, i32, ptr, ...) @ma_log_postf(ptr noundef %327, i32 noundef 2, ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.358), !range !4
+  %333 = tail call i32 (ptr, i32, ptr, ...) @ma_log_postf(ptr noundef %327, i32 noundef 2, ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.358)
   br label %ma_context_get_log.exit350
 
 ma_context_get_log.exit350:                       ; preds = %ma_context_get_log.exit347, %332
@@ -6993,13 +6993,13 @@ ma_context_get_log.exit350:                       ; preds = %ma_context_get_log.
   store ptr %330, ptr %334, align 8
   %335 = load ptr, ptr %5, align 8
   %336 = load ptr, ptr %6, align 8
-  %337 = tail call i32 (ptr, i32, ptr, ...) @ma_log_postf(ptr noundef %335, i32 noundef 4, ptr noundef nonnull @.str.7, ptr noundef nonnull @.str.359), !range !4
+  %337 = tail call i32 (ptr, i32, ptr, ...) @ma_log_postf(ptr noundef %335, i32 noundef 4, ptr noundef nonnull @.str.7, ptr noundef nonnull @.str.359)
   %338 = tail call ptr @dlsym(ptr noundef %336, ptr noundef nonnull @.str.359) #68
   %339 = icmp eq ptr %338, null
   br i1 %339, label %340, label %ma_context_get_log.exit353
 
 340:                                              ; preds = %ma_context_get_log.exit350
-  %341 = tail call i32 (ptr, i32, ptr, ...) @ma_log_postf(ptr noundef %335, i32 noundef 2, ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.359), !range !4
+  %341 = tail call i32 (ptr, i32, ptr, ...) @ma_log_postf(ptr noundef %335, i32 noundef 2, ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.359)
   br label %ma_context_get_log.exit353
 
 ma_context_get_log.exit353:                       ; preds = %ma_context_get_log.exit350, %340
@@ -7007,13 +7007,13 @@ ma_context_get_log.exit353:                       ; preds = %ma_context_get_log.
   store ptr %338, ptr %342, align 8
   %343 = load ptr, ptr %5, align 8
   %344 = load ptr, ptr %6, align 8
-  %345 = tail call i32 (ptr, i32, ptr, ...) @ma_log_postf(ptr noundef %343, i32 noundef 4, ptr noundef nonnull @.str.7, ptr noundef nonnull @.str.360), !range !4
+  %345 = tail call i32 (ptr, i32, ptr, ...) @ma_log_postf(ptr noundef %343, i32 noundef 4, ptr noundef nonnull @.str.7, ptr noundef nonnull @.str.360)
   %346 = tail call ptr @dlsym(ptr noundef %344, ptr noundef nonnull @.str.360) #68
   %347 = icmp eq ptr %346, null
   br i1 %347, label %348, label %ma_context_get_log.exit356
 
 348:                                              ; preds = %ma_context_get_log.exit353
-  %349 = tail call i32 (ptr, i32, ptr, ...) @ma_log_postf(ptr noundef %343, i32 noundef 2, ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.360), !range !4
+  %349 = tail call i32 (ptr, i32, ptr, ...) @ma_log_postf(ptr noundef %343, i32 noundef 2, ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.360)
   br label %ma_context_get_log.exit356
 
 ma_context_get_log.exit356:                       ; preds = %ma_context_get_log.exit353, %348
@@ -7021,13 +7021,13 @@ ma_context_get_log.exit356:                       ; preds = %ma_context_get_log.
   store ptr %346, ptr %350, align 8
   %351 = load ptr, ptr %5, align 8
   %352 = load ptr, ptr %6, align 8
-  %353 = tail call i32 (ptr, i32, ptr, ...) @ma_log_postf(ptr noundef %351, i32 noundef 4, ptr noundef nonnull @.str.7, ptr noundef nonnull @.str.361), !range !4
+  %353 = tail call i32 (ptr, i32, ptr, ...) @ma_log_postf(ptr noundef %351, i32 noundef 4, ptr noundef nonnull @.str.7, ptr noundef nonnull @.str.361)
   %354 = tail call ptr @dlsym(ptr noundef %352, ptr noundef nonnull @.str.361) #68
   %355 = icmp eq ptr %354, null
   br i1 %355, label %356, label %ma_context_get_log.exit359
 
 356:                                              ; preds = %ma_context_get_log.exit356
-  %357 = tail call i32 (ptr, i32, ptr, ...) @ma_log_postf(ptr noundef %351, i32 noundef 2, ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.361), !range !4
+  %357 = tail call i32 (ptr, i32, ptr, ...) @ma_log_postf(ptr noundef %351, i32 noundef 2, ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.361)
   br label %ma_context_get_log.exit359
 
 ma_context_get_log.exit359:                       ; preds = %ma_context_get_log.exit356, %356
@@ -7035,13 +7035,13 @@ ma_context_get_log.exit359:                       ; preds = %ma_context_get_log.
   store ptr %354, ptr %358, align 8
   %359 = load ptr, ptr %5, align 8
   %360 = load ptr, ptr %6, align 8
-  %361 = tail call i32 (ptr, i32, ptr, ...) @ma_log_postf(ptr noundef %359, i32 noundef 4, ptr noundef nonnull @.str.7, ptr noundef nonnull @.str.362), !range !4
+  %361 = tail call i32 (ptr, i32, ptr, ...) @ma_log_postf(ptr noundef %359, i32 noundef 4, ptr noundef nonnull @.str.7, ptr noundef nonnull @.str.362)
   %362 = tail call ptr @dlsym(ptr noundef %360, ptr noundef nonnull @.str.362) #68
   %363 = icmp eq ptr %362, null
   br i1 %363, label %364, label %ma_context_get_log.exit362
 
 364:                                              ; preds = %ma_context_get_log.exit359
-  %365 = tail call i32 (ptr, i32, ptr, ...) @ma_log_postf(ptr noundef %359, i32 noundef 2, ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.362), !range !4
+  %365 = tail call i32 (ptr, i32, ptr, ...) @ma_log_postf(ptr noundef %359, i32 noundef 2, ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.362)
   br label %ma_context_get_log.exit362
 
 ma_context_get_log.exit362:                       ; preds = %ma_context_get_log.exit359, %364
@@ -7049,13 +7049,13 @@ ma_context_get_log.exit362:                       ; preds = %ma_context_get_log.
   store ptr %362, ptr %366, align 8
   %367 = load ptr, ptr %5, align 8
   %368 = load ptr, ptr %6, align 8
-  %369 = tail call i32 (ptr, i32, ptr, ...) @ma_log_postf(ptr noundef %367, i32 noundef 4, ptr noundef nonnull @.str.7, ptr noundef nonnull @.str.363), !range !4
+  %369 = tail call i32 (ptr, i32, ptr, ...) @ma_log_postf(ptr noundef %367, i32 noundef 4, ptr noundef nonnull @.str.7, ptr noundef nonnull @.str.363)
   %370 = tail call ptr @dlsym(ptr noundef %368, ptr noundef nonnull @.str.363) #68
   %371 = icmp eq ptr %370, null
   br i1 %371, label %372, label %ma_context_get_log.exit365
 
 372:                                              ; preds = %ma_context_get_log.exit362
-  %373 = tail call i32 (ptr, i32, ptr, ...) @ma_log_postf(ptr noundef %367, i32 noundef 2, ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.363), !range !4
+  %373 = tail call i32 (ptr, i32, ptr, ...) @ma_log_postf(ptr noundef %367, i32 noundef 2, ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.363)
   br label %ma_context_get_log.exit365
 
 ma_context_get_log.exit365:                       ; preds = %ma_context_get_log.exit362, %372
@@ -7063,13 +7063,13 @@ ma_context_get_log.exit365:                       ; preds = %ma_context_get_log.
   store ptr %370, ptr %374, align 8
   %375 = load ptr, ptr %5, align 8
   %376 = load ptr, ptr %6, align 8
-  %377 = tail call i32 (ptr, i32, ptr, ...) @ma_log_postf(ptr noundef %375, i32 noundef 4, ptr noundef nonnull @.str.7, ptr noundef nonnull @.str.364), !range !4
+  %377 = tail call i32 (ptr, i32, ptr, ...) @ma_log_postf(ptr noundef %375, i32 noundef 4, ptr noundef nonnull @.str.7, ptr noundef nonnull @.str.364)
   %378 = tail call ptr @dlsym(ptr noundef %376, ptr noundef nonnull @.str.364) #68
   %379 = icmp eq ptr %378, null
   br i1 %379, label %380, label %ma_context_get_log.exit368
 
 380:                                              ; preds = %ma_context_get_log.exit365
-  %381 = tail call i32 (ptr, i32, ptr, ...) @ma_log_postf(ptr noundef %375, i32 noundef 2, ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.364), !range !4
+  %381 = tail call i32 (ptr, i32, ptr, ...) @ma_log_postf(ptr noundef %375, i32 noundef 2, ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.364)
   br label %ma_context_get_log.exit368
 
 ma_context_get_log.exit368:                       ; preds = %ma_context_get_log.exit365, %380
@@ -7077,13 +7077,13 @@ ma_context_get_log.exit368:                       ; preds = %ma_context_get_log.
   store ptr %378, ptr %382, align 8
   %383 = load ptr, ptr %5, align 8
   %384 = load ptr, ptr %6, align 8
-  %385 = tail call i32 (ptr, i32, ptr, ...) @ma_log_postf(ptr noundef %383, i32 noundef 4, ptr noundef nonnull @.str.7, ptr noundef nonnull @.str.365), !range !4
+  %385 = tail call i32 (ptr, i32, ptr, ...) @ma_log_postf(ptr noundef %383, i32 noundef 4, ptr noundef nonnull @.str.7, ptr noundef nonnull @.str.365)
   %386 = tail call ptr @dlsym(ptr noundef %384, ptr noundef nonnull @.str.365) #68
   %387 = icmp eq ptr %386, null
   br i1 %387, label %388, label %ma_context_get_log.exit371
 
 388:                                              ; preds = %ma_context_get_log.exit368
-  %389 = tail call i32 (ptr, i32, ptr, ...) @ma_log_postf(ptr noundef %383, i32 noundef 2, ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.365), !range !4
+  %389 = tail call i32 (ptr, i32, ptr, ...) @ma_log_postf(ptr noundef %383, i32 noundef 2, ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.365)
   br label %ma_context_get_log.exit371
 
 ma_context_get_log.exit371:                       ; preds = %ma_context_get_log.exit368, %388
@@ -7091,13 +7091,13 @@ ma_context_get_log.exit371:                       ; preds = %ma_context_get_log.
   store ptr %386, ptr %390, align 8
   %391 = load ptr, ptr %5, align 8
   %392 = load ptr, ptr %6, align 8
-  %393 = tail call i32 (ptr, i32, ptr, ...) @ma_log_postf(ptr noundef %391, i32 noundef 4, ptr noundef nonnull @.str.7, ptr noundef nonnull @.str.366), !range !4
+  %393 = tail call i32 (ptr, i32, ptr, ...) @ma_log_postf(ptr noundef %391, i32 noundef 4, ptr noundef nonnull @.str.7, ptr noundef nonnull @.str.366)
   %394 = tail call ptr @dlsym(ptr noundef %392, ptr noundef nonnull @.str.366) #68
   %395 = icmp eq ptr %394, null
   br i1 %395, label %396, label %ma_context_get_log.exit374
 
 396:                                              ; preds = %ma_context_get_log.exit371
-  %397 = tail call i32 (ptr, i32, ptr, ...) @ma_log_postf(ptr noundef %391, i32 noundef 2, ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.366), !range !4
+  %397 = tail call i32 (ptr, i32, ptr, ...) @ma_log_postf(ptr noundef %391, i32 noundef 2, ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.366)
   br label %ma_context_get_log.exit374
 
 ma_context_get_log.exit374:                       ; preds = %ma_context_get_log.exit371, %396
@@ -7105,13 +7105,13 @@ ma_context_get_log.exit374:                       ; preds = %ma_context_get_log.
   store ptr %394, ptr %398, align 8
   %399 = load ptr, ptr %5, align 8
   %400 = load ptr, ptr %6, align 8
-  %401 = tail call i32 (ptr, i32, ptr, ...) @ma_log_postf(ptr noundef %399, i32 noundef 4, ptr noundef nonnull @.str.7, ptr noundef nonnull @.str.367), !range !4
+  %401 = tail call i32 (ptr, i32, ptr, ...) @ma_log_postf(ptr noundef %399, i32 noundef 4, ptr noundef nonnull @.str.7, ptr noundef nonnull @.str.367)
   %402 = tail call ptr @dlsym(ptr noundef %400, ptr noundef nonnull @.str.367) #68
   %403 = icmp eq ptr %402, null
   br i1 %403, label %404, label %ma_context_get_log.exit377
 
 404:                                              ; preds = %ma_context_get_log.exit374
-  %405 = tail call i32 (ptr, i32, ptr, ...) @ma_log_postf(ptr noundef %399, i32 noundef 2, ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.367), !range !4
+  %405 = tail call i32 (ptr, i32, ptr, ...) @ma_log_postf(ptr noundef %399, i32 noundef 2, ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.367)
   br label %ma_context_get_log.exit377
 
 ma_context_get_log.exit377:                       ; preds = %ma_context_get_log.exit374, %404
@@ -7119,13 +7119,13 @@ ma_context_get_log.exit377:                       ; preds = %ma_context_get_log.
   store ptr %402, ptr %406, align 8
   %407 = load ptr, ptr %5, align 8
   %408 = load ptr, ptr %6, align 8
-  %409 = tail call i32 (ptr, i32, ptr, ...) @ma_log_postf(ptr noundef %407, i32 noundef 4, ptr noundef nonnull @.str.7, ptr noundef nonnull @.str.368), !range !4
+  %409 = tail call i32 (ptr, i32, ptr, ...) @ma_log_postf(ptr noundef %407, i32 noundef 4, ptr noundef nonnull @.str.7, ptr noundef nonnull @.str.368)
   %410 = tail call ptr @dlsym(ptr noundef %408, ptr noundef nonnull @.str.368) #68
   %411 = icmp eq ptr %410, null
   br i1 %411, label %412, label %ma_context_get_log.exit380
 
 412:                                              ; preds = %ma_context_get_log.exit377
-  %413 = tail call i32 (ptr, i32, ptr, ...) @ma_log_postf(ptr noundef %407, i32 noundef 2, ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.368), !range !4
+  %413 = tail call i32 (ptr, i32, ptr, ...) @ma_log_postf(ptr noundef %407, i32 noundef 2, ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.368)
   br label %ma_context_get_log.exit380
 
 ma_context_get_log.exit380:                       ; preds = %ma_context_get_log.exit377, %412
@@ -7133,13 +7133,13 @@ ma_context_get_log.exit380:                       ; preds = %ma_context_get_log.
   store ptr %410, ptr %414, align 8
   %415 = load ptr, ptr %5, align 8
   %416 = load ptr, ptr %6, align 8
-  %417 = tail call i32 (ptr, i32, ptr, ...) @ma_log_postf(ptr noundef %415, i32 noundef 4, ptr noundef nonnull @.str.7, ptr noundef nonnull @.str.369), !range !4
+  %417 = tail call i32 (ptr, i32, ptr, ...) @ma_log_postf(ptr noundef %415, i32 noundef 4, ptr noundef nonnull @.str.7, ptr noundef nonnull @.str.369)
   %418 = tail call ptr @dlsym(ptr noundef %416, ptr noundef nonnull @.str.369) #68
   %419 = icmp eq ptr %418, null
   br i1 %419, label %420, label %ma_context_get_log.exit383
 
 420:                                              ; preds = %ma_context_get_log.exit380
-  %421 = tail call i32 (ptr, i32, ptr, ...) @ma_log_postf(ptr noundef %415, i32 noundef 2, ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.369), !range !4
+  %421 = tail call i32 (ptr, i32, ptr, ...) @ma_log_postf(ptr noundef %415, i32 noundef 2, ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.369)
   br label %ma_context_get_log.exit383
 
 ma_context_get_log.exit383:                       ; preds = %ma_context_get_log.exit380, %420
@@ -7147,13 +7147,13 @@ ma_context_get_log.exit383:                       ; preds = %ma_context_get_log.
   store ptr %418, ptr %422, align 8
   %423 = load ptr, ptr %5, align 8
   %424 = load ptr, ptr %6, align 8
-  %425 = tail call i32 (ptr, i32, ptr, ...) @ma_log_postf(ptr noundef %423, i32 noundef 4, ptr noundef nonnull @.str.7, ptr noundef nonnull @.str.370), !range !4
+  %425 = tail call i32 (ptr, i32, ptr, ...) @ma_log_postf(ptr noundef %423, i32 noundef 4, ptr noundef nonnull @.str.7, ptr noundef nonnull @.str.370)
   %426 = tail call ptr @dlsym(ptr noundef %424, ptr noundef nonnull @.str.370) #68
   %427 = icmp eq ptr %426, null
   br i1 %427, label %428, label %ma_context_get_log.exit386
 
 428:                                              ; preds = %ma_context_get_log.exit383
-  %429 = tail call i32 (ptr, i32, ptr, ...) @ma_log_postf(ptr noundef %423, i32 noundef 2, ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.370), !range !4
+  %429 = tail call i32 (ptr, i32, ptr, ...) @ma_log_postf(ptr noundef %423, i32 noundef 2, ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.370)
   br label %ma_context_get_log.exit386
 
 ma_context_get_log.exit386:                       ; preds = %ma_context_get_log.exit383, %428
@@ -7161,13 +7161,13 @@ ma_context_get_log.exit386:                       ; preds = %ma_context_get_log.
   store ptr %426, ptr %430, align 8
   %431 = load ptr, ptr %5, align 8
   %432 = load ptr, ptr %6, align 8
-  %433 = tail call i32 (ptr, i32, ptr, ...) @ma_log_postf(ptr noundef %431, i32 noundef 4, ptr noundef nonnull @.str.7, ptr noundef nonnull @.str.371), !range !4
+  %433 = tail call i32 (ptr, i32, ptr, ...) @ma_log_postf(ptr noundef %431, i32 noundef 4, ptr noundef nonnull @.str.7, ptr noundef nonnull @.str.371)
   %434 = tail call ptr @dlsym(ptr noundef %432, ptr noundef nonnull @.str.371) #68
   %435 = icmp eq ptr %434, null
   br i1 %435, label %436, label %ma_context_get_log.exit389
 
 436:                                              ; preds = %ma_context_get_log.exit386
-  %437 = tail call i32 (ptr, i32, ptr, ...) @ma_log_postf(ptr noundef %431, i32 noundef 2, ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.371), !range !4
+  %437 = tail call i32 (ptr, i32, ptr, ...) @ma_log_postf(ptr noundef %431, i32 noundef 2, ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.371)
   br label %ma_context_get_log.exit389
 
 ma_context_get_log.exit389:                       ; preds = %ma_context_get_log.exit386, %436
@@ -7175,13 +7175,13 @@ ma_context_get_log.exit389:                       ; preds = %ma_context_get_log.
   store ptr %434, ptr %438, align 8
   %439 = load ptr, ptr %5, align 8
   %440 = load ptr, ptr %6, align 8
-  %441 = tail call i32 (ptr, i32, ptr, ...) @ma_log_postf(ptr noundef %439, i32 noundef 4, ptr noundef nonnull @.str.7, ptr noundef nonnull @.str.372), !range !4
+  %441 = tail call i32 (ptr, i32, ptr, ...) @ma_log_postf(ptr noundef %439, i32 noundef 4, ptr noundef nonnull @.str.7, ptr noundef nonnull @.str.372)
   %442 = tail call ptr @dlsym(ptr noundef %440, ptr noundef nonnull @.str.372) #68
   %443 = icmp eq ptr %442, null
   br i1 %443, label %444, label %ma_context_get_log.exit392
 
 444:                                              ; preds = %ma_context_get_log.exit389
-  %445 = tail call i32 (ptr, i32, ptr, ...) @ma_log_postf(ptr noundef %439, i32 noundef 2, ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.372), !range !4
+  %445 = tail call i32 (ptr, i32, ptr, ...) @ma_log_postf(ptr noundef %439, i32 noundef 2, ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.372)
   br label %ma_context_get_log.exit392
 
 ma_context_get_log.exit392:                       ; preds = %ma_context_get_log.exit389, %444
@@ -7189,13 +7189,13 @@ ma_context_get_log.exit392:                       ; preds = %ma_context_get_log.
   store ptr %442, ptr %446, align 8
   %447 = load ptr, ptr %5, align 8
   %448 = load ptr, ptr %6, align 8
-  %449 = tail call i32 (ptr, i32, ptr, ...) @ma_log_postf(ptr noundef %447, i32 noundef 4, ptr noundef nonnull @.str.7, ptr noundef nonnull @.str.373), !range !4
+  %449 = tail call i32 (ptr, i32, ptr, ...) @ma_log_postf(ptr noundef %447, i32 noundef 4, ptr noundef nonnull @.str.7, ptr noundef nonnull @.str.373)
   %450 = tail call ptr @dlsym(ptr noundef %448, ptr noundef nonnull @.str.373) #68
   %451 = icmp eq ptr %450, null
   br i1 %451, label %452, label %ma_context_get_log.exit395
 
 452:                                              ; preds = %ma_context_get_log.exit392
-  %453 = tail call i32 (ptr, i32, ptr, ...) @ma_log_postf(ptr noundef %447, i32 noundef 2, ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.373), !range !4
+  %453 = tail call i32 (ptr, i32, ptr, ...) @ma_log_postf(ptr noundef %447, i32 noundef 2, ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.373)
   br label %ma_context_get_log.exit395
 
 ma_context_get_log.exit395:                       ; preds = %ma_context_get_log.exit392, %452
@@ -7203,13 +7203,13 @@ ma_context_get_log.exit395:                       ; preds = %ma_context_get_log.
   store ptr %450, ptr %454, align 8
   %455 = load ptr, ptr %5, align 8
   %456 = load ptr, ptr %6, align 8
-  %457 = tail call i32 (ptr, i32, ptr, ...) @ma_log_postf(ptr noundef %455, i32 noundef 4, ptr noundef nonnull @.str.7, ptr noundef nonnull @.str.374), !range !4
+  %457 = tail call i32 (ptr, i32, ptr, ...) @ma_log_postf(ptr noundef %455, i32 noundef 4, ptr noundef nonnull @.str.7, ptr noundef nonnull @.str.374)
   %458 = tail call ptr @dlsym(ptr noundef %456, ptr noundef nonnull @.str.374) #68
   %459 = icmp eq ptr %458, null
   br i1 %459, label %460, label %ma_context_get_log.exit398
 
 460:                                              ; preds = %ma_context_get_log.exit395
-  %461 = tail call i32 (ptr, i32, ptr, ...) @ma_log_postf(ptr noundef %455, i32 noundef 2, ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.374), !range !4
+  %461 = tail call i32 (ptr, i32, ptr, ...) @ma_log_postf(ptr noundef %455, i32 noundef 2, ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.374)
   br label %ma_context_get_log.exit398
 
 ma_context_get_log.exit398:                       ; preds = %ma_context_get_log.exit395, %460
@@ -7217,13 +7217,13 @@ ma_context_get_log.exit398:                       ; preds = %ma_context_get_log.
   store ptr %458, ptr %462, align 8
   %463 = load ptr, ptr %5, align 8
   %464 = load ptr, ptr %6, align 8
-  %465 = tail call i32 (ptr, i32, ptr, ...) @ma_log_postf(ptr noundef %463, i32 noundef 4, ptr noundef nonnull @.str.7, ptr noundef nonnull @.str.375), !range !4
+  %465 = tail call i32 (ptr, i32, ptr, ...) @ma_log_postf(ptr noundef %463, i32 noundef 4, ptr noundef nonnull @.str.7, ptr noundef nonnull @.str.375)
   %466 = tail call ptr @dlsym(ptr noundef %464, ptr noundef nonnull @.str.375) #68
   %467 = icmp eq ptr %466, null
   br i1 %467, label %468, label %ma_context_get_log.exit401
 
 468:                                              ; preds = %ma_context_get_log.exit398
-  %469 = tail call i32 (ptr, i32, ptr, ...) @ma_log_postf(ptr noundef %463, i32 noundef 2, ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.375), !range !4
+  %469 = tail call i32 (ptr, i32, ptr, ...) @ma_log_postf(ptr noundef %463, i32 noundef 2, ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.375)
   br label %ma_context_get_log.exit401
 
 ma_context_get_log.exit401:                       ; preds = %ma_context_get_log.exit398, %468
@@ -7231,13 +7231,13 @@ ma_context_get_log.exit401:                       ; preds = %ma_context_get_log.
   store ptr %466, ptr %470, align 8
   %471 = load ptr, ptr %5, align 8
   %472 = load ptr, ptr %6, align 8
-  %473 = tail call i32 (ptr, i32, ptr, ...) @ma_log_postf(ptr noundef %471, i32 noundef 4, ptr noundef nonnull @.str.7, ptr noundef nonnull @.str.376), !range !4
+  %473 = tail call i32 (ptr, i32, ptr, ...) @ma_log_postf(ptr noundef %471, i32 noundef 4, ptr noundef nonnull @.str.7, ptr noundef nonnull @.str.376)
   %474 = tail call ptr @dlsym(ptr noundef %472, ptr noundef nonnull @.str.376) #68
   %475 = icmp eq ptr %474, null
   br i1 %475, label %476, label %ma_context_get_log.exit404
 
 476:                                              ; preds = %ma_context_get_log.exit401
-  %477 = tail call i32 (ptr, i32, ptr, ...) @ma_log_postf(ptr noundef %471, i32 noundef 2, ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.376), !range !4
+  %477 = tail call i32 (ptr, i32, ptr, ...) @ma_log_postf(ptr noundef %471, i32 noundef 2, ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.376)
   br label %ma_context_get_log.exit404
 
 ma_context_get_log.exit404:                       ; preds = %ma_context_get_log.exit401, %476
@@ -7245,13 +7245,13 @@ ma_context_get_log.exit404:                       ; preds = %ma_context_get_log.
   store ptr %474, ptr %478, align 8
   %479 = load ptr, ptr %5, align 8
   %480 = load ptr, ptr %6, align 8
-  %481 = tail call i32 (ptr, i32, ptr, ...) @ma_log_postf(ptr noundef %479, i32 noundef 4, ptr noundef nonnull @.str.7, ptr noundef nonnull @.str.377), !range !4
+  %481 = tail call i32 (ptr, i32, ptr, ...) @ma_log_postf(ptr noundef %479, i32 noundef 4, ptr noundef nonnull @.str.7, ptr noundef nonnull @.str.377)
   %482 = tail call ptr @dlsym(ptr noundef %480, ptr noundef nonnull @.str.377) #68
   %483 = icmp eq ptr %482, null
   br i1 %483, label %484, label %ma_context_get_log.exit407
 
 484:                                              ; preds = %ma_context_get_log.exit404
-  %485 = tail call i32 (ptr, i32, ptr, ...) @ma_log_postf(ptr noundef %479, i32 noundef 2, ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.377), !range !4
+  %485 = tail call i32 (ptr, i32, ptr, ...) @ma_log_postf(ptr noundef %479, i32 noundef 2, ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.377)
   br label %ma_context_get_log.exit407
 
 ma_context_get_log.exit407:                       ; preds = %ma_context_get_log.exit404, %484
@@ -7259,13 +7259,13 @@ ma_context_get_log.exit407:                       ; preds = %ma_context_get_log.
   store ptr %482, ptr %486, align 8
   %487 = load ptr, ptr %5, align 8
   %488 = load ptr, ptr %6, align 8
-  %489 = tail call i32 (ptr, i32, ptr, ...) @ma_log_postf(ptr noundef %487, i32 noundef 4, ptr noundef nonnull @.str.7, ptr noundef nonnull @.str.378), !range !4
+  %489 = tail call i32 (ptr, i32, ptr, ...) @ma_log_postf(ptr noundef %487, i32 noundef 4, ptr noundef nonnull @.str.7, ptr noundef nonnull @.str.378)
   %490 = tail call ptr @dlsym(ptr noundef %488, ptr noundef nonnull @.str.378) #68
   %491 = icmp eq ptr %490, null
   br i1 %491, label %492, label %ma_context_get_log.exit410
 
 492:                                              ; preds = %ma_context_get_log.exit407
-  %493 = tail call i32 (ptr, i32, ptr, ...) @ma_log_postf(ptr noundef %487, i32 noundef 2, ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.378), !range !4
+  %493 = tail call i32 (ptr, i32, ptr, ...) @ma_log_postf(ptr noundef %487, i32 noundef 2, ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.378)
   br label %ma_context_get_log.exit410
 
 ma_context_get_log.exit410:                       ; preds = %ma_context_get_log.exit407, %492
@@ -7273,13 +7273,13 @@ ma_context_get_log.exit410:                       ; preds = %ma_context_get_log.
   store ptr %490, ptr %494, align 8
   %495 = load ptr, ptr %5, align 8
   %496 = load ptr, ptr %6, align 8
-  %497 = tail call i32 (ptr, i32, ptr, ...) @ma_log_postf(ptr noundef %495, i32 noundef 4, ptr noundef nonnull @.str.7, ptr noundef nonnull @.str.379), !range !4
+  %497 = tail call i32 (ptr, i32, ptr, ...) @ma_log_postf(ptr noundef %495, i32 noundef 4, ptr noundef nonnull @.str.7, ptr noundef nonnull @.str.379)
   %498 = tail call ptr @dlsym(ptr noundef %496, ptr noundef nonnull @.str.379) #68
   %499 = icmp eq ptr %498, null
   br i1 %499, label %500, label %ma_context_get_log.exit413
 
 500:                                              ; preds = %ma_context_get_log.exit410
-  %501 = tail call i32 (ptr, i32, ptr, ...) @ma_log_postf(ptr noundef %495, i32 noundef 2, ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.379), !range !4
+  %501 = tail call i32 (ptr, i32, ptr, ...) @ma_log_postf(ptr noundef %495, i32 noundef 2, ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.379)
   br label %ma_context_get_log.exit413
 
 ma_context_get_log.exit413:                       ; preds = %ma_context_get_log.exit410, %500
@@ -7287,13 +7287,13 @@ ma_context_get_log.exit413:                       ; preds = %ma_context_get_log.
   store ptr %498, ptr %502, align 8
   %503 = load ptr, ptr %5, align 8
   %504 = load ptr, ptr %6, align 8
-  %505 = tail call i32 (ptr, i32, ptr, ...) @ma_log_postf(ptr noundef %503, i32 noundef 4, ptr noundef nonnull @.str.7, ptr noundef nonnull @.str.380), !range !4
+  %505 = tail call i32 (ptr, i32, ptr, ...) @ma_log_postf(ptr noundef %503, i32 noundef 4, ptr noundef nonnull @.str.7, ptr noundef nonnull @.str.380)
   %506 = tail call ptr @dlsym(ptr noundef %504, ptr noundef nonnull @.str.380) #68
   %507 = icmp eq ptr %506, null
   br i1 %507, label %508, label %ma_dlsym.exit414
 
 508:                                              ; preds = %ma_context_get_log.exit413
-  %509 = tail call i32 (ptr, i32, ptr, ...) @ma_log_postf(ptr noundef %503, i32 noundef 2, ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.380), !range !4
+  %509 = tail call i32 (ptr, i32, ptr, ...) @ma_log_postf(ptr noundef %503, i32 noundef 2, ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.380)
   br label %ma_dlsym.exit414
 
 ma_dlsym.exit414:                                 ; preds = %ma_context_get_log.exit413, %508
@@ -7517,13 +7517,13 @@ ma_context_get_log.exit.us:                       ; preds = %3, %13
   %.0431.us = phi i64 [ 1, %13 ], [ 0, %3 ]
   %8 = getelementptr inbounds [2 x ptr], ptr @__const.ma_context_init__alsa.libasoundNames, i64 0, i64 %.0431.us
   %9 = load ptr, ptr %8, align 8
-  %10 = tail call i32 (ptr, i32, ptr, ...) @ma_log_postf(ptr noundef null, i32 noundef 4, ptr noundef nonnull @.str.5, ptr noundef %9), !range !4
+  %10 = tail call i32 (ptr, i32, ptr, ...) @ma_log_postf(ptr noundef null, i32 noundef 4, ptr noundef nonnull @.str.5, ptr noundef %9)
   %11 = tail call ptr @dlopen(ptr noundef %9, i32 noundef 2) #68
   %12 = icmp eq ptr %11, null
   br i1 %12, label %13, label %ma_context_get_log.exit230
 
 13:                                               ; preds = %ma_context_get_log.exit.us
-  %14 = tail call i32 (ptr, i32, ptr, ...) @ma_log_postf(ptr noundef null, i32 noundef 3, ptr noundef nonnull @.str.6, ptr noundef %9), !range !4
+  %14 = tail call i32 (ptr, i32, ptr, ...) @ma_log_postf(ptr noundef null, i32 noundef 3, ptr noundef nonnull @.str.6, ptr noundef %9)
   store ptr null, ptr %6, align 8
   br i1 %7, label %ma_context_get_log.exit.us, label %ma_context_get_log.exit228
 
@@ -7533,32 +7533,32 @@ ma_context_get_log.exit:                          ; preds = %3, %22
   %16 = load ptr, ptr %5, align 8
   %17 = getelementptr inbounds [2 x ptr], ptr @__const.ma_context_init__alsa.libasoundNames, i64 0, i64 %.0431
   %18 = load ptr, ptr %17, align 8
-  %19 = tail call i32 (ptr, i32, ptr, ...) @ma_log_postf(ptr noundef %16, i32 noundef 4, ptr noundef nonnull @.str.5, ptr noundef %18), !range !4
+  %19 = tail call i32 (ptr, i32, ptr, ...) @ma_log_postf(ptr noundef %16, i32 noundef 4, ptr noundef nonnull @.str.5, ptr noundef %18)
   %20 = tail call ptr @dlopen(ptr noundef %18, i32 noundef 2) #68
   %21 = icmp eq ptr %20, null
   br i1 %21, label %22, label %ma_context_get_log.exit230
 
 22:                                               ; preds = %ma_context_get_log.exit
-  %23 = tail call i32 (ptr, i32, ptr, ...) @ma_log_postf(ptr noundef %16, i32 noundef 3, ptr noundef nonnull @.str.6, ptr noundef %18), !range !4
+  %23 = tail call i32 (ptr, i32, ptr, ...) @ma_log_postf(ptr noundef %16, i32 noundef 3, ptr noundef nonnull @.str.6, ptr noundef %18)
   store ptr null, ptr %6, align 8
   br i1 %15, label %ma_context_get_log.exit, label %ma_context_get_log.exit228
 
 ma_context_get_log.exit228:                       ; preds = %22, %13
   %24 = load ptr, ptr %5, align 8
-  %25 = tail call i32 (ptr, i32, ptr, ...) @ma_log_postf(ptr noundef %24, i32 noundef 4, ptr noundef nonnull @.str.420), !range !4
+  %25 = tail call i32 (ptr, i32, ptr, ...) @ma_log_postf(ptr noundef %24, i32 noundef 4, ptr noundef nonnull @.str.420)
   br label %572
 
 ma_context_get_log.exit230:                       ; preds = %ma_context_get_log.exit, %ma_context_get_log.exit.us
   %.us-phi = phi ptr [ %11, %ma_context_get_log.exit.us ], [ %20, %ma_context_get_log.exit ]
   store ptr %.us-phi, ptr %6, align 8
   %26 = load ptr, ptr %5, align 8
-  %27 = tail call i32 (ptr, i32, ptr, ...) @ma_log_postf(ptr noundef %26, i32 noundef 4, ptr noundef nonnull @.str.7, ptr noundef nonnull @.str.421), !range !4
+  %27 = tail call i32 (ptr, i32, ptr, ...) @ma_log_postf(ptr noundef %26, i32 noundef 4, ptr noundef nonnull @.str.7, ptr noundef nonnull @.str.421)
   %28 = tail call ptr @dlsym(ptr noundef nonnull %.us-phi, ptr noundef nonnull @.str.421) #68
   %29 = icmp eq ptr %28, null
   br i1 %29, label %30, label %ma_context_get_log.exit232
 
 30:                                               ; preds = %ma_context_get_log.exit230
-  %31 = tail call i32 (ptr, i32, ptr, ...) @ma_log_postf(ptr noundef %26, i32 noundef 2, ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.421), !range !4
+  %31 = tail call i32 (ptr, i32, ptr, ...) @ma_log_postf(ptr noundef %26, i32 noundef 2, ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.421)
   br label %ma_context_get_log.exit232
 
 ma_context_get_log.exit232:                       ; preds = %ma_context_get_log.exit230, %30
@@ -7566,13 +7566,13 @@ ma_context_get_log.exit232:                       ; preds = %ma_context_get_log.
   store ptr %28, ptr %32, align 8
   %33 = load ptr, ptr %5, align 8
   %34 = load ptr, ptr %6, align 8
-  %35 = tail call i32 (ptr, i32, ptr, ...) @ma_log_postf(ptr noundef %33, i32 noundef 4, ptr noundef nonnull @.str.7, ptr noundef nonnull @.str.422), !range !4
+  %35 = tail call i32 (ptr, i32, ptr, ...) @ma_log_postf(ptr noundef %33, i32 noundef 4, ptr noundef nonnull @.str.7, ptr noundef nonnull @.str.422)
   %36 = tail call ptr @dlsym(ptr noundef %34, ptr noundef nonnull @.str.422) #68
   %37 = icmp eq ptr %36, null
   br i1 %37, label %38, label %ma_context_get_log.exit235
 
 38:                                               ; preds = %ma_context_get_log.exit232
-  %39 = tail call i32 (ptr, i32, ptr, ...) @ma_log_postf(ptr noundef %33, i32 noundef 2, ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.422), !range !4
+  %39 = tail call i32 (ptr, i32, ptr, ...) @ma_log_postf(ptr noundef %33, i32 noundef 2, ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.422)
   br label %ma_context_get_log.exit235
 
 ma_context_get_log.exit235:                       ; preds = %ma_context_get_log.exit232, %38
@@ -7580,13 +7580,13 @@ ma_context_get_log.exit235:                       ; preds = %ma_context_get_log.
   store ptr %36, ptr %40, align 8
   %41 = load ptr, ptr %5, align 8
   %42 = load ptr, ptr %6, align 8
-  %43 = tail call i32 (ptr, i32, ptr, ...) @ma_log_postf(ptr noundef %41, i32 noundef 4, ptr noundef nonnull @.str.7, ptr noundef nonnull @.str.423), !range !4
+  %43 = tail call i32 (ptr, i32, ptr, ...) @ma_log_postf(ptr noundef %41, i32 noundef 4, ptr noundef nonnull @.str.7, ptr noundef nonnull @.str.423)
   %44 = tail call ptr @dlsym(ptr noundef %42, ptr noundef nonnull @.str.423) #68
   %45 = icmp eq ptr %44, null
   br i1 %45, label %46, label %ma_context_get_log.exit238
 
 46:                                               ; preds = %ma_context_get_log.exit235
-  %47 = tail call i32 (ptr, i32, ptr, ...) @ma_log_postf(ptr noundef %41, i32 noundef 2, ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.423), !range !4
+  %47 = tail call i32 (ptr, i32, ptr, ...) @ma_log_postf(ptr noundef %41, i32 noundef 2, ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.423)
   br label %ma_context_get_log.exit238
 
 ma_context_get_log.exit238:                       ; preds = %ma_context_get_log.exit235, %46
@@ -7594,13 +7594,13 @@ ma_context_get_log.exit238:                       ; preds = %ma_context_get_log.
   store ptr %44, ptr %48, align 8
   %49 = load ptr, ptr %5, align 8
   %50 = load ptr, ptr %6, align 8
-  %51 = tail call i32 (ptr, i32, ptr, ...) @ma_log_postf(ptr noundef %49, i32 noundef 4, ptr noundef nonnull @.str.7, ptr noundef nonnull @.str.424), !range !4
+  %51 = tail call i32 (ptr, i32, ptr, ...) @ma_log_postf(ptr noundef %49, i32 noundef 4, ptr noundef nonnull @.str.7, ptr noundef nonnull @.str.424)
   %52 = tail call ptr @dlsym(ptr noundef %50, ptr noundef nonnull @.str.424) #68
   %53 = icmp eq ptr %52, null
   br i1 %53, label %54, label %ma_context_get_log.exit241
 
 54:                                               ; preds = %ma_context_get_log.exit238
-  %55 = tail call i32 (ptr, i32, ptr, ...) @ma_log_postf(ptr noundef %49, i32 noundef 2, ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.424), !range !4
+  %55 = tail call i32 (ptr, i32, ptr, ...) @ma_log_postf(ptr noundef %49, i32 noundef 2, ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.424)
   br label %ma_context_get_log.exit241
 
 ma_context_get_log.exit241:                       ; preds = %ma_context_get_log.exit238, %54
@@ -7608,13 +7608,13 @@ ma_context_get_log.exit241:                       ; preds = %ma_context_get_log.
   store ptr %52, ptr %56, align 8
   %57 = load ptr, ptr %5, align 8
   %58 = load ptr, ptr %6, align 8
-  %59 = tail call i32 (ptr, i32, ptr, ...) @ma_log_postf(ptr noundef %57, i32 noundef 4, ptr noundef nonnull @.str.7, ptr noundef nonnull @.str.425), !range !4
+  %59 = tail call i32 (ptr, i32, ptr, ...) @ma_log_postf(ptr noundef %57, i32 noundef 4, ptr noundef nonnull @.str.7, ptr noundef nonnull @.str.425)
   %60 = tail call ptr @dlsym(ptr noundef %58, ptr noundef nonnull @.str.425) #68
   %61 = icmp eq ptr %60, null
   br i1 %61, label %62, label %ma_context_get_log.exit244
 
 62:                                               ; preds = %ma_context_get_log.exit241
-  %63 = tail call i32 (ptr, i32, ptr, ...) @ma_log_postf(ptr noundef %57, i32 noundef 2, ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.425), !range !4
+  %63 = tail call i32 (ptr, i32, ptr, ...) @ma_log_postf(ptr noundef %57, i32 noundef 2, ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.425)
   br label %ma_context_get_log.exit244
 
 ma_context_get_log.exit244:                       ; preds = %ma_context_get_log.exit241, %62
@@ -7622,13 +7622,13 @@ ma_context_get_log.exit244:                       ; preds = %ma_context_get_log.
   store ptr %60, ptr %64, align 8
   %65 = load ptr, ptr %5, align 8
   %66 = load ptr, ptr %6, align 8
-  %67 = tail call i32 (ptr, i32, ptr, ...) @ma_log_postf(ptr noundef %65, i32 noundef 4, ptr noundef nonnull @.str.7, ptr noundef nonnull @.str.426), !range !4
+  %67 = tail call i32 (ptr, i32, ptr, ...) @ma_log_postf(ptr noundef %65, i32 noundef 4, ptr noundef nonnull @.str.7, ptr noundef nonnull @.str.426)
   %68 = tail call ptr @dlsym(ptr noundef %66, ptr noundef nonnull @.str.426) #68
   %69 = icmp eq ptr %68, null
   br i1 %69, label %70, label %ma_context_get_log.exit247
 
 70:                                               ; preds = %ma_context_get_log.exit244
-  %71 = tail call i32 (ptr, i32, ptr, ...) @ma_log_postf(ptr noundef %65, i32 noundef 2, ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.426), !range !4
+  %71 = tail call i32 (ptr, i32, ptr, ...) @ma_log_postf(ptr noundef %65, i32 noundef 2, ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.426)
   br label %ma_context_get_log.exit247
 
 ma_context_get_log.exit247:                       ; preds = %ma_context_get_log.exit244, %70
@@ -7636,13 +7636,13 @@ ma_context_get_log.exit247:                       ; preds = %ma_context_get_log.
   store ptr %68, ptr %72, align 8
   %73 = load ptr, ptr %5, align 8
   %74 = load ptr, ptr %6, align 8
-  %75 = tail call i32 (ptr, i32, ptr, ...) @ma_log_postf(ptr noundef %73, i32 noundef 4, ptr noundef nonnull @.str.7, ptr noundef nonnull @.str.427), !range !4
+  %75 = tail call i32 (ptr, i32, ptr, ...) @ma_log_postf(ptr noundef %73, i32 noundef 4, ptr noundef nonnull @.str.7, ptr noundef nonnull @.str.427)
   %76 = tail call ptr @dlsym(ptr noundef %74, ptr noundef nonnull @.str.427) #68
   %77 = icmp eq ptr %76, null
   br i1 %77, label %78, label %ma_context_get_log.exit250
 
 78:                                               ; preds = %ma_context_get_log.exit247
-  %79 = tail call i32 (ptr, i32, ptr, ...) @ma_log_postf(ptr noundef %73, i32 noundef 2, ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.427), !range !4
+  %79 = tail call i32 (ptr, i32, ptr, ...) @ma_log_postf(ptr noundef %73, i32 noundef 2, ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.427)
   br label %ma_context_get_log.exit250
 
 ma_context_get_log.exit250:                       ; preds = %ma_context_get_log.exit247, %78
@@ -7650,13 +7650,13 @@ ma_context_get_log.exit250:                       ; preds = %ma_context_get_log.
   store ptr %76, ptr %80, align 8
   %81 = load ptr, ptr %5, align 8
   %82 = load ptr, ptr %6, align 8
-  %83 = tail call i32 (ptr, i32, ptr, ...) @ma_log_postf(ptr noundef %81, i32 noundef 4, ptr noundef nonnull @.str.7, ptr noundef nonnull @.str.428), !range !4
+  %83 = tail call i32 (ptr, i32, ptr, ...) @ma_log_postf(ptr noundef %81, i32 noundef 4, ptr noundef nonnull @.str.7, ptr noundef nonnull @.str.428)
   %84 = tail call ptr @dlsym(ptr noundef %82, ptr noundef nonnull @.str.428) #68
   %85 = icmp eq ptr %84, null
   br i1 %85, label %86, label %ma_context_get_log.exit253
 
 86:                                               ; preds = %ma_context_get_log.exit250
-  %87 = tail call i32 (ptr, i32, ptr, ...) @ma_log_postf(ptr noundef %81, i32 noundef 2, ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.428), !range !4
+  %87 = tail call i32 (ptr, i32, ptr, ...) @ma_log_postf(ptr noundef %81, i32 noundef 2, ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.428)
   br label %ma_context_get_log.exit253
 
 ma_context_get_log.exit253:                       ; preds = %ma_context_get_log.exit250, %86
@@ -7664,13 +7664,13 @@ ma_context_get_log.exit253:                       ; preds = %ma_context_get_log.
   store ptr %84, ptr %88, align 8
   %89 = load ptr, ptr %5, align 8
   %90 = load ptr, ptr %6, align 8
-  %91 = tail call i32 (ptr, i32, ptr, ...) @ma_log_postf(ptr noundef %89, i32 noundef 4, ptr noundef nonnull @.str.7, ptr noundef nonnull @.str.429), !range !4
+  %91 = tail call i32 (ptr, i32, ptr, ...) @ma_log_postf(ptr noundef %89, i32 noundef 4, ptr noundef nonnull @.str.7, ptr noundef nonnull @.str.429)
   %92 = tail call ptr @dlsym(ptr noundef %90, ptr noundef nonnull @.str.429) #68
   %93 = icmp eq ptr %92, null
   br i1 %93, label %94, label %ma_context_get_log.exit256
 
 94:                                               ; preds = %ma_context_get_log.exit253
-  %95 = tail call i32 (ptr, i32, ptr, ...) @ma_log_postf(ptr noundef %89, i32 noundef 2, ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.429), !range !4
+  %95 = tail call i32 (ptr, i32, ptr, ...) @ma_log_postf(ptr noundef %89, i32 noundef 2, ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.429)
   br label %ma_context_get_log.exit256
 
 ma_context_get_log.exit256:                       ; preds = %ma_context_get_log.exit253, %94
@@ -7678,13 +7678,13 @@ ma_context_get_log.exit256:                       ; preds = %ma_context_get_log.
   store ptr %92, ptr %96, align 8
   %97 = load ptr, ptr %5, align 8
   %98 = load ptr, ptr %6, align 8
-  %99 = tail call i32 (ptr, i32, ptr, ...) @ma_log_postf(ptr noundef %97, i32 noundef 4, ptr noundef nonnull @.str.7, ptr noundef nonnull @.str.430), !range !4
+  %99 = tail call i32 (ptr, i32, ptr, ...) @ma_log_postf(ptr noundef %97, i32 noundef 4, ptr noundef nonnull @.str.7, ptr noundef nonnull @.str.430)
   %100 = tail call ptr @dlsym(ptr noundef %98, ptr noundef nonnull @.str.430) #68
   %101 = icmp eq ptr %100, null
   br i1 %101, label %102, label %ma_context_get_log.exit259
 
 102:                                              ; preds = %ma_context_get_log.exit256
-  %103 = tail call i32 (ptr, i32, ptr, ...) @ma_log_postf(ptr noundef %97, i32 noundef 2, ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.430), !range !4
+  %103 = tail call i32 (ptr, i32, ptr, ...) @ma_log_postf(ptr noundef %97, i32 noundef 2, ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.430)
   br label %ma_context_get_log.exit259
 
 ma_context_get_log.exit259:                       ; preds = %ma_context_get_log.exit256, %102
@@ -7692,13 +7692,13 @@ ma_context_get_log.exit259:                       ; preds = %ma_context_get_log.
   store ptr %100, ptr %104, align 8
   %105 = load ptr, ptr %5, align 8
   %106 = load ptr, ptr %6, align 8
-  %107 = tail call i32 (ptr, i32, ptr, ...) @ma_log_postf(ptr noundef %105, i32 noundef 4, ptr noundef nonnull @.str.7, ptr noundef nonnull @.str.431), !range !4
+  %107 = tail call i32 (ptr, i32, ptr, ...) @ma_log_postf(ptr noundef %105, i32 noundef 4, ptr noundef nonnull @.str.7, ptr noundef nonnull @.str.431)
   %108 = tail call ptr @dlsym(ptr noundef %106, ptr noundef nonnull @.str.431) #68
   %109 = icmp eq ptr %108, null
   br i1 %109, label %110, label %ma_context_get_log.exit262
 
 110:                                              ; preds = %ma_context_get_log.exit259
-  %111 = tail call i32 (ptr, i32, ptr, ...) @ma_log_postf(ptr noundef %105, i32 noundef 2, ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.431), !range !4
+  %111 = tail call i32 (ptr, i32, ptr, ...) @ma_log_postf(ptr noundef %105, i32 noundef 2, ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.431)
   br label %ma_context_get_log.exit262
 
 ma_context_get_log.exit262:                       ; preds = %ma_context_get_log.exit259, %110
@@ -7706,13 +7706,13 @@ ma_context_get_log.exit262:                       ; preds = %ma_context_get_log.
   store ptr %108, ptr %112, align 8
   %113 = load ptr, ptr %5, align 8
   %114 = load ptr, ptr %6, align 8
-  %115 = tail call i32 (ptr, i32, ptr, ...) @ma_log_postf(ptr noundef %113, i32 noundef 4, ptr noundef nonnull @.str.7, ptr noundef nonnull @.str.432), !range !4
+  %115 = tail call i32 (ptr, i32, ptr, ...) @ma_log_postf(ptr noundef %113, i32 noundef 4, ptr noundef nonnull @.str.7, ptr noundef nonnull @.str.432)
   %116 = tail call ptr @dlsym(ptr noundef %114, ptr noundef nonnull @.str.432) #68
   %117 = icmp eq ptr %116, null
   br i1 %117, label %118, label %ma_context_get_log.exit265
 
 118:                                              ; preds = %ma_context_get_log.exit262
-  %119 = tail call i32 (ptr, i32, ptr, ...) @ma_log_postf(ptr noundef %113, i32 noundef 2, ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.432), !range !4
+  %119 = tail call i32 (ptr, i32, ptr, ...) @ma_log_postf(ptr noundef %113, i32 noundef 2, ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.432)
   br label %ma_context_get_log.exit265
 
 ma_context_get_log.exit265:                       ; preds = %ma_context_get_log.exit262, %118
@@ -7720,13 +7720,13 @@ ma_context_get_log.exit265:                       ; preds = %ma_context_get_log.
   store ptr %116, ptr %120, align 8
   %121 = load ptr, ptr %5, align 8
   %122 = load ptr, ptr %6, align 8
-  %123 = tail call i32 (ptr, i32, ptr, ...) @ma_log_postf(ptr noundef %121, i32 noundef 4, ptr noundef nonnull @.str.7, ptr noundef nonnull @.str.433), !range !4
+  %123 = tail call i32 (ptr, i32, ptr, ...) @ma_log_postf(ptr noundef %121, i32 noundef 4, ptr noundef nonnull @.str.7, ptr noundef nonnull @.str.433)
   %124 = tail call ptr @dlsym(ptr noundef %122, ptr noundef nonnull @.str.433) #68
   %125 = icmp eq ptr %124, null
   br i1 %125, label %126, label %ma_context_get_log.exit268
 
 126:                                              ; preds = %ma_context_get_log.exit265
-  %127 = tail call i32 (ptr, i32, ptr, ...) @ma_log_postf(ptr noundef %121, i32 noundef 2, ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.433), !range !4
+  %127 = tail call i32 (ptr, i32, ptr, ...) @ma_log_postf(ptr noundef %121, i32 noundef 2, ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.433)
   br label %ma_context_get_log.exit268
 
 ma_context_get_log.exit268:                       ; preds = %ma_context_get_log.exit265, %126
@@ -7734,13 +7734,13 @@ ma_context_get_log.exit268:                       ; preds = %ma_context_get_log.
   store ptr %124, ptr %128, align 8
   %129 = load ptr, ptr %5, align 8
   %130 = load ptr, ptr %6, align 8
-  %131 = tail call i32 (ptr, i32, ptr, ...) @ma_log_postf(ptr noundef %129, i32 noundef 4, ptr noundef nonnull @.str.7, ptr noundef nonnull @.str.434), !range !4
+  %131 = tail call i32 (ptr, i32, ptr, ...) @ma_log_postf(ptr noundef %129, i32 noundef 4, ptr noundef nonnull @.str.7, ptr noundef nonnull @.str.434)
   %132 = tail call ptr @dlsym(ptr noundef %130, ptr noundef nonnull @.str.434) #68
   %133 = icmp eq ptr %132, null
   br i1 %133, label %134, label %ma_context_get_log.exit271
 
 134:                                              ; preds = %ma_context_get_log.exit268
-  %135 = tail call i32 (ptr, i32, ptr, ...) @ma_log_postf(ptr noundef %129, i32 noundef 2, ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.434), !range !4
+  %135 = tail call i32 (ptr, i32, ptr, ...) @ma_log_postf(ptr noundef %129, i32 noundef 2, ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.434)
   br label %ma_context_get_log.exit271
 
 ma_context_get_log.exit271:                       ; preds = %ma_context_get_log.exit268, %134
@@ -7748,13 +7748,13 @@ ma_context_get_log.exit271:                       ; preds = %ma_context_get_log.
   store ptr %132, ptr %136, align 8
   %137 = load ptr, ptr %5, align 8
   %138 = load ptr, ptr %6, align 8
-  %139 = tail call i32 (ptr, i32, ptr, ...) @ma_log_postf(ptr noundef %137, i32 noundef 4, ptr noundef nonnull @.str.7, ptr noundef nonnull @.str.435), !range !4
+  %139 = tail call i32 (ptr, i32, ptr, ...) @ma_log_postf(ptr noundef %137, i32 noundef 4, ptr noundef nonnull @.str.7, ptr noundef nonnull @.str.435)
   %140 = tail call ptr @dlsym(ptr noundef %138, ptr noundef nonnull @.str.435) #68
   %141 = icmp eq ptr %140, null
   br i1 %141, label %142, label %ma_context_get_log.exit274
 
 142:                                              ; preds = %ma_context_get_log.exit271
-  %143 = tail call i32 (ptr, i32, ptr, ...) @ma_log_postf(ptr noundef %137, i32 noundef 2, ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.435), !range !4
+  %143 = tail call i32 (ptr, i32, ptr, ...) @ma_log_postf(ptr noundef %137, i32 noundef 2, ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.435)
   br label %ma_context_get_log.exit274
 
 ma_context_get_log.exit274:                       ; preds = %ma_context_get_log.exit271, %142
@@ -7762,13 +7762,13 @@ ma_context_get_log.exit274:                       ; preds = %ma_context_get_log.
   store ptr %140, ptr %144, align 8
   %145 = load ptr, ptr %5, align 8
   %146 = load ptr, ptr %6, align 8
-  %147 = tail call i32 (ptr, i32, ptr, ...) @ma_log_postf(ptr noundef %145, i32 noundef 4, ptr noundef nonnull @.str.7, ptr noundef nonnull @.str.436), !range !4
+  %147 = tail call i32 (ptr, i32, ptr, ...) @ma_log_postf(ptr noundef %145, i32 noundef 4, ptr noundef nonnull @.str.7, ptr noundef nonnull @.str.436)
   %148 = tail call ptr @dlsym(ptr noundef %146, ptr noundef nonnull @.str.436) #68
   %149 = icmp eq ptr %148, null
   br i1 %149, label %150, label %ma_context_get_log.exit277
 
 150:                                              ; preds = %ma_context_get_log.exit274
-  %151 = tail call i32 (ptr, i32, ptr, ...) @ma_log_postf(ptr noundef %145, i32 noundef 2, ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.436), !range !4
+  %151 = tail call i32 (ptr, i32, ptr, ...) @ma_log_postf(ptr noundef %145, i32 noundef 2, ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.436)
   br label %ma_context_get_log.exit277
 
 ma_context_get_log.exit277:                       ; preds = %ma_context_get_log.exit274, %150
@@ -7776,13 +7776,13 @@ ma_context_get_log.exit277:                       ; preds = %ma_context_get_log.
   store ptr %148, ptr %152, align 8
   %153 = load ptr, ptr %5, align 8
   %154 = load ptr, ptr %6, align 8
-  %155 = tail call i32 (ptr, i32, ptr, ...) @ma_log_postf(ptr noundef %153, i32 noundef 4, ptr noundef nonnull @.str.7, ptr noundef nonnull @.str.437), !range !4
+  %155 = tail call i32 (ptr, i32, ptr, ...) @ma_log_postf(ptr noundef %153, i32 noundef 4, ptr noundef nonnull @.str.7, ptr noundef nonnull @.str.437)
   %156 = tail call ptr @dlsym(ptr noundef %154, ptr noundef nonnull @.str.437) #68
   %157 = icmp eq ptr %156, null
   br i1 %157, label %158, label %ma_context_get_log.exit280
 
 158:                                              ; preds = %ma_context_get_log.exit277
-  %159 = tail call i32 (ptr, i32, ptr, ...) @ma_log_postf(ptr noundef %153, i32 noundef 2, ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.437), !range !4
+  %159 = tail call i32 (ptr, i32, ptr, ...) @ma_log_postf(ptr noundef %153, i32 noundef 2, ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.437)
   br label %ma_context_get_log.exit280
 
 ma_context_get_log.exit280:                       ; preds = %ma_context_get_log.exit277, %158
@@ -7790,13 +7790,13 @@ ma_context_get_log.exit280:                       ; preds = %ma_context_get_log.
   store ptr %156, ptr %160, align 8
   %161 = load ptr, ptr %5, align 8
   %162 = load ptr, ptr %6, align 8
-  %163 = tail call i32 (ptr, i32, ptr, ...) @ma_log_postf(ptr noundef %161, i32 noundef 4, ptr noundef nonnull @.str.7, ptr noundef nonnull @.str.438), !range !4
+  %163 = tail call i32 (ptr, i32, ptr, ...) @ma_log_postf(ptr noundef %161, i32 noundef 4, ptr noundef nonnull @.str.7, ptr noundef nonnull @.str.438)
   %164 = tail call ptr @dlsym(ptr noundef %162, ptr noundef nonnull @.str.438) #68
   %165 = icmp eq ptr %164, null
   br i1 %165, label %166, label %ma_context_get_log.exit283
 
 166:                                              ; preds = %ma_context_get_log.exit280
-  %167 = tail call i32 (ptr, i32, ptr, ...) @ma_log_postf(ptr noundef %161, i32 noundef 2, ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.438), !range !4
+  %167 = tail call i32 (ptr, i32, ptr, ...) @ma_log_postf(ptr noundef %161, i32 noundef 2, ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.438)
   br label %ma_context_get_log.exit283
 
 ma_context_get_log.exit283:                       ; preds = %ma_context_get_log.exit280, %166
@@ -7804,13 +7804,13 @@ ma_context_get_log.exit283:                       ; preds = %ma_context_get_log.
   store ptr %164, ptr %168, align 8
   %169 = load ptr, ptr %5, align 8
   %170 = load ptr, ptr %6, align 8
-  %171 = tail call i32 (ptr, i32, ptr, ...) @ma_log_postf(ptr noundef %169, i32 noundef 4, ptr noundef nonnull @.str.7, ptr noundef nonnull @.str.439), !range !4
+  %171 = tail call i32 (ptr, i32, ptr, ...) @ma_log_postf(ptr noundef %169, i32 noundef 4, ptr noundef nonnull @.str.7, ptr noundef nonnull @.str.439)
   %172 = tail call ptr @dlsym(ptr noundef %170, ptr noundef nonnull @.str.439) #68
   %173 = icmp eq ptr %172, null
   br i1 %173, label %174, label %ma_context_get_log.exit286
 
 174:                                              ; preds = %ma_context_get_log.exit283
-  %175 = tail call i32 (ptr, i32, ptr, ...) @ma_log_postf(ptr noundef %169, i32 noundef 2, ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.439), !range !4
+  %175 = tail call i32 (ptr, i32, ptr, ...) @ma_log_postf(ptr noundef %169, i32 noundef 2, ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.439)
   br label %ma_context_get_log.exit286
 
 ma_context_get_log.exit286:                       ; preds = %ma_context_get_log.exit283, %174
@@ -7818,13 +7818,13 @@ ma_context_get_log.exit286:                       ; preds = %ma_context_get_log.
   store ptr %172, ptr %176, align 8
   %177 = load ptr, ptr %5, align 8
   %178 = load ptr, ptr %6, align 8
-  %179 = tail call i32 (ptr, i32, ptr, ...) @ma_log_postf(ptr noundef %177, i32 noundef 4, ptr noundef nonnull @.str.7, ptr noundef nonnull @.str.440), !range !4
+  %179 = tail call i32 (ptr, i32, ptr, ...) @ma_log_postf(ptr noundef %177, i32 noundef 4, ptr noundef nonnull @.str.7, ptr noundef nonnull @.str.440)
   %180 = tail call ptr @dlsym(ptr noundef %178, ptr noundef nonnull @.str.440) #68
   %181 = icmp eq ptr %180, null
   br i1 %181, label %182, label %ma_context_get_log.exit289
 
 182:                                              ; preds = %ma_context_get_log.exit286
-  %183 = tail call i32 (ptr, i32, ptr, ...) @ma_log_postf(ptr noundef %177, i32 noundef 2, ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.440), !range !4
+  %183 = tail call i32 (ptr, i32, ptr, ...) @ma_log_postf(ptr noundef %177, i32 noundef 2, ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.440)
   br label %ma_context_get_log.exit289
 
 ma_context_get_log.exit289:                       ; preds = %ma_context_get_log.exit286, %182
@@ -7832,13 +7832,13 @@ ma_context_get_log.exit289:                       ; preds = %ma_context_get_log.
   store ptr %180, ptr %184, align 8
   %185 = load ptr, ptr %5, align 8
   %186 = load ptr, ptr %6, align 8
-  %187 = tail call i32 (ptr, i32, ptr, ...) @ma_log_postf(ptr noundef %185, i32 noundef 4, ptr noundef nonnull @.str.7, ptr noundef nonnull @.str.441), !range !4
+  %187 = tail call i32 (ptr, i32, ptr, ...) @ma_log_postf(ptr noundef %185, i32 noundef 4, ptr noundef nonnull @.str.7, ptr noundef nonnull @.str.441)
   %188 = tail call ptr @dlsym(ptr noundef %186, ptr noundef nonnull @.str.441) #68
   %189 = icmp eq ptr %188, null
   br i1 %189, label %190, label %ma_context_get_log.exit292
 
 190:                                              ; preds = %ma_context_get_log.exit289
-  %191 = tail call i32 (ptr, i32, ptr, ...) @ma_log_postf(ptr noundef %185, i32 noundef 2, ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.441), !range !4
+  %191 = tail call i32 (ptr, i32, ptr, ...) @ma_log_postf(ptr noundef %185, i32 noundef 2, ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.441)
   br label %ma_context_get_log.exit292
 
 ma_context_get_log.exit292:                       ; preds = %ma_context_get_log.exit289, %190
@@ -7846,13 +7846,13 @@ ma_context_get_log.exit292:                       ; preds = %ma_context_get_log.
   store ptr %188, ptr %192, align 8
   %193 = load ptr, ptr %5, align 8
   %194 = load ptr, ptr %6, align 8
-  %195 = tail call i32 (ptr, i32, ptr, ...) @ma_log_postf(ptr noundef %193, i32 noundef 4, ptr noundef nonnull @.str.7, ptr noundef nonnull @.str.442), !range !4
+  %195 = tail call i32 (ptr, i32, ptr, ...) @ma_log_postf(ptr noundef %193, i32 noundef 4, ptr noundef nonnull @.str.7, ptr noundef nonnull @.str.442)
   %196 = tail call ptr @dlsym(ptr noundef %194, ptr noundef nonnull @.str.442) #68
   %197 = icmp eq ptr %196, null
   br i1 %197, label %198, label %ma_context_get_log.exit295
 
 198:                                              ; preds = %ma_context_get_log.exit292
-  %199 = tail call i32 (ptr, i32, ptr, ...) @ma_log_postf(ptr noundef %193, i32 noundef 2, ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.442), !range !4
+  %199 = tail call i32 (ptr, i32, ptr, ...) @ma_log_postf(ptr noundef %193, i32 noundef 2, ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.442)
   br label %ma_context_get_log.exit295
 
 ma_context_get_log.exit295:                       ; preds = %ma_context_get_log.exit292, %198
@@ -7860,13 +7860,13 @@ ma_context_get_log.exit295:                       ; preds = %ma_context_get_log.
   store ptr %196, ptr %200, align 8
   %201 = load ptr, ptr %5, align 8
   %202 = load ptr, ptr %6, align 8
-  %203 = tail call i32 (ptr, i32, ptr, ...) @ma_log_postf(ptr noundef %201, i32 noundef 4, ptr noundef nonnull @.str.7, ptr noundef nonnull @.str.443), !range !4
+  %203 = tail call i32 (ptr, i32, ptr, ...) @ma_log_postf(ptr noundef %201, i32 noundef 4, ptr noundef nonnull @.str.7, ptr noundef nonnull @.str.443)
   %204 = tail call ptr @dlsym(ptr noundef %202, ptr noundef nonnull @.str.443) #68
   %205 = icmp eq ptr %204, null
   br i1 %205, label %206, label %ma_context_get_log.exit298
 
 206:                                              ; preds = %ma_context_get_log.exit295
-  %207 = tail call i32 (ptr, i32, ptr, ...) @ma_log_postf(ptr noundef %201, i32 noundef 2, ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.443), !range !4
+  %207 = tail call i32 (ptr, i32, ptr, ...) @ma_log_postf(ptr noundef %201, i32 noundef 2, ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.443)
   br label %ma_context_get_log.exit298
 
 ma_context_get_log.exit298:                       ; preds = %ma_context_get_log.exit295, %206
@@ -7874,13 +7874,13 @@ ma_context_get_log.exit298:                       ; preds = %ma_context_get_log.
   store ptr %204, ptr %208, align 8
   %209 = load ptr, ptr %5, align 8
   %210 = load ptr, ptr %6, align 8
-  %211 = tail call i32 (ptr, i32, ptr, ...) @ma_log_postf(ptr noundef %209, i32 noundef 4, ptr noundef nonnull @.str.7, ptr noundef nonnull @.str.444), !range !4
+  %211 = tail call i32 (ptr, i32, ptr, ...) @ma_log_postf(ptr noundef %209, i32 noundef 4, ptr noundef nonnull @.str.7, ptr noundef nonnull @.str.444)
   %212 = tail call ptr @dlsym(ptr noundef %210, ptr noundef nonnull @.str.444) #68
   %213 = icmp eq ptr %212, null
   br i1 %213, label %214, label %ma_context_get_log.exit301
 
 214:                                              ; preds = %ma_context_get_log.exit298
-  %215 = tail call i32 (ptr, i32, ptr, ...) @ma_log_postf(ptr noundef %209, i32 noundef 2, ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.444), !range !4
+  %215 = tail call i32 (ptr, i32, ptr, ...) @ma_log_postf(ptr noundef %209, i32 noundef 2, ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.444)
   br label %ma_context_get_log.exit301
 
 ma_context_get_log.exit301:                       ; preds = %ma_context_get_log.exit298, %214
@@ -7888,13 +7888,13 @@ ma_context_get_log.exit301:                       ; preds = %ma_context_get_log.
   store ptr %212, ptr %216, align 8
   %217 = load ptr, ptr %5, align 8
   %218 = load ptr, ptr %6, align 8
-  %219 = tail call i32 (ptr, i32, ptr, ...) @ma_log_postf(ptr noundef %217, i32 noundef 4, ptr noundef nonnull @.str.7, ptr noundef nonnull @.str.445), !range !4
+  %219 = tail call i32 (ptr, i32, ptr, ...) @ma_log_postf(ptr noundef %217, i32 noundef 4, ptr noundef nonnull @.str.7, ptr noundef nonnull @.str.445)
   %220 = tail call ptr @dlsym(ptr noundef %218, ptr noundef nonnull @.str.445) #68
   %221 = icmp eq ptr %220, null
   br i1 %221, label %222, label %ma_context_get_log.exit304
 
 222:                                              ; preds = %ma_context_get_log.exit301
-  %223 = tail call i32 (ptr, i32, ptr, ...) @ma_log_postf(ptr noundef %217, i32 noundef 2, ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.445), !range !4
+  %223 = tail call i32 (ptr, i32, ptr, ...) @ma_log_postf(ptr noundef %217, i32 noundef 2, ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.445)
   br label %ma_context_get_log.exit304
 
 ma_context_get_log.exit304:                       ; preds = %ma_context_get_log.exit301, %222
@@ -7902,13 +7902,13 @@ ma_context_get_log.exit304:                       ; preds = %ma_context_get_log.
   store ptr %220, ptr %224, align 8
   %225 = load ptr, ptr %5, align 8
   %226 = load ptr, ptr %6, align 8
-  %227 = tail call i32 (ptr, i32, ptr, ...) @ma_log_postf(ptr noundef %225, i32 noundef 4, ptr noundef nonnull @.str.7, ptr noundef nonnull @.str.446), !range !4
+  %227 = tail call i32 (ptr, i32, ptr, ...) @ma_log_postf(ptr noundef %225, i32 noundef 4, ptr noundef nonnull @.str.7, ptr noundef nonnull @.str.446)
   %228 = tail call ptr @dlsym(ptr noundef %226, ptr noundef nonnull @.str.446) #68
   %229 = icmp eq ptr %228, null
   br i1 %229, label %230, label %ma_context_get_log.exit307
 
 230:                                              ; preds = %ma_context_get_log.exit304
-  %231 = tail call i32 (ptr, i32, ptr, ...) @ma_log_postf(ptr noundef %225, i32 noundef 2, ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.446), !range !4
+  %231 = tail call i32 (ptr, i32, ptr, ...) @ma_log_postf(ptr noundef %225, i32 noundef 2, ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.446)
   br label %ma_context_get_log.exit307
 
 ma_context_get_log.exit307:                       ; preds = %ma_context_get_log.exit304, %230
@@ -7916,13 +7916,13 @@ ma_context_get_log.exit307:                       ; preds = %ma_context_get_log.
   store ptr %228, ptr %232, align 8
   %233 = load ptr, ptr %5, align 8
   %234 = load ptr, ptr %6, align 8
-  %235 = tail call i32 (ptr, i32, ptr, ...) @ma_log_postf(ptr noundef %233, i32 noundef 4, ptr noundef nonnull @.str.7, ptr noundef nonnull @.str.447), !range !4
+  %235 = tail call i32 (ptr, i32, ptr, ...) @ma_log_postf(ptr noundef %233, i32 noundef 4, ptr noundef nonnull @.str.7, ptr noundef nonnull @.str.447)
   %236 = tail call ptr @dlsym(ptr noundef %234, ptr noundef nonnull @.str.447) #68
   %237 = icmp eq ptr %236, null
   br i1 %237, label %238, label %ma_context_get_log.exit310
 
 238:                                              ; preds = %ma_context_get_log.exit307
-  %239 = tail call i32 (ptr, i32, ptr, ...) @ma_log_postf(ptr noundef %233, i32 noundef 2, ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.447), !range !4
+  %239 = tail call i32 (ptr, i32, ptr, ...) @ma_log_postf(ptr noundef %233, i32 noundef 2, ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.447)
   br label %ma_context_get_log.exit310
 
 ma_context_get_log.exit310:                       ; preds = %ma_context_get_log.exit307, %238
@@ -7930,13 +7930,13 @@ ma_context_get_log.exit310:                       ; preds = %ma_context_get_log.
   store ptr %236, ptr %240, align 8
   %241 = load ptr, ptr %5, align 8
   %242 = load ptr, ptr %6, align 8
-  %243 = tail call i32 (ptr, i32, ptr, ...) @ma_log_postf(ptr noundef %241, i32 noundef 4, ptr noundef nonnull @.str.7, ptr noundef nonnull @.str.448), !range !4
+  %243 = tail call i32 (ptr, i32, ptr, ...) @ma_log_postf(ptr noundef %241, i32 noundef 4, ptr noundef nonnull @.str.7, ptr noundef nonnull @.str.448)
   %244 = tail call ptr @dlsym(ptr noundef %242, ptr noundef nonnull @.str.448) #68
   %245 = icmp eq ptr %244, null
   br i1 %245, label %246, label %ma_context_get_log.exit313
 
 246:                                              ; preds = %ma_context_get_log.exit310
-  %247 = tail call i32 (ptr, i32, ptr, ...) @ma_log_postf(ptr noundef %241, i32 noundef 2, ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.448), !range !4
+  %247 = tail call i32 (ptr, i32, ptr, ...) @ma_log_postf(ptr noundef %241, i32 noundef 2, ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.448)
   br label %ma_context_get_log.exit313
 
 ma_context_get_log.exit313:                       ; preds = %ma_context_get_log.exit310, %246
@@ -7944,13 +7944,13 @@ ma_context_get_log.exit313:                       ; preds = %ma_context_get_log.
   store ptr %244, ptr %248, align 8
   %249 = load ptr, ptr %5, align 8
   %250 = load ptr, ptr %6, align 8
-  %251 = tail call i32 (ptr, i32, ptr, ...) @ma_log_postf(ptr noundef %249, i32 noundef 4, ptr noundef nonnull @.str.7, ptr noundef nonnull @.str.449), !range !4
+  %251 = tail call i32 (ptr, i32, ptr, ...) @ma_log_postf(ptr noundef %249, i32 noundef 4, ptr noundef nonnull @.str.7, ptr noundef nonnull @.str.449)
   %252 = tail call ptr @dlsym(ptr noundef %250, ptr noundef nonnull @.str.449) #68
   %253 = icmp eq ptr %252, null
   br i1 %253, label %254, label %ma_context_get_log.exit316
 
 254:                                              ; preds = %ma_context_get_log.exit313
-  %255 = tail call i32 (ptr, i32, ptr, ...) @ma_log_postf(ptr noundef %249, i32 noundef 2, ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.449), !range !4
+  %255 = tail call i32 (ptr, i32, ptr, ...) @ma_log_postf(ptr noundef %249, i32 noundef 2, ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.449)
   br label %ma_context_get_log.exit316
 
 ma_context_get_log.exit316:                       ; preds = %ma_context_get_log.exit313, %254
@@ -7958,13 +7958,13 @@ ma_context_get_log.exit316:                       ; preds = %ma_context_get_log.
   store ptr %252, ptr %256, align 8
   %257 = load ptr, ptr %5, align 8
   %258 = load ptr, ptr %6, align 8
-  %259 = tail call i32 (ptr, i32, ptr, ...) @ma_log_postf(ptr noundef %257, i32 noundef 4, ptr noundef nonnull @.str.7, ptr noundef nonnull @.str.450), !range !4
+  %259 = tail call i32 (ptr, i32, ptr, ...) @ma_log_postf(ptr noundef %257, i32 noundef 4, ptr noundef nonnull @.str.7, ptr noundef nonnull @.str.450)
   %260 = tail call ptr @dlsym(ptr noundef %258, ptr noundef nonnull @.str.450) #68
   %261 = icmp eq ptr %260, null
   br i1 %261, label %262, label %ma_context_get_log.exit319
 
 262:                                              ; preds = %ma_context_get_log.exit316
-  %263 = tail call i32 (ptr, i32, ptr, ...) @ma_log_postf(ptr noundef %257, i32 noundef 2, ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.450), !range !4
+  %263 = tail call i32 (ptr, i32, ptr, ...) @ma_log_postf(ptr noundef %257, i32 noundef 2, ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.450)
   br label %ma_context_get_log.exit319
 
 ma_context_get_log.exit319:                       ; preds = %ma_context_get_log.exit316, %262
@@ -7972,13 +7972,13 @@ ma_context_get_log.exit319:                       ; preds = %ma_context_get_log.
   store ptr %260, ptr %264, align 8
   %265 = load ptr, ptr %5, align 8
   %266 = load ptr, ptr %6, align 8
-  %267 = tail call i32 (ptr, i32, ptr, ...) @ma_log_postf(ptr noundef %265, i32 noundef 4, ptr noundef nonnull @.str.7, ptr noundef nonnull @.str.451), !range !4
+  %267 = tail call i32 (ptr, i32, ptr, ...) @ma_log_postf(ptr noundef %265, i32 noundef 4, ptr noundef nonnull @.str.7, ptr noundef nonnull @.str.451)
   %268 = tail call ptr @dlsym(ptr noundef %266, ptr noundef nonnull @.str.451) #68
   %269 = icmp eq ptr %268, null
   br i1 %269, label %270, label %ma_context_get_log.exit322
 
 270:                                              ; preds = %ma_context_get_log.exit319
-  %271 = tail call i32 (ptr, i32, ptr, ...) @ma_log_postf(ptr noundef %265, i32 noundef 2, ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.451), !range !4
+  %271 = tail call i32 (ptr, i32, ptr, ...) @ma_log_postf(ptr noundef %265, i32 noundef 2, ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.451)
   br label %ma_context_get_log.exit322
 
 ma_context_get_log.exit322:                       ; preds = %ma_context_get_log.exit319, %270
@@ -7986,13 +7986,13 @@ ma_context_get_log.exit322:                       ; preds = %ma_context_get_log.
   store ptr %268, ptr %272, align 8
   %273 = load ptr, ptr %5, align 8
   %274 = load ptr, ptr %6, align 8
-  %275 = tail call i32 (ptr, i32, ptr, ...) @ma_log_postf(ptr noundef %273, i32 noundef 4, ptr noundef nonnull @.str.7, ptr noundef nonnull @.str.452), !range !4
+  %275 = tail call i32 (ptr, i32, ptr, ...) @ma_log_postf(ptr noundef %273, i32 noundef 4, ptr noundef nonnull @.str.7, ptr noundef nonnull @.str.452)
   %276 = tail call ptr @dlsym(ptr noundef %274, ptr noundef nonnull @.str.452) #68
   %277 = icmp eq ptr %276, null
   br i1 %277, label %278, label %ma_context_get_log.exit325
 
 278:                                              ; preds = %ma_context_get_log.exit322
-  %279 = tail call i32 (ptr, i32, ptr, ...) @ma_log_postf(ptr noundef %273, i32 noundef 2, ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.452), !range !4
+  %279 = tail call i32 (ptr, i32, ptr, ...) @ma_log_postf(ptr noundef %273, i32 noundef 2, ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.452)
   br label %ma_context_get_log.exit325
 
 ma_context_get_log.exit325:                       ; preds = %ma_context_get_log.exit322, %278
@@ -8000,13 +8000,13 @@ ma_context_get_log.exit325:                       ; preds = %ma_context_get_log.
   store ptr %276, ptr %280, align 8
   %281 = load ptr, ptr %5, align 8
   %282 = load ptr, ptr %6, align 8
-  %283 = tail call i32 (ptr, i32, ptr, ...) @ma_log_postf(ptr noundef %281, i32 noundef 4, ptr noundef nonnull @.str.7, ptr noundef nonnull @.str.453), !range !4
+  %283 = tail call i32 (ptr, i32, ptr, ...) @ma_log_postf(ptr noundef %281, i32 noundef 4, ptr noundef nonnull @.str.7, ptr noundef nonnull @.str.453)
   %284 = tail call ptr @dlsym(ptr noundef %282, ptr noundef nonnull @.str.453) #68
   %285 = icmp eq ptr %284, null
   br i1 %285, label %286, label %ma_context_get_log.exit328
 
 286:                                              ; preds = %ma_context_get_log.exit325
-  %287 = tail call i32 (ptr, i32, ptr, ...) @ma_log_postf(ptr noundef %281, i32 noundef 2, ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.453), !range !4
+  %287 = tail call i32 (ptr, i32, ptr, ...) @ma_log_postf(ptr noundef %281, i32 noundef 2, ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.453)
   br label %ma_context_get_log.exit328
 
 ma_context_get_log.exit328:                       ; preds = %ma_context_get_log.exit325, %286
@@ -8014,13 +8014,13 @@ ma_context_get_log.exit328:                       ; preds = %ma_context_get_log.
   store ptr %284, ptr %288, align 8
   %289 = load ptr, ptr %5, align 8
   %290 = load ptr, ptr %6, align 8
-  %291 = tail call i32 (ptr, i32, ptr, ...) @ma_log_postf(ptr noundef %289, i32 noundef 4, ptr noundef nonnull @.str.7, ptr noundef nonnull @.str.454), !range !4
+  %291 = tail call i32 (ptr, i32, ptr, ...) @ma_log_postf(ptr noundef %289, i32 noundef 4, ptr noundef nonnull @.str.7, ptr noundef nonnull @.str.454)
   %292 = tail call ptr @dlsym(ptr noundef %290, ptr noundef nonnull @.str.454) #68
   %293 = icmp eq ptr %292, null
   br i1 %293, label %294, label %ma_context_get_log.exit331
 
 294:                                              ; preds = %ma_context_get_log.exit328
-  %295 = tail call i32 (ptr, i32, ptr, ...) @ma_log_postf(ptr noundef %289, i32 noundef 2, ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.454), !range !4
+  %295 = tail call i32 (ptr, i32, ptr, ...) @ma_log_postf(ptr noundef %289, i32 noundef 2, ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.454)
   br label %ma_context_get_log.exit331
 
 ma_context_get_log.exit331:                       ; preds = %ma_context_get_log.exit328, %294
@@ -8028,13 +8028,13 @@ ma_context_get_log.exit331:                       ; preds = %ma_context_get_log.
   store ptr %292, ptr %296, align 8
   %297 = load ptr, ptr %5, align 8
   %298 = load ptr, ptr %6, align 8
-  %299 = tail call i32 (ptr, i32, ptr, ...) @ma_log_postf(ptr noundef %297, i32 noundef 4, ptr noundef nonnull @.str.7, ptr noundef nonnull @.str.455), !range !4
+  %299 = tail call i32 (ptr, i32, ptr, ...) @ma_log_postf(ptr noundef %297, i32 noundef 4, ptr noundef nonnull @.str.7, ptr noundef nonnull @.str.455)
   %300 = tail call ptr @dlsym(ptr noundef %298, ptr noundef nonnull @.str.455) #68
   %301 = icmp eq ptr %300, null
   br i1 %301, label %302, label %ma_context_get_log.exit334
 
 302:                                              ; preds = %ma_context_get_log.exit331
-  %303 = tail call i32 (ptr, i32, ptr, ...) @ma_log_postf(ptr noundef %297, i32 noundef 2, ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.455), !range !4
+  %303 = tail call i32 (ptr, i32, ptr, ...) @ma_log_postf(ptr noundef %297, i32 noundef 2, ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.455)
   br label %ma_context_get_log.exit334
 
 ma_context_get_log.exit334:                       ; preds = %ma_context_get_log.exit331, %302
@@ -8042,13 +8042,13 @@ ma_context_get_log.exit334:                       ; preds = %ma_context_get_log.
   store ptr %300, ptr %304, align 8
   %305 = load ptr, ptr %5, align 8
   %306 = load ptr, ptr %6, align 8
-  %307 = tail call i32 (ptr, i32, ptr, ...) @ma_log_postf(ptr noundef %305, i32 noundef 4, ptr noundef nonnull @.str.7, ptr noundef nonnull @.str.456), !range !4
+  %307 = tail call i32 (ptr, i32, ptr, ...) @ma_log_postf(ptr noundef %305, i32 noundef 4, ptr noundef nonnull @.str.7, ptr noundef nonnull @.str.456)
   %308 = tail call ptr @dlsym(ptr noundef %306, ptr noundef nonnull @.str.456) #68
   %309 = icmp eq ptr %308, null
   br i1 %309, label %310, label %ma_context_get_log.exit337
 
 310:                                              ; preds = %ma_context_get_log.exit334
-  %311 = tail call i32 (ptr, i32, ptr, ...) @ma_log_postf(ptr noundef %305, i32 noundef 2, ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.456), !range !4
+  %311 = tail call i32 (ptr, i32, ptr, ...) @ma_log_postf(ptr noundef %305, i32 noundef 2, ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.456)
   br label %ma_context_get_log.exit337
 
 ma_context_get_log.exit337:                       ; preds = %ma_context_get_log.exit334, %310
@@ -8056,13 +8056,13 @@ ma_context_get_log.exit337:                       ; preds = %ma_context_get_log.
   store ptr %308, ptr %312, align 8
   %313 = load ptr, ptr %5, align 8
   %314 = load ptr, ptr %6, align 8
-  %315 = tail call i32 (ptr, i32, ptr, ...) @ma_log_postf(ptr noundef %313, i32 noundef 4, ptr noundef nonnull @.str.7, ptr noundef nonnull @.str.457), !range !4
+  %315 = tail call i32 (ptr, i32, ptr, ...) @ma_log_postf(ptr noundef %313, i32 noundef 4, ptr noundef nonnull @.str.7, ptr noundef nonnull @.str.457)
   %316 = tail call ptr @dlsym(ptr noundef %314, ptr noundef nonnull @.str.457) #68
   %317 = icmp eq ptr %316, null
   br i1 %317, label %318, label %ma_context_get_log.exit340
 
 318:                                              ; preds = %ma_context_get_log.exit337
-  %319 = tail call i32 (ptr, i32, ptr, ...) @ma_log_postf(ptr noundef %313, i32 noundef 2, ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.457), !range !4
+  %319 = tail call i32 (ptr, i32, ptr, ...) @ma_log_postf(ptr noundef %313, i32 noundef 2, ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.457)
   br label %ma_context_get_log.exit340
 
 ma_context_get_log.exit340:                       ; preds = %ma_context_get_log.exit337, %318
@@ -8070,13 +8070,13 @@ ma_context_get_log.exit340:                       ; preds = %ma_context_get_log.
   store ptr %316, ptr %320, align 8
   %321 = load ptr, ptr %5, align 8
   %322 = load ptr, ptr %6, align 8
-  %323 = tail call i32 (ptr, i32, ptr, ...) @ma_log_postf(ptr noundef %321, i32 noundef 4, ptr noundef nonnull @.str.7, ptr noundef nonnull @.str.458), !range !4
+  %323 = tail call i32 (ptr, i32, ptr, ...) @ma_log_postf(ptr noundef %321, i32 noundef 4, ptr noundef nonnull @.str.7, ptr noundef nonnull @.str.458)
   %324 = tail call ptr @dlsym(ptr noundef %322, ptr noundef nonnull @.str.458) #68
   %325 = icmp eq ptr %324, null
   br i1 %325, label %326, label %ma_context_get_log.exit343
 
 326:                                              ; preds = %ma_context_get_log.exit340
-  %327 = tail call i32 (ptr, i32, ptr, ...) @ma_log_postf(ptr noundef %321, i32 noundef 2, ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.458), !range !4
+  %327 = tail call i32 (ptr, i32, ptr, ...) @ma_log_postf(ptr noundef %321, i32 noundef 2, ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.458)
   br label %ma_context_get_log.exit343
 
 ma_context_get_log.exit343:                       ; preds = %ma_context_get_log.exit340, %326
@@ -8084,13 +8084,13 @@ ma_context_get_log.exit343:                       ; preds = %ma_context_get_log.
   store ptr %324, ptr %328, align 8
   %329 = load ptr, ptr %5, align 8
   %330 = load ptr, ptr %6, align 8
-  %331 = tail call i32 (ptr, i32, ptr, ...) @ma_log_postf(ptr noundef %329, i32 noundef 4, ptr noundef nonnull @.str.7, ptr noundef nonnull @.str.459), !range !4
+  %331 = tail call i32 (ptr, i32, ptr, ...) @ma_log_postf(ptr noundef %329, i32 noundef 4, ptr noundef nonnull @.str.7, ptr noundef nonnull @.str.459)
   %332 = tail call ptr @dlsym(ptr noundef %330, ptr noundef nonnull @.str.459) #68
   %333 = icmp eq ptr %332, null
   br i1 %333, label %334, label %ma_context_get_log.exit346
 
 334:                                              ; preds = %ma_context_get_log.exit343
-  %335 = tail call i32 (ptr, i32, ptr, ...) @ma_log_postf(ptr noundef %329, i32 noundef 2, ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.459), !range !4
+  %335 = tail call i32 (ptr, i32, ptr, ...) @ma_log_postf(ptr noundef %329, i32 noundef 2, ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.459)
   br label %ma_context_get_log.exit346
 
 ma_context_get_log.exit346:                       ; preds = %ma_context_get_log.exit343, %334
@@ -8098,13 +8098,13 @@ ma_context_get_log.exit346:                       ; preds = %ma_context_get_log.
   store ptr %332, ptr %336, align 8
   %337 = load ptr, ptr %5, align 8
   %338 = load ptr, ptr %6, align 8
-  %339 = tail call i32 (ptr, i32, ptr, ...) @ma_log_postf(ptr noundef %337, i32 noundef 4, ptr noundef nonnull @.str.7, ptr noundef nonnull @.str.460), !range !4
+  %339 = tail call i32 (ptr, i32, ptr, ...) @ma_log_postf(ptr noundef %337, i32 noundef 4, ptr noundef nonnull @.str.7, ptr noundef nonnull @.str.460)
   %340 = tail call ptr @dlsym(ptr noundef %338, ptr noundef nonnull @.str.460) #68
   %341 = icmp eq ptr %340, null
   br i1 %341, label %342, label %ma_context_get_log.exit349
 
 342:                                              ; preds = %ma_context_get_log.exit346
-  %343 = tail call i32 (ptr, i32, ptr, ...) @ma_log_postf(ptr noundef %337, i32 noundef 2, ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.460), !range !4
+  %343 = tail call i32 (ptr, i32, ptr, ...) @ma_log_postf(ptr noundef %337, i32 noundef 2, ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.460)
   br label %ma_context_get_log.exit349
 
 ma_context_get_log.exit349:                       ; preds = %ma_context_get_log.exit346, %342
@@ -8112,13 +8112,13 @@ ma_context_get_log.exit349:                       ; preds = %ma_context_get_log.
   store ptr %340, ptr %344, align 8
   %345 = load ptr, ptr %5, align 8
   %346 = load ptr, ptr %6, align 8
-  %347 = tail call i32 (ptr, i32, ptr, ...) @ma_log_postf(ptr noundef %345, i32 noundef 4, ptr noundef nonnull @.str.7, ptr noundef nonnull @.str.461), !range !4
+  %347 = tail call i32 (ptr, i32, ptr, ...) @ma_log_postf(ptr noundef %345, i32 noundef 4, ptr noundef nonnull @.str.7, ptr noundef nonnull @.str.461)
   %348 = tail call ptr @dlsym(ptr noundef %346, ptr noundef nonnull @.str.461) #68
   %349 = icmp eq ptr %348, null
   br i1 %349, label %350, label %ma_context_get_log.exit352
 
 350:                                              ; preds = %ma_context_get_log.exit349
-  %351 = tail call i32 (ptr, i32, ptr, ...) @ma_log_postf(ptr noundef %345, i32 noundef 2, ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.461), !range !4
+  %351 = tail call i32 (ptr, i32, ptr, ...) @ma_log_postf(ptr noundef %345, i32 noundef 2, ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.461)
   br label %ma_context_get_log.exit352
 
 ma_context_get_log.exit352:                       ; preds = %ma_context_get_log.exit349, %350
@@ -8126,13 +8126,13 @@ ma_context_get_log.exit352:                       ; preds = %ma_context_get_log.
   store ptr %348, ptr %352, align 8
   %353 = load ptr, ptr %5, align 8
   %354 = load ptr, ptr %6, align 8
-  %355 = tail call i32 (ptr, i32, ptr, ...) @ma_log_postf(ptr noundef %353, i32 noundef 4, ptr noundef nonnull @.str.7, ptr noundef nonnull @.str.462), !range !4
+  %355 = tail call i32 (ptr, i32, ptr, ...) @ma_log_postf(ptr noundef %353, i32 noundef 4, ptr noundef nonnull @.str.7, ptr noundef nonnull @.str.462)
   %356 = tail call ptr @dlsym(ptr noundef %354, ptr noundef nonnull @.str.462) #68
   %357 = icmp eq ptr %356, null
   br i1 %357, label %358, label %ma_context_get_log.exit355
 
 358:                                              ; preds = %ma_context_get_log.exit352
-  %359 = tail call i32 (ptr, i32, ptr, ...) @ma_log_postf(ptr noundef %353, i32 noundef 2, ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.462), !range !4
+  %359 = tail call i32 (ptr, i32, ptr, ...) @ma_log_postf(ptr noundef %353, i32 noundef 2, ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.462)
   br label %ma_context_get_log.exit355
 
 ma_context_get_log.exit355:                       ; preds = %ma_context_get_log.exit352, %358
@@ -8140,13 +8140,13 @@ ma_context_get_log.exit355:                       ; preds = %ma_context_get_log.
   store ptr %356, ptr %360, align 8
   %361 = load ptr, ptr %5, align 8
   %362 = load ptr, ptr %6, align 8
-  %363 = tail call i32 (ptr, i32, ptr, ...) @ma_log_postf(ptr noundef %361, i32 noundef 4, ptr noundef nonnull @.str.7, ptr noundef nonnull @.str.463), !range !4
+  %363 = tail call i32 (ptr, i32, ptr, ...) @ma_log_postf(ptr noundef %361, i32 noundef 4, ptr noundef nonnull @.str.7, ptr noundef nonnull @.str.463)
   %364 = tail call ptr @dlsym(ptr noundef %362, ptr noundef nonnull @.str.463) #68
   %365 = icmp eq ptr %364, null
   br i1 %365, label %366, label %ma_context_get_log.exit358
 
 366:                                              ; preds = %ma_context_get_log.exit355
-  %367 = tail call i32 (ptr, i32, ptr, ...) @ma_log_postf(ptr noundef %361, i32 noundef 2, ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.463), !range !4
+  %367 = tail call i32 (ptr, i32, ptr, ...) @ma_log_postf(ptr noundef %361, i32 noundef 2, ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.463)
   br label %ma_context_get_log.exit358
 
 ma_context_get_log.exit358:                       ; preds = %ma_context_get_log.exit355, %366
@@ -8154,13 +8154,13 @@ ma_context_get_log.exit358:                       ; preds = %ma_context_get_log.
   store ptr %364, ptr %368, align 8
   %369 = load ptr, ptr %5, align 8
   %370 = load ptr, ptr %6, align 8
-  %371 = tail call i32 (ptr, i32, ptr, ...) @ma_log_postf(ptr noundef %369, i32 noundef 4, ptr noundef nonnull @.str.7, ptr noundef nonnull @.str.464), !range !4
+  %371 = tail call i32 (ptr, i32, ptr, ...) @ma_log_postf(ptr noundef %369, i32 noundef 4, ptr noundef nonnull @.str.7, ptr noundef nonnull @.str.464)
   %372 = tail call ptr @dlsym(ptr noundef %370, ptr noundef nonnull @.str.464) #68
   %373 = icmp eq ptr %372, null
   br i1 %373, label %374, label %ma_context_get_log.exit361
 
 374:                                              ; preds = %ma_context_get_log.exit358
-  %375 = tail call i32 (ptr, i32, ptr, ...) @ma_log_postf(ptr noundef %369, i32 noundef 2, ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.464), !range !4
+  %375 = tail call i32 (ptr, i32, ptr, ...) @ma_log_postf(ptr noundef %369, i32 noundef 2, ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.464)
   br label %ma_context_get_log.exit361
 
 ma_context_get_log.exit361:                       ; preds = %ma_context_get_log.exit358, %374
@@ -8168,13 +8168,13 @@ ma_context_get_log.exit361:                       ; preds = %ma_context_get_log.
   store ptr %372, ptr %376, align 8
   %377 = load ptr, ptr %5, align 8
   %378 = load ptr, ptr %6, align 8
-  %379 = tail call i32 (ptr, i32, ptr, ...) @ma_log_postf(ptr noundef %377, i32 noundef 4, ptr noundef nonnull @.str.7, ptr noundef nonnull @.str.465), !range !4
+  %379 = tail call i32 (ptr, i32, ptr, ...) @ma_log_postf(ptr noundef %377, i32 noundef 4, ptr noundef nonnull @.str.7, ptr noundef nonnull @.str.465)
   %380 = tail call ptr @dlsym(ptr noundef %378, ptr noundef nonnull @.str.465) #68
   %381 = icmp eq ptr %380, null
   br i1 %381, label %382, label %ma_context_get_log.exit364
 
 382:                                              ; preds = %ma_context_get_log.exit361
-  %383 = tail call i32 (ptr, i32, ptr, ...) @ma_log_postf(ptr noundef %377, i32 noundef 2, ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.465), !range !4
+  %383 = tail call i32 (ptr, i32, ptr, ...) @ma_log_postf(ptr noundef %377, i32 noundef 2, ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.465)
   br label %ma_context_get_log.exit364
 
 ma_context_get_log.exit364:                       ; preds = %ma_context_get_log.exit361, %382
@@ -8182,13 +8182,13 @@ ma_context_get_log.exit364:                       ; preds = %ma_context_get_log.
   store ptr %380, ptr %384, align 8
   %385 = load ptr, ptr %5, align 8
   %386 = load ptr, ptr %6, align 8
-  %387 = tail call i32 (ptr, i32, ptr, ...) @ma_log_postf(ptr noundef %385, i32 noundef 4, ptr noundef nonnull @.str.7, ptr noundef nonnull @.str.466), !range !4
+  %387 = tail call i32 (ptr, i32, ptr, ...) @ma_log_postf(ptr noundef %385, i32 noundef 4, ptr noundef nonnull @.str.7, ptr noundef nonnull @.str.466)
   %388 = tail call ptr @dlsym(ptr noundef %386, ptr noundef nonnull @.str.466) #68
   %389 = icmp eq ptr %388, null
   br i1 %389, label %390, label %ma_context_get_log.exit367
 
 390:                                              ; preds = %ma_context_get_log.exit364
-  %391 = tail call i32 (ptr, i32, ptr, ...) @ma_log_postf(ptr noundef %385, i32 noundef 2, ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.466), !range !4
+  %391 = tail call i32 (ptr, i32, ptr, ...) @ma_log_postf(ptr noundef %385, i32 noundef 2, ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.466)
   br label %ma_context_get_log.exit367
 
 ma_context_get_log.exit367:                       ; preds = %ma_context_get_log.exit364, %390
@@ -8196,13 +8196,13 @@ ma_context_get_log.exit367:                       ; preds = %ma_context_get_log.
   store ptr %388, ptr %392, align 8
   %393 = load ptr, ptr %5, align 8
   %394 = load ptr, ptr %6, align 8
-  %395 = tail call i32 (ptr, i32, ptr, ...) @ma_log_postf(ptr noundef %393, i32 noundef 4, ptr noundef nonnull @.str.7, ptr noundef nonnull @.str.467), !range !4
+  %395 = tail call i32 (ptr, i32, ptr, ...) @ma_log_postf(ptr noundef %393, i32 noundef 4, ptr noundef nonnull @.str.7, ptr noundef nonnull @.str.467)
   %396 = tail call ptr @dlsym(ptr noundef %394, ptr noundef nonnull @.str.467) #68
   %397 = icmp eq ptr %396, null
   br i1 %397, label %398, label %ma_context_get_log.exit370
 
 398:                                              ; preds = %ma_context_get_log.exit367
-  %399 = tail call i32 (ptr, i32, ptr, ...) @ma_log_postf(ptr noundef %393, i32 noundef 2, ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.467), !range !4
+  %399 = tail call i32 (ptr, i32, ptr, ...) @ma_log_postf(ptr noundef %393, i32 noundef 2, ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.467)
   br label %ma_context_get_log.exit370
 
 ma_context_get_log.exit370:                       ; preds = %ma_context_get_log.exit367, %398
@@ -8210,13 +8210,13 @@ ma_context_get_log.exit370:                       ; preds = %ma_context_get_log.
   store ptr %396, ptr %400, align 8
   %401 = load ptr, ptr %5, align 8
   %402 = load ptr, ptr %6, align 8
-  %403 = tail call i32 (ptr, i32, ptr, ...) @ma_log_postf(ptr noundef %401, i32 noundef 4, ptr noundef nonnull @.str.7, ptr noundef nonnull @.str.468), !range !4
+  %403 = tail call i32 (ptr, i32, ptr, ...) @ma_log_postf(ptr noundef %401, i32 noundef 4, ptr noundef nonnull @.str.7, ptr noundef nonnull @.str.468)
   %404 = tail call ptr @dlsym(ptr noundef %402, ptr noundef nonnull @.str.468) #68
   %405 = icmp eq ptr %404, null
   br i1 %405, label %406, label %ma_context_get_log.exit373
 
 406:                                              ; preds = %ma_context_get_log.exit370
-  %407 = tail call i32 (ptr, i32, ptr, ...) @ma_log_postf(ptr noundef %401, i32 noundef 2, ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.468), !range !4
+  %407 = tail call i32 (ptr, i32, ptr, ...) @ma_log_postf(ptr noundef %401, i32 noundef 2, ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.468)
   br label %ma_context_get_log.exit373
 
 ma_context_get_log.exit373:                       ; preds = %ma_context_get_log.exit370, %406
@@ -8224,13 +8224,13 @@ ma_context_get_log.exit373:                       ; preds = %ma_context_get_log.
   store ptr %404, ptr %408, align 8
   %409 = load ptr, ptr %5, align 8
   %410 = load ptr, ptr %6, align 8
-  %411 = tail call i32 (ptr, i32, ptr, ...) @ma_log_postf(ptr noundef %409, i32 noundef 4, ptr noundef nonnull @.str.7, ptr noundef nonnull @.str.469), !range !4
+  %411 = tail call i32 (ptr, i32, ptr, ...) @ma_log_postf(ptr noundef %409, i32 noundef 4, ptr noundef nonnull @.str.7, ptr noundef nonnull @.str.469)
   %412 = tail call ptr @dlsym(ptr noundef %410, ptr noundef nonnull @.str.469) #68
   %413 = icmp eq ptr %412, null
   br i1 %413, label %414, label %ma_context_get_log.exit376
 
 414:                                              ; preds = %ma_context_get_log.exit373
-  %415 = tail call i32 (ptr, i32, ptr, ...) @ma_log_postf(ptr noundef %409, i32 noundef 2, ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.469), !range !4
+  %415 = tail call i32 (ptr, i32, ptr, ...) @ma_log_postf(ptr noundef %409, i32 noundef 2, ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.469)
   br label %ma_context_get_log.exit376
 
 ma_context_get_log.exit376:                       ; preds = %ma_context_get_log.exit373, %414
@@ -8238,13 +8238,13 @@ ma_context_get_log.exit376:                       ; preds = %ma_context_get_log.
   store ptr %412, ptr %416, align 8
   %417 = load ptr, ptr %5, align 8
   %418 = load ptr, ptr %6, align 8
-  %419 = tail call i32 (ptr, i32, ptr, ...) @ma_log_postf(ptr noundef %417, i32 noundef 4, ptr noundef nonnull @.str.7, ptr noundef nonnull @.str.470), !range !4
+  %419 = tail call i32 (ptr, i32, ptr, ...) @ma_log_postf(ptr noundef %417, i32 noundef 4, ptr noundef nonnull @.str.7, ptr noundef nonnull @.str.470)
   %420 = tail call ptr @dlsym(ptr noundef %418, ptr noundef nonnull @.str.470) #68
   %421 = icmp eq ptr %420, null
   br i1 %421, label %422, label %ma_context_get_log.exit379
 
 422:                                              ; preds = %ma_context_get_log.exit376
-  %423 = tail call i32 (ptr, i32, ptr, ...) @ma_log_postf(ptr noundef %417, i32 noundef 2, ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.470), !range !4
+  %423 = tail call i32 (ptr, i32, ptr, ...) @ma_log_postf(ptr noundef %417, i32 noundef 2, ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.470)
   br label %ma_context_get_log.exit379
 
 ma_context_get_log.exit379:                       ; preds = %ma_context_get_log.exit376, %422
@@ -8252,13 +8252,13 @@ ma_context_get_log.exit379:                       ; preds = %ma_context_get_log.
   store ptr %420, ptr %424, align 8
   %425 = load ptr, ptr %5, align 8
   %426 = load ptr, ptr %6, align 8
-  %427 = tail call i32 (ptr, i32, ptr, ...) @ma_log_postf(ptr noundef %425, i32 noundef 4, ptr noundef nonnull @.str.7, ptr noundef nonnull @.str.471), !range !4
+  %427 = tail call i32 (ptr, i32, ptr, ...) @ma_log_postf(ptr noundef %425, i32 noundef 4, ptr noundef nonnull @.str.7, ptr noundef nonnull @.str.471)
   %428 = tail call ptr @dlsym(ptr noundef %426, ptr noundef nonnull @.str.471) #68
   %429 = icmp eq ptr %428, null
   br i1 %429, label %430, label %ma_context_get_log.exit382
 
 430:                                              ; preds = %ma_context_get_log.exit379
-  %431 = tail call i32 (ptr, i32, ptr, ...) @ma_log_postf(ptr noundef %425, i32 noundef 2, ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.471), !range !4
+  %431 = tail call i32 (ptr, i32, ptr, ...) @ma_log_postf(ptr noundef %425, i32 noundef 2, ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.471)
   br label %ma_context_get_log.exit382
 
 ma_context_get_log.exit382:                       ; preds = %ma_context_get_log.exit379, %430
@@ -8266,13 +8266,13 @@ ma_context_get_log.exit382:                       ; preds = %ma_context_get_log.
   store ptr %428, ptr %432, align 8
   %433 = load ptr, ptr %5, align 8
   %434 = load ptr, ptr %6, align 8
-  %435 = tail call i32 (ptr, i32, ptr, ...) @ma_log_postf(ptr noundef %433, i32 noundef 4, ptr noundef nonnull @.str.7, ptr noundef nonnull @.str.472), !range !4
+  %435 = tail call i32 (ptr, i32, ptr, ...) @ma_log_postf(ptr noundef %433, i32 noundef 4, ptr noundef nonnull @.str.7, ptr noundef nonnull @.str.472)
   %436 = tail call ptr @dlsym(ptr noundef %434, ptr noundef nonnull @.str.472) #68
   %437 = icmp eq ptr %436, null
   br i1 %437, label %438, label %ma_context_get_log.exit385
 
 438:                                              ; preds = %ma_context_get_log.exit382
-  %439 = tail call i32 (ptr, i32, ptr, ...) @ma_log_postf(ptr noundef %433, i32 noundef 2, ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.472), !range !4
+  %439 = tail call i32 (ptr, i32, ptr, ...) @ma_log_postf(ptr noundef %433, i32 noundef 2, ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.472)
   br label %ma_context_get_log.exit385
 
 ma_context_get_log.exit385:                       ; preds = %ma_context_get_log.exit382, %438
@@ -8280,13 +8280,13 @@ ma_context_get_log.exit385:                       ; preds = %ma_context_get_log.
   store ptr %436, ptr %440, align 8
   %441 = load ptr, ptr %5, align 8
   %442 = load ptr, ptr %6, align 8
-  %443 = tail call i32 (ptr, i32, ptr, ...) @ma_log_postf(ptr noundef %441, i32 noundef 4, ptr noundef nonnull @.str.7, ptr noundef nonnull @.str.473), !range !4
+  %443 = tail call i32 (ptr, i32, ptr, ...) @ma_log_postf(ptr noundef %441, i32 noundef 4, ptr noundef nonnull @.str.7, ptr noundef nonnull @.str.473)
   %444 = tail call ptr @dlsym(ptr noundef %442, ptr noundef nonnull @.str.473) #68
   %445 = icmp eq ptr %444, null
   br i1 %445, label %446, label %ma_context_get_log.exit388
 
 446:                                              ; preds = %ma_context_get_log.exit385
-  %447 = tail call i32 (ptr, i32, ptr, ...) @ma_log_postf(ptr noundef %441, i32 noundef 2, ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.473), !range !4
+  %447 = tail call i32 (ptr, i32, ptr, ...) @ma_log_postf(ptr noundef %441, i32 noundef 2, ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.473)
   br label %ma_context_get_log.exit388
 
 ma_context_get_log.exit388:                       ; preds = %ma_context_get_log.exit385, %446
@@ -8294,13 +8294,13 @@ ma_context_get_log.exit388:                       ; preds = %ma_context_get_log.
   store ptr %444, ptr %448, align 8
   %449 = load ptr, ptr %5, align 8
   %450 = load ptr, ptr %6, align 8
-  %451 = tail call i32 (ptr, i32, ptr, ...) @ma_log_postf(ptr noundef %449, i32 noundef 4, ptr noundef nonnull @.str.7, ptr noundef nonnull @.str.474), !range !4
+  %451 = tail call i32 (ptr, i32, ptr, ...) @ma_log_postf(ptr noundef %449, i32 noundef 4, ptr noundef nonnull @.str.7, ptr noundef nonnull @.str.474)
   %452 = tail call ptr @dlsym(ptr noundef %450, ptr noundef nonnull @.str.474) #68
   %453 = icmp eq ptr %452, null
   br i1 %453, label %454, label %ma_context_get_log.exit391
 
 454:                                              ; preds = %ma_context_get_log.exit388
-  %455 = tail call i32 (ptr, i32, ptr, ...) @ma_log_postf(ptr noundef %449, i32 noundef 2, ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.474), !range !4
+  %455 = tail call i32 (ptr, i32, ptr, ...) @ma_log_postf(ptr noundef %449, i32 noundef 2, ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.474)
   br label %ma_context_get_log.exit391
 
 ma_context_get_log.exit391:                       ; preds = %ma_context_get_log.exit388, %454
@@ -8308,13 +8308,13 @@ ma_context_get_log.exit391:                       ; preds = %ma_context_get_log.
   store ptr %452, ptr %456, align 8
   %457 = load ptr, ptr %5, align 8
   %458 = load ptr, ptr %6, align 8
-  %459 = tail call i32 (ptr, i32, ptr, ...) @ma_log_postf(ptr noundef %457, i32 noundef 4, ptr noundef nonnull @.str.7, ptr noundef nonnull @.str.475), !range !4
+  %459 = tail call i32 (ptr, i32, ptr, ...) @ma_log_postf(ptr noundef %457, i32 noundef 4, ptr noundef nonnull @.str.7, ptr noundef nonnull @.str.475)
   %460 = tail call ptr @dlsym(ptr noundef %458, ptr noundef nonnull @.str.475) #68
   %461 = icmp eq ptr %460, null
   br i1 %461, label %462, label %ma_context_get_log.exit394
 
 462:                                              ; preds = %ma_context_get_log.exit391
-  %463 = tail call i32 (ptr, i32, ptr, ...) @ma_log_postf(ptr noundef %457, i32 noundef 2, ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.475), !range !4
+  %463 = tail call i32 (ptr, i32, ptr, ...) @ma_log_postf(ptr noundef %457, i32 noundef 2, ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.475)
   br label %ma_context_get_log.exit394
 
 ma_context_get_log.exit394:                       ; preds = %ma_context_get_log.exit391, %462
@@ -8322,13 +8322,13 @@ ma_context_get_log.exit394:                       ; preds = %ma_context_get_log.
   store ptr %460, ptr %464, align 8
   %465 = load ptr, ptr %5, align 8
   %466 = load ptr, ptr %6, align 8
-  %467 = tail call i32 (ptr, i32, ptr, ...) @ma_log_postf(ptr noundef %465, i32 noundef 4, ptr noundef nonnull @.str.7, ptr noundef nonnull @.str.476), !range !4
+  %467 = tail call i32 (ptr, i32, ptr, ...) @ma_log_postf(ptr noundef %465, i32 noundef 4, ptr noundef nonnull @.str.7, ptr noundef nonnull @.str.476)
   %468 = tail call ptr @dlsym(ptr noundef %466, ptr noundef nonnull @.str.476) #68
   %469 = icmp eq ptr %468, null
   br i1 %469, label %470, label %ma_context_get_log.exit397
 
 470:                                              ; preds = %ma_context_get_log.exit394
-  %471 = tail call i32 (ptr, i32, ptr, ...) @ma_log_postf(ptr noundef %465, i32 noundef 2, ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.476), !range !4
+  %471 = tail call i32 (ptr, i32, ptr, ...) @ma_log_postf(ptr noundef %465, i32 noundef 2, ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.476)
   br label %ma_context_get_log.exit397
 
 ma_context_get_log.exit397:                       ; preds = %ma_context_get_log.exit394, %470
@@ -8336,13 +8336,13 @@ ma_context_get_log.exit397:                       ; preds = %ma_context_get_log.
   store ptr %468, ptr %472, align 8
   %473 = load ptr, ptr %5, align 8
   %474 = load ptr, ptr %6, align 8
-  %475 = tail call i32 (ptr, i32, ptr, ...) @ma_log_postf(ptr noundef %473, i32 noundef 4, ptr noundef nonnull @.str.7, ptr noundef nonnull @.str.477), !range !4
+  %475 = tail call i32 (ptr, i32, ptr, ...) @ma_log_postf(ptr noundef %473, i32 noundef 4, ptr noundef nonnull @.str.7, ptr noundef nonnull @.str.477)
   %476 = tail call ptr @dlsym(ptr noundef %474, ptr noundef nonnull @.str.477) #68
   %477 = icmp eq ptr %476, null
   br i1 %477, label %478, label %ma_context_get_log.exit400
 
 478:                                              ; preds = %ma_context_get_log.exit397
-  %479 = tail call i32 (ptr, i32, ptr, ...) @ma_log_postf(ptr noundef %473, i32 noundef 2, ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.477), !range !4
+  %479 = tail call i32 (ptr, i32, ptr, ...) @ma_log_postf(ptr noundef %473, i32 noundef 2, ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.477)
   br label %ma_context_get_log.exit400
 
 ma_context_get_log.exit400:                       ; preds = %ma_context_get_log.exit397, %478
@@ -8350,13 +8350,13 @@ ma_context_get_log.exit400:                       ; preds = %ma_context_get_log.
   store ptr %476, ptr %480, align 8
   %481 = load ptr, ptr %5, align 8
   %482 = load ptr, ptr %6, align 8
-  %483 = tail call i32 (ptr, i32, ptr, ...) @ma_log_postf(ptr noundef %481, i32 noundef 4, ptr noundef nonnull @.str.7, ptr noundef nonnull @.str.478), !range !4
+  %483 = tail call i32 (ptr, i32, ptr, ...) @ma_log_postf(ptr noundef %481, i32 noundef 4, ptr noundef nonnull @.str.7, ptr noundef nonnull @.str.478)
   %484 = tail call ptr @dlsym(ptr noundef %482, ptr noundef nonnull @.str.478) #68
   %485 = icmp eq ptr %484, null
   br i1 %485, label %486, label %ma_context_get_log.exit403
 
 486:                                              ; preds = %ma_context_get_log.exit400
-  %487 = tail call i32 (ptr, i32, ptr, ...) @ma_log_postf(ptr noundef %481, i32 noundef 2, ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.478), !range !4
+  %487 = tail call i32 (ptr, i32, ptr, ...) @ma_log_postf(ptr noundef %481, i32 noundef 2, ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.478)
   br label %ma_context_get_log.exit403
 
 ma_context_get_log.exit403:                       ; preds = %ma_context_get_log.exit400, %486
@@ -8364,13 +8364,13 @@ ma_context_get_log.exit403:                       ; preds = %ma_context_get_log.
   store ptr %484, ptr %488, align 8
   %489 = load ptr, ptr %5, align 8
   %490 = load ptr, ptr %6, align 8
-  %491 = tail call i32 (ptr, i32, ptr, ...) @ma_log_postf(ptr noundef %489, i32 noundef 4, ptr noundef nonnull @.str.7, ptr noundef nonnull @.str.479), !range !4
+  %491 = tail call i32 (ptr, i32, ptr, ...) @ma_log_postf(ptr noundef %489, i32 noundef 4, ptr noundef nonnull @.str.7, ptr noundef nonnull @.str.479)
   %492 = tail call ptr @dlsym(ptr noundef %490, ptr noundef nonnull @.str.479) #68
   %493 = icmp eq ptr %492, null
   br i1 %493, label %494, label %ma_context_get_log.exit406
 
 494:                                              ; preds = %ma_context_get_log.exit403
-  %495 = tail call i32 (ptr, i32, ptr, ...) @ma_log_postf(ptr noundef %489, i32 noundef 2, ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.479), !range !4
+  %495 = tail call i32 (ptr, i32, ptr, ...) @ma_log_postf(ptr noundef %489, i32 noundef 2, ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.479)
   br label %ma_context_get_log.exit406
 
 ma_context_get_log.exit406:                       ; preds = %ma_context_get_log.exit403, %494
@@ -8378,13 +8378,13 @@ ma_context_get_log.exit406:                       ; preds = %ma_context_get_log.
   store ptr %492, ptr %496, align 8
   %497 = load ptr, ptr %5, align 8
   %498 = load ptr, ptr %6, align 8
-  %499 = tail call i32 (ptr, i32, ptr, ...) @ma_log_postf(ptr noundef %497, i32 noundef 4, ptr noundef nonnull @.str.7, ptr noundef nonnull @.str.480), !range !4
+  %499 = tail call i32 (ptr, i32, ptr, ...) @ma_log_postf(ptr noundef %497, i32 noundef 4, ptr noundef nonnull @.str.7, ptr noundef nonnull @.str.480)
   %500 = tail call ptr @dlsym(ptr noundef %498, ptr noundef nonnull @.str.480) #68
   %501 = icmp eq ptr %500, null
   br i1 %501, label %502, label %ma_context_get_log.exit409
 
 502:                                              ; preds = %ma_context_get_log.exit406
-  %503 = tail call i32 (ptr, i32, ptr, ...) @ma_log_postf(ptr noundef %497, i32 noundef 2, ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.480), !range !4
+  %503 = tail call i32 (ptr, i32, ptr, ...) @ma_log_postf(ptr noundef %497, i32 noundef 2, ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.480)
   br label %ma_context_get_log.exit409
 
 ma_context_get_log.exit409:                       ; preds = %ma_context_get_log.exit406, %502
@@ -8392,13 +8392,13 @@ ma_context_get_log.exit409:                       ; preds = %ma_context_get_log.
   store ptr %500, ptr %504, align 8
   %505 = load ptr, ptr %5, align 8
   %506 = load ptr, ptr %6, align 8
-  %507 = tail call i32 (ptr, i32, ptr, ...) @ma_log_postf(ptr noundef %505, i32 noundef 4, ptr noundef nonnull @.str.7, ptr noundef nonnull @.str.481), !range !4
+  %507 = tail call i32 (ptr, i32, ptr, ...) @ma_log_postf(ptr noundef %505, i32 noundef 4, ptr noundef nonnull @.str.7, ptr noundef nonnull @.str.481)
   %508 = tail call ptr @dlsym(ptr noundef %506, ptr noundef nonnull @.str.481) #68
   %509 = icmp eq ptr %508, null
   br i1 %509, label %510, label %ma_context_get_log.exit412
 
 510:                                              ; preds = %ma_context_get_log.exit409
-  %511 = tail call i32 (ptr, i32, ptr, ...) @ma_log_postf(ptr noundef %505, i32 noundef 2, ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.481), !range !4
+  %511 = tail call i32 (ptr, i32, ptr, ...) @ma_log_postf(ptr noundef %505, i32 noundef 2, ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.481)
   br label %ma_context_get_log.exit412
 
 ma_context_get_log.exit412:                       ; preds = %ma_context_get_log.exit409, %510
@@ -8406,13 +8406,13 @@ ma_context_get_log.exit412:                       ; preds = %ma_context_get_log.
   store ptr %508, ptr %512, align 8
   %513 = load ptr, ptr %5, align 8
   %514 = load ptr, ptr %6, align 8
-  %515 = tail call i32 (ptr, i32, ptr, ...) @ma_log_postf(ptr noundef %513, i32 noundef 4, ptr noundef nonnull @.str.7, ptr noundef nonnull @.str.482), !range !4
+  %515 = tail call i32 (ptr, i32, ptr, ...) @ma_log_postf(ptr noundef %513, i32 noundef 4, ptr noundef nonnull @.str.7, ptr noundef nonnull @.str.482)
   %516 = tail call ptr @dlsym(ptr noundef %514, ptr noundef nonnull @.str.482) #68
   %517 = icmp eq ptr %516, null
   br i1 %517, label %518, label %ma_context_get_log.exit415
 
 518:                                              ; preds = %ma_context_get_log.exit412
-  %519 = tail call i32 (ptr, i32, ptr, ...) @ma_log_postf(ptr noundef %513, i32 noundef 2, ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.482), !range !4
+  %519 = tail call i32 (ptr, i32, ptr, ...) @ma_log_postf(ptr noundef %513, i32 noundef 2, ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.482)
   br label %ma_context_get_log.exit415
 
 ma_context_get_log.exit415:                       ; preds = %ma_context_get_log.exit412, %518
@@ -8420,13 +8420,13 @@ ma_context_get_log.exit415:                       ; preds = %ma_context_get_log.
   store ptr %516, ptr %520, align 8
   %521 = load ptr, ptr %5, align 8
   %522 = load ptr, ptr %6, align 8
-  %523 = tail call i32 (ptr, i32, ptr, ...) @ma_log_postf(ptr noundef %521, i32 noundef 4, ptr noundef nonnull @.str.7, ptr noundef nonnull @.str.483), !range !4
+  %523 = tail call i32 (ptr, i32, ptr, ...) @ma_log_postf(ptr noundef %521, i32 noundef 4, ptr noundef nonnull @.str.7, ptr noundef nonnull @.str.483)
   %524 = tail call ptr @dlsym(ptr noundef %522, ptr noundef nonnull @.str.483) #68
   %525 = icmp eq ptr %524, null
   br i1 %525, label %526, label %ma_context_get_log.exit418
 
 526:                                              ; preds = %ma_context_get_log.exit415
-  %527 = tail call i32 (ptr, i32, ptr, ...) @ma_log_postf(ptr noundef %521, i32 noundef 2, ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.483), !range !4
+  %527 = tail call i32 (ptr, i32, ptr, ...) @ma_log_postf(ptr noundef %521, i32 noundef 2, ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.483)
   br label %ma_context_get_log.exit418
 
 ma_context_get_log.exit418:                       ; preds = %ma_context_get_log.exit415, %526
@@ -8434,13 +8434,13 @@ ma_context_get_log.exit418:                       ; preds = %ma_context_get_log.
   store ptr %524, ptr %528, align 8
   %529 = load ptr, ptr %5, align 8
   %530 = load ptr, ptr %6, align 8
-  %531 = tail call i32 (ptr, i32, ptr, ...) @ma_log_postf(ptr noundef %529, i32 noundef 4, ptr noundef nonnull @.str.7, ptr noundef nonnull @.str.484), !range !4
+  %531 = tail call i32 (ptr, i32, ptr, ...) @ma_log_postf(ptr noundef %529, i32 noundef 4, ptr noundef nonnull @.str.7, ptr noundef nonnull @.str.484)
   %532 = tail call ptr @dlsym(ptr noundef %530, ptr noundef nonnull @.str.484) #68
   %533 = icmp eq ptr %532, null
   br i1 %533, label %534, label %ma_context_get_log.exit421
 
 534:                                              ; preds = %ma_context_get_log.exit418
-  %535 = tail call i32 (ptr, i32, ptr, ...) @ma_log_postf(ptr noundef %529, i32 noundef 2, ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.484), !range !4
+  %535 = tail call i32 (ptr, i32, ptr, ...) @ma_log_postf(ptr noundef %529, i32 noundef 2, ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.484)
   br label %ma_context_get_log.exit421
 
 ma_context_get_log.exit421:                       ; preds = %ma_context_get_log.exit418, %534
@@ -8448,13 +8448,13 @@ ma_context_get_log.exit421:                       ; preds = %ma_context_get_log.
   store ptr %532, ptr %536, align 8
   %537 = load ptr, ptr %5, align 8
   %538 = load ptr, ptr %6, align 8
-  %539 = tail call i32 (ptr, i32, ptr, ...) @ma_log_postf(ptr noundef %537, i32 noundef 4, ptr noundef nonnull @.str.7, ptr noundef nonnull @.str.485), !range !4
+  %539 = tail call i32 (ptr, i32, ptr, ...) @ma_log_postf(ptr noundef %537, i32 noundef 4, ptr noundef nonnull @.str.7, ptr noundef nonnull @.str.485)
   %540 = tail call ptr @dlsym(ptr noundef %538, ptr noundef nonnull @.str.485) #68
   %541 = icmp eq ptr %540, null
   br i1 %541, label %542, label %ma_context_get_log.exit424
 
 542:                                              ; preds = %ma_context_get_log.exit421
-  %543 = tail call i32 (ptr, i32, ptr, ...) @ma_log_postf(ptr noundef %537, i32 noundef 2, ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.485), !range !4
+  %543 = tail call i32 (ptr, i32, ptr, ...) @ma_log_postf(ptr noundef %537, i32 noundef 2, ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.485)
   br label %ma_context_get_log.exit424
 
 ma_context_get_log.exit424:                       ; preds = %ma_context_get_log.exit421, %542
@@ -8462,13 +8462,13 @@ ma_context_get_log.exit424:                       ; preds = %ma_context_get_log.
   store ptr %540, ptr %544, align 8
   %545 = load ptr, ptr %5, align 8
   %546 = load ptr, ptr %6, align 8
-  %547 = tail call i32 (ptr, i32, ptr, ...) @ma_log_postf(ptr noundef %545, i32 noundef 4, ptr noundef nonnull @.str.7, ptr noundef nonnull @.str.486), !range !4
+  %547 = tail call i32 (ptr, i32, ptr, ...) @ma_log_postf(ptr noundef %545, i32 noundef 4, ptr noundef nonnull @.str.7, ptr noundef nonnull @.str.486)
   %548 = tail call ptr @dlsym(ptr noundef %546, ptr noundef nonnull @.str.486) #68
   %549 = icmp eq ptr %548, null
   br i1 %549, label %550, label %ma_dlsym.exit425
 
 550:                                              ; preds = %ma_context_get_log.exit424
-  %551 = tail call i32 (ptr, i32, ptr, ...) @ma_log_postf(ptr noundef %545, i32 noundef 2, ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.486), !range !4
+  %551 = tail call i32 (ptr, i32, ptr, ...) @ma_log_postf(ptr noundef %545, i32 noundef 2, ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.486)
   br label %ma_dlsym.exit425
 
 ma_dlsym.exit425:                                 ; preds = %ma_context_get_log.exit424, %550
@@ -8491,7 +8491,7 @@ ma_mutex_init.exit:                               ; preds = %ma_dlsym.exit425
 
 ma_context_get_log.exit428:                       ; preds = %ma_mutex_init.exit
   %559 = load ptr, ptr %5, align 8
-  %560 = tail call i32 (ptr, i32, ptr, ...) @ma_log_postf(ptr noundef %559, i32 noundef 1, ptr noundef nonnull @.str.487), !range !4
+  %560 = tail call i32 (ptr, i32, ptr, ...) @ma_log_postf(ptr noundef %559, i32 noundef 1, ptr noundef nonnull @.str.487)
   br label %572
 
 ma_mutex_init.exit.thread:                        ; preds = %ma_dlsym.exit425, %ma_mutex_init.exit
@@ -8567,7 +8567,7 @@ define hidden ptr @ma_context_get_log(ptr noundef readonly %0) local_unnamed_add
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @ma_context_uninit(ptr noundef %0) local_unnamed_addr #5 {
+define hidden range(i32 -2, 1) i32 @ma_context_uninit(ptr noundef %0) local_unnamed_addr #5 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %29, label %3
 
@@ -8758,7 +8758,7 @@ define hidden i32 @ma_context_get_devices(ptr noundef %0, ptr noundef writeonly 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @ma_context_get_devices__enum_callback(ptr nocapture noundef %0, i32 noundef %1, ptr nocapture noundef readonly %2, ptr nocapture readnone %3) #5 {
+define internal range(i32 0, 2) i32 @ma_context_get_devices__enum_callback(ptr nocapture noundef %0, i32 noundef %1, ptr nocapture noundef readonly %2, ptr nocapture readnone %3) #5 {
   %5 = getelementptr inbounds i8, ptr %0, i64 404
   %6 = load i32, ptr %5, align 4
   %7 = getelementptr inbounds i8, ptr %0, i64 408
@@ -8881,7 +8881,7 @@ define hidden i32 @ma_context_get_device_info(ptr noundef %0, i32 noundef %1, pt
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden noundef i32 @ma_context_is_loopback_supported(ptr noundef readonly %0) local_unnamed_addr #15 {
+define hidden range(i32 0, 2) i32 @ma_context_is_loopback_supported(ptr noundef readonly %0) local_unnamed_addr #15 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %ma_is_loopback_supported.exit, label %3
 
@@ -9216,7 +9216,7 @@ ma__is_channel_map_valid.exit389.thread:          ; preds = %.loopexit.i381, %48
   %.024.i.i = phi i32 [ %137, %.preheader.i.i ], [ 0, %131 ]
   %.01723.i.i = phi ptr [ %135, %.preheader.i.i ], [ %127, %131 ]
   %.01822.i.i = phi i64 [ %136, %.preheader.i.i ], [ 254, %131 ]
-  %134 = tail call fastcc zeroext i8 @ma_channel_map_init_standard_channel(i32 noundef 0, i32 noundef %125, i32 noundef %.024.i.i), !range !6
+  %134 = tail call fastcc zeroext i8 @ma_channel_map_init_standard_channel(i32 noundef 0, i32 noundef %125, i32 noundef %.024.i.i)
   store i8 %134, ptr %.01723.i.i, align 1
   %135 = getelementptr inbounds i8, ptr %.01723.i.i, i64 1
   %136 = add nsw i64 %.01822.i.i, -1
@@ -9266,7 +9266,7 @@ ma_channel_map_copy_or_default.exit:              ; preds = %.preheader.i.i, %86
   %.024.i.i393 = phi i32 [ %165, %.preheader.i.i392 ], [ 0, %159 ]
   %.01723.i.i394 = phi ptr [ %163, %.preheader.i.i392 ], [ %155, %159 ]
   %.01822.i.i395 = phi i64 [ %164, %.preheader.i.i392 ], [ 254, %159 ]
-  %162 = tail call fastcc zeroext i8 @ma_channel_map_init_standard_channel(i32 noundef 0, i32 noundef %153, i32 noundef %.024.i.i393), !range !6
+  %162 = tail call fastcc zeroext i8 @ma_channel_map_init_standard_channel(i32 noundef 0, i32 noundef %153, i32 noundef %.024.i.i393)
   store i8 %162, ptr %.01723.i.i394, align 1
   %163 = getelementptr inbounds i8, ptr %.01723.i.i394, i64 1
   %164 = add nsw i64 %.01822.i.i395, -1
@@ -9703,7 +9703,7 @@ ma_context_is_backend_asynchronous.exit.thread:   ; preds = %377, %381, %ma_cont
   br label %ma__is_channel_map_valid.exit
 
 395:                                              ; preds = %ma_context_is_backend_asynchronous.exit.thread
-  %396 = call i32 @ma_event_wait(ptr noundef nonnull %191), !range !11
+  %396 = call i32 @ma_event_wait(ptr noundef nonnull %191)
   br label %ma_device_get_context.exit.i
 
 ma_context_is_backend_asynchronous.exit420:       ; preds = %ma_context_is_backend_asynchronous.exit
@@ -9760,7 +9760,7 @@ ma_device_get_log.exit:                           ; preds = %ma_device_get_conte
 
 ma_get_backend_name.exit:                         ; preds = %ma_device_get_log.exit, %421
   %.0.i421 = phi ptr [ %424, %421 ], [ @.str.9, %ma_device_get_log.exit ]
-  %425 = call i32 (ptr, i32, ptr, ...) @ma_log_postf(ptr noundef %.0.i1.i, i32 noundef 3, ptr noundef nonnull @.str.28, ptr noundef %.0.i421), !range !4
+  %425 = call i32 (ptr, i32, ptr, ...) @ma_log_postf(ptr noundef %.0.i1.i, i32 noundef 3, ptr noundef nonnull @.str.28, ptr noundef %.0.i421)
   %426 = load i32, ptr %102, align 8
   %.off372 = add i32 %426, -2
   %switch373 = icmp ult i32 %.off372, 3
@@ -9781,7 +9781,7 @@ ma_device_get_context.exit.i422:                  ; preds = %ma_get_backend_name
 
 ma_device_get_context.exit.i425:                  ; preds = %432, %ma_device_get_context.exit.i422
   %.0.i1.i423 = phi ptr [ %434, %432 ], [ null, %ma_device_get_context.exit.i422 ]
-  %435 = call i32 (ptr, i32, ptr, ...) @ma_log_postf(ptr noundef %.0.i1.i423, i32 noundef 3, ptr noundef nonnull @.str.29, ptr noundef nonnull %6, ptr noundef nonnull @.str.30), !range !4
+  %435 = call i32 (ptr, i32, ptr, ...) @ma_log_postf(ptr noundef %.0.i1.i423, i32 noundef 3, ptr noundef nonnull @.str.29, ptr noundef nonnull %6, ptr noundef nonnull @.str.30)
   %436 = load ptr, ptr %2, align 8
   %437 = icmp eq ptr %436, null
   br i1 %437, label %ma_device_get_log.exit427, label %438
@@ -9818,7 +9818,7 @@ switch.lookup535:                                 ; preds = %ma_get_format_name.
 
 ma_device_get_context.exit.i431:                  ; preds = %ma_get_format_name.exit, %switch.lookup535
   %.0.i429 = phi ptr [ %switch.load537, %switch.lookup535 ], [ @.str.168, %ma_get_format_name.exit ]
-  %448 = call i32 (ptr, i32, ptr, ...) @ma_log_postf(ptr noundef %.0.i1.i426, i32 noundef 3, ptr noundef nonnull @.str.31, ptr noundef nonnull %.0.i428, ptr noundef nonnull %.0.i429), !range !4
+  %448 = call i32 (ptr, i32, ptr, ...) @ma_log_postf(ptr noundef %.0.i1.i426, i32 noundef 3, ptr noundef nonnull @.str.31, ptr noundef nonnull %.0.i428, ptr noundef nonnull %.0.i429)
   %449 = load ptr, ptr %2, align 8
   %450 = icmp eq ptr %449, null
   br i1 %450, label %ma_device_get_context.exit.i434, label %451
@@ -9833,7 +9833,7 @@ ma_device_get_context.exit.i434:                  ; preds = %451, %ma_device_get
   %454 = getelementptr inbounds i8, ptr %2, i64 2816
   %455 = load i32, ptr %454, align 8
   %456 = load i32, ptr %126, align 8
-  %457 = call i32 (ptr, i32, ptr, ...) @ma_log_postf(ptr noundef %.0.i1.i432, i32 noundef 3, ptr noundef nonnull @.str.32, i32 noundef %455, i32 noundef %456), !range !4
+  %457 = call i32 (ptr, i32, ptr, ...) @ma_log_postf(ptr noundef %.0.i1.i432, i32 noundef 3, ptr noundef nonnull @.str.32, i32 noundef %455, i32 noundef %456)
   %458 = load ptr, ptr %2, align 8
   %459 = icmp eq ptr %458, null
   br i1 %459, label %ma_device_get_context.exit.i437, label %460
@@ -9848,7 +9848,7 @@ ma_device_get_context.exit.i437:                  ; preds = %460, %ma_device_get
   %463 = getelementptr inbounds i8, ptr %2, i64 2820
   %464 = load i32, ptr %463, align 4
   %465 = load i32, ptr %105, align 4
-  %466 = call i32 (ptr, i32, ptr, ...) @ma_log_postf(ptr noundef %.0.i1.i435, i32 noundef 3, ptr noundef nonnull @.str.33, i32 noundef %464, i32 noundef %465), !range !4
+  %466 = call i32 (ptr, i32, ptr, ...) @ma_log_postf(ptr noundef %.0.i1.i435, i32 noundef 3, ptr noundef nonnull @.str.33, i32 noundef %464, i32 noundef %465)
   %467 = load ptr, ptr %2, align 8
   %468 = icmp eq ptr %467, null
   br i1 %468, label %ma_device_get_context.exit.i440, label %469
@@ -9865,7 +9865,7 @@ ma_device_get_context.exit.i440:                  ; preds = %469, %ma_device_get
   %474 = getelementptr inbounds i8, ptr %2, i64 3084
   %475 = load i32, ptr %474, align 4
   %476 = mul i32 %475, %473
-  %477 = call i32 (ptr, i32, ptr, ...) @ma_log_postf(ptr noundef %.0.i1.i438, i32 noundef 3, ptr noundef nonnull @.str.34, i32 noundef %473, i32 noundef %475, i32 noundef %476), !range !4
+  %477 = call i32 (ptr, i32, ptr, ...) @ma_log_postf(ptr noundef %.0.i1.i438, i32 noundef 3, ptr noundef nonnull @.str.34, i32 noundef %473, i32 noundef %475, i32 noundef %476)
   %478 = load ptr, ptr %2, align 8
   %479 = icmp eq ptr %478, null
   br i1 %479, label %ma_device_get_context.exit.i443, label %480
@@ -9877,7 +9877,7 @@ ma_device_get_context.exit.i440:                  ; preds = %469, %ma_device_get
 
 ma_device_get_context.exit.i443:                  ; preds = %480, %ma_device_get_context.exit.i440
   %.0.i1.i441 = phi ptr [ %482, %480 ], [ null, %ma_device_get_context.exit.i440 ]
-  %483 = call i32 (ptr, i32, ptr, ...) @ma_log_postf(ptr noundef %.0.i1.i441, i32 noundef 3, ptr noundef nonnull @.str.35), !range !4
+  %483 = call i32 (ptr, i32, ptr, ...) @ma_log_postf(ptr noundef %.0.i1.i441, i32 noundef 3, ptr noundef nonnull @.str.35)
   %484 = load ptr, ptr %2, align 8
   %485 = icmp eq ptr %484, null
   br i1 %485, label %ma_device_get_context.exit.i446, label %486
@@ -9893,7 +9893,7 @@ ma_device_get_context.exit.i446:                  ; preds = %486, %ma_device_get
   %490 = load i8, ptr %489, align 8
   %.not360 = icmp eq i8 %490, 0
   %491 = select i1 %.not360, ptr @.str.23, ptr @.str.22
-  %492 = call i32 (ptr, i32, ptr, ...) @ma_log_postf(ptr noundef %.0.i1.i444, i32 noundef 3, ptr noundef nonnull @.str.36, ptr noundef nonnull %491), !range !4
+  %492 = call i32 (ptr, i32, ptr, ...) @ma_log_postf(ptr noundef %.0.i1.i444, i32 noundef 3, ptr noundef nonnull @.str.36, ptr noundef nonnull %491)
   %493 = load ptr, ptr %2, align 8
   %494 = icmp eq ptr %493, null
   br i1 %494, label %ma_device_get_context.exit.i449, label %495
@@ -9909,7 +9909,7 @@ ma_device_get_context.exit.i449:                  ; preds = %495, %ma_device_get
   %499 = load i8, ptr %498, align 1
   %.not361 = icmp eq i8 %499, 0
   %500 = select i1 %.not361, ptr @.str.23, ptr @.str.22
-  %501 = call i32 (ptr, i32, ptr, ...) @ma_log_postf(ptr noundef %.0.i1.i447, i32 noundef 3, ptr noundef nonnull @.str.37, ptr noundef nonnull %500), !range !4
+  %501 = call i32 (ptr, i32, ptr, ...) @ma_log_postf(ptr noundef %.0.i1.i447, i32 noundef 3, ptr noundef nonnull @.str.37, ptr noundef nonnull %500)
   %502 = load ptr, ptr %2, align 8
   %503 = icmp eq ptr %502, null
   br i1 %503, label %ma_device_get_context.exit.i452, label %504
@@ -9925,7 +9925,7 @@ ma_device_get_context.exit.i452:                  ; preds = %504, %ma_device_get
   %508 = load i8, ptr %507, align 2
   %.not362 = icmp eq i8 %508, 0
   %509 = select i1 %.not362, ptr @.str.23, ptr @.str.22
-  %510 = call i32 (ptr, i32, ptr, ...) @ma_log_postf(ptr noundef %.0.i1.i450, i32 noundef 3, ptr noundef nonnull @.str.38, ptr noundef nonnull %509), !range !4
+  %510 = call i32 (ptr, i32, ptr, ...) @ma_log_postf(ptr noundef %.0.i1.i450, i32 noundef 3, ptr noundef nonnull @.str.38, ptr noundef nonnull %509)
   %511 = load ptr, ptr %2, align 8
   %512 = icmp eq ptr %511, null
   br i1 %512, label %ma_device_get_context.exit.i455, label %513
@@ -9941,7 +9941,7 @@ ma_device_get_context.exit.i455:                  ; preds = %513, %ma_device_get
   %517 = load i8, ptr %516, align 1
   %.not363 = icmp eq i8 %517, 0
   %518 = select i1 %.not363, ptr @.str.23, ptr @.str.22
-  %519 = call i32 (ptr, i32, ptr, ...) @ma_log_postf(ptr noundef %.0.i1.i453, i32 noundef 3, ptr noundef nonnull @.str.39, ptr noundef nonnull %518), !range !4
+  %519 = call i32 (ptr, i32, ptr, ...) @ma_log_postf(ptr noundef %.0.i1.i453, i32 noundef 3, ptr noundef nonnull @.str.39, ptr noundef nonnull %518)
   %520 = load ptr, ptr %2, align 8
   %521 = icmp eq ptr %520, null
   br i1 %521, label %ma_device_get_context.exit.i458, label %522
@@ -9957,7 +9957,7 @@ ma_device_get_context.exit.i458:                  ; preds = %522, %ma_device_get
   %526 = load i8, ptr %525, align 4
   %.not364 = icmp eq i8 %526, 0
   %527 = select i1 %.not364, ptr @.str.23, ptr @.str.22
-  %528 = call i32 (ptr, i32, ptr, ...) @ma_log_postf(ptr noundef %.0.i1.i456, i32 noundef 3, ptr noundef nonnull @.str.40, ptr noundef nonnull %527), !range !4
+  %528 = call i32 (ptr, i32, ptr, ...) @ma_log_postf(ptr noundef %.0.i1.i456, i32 noundef 3, ptr noundef nonnull @.str.40, ptr noundef nonnull %527)
   %529 = getelementptr inbounds i8, ptr %2, i64 2824
   %530 = load i32, ptr %454, align 8
   %531 = call i64 @ma_channel_map_to_string(ptr noundef nonnull %529, i32 noundef %530, ptr noundef nonnull %7, i64 noundef 1024)
@@ -9972,7 +9972,7 @@ ma_device_get_context.exit.i458:                  ; preds = %522, %ma_device_get
 
 ma_device_get_context.exit.i461:                  ; preds = %534, %ma_device_get_context.exit.i458
   %.0.i1.i459 = phi ptr [ %536, %534 ], [ null, %ma_device_get_context.exit.i458 ]
-  %537 = call i32 (ptr, i32, ptr, ...) @ma_log_postf(ptr noundef %.0.i1.i459, i32 noundef 3, ptr noundef nonnull @.str.41, ptr noundef nonnull %7), !range !4
+  %537 = call i32 (ptr, i32, ptr, ...) @ma_log_postf(ptr noundef %.0.i1.i459, i32 noundef 3, ptr noundef nonnull @.str.41, ptr noundef nonnull %7)
   %538 = load i32, ptr %126, align 8
   %539 = call i64 @ma_channel_map_to_string(ptr noundef nonnull %127, i32 noundef %538, ptr noundef nonnull %7, i64 noundef 1024)
   %540 = load ptr, ptr %2, align 8
@@ -9986,7 +9986,7 @@ ma_device_get_context.exit.i461:                  ; preds = %534, %ma_device_get
 
 ma_device_get_log.exit463:                        ; preds = %ma_device_get_context.exit.i461, %542
   %.0.i1.i462 = phi ptr [ %544, %542 ], [ null, %ma_device_get_context.exit.i461 ]
-  %545 = call i32 (ptr, i32, ptr, ...) @ma_log_postf(ptr noundef %.0.i1.i462, i32 noundef 3, ptr noundef nonnull @.str.42, ptr noundef nonnull %7), !range !4
+  %545 = call i32 (ptr, i32, ptr, ...) @ma_log_postf(ptr noundef %.0.i1.i462, i32 noundef 3, ptr noundef nonnull @.str.42, ptr noundef nonnull %7)
   %.pr527 = load i32, ptr %102, align 8
   br label %546
 
@@ -10010,7 +10010,7 @@ ma_device_get_context.exit.i464:                  ; preds = %546, %546
 
 ma_device_get_context.exit.i467:                  ; preds = %551, %ma_device_get_context.exit.i464
   %.0.i1.i465 = phi ptr [ %553, %551 ], [ null, %ma_device_get_context.exit.i464 ]
-  %554 = call i32 (ptr, i32, ptr, ...) @ma_log_postf(ptr noundef %.0.i1.i465, i32 noundef 3, ptr noundef nonnull @.str.29, ptr noundef nonnull %8, ptr noundef nonnull @.str.43), !range !4
+  %554 = call i32 (ptr, i32, ptr, ...) @ma_log_postf(ptr noundef %.0.i1.i465, i32 noundef 3, ptr noundef nonnull @.str.29, ptr noundef nonnull %8, ptr noundef nonnull @.str.43)
   %555 = load ptr, ptr %2, align 8
   %556 = icmp eq ptr %555, null
   br i1 %556, label %ma_device_get_log.exit469, label %557
@@ -10047,7 +10047,7 @@ switch.lookup541:                                 ; preds = %ma_get_format_name.
 
 ma_device_get_context.exit.i474:                  ; preds = %ma_get_format_name.exit471, %switch.lookup541
   %.0.i472 = phi ptr [ %switch.load543, %switch.lookup541 ], [ @.str.168, %ma_get_format_name.exit471 ]
-  %567 = call i32 (ptr, i32, ptr, ...) @ma_log_postf(ptr noundef %.0.i1.i468, i32 noundef 3, ptr noundef nonnull @.str.31, ptr noundef nonnull %.0.i470, ptr noundef nonnull %.0.i472), !range !4
+  %567 = call i32 (ptr, i32, ptr, ...) @ma_log_postf(ptr noundef %.0.i1.i468, i32 noundef 3, ptr noundef nonnull @.str.31, ptr noundef nonnull %.0.i470, ptr noundef nonnull %.0.i472)
   %568 = load ptr, ptr %2, align 8
   %569 = icmp eq ptr %568, null
   br i1 %569, label %ma_device_get_context.exit.i477, label %570
@@ -10062,7 +10062,7 @@ ma_device_get_context.exit.i477:                  ; preds = %570, %ma_device_get
   %573 = load i32, ptr %154, align 8
   %574 = getelementptr inbounds i8, ptr %2, i64 1384
   %575 = load i32, ptr %574, align 8
-  %576 = call i32 (ptr, i32, ptr, ...) @ma_log_postf(ptr noundef %.0.i1.i475, i32 noundef 3, ptr noundef nonnull @.str.32, i32 noundef %573, i32 noundef %575), !range !4
+  %576 = call i32 (ptr, i32, ptr, ...) @ma_log_postf(ptr noundef %.0.i1.i475, i32 noundef 3, ptr noundef nonnull @.str.32, i32 noundef %573, i32 noundef %575)
   %577 = load ptr, ptr %2, align 8
   %578 = icmp eq ptr %577, null
   br i1 %578, label %ma_device_get_context.exit.i480, label %579
@@ -10077,7 +10077,7 @@ ma_device_get_context.exit.i480:                  ; preds = %579, %ma_device_get
   %582 = load i32, ptr %105, align 4
   %583 = getelementptr inbounds i8, ptr %2, i64 1388
   %584 = load i32, ptr %583, align 4
-  %585 = call i32 (ptr, i32, ptr, ...) @ma_log_postf(ptr noundef %.0.i1.i478, i32 noundef 3, ptr noundef nonnull @.str.33, i32 noundef %582, i32 noundef %584), !range !4
+  %585 = call i32 (ptr, i32, ptr, ...) @ma_log_postf(ptr noundef %.0.i1.i478, i32 noundef 3, ptr noundef nonnull @.str.33, i32 noundef %582, i32 noundef %584)
   %586 = load ptr, ptr %2, align 8
   %587 = icmp eq ptr %586, null
   br i1 %587, label %ma_device_get_context.exit.i483, label %588
@@ -10094,7 +10094,7 @@ ma_device_get_context.exit.i483:                  ; preds = %588, %ma_device_get
   %593 = getelementptr inbounds i8, ptr %2, i64 1652
   %594 = load i32, ptr %593, align 4
   %595 = mul i32 %594, %592
-  %596 = call i32 (ptr, i32, ptr, ...) @ma_log_postf(ptr noundef %.0.i1.i481, i32 noundef 3, ptr noundef nonnull @.str.34, i32 noundef %592, i32 noundef %594, i32 noundef %595), !range !4
+  %596 = call i32 (ptr, i32, ptr, ...) @ma_log_postf(ptr noundef %.0.i1.i481, i32 noundef 3, ptr noundef nonnull @.str.34, i32 noundef %592, i32 noundef %594, i32 noundef %595)
   %597 = load ptr, ptr %2, align 8
   %598 = icmp eq ptr %597, null
   br i1 %598, label %ma_device_get_context.exit.i486, label %599
@@ -10106,7 +10106,7 @@ ma_device_get_context.exit.i483:                  ; preds = %588, %ma_device_get
 
 ma_device_get_context.exit.i486:                  ; preds = %599, %ma_device_get_context.exit.i483
   %.0.i1.i484 = phi ptr [ %601, %599 ], [ null, %ma_device_get_context.exit.i483 ]
-  %602 = call i32 (ptr, i32, ptr, ...) @ma_log_postf(ptr noundef %.0.i1.i484, i32 noundef 3, ptr noundef nonnull @.str.35), !range !4
+  %602 = call i32 (ptr, i32, ptr, ...) @ma_log_postf(ptr noundef %.0.i1.i484, i32 noundef 3, ptr noundef nonnull @.str.35)
   %603 = load ptr, ptr %2, align 8
   %604 = icmp eq ptr %603, null
   br i1 %604, label %ma_device_get_context.exit.i489, label %605
@@ -10122,7 +10122,7 @@ ma_device_get_context.exit.i489:                  ; preds = %605, %ma_device_get
   %609 = load i8, ptr %608, align 8
   %.not365 = icmp eq i8 %609, 0
   %610 = select i1 %.not365, ptr @.str.23, ptr @.str.22
-  %611 = call i32 (ptr, i32, ptr, ...) @ma_log_postf(ptr noundef %.0.i1.i487, i32 noundef 3, ptr noundef nonnull @.str.36, ptr noundef nonnull %610), !range !4
+  %611 = call i32 (ptr, i32, ptr, ...) @ma_log_postf(ptr noundef %.0.i1.i487, i32 noundef 3, ptr noundef nonnull @.str.36, ptr noundef nonnull %610)
   %612 = load ptr, ptr %2, align 8
   %613 = icmp eq ptr %612, null
   br i1 %613, label %ma_device_get_context.exit.i492, label %614
@@ -10138,7 +10138,7 @@ ma_device_get_context.exit.i492:                  ; preds = %614, %ma_device_get
   %618 = load i8, ptr %617, align 1
   %.not366 = icmp eq i8 %618, 0
   %619 = select i1 %.not366, ptr @.str.23, ptr @.str.22
-  %620 = call i32 (ptr, i32, ptr, ...) @ma_log_postf(ptr noundef %.0.i1.i490, i32 noundef 3, ptr noundef nonnull @.str.37, ptr noundef nonnull %619), !range !4
+  %620 = call i32 (ptr, i32, ptr, ...) @ma_log_postf(ptr noundef %.0.i1.i490, i32 noundef 3, ptr noundef nonnull @.str.37, ptr noundef nonnull %619)
   %621 = load ptr, ptr %2, align 8
   %622 = icmp eq ptr %621, null
   br i1 %622, label %ma_device_get_context.exit.i495, label %623
@@ -10154,7 +10154,7 @@ ma_device_get_context.exit.i495:                  ; preds = %623, %ma_device_get
   %627 = load i8, ptr %626, align 2
   %.not367 = icmp eq i8 %627, 0
   %628 = select i1 %.not367, ptr @.str.23, ptr @.str.22
-  %629 = call i32 (ptr, i32, ptr, ...) @ma_log_postf(ptr noundef %.0.i1.i493, i32 noundef 3, ptr noundef nonnull @.str.38, ptr noundef nonnull %628), !range !4
+  %629 = call i32 (ptr, i32, ptr, ...) @ma_log_postf(ptr noundef %.0.i1.i493, i32 noundef 3, ptr noundef nonnull @.str.38, ptr noundef nonnull %628)
   %630 = load ptr, ptr %2, align 8
   %631 = icmp eq ptr %630, null
   br i1 %631, label %ma_device_get_context.exit.i498, label %632
@@ -10170,7 +10170,7 @@ ma_device_get_context.exit.i498:                  ; preds = %632, %ma_device_get
   %636 = load i8, ptr %635, align 1
   %.not368 = icmp eq i8 %636, 0
   %637 = select i1 %.not368, ptr @.str.23, ptr @.str.22
-  %638 = call i32 (ptr, i32, ptr, ...) @ma_log_postf(ptr noundef %.0.i1.i496, i32 noundef 3, ptr noundef nonnull @.str.39, ptr noundef nonnull %637), !range !4
+  %638 = call i32 (ptr, i32, ptr, ...) @ma_log_postf(ptr noundef %.0.i1.i496, i32 noundef 3, ptr noundef nonnull @.str.39, ptr noundef nonnull %637)
   %639 = load ptr, ptr %2, align 8
   %640 = icmp eq ptr %639, null
   br i1 %640, label %ma_device_get_context.exit.i501, label %641
@@ -10186,7 +10186,7 @@ ma_device_get_context.exit.i501:                  ; preds = %641, %ma_device_get
   %645 = load i8, ptr %644, align 4
   %.not369 = icmp eq i8 %645, 0
   %646 = select i1 %.not369, ptr @.str.23, ptr @.str.22
-  %647 = call i32 (ptr, i32, ptr, ...) @ma_log_postf(ptr noundef %.0.i1.i499, i32 noundef 3, ptr noundef nonnull @.str.40, ptr noundef nonnull %646), !range !4
+  %647 = call i32 (ptr, i32, ptr, ...) @ma_log_postf(ptr noundef %.0.i1.i499, i32 noundef 3, ptr noundef nonnull @.str.40, ptr noundef nonnull %646)
   %648 = load i32, ptr %154, align 8
   %649 = call i64 @ma_channel_map_to_string(ptr noundef nonnull %155, i32 noundef %648, ptr noundef nonnull %9, i64 noundef 1024)
   %650 = load ptr, ptr %2, align 8
@@ -10200,7 +10200,7 @@ ma_device_get_context.exit.i501:                  ; preds = %641, %ma_device_get
 
 ma_device_get_context.exit.i504:                  ; preds = %652, %ma_device_get_context.exit.i501
   %.0.i1.i502 = phi ptr [ %654, %652 ], [ null, %ma_device_get_context.exit.i501 ]
-  %655 = call i32 (ptr, i32, ptr, ...) @ma_log_postf(ptr noundef %.0.i1.i502, i32 noundef 3, ptr noundef nonnull @.str.41, ptr noundef nonnull %9), !range !4
+  %655 = call i32 (ptr, i32, ptr, ...) @ma_log_postf(ptr noundef %.0.i1.i502, i32 noundef 3, ptr noundef nonnull @.str.41, ptr noundef nonnull %9)
   %656 = getelementptr inbounds i8, ptr %2, i64 1392
   %657 = load i32, ptr %574, align 8
   %658 = call i64 @ma_channel_map_to_string(ptr noundef nonnull %656, i32 noundef %657, ptr noundef nonnull %9, i64 noundef 1024)
@@ -10215,7 +10215,7 @@ ma_device_get_context.exit.i504:                  ; preds = %652, %ma_device_get
 
 ma_device_get_log.exit506:                        ; preds = %ma_device_get_context.exit.i504, %661
   %.0.i1.i505 = phi ptr [ %663, %661 ], [ null, %ma_device_get_context.exit.i504 ]
-  %664 = call i32 (ptr, i32, ptr, ...) @ma_log_postf(ptr noundef %.0.i1.i505, i32 noundef 3, ptr noundef nonnull @.str.42, ptr noundef nonnull %9), !range !4
+  %664 = call i32 (ptr, i32, ptr, ...) @ma_log_postf(ptr noundef %.0.i1.i505, i32 noundef 3, ptr noundef nonnull @.str.42, ptr noundef nonnull %9)
   br label %ma__is_channel_map_valid.exit
 
 ma__is_channel_map_valid.exit:                    ; preds = %40, %60, %53, %33, %ma_device_get_log.exit506, %546, %ma_mutex_init.exit, %44, %24, %17, %15, %13, %411, %394, %358, %303, %256, %243, %193, %184, %179, %11
@@ -10408,7 +10408,7 @@ define hidden void @ma_channel_map_copy_or_default(ptr noundef writeonly %0, i64
   %.024.i = phi i32 [ %15, %.preheader.i ], [ 0, %10 ]
   %.01723.i = phi ptr [ %13, %.preheader.i ], [ %0, %10 ]
   %.01822.i = phi i64 [ %14, %.preheader.i ], [ %1, %10 ]
-  %12 = tail call fastcc zeroext i8 @ma_channel_map_init_standard_channel(i32 noundef 0, i32 noundef %3, i32 noundef %.024.i), !range !6
+  %12 = tail call fastcc zeroext i8 @ma_channel_map_init_standard_channel(i32 noundef 0, i32 noundef %3, i32 noundef %.024.i)
   store i8 %12, ptr %.01723.i, align 1
   %13 = getelementptr inbounds i8, ptr %.01723.i, i64 1
   %14 = add i64 %.01822.i, -1
@@ -12722,7 +12722,7 @@ define hidden i64 @ma_channel_map_to_string(ptr noundef readonly %0, i32 noundef
 ma_channel_map_get_channel.exit.us.us:            ; preds = %.lr.ph.split.us, %ma_channel_map_get_channel.exit.us.us
   %.042.us.us = phi i64 [ %spec.select, %ma_channel_map_get_channel.exit.us.us ], [ 0, %.lr.ph.split.us ]
   %.03041.us.us = phi i32 [ %10, %ma_channel_map_get_channel.exit.us.us ], [ 0, %.lr.ph.split.us ]
-  %6 = tail call fastcc zeroext i8 @ma_channel_map_init_standard_channel(i32 noundef 0, i32 noundef %1, i32 noundef %.03041.us.us), !range !6
+  %6 = tail call fastcc zeroext i8 @ma_channel_map_init_standard_channel(i32 noundef 0, i32 noundef %1, i32 noundef %.03041.us.us)
   %7 = tail call ptr @ma_channel_position_to_string(i8 noundef zeroext %6)
   %8 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %7) #82
   %9 = add i64 %8, %.042.us.us
@@ -12736,7 +12736,7 @@ ma_channel_map_get_channel.exit.us.us:            ; preds = %.lr.ph.split.us, %m
 ma_channel_map_get_channel.exit.us:               ; preds = %.lr.ph.split.us, %28
   %.042.us = phi i64 [ %.1.us, %28 ], [ 0, %.lr.ph.split.us ]
   %.03041.us = phi i32 [ %21, %28 ], [ 0, %.lr.ph.split.us ]
-  %13 = tail call fastcc zeroext i8 @ma_channel_map_init_standard_channel(i32 noundef 0, i32 noundef %1, i32 noundef %.03041.us), !range !6
+  %13 = tail call fastcc zeroext i8 @ma_channel_map_init_standard_channel(i32 noundef 0, i32 noundef %1, i32 noundef %.03041.us)
   %14 = tail call ptr @ma_channel_position_to_string(i8 noundef zeroext %13)
   %15 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %14) #82
   %16 = add i64 %15, %.042.us
@@ -13258,7 +13258,7 @@ ma_event_wait.exit:                               ; preds = %38, %31
 }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden i32 @ma_device_is_started(ptr noundef readonly %0) local_unnamed_addr #24 {
+define hidden range(i32 0, 2) i32 @ma_device_is_started(ptr noundef readonly %0) local_unnamed_addr #24 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %ma_device_get_state.exit, label %3
 
@@ -13275,7 +13275,7 @@ ma_device_get_state.exit:                         ; preds = %1, %3
 }
 
 ; Function Attrs: nofree norecurse nounwind memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable
-define hidden noundef i32 @ma_device_set_master_volume(ptr noundef %0, float noundef %1) local_unnamed_addr #13 {
+define hidden range(i32 -2, 1) i32 @ma_device_set_master_volume(ptr noundef %0, float noundef %1) local_unnamed_addr #13 {
   %3 = icmp eq ptr %0, null
   %4 = fcmp olt float %1, 0.000000e+00
   %or.cond = or i1 %3, %4
@@ -13293,7 +13293,7 @@ define hidden noundef i32 @ma_device_set_master_volume(ptr noundef %0, float nou
 }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable
-define hidden noundef i32 @ma_device_get_master_volume(ptr noundef %0, ptr noundef writeonly %1) local_unnamed_addr #25 {
+define hidden range(i32 -2, 1) i32 @ma_device_get_master_volume(ptr noundef %0, ptr noundef writeonly %1) local_unnamed_addr #25 {
   %3 = icmp eq ptr %1, null
   br i1 %3, label %10, label %4
 
@@ -13317,7 +13317,7 @@ define hidden noundef i32 @ma_device_get_master_volume(ptr noundef %0, ptr nound
 }
 
 ; Function Attrs: nofree nounwind memory(write, argmem: readwrite, inaccessiblemem: readwrite) uwtable
-define hidden noundef i32 @ma_device_set_master_volume_db(ptr noundef %0, float noundef %1) local_unnamed_addr #26 {
+define hidden range(i32 -2, 1) i32 @ma_device_set_master_volume_db(ptr noundef %0, float noundef %1) local_unnamed_addr #26 {
   %3 = fcmp ogt float %1, 0.000000e+00
   br i1 %3, label %ma_device_set_master_volume.exit, label %4
 
@@ -13352,7 +13352,7 @@ define hidden float @ma_volume_db_to_linear(float noundef %0) local_unnamed_addr
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: readwrite) uwtable
-define hidden noundef i32 @ma_device_get_master_volume_db(ptr noundef %0, ptr noundef writeonly %1) local_unnamed_addr #28 {
+define hidden range(i32 -2, 1) i32 @ma_device_get_master_volume_db(ptr noundef %0, ptr noundef writeonly %1) local_unnamed_addr #28 {
   %3 = icmp eq ptr %1, null
   br i1 %3, label %15, label %4
 
@@ -13393,7 +13393,7 @@ define hidden float @ma_volume_linear_to_db(float noundef %0) local_unnamed_addr
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @ma_device_handle_backend_data_callback(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3) local_unnamed_addr #5 {
+define hidden range(i32 -2, 1) i32 @ma_device_handle_backend_data_callback(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3) local_unnamed_addr #5 {
   %5 = alloca i64, align 8
   %6 = alloca i64, align 8
   %7 = alloca i64, align 8
@@ -15784,7 +15784,7 @@ ma_silence_pcm_frames.exit:                       ; preds = %.lr.ph.i47, %86, %6
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define hidden noundef i32 @ma_mix_pcm_frames_f32(ptr noundef %0, ptr noundef readonly %1, i64 noundef %2, i32 noundef %3, float noundef %4) local_unnamed_addr #29 {
+define hidden range(i32 -2, 1) i32 @ma_mix_pcm_frames_f32(ptr noundef %0, ptr noundef readonly %1, i64 noundef %2, i32 noundef %3, float noundef %4) local_unnamed_addr #29 {
   %6 = icmp eq ptr %0, null
   %7 = icmp eq ptr %1, null
   %or.cond = or i1 %6, %7
@@ -17582,7 +17582,7 @@ define hidden void @ma_pcm_f32_to_s16(ptr noundef %0, ptr noundef %1, i64 nounde
   %254 = tail call <4 x i32> @llvm.x86.sse2.cvttps2dq(<4 x float> %251)
   %255 = tail call <4 x i32> @llvm.x86.sse2.cvttps2dq(<4 x float> %252)
   %256 = tail call <8 x i16> @llvm.x86.sse2.packssdw.128(<4 x i32> %254, <4 x i32> %255)
-  store <8 x i16> %256, ptr %253, align 16, !nontemporal !12
+  store <8 x i16> %256, ptr %253, align 16, !nontemporal !8
   %257 = add nuw i64 %.013011376, 8
   %258 = add nuw nsw i64 %.013001377, 1
   %exitcond1387.not = icmp eq i64 %258, %114
@@ -18481,7 +18481,7 @@ ma_biquad_get_heap_layout.exit.thread:            ; preds = %6, %4, %2, %10
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden noundef i32 @ma_biquad_init_preallocated(ptr noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #16 {
+define hidden i32 @ma_biquad_init_preallocated(ptr noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #16 {
   %4 = icmp eq ptr %2, null
   br i1 %4, label %ma_biquad_get_heap_layout.exit.thread, label %5
 
@@ -18515,7 +18515,7 @@ define hidden noundef i32 @ma_biquad_init_preallocated(ptr noundef %0, ptr nound
   %19 = getelementptr inbounds i8, ptr %1, i64 %13
   %20 = getelementptr inbounds i8, ptr %2, i64 40
   store ptr %19, ptr %20, align 8
-  %21 = tail call i32 @ma_biquad_reinit(ptr noundef nonnull %0, ptr noundef nonnull %2), !range !13
+  %21 = tail call i32 @ma_biquad_reinit(ptr noundef nonnull %0, ptr noundef nonnull %2)
   br label %ma_biquad_get_heap_layout.exit.thread
 
 ma_biquad_get_heap_layout.exit.thread:            ; preds = %7, %5, %3, %17
@@ -18524,7 +18524,7 @@ ma_biquad_get_heap_layout.exit.thread:            ; preds = %7, %5, %3, %17
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden noundef i32 @ma_biquad_reinit(ptr noundef readonly %0, ptr noundef %1) local_unnamed_addr #16 {
+define hidden range(i32 -3, 1) i32 @ma_biquad_reinit(ptr noundef readonly %0, ptr noundef %1) local_unnamed_addr #16 {
   %3 = icmp eq ptr %1, null
   %4 = icmp eq ptr %0, null
   %or.cond = or i1 %4, %3
@@ -18654,7 +18654,7 @@ define hidden noundef i32 @ma_biquad_reinit(ptr noundef readonly %0, ptr noundef
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @ma_biquad_init(ptr noundef %0, ptr noundef readonly %1, ptr noundef %2) local_unnamed_addr #5 {
+define hidden i32 @ma_biquad_init(ptr noundef %0, ptr noundef readonly %1, ptr noundef %2) local_unnamed_addr #5 {
   %4 = icmp eq ptr %0, null
   br i1 %4, label %ma_free.exit, label %5
 
@@ -18712,7 +18712,7 @@ ma_biquad_init_preallocated.exit:                 ; preds = %23
   %31 = getelementptr inbounds i8, ptr %.0.i20, i64 %27
   %32 = getelementptr inbounds i8, ptr %2, i64 40
   store ptr %31, ptr %32, align 8
-  %33 = tail call i32 @ma_biquad_reinit(ptr noundef nonnull %0, ptr noundef nonnull %2), !range !13
+  %33 = tail call i32 @ma_biquad_reinit(ptr noundef nonnull %0, ptr noundef nonnull %2)
   %.not19 = icmp eq i32 %33, 0
   br i1 %.not19, label %40, label %ma_biquad_init_preallocated.exit.thread
 
@@ -18786,7 +18786,7 @@ ma_free.exit:                                     ; preds = %17, %15, %12, %7, %
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define hidden noundef i32 @ma_biquad_clear_cache(ptr noundef readonly %0) local_unnamed_addr #31 {
+define hidden range(i32 -2, 1) i32 @ma_biquad_clear_cache(ptr noundef readonly %0) local_unnamed_addr #31 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %13, label %3
 
@@ -18816,7 +18816,7 @@ define hidden noundef i32 @ma_biquad_clear_cache(ptr noundef readonly %0) local_
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: write) uwtable
-define hidden noundef i32 @ma_biquad_process_pcm_frames(ptr noundef readonly %0, ptr noundef writeonly %1, ptr noundef readonly %2, i64 noundef %3) local_unnamed_addr #32 {
+define hidden range(i32 -2, 1) i32 @ma_biquad_process_pcm_frames(ptr noundef readonly %0, ptr noundef writeonly %1, ptr noundef readonly %2, i64 noundef %3) local_unnamed_addr #32 {
   %5 = icmp eq ptr %0, null
   %6 = icmp eq ptr %1, null
   %or.cond = or i1 %5, %6
@@ -18985,7 +18985,7 @@ define hidden noundef i32 @ma_biquad_process_pcm_frames(ptr noundef readonly %0,
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef i32 @ma_biquad_get_latency(ptr noundef readnone %0) local_unnamed_addr #1 {
+define hidden noundef range(i32 0, 3) i32 @ma_biquad_get_latency(ptr noundef readnone %0) local_unnamed_addr #1 {
   %2 = icmp eq ptr %0, null
   %. = select i1 %2, i32 0, i32 2
   ret i32 %.
@@ -19159,7 +19159,7 @@ ma_lpf1_reinit.exit:                              ; preds = %7, %5, %45, %42, %2
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(write, argmem: readwrite) uwtable
-define hidden noundef i32 @ma_lpf1_reinit(ptr noundef readonly %0, ptr noundef %1) local_unnamed_addr #33 {
+define hidden range(i32 -3, 1) i32 @ma_lpf1_reinit(ptr noundef readonly %0, ptr noundef %1) local_unnamed_addr #33 {
   %3 = icmp eq ptr %1, null
   %4 = icmp eq ptr %0, null
   %or.cond = or i1 %4, %3
@@ -19348,7 +19348,7 @@ ma_free.exit:                                     ; preds = %17, %15, %12, %7, %
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden noundef i32 @ma_lpf1_clear_cache(ptr noundef %0) local_unnamed_addr #16 {
+define hidden range(i32 -2, 1) i32 @ma_lpf1_clear_cache(ptr noundef %0) local_unnamed_addr #16 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %9, label %3
 
@@ -19372,7 +19372,7 @@ define hidden noundef i32 @ma_lpf1_clear_cache(ptr noundef %0) local_unnamed_add
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: write) uwtable
-define hidden noundef i32 @ma_lpf1_process_pcm_frames(ptr noundef readonly %0, ptr noundef writeonly %1, ptr noundef readonly %2, i64 noundef %3) local_unnamed_addr #32 {
+define hidden range(i32 -2, 1) i32 @ma_lpf1_process_pcm_frames(ptr noundef readonly %0, ptr noundef writeonly %1, ptr noundef readonly %2, i64 noundef %3) local_unnamed_addr #32 {
   %5 = icmp eq ptr %0, null
   %6 = icmp eq ptr %1, null
   %or.cond = or i1 %5, %6
@@ -19499,7 +19499,7 @@ define hidden noundef i32 @ma_lpf1_process_pcm_frames(ptr noundef readonly %0, p
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef i32 @ma_lpf1_get_latency(ptr noundef readnone %0) local_unnamed_addr #1 {
+define hidden range(i32 0, 2) i32 @ma_lpf1_get_latency(ptr noundef readnone %0) local_unnamed_addr #1 {
   %2 = icmp ne ptr %0, null
   %. = zext i1 %2 to i32
   ret i32 %.
@@ -19508,33 +19508,33 @@ define hidden noundef i32 @ma_lpf1_get_latency(ptr noundef readnone %0) local_un
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(write, argmem: readwrite) uwtable
 define hidden noundef i32 @ma_lpf2_get_heap_size(ptr nocapture noundef readonly %0, ptr noundef writeonly %1) local_unnamed_addr #33 {
   %3 = getelementptr inbounds i8, ptr %0, i64 16
-  %4 = load double, ptr %3, align 8, !noalias !14
+  %4 = load double, ptr %3, align 8, !noalias !9
   %5 = fmul double %4, 0x401921FB54442D18
   %6 = getelementptr inbounds i8, ptr %0, i64 8
-  %7 = load i32, ptr %6, align 8, !noalias !14
+  %7 = load i32, ptr %6, align 8, !noalias !9
   %8 = uitofp i32 %7 to double
   %9 = fdiv double %5, %8
   %10 = tail call double @llvm.fabs.f64(double %9)
   %11 = fcmp oeq double %10, 0x7FF0000000000000
-  br i1 %11, label %cdce.call, label %cdce.end, !prof !17
+  br i1 %11, label %cdce.call, label %cdce.end, !prof !12
 
 cdce.call:                                        ; preds = %2
-  %12 = tail call double @sin(double noundef %9) #68, !noalias !14
+  %12 = tail call double @sin(double noundef %9) #68, !noalias !9
   br label %cdce.end
 
 cdce.end:                                         ; preds = %2, %cdce.call
   %13 = fsub double 0x3FF921FB54442D18, %9
   %14 = tail call double @llvm.fabs.f64(double %13)
   %15 = fcmp oeq double %14, 0x7FF0000000000000
-  br i1 %15, label %cdce.call20, label %cdce.end21, !prof !17
+  br i1 %15, label %cdce.call20, label %cdce.end21, !prof !12
 
 cdce.call20:                                      ; preds = %cdce.end
-  %16 = tail call double @sin(double noundef %13) #68, !noalias !14
+  %16 = tail call double @sin(double noundef %13) #68, !noalias !9
   br label %cdce.end21
 
 cdce.end21:                                       ; preds = %cdce.end, %cdce.call20
   %17 = getelementptr inbounds i8, ptr %0, i64 4
-  %18 = load i32, ptr %17, align 4, !noalias !14
+  %18 = load i32, ptr %17, align 4, !noalias !9
   %19 = icmp eq ptr %1, null
   br i1 %19, label %ma_biquad_get_heap_size.exit, label %20
 
@@ -19566,17 +19566,17 @@ define hidden noundef i32 @ma_lpf2_init_preallocated(ptr noundef readonly %0, pt
 
 7:                                                ; preds = %5
   %8 = getelementptr inbounds i8, ptr %0, i64 24
-  %9 = load double, ptr %8, align 8, !noalias !18
+  %9 = load double, ptr %8, align 8, !noalias !13
   %10 = getelementptr inbounds i8, ptr %0, i64 16
-  %11 = load double, ptr %10, align 8, !noalias !18
+  %11 = load double, ptr %10, align 8, !noalias !13
   %12 = fmul double %11, 0x401921FB54442D18
   %13 = getelementptr inbounds i8, ptr %0, i64 8
-  %14 = load i32, ptr %13, align 8, !noalias !18
+  %14 = load i32, ptr %13, align 8, !noalias !13
   %15 = uitofp i32 %14 to double
   %16 = fdiv double %12, %15
-  %17 = tail call double @sin(double noundef %16) #68, !noalias !18
+  %17 = tail call double @sin(double noundef %16) #68, !noalias !13
   %18 = fsub double 0x3FF921FB54442D18, %16
-  %19 = tail call double @sin(double noundef %18) #68, !noalias !18
+  %19 = tail call double @sin(double noundef %18) #68, !noalias !13
   %20 = fmul double %9, 2.000000e+00
   %21 = fdiv double %17, %20
   %22 = fsub double 1.000000e+00, %19
@@ -19587,9 +19587,9 @@ define hidden noundef i32 @ma_lpf2_init_preallocated(ptr noundef readonly %0, pt
   %27 = fmul <2 x double> %26, <double -2.000000e+00, double poison>
   %28 = fsub <2 x double> <double poison, double 1.000000e+00>, %26
   %29 = shufflevector <2 x double> %27, <2 x double> %28, <2 x i32> <i32 0, i32 3>
-  %30 = load i32, ptr %0, align 8, !noalias !18
+  %30 = load i32, ptr %0, align 8, !noalias !13
   %31 = getelementptr inbounds i8, ptr %0, i64 4
-  %32 = load i32, ptr %31, align 4, !noalias !18
+  %32 = load i32, ptr %31, align 4, !noalias !13
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(64) %2, i8 0, i64 64, i1 false)
   %33 = icmp eq i32 %32, 0
   br i1 %33, label %ma_biquad_init_preallocated.exit, label %34
@@ -19689,33 +19689,33 @@ ma_biquad_init_preallocated.exit:                 ; preds = %7, %40, %45, %46, %
 ; Function Attrs: nounwind uwtable
 define hidden noundef i32 @ma_lpf2_init(ptr noundef %0, ptr noundef readonly %1, ptr noundef %2) local_unnamed_addr #5 {
   %4 = getelementptr inbounds i8, ptr %0, i64 16
-  %5 = load double, ptr %4, align 8, !noalias !21
+  %5 = load double, ptr %4, align 8, !noalias !16
   %6 = fmul double %5, 0x401921FB54442D18
   %7 = getelementptr inbounds i8, ptr %0, i64 8
-  %8 = load i32, ptr %7, align 8, !noalias !21
+  %8 = load i32, ptr %7, align 8, !noalias !16
   %9 = uitofp i32 %8 to double
   %10 = fdiv double %6, %9
   %11 = tail call double @llvm.fabs.f64(double %10)
   %12 = fcmp oeq double %11, 0x7FF0000000000000
-  br i1 %12, label %cdce.call, label %cdce.end.i, !prof !17
+  br i1 %12, label %cdce.call, label %cdce.end.i, !prof !12
 
 cdce.call:                                        ; preds = %3
-  %13 = tail call double @sin(double noundef %10) #68, !noalias !21
+  %13 = tail call double @sin(double noundef %10) #68, !noalias !16
   br label %cdce.end.i
 
 cdce.end.i:                                       ; preds = %cdce.call, %3
   %14 = fsub double 0x3FF921FB54442D18, %10
   %15 = tail call double @llvm.fabs.f64(double %14)
   %16 = fcmp oeq double %15, 0x7FF0000000000000
-  br i1 %16, label %cdce.call32, label %cdce.end21.i, !prof !17
+  br i1 %16, label %cdce.call32, label %cdce.end21.i, !prof !12
 
 cdce.call32:                                      ; preds = %cdce.end.i
-  %17 = tail call double @sin(double noundef %14) #68, !noalias !21
+  %17 = tail call double @sin(double noundef %14) #68, !noalias !16
   br label %cdce.end21.i
 
 cdce.end21.i:                                     ; preds = %cdce.call32, %cdce.end.i
   %18 = getelementptr inbounds i8, ptr %0, i64 4
-  %19 = load i32, ptr %18, align 4, !noalias !21
+  %19 = load i32, ptr %18, align 4, !noalias !16
   %20 = icmp eq i32 %19, 0
   br i1 %20, label %ma_lpf2_get_heap_size.exit, label %21
 
@@ -19819,7 +19819,7 @@ ma_biquad_uninit.exit:                            ; preds = %17, %15, %12, %7, %
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(write, argmem: readwrite) uwtable
-define hidden noundef i32 @ma_lpf2_reinit(ptr noundef readonly %0, ptr noundef %1) local_unnamed_addr #33 {
+define hidden range(i32 -3, 1) i32 @ma_lpf2_reinit(ptr noundef readonly %0, ptr noundef %1) local_unnamed_addr #33 {
   %3 = alloca %struct.ma_biquad_config, align 8
   %4 = icmp eq ptr %1, null
   %5 = icmp eq ptr %0, null
@@ -19828,17 +19828,17 @@ define hidden noundef i32 @ma_lpf2_reinit(ptr noundef readonly %0, ptr noundef %
 
 6:                                                ; preds = %2
   %7 = getelementptr inbounds i8, ptr %0, i64 24
-  %8 = load double, ptr %7, align 8, !noalias !24
+  %8 = load double, ptr %7, align 8, !noalias !19
   %9 = getelementptr inbounds i8, ptr %0, i64 16
-  %10 = load double, ptr %9, align 8, !noalias !24
+  %10 = load double, ptr %9, align 8, !noalias !19
   %11 = fmul double %10, 0x401921FB54442D18
   %12 = getelementptr inbounds i8, ptr %0, i64 8
-  %13 = load i32, ptr %12, align 8, !noalias !24
+  %13 = load i32, ptr %12, align 8, !noalias !19
   %14 = uitofp i32 %13 to double
   %15 = fdiv double %11, %14
-  %16 = tail call double @sin(double noundef %15) #68, !noalias !24
+  %16 = tail call double @sin(double noundef %15) #68, !noalias !19
   %17 = fsub double 0x3FF921FB54442D18, %15
-  %18 = tail call double @sin(double noundef %17) #68, !noalias !24
+  %18 = tail call double @sin(double noundef %17) #68, !noalias !19
   %19 = fmul double %8, 2.000000e+00
   %20 = fdiv double %16, %19
   %21 = fsub double 1.000000e+00, %18
@@ -19846,7 +19846,7 @@ define hidden noundef i32 @ma_lpf2_reinit(ptr noundef readonly %0, ptr noundef %
   %23 = fadd double %20, 1.000000e+00
   %24 = fmul double %18, -2.000000e+00
   %25 = fsub double 1.000000e+00, %20
-  %26 = load <2 x i32>, ptr %0, align 8, !noalias !24
+  %26 = load <2 x i32>, ptr %0, align 8, !noalias !19
   store <2 x i32> %26, ptr %3, align 8
   %.sroa.3.0..sroa_idx = getelementptr inbounds i8, ptr %3, i64 8
   store double %22, ptr %.sroa.3.0..sroa_idx, align 8
@@ -19860,7 +19860,7 @@ define hidden noundef i32 @ma_lpf2_reinit(ptr noundef readonly %0, ptr noundef %
   store double %24, ptr %.sroa.7.0..sroa_idx, align 8
   %.sroa.8.0..sroa_idx = getelementptr inbounds i8, ptr %3, i64 48
   store double %25, ptr %.sroa.8.0..sroa_idx, align 8
-  %27 = call i32 @ma_biquad_reinit(ptr noundef nonnull %3, ptr noundef nonnull %1), !range !13
+  %27 = call i32 @ma_biquad_reinit(ptr noundef nonnull %3, ptr noundef nonnull %1)
   br label %28
 
 28:                                               ; preds = %6, %2
@@ -19869,7 +19869,7 @@ define hidden noundef i32 @ma_lpf2_reinit(ptr noundef readonly %0, ptr noundef %
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define hidden noundef i32 @ma_lpf2_clear_cache(ptr noundef readonly %0) local_unnamed_addr #31 {
+define hidden range(i32 -2, 1) i32 @ma_lpf2_clear_cache(ptr noundef readonly %0) local_unnamed_addr #31 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %ma_biquad_clear_cache.exit, label %3
 
@@ -19899,12 +19899,12 @@ ma_biquad_clear_cache.exit:                       ; preds = %11, %9, %1
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: write) uwtable
-define hidden noundef i32 @ma_lpf2_process_pcm_frames(ptr noundef %0, ptr noundef %1, ptr noundef %2, i64 noundef %3) local_unnamed_addr #32 {
+define hidden range(i32 -2, 1) i32 @ma_lpf2_process_pcm_frames(ptr noundef %0, ptr noundef %1, ptr noundef %2, i64 noundef %3) local_unnamed_addr #32 {
   %5 = icmp eq ptr %0, null
   br i1 %5, label %8, label %6
 
 6:                                                ; preds = %4
-  %7 = tail call i32 @ma_biquad_process_pcm_frames(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %2, i64 noundef %3), !range !11
+  %7 = tail call i32 @ma_biquad_process_pcm_frames(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %2, i64 noundef %3)
   br label %8
 
 8:                                                ; preds = %4, %6
@@ -19913,7 +19913,7 @@ define hidden noundef i32 @ma_lpf2_process_pcm_frames(ptr noundef %0, ptr nounde
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef i32 @ma_lpf2_get_latency(ptr noundef readnone %0) local_unnamed_addr #1 {
+define hidden noundef range(i32 0, 3) i32 @ma_lpf2_get_latency(ptr noundef readnone %0) local_unnamed_addr #1 {
   %2 = icmp eq ptr %0, null
   %spec.select = select i1 %2, i32 0, i32 2
   ret i32 %spec.select
@@ -19994,20 +19994,20 @@ define hidden noundef i32 @ma_lpf_get_heap_size(ptr noundef readonly %0, ptr nou
   %30 = fdiv double %28, %29
   %31 = tail call double @llvm.fabs.f64(double %30)
   %32 = fcmp oeq double %31, 0x7FF0000000000000
-  br i1 %32, label %cdce.call, label %cdce.end.i.i, !prof !17
+  br i1 %32, label %cdce.call, label %cdce.end.i.i, !prof !12
 
 cdce.call:                                        ; preds = %24
-  %33 = tail call double @sin(double noundef %30) #68, !noalias !27
+  %33 = tail call double @sin(double noundef %30) #68, !noalias !22
   br label %cdce.end.i.i
 
 cdce.end.i.i:                                     ; preds = %cdce.call, %24
   %34 = fsub double 0x3FF921FB54442D18, %30
   %35 = tail call double @llvm.fabs.f64(double %34)
   %36 = fcmp oeq double %35, 0x7FF0000000000000
-  br i1 %36, label %cdce.call16, label %cdce.end21.i.i, !prof !17
+  br i1 %36, label %cdce.call16, label %cdce.end21.i.i, !prof !12
 
 cdce.call16:                                      ; preds = %cdce.end.i.i
-  %37 = tail call double @sin(double noundef %34) #68, !noalias !27
+  %37 = tail call double @sin(double noundef %34) #68, !noalias !22
   br label %cdce.end21.i.i
 
 cdce.end21.i.i:                                   ; preds = %cdce.call16, %cdce.end.i.i
@@ -20141,20 +20141,20 @@ define internal fastcc noundef i32 @ma_lpf_reinit__internal(ptr noundef readonly
   %48 = fdiv double %46, %47
   %49 = tail call double @llvm.fabs.f64(double %48)
   %50 = fcmp oeq double %49, 0x7FF0000000000000
-  br i1 %50, label %cdce.call, label %cdce.end.i.i, !prof !17
+  br i1 %50, label %cdce.call, label %cdce.end.i.i, !prof !12
 
 cdce.call:                                        ; preds = %42
-  %51 = tail call double @sin(double noundef %48) #68, !noalias !30
+  %51 = tail call double @sin(double noundef %48) #68, !noalias !25
   br label %cdce.end.i.i
 
 cdce.end.i.i:                                     ; preds = %cdce.call, %42
   %52 = fsub double 0x3FF921FB54442D18, %48
   %53 = tail call double @llvm.fabs.f64(double %52)
   %54 = fcmp oeq double %53, 0x7FF0000000000000
-  br i1 %54, label %cdce.call217, label %cdce.end21.i.i, !prof !17
+  br i1 %54, label %cdce.call217, label %cdce.end21.i.i, !prof !12
 
 cdce.call217:                                     ; preds = %cdce.end.i.i
-  %55 = tail call double @sin(double noundef %52) #68, !noalias !30
+  %55 = tail call double @sin(double noundef %52) #68, !noalias !25
   br label %cdce.end21.i.i
 
 cdce.end21.i.i:                                   ; preds = %cdce.call217, %cdce.end.i.i
@@ -20401,24 +20401,24 @@ cdce.end21.i.i:                                   ; preds = %cdce.call217, %cdce
   %165 = fdiv double %163, %164
   %166 = call double @llvm.fabs.f64(double %165)
   %167 = fcmp oeq double %166, 0x7FF0000000000000
-  br i1 %167, label %cdce.call219, label %cdce.end.i, !prof !17
+  br i1 %167, label %cdce.call219, label %cdce.end.i, !prof !12
 
 cdce.call219:                                     ; preds = %162
-  %168 = call double @sin(double noundef %165) #68, !noalias !33
+  %168 = call double @sin(double noundef %165) #68, !noalias !28
   br label %cdce.end.i
 
 cdce.end.i:                                       ; preds = %cdce.call219, %162
   %169 = fsub double 0x3FF921FB54442D18, %165
   %170 = call double @llvm.fabs.f64(double %169)
   %171 = fcmp oeq double %170, 0x7FF0000000000000
-  br i1 %171, label %cdce.call221, label %cdce.end21.i, !prof !17
+  br i1 %171, label %cdce.call221, label %cdce.end21.i, !prof !12
 
 cdce.call221:                                     ; preds = %cdce.end.i
-  %172 = call double @sin(double noundef %169) #68, !noalias !33
+  %172 = call double @sin(double noundef %169) #68, !noalias !28
   br label %cdce.end21.i
 
 cdce.end21.i:                                     ; preds = %cdce.call221, %cdce.end.i
-  %173 = load i32, ptr %.sroa.2.0..sroa_idx, align 4, !noalias !33
+  %173 = load i32, ptr %.sroa.2.0..sroa_idx, align 4, !noalias !28
   %174 = icmp eq i32 %173, 0
   br i1 %174, label %.preheader224, label %ma_lpf2_get_heap_size.exit
 
@@ -20432,9 +20432,9 @@ cdce.end21.i:                                     ; preds = %cdce.call221, %cdce
   %180 = fmul double %159, 0x401921FB54442D18
   %181 = uitofp i32 %158 to double
   %182 = fdiv double %180, %181
-  %183 = call double @sin(double noundef %182) #68, !noalias !36
+  %183 = call double @sin(double noundef %182) #68, !noalias !31
   %184 = fsub double 0x3FF921FB54442D18, %182
-  %185 = call double @sin(double noundef %184) #68, !noalias !36
+  %185 = call double @sin(double noundef %184) #68, !noalias !31
   %186 = fmul double %storemerge.i, 2.000000e+00
   %187 = fdiv double %183, %186
   %188 = fsub double 1.000000e+00, %185
@@ -20445,8 +20445,8 @@ cdce.end21.i:                                     ; preds = %cdce.call221, %cdce
   %193 = fmul <2 x double> %192, <double -2.000000e+00, double poison>
   %194 = fsub <2 x double> <double poison, double 1.000000e+00>, %192
   %195 = shufflevector <2 x double> %193, <2 x double> %194, <2 x i32> <i32 0, i32 3>
-  %196 = load i32, ptr %5, align 8, !noalias !36
-  %197 = load i32, ptr %.sroa.2.0..sroa_idx, align 4, !noalias !36
+  %196 = load i32, ptr %5, align 8, !noalias !31
+  %197 = load i32, ptr %.sroa.2.0..sroa_idx, align 4, !noalias !31
   %198 = fcmp oeq double %190, 0.000000e+00
   br i1 %198, label %.preheader224, label %199
 
@@ -20596,7 +20596,7 @@ ma_lpf2_get_heap_size.exit:                       ; preds = %cdce.end21.i
 ma_lpf2_uninit.exit:                              ; preds = %.lr.ph238.split, %260, %263, %267
   %indvars.iv.next267 = add nuw nsw i64 %indvars.iv266, 1
   %exitcond273.not = icmp eq i64 %indvars.iv.next267, %wide.trip.count272
-  br i1 %exitcond273.not, label %ma_lpf_get_heap_layout.exit.thread, label %.lr.ph238.splitthread-pre-split, !llvm.loop !39
+  br i1 %exitcond273.not, label %ma_lpf_get_heap_layout.exit.thread, label %.lr.ph238.splitthread-pre-split, !llvm.loop !34
 
 ma_lpf2_get_heap_size.exit.thread210:             ; preds = %208, %221, %ma_lpf2_get_heap_size.exit
   %indvars.iv.next261 = add nuw nsw i64 %indvars.iv260, 1
@@ -20671,20 +20671,20 @@ define hidden noundef i32 @ma_lpf_init(ptr noundef %0, ptr noundef readonly %1, 
   %29 = fdiv double %27, %28
   %30 = tail call double @llvm.fabs.f64(double %29)
   %31 = fcmp oeq double %30, 0x7FF0000000000000
-  br i1 %31, label %cdce.call, label %cdce.end.i.i.i, !prof !17
+  br i1 %31, label %cdce.call, label %cdce.end.i.i.i, !prof !12
 
 cdce.call:                                        ; preds = %23
-  %32 = tail call double @sin(double noundef %29) #68, !noalias !41
+  %32 = tail call double @sin(double noundef %29) #68, !noalias !36
   br label %cdce.end.i.i.i
 
 cdce.end.i.i.i:                                   ; preds = %cdce.call, %23
   %33 = fsub double 0x3FF921FB54442D18, %29
   %34 = tail call double @llvm.fabs.f64(double %33)
   %35 = fcmp oeq double %34, 0x7FF0000000000000
-  br i1 %35, label %cdce.call31, label %cdce.end21.i.i.i, !prof !17
+  br i1 %35, label %cdce.call31, label %cdce.end21.i.i.i, !prof !12
 
 cdce.call31:                                      ; preds = %cdce.end.i.i.i
-  %36 = tail call double @sin(double noundef %33) #68, !noalias !41
+  %36 = tail call double @sin(double noundef %33) #68, !noalias !36
   br label %cdce.end21.i.i.i
 
 cdce.end21.i.i.i:                                 ; preds = %cdce.call31, %cdce.end.i.i.i
@@ -20854,7 +20854,7 @@ ma_lpf1_uninit.exit:                              ; preds = %.lr.ph.split, %19, 
   %32 = load i32, ptr %4, align 4
   %33 = zext i32 %32 to i64
   %34 = icmp ult i64 %indvars.iv.next, %33
-  br i1 %34, label %.lr.ph.splitthread-pre-split, label %.preheader, !llvm.loop !44
+  br i1 %34, label %.lr.ph.splitthread-pre-split, label %.preheader, !llvm.loop !39
 
 .lr.ph22.splitthread-pre-split:                   ; preds = %ma_lpf2_uninit.exit
   %.pr31 = load ptr, ptr %12, align 8
@@ -20901,7 +20901,7 @@ ma_lpf2_uninit.exit:                              ; preds = %.lr.ph22.split, %38
   %51 = load i32, ptr %10, align 8
   %52 = zext i32 %51 to i64
   %53 = icmp ult i64 %indvars.iv.next29, %52
-  br i1 %53, label %.lr.ph22.splitthread-pre-split, label %._crit_edge, !llvm.loop !45
+  br i1 %53, label %.lr.ph22.splitthread-pre-split, label %._crit_edge, !llvm.loop !40
 
 ._crit_edge:                                      ; preds = %ma_lpf2_uninit.exit, %.lr.ph22, %.preheader
   %54 = getelementptr inbounds i8, ptr %0, i64 48
@@ -20945,7 +20945,7 @@ define hidden noundef i32 @ma_lpf_reinit(ptr noundef %0, ptr noundef %1) local_u
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define hidden noundef i32 @ma_lpf_clear_cache(ptr noundef readonly %0) local_unnamed_addr #3 {
+define hidden range(i32 -2, 1) i32 @ma_lpf_clear_cache(ptr noundef readonly %0) local_unnamed_addr #3 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %.loopexit, label %.preheader15
 
@@ -21003,7 +21003,7 @@ ma_lpf1_clear_cache.exit:                         ; preds = %.lr.ph.split, %20, 
   %22 = load i32, ptr %3, align 4
   %23 = zext i32 %22 to i64
   %24 = icmp ult i64 %indvars.iv.next, %23
-  br i1 %24, label %.lr.ph.splitthread-pre-split, label %.preheader, !llvm.loop !46
+  br i1 %24, label %.lr.ph.splitthread-pre-split, label %.preheader, !llvm.loop !41
 
 .lr.ph18.splitthread-pre-split:                   ; preds = %ma_lpf2_clear_cache.exit
   %.pr26 = load ptr, ptr %10, align 8
@@ -21041,7 +21041,7 @@ ma_lpf2_clear_cache.exit:                         ; preds = %.lr.ph18.split, %34
   %38 = load i32, ptr %8, align 8
   %39 = zext i32 %38 to i64
   %40 = icmp ult i64 %indvars.iv.next24, %39
-  br i1 %40, label %.lr.ph18.splitthread-pre-split, label %.loopexit, !llvm.loop !47
+  br i1 %40, label %.lr.ph18.splitthread-pre-split, label %.loopexit, !llvm.loop !42
 
 .loopexit:                                        ; preds = %ma_lpf2_clear_cache.exit, %.lr.ph18, %.preheader, %1
   %.012 = phi i32 [ -2, %1 ], [ 0, %.preheader ], [ 0, %.lr.ph18 ], [ 0, %ma_lpf2_clear_cache.exit ]
@@ -21049,7 +21049,7 @@ ma_lpf2_clear_cache.exit:                         ; preds = %.lr.ph18.split, %34
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: write) uwtable
-define hidden noundef i32 @ma_lpf_process_pcm_frames(ptr noundef readonly %0, ptr noundef %1, ptr noundef readonly %2, i64 noundef %3) local_unnamed_addr #32 {
+define hidden range(i32 -3, 1) i32 @ma_lpf_process_pcm_frames(ptr noundef readonly %0, ptr noundef %1, ptr noundef readonly %2, i64 noundef %3) local_unnamed_addr #32 {
   %5 = icmp eq ptr %0, null
   br i1 %5, label %ma_lpf1_process_pcm_frames.exit, label %6
 
@@ -21219,7 +21219,7 @@ define hidden noundef i32 @ma_lpf_process_pcm_frames(ptr noundef readonly %0, pt
 
 ma_lpf2_process_pcm_frames.exit:                  ; preds = %85
   %88 = getelementptr inbounds %struct.ma_lpf2, ptr %86, i64 %indvars.iv328
-  %89 = tail call i32 @ma_biquad_process_pcm_frames(ptr noundef nonnull %88, ptr noundef %1, ptr noundef %1, i64 noundef %3), !range !11
+  %89 = tail call i32 @ma_biquad_process_pcm_frames(ptr noundef nonnull %88, ptr noundef %1, ptr noundef %1, i64 noundef %3)
   %.not244 = icmp eq i32 %89, 0
   br i1 %.not244, label %81, label %ma_lpf1_process_pcm_frames.exit
 
@@ -21714,7 +21714,7 @@ ma_hpf1_reinit.exit:                              ; preds = %7, %5, %45, %42, %2
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(write, argmem: readwrite) uwtable
-define hidden noundef i32 @ma_hpf1_reinit(ptr noundef readonly %0, ptr noundef %1) local_unnamed_addr #33 {
+define hidden range(i32 -3, 1) i32 @ma_hpf1_reinit(ptr noundef readonly %0, ptr noundef %1) local_unnamed_addr #33 {
   %3 = icmp eq ptr %1, null
   %4 = icmp eq ptr %0, null
   %or.cond = or i1 %4, %3
@@ -21903,7 +21903,7 @@ ma_free.exit:                                     ; preds = %17, %15, %12, %7, %
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: write) uwtable
-define hidden noundef i32 @ma_hpf1_process_pcm_frames(ptr noundef readonly %0, ptr noundef writeonly %1, ptr noundef readonly %2, i64 noundef %3) local_unnamed_addr #32 {
+define hidden range(i32 -2, 1) i32 @ma_hpf1_process_pcm_frames(ptr noundef readonly %0, ptr noundef writeonly %1, ptr noundef readonly %2, i64 noundef %3) local_unnamed_addr #32 {
   %5 = icmp eq ptr %0, null
   %6 = icmp eq ptr %1, null
   %or.cond = or i1 %5, %6
@@ -22032,7 +22032,7 @@ define hidden noundef i32 @ma_hpf1_process_pcm_frames(ptr noundef readonly %0, p
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef i32 @ma_hpf1_get_latency(ptr noundef readnone %0) local_unnamed_addr #1 {
+define hidden range(i32 0, 2) i32 @ma_hpf1_get_latency(ptr noundef readnone %0) local_unnamed_addr #1 {
   %2 = icmp ne ptr %0, null
   %. = zext i1 %2 to i32
   ret i32 %.
@@ -22041,33 +22041,33 @@ define hidden noundef i32 @ma_hpf1_get_latency(ptr noundef readnone %0) local_un
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(write, argmem: readwrite) uwtable
 define hidden noundef i32 @ma_hpf2_get_heap_size(ptr nocapture noundef readonly %0, ptr noundef writeonly %1) local_unnamed_addr #33 {
   %3 = getelementptr inbounds i8, ptr %0, i64 16
-  %4 = load double, ptr %3, align 8, !noalias !48
+  %4 = load double, ptr %3, align 8, !noalias !43
   %5 = fmul double %4, 0x401921FB54442D18
   %6 = getelementptr inbounds i8, ptr %0, i64 8
-  %7 = load i32, ptr %6, align 8, !noalias !48
+  %7 = load i32, ptr %6, align 8, !noalias !43
   %8 = uitofp i32 %7 to double
   %9 = fdiv double %5, %8
   %10 = tail call double @llvm.fabs.f64(double %9)
   %11 = fcmp oeq double %10, 0x7FF0000000000000
-  br i1 %11, label %cdce.call, label %cdce.end, !prof !17
+  br i1 %11, label %cdce.call, label %cdce.end, !prof !12
 
 cdce.call:                                        ; preds = %2
-  %12 = tail call double @sin(double noundef %9) #68, !noalias !48
+  %12 = tail call double @sin(double noundef %9) #68, !noalias !43
   br label %cdce.end
 
 cdce.end:                                         ; preds = %2, %cdce.call
   %13 = fsub double 0x3FF921FB54442D18, %9
   %14 = tail call double @llvm.fabs.f64(double %13)
   %15 = fcmp oeq double %14, 0x7FF0000000000000
-  br i1 %15, label %cdce.call20, label %cdce.end21, !prof !17
+  br i1 %15, label %cdce.call20, label %cdce.end21, !prof !12
 
 cdce.call20:                                      ; preds = %cdce.end
-  %16 = tail call double @sin(double noundef %13) #68, !noalias !48
+  %16 = tail call double @sin(double noundef %13) #68, !noalias !43
   br label %cdce.end21
 
 cdce.end21:                                       ; preds = %cdce.end, %cdce.call20
   %17 = getelementptr inbounds i8, ptr %0, i64 4
-  %18 = load i32, ptr %17, align 4, !noalias !48
+  %18 = load i32, ptr %17, align 4, !noalias !43
   %19 = icmp eq ptr %1, null
   br i1 %19, label %ma_biquad_get_heap_size.exit, label %20
 
@@ -22099,17 +22099,17 @@ define hidden noundef i32 @ma_hpf2_init_preallocated(ptr noundef readonly %0, pt
 
 7:                                                ; preds = %5
   %8 = getelementptr inbounds i8, ptr %0, i64 24
-  %9 = load double, ptr %8, align 8, !noalias !51
+  %9 = load double, ptr %8, align 8, !noalias !46
   %10 = getelementptr inbounds i8, ptr %0, i64 16
-  %11 = load double, ptr %10, align 8, !noalias !51
+  %11 = load double, ptr %10, align 8, !noalias !46
   %12 = fmul double %11, 0x401921FB54442D18
   %13 = getelementptr inbounds i8, ptr %0, i64 8
-  %14 = load i32, ptr %13, align 8, !noalias !51
+  %14 = load i32, ptr %13, align 8, !noalias !46
   %15 = uitofp i32 %14 to double
   %16 = fdiv double %12, %15
-  %17 = tail call double @sin(double noundef %16) #68, !noalias !51
+  %17 = tail call double @sin(double noundef %16) #68, !noalias !46
   %18 = fsub double 0x3FF921FB54442D18, %16
-  %19 = tail call double @sin(double noundef %18) #68, !noalias !51
+  %19 = tail call double @sin(double noundef %18) #68, !noalias !46
   %20 = fmul double %9, 2.000000e+00
   %21 = fdiv double %17, %20
   %22 = fadd double %19, 1.000000e+00
@@ -22121,9 +22121,9 @@ define hidden noundef i32 @ma_hpf2_init_preallocated(ptr noundef readonly %0, pt
   %28 = fmul <2 x double> %27, <double -2.000000e+00, double poison>
   %29 = fsub <2 x double> <double poison, double 1.000000e+00>, %27
   %30 = shufflevector <2 x double> %28, <2 x double> %29, <2 x i32> <i32 0, i32 3>
-  %31 = load i32, ptr %0, align 8, !noalias !51
+  %31 = load i32, ptr %0, align 8, !noalias !46
   %32 = getelementptr inbounds i8, ptr %0, i64 4
-  %33 = load i32, ptr %32, align 4, !noalias !51
+  %33 = load i32, ptr %32, align 4, !noalias !46
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(64) %2, i8 0, i64 64, i1 false)
   %34 = icmp eq i32 %33, 0
   br i1 %34, label %ma_biquad_init_preallocated.exit, label %35
@@ -22223,33 +22223,33 @@ ma_biquad_init_preallocated.exit:                 ; preds = %7, %41, %46, %47, %
 ; Function Attrs: nounwind uwtable
 define hidden noundef i32 @ma_hpf2_init(ptr noundef %0, ptr noundef readonly %1, ptr noundef %2) local_unnamed_addr #5 {
   %4 = getelementptr inbounds i8, ptr %0, i64 16
-  %5 = load double, ptr %4, align 8, !noalias !54
+  %5 = load double, ptr %4, align 8, !noalias !49
   %6 = fmul double %5, 0x401921FB54442D18
   %7 = getelementptr inbounds i8, ptr %0, i64 8
-  %8 = load i32, ptr %7, align 8, !noalias !54
+  %8 = load i32, ptr %7, align 8, !noalias !49
   %9 = uitofp i32 %8 to double
   %10 = fdiv double %6, %9
   %11 = tail call double @llvm.fabs.f64(double %10)
   %12 = fcmp oeq double %11, 0x7FF0000000000000
-  br i1 %12, label %cdce.call, label %cdce.end.i, !prof !17
+  br i1 %12, label %cdce.call, label %cdce.end.i, !prof !12
 
 cdce.call:                                        ; preds = %3
-  %13 = tail call double @sin(double noundef %10) #68, !noalias !54
+  %13 = tail call double @sin(double noundef %10) #68, !noalias !49
   br label %cdce.end.i
 
 cdce.end.i:                                       ; preds = %cdce.call, %3
   %14 = fsub double 0x3FF921FB54442D18, %10
   %15 = tail call double @llvm.fabs.f64(double %14)
   %16 = fcmp oeq double %15, 0x7FF0000000000000
-  br i1 %16, label %cdce.call32, label %cdce.end21.i, !prof !17
+  br i1 %16, label %cdce.call32, label %cdce.end21.i, !prof !12
 
 cdce.call32:                                      ; preds = %cdce.end.i
-  %17 = tail call double @sin(double noundef %14) #68, !noalias !54
+  %17 = tail call double @sin(double noundef %14) #68, !noalias !49
   br label %cdce.end21.i
 
 cdce.end21.i:                                     ; preds = %cdce.call32, %cdce.end.i
   %18 = getelementptr inbounds i8, ptr %0, i64 4
-  %19 = load i32, ptr %18, align 4, !noalias !54
+  %19 = load i32, ptr %18, align 4, !noalias !49
   %20 = icmp eq i32 %19, 0
   br i1 %20, label %ma_hpf2_get_heap_size.exit, label %21
 
@@ -22353,7 +22353,7 @@ ma_biquad_uninit.exit:                            ; preds = %17, %15, %12, %7, %
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(write, argmem: readwrite) uwtable
-define hidden noundef i32 @ma_hpf2_reinit(ptr noundef readonly %0, ptr noundef %1) local_unnamed_addr #33 {
+define hidden range(i32 -3, 1) i32 @ma_hpf2_reinit(ptr noundef readonly %0, ptr noundef %1) local_unnamed_addr #33 {
   %3 = alloca %struct.ma_biquad_config, align 8
   %4 = icmp eq ptr %1, null
   %5 = icmp eq ptr %0, null
@@ -22362,17 +22362,17 @@ define hidden noundef i32 @ma_hpf2_reinit(ptr noundef readonly %0, ptr noundef %
 
 6:                                                ; preds = %2
   %7 = getelementptr inbounds i8, ptr %0, i64 24
-  %8 = load double, ptr %7, align 8, !noalias !57
+  %8 = load double, ptr %7, align 8, !noalias !52
   %9 = getelementptr inbounds i8, ptr %0, i64 16
-  %10 = load double, ptr %9, align 8, !noalias !57
+  %10 = load double, ptr %9, align 8, !noalias !52
   %11 = fmul double %10, 0x401921FB54442D18
   %12 = getelementptr inbounds i8, ptr %0, i64 8
-  %13 = load i32, ptr %12, align 8, !noalias !57
+  %13 = load i32, ptr %12, align 8, !noalias !52
   %14 = uitofp i32 %13 to double
   %15 = fdiv double %11, %14
-  %16 = tail call double @sin(double noundef %15) #68, !noalias !57
+  %16 = tail call double @sin(double noundef %15) #68, !noalias !52
   %17 = fsub double 0x3FF921FB54442D18, %15
-  %18 = tail call double @sin(double noundef %17) #68, !noalias !57
+  %18 = tail call double @sin(double noundef %17) #68, !noalias !52
   %19 = fmul double %8, 2.000000e+00
   %20 = fdiv double %16, %19
   %21 = fadd double %18, 1.000000e+00
@@ -22381,7 +22381,7 @@ define hidden noundef i32 @ma_hpf2_reinit(ptr noundef readonly %0, ptr noundef %
   %24 = fadd double %20, 1.000000e+00
   %25 = fmul double %18, -2.000000e+00
   %26 = fsub double 1.000000e+00, %20
-  %27 = load <2 x i32>, ptr %0, align 8, !noalias !57
+  %27 = load <2 x i32>, ptr %0, align 8, !noalias !52
   store <2 x i32> %27, ptr %3, align 8
   %.sroa.3.0..sroa_idx = getelementptr inbounds i8, ptr %3, i64 8
   store double %22, ptr %.sroa.3.0..sroa_idx, align 8
@@ -22395,7 +22395,7 @@ define hidden noundef i32 @ma_hpf2_reinit(ptr noundef readonly %0, ptr noundef %
   store double %25, ptr %.sroa.7.0..sroa_idx, align 8
   %.sroa.8.0..sroa_idx = getelementptr inbounds i8, ptr %3, i64 48
   store double %26, ptr %.sroa.8.0..sroa_idx, align 8
-  %28 = call i32 @ma_biquad_reinit(ptr noundef nonnull %3, ptr noundef nonnull %1), !range !13
+  %28 = call i32 @ma_biquad_reinit(ptr noundef nonnull %3, ptr noundef nonnull %1)
   br label %29
 
 29:                                               ; preds = %6, %2
@@ -22404,12 +22404,12 @@ define hidden noundef i32 @ma_hpf2_reinit(ptr noundef readonly %0, ptr noundef %
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: write) uwtable
-define hidden noundef i32 @ma_hpf2_process_pcm_frames(ptr noundef %0, ptr noundef %1, ptr noundef %2, i64 noundef %3) local_unnamed_addr #32 {
+define hidden range(i32 -2, 1) i32 @ma_hpf2_process_pcm_frames(ptr noundef %0, ptr noundef %1, ptr noundef %2, i64 noundef %3) local_unnamed_addr #32 {
   %5 = icmp eq ptr %0, null
   br i1 %5, label %8, label %6
 
 6:                                                ; preds = %4
-  %7 = tail call i32 @ma_biquad_process_pcm_frames(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %2, i64 noundef %3), !range !11
+  %7 = tail call i32 @ma_biquad_process_pcm_frames(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %2, i64 noundef %3)
   br label %8
 
 8:                                                ; preds = %4, %6
@@ -22418,7 +22418,7 @@ define hidden noundef i32 @ma_hpf2_process_pcm_frames(ptr noundef %0, ptr nounde
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef i32 @ma_hpf2_get_latency(ptr noundef readnone %0) local_unnamed_addr #1 {
+define hidden noundef range(i32 0, 3) i32 @ma_hpf2_get_latency(ptr noundef readnone %0) local_unnamed_addr #1 {
   %2 = icmp eq ptr %0, null
   %spec.select = select i1 %2, i32 0, i32 2
   ret i32 %spec.select
@@ -22499,20 +22499,20 @@ define hidden noundef i32 @ma_hpf_get_heap_size(ptr noundef readonly %0, ptr nou
   %30 = fdiv double %28, %29
   %31 = tail call double @llvm.fabs.f64(double %30)
   %32 = fcmp oeq double %31, 0x7FF0000000000000
-  br i1 %32, label %cdce.call, label %cdce.end.i.i, !prof !17
+  br i1 %32, label %cdce.call, label %cdce.end.i.i, !prof !12
 
 cdce.call:                                        ; preds = %24
-  %33 = tail call double @sin(double noundef %30) #68, !noalias !60
+  %33 = tail call double @sin(double noundef %30) #68, !noalias !55
   br label %cdce.end.i.i
 
 cdce.end.i.i:                                     ; preds = %cdce.call, %24
   %34 = fsub double 0x3FF921FB54442D18, %30
   %35 = tail call double @llvm.fabs.f64(double %34)
   %36 = fcmp oeq double %35, 0x7FF0000000000000
-  br i1 %36, label %cdce.call16, label %cdce.end21.i.i, !prof !17
+  br i1 %36, label %cdce.call16, label %cdce.end21.i.i, !prof !12
 
 cdce.call16:                                      ; preds = %cdce.end.i.i
-  %37 = tail call double @sin(double noundef %34) #68, !noalias !60
+  %37 = tail call double @sin(double noundef %34) #68, !noalias !55
   br label %cdce.end21.i.i
 
 cdce.end21.i.i:                                   ; preds = %cdce.call16, %cdce.end.i.i
@@ -22646,20 +22646,20 @@ define internal fastcc noundef i32 @ma_hpf_reinit__internal(ptr noundef readonly
   %48 = fdiv double %46, %47
   %49 = tail call double @llvm.fabs.f64(double %48)
   %50 = fcmp oeq double %49, 0x7FF0000000000000
-  br i1 %50, label %cdce.call, label %cdce.end.i.i, !prof !17
+  br i1 %50, label %cdce.call, label %cdce.end.i.i, !prof !12
 
 cdce.call:                                        ; preds = %42
-  %51 = tail call double @sin(double noundef %48) #68, !noalias !63
+  %51 = tail call double @sin(double noundef %48) #68, !noalias !58
   br label %cdce.end.i.i
 
 cdce.end.i.i:                                     ; preds = %cdce.call, %42
   %52 = fsub double 0x3FF921FB54442D18, %48
   %53 = tail call double @llvm.fabs.f64(double %52)
   %54 = fcmp oeq double %53, 0x7FF0000000000000
-  br i1 %54, label %cdce.call218, label %cdce.end21.i.i, !prof !17
+  br i1 %54, label %cdce.call218, label %cdce.end21.i.i, !prof !12
 
 cdce.call218:                                     ; preds = %cdce.end.i.i
-  %55 = tail call double @sin(double noundef %52) #68, !noalias !63
+  %55 = tail call double @sin(double noundef %52) #68, !noalias !58
   br label %cdce.end21.i.i
 
 cdce.end21.i.i:                                   ; preds = %cdce.call218, %cdce.end.i.i
@@ -22906,24 +22906,24 @@ cdce.end21.i.i:                                   ; preds = %cdce.call218, %cdce
   %165 = fdiv double %163, %164
   %166 = call double @llvm.fabs.f64(double %165)
   %167 = fcmp oeq double %166, 0x7FF0000000000000
-  br i1 %167, label %cdce.call220, label %cdce.end.i, !prof !17
+  br i1 %167, label %cdce.call220, label %cdce.end.i, !prof !12
 
 cdce.call220:                                     ; preds = %162
-  %168 = call double @sin(double noundef %165) #68, !noalias !66
+  %168 = call double @sin(double noundef %165) #68, !noalias !61
   br label %cdce.end.i
 
 cdce.end.i:                                       ; preds = %cdce.call220, %162
   %169 = fsub double 0x3FF921FB54442D18, %165
   %170 = call double @llvm.fabs.f64(double %169)
   %171 = fcmp oeq double %170, 0x7FF0000000000000
-  br i1 %171, label %cdce.call222, label %cdce.end21.i, !prof !17
+  br i1 %171, label %cdce.call222, label %cdce.end21.i, !prof !12
 
 cdce.call222:                                     ; preds = %cdce.end.i
-  %172 = call double @sin(double noundef %169) #68, !noalias !66
+  %172 = call double @sin(double noundef %169) #68, !noalias !61
   br label %cdce.end21.i
 
 cdce.end21.i:                                     ; preds = %cdce.call222, %cdce.end.i
-  %173 = load i32, ptr %.sroa.2.0..sroa_idx, align 4, !noalias !66
+  %173 = load i32, ptr %.sroa.2.0..sroa_idx, align 4, !noalias !61
   %174 = icmp eq i32 %173, 0
   br i1 %174, label %.preheader225, label %ma_hpf2_get_heap_size.exit
 
@@ -22937,9 +22937,9 @@ cdce.end21.i:                                     ; preds = %cdce.call222, %cdce
   %180 = fmul double %159, 0x401921FB54442D18
   %181 = uitofp i32 %158 to double
   %182 = fdiv double %180, %181
-  %183 = call double @sin(double noundef %182) #68, !noalias !69
+  %183 = call double @sin(double noundef %182) #68, !noalias !64
   %184 = fsub double 0x3FF921FB54442D18, %182
-  %185 = call double @sin(double noundef %184) #68, !noalias !69
+  %185 = call double @sin(double noundef %184) #68, !noalias !64
   %186 = fmul double %storemerge.i, 2.000000e+00
   %187 = fdiv double %183, %186
   %188 = fadd double %185, 1.000000e+00
@@ -22951,8 +22951,8 @@ cdce.end21.i:                                     ; preds = %cdce.call222, %cdce
   %194 = fmul <2 x double> %193, <double -2.000000e+00, double poison>
   %195 = fsub <2 x double> <double poison, double 1.000000e+00>, %193
   %196 = shufflevector <2 x double> %194, <2 x double> %195, <2 x i32> <i32 0, i32 3>
-  %197 = load i32, ptr %5, align 8, !noalias !69
-  %198 = load i32, ptr %.sroa.2.0..sroa_idx, align 4, !noalias !69
+  %197 = load i32, ptr %5, align 8, !noalias !64
+  %198 = load i32, ptr %.sroa.2.0..sroa_idx, align 4, !noalias !64
   %199 = fcmp oeq double %191, 0.000000e+00
   br i1 %199, label %.preheader225, label %200
 
@@ -23102,7 +23102,7 @@ ma_hpf2_get_heap_size.exit:                       ; preds = %cdce.end21.i
 ma_hpf2_uninit.exit:                              ; preds = %.lr.ph239.split, %261, %264, %268
   %indvars.iv.next268 = add nuw nsw i64 %indvars.iv267, 1
   %exitcond274.not = icmp eq i64 %indvars.iv.next268, %wide.trip.count273
-  br i1 %exitcond274.not, label %ma_hpf_get_heap_layout.exit.thread, label %.lr.ph239.splitthread-pre-split, !llvm.loop !72
+  br i1 %exitcond274.not, label %ma_hpf_get_heap_layout.exit.thread, label %.lr.ph239.splitthread-pre-split, !llvm.loop !67
 
 ma_hpf2_get_heap_size.exit.thread211:             ; preds = %209, %222, %ma_hpf2_get_heap_size.exit
   %indvars.iv.next262 = add nuw nsw i64 %indvars.iv261, 1
@@ -23177,20 +23177,20 @@ define hidden noundef i32 @ma_hpf_init(ptr noundef %0, ptr noundef readonly %1, 
   %29 = fdiv double %27, %28
   %30 = tail call double @llvm.fabs.f64(double %29)
   %31 = fcmp oeq double %30, 0x7FF0000000000000
-  br i1 %31, label %cdce.call, label %cdce.end.i.i.i, !prof !17
+  br i1 %31, label %cdce.call, label %cdce.end.i.i.i, !prof !12
 
 cdce.call:                                        ; preds = %23
-  %32 = tail call double @sin(double noundef %29) #68, !noalias !73
+  %32 = tail call double @sin(double noundef %29) #68, !noalias !68
   br label %cdce.end.i.i.i
 
 cdce.end.i.i.i:                                   ; preds = %cdce.call, %23
   %33 = fsub double 0x3FF921FB54442D18, %29
   %34 = tail call double @llvm.fabs.f64(double %33)
   %35 = fcmp oeq double %34, 0x7FF0000000000000
-  br i1 %35, label %cdce.call31, label %cdce.end21.i.i.i, !prof !17
+  br i1 %35, label %cdce.call31, label %cdce.end21.i.i.i, !prof !12
 
 cdce.call31:                                      ; preds = %cdce.end.i.i.i
-  %36 = tail call double @sin(double noundef %33) #68, !noalias !73
+  %36 = tail call double @sin(double noundef %33) #68, !noalias !68
   br label %cdce.end21.i.i.i
 
 cdce.end21.i.i.i:                                 ; preds = %cdce.call31, %cdce.end.i.i.i
@@ -23360,7 +23360,7 @@ ma_hpf1_uninit.exit:                              ; preds = %.lr.ph.split, %19, 
   %32 = load i32, ptr %4, align 4
   %33 = zext i32 %32 to i64
   %34 = icmp ult i64 %indvars.iv.next, %33
-  br i1 %34, label %.lr.ph.splitthread-pre-split, label %.preheader, !llvm.loop !76
+  br i1 %34, label %.lr.ph.splitthread-pre-split, label %.preheader, !llvm.loop !71
 
 .lr.ph22.splitthread-pre-split:                   ; preds = %ma_hpf2_uninit.exit
   %.pr31 = load ptr, ptr %12, align 8
@@ -23407,7 +23407,7 @@ ma_hpf2_uninit.exit:                              ; preds = %.lr.ph22.split, %38
   %51 = load i32, ptr %10, align 8
   %52 = zext i32 %51 to i64
   %53 = icmp ult i64 %indvars.iv.next29, %52
-  br i1 %53, label %.lr.ph22.splitthread-pre-split, label %._crit_edge, !llvm.loop !77
+  br i1 %53, label %.lr.ph22.splitthread-pre-split, label %._crit_edge, !llvm.loop !72
 
 ._crit_edge:                                      ; preds = %ma_hpf2_uninit.exit, %.lr.ph22, %.preheader
   %54 = getelementptr inbounds i8, ptr %0, i64 48
@@ -23451,7 +23451,7 @@ define hidden noundef i32 @ma_hpf_reinit(ptr noundef %0, ptr noundef %1) local_u
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: write) uwtable
-define hidden noundef i32 @ma_hpf_process_pcm_frames(ptr noundef readonly %0, ptr noundef %1, ptr noundef readonly %2, i64 noundef %3) local_unnamed_addr #32 {
+define hidden range(i32 -3, 1) i32 @ma_hpf_process_pcm_frames(ptr noundef readonly %0, ptr noundef %1, ptr noundef readonly %2, i64 noundef %3) local_unnamed_addr #32 {
   %5 = icmp eq ptr %0, null
   br i1 %5, label %ma_hpf1_process_pcm_frames.exit, label %6
 
@@ -23623,7 +23623,7 @@ define hidden noundef i32 @ma_hpf_process_pcm_frames(ptr noundef readonly %0, pt
 
 ma_hpf2_process_pcm_frames.exit:                  ; preds = %85
   %88 = getelementptr inbounds %struct.ma_hpf2, ptr %86, i64 %indvars.iv323
-  %89 = tail call i32 @ma_biquad_process_pcm_frames(ptr noundef nonnull %88, ptr noundef %1, ptr noundef %1, i64 noundef %3), !range !11
+  %89 = tail call i32 @ma_biquad_process_pcm_frames(ptr noundef nonnull %88, ptr noundef %1, ptr noundef %1, i64 noundef %3)
   %.not238 = icmp eq i32 %89, 0
   br i1 %.not238, label %81, label %ma_hpf1_process_pcm_frames.exit
 
@@ -23982,33 +23982,33 @@ define hidden void @ma_bpf2_config_init(ptr dead_on_unwind noalias nocapture wri
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(write, argmem: readwrite) uwtable
 define hidden noundef i32 @ma_bpf2_get_heap_size(ptr nocapture noundef readonly %0, ptr noundef writeonly %1) local_unnamed_addr #33 {
   %3 = getelementptr inbounds i8, ptr %0, i64 16
-  %4 = load double, ptr %3, align 8, !noalias !78
+  %4 = load double, ptr %3, align 8, !noalias !73
   %5 = fmul double %4, 0x401921FB54442D18
   %6 = getelementptr inbounds i8, ptr %0, i64 8
-  %7 = load i32, ptr %6, align 8, !noalias !78
+  %7 = load i32, ptr %6, align 8, !noalias !73
   %8 = uitofp i32 %7 to double
   %9 = fdiv double %5, %8
   %10 = tail call double @llvm.fabs.f64(double %9)
   %11 = fcmp oeq double %10, 0x7FF0000000000000
-  br i1 %11, label %cdce.call, label %cdce.end, !prof !17
+  br i1 %11, label %cdce.call, label %cdce.end, !prof !12
 
 cdce.call:                                        ; preds = %2
-  %12 = tail call double @sin(double noundef %9) #68, !noalias !78
+  %12 = tail call double @sin(double noundef %9) #68, !noalias !73
   br label %cdce.end
 
 cdce.end:                                         ; preds = %2, %cdce.call
   %13 = fsub double 0x3FF921FB54442D18, %9
   %14 = tail call double @llvm.fabs.f64(double %13)
   %15 = fcmp oeq double %14, 0x7FF0000000000000
-  br i1 %15, label %cdce.call21, label %cdce.end22, !prof !17
+  br i1 %15, label %cdce.call21, label %cdce.end22, !prof !12
 
 cdce.call21:                                      ; preds = %cdce.end
-  %16 = tail call double @sin(double noundef %13) #68, !noalias !78
+  %16 = tail call double @sin(double noundef %13) #68, !noalias !73
   br label %cdce.end22
 
 cdce.end22:                                       ; preds = %cdce.end, %cdce.call21
   %17 = getelementptr inbounds i8, ptr %0, i64 4
-  %18 = load i32, ptr %17, align 4, !noalias !78
+  %18 = load i32, ptr %17, align 4, !noalias !73
   %19 = icmp eq ptr %1, null
   br i1 %19, label %ma_biquad_get_heap_size.exit, label %20
 
@@ -24040,17 +24040,17 @@ define hidden noundef i32 @ma_bpf2_init_preallocated(ptr noundef readonly %0, pt
 
 7:                                                ; preds = %5
   %8 = getelementptr inbounds i8, ptr %0, i64 24
-  %9 = load double, ptr %8, align 8, !noalias !81
+  %9 = load double, ptr %8, align 8, !noalias !76
   %10 = getelementptr inbounds i8, ptr %0, i64 16
-  %11 = load double, ptr %10, align 8, !noalias !81
+  %11 = load double, ptr %10, align 8, !noalias !76
   %12 = fmul double %11, 0x401921FB54442D18
   %13 = getelementptr inbounds i8, ptr %0, i64 8
-  %14 = load i32, ptr %13, align 8, !noalias !81
+  %14 = load i32, ptr %13, align 8, !noalias !76
   %15 = uitofp i32 %14 to double
   %16 = fdiv double %12, %15
-  %17 = tail call double @sin(double noundef %16) #68, !noalias !81
+  %17 = tail call double @sin(double noundef %16) #68, !noalias !76
   %18 = fsub double 0x3FF921FB54442D18, %16
-  %19 = tail call double @sin(double noundef %18) #68, !noalias !81
+  %19 = tail call double @sin(double noundef %18) #68, !noalias !76
   %20 = fmul double %9, 2.000000e+00
   %21 = fdiv double %17, %20
   %22 = fmul double %9, %21
@@ -24059,9 +24059,9 @@ define hidden noundef i32 @ma_bpf2_init_preallocated(ptr noundef readonly %0, pt
   %25 = fadd double %21, 1.000000e+00
   %26 = fmul double %19, -2.000000e+00
   %27 = fsub double 1.000000e+00, %21
-  %28 = load i32, ptr %0, align 8, !noalias !81
+  %28 = load i32, ptr %0, align 8, !noalias !76
   %29 = getelementptr inbounds i8, ptr %0, i64 4
-  %30 = load i32, ptr %29, align 4, !noalias !81
+  %30 = load i32, ptr %29, align 4, !noalias !76
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(64) %2, i8 0, i64 64, i1 false)
   %31 = icmp eq i32 %30, 0
   br i1 %31, label %ma_biquad_init_preallocated.exit, label %32
@@ -24164,33 +24164,33 @@ ma_biquad_init_preallocated.exit:                 ; preds = %7, %38, %43, %44, %
 ; Function Attrs: nounwind uwtable
 define hidden noundef i32 @ma_bpf2_init(ptr noundef %0, ptr noundef readonly %1, ptr noundef %2) local_unnamed_addr #5 {
   %4 = getelementptr inbounds i8, ptr %0, i64 16
-  %5 = load double, ptr %4, align 8, !noalias !84
+  %5 = load double, ptr %4, align 8, !noalias !79
   %6 = fmul double %5, 0x401921FB54442D18
   %7 = getelementptr inbounds i8, ptr %0, i64 8
-  %8 = load i32, ptr %7, align 8, !noalias !84
+  %8 = load i32, ptr %7, align 8, !noalias !79
   %9 = uitofp i32 %8 to double
   %10 = fdiv double %6, %9
   %11 = tail call double @llvm.fabs.f64(double %10)
   %12 = fcmp oeq double %11, 0x7FF0000000000000
-  br i1 %12, label %cdce.call, label %cdce.end.i, !prof !17
+  br i1 %12, label %cdce.call, label %cdce.end.i, !prof !12
 
 cdce.call:                                        ; preds = %3
-  %13 = tail call double @sin(double noundef %10) #68, !noalias !84
+  %13 = tail call double @sin(double noundef %10) #68, !noalias !79
   br label %cdce.end.i
 
 cdce.end.i:                                       ; preds = %cdce.call, %3
   %14 = fsub double 0x3FF921FB54442D18, %10
   %15 = tail call double @llvm.fabs.f64(double %14)
   %16 = fcmp oeq double %15, 0x7FF0000000000000
-  br i1 %16, label %cdce.call32, label %cdce.end22.i, !prof !17
+  br i1 %16, label %cdce.call32, label %cdce.end22.i, !prof !12
 
 cdce.call32:                                      ; preds = %cdce.end.i
-  %17 = tail call double @sin(double noundef %14) #68, !noalias !84
+  %17 = tail call double @sin(double noundef %14) #68, !noalias !79
   br label %cdce.end22.i
 
 cdce.end22.i:                                     ; preds = %cdce.call32, %cdce.end.i
   %18 = getelementptr inbounds i8, ptr %0, i64 4
-  %19 = load i32, ptr %18, align 4, !noalias !84
+  %19 = load i32, ptr %18, align 4, !noalias !79
   %20 = icmp eq i32 %19, 0
   br i1 %20, label %ma_bpf2_get_heap_size.exit, label %21
 
@@ -24294,7 +24294,7 @@ ma_biquad_uninit.exit:                            ; preds = %17, %15, %12, %7, %
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(write, argmem: readwrite) uwtable
-define hidden noundef i32 @ma_bpf2_reinit(ptr noundef readonly %0, ptr noundef %1) local_unnamed_addr #33 {
+define hidden range(i32 -3, 1) i32 @ma_bpf2_reinit(ptr noundef readonly %0, ptr noundef %1) local_unnamed_addr #33 {
   %3 = alloca %struct.ma_biquad_config, align 8
   %4 = icmp eq ptr %1, null
   %5 = icmp eq ptr %0, null
@@ -24303,17 +24303,17 @@ define hidden noundef i32 @ma_bpf2_reinit(ptr noundef readonly %0, ptr noundef %
 
 6:                                                ; preds = %2
   %7 = getelementptr inbounds i8, ptr %0, i64 24
-  %8 = load double, ptr %7, align 8, !noalias !87
+  %8 = load double, ptr %7, align 8, !noalias !82
   %9 = getelementptr inbounds i8, ptr %0, i64 16
-  %10 = load double, ptr %9, align 8, !noalias !87
+  %10 = load double, ptr %9, align 8, !noalias !82
   %11 = fmul double %10, 0x401921FB54442D18
   %12 = getelementptr inbounds i8, ptr %0, i64 8
-  %13 = load i32, ptr %12, align 8, !noalias !87
+  %13 = load i32, ptr %12, align 8, !noalias !82
   %14 = uitofp i32 %13 to double
   %15 = fdiv double %11, %14
-  %16 = tail call double @sin(double noundef %15) #68, !noalias !87
+  %16 = tail call double @sin(double noundef %15) #68, !noalias !82
   %17 = fsub double 0x3FF921FB54442D18, %15
-  %18 = tail call double @sin(double noundef %17) #68, !noalias !87
+  %18 = tail call double @sin(double noundef %17) #68, !noalias !82
   %19 = fmul double %8, 2.000000e+00
   %20 = fdiv double %16, %19
   %21 = fmul double %8, %20
@@ -24322,7 +24322,7 @@ define hidden noundef i32 @ma_bpf2_reinit(ptr noundef readonly %0, ptr noundef %
   %24 = fadd double %20, 1.000000e+00
   %25 = fmul double %18, -2.000000e+00
   %26 = fsub double 1.000000e+00, %20
-  %27 = load <2 x i32>, ptr %0, align 8, !noalias !87
+  %27 = load <2 x i32>, ptr %0, align 8, !noalias !82
   store <2 x i32> %27, ptr %3, align 8
   %.sroa.3.0..sroa_idx = getelementptr inbounds i8, ptr %3, i64 8
   store double %21, ptr %.sroa.3.0..sroa_idx, align 8
@@ -24336,7 +24336,7 @@ define hidden noundef i32 @ma_bpf2_reinit(ptr noundef readonly %0, ptr noundef %
   store double %25, ptr %.sroa.7.0..sroa_idx, align 8
   %.sroa.8.0..sroa_idx = getelementptr inbounds i8, ptr %3, i64 48
   store double %26, ptr %.sroa.8.0..sroa_idx, align 8
-  %28 = call i32 @ma_biquad_reinit(ptr noundef nonnull %3, ptr noundef nonnull %1), !range !13
+  %28 = call i32 @ma_biquad_reinit(ptr noundef nonnull %3, ptr noundef nonnull %1)
   br label %29
 
 29:                                               ; preds = %6, %2
@@ -24345,12 +24345,12 @@ define hidden noundef i32 @ma_bpf2_reinit(ptr noundef readonly %0, ptr noundef %
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: write) uwtable
-define hidden noundef i32 @ma_bpf2_process_pcm_frames(ptr noundef %0, ptr noundef %1, ptr noundef %2, i64 noundef %3) local_unnamed_addr #32 {
+define hidden range(i32 -2, 1) i32 @ma_bpf2_process_pcm_frames(ptr noundef %0, ptr noundef %1, ptr noundef %2, i64 noundef %3) local_unnamed_addr #32 {
   %5 = icmp eq ptr %0, null
   br i1 %5, label %8, label %6
 
 6:                                                ; preds = %4
-  %7 = tail call i32 @ma_biquad_process_pcm_frames(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %2, i64 noundef %3), !range !11
+  %7 = tail call i32 @ma_biquad_process_pcm_frames(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %2, i64 noundef %3)
   br label %8
 
 8:                                                ; preds = %4, %6
@@ -24359,7 +24359,7 @@ define hidden noundef i32 @ma_bpf2_process_pcm_frames(ptr noundef %0, ptr nounde
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef i32 @ma_bpf2_get_latency(ptr noundef readnone %0) local_unnamed_addr #1 {
+define hidden noundef range(i32 0, 3) i32 @ma_bpf2_get_latency(ptr noundef readnone %0) local_unnamed_addr #1 {
   %2 = icmp eq ptr %0, null
   %spec.select = select i1 %2, i32 0, i32 2
   ret i32 %spec.select
@@ -24431,20 +24431,20 @@ define hidden noundef i32 @ma_bpf_get_heap_size(ptr noundef readonly %0, ptr nou
   %23 = fdiv double %21, %22
   %24 = tail call double @llvm.fabs.f64(double %23)
   %25 = fcmp oeq double %24, 0x7FF0000000000000
-  br i1 %25, label %cdce.call, label %cdce.end.i.i, !prof !17
+  br i1 %25, label %cdce.call, label %cdce.end.i.i, !prof !12
 
 cdce.call:                                        ; preds = %17
-  %26 = tail call double @sin(double noundef %23) #68, !noalias !90
+  %26 = tail call double @sin(double noundef %23) #68, !noalias !85
   br label %cdce.end.i.i
 
 cdce.end.i.i:                                     ; preds = %cdce.call, %17
   %27 = fsub double 0x3FF921FB54442D18, %23
   %28 = tail call double @llvm.fabs.f64(double %27)
   %29 = fcmp oeq double %28, 0x7FF0000000000000
-  br i1 %29, label %cdce.call15, label %cdce.end22.i.i, !prof !17
+  br i1 %29, label %cdce.call15, label %cdce.end22.i.i, !prof !12
 
 cdce.call15:                                      ; preds = %cdce.end.i.i
-  %30 = tail call double @sin(double noundef %27) #68, !noalias !90
+  %30 = tail call double @sin(double noundef %27) #68, !noalias !85
   br label %cdce.end22.i.i
 
 cdce.end22.i.i:                                   ; preds = %cdce.call15, %cdce.end.i.i
@@ -24562,20 +24562,20 @@ define internal fastcc noundef i32 @ma_bpf_reinit__internal(ptr noundef readonly
   %39 = fdiv double %37, %38
   %40 = tail call double @llvm.fabs.f64(double %39)
   %41 = fcmp oeq double %40, 0x7FF0000000000000
-  br i1 %41, label %cdce.call, label %cdce.end.i.i, !prof !17
+  br i1 %41, label %cdce.call, label %cdce.end.i.i, !prof !12
 
 cdce.call:                                        ; preds = %33
-  %42 = tail call double @sin(double noundef %39) #68, !noalias !93
+  %42 = tail call double @sin(double noundef %39) #68, !noalias !88
   br label %cdce.end.i.i
 
 cdce.end.i.i:                                     ; preds = %cdce.call, %33
   %43 = fsub double 0x3FF921FB54442D18, %39
   %44 = tail call double @llvm.fabs.f64(double %43)
   %45 = fcmp oeq double %44, 0x7FF0000000000000
-  br i1 %45, label %cdce.call133, label %cdce.end22.i.i, !prof !17
+  br i1 %45, label %cdce.call133, label %cdce.end22.i.i, !prof !12
 
 cdce.call133:                                     ; preds = %cdce.end.i.i
-  %46 = tail call double @sin(double noundef %43) #68, !noalias !93
+  %46 = tail call double @sin(double noundef %43) #68, !noalias !88
   br label %cdce.end22.i.i
 
 cdce.end22.i.i:                                   ; preds = %cdce.call133, %cdce.end.i.i
@@ -24703,9 +24703,9 @@ cdce.end22.i.i:                                   ; preds = %cdce.call133, %cdce
   %92 = fmul double %87, 0x401921FB54442D18
   %93 = uitofp i32 %86 to double
   %94 = fdiv double %92, %93
-  %95 = tail call double @sin(double noundef %94) #68, !noalias !96
+  %95 = tail call double @sin(double noundef %94) #68, !noalias !91
   %96 = fsub double 0x3FF921FB54442D18, %94
-  %97 = tail call double @sin(double noundef %96) #68, !noalias !96
+  %97 = tail call double @sin(double noundef %96) #68, !noalias !91
   %98 = fdiv double %95, 0x3FF6A09EDBF8B9BB
   %99 = fmul double %98, 7.071070e-01
   %100 = fadd double %98, 1.000000e+00
@@ -24792,24 +24792,24 @@ ma_bpf2_get_heap_size.exit.thread128.us:          ; preds = %126, %121
   %140 = fdiv double %138, %139
   %141 = call double @llvm.fabs.f64(double %140)
   %142 = fcmp oeq double %141, 0x7FF0000000000000
-  br i1 %142, label %cdce.call135, label %cdce.end.i, !prof !17
+  br i1 %142, label %cdce.call135, label %cdce.end.i, !prof !12
 
 cdce.call135:                                     ; preds = %.lr.ph.split
-  %143 = call double @sin(double noundef %140) #68, !noalias !99
+  %143 = call double @sin(double noundef %140) #68, !noalias !94
   br label %cdce.end.i
 
 cdce.end.i:                                       ; preds = %cdce.call135, %.lr.ph.split
   %144 = fsub double 0x3FF921FB54442D18, %140
   %145 = call double @llvm.fabs.f64(double %144)
   %146 = fcmp oeq double %145, 0x7FF0000000000000
-  br i1 %146, label %cdce.call137, label %cdce.end22.i, !prof !17
+  br i1 %146, label %cdce.call137, label %cdce.end22.i, !prof !12
 
 cdce.call137:                                     ; preds = %cdce.end.i
-  %147 = call double @sin(double noundef %144) #68, !noalias !99
+  %147 = call double @sin(double noundef %144) #68, !noalias !94
   br label %cdce.end22.i
 
 cdce.end22.i:                                     ; preds = %cdce.call137, %cdce.end.i
-  %148 = load i32, ptr %.sroa.2.0..sroa_idx173, align 4, !noalias !99
+  %148 = load i32, ptr %.sroa.2.0..sroa_idx173, align 4, !noalias !94
   %149 = icmp eq i32 %148, 0
   br i1 %149, label %ma_bpf_get_heap_layout.exit, label %ma_bpf2_get_heap_size.exit
 
@@ -24881,20 +24881,20 @@ define hidden noundef i32 @ma_bpf_init(ptr noundef %0, ptr noundef readonly %1, 
   %22 = fdiv double %20, %21
   %23 = tail call double @llvm.fabs.f64(double %22)
   %24 = fcmp oeq double %23, 0x7FF0000000000000
-  br i1 %24, label %cdce.call, label %cdce.end.i.i.i, !prof !17
+  br i1 %24, label %cdce.call, label %cdce.end.i.i.i, !prof !12
 
 cdce.call:                                        ; preds = %16
-  %25 = tail call double @sin(double noundef %22) #68, !noalias !102
+  %25 = tail call double @sin(double noundef %22) #68, !noalias !97
   br label %cdce.end.i.i.i
 
 cdce.end.i.i.i:                                   ; preds = %cdce.call, %16
   %26 = fsub double 0x3FF921FB54442D18, %22
   %27 = tail call double @llvm.fabs.f64(double %26)
   %28 = fcmp oeq double %27, 0x7FF0000000000000
-  br i1 %28, label %cdce.call35, label %cdce.end22.i.i.i, !prof !17
+  br i1 %28, label %cdce.call35, label %cdce.end22.i.i.i, !prof !12
 
 cdce.call35:                                      ; preds = %cdce.end.i.i.i
-  %29 = tail call double @sin(double noundef %26) #68, !noalias !102
+  %29 = tail call double @sin(double noundef %26) #68, !noalias !97
   br label %cdce.end22.i.i.i
 
 cdce.end22.i.i.i:                                 ; preds = %cdce.call35, %cdce.end.i.i.i
@@ -25047,7 +25047,7 @@ ma_bpf2_uninit.exit:                              ; preds = %.lr.ph.split, %13, 
   %26 = load i32, ptr %4, align 8
   %27 = zext i32 %26 to i64
   %28 = icmp ult i64 %indvars.iv.next, %27
-  br i1 %28, label %.lr.ph.splitthread-pre-split, label %._crit_edge, !llvm.loop !105
+  br i1 %28, label %.lr.ph.splitthread-pre-split, label %._crit_edge, !llvm.loop !100
 
 ._crit_edge:                                      ; preds = %ma_bpf2_uninit.exit, %.lr.ph, %.preheader
   %29 = getelementptr inbounds i8, ptr %0, i64 32
@@ -25091,7 +25091,7 @@ define hidden noundef i32 @ma_bpf_reinit(ptr noundef %0, ptr noundef %1) local_u
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: write) uwtable
-define hidden noundef i32 @ma_bpf_process_pcm_frames(ptr noundef readonly %0, ptr noundef %1, ptr noundef readonly %2, i64 noundef %3) local_unnamed_addr #32 {
+define hidden range(i32 -3, 1) i32 @ma_bpf_process_pcm_frames(ptr noundef readonly %0, ptr noundef %1, ptr noundef readonly %2, i64 noundef %3) local_unnamed_addr #32 {
   %5 = icmp eq ptr %0, null
   br i1 %5, label %ma_bpf2_process_pcm_frames.exit.thread, label %6
 
@@ -25124,7 +25124,7 @@ define hidden noundef i32 @ma_bpf_process_pcm_frames(ptr noundef readonly %0, pt
 
 ma_bpf2_process_pcm_frames.exit:                  ; preds = %15
   %18 = getelementptr inbounds %struct.ma_bpf2, ptr %16, i64 %indvars.iv209
-  %19 = tail call i32 @ma_biquad_process_pcm_frames(ptr noundef nonnull %18, ptr noundef %1, ptr noundef %1, i64 noundef %3), !range !11
+  %19 = tail call i32 @ma_biquad_process_pcm_frames(ptr noundef nonnull %18, ptr noundef %1, ptr noundef %1, i64 noundef %3)
   %.not165 = icmp eq i32 %19, 0
   br i1 %.not165, label %11, label %ma_bpf2_process_pcm_frames.exit.thread
 
@@ -25388,33 +25388,33 @@ define hidden void @ma_notch2_config_init(ptr dead_on_unwind noalias nocapture w
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(write, argmem: readwrite) uwtable
 define hidden noundef i32 @ma_notch2_get_heap_size(ptr nocapture noundef readonly %0, ptr noundef writeonly %1) local_unnamed_addr #33 {
   %3 = getelementptr inbounds i8, ptr %0, i64 24
-  %4 = load double, ptr %3, align 8, !noalias !106
+  %4 = load double, ptr %3, align 8, !noalias !101
   %5 = fmul double %4, 0x401921FB54442D18
   %6 = getelementptr inbounds i8, ptr %0, i64 8
-  %7 = load i32, ptr %6, align 8, !noalias !106
+  %7 = load i32, ptr %6, align 8, !noalias !101
   %8 = uitofp i32 %7 to double
   %9 = fdiv double %5, %8
   %10 = tail call double @llvm.fabs.f64(double %9)
   %11 = fcmp oeq double %10, 0x7FF0000000000000
-  br i1 %11, label %cdce.call, label %cdce.end, !prof !17
+  br i1 %11, label %cdce.call, label %cdce.end, !prof !12
 
 cdce.call:                                        ; preds = %2
-  %12 = tail call double @sin(double noundef %9) #68, !noalias !106
+  %12 = tail call double @sin(double noundef %9) #68, !noalias !101
   br label %cdce.end
 
 cdce.end:                                         ; preds = %2, %cdce.call
   %13 = fsub double 0x3FF921FB54442D18, %9
   %14 = tail call double @llvm.fabs.f64(double %13)
   %15 = fcmp oeq double %14, 0x7FF0000000000000
-  br i1 %15, label %cdce.call18, label %cdce.end19, !prof !17
+  br i1 %15, label %cdce.call18, label %cdce.end19, !prof !12
 
 cdce.call18:                                      ; preds = %cdce.end
-  %16 = tail call double @sin(double noundef %13) #68, !noalias !106
+  %16 = tail call double @sin(double noundef %13) #68, !noalias !101
   br label %cdce.end19
 
 cdce.end19:                                       ; preds = %cdce.end, %cdce.call18
   %17 = getelementptr inbounds i8, ptr %0, i64 4
-  %18 = load i32, ptr %17, align 4, !noalias !106
+  %18 = load i32, ptr %17, align 4, !noalias !101
   %19 = icmp eq ptr %1, null
   br i1 %19, label %ma_biquad_get_heap_size.exit, label %20
 
@@ -25446,25 +25446,25 @@ define hidden noundef i32 @ma_notch2_init_preallocated(ptr noundef readonly %0, 
 
 7:                                                ; preds = %5
   %8 = getelementptr inbounds i8, ptr %0, i64 16
-  %9 = load double, ptr %8, align 8, !noalias !109
+  %9 = load double, ptr %8, align 8, !noalias !104
   %10 = getelementptr inbounds i8, ptr %0, i64 24
-  %11 = load double, ptr %10, align 8, !noalias !109
+  %11 = load double, ptr %10, align 8, !noalias !104
   %12 = fmul double %11, 0x401921FB54442D18
   %13 = getelementptr inbounds i8, ptr %0, i64 8
-  %14 = load i32, ptr %13, align 8, !noalias !109
+  %14 = load i32, ptr %13, align 8, !noalias !104
   %15 = uitofp i32 %14 to double
   %16 = fdiv double %12, %15
-  %17 = tail call double @sin(double noundef %16) #68, !noalias !109
+  %17 = tail call double @sin(double noundef %16) #68, !noalias !104
   %18 = fsub double 0x3FF921FB54442D18, %16
-  %19 = tail call double @sin(double noundef %18) #68, !noalias !109
+  %19 = tail call double @sin(double noundef %18) #68, !noalias !104
   %20 = fmul double %9, 2.000000e+00
   %21 = fdiv double %17, %20
   %22 = fmul double %19, -2.000000e+00
   %23 = fadd double %21, 1.000000e+00
   %24 = fsub double 1.000000e+00, %21
-  %25 = load i32, ptr %0, align 8, !noalias !109
+  %25 = load i32, ptr %0, align 8, !noalias !104
   %26 = getelementptr inbounds i8, ptr %0, i64 4
-  %27 = load i32, ptr %26, align 4, !noalias !109
+  %27 = load i32, ptr %26, align 4, !noalias !104
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(64) %2, i8 0, i64 64, i1 false)
   %28 = icmp eq i32 %27, 0
   br i1 %28, label %ma_biquad_init_preallocated.exit, label %29
@@ -25557,33 +25557,33 @@ ma_biquad_init_preallocated.exit:                 ; preds = %7, %35, %40, %41, %
 ; Function Attrs: nounwind uwtable
 define hidden noundef i32 @ma_notch2_init(ptr noundef %0, ptr noundef readonly %1, ptr noundef %2) local_unnamed_addr #5 {
   %4 = getelementptr inbounds i8, ptr %0, i64 24
-  %5 = load double, ptr %4, align 8, !noalias !112
+  %5 = load double, ptr %4, align 8, !noalias !107
   %6 = fmul double %5, 0x401921FB54442D18
   %7 = getelementptr inbounds i8, ptr %0, i64 8
-  %8 = load i32, ptr %7, align 8, !noalias !112
+  %8 = load i32, ptr %7, align 8, !noalias !107
   %9 = uitofp i32 %8 to double
   %10 = fdiv double %6, %9
   %11 = tail call double @llvm.fabs.f64(double %10)
   %12 = fcmp oeq double %11, 0x7FF0000000000000
-  br i1 %12, label %cdce.call, label %cdce.end.i, !prof !17
+  br i1 %12, label %cdce.call, label %cdce.end.i, !prof !12
 
 cdce.call:                                        ; preds = %3
-  %13 = tail call double @sin(double noundef %10) #68, !noalias !112
+  %13 = tail call double @sin(double noundef %10) #68, !noalias !107
   br label %cdce.end.i
 
 cdce.end.i:                                       ; preds = %cdce.call, %3
   %14 = fsub double 0x3FF921FB54442D18, %10
   %15 = tail call double @llvm.fabs.f64(double %14)
   %16 = fcmp oeq double %15, 0x7FF0000000000000
-  br i1 %16, label %cdce.call32, label %cdce.end19.i, !prof !17
+  br i1 %16, label %cdce.call32, label %cdce.end19.i, !prof !12
 
 cdce.call32:                                      ; preds = %cdce.end.i
-  %17 = tail call double @sin(double noundef %14) #68, !noalias !112
+  %17 = tail call double @sin(double noundef %14) #68, !noalias !107
   br label %cdce.end19.i
 
 cdce.end19.i:                                     ; preds = %cdce.call32, %cdce.end.i
   %18 = getelementptr inbounds i8, ptr %0, i64 4
-  %19 = load i32, ptr %18, align 4, !noalias !112
+  %19 = load i32, ptr %18, align 4, !noalias !107
   %20 = icmp eq i32 %19, 0
   br i1 %20, label %ma_notch2_get_heap_size.exit, label %21
 
@@ -25687,7 +25687,7 @@ ma_biquad_uninit.exit:                            ; preds = %17, %15, %12, %7, %
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(write, argmem: readwrite) uwtable
-define hidden noundef i32 @ma_notch2_reinit(ptr noundef readonly %0, ptr noundef %1) local_unnamed_addr #33 {
+define hidden range(i32 -3, 1) i32 @ma_notch2_reinit(ptr noundef readonly %0, ptr noundef %1) local_unnamed_addr #33 {
   %3 = alloca %struct.ma_biquad_config, align 8
   %4 = icmp eq ptr %1, null
   %5 = icmp eq ptr %0, null
@@ -25696,23 +25696,23 @@ define hidden noundef i32 @ma_notch2_reinit(ptr noundef readonly %0, ptr noundef
 
 6:                                                ; preds = %2
   %7 = getelementptr inbounds i8, ptr %0, i64 16
-  %8 = load double, ptr %7, align 8, !noalias !115
+  %8 = load double, ptr %7, align 8, !noalias !110
   %9 = getelementptr inbounds i8, ptr %0, i64 24
-  %10 = load double, ptr %9, align 8, !noalias !115
+  %10 = load double, ptr %9, align 8, !noalias !110
   %11 = fmul double %10, 0x401921FB54442D18
   %12 = getelementptr inbounds i8, ptr %0, i64 8
-  %13 = load i32, ptr %12, align 8, !noalias !115
+  %13 = load i32, ptr %12, align 8, !noalias !110
   %14 = uitofp i32 %13 to double
   %15 = fdiv double %11, %14
-  %16 = tail call double @sin(double noundef %15) #68, !noalias !115
+  %16 = tail call double @sin(double noundef %15) #68, !noalias !110
   %17 = fsub double 0x3FF921FB54442D18, %15
-  %18 = tail call double @sin(double noundef %17) #68, !noalias !115
+  %18 = tail call double @sin(double noundef %17) #68, !noalias !110
   %19 = fmul double %8, 2.000000e+00
   %20 = fdiv double %16, %19
   %21 = fmul double %18, -2.000000e+00
   %22 = fadd double %20, 1.000000e+00
   %23 = fsub double 1.000000e+00, %20
-  %24 = load <2 x i32>, ptr %0, align 8, !noalias !115
+  %24 = load <2 x i32>, ptr %0, align 8, !noalias !110
   store <2 x i32> %24, ptr %3, align 8
   %.sroa.3.0..sroa_idx = getelementptr inbounds i8, ptr %3, i64 8
   store double 1.000000e+00, ptr %.sroa.3.0..sroa_idx, align 8
@@ -25726,7 +25726,7 @@ define hidden noundef i32 @ma_notch2_reinit(ptr noundef readonly %0, ptr noundef
   store double %21, ptr %.sroa.7.0..sroa_idx, align 8
   %.sroa.8.0..sroa_idx = getelementptr inbounds i8, ptr %3, i64 48
   store double %23, ptr %.sroa.8.0..sroa_idx, align 8
-  %25 = call i32 @ma_biquad_reinit(ptr noundef nonnull %3, ptr noundef nonnull %1), !range !13
+  %25 = call i32 @ma_biquad_reinit(ptr noundef nonnull %3, ptr noundef nonnull %1)
   br label %26
 
 26:                                               ; preds = %6, %2
@@ -25735,12 +25735,12 @@ define hidden noundef i32 @ma_notch2_reinit(ptr noundef readonly %0, ptr noundef
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: write) uwtable
-define hidden noundef i32 @ma_notch2_process_pcm_frames(ptr noundef %0, ptr noundef %1, ptr noundef %2, i64 noundef %3) local_unnamed_addr #32 {
+define hidden range(i32 -2, 1) i32 @ma_notch2_process_pcm_frames(ptr noundef %0, ptr noundef %1, ptr noundef %2, i64 noundef %3) local_unnamed_addr #32 {
   %5 = icmp eq ptr %0, null
   br i1 %5, label %8, label %6
 
 6:                                                ; preds = %4
-  %7 = tail call i32 @ma_biquad_process_pcm_frames(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %2, i64 noundef %3), !range !11
+  %7 = tail call i32 @ma_biquad_process_pcm_frames(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %2, i64 noundef %3)
   br label %8
 
 8:                                                ; preds = %4, %6
@@ -25749,7 +25749,7 @@ define hidden noundef i32 @ma_notch2_process_pcm_frames(ptr noundef %0, ptr noun
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef i32 @ma_notch2_get_latency(ptr noundef readnone %0) local_unnamed_addr #1 {
+define hidden noundef range(i32 0, 3) i32 @ma_notch2_get_latency(ptr noundef readnone %0) local_unnamed_addr #1 {
   %2 = icmp eq ptr %0, null
   %spec.select = select i1 %2, i32 0, i32 2
   ret i32 %spec.select
@@ -25791,44 +25791,44 @@ define hidden void @ma_peak2_config_init(ptr dead_on_unwind noalias nocapture wr
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(write, argmem: readwrite) uwtable
 define hidden noundef i32 @ma_peak2_get_heap_size(ptr nocapture noundef readonly %0, ptr noundef writeonly %1) local_unnamed_addr #33 {
   %3 = getelementptr inbounds i8, ptr %0, i64 32
-  %4 = load double, ptr %3, align 8, !noalias !118
+  %4 = load double, ptr %3, align 8, !noalias !113
   %5 = fmul double %4, 0x401921FB54442D18
   %6 = getelementptr inbounds i8, ptr %0, i64 8
-  %7 = load i32, ptr %6, align 8, !noalias !118
+  %7 = load i32, ptr %6, align 8, !noalias !113
   %8 = uitofp i32 %7 to double
   %9 = fdiv double %5, %8
   %10 = tail call double @llvm.fabs.f64(double %9)
   %11 = fcmp oeq double %10, 0x7FF0000000000000
-  br i1 %11, label %cdce.call, label %cdce.end, !prof !17
+  br i1 %11, label %cdce.call, label %cdce.end, !prof !12
 
 cdce.call:                                        ; preds = %2
-  %12 = tail call double @sin(double noundef %9) #68, !noalias !118
+  %12 = tail call double @sin(double noundef %9) #68, !noalias !113
   br label %cdce.end
 
 cdce.end:                                         ; preds = %2, %cdce.call
   %13 = fsub double 0x3FF921FB54442D18, %9
   %14 = tail call double @llvm.fabs.f64(double %13)
   %15 = fcmp oeq double %14, 0x7FF0000000000000
-  br i1 %15, label %cdce.call27, label %cdce.end28, !prof !17
+  br i1 %15, label %cdce.call27, label %cdce.end28, !prof !12
 
 cdce.call27:                                      ; preds = %cdce.end
-  %16 = tail call double @sin(double noundef %13) #68, !noalias !118
+  %16 = tail call double @sin(double noundef %13) #68, !noalias !113
   br label %cdce.end28
 
 cdce.end28:                                       ; preds = %cdce.end, %cdce.call27
   %17 = getelementptr inbounds i8, ptr %0, i64 16
-  %18 = load double, ptr %17, align 8, !noalias !118
+  %18 = load double, ptr %17, align 8, !noalias !113
   %19 = fdiv double %18, 4.000000e+01
   %20 = fcmp ogt double %19, 1.270000e+02
-  br i1 %20, label %cdce.call29, label %cdce.end30, !prof !17
+  br i1 %20, label %cdce.call29, label %cdce.end30, !prof !12
 
 cdce.call29:                                      ; preds = %cdce.end28
-  %21 = tail call double @pow(double noundef 1.000000e+01, double noundef %19) #68, !noalias !118
+  %21 = tail call double @pow(double noundef 1.000000e+01, double noundef %19) #68, !noalias !113
   br label %cdce.end30
 
 cdce.end30:                                       ; preds = %cdce.end28, %cdce.call29
   %22 = getelementptr inbounds i8, ptr %0, i64 4
-  %23 = load i32, ptr %22, align 4, !noalias !118
+  %23 = load i32, ptr %22, align 4, !noalias !113
   %24 = icmp eq ptr %1, null
   br i1 %24, label %ma_biquad_get_heap_size.exit, label %25
 
@@ -25860,23 +25860,23 @@ define hidden noundef i32 @ma_peak2_init_preallocated(ptr noundef readonly %0, p
 
 7:                                                ; preds = %5
   %8 = getelementptr inbounds i8, ptr %0, i64 24
-  %9 = load double, ptr %8, align 8, !noalias !121
+  %9 = load double, ptr %8, align 8, !noalias !116
   %10 = getelementptr inbounds i8, ptr %0, i64 32
-  %11 = load double, ptr %10, align 8, !noalias !121
+  %11 = load double, ptr %10, align 8, !noalias !116
   %12 = fmul double %11, 0x401921FB54442D18
   %13 = getelementptr inbounds i8, ptr %0, i64 8
-  %14 = load i32, ptr %13, align 8, !noalias !121
+  %14 = load i32, ptr %13, align 8, !noalias !116
   %15 = uitofp i32 %14 to double
   %16 = fdiv double %12, %15
-  %17 = tail call double @sin(double noundef %16) #68, !noalias !121
+  %17 = tail call double @sin(double noundef %16) #68, !noalias !116
   %18 = fsub double 0x3FF921FB54442D18, %16
-  %19 = tail call double @sin(double noundef %18) #68, !noalias !121
+  %19 = tail call double @sin(double noundef %18) #68, !noalias !116
   %20 = fmul double %9, 2.000000e+00
   %21 = fdiv double %17, %20
   %22 = getelementptr inbounds i8, ptr %0, i64 16
-  %23 = load double, ptr %22, align 8, !noalias !121
+  %23 = load double, ptr %22, align 8, !noalias !116
   %24 = fdiv double %23, 4.000000e+01
-  %25 = tail call double @pow(double noundef 1.000000e+01, double noundef %24) #68, !noalias !121
+  %25 = tail call double @pow(double noundef 1.000000e+01, double noundef %24) #68, !noalias !116
   %26 = tail call double @llvm.fmuladd.f64(double %21, double %25, double 1.000000e+00)
   %27 = fmul double %19, -2.000000e+00
   %28 = fneg double %21
@@ -25884,9 +25884,9 @@ define hidden noundef i32 @ma_peak2_init_preallocated(ptr noundef readonly %0, p
   %30 = fdiv double %21, %25
   %31 = fadd double %30, 1.000000e+00
   %32 = fsub double 1.000000e+00, %30
-  %33 = load i32, ptr %0, align 8, !noalias !121
+  %33 = load i32, ptr %0, align 8, !noalias !116
   %34 = getelementptr inbounds i8, ptr %0, i64 4
-  %35 = load i32, ptr %34, align 4, !noalias !121
+  %35 = load i32, ptr %34, align 4, !noalias !116
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(64) %2, i8 0, i64 64, i1 false)
   %36 = icmp eq i32 %35, 0
   br i1 %36, label %ma_biquad_init_preallocated.exit, label %37
@@ -25991,44 +25991,44 @@ ma_biquad_init_preallocated.exit:                 ; preds = %7, %43, %48, %49, %
 ; Function Attrs: nounwind uwtable
 define hidden noundef i32 @ma_peak2_init(ptr noundef %0, ptr noundef readonly %1, ptr noundef %2) local_unnamed_addr #5 {
   %4 = getelementptr inbounds i8, ptr %0, i64 32
-  %5 = load double, ptr %4, align 8, !noalias !124
+  %5 = load double, ptr %4, align 8, !noalias !119
   %6 = fmul double %5, 0x401921FB54442D18
   %7 = getelementptr inbounds i8, ptr %0, i64 8
-  %8 = load i32, ptr %7, align 8, !noalias !124
+  %8 = load i32, ptr %7, align 8, !noalias !119
   %9 = uitofp i32 %8 to double
   %10 = fdiv double %6, %9
   %11 = tail call double @llvm.fabs.f64(double %10)
   %12 = fcmp oeq double %11, 0x7FF0000000000000
-  br i1 %12, label %cdce.call, label %cdce.end.i, !prof !17
+  br i1 %12, label %cdce.call, label %cdce.end.i, !prof !12
 
 cdce.call:                                        ; preds = %3
-  %13 = tail call double @sin(double noundef %10) #68, !noalias !124
+  %13 = tail call double @sin(double noundef %10) #68, !noalias !119
   br label %cdce.end.i
 
 cdce.end.i:                                       ; preds = %cdce.call, %3
   %14 = fsub double 0x3FF921FB54442D18, %10
   %15 = tail call double @llvm.fabs.f64(double %14)
   %16 = fcmp oeq double %15, 0x7FF0000000000000
-  br i1 %16, label %cdce.call32, label %cdce.end28.i, !prof !17
+  br i1 %16, label %cdce.call32, label %cdce.end28.i, !prof !12
 
 cdce.call32:                                      ; preds = %cdce.end.i
-  %17 = tail call double @sin(double noundef %14) #68, !noalias !124
+  %17 = tail call double @sin(double noundef %14) #68, !noalias !119
   br label %cdce.end28.i
 
 cdce.end28.i:                                     ; preds = %cdce.call32, %cdce.end.i
   %18 = getelementptr inbounds i8, ptr %0, i64 16
-  %19 = load double, ptr %18, align 8, !noalias !124
+  %19 = load double, ptr %18, align 8, !noalias !119
   %20 = fdiv double %19, 4.000000e+01
   %21 = fcmp ogt double %20, 1.270000e+02
-  br i1 %21, label %cdce.call34, label %cdce.end30.i, !prof !17
+  br i1 %21, label %cdce.call34, label %cdce.end30.i, !prof !12
 
 cdce.call34:                                      ; preds = %cdce.end28.i
-  %22 = tail call double @pow(double noundef 1.000000e+01, double noundef %20) #68, !noalias !124
+  %22 = tail call double @pow(double noundef 1.000000e+01, double noundef %20) #68, !noalias !119
   br label %cdce.end30.i
 
 cdce.end30.i:                                     ; preds = %cdce.call34, %cdce.end28.i
   %23 = getelementptr inbounds i8, ptr %0, i64 4
-  %24 = load i32, ptr %23, align 4, !noalias !124
+  %24 = load i32, ptr %23, align 4, !noalias !119
   %25 = icmp eq i32 %24, 0
   br i1 %25, label %ma_peak2_get_heap_size.exit, label %26
 
@@ -26132,7 +26132,7 @@ ma_biquad_uninit.exit:                            ; preds = %17, %15, %12, %7, %
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(write, argmem: readwrite) uwtable
-define hidden noundef i32 @ma_peak2_reinit(ptr noundef readonly %0, ptr noundef %1) local_unnamed_addr #33 {
+define hidden range(i32 -3, 1) i32 @ma_peak2_reinit(ptr noundef readonly %0, ptr noundef %1) local_unnamed_addr #33 {
   %3 = alloca %struct.ma_biquad_config, align 8
   %4 = icmp eq ptr %1, null
   %5 = icmp eq ptr %0, null
@@ -26141,23 +26141,23 @@ define hidden noundef i32 @ma_peak2_reinit(ptr noundef readonly %0, ptr noundef 
 
 6:                                                ; preds = %2
   %7 = getelementptr inbounds i8, ptr %0, i64 24
-  %8 = load double, ptr %7, align 8, !noalias !127
+  %8 = load double, ptr %7, align 8, !noalias !122
   %9 = getelementptr inbounds i8, ptr %0, i64 32
-  %10 = load double, ptr %9, align 8, !noalias !127
+  %10 = load double, ptr %9, align 8, !noalias !122
   %11 = fmul double %10, 0x401921FB54442D18
   %12 = getelementptr inbounds i8, ptr %0, i64 8
-  %13 = load i32, ptr %12, align 8, !noalias !127
+  %13 = load i32, ptr %12, align 8, !noalias !122
   %14 = uitofp i32 %13 to double
   %15 = fdiv double %11, %14
-  %16 = tail call double @sin(double noundef %15) #68, !noalias !127
+  %16 = tail call double @sin(double noundef %15) #68, !noalias !122
   %17 = fsub double 0x3FF921FB54442D18, %15
-  %18 = tail call double @sin(double noundef %17) #68, !noalias !127
+  %18 = tail call double @sin(double noundef %17) #68, !noalias !122
   %19 = fmul double %8, 2.000000e+00
   %20 = fdiv double %16, %19
   %21 = getelementptr inbounds i8, ptr %0, i64 16
-  %22 = load double, ptr %21, align 8, !noalias !127
+  %22 = load double, ptr %21, align 8, !noalias !122
   %23 = fdiv double %22, 4.000000e+01
-  %24 = tail call double @pow(double noundef 1.000000e+01, double noundef %23) #68, !noalias !127
+  %24 = tail call double @pow(double noundef 1.000000e+01, double noundef %23) #68, !noalias !122
   %25 = tail call double @llvm.fmuladd.f64(double %20, double %24, double 1.000000e+00)
   %26 = fmul double %18, -2.000000e+00
   %27 = fneg double %20
@@ -26165,7 +26165,7 @@ define hidden noundef i32 @ma_peak2_reinit(ptr noundef readonly %0, ptr noundef 
   %29 = fdiv double %20, %24
   %30 = fadd double %29, 1.000000e+00
   %31 = fsub double 1.000000e+00, %29
-  %32 = load <2 x i32>, ptr %0, align 8, !noalias !127
+  %32 = load <2 x i32>, ptr %0, align 8, !noalias !122
   store <2 x i32> %32, ptr %3, align 8
   %.sroa.3.0..sroa_idx = getelementptr inbounds i8, ptr %3, i64 8
   store double %25, ptr %.sroa.3.0..sroa_idx, align 8
@@ -26179,7 +26179,7 @@ define hidden noundef i32 @ma_peak2_reinit(ptr noundef readonly %0, ptr noundef 
   store double %26, ptr %.sroa.7.0..sroa_idx, align 8
   %.sroa.8.0..sroa_idx = getelementptr inbounds i8, ptr %3, i64 48
   store double %31, ptr %.sroa.8.0..sroa_idx, align 8
-  %33 = call i32 @ma_biquad_reinit(ptr noundef nonnull %3, ptr noundef nonnull %1), !range !13
+  %33 = call i32 @ma_biquad_reinit(ptr noundef nonnull %3, ptr noundef nonnull %1)
   br label %34
 
 34:                                               ; preds = %6, %2
@@ -26188,12 +26188,12 @@ define hidden noundef i32 @ma_peak2_reinit(ptr noundef readonly %0, ptr noundef 
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: write) uwtable
-define hidden noundef i32 @ma_peak2_process_pcm_frames(ptr noundef %0, ptr noundef %1, ptr noundef %2, i64 noundef %3) local_unnamed_addr #32 {
+define hidden range(i32 -2, 1) i32 @ma_peak2_process_pcm_frames(ptr noundef %0, ptr noundef %1, ptr noundef %2, i64 noundef %3) local_unnamed_addr #32 {
   %5 = icmp eq ptr %0, null
   br i1 %5, label %8, label %6
 
 6:                                                ; preds = %4
-  %7 = tail call i32 @ma_biquad_process_pcm_frames(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %2, i64 noundef %3), !range !11
+  %7 = tail call i32 @ma_biquad_process_pcm_frames(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %2, i64 noundef %3)
   br label %8
 
 8:                                                ; preds = %4, %6
@@ -26202,7 +26202,7 @@ define hidden noundef i32 @ma_peak2_process_pcm_frames(ptr noundef %0, ptr nound
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef i32 @ma_peak2_get_latency(ptr noundef readnone %0) local_unnamed_addr #1 {
+define hidden noundef range(i32 0, 3) i32 @ma_peak2_get_latency(ptr noundef readnone %0) local_unnamed_addr #1 {
   %2 = icmp eq ptr %0, null
   %spec.select = select i1 %2, i32 0, i32 2
   ret i32 %spec.select
@@ -26236,60 +26236,60 @@ define hidden void @ma_loshelf2_config_init(ptr dead_on_unwind noalias nocapture
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(write, argmem: readwrite) uwtable
 define hidden noundef i32 @ma_loshelf2_get_heap_size(ptr nocapture noundef readonly %0, ptr noundef writeonly %1) local_unnamed_addr #33 {
   %3 = getelementptr inbounds i8, ptr %0, i64 32
-  %4 = load double, ptr %3, align 8, !noalias !130
+  %4 = load double, ptr %3, align 8, !noalias !125
   %5 = fmul double %4, 0x401921FB54442D18
   %6 = getelementptr inbounds i8, ptr %0, i64 8
-  %7 = load i32, ptr %6, align 8, !noalias !130
+  %7 = load i32, ptr %6, align 8, !noalias !125
   %8 = uitofp i32 %7 to double
   %9 = fdiv double %5, %8
   %10 = tail call double @llvm.fabs.f64(double %9)
   %11 = fcmp oeq double %10, 0x7FF0000000000000
-  br i1 %11, label %cdce.call, label %cdce.end, !prof !17
+  br i1 %11, label %cdce.call, label %cdce.end, !prof !12
 
 cdce.call:                                        ; preds = %2
-  %12 = tail call double @sin(double noundef %9) #68, !noalias !130
+  %12 = tail call double @sin(double noundef %9) #68, !noalias !125
   br label %cdce.end
 
 cdce.end:                                         ; preds = %2, %cdce.call
   %13 = fsub double 0x3FF921FB54442D18, %9
   %14 = tail call double @llvm.fabs.f64(double %13)
   %15 = fcmp oeq double %14, 0x7FF0000000000000
-  br i1 %15, label %cdce.call48, label %cdce.end49, !prof !17
+  br i1 %15, label %cdce.call48, label %cdce.end49, !prof !12
 
 cdce.call48:                                      ; preds = %cdce.end
-  %16 = tail call double @sin(double noundef %13) #68, !noalias !130
+  %16 = tail call double @sin(double noundef %13) #68, !noalias !125
   br label %cdce.end49
 
 cdce.end49:                                       ; preds = %cdce.end, %cdce.call48
   %17 = getelementptr inbounds i8, ptr %0, i64 16
-  %18 = load double, ptr %17, align 8, !noalias !130
+  %18 = load double, ptr %17, align 8, !noalias !125
   %19 = fdiv double %18, 4.000000e+01
-  %20 = tail call double @pow(double noundef 1.000000e+01, double noundef %19) #68, !noalias !130
+  %20 = tail call double @pow(double noundef 1.000000e+01, double noundef %19) #68, !noalias !125
   %21 = getelementptr inbounds i8, ptr %0, i64 24
-  %22 = load double, ptr %21, align 8, !noalias !130
+  %22 = load double, ptr %21, align 8, !noalias !125
   %23 = fdiv double 1.000000e+00, %20
   %24 = fadd double %20, %23
   %25 = fdiv double 1.000000e+00, %22
   %26 = fadd double %25, -1.000000e+00
   %27 = tail call double @llvm.fmuladd.f64(double %24, double %26, double 2.000000e+00)
   %28 = fcmp olt double %27, 0.000000e+00
-  br i1 %28, label %cdce.call50, label %cdce.end51, !prof !17
+  br i1 %28, label %cdce.call50, label %cdce.end51, !prof !12
 
 cdce.call50:                                      ; preds = %cdce.end49
-  %29 = tail call double @sqrt(double noundef %27) #68, !noalias !130
+  %29 = tail call double @sqrt(double noundef %27) #68, !noalias !125
   br label %cdce.end51
 
 cdce.end51:                                       ; preds = %cdce.end49, %cdce.call50
   %30 = fcmp olt double %20, 0.000000e+00
-  br i1 %30, label %cdce.call52, label %cdce.end53, !prof !17
+  br i1 %30, label %cdce.call52, label %cdce.end53, !prof !12
 
 cdce.call52:                                      ; preds = %cdce.end51
-  %31 = tail call double @sqrt(double noundef %20) #68, !noalias !130
+  %31 = tail call double @sqrt(double noundef %20) #68, !noalias !125
   br label %cdce.end53
 
 cdce.end53:                                       ; preds = %cdce.end51, %cdce.call52
   %32 = getelementptr inbounds i8, ptr %0, i64 4
-  %33 = load i32, ptr %32, align 4, !noalias !130
+  %33 = load i32, ptr %32, align 4, !noalias !125
   %34 = icmp eq ptr %1, null
   br i1 %34, label %ma_biquad_get_heap_size.exit, label %35
 
@@ -26321,30 +26321,30 @@ define hidden noundef i32 @ma_loshelf2_init_preallocated(ptr noundef readonly %0
 
 7:                                                ; preds = %5
   %8 = getelementptr inbounds i8, ptr %0, i64 32
-  %9 = load double, ptr %8, align 8, !noalias !133
+  %9 = load double, ptr %8, align 8, !noalias !128
   %10 = fmul double %9, 0x401921FB54442D18
   %11 = getelementptr inbounds i8, ptr %0, i64 8
-  %12 = load i32, ptr %11, align 8, !noalias !133
+  %12 = load i32, ptr %11, align 8, !noalias !128
   %13 = uitofp i32 %12 to double
   %14 = fdiv double %10, %13
-  %15 = tail call double @sin(double noundef %14) #68, !noalias !133
+  %15 = tail call double @sin(double noundef %14) #68, !noalias !128
   %16 = fsub double 0x3FF921FB54442D18, %14
-  %17 = tail call double @sin(double noundef %16) #68, !noalias !133
+  %17 = tail call double @sin(double noundef %16) #68, !noalias !128
   %18 = getelementptr inbounds i8, ptr %0, i64 16
-  %19 = load double, ptr %18, align 8, !noalias !133
+  %19 = load double, ptr %18, align 8, !noalias !128
   %20 = fdiv double %19, 4.000000e+01
-  %21 = tail call double @pow(double noundef 1.000000e+01, double noundef %20) #68, !noalias !133
+  %21 = tail call double @pow(double noundef 1.000000e+01, double noundef %20) #68, !noalias !128
   %22 = getelementptr inbounds i8, ptr %0, i64 24
-  %23 = load double, ptr %22, align 8, !noalias !133
+  %23 = load double, ptr %22, align 8, !noalias !128
   %24 = fmul double %15, 5.000000e-01
   %25 = fdiv double 1.000000e+00, %21
   %26 = fadd double %21, %25
   %27 = fdiv double 1.000000e+00, %23
   %28 = fadd double %27, -1.000000e+00
   %29 = tail call double @llvm.fmuladd.f64(double %26, double %28, double 2.000000e+00)
-  %30 = tail call double @sqrt(double noundef %29) #68, !noalias !133
+  %30 = tail call double @sqrt(double noundef %29) #68, !noalias !128
   %31 = fmul double %24, %30
-  %32 = tail call double @sqrt(double noundef %21) #68, !noalias !133
+  %32 = tail call double @sqrt(double noundef %21) #68, !noalias !128
   %33 = fmul double %32, 2.000000e+00
   %34 = fmul double %31, %33
   %35 = fadd double %21, 1.000000e+00
@@ -26367,9 +26367,9 @@ define hidden noundef i32 @ma_loshelf2_init_preallocated(ptr noundef readonly %0
   %52 = tail call double @llvm.fmuladd.f64(double %35, double %17, double %36)
   %53 = fmul double %52, -2.000000e+00
   %54 = fsub double %50, %34
-  %55 = load i32, ptr %0, align 8, !noalias !133
+  %55 = load i32, ptr %0, align 8, !noalias !128
   %56 = getelementptr inbounds i8, ptr %0, i64 4
-  %57 = load i32, ptr %56, align 4, !noalias !133
+  %57 = load i32, ptr %56, align 4, !noalias !128
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(64) %2, i8 0, i64 64, i1 false)
   %58 = icmp eq i32 %57, 0
   br i1 %58, label %ma_biquad_init_preallocated.exit, label %59
@@ -26470,60 +26470,60 @@ ma_biquad_init_preallocated.exit:                 ; preds = %7, %65, %70, %71, %
 ; Function Attrs: nounwind uwtable
 define hidden noundef i32 @ma_loshelf2_init(ptr noundef %0, ptr noundef readonly %1, ptr noundef %2) local_unnamed_addr #5 {
   %4 = getelementptr inbounds i8, ptr %0, i64 32
-  %5 = load double, ptr %4, align 8, !noalias !136
+  %5 = load double, ptr %4, align 8, !noalias !131
   %6 = fmul double %5, 0x401921FB54442D18
   %7 = getelementptr inbounds i8, ptr %0, i64 8
-  %8 = load i32, ptr %7, align 8, !noalias !136
+  %8 = load i32, ptr %7, align 8, !noalias !131
   %9 = uitofp i32 %8 to double
   %10 = fdiv double %6, %9
   %11 = tail call double @llvm.fabs.f64(double %10)
   %12 = fcmp oeq double %11, 0x7FF0000000000000
-  br i1 %12, label %cdce.call, label %cdce.end.i, !prof !17
+  br i1 %12, label %cdce.call, label %cdce.end.i, !prof !12
 
 cdce.call:                                        ; preds = %3
-  %13 = tail call double @sin(double noundef %10) #68, !noalias !136
+  %13 = tail call double @sin(double noundef %10) #68, !noalias !131
   br label %cdce.end.i
 
 cdce.end.i:                                       ; preds = %cdce.call, %3
   %14 = fsub double 0x3FF921FB54442D18, %10
   %15 = tail call double @llvm.fabs.f64(double %14)
   %16 = fcmp oeq double %15, 0x7FF0000000000000
-  br i1 %16, label %cdce.call32, label %cdce.end49.i, !prof !17
+  br i1 %16, label %cdce.call32, label %cdce.end49.i, !prof !12
 
 cdce.call32:                                      ; preds = %cdce.end.i
-  %17 = tail call double @sin(double noundef %14) #68, !noalias !136
+  %17 = tail call double @sin(double noundef %14) #68, !noalias !131
   br label %cdce.end49.i
 
 cdce.end49.i:                                     ; preds = %cdce.call32, %cdce.end.i
   %18 = getelementptr inbounds i8, ptr %0, i64 16
-  %19 = load double, ptr %18, align 8, !noalias !136
+  %19 = load double, ptr %18, align 8, !noalias !131
   %20 = fdiv double %19, 4.000000e+01
-  %21 = tail call double @pow(double noundef 1.000000e+01, double noundef %20) #68, !noalias !136
+  %21 = tail call double @pow(double noundef 1.000000e+01, double noundef %20) #68, !noalias !131
   %22 = getelementptr inbounds i8, ptr %0, i64 24
-  %23 = load double, ptr %22, align 8, !noalias !136
+  %23 = load double, ptr %22, align 8, !noalias !131
   %24 = fdiv double 1.000000e+00, %21
   %25 = fadd double %21, %24
   %26 = fdiv double 1.000000e+00, %23
   %27 = fadd double %26, -1.000000e+00
   %28 = tail call double @llvm.fmuladd.f64(double %25, double %27, double 2.000000e+00)
   %29 = fcmp olt double %28, 0.000000e+00
-  br i1 %29, label %cdce.call34, label %cdce.end51.i, !prof !17
+  br i1 %29, label %cdce.call34, label %cdce.end51.i, !prof !12
 
 cdce.call34:                                      ; preds = %cdce.end49.i
-  %30 = tail call double @sqrt(double noundef %28) #68, !noalias !136
+  %30 = tail call double @sqrt(double noundef %28) #68, !noalias !131
   br label %cdce.end51.i
 
 cdce.end51.i:                                     ; preds = %cdce.call34, %cdce.end49.i
   %31 = fcmp olt double %21, 0.000000e+00
-  br i1 %31, label %cdce.call36, label %cdce.end53.i, !prof !17
+  br i1 %31, label %cdce.call36, label %cdce.end53.i, !prof !12
 
 cdce.call36:                                      ; preds = %cdce.end51.i
-  %32 = tail call double @sqrt(double noundef %21) #68, !noalias !136
+  %32 = tail call double @sqrt(double noundef %21) #68, !noalias !131
   br label %cdce.end53.i
 
 cdce.end53.i:                                     ; preds = %cdce.call36, %cdce.end51.i
   %33 = getelementptr inbounds i8, ptr %0, i64 4
-  %34 = load i32, ptr %33, align 4, !noalias !136
+  %34 = load i32, ptr %33, align 4, !noalias !131
   %35 = icmp eq i32 %34, 0
   br i1 %35, label %ma_loshelf2_get_heap_size.exit, label %36
 
@@ -26627,7 +26627,7 @@ ma_biquad_uninit.exit:                            ; preds = %17, %15, %12, %7, %
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(write, argmem: readwrite) uwtable
-define hidden noundef i32 @ma_loshelf2_reinit(ptr noundef readonly %0, ptr noundef %1) local_unnamed_addr #33 {
+define hidden range(i32 -3, 1) i32 @ma_loshelf2_reinit(ptr noundef readonly %0, ptr noundef %1) local_unnamed_addr #33 {
   %3 = alloca %struct.ma_biquad_config, align 8
   %4 = icmp eq ptr %1, null
   %5 = icmp eq ptr %0, null
@@ -26636,34 +26636,34 @@ define hidden noundef i32 @ma_loshelf2_reinit(ptr noundef readonly %0, ptr nound
 
 6:                                                ; preds = %2
   %7 = getelementptr inbounds i8, ptr %0, i64 32
-  %8 = load double, ptr %7, align 8, !noalias !139
+  %8 = load double, ptr %7, align 8, !noalias !134
   %9 = fmul double %8, 0x401921FB54442D18
   %10 = getelementptr inbounds i8, ptr %0, i64 8
-  %11 = load i32, ptr %10, align 8, !noalias !139
+  %11 = load i32, ptr %10, align 8, !noalias !134
   %12 = uitofp i32 %11 to double
   %13 = fdiv double %9, %12
-  %14 = tail call double @sin(double noundef %13) #68, !noalias !139
+  %14 = tail call double @sin(double noundef %13) #68, !noalias !134
   %15 = fsub double 0x3FF921FB54442D18, %13
-  %16 = tail call double @sin(double noundef %15) #68, !noalias !139
+  %16 = tail call double @sin(double noundef %15) #68, !noalias !134
   %17 = getelementptr inbounds i8, ptr %0, i64 16
-  %18 = load double, ptr %17, align 8, !noalias !139
+  %18 = load double, ptr %17, align 8, !noalias !134
   %19 = fdiv double %18, 4.000000e+01
-  %20 = tail call double @pow(double noundef 1.000000e+01, double noundef %19) #68, !noalias !139
+  %20 = tail call double @pow(double noundef 1.000000e+01, double noundef %19) #68, !noalias !134
   %21 = getelementptr inbounds i8, ptr %0, i64 24
-  %22 = load double, ptr %21, align 8, !noalias !139
+  %22 = load double, ptr %21, align 8, !noalias !134
   %23 = fmul double %14, 5.000000e-01
   %24 = fdiv double 1.000000e+00, %20
   %25 = fadd double %20, %24
   %26 = fdiv double 1.000000e+00, %22
   %27 = fadd double %26, -1.000000e+00
   %28 = tail call double @llvm.fmuladd.f64(double %25, double %27, double 2.000000e+00)
-  %29 = tail call double @sqrt(double noundef %28) #68, !noalias !139
+  %29 = tail call double @sqrt(double noundef %28) #68, !noalias !134
   %30 = fmul double %23, %29
-  %31 = tail call double @sqrt(double noundef %20) #68, !noalias !139
+  %31 = tail call double @sqrt(double noundef %20) #68, !noalias !134
   %32 = fmul double %31, 2.000000e+00
   %33 = fmul double %30, %32
   %34 = fmul double %20, 2.000000e+00
-  %35 = load <2 x i32>, ptr %0, align 8, !noalias !139
+  %35 = load <2 x i32>, ptr %0, align 8, !noalias !134
   store <2 x i32> %35, ptr %3, align 8
   %.sroa.3.0..sroa_idx = getelementptr inbounds i8, ptr %3, i64 8
   %36 = insertelement <2 x double> poison, double %20, i64 0
@@ -26699,7 +26699,7 @@ define hidden noundef i32 @ma_loshelf2_reinit(ptr noundef readonly %0, ptr nound
   store <2 x double> %55, ptr %.sroa.6.0..sroa_idx, align 8
   %.sroa.8.0..sroa_idx = getelementptr inbounds i8, ptr %3, i64 48
   store double %57, ptr %.sroa.8.0..sroa_idx, align 8
-  %62 = call i32 @ma_biquad_reinit(ptr noundef nonnull %3, ptr noundef nonnull %1), !range !13
+  %62 = call i32 @ma_biquad_reinit(ptr noundef nonnull %3, ptr noundef nonnull %1)
   br label %63
 
 63:                                               ; preds = %6, %2
@@ -26708,12 +26708,12 @@ define hidden noundef i32 @ma_loshelf2_reinit(ptr noundef readonly %0, ptr nound
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: write) uwtable
-define hidden noundef i32 @ma_loshelf2_process_pcm_frames(ptr noundef %0, ptr noundef %1, ptr noundef %2, i64 noundef %3) local_unnamed_addr #32 {
+define hidden range(i32 -2, 1) i32 @ma_loshelf2_process_pcm_frames(ptr noundef %0, ptr noundef %1, ptr noundef %2, i64 noundef %3) local_unnamed_addr #32 {
   %5 = icmp eq ptr %0, null
   br i1 %5, label %8, label %6
 
 6:                                                ; preds = %4
-  %7 = tail call i32 @ma_biquad_process_pcm_frames(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %2, i64 noundef %3), !range !11
+  %7 = tail call i32 @ma_biquad_process_pcm_frames(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %2, i64 noundef %3)
   br label %8
 
 8:                                                ; preds = %4, %6
@@ -26722,7 +26722,7 @@ define hidden noundef i32 @ma_loshelf2_process_pcm_frames(ptr noundef %0, ptr no
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef i32 @ma_loshelf2_get_latency(ptr noundef readnone %0) local_unnamed_addr #1 {
+define hidden noundef range(i32 0, 3) i32 @ma_loshelf2_get_latency(ptr noundef readnone %0) local_unnamed_addr #1 {
   %2 = icmp eq ptr %0, null
   %spec.select = select i1 %2, i32 0, i32 2
   ret i32 %spec.select
@@ -26756,60 +26756,60 @@ define hidden void @ma_hishelf2_config_init(ptr dead_on_unwind noalias nocapture
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(write, argmem: readwrite) uwtable
 define hidden noundef i32 @ma_hishelf2_get_heap_size(ptr nocapture noundef readonly %0, ptr noundef writeonly %1) local_unnamed_addr #33 {
   %3 = getelementptr inbounds i8, ptr %0, i64 32
-  %4 = load double, ptr %3, align 8, !noalias !142
+  %4 = load double, ptr %3, align 8, !noalias !137
   %5 = fmul double %4, 0x401921FB54442D18
   %6 = getelementptr inbounds i8, ptr %0, i64 8
-  %7 = load i32, ptr %6, align 8, !noalias !142
+  %7 = load i32, ptr %6, align 8, !noalias !137
   %8 = uitofp i32 %7 to double
   %9 = fdiv double %5, %8
   %10 = tail call double @llvm.fabs.f64(double %9)
   %11 = fcmp oeq double %10, 0x7FF0000000000000
-  br i1 %11, label %cdce.call, label %cdce.end, !prof !17
+  br i1 %11, label %cdce.call, label %cdce.end, !prof !12
 
 cdce.call:                                        ; preds = %2
-  %12 = tail call double @sin(double noundef %9) #68, !noalias !142
+  %12 = tail call double @sin(double noundef %9) #68, !noalias !137
   br label %cdce.end
 
 cdce.end:                                         ; preds = %2, %cdce.call
   %13 = fsub double 0x3FF921FB54442D18, %9
   %14 = tail call double @llvm.fabs.f64(double %13)
   %15 = fcmp oeq double %14, 0x7FF0000000000000
-  br i1 %15, label %cdce.call48, label %cdce.end49, !prof !17
+  br i1 %15, label %cdce.call48, label %cdce.end49, !prof !12
 
 cdce.call48:                                      ; preds = %cdce.end
-  %16 = tail call double @sin(double noundef %13) #68, !noalias !142
+  %16 = tail call double @sin(double noundef %13) #68, !noalias !137
   br label %cdce.end49
 
 cdce.end49:                                       ; preds = %cdce.end, %cdce.call48
   %17 = getelementptr inbounds i8, ptr %0, i64 16
-  %18 = load double, ptr %17, align 8, !noalias !142
+  %18 = load double, ptr %17, align 8, !noalias !137
   %19 = fdiv double %18, 4.000000e+01
-  %20 = tail call double @pow(double noundef 1.000000e+01, double noundef %19) #68, !noalias !142
+  %20 = tail call double @pow(double noundef 1.000000e+01, double noundef %19) #68, !noalias !137
   %21 = getelementptr inbounds i8, ptr %0, i64 24
-  %22 = load double, ptr %21, align 8, !noalias !142
+  %22 = load double, ptr %21, align 8, !noalias !137
   %23 = fdiv double 1.000000e+00, %20
   %24 = fadd double %20, %23
   %25 = fdiv double 1.000000e+00, %22
   %26 = fadd double %25, -1.000000e+00
   %27 = tail call double @llvm.fmuladd.f64(double %24, double %26, double 2.000000e+00)
   %28 = fcmp olt double %27, 0.000000e+00
-  br i1 %28, label %cdce.call50, label %cdce.end51, !prof !17
+  br i1 %28, label %cdce.call50, label %cdce.end51, !prof !12
 
 cdce.call50:                                      ; preds = %cdce.end49
-  %29 = tail call double @sqrt(double noundef %27) #68, !noalias !142
+  %29 = tail call double @sqrt(double noundef %27) #68, !noalias !137
   br label %cdce.end51
 
 cdce.end51:                                       ; preds = %cdce.end49, %cdce.call50
   %30 = fcmp olt double %20, 0.000000e+00
-  br i1 %30, label %cdce.call52, label %cdce.end53, !prof !17
+  br i1 %30, label %cdce.call52, label %cdce.end53, !prof !12
 
 cdce.call52:                                      ; preds = %cdce.end51
-  %31 = tail call double @sqrt(double noundef %20) #68, !noalias !142
+  %31 = tail call double @sqrt(double noundef %20) #68, !noalias !137
   br label %cdce.end53
 
 cdce.end53:                                       ; preds = %cdce.end51, %cdce.call52
   %32 = getelementptr inbounds i8, ptr %0, i64 4
-  %33 = load i32, ptr %32, align 4, !noalias !142
+  %33 = load i32, ptr %32, align 4, !noalias !137
   %34 = icmp eq ptr %1, null
   br i1 %34, label %ma_biquad_get_heap_size.exit, label %35
 
@@ -26841,30 +26841,30 @@ define hidden noundef i32 @ma_hishelf2_init_preallocated(ptr noundef readonly %0
 
 7:                                                ; preds = %5
   %8 = getelementptr inbounds i8, ptr %0, i64 32
-  %9 = load double, ptr %8, align 8, !noalias !145
+  %9 = load double, ptr %8, align 8, !noalias !140
   %10 = fmul double %9, 0x401921FB54442D18
   %11 = getelementptr inbounds i8, ptr %0, i64 8
-  %12 = load i32, ptr %11, align 8, !noalias !145
+  %12 = load i32, ptr %11, align 8, !noalias !140
   %13 = uitofp i32 %12 to double
   %14 = fdiv double %10, %13
-  %15 = tail call double @sin(double noundef %14) #68, !noalias !145
+  %15 = tail call double @sin(double noundef %14) #68, !noalias !140
   %16 = fsub double 0x3FF921FB54442D18, %14
-  %17 = tail call double @sin(double noundef %16) #68, !noalias !145
+  %17 = tail call double @sin(double noundef %16) #68, !noalias !140
   %18 = getelementptr inbounds i8, ptr %0, i64 16
-  %19 = load double, ptr %18, align 8, !noalias !145
+  %19 = load double, ptr %18, align 8, !noalias !140
   %20 = fdiv double %19, 4.000000e+01
-  %21 = tail call double @pow(double noundef 1.000000e+01, double noundef %20) #68, !noalias !145
+  %21 = tail call double @pow(double noundef 1.000000e+01, double noundef %20) #68, !noalias !140
   %22 = getelementptr inbounds i8, ptr %0, i64 24
-  %23 = load double, ptr %22, align 8, !noalias !145
+  %23 = load double, ptr %22, align 8, !noalias !140
   %24 = fmul double %15, 5.000000e-01
   %25 = fdiv double 1.000000e+00, %21
   %26 = fadd double %21, %25
   %27 = fdiv double 1.000000e+00, %23
   %28 = fadd double %27, -1.000000e+00
   %29 = tail call double @llvm.fmuladd.f64(double %26, double %28, double 2.000000e+00)
-  %30 = tail call double @sqrt(double noundef %29) #68, !noalias !145
+  %30 = tail call double @sqrt(double noundef %29) #68, !noalias !140
   %31 = fmul double %24, %30
-  %32 = tail call double @sqrt(double noundef %21) #68, !noalias !145
+  %32 = tail call double @sqrt(double noundef %21) #68, !noalias !140
   %33 = fmul double %32, 2.000000e+00
   %34 = fmul double %31, %33
   %35 = fadd double %21, 1.000000e+00
@@ -26887,9 +26887,9 @@ define hidden noundef i32 @ma_hishelf2_init_preallocated(ptr noundef readonly %0
   %52 = tail call double @llvm.fmuladd.f64(double %51, double %17, double %36)
   %53 = fmul double %52, 2.000000e+00
   %54 = fsub double %49, %34
-  %55 = load i32, ptr %0, align 8, !noalias !145
+  %55 = load i32, ptr %0, align 8, !noalias !140
   %56 = getelementptr inbounds i8, ptr %0, i64 4
-  %57 = load i32, ptr %56, align 4, !noalias !145
+  %57 = load i32, ptr %56, align 4, !noalias !140
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(64) %2, i8 0, i64 64, i1 false)
   %58 = icmp eq i32 %57, 0
   br i1 %58, label %ma_biquad_init_preallocated.exit, label %59
@@ -26990,60 +26990,60 @@ ma_biquad_init_preallocated.exit:                 ; preds = %7, %65, %70, %71, %
 ; Function Attrs: nounwind uwtable
 define hidden noundef i32 @ma_hishelf2_init(ptr noundef %0, ptr noundef readonly %1, ptr noundef %2) local_unnamed_addr #5 {
   %4 = getelementptr inbounds i8, ptr %0, i64 32
-  %5 = load double, ptr %4, align 8, !noalias !148
+  %5 = load double, ptr %4, align 8, !noalias !143
   %6 = fmul double %5, 0x401921FB54442D18
   %7 = getelementptr inbounds i8, ptr %0, i64 8
-  %8 = load i32, ptr %7, align 8, !noalias !148
+  %8 = load i32, ptr %7, align 8, !noalias !143
   %9 = uitofp i32 %8 to double
   %10 = fdiv double %6, %9
   %11 = tail call double @llvm.fabs.f64(double %10)
   %12 = fcmp oeq double %11, 0x7FF0000000000000
-  br i1 %12, label %cdce.call, label %cdce.end.i, !prof !17
+  br i1 %12, label %cdce.call, label %cdce.end.i, !prof !12
 
 cdce.call:                                        ; preds = %3
-  %13 = tail call double @sin(double noundef %10) #68, !noalias !148
+  %13 = tail call double @sin(double noundef %10) #68, !noalias !143
   br label %cdce.end.i
 
 cdce.end.i:                                       ; preds = %cdce.call, %3
   %14 = fsub double 0x3FF921FB54442D18, %10
   %15 = tail call double @llvm.fabs.f64(double %14)
   %16 = fcmp oeq double %15, 0x7FF0000000000000
-  br i1 %16, label %cdce.call32, label %cdce.end49.i, !prof !17
+  br i1 %16, label %cdce.call32, label %cdce.end49.i, !prof !12
 
 cdce.call32:                                      ; preds = %cdce.end.i
-  %17 = tail call double @sin(double noundef %14) #68, !noalias !148
+  %17 = tail call double @sin(double noundef %14) #68, !noalias !143
   br label %cdce.end49.i
 
 cdce.end49.i:                                     ; preds = %cdce.call32, %cdce.end.i
   %18 = getelementptr inbounds i8, ptr %0, i64 16
-  %19 = load double, ptr %18, align 8, !noalias !148
+  %19 = load double, ptr %18, align 8, !noalias !143
   %20 = fdiv double %19, 4.000000e+01
-  %21 = tail call double @pow(double noundef 1.000000e+01, double noundef %20) #68, !noalias !148
+  %21 = tail call double @pow(double noundef 1.000000e+01, double noundef %20) #68, !noalias !143
   %22 = getelementptr inbounds i8, ptr %0, i64 24
-  %23 = load double, ptr %22, align 8, !noalias !148
+  %23 = load double, ptr %22, align 8, !noalias !143
   %24 = fdiv double 1.000000e+00, %21
   %25 = fadd double %21, %24
   %26 = fdiv double 1.000000e+00, %23
   %27 = fadd double %26, -1.000000e+00
   %28 = tail call double @llvm.fmuladd.f64(double %25, double %27, double 2.000000e+00)
   %29 = fcmp olt double %28, 0.000000e+00
-  br i1 %29, label %cdce.call34, label %cdce.end51.i, !prof !17
+  br i1 %29, label %cdce.call34, label %cdce.end51.i, !prof !12
 
 cdce.call34:                                      ; preds = %cdce.end49.i
-  %30 = tail call double @sqrt(double noundef %28) #68, !noalias !148
+  %30 = tail call double @sqrt(double noundef %28) #68, !noalias !143
   br label %cdce.end51.i
 
 cdce.end51.i:                                     ; preds = %cdce.call34, %cdce.end49.i
   %31 = fcmp olt double %21, 0.000000e+00
-  br i1 %31, label %cdce.call36, label %cdce.end53.i, !prof !17
+  br i1 %31, label %cdce.call36, label %cdce.end53.i, !prof !12
 
 cdce.call36:                                      ; preds = %cdce.end51.i
-  %32 = tail call double @sqrt(double noundef %21) #68, !noalias !148
+  %32 = tail call double @sqrt(double noundef %21) #68, !noalias !143
   br label %cdce.end53.i
 
 cdce.end53.i:                                     ; preds = %cdce.call36, %cdce.end51.i
   %33 = getelementptr inbounds i8, ptr %0, i64 4
-  %34 = load i32, ptr %33, align 4, !noalias !148
+  %34 = load i32, ptr %33, align 4, !noalias !143
   %35 = icmp eq i32 %34, 0
   br i1 %35, label %ma_hishelf2_get_heap_size.exit, label %36
 
@@ -27147,7 +27147,7 @@ ma_biquad_uninit.exit:                            ; preds = %17, %15, %12, %7, %
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(write, argmem: readwrite) uwtable
-define hidden noundef i32 @ma_hishelf2_reinit(ptr noundef readonly %0, ptr noundef %1) local_unnamed_addr #33 {
+define hidden range(i32 -3, 1) i32 @ma_hishelf2_reinit(ptr noundef readonly %0, ptr noundef %1) local_unnamed_addr #33 {
   %3 = alloca %struct.ma_biquad_config, align 8
   %4 = icmp eq ptr %1, null
   %5 = icmp eq ptr %0, null
@@ -27156,34 +27156,34 @@ define hidden noundef i32 @ma_hishelf2_reinit(ptr noundef readonly %0, ptr nound
 
 6:                                                ; preds = %2
   %7 = getelementptr inbounds i8, ptr %0, i64 32
-  %8 = load double, ptr %7, align 8, !noalias !151
+  %8 = load double, ptr %7, align 8, !noalias !146
   %9 = fmul double %8, 0x401921FB54442D18
   %10 = getelementptr inbounds i8, ptr %0, i64 8
-  %11 = load i32, ptr %10, align 8, !noalias !151
+  %11 = load i32, ptr %10, align 8, !noalias !146
   %12 = uitofp i32 %11 to double
   %13 = fdiv double %9, %12
-  %14 = tail call double @sin(double noundef %13) #68, !noalias !151
+  %14 = tail call double @sin(double noundef %13) #68, !noalias !146
   %15 = fsub double 0x3FF921FB54442D18, %13
-  %16 = tail call double @sin(double noundef %15) #68, !noalias !151
+  %16 = tail call double @sin(double noundef %15) #68, !noalias !146
   %17 = getelementptr inbounds i8, ptr %0, i64 16
-  %18 = load double, ptr %17, align 8, !noalias !151
+  %18 = load double, ptr %17, align 8, !noalias !146
   %19 = fdiv double %18, 4.000000e+01
-  %20 = tail call double @pow(double noundef 1.000000e+01, double noundef %19) #68, !noalias !151
+  %20 = tail call double @pow(double noundef 1.000000e+01, double noundef %19) #68, !noalias !146
   %21 = getelementptr inbounds i8, ptr %0, i64 24
-  %22 = load double, ptr %21, align 8, !noalias !151
+  %22 = load double, ptr %21, align 8, !noalias !146
   %23 = fmul double %14, 5.000000e-01
   %24 = fdiv double 1.000000e+00, %20
   %25 = fadd double %20, %24
   %26 = fdiv double 1.000000e+00, %22
   %27 = fadd double %26, -1.000000e+00
   %28 = tail call double @llvm.fmuladd.f64(double %25, double %27, double 2.000000e+00)
-  %29 = tail call double @sqrt(double noundef %28) #68, !noalias !151
+  %29 = tail call double @sqrt(double noundef %28) #68, !noalias !146
   %30 = fmul double %23, %29
-  %31 = tail call double @sqrt(double noundef %20) #68, !noalias !151
+  %31 = tail call double @sqrt(double noundef %20) #68, !noalias !146
   %32 = fmul double %31, 2.000000e+00
   %33 = fmul double %30, %32
   %34 = fmul double %20, -2.000000e+00
-  %35 = load <2 x i32>, ptr %0, align 8, !noalias !151
+  %35 = load <2 x i32>, ptr %0, align 8, !noalias !146
   store <2 x i32> %35, ptr %3, align 8
   %.sroa.3.0..sroa_idx = getelementptr inbounds i8, ptr %3, i64 8
   %36 = insertelement <2 x double> poison, double %20, i64 0
@@ -27218,7 +27218,7 @@ define hidden noundef i32 @ma_hishelf2_reinit(ptr noundef readonly %0, ptr nound
   store <2 x double> %54, ptr %.sroa.6.0..sroa_idx, align 8
   %.sroa.8.0..sroa_idx = getelementptr inbounds i8, ptr %3, i64 48
   store double %56, ptr %.sroa.8.0..sroa_idx, align 8
-  %61 = call i32 @ma_biquad_reinit(ptr noundef nonnull %3, ptr noundef nonnull %1), !range !13
+  %61 = call i32 @ma_biquad_reinit(ptr noundef nonnull %3, ptr noundef nonnull %1)
   br label %62
 
 62:                                               ; preds = %6, %2
@@ -27227,12 +27227,12 @@ define hidden noundef i32 @ma_hishelf2_reinit(ptr noundef readonly %0, ptr nound
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: write) uwtable
-define hidden noundef i32 @ma_hishelf2_process_pcm_frames(ptr noundef %0, ptr noundef %1, ptr noundef %2, i64 noundef %3) local_unnamed_addr #32 {
+define hidden range(i32 -2, 1) i32 @ma_hishelf2_process_pcm_frames(ptr noundef %0, ptr noundef %1, ptr noundef %2, i64 noundef %3) local_unnamed_addr #32 {
   %5 = icmp eq ptr %0, null
   br i1 %5, label %8, label %6
 
 6:                                                ; preds = %4
-  %7 = tail call i32 @ma_biquad_process_pcm_frames(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %2, i64 noundef %3), !range !11
+  %7 = tail call i32 @ma_biquad_process_pcm_frames(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %2, i64 noundef %3)
   br label %8
 
 8:                                                ; preds = %4, %6
@@ -27241,7 +27241,7 @@ define hidden noundef i32 @ma_hishelf2_process_pcm_frames(ptr noundef %0, ptr no
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef i32 @ma_hishelf2_get_latency(ptr noundef readnone %0) local_unnamed_addr #1 {
+define hidden noundef range(i32 0, 3) i32 @ma_hishelf2_get_latency(ptr noundef readnone %0) local_unnamed_addr #1 {
   %2 = icmp eq ptr %0, null
   %spec.select = select i1 %2, i32 0, i32 2
   ret i32 %spec.select
@@ -27266,7 +27266,7 @@ define hidden void @ma_delay_config_init(ptr dead_on_unwind noalias nocapture wr
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @ma_delay_init(ptr noundef readonly %0, ptr noundef readonly %1, ptr noundef %2) local_unnamed_addr #5 {
+define hidden range(i32 -4, 1) i32 @ma_delay_init(ptr noundef readonly %0, ptr noundef readonly %1, ptr noundef %2) local_unnamed_addr #5 {
   %4 = icmp eq ptr %2, null
   br i1 %4, label %ma_silence_pcm_frames.exit, label %5
 
@@ -27385,7 +27385,7 @@ ma_free.exit:                                     ; preds = %14, %12, %9, %4, %2
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define hidden noundef i32 @ma_delay_process_pcm_frames(ptr noundef %0, ptr noundef writeonly %1, ptr noundef readonly %2, i32 noundef %3) local_unnamed_addr #3 {
+define hidden range(i32 -2, 1) i32 @ma_delay_process_pcm_frames(ptr noundef %0, ptr noundef writeonly %1, ptr noundef readonly %2, i32 noundef %3) local_unnamed_addr #3 {
   %5 = icmp eq ptr %0, null
   %6 = icmp eq ptr %1, null
   %or.cond = or i1 %5, %6
@@ -27503,7 +27503,7 @@ define hidden noundef i32 @ma_delay_process_pcm_frames(ptr noundef %0, ptr nound
   %69 = getelementptr inbounds float, ptr %.05163, i64 %67
   %70 = add nuw i32 %.05461, 1
   %exitcond.not = icmp eq i32 %70, %3
-  br i1 %exitcond.not, label %.loopexit, label %.preheader, !llvm.loop !154
+  br i1 %exitcond.not, label %.loopexit, label %.preheader, !llvm.loop !149
 
 .loopexit:                                        ; preds = %._crit_edge, %.preheader59, %..loopexit_crit_edge.split.us, %4
   %.0 = phi i32 [ -2, %4 ], [ 0, %..loopexit_crit_edge.split.us ], [ 0, %.preheader59 ], [ 0, %._crit_edge ]
@@ -27610,7 +27610,7 @@ define hidden i64 @ma_gainer_config_init(i32 noundef %0, i32 noundef %1) local_u
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden noundef i32 @ma_gainer_get_heap_size(ptr noundef readonly %0, ptr noundef writeonly %1) local_unnamed_addr #16 {
+define hidden range(i32 -2, 1) i32 @ma_gainer_get_heap_size(ptr noundef readonly %0, ptr noundef writeonly %1) local_unnamed_addr #16 {
   %3 = icmp eq ptr %1, null
   br i1 %3, label %ma_gainer_get_heap_layout.exit.thread, label %4
 
@@ -27844,7 +27844,7 @@ ma_free.exit:                                     ; preds = %17, %15, %12, %7, %
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind uwtable
-define hidden noundef i32 @ma_gainer_process_pcm_frames(ptr noundef %0, ptr noundef writeonly %1, ptr noundef readonly %2, i64 noundef %3) local_unnamed_addr #37 {
+define hidden range(i32 -2, 1) i32 @ma_gainer_process_pcm_frames(ptr noundef %0, ptr noundef writeonly %1, ptr noundef readonly %2, i64 noundef %3) local_unnamed_addr #37 {
   %5 = alloca [32 x float], align 16
   %6 = alloca [32 x float], align 16
   %7 = alloca [32 x float], align 16
@@ -27852,15 +27852,15 @@ define hidden noundef i32 @ma_gainer_process_pcm_frames(ptr noundef %0, ptr noun
   br i1 %8, label %213, label %9
 
 9:                                                ; preds = %4
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !155)
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !158)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !150)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !153)
   call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %5)
   call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %6)
   call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %7)
   %10 = getelementptr inbounds i8, ptr %0, i64 8
-  %11 = load i32, ptr %10, align 8, !noalias !160
+  %11 = load i32, ptr %10, align 8, !noalias !155
   %12 = getelementptr inbounds i8, ptr %0, i64 4
-  %13 = load i32, ptr %12, align 4, !noalias !160
+  %13 = load i32, ptr %12, align 4, !noalias !155
   %.not.i = icmp uge i32 %11, %13
   %14 = sub i32 %11, %13
   %15 = zext i32 %14 to i64
@@ -27880,18 +27880,18 @@ define hidden noundef i32 @ma_gainer_process_pcm_frames(ptr noundef %0, ptr noun
   %21 = uitofp i32 %13 to float
   %22 = fdiv float %20, %21
   %23 = fdiv float 1.000000e+00, %21
-  %24 = load i32, ptr %0, align 8, !noalias !160
+  %24 = load i32, ptr %0, align 8, !noalias !155
   %25 = icmp ult i32 %24, 33
   br i1 %25, label %.preheader366.i, label %.preheader367.lr.ph.i
 
 .preheader367.lr.ph.i:                            ; preds = %19
   %26 = zext i32 %24 to i64
   %27 = getelementptr inbounds i8, ptr %0, i64 16
-  %28 = load ptr, ptr %27, align 8, !noalias !160
+  %28 = load ptr, ptr %27, align 8, !noalias !155
   %29 = getelementptr inbounds i8, ptr %0, i64 24
-  %30 = load ptr, ptr %29, align 8, !noalias !160
+  %30 = load ptr, ptr %29, align 8, !noalias !155
   %31 = getelementptr inbounds i8, ptr %0, i64 12
-  %32 = load float, ptr %31, align 4, !noalias !160
+  %32 = load float, ptr %31, align 4, !noalias !155
   br label %.preheader367.i
 
 .preheader366.i:                                  ; preds = %19
@@ -27900,11 +27900,11 @@ define hidden noundef i32 @ma_gainer_process_pcm_frames(ptr noundef %0, ptr noun
 
 .lr.ph.i:                                         ; preds = %.preheader366.i
   %33 = getelementptr inbounds i8, ptr %0, i64 24
-  %34 = load ptr, ptr %33, align 8, !noalias !160
+  %34 = load ptr, ptr %33, align 8, !noalias !155
   %35 = getelementptr inbounds i8, ptr %0, i64 16
-  %36 = load ptr, ptr %35, align 8, !noalias !160
+  %36 = load ptr, ptr %35, align 8, !noalias !155
   %37 = getelementptr inbounds i8, ptr %0, i64 12
-  %38 = load float, ptr %37, align 4, !noalias !160
+  %38 = load float, ptr %37, align 4, !noalias !155
   %wide.trip.count416.i = zext nneg i32 %24 to i64
   br label %39
 
@@ -27918,11 +27918,11 @@ define hidden noundef i32 @ma_gainer_process_pcm_frames(ptr noundef %0, ptr noun
   %45 = fmul float %38, %44
   %46 = fmul float %23, %45
   %47 = getelementptr inbounds [32 x float], ptr %6, i64 0, i64 %indvars.iv413.i
-  store float %46, ptr %47, align 4, !noalias !160
+  store float %46, ptr %47, align 4, !noalias !155
   %48 = fmul float %22, %45
   %49 = tail call float @llvm.fmuladd.f32(float %43, float %38, float %48)
   %50 = getelementptr inbounds [32 x float], ptr %5, i64 0, i64 %indvars.iv413.i
-  store float %49, ptr %50, align 4, !noalias !160
+  store float %49, ptr %50, align 4, !noalias !155
   %indvars.iv.next414.i = add nuw nsw i64 %indvars.iv413.i, 1
   %exitcond417.not.i = icmp eq i64 %indvars.iv.next414.i, %wide.trip.count416.i
   br i1 %exitcond417.not.i, label %._crit_edge.i, label %39
@@ -27936,13 +27936,13 @@ define hidden noundef i32 @ma_gainer_process_pcm_frames(ptr noundef %0, ptr noun
 
 51:                                               ; preds = %._crit_edge.i
   %52 = lshr i64 %spec.select.i, 1
-  %53 = load <2 x float>, ptr %6, align 16, !noalias !160
+  %53 = load <2 x float>, ptr %6, align 16, !noalias !155
   %54 = shufflevector <2 x float> %53, <2 x float> poison, <4 x i32> <i32 0, i32 1, i32 0, i32 1>
   %.not404.i = icmp ult i64 %spec.select.i, 2
   br i1 %.not404.i, label %._crit_edge390.i, label %.lr.ph389.preheader.i
 
 .lr.ph389.preheader.i:                            ; preds = %51
-  %55 = load <2 x float>, ptr %5, align 16, !noalias !160
+  %55 = load <2 x float>, ptr %5, align 16, !noalias !155
   %56 = fadd <2 x float> %53, %55
   %57 = shufflevector <2 x float> %55, <2 x float> %56, <4 x i32> <i32 0, i32 1, i32 2, i32 3>
   br label %.lr.ph389.i
@@ -27953,9 +27953,9 @@ define hidden noundef i32 @ma_gainer_process_pcm_frames(ptr noundef %0, ptr noun
   %58 = shl nuw nsw i64 %.0329387.i, 2
   %59 = getelementptr inbounds float, ptr %1, i64 %58
   %60 = getelementptr inbounds float, ptr %2, i64 %58
-  %61 = load <4 x float>, ptr %60, align 1, !alias.scope !158, !noalias !155
+  %61 = load <4 x float>, ptr %60, align 1, !alias.scope !153, !noalias !150
   %62 = fmul <4 x float> %.0341386.i, %61
-  store <4 x float> %62, ptr %59, align 1, !alias.scope !155, !noalias !158
+  store <4 x float> %62, ptr %59, align 1, !alias.scope !150, !noalias !153
   %63 = fadd <4 x float> %54, %.0341386.i
   %64 = add nuw nsw i64 %.0329387.i, 1
   %exitcond420.not.i = icmp eq i64 %64, %52
@@ -27968,9 +27968,9 @@ define hidden noundef i32 @ma_gainer_process_pcm_frames(ptr noundef %0, ptr noun
 66:                                               ; preds = %._crit_edge.i
   %67 = lshr i64 %spec.select.i, 1
   %68 = getelementptr inbounds i8, ptr %6, i64 8
-  %69 = load <2 x float>, ptr %6, align 16, !noalias !160
+  %69 = load <2 x float>, ptr %6, align 16, !noalias !155
   %70 = shufflevector <2 x float> %69, <2 x float> poison, <4 x i32> <i32 0, i32 1, i32 poison, i32 poison>
-  %71 = load <4 x float>, ptr %68, align 8, !noalias !160
+  %71 = load <4 x float>, ptr %68, align 8, !noalias !155
   %72 = shufflevector <4 x float> %70, <4 x float> %71, <4 x i32> <i32 0, i32 1, i32 4, i32 5>
   %73 = shufflevector <4 x float> %71, <4 x float> poison, <4 x i32> <i32 2, i32 3, i32 poison, i32 poison>
   %74 = shufflevector <4 x float> %73, <4 x float> %70, <4 x i32> <i32 0, i32 1, i32 4, i32 5>
@@ -27979,9 +27979,9 @@ define hidden noundef i32 @ma_gainer_process_pcm_frames(ptr noundef %0, ptr noun
 
 .lr.ph384.preheader.i:                            ; preds = %66
   %75 = getelementptr inbounds i8, ptr %5, i64 16
-  %76 = load <2 x float>, ptr %75, align 16, !noalias !160
+  %76 = load <2 x float>, ptr %75, align 16, !noalias !155
   %77 = shufflevector <2 x float> %76, <2 x float> poison, <4 x i32> <i32 0, i32 1, i32 poison, i32 poison>
-  %78 = load <4 x float>, ptr %5, align 16, !noalias !160
+  %78 = load <4 x float>, ptr %5, align 16, !noalias !155
   %79 = shufflevector <4 x float> %78, <4 x float> poison, <4 x i32> <i32 2, i32 3, i32 poison, i32 poison>
   %80 = shufflevector <4 x float> %79, <4 x float> %77, <4 x i32> <i32 0, i32 1, i32 4, i32 5>
   %81 = shufflevector <4 x float> %78, <4 x float> poison, <2 x i32> <i32 0, i32 1>
@@ -27998,21 +27998,21 @@ define hidden noundef i32 @ma_gainer_process_pcm_frames(ptr noundef %0, ptr noun
   %84 = mul nuw nsw i64 %.2379.i, 12
   %85 = getelementptr inbounds float, ptr %1, i64 %84
   %86 = getelementptr inbounds float, ptr %2, i64 %84
-  %87 = load <4 x float>, ptr %86, align 1, !alias.scope !158, !noalias !155
+  %87 = load <4 x float>, ptr %86, align 1, !alias.scope !153, !noalias !150
   %88 = fmul <4 x float> %.0327380.i, %87
-  store <4 x float> %88, ptr %85, align 1, !alias.scope !155, !noalias !158
+  store <4 x float> %88, ptr %85, align 1, !alias.scope !150, !noalias !153
   %89 = add nuw nsw i64 %84, 4
   %90 = getelementptr inbounds float, ptr %1, i64 %89
   %91 = getelementptr inbounds float, ptr %2, i64 %89
-  %92 = load <4 x float>, ptr %91, align 1, !alias.scope !158, !noalias !155
+  %92 = load <4 x float>, ptr %91, align 1, !alias.scope !153, !noalias !150
   %93 = fmul <4 x float> %.0326381.i, %92
-  store <4 x float> %93, ptr %90, align 1, !alias.scope !155, !noalias !158
+  store <4 x float> %93, ptr %90, align 1, !alias.scope !150, !noalias !153
   %94 = add nuw nsw i64 %84, 8
   %95 = getelementptr inbounds float, ptr %1, i64 %94
   %96 = getelementptr inbounds float, ptr %2, i64 %94
-  %97 = load <4 x float>, ptr %96, align 1, !alias.scope !158, !noalias !155
+  %97 = load <4 x float>, ptr %96, align 1, !alias.scope !153, !noalias !150
   %98 = fmul <4 x float> %.0325382.i, %97
-  store <4 x float> %98, ptr %95, align 1, !alias.scope !155, !noalias !158
+  store <4 x float> %98, ptr %95, align 1, !alias.scope !150, !noalias !153
   %99 = fadd <4 x float> %72, %.0327380.i
   %100 = fadd <4 x float> %74, %.0326381.i
   %101 = add nuw nsw i64 %.2379.i, 1
@@ -28024,12 +28024,12 @@ define hidden noundef i32 @ma_gainer_process_pcm_frames(ptr noundef %0, ptr noun
   br label %.loopexit365.i
 
 .lr.ph378.preheader.i:                            ; preds = %._crit_edge.i
-  %103 = load <4 x float>, ptr %6, align 16, !noalias !160
+  %103 = load <4 x float>, ptr %6, align 16, !noalias !155
   %104 = getelementptr inbounds i8, ptr %6, i64 16
-  %105 = load <4 x float>, ptr %104, align 16, !noalias !160
+  %105 = load <4 x float>, ptr %104, align 16, !noalias !155
   %106 = getelementptr inbounds i8, ptr %5, i64 16
-  %107 = load <4 x float>, ptr %106, align 16, !noalias !160
-  %108 = load <4 x float>, ptr %5, align 16, !noalias !160
+  %107 = load <4 x float>, ptr %106, align 16, !noalias !155
+  %108 = load <4 x float>, ptr %5, align 16, !noalias !155
   br label %.lr.ph378.i
 
 .lr.ph378.i:                                      ; preds = %.lr.ph378.i, %.lr.ph378.preheader.i
@@ -28039,15 +28039,15 @@ define hidden noundef i32 @ma_gainer_process_pcm_frames(ptr noundef %0, ptr noun
   %109 = shl nuw nsw i64 %.4374.i, 3
   %110 = getelementptr inbounds float, ptr %1, i64 %109
   %111 = getelementptr inbounds float, ptr %2, i64 %109
-  %112 = load <4 x float>, ptr %111, align 1, !alias.scope !158, !noalias !155
+  %112 = load <4 x float>, ptr %111, align 1, !alias.scope !153, !noalias !150
   %113 = fmul <4 x float> %.0322375.i, %112
-  store <4 x float> %113, ptr %110, align 1, !alias.scope !155, !noalias !158
+  store <4 x float> %113, ptr %110, align 1, !alias.scope !150, !noalias !153
   %114 = or disjoint i64 %109, 4
   %115 = getelementptr inbounds float, ptr %1, i64 %114
   %116 = getelementptr inbounds float, ptr %2, i64 %114
-  %117 = load <4 x float>, ptr %116, align 1, !alias.scope !158, !noalias !155
+  %117 = load <4 x float>, ptr %116, align 1, !alias.scope !153, !noalias !150
   %118 = fmul <4 x float> %.0376.i, %117
-  store <4 x float> %118, ptr %115, align 1, !alias.scope !155, !noalias !158
+  store <4 x float> %118, ptr %115, align 1, !alias.scope !150, !noalias !153
   %119 = fadd <4 x float> %103, %.0322375.i
   %120 = fadd <4 x float> %105, %.0376.i
   %121 = add nuw nsw i64 %.4374.i, 1
@@ -28068,16 +28068,16 @@ define hidden noundef i32 @ma_gainer_process_pcm_frames(ptr noundef %0, ptr noun
   %indvars.iv421.i = phi i64 [ 0, %.preheader364.us.i ], [ %indvars.iv.next422.i, %124 ]
   %125 = add nuw i64 %indvars.iv421.i, %123
   %126 = getelementptr inbounds float, ptr %2, i64 %125
-  %127 = load float, ptr %126, align 4, !alias.scope !158, !noalias !155
+  %127 = load float, ptr %126, align 4, !alias.scope !153, !noalias !150
   %128 = getelementptr inbounds [32 x float], ptr %5, i64 0, i64 %indvars.iv421.i
-  %129 = load float, ptr %128, align 4, !noalias !160
+  %129 = load float, ptr %128, align 4, !noalias !155
   %130 = fmul float %127, %129
   %131 = getelementptr inbounds float, ptr %1, i64 %125
-  store float %130, ptr %131, align 4, !alias.scope !155, !noalias !158
+  store float %130, ptr %131, align 4, !alias.scope !150, !noalias !153
   %132 = getelementptr inbounds [32 x float], ptr %6, i64 0, i64 %indvars.iv421.i
-  %133 = load float, ptr %132, align 4, !noalias !160
+  %133 = load float, ptr %132, align 4, !noalias !155
   %134 = fadd float %129, %133
-  store float %134, ptr %128, align 4, !noalias !160
+  store float %134, ptr %128, align 4, !noalias !155
   %indvars.iv.next422.i = add nuw nsw i64 %indvars.iv421.i, 1
   %exitcond425.not.i = icmp eq i64 %indvars.iv.next422.i, %wide.trip.count416.i
   br i1 %exitcond425.not.i, label %._crit_edge393.us.i, label %124
@@ -28097,7 +28097,7 @@ define hidden noundef i32 @ma_gainer_process_pcm_frames(ptr noundef %0, ptr noun
   %indvars.iv.i = phi i64 [ 0, %.preheader367.i ], [ %indvars.iv.next.i, %137 ]
   %138 = add nuw i64 %indvars.iv.i, %136
   %139 = getelementptr inbounds float, ptr %2, i64 %138
-  %140 = load float, ptr %139, align 4, !alias.scope !158, !noalias !155
+  %140 = load float, ptr %139, align 4, !alias.scope !153, !noalias !150
   %141 = getelementptr inbounds float, ptr %28, i64 %indvars.iv.i
   %142 = load float, ptr %141, align 4
   %143 = getelementptr inbounds float, ptr %30, i64 %indvars.iv.i
@@ -28108,7 +28108,7 @@ define hidden noundef i32 @ma_gainer_process_pcm_frames(ptr noundef %0, ptr noun
   %148 = fmul float %140, %147
   %149 = fmul float %32, %148
   %150 = getelementptr inbounds float, ptr %1, i64 %138
-  store float %149, ptr %150, align 4, !alias.scope !155, !noalias !158
+  store float %149, ptr %150, align 4, !alias.scope !150, !noalias !153
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %26
   br i1 %exitcond.not.i, label %151, label %137
@@ -28126,7 +28126,7 @@ define hidden noundef i32 @ma_gainer_process_pcm_frames(ptr noundef %0, ptr noun
   %157 = icmp ult i64 %155, %156
   %158 = trunc nuw i64 %155 to i32
   %159 = select i1 %157, i32 %158, i32 %13
-  store i32 %159, ptr %10, align 8, !noalias !160
+  store i32 %159, ptr %10, align 8, !noalias !155
   %160 = sub i64 %3, %spec.select.i
   %161 = shl nuw nsw i64 %spec.select.i, 2
   %162 = getelementptr inbounds i8, ptr %1, i64 %161
@@ -28144,7 +28144,7 @@ define hidden noundef i32 @ma_gainer_process_pcm_frames(ptr noundef %0, ptr noun
   br i1 %or.cond3.i, label %168, label %ma_copy_and_apply_volume_factor_per_channel_f32.exit.i
 
 168:                                              ; preds = %164
-  %169 = load i32, ptr %0, align 8, !noalias !160
+  %169 = load i32, ptr %0, align 8, !noalias !155
   %170 = icmp ult i32 %169, 33
   br i1 %170, label %.preheader.i, label %.preheader362.i
 
@@ -28155,9 +28155,9 @@ define hidden noundef i32 @ma_gainer_process_pcm_frames(ptr noundef %0, ptr noun
 .preheader361.lr.ph.i:                            ; preds = %.preheader362.i
   %171 = zext i32 %169 to i64
   %172 = getelementptr inbounds i8, ptr %0, i64 24
-  %173 = load ptr, ptr %172, align 8, !noalias !160
+  %173 = load ptr, ptr %172, align 8, !noalias !155
   %174 = getelementptr inbounds i8, ptr %0, i64 12
-  %175 = load float, ptr %174, align 4, !noalias !160
+  %175 = load float, ptr %174, align 4, !noalias !155
   br label %.preheader361.i
 
 .preheader.i:                                     ; preds = %168
@@ -28166,9 +28166,9 @@ define hidden noundef i32 @ma_gainer_process_pcm_frames(ptr noundef %0, ptr noun
 
 .lr.ph398.i:                                      ; preds = %.preheader.i
   %176 = getelementptr inbounds i8, ptr %0, i64 24
-  %177 = load ptr, ptr %176, align 8, !noalias !160
+  %177 = load ptr, ptr %176, align 8, !noalias !155
   %178 = getelementptr inbounds i8, ptr %0, i64 12
-  %179 = load float, ptr %178, align 4, !noalias !160
+  %179 = load float, ptr %178, align 4, !noalias !155
   %wide.trip.count436.i = zext nneg i32 %169 to i64
   br label %180
 
@@ -28178,7 +28178,7 @@ define hidden noundef i32 @ma_gainer_process_pcm_frames(ptr noundef %0, ptr noun
   %182 = load float, ptr %181, align 4
   %183 = fmul float %179, %182
   %184 = getelementptr inbounds [32 x float], ptr %7, i64 0, i64 %indvars.iv433.i
-  store float %183, ptr %184, align 4, !noalias !160
+  store float %183, ptr %184, align 4, !noalias !155
   %indvars.iv.next434.i = add nuw nsw i64 %indvars.iv433.i, 1
   %exitcond437.not.i = icmp eq i64 %indvars.iv.next434.i, %wide.trip.count436.i
   br i1 %exitcond437.not.i, label %._crit_edge399.i, label %180
@@ -28196,12 +28196,12 @@ define hidden noundef i32 @ma_gainer_process_pcm_frames(ptr noundef %0, ptr noun
   %indvars.iv.i.i = phi i64 [ 0, %.preheader.us.i.i ], [ %indvars.iv.next.i.i, %186 ]
   %187 = add i64 %indvars.iv.i.i, %185
   %188 = getelementptr inbounds float, ptr %.0324.i, i64 %187
-  %189 = load float, ptr %188, align 4, !alias.scope !158, !noalias !155
+  %189 = load float, ptr %188, align 4, !alias.scope !153, !noalias !150
   %190 = getelementptr inbounds float, ptr %7, i64 %indvars.iv.i.i
-  %191 = load float, ptr %190, align 4, !noalias !160
+  %191 = load float, ptr %190, align 4, !noalias !155
   %192 = fmul float %189, %191
   %193 = getelementptr inbounds float, ptr %.0323.i, i64 %187
-  store float %192, ptr %193, align 4, !alias.scope !155, !noalias !158
+  store float %192, ptr %193, align 4, !alias.scope !150, !noalias !153
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, %wide.trip.count436.i
   br i1 %exitcond.not.i.i, label %._crit_edge.us.i.i, label %186
@@ -28220,13 +28220,13 @@ define hidden noundef i32 @ma_gainer_process_pcm_frames(ptr noundef %0, ptr noun
   %indvars.iv427.i = phi i64 [ 0, %.preheader361.i ], [ %indvars.iv.next428.i, %196 ]
   %197 = add i64 %indvars.iv427.i, %195
   %198 = getelementptr inbounds float, ptr %.0324.i, i64 %197
-  %199 = load float, ptr %198, align 4, !alias.scope !158, !noalias !155
+  %199 = load float, ptr %198, align 4, !alias.scope !153, !noalias !150
   %200 = getelementptr inbounds float, ptr %173, i64 %indvars.iv427.i
   %201 = load float, ptr %200, align 4
   %202 = fmul float %199, %201
   %203 = fmul float %175, %202
   %204 = getelementptr inbounds float, ptr %.0323.i, i64 %197
-  store float %203, ptr %204, align 4, !alias.scope !155, !noalias !158
+  store float %203, ptr %204, align 4, !alias.scope !150, !noalias !153
   %indvars.iv.next428.i = add nuw nsw i64 %indvars.iv427.i, 1
   %exitcond431.not.i = icmp eq i64 %indvars.iv.next428.i, %171
   br i1 %exitcond431.not.i, label %205, label %196
@@ -28245,7 +28245,7 @@ ma_copy_and_apply_volume_factor_per_channel_f32.exit.i: ; preds = %205, %._crit_
   %210 = icmp ugt i64 %.0328.i, %209
   %211 = trunc nuw i64 %.0328.i to i32
   %212 = select i1 %210, i32 %13, i32 %211
-  store i32 %212, ptr %10, align 8, !noalias !160
+  store i32 %212, ptr %10, align 8, !noalias !155
   br label %ma_gainer_process_pcm_frames_internal.exit
 
 ma_gainer_process_pcm_frames_internal.exit:       ; preds = %ma_copy_and_apply_volume_factor_per_channel_f32.exit.i, %208
@@ -28260,7 +28260,7 @@ ma_gainer_process_pcm_frames_internal.exit:       ; preds = %ma_copy_and_apply_v
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define hidden noundef i32 @ma_gainer_set_gain(ptr noundef %0, float noundef %1) local_unnamed_addr #3 {
+define hidden range(i32 -2, 1) i32 @ma_gainer_set_gain(ptr noundef %0, float noundef %1) local_unnamed_addr #3 {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %35, label %.preheader
 
@@ -28324,7 +28324,7 @@ ma_gainer_reset_smoothing_time.exit:              ; preds = %._crit_edge, %32
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define hidden noundef i32 @ma_gainer_set_gains(ptr noundef %0, ptr noundef readonly %1) local_unnamed_addr #3 {
+define hidden range(i32 -2, 1) i32 @ma_gainer_set_gains(ptr noundef %0, ptr noundef readonly %1) local_unnamed_addr #3 {
   %3 = icmp eq ptr %0, null
   %4 = icmp eq ptr %1, null
   %or.cond = or i1 %3, %4
@@ -28392,7 +28392,7 @@ ma_gainer_reset_smoothing_time.exit:              ; preds = %._crit_edge, %35
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden noundef i32 @ma_gainer_set_master_volume(ptr noundef writeonly %0, float noundef %1) local_unnamed_addr #0 {
+define hidden range(i32 -2, 1) i32 @ma_gainer_set_master_volume(ptr noundef writeonly %0, float noundef %1) local_unnamed_addr #0 {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %6, label %4
 
@@ -28407,7 +28407,7 @@ define hidden noundef i32 @ma_gainer_set_master_volume(ptr noundef writeonly %0,
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden noundef i32 @ma_gainer_get_master_volume(ptr noundef readonly %0, ptr noundef writeonly %1) local_unnamed_addr #16 {
+define hidden range(i32 -2, 1) i32 @ma_gainer_get_master_volume(ptr noundef readonly %0, ptr noundef writeonly %1) local_unnamed_addr #16 {
   %3 = icmp eq ptr %0, null
   %4 = icmp eq ptr %1, null
   %or.cond = or i1 %3, %4
@@ -28436,7 +28436,7 @@ define hidden { i64, i64 } @ma_panner_config_init(i32 noundef %0, i32 noundef %1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden noundef i32 @ma_panner_init(ptr noundef readonly %0, ptr noundef writeonly %1) local_unnamed_addr #16 {
+define hidden range(i32 -2, 1) i32 @ma_panner_init(ptr noundef readonly %0, ptr noundef writeonly %1) local_unnamed_addr #16 {
   %3 = icmp eq ptr %1, null
   br i1 %3, label %17, label %4
 
@@ -28468,7 +28468,7 @@ define hidden noundef i32 @ma_panner_init(ptr noundef readonly %0, ptr noundef w
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define hidden noundef i32 @ma_panner_process_pcm_frames(ptr noundef readonly %0, ptr noundef writeonly %1, ptr noundef readonly %2, i64 noundef %3) local_unnamed_addr #3 {
+define hidden range(i32 -2, 1) i32 @ma_panner_process_pcm_frames(ptr noundef readonly %0, ptr noundef writeonly %1, ptr noundef readonly %2, i64 noundef %3) local_unnamed_addr #3 {
   %5 = icmp eq ptr %0, null
   %6 = icmp eq ptr %1, null
   %or.cond = or i1 %5, %6
@@ -28880,7 +28880,7 @@ define hidden { i64, i32 } @ma_fader_config_init(i32 noundef %0, i32 noundef %1,
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden noundef i32 @ma_fader_init(ptr noundef readonly %0, ptr noundef writeonly %1) local_unnamed_addr #16 {
+define hidden range(i32 -2, 1) i32 @ma_fader_init(ptr noundef readonly %0, ptr noundef writeonly %1) local_unnamed_addr #16 {
   %3 = icmp eq ptr %1, null
   br i1 %3, label %11, label %4
 
@@ -28908,7 +28908,7 @@ define hidden noundef i32 @ma_fader_init(ptr noundef readonly %0, ptr noundef wr
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define hidden noundef i32 @ma_fader_process_pcm_frames(ptr noundef %0, ptr noundef %1, ptr noundef readonly %2, i64 noundef %3) local_unnamed_addr #3 {
+define hidden range(i32 -29, 1) i32 @ma_fader_process_pcm_frames(ptr noundef %0, ptr noundef %1, ptr noundef readonly %2, i64 noundef %3) local_unnamed_addr #3 {
   %5 = icmp eq ptr %0, null
   br i1 %5, label %109, label %6
 
@@ -29097,7 +29097,7 @@ define hidden noundef i32 @ma_fader_process_pcm_frames(ptr noundef %0, ptr nound
   %104 = phi i32 [ 0, %.lr.ph123.split ], [ %101, %.lr.ph ]
   %105 = add nuw i64 %.093122, 1
   %106 = icmp ult i64 %105, %spec.select105
-  br i1 %106, label %.lr.ph123.split, label %ma_copy_pcm_frames.exit113, !llvm.loop !161
+  br i1 %106, label %.lr.ph123.split, label %ma_copy_pcm_frames.exit113, !llvm.loop !156
 
 ma_copy_pcm_frames.exit113:                       ; preds = %._crit_edge, %.lr.ph.i107, %.lr.ph123, %.preheader, %51, %49, %64, %72, %.loopexit
   %.2 = phi i64 [ %spec.select105, %64 ], [ %spec.select105, %72 ], [ %28, %.loopexit ], [ %spec.select105, %49 ], [ %spec.select105, %51 ], [ 0, %.preheader ], [ %spec.select105, %.lr.ph123 ], [ %spec.select105, %.lr.ph.i107 ], [ %spec.select105, %._crit_edge ]
@@ -29420,7 +29420,7 @@ define hidden { <2 x float>, float } @ma_vec3f_normalize(<2 x float> %0, float %
   br i1 %8, label %15, label %9
 
 9:                                                ; preds = %2
-  %10 = tail call float asm sideeffect "rsqrtss $1, $0", "=x,x,~{dirflag},~{fpsr},~{flags}"(float %7) #68, !srcloc !162
+  %10 = tail call float asm sideeffect "rsqrtss $1, $0", "=x,x,~{dirflag},~{fpsr},~{flags}"(float %7) #68, !srcloc !157
   %11 = insertelement <2 x float> poison, float %10, i64 0
   %12 = shufflevector <2 x float> %11, <2 x float> poison, <2 x i32> zeroinitializer
   %13 = fmul <2 x float> %12, %0
@@ -29485,7 +29485,7 @@ define hidden void @ma_atomic_vec3f_set(ptr noundef %0, <2 x float> %1, float %2
   br i1 %10, label %.lr.ph.i, label %.loopexit.i
 
 .lr.ph.i:                                         ; preds = %.preheader.i, %.lr.ph.i
-  tail call void asm sideeffect "pause", "~{dirflag},~{fpsr},~{flags}"() #68, !srcloc !5
+  tail call void asm sideeffect "pause", "~{dirflag},~{fpsr},~{flags}"() #68, !srcloc !4
   %11 = load atomic volatile i32, ptr %4 monotonic, align 4
   %12 = icmp eq i32 %11, 1
   br i1 %12, label %.lr.ph.i, label %.loopexit.i
@@ -29516,7 +29516,7 @@ define hidden { <2 x float>, float } @ma_atomic_vec3f_get(ptr noundef %0) local_
   br i1 %8, label %.lr.ph.i, label %.loopexit.i
 
 .lr.ph.i:                                         ; preds = %.preheader.i, %.lr.ph.i
-  tail call void asm sideeffect "pause", "~{dirflag},~{fpsr},~{flags}"() #68, !srcloc !5
+  tail call void asm sideeffect "pause", "~{dirflag},~{fpsr},~{flags}"() #68, !srcloc !4
   %9 = load atomic volatile i32, ptr %2 monotonic, align 4
   %10 = icmp eq i32 %9, 1
   br i1 %10, label %.lr.ph.i, label %.loopexit.i
@@ -29644,7 +29644,7 @@ define hidden noundef i32 @ma_spatializer_listener_init_preallocated(ptr noundef
   br i1 %32, label %.lr.ph.i.i.i, label %.loopexit.i.i.i
 
 .lr.ph.i.i.i:                                     ; preds = %.preheader.i.i.i, %.lr.ph.i.i.i
-  tail call void asm sideeffect "pause", "~{dirflag},~{fpsr},~{flags}"() #68, !srcloc !5
+  tail call void asm sideeffect "pause", "~{dirflag},~{fpsr},~{flags}"() #68, !srcloc !4
   %33 = load atomic volatile i32, ptr %21 monotonic, align 4
   %34 = icmp eq i32 %33, 1
   br i1 %34, label %.lr.ph.i.i.i, label %.loopexit.i.i.i
@@ -29670,7 +29670,7 @@ define hidden noundef i32 @ma_spatializer_listener_init_preallocated(ptr noundef
   br i1 %42, label %.lr.ph.i.i.i85, label %.loopexit.i.i.i83
 
 .lr.ph.i.i.i85:                                   ; preds = %.preheader.i.i.i82, %.lr.ph.i.i.i85
-  tail call void asm sideeffect "pause", "~{dirflag},~{fpsr},~{flags}"() #68, !srcloc !5
+  tail call void asm sideeffect "pause", "~{dirflag},~{fpsr},~{flags}"() #68, !srcloc !4
   %43 = load atomic volatile i32, ptr %21 monotonic, align 4
   %44 = icmp eq i32 %43, 1
   br i1 %44, label %.lr.ph.i.i.i85, label %.loopexit.i.i.i83
@@ -29714,7 +29714,7 @@ ma_spatializer_listener_set_direction.exit:       ; preds = %.loopexit.i.i.i83, 
   %.024.i.i = phi i32 [ %62, %.preheader.i.i ], [ 0, %.preheader.i.i.preheader ]
   %.01723.i.i = phi ptr [ %60, %.preheader.i.i ], [ %1, %.preheader.i.i.preheader ]
   %.01822.i.i = phi i64 [ %61, %.preheader.i.i ], [ %58, %.preheader.i.i.preheader ]
-  %59 = tail call fastcc zeroext i8 @ma_channel_map_init_standard_channel(i32 noundef 0, i32 noundef %50, i32 noundef %.024.i.i), !range !6
+  %59 = tail call fastcc zeroext i8 @ma_channel_map_init_standard_channel(i32 noundef 0, i32 noundef %50, i32 noundef %.024.i.i)
   store i8 %59, ptr %.01723.i.i, align 1
   %60 = getelementptr inbounds i8, ptr %.01723.i.i, i64 1
   %61 = add nsw i64 %.01822.i.i, -1
@@ -29763,7 +29763,7 @@ define hidden { <2 x float>, float } @ma_spatializer_listener_get_direction(ptr 
   br i1 %11, label %.lr.ph.i.i, label %.loopexit.i.i
 
 .lr.ph.i.i:                                       ; preds = %.preheader.i.i, %.lr.ph.i.i
-  tail call void asm sideeffect "pause", "~{dirflag},~{fpsr},~{flags}"() #68, !srcloc !5
+  tail call void asm sideeffect "pause", "~{dirflag},~{fpsr},~{flags}"() #68, !srcloc !4
   %12 = load atomic volatile i32, ptr %5 monotonic, align 4
   %13 = icmp eq i32 %12, 1
   br i1 %13, label %.lr.ph.i.i, label %.loopexit.i.i
@@ -29807,7 +29807,7 @@ define hidden void @ma_spatializer_listener_set_direction(ptr noundef %0, float 
   br i1 %14, label %.lr.ph.i.i, label %.loopexit.i.i
 
 .lr.ph.i.i:                                       ; preds = %.preheader.i.i, %.lr.ph.i.i
-  tail call void asm sideeffect "pause", "~{dirflag},~{fpsr},~{flags}"() #68, !srcloc !5
+  tail call void asm sideeffect "pause", "~{dirflag},~{fpsr},~{flags}"() #68, !srcloc !4
   %15 = load atomic volatile i32, ptr %8 monotonic, align 4
   %16 = icmp eq i32 %15, 1
   br i1 %16, label %.lr.ph.i.i, label %.loopexit.i.i
@@ -30039,7 +30039,7 @@ define hidden void @ma_spatializer_listener_set_position(ptr noundef %0, float n
   br i1 %14, label %.lr.ph.i.i, label %.loopexit.i.i
 
 .lr.ph.i.i:                                       ; preds = %.preheader.i.i, %.lr.ph.i.i
-  tail call void asm sideeffect "pause", "~{dirflag},~{fpsr},~{flags}"() #68, !srcloc !5
+  tail call void asm sideeffect "pause", "~{dirflag},~{fpsr},~{flags}"() #68, !srcloc !4
   %15 = load atomic volatile i32, ptr %8 monotonic, align 4
   %16 = icmp eq i32 %15, 1
   br i1 %16, label %.lr.ph.i.i, label %.loopexit.i.i
@@ -30078,7 +30078,7 @@ define hidden { <2 x float>, float } @ma_spatializer_listener_get_position(ptr n
   br i1 %11, label %.lr.ph.i.i, label %.loopexit.i.i
 
 .lr.ph.i.i:                                       ; preds = %.preheader.i.i, %.lr.ph.i.i
-  tail call void asm sideeffect "pause", "~{dirflag},~{fpsr},~{flags}"() #68, !srcloc !5
+  tail call void asm sideeffect "pause", "~{dirflag},~{fpsr},~{flags}"() #68, !srcloc !4
   %12 = load atomic volatile i32, ptr %5 monotonic, align 4
   %13 = icmp eq i32 %12, 1
   br i1 %13, label %.lr.ph.i.i, label %.loopexit.i.i
@@ -30122,7 +30122,7 @@ define hidden void @ma_spatializer_listener_set_velocity(ptr noundef %0, float n
   br i1 %14, label %.lr.ph.i.i, label %.loopexit.i.i
 
 .lr.ph.i.i:                                       ; preds = %.preheader.i.i, %.lr.ph.i.i
-  tail call void asm sideeffect "pause", "~{dirflag},~{fpsr},~{flags}"() #68, !srcloc !5
+  tail call void asm sideeffect "pause", "~{dirflag},~{fpsr},~{flags}"() #68, !srcloc !4
   %15 = load atomic volatile i32, ptr %8 monotonic, align 4
   %16 = icmp eq i32 %15, 1
   br i1 %16, label %.lr.ph.i.i, label %.loopexit.i.i
@@ -30161,7 +30161,7 @@ define hidden { <2 x float>, float } @ma_spatializer_listener_get_velocity(ptr n
   br i1 %11, label %.lr.ph.i.i, label %.loopexit.i.i
 
 .lr.ph.i.i:                                       ; preds = %.preheader.i.i, %.lr.ph.i.i
-  tail call void asm sideeffect "pause", "~{dirflag},~{fpsr},~{flags}"() #68, !srcloc !5
+  tail call void asm sideeffect "pause", "~{dirflag},~{fpsr},~{flags}"() #68, !srcloc !4
   %12 = load atomic volatile i32, ptr %5 monotonic, align 4
   %13 = icmp eq i32 %12, 1
   br i1 %13, label %.lr.ph.i.i, label %.loopexit.i.i
@@ -30490,7 +30490,7 @@ ma_spatializer_validate_config.exit.i:            ; preds = %11
   br i1 %88, label %.lr.ph.i.i.i, label %.loopexit.i.i.i
 
 .lr.ph.i.i.i:                                     ; preds = %.preheader.i.i.i, %.lr.ph.i.i.i
-  tail call void asm sideeffect "pause", "~{dirflag},~{fpsr},~{flags}"() #68, !srcloc !5
+  tail call void asm sideeffect "pause", "~{dirflag},~{fpsr},~{flags}"() #68, !srcloc !4
   %89 = load atomic volatile i32, ptr %79 monotonic, align 4
   %90 = icmp eq i32 %89, 1
   br i1 %90, label %.lr.ph.i.i.i, label %.loopexit.i.i.i
@@ -30516,7 +30516,7 @@ ma_spatializer_validate_config.exit.i:            ; preds = %11
   br i1 %98, label %.lr.ph.i.i.i131, label %.loopexit.i.i.i129
 
 .lr.ph.i.i.i131:                                  ; preds = %.preheader.i.i.i128, %.lr.ph.i.i.i131
-  tail call void asm sideeffect "pause", "~{dirflag},~{fpsr},~{flags}"() #68, !srcloc !5
+  tail call void asm sideeffect "pause", "~{dirflag},~{fpsr},~{flags}"() #68, !srcloc !4
   %99 = load atomic volatile i32, ptr %79 monotonic, align 4
   %100 = icmp eq i32 %99, 1
   br i1 %100, label %.lr.ph.i.i.i131, label %.loopexit.i.i.i129
@@ -30554,7 +30554,7 @@ ma_spatializer_set_direction.exit:                ; preds = %.loopexit.i.i.i129,
   %.024.i.i = phi i32 [ %115, %.preheader.i.i ], [ 0, %110 ]
   %.01723.i.i = phi ptr [ %113, %.preheader.i.i ], [ %104, %110 ]
   %.01822.i.i = phi i64 [ %114, %.preheader.i.i ], [ %107, %110 ]
-  %112 = tail call fastcc zeroext i8 @ma_channel_map_init_standard_channel(i32 noundef 0, i32 noundef %106, i32 noundef %.024.i.i), !range !6
+  %112 = tail call fastcc zeroext i8 @ma_channel_map_init_standard_channel(i32 noundef 0, i32 noundef %106, i32 noundef %.024.i.i)
   store i8 %112, ptr %.01723.i.i, align 1
   %113 = getelementptr inbounds i8, ptr %.01723.i.i, i64 1
   %114 = add nsw i64 %.01822.i.i, -1
@@ -30638,7 +30638,7 @@ define hidden { <2 x float>, float } @ma_spatializer_get_direction(ptr noundef %
   br i1 %11, label %.lr.ph.i.i, label %.loopexit.i.i
 
 .lr.ph.i.i:                                       ; preds = %.preheader.i.i, %.lr.ph.i.i
-  tail call void asm sideeffect "pause", "~{dirflag},~{fpsr},~{flags}"() #68, !srcloc !5
+  tail call void asm sideeffect "pause", "~{dirflag},~{fpsr},~{flags}"() #68, !srcloc !4
   %12 = load atomic volatile i32, ptr %5 monotonic, align 4
   %13 = icmp eq i32 %12, 1
   br i1 %13, label %.lr.ph.i.i, label %.loopexit.i.i
@@ -30682,7 +30682,7 @@ define hidden void @ma_spatializer_set_direction(ptr noundef %0, float noundef %
   br i1 %14, label %.lr.ph.i.i, label %.loopexit.i.i
 
 .lr.ph.i.i:                                       ; preds = %.preheader.i.i, %.lr.ph.i.i
-  tail call void asm sideeffect "pause", "~{dirflag},~{fpsr},~{flags}"() #68, !srcloc !5
+  tail call void asm sideeffect "pause", "~{dirflag},~{fpsr},~{flags}"() #68, !srcloc !4
   %15 = load atomic volatile i32, ptr %8 monotonic, align 4
   %16 = icmp eq i32 %15, 1
   br i1 %16, label %.lr.ph.i.i, label %.loopexit.i.i
@@ -30857,7 +30857,7 @@ ma_free.exit:                                     ; preds = %30, %28, %25, %20, 
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @ma_spatializer_process_pcm_frames(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i64 noundef %4) local_unnamed_addr #39 {
+define hidden noundef range(i32 -2, 1) i32 @ma_spatializer_process_pcm_frames(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i64 noundef %4) local_unnamed_addr #39 {
   %6 = alloca %struct.ma_vec3f, align 8
   %7 = alloca %struct.ma_vec3f, align 8
   %8 = getelementptr inbounds i8, ptr %0, i64 8
@@ -30968,7 +30968,7 @@ ma_spatializer_listener_is_enabled.exit:          ; preds = %5
   br i1 %65, label %.lr.ph.i.i.i, label %.loopexit.i.i.i
 
 .lr.ph.i.i.i:                                     ; preds = %.preheader.i.i.i, %.lr.ph.i.i.i
-  tail call void asm sideeffect "pause", "~{dirflag},~{fpsr},~{flags}"() #68, !srcloc !5
+  tail call void asm sideeffect "pause", "~{dirflag},~{fpsr},~{flags}"() #68, !srcloc !4
   %66 = load atomic volatile i32, ptr %59 monotonic, align 4
   %67 = icmp eq i32 %66, 1
   br i1 %67, label %.lr.ph.i.i.i, label %.loopexit.i.i.i
@@ -31003,7 +31003,7 @@ ma_spatializer_get_positioning.exit:              ; preds = %.loopexit.i.i.i, %4
   br i1 %81, label %.lr.ph.i.i.i288, label %.loopexit.i.i.i280
 
 .lr.ph.i.i.i288:                                  ; preds = %.preheader.i.i.i279, %.lr.ph.i.i.i288
-  tail call void asm sideeffect "pause", "~{dirflag},~{fpsr},~{flags}"() #68, !srcloc !5
+  tail call void asm sideeffect "pause", "~{dirflag},~{fpsr},~{flags}"() #68, !srcloc !4
   %82 = load atomic volatile i32, ptr %75 monotonic, align 4
   %83 = icmp eq i32 %82, 1
   br i1 %83, label %.lr.ph.i.i.i288, label %.loopexit.i.i.i280
@@ -31033,7 +31033,7 @@ ma_spatializer_get_positioning.exit:              ; preds = %.loopexit.i.i.i, %4
   br i1 %91, label %.lr.ph.i.i.i298, label %.loopexit.i.i.i290
 
 .lr.ph.i.i.i298:                                  ; preds = %.preheader.i.i.i289, %.lr.ph.i.i.i298
-  tail call void asm sideeffect "pause", "~{dirflag},~{fpsr},~{flags}"() #68, !srcloc !5
+  tail call void asm sideeffect "pause", "~{dirflag},~{fpsr},~{flags}"() #68, !srcloc !4
   %92 = load atomic volatile i32, ptr %85 monotonic, align 4
   %93 = icmp eq i32 %92, 1
   br i1 %93, label %.lr.ph.i.i.i298, label %.loopexit.i.i.i290
@@ -31345,7 +31345,7 @@ ma_silence_pcm_frames.exit333:                    ; preds = %241, %235, %234
 
 254:                                              ; preds = %253
   %255 = trunc nuw i64 %indvars.iv403 to i32
-  %256 = call fastcc zeroext i8 @ma_channel_map_init_standard_channel(i32 noundef 0, i32 noundef %44, i32 noundef %255), !range !6
+  %256 = call fastcc zeroext i8 @ma_channel_map_init_standard_channel(i32 noundef 0, i32 noundef %44, i32 noundef %255)
   br label %ma_channel_map_get_channel.exit
 
 257:                                              ; preds = %253
@@ -31488,7 +31488,7 @@ ma_gainer_reset_smoothing_time.exit.i:            ; preds = %322, %._crit_edge.i
   br label %ma_gainer_set_gains.exit
 
 ma_gainer_set_gains.exit:                         ; preds = %.loopexit395, %ma_gainer_reset_smoothing_time.exit.i
-  %325 = call i32 @ma_gainer_process_pcm_frames(ptr noundef nonnull %288, ptr noundef %2, ptr noundef %2, i64 noundef %4), !range !11
+  %325 = call i32 @ma_gainer_process_pcm_frames(ptr noundef nonnull %288, ptr noundef %2, ptr noundef %2, i64 noundef %4)
   %326 = fcmp ogt float %57, 0.000000e+00
   br i1 %326, label %327, label %ma_copy_pcm_frames.exit
 
@@ -31510,7 +31510,7 @@ ma_gainer_set_gains.exit:                         ; preds = %.loopexit395, %ma_g
   br i1 %335, label %.lr.ph.i.i.i351, label %.loopexit.i.i.i343
 
 .lr.ph.i.i.i351:                                  ; preds = %.preheader.i.i.i342, %.lr.ph.i.i.i351
-  call void asm sideeffect "pause", "~{dirflag},~{fpsr},~{flags}"() #68, !srcloc !5
+  call void asm sideeffect "pause", "~{dirflag},~{fpsr},~{flags}"() #68, !srcloc !4
   %336 = load atomic volatile i32, ptr %329 monotonic, align 4
   %337 = icmp eq i32 %336, 1
   br i1 %337, label %.lr.ph.i.i.i351, label %.loopexit.i.i.i343
@@ -31537,7 +31537,7 @@ ma_gainer_set_gains.exit:                         ; preds = %.loopexit395, %ma_g
   br i1 %345, label %.lr.ph.i.i.i361, label %.loopexit.i.i.i353
 
 .lr.ph.i.i.i361:                                  ; preds = %.preheader.i.i.i352, %.lr.ph.i.i.i361
-  call void asm sideeffect "pause", "~{dirflag},~{fpsr},~{flags}"() #68, !srcloc !5
+  call void asm sideeffect "pause", "~{dirflag},~{fpsr},~{flags}"() #68, !srcloc !4
   %346 = load atomic volatile i32, ptr %339 monotonic, align 4
   %347 = icmp eq i32 %346, 1
   br i1 %347, label %.lr.ph.i.i.i361, label %.loopexit.i.i.i353
@@ -31569,7 +31569,7 @@ ma_gainer_set_gains.exit:                         ; preds = %.loopexit395, %ma_g
   br i1 %360, label %.lr.ph.i.i.i378, label %.loopexit.i.i.i370
 
 .lr.ph.i.i.i378:                                  ; preds = %.preheader.i.i.i369, %.lr.ph.i.i.i378
-  call void asm sideeffect "pause", "~{dirflag},~{fpsr},~{flags}"() #68, !srcloc !5
+  call void asm sideeffect "pause", "~{dirflag},~{fpsr},~{flags}"() #68, !srcloc !4
   %361 = load atomic volatile i32, ptr %354 monotonic, align 4
   %362 = icmp eq i32 %361, 1
   br i1 %362, label %.lr.ph.i.i.i378, label %.loopexit.i.i.i370
@@ -31628,7 +31628,7 @@ ma_copy_pcm_frames.exit:                          ; preds = %.lr.ph.i, %39, %ma_
 define internal fastcc void @ma_channel_map_apply_f32(ptr noundef writeonly %0, ptr noundef %1, i32 noundef %2, ptr noundef readonly %3, ptr noundef %4, i32 noundef %5, i64 noundef %6) unnamed_addr #37 {
   %8 = alloca [254 x i8], align 16
   %9 = alloca [32 x [32 x float]], align 16
-  %10 = tail call fastcc i32 @ma_channel_map_get_conversion_path(ptr noundef %4, i32 noundef %5, ptr noundef %1, i32 noundef %2, i32 noundef 0), !range !163
+  %10 = tail call fastcc i32 @ma_channel_map_get_conversion_path(ptr noundef %4, i32 noundef %5, ptr noundef %1, i32 noundef %2, i32 noundef 0)
   switch i32 %10, label %173 [
     i32 1, label %11
     i32 2, label %20
@@ -31677,7 +31677,7 @@ ma_channel_map_get_channel.exit.preheader.i:      ; preds = %.preheader67.i
 ma_channel_map_get_channel.exit.us.i:             ; preds = %.preheader67.i, %ma_channel_map_get_channel.exit.us.i
   %.03669.us.i = phi i32 [ %spec.select.us.i, %ma_channel_map_get_channel.exit.us.i ], [ 0, %.preheader67.i ]
   %.03868.us.i = phi i32 [ %27, %ma_channel_map_get_channel.exit.us.i ], [ 0, %.preheader67.i ]
-  %25 = tail call fastcc zeroext i8 @ma_channel_map_init_standard_channel(i32 noundef 0, i32 noundef %5, i32 noundef %.03868.us.i), !range !6
+  %25 = tail call fastcc zeroext i8 @ma_channel_map_init_standard_channel(i32 noundef 0, i32 noundef %5, i32 noundef %.03868.us.i)
   %.not47.us.i = icmp ne i8 %25, 0
   %26 = zext i1 %.not47.us.i to i32
   %spec.select.us.i = add i32 %.03669.us.i, %26
@@ -31876,8 +31876,8 @@ ma_channel_map_get_channel.exit50.thread57.us84.i: ; preds = %ma_channel_map_get
   br i1 %.not.i51.i, label %ma_copy_pcm_frames.exit, label %.lr.ph.i.i
 
 76:                                               ; preds = %7
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !164)
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !167)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !158)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !161)
   call void @llvm.lifetime.start.p0(i64 254, ptr nonnull %8)
   %77 = icmp eq ptr %0, null
   %78 = icmp eq i32 %2, 0
@@ -31912,9 +31912,9 @@ ma_channel_map_get_channel.exit50.thread57.us84.i: ; preds = %ma_channel_map_get
   br i1 %88, label %ma_channel_map_get_channel.exit281.thread.us.us.i, label %ma_channel_map_get_channel.exit281.thread287.us.us.i
 
 ma_channel_map_get_channel.exit281.thread.us.us.i: ; preds = %87
-  %89 = load float, ptr %84, align 4, !alias.scope !167, !noalias !164
+  %89 = load float, ptr %84, align 4, !alias.scope !161, !noalias !158
   %90 = getelementptr float, ptr %86, i64 %indvars.iv345.i
-  store float %89, ptr %90, align 4, !alias.scope !164, !noalias !167
+  store float %89, ptr %90, align 4, !alias.scope !158, !noalias !161
   br label %ma_channel_map_get_channel.exit281.thread287.us.us.i
 
 ma_channel_map_get_channel.exit281.thread287.us.us.i: ; preds = %ma_channel_map_get_channel.exit281.thread.us.us.i, %87
@@ -31933,16 +31933,16 @@ ma_channel_map_get_channel.exit281.thread287.us.us.i: ; preds = %ma_channel_map_
   br i1 %92, label %ma_channel_map_get_channel.exit.us.i338, label %ma_channel_map_get_channel.exit.preheader.i334
 
 ma_channel_map_get_channel.exit.preheader.i334:   ; preds = %.lr.ph.i333
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %8, ptr nonnull align 1 %1, i64 %wide.trip.count359.i, i1 false), !noalias !169
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %8, ptr nonnull align 1 %1, i64 %wide.trip.count359.i, i1 false), !noalias !163
   br label %ma_channel_map_get_channel.exit.i335
 
 ma_channel_map_get_channel.exit.us.i338:          ; preds = %.lr.ph.i333, %ma_channel_map_get_channel.exit.us.i338
   %indvars.iv356.i = phi i64 [ %indvars.iv.next357.i, %ma_channel_map_get_channel.exit.us.i338 ], [ 0, %.lr.ph.i333 ]
   %.0271307.us.i = phi i32 [ %spec.select.us.i339, %ma_channel_map_get_channel.exit.us.i338 ], [ 0, %.lr.ph.i333 ]
   %93 = trunc nuw nsw i64 %indvars.iv356.i to i32
-  %94 = tail call fastcc zeroext i8 @ma_channel_map_init_standard_channel(i32 noundef 0, i32 noundef %2, i32 noundef %93), !range !6
+  %94 = tail call fastcc zeroext i8 @ma_channel_map_init_standard_channel(i32 noundef 0, i32 noundef %2, i32 noundef %93)
   %95 = getelementptr inbounds [254 x i8], ptr %8, i64 0, i64 %indvars.iv356.i
-  store i8 %94, ptr %95, align 1, !noalias !169
+  store i8 %94, ptr %95, align 1, !noalias !163
   %96 = icmp eq i8 %94, 0
   %spec.select.us.i339 = select i1 %96, i32 1, i32 %.0271307.us.i
   %indvars.iv.next357.i = add nuw nsw i64 %indvars.iv356.i, 1
@@ -31953,7 +31953,7 @@ ma_channel_map_get_channel.exit.i335:             ; preds = %ma_channel_map_get_
   %indvars.iv351.i = phi i64 [ 0, %ma_channel_map_get_channel.exit.preheader.i334 ], [ %indvars.iv.next352.i, %ma_channel_map_get_channel.exit.i335 ]
   %.0271307.i = phi i32 [ 0, %ma_channel_map_get_channel.exit.preheader.i334 ], [ %spec.select.i336, %ma_channel_map_get_channel.exit.i335 ]
   %97 = getelementptr inbounds i8, ptr %1, i64 %indvars.iv351.i
-  %98 = load i8, ptr %97, align 1, !noalias !169
+  %98 = load i8, ptr %97, align 1, !noalias !163
   %99 = icmp eq i8 %98, 0
   %spec.select.i336 = select i1 %99, i32 1, i32 %.0271307.i
   %indvars.iv.next352.i = add nuw nsw i64 %indvars.iv351.i, 1
@@ -31979,14 +31979,14 @@ ma_channel_map_get_channel.exit.i335:             ; preds = %ma_channel_map_get_
 104:                                              ; preds = %110, %.preheader298.us.i
   %indvars.iv361.i = phi i64 [ 0, %.preheader298.us.i ], [ %indvars.iv.next362.i, %110 ]
   %105 = getelementptr inbounds [254 x i8], ptr %8, i64 0, i64 %indvars.iv361.i
-  %106 = load i8, ptr %105, align 1, !noalias !169
+  %106 = load i8, ptr %105, align 1, !noalias !163
   %.not278.us.i = icmp eq i8 %106, 0
   br i1 %.not278.us.i, label %110, label %107
 
 107:                                              ; preds = %104
-  %108 = load float, ptr %101, align 4, !alias.scope !167, !noalias !164
+  %108 = load float, ptr %101, align 4, !alias.scope !161, !noalias !158
   %109 = getelementptr float, ptr %103, i64 %indvars.iv361.i
-  store float %108, ptr %109, align 4, !alias.scope !164, !noalias !167
+  store float %108, ptr %109, align 4, !alias.scope !158, !noalias !161
   br label %110
 
 110:                                              ; preds = %107, %104
@@ -32020,16 +32020,16 @@ ma_channel_map_get_channel.exit.i335:             ; preds = %ma_channel_map_get_
   %.2319.i = phi i64 [ %126, %.lr.ph321.i ], [ 0, %113 ]
   %115 = shl nuw i64 %.2319.i, 1
   %116 = getelementptr inbounds float, ptr %3, i64 %115
-  %117 = load float, ptr %116, align 4, !alias.scope !167, !noalias !164
+  %117 = load float, ptr %116, align 4, !alias.scope !161, !noalias !158
   %118 = insertelement <4 x float> poison, float %117, i64 0
   %119 = or disjoint i64 %115, 1
   %120 = getelementptr inbounds float, ptr %3, i64 %119
-  %121 = load float, ptr %120, align 4, !alias.scope !167, !noalias !164
+  %121 = load float, ptr %120, align 4, !alias.scope !161, !noalias !158
   %122 = insertelement <4 x float> poison, float %121, i64 0
   %123 = shl i64 %.2319.i, 2
   %124 = getelementptr inbounds float, ptr %0, i64 %123
   %125 = shufflevector <4 x float> %118, <4 x float> %122, <4 x i32> <i32 0, i32 0, i32 4, i32 4>
-  store <4 x float> %125, ptr %124, align 1, !alias.scope !164, !noalias !167
+  store <4 x float> %125, ptr %124, align 1, !alias.scope !158, !noalias !161
   %126 = add nuw nsw i64 %.2319.i, 1
   %exitcond369.not.i = icmp eq i64 %126, %114
   br i1 %exitcond369.not.i, label %._crit_edge322.i, label %.lr.ph321.i
@@ -32047,22 +32047,22 @@ ma_channel_map_get_channel.exit.i335:             ; preds = %ma_channel_map_get_
   %.4315.i = phi i64 [ %145, %.lr.ph317.i ], [ 0, %128 ]
   %130 = shl nuw i64 %.4315.i, 1
   %131 = getelementptr inbounds float, ptr %3, i64 %130
-  %132 = load float, ptr %131, align 4, !alias.scope !167, !noalias !164
+  %132 = load float, ptr %131, align 4, !alias.scope !161, !noalias !158
   %133 = insertelement <4 x float> poison, float %132, i64 0
   %134 = shufflevector <4 x float> %133, <4 x float> poison, <4 x i32> zeroinitializer
   %135 = or disjoint i64 %130, 1
   %136 = getelementptr inbounds float, ptr %3, i64 %135
-  %137 = load float, ptr %136, align 4, !alias.scope !167, !noalias !164
+  %137 = load float, ptr %136, align 4, !alias.scope !161, !noalias !158
   %138 = insertelement <4 x float> poison, float %137, i64 0
   %139 = shufflevector <4 x float> %138, <4 x float> poison, <4 x i32> zeroinitializer
   %140 = mul i64 %.4315.i, 12
   %141 = getelementptr inbounds float, ptr %0, i64 %140
-  store <4 x float> %134, ptr %141, align 1, !alias.scope !164, !noalias !167
+  store <4 x float> %134, ptr %141, align 1, !alias.scope !158, !noalias !161
   %142 = getelementptr i8, ptr %141, i64 16
   %143 = shufflevector <4 x float> %133, <4 x float> %138, <4 x i32> <i32 0, i32 0, i32 4, i32 4>
-  store <4 x float> %143, ptr %142, align 1, !alias.scope !164, !noalias !167
+  store <4 x float> %143, ptr %142, align 1, !alias.scope !158, !noalias !161
   %144 = getelementptr i8, ptr %141, i64 32
-  store <4 x float> %139, ptr %144, align 1, !alias.scope !164, !noalias !167
+  store <4 x float> %139, ptr %144, align 1, !alias.scope !158, !noalias !161
   %145 = add nuw nsw i64 %.4315.i, 1
   %exitcond368.not.i = icmp eq i64 %145, %129
   br i1 %exitcond368.not.i, label %._crit_edge318.i, label %.lr.ph317.i
@@ -32074,15 +32074,15 @@ ma_channel_map_get_channel.exit.i335:             ; preds = %ma_channel_map_get_
 .lr.ph314.i:                                      ; preds = %.preheader296.i, %.lr.ph314.i
   %.6313.i = phi i64 [ %155, %.lr.ph314.i ], [ 0, %.preheader296.i ]
   %147 = getelementptr inbounds float, ptr %3, i64 %.6313.i
-  %148 = load float, ptr %147, align 4, !alias.scope !167, !noalias !164
+  %148 = load float, ptr %147, align 4, !alias.scope !161, !noalias !158
   %149 = insertelement <4 x float> poison, float %148, i64 0
   %150 = shufflevector <4 x float> %149, <4 x float> poison, <4 x i32> zeroinitializer
   %151 = shl i64 %.6313.i, 3
   %152 = getelementptr inbounds float, ptr %0, i64 %151
-  store <4 x float> %150, ptr %152, align 1, !alias.scope !164, !noalias !167
+  store <4 x float> %150, ptr %152, align 1, !alias.scope !158, !noalias !161
   %153 = or disjoint i64 %151, 4
   %154 = getelementptr inbounds float, ptr %0, i64 %153
-  store <4 x float> %150, ptr %154, align 1, !alias.scope !164, !noalias !167
+  store <4 x float> %150, ptr %154, align 1, !alias.scope !158, !noalias !161
   %155 = add nuw i64 %.6313.i, 1
   %exitcond367.not.i = icmp eq i64 %155, %6
   br i1 %exitcond367.not.i, label %ma_channel_map_apply_mono_in_f32.exit, label %.lr.ph314.i
@@ -32095,7 +32095,7 @@ ma_channel_map_get_channel.exit.i335:             ; preds = %ma_channel_map_get_
 .preheader.us.i337:                               ; preds = %156, %._crit_edge325.us.i
   %.9326.us.i = phi i64 [ %164, %._crit_edge325.us.i ], [ %.8.i, %156 ]
   %158 = getelementptr inbounds float, ptr %3, i64 %.9326.us.i
-  %159 = load float, ptr %158, align 4, !alias.scope !167, !noalias !164
+  %159 = load float, ptr %158, align 4, !alias.scope !161, !noalias !158
   %160 = mul i64 %.9326.us.i, %wide.trip.count359.i
   %161 = getelementptr float, ptr %0, i64 %160
   br label %162
@@ -32103,7 +32103,7 @@ ma_channel_map_get_channel.exit.i335:             ; preds = %ma_channel_map_get_
 162:                                              ; preds = %162, %.preheader.us.i337
   %indvars.iv370.i = phi i64 [ 0, %.preheader.us.i337 ], [ %indvars.iv.next371.i, %162 ]
   %163 = getelementptr float, ptr %161, i64 %indvars.iv370.i
-  store float %159, ptr %163, align 4, !alias.scope !164, !noalias !167
+  store float %159, ptr %163, align 4, !alias.scope !158, !noalias !161
   %indvars.iv.next371.i = add nuw nsw i64 %indvars.iv370.i, 1
   %exitcond374.not.i = icmp eq i64 %indvars.iv.next371.i, %wide.trip.count359.i
   br i1 %exitcond374.not.i, label %._crit_edge325.us.i, label %162
@@ -32123,14 +32123,14 @@ ma_channel_map_get_channel.exit.i335:             ; preds = %ma_channel_map_get_
 ma_channel_map_get_channel.exit281.i:             ; preds = %ma_channel_map_get_channel.exit281.thread287.i, %.preheader302.i
   %indvars.iv.i328 = phi i64 [ 0, %.preheader302.i ], [ %indvars.iv.next.i330, %ma_channel_map_get_channel.exit281.thread287.i ]
   %168 = getelementptr inbounds i8, ptr %1, i64 %indvars.iv.i328
-  %169 = load i8, ptr %168, align 1, !noalias !169
+  %169 = load i8, ptr %168, align 1, !noalias !163
   %.not.i329 = icmp eq i8 %169, 0
   br i1 %.not.i329, label %ma_channel_map_get_channel.exit281.thread287.i, label %ma_channel_map_get_channel.exit281.thread.i
 
 ma_channel_map_get_channel.exit281.thread.i:      ; preds = %ma_channel_map_get_channel.exit281.i
-  %170 = load float, ptr %165, align 4, !alias.scope !167, !noalias !164
+  %170 = load float, ptr %165, align 4, !alias.scope !161, !noalias !158
   %171 = getelementptr float, ptr %167, i64 %indvars.iv.i328
-  store float %170, ptr %171, align 4, !alias.scope !164, !noalias !167
+  store float %170, ptr %171, align 4, !alias.scope !158, !noalias !161
   br label %ma_channel_map_get_channel.exit281.thread287.i
 
 ma_channel_map_get_channel.exit281.thread287.i:   ; preds = %ma_channel_map_get_channel.exit281.thread.i, %ma_channel_map_get_channel.exit281.i
@@ -32214,7 +32214,7 @@ ma_channel_map_get_channel.exit347.us404:         ; preds = %.lr.ph393.split.us4
 
 193:                                              ; preds = %.lr.ph393.split.us.us
   %194 = trunc nuw nsw i64 %indvars.iv535 to i32
-  %195 = tail call fastcc zeroext i8 @ma_channel_map_init_standard_channel(i32 noundef 0, i32 noundef %2, i32 noundef %194), !range !6
+  %195 = tail call fastcc zeroext i8 @ma_channel_map_init_standard_channel(i32 noundef 0, i32 noundef %2, i32 noundef %194)
   br label %ma_channel_map_get_channel.exit347.us.us
 
 ma_channel_map_get_channel.exit347.us.us:         ; preds = %193, %190
@@ -32425,7 +32425,7 @@ ma_channel_map_get_channel.exit347.us402.us:      ; preds = %.lr.ph393.split.us4
 
 292:                                              ; preds = %291
   %293 = trunc nuw nsw i64 %indvars.iv560 to i32
-  %294 = tail call fastcc zeroext i8 @ma_channel_map_init_standard_channel(i32 noundef 0, i32 noundef %2, i32 noundef %293), !range !6
+  %294 = tail call fastcc zeroext i8 @ma_channel_map_init_standard_channel(i32 noundef 0, i32 noundef %2, i32 noundef %293)
   br label %ma_channel_map_get_channel.exit
 
 295:                                              ; preds = %291
@@ -32454,7 +32454,7 @@ ma_channel_map_get_channel.exit:                  ; preds = %292, %295
 ma_channel_map_get_channel.exit344.us:            ; preds = %.lr.ph, %ma_channel_map_get_channel.exit344.us
   %indvars.iv555 = phi i64 [ %indvars.iv.next556, %ma_channel_map_get_channel.exit344.us ], [ 0, %.lr.ph ]
   %309 = trunc nuw i64 %indvars.iv555 to i32
-  %310 = tail call fastcc zeroext i8 @ma_channel_map_init_standard_channel(i32 noundef 0, i32 noundef %5, i32 noundef %309), !range !6
+  %310 = tail call fastcc zeroext i8 @ma_channel_map_init_standard_channel(i32 noundef 0, i32 noundef %5, i32 noundef %309)
   %311 = zext nneg i8 %310 to i64
   %312 = getelementptr inbounds [52 x [6 x float]], ptr @g_maChannelPlaneRatios, i64 0, i64 %311
   %313 = load float, ptr %312, align 8
@@ -32981,7 +32981,7 @@ define hidden { <2 x float>, float } @ma_spatializer_get_position(ptr noundef %0
   br i1 %11, label %.lr.ph.i.i, label %.loopexit.i.i
 
 .lr.ph.i.i:                                       ; preds = %.preheader.i.i, %.lr.ph.i.i
-  tail call void asm sideeffect "pause", "~{dirflag},~{fpsr},~{flags}"() #68, !srcloc !5
+  tail call void asm sideeffect "pause", "~{dirflag},~{fpsr},~{flags}"() #68, !srcloc !4
   %12 = load atomic volatile i32, ptr %5 monotonic, align 4
   %13 = icmp eq i32 %12, 1
   br i1 %13, label %.lr.ph.i.i, label %.loopexit.i.i
@@ -33056,7 +33056,7 @@ ma_spatializer_get_positioning.exit:              ; preds = %12
   br i1 %26, label %.lr.ph.i.i.i, label %.loopexit.i.i.i
 
 .lr.ph.i.i.i:                                     ; preds = %.preheader.i.i.i, %.lr.ph.i.i.i
-  tail call void asm sideeffect "pause", "~{dirflag},~{fpsr},~{flags}"() #68, !srcloc !5
+  tail call void asm sideeffect "pause", "~{dirflag},~{fpsr},~{flags}"() #68, !srcloc !4
   %27 = load atomic volatile i32, ptr %20 monotonic, align 4
   %28 = icmp eq i32 %27, 1
   br i1 %28, label %.lr.ph.i.i.i, label %.loopexit.i.i.i
@@ -33092,7 +33092,7 @@ ma_spatializer_get_position.exit:                 ; preds = %.loopexit.i.i.i, %1
   br i1 %38, label %.lr.ph.i.i.i205, label %.loopexit.i.i.i197
 
 .lr.ph.i.i.i205:                                  ; preds = %.preheader.i.i.i196, %.lr.ph.i.i.i205
-  tail call void asm sideeffect "pause", "~{dirflag},~{fpsr},~{flags}"() #68, !srcloc !5
+  tail call void asm sideeffect "pause", "~{dirflag},~{fpsr},~{flags}"() #68, !srcloc !4
   %39 = load atomic volatile i32, ptr %32 monotonic, align 4
   %40 = icmp eq i32 %39, 1
   br i1 %40, label %.lr.ph.i.i.i205, label %.loopexit.i.i.i197
@@ -33123,7 +33123,7 @@ ma_spatializer_get_direction.exit:                ; preds = %.loopexit.i.i.i197,
   br i1 %49, label %.lr.ph.i.i.i215, label %.loopexit.i.i.i207
 
 .lr.ph.i.i.i215:                                  ; preds = %.preheader.i.i.i206, %.lr.ph.i.i.i215
-  tail call void asm sideeffect "pause", "~{dirflag},~{fpsr},~{flags}"() #68, !srcloc !5
+  tail call void asm sideeffect "pause", "~{dirflag},~{fpsr},~{flags}"() #68, !srcloc !4
   %50 = load atomic volatile i32, ptr %43 monotonic, align 4
   %51 = icmp eq i32 %50, 1
   br i1 %51, label %.lr.ph.i.i.i215, label %.loopexit.i.i.i207
@@ -33150,7 +33150,7 @@ ma_spatializer_get_direction.exit:                ; preds = %.loopexit.i.i.i197,
   br i1 %59, label %.lr.ph.i.i.i226, label %.loopexit.i.i.i218
 
 .lr.ph.i.i.i226:                                  ; preds = %.preheader.i.i.i217, %.lr.ph.i.i.i226
-  tail call void asm sideeffect "pause", "~{dirflag},~{fpsr},~{flags}"() #68, !srcloc !5
+  tail call void asm sideeffect "pause", "~{dirflag},~{fpsr},~{flags}"() #68, !srcloc !4
   %60 = load atomic volatile i32, ptr %53 monotonic, align 4
   %61 = icmp eq i32 %60, 1
   br i1 %61, label %.lr.ph.i.i.i226, label %.loopexit.i.i.i218
@@ -33177,7 +33177,7 @@ ma_spatializer_get_direction.exit:                ; preds = %.loopexit.i.i.i197,
   br i1 %69, label %.lr.ph.i.i.i237, label %.loopexit.i.i.i229
 
 .lr.ph.i.i.i237:                                  ; preds = %.preheader.i.i.i228, %.lr.ph.i.i.i237
-  tail call void asm sideeffect "pause", "~{dirflag},~{fpsr},~{flags}"() #68, !srcloc !5
+  tail call void asm sideeffect "pause", "~{dirflag},~{fpsr},~{flags}"() #68, !srcloc !4
   %70 = load atomic volatile i32, ptr %63 monotonic, align 4
   %71 = icmp eq i32 %70, 1
   br i1 %71, label %.lr.ph.i.i.i237, label %.loopexit.i.i.i229
@@ -33204,7 +33204,7 @@ ma_spatializer_get_direction.exit:                ; preds = %.loopexit.i.i.i197,
   br i1 %79, label %.lr.ph.i.i.i247, label %.loopexit.i.i.i239
 
 .lr.ph.i.i.i247:                                  ; preds = %.preheader.i.i.i238, %.lr.ph.i.i.i247
-  tail call void asm sideeffect "pause", "~{dirflag},~{fpsr},~{flags}"() #68, !srcloc !5
+  tail call void asm sideeffect "pause", "~{dirflag},~{fpsr},~{flags}"() #68, !srcloc !4
   %80 = load atomic volatile i32, ptr %73 monotonic, align 4
   %81 = icmp eq i32 %80, 1
   br i1 %81, label %.lr.ph.i.i.i247, label %.loopexit.i.i.i239
@@ -33223,7 +33223,7 @@ ma_spatializer_listener_get_direction.exit:       ; preds = %.loopexit.i.i.i239,
   br i1 %87, label %ma_vec3f_normalize.exit, label %88
 
 88:                                               ; preds = %ma_spatializer_listener_get_direction.exit
-  %89 = tail call float asm sideeffect "rsqrtss $1, $0", "=x,x,~{dirflag},~{fpsr},~{flags}"(float %86) #68, !srcloc !162
+  %89 = tail call float asm sideeffect "rsqrtss $1, $0", "=x,x,~{dirflag},~{fpsr},~{flags}"(float %86) #68, !srcloc !157
   %90 = insertelement <2 x float> poison, float %89, i64 0
   %91 = shufflevector <2 x float> %90, <2 x float> poison, <2 x i32> zeroinitializer
   %92 = fmul <2 x float> %.sroa.03.0.copyload.i.i241, %91
@@ -33261,7 +33261,7 @@ ma_vec3f_normalize.exit:                          ; preds = %ma_spatializer_list
   br i1 %111, label %ma_vec3f_normalize.exit258, label %112
 
 112:                                              ; preds = %ma_vec3f_normalize.exit
-  %113 = tail call float asm sideeffect "rsqrtss $1, $0", "=x,x,~{dirflag},~{fpsr},~{flags}"(float %110) #68, !srcloc !162
+  %113 = tail call float asm sideeffect "rsqrtss $1, $0", "=x,x,~{dirflag},~{fpsr},~{flags}"(float %110) #68, !srcloc !157
   %114 = insertelement <2 x float> poison, float %113, i64 0
   %115 = shufflevector <2 x float> %114, <2 x float> poison, <2 x i32> zeroinitializer
   %116 = fmul <2 x float> %102, %115
@@ -33466,7 +33466,7 @@ define hidden zeroext i8 @ma_channel_map_get_channel(ptr noundef readonly %0, i3
   br i1 %4, label %5, label %7
 
 5:                                                ; preds = %3
-  %6 = tail call fastcc zeroext i8 @ma_channel_map_init_standard_channel(i32 noundef 0, i32 noundef %1, i32 noundef %2), !range !6
+  %6 = tail call fastcc zeroext i8 @ma_channel_map_init_standard_channel(i32 noundef 0, i32 noundef %1, i32 noundef %2)
   br label %12
 
 7:                                                ; preds = %3
@@ -33523,7 +33523,7 @@ define hidden { <2 x float>, float } @ma_spatializer_get_velocity(ptr noundef %0
   br i1 %11, label %.lr.ph.i.i, label %.loopexit.i.i
 
 .lr.ph.i.i:                                       ; preds = %.preheader.i.i, %.lr.ph.i.i
-  tail call void asm sideeffect "pause", "~{dirflag},~{fpsr},~{flags}"() #68, !srcloc !5
+  tail call void asm sideeffect "pause", "~{dirflag},~{fpsr},~{flags}"() #68, !srcloc !4
   %12 = load atomic volatile i32, ptr %5 monotonic, align 4
   %13 = icmp eq i32 %12, 1
   br i1 %13, label %.lr.ph.i.i, label %.loopexit.i.i
@@ -33543,7 +33543,7 @@ ma_atomic_vec3f_get.exit:                         ; preds = %.loopexit.i.i, %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden noundef i32 @ma_spatializer_set_master_volume(ptr noundef writeonly %0, float noundef %1) local_unnamed_addr #0 {
+define hidden range(i32 -2, 1) i32 @ma_spatializer_set_master_volume(ptr noundef writeonly %0, float noundef %1) local_unnamed_addr #0 {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %6, label %4
 
@@ -33558,7 +33558,7 @@ define hidden noundef i32 @ma_spatializer_set_master_volume(ptr noundef writeonl
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden noundef i32 @ma_spatializer_get_master_volume(ptr noundef readonly %0, ptr noundef writeonly %1) local_unnamed_addr #16 {
+define hidden range(i32 -2, 1) i32 @ma_spatializer_get_master_volume(ptr noundef readonly %0, ptr noundef writeonly %1) local_unnamed_addr #16 {
   %3 = icmp eq ptr %0, null
   %4 = icmp eq ptr %1, null
   %or.cond = or i1 %3, %4
@@ -33783,7 +33783,7 @@ define hidden void @ma_spatializer_set_position(ptr noundef %0, float noundef %1
   br i1 %14, label %.lr.ph.i.i, label %.loopexit.i.i
 
 .lr.ph.i.i:                                       ; preds = %.preheader.i.i, %.lr.ph.i.i
-  tail call void asm sideeffect "pause", "~{dirflag},~{fpsr},~{flags}"() #68, !srcloc !5
+  tail call void asm sideeffect "pause", "~{dirflag},~{fpsr},~{flags}"() #68, !srcloc !4
   %15 = load atomic volatile i32, ptr %8 monotonic, align 4
   %16 = icmp eq i32 %15, 1
   br i1 %16, label %.lr.ph.i.i, label %.loopexit.i.i
@@ -33824,7 +33824,7 @@ define hidden void @ma_spatializer_set_velocity(ptr noundef %0, float noundef %1
   br i1 %14, label %.lr.ph.i.i, label %.loopexit.i.i
 
 .lr.ph.i.i:                                       ; preds = %.preheader.i.i, %.lr.ph.i.i
-  tail call void asm sideeffect "pause", "~{dirflag},~{fpsr},~{flags}"() #68, !srcloc !5
+  tail call void asm sideeffect "pause", "~{dirflag},~{fpsr},~{flags}"() #68, !srcloc !4
   %15 = load atomic volatile i32, ptr %8 monotonic, align 4
   %16 = icmp eq i32 %15, 1
   br i1 %16, label %.lr.ph.i.i, label %.loopexit.i.i
@@ -34311,7 +34311,7 @@ ma_free.exit:                                     ; preds = %18, %16, %13, %8, %
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind uwtable
-define hidden noundef i32 @ma_linear_resampler_process_pcm_frames(ptr noundef %0, ptr noundef readonly %1, ptr nocapture noundef %2, ptr noundef %3, ptr nocapture noundef %4) local_unnamed_addr #42 {
+define hidden range(i32 -2, 1) i32 @ma_linear_resampler_process_pcm_frames(ptr noundef %0, ptr noundef readonly %1, ptr nocapture noundef %2, ptr noundef %3, ptr nocapture noundef %4) local_unnamed_addr #42 {
   %6 = icmp eq ptr %0, null
   br i1 %6, label %669, label %7
 
@@ -34568,14 +34568,14 @@ define hidden noundef i32 @ma_linear_resampler_process_pcm_frames(ptr noundef %0
   br i1 %.not.i.i, label %171, label %147
 
 147:                                              ; preds = %146
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !170)
-  %148 = load i32, ptr %19, align 4, !noalias !170
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !164)
+  %148 = load i32, ptr %19, align 4, !noalias !164
   %149 = shl i32 %.pre226.i.i, 12
   %150 = udiv i32 %149, %.pre228.i.i
   %151 = icmp ne i32 %148, 0
   tail call void @llvm.assume(i1 %151)
-  %152 = load ptr, ptr %21, align 8, !noalias !170
-  %153 = load ptr, ptr %20, align 8, !noalias !170
+  %152 = load ptr, ptr %21, align 8, !noalias !164
+  %153 = load ptr, ptr %20, align 8, !noalias !164
   %154 = sub nsw i32 4096, %150
   %wide.trip.count.i.i.i = zext i32 %148 to i64
   br label %155
@@ -34583,9 +34583,9 @@ define hidden noundef i32 @ma_linear_resampler_process_pcm_frames(ptr noundef %0
 155:                                              ; preds = %155, %147
   %indvars.iv.i.i.i = phi i64 [ 0, %147 ], [ %indvars.iv.next.i.i.i, %155 ]
   %156 = getelementptr inbounds i16, ptr %152, i64 %indvars.iv.i.i.i
-  %157 = load i16, ptr %156, align 2, !noalias !170
+  %157 = load i16, ptr %156, align 2, !noalias !164
   %158 = getelementptr inbounds i16, ptr %153, i64 %indvars.iv.i.i.i
-  %159 = load i16, ptr %158, align 2, !noalias !170
+  %159 = load i16, ptr %158, align 2, !noalias !164
   %160 = sext i16 %157 to i32
   %161 = mul nsw i32 %154, %160
   %162 = sext i16 %159 to i32
@@ -34594,7 +34594,7 @@ define hidden noundef i32 @ma_linear_resampler_process_pcm_frames(ptr noundef %0
   %165 = lshr i32 %164, 12
   %166 = trunc i32 %165 to i16
   %167 = getelementptr inbounds i16, ptr %.0150188.i.i, i64 %indvars.iv.i.i.i
-  store i16 %166, ptr %167, align 2, !alias.scope !170
+  store i16 %166, ptr %167, align 2, !alias.scope !164
   %indvars.iv.next.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i, 1
   %exitcond.not.i.i.i = icmp eq i64 %indvars.iv.next.i.i.i, %wide.trip.count.i.i.i
   br i1 %exitcond.not.i.i.i, label %ma_linear_resampler_interpolate_frame_s16.exit.i.i, label %155
@@ -34750,14 +34750,14 @@ ma_linear_resampler_interpolate_frame_s16.exit.i.i: ; preds = %155
   br i1 %.not.i17.i, label %339, label %236
 
 236:                                              ; preds = %235
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !173)
-  %237 = load i32, ptr %187, align 4, !noalias !173
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !167)
+  %237 = load i32, ptr %187, align 4, !noalias !167
   %238 = shl i32 %.pre227.i18.i, 12
   %239 = udiv i32 %238, %.pre229.i.i
   %240 = icmp ne i32 %237, 0
   tail call void @llvm.assume(i1 %240)
-  %241 = load ptr, ptr %189, align 8, !noalias !173
-  %242 = load ptr, ptr %188, align 8, !noalias !173
+  %241 = load ptr, ptr %189, align 8, !noalias !167
+  %242 = load ptr, ptr %188, align 8, !noalias !167
   %243 = sub nsw i32 4096, %239
   %wide.trip.count.i.i19.i = zext i32 %237 to i64
   br label %244
@@ -34765,9 +34765,9 @@ ma_linear_resampler_interpolate_frame_s16.exit.i.i: ; preds = %155
 244:                                              ; preds = %244, %236
   %indvars.iv.i.i20.i = phi i64 [ 0, %236 ], [ %indvars.iv.next.i.i21.i, %244 ]
   %245 = getelementptr inbounds i16, ptr %241, i64 %indvars.iv.i.i20.i
-  %246 = load i16, ptr %245, align 2, !noalias !173
+  %246 = load i16, ptr %245, align 2, !noalias !167
   %247 = getelementptr inbounds i16, ptr %242, i64 %indvars.iv.i.i20.i
-  %248 = load i16, ptr %247, align 2, !noalias !173
+  %248 = load i16, ptr %247, align 2, !noalias !167
   %249 = sext i16 %246 to i32
   %250 = mul nsw i32 %243, %249
   %251 = sext i16 %248 to i32
@@ -34776,7 +34776,7 @@ ma_linear_resampler_interpolate_frame_s16.exit.i.i: ; preds = %155
   %254 = lshr i32 %253, 12
   %255 = trunc i32 %254 to i16
   %256 = getelementptr inbounds i16, ptr %.0150188.i13.i, i64 %indvars.iv.i.i20.i
-  store i16 %255, ptr %256, align 2, !alias.scope !173
+  store i16 %255, ptr %256, align 2, !alias.scope !167
   %indvars.iv.next.i.i21.i = add nuw nsw i64 %indvars.iv.i.i20.i, 1
   %exitcond.not.i.i22.i = icmp eq i64 %indvars.iv.next.i.i21.i, %wide.trip.count.i.i19.i
   br i1 %exitcond.not.i.i22.i, label %ma_linear_resampler_interpolate_frame_s16.exit.i23.i, label %244
@@ -35177,29 +35177,29 @@ ma_linear_resampler_interpolate_frame_s16.exit.i23.i: ; preds = %244
   br i1 %.not.i.i44, label %501, label %481
 
 481:                                              ; preds = %480
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !176)
-  %482 = load i32, ptr %363, align 4, !noalias !176
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !170)
+  %482 = load i32, ptr %363, align 4, !noalias !170
   %483 = uitofp i32 %.pre223.i.i to float
   %484 = uitofp i32 %.pre225.i.i45 to float
   %485 = fdiv float %483, %484
   %486 = icmp ne i32 %482, 0
   tail call void @llvm.assume(i1 %486)
-  %487 = load ptr, ptr %365, align 8, !noalias !176
-  %488 = load ptr, ptr %364, align 8, !noalias !176
+  %487 = load ptr, ptr %365, align 8, !noalias !170
+  %488 = load ptr, ptr %364, align 8, !noalias !170
   %wide.trip.count.i.i.i46 = zext i32 %482 to i64
   br label %489
 
 489:                                              ; preds = %489, %481
   %indvars.iv.i.i.i47 = phi i64 [ 0, %481 ], [ %indvars.iv.next.i.i.i48, %489 ]
   %490 = getelementptr inbounds float, ptr %487, i64 %indvars.iv.i.i.i47
-  %491 = load float, ptr %490, align 4, !noalias !176
+  %491 = load float, ptr %490, align 4, !noalias !170
   %492 = getelementptr inbounds float, ptr %488, i64 %indvars.iv.i.i.i47
-  %493 = load float, ptr %492, align 4, !noalias !176
+  %493 = load float, ptr %492, align 4, !noalias !170
   %494 = fsub float %493, %491
   %495 = fmul float %485, %494
   %496 = fadd float %491, %495
   %497 = getelementptr inbounds float, ptr %.0147185.i.i, i64 %indvars.iv.i.i.i47
-  store float %496, ptr %497, align 4, !alias.scope !176
+  store float %496, ptr %497, align 4, !alias.scope !170
   %indvars.iv.next.i.i.i48 = add nuw nsw i64 %indvars.iv.i.i.i47, 1
   %exitcond.not.i.i.i49 = icmp eq i64 %indvars.iv.next.i.i.i48, %wide.trip.count.i.i.i46
   br i1 %exitcond.not.i.i.i49, label %ma_linear_resampler_interpolate_frame_f32.exit.i.i, label %489
@@ -35355,29 +35355,29 @@ ma_linear_resampler_interpolate_frame_f32.exit.i.i: ; preds = %489
   br i1 %.not.i17.i17, label %655, label %566
 
 566:                                              ; preds = %565
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !179)
-  %567 = load i32, ptr %517, align 4, !noalias !179
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !173)
+  %567 = load i32, ptr %517, align 4, !noalias !173
   %568 = uitofp i32 %.pre224.i18.i to float
   %569 = uitofp i32 %.pre226.i.i18 to float
   %570 = fdiv float %568, %569
   %571 = icmp ne i32 %567, 0
   tail call void @llvm.assume(i1 %571)
-  %572 = load ptr, ptr %519, align 8, !noalias !179
-  %573 = load ptr, ptr %518, align 8, !noalias !179
+  %572 = load ptr, ptr %519, align 8, !noalias !173
+  %573 = load ptr, ptr %518, align 8, !noalias !173
   %wide.trip.count.i.i19.i19 = zext i32 %567 to i64
   br label %574
 
 574:                                              ; preds = %574, %566
   %indvars.iv.i.i20.i20 = phi i64 [ 0, %566 ], [ %indvars.iv.next.i.i21.i21, %574 ]
   %575 = getelementptr inbounds float, ptr %572, i64 %indvars.iv.i.i20.i20
-  %576 = load float, ptr %575, align 4, !noalias !179
+  %576 = load float, ptr %575, align 4, !noalias !173
   %577 = getelementptr inbounds float, ptr %573, i64 %indvars.iv.i.i20.i20
-  %578 = load float, ptr %577, align 4, !noalias !179
+  %578 = load float, ptr %577, align 4, !noalias !173
   %579 = fsub float %578, %576
   %580 = fmul float %570, %579
   %581 = fadd float %576, %580
   %582 = getelementptr inbounds float, ptr %.0147185.i13.i, i64 %indvars.iv.i.i20.i20
-  store float %581, ptr %582, align 4, !alias.scope !179
+  store float %581, ptr %582, align 4, !alias.scope !173
   %indvars.iv.next.i.i21.i21 = add nuw nsw i64 %indvars.iv.i.i20.i20, 1
   %exitcond.not.i.i22.i22 = icmp eq i64 %indvars.iv.next.i.i21.i21, %wide.trip.count.i.i19.i19
   br i1 %exitcond.not.i.i22.i22, label %ma_linear_resampler_interpolate_frame_f32.exit.i23.i, label %574
@@ -35573,7 +35573,7 @@ define hidden noundef i32 @ma_linear_resampler_set_rate_ratio(ptr noundef %0, fl
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden i64 @ma_linear_resampler_get_input_latency(ptr noundef readonly %0) local_unnamed_addr #15 {
+define hidden range(i64 0, 4294967296) i64 @ma_linear_resampler_get_input_latency(ptr noundef readonly %0) local_unnamed_addr #15 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %12, label %3
 
@@ -35594,7 +35594,7 @@ define hidden i64 @ma_linear_resampler_get_input_latency(ptr noundef readonly %0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden i64 @ma_linear_resampler_get_output_latency(ptr noundef readonly %0) local_unnamed_addr #15 {
+define hidden range(i64 0, -8589934590) i64 @ma_linear_resampler_get_output_latency(ptr noundef readonly %0) local_unnamed_addr #15 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %19, label %ma_linear_resampler_get_input_latency.exit
 
@@ -35623,7 +35623,7 @@ ma_linear_resampler_get_input_latency.exit:       ; preds = %1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden noundef i32 @ma_linear_resampler_get_required_input_frame_count(ptr noundef readonly %0, i64 noundef %1, ptr noundef writeonly %2) local_unnamed_addr #16 {
+define hidden range(i32 -2, 1) i32 @ma_linear_resampler_get_required_input_frame_count(ptr noundef readonly %0, i64 noundef %1, ptr noundef writeonly %2) local_unnamed_addr #16 {
   %4 = icmp eq ptr %2, null
   br i1 %4, label %32, label %5
 
@@ -35668,7 +35668,7 @@ define hidden noundef i32 @ma_linear_resampler_get_required_input_frame_count(pt
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden noundef i32 @ma_linear_resampler_get_expected_output_frame_count(ptr noundef readonly %0, i64 noundef %1, ptr noundef writeonly %2) local_unnamed_addr #16 {
+define hidden range(i32 -2, 1) i32 @ma_linear_resampler_get_expected_output_frame_count(ptr noundef readonly %0, i64 noundef %1, ptr noundef writeonly %2) local_unnamed_addr #16 {
   %4 = icmp eq ptr %2, null
   br i1 %4, label %35, label %5
 
@@ -35716,7 +35716,7 @@ define hidden noundef i32 @ma_linear_resampler_get_expected_output_frame_count(p
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define hidden noundef i32 @ma_linear_resampler_reset(ptr noundef %0) local_unnamed_addr #3 {
+define hidden range(i32 -2, 1) i32 @ma_linear_resampler_reset(ptr noundef %0) local_unnamed_addr #3 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %ma_lpf_clear_cache.exit, label %3
 
@@ -35830,7 +35830,7 @@ ma_lpf1_clear_cache.exit.i:                       ; preds = %48, %47, %.lr.ph.sp
   %49 = load i32, ptr %30, align 4
   %50 = zext i32 %49 to i64
   %51 = icmp ult i64 %indvars.iv.next.i, %50
-  br i1 %51, label %.lr.ph.splitthread-pre-split.i, label %.preheader.i, !llvm.loop !46
+  br i1 %51, label %.lr.ph.splitthread-pre-split.i, label %.preheader.i, !llvm.loop !41
 
 .lr.ph18.splitthread-pre-split.i:                 ; preds = %ma_lpf2_clear_cache.exit.i
   %.pr26.i = load ptr, ptr %37, align 8
@@ -35868,7 +35868,7 @@ ma_lpf2_clear_cache.exit.i:                       ; preds = %63, %61, %.lr.ph18.
   %65 = load i32, ptr %35, align 8
   %66 = zext i32 %65 to i64
   %67 = icmp ult i64 %indvars.iv.next24.i, %66
-  br i1 %67, label %.lr.ph18.splitthread-pre-split.i, label %ma_lpf_clear_cache.exit, !llvm.loop !47
+  br i1 %67, label %.lr.ph18.splitthread-pre-split.i, label %ma_lpf_clear_cache.exit, !llvm.loop !42
 
 ma_lpf_clear_cache.exit:                          ; preds = %ma_lpf2_clear_cache.exit.i, %.lr.ph18.i, %.preheader.i, %1
   %.019 = phi i32 [ -2, %1 ], [ 0, %.preheader.i ], [ 0, %.lr.ph18.i ], [ 0, %ma_lpf2_clear_cache.exit.i ]
@@ -36506,14 +36506,14 @@ define hidden void @ma_channel_converter_config_init(ptr dead_on_unwind noalias 
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define hidden noundef i32 @ma_channel_converter_get_heap_size(ptr noundef %0, ptr noundef writeonly %1) local_unnamed_addr #18 {
+define hidden range(i32 -2, 1) i32 @ma_channel_converter_get_heap_size(ptr noundef %0, ptr noundef writeonly %1) local_unnamed_addr #18 {
   %3 = alloca %struct.ma_channel_converter_heap_layout, align 8
   %4 = icmp eq ptr %1, null
   br i1 %4, label %9, label %5
 
 5:                                                ; preds = %2
   store i64 0, ptr %1, align 8
-  %6 = call fastcc i32 @ma_channel_converter_get_heap_layout(ptr noundef %0, ptr noundef nonnull %3), !range !11
+  %6 = call fastcc i32 @ma_channel_converter_get_heap_layout(ptr noundef %0, ptr noundef nonnull %3)
   %.not = icmp eq i32 %6, 0
   br i1 %.not, label %7, label %9
 
@@ -36528,7 +36528,7 @@ define hidden noundef i32 @ma_channel_converter_get_heap_size(ptr noundef %0, pt
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal fastcc noundef i32 @ma_channel_converter_get_heap_layout(ptr noundef readonly %0, ptr nocapture noundef writeonly %1) unnamed_addr #18 {
+define internal fastcc range(i32 -2, 1) i32 @ma_channel_converter_get_heap_layout(ptr noundef readonly %0, ptr nocapture noundef writeonly %1) unnamed_addr #18 {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %ma_channel_map_is_valid.exit.thread, label %4
 
@@ -36560,7 +36560,7 @@ ma_channel_map_get_channel.exit.preheader.i:      ; preds = %.lr.ph.i
 
 ma_channel_map_get_channel.exit.us.i:             ; preds = %.lr.ph.i, %18
   %.011.us.i = phi i32 [ %19, %18 ], [ 0, %.lr.ph.i ]
-  %16 = tail call fastcc zeroext i8 @ma_channel_map_init_standard_channel(i32 noundef 0, i32 noundef %6, i32 noundef %.011.us.i), !range !6
+  %16 = tail call fastcc zeroext i8 @ma_channel_map_init_standard_channel(i32 noundef 0, i32 noundef %6, i32 noundef %.011.us.i)
   %17 = icmp eq i8 %16, 1
   br i1 %17, label %ma_channel_map_is_valid.exit.thread, label %18
 
@@ -36599,7 +36599,7 @@ ma_channel_map_get_channel.exit.preheader.i44:    ; preds = %.lr.ph.i43
 
 ma_channel_map_get_channel.exit.us.i50:           ; preds = %.lr.ph.i43, %29
   %.011.us.i51 = phi i32 [ %30, %29 ], [ 0, %.lr.ph.i43 ]
-  %27 = tail call fastcc zeroext i8 @ma_channel_map_init_standard_channel(i32 noundef 0, i32 noundef %10, i32 noundef %.011.us.i51), !range !6
+  %27 = tail call fastcc zeroext i8 @ma_channel_map_init_standard_channel(i32 noundef 0, i32 noundef %10, i32 noundef %.011.us.i51)
   %28 = icmp eq i8 %27, 1
   br i1 %28, label %ma_channel_map_is_valid.exit.thread, label %29
 
@@ -36657,7 +36657,7 @@ ma_channel_map_is_valid.exit53:                   ; preds = %31, %29, %ma_channe
   %54 = load i32, ptr %9, align 8
   %55 = getelementptr inbounds i8, ptr %0, i64 32
   %56 = load i32, ptr %55, align 8
-  %57 = tail call fastcc noundef i32 @ma_channel_map_get_conversion_path(ptr noundef %51, i32 noundef %52, ptr noundef %53, i32 noundef %54, i32 noundef %56), !range !163
+  %57 = tail call fastcc i32 @ma_channel_map_get_conversion_path(ptr noundef %51, i32 noundef %52, ptr noundef %53, i32 noundef %54, i32 noundef %56)
   %58 = getelementptr inbounds i8, ptr %1, i64 24
   store i64 %50, ptr %58, align 8
   %59 = icmp eq i32 %57, 4
@@ -36705,7 +36705,7 @@ ma_channel_map_is_valid.exit.thread:              ; preds = %ma_channel_map_get_
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define hidden noundef i32 @ma_channel_converter_init_preallocated(ptr noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #3 {
+define hidden range(i32 -2, 1) i32 @ma_channel_converter_init_preallocated(ptr noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #3 {
   %4 = alloca %struct.ma_channel_converter_heap_layout, align 8
   %5 = alloca i32, align 4
   %6 = icmp eq ptr %2, null
@@ -36713,7 +36713,7 @@ define hidden noundef i32 @ma_channel_converter_init_preallocated(ptr noundef %0
 
 7:                                                ; preds = %3
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(72) %2, i8 0, i64 72, i1 false)
-  %8 = call fastcc i32 @ma_channel_converter_get_heap_layout(ptr noundef %0, ptr noundef nonnull %4), !range !11
+  %8 = call fastcc i32 @ma_channel_converter_get_heap_layout(ptr noundef %0, ptr noundef nonnull %4)
   %.not = icmp eq i32 %8, 0
   br i1 %.not, label %9, label %ma_channel_map_contains_channel_position.exit341
 
@@ -36776,7 +36776,7 @@ define hidden noundef i32 @ma_channel_converter_init_preallocated(ptr noundef %0
   %.024.i.i = phi i32 [ %43, %.preheader.i.i ], [ 0, %38 ]
   %.01723.i.i = phi ptr [ %41, %.preheader.i.i ], [ %31, %38 ]
   %.01822.i.i = phi i64 [ %42, %.preheader.i.i ], [ %34, %38 ]
-  %40 = tail call fastcc zeroext i8 @ma_channel_map_init_standard_channel(i32 noundef 0, i32 noundef %33, i32 noundef %.024.i.i), !range !6
+  %40 = tail call fastcc zeroext i8 @ma_channel_map_init_standard_channel(i32 noundef 0, i32 noundef %33, i32 noundef %.024.i.i)
   store i8 %40, ptr %.01723.i.i, align 1
   %41 = getelementptr inbounds i8, ptr %.01723.i.i, i64 1
   %42 = add nsw i64 %.01822.i.i, -1
@@ -36823,7 +36823,7 @@ ma_channel_map_copy_or_default.exit:              ; preds = %.preheader.i.i, %39
   %.024.i.i268 = phi i32 [ %65, %.preheader.i.i267 ], [ 0, %60 ]
   %.01723.i.i269 = phi ptr [ %63, %.preheader.i.i267 ], [ %53, %60 ]
   %.01822.i.i270 = phi i64 [ %64, %.preheader.i.i267 ], [ %56, %60 ]
-  %62 = tail call fastcc zeroext i8 @ma_channel_map_init_standard_channel(i32 noundef 0, i32 noundef %55, i32 noundef %.024.i.i268), !range !6
+  %62 = tail call fastcc zeroext i8 @ma_channel_map_init_standard_channel(i32 noundef 0, i32 noundef %55, i32 noundef %.024.i.i268)
   store i8 %62, ptr %.01723.i.i269, align 1
   %63 = getelementptr inbounds i8, ptr %.01723.i.i269, i64 1
   %64 = add nsw i64 %.01822.i.i270, -1
@@ -36844,7 +36844,7 @@ ma_channel_map_copy_or_default.exit272:           ; preds = %.preheader.i.i267, 
   %72 = load ptr, ptr %48, align 8
   %73 = load i32, ptr %20, align 8
   %74 = load i32, ptr %23, align 8
-  %75 = tail call fastcc noundef i32 @ma_channel_map_get_conversion_path(ptr noundef %70, i32 noundef %71, ptr noundef %72, i32 noundef %73, i32 noundef %74), !range !163
+  %75 = tail call fastcc i32 @ma_channel_map_get_conversion_path(ptr noundef %70, i32 noundef %71, ptr noundef %72, i32 noundef %73, i32 noundef %74)
   %76 = getelementptr inbounds i8, ptr %2, i64 16
   store i32 %75, ptr %76, align 8
   %77 = icmp eq i32 %75, 4
@@ -36893,7 +36893,7 @@ ma_channel_map_copy_or_default.exit272:           ; preds = %.preheader.i.i267, 
 
 99:                                               ; preds = %.preheader.split.us.split.us.i
   %100 = trunc nuw i64 %indvars.iv98.i to i32
-  %101 = tail call fastcc zeroext i8 @ma_channel_map_init_standard_channel(i32 noundef 0, i32 noundef %88, i32 noundef %100), !range !6
+  %101 = tail call fastcc zeroext i8 @ma_channel_map_init_standard_channel(i32 noundef 0, i32 noundef %88, i32 noundef %100)
   br label %ma_channel_map_get_channel.exit.us.us.i
 
 ma_channel_map_get_channel.exit.us.us.i:          ; preds = %99, %96
@@ -37050,7 +37050,7 @@ ma_channel_map_get_channel.exit43.us.us.us.i:     ; preds = %switch.lookup589, %
 
 137:                                              ; preds = %.preheader.split.us.split.i
   %138 = trunc nuw i64 %indvars.iv92.i to i32
-  %139 = tail call fastcc zeroext i8 @ma_channel_map_init_standard_channel(i32 noundef 0, i32 noundef %88, i32 noundef %138), !range !6
+  %139 = tail call fastcc zeroext i8 @ma_channel_map_init_standard_channel(i32 noundef 0, i32 noundef %88, i32 noundef %138)
   br label %ma_channel_map_get_channel.exit.us.i
 
 ma_channel_map_get_channel.exit.us.i:             ; preds = %137, %134
@@ -37270,7 +37270,7 @@ ma_channel_map_build_shuffle_table.exit:          ; preds = %ma_channel_map_buil
   %indvars.iv.next474 = add nuw nsw i64 %indvars.iv473, 1
   %223 = zext i32 %221 to i64
   %224 = icmp ult i64 %indvars.iv.next474, %223
-  br i1 %224, label %.preheader384, label %.preheader383, !llvm.loop !182
+  br i1 %224, label %.preheader384, label %.preheader383, !llvm.loop !176
 
 225:                                              ; preds = %.lr.ph406, %._crit_edge404
   %226 = phi i32 [ %204, %.lr.ph406 ], [ %260, %._crit_edge404 ]
@@ -37281,7 +37281,7 @@ ma_channel_map_build_shuffle_table.exit:          ; preds = %ma_channel_map_buil
 
 229:                                              ; preds = %225
   %230 = trunc nuw i64 %indvars.iv479 to i32
-  %231 = tail call fastcc zeroext i8 @ma_channel_map_init_standard_channel(i32 noundef 0, i32 noundef %226, i32 noundef %230), !range !6
+  %231 = tail call fastcc zeroext i8 @ma_channel_map_init_standard_channel(i32 noundef 0, i32 noundef %226, i32 noundef %230)
   br label %ma_channel_map_get_channel.exit
 
 232:                                              ; preds = %225
@@ -37304,7 +37304,7 @@ ma_channel_map_get_channel.exit:                  ; preds = %229, %232
 
 239:                                              ; preds = %.lr.ph403
   %240 = trunc nuw i64 %indvars.iv476 to i32
-  %241 = tail call fastcc zeroext i8 @ma_channel_map_init_standard_channel(i32 noundef 0, i32 noundef %236, i32 noundef %240), !range !6
+  %241 = tail call fastcc zeroext i8 @ma_channel_map_init_standard_channel(i32 noundef 0, i32 noundef %236, i32 noundef %240)
   br label %ma_channel_map_get_channel.exit278
 
 242:                                              ; preds = %.lr.ph403
@@ -37440,7 +37440,7 @@ ma_channel_map_get_channel.exit278:               ; preds = %239, %242
   %indvars.iv.next486 = add nuw nsw i64 %indvars.iv485, 1
   %301 = zext i32 %299 to i64
   %302 = icmp ult i64 %indvars.iv.next486, %301
-  br i1 %302, label %.preheader380, label %ma_channel_map_contains_channel_position.exit341, !llvm.loop !183
+  br i1 %302, label %.preheader380, label %ma_channel_map_contains_channel_position.exit341, !llvm.loop !177
 
 .preheader:                                       ; preds = %ma_is_spatial_channel_position.exit.thread, %.preheader379
   %303 = phi i32 [ 0, %.preheader379 ], [ %405, %ma_is_spatial_channel_position.exit.thread ]
@@ -37463,7 +37463,7 @@ ma_channel_map_get_channel.exit278:               ; preds = %239, %242
 
 312:                                              ; preds = %308
   %313 = trunc nuw i64 %indvars.iv491 to i32
-  %314 = tail call fastcc zeroext i8 @ma_channel_map_init_standard_channel(i32 noundef 0, i32 noundef %309, i32 noundef %313), !range !6
+  %314 = tail call fastcc zeroext i8 @ma_channel_map_init_standard_channel(i32 noundef 0, i32 noundef %309, i32 noundef %313)
   br label %ma_channel_map_get_channel.exit281
 
 315:                                              ; preds = %308
@@ -37516,7 +37516,7 @@ ma_channel_map_get_channel.exit.preheader.i.i:    ; preds = %.lr.ph.i.i
 
 ma_channel_map_get_channel.exit.us.i.i:           ; preds = %.lr.ph.i.i, %331
   %.016.us.i.i = phi i32 [ %332, %331 ], [ 0, %.lr.ph.i.i ]
-  %329 = tail call fastcc zeroext i8 @ma_channel_map_init_standard_channel(i32 noundef 0, i32 noundef %326, i32 noundef %.016.us.i.i), !range !6
+  %329 = tail call fastcc zeroext i8 @ma_channel_map_init_standard_channel(i32 noundef 0, i32 noundef %326, i32 noundef %.016.us.i.i)
   %330 = icmp eq i8 %329, %.0.i280
   br i1 %330, label %ma_is_spatial_channel_position.exit.thread, label %331
 
@@ -37557,7 +37557,7 @@ ma_channel_map_contains_channel_position.exit:    ; preds = %336
 
 346:                                              ; preds = %342
   %347 = trunc nuw i64 %indvars.iv488 to i32
-  %348 = tail call fastcc zeroext i8 @ma_channel_map_init_standard_channel(i32 noundef 0, i32 noundef %343, i32 noundef %347), !range !6
+  %348 = tail call fastcc zeroext i8 @ma_channel_map_init_standard_channel(i32 noundef 0, i32 noundef %343, i32 noundef %347)
   br label %ma_channel_map_get_channel.exit288
 
 349:                                              ; preds = %342
@@ -37684,7 +37684,7 @@ ma_is_spatial_channel_position.exit.thread:       ; preds = %321, %ma_channel_ma
 
 415:                                              ; preds = %408
   %416 = trunc nuw i64 %indvars.iv497 to i32
-  %417 = tail call fastcc zeroext i8 @ma_channel_map_init_standard_channel(i32 noundef 0, i32 noundef %410, i32 noundef %416), !range !6
+  %417 = tail call fastcc zeroext i8 @ma_channel_map_init_standard_channel(i32 noundef 0, i32 noundef %410, i32 noundef %416)
   br label %ma_channel_map_get_channel.exit298
 
 418:                                              ; preds = %408
@@ -37736,7 +37736,7 @@ ma_channel_map_get_channel.exit.preheader.i.i308: ; preds = %.lr.ph.i.i307
 
 ma_channel_map_get_channel.exit.us.i.i315:        ; preds = %.lr.ph.i.i307, %433
   %.016.us.i.i316 = phi i32 [ %434, %433 ], [ 0, %.lr.ph.i.i307 ]
-  %431 = tail call fastcc zeroext i8 @ma_channel_map_init_standard_channel(i32 noundef 0, i32 noundef %412, i32 noundef %.016.us.i.i316), !range !6
+  %431 = tail call fastcc zeroext i8 @ma_channel_map_init_standard_channel(i32 noundef 0, i32 noundef %412, i32 noundef %.016.us.i.i316)
   %432 = icmp eq i8 %431, %.0.i297
   br i1 %432, label %ma_is_spatial_channel_position.exit305.thread, label %433
 
@@ -37778,7 +37778,7 @@ ma_channel_map_contains_channel_position.exit318: ; preds = %438, %433, %ma_is_s
 
 448:                                              ; preds = %444
   %449 = trunc nuw i64 %indvars.iv494 to i32
-  %450 = tail call fastcc zeroext i8 @ma_channel_map_init_standard_channel(i32 noundef 0, i32 noundef %445, i32 noundef %449), !range !6
+  %450 = tail call fastcc zeroext i8 @ma_channel_map_init_standard_channel(i32 noundef 0, i32 noundef %445, i32 noundef %449)
   br label %ma_channel_map_get_channel.exit321
 
 451:                                              ; preds = %444
@@ -37920,7 +37920,7 @@ ma_channel_map_get_channel.exit.preheader.i.i331: ; preds = %.lr.ph.i.i330
 
 ma_channel_map_get_channel.exit.us.i.i338:        ; preds = %.lr.ph.i.i330, %522
   %.016.us.i.i339 = phi i32 [ %523, %522 ], [ 0, %.lr.ph.i.i330 ]
-  %520 = tail call fastcc zeroext i8 @ma_channel_map_init_standard_channel(i32 noundef 0, i32 noundef %513, i32 noundef %.016.us.i.i339), !range !6
+  %520 = tail call fastcc zeroext i8 @ma_channel_map_init_standard_channel(i32 noundef 0, i32 noundef %513, i32 noundef %.016.us.i.i339)
   %521 = icmp eq i8 %520, 5
   br i1 %521, label %ma_channel_map_contains_channel_position.exit341, label %522
 
@@ -37949,7 +37949,7 @@ ma_channel_map_get_channel.exit.i.i333:           ; preds = %527, %ma_channel_ma
 529:                                              ; preds = %.loopexit
   %530 = getelementptr inbounds i8, ptr %2, i64 32
   %531 = load ptr, ptr %530, align 8
-  %532 = call i32 @ma_channel_map_find_channel_position(i32 noundef %.lcssa, ptr noundef %531, i8 noundef zeroext 5, ptr noundef nonnull %5), !range !184
+  %532 = call i32 @ma_channel_map_find_channel_position(i32 noundef %.lcssa, ptr noundef %531, i8 noundef zeroext 5, ptr noundef nonnull %5)
   %.not257 = icmp eq i32 %532, 0
   br i1 %.not257, label %ma_channel_map_contains_channel_position.exit341, label %533
 
@@ -37973,7 +37973,7 @@ ma_channel_map_get_channel.exit.i.i333:           ; preds = %527, %ma_channel_ma
 
 543:                                              ; preds = %539
   %544 = trunc nuw i64 %indvars.iv500 to i32
-  %545 = call fastcc zeroext i8 @ma_channel_map_init_standard_channel(i32 noundef 0, i32 noundef %540, i32 noundef %544), !range !6
+  %545 = call fastcc zeroext i8 @ma_channel_map_init_standard_channel(i32 noundef 0, i32 noundef %540, i32 noundef %544)
   br label %ma_channel_map_get_channel.exit344
 
 546:                                              ; preds = %539
@@ -38053,7 +38053,7 @@ ma_channel_map_contains_channel_position.exit341: ; preds = %._crit_edge410, %ma
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read) uwtable
-define hidden noundef i32 @ma_channel_map_contains_channel_position(i32 noundef %0, ptr noundef readonly %1, i8 noundef zeroext %2) local_unnamed_addr #43 {
+define hidden range(i32 0, 2) i32 @ma_channel_map_contains_channel_position(i32 noundef %0, ptr noundef readonly %1, i8 noundef zeroext %2) local_unnamed_addr #43 {
   %.not17.i = icmp eq i32 %0, 0
   br i1 %.not17.i, label %ma_channel_map_find_channel_position.exit, label %.lr.ph.i
 
@@ -38067,7 +38067,7 @@ ma_channel_map_get_channel.exit.preheader.i:      ; preds = %.lr.ph.i
 
 ma_channel_map_get_channel.exit.us.i:             ; preds = %.lr.ph.i, %7
   %.016.us.i = phi i32 [ %8, %7 ], [ 0, %.lr.ph.i ]
-  %5 = tail call fastcc zeroext i8 @ma_channel_map_init_standard_channel(i32 noundef 0, i32 noundef %0, i32 noundef %.016.us.i), !range !6
+  %5 = tail call fastcc zeroext i8 @ma_channel_map_init_standard_channel(i32 noundef 0, i32 noundef %0, i32 noundef %.016.us.i)
   %6 = icmp eq i8 %5, %2
   br i1 %6, label %ma_channel_map_find_channel_position.exit, label %7
 
@@ -38109,7 +38109,7 @@ ma_channel_map_get_channel.exit.preheader:        ; preds = %.lr.ph
 ma_channel_map_get_channel.exit.us:               ; preds = %.lr.ph, %.loopexit.us
   %.012.us = phi i32 [ %15, %.loopexit.us ], [ 0, %.lr.ph ]
   %.0711.us = phi i32 [ %14, %.loopexit.us ], [ 0, %.lr.ph ]
-  %4 = tail call fastcc zeroext i8 @ma_channel_map_init_standard_channel(i32 noundef 0, i32 noundef %1, i32 noundef %.012.us), !range !6
+  %4 = tail call fastcc zeroext i8 @ma_channel_map_init_standard_channel(i32 noundef 0, i32 noundef %1, i32 noundef %.012.us)
   switch i8 %4, label %5 [
     i8 5, label %.loopexit.us
     i8 1, label %.loopexit.us
@@ -38195,7 +38195,7 @@ ma_is_spatial_channel_position.exit:              ; preds = %22
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define hidden noundef i32 @ma_channel_map_find_channel_position(i32 noundef %0, ptr noundef readonly %1, i8 noundef zeroext %2, ptr noundef writeonly %3) local_unnamed_addr #29 {
+define hidden range(i32 0, 2) i32 @ma_channel_map_find_channel_position(i32 noundef %0, ptr noundef readonly %1, i8 noundef zeroext %2, ptr noundef writeonly %3) local_unnamed_addr #29 {
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %6, label %5
 
@@ -38217,7 +38217,7 @@ ma_channel_map_get_channel.exit.preheader:        ; preds = %.lr.ph
 
 ma_channel_map_get_channel.exit.us:               ; preds = %.lr.ph, %10
   %.016.us = phi i32 [ %11, %10 ], [ 0, %.lr.ph ]
-  %8 = tail call fastcc zeroext i8 @ma_channel_map_init_standard_channel(i32 noundef 0, i32 noundef %0, i32 noundef %.016.us), !range !6
+  %8 = tail call fastcc zeroext i8 @ma_channel_map_init_standard_channel(i32 noundef 0, i32 noundef %0, i32 noundef %.016.us)
   %9 = icmp eq i8 %8, %2
   br i1 %9, label %.split.us, label %10
 
@@ -38256,10 +38256,10 @@ ma_channel_map_get_channel.exit:                  ; preds = %ma_channel_map_get_
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @ma_channel_converter_init(ptr noundef %0, ptr noundef readonly %1, ptr noundef %2) local_unnamed_addr #5 {
+define hidden range(i32 -4, 1) i32 @ma_channel_converter_init(ptr noundef %0, ptr noundef readonly %1, ptr noundef %2) local_unnamed_addr #5 {
   %4 = alloca %struct.ma_channel_converter_heap_layout, align 8
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %4)
-  %5 = call fastcc i32 @ma_channel_converter_get_heap_layout(ptr noundef %0, ptr noundef nonnull %4), !range !11
+  %5 = call fastcc i32 @ma_channel_converter_get_heap_layout(ptr noundef %0, ptr noundef nonnull %4)
   %.not.i = icmp eq i32 %5, 0
   br i1 %.not.i, label %6, label %ma_channel_converter_get_heap_size.exit
 
@@ -38298,12 +38298,12 @@ ma_malloc.exit:                                   ; preds = %12, %15
   br i1 %17, label %ma_free.exit, label %18
 
 18:                                               ; preds = %ma_malloc.exit
-  %19 = tail call i32 @ma_channel_converter_init_preallocated(ptr noundef %0, ptr noundef nonnull %.0.i21, ptr noundef %2), !range !11
+  %19 = tail call i32 @ma_channel_converter_init_preallocated(ptr noundef %0, ptr noundef nonnull %.0.i21, ptr noundef %2)
   %.not19 = icmp eq i32 %19, 0
   br i1 %.not19, label %28, label %21
 
 .thread:                                          ; preds = %6
-  %20 = tail call i32 @ma_channel_converter_init_preallocated(ptr noundef %0, ptr noundef null, ptr noundef %2), !range !11
+  %20 = tail call i32 @ma_channel_converter_init_preallocated(ptr noundef %0, ptr noundef null, ptr noundef %2)
   %.not1930 = icmp eq i32 %20, 0
   br i1 %.not1930, label %28, label %ma_free.exit
 
@@ -38756,7 +38756,7 @@ define hidden noundef i32 @ma_channel_converter_process_pcm_frames(ptr noundef r
   %148 = phi i32 [ 0, %.preheader.i73 ], [ %145, %139 ]
   %149 = add nuw i64 %.0106154.i, 1
   %exitcond200.not.i = icmp eq i64 %149, %3
-  br i1 %exitcond200.not.i, label %ma_channel_converter_process_pcm_frames__passthrough.exit, label %.preheader.i73, !llvm.loop !185
+  br i1 %exitcond200.not.i, label %ma_channel_converter_process_pcm_frames__passthrough.exit, label %.preheader.i73, !llvm.loop !178
 
 150:                                              ; preds = %129
   %151 = getelementptr inbounds i8, ptr %0, i64 8
@@ -38816,7 +38816,7 @@ define hidden noundef i32 @ma_channel_converter_process_pcm_frames(ptr noundef r
   %172 = phi i32 [ 0, %.preheader119.i ], [ %169, %163 ]
   %173 = add nuw i64 %.2148.i, 1
   %exitcond195.not.i = icmp eq i64 %173, %3
-  br i1 %exitcond195.not.i, label %ma_channel_converter_process_pcm_frames__passthrough.exit, label %.preheader119.i, !llvm.loop !186
+  br i1 %exitcond195.not.i, label %ma_channel_converter_process_pcm_frames__passthrough.exit, label %.preheader119.i, !llvm.loop !179
 
 .preheader122.i61:                                ; preds = %.preheader122.lr.ph.i, %._crit_edge143.i63
   %174 = phi i32 [ %194, %._crit_edge143.i63 ], [ %134, %.preheader122.lr.ph.i ]
@@ -38857,7 +38857,7 @@ define hidden noundef i32 @ma_channel_converter_process_pcm_frames(ptr noundef r
   %194 = phi i32 [ 0, %.preheader122.i61 ], [ %191, %179 ]
   %195 = add nuw i64 %.3144.i, 1
   %exitcond191.not.i64 = icmp eq i64 %195, %3
-  br i1 %exitcond191.not.i64, label %ma_channel_converter_process_pcm_frames__passthrough.exit, label %.preheader122.i61, !llvm.loop !187
+  br i1 %exitcond191.not.i64, label %ma_channel_converter_process_pcm_frames__passthrough.exit, label %.preheader122.i61, !llvm.loop !180
 
 .preheader125.i60:                                ; preds = %.preheader125.lr.ph.i, %._crit_edge139.i
   %196 = phi i32 [ %207, %._crit_edge139.i ], [ %132, %.preheader125.lr.ph.i ]
@@ -38888,7 +38888,7 @@ define hidden noundef i32 @ma_channel_converter_process_pcm_frames(ptr noundef r
   %207 = phi i32 [ 0, %.preheader125.i60 ], [ %204, %198 ]
   %208 = add nuw i64 %.4140.i, 1
   %exitcond187.not.i = icmp eq i64 %208, %3
-  br i1 %exitcond187.not.i, label %ma_channel_converter_process_pcm_frames__passthrough.exit, label %.preheader125.i60, !llvm.loop !188
+  br i1 %exitcond187.not.i, label %ma_channel_converter_process_pcm_frames__passthrough.exit, label %.preheader125.i60, !llvm.loop !181
 
 209:                                              ; preds = %129
   %210 = getelementptr inbounds i8, ptr %0, i64 8
@@ -38948,7 +38948,7 @@ define hidden noundef i32 @ma_channel_converter_process_pcm_frames(ptr noundef r
   %231 = phi i32 [ 0, %.preheader130.i53 ], [ %228, %222 ]
   %232 = add nuw i64 %.6134.i, 1
   %exitcond.not.i58 = icmp eq i64 %232, %3
-  br i1 %exitcond.not.i58, label %ma_channel_converter_process_pcm_frames__passthrough.exit, label %.preheader130.i53, !llvm.loop !189
+  br i1 %exitcond.not.i58, label %ma_channel_converter_process_pcm_frames__passthrough.exit, label %.preheader130.i53, !llvm.loop !182
 
 233:                                              ; preds = %21
   %234 = getelementptr inbounds i8, ptr %0, i64 8
@@ -39429,7 +39429,7 @@ define hidden noundef i32 @ma_channel_converter_process_pcm_frames(ptr noundef r
   %indvars.iv.next363.i = add nuw nsw i64 %indvars.iv362.i, 1
   %440 = zext i32 %438 to i64
   %441 = icmp ult i64 %indvars.iv.next363.i, %440
-  br i1 %441, label %.preheader.i83, label %._crit_edge296.i, !llvm.loop !190
+  br i1 %441, label %.preheader.i83, label %._crit_edge296.i, !llvm.loop !183
 
 ._crit_edge296.i:                                 ; preds = %._crit_edge294.i, %.preheader.lr.ph.i82, %.preheader247.i
   %442 = phi i32 [ %401, %.preheader247.i ], [ %401, %.preheader.lr.ph.i82 ], [ %438, %._crit_edge294.i ]
@@ -39437,7 +39437,7 @@ define hidden noundef i32 @ma_channel_converter_process_pcm_frames(ptr noundef r
   %444 = add i32 %.0220297.i, 1
   %445 = zext i32 %444 to i64
   %446 = icmp ult i64 %445, %3
-  br i1 %446, label %.preheader247.i, label %ma_channel_converter_process_pcm_frames__passthrough.exit, !llvm.loop !191
+  br i1 %446, label %.preheader247.i, label %ma_channel_converter_process_pcm_frames__passthrough.exit, !llvm.loop !184
 
 .preheader250.i:                                  ; preds = %.preheader250.lr.ph.i, %._crit_edge290.i
   %447 = phi i32 [ %487, %._crit_edge290.i ], [ %391, %.preheader250.lr.ph.i ]
@@ -39507,7 +39507,7 @@ define hidden noundef i32 @ma_channel_converter_process_pcm_frames(ptr noundef r
   %indvars.iv.next357.i = add nuw nsw i64 %indvars.iv356.i, 1
   %485 = zext i32 %483 to i64
   %486 = icmp ult i64 %indvars.iv.next357.i, %485
-  br i1 %486, label %.preheader249.i, label %._crit_edge290.i, !llvm.loop !192
+  br i1 %486, label %.preheader249.i, label %._crit_edge290.i, !llvm.loop !185
 
 ._crit_edge290.i:                                 ; preds = %._crit_edge288.i, %.preheader249.lr.ph.i, %.preheader250.i
   %487 = phi i32 [ %447, %.preheader250.i ], [ %447, %.preheader249.lr.ph.i ], [ %483, %._crit_edge288.i ]
@@ -39515,7 +39515,7 @@ define hidden noundef i32 @ma_channel_converter_process_pcm_frames(ptr noundef r
   %489 = add i32 %.1291.i, 1
   %490 = zext i32 %489 to i64
   %491 = icmp ult i64 %490, %3
-  br i1 %491, label %.preheader250.i, label %ma_channel_converter_process_pcm_frames__passthrough.exit, !llvm.loop !193
+  br i1 %491, label %.preheader250.i, label %ma_channel_converter_process_pcm_frames__passthrough.exit, !llvm.loop !186
 
 .preheader254.i:                                  ; preds = %.preheader254.lr.ph.i, %._crit_edge284.i
   %492 = phi i32 [ %552, %._crit_edge284.i ], [ %385, %.preheader254.lr.ph.i ]
@@ -39609,7 +39609,7 @@ define hidden noundef i32 @ma_channel_converter_process_pcm_frames(ptr noundef r
   %indvars.iv.next351.i = add nuw nsw i64 %indvars.iv350.i, 1
   %550 = zext i32 %548 to i64
   %551 = icmp ult i64 %indvars.iv.next351.i, %550
-  br i1 %551, label %.preheader253.i, label %._crit_edge284.i, !llvm.loop !194
+  br i1 %551, label %.preheader253.i, label %._crit_edge284.i, !llvm.loop !187
 
 ._crit_edge284.i:                                 ; preds = %._crit_edge282.i, %.preheader253.lr.ph.i, %.preheader254.i
   %552 = phi i32 [ %492, %.preheader254.i ], [ %492, %.preheader253.lr.ph.i ], [ %548, %._crit_edge282.i ]
@@ -39617,7 +39617,7 @@ define hidden noundef i32 @ma_channel_converter_process_pcm_frames(ptr noundef r
   %554 = add i32 %.2285.i, 1
   %555 = zext i32 %554 to i64
   %556 = icmp ult i64 %555, %3
-  br i1 %556, label %.preheader254.i, label %ma_channel_converter_process_pcm_frames__passthrough.exit, !llvm.loop !195
+  br i1 %556, label %.preheader254.i, label %ma_channel_converter_process_pcm_frames__passthrough.exit, !llvm.loop !188
 
 .preheader258.i:                                  ; preds = %.preheader258.lr.ph.i, %._crit_edge278.i
   %557 = phi i32 [ %598, %._crit_edge278.i ], [ %379, %.preheader258.lr.ph.i ]
@@ -39688,7 +39688,7 @@ define hidden noundef i32 @ma_channel_converter_process_pcm_frames(ptr noundef r
   %indvars.iv.next345.i = add nuw nsw i64 %indvars.iv344.i, 1
   %596 = zext i32 %594 to i64
   %597 = icmp ult i64 %indvars.iv.next345.i, %596
-  br i1 %597, label %.preheader257.i, label %._crit_edge278.i, !llvm.loop !196
+  br i1 %597, label %.preheader257.i, label %._crit_edge278.i, !llvm.loop !189
 
 ._crit_edge278.i:                                 ; preds = %._crit_edge276.i, %.preheader257.lr.ph.i, %.preheader258.i
   %598 = phi i32 [ %557, %.preheader258.i ], [ %557, %.preheader257.lr.ph.i ], [ %594, %._crit_edge276.i ]
@@ -39696,7 +39696,7 @@ define hidden noundef i32 @ma_channel_converter_process_pcm_frames(ptr noundef r
   %600 = add i32 %.3279.i, 1
   %601 = zext i32 %600 to i64
   %602 = icmp ult i64 %601, %3
-  br i1 %602, label %.preheader258.i, label %ma_channel_converter_process_pcm_frames__passthrough.exit, !llvm.loop !197
+  br i1 %602, label %.preheader258.i, label %ma_channel_converter_process_pcm_frames__passthrough.exit, !llvm.loop !190
 
 .preheader262.i:                                  ; preds = %.preheader262.lr.ph.i, %._crit_edge272.i
   %603 = phi i32 [ %636, %._crit_edge272.i ], [ %373, %.preheader262.lr.ph.i ]
@@ -39759,7 +39759,7 @@ define hidden noundef i32 @ma_channel_converter_process_pcm_frames(ptr noundef r
   %indvars.iv.next339.i = add nuw nsw i64 %indvars.iv338.i, 1
   %634 = zext i32 %632 to i64
   %635 = icmp ult i64 %indvars.iv.next339.i, %634
-  br i1 %635, label %.preheader261.i, label %._crit_edge272.i, !llvm.loop !198
+  br i1 %635, label %.preheader261.i, label %._crit_edge272.i, !llvm.loop !191
 
 ._crit_edge272.i:                                 ; preds = %._crit_edge270.i, %.preheader261.lr.ph.i, %.preheader262.i
   %636 = phi i32 [ %603, %.preheader262.i ], [ %603, %.preheader261.lr.ph.i ], [ %632, %._crit_edge270.i ]
@@ -39767,7 +39767,7 @@ define hidden noundef i32 @ma_channel_converter_process_pcm_frames(ptr noundef r
   %638 = add i32 %.4273.i, 1
   %639 = zext i32 %638 to i64
   %640 = icmp ult i64 %639, %3
-  br i1 %640, label %.preheader262.i, label %ma_channel_converter_process_pcm_frames__passthrough.exit, !llvm.loop !199
+  br i1 %640, label %.preheader262.i, label %ma_channel_converter_process_pcm_frames__passthrough.exit, !llvm.loop !192
 
 ma_channel_converter_process_pcm_frames__passthrough.exit: ; preds = %._crit_edge.us.i88.i.i, %._crit_edge.us.i75.i.i, %._crit_edge.us.i63.i.i, %._crit_edge.us.i55.i.i, %._crit_edge.us.i.i.i, %._crit_edge.i57, %.lr.ph136.i, %._crit_edge139.i, %._crit_edge143.i63, %._crit_edge147.i, %.lr.ph150.i, %._crit_edge153.i, %._crit_edge.i, %._crit_edge143.i, %._crit_edge150.i, %._crit_edge157.i, %._crit_edge164.i, %.lr.ph.i, %._crit_edge272.i, %.preheader262.us.i, %._crit_edge278.i, %.preheader258.us.i, %._crit_edge284.i, %.preheader254.us.i, %._crit_edge290.i, %.preheader250.us.i, %._crit_edge296.i, %.preheader247.us.i, %.lr.ph, %9, %.preheader248.i, %.preheader251.i, %.preheader255.i, %.preheader259.i, %.preheader263.i, %._crit_edge.i79, %341, %324, %278, %261, %244, %242, %233, %.preheader128.i59, %.preheader131.i52, %.preheader117.i, %.preheader120.i66, %.preheader.lr.ph.i71, %.preheader116.i, %.preheader122.lr.ph.i, %.preheader123.i, %.preheader125.lr.ph.i, %.preheader126.i, %129, %.preheader120.i, %.preheader122.i, %.preheader125.i, %.preheader128.i, %.preheader131.i, %35, %24, %4
   %.045 = phi i32 [ -2, %4 ], [ 0, %24 ], [ -3, %35 ], [ 0, %.preheader120.i ], [ 0, %.preheader122.i ], [ 0, %.preheader125.i ], [ 0, %.preheader128.i ], [ 0, %.preheader131.i ], [ -3, %129 ], [ 0, %.preheader116.i ], [ 0, %.preheader117.i ], [ 0, %.preheader120.i66 ], [ 0, %.preheader123.i ], [ 0, %.preheader126.i ], [ 0, %.preheader128.i59 ], [ 0, %.preheader131.i52 ], [ 0, %.preheader125.lr.ph.i ], [ 0, %.preheader122.lr.ph.i ], [ 0, %.preheader.lr.ph.i71 ], [ -2, %233 ], [ -2, %242 ], [ 0, %244 ], [ 0, %261 ], [ 0, %278 ], [ 0, %324 ], [ 0, %341 ], [ -3, %._crit_edge.i79 ], [ 0, %.preheader248.i ], [ 0, %.preheader251.i ], [ 0, %.preheader255.i ], [ 0, %.preheader259.i ], [ 0, %.preheader263.i ], [ 0, %9 ], [ 0, %.lr.ph ], [ 0, %.preheader247.us.i ], [ 0, %._crit_edge296.i ], [ 0, %.preheader250.us.i ], [ 0, %._crit_edge290.i ], [ 0, %.preheader254.us.i ], [ 0, %._crit_edge284.i ], [ 0, %.preheader258.us.i ], [ 0, %._crit_edge278.i ], [ 0, %.preheader262.us.i ], [ 0, %._crit_edge272.i ], [ 0, %.lr.ph.i ], [ 0, %._crit_edge164.i ], [ 0, %._crit_edge157.i ], [ 0, %._crit_edge150.i ], [ 0, %._crit_edge143.i ], [ 0, %._crit_edge.i ], [ 0, %._crit_edge153.i ], [ 0, %.lr.ph150.i ], [ 0, %._crit_edge147.i ], [ 0, %._crit_edge143.i63 ], [ 0, %._crit_edge139.i ], [ 0, %.lr.ph136.i ], [ 0, %._crit_edge.i57 ], [ 0, %._crit_edge.us.i.i.i ], [ 0, %._crit_edge.us.i55.i.i ], [ 0, %._crit_edge.us.i63.i.i ], [ 0, %._crit_edge.us.i75.i.i ], [ 0, %._crit_edge.us.i88.i.i ]
@@ -39775,7 +39775,7 @@ ma_channel_converter_process_pcm_frames__passthrough.exit: ; preds = %._crit_edg
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define hidden noundef i32 @ma_channel_converter_get_input_channel_map(ptr noundef readonly %0, ptr noundef writeonly %1, i64 noundef %2) local_unnamed_addr #3 {
+define hidden range(i32 -2, 1) i32 @ma_channel_converter_get_input_channel_map(ptr noundef readonly %0, ptr noundef writeonly %1, i64 noundef %2) local_unnamed_addr #3 {
   %4 = icmp eq ptr %0, null
   %5 = icmp eq ptr %1, null
   %or.cond = or i1 %4, %5
@@ -39806,7 +39806,7 @@ define hidden noundef i32 @ma_channel_converter_get_input_channel_map(ptr nounde
   %.024.i.i = phi i32 [ %20, %.preheader.i.i ], [ 0, %15 ]
   %.01723.i.i = phi ptr [ %18, %.preheader.i.i ], [ %1, %15 ]
   %.01822.i.i = phi i64 [ %19, %.preheader.i.i ], [ %2, %15 ]
-  %17 = tail call fastcc zeroext i8 @ma_channel_map_init_standard_channel(i32 noundef 0, i32 noundef %10, i32 noundef %.024.i.i), !range !6
+  %17 = tail call fastcc zeroext i8 @ma_channel_map_init_standard_channel(i32 noundef 0, i32 noundef %10, i32 noundef %.024.i.i)
   store i8 %17, ptr %.01723.i.i, align 1
   %18 = getelementptr inbounds i8, ptr %.01723.i.i, i64 1
   %19 = add i64 %.01822.i.i, -1
@@ -39822,7 +39822,7 @@ ma_channel_map_copy_or_default.exit:              ; preds = %.preheader.i.i, %15
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define hidden noundef i32 @ma_channel_converter_get_output_channel_map(ptr noundef readonly %0, ptr noundef writeonly %1, i64 noundef %2) local_unnamed_addr #3 {
+define hidden range(i32 -2, 1) i32 @ma_channel_converter_get_output_channel_map(ptr noundef readonly %0, ptr noundef writeonly %1, i64 noundef %2) local_unnamed_addr #3 {
   %4 = icmp eq ptr %0, null
   %5 = icmp eq ptr %1, null
   %or.cond = or i1 %4, %5
@@ -39853,7 +39853,7 @@ define hidden noundef i32 @ma_channel_converter_get_output_channel_map(ptr nound
   %.024.i.i = phi i32 [ %20, %.preheader.i.i ], [ 0, %15 ]
   %.01723.i.i = phi ptr [ %18, %.preheader.i.i ], [ %1, %15 ]
   %.01822.i.i = phi i64 [ %19, %.preheader.i.i ], [ %2, %15 ]
-  %17 = tail call fastcc zeroext i8 @ma_channel_map_init_standard_channel(i32 noundef 0, i32 noundef %10, i32 noundef %.024.i.i), !range !6
+  %17 = tail call fastcc zeroext i8 @ma_channel_map_init_standard_channel(i32 noundef 0, i32 noundef %10, i32 noundef %.024.i.i)
   store i8 %17, ptr %.01723.i.i, align 1
   %18 = getelementptr inbounds i8, ptr %.01723.i.i, i64 1
   %19 = add i64 %.01822.i.i, -1
@@ -39896,18 +39896,18 @@ define hidden void @ma_data_converter_config_init(ptr dead_on_unwind noalias noc
 
 8:                                                ; preds = %7
   %9 = getelementptr inbounds i8, ptr %0, i64 24
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(120) %9, i8 0, i64 96, i1 false), !alias.scope !200
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(120) %9, i8 0, i64 96, i1 false), !alias.scope !193
   br label %ma_data_converter_config_init_default.exit
 
 ma_data_converter_config_init_default.exit:       ; preds = %7, %8
   %10 = getelementptr inbounds i8, ptr %0, i64 40
-  store i32 0, ptr %10, align 8, !alias.scope !200
+  store i32 0, ptr %10, align 8, !alias.scope !193
   %11 = getelementptr inbounds i8, ptr %0, i64 88
-  store i32 0, ptr %11, align 8, !alias.scope !200
+  store i32 0, ptr %11, align 8, !alias.scope !193
   %12 = getelementptr inbounds i8, ptr %0, i64 64
-  store i32 0, ptr %12, align 8, !alias.scope !200
+  store i32 0, ptr %12, align 8, !alias.scope !193
   %13 = getelementptr inbounds i8, ptr %0, i64 112
-  store i32 1, ptr %13, align 8, !alias.scope !200
+  store i32 1, ptr %13, align 8, !alias.scope !193
   store i32 %1, ptr %0, align 8
   %14 = getelementptr inbounds i8, ptr %0, i64 4
   store i32 %2, ptr %14, align 4
@@ -39974,37 +39974,37 @@ define internal fastcc i32 @ma_data_converter_get_heap_layout(ptr noundef readon
   br i1 %17, label %ma_resampler_get_heap_size.exit.thread, label %18
 
 18:                                               ; preds = %14
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !203)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !196)
   %19 = getelementptr inbounds i8, ptr %0, i64 64
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %1, i8 0, i64 16, i1 false)
-  %20 = load i32, ptr %19, align 8, !noalias !203
+  %20 = load i32, ptr %19, align 8, !noalias !196
   %.not.i.i.i = icmp eq i32 %20, 0
   br i1 %.not.i.i.i, label %ma_data_converter_config_is_resampler_required.exit.i.i, label %ma_data_converter_config_is_resampler_required.exit.thread.i.i
 
 ma_data_converter_config_is_resampler_required.exit.i.i: ; preds = %18
   %21 = getelementptr inbounds i8, ptr %0, i64 16
-  %22 = load i32, ptr %21, align 8, !noalias !203
+  %22 = load i32, ptr %21, align 8, !noalias !196
   %23 = getelementptr inbounds i8, ptr %0, i64 20
-  %24 = load i32, ptr %23, align 4, !noalias !203
+  %24 = load i32, ptr %23, align 4, !noalias !196
   %.not14.i.i = icmp eq i32 %22, %24
   br i1 %.not14.i.i, label %27, label %ma_data_converter_config_is_resampler_required.exit.thread.i.i
 
 ma_data_converter_config_is_resampler_required.exit.thread.i.i: ; preds = %ma_data_converter_config_is_resampler_required.exit.i.i, %18
   %25 = getelementptr inbounds i8, ptr %0, i64 88
-  %26 = load i32, ptr %25, align 8, !noalias !203
+  %26 = load i32, ptr %25, align 8, !noalias !196
   %.not10.i.i = icmp eq i32 %26, 0
   br i1 %.not10.i.i, label %27, label %ma_channel_converter_config_init_from_data_converter_config.exit
 
 27:                                               ; preds = %ma_data_converter_config_is_resampler_required.exit.thread.i.i, %ma_data_converter_config_is_resampler_required.exit.i.i
   %28 = getelementptr inbounds i8, ptr %0, i64 4
-  %29 = load i32, ptr %28, align 4, !noalias !203
+  %29 = load i32, ptr %28, align 4, !noalias !196
   switch i32 %29, label %30 [
     i32 2, label %ma_channel_converter_config_init_from_data_converter_config.exit
     i32 5, label %ma_channel_converter_config_init_from_data_converter_config.exit
   ]
 
 30:                                               ; preds = %27
-  %31 = load i32, ptr %0, align 8, !noalias !203
+  %31 = load i32, ptr %0, align 8, !noalias !196
   %switch.selectcmp12.i.i = icmp eq i32 %31, 2
   %switch.select13.i.i = select i1 %switch.selectcmp12.i.i, i32 2, i32 5
   br label %ma_channel_converter_config_init_from_data_converter_config.exit
@@ -40013,24 +40013,24 @@ ma_channel_converter_config_init_from_data_converter_config.exit: ; preds = %ma_
   %.0.i.i = phi i32 [ 5, %ma_data_converter_config_is_resampler_required.exit.thread.i.i ], [ %29, %27 ], [ %29, %27 ], [ %switch.select13.i.i, %30 ]
   %32 = getelementptr inbounds i8, ptr %0, i64 24
   %33 = getelementptr inbounds i8, ptr %0, i64 44
-  store i32 %.0.i.i, ptr %4, align 8, !alias.scope !203
+  store i32 %.0.i.i, ptr %4, align 8, !alias.scope !196
   %.sroa.2.0..sroa_idx.i = getelementptr inbounds i8, ptr %4, i64 4
-  %34 = load <2 x i32>, ptr %11, align 8, !noalias !203
-  store <2 x i32> %34, ptr %.sroa.2.0..sroa_idx.i, align 4, !alias.scope !203
+  %34 = load <2 x i32>, ptr %11, align 8, !noalias !196
+  store <2 x i32> %34, ptr %.sroa.2.0..sroa_idx.i, align 4, !alias.scope !196
   %.sroa.5.0..sroa_idx.i = getelementptr inbounds i8, ptr %4, i64 12
-  store i32 0, ptr %.sroa.5.0..sroa_idx.i, align 4, !alias.scope !203
+  store i32 0, ptr %.sroa.5.0..sroa_idx.i, align 4, !alias.scope !196
   %.sroa.58.0..sroa_idx.i = getelementptr inbounds i8, ptr %4, i64 16
-  %35 = load <2 x ptr>, ptr %32, align 8, !noalias !203
-  store <2 x ptr> %35, ptr %.sroa.58.0..sroa_idx.i, align 8, !alias.scope !203
+  %35 = load <2 x ptr>, ptr %32, align 8, !noalias !196
+  store <2 x ptr> %35, ptr %.sroa.58.0..sroa_idx.i, align 8, !alias.scope !196
   %.sroa.7.0..sroa_idx.i = getelementptr inbounds i8, ptr %4, i64 32
   %36 = getelementptr inbounds i8, ptr %0, i64 56
-  %37 = load ptr, ptr %36, align 8, !noalias !203
+  %37 = load ptr, ptr %36, align 8, !noalias !196
   %38 = getelementptr inbounds i8, ptr %4, i64 40
-  store ptr %37, ptr %38, align 8, !alias.scope !203
-  %39 = load <2 x i32>, ptr %33, align 4, !noalias !203
-  store <2 x i32> %39, ptr %.sroa.7.0..sroa_idx.i, align 8, !alias.scope !203
+  store ptr %37, ptr %38, align 8, !alias.scope !196
+  %39 = load <2 x i32>, ptr %33, align 4, !noalias !196
+  store <2 x i32> %39, ptr %.sroa.7.0..sroa_idx.i, align 8, !alias.scope !196
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %3)
-  %40 = call fastcc i32 @ma_channel_converter_get_heap_layout(ptr noundef nonnull %4, ptr noundef nonnull %3), !range !11
+  %40 = call fastcc i32 @ma_channel_converter_get_heap_layout(ptr noundef nonnull %4, ptr noundef nonnull %3)
   %.not.i = icmp eq i32 %40, 0
   br i1 %.not.i, label %41, label %ma_channel_converter_get_heap_size.exit
 
@@ -40057,27 +40057,27 @@ ma_data_converter_config_is_resampler_required.exit: ; preds = %41
   br i1 %.not55, label %80, label %ma_data_converter_config_is_resampler_required.exit.thread.i.i34
 
 49:                                               ; preds = %41
-  call void @llvm.experimental.noalias.scope.decl(metadata !206)
+  call void @llvm.experimental.noalias.scope.decl(metadata !199)
   br label %ma_data_converter_config_is_resampler_required.exit.thread.i.i34
 
 ma_data_converter_config_is_resampler_required.exit.thread.i.i34: ; preds = %ma_data_converter_config_is_resampler_required.exit, %49
-  %50 = load i32, ptr %11, align 8, !noalias !209
-  %51 = load i32, ptr %15, align 4, !noalias !209
+  %50 = load i32, ptr %11, align 8, !noalias !202
+  %51 = load i32, ptr %15, align 4, !noalias !202
   %52 = getelementptr inbounds i8, ptr %0, i64 88
-  %53 = load i32, ptr %52, align 8, !noalias !206
+  %53 = load i32, ptr %52, align 8, !noalias !199
   %.not10.i.i35 = icmp eq i32 %53, 0
   br i1 %.not10.i.i35, label %54, label %ma_resampler_config_init_from_data_converter_config.exit
 
 54:                                               ; preds = %ma_data_converter_config_is_resampler_required.exit.thread.i.i34
   %55 = getelementptr inbounds i8, ptr %0, i64 4
-  %56 = load i32, ptr %55, align 4, !noalias !206
+  %56 = load i32, ptr %55, align 4, !noalias !199
   switch i32 %56, label %57 [
     i32 2, label %ma_resampler_config_init_from_data_converter_config.exit
     i32 5, label %ma_resampler_config_init_from_data_converter_config.exit
   ]
 
 57:                                               ; preds = %54
-  %58 = load i32, ptr %0, align 8, !noalias !206
+  %58 = load i32, ptr %0, align 8, !noalias !199
   %switch.selectcmp12.i.i42 = icmp eq i32 %58, 2
   %switch.select13.i.i43 = select i1 %switch.selectcmp12.i.i42, i32 2, i32 5
   br label %ma_resampler_config_init_from_data_converter_config.exit
@@ -40087,31 +40087,31 @@ ma_resampler_config_init_from_data_converter_config.exit: ; preds = %ma_data_con
   %..i = call i32 @llvm.umin.i32(i32 %50, i32 %51)
   %59 = getelementptr inbounds i8, ptr %0, i64 16
   %60 = getelementptr inbounds i8, ptr %0, i64 88
-  %61 = load i32, ptr %60, align 8, !noalias !206
-  store i32 %.0.i.i36, ptr %6, align 8, !alias.scope !206
+  %61 = load i32, ptr %60, align 8, !noalias !199
+  store i32 %.0.i.i36, ptr %6, align 8, !alias.scope !199
   %.sroa.2.0..sroa_idx.i37 = getelementptr inbounds i8, ptr %6, i64 4
-  store i32 %..i, ptr %.sroa.2.0..sroa_idx.i37, align 4, !alias.scope !206
+  store i32 %..i, ptr %.sroa.2.0..sroa_idx.i37, align 4, !alias.scope !199
   %.sroa.3.0..sroa_idx.i38 = getelementptr inbounds i8, ptr %6, i64 8
-  %62 = load <2 x i32>, ptr %59, align 8, !noalias !206
-  store <2 x i32> %62, ptr %.sroa.3.0..sroa_idx.i38, align 8, !alias.scope !206
+  %62 = load <2 x i32>, ptr %59, align 8, !noalias !199
+  store <2 x i32> %62, ptr %.sroa.3.0..sroa_idx.i38, align 8, !alias.scope !199
   %.sroa.5.0..sroa_idx.i39 = getelementptr inbounds i8, ptr %6, i64 16
-  store i32 %61, ptr %.sroa.5.0..sroa_idx.i39, align 8, !alias.scope !206
+  store i32 %61, ptr %.sroa.5.0..sroa_idx.i39, align 8, !alias.scope !199
   %.sroa.7.0..sroa_idx.i40 = getelementptr inbounds i8, ptr %6, i64 20
-  store i32 0, ptr %.sroa.7.0..sroa_idx.i40, align 4, !alias.scope !206
+  store i32 0, ptr %.sroa.7.0..sroa_idx.i40, align 4, !alias.scope !199
   %.sroa.713.0..sroa_idx.i = getelementptr inbounds i8, ptr %6, i64 40
   %.sroa.8.0..sroa_idx.i41 = getelementptr inbounds i8, ptr %6, i64 44
-  store i32 0, ptr %.sroa.8.0..sroa_idx.i41, align 4, !alias.scope !206
+  store i32 0, ptr %.sroa.8.0..sroa_idx.i41, align 4, !alias.scope !199
   %63 = getelementptr inbounds i8, ptr %0, i64 112
-  %64 = load i32, ptr %63, align 8, !noalias !206
-  store i32 %64, ptr %.sroa.713.0..sroa_idx.i, align 8, !alias.scope !206
+  %64 = load i32, ptr %63, align 8, !noalias !199
+  store i32 %64, ptr %.sroa.713.0..sroa_idx.i, align 8, !alias.scope !199
   %65 = getelementptr inbounds i8, ptr %0, i64 96
-  %66 = load ptr, ptr %65, align 8, !noalias !206
+  %66 = load ptr, ptr %65, align 8, !noalias !199
   %67 = getelementptr inbounds i8, ptr %6, i64 24
-  store ptr %66, ptr %67, align 8, !alias.scope !206
+  store ptr %66, ptr %67, align 8, !alias.scope !199
   %68 = getelementptr inbounds i8, ptr %0, i64 104
-  %69 = load ptr, ptr %68, align 8, !noalias !206
+  %69 = load ptr, ptr %68, align 8, !noalias !199
   %70 = getelementptr inbounds i8, ptr %6, i64 32
-  store ptr %69, ptr %70, align 8, !alias.scope !206
+  store ptr %69, ptr %70, align 8, !alias.scope !199
   store i64 0, ptr %5, align 8
   switch i32 %61, label %ma_resampler_get_heap_size.exit.thread [
     i32 0, label %.thread.i
@@ -40243,30 +40243,30 @@ ma_data_converter_config_is_resampler_required.exit.thread.i: ; preds = %16, %ma
 ma_data_converter_config_get_mid_format.exit:     ; preds = %ma_data_converter_config_is_resampler_required.exit.thread.i, %45, %45, %48
   %50 = phi i32 [ %42, %ma_data_converter_config_is_resampler_required.exit.thread.i ], [ %46, %45 ], [ %46, %45 ], [ %46, %48 ]
   %.0.i = phi i32 [ 5, %ma_data_converter_config_is_resampler_required.exit.thread.i ], [ %47, %45 ], [ %47, %45 ], [ %switch.select13.i, %48 ]
-  call void @llvm.experimental.noalias.scope.decl(metadata !210)
+  call void @llvm.experimental.noalias.scope.decl(metadata !203)
   br i1 %.not.i, label %ma_data_converter_config_is_resampler_required.exit.i.i, label %ma_data_converter_config_is_resampler_required.exit.thread.i.i
 
 ma_data_converter_config_is_resampler_required.exit.i.i: ; preds = %ma_data_converter_config_get_mid_format.exit
-  %51 = load i32, ptr %27, align 8, !noalias !210
-  %52 = load i32, ptr %30, align 4, !noalias !210
+  %51 = load i32, ptr %27, align 8, !noalias !203
+  %52 = load i32, ptr %30, align 4, !noalias !203
   %.not14.i.i = icmp eq i32 %51, %52
   br i1 %.not14.i.i, label %55, label %ma_data_converter_config_is_resampler_required.exit.thread.i.i
 
 ma_data_converter_config_is_resampler_required.exit.thread.i.i: ; preds = %ma_data_converter_config_is_resampler_required.exit.i.i, %ma_data_converter_config_get_mid_format.exit
   %53 = getelementptr inbounds i8, ptr %0, i64 88
-  %54 = load i32, ptr %53, align 8, !noalias !210
+  %54 = load i32, ptr %53, align 8, !noalias !203
   %.not10.i.i = icmp eq i32 %54, 0
   br i1 %.not10.i.i, label %55, label %ma_channel_converter_config_init_from_data_converter_config.exit
 
 55:                                               ; preds = %ma_data_converter_config_is_resampler_required.exit.thread.i.i, %ma_data_converter_config_is_resampler_required.exit.i.i
-  %56 = load i32, ptr %18, align 4, !noalias !210
+  %56 = load i32, ptr %18, align 4, !noalias !203
   switch i32 %56, label %57 [
     i32 2, label %ma_channel_converter_config_init_from_data_converter_config.exit
     i32 5, label %ma_channel_converter_config_init_from_data_converter_config.exit
   ]
 
 57:                                               ; preds = %55
-  %58 = load i32, ptr %0, align 8, !noalias !210
+  %58 = load i32, ptr %0, align 8, !noalias !203
   %switch.selectcmp12.i.i = icmp eq i32 %58, 2
   %switch.select13.i.i = select i1 %switch.selectcmp12.i.i, i32 2, i32 5
   br label %ma_channel_converter_config_init_from_data_converter_config.exit
@@ -40275,27 +40275,27 @@ ma_channel_converter_config_init_from_data_converter_config.exit: ; preds = %ma_
   %.0.i.i = phi i32 [ 5, %ma_data_converter_config_is_resampler_required.exit.thread.i.i ], [ %56, %55 ], [ %56, %55 ], [ %switch.select13.i.i, %57 ]
   %59 = getelementptr inbounds i8, ptr %0, i64 24
   %60 = getelementptr inbounds i8, ptr %0, i64 44
-  store i32 %.0.i.i, ptr %5, align 8, !alias.scope !210
+  store i32 %.0.i.i, ptr %5, align 8, !alias.scope !203
   %.sroa.2.0..sroa_idx.i = getelementptr inbounds i8, ptr %5, i64 4
-  %61 = load <2 x i32>, ptr %21, align 8, !noalias !210
-  store <2 x i32> %61, ptr %.sroa.2.0..sroa_idx.i, align 4, !alias.scope !210
+  %61 = load <2 x i32>, ptr %21, align 8, !noalias !203
+  store <2 x i32> %61, ptr %.sroa.2.0..sroa_idx.i, align 4, !alias.scope !203
   %.sroa.5.0..sroa_idx.i = getelementptr inbounds i8, ptr %5, i64 12
-  store i32 0, ptr %.sroa.5.0..sroa_idx.i, align 4, !alias.scope !210
+  store i32 0, ptr %.sroa.5.0..sroa_idx.i, align 4, !alias.scope !203
   %.sroa.58.0..sroa_idx.i = getelementptr inbounds i8, ptr %5, i64 16
-  %62 = load <2 x ptr>, ptr %59, align 8, !noalias !210
-  store <2 x ptr> %62, ptr %.sroa.58.0..sroa_idx.i, align 8, !alias.scope !210
+  %62 = load <2 x ptr>, ptr %59, align 8, !noalias !203
+  store <2 x ptr> %62, ptr %.sroa.58.0..sroa_idx.i, align 8, !alias.scope !203
   %.sroa.7.0..sroa_idx.i = getelementptr inbounds i8, ptr %5, i64 32
   %63 = getelementptr inbounds i8, ptr %0, i64 56
-  %64 = load ptr, ptr %63, align 8, !noalias !210
+  %64 = load ptr, ptr %63, align 8, !noalias !203
   %65 = getelementptr inbounds i8, ptr %5, i64 40
-  store ptr %64, ptr %65, align 8, !alias.scope !210
-  %66 = load <2 x i32>, ptr %60, align 4, !noalias !210
-  store <2 x i32> %66, ptr %.sroa.7.0..sroa_idx.i, align 8, !alias.scope !210
+  store ptr %64, ptr %65, align 8, !alias.scope !203
+  %66 = load <2 x i32>, ptr %60, align 4, !noalias !203
+  store <2 x i32> %66, ptr %.sroa.7.0..sroa_idx.i, align 8, !alias.scope !203
   %67 = getelementptr inbounds i8, ptr %4, i64 8
   %68 = load i64, ptr %67, align 8
   %69 = getelementptr inbounds i8, ptr %1, i64 %68
   %70 = getelementptr inbounds i8, ptr %2, i64 32
-  %71 = call i32 @ma_channel_converter_init_preallocated(ptr noundef nonnull %5, ptr noundef %69, ptr noundef nonnull %70), !range !11
+  %71 = call i32 @ma_channel_converter_init_preallocated(ptr noundef nonnull %5, ptr noundef %69, ptr noundef nonnull %70)
   %.not88 = icmp eq i32 %71, 0
   br i1 %.not88, label %72, label %ma_resampler_init_preallocated.exit.thread
 
@@ -40315,34 +40315,34 @@ ma_channel_converter_config_init_from_data_converter_config.exit: ; preds = %ma_
   br i1 %.not90, label %124, label %78
 
 78:                                               ; preds = %77
-  call void @llvm.experimental.noalias.scope.decl(metadata !213)
-  %79 = load i32, ptr %21, align 8, !noalias !213
-  %80 = load i32, ptr %24, align 4, !noalias !213
-  %81 = load i32, ptr %36, align 8, !noalias !213
+  call void @llvm.experimental.noalias.scope.decl(metadata !206)
+  %79 = load i32, ptr %21, align 8, !noalias !206
+  %80 = load i32, ptr %24, align 4, !noalias !206
+  %81 = load i32, ptr %36, align 8, !noalias !206
   %.not.i.i.i99 = icmp eq i32 %81, 0
   br i1 %.not.i.i.i99, label %ma_data_converter_config_is_resampler_required.exit.i.i110, label %ma_data_converter_config_is_resampler_required.exit.thread.i.i100
 
 ma_data_converter_config_is_resampler_required.exit.i.i110: ; preds = %78
-  %82 = load i32, ptr %27, align 8, !noalias !213
-  %83 = load i32, ptr %30, align 4, !noalias !213
+  %82 = load i32, ptr %27, align 8, !noalias !206
+  %83 = load i32, ptr %30, align 4, !noalias !206
   %.not14.i.i111 = icmp eq i32 %82, %83
   br i1 %.not14.i.i111, label %86, label %ma_data_converter_config_is_resampler_required.exit.thread.i.i100
 
 ma_data_converter_config_is_resampler_required.exit.thread.i.i100: ; preds = %ma_data_converter_config_is_resampler_required.exit.i.i110, %78
   %84 = getelementptr inbounds i8, ptr %0, i64 88
-  %85 = load i32, ptr %84, align 8, !noalias !213
+  %85 = load i32, ptr %84, align 8, !noalias !206
   %.not10.i.i101 = icmp eq i32 %85, 0
   br i1 %.not10.i.i101, label %86, label %ma_resampler_config_init_from_data_converter_config.exit
 
 86:                                               ; preds = %ma_data_converter_config_is_resampler_required.exit.thread.i.i100, %ma_data_converter_config_is_resampler_required.exit.i.i110
-  %87 = load i32, ptr %18, align 4, !noalias !213
+  %87 = load i32, ptr %18, align 4, !noalias !206
   switch i32 %87, label %88 [
     i32 2, label %ma_resampler_config_init_from_data_converter_config.exit
     i32 5, label %ma_resampler_config_init_from_data_converter_config.exit
   ]
 
 88:                                               ; preds = %86
-  %89 = load i32, ptr %0, align 8, !noalias !213
+  %89 = load i32, ptr %0, align 8, !noalias !206
   %switch.selectcmp12.i.i108 = icmp eq i32 %89, 2
   %switch.select13.i.i109 = select i1 %switch.selectcmp12.i.i108, i32 2, i32 5
   br label %ma_resampler_config_init_from_data_converter_config.exit
@@ -40350,35 +40350,35 @@ ma_data_converter_config_is_resampler_required.exit.thread.i.i100: ; preds = %ma
 ma_resampler_config_init_from_data_converter_config.exit: ; preds = %ma_data_converter_config_is_resampler_required.exit.thread.i.i100, %86, %86, %88
   %.0.i.i102 = phi i32 [ 5, %ma_data_converter_config_is_resampler_required.exit.thread.i.i100 ], [ %87, %86 ], [ %87, %86 ], [ %switch.select13.i.i109, %88 ]
   %..i = call i32 @llvm.umin.i32(i32 %79, i32 %80)
-  %90 = load i32, ptr %27, align 8, !noalias !213
-  %91 = load i32, ptr %30, align 4, !noalias !213
+  %90 = load i32, ptr %27, align 8, !noalias !206
+  %91 = load i32, ptr %30, align 4, !noalias !206
   %92 = getelementptr inbounds i8, ptr %0, i64 88
-  %93 = load i32, ptr %92, align 8, !noalias !213
-  store i32 %.0.i.i102, ptr %6, align 8, !alias.scope !213
+  %93 = load i32, ptr %92, align 8, !noalias !206
+  store i32 %.0.i.i102, ptr %6, align 8, !alias.scope !206
   %.sroa.2.0..sroa_idx.i103 = getelementptr inbounds i8, ptr %6, i64 4
-  store i32 %..i, ptr %.sroa.2.0..sroa_idx.i103, align 4, !alias.scope !213
+  store i32 %..i, ptr %.sroa.2.0..sroa_idx.i103, align 4, !alias.scope !206
   %.sroa.3.0..sroa_idx.i104 = getelementptr inbounds i8, ptr %6, i64 8
-  store i32 %90, ptr %.sroa.3.0..sroa_idx.i104, align 8, !alias.scope !213
+  store i32 %90, ptr %.sroa.3.0..sroa_idx.i104, align 8, !alias.scope !206
   %.sroa.4.0..sroa_idx.i = getelementptr inbounds i8, ptr %6, i64 12
-  store i32 %91, ptr %.sroa.4.0..sroa_idx.i, align 4, !alias.scope !213
+  store i32 %91, ptr %.sroa.4.0..sroa_idx.i, align 4, !alias.scope !206
   %.sroa.5.0..sroa_idx.i105 = getelementptr inbounds i8, ptr %6, i64 16
-  store i32 %93, ptr %.sroa.5.0..sroa_idx.i105, align 8, !alias.scope !213
+  store i32 %93, ptr %.sroa.5.0..sroa_idx.i105, align 8, !alias.scope !206
   %.sroa.7.0..sroa_idx.i106 = getelementptr inbounds i8, ptr %6, i64 20
-  store i32 0, ptr %.sroa.7.0..sroa_idx.i106, align 4, !alias.scope !213
+  store i32 0, ptr %.sroa.7.0..sroa_idx.i106, align 4, !alias.scope !206
   %.sroa.713.0..sroa_idx.i = getelementptr inbounds i8, ptr %6, i64 40
   %.sroa.8.0..sroa_idx.i107 = getelementptr inbounds i8, ptr %6, i64 44
-  store i32 0, ptr %.sroa.8.0..sroa_idx.i107, align 4, !alias.scope !213
+  store i32 0, ptr %.sroa.8.0..sroa_idx.i107, align 4, !alias.scope !206
   %94 = getelementptr inbounds i8, ptr %0, i64 112
-  %95 = load i32, ptr %94, align 8, !noalias !213
-  store i32 %95, ptr %.sroa.713.0..sroa_idx.i, align 8, !alias.scope !213
+  %95 = load i32, ptr %94, align 8, !noalias !206
+  store i32 %95, ptr %.sroa.713.0..sroa_idx.i, align 8, !alias.scope !206
   %96 = getelementptr inbounds i8, ptr %0, i64 96
-  %97 = load ptr, ptr %96, align 8, !noalias !213
+  %97 = load ptr, ptr %96, align 8, !noalias !206
   %98 = getelementptr inbounds i8, ptr %6, i64 24
-  store ptr %97, ptr %98, align 8, !alias.scope !213
+  store ptr %97, ptr %98, align 8, !alias.scope !206
   %99 = getelementptr inbounds i8, ptr %0, i64 104
-  %100 = load ptr, ptr %99, align 8, !noalias !213
+  %100 = load ptr, ptr %99, align 8, !noalias !206
   %101 = getelementptr inbounds i8, ptr %6, i64 32
-  store ptr %100, ptr %101, align 8, !alias.scope !213
+  store ptr %100, ptr %101, align 8, !alias.scope !206
   %102 = getelementptr inbounds i8, ptr %4, i64 16
   %103 = load i64, ptr %102, align 8
   %104 = getelementptr inbounds i8, ptr %1, i64 %103
@@ -42105,7 +42105,7 @@ ma_resampler_get_expected_output_frame_count.exit: ; preds = %19, %15, %10, %5, 
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define hidden noundef i32 @ma_data_converter_get_input_channel_map(ptr noundef readonly %0, ptr noundef writeonly %1, i64 noundef %2) local_unnamed_addr #3 {
+define hidden range(i32 -2, 1) i32 @ma_data_converter_get_input_channel_map(ptr noundef readonly %0, ptr noundef writeonly %1, i64 noundef %2) local_unnamed_addr #3 {
   %4 = icmp eq ptr %0, null
   %5 = icmp eq ptr %1, null
   %or.cond = or i1 %4, %5
@@ -42142,7 +42142,7 @@ define hidden noundef i32 @ma_data_converter_get_input_channel_map(ptr noundef r
   %.024.i.i.i = phi i32 [ %23, %.preheader.i.i.i ], [ 0, %18 ]
   %.01723.i.i.i = phi ptr [ %21, %.preheader.i.i.i ], [ %1, %18 ]
   %.01822.i.i.i = phi i64 [ %22, %.preheader.i.i.i ], [ %2, %18 ]
-  %20 = tail call fastcc zeroext i8 @ma_channel_map_init_standard_channel(i32 noundef 0, i32 noundef %13, i32 noundef %.024.i.i.i), !range !6
+  %20 = tail call fastcc zeroext i8 @ma_channel_map_init_standard_channel(i32 noundef 0, i32 noundef %13, i32 noundef %.024.i.i.i)
   store i8 %20, ptr %.01723.i.i.i, align 1
   %21 = getelementptr inbounds i8, ptr %.01723.i.i.i, i64 1
   %22 = add i64 %.01822.i.i.i, -1
@@ -42164,7 +42164,7 @@ define hidden noundef i32 @ma_data_converter_get_input_channel_map(ptr noundef r
   %.024.i = phi i32 [ %34, %.preheader.i ], [ 0, %26 ]
   %.01723.i = phi ptr [ %32, %.preheader.i ], [ %1, %26 ]
   %.01822.i = phi i64 [ %33, %.preheader.i ], [ %2, %26 ]
-  %31 = tail call fastcc zeroext i8 @ma_channel_map_init_standard_channel(i32 noundef 0, i32 noundef %28, i32 noundef %.024.i), !range !6
+  %31 = tail call fastcc zeroext i8 @ma_channel_map_init_standard_channel(i32 noundef 0, i32 noundef %28, i32 noundef %.024.i)
   store i8 %31, ptr %.01723.i, align 1
   %32 = getelementptr inbounds i8, ptr %.01723.i, i64 1
   %33 = add i64 %.01822.i, -1
@@ -42192,7 +42192,7 @@ define hidden void @ma_channel_map_init_standard(i32 noundef %0, ptr noundef wri
   %.024 = phi i32 [ %11, %.preheader ], [ 0, %4 ]
   %.01723 = phi ptr [ %9, %.preheader ], [ %1, %4 ]
   %.01822 = phi i64 [ %10, %.preheader ], [ %2, %4 ]
-  %8 = tail call fastcc zeroext i8 @ma_channel_map_init_standard_channel(i32 noundef %0, i32 noundef %3, i32 noundef %.024), !range !6
+  %8 = tail call fastcc zeroext i8 @ma_channel_map_init_standard_channel(i32 noundef %0, i32 noundef %3, i32 noundef %.024)
   store i8 %8, ptr %.01723, align 1
   %9 = getelementptr inbounds i8, ptr %.01723, i64 1
   %10 = add i64 %.01822, -1
@@ -42207,7 +42207,7 @@ define hidden void @ma_channel_map_init_standard(i32 noundef %0, ptr noundef wri
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define hidden noundef i32 @ma_data_converter_get_output_channel_map(ptr noundef readonly %0, ptr noundef writeonly %1, i64 noundef %2) local_unnamed_addr #3 {
+define hidden range(i32 -2, 1) i32 @ma_data_converter_get_output_channel_map(ptr noundef readonly %0, ptr noundef writeonly %1, i64 noundef %2) local_unnamed_addr #3 {
   %4 = icmp eq ptr %0, null
   %5 = icmp eq ptr %1, null
   %or.cond = or i1 %4, %5
@@ -42244,7 +42244,7 @@ define hidden noundef i32 @ma_data_converter_get_output_channel_map(ptr noundef 
   %.024.i.i.i = phi i32 [ %23, %.preheader.i.i.i ], [ 0, %18 ]
   %.01723.i.i.i = phi ptr [ %21, %.preheader.i.i.i ], [ %1, %18 ]
   %.01822.i.i.i = phi i64 [ %22, %.preheader.i.i.i ], [ %2, %18 ]
-  %20 = tail call fastcc zeroext i8 @ma_channel_map_init_standard_channel(i32 noundef 0, i32 noundef %13, i32 noundef %.024.i.i.i), !range !6
+  %20 = tail call fastcc zeroext i8 @ma_channel_map_init_standard_channel(i32 noundef 0, i32 noundef %13, i32 noundef %.024.i.i.i)
   store i8 %20, ptr %.01723.i.i.i, align 1
   %21 = getelementptr inbounds i8, ptr %.01723.i.i.i, i64 1
   %22 = add i64 %.01822.i.i.i, -1
@@ -42266,7 +42266,7 @@ define hidden noundef i32 @ma_data_converter_get_output_channel_map(ptr noundef 
   %.024.i = phi i32 [ %34, %.preheader.i ], [ 0, %26 ]
   %.01723.i = phi ptr [ %32, %.preheader.i ], [ %1, %26 ]
   %.01822.i = phi i64 [ %33, %.preheader.i ], [ %2, %26 ]
-  %31 = tail call fastcc zeroext i8 @ma_channel_map_init_standard_channel(i32 noundef 0, i32 noundef %28, i32 noundef %.024.i), !range !6
+  %31 = tail call fastcc zeroext i8 @ma_channel_map_init_standard_channel(i32 noundef 0, i32 noundef %28, i32 noundef %.024.i)
   store i8 %31, ptr %.01723.i, align 1
   %32 = getelementptr inbounds i8, ptr %.01723.i, i64 1
   %33 = add i64 %.01822.i, -1
@@ -42318,7 +42318,7 @@ ma_resampler_reset.exit:                          ; preds = %16, %12, %7, %3, %1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal fastcc zeroext i8 @ma_channel_map_init_standard_channel(i32 noundef %0, i32 noundef %1, i32 noundef %2) unnamed_addr #1 {
+define internal fastcc zeroext range(i8 0, 46) i8 @ma_channel_map_init_standard_channel(i32 noundef %0, i32 noundef %1, i32 noundef %2) unnamed_addr #1 {
   %.not = icmp ult i32 %2, %1
   br i1 %.not, label %4, label %ma_channel_map_init_standard_channel_alsa.exit
 
@@ -42968,7 +42968,7 @@ define hidden void @ma_channel_map_copy(ptr noundef writeonly %0, ptr noundef re
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read) uwtable
-define hidden noundef i32 @ma_channel_map_is_valid(ptr noundef readonly %0, i32 noundef %1) local_unnamed_addr #43 {
+define hidden range(i32 0, 2) i32 @ma_channel_map_is_valid(ptr noundef readonly %0, i32 noundef %1) local_unnamed_addr #43 {
   switch i32 %1, label %.lr.ph [
     i32 0, label %.loopexit10
     i32 1, label %.loopexit
@@ -42984,7 +42984,7 @@ ma_channel_map_get_channel.exit.preheader:        ; preds = %.lr.ph
 
 ma_channel_map_get_channel.exit.us:               ; preds = %.lr.ph, %6
   %.011.us = phi i32 [ %7, %6 ], [ 0, %.lr.ph ]
-  %4 = tail call fastcc zeroext i8 @ma_channel_map_init_standard_channel(i32 noundef 0, i32 noundef %1, i32 noundef %.011.us), !range !6
+  %4 = tail call fastcc zeroext i8 @ma_channel_map_init_standard_channel(i32 noundef 0, i32 noundef %1, i32 noundef %.011.us)
   %5 = icmp eq i8 %4, 1
   br i1 %5, label %.loopexit10, label %6
 
@@ -43014,7 +43014,7 @@ ma_channel_map_get_channel.exit:                  ; preds = %ma_channel_map_get_
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read) uwtable
-define hidden noundef i32 @ma_channel_map_is_equal(ptr noundef readonly %0, ptr noundef readonly %1, i32 noundef %2) local_unnamed_addr #43 {
+define hidden range(i32 0, 2) i32 @ma_channel_map_is_equal(ptr noundef readonly %0, ptr noundef readonly %1, i32 noundef %2) local_unnamed_addr #43 {
   %4 = icmp ne ptr %0, %1
   %5 = icmp ne i32 %2, 0
   %or.cond = and i1 %4, %5
@@ -43035,7 +43035,7 @@ ma_channel_map_get_channel.exit.us.preheader:     ; preds = %.lr.ph.split.us
 ma_channel_map_get_channel.exit.us:               ; preds = %ma_channel_map_get_channel.exit.us.preheader, %12
   %indvars.iv44 = phi i64 [ 0, %ma_channel_map_get_channel.exit.us.preheader ], [ %indvars.iv.next45, %12 ]
   %8 = trunc nuw i64 %indvars.iv44 to i32
-  %9 = tail call fastcc zeroext i8 @ma_channel_map_init_standard_channel(i32 noundef 0, i32 noundef %2, i32 noundef %8), !range !6
+  %9 = tail call fastcc zeroext i8 @ma_channel_map_init_standard_channel(i32 noundef 0, i32 noundef %2, i32 noundef %8)
   %10 = getelementptr inbounds i8, ptr %1, i64 %indvars.iv44
   %11 = load i8, ptr %10, align 1
   %.not.us = icmp eq i8 %9, %11
@@ -43055,7 +43055,7 @@ ma_channel_map_get_channel.exit.us21:             ; preds = %.lr.ph.split, %17
   %13 = getelementptr inbounds i8, ptr %0, i64 %indvars.iv39
   %14 = load i8, ptr %13, align 1
   %15 = trunc nuw i64 %indvars.iv39 to i32
-  %16 = tail call fastcc zeroext i8 @ma_channel_map_init_standard_channel(i32 noundef 0, i32 noundef %2, i32 noundef %15), !range !6
+  %16 = tail call fastcc zeroext i8 @ma_channel_map_init_standard_channel(i32 noundef 0, i32 noundef %2, i32 noundef %15)
   %.not.us25 = icmp eq i8 %14, %16
   br i1 %.not.us25, label %17, label %.loopexit
 
@@ -43084,7 +43084,7 @@ ma_channel_map_get_channel.exit:                  ; preds = %.lr.ph.split, %18
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read) uwtable
-define hidden noundef i32 @ma_channel_map_is_blank(ptr noundef readonly %0, i32 noundef %1) local_unnamed_addr #43 {
+define hidden range(i32 0, 2) i32 @ma_channel_map_is_blank(ptr noundef readonly %0, i32 noundef %1) local_unnamed_addr #43 {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %.loopexit, label %.preheader
 
@@ -43361,7 +43361,7 @@ ma_data_converter_init.exit.thread:               ; preds = %.thread.i, %24, %18
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @ma_rb_init_ex(i64 noundef %0, i64 noundef %1, i64 noundef %2, ptr noundef %3, ptr noundef readonly %4, ptr noundef %5) local_unnamed_addr #5 {
+define hidden range(i32 -4, 1) i32 @ma_rb_init_ex(i64 noundef %0, i64 noundef %1, i64 noundef %2, ptr noundef %3, ptr noundef readonly %4, ptr noundef %5) local_unnamed_addr #5 {
   %7 = icmp eq ptr %5, null
   br i1 %7, label %ma_allocation_callbacks_init_copy.exit.thread, label %8
 
@@ -43555,8 +43555,8 @@ ma_malloc.exit.thread:                            ; preds = %8, %ma_malloc.exit,
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @ma_rb_init(i64 noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #5 {
-  %5 = tail call i32 @ma_rb_init_ex(i64 noundef %0, i64 noundef 1, i64 noundef 0, ptr noundef %1, ptr noundef %2, ptr noundef %3), !range !4
+define hidden range(i32 -4, 1) i32 @ma_rb_init(i64 noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #5 {
+  %5 = tail call i32 @ma_rb_init_ex(i64 noundef %0, i64 noundef 1, i64 noundef 0, ptr noundef %1, ptr noundef %2, ptr noundef %3)
   ret i32 %5
 }
 
@@ -43641,7 +43641,7 @@ define hidden void @ma_rb_reset(ptr noundef %0) local_unnamed_addr #24 {
 }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden noundef i32 @ma_rb_acquire_read(ptr noundef readonly %0, ptr noundef %1, ptr noundef writeonly %2) local_unnamed_addr #24 {
+define hidden range(i32 -2, 1) i32 @ma_rb_acquire_read(ptr noundef readonly %0, ptr noundef %1, ptr noundef writeonly %2) local_unnamed_addr #24 {
   %4 = icmp eq ptr %0, null
   %5 = icmp eq ptr %1, null
   %or.cond = or i1 %4, %5
@@ -43689,7 +43689,7 @@ define hidden noundef i32 @ma_rb_acquire_read(ptr noundef readonly %0, ptr nound
 }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden i32 @ma_rb_commit_read(ptr noundef %0, i64 noundef %1) local_unnamed_addr #24 {
+define hidden range(i32 -17, 1) i32 @ma_rb_commit_read(ptr noundef %0, i64 noundef %1) local_unnamed_addr #24 {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %34, label %4
 
@@ -43774,7 +43774,7 @@ define hidden i32 @ma_rb_pointer_distance(ptr noundef readonly %0) local_unnamed
 }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define hidden noundef i32 @ma_rb_acquire_write(ptr noundef readonly %0, ptr noundef %1, ptr noundef writeonly %2) local_unnamed_addr #44 {
+define hidden range(i32 -2, 1) i32 @ma_rb_acquire_write(ptr noundef readonly %0, ptr noundef %1, ptr noundef writeonly %2) local_unnamed_addr #44 {
   %4 = icmp eq ptr %0, null
   %5 = icmp eq ptr %1, null
   %or.cond = or i1 %4, %5
@@ -43836,7 +43836,7 @@ define hidden noundef i32 @ma_rb_acquire_write(ptr noundef readonly %0, ptr noun
 }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden i32 @ma_rb_commit_write(ptr noundef %0, i64 noundef %1) local_unnamed_addr #24 {
+define hidden range(i32 -17, 1) i32 @ma_rb_commit_write(ptr noundef %0, i64 noundef %1) local_unnamed_addr #24 {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %34, label %4
 
@@ -43889,7 +43889,7 @@ ma_rb_pointer_distance.exit:                      ; preds = %27, %29
 }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden noundef i32 @ma_rb_seek_read(ptr noundef %0, i64 noundef %1) local_unnamed_addr #24 {
+define hidden range(i32 -2, 1) i32 @ma_rb_seek_read(ptr noundef %0, i64 noundef %1) local_unnamed_addr #24 {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %37, label %4
 
@@ -43948,7 +43948,7 @@ define hidden noundef i32 @ma_rb_seek_read(ptr noundef %0, i64 noundef %1) local
 }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden noundef i32 @ma_rb_seek_write(ptr noundef %0, i64 noundef %1) local_unnamed_addr #24 {
+define hidden range(i32 -2, 1) i32 @ma_rb_seek_write(ptr noundef %0, i64 noundef %1) local_unnamed_addr #24 {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %33, label %4
 
@@ -44001,7 +44001,7 @@ define hidden noundef i32 @ma_rb_seek_write(ptr noundef %0, i64 noundef %1) loca
 }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden i32 @ma_rb_available_read(ptr noundef readonly %0) local_unnamed_addr #24 {
+define hidden range(i32 0, -2147483648) i32 @ma_rb_available_read(ptr noundef readonly %0) local_unnamed_addr #24 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %19, label %3
 
@@ -44076,7 +44076,7 @@ ma_rb_pointer_distance.exit:                      ; preds = %14, %16
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden i64 @ma_rb_get_subbuffer_size(ptr noundef readonly %0) local_unnamed_addr #15 {
+define hidden range(i64 0, 4294967296) i64 @ma_rb_get_subbuffer_size(ptr noundef readonly %0) local_unnamed_addr #15 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %7, label %3
 
@@ -44092,7 +44092,7 @@ define hidden i64 @ma_rb_get_subbuffer_size(ptr noundef readonly %0) local_unnam
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden i64 @ma_rb_get_subbuffer_stride(ptr noundef readonly %0) local_unnamed_addr #15 {
+define hidden range(i64 0, 4294967296) i64 @ma_rb_get_subbuffer_stride(ptr noundef readonly %0) local_unnamed_addr #15 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %10, label %3
 
@@ -44169,7 +44169,7 @@ ma_rb_get_subbuffer_offset.exit:                  ; preds = %5, %9
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @ma_pcm_rb_init_ex(i32 noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, ptr noundef %5, ptr noundef %6, ptr noundef %7) local_unnamed_addr #5 {
+define hidden range(i32 -4, 1) i32 @ma_pcm_rb_init_ex(i32 noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, ptr noundef %5, ptr noundef %6, ptr noundef %7) local_unnamed_addr #5 {
   %9 = icmp eq ptr %7, null
   br i1 %9, label %34, label %10
 
@@ -44189,7 +44189,7 @@ define hidden noundef i32 @ma_pcm_rb_init_ex(i32 noundef %0, i32 noundef %1, i32
   %20 = mul i32 %14, %4
   %21 = zext i32 %20 to i64
   %22 = getelementptr inbounds i8, ptr %7, i64 72
-  %23 = tail call i32 @ma_rb_init_ex(i64 noundef %18, i64 noundef %19, i64 noundef %21, ptr noundef %5, ptr noundef %6, ptr noundef nonnull %22), !range !4
+  %23 = tail call i32 @ma_rb_init_ex(i64 noundef %18, i64 noundef %19, i64 noundef %21, ptr noundef %5, ptr noundef %6, ptr noundef nonnull %22)
   %.not = icmp eq i32 %23, 0
   br i1 %.not, label %ma_data_source_init.exit, label %34
 
@@ -44228,7 +44228,7 @@ define hidden noalias noundef ptr @ma_data_source_config_init() local_unnamed_ad
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden noundef i32 @ma_data_source_init(ptr noundef readonly %0, ptr noundef %1) local_unnamed_addr #16 {
+define hidden range(i32 -2, 1) i32 @ma_data_source_init(ptr noundef readonly %0, ptr noundef %1) local_unnamed_addr #16 {
   %3 = icmp eq ptr %1, null
   br i1 %3, label %14, label %4
 
@@ -44260,7 +44260,7 @@ define hidden noundef i32 @ma_data_source_init(ptr noundef readonly %0, ptr noun
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @ma_pcm_rb_init(i32 noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) local_unnamed_addr #5 {
+define hidden range(i32 -4, 1) i32 @ma_pcm_rb_init(i32 noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) local_unnamed_addr #5 {
   %7 = icmp eq ptr %5, null
   br i1 %7, label %ma_pcm_rb_init_ex.exit, label %8
 
@@ -44277,7 +44277,7 @@ define hidden noundef i32 @ma_pcm_rb_init(i32 noundef %0, i32 noundef %1, i32 no
   %15 = mul i32 %12, %2
   %16 = zext i32 %15 to i64
   %17 = getelementptr inbounds i8, ptr %5, i64 72
-  %18 = tail call i32 @ma_rb_init_ex(i64 noundef %16, i64 noundef 1, i64 noundef 0, ptr noundef %3, ptr noundef %4, ptr noundef nonnull %17), !range !4
+  %18 = tail call i32 @ma_rb_init_ex(i64 noundef %16, i64 noundef 1, i64 noundef 0, ptr noundef %3, ptr noundef %4, ptr noundef nonnull %17)
   %.not.i = icmp eq i32 %18, 0
   br i1 %.not.i, label %ma_data_source_init.exit.i, label %ma_pcm_rb_init_ex.exit
 
@@ -44367,7 +44367,7 @@ define hidden void @ma_pcm_rb_reset(ptr noundef %0) local_unnamed_addr #24 {
 }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden noundef i32 @ma_pcm_rb_acquire_read(ptr noundef readonly %0, ptr noundef %1, ptr noundef writeonly %2) local_unnamed_addr #24 {
+define hidden range(i32 -2, 1) i32 @ma_pcm_rb_acquire_read(ptr noundef readonly %0, ptr noundef %1, ptr noundef writeonly %2) local_unnamed_addr #24 {
   %4 = icmp eq ptr %0, null
   %5 = icmp eq ptr %1, null
   %or.cond = or i1 %4, %5
@@ -44433,7 +44433,7 @@ ma_rb_acquire_read.exit:                          ; preds = %6, %3, %32
 }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden i32 @ma_pcm_rb_commit_read(ptr noundef %0, i32 noundef %1) local_unnamed_addr #24 {
+define hidden range(i32 -17, 1) i32 @ma_pcm_rb_commit_read(ptr noundef %0, i32 noundef %1) local_unnamed_addr #24 {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %ma_rb_commit_read.exit, label %4
 
@@ -44494,7 +44494,7 @@ ma_rb_commit_read.exit:                           ; preds = %ma_rb_pointer_dista
 }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define hidden noundef i32 @ma_pcm_rb_acquire_write(ptr noundef readonly %0, ptr nocapture noundef %1, ptr noundef writeonly %2) local_unnamed_addr #44 {
+define hidden range(i32 -2, 1) i32 @ma_pcm_rb_acquire_write(ptr noundef readonly %0, ptr nocapture noundef %1, ptr noundef writeonly %2) local_unnamed_addr #44 {
   %4 = icmp eq ptr %0, null
   br i1 %4, label %ma_rb_acquire_write.exit, label %5
 
@@ -44575,7 +44575,7 @@ ma_rb_acquire_write.exit:                         ; preds = %5, %3, %44
 }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden i32 @ma_pcm_rb_commit_write(ptr noundef %0, i32 noundef %1) local_unnamed_addr #24 {
+define hidden range(i32 -17, 1) i32 @ma_pcm_rb_commit_write(ptr noundef %0, i32 noundef %1) local_unnamed_addr #24 {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %ma_rb_commit_write.exit, label %4
 
@@ -44636,7 +44636,7 @@ ma_rb_commit_write.exit:                          ; preds = %ma_rb_pointer_dista
 }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden noundef i32 @ma_pcm_rb_seek_read(ptr noundef %0, i32 noundef %1) local_unnamed_addr #24 {
+define hidden range(i32 -2, 1) i32 @ma_pcm_rb_seek_read(ptr noundef %0, i32 noundef %1) local_unnamed_addr #24 {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %ma_rb_seek_read.exit, label %4
 
@@ -44704,7 +44704,7 @@ ma_rb_seek_read.exit:                             ; preds = %43, %4, %2
 }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden noundef i32 @ma_pcm_rb_seek_write(ptr noundef %0, i32 noundef %1) local_unnamed_addr #24 {
+define hidden range(i32 -2, 1) i32 @ma_pcm_rb_seek_write(ptr noundef %0, i32 noundef %1) local_unnamed_addr #24 {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %42, label %4
 
@@ -44812,7 +44812,7 @@ ma_rb_pointer_distance.exit:                      ; preds = %12, %14
 }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden i32 @ma_pcm_rb_available_read(ptr noundef readonly %0) local_unnamed_addr #24 {
+define hidden range(i32 0, -2147483648) i32 @ma_pcm_rb_available_read(ptr noundef readonly %0) local_unnamed_addr #24 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %28, label %3
 
@@ -46321,7 +46321,7 @@ define hidden i32 @ma_data_source_set_looping(ptr noundef %0, i32 noundef %1) lo
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @ma_data_source_set_range_in_pcm_frames(ptr noundef %0, i64 noundef %1, i64 noundef %2) local_unnamed_addr #5 {
+define hidden range(i32 -2, 1) i32 @ma_data_source_set_range_in_pcm_frames(ptr noundef %0, i64 noundef %1, i64 noundef %2) local_unnamed_addr #5 {
   %4 = alloca i64, align 8
   %5 = icmp eq ptr %0, null
   %6 = icmp ult i64 %2, %1
@@ -46430,7 +46430,7 @@ define hidden void @ma_data_source_get_range_in_pcm_frames(ptr noundef readonly 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden noundef i32 @ma_data_source_set_loop_point_in_pcm_frames(ptr noundef %0, i64 noundef %1, i64 noundef %2) local_unnamed_addr #16 {
+define hidden range(i32 -2, 1) i32 @ma_data_source_set_loop_point_in_pcm_frames(ptr noundef %0, i64 noundef %1, i64 noundef %2) local_unnamed_addr #16 {
   %4 = icmp eq ptr %0, null
   %5 = icmp ult i64 %2, %1
   %or.cond24 = or i1 %4, %5
@@ -46491,7 +46491,7 @@ define hidden void @ma_data_source_get_loop_point_in_pcm_frames(ptr noundef read
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden noundef i32 @ma_data_source_set_current(ptr noundef writeonly %0, ptr noundef %1) local_unnamed_addr #0 {
+define hidden range(i32 -2, 1) i32 @ma_data_source_set_current(ptr noundef writeonly %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %6, label %4
 
@@ -46521,7 +46521,7 @@ define hidden ptr @ma_data_source_get_current(ptr noundef readonly %0) local_unn
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden noundef i32 @ma_data_source_set_next(ptr noundef writeonly %0, ptr noundef %1) local_unnamed_addr #0 {
+define hidden range(i32 -2, 1) i32 @ma_data_source_set_next(ptr noundef writeonly %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %6, label %4
 
@@ -46551,7 +46551,7 @@ define hidden ptr @ma_data_source_get_next(ptr noundef readonly %0) local_unname
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden noundef i32 @ma_data_source_set_next_callback(ptr noundef writeonly %0, ptr noundef %1) local_unnamed_addr #0 {
+define hidden range(i32 -2, 1) i32 @ma_data_source_set_next_callback(ptr noundef writeonly %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %6, label %4
 
@@ -46581,7 +46581,7 @@ define hidden ptr @ma_data_source_get_next_callback(ptr noundef readonly %0) loc
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden noundef i32 @ma_audio_buffer_ref_init(i32 noundef %0, i32 noundef %1, ptr noundef %2, i64 noundef %3, ptr noundef %4) local_unnamed_addr #0 {
+define hidden range(i32 -2, 1) i32 @ma_audio_buffer_ref_init(i32 noundef %0, i32 noundef %1, ptr noundef %2, i64 noundef %3, ptr noundef %4) local_unnamed_addr #0 {
   %6 = icmp eq ptr %4, null
   br i1 %6, label %20, label %7
 
@@ -46624,7 +46624,7 @@ define hidden void @ma_audio_buffer_ref_uninit(ptr nocapture noundef readnone %0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden noundef i32 @ma_audio_buffer_ref_set_data(ptr noundef writeonly %0, ptr noundef %1, i64 noundef %2) local_unnamed_addr #0 {
+define hidden range(i32 -2, 1) i32 @ma_audio_buffer_ref_set_data(ptr noundef writeonly %0, ptr noundef %1, i64 noundef %2) local_unnamed_addr #0 {
   %4 = icmp eq ptr %0, null
   br i1 %4, label %9, label %5
 
@@ -46811,7 +46811,7 @@ ma_copy_pcm_frames.exit:                          ; preds = %ma_copy_pcm_frames.
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden noundef i32 @ma_audio_buffer_ref_seek_to_pcm_frame(ptr noundef %0, i64 noundef %1) local_unnamed_addr #16 {
+define hidden range(i32 -2, 1) i32 @ma_audio_buffer_ref_seek_to_pcm_frame(ptr noundef %0, i64 noundef %1) local_unnamed_addr #16 {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %10, label %4
 
@@ -46832,7 +46832,7 @@ define hidden noundef i32 @ma_audio_buffer_ref_seek_to_pcm_frame(ptr noundef %0,
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden noundef i32 @ma_audio_buffer_ref_map(ptr noundef readonly %0, ptr noundef writeonly %1, ptr noundef %2) local_unnamed_addr #16 {
+define hidden range(i32 -2, 1) i32 @ma_audio_buffer_ref_map(ptr noundef readonly %0, ptr noundef writeonly %1, ptr noundef %2) local_unnamed_addr #16 {
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %5, label %4
 
@@ -46881,7 +46881,7 @@ define hidden noundef i32 @ma_audio_buffer_ref_map(ptr noundef readonly %0, ptr 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden i32 @ma_audio_buffer_ref_unmap(ptr noundef %0, i64 noundef %1) local_unnamed_addr #16 {
+define hidden range(i32 -17, 1) i32 @ma_audio_buffer_ref_unmap(ptr noundef %0, i64 noundef %1) local_unnamed_addr #16 {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %14, label %4
 
@@ -46907,7 +46907,7 @@ define hidden i32 @ma_audio_buffer_ref_unmap(ptr noundef %0, i64 noundef %1) loc
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden i32 @ma_audio_buffer_ref_at_end(ptr noundef readonly %0) local_unnamed_addr #15 {
+define hidden range(i32 0, 2) i32 @ma_audio_buffer_ref_at_end(ptr noundef readonly %0) local_unnamed_addr #15 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %10, label %3
 
@@ -46926,7 +46926,7 @@ define hidden i32 @ma_audio_buffer_ref_at_end(ptr noundef readonly %0) local_unn
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden noundef i32 @ma_audio_buffer_ref_get_cursor_in_pcm_frames(ptr noundef readonly %0, ptr noundef writeonly %1) local_unnamed_addr #16 {
+define hidden range(i32 -2, 1) i32 @ma_audio_buffer_ref_get_cursor_in_pcm_frames(ptr noundef readonly %0, ptr noundef writeonly %1) local_unnamed_addr #16 {
   %3 = icmp eq ptr %1, null
   br i1 %3, label %9, label %4
 
@@ -46947,7 +46947,7 @@ define hidden noundef i32 @ma_audio_buffer_ref_get_cursor_in_pcm_frames(ptr noun
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden noundef i32 @ma_audio_buffer_ref_get_length_in_pcm_frames(ptr noundef readonly %0, ptr noundef writeonly %1) local_unnamed_addr #16 {
+define hidden range(i32 -2, 1) i32 @ma_audio_buffer_ref_get_length_in_pcm_frames(ptr noundef readonly %0, ptr noundef writeonly %1) local_unnamed_addr #16 {
   %3 = icmp eq ptr %1, null
   br i1 %3, label %9, label %4
 
@@ -46968,7 +46968,7 @@ define hidden noundef i32 @ma_audio_buffer_ref_get_length_in_pcm_frames(ptr noun
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden noundef i32 @ma_audio_buffer_ref_get_available_frames(ptr noundef readonly %0, ptr noundef writeonly %1) local_unnamed_addr #16 {
+define hidden range(i32 -2, 1) i32 @ma_audio_buffer_ref_get_available_frames(ptr noundef readonly %0, ptr noundef writeonly %1) local_unnamed_addr #16 {
   %3 = icmp eq ptr %1, null
   br i1 %3, label %11, label %4
 
@@ -47082,7 +47082,7 @@ ma_allocation_callbacks_init_copy.exit:           ; preds = %16, %24, %28, %32, 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden noundef i32 @ma_audio_buffer_init(ptr noundef readonly %0, ptr noundef %1) local_unnamed_addr #16 {
+define hidden range(i32 -4, 1) i32 @ma_audio_buffer_init(ptr noundef readonly %0, ptr noundef %1) local_unnamed_addr #16 {
   %3 = icmp eq ptr %1, null
   br i1 %3, label %ma_audio_buffer_init_ex.exit, label %4
 
@@ -47194,7 +47194,7 @@ ma_audio_buffer_init_ex.exit:                     ; preds = %2, %4, %6, %ma_allo
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @ma_audio_buffer_init_ex(ptr noundef readonly %0, i32 noundef %1, ptr noundef %2) unnamed_addr #5 {
+define internal fastcc range(i32 -4, 1) i32 @ma_audio_buffer_init_ex(ptr noundef readonly %0, i32 noundef %1, ptr noundef %2) unnamed_addr #5 {
   %4 = icmp eq ptr %2, null
   br i1 %4, label %ma_malloc.exit.thread, label %5
 
@@ -47413,13 +47413,13 @@ ma_malloc.exit.thread:                            ; preds = %ma_malloc.exit.thre
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @ma_audio_buffer_init_copy(ptr noundef %0, ptr noundef %1) local_unnamed_addr #5 {
-  %3 = tail call fastcc i32 @ma_audio_buffer_init_ex(ptr noundef %0, i32 noundef 1, ptr noundef %1), !range !4
+define hidden range(i32 -4, 1) i32 @ma_audio_buffer_init_copy(ptr noundef %0, ptr noundef %1) local_unnamed_addr #5 {
+  %3 = tail call fastcc i32 @ma_audio_buffer_init_ex(ptr noundef %0, i32 noundef 1, ptr noundef %1)
   ret i32 %3
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @ma_audio_buffer_alloc_and_init(ptr noundef readonly %0, ptr noundef writeonly %1) local_unnamed_addr #5 {
+define hidden range(i32 -4, 1) i32 @ma_audio_buffer_alloc_and_init(ptr noundef readonly %0, ptr noundef writeonly %1) local_unnamed_addr #5 {
   %3 = icmp eq ptr %1, null
   br i1 %3, label %ma_free.exit, label %4
 
@@ -47744,7 +47744,7 @@ define hidden i64 @ma_audio_buffer_read_pcm_frames(ptr noundef %0, ptr noundef %
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden noundef i32 @ma_audio_buffer_seek_to_pcm_frame(ptr noundef %0, i64 noundef %1) local_unnamed_addr #16 {
+define hidden range(i32 -2, 1) i32 @ma_audio_buffer_seek_to_pcm_frame(ptr noundef %0, i64 noundef %1) local_unnamed_addr #16 {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %ma_audio_buffer_ref_seek_to_pcm_frame.exit, label %4
 
@@ -47765,7 +47765,7 @@ ma_audio_buffer_ref_seek_to_pcm_frame.exit:       ; preds = %8, %4, %2
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden noundef i32 @ma_audio_buffer_map(ptr noundef readonly %0, ptr noundef writeonly %1, ptr noundef %2) local_unnamed_addr #16 {
+define hidden range(i32 -2, 1) i32 @ma_audio_buffer_map(ptr noundef readonly %0, ptr noundef writeonly %1, ptr noundef %2) local_unnamed_addr #16 {
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %4, label %.thread
 
@@ -47827,7 +47827,7 @@ ma_audio_buffer_ref_map.exit:                     ; preds = %ma_audio_buffer_ref
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden i32 @ma_audio_buffer_unmap(ptr noundef %0, i64 noundef %1) local_unnamed_addr #16 {
+define hidden range(i32 -17, 1) i32 @ma_audio_buffer_unmap(ptr noundef %0, i64 noundef %1) local_unnamed_addr #16 {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %ma_audio_buffer_ref_unmap.exit, label %4
 
@@ -47853,7 +47853,7 @@ ma_audio_buffer_ref_unmap.exit:                   ; preds = %11, %4, %2
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden i32 @ma_audio_buffer_at_end(ptr noundef readonly %0) local_unnamed_addr #15 {
+define hidden range(i32 0, 2) i32 @ma_audio_buffer_at_end(ptr noundef readonly %0) local_unnamed_addr #15 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %9, label %ma_audio_buffer_ref_at_end.exit
 
@@ -47872,7 +47872,7 @@ ma_audio_buffer_ref_at_end.exit:                  ; preds = %1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden noundef i32 @ma_audio_buffer_get_cursor_in_pcm_frames(ptr noundef readonly %0, ptr noundef writeonly %1) local_unnamed_addr #16 {
+define hidden range(i32 -2, 1) i32 @ma_audio_buffer_get_cursor_in_pcm_frames(ptr noundef readonly %0, ptr noundef writeonly %1) local_unnamed_addr #16 {
   %3 = icmp eq ptr %0, null
   %4 = icmp eq ptr %1, null
   %or.cond = or i1 %3, %4
@@ -47891,7 +47891,7 @@ ma_audio_buffer_ref_get_cursor_in_pcm_frames.exit: ; preds = %5, %2
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden noundef i32 @ma_audio_buffer_get_length_in_pcm_frames(ptr noundef readonly %0, ptr noundef writeonly %1) local_unnamed_addr #16 {
+define hidden range(i32 -2, 1) i32 @ma_audio_buffer_get_length_in_pcm_frames(ptr noundef readonly %0, ptr noundef writeonly %1) local_unnamed_addr #16 {
   %3 = icmp eq ptr %0, null
   %4 = icmp eq ptr %1, null
   %or.cond = or i1 %3, %4
@@ -47910,7 +47910,7 @@ ma_audio_buffer_ref_get_length_in_pcm_frames.exit: ; preds = %5, %2
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden noundef i32 @ma_audio_buffer_get_available_frames(ptr noundef readonly %0, ptr noundef writeonly %1) local_unnamed_addr #16 {
+define hidden range(i32 -2, 1) i32 @ma_audio_buffer_get_available_frames(ptr noundef readonly %0, ptr noundef writeonly %1) local_unnamed_addr #16 {
   %3 = icmp eq ptr %1, null
   br i1 %3, label %10, label %4
 
@@ -47934,7 +47934,7 @@ ma_audio_buffer_ref_get_available_frames.exit:    ; preds = %4
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden noundef i32 @ma_paged_audio_buffer_data_init(i32 noundef %0, i32 noundef %1, ptr noundef %2) local_unnamed_addr #0 {
+define hidden range(i32 -2, 1) i32 @ma_paged_audio_buffer_data_init(i32 noundef %0, i32 noundef %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = icmp eq ptr %2, null
   br i1 %4, label %10, label %5
 
@@ -48024,7 +48024,7 @@ define hidden ptr @ma_paged_audio_buffer_data_get_tail(ptr noundef readonly %0) 
 }
 
 ; Function Attrs: nofree norecurse nounwind uwtable
-define hidden noundef i32 @ma_paged_audio_buffer_data_get_length_in_pcm_frames(ptr noundef %0, ptr noundef %1) local_unnamed_addr #17 {
+define hidden range(i32 -2, 1) i32 @ma_paged_audio_buffer_data_get_length_in_pcm_frames(ptr noundef %0, ptr noundef %1) local_unnamed_addr #17 {
   %3 = icmp eq ptr %1, null
   br i1 %3, label %.loopexit, label %4
 
@@ -48057,7 +48057,7 @@ define hidden noundef i32 @ma_paged_audio_buffer_data_get_length_in_pcm_frames(p
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @ma_paged_audio_buffer_data_allocate_page(ptr noundef readonly %0, i64 noundef %1, ptr noundef readonly %2, ptr noundef readonly %3, ptr noundef writeonly %4) local_unnamed_addr #5 {
+define hidden range(i32 -4, 1) i32 @ma_paged_audio_buffer_data_allocate_page(ptr noundef readonly %0, i64 noundef %1, ptr noundef readonly %2, ptr noundef readonly %3, ptr noundef writeonly %4) local_unnamed_addr #5 {
   %6 = icmp eq ptr %4, null
   br i1 %6, label %ma_malloc.exit.thread, label %7
 
@@ -48150,7 +48150,7 @@ ma_malloc.exit.thread:                            ; preds = %22, %ma_malloc.exit
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @ma_paged_audio_buffer_data_free_page(ptr noundef readnone %0, ptr noundef %1, ptr noundef readonly %2) local_unnamed_addr #5 {
+define hidden range(i32 -2, 1) i32 @ma_paged_audio_buffer_data_free_page(ptr noundef readnone %0, ptr noundef %1, ptr noundef readonly %2) local_unnamed_addr #5 {
   %4 = icmp eq ptr %0, null
   %5 = icmp eq ptr %1, null
   %or.cond = or i1 %4, %5
@@ -48181,7 +48181,7 @@ ma_free.exit:                                     ; preds = %12, %10, %7, %3
 }
 
 ; Function Attrs: nofree norecurse nounwind uwtable
-define hidden noundef i32 @ma_paged_audio_buffer_data_append_page(ptr noundef %0, ptr noundef %1) local_unnamed_addr #17 {
+define hidden range(i32 -2, 1) i32 @ma_paged_audio_buffer_data_append_page(ptr noundef %0, ptr noundef %1) local_unnamed_addr #17 {
   %3 = icmp eq ptr %0, null
   %4 = icmp eq ptr %1, null
   %or.cond = or i1 %3, %4
@@ -48210,7 +48210,7 @@ define hidden noundef i32 @ma_paged_audio_buffer_data_append_page(ptr noundef %0
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @ma_paged_audio_buffer_data_allocate_and_append_page(ptr noundef %0, i32 noundef %1, ptr noundef readonly %2, ptr noundef readonly %3) local_unnamed_addr #5 {
+define hidden range(i32 -4, 1) i32 @ma_paged_audio_buffer_data_allocate_and_append_page(ptr noundef %0, i32 noundef %1, ptr noundef readonly %2, ptr noundef readonly %3) local_unnamed_addr #5 {
   %5 = zext i32 %1 to i64
   %6 = icmp eq ptr %0, null
   br i1 %6, label %ma_paged_audio_buffer_data_allocate_page.exit, label %7
@@ -48317,7 +48317,7 @@ define hidden noundef ptr @ma_paged_audio_buffer_config_init(ptr noundef readnon
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden noundef i32 @ma_paged_audio_buffer_init(ptr noundef readonly %0, ptr noundef %1) local_unnamed_addr #16 {
+define hidden range(i32 -2, 1) i32 @ma_paged_audio_buffer_init(ptr noundef readonly %0, ptr noundef %1) local_unnamed_addr #16 {
   %3 = icmp eq ptr %1, null
   br i1 %3, label %23, label %4
 
@@ -48370,7 +48370,7 @@ define hidden void @ma_paged_audio_buffer_uninit(ptr nocapture noundef readnone 
 }
 
 ; Function Attrs: nofree norecurse nounwind uwtable
-define hidden noundef i32 @ma_paged_audio_buffer_read_pcm_frames(ptr noundef %0, ptr noundef writeonly %1, i64 noundef %2, ptr noundef writeonly %3) local_unnamed_addr #17 {
+define hidden range(i32 -17, 1) i32 @ma_paged_audio_buffer_read_pcm_frames(ptr noundef %0, ptr noundef writeonly %1, i64 noundef %2, ptr noundef writeonly %3) local_unnamed_addr #17 {
   %5 = icmp eq ptr %0, null
   br i1 %5, label %57, label %6
 
@@ -48480,7 +48480,7 @@ ma_copy_pcm_frames.exit:                          ; preds = %ma_copy_pcm_frames.
 }
 
 ; Function Attrs: nofree norecurse nounwind uwtable
-define hidden noundef i32 @ma_paged_audio_buffer_seek_to_pcm_frame(ptr noundef %0, i64 noundef %1) local_unnamed_addr #17 {
+define hidden range(i32 -25, 1) i32 @ma_paged_audio_buffer_seek_to_pcm_frame(ptr noundef %0, i64 noundef %1) local_unnamed_addr #17 {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %.loopexit, label %4
 
@@ -48576,7 +48576,7 @@ ma_paged_audio_buffer_data_get_tail.exit:         ; preds = %33, %36
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden noundef i32 @ma_paged_audio_buffer_get_cursor_in_pcm_frames(ptr noundef readonly %0, ptr noundef writeonly %1) local_unnamed_addr #16 {
+define hidden range(i32 -2, 1) i32 @ma_paged_audio_buffer_get_cursor_in_pcm_frames(ptr noundef readonly %0, ptr noundef writeonly %1) local_unnamed_addr #16 {
   %3 = icmp eq ptr %1, null
   br i1 %3, label %9, label %4
 
@@ -48597,7 +48597,7 @@ define hidden noundef i32 @ma_paged_audio_buffer_get_cursor_in_pcm_frames(ptr no
 }
 
 ; Function Attrs: nofree norecurse nounwind uwtable
-define hidden noundef i32 @ma_paged_audio_buffer_get_length_in_pcm_frames(ptr nocapture noundef readonly %0, ptr noundef %1) local_unnamed_addr #17 {
+define hidden range(i32 -2, 1) i32 @ma_paged_audio_buffer_get_length_in_pcm_frames(ptr nocapture noundef readonly %0, ptr noundef %1) local_unnamed_addr #17 {
   %3 = getelementptr inbounds i8, ptr %0, i64 72
   %4 = load ptr, ptr %3, align 8
   %5 = icmp eq ptr %1, null
@@ -48867,7 +48867,7 @@ define hidden i32 @ma_vfs_info(ptr noundef %0, ptr noundef %1, ptr noundef %2) l
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden noundef i32 @ma_default_vfs_init(ptr noundef writeonly %0, ptr noundef readonly %1) local_unnamed_addr #16 {
+define hidden range(i32 -2, 1) i32 @ma_default_vfs_init(ptr noundef writeonly %0, ptr noundef readonly %1) local_unnamed_addr #16 {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %ma_allocation_callbacks_init_copy.exit, label %4
 
@@ -49041,7 +49041,7 @@ ma_default_vfs_open_w__stdio.exit:                ; preds = %10, %16
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define internal noundef i32 @ma_default_vfs_close(ptr nocapture readnone %0, ptr noundef %1) #7 {
+define internal range(i32 -2, 1) i32 @ma_default_vfs_close(ptr nocapture readnone %0, ptr noundef %1) #7 {
   %3 = icmp eq ptr %1, null
   br i1 %3, label %6, label %4
 
@@ -49138,7 +49138,7 @@ ma_default_vfs_write__stdio.exit:                 ; preds = %14, %13, %7
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define internal noundef i32 @ma_default_vfs_seek(ptr nocapture readnone %0, ptr noundef %1, i64 noundef %2, i32 noundef %3) #7 {
+define internal range(i32 -2, 1) i32 @ma_default_vfs_seek(ptr nocapture readnone %0, ptr noundef %1, i64 noundef %2, i32 noundef %3) #7 {
   %5 = icmp eq ptr %1, null
   br i1 %5, label %8, label %6
 
@@ -49158,7 +49158,7 @@ define internal noundef i32 @ma_default_vfs_seek(ptr nocapture readnone %0, ptr 
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define internal noundef i32 @ma_default_vfs_tell(ptr nocapture readnone %0, ptr noundef %1, ptr noundef writeonly %2) #7 {
+define internal range(i32 -2, 1) i32 @ma_default_vfs_tell(ptr nocapture readnone %0, ptr noundef %1, ptr noundef writeonly %2) #7 {
   %4 = icmp eq ptr %2, null
   br i1 %4, label %9, label %5
 
@@ -50036,23 +50036,23 @@ define hidden void @ma_decoder_config_init_default(ptr dead_on_unwind noalias no
 
 2:                                                ; preds = %1
   %3 = getelementptr inbounds i8, ptr %0, i64 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(144) %3, i8 0, i64 136, i1 false), !alias.scope !216
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(144) %3, i8 0, i64 136, i1 false), !alias.scope !209
   br label %ma_decoder_config_init.exit
 
 ma_decoder_config_init.exit:                      ; preds = %1, %2
-  store i32 0, ptr %0, align 8, !alias.scope !216
+  store i32 0, ptr %0, align 8, !alias.scope !209
   %4 = getelementptr inbounds i8, ptr %0, i64 4
-  store i32 0, ptr %4, align 4, !alias.scope !216
+  store i32 0, ptr %4, align 4, !alias.scope !209
   %5 = getelementptr inbounds i8, ptr %0, i64 8
-  store i32 0, ptr %5, align 8, !alias.scope !216
+  store i32 0, ptr %5, align 8, !alias.scope !209
   %6 = getelementptr inbounds i8, ptr %0, i64 32
   %.sroa.77.0..sroa_idx.i = getelementptr inbounds i8, ptr %0, i64 72
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %6, i8 0, i64 40, i1 false), !alias.scope !216
-  store i32 4, ptr %.sroa.77.0..sroa_idx.i, align 8, !alias.scope !216
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %6, i8 0, i64 40, i1 false), !alias.scope !209
+  store i32 4, ptr %.sroa.77.0..sroa_idx.i, align 8, !alias.scope !209
   %.sroa.8.0..sroa_idx.i = getelementptr inbounds i8, ptr %0, i64 76
-  store i32 0, ptr %.sroa.8.0..sroa_idx.i, align 4, !alias.scope !216
+  store i32 0, ptr %.sroa.8.0..sroa_idx.i, align 4, !alias.scope !209
   %7 = getelementptr inbounds i8, ptr %0, i64 112
-  store i32 0, ptr %7, align 8, !alias.scope !216
+  store i32 0, ptr %7, align 8, !alias.scope !209
   ret void
 }
 
@@ -50088,7 +50088,7 @@ define hidden i32 @ma_decoder_init(ptr noundef %0, ptr noundef %1, ptr noundef %
   br label %ma_decoder_config_init_copy.exit
 
 8:                                                ; preds = %5
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(144) %6, i8 0, i64 144, i1 false), !alias.scope !219
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(144) %6, i8 0, i64 144, i1 false), !alias.scope !212
   br label %ma_decoder_config_init_copy.exit
 
 ma_decoder_config_init_copy.exit:                 ; preds = %7, %8
@@ -50302,7 +50302,7 @@ define hidden i32 @ma_decoder_init_memory(ptr noundef %0, i64 noundef %1, ptr no
   br label %ma_decoder_config_init_copy.exit
 
 12:                                               ; preds = %4
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(144) %10, i8 0, i64 144, i1 false), !alias.scope !222
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(144) %10, i8 0, i64 144, i1 false), !alias.scope !215
   br label %ma_decoder_config_init_copy.exit
 
 ma_decoder_config_init_copy.exit:                 ; preds = %11, %12
@@ -50926,7 +50926,7 @@ ma_decoder__init_data_converter.exit:             ; preds = %69, %ma_data_conver
   call void @llvm.lifetime.end.p0(i64 120, ptr nonnull %7)
   call void @llvm.lifetime.end.p0(i64 254, ptr nonnull %8)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9)
-  %151 = call i32 @ma_decoder_uninit(ptr noundef nonnull %1), !range !11
+  %151 = call i32 @ma_decoder_uninit(ptr noundef nonnull %1)
   br label %152
 
 152:                                              ; preds = %ma_decoder__init_data_converter.exit, %150
@@ -50935,7 +50935,7 @@ ma_decoder__init_data_converter.exit:             ; preds = %69, %ma_data_conver
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define internal noundef i32 @ma_decoder__on_read_memory(ptr nocapture noundef %0, ptr nocapture noundef writeonly %1, i64 noundef %2, ptr noundef writeonly %3) #47 {
+define internal range(i32 -17, 1) i32 @ma_decoder__on_read_memory(ptr nocapture noundef %0, ptr nocapture noundef writeonly %1, i64 noundef %2, ptr noundef writeonly %3) #47 {
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %6, label %5
 
@@ -50980,7 +50980,7 @@ define internal noundef i32 @ma_decoder__on_read_memory(ptr nocapture noundef %0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal noundef i32 @ma_decoder__on_seek_memory(ptr nocapture noundef %0, i64 noundef %1, i32 noundef %2) #16 {
+define internal range(i32 -25, 1) i32 @ma_decoder__on_seek_memory(ptr nocapture noundef %0, i64 noundef %1, i32 noundef %2) #16 {
   %4 = icmp sgt i64 %1, 0
   %or.cond = icmp sgt i64 %1, 4294967295
   br i1 %or.cond, label %36, label %5
@@ -51069,7 +51069,7 @@ define hidden i32 @ma_decoder_init_vfs(ptr noundef %0, ptr noundef %1, ptr nound
   br label %ma_decoder_config_init_copy.exit
 
 11:                                               ; preds = %4
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(144) %9, i8 0, i64 144, i1 false), !alias.scope !225
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(144) %9, i8 0, i64 144, i1 false), !alias.scope !218
   br label %ma_decoder_config_init_copy.exit
 
 ma_decoder_config_init_copy.exit:                 ; preds = %10, %11
@@ -51448,7 +51448,7 @@ define hidden i32 @ma_decoder_init_vfs_w(ptr noundef %0, ptr noundef %1, ptr nou
   br label %ma_decoder_config_init_copy.exit
 
 12:                                               ; preds = %4
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(144) %10, i8 0, i64 144, i1 false), !alias.scope !228
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(144) %10, i8 0, i64 144, i1 false), !alias.scope !221
   br label %ma_decoder_config_init_copy.exit
 
 ma_decoder_config_init_copy.exit:                 ; preds = %11, %12
@@ -51775,7 +51775,7 @@ define hidden i32 @ma_decoder_init_file(ptr noundef %0, ptr noundef %1, ptr noun
   br label %ma_decoder_config_init_copy.exit
 
 8:                                                ; preds = %3
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(144) %6, i8 0, i64 144, i1 false), !alias.scope !231
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(144) %6, i8 0, i64 144, i1 false), !alias.scope !224
   br label %ma_decoder_config_init_copy.exit
 
 ma_decoder_config_init_copy.exit:                 ; preds = %7, %8
@@ -51975,7 +51975,7 @@ define hidden i32 @ma_decoder_init_file_w(ptr noundef %0, ptr noundef %1, ptr no
   br label %ma_decoder_config_init_copy.exit
 
 8:                                                ; preds = %3
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(144) %6, i8 0, i64 144, i1 false), !alias.scope !234
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(144) %6, i8 0, i64 144, i1 false), !alias.scope !227
   br label %ma_decoder_config_init_copy.exit
 
 ma_decoder_config_init_copy.exit:                 ; preds = %7, %8
@@ -52163,7 +52163,7 @@ ma_decoder__preinit_file_w.exit.thread:           ; preds = %.thread19.i.i.i.i, 
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @ma_decoder_uninit(ptr noundef %0) local_unnamed_addr #5 {
+define hidden range(i32 -2, 1) i32 @ma_decoder_uninit(ptr noundef %0) local_unnamed_addr #5 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %ma_free.exit, label %3
 
@@ -52828,7 +52828,7 @@ ma_data_converter_reset.exit:                     ; preds = %84, %80, %75, %ma_d
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define hidden noundef i32 @ma_decoder_get_data_format(ptr noundef readonly %0, ptr noundef writeonly %1, ptr noundef writeonly %2, ptr noundef writeonly %3, ptr noundef writeonly %4, i64 noundef %5) local_unnamed_addr #3 {
+define hidden range(i32 -2, 1) i32 @ma_decoder_get_data_format(ptr noundef readonly %0, ptr noundef writeonly %1, ptr noundef writeonly %2, ptr noundef writeonly %3, ptr noundef writeonly %4, i64 noundef %5) local_unnamed_addr #3 {
   %7 = icmp eq ptr %0, null
   br i1 %7, label %ma_data_converter_get_output_channel_map.exit, label %8
 
@@ -52897,7 +52897,7 @@ define hidden noundef i32 @ma_decoder_get_data_format(ptr noundef readonly %0, p
   %.024.i.i.i.i = phi i32 [ %38, %.preheader.i.i.i.i ], [ 0, %33 ]
   %.01723.i.i.i.i = phi ptr [ %36, %.preheader.i.i.i.i ], [ %4, %33 ]
   %.01822.i.i.i.i = phi i64 [ %37, %.preheader.i.i.i.i ], [ %5, %33 ]
-  %35 = tail call fastcc zeroext i8 @ma_channel_map_init_standard_channel(i32 noundef 0, i32 noundef %28, i32 noundef %.024.i.i.i.i), !range !6
+  %35 = tail call fastcc zeroext i8 @ma_channel_map_init_standard_channel(i32 noundef 0, i32 noundef %28, i32 noundef %.024.i.i.i.i)
   store i8 %35, ptr %.01723.i.i.i.i, align 1
   %36 = getelementptr inbounds i8, ptr %.01723.i.i.i.i, i64 1
   %37 = add i64 %.01822.i.i.i.i, -1
@@ -52919,7 +52919,7 @@ define hidden noundef i32 @ma_decoder_get_data_format(ptr noundef readonly %0, p
   %.024.i.i = phi i32 [ %49, %.preheader.i.i ], [ 0, %41 ]
   %.01723.i.i = phi ptr [ %47, %.preheader.i.i ], [ %4, %41 ]
   %.01822.i.i = phi i64 [ %48, %.preheader.i.i ], [ %5, %41 ]
-  %46 = tail call fastcc zeroext i8 @ma_channel_map_init_standard_channel(i32 noundef 0, i32 noundef %43, i32 noundef %.024.i.i), !range !6
+  %46 = tail call fastcc zeroext i8 @ma_channel_map_init_standard_channel(i32 noundef 0, i32 noundef %43, i32 noundef %.024.i.i)
   store i8 %46, ptr %.01723.i.i, align 1
   %47 = getelementptr inbounds i8, ptr %.01723.i.i, i64 1
   %48 = add i64 %.01822.i.i, -1
@@ -52935,7 +52935,7 @@ ma_data_converter_get_output_channel_map.exit:    ; preds = %.preheader.i.i.i.i,
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden noundef i32 @ma_decoder_get_cursor_in_pcm_frames(ptr noundef readonly %0, ptr noundef writeonly %1) local_unnamed_addr #16 {
+define hidden range(i32 -2, 1) i32 @ma_decoder_get_cursor_in_pcm_frames(ptr noundef readonly %0, ptr noundef writeonly %1) local_unnamed_addr #16 {
   %3 = icmp eq ptr %1, null
   br i1 %3, label %9, label %4
 
@@ -53198,7 +53198,7 @@ define hidden i32 @ma_decode_from_vfs(ptr noundef %0, ptr noundef %1, ptr nounde
   br label %ma_decoder_config_init_copy.exit
 
 14:                                               ; preds = %12
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(144) %8, i8 0, i64 144, i1 false), !alias.scope !237
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(144) %8, i8 0, i64 144, i1 false), !alias.scope !230
   br label %ma_decoder_config_init_copy.exit
 
 ma_decoder_config_init_copy.exit:                 ; preds = %13, %14
@@ -53208,7 +53208,7 @@ ma_decoder_config_init_copy.exit:                 ; preds = %13, %14
   br i1 %.not17, label %16, label %18
 
 16:                                               ; preds = %ma_decoder_config_init_copy.exit
-  %17 = call fastcc i32 @ma_decoder__full_decode_and_uninit(ptr noundef nonnull %7, ptr noundef %2, ptr noundef %3, ptr noundef %4), !range !240
+  %17 = call fastcc i32 @ma_decoder__full_decode_and_uninit(ptr noundef nonnull %7, ptr noundef %2, ptr noundef %3, ptr noundef %4)
   br label %18
 
 18:                                               ; preds = %ma_decoder_config_init_copy.exit, %16
@@ -53217,7 +53217,7 @@ ma_decoder_config_init_copy.exit:                 ; preds = %13, %14
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @ma_decoder__full_decode_and_uninit(ptr noundef %0, ptr noundef writeonly %1, ptr noundef writeonly %2, ptr noundef writeonly %3) unnamed_addr #5 {
+define internal fastcc range(i32 -11, 1) i32 @ma_decoder__full_decode_and_uninit(ptr noundef %0, ptr noundef writeonly %1, ptr noundef writeonly %2, ptr noundef writeonly %3) unnamed_addr #5 {
   %5 = alloca i64, align 8
   %6 = getelementptr inbounds i8, ptr %0, i64 136
   %7 = load i32, ptr %6, align 8
@@ -53350,7 +53350,7 @@ ma_free.exit62:                                   ; preds = %65, %62, %60, %59
   br label %68
 
 68:                                               ; preds = %67, %ma_free.exit62
-  %69 = call i32 @ma_decoder_uninit(ptr noundef %0), !range !11
+  %69 = call i32 @ma_decoder_uninit(ptr noundef %0)
   br label %ma_free.exit
 
 ma_free.exit:                                     ; preds = %40, %37, %ma_realloc.exit.thread, %29, %26, %24, %68
@@ -53390,7 +53390,7 @@ define hidden i32 @ma_decode_file(ptr noundef %0, ptr noundef %1, ptr noundef %2
   br label %ma_decoder_config_init_copy.exit.i
 
 13:                                               ; preds = %11
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(144) %7, i8 0, i64 144, i1 false), !alias.scope !241
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(144) %7, i8 0, i64 144, i1 false), !alias.scope !233
   br label %ma_decoder_config_init_copy.exit.i
 
 ma_decoder_config_init_copy.exit.i:               ; preds = %13, %12
@@ -53400,7 +53400,7 @@ ma_decoder_config_init_copy.exit.i:               ; preds = %13, %12
   br i1 %.not17.i, label %15, label %ma_decode_from_vfs.exit
 
 15:                                               ; preds = %ma_decoder_config_init_copy.exit.i
-  %16 = call fastcc i32 @ma_decoder__full_decode_and_uninit(ptr noundef nonnull %6, ptr noundef %1, ptr noundef %2, ptr noundef %3), !range !240
+  %16 = call fastcc i32 @ma_decoder__full_decode_and_uninit(ptr noundef nonnull %6, ptr noundef %1, ptr noundef %2, ptr noundef %3)
   br label %ma_decode_from_vfs.exit
 
 ma_decode_from_vfs.exit:                          ; preds = %ma_decoder_config_init_copy.exit.i, %15
@@ -53446,7 +53446,7 @@ define hidden i32 @ma_decode_memory(ptr noundef %0, i64 noundef %1, ptr noundef 
   br label %ma_decoder_config_init_copy.exit
 
 17:                                               ; preds = %15
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(144) %8, i8 0, i64 144, i1 false), !alias.scope !244
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(144) %8, i8 0, i64 144, i1 false), !alias.scope !236
   br label %ma_decoder_config_init_copy.exit
 
 ma_decoder_config_init_copy.exit:                 ; preds = %16, %17
@@ -53456,7 +53456,7 @@ ma_decoder_config_init_copy.exit:                 ; preds = %16, %17
   br i1 %.not21, label %19, label %21
 
 19:                                               ; preds = %ma_decoder_config_init_copy.exit
-  %20 = call fastcc i32 @ma_decoder__full_decode_and_uninit(ptr noundef nonnull %7, ptr noundef %2, ptr noundef %3, ptr noundef %4), !range !240
+  %20 = call fastcc i32 @ma_decoder__full_decode_and_uninit(ptr noundef nonnull %7, ptr noundef %2, ptr noundef %3, ptr noundef %4)
   br label %21
 
 21:                                               ; preds = %ma_decoder_config_init_copy.exit, %12, %19
@@ -53486,7 +53486,7 @@ define hidden void @ma_encoder_config_init(ptr dead_on_unwind noalias nocapture 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden noundef i32 @ma_encoder_preinit(ptr noundef readonly %0, ptr noundef writeonly %1) local_unnamed_addr #16 {
+define hidden range(i32 -2, 1) i32 @ma_encoder_preinit(ptr noundef readonly %0, ptr noundef writeonly %1) local_unnamed_addr #16 {
   %3 = icmp eq ptr %1, null
   br i1 %3, label %ma_allocation_callbacks_init_copy.exit, label %4
 
@@ -53574,7 +53574,7 @@ ma_allocation_callbacks_init_copy.exit:           ; preds = %44, %40, %36, %35, 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden i32 @ma_encoder_init__internal(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture noundef %3) local_unnamed_addr #16 {
+define hidden range(i32 -203, -1) i32 @ma_encoder_init__internal(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture noundef %3) local_unnamed_addr #16 {
   %5 = icmp eq ptr %0, null
   %6 = icmp eq ptr %1, null
   %or.cond = or i1 %5, %6
@@ -53598,7 +53598,7 @@ define hidden i32 @ma_encoder_init__internal(ptr noundef %0, ptr noundef %1, ptr
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @ma_encoder_init_vfs(ptr noundef %0, ptr noundef %1, ptr noundef readonly %2, ptr noundef %3) local_unnamed_addr #5 {
+define hidden range(i32 1, 0) i32 @ma_encoder_init_vfs(ptr noundef %0, ptr noundef %1, ptr noundef readonly %2, ptr noundef %3) local_unnamed_addr #5 {
   %5 = alloca ptr, align 8
   %6 = icmp eq ptr %3, null
   br i1 %6, label %ma_vfs_or_default_close.exit, label %7
@@ -53878,7 +53878,7 @@ ma_vfs_or_default_seek.exit:                      ; preds = %9, %10, %14, %16, %
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @ma_encoder_init_vfs_w(ptr noundef %0, ptr noundef %1, ptr noundef readonly %2, ptr noundef %3) local_unnamed_addr #5 {
+define hidden range(i32 1, 0) i32 @ma_encoder_init_vfs_w(ptr noundef %0, ptr noundef %1, ptr noundef readonly %2, ptr noundef %3) local_unnamed_addr #5 {
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
   %7 = icmp eq ptr %3, null
@@ -54048,19 +54048,19 @@ ma_vfs_or_default_close.exit:                     ; preds = %57, %51, %50, %31, 
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @ma_encoder_init_file(ptr noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #5 {
-  %4 = tail call i32 @ma_encoder_init_vfs(ptr noundef null, ptr noundef %0, ptr noundef %1, ptr noundef %2), !range !247
+define hidden range(i32 1, 0) i32 @ma_encoder_init_file(ptr noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #5 {
+  %4 = tail call i32 @ma_encoder_init_vfs(ptr noundef null, ptr noundef %0, ptr noundef %1, ptr noundef %2)
   ret i32 %4
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @ma_encoder_init_file_w(ptr noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #5 {
-  %4 = tail call i32 @ma_encoder_init_vfs_w(ptr noundef null, ptr noundef %0, ptr noundef %1, ptr noundef %2), !range !247
+define hidden range(i32 1, 0) i32 @ma_encoder_init_file_w(ptr noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #5 {
+  %4 = tail call i32 @ma_encoder_init_vfs_w(ptr noundef null, ptr noundef %0, ptr noundef %1, ptr noundef %2)
   ret i32 %4
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden i32 @ma_encoder_init(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef readonly %3, ptr noundef %4) local_unnamed_addr #16 {
+define hidden range(i32 -203, 0) i32 @ma_encoder_init(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef readonly %3, ptr noundef %4) local_unnamed_addr #16 {
   %6 = icmp eq ptr %4, null
   br i1 %6, label %ma_encoder_init__internal.exit, label %7
 
@@ -54310,7 +54310,7 @@ define hidden zeroext i16 @drwav_bytes_to_u16(ptr nocapture noundef readonly %0)
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @drwav_init(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef readonly %4) local_unnamed_addr #5 {
+define hidden range(i32 0, 2) i32 @drwav_init(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef readonly %4) local_unnamed_addr #5 {
   %6 = icmp eq ptr %0, null
   %7 = icmp eq ptr %1, null
   %or.cond.i.i = or i1 %6, %7
@@ -54364,7 +54364,7 @@ drwav_copy_allocation_callbacks_or_defaults.exit.i.i: ; preds = %9
   br i1 %or.cond33.i.i, label %drwav_init_ex.exit, label %drwav_preinit.exit.i
 
 drwav_preinit.exit.i:                             ; preds = %15, %.thread.i.i
-  %18 = tail call fastcc i32 @drwav_init__internal(ptr noundef nonnull %0, ptr noundef null, ptr noundef null, i32 noundef 0), !range !184
+  %18 = tail call fastcc i32 @drwav_init__internal(ptr noundef nonnull %0, ptr noundef null, ptr noundef null, i32 noundef 0)
   br label %drwav_init_ex.exit
 
 drwav_init_ex.exit:                               ; preds = %5, %drwav_copy_allocation_callbacks_or_defaults.exit.i.i, %15, %drwav_preinit.exit.i
@@ -54373,7 +54373,7 @@ drwav_init_ex.exit:                               ; preds = %5, %drwav_copy_allo
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @drwav_init_ex(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, ptr noundef readonly %7) local_unnamed_addr #5 {
+define hidden range(i32 0, 2) i32 @drwav_init_ex(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, ptr noundef readonly %7) local_unnamed_addr #5 {
   %9 = icmp eq ptr %0, null
   %10 = icmp eq ptr %1, null
   %or.cond.i = or i1 %9, %10
@@ -54427,7 +54427,7 @@ drwav_copy_allocation_callbacks_or_defaults.exit.i: ; preds = %12
   br i1 %or.cond33.i, label %drwav_preinit.exit.thread, label %drwav_preinit.exit
 
 drwav_preinit.exit:                               ; preds = %18, %.thread.i
-  %21 = tail call fastcc i32 @drwav_init__internal(ptr noundef nonnull %0, ptr noundef %3, ptr noundef %5, i32 noundef %6), !range !184
+  %21 = tail call fastcc i32 @drwav_init__internal(ptr noundef nonnull %0, ptr noundef %3, ptr noundef %5, i32 noundef %6)
   br label %drwav_preinit.exit.thread
 
 drwav_preinit.exit.thread:                        ; preds = %18, %drwav_copy_allocation_callbacks_or_defaults.exit.i, %8, %drwav_preinit.exit
@@ -54436,7 +54436,7 @@ drwav_preinit.exit.thread:                        ; preds = %18, %drwav_copy_all
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @drwav_init__internal(ptr noundef %0, ptr noundef readonly %1, ptr noundef %2, i32 noundef %3) unnamed_addr #5 {
+define internal fastcc range(i32 0, 2) i32 @drwav_init__internal(ptr noundef %0, ptr noundef readonly %1, ptr noundef %2, i32 noundef %3) unnamed_addr #5 {
   %5 = alloca [4 x i8], align 4
   %6 = alloca [8 x i8], align 8
   %7 = alloca [4 x i8], align 4
@@ -56295,7 +56295,7 @@ drwav__seek_forward.exit812.thread:               ; preds = %drwav__seek_forward
 
 895:                                              ; preds = %890
   %896 = getelementptr inbounds i8, ptr %0, i64 32
-  %897 = call fastcc i32 @drwav__metadata_alloc(ptr noundef nonnull %12, ptr noundef nonnull %896), !range !4
+  %897 = call fastcc i32 @drwav__metadata_alloc(ptr noundef nonnull %12, ptr noundef nonnull %896)
   %.not770 = icmp eq i32 %897, 0
   br i1 %.not770, label %898, label %drwav_fourcc_equal.exit855
 
@@ -56310,7 +56310,7 @@ drwav__seek_forward.exit812.thread:               ; preds = %drwav__seek_forward
   %903 = load ptr, ptr %0, align 8
   %904 = load ptr, ptr %33, align 8
   %905 = load i32, ptr %182, align 8
-  %906 = call fastcc i32 @drwav__read_chunk_header(ptr noundef %903, ptr noundef %904, i32 noundef %905, ptr noundef nonnull %8, ptr noundef nonnull %29), !range !248
+  %906 = call fastcc i32 @drwav__read_chunk_header(ptr noundef %903, ptr noundef %904, i32 noundef %905, ptr noundef nonnull %8, ptr noundef nonnull %29)
   %.not771 = icmp eq i32 %906, 0
   br i1 %.not771, label %907, label %931
 
@@ -56656,7 +56656,7 @@ drwav_fourcc_equal.exit855:                       ; preds = %.preheader1322, %.p
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @drwav_init_with_metadata(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4, ptr noundef readonly %5) local_unnamed_addr #5 {
+define hidden range(i32 0, 2) i32 @drwav_init_with_metadata(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4, ptr noundef readonly %5) local_unnamed_addr #5 {
   %7 = icmp eq ptr %0, null
   %8 = icmp eq ptr %1, null
   %or.cond.i = or i1 %7, %8
@@ -56711,7 +56711,7 @@ drwav_copy_allocation_callbacks_or_defaults.exit.i: ; preds = %10
 
 drwav_preinit.exit:                               ; preds = %16, %.thread.i
   %19 = or i32 %4, 2
-  %20 = tail call fastcc i32 @drwav_init__internal(ptr noundef nonnull %0, ptr noundef null, ptr noundef null, i32 noundef %19), !range !184
+  %20 = tail call fastcc i32 @drwav_init__internal(ptr noundef nonnull %0, ptr noundef null, ptr noundef null, i32 noundef %19)
   br label %drwav_preinit.exit.thread
 
 drwav_preinit.exit.thread:                        ; preds = %16, %drwav_copy_allocation_callbacks_or_defaults.exit.i, %6, %drwav_preinit.exit
@@ -56730,7 +56730,7 @@ define hidden ptr @drwav_take_ownership_of_metadata(ptr nocapture noundef %0) lo
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @drwav_init_write(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef readonly %5) local_unnamed_addr #5 {
+define hidden range(i32 0, 2) i32 @drwav_init_write(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef readonly %5) local_unnamed_addr #5 {
   %7 = icmp eq ptr %0, null
   %8 = icmp eq ptr %2, null
   %or.cond.i = or i1 %7, %8
@@ -56829,7 +56829,7 @@ drwav_copy_allocation_callbacks_or_defaults.exit.i: ; preds = %13
   store i16 0, ptr %49, align 4
   %50 = getelementptr inbounds i8, ptr %0, i64 168
   store i32 0, ptr %50, align 8
-  %51 = tail call fastcc i32 @drwav_init_write__internal(ptr noundef nonnull %0, ptr noundef nonnull %1, i64 noundef 0), !range !184
+  %51 = tail call fastcc i32 @drwav_init_write__internal(ptr noundef nonnull %0, ptr noundef nonnull %1, i64 noundef 0)
   br label %drwav_preinit_write.exit.thread
 
 drwav_preinit_write.exit.thread:                  ; preds = %19, %drwav_copy_allocation_callbacks_or_defaults.exit.i, %10, %10, %10, %6, %22
@@ -56838,7 +56838,7 @@ drwav_preinit_write.exit.thread:                  ; preds = %19, %drwav_copy_all
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @drwav_init_write__internal(ptr noundef %0, ptr nocapture noundef readonly %1, i64 noundef %2) unnamed_addr #5 {
+define internal fastcc range(i32 0, 2) i32 @drwav_init_write__internal(ptr noundef %0, ptr nocapture noundef readonly %1, i64 noundef %2) unnamed_addr #5 {
   %4 = alloca i32, align 4
   %5 = alloca i64, align 8
   %6 = alloca i32, align 4
@@ -57213,7 +57213,7 @@ define internal fastcc noundef i32 @drwav_init_write__internal(ptr noundef %0, p
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @drwav_init_write_sequential(ptr noundef %0, ptr nocapture noundef readonly %1, i64 noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef readonly %5) local_unnamed_addr #5 {
+define hidden range(i32 0, 2) i32 @drwav_init_write_sequential(ptr noundef %0, ptr nocapture noundef readonly %1, i64 noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef readonly %5) local_unnamed_addr #5 {
   %7 = icmp eq ptr %0, null
   %8 = icmp eq ptr %3, null
   %or.cond.i = or i1 %7, %8
@@ -57308,7 +57308,7 @@ drwav_copy_allocation_callbacks_or_defaults.exit.i: ; preds = %12
   store i16 0, ptr %47, align 4
   %48 = getelementptr inbounds i8, ptr %0, i64 168
   store i32 1, ptr %48, align 8
-  %49 = tail call fastcc i32 @drwav_init_write__internal(ptr noundef nonnull %0, ptr noundef nonnull %1, i64 noundef %2), !range !184
+  %49 = tail call fastcc i32 @drwav_init_write__internal(ptr noundef nonnull %0, ptr noundef nonnull %1, i64 noundef %2)
   br label %drwav_preinit_write.exit.thread
 
 drwav_preinit_write.exit.thread:                  ; preds = %17, %drwav_copy_allocation_callbacks_or_defaults.exit.i, %9, %9, %9, %6, %20
@@ -57317,7 +57317,7 @@ drwav_preinit_write.exit.thread:                  ; preds = %17, %drwav_copy_all
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @drwav_init_write_sequential_pcm_frames(ptr noundef %0, ptr noundef readonly %1, i64 noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) local_unnamed_addr #5 {
+define hidden range(i32 0, 2) i32 @drwav_init_write_sequential_pcm_frames(ptr noundef %0, ptr noundef readonly %1, i64 noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) local_unnamed_addr #5 {
   %7 = icmp eq ptr %1, null
   br i1 %7, label %14, label %8
 
@@ -57326,7 +57326,7 @@ define hidden noundef i32 @drwav_init_write_sequential_pcm_frames(ptr noundef %0
   %10 = load i32, ptr %9, align 4
   %11 = zext i32 %10 to i64
   %12 = mul i64 %11, %2
-  %13 = tail call i32 @drwav_init_write_sequential(ptr noundef %0, ptr noundef nonnull %1, i64 noundef %12, ptr noundef %3, ptr noundef %4, ptr noundef %5), !range !184
+  %13 = tail call i32 @drwav_init_write_sequential(ptr noundef %0, ptr noundef nonnull %1, i64 noundef %12, ptr noundef %3, ptr noundef %4, ptr noundef %5)
   br label %14
 
 14:                                               ; preds = %6, %8
@@ -57335,7 +57335,7 @@ define hidden noundef i32 @drwav_init_write_sequential_pcm_frames(ptr noundef %0
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @drwav_init_write_with_metadata(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef readonly %5, ptr noundef %6, i32 noundef %7) local_unnamed_addr #5 {
+define hidden range(i32 0, 2) i32 @drwav_init_write_with_metadata(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef readonly %5, ptr noundef %6, i32 noundef %7) local_unnamed_addr #5 {
   %9 = icmp eq ptr %0, null
   %10 = icmp eq ptr %2, null
   %or.cond.i = or i1 %9, %10
@@ -57438,7 +57438,7 @@ drwav_copy_allocation_callbacks_or_defaults.exit.i: ; preds = %15
   store ptr %6, ptr %53, align 8
   %54 = getelementptr inbounds i8, ptr %0, i64 184
   store i32 %7, ptr %54, align 8
-  %55 = tail call fastcc i32 @drwav_init_write__internal(ptr noundef nonnull %0, ptr noundef nonnull %1, i64 noundef 0), !range !184
+  %55 = tail call fastcc i32 @drwav_init_write__internal(ptr noundef nonnull %0, ptr noundef nonnull %1, i64 noundef 0)
   br label %drwav_preinit_write.exit.thread
 
 drwav_preinit_write.exit.thread:                  ; preds = %21, %drwav_copy_allocation_callbacks_or_defaults.exit.i, %12, %12, %12, %8, %24
@@ -57498,7 +57498,7 @@ define hidden i64 @drwav_target_write_size_bytes(ptr nocapture noundef readonly 
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @drwav_init_file(ptr noundef %0, ptr noundef readonly %1, ptr noundef readonly %2) local_unnamed_addr #5 {
+define hidden range(i32 0, 2) i32 @drwav_init_file(ptr noundef %0, ptr noundef readonly %1, ptr noundef readonly %2) local_unnamed_addr #5 {
   %4 = icmp eq ptr %1, null
   br i1 %4, label %drwav_init_file_ex.exit, label %5
 
@@ -57557,7 +57557,7 @@ drwav_copy_allocation_callbacks_or_defaults.exit.i.i.i: ; preds = %9
   br i1 %or.cond33.i.i.i, label %.sink.split.i.i, label %drwav_preinit.exit.i.i
 
 drwav_preinit.exit.i.i:                           ; preds = %15, %.thread.i.i.i
-  %18 = tail call fastcc i32 @drwav_init__internal(ptr noundef nonnull %0, ptr noundef null, ptr noundef null, i32 noundef 0), !range !184
+  %18 = tail call fastcc i32 @drwav_init__internal(ptr noundef nonnull %0, ptr noundef null, ptr noundef null, i32 noundef 0)
   %.not.not15.i.i = icmp eq i32 %18, 0
   br i1 %.not.not15.i.i, label %.sink.split.i.i, label %drwav_init_file_ex.exit
 
@@ -57571,7 +57571,7 @@ drwav_init_file_ex.exit:                          ; preds = %3, %5, %drwav_prein
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @drwav_init_file_ex(ptr noundef %0, ptr noundef readonly %1, ptr noundef %2, ptr noundef %3, i32 noundef %4, ptr noundef readonly %5) local_unnamed_addr #5 {
+define hidden range(i32 0, 2) i32 @drwav_init_file_ex(ptr noundef %0, ptr noundef readonly %1, ptr noundef %2, ptr noundef %3, i32 noundef %4, ptr noundef readonly %5) local_unnamed_addr #5 {
   %7 = icmp eq ptr %1, null
   br i1 %7, label %drwav_init_file__internal_FILE.exit, label %8
 
@@ -57630,7 +57630,7 @@ drwav_copy_allocation_callbacks_or_defaults.exit.i.i: ; preds = %12
   br i1 %or.cond33.i.i, label %.sink.split.i, label %drwav_preinit.exit.i
 
 drwav_preinit.exit.i:                             ; preds = %18, %.thread.i.i
-  %21 = tail call fastcc i32 @drwav_init__internal(ptr noundef nonnull %0, ptr noundef %2, ptr noundef %3, i32 noundef %4), !range !184
+  %21 = tail call fastcc i32 @drwav_init__internal(ptr noundef nonnull %0, ptr noundef %2, ptr noundef %3, i32 noundef %4)
   %.not.not15.i = icmp eq i32 %21, 0
   br i1 %.not.not15.i, label %.sink.split.i, label %drwav_init_file__internal_FILE.exit
 
@@ -57644,7 +57644,7 @@ drwav_init_file__internal_FILE.exit:              ; preds = %8, %6, %.sink.split
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @drwav_init_file_w(ptr noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #5 {
+define hidden range(i32 0, 2) i32 @drwav_init_file_w(ptr noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #5 {
   %4 = alloca ptr, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
   %5 = call fastcc i32 @drwav_wfopen(ptr noundef nonnull %4, ptr noundef %1, ptr noundef nonnull @.str.171, ptr noundef %2)
@@ -57702,7 +57702,7 @@ drwav_copy_allocation_callbacks_or_defaults.exit.i.i.i: ; preds = %9
   br i1 %or.cond33.i.i.i, label %.sink.split.i.i, label %drwav_preinit.exit.i.i
 
 drwav_preinit.exit.i.i:                           ; preds = %15, %.thread.i.i.i
-  %18 = call fastcc i32 @drwav_init__internal(ptr noundef nonnull %0, ptr noundef null, ptr noundef null, i32 noundef 0), !range !184
+  %18 = call fastcc i32 @drwav_init__internal(ptr noundef nonnull %0, ptr noundef null, ptr noundef null, i32 noundef 0)
   %.not.not15.i.i = icmp eq i32 %18, 0
   br i1 %.not.not15.i.i, label %.sink.split.i.i, label %drwav_init_file_ex_w.exit
 
@@ -57717,7 +57717,7 @@ drwav_init_file_ex_w.exit:                        ; preds = %3, %drwav_preinit.e
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @drwav_init_file_ex_w(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4, ptr noundef %5) local_unnamed_addr #5 {
+define hidden range(i32 0, 2) i32 @drwav_init_file_ex_w(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4, ptr noundef %5) local_unnamed_addr #5 {
   %7 = alloca ptr, align 8
   %8 = call fastcc i32 @drwav_wfopen(ptr noundef nonnull %7, ptr noundef %1, ptr noundef nonnull @.str.171, ptr noundef %5)
   %.not = icmp eq i32 %8, 0
@@ -57774,7 +57774,7 @@ drwav_copy_allocation_callbacks_or_defaults.exit.i.i: ; preds = %12
   br i1 %or.cond33.i.i, label %.sink.split.i, label %drwav_preinit.exit.i
 
 drwav_preinit.exit.i:                             ; preds = %18, %.thread.i.i
-  %21 = call fastcc i32 @drwav_init__internal(ptr noundef nonnull %0, ptr noundef %2, ptr noundef %3, i32 noundef %4), !range !184
+  %21 = call fastcc i32 @drwav_init__internal(ptr noundef nonnull %0, ptr noundef %2, ptr noundef %3, i32 noundef %4)
   %.not.not15.i = icmp eq i32 %21, 0
   br i1 %.not.not15.i, label %.sink.split.i, label %drwav_init_file__internal_FILE.exit
 
@@ -57897,7 +57897,7 @@ drwav__free_from_callbacks.exit:                  ; preds = %._crit_edge, %42
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @drwav_init_file_with_metadata(ptr noundef %0, ptr noundef readonly %1, i32 noundef %2, ptr noundef readonly %3) local_unnamed_addr #5 {
+define hidden range(i32 0, 2) i32 @drwav_init_file_with_metadata(ptr noundef %0, ptr noundef readonly %1, i32 noundef %2, ptr noundef readonly %3) local_unnamed_addr #5 {
   %5 = icmp eq ptr %1, null
   br i1 %5, label %drwav_init_file__internal_FILE.exit, label %6
 
@@ -57957,7 +57957,7 @@ drwav_copy_allocation_callbacks_or_defaults.exit.i.i: ; preds = %11
   br i1 %or.cond33.i.i, label %.sink.split.i, label %drwav_preinit.exit.i
 
 drwav_preinit.exit.i:                             ; preds = %17, %.thread.i.i
-  %20 = tail call fastcc i32 @drwav_init__internal(ptr noundef nonnull %0, ptr noundef null, ptr noundef null, i32 noundef %9), !range !184
+  %20 = tail call fastcc i32 @drwav_init__internal(ptr noundef nonnull %0, ptr noundef null, ptr noundef null, i32 noundef %9)
   %.not.not15.i = icmp eq i32 %20, 0
   br i1 %.not.not15.i, label %.sink.split.i, label %drwav_init_file__internal_FILE.exit
 
@@ -57971,7 +57971,7 @@ drwav_init_file__internal_FILE.exit:              ; preds = %6, %4, %.sink.split
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @drwav_init_file_with_metadata_w(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef %3) local_unnamed_addr #5 {
+define hidden range(i32 0, 2) i32 @drwav_init_file_with_metadata_w(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef %3) local_unnamed_addr #5 {
   %5 = alloca ptr, align 8
   %6 = call fastcc i32 @drwav_wfopen(ptr noundef nonnull %5, ptr noundef %1, ptr noundef nonnull @.str.171, ptr noundef %3)
   %.not = icmp eq i32 %6, 0
@@ -58029,7 +58029,7 @@ drwav_copy_allocation_callbacks_or_defaults.exit.i.i: ; preds = %11
   br i1 %or.cond33.i.i, label %.sink.split.i, label %drwav_preinit.exit.i
 
 drwav_preinit.exit.i:                             ; preds = %17, %.thread.i.i
-  %20 = call fastcc i32 @drwav_init__internal(ptr noundef nonnull %0, ptr noundef null, ptr noundef null, i32 noundef %9), !range !184
+  %20 = call fastcc i32 @drwav_init__internal(ptr noundef nonnull %0, ptr noundef null, ptr noundef null, i32 noundef %9)
   %.not.not15.i = icmp eq i32 %20, 0
   br i1 %.not.not15.i, label %.sink.split.i, label %drwav_init_file__internal_FILE.exit
 
@@ -58043,7 +58043,7 @@ drwav_init_file__internal_FILE.exit:              ; preds = %.sink.split.i, %drw
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @drwav_init_file_write(ptr noundef %0, ptr noundef readonly %1, ptr nocapture noundef readonly %2, ptr noundef %3) local_unnamed_addr #5 {
+define hidden range(i32 0, 2) i32 @drwav_init_file_write(ptr noundef %0, ptr noundef readonly %1, ptr nocapture noundef readonly %2, ptr noundef %3) local_unnamed_addr #5 {
   %5 = icmp eq ptr %1, null
   br i1 %5, label %drwav_init_file_write__internal.exit, label %6
 
@@ -58053,7 +58053,7 @@ define hidden noundef i32 @drwav_init_file_write(ptr noundef %0, ptr noundef rea
   br i1 %8, label %drwav_init_file_write__internal.exit, label %drwav_fopen.exit.i
 
 drwav_fopen.exit.i:                               ; preds = %6
-  %9 = tail call fastcc i32 @drwav_init_file_write__internal_FILE(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %2, i64 noundef 0, i32 noundef 0, ptr noundef %3), !range !184
+  %9 = tail call fastcc i32 @drwav_init_file_write__internal_FILE(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %2, i64 noundef 0, i32 noundef 0, ptr noundef %3)
   br label %drwav_init_file_write__internal.exit
 
 drwav_init_file_write__internal.exit:             ; preds = %4, %6, %drwav_fopen.exit.i
@@ -58062,7 +58062,7 @@ drwav_init_file_write__internal.exit:             ; preds = %4, %6, %drwav_fopen
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @drwav_init_file_write_sequential(ptr noundef %0, ptr noundef readonly %1, ptr nocapture noundef readonly %2, i64 noundef %3, ptr noundef %4) local_unnamed_addr #5 {
+define hidden range(i32 0, 2) i32 @drwav_init_file_write_sequential(ptr noundef %0, ptr noundef readonly %1, ptr nocapture noundef readonly %2, i64 noundef %3, ptr noundef %4) local_unnamed_addr #5 {
   %6 = icmp eq ptr %1, null
   br i1 %6, label %drwav_init_file_write__internal.exit, label %7
 
@@ -58072,7 +58072,7 @@ define hidden noundef i32 @drwav_init_file_write_sequential(ptr noundef %0, ptr 
   br i1 %9, label %drwav_init_file_write__internal.exit, label %drwav_fopen.exit.i
 
 drwav_fopen.exit.i:                               ; preds = %7
-  %10 = tail call fastcc i32 @drwav_init_file_write__internal_FILE(ptr noundef %0, ptr noundef nonnull %8, ptr noundef %2, i64 noundef %3, i32 noundef 1, ptr noundef %4), !range !184
+  %10 = tail call fastcc i32 @drwav_init_file_write__internal_FILE(ptr noundef %0, ptr noundef nonnull %8, ptr noundef %2, i64 noundef %3, i32 noundef 1, ptr noundef %4)
   br label %drwav_init_file_write__internal.exit
 
 drwav_init_file_write__internal.exit:             ; preds = %5, %7, %drwav_fopen.exit.i
@@ -58081,7 +58081,7 @@ drwav_init_file_write__internal.exit:             ; preds = %5, %7, %drwav_fopen
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @drwav_init_file_write_sequential_pcm_frames(ptr noundef %0, ptr noundef readonly %1, ptr noundef readonly %2, i64 noundef %3, ptr noundef %4) local_unnamed_addr #5 {
+define hidden range(i32 0, 2) i32 @drwav_init_file_write_sequential_pcm_frames(ptr noundef %0, ptr noundef readonly %1, ptr noundef readonly %2, i64 noundef %3, ptr noundef %4) local_unnamed_addr #5 {
   %6 = icmp eq ptr %2, null
   br i1 %6, label %drwav_init_file_write_sequential.exit, label %7
 
@@ -58099,7 +58099,7 @@ define hidden noundef i32 @drwav_init_file_write_sequential_pcm_frames(ptr nound
   br i1 %15, label %drwav_init_file_write_sequential.exit, label %drwav_fopen.exit.i.i
 
 drwav_fopen.exit.i.i:                             ; preds = %13
-  %16 = tail call fastcc i32 @drwav_init_file_write__internal_FILE(ptr noundef %0, ptr noundef nonnull %14, ptr noundef nonnull %2, i64 noundef %11, i32 noundef 1, ptr noundef %4), !range !184
+  %16 = tail call fastcc i32 @drwav_init_file_write__internal_FILE(ptr noundef %0, ptr noundef nonnull %14, ptr noundef nonnull %2, i64 noundef %11, i32 noundef 1, ptr noundef %4)
   br label %drwav_init_file_write_sequential.exit
 
 drwav_init_file_write_sequential.exit:            ; preds = %drwav_fopen.exit.i.i, %13, %7, %5
@@ -58108,7 +58108,7 @@ drwav_init_file_write_sequential.exit:            ; preds = %drwav_fopen.exit.i.
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @drwav_init_file_write_w(ptr noundef %0, ptr noundef %1, ptr nocapture noundef readonly %2, ptr noundef %3) local_unnamed_addr #5 {
+define hidden range(i32 0, 2) i32 @drwav_init_file_write_w(ptr noundef %0, ptr noundef %1, ptr nocapture noundef readonly %2, ptr noundef %3) local_unnamed_addr #5 {
   %5 = alloca ptr, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
   %6 = call fastcc i32 @drwav_wfopen(ptr noundef nonnull %5, ptr noundef %1, ptr noundef nonnull @.str.566, ptr noundef %3)
@@ -58117,7 +58117,7 @@ define hidden noundef i32 @drwav_init_file_write_w(ptr noundef %0, ptr noundef %
 
 7:                                                ; preds = %4
   %8 = load ptr, ptr %5, align 8
-  %9 = call fastcc i32 @drwav_init_file_write__internal_FILE(ptr noundef %0, ptr noundef %8, ptr noundef %2, i64 noundef 0, i32 noundef 0, ptr noundef %3), !range !184
+  %9 = call fastcc i32 @drwav_init_file_write__internal_FILE(ptr noundef %0, ptr noundef %8, ptr noundef %2, i64 noundef 0, i32 noundef 0, ptr noundef %3)
   br label %drwav_init_file_write_w__internal.exit
 
 drwav_init_file_write_w__internal.exit:           ; preds = %4, %7
@@ -58127,7 +58127,7 @@ drwav_init_file_write_w__internal.exit:           ; preds = %4, %7
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @drwav_init_file_write_sequential_w(ptr noundef %0, ptr noundef %1, ptr nocapture noundef readonly %2, i64 noundef %3, ptr noundef %4) local_unnamed_addr #5 {
+define hidden range(i32 0, 2) i32 @drwav_init_file_write_sequential_w(ptr noundef %0, ptr noundef %1, ptr nocapture noundef readonly %2, i64 noundef %3, ptr noundef %4) local_unnamed_addr #5 {
   %6 = alloca ptr, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6)
   %7 = call fastcc i32 @drwav_wfopen(ptr noundef nonnull %6, ptr noundef %1, ptr noundef nonnull @.str.566, ptr noundef %4)
@@ -58136,7 +58136,7 @@ define hidden noundef i32 @drwav_init_file_write_sequential_w(ptr noundef %0, pt
 
 8:                                                ; preds = %5
   %9 = load ptr, ptr %6, align 8
-  %10 = call fastcc i32 @drwav_init_file_write__internal_FILE(ptr noundef %0, ptr noundef %9, ptr noundef %2, i64 noundef %3, i32 noundef 1, ptr noundef %4), !range !184
+  %10 = call fastcc i32 @drwav_init_file_write__internal_FILE(ptr noundef %0, ptr noundef %9, ptr noundef %2, i64 noundef %3, i32 noundef 1, ptr noundef %4)
   br label %drwav_init_file_write_w__internal.exit
 
 drwav_init_file_write_w__internal.exit:           ; preds = %5, %8
@@ -58146,7 +58146,7 @@ drwav_init_file_write_w__internal.exit:           ; preds = %5, %8
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @drwav_init_file_write_sequential_pcm_frames_w(ptr noundef %0, ptr noundef %1, ptr noundef readonly %2, i64 noundef %3, ptr noundef %4) local_unnamed_addr #5 {
+define hidden range(i32 0, 2) i32 @drwav_init_file_write_sequential_pcm_frames_w(ptr noundef %0, ptr noundef %1, ptr noundef readonly %2, i64 noundef %3, ptr noundef %4) local_unnamed_addr #5 {
   %6 = alloca ptr, align 8
   %7 = icmp eq ptr %2, null
   br i1 %7, label %17, label %8
@@ -58163,7 +58163,7 @@ define hidden noundef i32 @drwav_init_file_write_sequential_pcm_frames_w(ptr nou
   %13 = zext i32 %10 to i64
   %14 = mul i64 %13, %3
   %15 = load ptr, ptr %6, align 8
-  %16 = call fastcc i32 @drwav_init_file_write__internal_FILE(ptr noundef %0, ptr noundef %15, ptr noundef nonnull %2, i64 noundef %14, i32 noundef 1, ptr noundef %4), !range !184
+  %16 = call fastcc i32 @drwav_init_file_write__internal_FILE(ptr noundef %0, ptr noundef %15, ptr noundef nonnull %2, i64 noundef %14, i32 noundef 1, ptr noundef %4)
   br label %drwav_init_file_write_sequential_w.exit
 
 drwav_init_file_write_sequential_w.exit:          ; preds = %8, %12
@@ -58177,7 +58177,7 @@ drwav_init_file_write_sequential_w.exit:          ; preds = %8, %12
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @drwav_init_memory(ptr noundef %0, ptr noundef %1, i64 noundef %2, ptr noundef readonly %3) local_unnamed_addr #5 {
+define hidden range(i32 0, 2) i32 @drwav_init_memory(ptr noundef %0, ptr noundef %1, i64 noundef %2, ptr noundef readonly %3) local_unnamed_addr #5 {
   %5 = icmp eq ptr %1, null
   %6 = icmp eq i64 %2, 0
   %or.cond.i = or i1 %5, %6
@@ -58237,7 +58237,7 @@ drwav_preinit.exit.i:                             ; preds = %14, %.thread.i.i
   store i64 %2, ptr %18, align 8
   %19 = getelementptr inbounds i8, ptr %0, i64 208
   store i64 0, ptr %19, align 8
-  %20 = tail call fastcc i32 @drwav_init__internal(ptr noundef nonnull %0, ptr noundef null, ptr noundef null, i32 noundef 0), !range !184
+  %20 = tail call fastcc i32 @drwav_init__internal(ptr noundef nonnull %0, ptr noundef null, ptr noundef null, i32 noundef 0)
   br label %drwav_init_memory_ex.exit
 
 drwav_init_memory_ex.exit:                        ; preds = %4, %drwav_copy_allocation_callbacks_or_defaults.exit.i.i, %14, %drwav_preinit.exit.i
@@ -58246,7 +58246,7 @@ drwav_init_memory_ex.exit:                        ; preds = %4, %drwav_copy_allo
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @drwav_init_memory_ex(ptr noundef %0, ptr noundef %1, i64 noundef %2, ptr noundef %3, ptr noundef %4, i32 noundef %5, ptr noundef readonly %6) local_unnamed_addr #5 {
+define hidden range(i32 0, 2) i32 @drwav_init_memory_ex(ptr noundef %0, ptr noundef %1, i64 noundef %2, ptr noundef %3, ptr noundef %4, i32 noundef %5, ptr noundef readonly %6) local_unnamed_addr #5 {
   %8 = icmp eq ptr %1, null
   %9 = icmp eq i64 %2, 0
   %or.cond = or i1 %8, %9
@@ -58306,7 +58306,7 @@ drwav_preinit.exit:                               ; preds = %17, %.thread.i
   store i64 %2, ptr %21, align 8
   %22 = getelementptr inbounds i8, ptr %0, i64 208
   store i64 0, ptr %22, align 8
-  %23 = tail call fastcc i32 @drwav_init__internal(ptr noundef nonnull %0, ptr noundef %3, ptr noundef %4, i32 noundef %5), !range !184
+  %23 = tail call fastcc i32 @drwav_init__internal(ptr noundef nonnull %0, ptr noundef %3, ptr noundef %4, i32 noundef %5)
   br label %drwav_preinit.exit.thread
 
 drwav_preinit.exit.thread:                        ; preds = %17, %drwav_copy_allocation_callbacks_or_defaults.exit.i, %7, %drwav_preinit.exit
@@ -58340,7 +58340,7 @@ define internal i64 @drwav__on_read_memory(ptr nocapture noundef %0, ptr nocaptu
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal noundef i32 @drwav__on_seek_memory(ptr nocapture noundef %0, i32 noundef %1, i32 noundef %2) #16 {
+define internal range(i32 0, 2) i32 @drwav__on_seek_memory(ptr nocapture noundef %0, i32 noundef %1, i32 noundef %2) #16 {
   %4 = icmp eq i32 %2, 1
   br i1 %4, label %5, label %23
 
@@ -58390,7 +58390,7 @@ define internal noundef i32 @drwav__on_seek_memory(ptr nocapture noundef %0, i32
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @drwav_init_memory_with_metadata(ptr noundef %0, ptr noundef %1, i64 noundef %2, i32 noundef %3, ptr noundef readonly %4) local_unnamed_addr #5 {
+define hidden range(i32 0, 2) i32 @drwav_init_memory_with_metadata(ptr noundef %0, ptr noundef %1, i64 noundef %2, i32 noundef %3, ptr noundef readonly %4) local_unnamed_addr #5 {
   %6 = icmp eq ptr %1, null
   %7 = icmp eq i64 %2, 0
   %or.cond = or i1 %6, %7
@@ -58451,7 +58451,7 @@ drwav_preinit.exit:                               ; preds = %15, %.thread.i
   %20 = getelementptr inbounds i8, ptr %0, i64 208
   store i64 0, ptr %20, align 8
   %21 = or i32 %3, 2
-  %22 = tail call fastcc i32 @drwav_init__internal(ptr noundef nonnull %0, ptr noundef null, ptr noundef null, i32 noundef %21), !range !184
+  %22 = tail call fastcc i32 @drwav_init__internal(ptr noundef nonnull %0, ptr noundef null, ptr noundef null, i32 noundef %21)
   br label %drwav_preinit.exit.thread
 
 drwav_preinit.exit.thread:                        ; preds = %15, %drwav_copy_allocation_callbacks_or_defaults.exit.i, %5, %drwav_preinit.exit
@@ -58460,13 +58460,13 @@ drwav_preinit.exit.thread:                        ; preds = %15, %drwav_copy_all
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @drwav_init_memory_write(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture noundef readonly %3, ptr noundef %4) local_unnamed_addr #5 {
-  %6 = tail call fastcc i32 @drwav_init_memory_write__internal(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i64 noundef 0, i32 noundef 0, ptr noundef %4), !range !184
+define hidden range(i32 0, 2) i32 @drwav_init_memory_write(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture noundef readonly %3, ptr noundef %4) local_unnamed_addr #5 {
+  %6 = tail call fastcc i32 @drwav_init_memory_write__internal(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i64 noundef 0, i32 noundef 0, ptr noundef %4)
   ret i32 %6
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @drwav_init_memory_write__internal(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture noundef readonly %3, i64 noundef %4, i32 noundef %5, ptr noundef readonly %6) unnamed_addr #5 {
+define internal fastcc range(i32 0, 2) i32 @drwav_init_memory_write__internal(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture noundef readonly %3, i64 noundef %4, i32 noundef %5, ptr noundef readonly %6) unnamed_addr #5 {
   %8 = icmp eq ptr %1, null
   %9 = icmp eq ptr %2, null
   %or.cond = or i1 %8, %9
@@ -58575,7 +58575,7 @@ drwav_copy_allocation_callbacks_or_defaults.exit.i: ; preds = %15
   store ptr %2, ptr %54, align 8
   %55 = getelementptr inbounds i8, ptr %0, i64 232
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %55, i8 0, i64 24, i1 false)
-  %56 = tail call fastcc i32 @drwav_init_write__internal(ptr noundef nonnull %0, ptr noundef nonnull %3, i64 noundef %4), !range !184
+  %56 = tail call fastcc i32 @drwav_init_write__internal(ptr noundef nonnull %0, ptr noundef nonnull %3, i64 noundef %4)
   br label %drwav_preinit_write.exit.thread
 
 drwav_preinit_write.exit.thread:                  ; preds = %21, %drwav_copy_allocation_callbacks_or_defaults.exit.i, %12, %12, %12, %10, %7, %24
@@ -58584,13 +58584,13 @@ drwav_preinit_write.exit.thread:                  ; preds = %21, %drwav_copy_all
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @drwav_init_memory_write_sequential(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture noundef readonly %3, i64 noundef %4, ptr noundef %5) local_unnamed_addr #5 {
-  %7 = tail call fastcc i32 @drwav_init_memory_write__internal(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i64 noundef %4, i32 noundef 1, ptr noundef %5), !range !184
+define hidden range(i32 0, 2) i32 @drwav_init_memory_write_sequential(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture noundef readonly %3, i64 noundef %4, ptr noundef %5) local_unnamed_addr #5 {
+  %7 = tail call fastcc i32 @drwav_init_memory_write__internal(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i64 noundef %4, i32 noundef 1, ptr noundef %5)
   ret i32 %7
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @drwav_init_memory_write_sequential_pcm_frames(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef readonly %3, i64 noundef %4, ptr noundef %5) local_unnamed_addr #5 {
+define hidden range(i32 0, 2) i32 @drwav_init_memory_write_sequential_pcm_frames(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef readonly %3, i64 noundef %4, ptr noundef %5) local_unnamed_addr #5 {
   %7 = icmp eq ptr %3, null
   br i1 %7, label %14, label %8
 
@@ -58599,7 +58599,7 @@ define hidden noundef i32 @drwav_init_memory_write_sequential_pcm_frames(ptr nou
   %10 = load i32, ptr %9, align 4
   %11 = zext i32 %10 to i64
   %12 = mul i64 %11, %4
-  %13 = tail call fastcc noundef i32 @drwav_init_memory_write__internal(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef nonnull %3, i64 noundef %12, i32 noundef 1, ptr noundef %5), !range !184
+  %13 = tail call fastcc i32 @drwav_init_memory_write__internal(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef nonnull %3, i64 noundef %12, i32 noundef 1, ptr noundef %5)
   br label %14
 
 14:                                               ; preds = %6, %8
@@ -58608,7 +58608,7 @@ define hidden noundef i32 @drwav_init_memory_write_sequential_pcm_frames(ptr nou
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @drwav_uninit(ptr noundef readonly %0) local_unnamed_addr #5 {
+define hidden range(i32 -10, 1) i32 @drwav_uninit(ptr noundef readonly %0) local_unnamed_addr #5 {
   %2 = alloca i64, align 8
   %3 = alloca i64, align 8
   %4 = alloca i64, align 8
@@ -59448,7 +59448,7 @@ drwav_read_pcm_frames_le.exit:                    ; preds = %49, %45, %drwav_get
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @drwav_seek_to_pcm_frame(ptr noundef %0, i64 noundef %1) local_unnamed_addr #5 {
+define hidden range(i32 0, 2) i32 @drwav_seek_to_pcm_frame(ptr noundef %0, i64 noundef %1) local_unnamed_addr #5 {
   %3 = alloca [2048 x i16], align 16
   %4 = icmp eq ptr %0, null
   br i1 %4, label %drwav_seek_to_first_pcm_frame.exit.thread, label %5
@@ -59621,7 +59621,7 @@ drwav_get_bytes_per_pcm_frame.exit:               ; preds = %73
   br label %92
 
 90:                                               ; preds = %80
-  %91 = tail call fastcc i32 @drwav_seek_to_first_pcm_frame(ptr noundef nonnull %0), !range !184
+  %91 = tail call fastcc i32 @drwav_seek_to_first_pcm_frame(ptr noundef nonnull %0)
   %.not74 = icmp eq i32 %91, 0
   br i1 %.not74, label %drwav_seek_to_first_pcm_frame.exit.thread, label %92
 
@@ -59664,7 +59664,7 @@ drwav_seek_to_first_pcm_frame.exit.thread:        ; preds = %56, %45, %95, %101,
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @drwav_seek_to_first_pcm_frame(ptr nocapture noundef %0) unnamed_addr #5 {
+define internal fastcc range(i32 0, 2) i32 @drwav_seek_to_first_pcm_frame(ptr nocapture noundef %0) unnamed_addr #5 {
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
   %.not = icmp eq ptr %3, null
@@ -60418,7 +60418,7 @@ define internal fastcc i64 @drwav_read_pcm_frames_s16__ima(ptr nocapture noundef
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden noundef i32 @drwav_get_cursor_in_pcm_frames(ptr noundef readonly %0, ptr noundef writeonly %1) local_unnamed_addr #16 {
+define hidden range(i32 -2, 1) i32 @drwav_get_cursor_in_pcm_frames(ptr noundef readonly %0, ptr noundef writeonly %1) local_unnamed_addr #16 {
   %3 = icmp eq ptr %1, null
   br i1 %3, label %9, label %4
 
@@ -60439,7 +60439,7 @@ define hidden noundef i32 @drwav_get_cursor_in_pcm_frames(ptr noundef readonly %
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden noundef i32 @drwav_get_length_in_pcm_frames(ptr noundef readonly %0, ptr noundef writeonly %1) local_unnamed_addr #16 {
+define hidden range(i32 -2, 1) i32 @drwav_get_length_in_pcm_frames(ptr noundef readonly %0, ptr noundef writeonly %1) local_unnamed_addr #16 {
   %3 = icmp eq ptr %1, null
   br i1 %3, label %9, label %4
 
@@ -63542,7 +63542,7 @@ drwav_copy_allocation_callbacks_or_defaults.exit.i.i.i: ; preds = %17
   br i1 %or.cond33.i.i.i, label %drwav_init.exit.thread, label %drwav_init.exit
 
 drwav_init.exit:                                  ; preds = %.thread.i.i.i, %23
-  %26 = call fastcc i32 @drwav_init__internal(ptr noundef nonnull %8, ptr noundef null, ptr noundef null, i32 noundef 0), !range !184
+  %26 = call fastcc i32 @drwav_init__internal(ptr noundef nonnull %8, ptr noundef null, ptr noundef null, i32 noundef 0)
   %.not19 = icmp eq i32 %26, 0
   br i1 %.not19, label %drwav_init.exit.thread, label %27
 
@@ -63592,7 +63592,7 @@ drwav__malloc_from_callbacks.exit:                ; preds = %15, %21
   br i1 %24, label %drwav__malloc_from_callbacks.exit.thread, label %26
 
 drwav__malloc_from_callbacks.exit.thread:         ; preds = %18, %drwav__malloc_from_callbacks.exit
-  %25 = tail call i32 @drwav_uninit(ptr noundef nonnull %0), !range !249
+  %25 = tail call i32 @drwav_uninit(ptr noundef nonnull %0)
   br label %48
 
 26:                                               ; preds = %drwav__malloc_from_callbacks.exit
@@ -63614,11 +63614,11 @@ drwav__malloc_from_callbacks.exit.thread:         ; preds = %18, %drwav__malloc_
   br label %drwav__free_from_callbacks.exit
 
 drwav__free_from_callbacks.exit:                  ; preds = %30, %33
-  %35 = tail call i32 @drwav_uninit(ptr noundef nonnull %0), !range !249
+  %35 = tail call i32 @drwav_uninit(ptr noundef nonnull %0)
   br label %48
 
 36:                                               ; preds = %26
-  %37 = tail call i32 @drwav_uninit(ptr noundef nonnull %0), !range !249
+  %37 = tail call i32 @drwav_uninit(ptr noundef nonnull %0)
   %.not31 = icmp eq ptr %2, null
   br i1 %.not31, label %41, label %38
 
@@ -63730,7 +63730,7 @@ drwav_copy_allocation_callbacks_or_defaults.exit.i.i.i: ; preds = %17
   br i1 %or.cond33.i.i.i, label %drwav_init.exit.thread, label %drwav_init.exit
 
 drwav_init.exit:                                  ; preds = %.thread.i.i.i, %23
-  %26 = call fastcc i32 @drwav_init__internal(ptr noundef nonnull %8, ptr noundef null, ptr noundef null, i32 noundef 0), !range !184
+  %26 = call fastcc i32 @drwav_init__internal(ptr noundef nonnull %8, ptr noundef null, ptr noundef null, i32 noundef 0)
   %.not19 = icmp eq i32 %26, 0
   br i1 %.not19, label %drwav_init.exit.thread, label %27
 
@@ -63780,7 +63780,7 @@ drwav__malloc_from_callbacks.exit:                ; preds = %15, %21
   br i1 %24, label %drwav__malloc_from_callbacks.exit.thread, label %26
 
 drwav__malloc_from_callbacks.exit.thread:         ; preds = %18, %drwav__malloc_from_callbacks.exit
-  %25 = tail call i32 @drwav_uninit(ptr noundef nonnull %0), !range !249
+  %25 = tail call i32 @drwav_uninit(ptr noundef nonnull %0)
   br label %48
 
 26:                                               ; preds = %drwav__malloc_from_callbacks.exit
@@ -63802,11 +63802,11 @@ drwav__malloc_from_callbacks.exit.thread:         ; preds = %18, %drwav__malloc_
   br label %drwav__free_from_callbacks.exit
 
 drwav__free_from_callbacks.exit:                  ; preds = %30, %33
-  %35 = tail call i32 @drwav_uninit(ptr noundef nonnull %0), !range !249
+  %35 = tail call i32 @drwav_uninit(ptr noundef nonnull %0)
   br label %48
 
 36:                                               ; preds = %26
-  %37 = tail call i32 @drwav_uninit(ptr noundef nonnull %0), !range !249
+  %37 = tail call i32 @drwav_uninit(ptr noundef nonnull %0)
   %.not31 = icmp eq ptr %2, null
   br i1 %.not31, label %41, label %38
 
@@ -63918,7 +63918,7 @@ drwav_copy_allocation_callbacks_or_defaults.exit.i.i.i: ; preds = %17
   br i1 %or.cond33.i.i.i, label %drwav_init.exit.thread, label %drwav_init.exit
 
 drwav_init.exit:                                  ; preds = %.thread.i.i.i, %23
-  %26 = call fastcc i32 @drwav_init__internal(ptr noundef nonnull %8, ptr noundef null, ptr noundef null, i32 noundef 0), !range !184
+  %26 = call fastcc i32 @drwav_init__internal(ptr noundef nonnull %8, ptr noundef null, ptr noundef null, i32 noundef 0)
   %.not19 = icmp eq i32 %26, 0
   br i1 %.not19, label %drwav_init.exit.thread, label %27
 
@@ -63968,7 +63968,7 @@ drwav__malloc_from_callbacks.exit:                ; preds = %15, %21
   br i1 %24, label %drwav__malloc_from_callbacks.exit.thread, label %26
 
 drwav__malloc_from_callbacks.exit.thread:         ; preds = %18, %drwav__malloc_from_callbacks.exit
-  %25 = tail call i32 @drwav_uninit(ptr noundef nonnull %0), !range !249
+  %25 = tail call i32 @drwav_uninit(ptr noundef nonnull %0)
   br label %48
 
 26:                                               ; preds = %drwav__malloc_from_callbacks.exit
@@ -63990,11 +63990,11 @@ drwav__malloc_from_callbacks.exit.thread:         ; preds = %18, %drwav__malloc_
   br label %drwav__free_from_callbacks.exit
 
 drwav__free_from_callbacks.exit:                  ; preds = %30, %33
-  %35 = tail call i32 @drwav_uninit(ptr noundef nonnull %0), !range !249
+  %35 = tail call i32 @drwav_uninit(ptr noundef nonnull %0)
   br label %48
 
 36:                                               ; preds = %26
-  %37 = tail call i32 @drwav_uninit(ptr noundef nonnull %0), !range !249
+  %37 = tail call i32 @drwav_uninit(ptr noundef nonnull %0)
   %.not31 = icmp eq ptr %2, null
   br i1 %.not31, label %41, label %38
 
@@ -64109,7 +64109,7 @@ drwav_copy_allocation_callbacks_or_defaults.exit.i.i.i.i: ; preds = %drwav_fopen
   br i1 %or.cond33.i.i.i.i, label %.sink.split.i.i.i, label %drwav_preinit.exit.i.i.i
 
 drwav_preinit.exit.i.i.i:                         ; preds = %22, %.thread.i.i.i.i
-  %25 = call fastcc i32 @drwav_init__internal(ptr noundef nonnull %6, ptr noundef null, ptr noundef null, i32 noundef 0), !range !184
+  %25 = call fastcc i32 @drwav_init__internal(ptr noundef nonnull %6, ptr noundef null, ptr noundef null, i32 noundef 0)
   %.not.not15.i.i.i = icmp eq i32 %25, 0
   br i1 %.not.not15.i.i.i, label %.sink.split.i.i.i, label %drwav_init_file.exit
 
@@ -64207,7 +64207,7 @@ drwav_copy_allocation_callbacks_or_defaults.exit.i.i.i.i: ; preds = %drwav_fopen
   br i1 %or.cond33.i.i.i.i, label %.sink.split.i.i.i, label %drwav_preinit.exit.i.i.i
 
 drwav_preinit.exit.i.i.i:                         ; preds = %22, %.thread.i.i.i.i
-  %25 = call fastcc i32 @drwav_init__internal(ptr noundef nonnull %6, ptr noundef null, ptr noundef null, i32 noundef 0), !range !184
+  %25 = call fastcc i32 @drwav_init__internal(ptr noundef nonnull %6, ptr noundef null, ptr noundef null, i32 noundef 0)
   %.not.not15.i.i.i = icmp eq i32 %25, 0
   br i1 %.not.not15.i.i.i, label %.sink.split.i.i.i, label %drwav_init_file.exit
 
@@ -64305,7 +64305,7 @@ drwav_copy_allocation_callbacks_or_defaults.exit.i.i.i.i: ; preds = %drwav_fopen
   br i1 %or.cond33.i.i.i.i, label %.sink.split.i.i.i, label %drwav_preinit.exit.i.i.i
 
 drwav_preinit.exit.i.i.i:                         ; preds = %22, %.thread.i.i.i.i
-  %25 = call fastcc i32 @drwav_init__internal(ptr noundef nonnull %6, ptr noundef null, ptr noundef null, i32 noundef 0), !range !184
+  %25 = call fastcc i32 @drwav_init__internal(ptr noundef nonnull %6, ptr noundef null, ptr noundef null, i32 noundef 0)
   %.not.not15.i.i.i = icmp eq i32 %25, 0
   br i1 %.not.not15.i.i.i, label %.sink.split.i.i.i, label %drwav_init_file.exit
 
@@ -64402,7 +64402,7 @@ drwav_copy_allocation_callbacks_or_defaults.exit.i.i.i.i: ; preds = %15
   br i1 %or.cond33.i.i.i.i, label %.sink.split.i.i.i, label %drwav_preinit.exit.i.i.i
 
 drwav_preinit.exit.i.i.i:                         ; preds = %22, %.thread.i.i.i.i
-  %25 = call fastcc i32 @drwav_init__internal(ptr noundef nonnull %7, ptr noundef null, ptr noundef null, i32 noundef 0), !range !184
+  %25 = call fastcc i32 @drwav_init__internal(ptr noundef nonnull %7, ptr noundef null, ptr noundef null, i32 noundef 0)
   %.not.not15.i.i.i = icmp eq i32 %25, 0
   br i1 %.not.not15.i.i.i, label %.sink.split.i.i.i, label %27
 
@@ -64504,7 +64504,7 @@ drwav_copy_allocation_callbacks_or_defaults.exit.i.i.i.i: ; preds = %15
   br i1 %or.cond33.i.i.i.i, label %.sink.split.i.i.i, label %drwav_preinit.exit.i.i.i
 
 drwav_preinit.exit.i.i.i:                         ; preds = %22, %.thread.i.i.i.i
-  %25 = call fastcc i32 @drwav_init__internal(ptr noundef nonnull %7, ptr noundef null, ptr noundef null, i32 noundef 0), !range !184
+  %25 = call fastcc i32 @drwav_init__internal(ptr noundef nonnull %7, ptr noundef null, ptr noundef null, i32 noundef 0)
   %.not.not15.i.i.i = icmp eq i32 %25, 0
   br i1 %.not.not15.i.i.i, label %.sink.split.i.i.i, label %27
 
@@ -64606,7 +64606,7 @@ drwav_copy_allocation_callbacks_or_defaults.exit.i.i.i.i: ; preds = %15
   br i1 %or.cond33.i.i.i.i, label %.sink.split.i.i.i, label %drwav_preinit.exit.i.i.i
 
 drwav_preinit.exit.i.i.i:                         ; preds = %22, %.thread.i.i.i.i
-  %25 = call fastcc i32 @drwav_init__internal(ptr noundef nonnull %7, ptr noundef null, ptr noundef null, i32 noundef 0), !range !184
+  %25 = call fastcc i32 @drwav_init__internal(ptr noundef nonnull %7, ptr noundef null, ptr noundef null, i32 noundef 0)
   %.not.not15.i.i.i = icmp eq i32 %25, 0
   br i1 %.not.not15.i.i.i, label %.sink.split.i.i.i, label %27
 
@@ -64712,7 +64712,7 @@ drwav_init_memory.exit:                           ; preds = %.thread.i.i.i, %22
   store i64 %1, ptr %26, align 8
   %27 = getelementptr inbounds i8, ptr %7, i64 208
   store i64 0, ptr %27, align 8
-  %28 = call fastcc i32 @drwav_init__internal(ptr noundef nonnull %7, ptr noundef null, ptr noundef null, i32 noundef 0), !range !184
+  %28 = call fastcc i32 @drwav_init__internal(ptr noundef nonnull %7, ptr noundef null, ptr noundef null, i32 noundef 0)
   %.not17 = icmp eq i32 %28, 0
   br i1 %.not17, label %drwav_init_memory.exit.thread, label %29
 
@@ -64809,7 +64809,7 @@ drwav_init_memory.exit:                           ; preds = %.thread.i.i.i, %22
   store i64 %1, ptr %26, align 8
   %27 = getelementptr inbounds i8, ptr %7, i64 208
   store i64 0, ptr %27, align 8
-  %28 = call fastcc i32 @drwav_init__internal(ptr noundef nonnull %7, ptr noundef null, ptr noundef null, i32 noundef 0), !range !184
+  %28 = call fastcc i32 @drwav_init__internal(ptr noundef nonnull %7, ptr noundef null, ptr noundef null, i32 noundef 0)
   %.not17 = icmp eq i32 %28, 0
   br i1 %.not17, label %drwav_init_memory.exit.thread, label %29
 
@@ -64906,7 +64906,7 @@ drwav_init_memory.exit:                           ; preds = %.thread.i.i.i, %22
   store i64 %1, ptr %26, align 8
   %27 = getelementptr inbounds i8, ptr %7, i64 208
   store i64 0, ptr %27, align 8
-  %28 = call fastcc i32 @drwav_init__internal(ptr noundef nonnull %7, ptr noundef null, ptr noundef null, i32 noundef 0), !range !184
+  %28 = call fastcc i32 @drwav_init__internal(ptr noundef nonnull %7, ptr noundef null, ptr noundef null, i32 noundef 0)
   %.not17 = icmp eq i32 %28, 0
   br i1 %.not17, label %drwav_init_memory.exit.thread, label %29
 
@@ -64962,7 +64962,7 @@ define hidden i64 @drwav_bytes_to_s64(ptr nocapture noundef readonly %0) local_u
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read) uwtable
-define hidden noundef i32 @drwav_guid_equal(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) local_unnamed_addr #43 {
+define hidden range(i32 0, 2) i32 @drwav_guid_equal(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) local_unnamed_addr #43 {
   br label %4
 
 3:                                                ; preds = %4
@@ -64985,7 +64985,7 @@ define hidden noundef i32 @drwav_guid_equal(ptr nocapture noundef readonly %0, p
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden i32 @drwav_fourcc_equal(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) local_unnamed_addr #15 {
+define hidden range(i32 0, 2) i32 @drwav_fourcc_equal(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) local_unnamed_addr #15 {
   %3 = load i8, ptr %0, align 1
   %4 = zext i8 %3 to i32
   %5 = load i8, ptr %1, align 1
@@ -65095,7 +65095,7 @@ setup_free.exit122:                               ; preds = %.lr.ph.split, %12
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %17 = sext i32 %16 to i64
   %18 = icmp slt i64 %indvars.iv.next, %17
-  br i1 %18, label %.lr.ph.split, label %._crit_edge.loopexit, !llvm.loop !250
+  br i1 %18, label %.lr.ph.split, label %._crit_edge.loopexit, !llvm.loop !239
 
 ._crit_edge.loopexit:                             ; preds = %setup_free.exit122
   %.val99.pre = load ptr, ptr %2, align 8
@@ -65178,7 +65178,7 @@ setup_free.exit126:                               ; preds = %.lr.ph210.split, %4
   %51 = load i32, ptr %50, align 4
   %52 = sext i32 %51 to i64
   %53 = icmp slt i64 %indvars.iv.next231, %52
-  br i1 %53, label %.lr.ph210.split, label %._crit_edge211.loopexit, !llvm.loop !251
+  br i1 %53, label %.lr.ph210.split, label %._crit_edge211.loopexit, !llvm.loop !240
 
 ._crit_edge211.loopexit:                          ; preds = %setup_free.exit126
   %.val101.pre = load ptr, ptr %2, align 8
@@ -65284,7 +65284,7 @@ setup_free.exit140:                               ; preds = %setup_free.exit132,
   %82 = load i32, ptr %64, align 8
   %83 = sext i32 %82 to i64
   %84 = icmp slt i64 %indvars.iv.next237, %83
-  br i1 %84, label %.lr.ph215.split, label %._crit_edge216.loopexit, !llvm.loop !252
+  br i1 %84, label %.lr.ph215.split, label %._crit_edge216.loopexit, !llvm.loop !241
 
 ._crit_edge216.loopexit:                          ; preds = %setup_free.exit140
   %.val108.pre = load ptr, ptr %2, align 8
@@ -65357,7 +65357,7 @@ setup_free.exit148:                               ; preds = %.lr.ph218.split, %9
   %indvars.iv.next240 = add nuw nsw i64 %indvars.iv239, 1
   %103 = sext i32 %102 to i64
   %104 = icmp slt i64 %indvars.iv.next240, %103
-  br i1 %104, label %.lr.ph218.split, label %._crit_edge219.loopexit, !llvm.loop !253
+  br i1 %104, label %.lr.ph218.split, label %._crit_edge219.loopexit, !llvm.loop !242
 
 ._crit_edge219.loopexit:                          ; preds = %setup_free.exit148
   %.val112.pre = load ptr, ptr %2, align 8
@@ -65437,7 +65437,7 @@ setup_free.exit156:                               ; preds = %.lr.ph221.split, %s
   %130 = icmp slt i64 %indvars.iv.next243, %129
   %131 = icmp ult i64 %indvars.iv242, 15
   %132 = and i1 %131, %130
-  br i1 %132, label %.lr.ph221.split, label %.preheader.loopexit, !llvm.loop !254
+  br i1 %132, label %.lr.ph221.split, label %.preheader.loopexit, !llvm.loop !243
 
 .preheader.split:                                 ; preds = %.preheader, %setup_free.exit166
   %133 = phi i1 [ false, %setup_free.exit166 ], [ true, %.preheader ]
@@ -65485,7 +65485,7 @@ setup_free.exit164:                               ; preds = %setup_free.exit162
   br label %setup_free.exit166
 
 setup_free.exit166:                               ; preds = %setup_free.exit158, %.preheader.split, %setup_free.exit160, %setup_free.exit162, %setup_free.exit164, %142
-  br i1 %133, label %.preheader.split, label %.split.us, !llvm.loop !255
+  br i1 %133, label %.preheader.split, label %.split.us, !llvm.loop !244
 
 .split.us:                                        ; preds = %setup_free.exit166, %.lr.ph221, %.preheader
   %145 = getelementptr inbounds i8, ptr %0, i64 60
@@ -65876,7 +65876,7 @@ define hidden i32 @stb_vorbis_decode_frame_pushdata(ptr noundef %0, ptr noundef 
   store ptr %140, ptr %141, align 8
   %142 = getelementptr inbounds i8, ptr %0, i64 156
   store i32 0, ptr %142, align 4
-  %143 = tail call fastcc i32 @is_whole_packet_present(ptr noundef nonnull %0), !range !184
+  %143 = tail call fastcc i32 @is_whole_packet_present(ptr noundef nonnull %0)
   %.not56 = icmp eq i32 %143, 0
   br i1 %.not56, label %144, label %145
 
@@ -65885,7 +65885,7 @@ define hidden i32 @stb_vorbis_decode_frame_pushdata(ptr noundef %0, ptr noundef 
   br label %vorbis_search_for_page_pushdata.exit
 
 145:                                              ; preds = %137
-  %146 = call fastcc i32 @vorbis_decode_packet(ptr noundef nonnull %0, ptr noundef nonnull %7, ptr noundef nonnull %9, ptr noundef nonnull %8), !range !184
+  %146 = call fastcc i32 @vorbis_decode_packet(ptr noundef nonnull %0, ptr noundef nonnull %7, ptr noundef nonnull %9, ptr noundef nonnull %8)
   %.not57 = icmp eq i32 %146, 0
   br i1 %.not57, label %147, label %187
 
@@ -65903,7 +65903,7 @@ define hidden i32 @stb_vorbis_decode_frame_pushdata(ptr noundef %0, ptr noundef 
   br label %152
 
 152:                                              ; preds = %154, %149
-  %153 = tail call fastcc i32 @get8_packet_raw(ptr noundef nonnull %0), !range !256
+  %153 = tail call fastcc i32 @get8_packet_raw(ptr noundef nonnull %0)
   store i32 0, ptr %151, align 8
   %.not60 = icmp eq i32 %153, -1
   br i1 %.not60, label %156, label %154
@@ -65935,7 +65935,7 @@ define hidden i32 @stb_vorbis_decode_frame_pushdata(ptr noundef %0, ptr noundef 
   br label %169
 
 169:                                              ; preds = %171, %166
-  %170 = tail call fastcc i32 @get8_packet_raw(ptr noundef nonnull %0), !range !256
+  %170 = tail call fastcc i32 @get8_packet_raw(ptr noundef nonnull %0)
   store i32 0, ptr %168, align 8
   %.not58 = icmp eq i32 %170, -1
   br i1 %.not58, label %173, label %171
@@ -66026,7 +66026,7 @@ vorbis_search_for_page_pushdata.exit:             ; preds = %134, %118, %.loopex
 }
 
 ; Function Attrs: nofree nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal fastcc noundef i32 @is_whole_packet_present(ptr nocapture noundef %0) unnamed_addr #48 {
+define internal fastcc range(i32 0, 2) i32 @is_whole_packet_present(ptr nocapture noundef %0) unnamed_addr #48 {
   %2 = getelementptr inbounds i8, ptr %0, i64 1768
   %3 = load i32, ptr %2, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 64
@@ -66184,7 +66184,7 @@ define internal fastcc noundef i32 @is_whole_packet_present(ptr nocapture nounde
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define internal fastcc noundef i32 @vorbis_decode_packet(ptr noundef %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef %2, ptr nocapture noundef %3) unnamed_addr #7 {
+define internal fastcc range(i32 0, 2) i32 @vorbis_decode_packet(ptr noundef %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef %2, ptr nocapture noundef %3) unnamed_addr #7 {
   %5 = alloca [256 x i32], align 16
   %6 = alloca [256 x i32], align 16
   %7 = alloca [256 x i8], align 16
@@ -66193,7 +66193,7 @@ define internal fastcc noundef i32 @vorbis_decode_packet(ptr noundef %0, ptr noc
   %10 = alloca i32, align 4
   %11 = alloca i32, align 4
   %12 = alloca i32, align 4
-  %13 = call fastcc i32 @vorbis_decode_initial(ptr noundef %0, ptr noundef %2, ptr noundef nonnull %11, ptr noundef %3, ptr noundef nonnull %12, ptr noundef nonnull %10), !range !184
+  %13 = call fastcc i32 @vorbis_decode_initial(ptr noundef %0, ptr noundef %2, ptr noundef nonnull %11, ptr noundef %3, ptr noundef nonnull %12, ptr noundef nonnull %10)
   %.not = icmp eq i32 %13, 0
   br i1 %.not, label %1018, label %14
 
@@ -66297,7 +66297,7 @@ define internal fastcc noundef i32 @vorbis_decode_packet(ptr noundef %0, ptr noc
   br label %80
 
 80:                                               ; preds = %84, %.lr.ph.i.i
-  %81 = tail call fastcc i32 @get8_packet_raw(ptr noundef nonnull %0), !range !256
+  %81 = tail call fastcc i32 @get8_packet_raw(ptr noundef nonnull %0)
   %82 = icmp eq i32 %81, -1
   br i1 %82, label %83, label %84
 
@@ -66421,7 +66421,7 @@ ilog.exit393.i:                                   ; preds = %get_bits.exit.i
   %151 = load i32, ptr %49, align 8
   %152 = add nsw i32 %151, -1
   store i32 %152, ptr %50, align 8
-  %153 = tail call fastcc i32 @start_page(ptr noundef nonnull %0), !range !184
+  %153 = tail call fastcc i32 @start_page(ptr noundef nonnull %0)
   %.not20.i.i.i = icmp eq i32 %153, 0
   br i1 %.not20.i.i.i, label %154, label %155
 
@@ -66595,7 +66595,7 @@ prep_huffman.exit.i:                              ; preds = %get8_packet_raw.exi
   %227 = load i32, ptr %49, align 8
   %228 = add nsw i32 %227, -1
   store i32 %228, ptr %50, align 8
-  %229 = tail call fastcc i32 @start_page(ptr noundef nonnull %0), !range !184
+  %229 = tail call fastcc i32 @start_page(ptr noundef nonnull %0)
   %.not20.i.i456.i = icmp eq i32 %229, 0
   br i1 %.not20.i.i456.i, label %230, label %231
 
@@ -67053,7 +67053,7 @@ start_page.exit.thread.i:                         ; preds = %capture_pattern.exi
   br label %.loopexit562.i
 
 start_page.exit.i:                                ; preds = %capture_pattern.exit.i.i
-  %427 = tail call fastcc i32 @start_page_no_capturepattern(ptr noundef nonnull %0), !range !184
+  %427 = tail call fastcc i32 @start_page_no_capturepattern(ptr noundef nonnull %0)
   %.not20.i.i472.i = icmp eq i32 %427, 0
   br i1 %.not20.i.i472.i, label %.loopexit562.i, label %428
 
@@ -67360,7 +67360,7 @@ start_page.exit518.thread.i:                      ; preds = %capture_pattern.exi
   br label %.loopexit561.i
 
 start_page.exit518.i:                             ; preds = %capture_pattern.exit.i515.i
-  %554 = tail call fastcc i32 @start_page_no_capturepattern(ptr noundef nonnull %0), !range !184
+  %554 = tail call fastcc i32 @start_page_no_capturepattern(ptr noundef nonnull %0)
   %.not20.i.i488.i = icmp eq i32 %554, 0
   br i1 %.not20.i.i488.i, label %.loopexit561.i, label %555
 
@@ -68218,7 +68218,7 @@ do_floor.exit.i:                                  ; preds = %952, %._crit_edge.i
   br label %.preheader.i
 
 .preheader.i:                                     ; preds = %.preheader.i.preheader, %.preheader.i
-  %966 = tail call fastcc i32 @get8_packet_raw(ptr noundef %0), !range !256
+  %966 = tail call fastcc i32 @get8_packet_raw(ptr noundef %0)
   %.not.i442.i = icmp eq i32 %966, -1
   br i1 %.not.i442.i, label %flush_packet.exit.i, label %.preheader.i
 
@@ -68626,7 +68626,7 @@ define internal fastcc noundef i32 @start_decoder(ptr noundef %0) unnamed_addr #
   %4 = alloca [64 x i8], align 16
   %5 = getelementptr inbounds i8, ptr %0, i64 1765
   store i8 1, ptr %5, align 1
-  %6 = tail call fastcc i32 @start_page(ptr noundef %0), !range !184
+  %6 = tail call fastcc i32 @start_page(ptr noundef %0)
   %.not = icmp eq i32 %6, 0
   br i1 %.not, label %1276, label %7
 
@@ -68683,7 +68683,7 @@ define internal fastcc noundef i32 @start_decoder(ptr noundef %0) unnamed_addr #
   ]
 
 30:                                               ; preds = %27
-  %31 = call fastcc i32 @getn(ptr noundef nonnull %0, ptr noundef nonnull %2, i32 noundef 6), !range !184
+  %31 = call fastcc i32 @getn(ptr noundef nonnull %0, ptr noundef nonnull %2, i32 noundef 6)
   %32 = icmp ne i32 %31, 0
   %33 = load <4 x i8>, ptr %2, align 4
   %.fr = freeze <4 x i8> %33
@@ -68697,7 +68697,7 @@ define internal fastcc noundef i32 @start_decoder(ptr noundef %0) unnamed_addr #
   %.fr.scalar = bitcast <4 x i8> %.fr to i32
   %40 = icmp eq i32 %.fr.scalar, 1752394086
   %op.rdx = and i1 %40, %36
-  %41 = and i1 %op.rdx, %32
+  %41 = select i1 %op.rdx, i1 %32, i1 false
   %op.rdx1688 = select i1 %41, i1 %39, i1 false
   br i1 %op.rdx1688, label %42, label %50
 
@@ -68732,7 +68732,7 @@ define internal fastcc noundef i32 @start_decoder(ptr noundef %0) unnamed_addr #
   br label %1276
 
 56:                                               ; preds = %52
-  %57 = call fastcc i32 @getn(ptr noundef nonnull %0, ptr noundef nonnull %2, i32 noundef 6), !range !184
+  %57 = call fastcc i32 @getn(ptr noundef nonnull %0, ptr noundef nonnull %2, i32 noundef 6)
   %.not1000 = icmp eq i32 %57, 0
   br i1 %.not1000, label %58, label %60
 
@@ -68848,22 +68848,22 @@ define internal fastcc noundef i32 @start_decoder(ptr noundef %0) unnamed_addr #
   br label %1276
 
 109:                                              ; preds = %104
-  %110 = tail call fastcc i32 @start_page(ptr noundef nonnull %0), !range !184
+  %110 = tail call fastcc i32 @start_page(ptr noundef nonnull %0)
   %.not1006 = icmp eq i32 %110, 0
   br i1 %.not1006, label %1276, label %111
 
 111:                                              ; preds = %109
-  %112 = tail call fastcc i32 @start_packet(ptr noundef nonnull %0), !range !184
+  %112 = tail call fastcc i32 @start_packet(ptr noundef nonnull %0)
   %.not1007 = icmp eq i32 %112, 0
   br i1 %.not1007, label %1276, label %113
 
 113:                                              ; preds = %111
-  %114 = tail call fastcc i32 @next_segment(ptr noundef nonnull %0), !range !257
+  %114 = tail call fastcc i32 @next_segment(ptr noundef nonnull %0)
   %.not1008 = icmp eq i32 %114, 0
   br i1 %.not1008, label %1276, label %115
 
 115:                                              ; preds = %113
-  %116 = tail call fastcc i32 @get8_packet_raw(ptr noundef nonnull %0), !range !256
+  %116 = tail call fastcc i32 @get8_packet_raw(ptr noundef nonnull %0)
   %117 = getelementptr inbounds i8, ptr %0, i64 1784
   store i32 0, ptr %117, align 8
   %.not1009 = icmp eq i32 %116, 3
@@ -68876,7 +68876,7 @@ define internal fastcc noundef i32 @start_decoder(ptr noundef %0) unnamed_addr #
 
 .preheader1140:                                   ; preds = %115, %.preheader1140
   %indvars.iv = phi i64 [ %indvars.iv.next, %.preheader1140 ], [ 0, %115 ]
-  %120 = tail call fastcc i32 @get8_packet_raw(ptr noundef nonnull %0), !range !256
+  %120 = tail call fastcc i32 @get8_packet_raw(ptr noundef nonnull %0)
   store i32 0, ptr %117, align 8
   %121 = trunc i32 %120 to i8
   %122 = getelementptr inbounds [6 x i8], ptr %2, i64 0, i64 %indvars.iv
@@ -68919,7 +68919,7 @@ define internal fastcc noundef i32 @start_decoder(ptr noundef %0) unnamed_addr #
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv1408 = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next1409, %.lr.ph ]
-  %135 = tail call fastcc i32 @get8_packet_raw(ptr noundef nonnull %0), !range !256
+  %135 = tail call fastcc i32 @get8_packet_raw(ptr noundef nonnull %0)
   store i32 0, ptr %117, align 8
   %136 = trunc i32 %135 to i8
   %137 = load ptr, ptr %130, align 8
@@ -68992,7 +68992,7 @@ define internal fastcc noundef i32 @start_decoder(ptr noundef %0) unnamed_addr #
 
 .lr.ph1204:                                       ; preds = %.lr.ph1204.preheader, %.lr.ph1204
   %indvars.iv1412 = phi i64 [ 0, %.lr.ph1204.preheader ], [ %indvars.iv.next1413, %.lr.ph1204 ]
-  %166 = tail call fastcc i32 @get8_packet_raw(ptr noundef nonnull %0), !range !256
+  %166 = tail call fastcc i32 @get8_packet_raw(ptr noundef nonnull %0)
   store i32 0, ptr %117, align 8
   %167 = trunc i32 %166 to i8
   %168 = load ptr, ptr %144, align 8
@@ -69022,7 +69022,7 @@ define internal fastcc noundef i32 @start_decoder(ptr noundef %0) unnamed_addr #
   br i1 %177, label %.lr.ph1208, label %._crit_edge1209
 
 ._crit_edge1209:                                  ; preds = %._crit_edge1205, %._crit_edge, %152
-  %178 = tail call fastcc i32 @get8_packet_raw(ptr noundef nonnull %0), !range !256
+  %178 = tail call fastcc i32 @get8_packet_raw(ptr noundef nonnull %0)
   store i32 0, ptr %117, align 8
   %179 = and i32 %178, 1
   %.not1011 = icmp eq i32 %179, 0
@@ -69039,21 +69039,21 @@ define internal fastcc noundef i32 @start_decoder(ptr noundef %0) unnamed_addr #
   %184 = zext i8 %183 to i32
   tail call fastcc void @skip(ptr noundef nonnull %0, i32 noundef %184)
   store i8 0, ptr %182, align 4
-  %185 = tail call fastcc i32 @next_segment(ptr noundef nonnull %0), !range !257
+  %185 = tail call fastcc i32 @next_segment(ptr noundef nonnull %0)
   tail call fastcc void @skip(ptr noundef nonnull %0, i32 noundef %185)
   store i8 0, ptr %182, align 4
   %.not10121210 = icmp eq i32 %185, 0
   br i1 %.not10121210, label %._crit_edge1211, label %.split950
 
 .split950:                                        ; preds = %.split, %.split950
-  %186 = tail call fastcc i32 @next_segment(ptr noundef nonnull %0), !range !257
+  %186 = tail call fastcc i32 @next_segment(ptr noundef nonnull %0)
   tail call fastcc void @skip(ptr noundef nonnull %0, i32 noundef %186)
   store i8 0, ptr %182, align 4
   %.not1012 = icmp eq i32 %186, 0
   br i1 %.not1012, label %._crit_edge1211, label %.split950
 
 ._crit_edge1211:                                  ; preds = %.split950, %.split
-  %187 = tail call fastcc i32 @start_packet(ptr noundef nonnull %0), !range !184
+  %187 = tail call fastcc i32 @start_packet(ptr noundef nonnull %0)
   %.not1013 = icmp eq i32 %187, 0
   br i1 %.not1013, label %1276, label %188
 
@@ -69067,7 +69067,7 @@ define internal fastcc noundef i32 @start_decoder(ptr noundef %0) unnamed_addr #
   br label %198
 
 191:                                              ; preds = %188
-  %192 = tail call fastcc i32 @is_whole_packet_present(ptr noundef nonnull %0), !range !184
+  %192 = tail call fastcc i32 @is_whole_packet_present(ptr noundef nonnull %0)
   %.not1015 = icmp eq i32 %192, 0
   br i1 %.not1015, label %193, label %.preheader1752
 
@@ -69106,7 +69106,7 @@ define internal fastcc noundef i32 @start_decoder(ptr noundef %0) unnamed_addr #
   br i1 %exitcond15.not.i, label %crc32_init.exit, label %198
 
 crc32_init.exit:                                  ; preds = %206
-  %208 = tail call fastcc i32 @get8_packet_raw(ptr noundef %0), !range !256
+  %208 = tail call fastcc i32 @get8_packet_raw(ptr noundef %0)
   store i32 0, ptr %117, align 8
   %.not1016 = icmp eq i32 %208, 5
   br i1 %.not1016, label %.preheader1137, label %209
@@ -69118,7 +69118,7 @@ crc32_init.exit:                                  ; preds = %206
 
 .preheader1137:                                   ; preds = %crc32_init.exit, %.preheader1137
   %indvars.iv1420 = phi i64 [ %indvars.iv.next1421, %.preheader1137 ], [ 0, %crc32_init.exit ]
-  %211 = tail call fastcc i32 @get8_packet_raw(ptr noundef nonnull %0), !range !256
+  %211 = tail call fastcc i32 @get8_packet_raw(ptr noundef nonnull %0)
   store i32 0, ptr %117, align 8
   %212 = trunc i32 %211 to i8
   %213 = getelementptr inbounds [6 x i8], ptr %2, i64 0, i64 %indvars.iv1420
@@ -69295,7 +69295,7 @@ crc32_init.exit:                                  ; preds = %206
   %.09381214 = phi i32 [ %307, %312 ], [ 0, %295 ]
   %.09401215 = add i32 %.09401215.in, 1
   %300 = sub nsw i32 %299, %.09381214
-  %301 = tail call fastcc i32 @ilog(i32 noundef %300), !range !258
+  %301 = tail call fastcc i32 @ilog(i32 noundef %300)
   %302 = tail call fastcc i32 @get_bits(ptr noundef %0, i32 noundef %301)
   %303 = icmp sgt i32 %.09401215, 31
   br i1 %303, label %304, label %306
@@ -69533,7 +69533,7 @@ setup_temp_free.exit:                             ; preds = %355, %361
   %403 = phi ptr [ %365, %401 ], [ %365, %394 ], [ %370, %._crit_edge1224 ]
   %.1928 = phi ptr [ %.0927, %401 ], [ %.0927, %394 ], [ null, %._crit_edge1224 ]
   %404 = load i32, ptr %268, align 4
-  %405 = tail call fastcc i32 @compute_codewords(ptr noundef nonnull %238, ptr noundef %.19371544, i32 noundef %404, ptr noundef %.1928), !range !184
+  %405 = tail call fastcc i32 @compute_codewords(ptr noundef nonnull %238, ptr noundef %.19371544, i32 noundef %404, ptr noundef %.1928)
   %.not1062 = icmp eq i32 %405, 0
   br i1 %.not1062, label %406, label %412
 
@@ -70870,7 +70870,7 @@ neighbors.exit:                                   ; preds = %850
   %1067 = phi i32 [ %1085, %1063 ], [ %1059, %.preheader1119 ]
   %indvars.iv1497 = phi i64 [ %indvars.iv.next1498, %1063 ], [ 0, %.preheader1119 ]
   %1068 = add nsw i32 %1067, -1
-  %1069 = call fastcc i32 @ilog(i32 noundef %1068), !range !258
+  %1069 = call fastcc i32 @ilog(i32 noundef %1068)
   %1070 = call fastcc i32 @get_bits(ptr noundef nonnull %0, i32 noundef %1069)
   %1071 = trunc i32 %1070 to i8
   %1072 = load ptr, ptr %1041, align 8
@@ -70878,7 +70878,7 @@ neighbors.exit:                                   ; preds = %850
   store i8 %1071, ptr %1073, align 1
   %1074 = load i32, ptr %70, align 4
   %1075 = add nsw i32 %1074, -1
-  %1076 = call fastcc i32 @ilog(i32 noundef %1075), !range !258
+  %1076 = call fastcc i32 @ilog(i32 noundef %1075)
   %1077 = call fastcc i32 @get_bits(ptr noundef nonnull %0, i32 noundef %1076)
   %1078 = trunc i32 %1077 to i8
   %1079 = load ptr, ptr %1041, align 8
@@ -71114,7 +71114,7 @@ neighbors.exit:                                   ; preds = %850
   br label %1276
 
 .preheader:                                       ; preds = %.preheader.preheader, %.preheader
-  %1188 = call fastcc i32 @get8_packet_raw(ptr noundef %0), !range !256
+  %1188 = call fastcc i32 @get8_packet_raw(ptr noundef %0)
   %.not.i1099 = icmp eq i32 %1188, -1
   br i1 %.not.i1099, label %flush_packet.exit, label %.preheader
 
@@ -71176,13 +71176,13 @@ flush_packet.exit:                                ; preds = %.preheader
 
 ._crit_edge1327:                                  ; preds = %1215, %flush_packet.exit
   %1222 = load i32, ptr %90, align 8
-  %1223 = call fastcc i32 @init_blocksize(ptr noundef nonnull %0, i32 noundef 0, i32 noundef %1222), !range !184
+  %1223 = call fastcc i32 @init_blocksize(ptr noundef nonnull %0, i32 noundef 0, i32 noundef %1222)
   %.not1018 = icmp eq i32 %1223, 0
   br i1 %.not1018, label %1276, label %1224
 
 1224:                                             ; preds = %._crit_edge1327
   %1225 = load i32, ptr %92, align 4
-  %1226 = call fastcc i32 @init_blocksize(ptr noundef nonnull %0, i32 noundef 1, i32 noundef %1225), !range !184
+  %1226 = call fastcc i32 @init_blocksize(ptr noundef nonnull %0, i32 noundef 1, i32 noundef %1225)
   %.not1019 = icmp eq i32 %1226, 0
   br i1 %.not1019, label %1276, label %1227
 
@@ -71320,7 +71320,7 @@ define hidden i32 @stb_vorbis_get_file_offset(ptr nocapture noundef readonly %0)
 declare noundef i64 @ftell(ptr nocapture noundef) local_unnamed_addr #8
 
 ; Function Attrs: nofree nounwind uwtable
-define hidden noundef i32 @stb_vorbis_seek_frame(ptr noundef %0, i32 noundef %1) local_unnamed_addr #7 {
+define hidden range(i32 0, 2) i32 @stb_vorbis_seek_frame(ptr noundef %0, i32 noundef %1) local_unnamed_addr #7 {
   %3 = alloca i32, align 4
   %4 = alloca i32, align 4
   %5 = alloca i32, align 4
@@ -71345,7 +71345,7 @@ define hidden noundef i32 @stb_vorbis_seek_frame(ptr noundef %0, i32 noundef %1)
 18:                                               ; preds = %2
   call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %7)
   call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %8)
-  %19 = tail call i32 @stb_vorbis_stream_length_in_samples(ptr noundef nonnull %0), !range !259
+  %19 = tail call i32 @stb_vorbis_stream_length_in_samples(ptr noundef nonnull %0)
   %20 = icmp eq i32 %19, 0
   br i1 %20, label %.sink.split.i, label %21
 
@@ -71439,7 +71439,7 @@ define hidden noundef i32 @stb_vorbis_seek_frame(ptr noundef %0, i32 noundef %1)
   br label %set_file_offset.exit.i
 
 set_file_offset.exit.i:                           ; preds = %65, %62, %53, %52, %42
-  %70 = call fastcc i32 @get_seek_page_info(ptr noundef nonnull %0, ptr noundef nonnull %7), !range !184
+  %70 = call fastcc i32 @get_seek_page_info(ptr noundef nonnull %0, ptr noundef nonnull %7)
   %.not134.i = icmp eq i32 %70, 0
   br i1 %.not134.i, label %.loopexit175.i, label %39
 
@@ -71465,7 +71465,7 @@ set_file_offset.exit.i:                           ; preds = %65, %62, %53, %52, 
   br label %83
 
 77:                                               ; preds = %71
-  %78 = tail call i32 @stb_vorbis_seek_start(ptr noundef nonnull %0), !range !184
+  %78 = tail call i32 @stb_vorbis_seek_start(ptr noundef nonnull %0)
   %.not133.i = icmp eq i32 %78, 0
   br i1 %.not133.i, label %seek_to_sample_coarse.exit.thread, label %79
 
@@ -71717,14 +71717,14 @@ set_file_offset.exit.i:                           ; preds = %65, %62, %53, %52, 
 set_file_offset.exit150.i:                        ; preds = %197, %194, %185, %184, %172, %167, %164, %155, %154, %139
   %.4.i = phi double [ %.3107.i, %139 ], [ %.3107.i, %154 ], [ %.3107.i, %155 ], [ %.3107.i, %164 ], [ %.3107.i, %167 ], [ %.0104195.i, %172 ], [ %.0104195.i, %184 ], [ %.0104195.i, %185 ], [ %.0104195.i, %194 ], [ %.0104195.i, %197 ]
   %.2.i = phi double [ %.1.i, %139 ], [ %.1.i, %154 ], [ %.1.i, %155 ], [ %.1.i, %164 ], [ %.1.i, %167 ], [ %.0103196.i, %172 ], [ %.0103196.i, %184 ], [ %.0103196.i, %185 ], [ %.0103196.i, %194 ], [ %.0103196.i, %197 ]
-  %202 = tail call fastcc i32 @vorbis_find_page(ptr noundef nonnull %0, ptr noundef null, ptr noundef null), !range !184
+  %202 = tail call fastcc i32 @vorbis_find_page(ptr noundef nonnull %0, ptr noundef null, ptr noundef null)
   %.not124.i = icmp eq i32 %202, 0
   br i1 %.not124.i, label %.loopexit175.i, label %set_file_offset.exit142.i
 
 set_file_offset.exit142.i:                        ; preds = %set_file_offset.exit150.i, %110, %107, %98, %97, %88
   %.5.i = phi double [ %.4.i, %set_file_offset.exit150.i ], [ %.0104195.i, %88 ], [ %.0104195.i, %97 ], [ %.0104195.i, %98 ], [ %.0104195.i, %107 ], [ %.0104195.i, %110 ]
   %.3.i = phi double [ %.2.i, %set_file_offset.exit150.i ], [ %.0103196.i, %88 ], [ %.0103196.i, %97 ], [ %.0103196.i, %98 ], [ %.0103196.i, %107 ], [ %.0103196.i, %110 ]
-  %203 = call fastcc i32 @get_seek_page_info(ptr noundef nonnull %0, ptr noundef nonnull %8), !range !184
+  %203 = call fastcc i32 @get_seek_page_info(ptr noundef nonnull %0, ptr noundef nonnull %8)
   %.not125188.i = icmp eq i32 %203, 0
   br i1 %.not125188.i, label %.loopexit175.i, label %.lr.ph.i
 
@@ -71794,7 +71794,7 @@ set_file_offset.exit142.i:                        ; preds = %set_file_offset.exi
   br label %set_file_offset.exit166.i
 
 set_file_offset.exit166.i:                        ; preds = %228, %225, %216, %215, %205
-  %233 = call fastcc i32 @get_seek_page_info(ptr noundef nonnull %0, ptr noundef nonnull %8), !range !184
+  %233 = call fastcc i32 @get_seek_page_info(ptr noundef nonnull %0, ptr noundef nonnull %8)
   %.not125.i = icmp eq i32 %233, 0
   br i1 %.not125.i, label %.loopexit175.i, label %.lr.ph.i
 
@@ -71833,7 +71833,7 @@ set_file_offset.exit166.i:                        ; preds = %228, %225, %216, %2
 ._crit_edge.i:                                    ; preds = %243, %237, %.preheader.i
   %246 = load i32, ptr %7, align 4
   tail call fastcc void @set_file_offset(ptr noundef nonnull %0, i32 noundef %246)
-  %247 = tail call fastcc i32 @start_page(ptr noundef nonnull %0), !range !184
+  %247 = tail call fastcc i32 @start_page(ptr noundef nonnull %0)
   %.not127.i = icmp eq i32 %247, 0
   br i1 %.not127.i, label %.sink.split.i, label %248
 
@@ -71947,7 +71947,7 @@ set_file_offset.exit166.i:                        ; preds = %228, %225, %216, %2
   br label %set_file_offset.exit.i.i
 
 set_file_offset.exit.i.i:                         ; preds = %292, %289, %280, %279, %270
-  %297 = call fastcc i32 @vorbis_find_page(ptr noundef nonnull %0, ptr noundef nonnull %6, ptr noundef null), !range !184
+  %297 = call fastcc i32 @vorbis_find_page(ptr noundef nonnull %0, ptr noundef nonnull %6, ptr noundef null)
   %.not1527.i.i = icmp eq i32 %297, 0
   br i1 %.not1527.i.i, label %go_to_page_before.exit.thread.i, label %.lr.ph.i.i
 
@@ -72053,7 +72053,7 @@ stb_vorbis_get_file_offset.exit._crit_edge.i.i:   ; preds = %stb_vorbis_get_file
   br label %set_file_offset.exit26.i.i
 
 set_file_offset.exit26.i.i:                       ; preds = %338, %335, %326, %325, %315
-  %343 = call fastcc i32 @vorbis_find_page(ptr noundef nonnull %0, ptr noundef nonnull %6, ptr noundef null), !range !184
+  %343 = call fastcc i32 @vorbis_find_page(ptr noundef nonnull %0, ptr noundef nonnull %6, ptr noundef null)
   %.not15.i.i = icmp eq i32 %343, 0
   br i1 %.not15.i.i, label %go_to_page_before.exit.thread.i, label %.lr.ph.i.i
 
@@ -72090,7 +72090,7 @@ go_to_page_before.exit.thread.i:                  ; preds = %set_file_offset.exi
 
 stb_vorbis_get_file_offset.exit.i:                ; preds = %354, %348, %344
   %.0.i169.i = phi i32 [ %353, %348 ], [ %359, %354 ], [ 0, %344 ]
-  %360 = call fastcc i32 @start_page(ptr noundef nonnull %0), !range !184
+  %360 = call fastcc i32 @start_page(ptr noundef nonnull %0)
   %.not131.i = icmp eq i32 %360, 0
   br i1 %.not131.i, label %.loopexit175.i, label %361
 
@@ -72160,7 +72160,7 @@ skip.exit.i:                                      ; preds = %381, %380, %376
   br i1 %exitcond.not.i, label %._crit_edge206.i, label %372
 
 ._crit_edge206.i:                                 ; preds = %skip.exit.i, %.loopexit.i
-  %388 = call fastcc i32 @vorbis_pump_first_frame(ptr noundef nonnull %0), !range !184
+  %388 = call fastcc i32 @vorbis_pump_first_frame(ptr noundef nonnull %0)
   %.not132.i = icmp eq i32 %388, 0
   br i1 %.not132.i, label %seek_to_sample_coarse.exit.thread, label %389
 
@@ -72171,7 +72171,7 @@ skip.exit.i:                                      ; preds = %381, %380, %376
   br i1 %392, label %.sink.split.i, label %395
 
 .loopexit175.i:                                   ; preds = %set_file_offset.exit.i, %set_file_offset.exit142.i, %set_file_offset.exit150.i, %set_file_offset.exit166.i, %stb_vorbis_get_file_offset.exit.i, %go_to_page_before.exit.thread.i
-  %393 = call i32 @stb_vorbis_seek_start(ptr noundef %0), !range !184
+  %393 = call i32 @stb_vorbis_seek_start(ptr noundef %0)
   br label %.sink.split.i
 
 .sink.split.i:                                    ; preds = %.loopexit175.i, %389, %._crit_edge.i, %79, %21, %18
@@ -72210,7 +72210,7 @@ seek_to_sample_coarse.exit.thread:                ; preds = %77, %._crit_edge206
   br label %412
 
 412:                                              ; preds = %.lr.ph, %flush_packet.exit
-  %413 = call fastcc i32 @vorbis_decode_initial(ptr noundef nonnull %0, ptr noundef nonnull %9, ptr noundef nonnull %10, ptr noundef nonnull %11, ptr noundef nonnull %12, ptr noundef nonnull %13), !range !184
+  %413 = call fastcc i32 @vorbis_decode_initial(ptr noundef nonnull %0, ptr noundef nonnull %9, ptr noundef nonnull %10, ptr noundef nonnull %11, ptr noundef nonnull %12, ptr noundef nonnull %13)
   %.not.i32 = icmp eq i32 %413, 0
   br i1 %.not.i32, label %505, label %414
 
@@ -72386,7 +72386,7 @@ skip.exit.i36:                                    ; preds = %494, %493, %489
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5)
-  %518 = call fastcc i32 @vorbis_decode_packet(ptr noundef nonnull %0, ptr noundef nonnull %3, ptr noundef nonnull %5, ptr noundef nonnull %4), !range !184
+  %518 = call fastcc i32 @vorbis_decode_packet(ptr noundef nonnull %0, ptr noundef nonnull %3, ptr noundef nonnull %5, ptr noundef nonnull %4)
   %.not.i38 = icmp eq i32 %518, 0
   br i1 %.not.i38, label %vorbis_pump_first_frame.exit, label %519
 
@@ -72406,11 +72406,11 @@ vorbis_pump_first_frame.exit:                     ; preds = %517, %519
 524:                                              ; preds = %514
   store i32 %512, ptr %402, align 8
   store i32 0, ptr %411, align 8
-  %525 = call fastcc i32 @maybe_start_packet(ptr noundef nonnull %0), !range !184
+  %525 = call fastcc i32 @maybe_start_packet(ptr noundef nonnull %0)
   br label %526
 
 526:                                              ; preds = %526, %524
-  %527 = call fastcc i32 @get8_packet_raw(ptr noundef %0), !range !256
+  %527 = call fastcc i32 @get8_packet_raw(ptr noundef %0)
   %.not.i39 = icmp eq i32 %527, -1
   br i1 %.not.i39, label %flush_packet.exit, label %526
 
@@ -72435,11 +72435,11 @@ flush_packet.exit:                                ; preds = %526, %vorbis_pump_f
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define internal fastcc noundef i32 @vorbis_pump_first_frame(ptr noundef %0) unnamed_addr #7 {
+define internal fastcc range(i32 0, 2) i32 @vorbis_pump_first_frame(ptr noundef %0) unnamed_addr #7 {
   %2 = alloca i32, align 4
   %3 = alloca i32, align 4
   %4 = alloca i32, align 4
-  %5 = call fastcc i32 @vorbis_decode_packet(ptr noundef %0, ptr noundef nonnull %2, ptr noundef nonnull %4, ptr noundef nonnull %3), !range !184
+  %5 = call fastcc i32 @vorbis_decode_packet(ptr noundef %0, ptr noundef nonnull %2, ptr noundef nonnull %4, ptr noundef nonnull %3)
   %.not = icmp eq i32 %5, 0
   br i1 %.not, label %11, label %6
 
@@ -72455,7 +72455,7 @@ define internal fastcc noundef i32 @vorbis_pump_first_frame(ptr noundef %0) unna
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define internal fastcc noundef i32 @maybe_start_packet(ptr nocapture noundef %0) unnamed_addr #7 {
+define internal fastcc range(i32 0, 2) i32 @maybe_start_packet(ptr nocapture noundef %0) unnamed_addr #7 {
   %2 = getelementptr inbounds i8, ptr %0, i64 1768
   %3 = load i32, ptr %2, align 8
   %4 = icmp eq i32 %3, -1
@@ -72611,7 +72611,7 @@ get8.exit30.thread:                               ; preds = %get8.exit30.thread.
   br label %start_packet.exit
 
 66:                                               ; preds = %62
-  %67 = tail call fastcc i32 @start_page_no_capturepattern(ptr noundef nonnull %0), !range !184
+  %67 = tail call fastcc i32 @start_page_no_capturepattern(ptr noundef nonnull %0)
   %.not21 = icmp eq i32 %67, 0
   br i1 %.not21, label %start_packet.exit, label %68
 
@@ -72641,7 +72641,7 @@ get8.exit30.thread:                               ; preds = %get8.exit30.thread.
   br i1 %80, label %81, label %88
 
 81:                                               ; preds = %78
-  %82 = tail call fastcc i32 @start_page(ptr noundef nonnull %0), !range !184
+  %82 = tail call fastcc i32 @start_page(ptr noundef nonnull %0)
   %.not.i32 = icmp eq i32 %82, 0
   br i1 %.not.i32, label %start_packet.exit, label %83
 
@@ -72673,11 +72673,11 @@ start_packet.exit:                                ; preds = %81, %88, %86, %66, 
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define hidden noundef i32 @stb_vorbis_seek(ptr noundef %0, i32 noundef %1) local_unnamed_addr #7 {
+define hidden range(i32 0, 2) i32 @stb_vorbis_seek(ptr noundef %0, i32 noundef %1) local_unnamed_addr #7 {
   %3 = alloca i32, align 4
   %4 = alloca i32, align 4
   %5 = alloca i32, align 4
-  %6 = tail call i32 @stb_vorbis_seek_frame(ptr noundef %0, i32 noundef %1), !range !184
+  %6 = tail call i32 @stb_vorbis_seek_frame(ptr noundef %0, i32 noundef %1)
   %.not = icmp eq i32 %6, 0
   br i1 %.not, label %41, label %7
 
@@ -72704,7 +72704,7 @@ define hidden noundef i32 @stb_vorbis_seek(ptr noundef %0, i32 noundef %1) local
   br label %stb_vorbis_get_frame_float.exit
 
 15:                                               ; preds = %10
-  %16 = call fastcc i32 @vorbis_decode_packet(ptr noundef nonnull %0, ptr noundef nonnull %3, ptr noundef nonnull %5, ptr noundef nonnull %4), !range !184
+  %16 = call fastcc i32 @vorbis_decode_packet(ptr noundef nonnull %0, ptr noundef nonnull %3, ptr noundef nonnull %5, ptr noundef nonnull %4)
   %.not24.i = icmp eq i32 %16, 0
   br i1 %.not24.i, label %17, label %19
 
@@ -72779,7 +72779,7 @@ define hidden i32 @stb_vorbis_get_frame_float(ptr noundef %0, ptr noundef writeo
   br label %39
 
 11:                                               ; preds = %3
-  %12 = call fastcc i32 @vorbis_decode_packet(ptr noundef nonnull %0, ptr noundef nonnull %4, ptr noundef nonnull %6, ptr noundef nonnull %5), !range !184
+  %12 = call fastcc i32 @vorbis_decode_packet(ptr noundef nonnull %0, ptr noundef nonnull %4, ptr noundef nonnull %6, ptr noundef nonnull %5)
   %.not24 = icmp eq i32 %12, 0
   br i1 %.not24, label %13, label %16
 
@@ -72846,7 +72846,7 @@ define hidden i32 @stb_vorbis_get_frame_float(ptr noundef %0, ptr noundef writeo
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define hidden noundef i32 @stb_vorbis_seek_start(ptr noundef %0) local_unnamed_addr #7 {
+define hidden range(i32 0, 2) i32 @stb_vorbis_seek_start(ptr noundef %0) local_unnamed_addr #7 {
   %2 = alloca i32, align 4
   %3 = alloca i32, align 4
   %4 = alloca i32, align 4
@@ -72932,7 +72932,7 @@ set_file_offset.exit:                             ; preds = %22, %23, %33, %37
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %2)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4)
-  %45 = call fastcc i32 @vorbis_decode_packet(ptr noundef nonnull %0, ptr noundef nonnull %2, ptr noundef nonnull %4, ptr noundef nonnull %3), !range !184
+  %45 = call fastcc i32 @vorbis_decode_packet(ptr noundef nonnull %0, ptr noundef nonnull %2, ptr noundef nonnull %4, ptr noundef nonnull %3)
   %.not.i8 = icmp eq i32 %45, 0
   br i1 %.not.i8, label %vorbis_pump_first_frame.exit, label %46
 
@@ -73026,7 +73026,7 @@ define internal fastcc void @set_file_offset(ptr nocapture noundef %0, i32 nound
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define hidden i32 @stb_vorbis_stream_length_in_samples(ptr noundef %0) local_unnamed_addr #7 {
+define hidden range(i32 0, -1) i32 @stb_vorbis_stream_length_in_samples(ptr noundef %0) local_unnamed_addr #7 {
   %2 = alloca i32, align 4
   %3 = alloca i32, align 4
   %4 = alloca [6 x i8], align 1
@@ -73156,7 +73156,7 @@ stb_vorbis_get_file_offset.exit._crit_edge:       ; preds = %stb_vorbis_get_file
   br label %set_file_offset.exit
 
 set_file_offset.exit:                             ; preds = %37, %49, %50, %60, %64
-  %69 = call fastcc i32 @vorbis_find_page(ptr noundef nonnull %0, ptr noundef nonnull %2, ptr noundef nonnull %3), !range !184
+  %69 = call fastcc i32 @vorbis_find_page(ptr noundef nonnull %0, ptr noundef nonnull %2, ptr noundef nonnull %3)
   %.not48 = icmp eq i32 %69, 0
   br i1 %.not48, label %70, label %72
 
@@ -73271,7 +73271,7 @@ stb_vorbis_get_file_offset.exit58:                ; preds = %72, %76, %83
   br label %set_file_offset.exit66
 
 set_file_offset.exit66:                           ; preds = %97, %107, %108, %117, %120
-  %125 = call fastcc i32 @vorbis_find_page(ptr noundef nonnull %0, ptr noundef nonnull %2, ptr noundef nonnull %3), !range !184
+  %125 = call fastcc i32 @vorbis_find_page(ptr noundef nonnull %0, ptr noundef nonnull %2, ptr noundef nonnull %3)
   %.not50 = icmp eq i32 %125, 0
   br i1 %.not50, label %set_file_offset.exit66._crit_edge, label %126
 
@@ -73512,7 +73512,7 @@ set_file_offset.exit88:                           ; preds = %228, %224, %214, %2
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define internal fastcc noundef i32 @vorbis_find_page(ptr nocapture noundef %0, ptr noundef writeonly %1, ptr noundef writeonly %2) unnamed_addr #7 {
+define internal fastcc range(i32 0, 2) i32 @vorbis_find_page(ptr nocapture noundef %0, ptr noundef writeonly %1, ptr noundef writeonly %2) unnamed_addr #7 {
   %4 = alloca [27 x i8], align 16
   %5 = getelementptr inbounds i8, ptr %0, i64 152
   %6 = load i32, ptr %5, align 8
@@ -74046,7 +74046,7 @@ set_file_offset.exit:                             ; preds = %set_file_offset.exi
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define internal fastcc noundef i32 @getn(ptr nocapture noundef %0, ptr nocapture noundef %1, i32 noundef %2) unnamed_addr #7 {
+define internal fastcc range(i32 0, 2) i32 @getn(ptr nocapture noundef %0, ptr nocapture noundef %1, i32 noundef %2) unnamed_addr #7 {
   %4 = getelementptr inbounds i8, ptr %0, i64 64
   %5 = load ptr, ptr %4, align 8
   %.not = icmp eq ptr %5, null
@@ -74288,7 +74288,7 @@ get8.exit18:                                      ; preds = %69, %71, %79, %81
 
 ; Function Attrs: nofree nounwind uwtable
 define hidden float @stb_vorbis_stream_length_in_seconds(ptr noundef %0) local_unnamed_addr #7 {
-  %2 = tail call i32 @stb_vorbis_stream_length_in_samples(ptr noundef %0), !range !259
+  %2 = tail call i32 @stb_vorbis_stream_length_in_samples(ptr noundef %0)
   %3 = uitofp i32 %2 to float
   %4 = load i32, ptr %0, align 8
   %5 = uitofp i32 %4 to float
@@ -74381,7 +74381,7 @@ vorbis_alloc.exit:                                ; preds = %41, %44
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %8)
-  %47 = call fastcc i32 @vorbis_decode_packet(ptr noundef nonnull %.0.i.i, ptr noundef nonnull %6, ptr noundef nonnull %8, ptr noundef nonnull %7), !range !184
+  %47 = call fastcc i32 @vorbis_decode_packet(ptr noundef nonnull %.0.i.i, ptr noundef nonnull %6, ptr noundef nonnull %8, ptr noundef nonnull %7)
   %.not.i15 = icmp eq i32 %47, 0
   br i1 %.not.i15, label %vorbis_pump_first_frame.exit, label %48
 
@@ -74563,7 +74563,7 @@ vorbis_alloc.exit:                                ; preds = %45, %48
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7)
-  %51 = call fastcc i32 @vorbis_decode_packet(ptr noundef nonnull %.0.i.i, ptr noundef nonnull %5, ptr noundef nonnull %7, ptr noundef nonnull %6), !range !184
+  %51 = call fastcc i32 @vorbis_decode_packet(ptr noundef nonnull %.0.i.i, ptr noundef nonnull %5, ptr noundef nonnull %7, ptr noundef nonnull %6)
   %.not.i24 = icmp eq i32 %51, 0
   br i1 %.not.i24, label %vorbis_pump_first_frame.exit, label %52
 
@@ -74622,7 +74622,7 @@ define hidden i32 @stb_vorbis_get_frame_short(ptr noundef %0, i32 noundef %1, pt
   br label %stb_vorbis_get_frame_float.exit
 
 12:                                               ; preds = %4
-  %13 = call fastcc i32 @vorbis_decode_packet(ptr noundef nonnull %0, ptr noundef nonnull %5, ptr noundef nonnull %7, ptr noundef nonnull %6), !range !184
+  %13 = call fastcc i32 @vorbis_decode_packet(ptr noundef nonnull %0, ptr noundef nonnull %5, ptr noundef nonnull %7, ptr noundef nonnull %6)
   %.not24.i = icmp eq i32 %13, 0
   br i1 %.not24.i, label %14, label %17
 
@@ -74960,7 +74960,7 @@ define hidden i32 @stb_vorbis_get_frame_short_interleaved(ptr noundef %0, i32 no
   br i1 %.not.i, label %15, label %stb_vorbis_get_frame_float.exit.thread
 
 15:                                               ; preds = %12
-  %16 = call fastcc i32 @vorbis_decode_packet(ptr noundef nonnull %0, ptr noundef nonnull %5, ptr noundef nonnull %7, ptr noundef nonnull %6), !range !184
+  %16 = call fastcc i32 @vorbis_decode_packet(ptr noundef nonnull %0, ptr noundef nonnull %5, ptr noundef nonnull %7, ptr noundef nonnull %6)
   %.not24.i = icmp eq i32 %16, 0
   br i1 %.not24.i, label %17, label %19
 
@@ -75422,7 +75422,7 @@ define hidden i32 @stb_vorbis_get_samples_short_interleaved(ptr noundef %0, i32 
   br label %stb_vorbis_get_frame_float.exit.thread
 
 37:                                               ; preds = %30
-  %38 = call fastcc i32 @vorbis_decode_packet(ptr noundef nonnull %0, ptr noundef nonnull %5, ptr noundef nonnull %7, ptr noundef nonnull %6), !range !184
+  %38 = call fastcc i32 @vorbis_decode_packet(ptr noundef nonnull %0, ptr noundef nonnull %5, ptr noundef nonnull %7, ptr noundef nonnull %6)
   %.not24.i = icmp eq i32 %38, 0
   br i1 %.not24.i, label %39, label %40
 
@@ -75534,7 +75534,7 @@ define hidden i32 @stb_vorbis_get_samples_short(ptr noundef %0, i32 noundef %1, 
   br label %stb_vorbis_get_frame_float.exit.thread
 
 33:                                               ; preds = %29
-  %34 = call fastcc i32 @vorbis_decode_packet(ptr noundef nonnull %0, ptr noundef nonnull %5, ptr noundef nonnull %7, ptr noundef nonnull %6), !range !184
+  %34 = call fastcc i32 @vorbis_decode_packet(ptr noundef nonnull %0, ptr noundef nonnull %5, ptr noundef nonnull %7, ptr noundef nonnull %6)
   %.not24.i = icmp eq i32 %34, 0
   br i1 %.not24.i, label %35, label %36
 
@@ -75948,7 +75948,7 @@ define hidden i32 @stb_vorbis_get_samples_float_interleaved(ptr noundef %0, i32 
   br label %stb_vorbis_get_frame_float.exit.thread
 
 66:                                               ; preds = %62
-  %67 = call fastcc i32 @vorbis_decode_packet(ptr noundef nonnull %0, ptr noundef nonnull %5, ptr noundef nonnull %7, ptr noundef nonnull %6), !range !184
+  %67 = call fastcc i32 @vorbis_decode_packet(ptr noundef nonnull %0, ptr noundef nonnull %5, ptr noundef nonnull %7, ptr noundef nonnull %6)
   %.not24.i = icmp eq i32 %67, 0
   br i1 %.not24.i, label %68, label %69
 
@@ -76105,7 +76105,7 @@ define hidden i32 @stb_vorbis_get_samples_float(ptr noundef %0, i32 noundef %1, 
   br label %stb_vorbis_get_frame_float.exit.thread
 
 53:                                               ; preds = %49
-  %54 = call fastcc i32 @vorbis_decode_packet(ptr noundef nonnull %0, ptr noundef nonnull %5, ptr noundef nonnull %7, ptr noundef nonnull %6), !range !184
+  %54 = call fastcc i32 @vorbis_decode_packet(ptr noundef nonnull %0, ptr noundef nonnull %5, ptr noundef nonnull %7, ptr noundef nonnull %6)
   %.not24.i = icmp eq i32 %54, 0
   br i1 %.not24.i, label %55, label %56
 
@@ -76202,7 +76202,7 @@ define hidden void @drmp3dec_init(ptr nocapture noundef writeonly %0) local_unna
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define hidden i32 @drmp3dec_decode_frame(ptr nocapture noundef %0, ptr noundef readonly %1, i32 noundef %2, ptr noundef writeonly %3, ptr nocapture noundef %4) local_unnamed_addr #30 {
+define hidden range(i32 0, 1153) i32 @drmp3dec_decode_frame(ptr nocapture noundef %0, ptr noundef readonly %1, i32 noundef %2, ptr noundef writeonly %3, ptr nocapture noundef %4) local_unnamed_addr #30 {
   %6 = alloca [3 x float], align 4
   %7 = alloca [3 x float], align 4
   %8 = alloca [3 x float], align 4
@@ -80946,7 +80946,7 @@ define hidden void @drmp3dec_f32_to_s16(ptr nocapture noundef readonly %0, ptr n
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @drmp3_init(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef readonly %4) local_unnamed_addr #5 {
+define hidden range(i32 0, 2) i32 @drmp3_init(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef readonly %4) local_unnamed_addr #5 {
   %6 = icmp eq ptr %0, null
   %7 = icmp eq ptr %1, null
   %or.cond = or i1 %6, %7
@@ -81000,7 +81000,7 @@ drmp3_copy_allocation_callbacks_or_defaults.exit.i: ; preds = %8
 17:                                               ; preds = %14, %.thread.i
   %.sroa.5.0..sroa_idx3234.i = phi ptr [ %.sroa.5.0..sroa_idx31.i, %.thread.i ], [ %.sroa.5.0..sroa_idx.i, %14 ]
   %18 = getelementptr inbounds i8, ptr %0, i64 6752
-  %19 = tail call fastcc i32 @drmp3_decode_next_frame_ex(ptr noundef nonnull %0, ptr noundef nonnull %18), !range !260
+  %19 = tail call fastcc i32 @drmp3_decode_next_frame_ex(ptr noundef nonnull %0, ptr noundef nonnull %18)
   %20 = icmp eq i32 %19, 0
   br i1 %20, label %21, label %29
 
@@ -81033,7 +81033,7 @@ drmp3_init_internal.exit:                         ; preds = %29, %27, %25, %21, 
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @drmp3_init_memory(ptr noundef %0, ptr noundef %1, i64 noundef %2, ptr noundef readonly %3) local_unnamed_addr #5 {
+define hidden range(i32 0, 2) i32 @drmp3_init_memory(ptr noundef %0, ptr noundef %1, i64 noundef %2, ptr noundef readonly %3) local_unnamed_addr #5 {
   %5 = icmp eq ptr %0, null
   br i1 %5, label %drmp3_init_internal.exit, label %6
 
@@ -81097,7 +81097,7 @@ drmp3_copy_allocation_callbacks_or_defaults.exit.i: ; preds = %9
 21:                                               ; preds = %18, %.thread.i
   %.sroa.5.0..sroa_idx3234.i = phi ptr [ %.sroa.5.0..sroa_idx31.i, %.thread.i ], [ %.sroa.5.0..sroa_idx.i, %18 ]
   %22 = getelementptr inbounds i8, ptr %0, i64 6752
-  %23 = tail call fastcc i32 @drmp3_decode_next_frame_ex(ptr noundef nonnull %0, ptr noundef nonnull %22), !range !260
+  %23 = tail call fastcc i32 @drmp3_decode_next_frame_ex(ptr noundef nonnull %0, ptr noundef nonnull %22)
   %24 = icmp eq i32 %23, 0
   br i1 %24, label %25, label %33
 
@@ -81220,7 +81220,7 @@ define internal noundef i32 @drmp3__on_seek_memory(ptr nocapture noundef %0, i32
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @drmp3_init_file(ptr noundef %0, ptr noundef readonly %1, ptr noundef readonly %2) local_unnamed_addr #5 {
+define hidden range(i32 0, 2) i32 @drmp3_init_file(ptr noundef %0, ptr noundef readonly %1, ptr noundef readonly %2) local_unnamed_addr #5 {
   %4 = icmp eq ptr %1, null
   br i1 %4, label %drmp3_fopen.exit.thread, label %5
 
@@ -81281,7 +81281,7 @@ drmp3_copy_allocation_callbacks_or_defaults.exit.i.i: ; preds = %9
 18:                                               ; preds = %15, %.thread.i.i
   %.sroa.5.0..sroa_idx3234.i.i = phi ptr [ %.sroa.5.0..sroa_idx31.i.i, %.thread.i.i ], [ %.sroa.5.0..sroa_idx.i.i, %15 ]
   %19 = getelementptr inbounds i8, ptr %0, i64 6752
-  %20 = tail call fastcc i32 @drmp3_decode_next_frame_ex(ptr noundef nonnull %0, ptr noundef nonnull %19), !range !260
+  %20 = tail call fastcc i32 @drmp3_decode_next_frame_ex(ptr noundef nonnull %0, ptr noundef nonnull %19)
   %21 = icmp eq i32 %20, 0
   br i1 %21, label %22, label %drmp3_init.exit
 
@@ -81324,7 +81324,7 @@ define internal noundef i64 @drmp3__on_read_stdio(ptr nocapture noundef %0, ptr 
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define internal noundef i32 @drmp3__on_seek_stdio(ptr nocapture noundef %0, i32 noundef %1, i32 noundef %2) #7 {
+define internal range(i32 0, 2) i32 @drmp3__on_seek_stdio(ptr nocapture noundef %0, i32 noundef %1, i32 noundef %2) #7 {
   %4 = sext i32 %1 to i64
   %5 = icmp eq i32 %2, 1
   %6 = zext i1 %5 to i32
@@ -81335,7 +81335,7 @@ define internal noundef i32 @drmp3__on_seek_stdio(ptr nocapture noundef %0, i32 
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @drmp3_init_file_w(ptr noundef %0, ptr noundef %1, ptr noundef readonly %2) local_unnamed_addr #5 {
+define hidden range(i32 0, 2) i32 @drmp3_init_file_w(ptr noundef %0, ptr noundef %1, ptr noundef readonly %2) local_unnamed_addr #5 {
   %4 = alloca %struct.__mbstate_t, align 8
   %5 = alloca ptr, align 8
   %6 = alloca [32 x i8], align 16
@@ -81495,7 +81495,7 @@ drmp3_copy_allocation_callbacks_or_defaults.exit.i.i: ; preds = %48
 57:                                               ; preds = %54, %.thread.i.i
   %.sroa.5.0..sroa_idx3234.i.i = phi ptr [ %.sroa.5.0..sroa_idx31.i.i, %.thread.i.i ], [ %.sroa.5.0..sroa_idx.i.i, %54 ]
   %58 = getelementptr inbounds i8, ptr %0, i64 6752
-  %59 = call fastcc i32 @drmp3_decode_next_frame_ex(ptr noundef nonnull %0, ptr noundef nonnull %58), !range !260
+  %59 = call fastcc i32 @drmp3_decode_next_frame_ex(ptr noundef nonnull %0, ptr noundef nonnull %58)
   %60 = icmp eq i32 %59, 0
   br i1 %60, label %61, label %drmp3_init.exit
 
@@ -81643,7 +81643,7 @@ define hidden i64 @drmp3_read_pcm_frames_f32(ptr noundef %0, i64 noundef %1, ptr
   br i1 %45, label %drmp3_read_pcm_frames_raw.exit, label %46
 
 46:                                               ; preds = %.preheader.split.i
-  %47 = tail call fastcc i32 @drmp3_decode_next_frame_ex(ptr noundef nonnull %0, ptr noundef nonnull %12), !range !260
+  %47 = tail call fastcc i32 @drmp3_decode_next_frame_ex(ptr noundef nonnull %0, ptr noundef nonnull %12)
   %.not35.i = icmp eq i32 %47, 0
   br i1 %.not35.i, label %drmp3_read_pcm_frames_raw.exit, label %.preheader.split.i
 
@@ -81727,7 +81727,7 @@ define hidden i64 @drmp3_read_pcm_frames_s16(ptr noundef %0, i64 noundef %1, ptr
   br i1 %25, label %drmp3_read_pcm_frames_raw.exit, label %26
 
 26:                                               ; preds = %.preheader.split.us.i
-  %27 = tail call fastcc i32 @drmp3_decode_next_frame_ex(ptr noundef nonnull %0, ptr noundef nonnull %9), !range !260
+  %27 = tail call fastcc i32 @drmp3_decode_next_frame_ex(ptr noundef nonnull %0, ptr noundef nonnull %9)
   %.not35.us.i = icmp eq i32 %27, 0
   br i1 %.not35.us.i, label %drmp3_read_pcm_frames_raw.exit, label %.preheader.split.us.i
 
@@ -81768,7 +81768,7 @@ define hidden i64 @drmp3_read_pcm_frames_s16(ptr noundef %0, i64 noundef %1, ptr
   br i1 %53, label %drmp3_read_pcm_frames_raw.exit, label %54
 
 54:                                               ; preds = %.preheader.split.i
-  %55 = tail call fastcc i32 @drmp3_decode_next_frame_ex(ptr noundef nonnull %0, ptr noundef nonnull %9), !range !260
+  %55 = tail call fastcc i32 @drmp3_decode_next_frame_ex(ptr noundef nonnull %0, ptr noundef nonnull %9)
   %.not35.i = icmp eq i32 %55, 0
   br i1 %.not35.i, label %drmp3_read_pcm_frames_raw.exit, label %.preheader.split.i
 
@@ -81778,7 +81778,7 @@ drmp3_read_pcm_frames_raw.exit:                   ; preds = %54, %.preheader.spl
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @drmp3_seek_to_pcm_frame(ptr noundef %0, i64 noundef %1) local_unnamed_addr #5 {
+define hidden range(i32 0, 2) i32 @drmp3_seek_to_pcm_frame(ptr noundef %0, i64 noundef %1) local_unnamed_addr #5 {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %drmp3_seek_to_start_of_stream.exit, label %4
 
@@ -81965,7 +81965,7 @@ drmp3__on_seek_64.exit.i:                         ; preds = %.thread.i.i, %48
   %indvars.iv = phi i32 [ %indvars.iv.next, %82 ], [ 0, %.lr.ph54.i ]
   %84 = icmp eq i32 %80, %indvars.iv
   %spec.select.i = select i1 %84, ptr %81, ptr null
-  %85 = tail call fastcc i32 @drmp3_decode_next_frame_ex(ptr noundef %0, ptr noundef %spec.select.i), !range !260
+  %85 = tail call fastcc i32 @drmp3_decode_next_frame_ex(ptr noundef %0, ptr noundef %spec.select.i)
   %86 = icmp eq i32 %85, 0
   br i1 %86, label %drmp3_seek_to_start_of_stream.exit, label %82
 
@@ -82005,7 +82005,7 @@ drmp3__on_seek_64.exit.i:                         ; preds = %.thread.i.i, %48
   br i1 %103, label %drmp3_seek_forward_by_pcm_frames__brute_force.exit.i, label %104
 
 104:                                              ; preds = %.preheader.split.us.i.i.i.i
-  %105 = tail call fastcc i32 @drmp3_decode_next_frame_ex(ptr noundef nonnull %0, ptr noundef nonnull %92), !range !260
+  %105 = tail call fastcc i32 @drmp3_decode_next_frame_ex(ptr noundef nonnull %0, ptr noundef nonnull %92)
   %.not35.us.i.i.i.i = icmp eq i32 %105, 0
   br i1 %.not35.us.i.i.i.i, label %drmp3_seek_forward_by_pcm_frames__brute_force.exit.i, label %.preheader.split.us.i.i.i.i
 
@@ -82084,7 +82084,7 @@ drmp3_seek_to_start_of_stream.exit.i:             ; preds = %112
   br i1 %142, label %drmp3_seek_forward_by_pcm_frames__brute_force.exit.i22, label %143
 
 143:                                              ; preds = %.preheader.split.us.i.i.i.i17
-  %144 = tail call fastcc i32 @drmp3_decode_next_frame_ex(ptr noundef nonnull %0, ptr noundef nonnull %129), !range !260
+  %144 = tail call fastcc i32 @drmp3_decode_next_frame_ex(ptr noundef nonnull %0, ptr noundef nonnull %129)
   %.not35.us.i.i.i.i21 = icmp eq i32 %144, 0
   br i1 %.not35.us.i.i.i.i21, label %drmp3_seek_forward_by_pcm_frames__brute_force.exit.i22, label %.preheader.split.us.i.i.i.i17
 
@@ -82100,7 +82100,7 @@ drmp3_seek_to_start_of_stream.exit:               ; preds = %.lr.ph51.i, %83, %d
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @drmp3_get_mp3_and_pcm_frame_count(ptr noundef %0, ptr noundef writeonly %1, ptr noundef writeonly %2) local_unnamed_addr #5 {
+define hidden range(i32 0, 2) i32 @drmp3_get_mp3_and_pcm_frame_count(ptr noundef %0, ptr noundef writeonly %1, ptr noundef writeonly %2) local_unnamed_addr #5 {
   %4 = icmp eq ptr %0, null
   br i1 %4, label %drmp3_seek_to_start_of_stream.exit.thread, label %5
 
@@ -82133,7 +82133,7 @@ drmp3_seek_to_start_of_stream.exit:               ; preds = %9
   store i8 %20, ptr %18, align 8
   %21 = getelementptr inbounds i8, ptr %0, i64 6152
   store i8 0, ptr %21, align 4
-  %22 = tail call fastcc i32 @drmp3_decode_next_frame_ex(ptr noundef nonnull %0, ptr noundef null), !range !260
+  %22 = tail call fastcc i32 @drmp3_decode_next_frame_ex(ptr noundef nonnull %0, ptr noundef null)
   %23 = icmp eq i32 %22, 0
   br i1 %23, label %._crit_edge, label %.lr.ph
 
@@ -82144,7 +82144,7 @@ drmp3_seek_to_start_of_stream.exit:               ; preds = %9
   %25 = zext nneg i32 %24 to i64
   %26 = add i64 %.01935, %25
   %27 = add i64 %.01836, 1
-  %28 = tail call fastcc i32 @drmp3_decode_next_frame_ex(ptr noundef nonnull %0, ptr noundef null), !range !260
+  %28 = tail call fastcc i32 @drmp3_decode_next_frame_ex(ptr noundef nonnull %0, ptr noundef null)
   %29 = icmp eq i32 %28, 0
   br i1 %29, label %._crit_edge, label %.lr.ph
 
@@ -82166,7 +82166,7 @@ drmp3_seek_to_start_of_stream.exit:               ; preds = %9
   %35 = and i8 %34, -2
   store i8 %35, ptr %18, align 8
   store i8 0, ptr %21, align 4
-  %36 = tail call i32 @drmp3_seek_to_pcm_frame(ptr noundef nonnull %0, i64 noundef %11), !range !184
+  %36 = tail call i32 @drmp3_seek_to_pcm_frame(ptr noundef nonnull %0, i64 noundef %11)
   %.not25 = icmp eq i32 %36, 0
   br i1 %.not25, label %drmp3_seek_to_start_of_stream.exit.thread, label %37
 
@@ -82192,7 +82192,7 @@ drmp3_seek_to_start_of_stream.exit.thread:        ; preds = %._crit_edge, %9, %3
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @drmp3_decode_next_frame_ex(ptr noundef %0, ptr noundef %1) unnamed_addr #5 {
+define internal fastcc range(i32 0, 1153) i32 @drmp3_decode_next_frame_ex(ptr noundef %0, ptr noundef %1) unnamed_addr #5 {
   %3 = alloca %struct.drmp3dec_frame_info, align 4
   %4 = alloca %struct.drmp3dec_frame_info, align 4
   %5 = getelementptr inbounds i8, ptr %0, i64 16040
@@ -82220,7 +82220,7 @@ define internal fastcc i32 @drmp3_decode_next_frame_ex(ptr noundef %0, ptr nound
   %16 = getelementptr inbounds i8, ptr %6, i64 %15
   %17 = sub i64 %9, %15
   %18 = trunc i64 %17 to i32
-  %19 = call i32 @drmp3dec_decode_frame(ptr noundef nonnull %0, ptr noundef nonnull %16, i32 noundef %18, ptr noundef %1, ptr noundef nonnull %4), !range !260
+  %19 = call i32 @drmp3dec_decode_frame(ptr noundef nonnull %0, ptr noundef nonnull %16, i32 noundef %18, ptr noundef %1, ptr noundef nonnull %4)
   %.not2022.i = icmp eq i32 %19, 0
   br i1 %.not2022.i, label %.lr.ph.i, label %._crit_edge.i
 
@@ -82261,7 +82261,7 @@ define internal fastcc i32 @drmp3_decode_next_frame_ex(ptr noundef %0, ptr nound
   %42 = load i64, ptr %8, align 8
   %43 = sub i64 %42, %39
   %44 = trunc i64 %43 to i32
-  %45 = call i32 @drmp3dec_decode_frame(ptr noundef nonnull %0, ptr noundef %41, i32 noundef %44, ptr noundef %1, ptr noundef nonnull %4), !range !260
+  %45 = call i32 @drmp3dec_decode_frame(ptr noundef nonnull %0, ptr noundef %41, i32 noundef %44, ptr noundef %1, ptr noundef nonnull %4)
   %.not20.i = icmp eq i32 %45, 0
   br i1 %.not20.i, label %.lr.ph.i, label %._crit_edge.i
 
@@ -82418,7 +82418,7 @@ drmp3__realloc_from_callbacks.exit.thread92.i:    ; preds = %drmp3__realloc_from
   %121 = load i64, ptr %56, align 8
   %122 = getelementptr inbounds i8, ptr %118, i64 %121
   %123 = trunc nuw nsw i64 %112 to i32
-  %124 = call i32 @drmp3dec_decode_frame(ptr noundef nonnull %0, ptr noundef nonnull %122, i32 noundef %123, ptr noundef %1, ptr noundef nonnull %3), !range !260
+  %124 = call i32 @drmp3dec_decode_frame(ptr noundef nonnull %0, ptr noundef nonnull %122, i32 noundef %123, ptr noundef %1, ptr noundef nonnull %3)
   %125 = load i32, ptr %3, align 4
   %126 = icmp sgt i32 %125, 0
   br i1 %126, label %127, label %133
@@ -82564,7 +82564,7 @@ drmp3_decode_next_frame_ex__callbacks.exit:       ; preds = %78, %80, %82, %drmp
 ; Function Attrs: nounwind uwtable
 define hidden i64 @drmp3_get_pcm_frame_count(ptr noundef %0) local_unnamed_addr #5 {
   %2 = alloca i64, align 8
-  %3 = call i32 @drmp3_get_mp3_and_pcm_frame_count(ptr noundef %0, ptr noundef null, ptr noundef nonnull %2), !range !184
+  %3 = call i32 @drmp3_get_mp3_and_pcm_frame_count(ptr noundef %0, ptr noundef null, ptr noundef nonnull %2)
   %.not = icmp eq i32 %3, 0
   %4 = load i64, ptr %2, align 8
   %.0 = select i1 %.not, i64 0, i64 %4
@@ -82574,7 +82574,7 @@ define hidden i64 @drmp3_get_pcm_frame_count(ptr noundef %0) local_unnamed_addr 
 ; Function Attrs: nounwind uwtable
 define hidden i64 @drmp3_get_mp3_frame_count(ptr noundef %0) local_unnamed_addr #5 {
   %2 = alloca i64, align 8
-  %3 = call i32 @drmp3_get_mp3_and_pcm_frame_count(ptr noundef %0, ptr noundef nonnull %2, ptr noundef null), !range !184
+  %3 = call i32 @drmp3_get_mp3_and_pcm_frame_count(ptr noundef %0, ptr noundef nonnull %2, ptr noundef null)
   %.not = icmp eq i32 %3, 0
   %4 = load i64, ptr %2, align 8
   %.0 = select i1 %.not, i64 0, i64 %4
@@ -82582,7 +82582,7 @@ define hidden i64 @drmp3_get_mp3_frame_count(ptr noundef %0) local_unnamed_addr 
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @drmp3_calculate_seek_points(ptr noundef %0, ptr noundef %1, ptr noundef writeonly %2) local_unnamed_addr #5 {
+define hidden range(i32 0, 2) i32 @drmp3_calculate_seek_points(ptr noundef %0, ptr noundef %1, ptr noundef writeonly %2) local_unnamed_addr #5 {
   %4 = alloca i64, align 8
   %5 = alloca i64, align 8
   %6 = alloca [3 x %struct.drmp3__seeking_mp3_frame_info], align 16
@@ -82601,7 +82601,7 @@ define hidden noundef i32 @drmp3_calculate_seek_points(ptr noundef %0, ptr nound
 13:                                               ; preds = %10
   %14 = getelementptr inbounds i8, ptr %0, i64 15968
   %15 = load i64, ptr %14, align 8
-  %16 = call i32 @drmp3_get_mp3_and_pcm_frame_count(ptr noundef nonnull %0, ptr noundef nonnull %4, ptr noundef nonnull %5), !range !184
+  %16 = call i32 @drmp3_get_mp3_and_pcm_frame_count(ptr noundef nonnull %0, ptr noundef nonnull %4, ptr noundef nonnull %5)
   %.not = icmp eq i32 %16, 0
   br i1 %.not, label %drmp3_seek_to_start_of_stream.exit.thread, label %17
 
@@ -82675,7 +82675,7 @@ drmp3_seek_to_start_of_stream.exit:               ; preds = %21
   store i64 %52, ptr %53, align 16
   %54 = getelementptr inbounds i8, ptr %53, i64 8
   store i64 %.097111, ptr %54, align 8
-  %55 = call fastcc i32 @drmp3_decode_next_frame_ex(ptr noundef nonnull %0, ptr noundef null), !range !260
+  %55 = call fastcc i32 @drmp3_decode_next_frame_ex(ptr noundef nonnull %0, ptr noundef null)
   %56 = icmp eq i32 %55, 0
   br i1 %56, label %drmp3_seek_to_start_of_stream.exit.thread, label %57
 
@@ -82715,7 +82715,7 @@ drmp3_seek_to_start_of_stream.exit:               ; preds = %21
   %74 = sub i64 %72, %73
   store i64 %74, ptr %46, align 16
   store i64 %.299115, ptr %47, align 8
-  %75 = call fastcc i32 @drmp3_decode_next_frame_ex(ptr noundef %0, ptr noundef null), !range !260
+  %75 = call fastcc i32 @drmp3_decode_next_frame_ex(ptr noundef %0, ptr noundef null)
   %76 = icmp eq i32 %75, 0
   br i1 %76, label %._crit_edge, label %77
 
@@ -82771,7 +82771,7 @@ drmp3_seek_to_start_of_stream.exit:               ; preds = %21
   %102 = and i8 %101, -2
   store i8 %102, ptr %39, align 8
   store i8 0, ptr %42, align 4
-  %103 = call i32 @drmp3_seek_to_pcm_frame(ptr noundef nonnull %0, i64 noundef %15), !range !184
+  %103 = call i32 @drmp3_seek_to_pcm_frame(ptr noundef nonnull %0, i64 noundef %15)
   %.not83 = icmp eq i32 %103, 0
   br i1 %.not83, label %drmp3_seek_to_start_of_stream.exit.thread, label %104
 
@@ -82786,7 +82786,7 @@ drmp3_seek_to_start_of_stream.exit.thread:        ; preds = %49, %._crit_edge122
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden noundef i32 @drmp3_bind_seek_table(ptr noundef writeonly %0, i32 noundef %1, ptr noundef %2) local_unnamed_addr #0 {
+define hidden range(i32 0, 2) i32 @drmp3_bind_seek_table(ptr noundef writeonly %0, i32 noundef %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = icmp eq ptr %0, null
   br i1 %4, label %9, label %.sink.split
 
@@ -82860,7 +82860,7 @@ drmp3_copy_allocation_callbacks_or_defaults.exit.i.i: ; preds = %9
 18:                                               ; preds = %15, %.thread.i.i
   %.sroa.5.0..sroa_idx3234.i.i = phi ptr [ %.sroa.5.0..sroa_idx31.i.i, %.thread.i.i ], [ %.sroa.5.0..sroa_idx.i.i, %15 ]
   %19 = getelementptr inbounds i8, ptr %7, i64 6752
-  %20 = call fastcc i32 @drmp3_decode_next_frame_ex(ptr noundef nonnull %7, ptr noundef nonnull %19), !range !260
+  %20 = call fastcc i32 @drmp3_decode_next_frame_ex(ptr noundef nonnull %7, ptr noundef nonnull %19)
   %21 = icmp eq i32 %20, 0
   br i1 %21, label %22, label %30
 
@@ -83106,7 +83106,7 @@ drmp3_copy_allocation_callbacks_or_defaults.exit.i.i: ; preds = %9
 18:                                               ; preds = %15, %.thread.i.i
   %.sroa.5.0..sroa_idx3234.i.i = phi ptr [ %.sroa.5.0..sroa_idx31.i.i, %.thread.i.i ], [ %.sroa.5.0..sroa_idx.i.i, %15 ]
   %19 = getelementptr inbounds i8, ptr %7, i64 6752
-  %20 = call fastcc i32 @drmp3_decode_next_frame_ex(ptr noundef nonnull %7, ptr noundef nonnull %19), !range !260
+  %20 = call fastcc i32 @drmp3_decode_next_frame_ex(ptr noundef nonnull %7, ptr noundef nonnull %19)
   %21 = icmp eq i32 %20, 0
   br i1 %21, label %22, label %30
 
@@ -83203,7 +83203,7 @@ define internal fastcc ptr @drmp3__full_read_and_close_s16(ptr noundef %0, ptr n
   br i1 %45, label %drmp3_read_pcm_frames_s16.exit, label %46
 
 46:                                               ; preds = %.preheader.split.i.i
-  %47 = tail call fastcc i32 @drmp3_decode_next_frame_ex(ptr noundef nonnull %0, ptr noundef nonnull %7), !range !260
+  %47 = tail call fastcc i32 @drmp3_decode_next_frame_ex(ptr noundef nonnull %0, ptr noundef nonnull %7)
   %.not35.i.i = icmp eq i32 %47, 0
   br i1 %.not35.i.i, label %drmp3_read_pcm_frames_s16.exit, label %.preheader.split.i.i
 
@@ -83407,7 +83407,7 @@ drmp3_copy_allocation_callbacks_or_defaults.exit.i.i: ; preds = %9
 20:                                               ; preds = %17, %.thread.i.i
   %.sroa.5.0..sroa_idx3234.i.i = phi ptr [ %.sroa.5.0..sroa_idx31.i.i, %.thread.i.i ], [ %.sroa.5.0..sroa_idx.i.i, %17 ]
   %21 = getelementptr inbounds i8, ptr %6, i64 6752
-  %22 = call fastcc i32 @drmp3_decode_next_frame_ex(ptr noundef nonnull %6, ptr noundef nonnull %21), !range !260
+  %22 = call fastcc i32 @drmp3_decode_next_frame_ex(ptr noundef nonnull %6, ptr noundef nonnull %21)
   %23 = icmp eq i32 %22, 0
   br i1 %23, label %24, label %32
 
@@ -83500,7 +83500,7 @@ drmp3_copy_allocation_callbacks_or_defaults.exit.i.i: ; preds = %9
 20:                                               ; preds = %17, %.thread.i.i
   %.sroa.5.0..sroa_idx3234.i.i = phi ptr [ %.sroa.5.0..sroa_idx31.i.i, %.thread.i.i ], [ %.sroa.5.0..sroa_idx.i.i, %17 ]
   %21 = getelementptr inbounds i8, ptr %6, i64 6752
-  %22 = call fastcc i32 @drmp3_decode_next_frame_ex(ptr noundef nonnull %6, ptr noundef nonnull %21), !range !260
+  %22 = call fastcc i32 @drmp3_decode_next_frame_ex(ptr noundef nonnull %6, ptr noundef nonnull %21)
   %23 = icmp eq i32 %22, 0
   br i1 %23, label %24, label %32
 
@@ -83536,7 +83536,7 @@ drmp3_init_memory.exit.thread:                    ; preds = %17, %30, %28, %24, 
 ; Function Attrs: nounwind uwtable
 define hidden ptr @drmp3_open_file_and_read_pcm_frames_f32(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #5 {
   %5 = alloca %struct.drmp3, align 8
-  %6 = call i32 @drmp3_init_file(ptr noundef nonnull %5, ptr noundef %0, ptr noundef %3), !range !184
+  %6 = call i32 @drmp3_init_file(ptr noundef nonnull %5, ptr noundef %0, ptr noundef %3)
   %.not = icmp eq i32 %6, 0
   br i1 %.not, label %9, label %7
 
@@ -83552,7 +83552,7 @@ define hidden ptr @drmp3_open_file_and_read_pcm_frames_f32(ptr noundef %0, ptr n
 ; Function Attrs: nounwind uwtable
 define hidden ptr @drmp3_open_file_and_read_pcm_frames_s16(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #5 {
   %5 = alloca %struct.drmp3, align 8
-  %6 = call i32 @drmp3_init_file(ptr noundef nonnull %5, ptr noundef %0, ptr noundef %3), !range !184
+  %6 = call i32 @drmp3_init_file(ptr noundef nonnull %5, ptr noundef %0, ptr noundef %3)
   %.not = icmp eq i32 %6, 0
   br i1 %.not, label %9, label %7
 
@@ -84173,7 +84173,7 @@ define hidden i32 @qoa_max_frame_size(ptr nocapture noundef readonly %0) local_u
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden i32 @qoa_decode_header(ptr nocapture noundef readonly %0, i32 noundef %1, ptr nocapture noundef writeonly %2) local_unnamed_addr #16 {
+define hidden range(i32 0, 9) i32 @qoa_decode_header(ptr nocapture noundef readonly %0, i32 noundef %1, ptr nocapture noundef writeonly %2) local_unnamed_addr #16 {
   %4 = icmp slt i32 %1, 16
   br i1 %4, label %65, label %5
 
@@ -85368,7 +85368,7 @@ define hidden double @qoaplay_get_time(ptr nocapture noundef readonly %0) local_
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden i32 @qoaplay_get_frame(ptr nocapture noundef readonly %0) local_unnamed_addr #15 {
+define hidden range(i32 0, 838861) i32 @qoaplay_get_frame(ptr nocapture noundef readonly %0) local_unnamed_addr #15 {
   %2 = getelementptr inbounds i8, ptr %0, i64 300
   %3 = load i32, ptr %2, align 4
   %4 = udiv i32 %3, 5120
@@ -85722,13 +85722,13 @@ define hidden void @jar_xm_generate_samples_8bit(ptr noundef %0, ptr noundef wri
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @jar_xm_create_context(ptr nocapture noundef writeonly %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #5 {
-  %4 = tail call i32 @jar_xm_create_context_safe(ptr noundef %0, ptr noundef %1, i64 noundef -1, i32 noundef %2), !range !261
+define hidden range(i32 0, 3) i32 @jar_xm_create_context(ptr nocapture noundef writeonly %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #5 {
+  %4 = tail call i32 @jar_xm_create_context_safe(ptr noundef %0, ptr noundef %1, i64 noundef -1, i32 noundef %2)
   ret i32 %4
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @jar_xm_create_context_safe(ptr nocapture noundef writeonly %0, ptr noundef %1, i64 noundef %2, i32 noundef %3) local_unnamed_addr #5 {
+define hidden range(i32 0, 3) i32 @jar_xm_create_context_safe(ptr nocapture noundef writeonly %0, ptr noundef %1, i64 noundef %2, i32 noundef %3) local_unnamed_addr #5 {
   %5 = icmp ult i64 %2, 60
   br i1 %5, label %jar_xm_check_sanity_preload.exit.thread, label %6
 
@@ -85878,7 +85878,7 @@ jar_xm_check_sanity_preload.exit.thread:          ; preds = %73, %._crit_edge, %
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read) uwtable
-define hidden i32 @jar_xm_check_sanity_preload(ptr nocapture noundef readonly %0, i64 noundef %1) local_unnamed_addr #55 {
+define hidden range(i32 0, 5) i32 @jar_xm_check_sanity_preload(ptr nocapture noundef readonly %0, i64 noundef %1) local_unnamed_addr #55 {
   %3 = icmp ult i64 %1, 60
   br i1 %3, label %14, label %4
 
@@ -88461,7 +88461,7 @@ define hidden ptr @jar_xm_load_module(ptr nocapture noundef %0, ptr noundef read
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define hidden noundef i32 @jar_xm_check_sanity_postload(ptr nocapture noundef %0) local_unnamed_addr #29 {
+define hidden range(i32 0, 2) i32 @jar_xm_check_sanity_postload(ptr nocapture noundef %0) local_unnamed_addr #29 {
   %2 = getelementptr inbounds i8, ptr %0, i64 50
   %.promoted = load i16, ptr %2, align 2
   %.not16 = icmp eq i16 %.promoted, 0
@@ -90550,7 +90550,7 @@ jar_xm_tone_portamento.exit245:                   ; preds = %909, %907, %891, %8
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @jar_xm_create_context_from_file(ptr nocapture noundef writeonly %0, i32 noundef %1, ptr nocapture noundef readonly %2) local_unnamed_addr #5 {
+define hidden range(i32 0, 6) i32 @jar_xm_create_context_from_file(ptr nocapture noundef writeonly %0, i32 noundef %1, ptr nocapture noundef readonly %2) local_unnamed_addr #5 {
   %4 = tail call noalias ptr @fopen(ptr noundef %2, ptr noundef nonnull @.str.170)
   %5 = icmp eq ptr %4, null
   br i1 %5, label %6, label %11
@@ -90604,7 +90604,7 @@ define hidden noundef i32 @jar_xm_create_context_from_file(ptr nocapture noundef
 
 37:                                               ; preds = %26
   %38 = tail call i32 @fclose(ptr noundef nonnull %4)
-  %39 = tail call i32 @jar_xm_create_context_safe(ptr noundef %0, ptr noundef nonnull %25, i64 noundef %27, i32 noundef %1), !range !261
+  %39 = tail call i32 @jar_xm_create_context_safe(ptr noundef %0, ptr noundef nonnull %25, i64 noundef %27, i32 noundef %1)
   tail call void @free(ptr noundef nonnull %25) #68
   switch i32 %39, label %default.unreachable32 [
     i32 0, label %50
@@ -92379,7 +92379,7 @@ jar_mod_reset.exit:                               ; preds = %24, %1
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i64 @jar_mod_load_file(ptr noundef %0, ptr nocapture noundef readonly %1) local_unnamed_addr #5 {
+define hidden range(i64 0, 33554432) i64 @jar_mod_load_file(ptr noundef %0, ptr nocapture noundef readonly %1) local_unnamed_addr #5 {
   %3 = getelementptr inbounds i8, ptr %0, i64 7048
   %4 = load ptr, ptr %3, align 8
   %.not = icmp eq ptr %4, null
@@ -92844,7 +92844,7 @@ jar_mod_reset.exit:                               ; preds = %27
 define void @InitAudioDevice() local_unnamed_addr #5 {
   %1 = alloca %struct.ma_context_config, align 8
   %2 = alloca %struct.ma_device_config, align 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(232) %1, i8 0, i64 232, i1 false), !alias.scope !262
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(232) %1, i8 0, i64 232, i1 false), !alias.scope !245
   %3 = call i32 @ma_context_init(ptr noundef null, i32 noundef 0, ptr noundef nonnull %1, ptr noundef nonnull @AUDIO)
   %.not = icmp eq i32 %3, 0
   br i1 %.not, label %5, label %4
@@ -92855,12 +92855,12 @@ define void @InitAudioDevice() local_unnamed_addr #5 {
 
 5:                                                ; preds = %0
   %6 = getelementptr inbounds i8, ptr %2, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(280) %6, i8 0, i64 272, i1 false), !alias.scope !265
-  store i32 1, ptr %2, align 8, !alias.scope !265
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(280) %6, i8 0, i64 272, i1 false), !alias.scope !248
+  store i32 1, ptr %2, align 8, !alias.scope !248
   %7 = getelementptr inbounds i8, ptr %2, i64 64
   %.sroa.75.0..sroa_idx.i = getelementptr inbounds i8, ptr %2, i64 104
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %7, i8 0, i64 40, i1 false), !alias.scope !265
-  store i32 4, ptr %.sroa.75.0..sroa_idx.i, align 8, !alias.scope !265
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %7, i8 0, i64 40, i1 false), !alias.scope !248
+  store i32 4, ptr %.sroa.75.0..sroa_idx.i, align 8, !alias.scope !248
   %8 = getelementptr inbounds i8, ptr %2, i64 112
   store ptr null, ptr %8, align 8
   %9 = getelementptr inbounds i8, ptr %2, i64 120
@@ -93705,18 +93705,18 @@ define hidden noundef ptr @LoadAudioBuffer(i32 noundef %0, i32 noundef %1, i32 n
   %24 = getelementptr inbounds i8, ptr %7, i64 64
   %25 = getelementptr inbounds i8, ptr %7, i64 112
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) %23, i8 0, i64 96, i1 false)
-  store i32 1, ptr %25, align 8, !alias.scope !268
-  store i32 %0, ptr %7, align 8, !alias.scope !273
+  store i32 1, ptr %25, align 8, !alias.scope !251
+  store i32 %0, ptr %7, align 8, !alias.scope !256
   %26 = getelementptr inbounds i8, ptr %7, i64 4
-  store i32 5, ptr %26, align 4, !alias.scope !273
+  store i32 5, ptr %26, align 4, !alias.scope !256
   %27 = getelementptr inbounds i8, ptr %7, i64 8
-  store i32 %1, ptr %27, align 8, !alias.scope !273
+  store i32 %1, ptr %27, align 8, !alias.scope !256
   %28 = getelementptr inbounds i8, ptr %7, i64 12
-  store i32 2, ptr %28, align 4, !alias.scope !273
+  store i32 2, ptr %28, align 4, !alias.scope !256
   %29 = getelementptr inbounds i8, ptr %7, i64 16
-  store i32 %2, ptr %29, align 8, !alias.scope !273
+  store i32 %2, ptr %29, align 8, !alias.scope !256
   %30 = getelementptr inbounds i8, ptr %7, i64 20
-  store i32 %22, ptr %30, align 4, !alias.scope !273
+  store i32 %22, ptr %30, align 4, !alias.scope !256
   store i32 1, ptr %24, align 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %6)
   %31 = call fastcc i32 @ma_data_converter_get_heap_layout(ptr noundef nonnull %7, ptr noundef nonnull %6)
@@ -94235,7 +94235,7 @@ drwav_init_memory.exit:                           ; preds = %15
   store ptr %2, ptr %22, align 8
   %23 = getelementptr inbounds i8, ptr %6, i64 200
   store i64 %18, ptr %23, align 8
-  %24 = call fastcc i32 @drwav_init__internal(ptr noundef nonnull %6, ptr noundef null, ptr noundef null, i32 noundef 0), !range !184
+  %24 = call fastcc i32 @drwav_init__internal(ptr noundef nonnull %6, ptr noundef null, ptr noundef null, i32 noundef 0)
   %.not23 = icmp eq i32 %24, 0
   br i1 %.not23, label %drwav_init_memory.exit.thread, label %25
 
@@ -94272,7 +94272,7 @@ drwav_init_memory.exit.thread:                    ; preds = %15, %drwav_init_mem
   %44 = phi i32 [ 0, %drwav_init_memory.exit.thread ], [ %35, %25 ]
   %45 = phi i32 [ 0, %drwav_init_memory.exit.thread ], [ 16, %25 ]
   %46 = phi i32 [ 0, %drwav_init_memory.exit.thread ], [ %30, %25 ]
-  %47 = call i32 @drwav_uninit(ptr noundef nonnull %6), !range !249
+  %47 = call i32 @drwav_uninit(ptr noundef nonnull %6)
   br label %stb_vorbis_close.exit
 
 48:                                               ; preds = %12
@@ -94292,15 +94292,15 @@ drwav_init_memory.exit.thread:                    ; preds = %15, %drwav_init_mem
 
 56:                                               ; preds = %54
   %57 = getelementptr inbounds i8, ptr %55, i64 4
-  %58 = load i32, ptr %57, align 4, !noalias !274
-  %59 = load i32, ptr %55, align 8, !noalias !274
+  %58 = load i32, ptr %57, align 4, !noalias !257
+  %59 = load i32, ptr %55, align 8, !noalias !257
   %60 = getelementptr inbounds i8, ptr %0, i64 4
   store i32 %59, ptr %60, align 4
   %61 = getelementptr inbounds i8, ptr %0, i64 8
   store i32 16, ptr %61, align 8
   %62 = getelementptr inbounds i8, ptr %0, i64 12
   store i32 %58, ptr %62, align 4
-  %63 = tail call i32 @stb_vorbis_stream_length_in_samples(ptr noundef nonnull %55), !range !259
+  %63 = tail call i32 @stb_vorbis_stream_length_in_samples(ptr noundef nonnull %55)
   store i32 %63, ptr %0, align 8
   %64 = mul i32 %63, %58
   %65 = zext i32 %64 to i64
@@ -94363,7 +94363,7 @@ drwav_init_memory.exit.thread:                    ; preds = %15, %drwav_init_mem
   %.sroa.5.0..sroa_idx31.i.i.i = getelementptr inbounds i8, ptr %5, i64 6728
   store ptr @drmp3__free_default, ptr %.sroa.5.0..sroa_idx31.i.i.i, align 8
   %90 = getelementptr inbounds i8, ptr %5, i64 6752
-  %91 = call fastcc i32 @drmp3_decode_next_frame_ex(ptr noundef nonnull %5, ptr noundef nonnull %90), !range !260
+  %91 = call fastcc i32 @drmp3_decode_next_frame_ex(ptr noundef nonnull %5, ptr noundef nonnull %90)
   %92 = icmp eq i32 %91, 0
   br i1 %92, label %93, label %drmp3_open_memory_and_read_pcm_frames_f32.exit
 
@@ -94509,17 +94509,17 @@ define zeroext i1 @IsWaveReady(ptr nocapture noundef readonly byval(%struct.Wave
 define void @LoadSound(ptr dead_on_unwind noalias nocapture writable writeonly sret(%struct.Sound) align 8 %0, ptr noundef %1) local_unnamed_addr #5 {
   %3 = alloca i32, align 4
   %4 = alloca %struct.Wave, align 8
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !277)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !260)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3)
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %4, i8 0, i64 24, i1 false), !alias.scope !277
-  store i32 0, ptr %3, align 4, !noalias !277
-  %5 = call ptr @LoadFileData(ptr noundef %1, ptr noundef nonnull %3) #68, !noalias !277
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %4, i8 0, i64 24, i1 false), !alias.scope !260
+  store i32 0, ptr %3, align 4, !noalias !260
+  %5 = call ptr @LoadFileData(ptr noundef %1, ptr noundef nonnull %3) #68, !noalias !260
   %.not.i = icmp eq ptr %5, null
   br i1 %.not.i, label %LoadWave.exit, label %6
 
 6:                                                ; preds = %2
-  %7 = call ptr @GetFileExtension(ptr noundef %1) #68, !noalias !277
-  %8 = load i32, ptr %3, align 4, !noalias !277
+  %7 = call ptr @GetFileExtension(ptr noundef %1) #68, !noalias !260
+  %8 = load i32, ptr %3, align 4, !noalias !260
   call void @LoadWaveFromMemory(ptr dead_on_unwind nonnull writable sret(%struct.Wave) align 8 %4, ptr noundef %7, ptr noundef nonnull %5, i32 noundef %8)
   %.sroa.3.0..sroa_idx.phi.trans.insert = getelementptr inbounds i8, ptr %4, i64 16
   %.sroa.3.0.copyload.pre = load ptr, ptr %.sroa.3.0..sroa_idx.phi.trans.insert, align 8
@@ -94527,7 +94527,7 @@ define void @LoadSound(ptr dead_on_unwind noalias nocapture writable writeonly s
 
 LoadWave.exit:                                    ; preds = %2, %6
   %.sroa.3.0.copyload = phi ptr [ null, %2 ], [ %.sroa.3.0.copyload.pre, %6 ]
-  call void @free(ptr noundef %5) #68, !noalias !277
+  call void @free(ptr noundef %5) #68, !noalias !260
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3)
   call void @LoadSoundFromWave(ptr dead_on_unwind writable sret(%struct.Sound) align 8 %0, ptr noundef nonnull byval(%struct.Wave) align 8 %4)
   call void @free(ptr noundef %.sroa.3.0.copyload) #68
@@ -94987,7 +94987,7 @@ drwav_init_memory_write__internal.exit:           ; preds = %2
   store ptr %7, ptr %40, align 8
   %41 = getelementptr inbounds i8, ptr %4, i64 232
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %41, i8 0, i64 24, i1 false)
-  %42 = call fastcc i32 @drwav_init_write__internal(ptr noundef nonnull %4, ptr noundef nonnull %5, i64 noundef 0), !range !184
+  %42 = call fastcc i32 @drwav_init_write__internal(ptr noundef nonnull %4, ptr noundef nonnull %5, i64 noundef 0)
   %.not = icmp eq i32 %42, 0
   br i1 %.not, label %drwav_init_memory_write__internal.exit.thread, label %43
 
@@ -95059,7 +95059,7 @@ drwav_write_raw.exit._crit_edge.i.i:              ; preds = %drwav_write_raw.exi
 
 drwav_init_memory_write__internal.exit.thread:    ; preds = %drwav_write_raw.exit._crit_edge.i.i, %43, %drwav_init_memory_write__internal.exit
   %.0 = phi i1 [ false, %drwav_init_memory_write__internal.exit ], [ %75, %drwav_write_raw.exit._crit_edge.i.i ], [ false, %43 ]
-  %76 = call i32 @drwav_uninit(ptr noundef nonnull %4), !range !249
+  %76 = call i32 @drwav_uninit(ptr noundef nonnull %4)
   %77 = icmp eq i32 %76, 0
   %78 = load ptr, ptr %6, align 8
   br i1 %77, label %79, label %84
@@ -95887,7 +95887,7 @@ drwav_fopen.exit.i.i:                             ; preds = %11
   store ptr @drwav__realloc_default, ptr %.sroa.4.0..sroa_idx31.i.i.i.i, align 8
   %.sroa.5.0..sroa_idx32.i.i.i.i = getelementptr inbounds i8, ptr %9, i64 56
   store ptr @drwav__free_default, ptr %.sroa.5.0..sroa_idx32.i.i.i.i, align 8
-  %19 = tail call fastcc i32 @drwav_init__internal(ptr noundef nonnull %9, ptr noundef null, ptr noundef null, i32 noundef 0), !range !184
+  %19 = tail call fastcc i32 @drwav_init__internal(ptr noundef nonnull %9, ptr noundef null, ptr noundef null, i32 noundef 0)
   %.not.not15.i.i.i = icmp eq i32 %19, 0
   br i1 %.not.not15.i.i.i, label %.sink.split.i.i.i, label %23
 
@@ -95921,13 +95921,13 @@ drwav_init_file.exit.thread:                      ; preds = %.sink.split.i.i.i, 
   %35 = icmp eq i16 %narrow, 16
   %36 = select i1 %35, i32 2, i32 5
   %37 = select i1 %34, i32 1, i32 %36
-  %38 = load i32, ptr getelementptr inbounds (%struct.AudioData, ptr @AUDIO, i64 0, i32 0, i32 1, i32 22, i32 11), align 8, !noalias !280
-  %39 = load i32, ptr getelementptr inbounds (%struct.AudioData, ptr @AUDIO, i64 0, i32 1, i32 2), align 8, !noalias !280
+  %38 = load i32, ptr getelementptr inbounds (%struct.AudioData, ptr @AUDIO, i64 0, i32 0, i32 1, i32 22, i32 11), align 8, !noalias !263
+  %39 = load i32, ptr getelementptr inbounds (%struct.AudioData, ptr @AUDIO, i64 0, i32 1, i32 2), align 8, !noalias !263
   %40 = icmp eq i32 %39, 0
   br i1 %40, label %41, label %44
 
 41:                                               ; preds = %23
-  %42 = load i32, ptr getelementptr inbounds (%struct.AudioData, ptr @AUDIO, i64 0, i32 0, i32 1, i32 2), align 4, !noalias !280
+  %42 = load i32, ptr getelementptr inbounds (%struct.AudioData, ptr @AUDIO, i64 0, i32 0, i32 1, i32 2), align 4, !noalias !263
   %43 = udiv i32 %42, 30
   br label %44
 
@@ -95935,20 +95935,20 @@ drwav_init_file.exit.thread:                      ; preds = %.sink.split.i.i.i, 
   %45 = phi i32 [ %43, %41 ], [ %39, %23 ]
   %spec.select.i = tail call i32 @llvm.umax.i32(i32 %45, i32 %38)
   %46 = shl i32 %spec.select.i, 1
-  %47 = tail call ptr @LoadAudioBuffer(i32 noundef %37, i32 noundef %33, i32 noundef %30, i32 noundef %46, i32 noundef 1), !noalias !280
+  %47 = tail call ptr @LoadAudioBuffer(i32 noundef %37, i32 noundef %33, i32 noundef %30, i32 noundef %46, i32 noundef 1), !noalias !263
   %.not.i = icmp eq ptr %47, null
   br i1 %.not.i, label %52, label %48
 
 48:                                               ; preds = %44
   %49 = getelementptr inbounds i8, ptr %47, i64 342
-  store i8 1, ptr %49, align 2, !noalias !280
+  store i8 1, ptr %49, align 2, !noalias !263
   %50 = icmp eq i16 %32, 1
   %51 = select i1 %50, ptr @.str.289, ptr @.str.290
-  tail call void (i32, ptr, ...) @TraceLog(i32 noundef 3, ptr noundef nonnull @.str.298, i32 noundef %30, i32 noundef %spec.store.select, ptr noundef nonnull %51) #68, !noalias !280
+  tail call void (i32, ptr, ...) @TraceLog(i32 noundef 3, ptr noundef nonnull @.str.298, i32 noundef %30, i32 noundef %spec.store.select, ptr noundef nonnull %51) #68, !noalias !263
   br label %LoadAudioStream.exit
 
 52:                                               ; preds = %44
-  tail call void (i32, ptr, ...) @TraceLog(i32 noundef 4, ptr noundef nonnull @.str.299) #68, !noalias !280
+  tail call void (i32, ptr, ...) @TraceLog(i32 noundef 4, ptr noundef nonnull @.str.299) #68, !noalias !263
   br label %LoadAudioStream.exit
 
 LoadAudioStream.exit:                             ; preds = %48, %52
@@ -96004,15 +96004,15 @@ stb_vorbis_open_filename.exit:                    ; preds = %60
 
 73:                                               ; preds = %stb_vorbis_open_filename.exit
   %74 = getelementptr inbounds i8, ptr %71, i64 4
-  %75 = load i32, ptr %74, align 4, !noalias !283
-  %76 = load i32, ptr %71, align 8, !noalias !283
-  %77 = load i32, ptr getelementptr inbounds (%struct.AudioData, ptr @AUDIO, i64 0, i32 0, i32 1, i32 22, i32 11), align 8, !noalias !286
-  %78 = load i32, ptr getelementptr inbounds (%struct.AudioData, ptr @AUDIO, i64 0, i32 1, i32 2), align 8, !noalias !286
+  %75 = load i32, ptr %74, align 4, !noalias !266
+  %76 = load i32, ptr %71, align 8, !noalias !266
+  %77 = load i32, ptr getelementptr inbounds (%struct.AudioData, ptr @AUDIO, i64 0, i32 0, i32 1, i32 22, i32 11), align 8, !noalias !269
+  %78 = load i32, ptr getelementptr inbounds (%struct.AudioData, ptr @AUDIO, i64 0, i32 1, i32 2), align 8, !noalias !269
   %79 = icmp eq i32 %78, 0
   br i1 %79, label %80, label %83
 
 80:                                               ; preds = %73
-  %81 = load i32, ptr getelementptr inbounds (%struct.AudioData, ptr @AUDIO, i64 0, i32 0, i32 1, i32 2), align 4, !noalias !286
+  %81 = load i32, ptr getelementptr inbounds (%struct.AudioData, ptr @AUDIO, i64 0, i32 0, i32 1, i32 2), align 4, !noalias !269
   %82 = udiv i32 %81, 30
   br label %83
 
@@ -96020,20 +96020,20 @@ stb_vorbis_open_filename.exit:                    ; preds = %60
   %84 = phi i32 [ %82, %80 ], [ %78, %73 ]
   %spec.select.i49 = tail call i32 @llvm.umax.i32(i32 %84, i32 %77)
   %85 = shl i32 %spec.select.i49, 1
-  %86 = tail call ptr @LoadAudioBuffer(i32 noundef 2, i32 noundef %75, i32 noundef %76, i32 noundef %85, i32 noundef 1), !noalias !286
+  %86 = tail call ptr @LoadAudioBuffer(i32 noundef 2, i32 noundef %75, i32 noundef %76, i32 noundef %85, i32 noundef 1), !noalias !269
   %.not.i50 = icmp eq ptr %86, null
   br i1 %.not.i50, label %91, label %87
 
 87:                                               ; preds = %83
   %88 = getelementptr inbounds i8, ptr %86, i64 342
-  store i8 1, ptr %88, align 2, !noalias !286
+  store i8 1, ptr %88, align 2, !noalias !269
   %89 = icmp eq i32 %75, 1
   %90 = select i1 %89, ptr @.str.289, ptr @.str.290
-  tail call void (i32, ptr, ...) @TraceLog(i32 noundef 3, ptr noundef nonnull @.str.298, i32 noundef %76, i32 noundef 16, ptr noundef nonnull %90) #68, !noalias !286
+  tail call void (i32, ptr, ...) @TraceLog(i32 noundef 3, ptr noundef nonnull @.str.298, i32 noundef %76, i32 noundef 16, ptr noundef nonnull %90) #68, !noalias !269
   br label %LoadAudioStream.exit51
 
 91:                                               ; preds = %83
-  tail call void (i32, ptr, ...) @TraceLog(i32 noundef 4, ptr noundef nonnull @.str.299) #68, !noalias !286
+  tail call void (i32, ptr, ...) @TraceLog(i32 noundef 4, ptr noundef nonnull @.str.299) #68, !noalias !269
   br label %LoadAudioStream.exit51
 
 LoadAudioStream.exit51:                           ; preds = %87, %91
@@ -96049,7 +96049,7 @@ LoadAudioStream.exit51:                           ; preds = %87, %91
   %.sroa.678.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 28
   store i32 0, ptr %.sroa.678.0..sroa_idx, align 4
   %92 = load ptr, ptr %72, align 8
-  %93 = tail call i32 @stb_vorbis_stream_length_in_samples(ptr noundef %92), !range !259
+  %93 = tail call i32 @stb_vorbis_stream_length_in_samples(ptr noundef %92)
   %94 = getelementptr inbounds i8, ptr %0, i64 32
   store i32 %93, ptr %94, align 8
   %95 = getelementptr inbounds i8, ptr %0, i64 36
@@ -96090,7 +96090,7 @@ drmp3_fopen.exit.i:                               ; preds = %101
   %.sroa.5.0..sroa_idx31.i.i.i = getelementptr inbounds i8, ptr %99, i64 6728
   store ptr @drmp3__free_default, ptr %.sroa.5.0..sroa_idx31.i.i.i, align 8
   %110 = getelementptr inbounds i8, ptr %99, i64 6752
-  %111 = tail call fastcc i32 @drmp3_decode_next_frame_ex(ptr noundef nonnull %99, ptr noundef nonnull %110), !range !260
+  %111 = tail call fastcc i32 @drmp3_decode_next_frame_ex(ptr noundef nonnull %99, ptr noundef nonnull %110)
   %112 = icmp eq i32 %111, 0
   br i1 %112, label %113, label %125
 
@@ -96134,13 +96134,13 @@ drmp3_init_file.exit.thread:                      ; preds = %121, %98, %101
   store i32 4, ptr %132, align 8
   %133 = getelementptr inbounds i8, ptr %0, i64 48
   store ptr %99, ptr %133, align 8
-  %134 = load i32, ptr getelementptr inbounds (%struct.AudioData, ptr @AUDIO, i64 0, i32 0, i32 1, i32 22, i32 11), align 8, !noalias !289
-  %135 = load i32, ptr getelementptr inbounds (%struct.AudioData, ptr @AUDIO, i64 0, i32 1, i32 2), align 8, !noalias !289
+  %134 = load i32, ptr getelementptr inbounds (%struct.AudioData, ptr @AUDIO, i64 0, i32 0, i32 1, i32 22, i32 11), align 8, !noalias !272
+  %135 = load i32, ptr getelementptr inbounds (%struct.AudioData, ptr @AUDIO, i64 0, i32 1, i32 2), align 8, !noalias !272
   %136 = icmp eq i32 %135, 0
   br i1 %136, label %137, label %140
 
 137:                                              ; preds = %125
-  %138 = load i32, ptr getelementptr inbounds (%struct.AudioData, ptr @AUDIO, i64 0, i32 0, i32 1, i32 2), align 4, !noalias !289
+  %138 = load i32, ptr getelementptr inbounds (%struct.AudioData, ptr @AUDIO, i64 0, i32 0, i32 1, i32 2), align 4, !noalias !272
   %139 = udiv i32 %138, 30
   br label %140
 
@@ -96148,20 +96148,20 @@ drmp3_init_file.exit.thread:                      ; preds = %121, %98, %101
   %141 = phi i32 [ %139, %137 ], [ %135, %125 ]
   %spec.select.i53 = tail call i32 @llvm.umax.i32(i32 %141, i32 %134)
   %142 = shl i32 %spec.select.i53, 1
-  %143 = tail call ptr @LoadAudioBuffer(i32 noundef 5, i32 noundef %127, i32 noundef %130, i32 noundef %142, i32 noundef 1), !noalias !289
+  %143 = tail call ptr @LoadAudioBuffer(i32 noundef 5, i32 noundef %127, i32 noundef %130, i32 noundef %142, i32 noundef 1), !noalias !272
   %.not.i54 = icmp eq ptr %143, null
   br i1 %.not.i54, label %148, label %144
 
 144:                                              ; preds = %140
   %145 = getelementptr inbounds i8, ptr %143, i64 342
-  store i8 1, ptr %145, align 2, !noalias !289
+  store i8 1, ptr %145, align 2, !noalias !272
   %146 = icmp eq i32 %127, 1
   %147 = select i1 %146, ptr @.str.289, ptr @.str.290
-  tail call void (i32, ptr, ...) @TraceLog(i32 noundef 3, ptr noundef nonnull @.str.298, i32 noundef %130, i32 noundef 32, ptr noundef nonnull %147) #68, !noalias !289
+  tail call void (i32, ptr, ...) @TraceLog(i32 noundef 3, ptr noundef nonnull @.str.298, i32 noundef %130, i32 noundef 32, ptr noundef nonnull %147) #68, !noalias !272
   br label %LoadAudioStream.exit55
 
 148:                                              ; preds = %140
-  tail call void (i32, ptr, ...) @TraceLog(i32 noundef 4, ptr noundef nonnull @.str.299) #68, !noalias !289
+  tail call void (i32, ptr, ...) @TraceLog(i32 noundef 4, ptr noundef nonnull @.str.299) #68, !noalias !272
   br label %LoadAudioStream.exit55
 
 LoadAudioStream.exit55:                           ; preds = %144, %148
@@ -96177,7 +96177,7 @@ LoadAudioStream.exit55:                           ; preds = %144, %148
   %.sroa.672.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 28
   store i32 0, ptr %.sroa.672.0..sroa_idx, align 4
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
-  %149 = call i32 @drmp3_get_mp3_and_pcm_frame_count(ptr noundef nonnull %99, ptr noundef null, ptr noundef nonnull %3), !range !184
+  %149 = call i32 @drmp3_get_mp3_and_pcm_frame_count(ptr noundef nonnull %99, ptr noundef null, ptr noundef nonnull %3)
   %.not.i56 = icmp eq i32 %149, 0
   %150 = load i64, ptr %3, align 8
   %151 = trunc i64 %150 to i32
@@ -96208,13 +96208,13 @@ LoadAudioStream.exit55:                           ; preds = %144, %148
   %164 = getelementptr inbounds i8, ptr %158, i64 4
   %165 = load i32, ptr %164, align 4
   %166 = load i32, ptr %158, align 8
-  %167 = load i32, ptr getelementptr inbounds (%struct.AudioData, ptr @AUDIO, i64 0, i32 0, i32 1, i32 22, i32 11), align 8, !noalias !292
-  %168 = load i32, ptr getelementptr inbounds (%struct.AudioData, ptr @AUDIO, i64 0, i32 1, i32 2), align 8, !noalias !292
+  %167 = load i32, ptr getelementptr inbounds (%struct.AudioData, ptr @AUDIO, i64 0, i32 0, i32 1, i32 22, i32 11), align 8, !noalias !275
+  %168 = load i32, ptr getelementptr inbounds (%struct.AudioData, ptr @AUDIO, i64 0, i32 1, i32 2), align 8, !noalias !275
   %169 = icmp eq i32 %168, 0
   br i1 %169, label %170, label %173
 
 170:                                              ; preds = %163
-  %171 = load i32, ptr getelementptr inbounds (%struct.AudioData, ptr @AUDIO, i64 0, i32 0, i32 1, i32 2), align 4, !noalias !292
+  %171 = load i32, ptr getelementptr inbounds (%struct.AudioData, ptr @AUDIO, i64 0, i32 0, i32 1, i32 2), align 4, !noalias !275
   %172 = udiv i32 %171, 30
   br label %173
 
@@ -96222,20 +96222,20 @@ LoadAudioStream.exit55:                           ; preds = %144, %148
   %174 = phi i32 [ %172, %170 ], [ %168, %163 ]
   %spec.select.i58 = tail call i32 @llvm.umax.i32(i32 %174, i32 %167)
   %175 = shl i32 %spec.select.i58, 1
-  %176 = tail call ptr @LoadAudioBuffer(i32 noundef 5, i32 noundef %166, i32 noundef %165, i32 noundef %175, i32 noundef 1), !noalias !292
+  %176 = tail call ptr @LoadAudioBuffer(i32 noundef 5, i32 noundef %166, i32 noundef %165, i32 noundef %175, i32 noundef 1), !noalias !275
   %.not.i59 = icmp eq ptr %176, null
   br i1 %.not.i59, label %181, label %177
 
 177:                                              ; preds = %173
   %178 = getelementptr inbounds i8, ptr %176, i64 342
-  store i8 1, ptr %178, align 2, !noalias !292
+  store i8 1, ptr %178, align 2, !noalias !275
   %179 = icmp eq i32 %166, 1
   %180 = select i1 %179, ptr @.str.289, ptr @.str.290
-  tail call void (i32, ptr, ...) @TraceLog(i32 noundef 3, ptr noundef nonnull @.str.298, i32 noundef %165, i32 noundef 32, ptr noundef nonnull %180) #68, !noalias !292
+  tail call void (i32, ptr, ...) @TraceLog(i32 noundef 3, ptr noundef nonnull @.str.298, i32 noundef %165, i32 noundef 32, ptr noundef nonnull %180) #68, !noalias !275
   br label %LoadAudioStream.exit60
 
 181:                                              ; preds = %173
-  tail call void (i32, ptr, ...) @TraceLog(i32 noundef 4, ptr noundef nonnull @.str.299) #68, !noalias !292
+  tail call void (i32, ptr, ...) @TraceLog(i32 noundef 4, ptr noundef nonnull @.str.299) #68, !noalias !275
   br label %LoadAudioStream.exit60
 
 LoadAudioStream.exit60:                           ; preds = %177, %181
@@ -96265,7 +96265,7 @@ LoadAudioStream.exit60:                           ; preds = %177, %181
 188:                                              ; preds = %186
   store ptr null, ptr %4, align 8
   %189 = load i32, ptr getelementptr inbounds (%struct.AudioData, ptr @AUDIO, i64 0, i32 0, i32 1, i32 2), align 4
-  %190 = call i32 @jar_xm_create_context_from_file(ptr noundef nonnull %4, i32 noundef %189, ptr noundef %1), !range !295
+  %190 = call i32 @jar_xm_create_context_from_file(ptr noundef nonnull %4, i32 noundef %189, ptr noundef %1)
   %191 = getelementptr inbounds i8, ptr %0, i64 40
   store i32 6, ptr %191, align 8
   %192 = load ptr, ptr %4, align 8
@@ -96296,7 +96296,7 @@ LoadAudioStream.exit60:                           ; preds = %177, %181
 204:                                              ; preds = %202
   %205 = tail call noalias dereferenceable_or_null(7072) ptr @calloc(i64 noundef 1, i64 noundef 7072) #89
   %206 = tail call zeroext i1 @jar_mod_init(ptr noundef %205)
-  %207 = tail call i64 @jar_mod_load_file(ptr noundef %205, ptr noundef %1), !range !296
+  %207 = tail call i64 @jar_mod_load_file(ptr noundef %205, ptr noundef %1)
   %208 = getelementptr inbounds i8, ptr %0, i64 40
   store i32 7, ptr %208, align 8
   %209 = getelementptr inbounds i8, ptr %0, i64 48
@@ -96335,7 +96335,7 @@ LoadAudioStream.exit60:                           ; preds = %177, %181
 220:                                              ; preds = %217
   %221 = getelementptr inbounds i8, ptr %0, i64 48
   %222 = load ptr, ptr %221, align 8
-  %223 = tail call i32 @drwav_uninit(ptr noundef %222), !range !249
+  %223 = tail call i32 @drwav_uninit(ptr noundef %222)
   br label %stb_vorbis_close.exit
 
 224:                                              ; preds = %217
@@ -96631,7 +96631,7 @@ drwav_init_memory.exit:                           ; preds = %15
   store ptr %2, ptr %25, align 8
   %26 = getelementptr inbounds i8, ptr %16, i64 200
   store i64 %22, ptr %26, align 8
-  %27 = tail call fastcc i32 @drwav_init__internal(ptr noundef nonnull %16, ptr noundef null, ptr noundef null, i32 noundef 0), !range !184
+  %27 = tail call fastcc i32 @drwav_init__internal(ptr noundef nonnull %16, ptr noundef null, ptr noundef null, i32 noundef 0)
   %.not77 = icmp eq i32 %27, 0
   %28 = getelementptr inbounds i8, ptr %0, i64 40
   store i32 1, ptr %28, align 8
@@ -96654,13 +96654,13 @@ drwav_init_memory.exit:                           ; preds = %15
   %40 = icmp eq i16 %narrow, 16
   %41 = select i1 %40, i32 2, i32 5
   %42 = select i1 %39, i32 1, i32 %41
-  %43 = load i32, ptr getelementptr inbounds (%struct.AudioData, ptr @AUDIO, i64 0, i32 0, i32 1, i32 22, i32 11), align 8, !noalias !297
-  %44 = load i32, ptr getelementptr inbounds (%struct.AudioData, ptr @AUDIO, i64 0, i32 1, i32 2), align 8, !noalias !297
+  %43 = load i32, ptr getelementptr inbounds (%struct.AudioData, ptr @AUDIO, i64 0, i32 0, i32 1, i32 22, i32 11), align 8, !noalias !278
+  %44 = load i32, ptr getelementptr inbounds (%struct.AudioData, ptr @AUDIO, i64 0, i32 1, i32 2), align 8, !noalias !278
   %45 = icmp eq i32 %44, 0
   br i1 %45, label %46, label %49
 
 46:                                               ; preds = %30
-  %47 = load i32, ptr getelementptr inbounds (%struct.AudioData, ptr @AUDIO, i64 0, i32 0, i32 1, i32 2), align 4, !noalias !297
+  %47 = load i32, ptr getelementptr inbounds (%struct.AudioData, ptr @AUDIO, i64 0, i32 0, i32 1, i32 2), align 4, !noalias !278
   %48 = udiv i32 %47, 30
   br label %49
 
@@ -96668,20 +96668,20 @@ drwav_init_memory.exit:                           ; preds = %15
   %50 = phi i32 [ %48, %46 ], [ %44, %30 ]
   %spec.select.i = tail call i32 @llvm.umax.i32(i32 %50, i32 %43)
   %51 = shl i32 %spec.select.i, 1
-  %52 = tail call ptr @LoadAudioBuffer(i32 noundef %42, i32 noundef %38, i32 noundef %35, i32 noundef %51, i32 noundef 1), !noalias !297
+  %52 = tail call ptr @LoadAudioBuffer(i32 noundef %42, i32 noundef %38, i32 noundef %35, i32 noundef %51, i32 noundef 1), !noalias !278
   %.not.i = icmp eq ptr %52, null
   br i1 %.not.i, label %57, label %53
 
 53:                                               ; preds = %49
   %54 = getelementptr inbounds i8, ptr %52, i64 342
-  store i8 1, ptr %54, align 2, !noalias !297
+  store i8 1, ptr %54, align 2, !noalias !278
   %55 = icmp eq i16 %37, 1
   %56 = select i1 %55, ptr @.str.289, ptr @.str.290
-  tail call void (i32, ptr, ...) @TraceLog(i32 noundef 3, ptr noundef nonnull @.str.298, i32 noundef %35, i32 noundef %spec.store.select, ptr noundef nonnull %56) #68, !noalias !297
+  tail call void (i32, ptr, ...) @TraceLog(i32 noundef 3, ptr noundef nonnull @.str.298, i32 noundef %35, i32 noundef %spec.store.select, ptr noundef nonnull %56) #68, !noalias !278
   br label %LoadAudioStream.exit
 
 57:                                               ; preds = %49
-  tail call void (i32, ptr, ...) @TraceLog(i32 noundef 4, ptr noundef nonnull @.str.299) #68, !noalias !297
+  tail call void (i32, ptr, ...) @TraceLog(i32 noundef 4, ptr noundef nonnull @.str.299) #68, !noalias !278
   br label %LoadAudioStream.exit
 
 LoadAudioStream.exit:                             ; preds = %53, %57
@@ -96726,15 +96726,15 @@ LoadAudioStream.exit:                             ; preds = %53, %57
 
 73:                                               ; preds = %69
   %74 = getelementptr inbounds i8, ptr %71, i64 4
-  %75 = load i32, ptr %74, align 4, !noalias !300
-  %76 = load i32, ptr %71, align 8, !noalias !300
-  %77 = load i32, ptr getelementptr inbounds (%struct.AudioData, ptr @AUDIO, i64 0, i32 0, i32 1, i32 22, i32 11), align 8, !noalias !303
-  %78 = load i32, ptr getelementptr inbounds (%struct.AudioData, ptr @AUDIO, i64 0, i32 1, i32 2), align 8, !noalias !303
+  %75 = load i32, ptr %74, align 4, !noalias !281
+  %76 = load i32, ptr %71, align 8, !noalias !281
+  %77 = load i32, ptr getelementptr inbounds (%struct.AudioData, ptr @AUDIO, i64 0, i32 0, i32 1, i32 22, i32 11), align 8, !noalias !284
+  %78 = load i32, ptr getelementptr inbounds (%struct.AudioData, ptr @AUDIO, i64 0, i32 1, i32 2), align 8, !noalias !284
   %79 = icmp eq i32 %78, 0
   br i1 %79, label %80, label %83
 
 80:                                               ; preds = %73
-  %81 = load i32, ptr getelementptr inbounds (%struct.AudioData, ptr @AUDIO, i64 0, i32 0, i32 1, i32 2), align 4, !noalias !303
+  %81 = load i32, ptr getelementptr inbounds (%struct.AudioData, ptr @AUDIO, i64 0, i32 0, i32 1, i32 2), align 4, !noalias !284
   %82 = udiv i32 %81, 30
   br label %83
 
@@ -96742,20 +96742,20 @@ LoadAudioStream.exit:                             ; preds = %53, %57
   %84 = phi i32 [ %82, %80 ], [ %78, %73 ]
   %spec.select.i79 = tail call i32 @llvm.umax.i32(i32 %84, i32 %77)
   %85 = shl i32 %spec.select.i79, 1
-  %86 = tail call ptr @LoadAudioBuffer(i32 noundef 2, i32 noundef %75, i32 noundef %76, i32 noundef %85, i32 noundef 1), !noalias !303
+  %86 = tail call ptr @LoadAudioBuffer(i32 noundef 2, i32 noundef %75, i32 noundef %76, i32 noundef %85, i32 noundef 1), !noalias !284
   %.not.i80 = icmp eq ptr %86, null
   br i1 %.not.i80, label %91, label %87
 
 87:                                               ; preds = %83
   %88 = getelementptr inbounds i8, ptr %86, i64 342
-  store i8 1, ptr %88, align 2, !noalias !303
+  store i8 1, ptr %88, align 2, !noalias !284
   %89 = icmp eq i32 %75, 1
   %90 = select i1 %89, ptr @.str.289, ptr @.str.290
-  tail call void (i32, ptr, ...) @TraceLog(i32 noundef 3, ptr noundef nonnull @.str.298, i32 noundef %76, i32 noundef 16, ptr noundef nonnull %90) #68, !noalias !303
+  tail call void (i32, ptr, ...) @TraceLog(i32 noundef 3, ptr noundef nonnull @.str.298, i32 noundef %76, i32 noundef 16, ptr noundef nonnull %90) #68, !noalias !284
   br label %LoadAudioStream.exit81
 
 91:                                               ; preds = %83
-  tail call void (i32, ptr, ...) @TraceLog(i32 noundef 4, ptr noundef nonnull @.str.299) #68, !noalias !303
+  tail call void (i32, ptr, ...) @TraceLog(i32 noundef 4, ptr noundef nonnull @.str.299) #68, !noalias !284
   br label %LoadAudioStream.exit81
 
 LoadAudioStream.exit81:                           ; preds = %87, %91
@@ -96771,7 +96771,7 @@ LoadAudioStream.exit81:                           ; preds = %87, %91
   %.sroa.698.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 28
   store i32 0, ptr %.sroa.698.0..sroa_idx, align 4
   %92 = load ptr, ptr %72, align 8
-  %93 = tail call i32 @stb_vorbis_stream_length_in_samples(ptr noundef %92), !range !259
+  %93 = tail call i32 @stb_vorbis_stream_length_in_samples(ptr noundef %92)
   %94 = getelementptr inbounds i8, ptr %0, i64 32
   store i32 %93, ptr %94, align 8
   %95 = getelementptr inbounds i8, ptr %0, i64 36
@@ -96821,7 +96821,7 @@ LoadAudioStream.exit81:                           ; preds = %87, %91
   %.sroa.5.0..sroa_idx31.i.i = getelementptr inbounds i8, ptr %103, i64 6728
   store ptr @drmp3__free_default, ptr %.sroa.5.0..sroa_idx31.i.i, align 8
   %117 = getelementptr inbounds i8, ptr %103, i64 6752
-  %118 = tail call fastcc i32 @drmp3_decode_next_frame_ex(ptr noundef nonnull %103, ptr noundef nonnull %117), !range !260
+  %118 = tail call fastcc i32 @drmp3_decode_next_frame_ex(ptr noundef nonnull %103, ptr noundef nonnull %117)
   %119 = icmp eq i32 %118, 0
   br i1 %119, label %120, label %130
 
@@ -96861,13 +96861,13 @@ drmp3_init_memory.exit.thread:                    ; preds = %102, %106, %120, %1
   store i32 4, ptr %137, align 8
   %138 = getelementptr inbounds i8, ptr %0, i64 48
   store ptr %103, ptr %138, align 8
-  %139 = load i32, ptr getelementptr inbounds (%struct.AudioData, ptr @AUDIO, i64 0, i32 0, i32 1, i32 22, i32 11), align 8, !noalias !306
-  %140 = load i32, ptr getelementptr inbounds (%struct.AudioData, ptr @AUDIO, i64 0, i32 1, i32 2), align 8, !noalias !306
+  %139 = load i32, ptr getelementptr inbounds (%struct.AudioData, ptr @AUDIO, i64 0, i32 0, i32 1, i32 22, i32 11), align 8, !noalias !287
+  %140 = load i32, ptr getelementptr inbounds (%struct.AudioData, ptr @AUDIO, i64 0, i32 1, i32 2), align 8, !noalias !287
   %141 = icmp eq i32 %140, 0
   br i1 %141, label %142, label %145
 
 142:                                              ; preds = %130
-  %143 = load i32, ptr getelementptr inbounds (%struct.AudioData, ptr @AUDIO, i64 0, i32 0, i32 1, i32 2), align 4, !noalias !306
+  %143 = load i32, ptr getelementptr inbounds (%struct.AudioData, ptr @AUDIO, i64 0, i32 0, i32 1, i32 2), align 4, !noalias !287
   %144 = udiv i32 %143, 30
   br label %145
 
@@ -96875,20 +96875,20 @@ drmp3_init_memory.exit.thread:                    ; preds = %102, %106, %120, %1
   %146 = phi i32 [ %144, %142 ], [ %140, %130 ]
   %spec.select.i82 = tail call i32 @llvm.umax.i32(i32 %146, i32 %139)
   %147 = shl i32 %spec.select.i82, 1
-  %148 = tail call ptr @LoadAudioBuffer(i32 noundef 5, i32 noundef %132, i32 noundef %135, i32 noundef %147, i32 noundef 1), !noalias !306
+  %148 = tail call ptr @LoadAudioBuffer(i32 noundef 5, i32 noundef %132, i32 noundef %135, i32 noundef %147, i32 noundef 1), !noalias !287
   %.not.i83 = icmp eq ptr %148, null
   br i1 %.not.i83, label %153, label %149
 
 149:                                              ; preds = %145
   %150 = getelementptr inbounds i8, ptr %148, i64 342
-  store i8 1, ptr %150, align 2, !noalias !306
+  store i8 1, ptr %150, align 2, !noalias !287
   %151 = icmp eq i32 %132, 1
   %152 = select i1 %151, ptr @.str.289, ptr @.str.290
-  tail call void (i32, ptr, ...) @TraceLog(i32 noundef 3, ptr noundef nonnull @.str.298, i32 noundef %135, i32 noundef 32, ptr noundef nonnull %152) #68, !noalias !306
+  tail call void (i32, ptr, ...) @TraceLog(i32 noundef 3, ptr noundef nonnull @.str.298, i32 noundef %135, i32 noundef 32, ptr noundef nonnull %152) #68, !noalias !287
   br label %LoadAudioStream.exit84
 
 153:                                              ; preds = %145
-  tail call void (i32, ptr, ...) @TraceLog(i32 noundef 4, ptr noundef nonnull @.str.299) #68, !noalias !306
+  tail call void (i32, ptr, ...) @TraceLog(i32 noundef 4, ptr noundef nonnull @.str.299) #68, !noalias !287
   br label %LoadAudioStream.exit84
 
 LoadAudioStream.exit84:                           ; preds = %149, %153
@@ -96904,7 +96904,7 @@ LoadAudioStream.exit84:                           ; preds = %149, %153
   %.sroa.6.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 28
   store i32 0, ptr %.sroa.6.0..sroa_idx, align 4
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
-  %154 = call i32 @drmp3_get_mp3_and_pcm_frame_count(ptr noundef nonnull %103, ptr noundef null, ptr noundef nonnull %5), !range !184
+  %154 = call i32 @drmp3_get_mp3_and_pcm_frame_count(ptr noundef nonnull %103, ptr noundef null, ptr noundef nonnull %5)
   %.not.i85 = icmp eq i32 %154, 0
   %155 = load i64, ptr %5, align 8
   %156 = trunc i64 %155 to i32
@@ -96971,7 +96971,7 @@ LoadAudioStream.exit84:                           ; preds = %149, %153
   store ptr null, ptr %7, align 8
   %190 = sext i32 %3 to i64
   %191 = load i32, ptr getelementptr inbounds (%struct.AudioData, ptr @AUDIO, i64 0, i32 0, i32 1, i32 2), align 4
-  %192 = call i32 @jar_xm_create_context_safe(ptr noundef nonnull %7, ptr noundef %2, i64 noundef %190, i32 noundef %191), !range !261
+  %192 = call i32 @jar_xm_create_context_safe(ptr noundef nonnull %7, ptr noundef %2, i64 noundef %190, i32 noundef %191)
   %193 = icmp eq i32 %192, 0
   br i1 %193, label %194, label %.critedge
 
@@ -97068,7 +97068,7 @@ LoadAudioStream.exit84:                           ; preds = %149, %153
 234:                                              ; preds = %.critedge
   %235 = getelementptr inbounds i8, ptr %0, i64 48
   %236 = load ptr, ptr %235, align 8
-  %237 = tail call i32 @drwav_uninit(ptr noundef %236), !range !249
+  %237 = tail call i32 @drwav_uninit(ptr noundef %236)
   br label %stb_vorbis_close.exit
 
 238:                                              ; preds = %.critedge
@@ -97318,7 +97318,7 @@ define void @UnloadMusicStream(ptr nocapture noundef readonly byval(%struct.Musi
   ]
 
 7:                                                ; preds = %4
-  %8 = tail call i32 @drwav_uninit(ptr noundef nonnull %3), !range !249
+  %8 = tail call i32 @drwav_uninit(ptr noundef nonnull %3)
   br label %stb_vorbis_close.exit
 
 9:                                                ; preds = %4
@@ -97655,7 +97655,7 @@ StopAudioStream.exit:                             ; preds = %1, %2, %IsAudioBuff
 42:                                               ; preds = %StopAudioStream.exit
   %43 = getelementptr inbounds i8, ptr %0, i64 48
   %44 = load ptr, ptr %43, align 8
-  %45 = tail call i32 @stb_vorbis_seek_start(ptr noundef %44), !range !184
+  %45 = tail call i32 @stb_vorbis_seek_start(ptr noundef %44)
   br label %drwav_seek_to_first_pcm_frame.exit
 
 46:                                               ; preds = %StopAudioStream.exit
@@ -97884,20 +97884,20 @@ define void @SeekMusicStream(ptr nocapture noundef readonly byval(%struct.Music)
   %13 = getelementptr inbounds i8, ptr %0, i64 48
   %14 = load ptr, ptr %13, align 8
   %15 = zext i32 %11 to i64
-  %16 = tail call i32 @drwav_seek_to_pcm_frame(ptr noundef %14, i64 noundef %15), !range !184
+  %16 = tail call i32 @drwav_seek_to_pcm_frame(ptr noundef %14, i64 noundef %15)
   br label %qoaplay_seek_frame.exit
 
 17:                                               ; preds = %6
   %18 = getelementptr inbounds i8, ptr %0, i64 48
   %19 = load ptr, ptr %18, align 8
-  %20 = tail call i32 @stb_vorbis_seek_frame(ptr noundef %19, i32 noundef %11), !range !184
+  %20 = tail call i32 @stb_vorbis_seek_frame(ptr noundef %19, i32 noundef %11)
   br label %qoaplay_seek_frame.exit
 
 21:                                               ; preds = %6
   %22 = getelementptr inbounds i8, ptr %0, i64 48
   %23 = load ptr, ptr %22, align 8
   %24 = zext i32 %11 to i64
-  %25 = tail call i32 @drmp3_seek_to_pcm_frame(ptr noundef %23, i64 noundef %24), !range !184
+  %25 = tail call i32 @drmp3_seek_to_pcm_frame(ptr noundef %23, i64 noundef %24)
   br label %qoaplay_seek_frame.exit
 
 26:                                               ; preds = %6
@@ -98189,7 +98189,7 @@ drwav_seek_to_first_pcm_frame.exit73:             ; preds = %.lr.ph92, %117, %12
   %139 = phi i32 [ %147, %.lr.ph90 ], [ %72, %.preheader84 ]
   %.25789 = phi i32 [ %140, %.lr.ph90 ], [ 0, %.preheader84 ]
   %140 = add nsw i32 %139, %.25789
-  %141 = tail call i32 @stb_vorbis_seek_start(ptr noundef %32), !range !184
+  %141 = tail call i32 @stb_vorbis_seek_start(ptr noundef %32)
   %142 = load ptr, ptr getelementptr inbounds (%struct.AudioData, ptr @AUDIO, i64 0, i32 0, i32 5), align 8
   %143 = mul nsw i32 %140, %13
   %144 = sext i32 %143 to i64
@@ -99188,7 +99188,7 @@ define internal fastcc noundef i32 @ma_init_pa_mainloop_and_pa_context__pulse(pt
 ma_context_get_log.exit:                          ; preds = %6
   %11 = getelementptr inbounds i8, ptr %0, i64 112
   %12 = load ptr, ptr %11, align 8
-  %13 = tail call i32 (ptr, i32, ptr, ...) @ma_log_postf(ptr noundef %12, i32 noundef 1, ptr noundef nonnull @.str.381), !range !4
+  %13 = tail call i32 (ptr, i32, ptr, ...) @ma_log_postf(ptr noundef %12, i32 noundef 1, ptr noundef nonnull @.str.381)
   br label %62
 
 14:                                               ; preds = %6
@@ -99204,7 +99204,7 @@ ma_context_get_log.exit:                          ; preds = %6
 ma_context_get_log.exit39:                        ; preds = %14
   %22 = getelementptr inbounds i8, ptr %0, i64 112
   %23 = load ptr, ptr %22, align 8
-  %24 = tail call i32 (ptr, i32, ptr, ...) @ma_log_postf(ptr noundef %23, i32 noundef 1, ptr noundef nonnull @.str.382), !range !4
+  %24 = tail call i32 (ptr, i32, ptr, ...) @ma_log_postf(ptr noundef %23, i32 noundef 1, ptr noundef nonnull @.str.382)
   %25 = getelementptr inbounds i8, ptr %0, i64 440
   %26 = load ptr, ptr %25, align 8
   tail call void %26(ptr noundef nonnull %9) #68
@@ -99240,7 +99240,7 @@ ma_context_get_log.exit42:                        ; preds = %33, %36, %35, %34, 
   %.0.i40.ph = phi i32 [ -1, %27 ], [ -2, %34 ], [ -204, %35 ], [ -1, %36 ], [ -6, %33 ]
   %37 = getelementptr inbounds i8, ptr %0, i64 112
   %38 = load ptr, ptr %37, align 8
-  %39 = tail call i32 (ptr, i32, ptr, ...) @ma_log_postf(ptr noundef %38, i32 noundef 1, ptr noundef nonnull @.str.383), !range !4
+  %39 = tail call i32 (ptr, i32, ptr, ...) @ma_log_postf(ptr noundef %38, i32 noundef 1, ptr noundef nonnull @.str.383)
   %40 = getelementptr inbounds i8, ptr %0, i64 440
   %41 = load ptr, ptr %40, align 8
   tail call void %41(ptr noundef nonnull %9) #68
@@ -99265,7 +99265,7 @@ ma_result_from_pulse.exit:                        ; preds = %33
 ma_context_get_log.exit.i:                        ; preds = %48
   %50 = getelementptr inbounds i8, ptr %0, i64 112
   %51 = load ptr, ptr %50, align 8
-  %52 = tail call i32 (ptr, i32, ptr, ...) @ma_log_postf(ptr noundef %51, i32 noundef 1, ptr noundef nonnull @.str.385), !range !4
+  %52 = tail call i32 (ptr, i32, ptr, ...) @ma_log_postf(ptr noundef %51, i32 noundef 1, ptr noundef nonnull @.str.385)
   br label %ma_context_get_log.exit45
 
 53:                                               ; preds = %48
@@ -99277,7 +99277,7 @@ ma_context_get_log.exit.i:                        ; preds = %48
 ma_context_get_log.exit45:                        ; preds = %53, %ma_context_get_log.exit.i
   %57 = getelementptr inbounds i8, ptr %0, i64 112
   %58 = load ptr, ptr %57, align 8
-  %59 = tail call i32 (ptr, i32, ptr, ...) @ma_log_postf(ptr noundef %58, i32 noundef 1, ptr noundef nonnull @.str.384), !range !4
+  %59 = tail call i32 (ptr, i32, ptr, ...) @ma_log_postf(ptr noundef %58, i32 noundef 1, ptr noundef nonnull @.str.384)
   %60 = getelementptr inbounds i8, ptr %0, i64 440
   %61 = load ptr, ptr %60, align 8
   tail call void %61(ptr noundef nonnull %9) #68
@@ -99852,7 +99852,7 @@ ma_device_get_context.exit.i367:                  ; preds = %switch.hole_check, 
 
 ma_device_get_log.exit369:                        ; preds = %ma_device_get_context.exit.i367, %145
   %.0.i1.i368 = phi ptr [ %147, %145 ], [ null, %ma_device_get_context.exit.i367 ]
-  %148 = call i32 (ptr, i32, ptr, ...) @ma_log_postf(ptr noundef %.0.i1.i368, i32 noundef 3, ptr noundef nonnull @.str.388), !range !4
+  %148 = call i32 (ptr, i32, ptr, ...) @ma_log_postf(ptr noundef %.0.i1.i368, i32 noundef 3, ptr noundef nonnull @.str.388)
   br label %ma_format_from_pulse.exit.thread
 
 switch.hole_check:                                ; preds = %140
@@ -99882,7 +99882,7 @@ ma_device_get_context.exit.i370:                  ; preds = %ma_format_from_puls
 
 ma_device_get_log.exit372:                        ; preds = %ma_device_get_context.exit.i370, %155
   %.0.i1.i371 = phi ptr [ %157, %155 ], [ null, %ma_device_get_context.exit.i370 ]
-  %158 = call i32 (ptr, i32, ptr, ...) @ma_log_postf(ptr noundef %.0.i1.i371, i32 noundef 3, ptr noundef nonnull @.str.389, i32 noundef 48000), !range !4
+  %158 = call i32 (ptr, i32, ptr, ...) @ma_log_postf(ptr noundef %.0.i1.i371, i32 noundef 3, ptr noundef nonnull @.str.389, i32 noundef 48000)
   br label %159
 
 159:                                              ; preds = %ma_device_get_log.exit372, %ma_format_from_pulse.exit.thread
@@ -99905,7 +99905,7 @@ ma_device_get_context.exit.i373:                  ; preds = %159
 
 ma_device_get_log.exit375:                        ; preds = %ma_device_get_context.exit.i373, %165
   %.0.i1.i374 = phi ptr [ %167, %165 ], [ null, %ma_device_get_context.exit.i373 ]
-  %168 = call i32 (ptr, i32, ptr, ...) @ma_log_postf(ptr noundef %.0.i1.i374, i32 noundef 3, ptr noundef nonnull @.str.390, i32 noundef 2), !range !4
+  %168 = call i32 (ptr, i32, ptr, ...) @ma_log_postf(ptr noundef %.0.i1.i374, i32 noundef 3, ptr noundef nonnull @.str.390, i32 noundef 2)
   br label %169
 
 169:                                              ; preds = %ma_device_get_log.exit375, %159
@@ -99974,7 +99974,7 @@ ma_device_get_context.exit.i377:                  ; preds = %ma_calculate_period
   %.0.i.i = phi i64 [ %switch.load, %switch.lookup ], [ 0, %ma_calculate_period_size_in_frames_from_descriptor__pulse.exit ]
   %200 = zext i8 %.val351 to i32
   %201 = getelementptr inbounds [6 x i32], ptr @__const.ma_get_bytes_per_sample.sizes, i64 0, i64 %.0.i.i
-  %202 = load i32, ptr %201, align 4, !noalias !309
+  %202 = load i32, ptr %201, align 4, !noalias !290
   %203 = mul i32 %197, %.0.i376
   %204 = mul i32 %203, %200
   %205 = mul i32 %204, %202
@@ -99999,7 +99999,7 @@ ma_device_get_context.exit.i377:                  ; preds = %ma_calculate_period
 
 ma_device_get_log.exit379:                        ; preds = %ma_device_get_context.exit.i377, %209
   %.0.i1.i378 = phi ptr [ %211, %209 ], [ null, %ma_device_get_context.exit.i377 ]
-  %212 = call i32 (ptr, i32, ptr, ...) @ma_log_postf(ptr noundef %.0.i1.i378, i32 noundef 3, ptr noundef nonnull @.str.391, i32 noundef %205, i32 noundef %206, i32 noundef -1, i32 noundef -1, i32 noundef %206, i32 noundef %.0.i376), !range !4
+  %212 = call i32 (ptr, i32, ptr, ...) @ma_log_postf(ptr noundef %.0.i1.i378, i32 noundef 3, ptr noundef nonnull @.str.391, i32 noundef %205, i32 noundef %206, i32 noundef -1, i32 noundef -1, i32 noundef %206, i32 noundef %.0.i376)
   %213 = getelementptr inbounds i8, ptr %1, i64 232
   %214 = load ptr, ptr %213, align 8
   call void @llvm.lifetime.start.p0(i64 256, ptr nonnull %5)
@@ -100122,7 +100122,7 @@ ma_device_get_context.exit.i382:                  ; preds = %ma_device__pa_strea
 
 ma_device_get_log.exit384:                        ; preds = %ma_device_get_context.exit.i382, %252
   %.0.i1.i383 = phi ptr [ %254, %252 ], [ null, %ma_device_get_context.exit.i382 ]
-  %255 = call i32 @ma_log_post(ptr noundef %.0.i1.i383, i32 noundef 1, ptr noundef nonnull @.str.392), !range !11
+  %255 = call i32 @ma_log_post(ptr noundef %.0.i1.i383, i32 noundef 1, ptr noundef nonnull @.str.392)
   br label %ma_log_post.exit
 
 256:                                              ; preds = %ma_device__pa_stream_new__pulse.exit
@@ -100162,7 +100162,7 @@ ma_device_get_context.exit.i385:                  ; preds = %256
 
 ma_device_get_log.exit387:                        ; preds = %ma_device_get_context.exit.i385, %275
   %.0.i1.i386 = phi ptr [ %277, %275 ], [ null, %ma_device_get_context.exit.i385 ]
-  %278 = call i32 @ma_log_post(ptr noundef %.0.i1.i386, i32 noundef 1, ptr noundef nonnull @.str.393), !range !11
+  %278 = call i32 @ma_log_post(ptr noundef %.0.i1.i386, i32 noundef 1, ptr noundef nonnull @.str.393)
   %279 = icmp sge i32 %272, 0
   %280 = icmp ult i32 %272, 6
   %or.cond527 = and i1 %279, %280
@@ -100171,7 +100171,7 @@ ma_device_get_log.exit387:                        ; preds = %ma_device_get_conte
 281:                                              ; preds = %256
   %282 = load ptr, ptr %11, align 8
   %283 = load ptr, ptr %248, align 8
-  %284 = call fastcc i32 @ma_wait_for_pa_stream_to_connect__pulse(ptr noundef %273, ptr noundef %282, ptr noundef %283), !range !312
+  %284 = call fastcc i32 @ma_wait_for_pa_stream_to_connect__pulse(ptr noundef %273, ptr noundef %282, ptr noundef %283)
   %.not319 = icmp eq i32 %284, 0
   br i1 %.not319, label %285, label %ma_log_post.exit419
 
@@ -100198,14 +100198,14 @@ ma_device_get_context.exit.i389:                  ; preds = %285
 ma_device_get_log.exit391:                        ; preds = %ma_device_get_context.exit.i389, %293
   %.0.i1.i390 = phi ptr [ %295, %293 ], [ null, %ma_device_get_context.exit.i389 ]
   %296 = load i32, ptr %8, align 4
-  %297 = call fastcc i32 @ma_format_from_pulse(i32 noundef %296), !range !295
+  %297 = call fastcc i32 @ma_format_from_pulse(i32 noundef %296)
   %298 = zext nneg i32 %297 to i64
   %switch.gep512 = getelementptr inbounds [6 x ptr], ptr @switch.table.ma_device_init__pulse.56, i64 0, i64 %298
   %switch.load513 = load ptr, ptr %switch.gep512, align 8
   %299 = load i8, ptr %133, align 4
   %300 = zext i8 %299 to i32
   %301 = load i32, ptr %149, align 4
-  %302 = call i32 (ptr, i32, ptr, ...) @ma_log_postf(ptr noundef %.0.i1.i390, i32 noundef 3, ptr noundef nonnull @.str.394, ptr noundef nonnull %switch.load513, i32 noundef %300, i32 noundef %301), !range !4
+  %302 = call i32 (ptr, i32, ptr, ...) @ma_log_postf(ptr noundef %.0.i1.i390, i32 noundef 3, ptr noundef nonnull @.str.394, ptr noundef nonnull %switch.load513, i32 noundef %300, i32 noundef %301)
   br label %309
 
 ma_device_get_context.exit.i393:                  ; preds = %285
@@ -100220,12 +100220,12 @@ ma_device_get_context.exit.i393:                  ; preds = %285
 
 ma_device_get_log.exit395:                        ; preds = %ma_device_get_context.exit.i393, %305
   %.0.i1.i394 = phi ptr [ %307, %305 ], [ null, %ma_device_get_context.exit.i393 ]
-  %308 = call i32 (ptr, i32, ptr, ...) @ma_log_postf(ptr noundef %.0.i1.i394, i32 noundef 3, ptr noundef nonnull @.str.395), !range !4
+  %308 = call i32 (ptr, i32, ptr, ...) @ma_log_postf(ptr noundef %.0.i1.i394, i32 noundef 3, ptr noundef nonnull @.str.395)
   br label %309
 
 309:                                              ; preds = %ma_device_get_log.exit395, %ma_device_get_log.exit391
   %310 = load i32, ptr %8, align 4
-  %311 = call fastcc i32 @ma_format_from_pulse(i32 noundef %310), !range !295
+  %311 = call fastcc i32 @ma_format_from_pulse(i32 noundef %310)
   %312 = getelementptr inbounds i8, ptr %3, i64 12
   store i32 %311, ptr %312, align 4
   %313 = load i8, ptr %133, align 4
@@ -100257,7 +100257,7 @@ switch.lookup514:                                 ; preds = %322, %ma_device_get
   %325 = zext nneg i32 %311 to i64
   %switch.gep515 = getelementptr inbounds [6 x ptr], ptr @switch.table.ma_device_init__pulse.56, i64 0, i64 %325
   %switch.load516 = load ptr, ptr %switch.gep515, align 8
-  %326 = call i32 (ptr, i32, ptr, ...) @ma_log_postf(ptr noundef %.0.i1.i397, i32 noundef 1, ptr noundef nonnull @.str.396, ptr noundef nonnull %switch.load516, i32 noundef %314, i32 noundef %315), !range !4
+  %326 = call i32 (ptr, i32, ptr, ...) @ma_log_postf(ptr noundef %.0.i1.i397, i32 noundef 1, ptr noundef nonnull @.str.396, ptr noundef nonnull %switch.load516, i32 noundef %314, i32 noundef %315)
   br label %641
 
 327:                                              ; preds = %317
@@ -100274,7 +100274,7 @@ switch.lookup514:                                 ; preds = %322, %ma_device_get
   %indvars.iv = phi i64 [ 0, %.preheader487 ], [ %indvars.iv.next, %331 ]
   %332 = getelementptr inbounds [32 x i32], ptr %330, i64 0, i64 %indvars.iv
   %333 = load i32, ptr %332, align 4
-  %334 = call fastcc zeroext i8 @ma_channel_position_from_pulse(i32 noundef %333), !range !313
+  %334 = call fastcc zeroext i8 @ma_channel_position_from_pulse(i32 noundef %333)
   %335 = getelementptr inbounds [254 x i8], ptr %329, i64 0, i64 %indvars.iv
   store i8 %334, ptr %335, align 1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -100345,7 +100345,7 @@ ma_device_get_log.exit403:                        ; preds = %ma_device_get_conte
   %364 = load i32, ptr %.sroa.2.0..sroa_idx, align 4
   %365 = load i32, ptr %.sroa.3.0..sroa_idx, align 4
   %366 = load i32, ptr %.sroa.4.0..sroa_idx, align 4
-  %367 = call i32 (ptr, i32, ptr, ...) @ma_log_postf(ptr noundef %.0.i1.i402, i32 noundef 3, ptr noundef nonnull @.str.397, i32 noundef %.pre498, i32 noundef %364, i32 noundef %365, i32 noundef %366, i32 noundef %348, i32 noundef %358), !range !4
+  %367 = call i32 (ptr, i32, ptr, ...) @ma_log_postf(ptr noundef %.0.i1.i402, i32 noundef 3, ptr noundef nonnull @.str.397, i32 noundef %.pre498, i32 noundef %364, i32 noundef %365, i32 noundef %366, i32 noundef %348, i32 noundef %358)
   %.pr = load i32, ptr %1, align 8
   br label %368
 
@@ -100481,7 +100481,7 @@ ma_device_get_log.exit410:                        ; preds = %ma_device_get_conte
 
 437:                                              ; preds = %435, %425
   %438 = load i32, ptr %8, align 4
-  %439 = call fastcc i32 @ma_format_from_pulse(i32 noundef %438), !range !295
+  %439 = call fastcc i32 @ma_format_from_pulse(i32 noundef %438)
   %440 = icmp eq i32 %439, 0
   br i1 %440, label %ma_device_get_context.exit.i420, label %447
 
@@ -100498,7 +100498,7 @@ ma_device_get_context.exit.i420:                  ; preds = %437
 
 ma_device_get_log.exit422:                        ; preds = %ma_device_get_context.exit.i420, %443
   %.0.i1.i421 = phi ptr [ %445, %443 ], [ null, %ma_device_get_context.exit.i420 ]
-  %446 = call i32 (ptr, i32, ptr, ...) @ma_log_postf(ptr noundef %.0.i1.i421, i32 noundef 3, ptr noundef nonnull @.str.388), !range !4
+  %446 = call i32 (ptr, i32, ptr, ...) @ma_log_postf(ptr noundef %.0.i1.i421, i32 noundef 3, ptr noundef nonnull @.str.388)
   br label %447
 
 447:                                              ; preds = %ma_device_get_log.exit422, %437
@@ -100522,7 +100522,7 @@ ma_device_get_context.exit.i423:                  ; preds = %447
 
 ma_device_get_log.exit425:                        ; preds = %ma_device_get_context.exit.i423, %454
   %.0.i1.i424 = phi ptr [ %456, %454 ], [ null, %ma_device_get_context.exit.i423 ]
-  %457 = call i32 (ptr, i32, ptr, ...) @ma_log_postf(ptr noundef %.0.i1.i424, i32 noundef 3, ptr noundef nonnull @.str.389, i32 noundef 48000), !range !4
+  %457 = call i32 (ptr, i32, ptr, ...) @ma_log_postf(ptr noundef %.0.i1.i424, i32 noundef 3, ptr noundef nonnull @.str.389, i32 noundef 48000)
   br label %458
 
 458:                                              ; preds = %ma_device_get_log.exit425, %447
@@ -100545,7 +100545,7 @@ ma_device_get_context.exit.i426:                  ; preds = %458
 
 ma_device_get_log.exit428:                        ; preds = %ma_device_get_context.exit.i426, %464
   %.0.i1.i427 = phi ptr [ %466, %464 ], [ null, %ma_device_get_context.exit.i426 ]
-  %467 = call i32 (ptr, i32, ptr, ...) @ma_log_postf(ptr noundef %.0.i1.i427, i32 noundef 3, ptr noundef nonnull @.str.390, i32 noundef 2), !range !4
+  %467 = call i32 (ptr, i32, ptr, ...) @ma_log_postf(ptr noundef %.0.i1.i427, i32 noundef 3, ptr noundef nonnull @.str.390, i32 noundef 2)
   %.val353.pre = load i8, ptr %430, align 4
   br label %ma_device_get_context.exit.i429
 
@@ -100582,7 +100582,7 @@ ma_device_get_log.exit431:                        ; preds = %ma_device_get_conte
   %486 = load i32, ptr %485, align 4
   %487 = getelementptr inbounds i8, ptr %10, i64 16
   %488 = load i32, ptr %487, align 4
-  %489 = call i32 (ptr, i32, ptr, ...) @ma_log_postf(ptr noundef %.0.i1.i430, i32 noundef 3, ptr noundef nonnull @.str.399, i32 noundef %480, i32 noundef %482, i32 noundef %484, i32 noundef %486, i32 noundef %488, i32 noundef %471), !range !4
+  %489 = call i32 (ptr, i32, ptr, ...) @ma_log_postf(ptr noundef %.0.i1.i430, i32 noundef 3, ptr noundef nonnull @.str.399, i32 noundef %480, i32 noundef %482, i32 noundef %484, i32 noundef %486, i32 noundef %488, i32 noundef %471)
   %490 = getelementptr inbounds i8, ptr %1, i64 224
   %491 = load ptr, ptr %490, align 8
   %492 = call fastcc ptr @ma_device__pa_stream_new__pulse(ptr noundef nonnull %0, ptr noundef %491, ptr noundef nonnull %8, ptr noundef nonnull %9)
@@ -100603,7 +100603,7 @@ ma_device_get_context.exit.i432:                  ; preds = %ma_device_get_log.e
 
 ma_device_get_log.exit434:                        ; preds = %ma_device_get_context.exit.i432, %497
   %.0.i1.i433 = phi ptr [ %499, %497 ], [ null, %ma_device_get_context.exit.i432 ]
-  %500 = call i32 @ma_log_post(ptr noundef %.0.i1.i433, i32 noundef 1, ptr noundef nonnull @.str.400), !range !11
+  %500 = call i32 @ma_log_post(ptr noundef %.0.i1.i433, i32 noundef 1, ptr noundef nonnull @.str.400)
   br label %ma_log_post.exit419
 
 501:                                              ; preds = %ma_device_get_log.exit431
@@ -100643,7 +100643,7 @@ ma_device_get_context.exit.i435:                  ; preds = %501
 
 ma_device_get_log.exit437:                        ; preds = %ma_device_get_context.exit.i435, %520
   %.0.i1.i436 = phi ptr [ %522, %520 ], [ null, %ma_device_get_context.exit.i435 ]
-  %523 = call i32 @ma_log_post(ptr noundef %.0.i1.i436, i32 noundef 1, ptr noundef nonnull @.str.401), !range !11
+  %523 = call i32 @ma_log_post(ptr noundef %.0.i1.i436, i32 noundef 1, ptr noundef nonnull @.str.401)
   %524 = icmp sge i32 %517, 0
   %525 = icmp ult i32 %517, 6
   %or.cond528 = and i1 %524, %525
@@ -100652,7 +100652,7 @@ ma_device_get_log.exit437:                        ; preds = %ma_device_get_conte
 526:                                              ; preds = %501
   %527 = load ptr, ptr %11, align 8
   %528 = load ptr, ptr %493, align 8
-  %529 = call fastcc i32 @ma_wait_for_pa_stream_to_connect__pulse(ptr noundef %518, ptr noundef %527, ptr noundef %528), !range !312
+  %529 = call fastcc i32 @ma_wait_for_pa_stream_to_connect__pulse(ptr noundef %518, ptr noundef %527, ptr noundef %528)
   %.not328 = icmp eq i32 %529, 0
   br i1 %.not328, label %530, label %ma_result_from_pulse.exit439thread-pre-split
 
@@ -100679,14 +100679,14 @@ ma_device_get_context.exit.i440:                  ; preds = %530
 ma_device_get_log.exit442:                        ; preds = %ma_device_get_context.exit.i440, %538
   %.0.i1.i441 = phi ptr [ %540, %538 ], [ null, %ma_device_get_context.exit.i440 ]
   %541 = load i32, ptr %8, align 4
-  %542 = call fastcc i32 @ma_format_from_pulse(i32 noundef %541), !range !295
+  %542 = call fastcc i32 @ma_format_from_pulse(i32 noundef %541)
   %543 = zext nneg i32 %542 to i64
   %switch.gep522 = getelementptr inbounds [6 x ptr], ptr @switch.table.ma_device_init__pulse.56, i64 0, i64 %543
   %switch.load523 = load ptr, ptr %switch.gep522, align 8
   %544 = load i8, ptr %430, align 4
   %545 = zext i8 %544 to i32
   %546 = load i32, ptr %448, align 4
-  %547 = call i32 (ptr, i32, ptr, ...) @ma_log_postf(ptr noundef %.0.i1.i441, i32 noundef 3, ptr noundef nonnull @.str.402, ptr noundef nonnull %switch.load523, i32 noundef %545, i32 noundef %546), !range !4
+  %547 = call i32 (ptr, i32, ptr, ...) @ma_log_postf(ptr noundef %.0.i1.i441, i32 noundef 3, ptr noundef nonnull @.str.402, ptr noundef nonnull %switch.load523, i32 noundef %545, i32 noundef %546)
   br label %554
 
 ma_device_get_context.exit.i445:                  ; preds = %530
@@ -100701,12 +100701,12 @@ ma_device_get_context.exit.i445:                  ; preds = %530
 
 ma_device_get_log.exit447:                        ; preds = %ma_device_get_context.exit.i445, %550
   %.0.i1.i446 = phi ptr [ %552, %550 ], [ null, %ma_device_get_context.exit.i445 ]
-  %553 = call i32 (ptr, i32, ptr, ...) @ma_log_postf(ptr noundef %.0.i1.i446, i32 noundef 3, ptr noundef nonnull @.str.403), !range !4
+  %553 = call i32 (ptr, i32, ptr, ...) @ma_log_postf(ptr noundef %.0.i1.i446, i32 noundef 3, ptr noundef nonnull @.str.403)
   br label %554
 
 554:                                              ; preds = %ma_device_get_log.exit447, %ma_device_get_log.exit442
   %555 = load i32, ptr %8, align 4
-  %556 = call fastcc i32 @ma_format_from_pulse(i32 noundef %555), !range !295
+  %556 = call fastcc i32 @ma_format_from_pulse(i32 noundef %555)
   %557 = getelementptr inbounds i8, ptr %2, i64 12
   store i32 %556, ptr %557, align 4
   %558 = load i8, ptr %430, align 4
@@ -100738,7 +100738,7 @@ switch.lookup524:                                 ; preds = %567, %ma_device_get
   %570 = zext nneg i32 %556 to i64
   %switch.gep525 = getelementptr inbounds [6 x ptr], ptr @switch.table.ma_device_init__pulse.56, i64 0, i64 %570
   %switch.load526 = load ptr, ptr %switch.gep525, align 8
-  %571 = call i32 (ptr, i32, ptr, ...) @ma_log_postf(ptr noundef %.0.i1.i449, i32 noundef 1, ptr noundef nonnull @.str.404, ptr noundef nonnull %switch.load526, i32 noundef %559, i32 noundef %560), !range !4
+  %571 = call i32 (ptr, i32, ptr, ...) @ma_log_postf(ptr noundef %.0.i1.i449, i32 noundef 1, ptr noundef nonnull @.str.404, ptr noundef nonnull %switch.load526, i32 noundef %559, i32 noundef %560)
   br label %641
 
 572:                                              ; preds = %562
@@ -100755,7 +100755,7 @@ switch.lookup524:                                 ; preds = %567, %ma_device_get
   %indvars.iv493 = phi i64 [ 0, %.preheader ], [ %indvars.iv.next494, %576 ]
   %577 = getelementptr inbounds [32 x i32], ptr %575, i64 0, i64 %indvars.iv493
   %578 = load i32, ptr %577, align 4
-  %579 = call fastcc zeroext i8 @ma_channel_position_from_pulse(i32 noundef %578), !range !313
+  %579 = call fastcc zeroext i8 @ma_channel_position_from_pulse(i32 noundef %578)
   %580 = getelementptr inbounds [254 x i8], ptr %574, i64 0, i64 %indvars.iv493
   store i8 %579, ptr %580, align 1
   %indvars.iv.next494 = add nuw nsw i64 %indvars.iv493, 1
@@ -100826,7 +100826,7 @@ ma_device_get_context.exit.i453:                  ; preds = %594, %592
   %610 = load i32, ptr %483, align 4
   %611 = load i32, ptr %485, align 4
   %612 = load i32, ptr %487, align 4
-  %613 = call i32 (ptr, i32, ptr, ...) @ma_log_postf(ptr noundef %.0.i1.i454, i32 noundef 3, ptr noundef nonnull @.str.405, i32 noundef %.pre503, i32 noundef %593, i32 noundef %610, i32 noundef %611, i32 noundef %612, i32 noundef %603), !range !4
+  %613 = call i32 (ptr, i32, ptr, ...) @ma_log_postf(ptr noundef %.0.i1.i454, i32 noundef 3, ptr noundef nonnull @.str.405, i32 noundef %.pre503, i32 noundef %593, i32 noundef %610, i32 noundef %611, i32 noundef %612, i32 noundef %603)
   %.pre504 = load i32, ptr %1, align 8
   %614 = icmp eq i32 %.pre504, 3
   br i1 %614, label %615, label %ma_log_post.exit
@@ -100878,7 +100878,7 @@ ma_device_get_context.exit.i456:                  ; preds = %624
 ma_device_get_log.exit458:                        ; preds = %ma_device_get_context.exit.i456, %636
   %.0.i1.i457 = phi ptr [ %638, %636 ], [ null, %ma_device_get_context.exit.i456 ]
   %639 = call ptr @ma_result_description(i32 noundef %633)
-  %640 = call i32 (ptr, i32, ptr, ...) @ma_log_postf(ptr noundef %.0.i1.i457, i32 noundef 1, ptr noundef nonnull @.str.406, ptr noundef nonnull %639), !range !4
+  %640 = call i32 (ptr, i32, ptr, ...) @ma_log_postf(ptr noundef %.0.i1.i457, i32 noundef 1, ptr noundef nonnull @.str.406, ptr noundef nonnull %639)
   br label %641
 
 641:                                              ; preds = %ma_device_get_log.exit458, %switch.lookup524, %switch.lookup514
@@ -101085,7 +101085,7 @@ thread-pre-split:                                 ; preds = %5
 9:                                                ; preds = %7, %7
   %10 = getelementptr inbounds i8, ptr %0, i64 3440
   %11 = load ptr, ptr %10, align 8
-  %12 = tail call fastcc i32 @ma_device_write_to_stream__pulse(ptr noundef nonnull %0, ptr noundef %11, ptr noundef null), !range !312
+  %12 = tail call fastcc i32 @ma_device_write_to_stream__pulse(ptr noundef nonnull %0, ptr noundef %11, ptr noundef null)
   %13 = tail call fastcc i32 @ma_device__cork_stream__pulse(ptr noundef nonnull %0, i32 noundef 1, i32 noundef 0)
   %.not16 = icmp eq i32 %13, 0
   br i1 %.not16, label %14, label %15
@@ -101752,7 +101752,7 @@ ma_format_from_pulse.exit:                        ; preds = %27, %switch.lookup
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal fastcc noundef i32 @ma_format_from_pulse(i32 noundef %0) unnamed_addr #1 {
+define internal fastcc range(i32 0, 6) i32 @ma_format_from_pulse(i32 noundef %0) unnamed_addr #1 {
   %2 = icmp ult i32 %0, 10
   br i1 %2, label %switch.lookup, label %4
 
@@ -102025,7 +102025,7 @@ ma_device_get_state.exit30:                       ; preds = %49
 
 40:                                               ; preds = %38
   %41 = trunc i64 %37 to i32
-  %42 = call i32 @ma_device_handle_backend_data_callback(ptr noundef nonnull %2, ptr noundef null, ptr noundef nonnull %39, i32 noundef %41), !range !11
+  %42 = call i32 @ma_device_handle_backend_data_callback(ptr noundef nonnull %2, ptr noundef null, ptr noundef nonnull %39, i32 noundef %41)
   br label %49
 
 ma_device_get_context.exit.i:                     ; preds = %38
@@ -102040,7 +102040,7 @@ ma_device_get_context.exit.i:                     ; preds = %38
 
 ma_device_get_log.exit:                           ; preds = %ma_device_get_context.exit.i, %45
   %.0.i1.i = phi ptr [ %47, %45 ], [ null, %ma_device_get_context.exit.i ]
-  %48 = call i32 (ptr, i32, ptr, ...) @ma_log_postf(ptr noundef %.0.i1.i, i32 noundef 4, ptr noundef nonnull @.str.408), !range !4
+  %48 = call i32 (ptr, i32, ptr, ...) @ma_log_postf(ptr noundef %.0.i1.i, i32 noundef 4, ptr noundef nonnull @.str.408)
   br label %49
 
 49:                                               ; preds = %ma_device_get_log.exit, %40
@@ -102075,7 +102075,7 @@ ma_device_get_context.exit.i:
 
 ma_device_get_log.exit:                           ; preds = %ma_device_get_context.exit.i, %10
   %.0.i1.i = phi ptr [ %12, %10 ], [ null, %ma_device_get_context.exit.i ]
-  %13 = tail call i32 (ptr, i32, ptr, ...) @ma_log_postf(ptr noundef %.0.i1.i, i32 noundef 4, ptr noundef nonnull @.str.409, i32 noundef %7), !range !4
+  %13 = tail call i32 (ptr, i32, ptr, ...) @ma_log_postf(ptr noundef %.0.i1.i, i32 noundef 4, ptr noundef nonnull @.str.409, i32 noundef %7)
   %14 = icmp slt i32 %7, 0
   br i1 %14, label %78, label %15
 
@@ -102271,7 +102271,7 @@ ma_device__on_notification_rerouted.exit:         ; preds = %2, %7, %12
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @ma_wait_for_pa_stream_to_connect__pulse(ptr nocapture noundef readonly %0, ptr noundef %1, ptr noundef %2) unnamed_addr #5 {
+define internal fastcc range(i32 -204, 1) i32 @ma_wait_for_pa_stream_to_connect__pulse(ptr nocapture noundef readonly %0, ptr noundef %1, ptr noundef %2) unnamed_addr #5 {
   %4 = getelementptr inbounds i8, ptr %0, i64 744
   %5 = getelementptr inbounds i8, ptr %0, i64 464
   br label %6
@@ -102290,7 +102290,7 @@ define internal fastcc noundef i32 @ma_wait_for_pa_stream_to_connect__pulse(ptr 
 ma_context_get_log.exit:                          ; preds = %10
   %12 = getelementptr inbounds i8, ptr %0, i64 112
   %13 = load ptr, ptr %12, align 8
-  %14 = tail call i32 (ptr, i32, ptr, ...) @ma_log_postf(ptr noundef %13, i32 noundef 1, ptr noundef nonnull @.str.412), !range !4
+  %14 = tail call i32 (ptr, i32, ptr, ...) @ma_log_postf(ptr noundef %13, i32 noundef 1, ptr noundef nonnull @.str.412)
   br label %ma_result_from_pulse.exit
 
 15:                                               ; preds = %10
@@ -102305,7 +102305,7 @@ ma_result_from_pulse.exit:                        ; preds = %15, %6, %ma_context
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal fastcc noundef zeroext i8 @ma_channel_position_from_pulse(i32 noundef %0) unnamed_addr #1 {
+define internal fastcc zeroext range(i8 0, 52) i8 @ma_channel_position_from_pulse(i32 noundef %0) unnamed_addr #1 {
   %2 = icmp ult i32 %0, 51
   br i1 %2, label %switch.lookup, label %4
 
@@ -102355,7 +102355,7 @@ ma_device_get_state.exit22:                       ; preds = %9, %24
   br i1 %or.cond3, label %ma_device_get_state.exit.thread, label %22
 
 22:                                               ; preds = %ma_device_get_state.exit22
-  %23 = call fastcc i32 @ma_device_write_to_stream__pulse(ptr noundef nonnull %2, ptr noundef %0, ptr noundef nonnull %4), !range !312
+  %23 = call fastcc i32 @ma_device_write_to_stream__pulse(ptr noundef nonnull %2, ptr noundef %0, ptr noundef nonnull %4)
   %.not = icmp eq i32 %23, 0
   br i1 %.not, label %24, label %ma_device_get_state.exit.thread
 
@@ -102370,7 +102370,7 @@ ma_device_get_state.exit.thread:                  ; preds = %24, %ma_device_get_
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @ma_device_write_to_stream__pulse(ptr noundef %0, ptr noundef %1, ptr noundef writeonly %2) unnamed_addr #5 {
+define internal fastcc range(i32 -204, 1) i32 @ma_device_write_to_stream__pulse(ptr noundef %0, ptr noundef %1, ptr noundef writeonly %2) unnamed_addr #5 {
 ma_device_get_state.exit:
   %3 = alloca i64, align 8
   %4 = alloca ptr, align 8
@@ -102413,7 +102413,7 @@ ma_device_get_state.exit:
 
 31:                                               ; preds = %25
   %32 = trunc i64 %28 to i32
-  %33 = call i32 @ma_device_handle_backend_data_callback(ptr noundef nonnull %0, ptr noundef %30, ptr noundef null, i32 noundef %32), !range !11
+  %33 = call i32 @ma_device_handle_backend_data_callback(ptr noundef nonnull %0, ptr noundef %30, ptr noundef null, i32 noundef %32)
   br label %ma_silence_pcm_frames.exit
 
 34:                                               ; preds = %25
@@ -102639,7 +102639,7 @@ ma_device_get_log.exit37:                         ; preds = %ma_device_get_conte
   %.0.i1.i36 = phi ptr [ %76, %74 ], [ null, %ma_device_get_context.exit.i35 ]
   %.not22 = icmp eq i32 %2, 0
   %77 = select i1 %.not22, ptr @.str.417, ptr @.str.416
-  %78 = call i32 (ptr, i32, ptr, ...) @ma_log_postf(ptr noundef %.0.i1.i36, i32 noundef 1, ptr noundef nonnull @.str.415, ptr noundef nonnull %77), !range !4
+  %78 = call i32 (ptr, i32, ptr, ...) @ma_log_postf(ptr noundef %.0.i1.i36, i32 noundef 1, ptr noundef nonnull @.str.415, ptr noundef nonnull %77)
   br label %ma_log_post.exit
 
 ma_log_post.exit:                                 ; preds = %ma_device_get_context.exit.i23, %ma_device_get_context.exit.i, %._crit_edge.i32, %ma_device_get_log.exit25, %._crit_edge.i, %ma_device_get_log.exit, %68, %ma_device_get_log.exit37
@@ -103991,7 +103991,7 @@ ma_context_get_log.exit:                          ; preds = %61, %64
   %68 = call i32 %67(ptr noundef %52) #68
   %69 = getelementptr inbounds i8, ptr %0, i64 112
   %70 = load ptr, ptr %69, align 8
-  %71 = call i32 (ptr, i32, ptr, ...) @ma_log_postf(ptr noundef %70, i32 noundef 1, ptr noundef nonnull @.str.502), !range !4
+  %71 = call i32 (ptr, i32, ptr, ...) @ma_log_postf(ptr noundef %70, i32 noundef 1, ptr noundef nonnull @.str.502)
   %72 = sub nsw i32 0, %53
   %73 = call fastcc i32 @ma_result_from_errno(i32 noundef %72)
   br label %123
@@ -104296,7 +104296,7 @@ ma_device_get_context.exit.i:                     ; preds = %1
 
 ma_device_get_context.exit.i28:                   ; preds = %9, %ma_device_get_context.exit.i
   %.0.i1.i = phi ptr [ %11, %9 ], [ null, %ma_device_get_context.exit.i ]
-  %12 = tail call i32 (ptr, i32, ptr, ...) @ma_log_postf(ptr noundef %.0.i1.i, i32 noundef 4, ptr noundef nonnull @.str.536), !range !4
+  %12 = tail call i32 (ptr, i32, ptr, ...) @ma_log_postf(ptr noundef %.0.i1.i, i32 noundef 4, ptr noundef nonnull @.str.536)
   %13 = load ptr, ptr %0, align 8
   %14 = getelementptr inbounds i8, ptr %13, i64 776
   %15 = load ptr, ptr %14, align 8
@@ -104314,7 +104314,7 @@ ma_device_get_context.exit.i28:                   ; preds = %9, %ma_device_get_c
 
 ma_device_get_context.exit.i31:                   ; preds = %21, %ma_device_get_context.exit.i28
   %.0.i1.i29 = phi ptr [ %23, %21 ], [ null, %ma_device_get_context.exit.i28 ]
-  %24 = tail call i32 (ptr, i32, ptr, ...) @ma_log_postf(ptr noundef %.0.i1.i29, i32 noundef 4, ptr noundef nonnull @.str.537), !range !4
+  %24 = tail call i32 (ptr, i32, ptr, ...) @ma_log_postf(ptr noundef %.0.i1.i29, i32 noundef 4, ptr noundef nonnull @.str.537)
   %25 = load ptr, ptr %0, align 8
   %26 = icmp eq ptr %25, null
   br i1 %26, label %ma_device_get_log.exit33, label %27
@@ -104326,7 +104326,7 @@ ma_device_get_context.exit.i31:                   ; preds = %21, %ma_device_get_
 
 ma_device_get_log.exit33:                         ; preds = %ma_device_get_context.exit.i31, %27
   %.0.i1.i32 = phi ptr [ %29, %27 ], [ null, %ma_device_get_context.exit.i31 ]
-  %30 = tail call i32 (ptr, i32, ptr, ...) @ma_log_postf(ptr noundef %.0.i1.i32, i32 noundef 4, ptr noundef nonnull @.str.538), !range !4
+  %30 = tail call i32 (ptr, i32, ptr, ...) @ma_log_postf(ptr noundef %.0.i1.i32, i32 noundef 4, ptr noundef nonnull @.str.538)
   %31 = load ptr, ptr %0, align 8
   %32 = getelementptr inbounds i8, ptr %31, i64 760
   %33 = load ptr, ptr %32, align 8
@@ -104347,7 +104347,7 @@ ma_device_get_context.exit.i34:                   ; preds = %ma_device_get_log.e
 
 ma_device_get_log.exit36:                         ; preds = %ma_device_get_context.exit.i34, %39
   %.0.i1.i35 = phi ptr [ %41, %39 ], [ null, %ma_device_get_context.exit.i34 ]
-  %42 = tail call i32 (ptr, i32, ptr, ...) @ma_log_postf(ptr noundef %.0.i1.i35, i32 noundef 4, ptr noundef nonnull @.str.539), !range !4
+  %42 = tail call i32 (ptr, i32, ptr, ...) @ma_log_postf(ptr noundef %.0.i1.i35, i32 noundef 4, ptr noundef nonnull @.str.539)
   br label %47
 
 ma_device_get_context.exit.i37:                   ; preds = %ma_device_get_log.exit33
@@ -104360,7 +104360,7 @@ ma_device_get_context.exit.i37:                   ; preds = %ma_device_get_log.e
 
 ma_device_get_log.exit39:                         ; preds = %ma_device_get_context.exit.i37, %43
   %.0.i1.i38 = phi ptr [ %45, %43 ], [ null, %ma_device_get_context.exit.i37 ]
-  %46 = tail call i32 (ptr, i32, ptr, ...) @ma_log_postf(ptr noundef %.0.i1.i38, i32 noundef 4, ptr noundef nonnull @.str.540), !range !4
+  %46 = tail call i32 (ptr, i32, ptr, ...) @ma_log_postf(ptr noundef %.0.i1.i38, i32 noundef 4, ptr noundef nonnull @.str.540)
   br label %47
 
 47:                                               ; preds = %ma_device_get_log.exit39, %ma_device_get_log.exit36
@@ -104399,7 +104399,7 @@ ma_device_get_context.exit.i40:                   ; preds = %56, %56
 
 ma_device_get_context.exit.i43:                   ; preds = %60, %ma_device_get_context.exit.i40
   %.0.i1.i41 = phi ptr [ %62, %60 ], [ null, %ma_device_get_context.exit.i40 ]
-  %63 = tail call i32 (ptr, i32, ptr, ...) @ma_log_postf(ptr noundef %.0.i1.i41, i32 noundef 4, ptr noundef nonnull @.str.541), !range !4
+  %63 = tail call i32 (ptr, i32, ptr, ...) @ma_log_postf(ptr noundef %.0.i1.i41, i32 noundef 4, ptr noundef nonnull @.str.541)
   %64 = load ptr, ptr %0, align 8
   %65 = getelementptr inbounds i8, ptr %64, i64 776
   %66 = load ptr, ptr %65, align 8
@@ -104417,7 +104417,7 @@ ma_device_get_context.exit.i43:                   ; preds = %60, %ma_device_get_
 
 ma_device_get_context.exit.i46:                   ; preds = %72, %ma_device_get_context.exit.i43
   %.0.i1.i44 = phi ptr [ %74, %72 ], [ null, %ma_device_get_context.exit.i43 ]
-  %75 = tail call i32 (ptr, i32, ptr, ...) @ma_log_postf(ptr noundef %.0.i1.i44, i32 noundef 4, ptr noundef nonnull @.str.542), !range !4
+  %75 = tail call i32 (ptr, i32, ptr, ...) @ma_log_postf(ptr noundef %.0.i1.i44, i32 noundef 4, ptr noundef nonnull @.str.542)
   %76 = load ptr, ptr %0, align 8
   %77 = icmp eq ptr %76, null
   br i1 %77, label %ma_device_get_log.exit48, label %78
@@ -104429,7 +104429,7 @@ ma_device_get_context.exit.i46:                   ; preds = %72, %ma_device_get_
 
 ma_device_get_log.exit48:                         ; preds = %ma_device_get_context.exit.i46, %78
   %.0.i1.i47 = phi ptr [ %80, %78 ], [ null, %ma_device_get_context.exit.i46 ]
-  %81 = tail call i32 (ptr, i32, ptr, ...) @ma_log_postf(ptr noundef %.0.i1.i47, i32 noundef 4, ptr noundef nonnull @.str.543), !range !4
+  %81 = tail call i32 (ptr, i32, ptr, ...) @ma_log_postf(ptr noundef %.0.i1.i47, i32 noundef 4, ptr noundef nonnull @.str.543)
   %82 = load ptr, ptr %0, align 8
   %83 = getelementptr inbounds i8, ptr %82, i64 760
   %84 = load ptr, ptr %83, align 8
@@ -104450,7 +104450,7 @@ ma_device_get_context.exit.i49:                   ; preds = %ma_device_get_log.e
 
 ma_device_get_log.exit51:                         ; preds = %ma_device_get_context.exit.i49, %90
   %.0.i1.i50 = phi ptr [ %92, %90 ], [ null, %ma_device_get_context.exit.i49 ]
-  %93 = tail call i32 (ptr, i32, ptr, ...) @ma_log_postf(ptr noundef %.0.i1.i50, i32 noundef 4, ptr noundef nonnull @.str.544), !range !4
+  %93 = tail call i32 (ptr, i32, ptr, ...) @ma_log_postf(ptr noundef %.0.i1.i50, i32 noundef 4, ptr noundef nonnull @.str.544)
   br label %98
 
 ma_device_get_context.exit.i52:                   ; preds = %ma_device_get_log.exit48
@@ -104463,7 +104463,7 @@ ma_device_get_context.exit.i52:                   ; preds = %ma_device_get_log.e
 
 ma_device_get_log.exit54:                         ; preds = %ma_device_get_context.exit.i52, %94
   %.0.i1.i53 = phi ptr [ %96, %94 ], [ null, %ma_device_get_context.exit.i52 ]
-  %97 = tail call i32 (ptr, i32, ptr, ...) @ma_log_postf(ptr noundef %.0.i1.i53, i32 noundef 4, ptr noundef nonnull @.str.545), !range !4
+  %97 = tail call i32 (ptr, i32, ptr, ...) @ma_log_postf(ptr noundef %.0.i1.i53, i32 noundef 4, ptr noundef nonnull @.str.545)
   br label %98
 
 98:                                               ; preds = %ma_device_get_log.exit54, %ma_device_get_log.exit51
@@ -104546,7 +104546,7 @@ ma_device_get_context.exit.i:                     ; preds = %27
 
 ma_device_get_log.exit:                           ; preds = %ma_device_get_context.exit.i, %33
   %.0.i1.i = phi ptr [ %35, %33 ], [ null, %ma_device_get_context.exit.i ]
-  %36 = tail call i32 (ptr, i32, ptr, ...) @ma_log_postf(ptr noundef %.0.i1.i, i32 noundef 4, ptr noundef nonnull @.str.546), !range !4
+  %36 = tail call i32 (ptr, i32, ptr, ...) @ma_log_postf(ptr noundef %.0.i1.i, i32 noundef 4, ptr noundef nonnull @.str.546)
   %37 = load ptr, ptr %0, align 8
   %38 = getelementptr inbounds i8, ptr %37, i64 848
   %39 = load ptr, ptr %38, align 8
@@ -104745,7 +104745,7 @@ ma_device_get_context.exit.i:                     ; preds = %27
 
 ma_device_get_log.exit:                           ; preds = %ma_device_get_context.exit.i, %33
   %.0.i1.i = phi ptr [ %35, %33 ], [ null, %ma_device_get_context.exit.i ]
-  %36 = tail call i32 (ptr, i32, ptr, ...) @ma_log_postf(ptr noundef %.0.i1.i, i32 noundef 4, ptr noundef nonnull @.str.554), !range !4
+  %36 = tail call i32 (ptr, i32, ptr, ...) @ma_log_postf(ptr noundef %.0.i1.i, i32 noundef 4, ptr noundef nonnull @.str.554)
   %37 = load ptr, ptr %0, align 8
   %38 = getelementptr inbounds i8, ptr %37, i64 848
   %39 = load ptr, ptr %38, align 8
@@ -104900,7 +104900,7 @@ ma_device_get_context.exit.i:                     ; preds = %1
 
 ma_device_get_log.exit:                           ; preds = %1, %ma_device_get_context.exit.i, %6
   %.0.i1.i = phi ptr [ %8, %6 ], [ null, %ma_device_get_context.exit.i ], [ null, %1 ]
-  %9 = tail call i32 (ptr, i32, ptr, ...) @ma_log_postf(ptr noundef %.0.i1.i, i32 noundef 4, ptr noundef nonnull @.str.556), !range !4
+  %9 = tail call i32 (ptr, i32, ptr, ...) @ma_log_postf(ptr noundef %.0.i1.i, i32 noundef 4, ptr noundef nonnull @.str.556)
   %10 = getelementptr inbounds i8, ptr %0, i64 3448
   %11 = load ptr, ptr %10, align 8
   %.not = icmp eq ptr %11, null
@@ -104944,7 +104944,7 @@ ma_device_get_context.exit.i10:                   ; preds = %25
 
 ma_device_get_log.exit12:                         ; preds = %ma_device_get_context.exit.i10, %29
   %.0.i1.i11 = phi ptr [ %31, %29 ], [ null, %ma_device_get_context.exit.i10 ]
-  %32 = tail call i32 (ptr, i32, ptr, ...) @ma_log_postf(ptr noundef %.0.i1.i11, i32 noundef 1, ptr noundef nonnull @.str.557), !range !4
+  %32 = tail call i32 (ptr, i32, ptr, ...) @ma_log_postf(ptr noundef %.0.i1.i11, i32 noundef 1, ptr noundef nonnull @.str.557)
   %33 = tail call ptr @__errno_location() #84
   %34 = load i32, ptr %33, align 4
   %35 = tail call fastcc i32 @ma_result_from_errno(i32 noundef %34)
@@ -104960,7 +104960,7 @@ ma_device_get_context.exit.i13:                   ; preds = %25
 
 ma_device_get_log.exit15:                         ; preds = %ma_device_get_context.exit.i13, %36
   %.0.i1.i14 = phi ptr [ %38, %36 ], [ null, %ma_device_get_context.exit.i13 ]
-  %39 = tail call i32 (ptr, i32, ptr, ...) @ma_log_postf(ptr noundef %.0.i1.i14, i32 noundef 4, ptr noundef nonnull @.str.558), !range !4
+  %39 = tail call i32 (ptr, i32, ptr, ...) @ma_log_postf(ptr noundef %.0.i1.i14, i32 noundef 4, ptr noundef nonnull @.str.558)
   br label %40
 
 40:                                               ; preds = %ma_device_get_log.exit15, %ma_device_get_log.exit12
@@ -104969,7 +104969,7 @@ ma_device_get_log.exit15:                         ; preds = %ma_device_get_conte
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal i32 @ma_context_get_device_info_enum_callback__alsa(ptr nocapture readnone %0, i32 noundef %1, ptr noundef readonly %2, ptr nocapture noundef %3) #3 {
+define internal range(i32 0, 2) i32 @ma_context_get_device_info_enum_callback__alsa(ptr nocapture readnone %0, i32 noundef %1, ptr noundef readonly %2, ptr nocapture noundef %3) #3 {
   %5 = getelementptr inbounds i8, ptr %3, i64 8
   %6 = load ptr, ptr %5, align 8
   %7 = icmp eq ptr %6, null
@@ -105216,7 +105216,7 @@ define internal fastcc noundef i32 @ma_context_open_pcm__alsa(ptr noundef readon
 
 ma_context_get_log.exit:                          ; preds = %.critedge, %41
   %.0.i = phi ptr [ %43, %41 ], [ null, %.critedge ]
-  %44 = call i32 (ptr, i32, ptr, ...) @ma_log_postf(ptr noundef %.0.i, i32 noundef 1, ptr noundef nonnull @.str.512), !range !4
+  %44 = call i32 (ptr, i32, ptr, ...) @ma_log_postf(ptr noundef %.0.i, i32 noundef 1, ptr noundef nonnull @.str.512)
   br label %106
 
 45:                                               ; preds = %6
@@ -105389,7 +105389,7 @@ ma_strcat_s.exit76.thread:                        ; preds = %85, %ma_strcat_s.ex
 
 ma_context_get_log.exit78:                        ; preds = %97, %99
   %.0.i77 = phi ptr [ %101, %99 ], [ null, %97 ]
-  %102 = call i32 (ptr, i32, ptr, ...) @ma_log_postf(ptr noundef %.0.i77, i32 noundef 1, ptr noundef nonnull @.str.513), !range !4
+  %102 = call i32 (ptr, i32, ptr, ...) @ma_log_postf(ptr noundef %.0.i77, i32 noundef 1, ptr noundef nonnull @.str.513)
   %103 = sub nsw i32 0, %.1
   %104 = call fastcc i32 @ma_result_from_errno(i32 noundef %103)
   br label %106
@@ -106057,7 +106057,7 @@ ma_device_get_context.exit.i392:                  ; preds = %247, %243
 
 ma_device_get_log.exit394:                        ; preds = %ma_device_get_context.exit.i392, %256
   %.0.i1.i393 = phi ptr [ %258, %256 ], [ null, %ma_device_get_context.exit.i392 ]
-  %259 = tail call i32 @ma_log_post(ptr noundef %.0.i1.i393, i32 noundef 1, ptr noundef nonnull @.str.518), !range !11
+  %259 = tail call i32 @ma_log_post(ptr noundef %.0.i1.i393, i32 noundef 1, ptr noundef nonnull @.str.518)
   br label %ma_log_post.exit
 
 260:                                              ; preds = %242, %241, %240, %239, %238
@@ -106104,7 +106104,7 @@ ma_device_get_context.exit.i397:                  ; preds = %273, %269
 
 ma_device_get_log.exit399:                        ; preds = %ma_device_get_context.exit.i397, %282
   %.0.i1.i398 = phi ptr [ %284, %282 ], [ null, %ma_device_get_context.exit.i397 ]
-  %285 = call i32 @ma_log_post(ptr noundef %.0.i1.i398, i32 noundef 1, ptr noundef nonnull @.str.519), !range !11
+  %285 = call i32 @ma_log_post(ptr noundef %.0.i1.i398, i32 noundef 1, ptr noundef nonnull @.str.519)
   %286 = sub nsw i32 0, %267
   %287 = call fastcc i32 @ma_result_from_errno(i32 noundef %286)
   br label %ma_log_post.exit
@@ -106157,7 +106157,7 @@ ma_device_get_context.exit.i402:                  ; preds = %306, %302
 
 ma_device_get_log.exit404:                        ; preds = %ma_device_get_context.exit.i402, %315
   %.0.i1.i403 = phi ptr [ %317, %315 ], [ null, %ma_device_get_context.exit.i402 ]
-  %318 = call i32 @ma_log_post(ptr noundef %.0.i1.i403, i32 noundef 1, ptr noundef nonnull @.str.520), !range !11
+  %318 = call i32 @ma_log_post(ptr noundef %.0.i1.i403, i32 noundef 1, ptr noundef nonnull @.str.520)
   %319 = sub nsw i32 0, %300
   %320 = call fastcc i32 @ma_result_from_errno(i32 noundef %319)
   br label %ma_log_post.exit
@@ -106204,7 +106204,7 @@ ma_device_get_context.exit.i407:                  ; preds = %334, %330
 
 ma_device_get_log.exit409:                        ; preds = %ma_device_get_context.exit.i407, %343
   %.0.i1.i408 = phi ptr [ %345, %343 ], [ null, %ma_device_get_context.exit.i407 ]
-  %346 = call i32 @ma_log_post(ptr noundef %.0.i1.i408, i32 noundef 1, ptr noundef nonnull @.str.521), !range !11
+  %346 = call i32 @ma_log_post(ptr noundef %.0.i1.i408, i32 noundef 1, ptr noundef nonnull @.str.521)
   %347 = sub nsw i32 0, %328
   %348 = call fastcc i32 @ma_result_from_errno(i32 noundef %347)
   br label %ma_log_post.exit
@@ -106254,7 +106254,7 @@ ma_device_get_context.exit.i412:                  ; preds = %365, %361
 
 ma_device_get_log.exit414:                        ; preds = %ma_device_get_context.exit.i412, %374
   %.0.i1.i413 = phi ptr [ %376, %374 ], [ null, %ma_device_get_context.exit.i412 ]
-  %377 = call i32 @ma_log_post(ptr noundef %.0.i1.i413, i32 noundef 1, ptr noundef nonnull @.str.522), !range !11
+  %377 = call i32 @ma_log_post(ptr noundef %.0.i1.i413, i32 noundef 1, ptr noundef nonnull @.str.522)
   %378 = sub nsw i32 0, %359
   %379 = call fastcc i32 @ma_result_from_errno(i32 noundef %378)
   br label %ma_log_post.exit
@@ -106301,7 +106301,7 @@ ma_device_get_context.exit.i417:                  ; preds = %394, %393
 
 ma_device_get_log.exit419:                        ; preds = %ma_device_get_context.exit.i417, %403
   %.0.i1.i418 = phi ptr [ %405, %403 ], [ null, %ma_device_get_context.exit.i417 ]
-  %406 = call i32 @ma_log_post(ptr noundef %.0.i1.i418, i32 noundef 1, ptr noundef nonnull @.str.523), !range !11
+  %406 = call i32 @ma_log_post(ptr noundef %.0.i1.i418, i32 noundef 1, ptr noundef nonnull @.str.523)
   %407 = sub nsw i32 0, %388
   %408 = call fastcc i32 @ma_result_from_errno(i32 noundef %407)
   br label %ma_log_post.exit
@@ -106363,7 +106363,7 @@ ma_device_get_context.exit.i428:                  ; preds = %ma_calloc.exit427.m
 
 ma_device_get_log.exit430:                        ; preds = %ma_device_get_context.exit.i428, %430
   %.0.i1.i429 = phi ptr [ %432, %430 ], [ null, %ma_device_get_context.exit.i428 ]
-  %433 = call i32 @ma_log_post(ptr noundef %.0.i1.i429, i32 noundef 1, ptr noundef nonnull @.str.524), !range !11
+  %433 = call i32 @ma_log_post(ptr noundef %.0.i1.i429, i32 noundef 1, ptr noundef nonnull @.str.524)
   br label %ma_log_post.exit
 
 434:                                              ; preds = %ma_calloc.exit427.thread506, %ma_calloc.exit427
@@ -106404,7 +106404,7 @@ ma_device_get_context.exit.i433:                  ; preds = %444, %441
 
 ma_device_get_log.exit435:                        ; preds = %ma_device_get_context.exit.i433, %453
   %.0.i1.i434 = phi ptr [ %455, %453 ], [ null, %ma_device_get_context.exit.i433 ]
-  %456 = call i32 @ma_log_post(ptr noundef %.0.i1.i434, i32 noundef 1, ptr noundef nonnull @.str.525), !range !11
+  %456 = call i32 @ma_log_post(ptr noundef %.0.i1.i434, i32 noundef 1, ptr noundef nonnull @.str.525)
   %457 = sub nsw i32 0, %438
   %458 = call fastcc i32 @ma_result_from_errno(i32 noundef %457)
   br label %ma_log_post.exit
@@ -106460,7 +106460,7 @@ ma_device_get_context.exit.i438:                  ; preds = %482, %479
 
 ma_device_get_log.exit440:                        ; preds = %ma_device_get_context.exit.i438, %491
   %.0.i1.i439 = phi ptr [ %493, %491 ], [ null, %ma_device_get_context.exit.i438 ]
-  %494 = call i32 @ma_log_post(ptr noundef %.0.i1.i439, i32 noundef 1, ptr noundef nonnull @.str.526), !range !11
+  %494 = call i32 @ma_log_post(ptr noundef %.0.i1.i439, i32 noundef 1, ptr noundef nonnull @.str.526)
   %495 = sub nsw i32 0, %476
   %496 = call fastcc i32 @ma_result_from_errno(i32 noundef %495)
   br label %ma_log_post.exit
@@ -106522,7 +106522,7 @@ ma_device_get_context.exit.i443:                  ; preds = %518, %515
 
 ma_device_get_log.exit445:                        ; preds = %ma_device_get_context.exit.i443, %527
   %.0.i1.i444 = phi ptr [ %529, %527 ], [ null, %ma_device_get_context.exit.i443 ]
-  %530 = call i32 @ma_log_post(ptr noundef %.0.i1.i444, i32 noundef 1, ptr noundef nonnull @.str.527), !range !11
+  %530 = call i32 @ma_log_post(ptr noundef %.0.i1.i444, i32 noundef 1, ptr noundef nonnull @.str.527)
   %531 = sub nsw i32 0, %512
   %532 = call fastcc i32 @ma_result_from_errno(i32 noundef %531)
   br label %ma_log_post.exit
@@ -106565,7 +106565,7 @@ ma_device_get_context.exit.i448:                  ; preds = %543, %539
 
 ma_device_get_log.exit450:                        ; preds = %ma_device_get_context.exit.i448, %552
   %.0.i1.i449 = phi ptr [ %554, %552 ], [ null, %ma_device_get_context.exit.i448 ]
-  %555 = call i32 @ma_log_post(ptr noundef %.0.i1.i449, i32 noundef 1, ptr noundef nonnull @.str.528), !range !11
+  %555 = call i32 @ma_log_post(ptr noundef %.0.i1.i449, i32 noundef 1, ptr noundef nonnull @.str.528)
   %556 = sub nsw i32 0, %537
   %557 = call fastcc i32 @ma_result_from_errno(i32 noundef %556)
   br label %ma_log_post.exit
@@ -106608,7 +106608,7 @@ ma_device_get_context.exit.i453:                  ; preds = %568, %567
 
 ma_device_get_log.exit455:                        ; preds = %ma_device_get_context.exit.i453, %577
   %.0.i1.i454 = phi ptr [ %579, %577 ], [ null, %ma_device_get_context.exit.i453 ]
-  %580 = call i32 @ma_log_post(ptr noundef %.0.i1.i454, i32 noundef 1, ptr noundef nonnull @.str.529), !range !11
+  %580 = call i32 @ma_log_post(ptr noundef %.0.i1.i454, i32 noundef 1, ptr noundef nonnull @.str.529)
   %581 = sub nsw i32 0, %562
   %582 = call fastcc i32 @ma_result_from_errno(i32 noundef %581)
   br label %ma_log_post.exit
@@ -106660,7 +106660,7 @@ ma_free.exit457:                                  ; preds = %583, %584
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %597 ]
   %598 = getelementptr inbounds [1 x i32], ptr %596, i64 0, i64 %indvars.iv
   %599 = load i32, ptr %598, align 4
-  %600 = call fastcc zeroext i8 @ma_convert_alsa_channel_position_to_ma_channel(i32 noundef %599), !range !314
+  %600 = call fastcc zeroext i8 @ma_convert_alsa_channel_position_to_ma_channel(i32 noundef %599)
   %601 = getelementptr inbounds [254 x i8], ptr %6, i64 0, i64 %indvars.iv
   store i8 %600, ptr %601, align 1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -106670,7 +106670,7 @@ ma_free.exit457:                                  ; preds = %583, %584
 .preheader.i:                                     ; preds = %.preheader.i.preheader, %.preheader.i
   %.024.i = phi i32 [ %604, %.preheader.i ], [ 0, %.preheader.i.preheader ]
   %.01723.i = phi ptr [ %603, %.preheader.i ], [ %6, %.preheader.i.preheader ]
-  %602 = call fastcc zeroext i8 @ma_channel_map_init_standard_channel(i32 noundef 1, i32 noundef %289, i32 noundef %.024.i), !range !6
+  %602 = call fastcc zeroext i8 @ma_channel_map_init_standard_channel(i32 noundef 1, i32 noundef %289, i32 noundef %.024.i)
   store i8 %602, ptr %.01723.i, align 1
   %603 = getelementptr inbounds i8, ptr %.01723.i, i64 1
   %604 = add nuw nsw i32 %.024.i, 1
@@ -106694,7 +106694,7 @@ ma_channel_map_init_standard.exit:                ; preds = %.lr.ph520, %ma_chan
   %indvars.iv534 = phi i64 [ 0, %.lr.ph520 ], [ %indvars.iv.next535, %ma_channel_map_init_standard.exit ]
   %607 = getelementptr inbounds [1 x i32], ptr %605, i64 0, i64 %indvars.iv534
   %608 = load i32, ptr %607, align 4
-  %609 = call fastcc zeroext i8 @ma_convert_alsa_channel_position_to_ma_channel(i32 noundef %608), !range !314
+  %609 = call fastcc zeroext i8 @ma_convert_alsa_channel_position_to_ma_channel(i32 noundef %608)
   %610 = getelementptr inbounds [254 x i8], ptr %6, i64 0, i64 %indvars.iv534
   store i8 %609, ptr %610, align 1
   %indvars.iv.next535 = add nuw nsw i64 %indvars.iv534, 1
@@ -106734,7 +106734,7 @@ ma_channel_map_init_standard.exit:                ; preds = %.lr.ph520, %ma_chan
   %.024.i459 = phi i32 [ %622, %.preheader.i458 ], [ 0, %616 ]
   %.01723.i460 = phi ptr [ %620, %.preheader.i458 ], [ %6, %616 ]
   %.01822.i461 = phi i64 [ %621, %.preheader.i458 ], [ 254, %616 ]
-  %619 = call fastcc zeroext i8 @ma_channel_map_init_standard_channel(i32 noundef 1, i32 noundef %289, i32 noundef %.024.i459), !range !6
+  %619 = call fastcc zeroext i8 @ma_channel_map_init_standard_channel(i32 noundef 1, i32 noundef %289, i32 noundef %.024.i459)
   store i8 %619, ptr %.01723.i460, align 1
   %620 = getelementptr inbounds i8, ptr %.01723.i460, i64 1
   %621 = add nsw i64 %.01822.i461, -1
@@ -106762,7 +106762,7 @@ ma_channel_map_init_standard.exit463:             ; preds = %597, %._crit_edge, 
 .preheader.i464:                                  ; preds = %.preheader.i464.preheader, %.preheader.i464
   %.024.i465 = phi i32 [ %630, %.preheader.i464 ], [ 0, %.preheader.i464.preheader ]
   %.01723.i466 = phi ptr [ %629, %.preheader.i464 ], [ %6, %.preheader.i464.preheader ]
-  %628 = call fastcc zeroext i8 @ma_channel_map_init_standard_channel(i32 noundef 1, i32 noundef %289, i32 noundef %.024.i465), !range !6
+  %628 = call fastcc zeroext i8 @ma_channel_map_init_standard_channel(i32 noundef 1, i32 noundef %289, i32 noundef %.024.i465)
   store i8 %628, ptr %.01723.i466, align 1
   %629 = getelementptr inbounds i8, ptr %.01723.i466, i64 1
   %630 = add nuw nsw i32 %.024.i465, 1
@@ -106793,7 +106793,7 @@ ma_device_get_context.exit.i470:                  ; preds = %ma_channel_map_init
 
 ma_device_get_log.exit472:                        ; preds = %ma_device_get_context.exit.i470, %642
   %.0.i1.i471 = phi ptr [ %644, %642 ], [ null, %ma_device_get_context.exit.i470 ]
-  %645 = call i32 @ma_log_post(ptr noundef %.0.i1.i471, i32 noundef 1, ptr noundef nonnull @.str.530), !range !11
+  %645 = call i32 @ma_log_post(ptr noundef %.0.i1.i471, i32 noundef 1, ptr noundef nonnull @.str.530)
   br label %ma_log_post.exit
 
 646:                                              ; preds = %ma_channel_map_init_standard.exit469
@@ -106832,7 +106832,7 @@ ma_device_get_context.exit.i474:                  ; preds = %ma_malloc.exit.ma_d
 
 ma_device_get_log.exit476:                        ; preds = %ma_device_get_context.exit.i474, %662
   %.0.i1.i475 = phi ptr [ %664, %662 ], [ null, %ma_device_get_context.exit.i474 ]
-  %665 = call i32 @ma_log_post(ptr noundef %.0.i1.i475, i32 noundef 1, ptr noundef nonnull @.str.531), !range !11
+  %665 = call i32 @ma_log_post(ptr noundef %.0.i1.i475, i32 noundef 1, ptr noundef nonnull @.str.531)
   br label %ma_log_post.exit
 
 666:                                              ; preds = %ma_malloc.exit
@@ -106870,7 +106870,7 @@ ma_device_get_context.exit.i479:                  ; preds = %673, %669
 
 ma_device_get_log.exit481:                        ; preds = %ma_device_get_context.exit.i479, %682
   %.0.i1.i480 = phi ptr [ %684, %682 ], [ null, %ma_device_get_context.exit.i479 ]
-  %685 = call i32 @ma_log_post(ptr noundef %.0.i1.i480, i32 noundef 1, ptr noundef nonnull @.str.532), !range !11
+  %685 = call i32 @ma_log_post(ptr noundef %.0.i1.i480, i32 noundef 1, ptr noundef nonnull @.str.532)
   %686 = tail call ptr @__errno_location() #84
   %687 = load i32, ptr %686, align 4
   %688 = call fastcc i32 @ma_result_from_errno(i32 noundef %687)
@@ -106921,7 +106921,7 @@ ma_device_get_context.exit.i484:                  ; preds = %703, %698
 
 ma_device_get_log.exit486:                        ; preds = %ma_device_get_context.exit.i484, %712
   %.0.i1.i485 = phi ptr [ %714, %712 ], [ null, %ma_device_get_context.exit.i484 ]
-  %715 = call i32 @ma_log_post(ptr noundef %.0.i1.i485, i32 noundef 1, ptr noundef nonnull @.str.533), !range !11
+  %715 = call i32 @ma_log_post(ptr noundef %.0.i1.i485, i32 noundef 1, ptr noundef nonnull @.str.533)
   br label %ma_log_post.exit
 
 716:                                              ; preds = %689
@@ -106985,7 +106985,7 @@ ma_device_get_context.exit.i489:                  ; preds = %737, %732
 
 ma_device_get_log.exit491:                        ; preds = %ma_device_get_context.exit.i489, %746
   %.0.i1.i490 = phi ptr [ %748, %746 ], [ null, %ma_device_get_context.exit.i489 ]
-  %749 = call i32 @ma_log_post(ptr noundef %.0.i1.i490, i32 noundef 1, ptr noundef nonnull @.str.534), !range !11
+  %749 = call i32 @ma_log_post(ptr noundef %.0.i1.i490, i32 noundef 1, ptr noundef nonnull @.str.534)
   %750 = sub nsw i32 0, %730
   %751 = call fastcc i32 @ma_result_from_errno(i32 noundef %750)
   br label %ma_log_post.exit
@@ -107033,7 +107033,7 @@ ma_log_post.exit:                                 ; preds = %ma_device_get_conte
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal fastcc noundef zeroext i8 @ma_convert_alsa_channel_position_to_ma_channel(i32 noundef %0) unnamed_addr #1 {
+define internal fastcc zeroext range(i8 0, 20) i8 @ma_convert_alsa_channel_position_to_ma_channel(i32 noundef %0) unnamed_addr #1 {
   %switch.tableidx = add i32 %0, -2
   %2 = icmp ult i32 %switch.tableidx, 26
   br i1 %2, label %switch.lookup, label %4
@@ -107212,7 +107212,7 @@ ma_device_get_context.exit.i39:                   ; preds = %74
 
 ma_device_get_log.exit41:                         ; preds = %74, %ma_device_get_context.exit.i39, %77
   %.0.i1.i40 = phi ptr [ %79, %77 ], [ null, %ma_device_get_context.exit.i39 ], [ null, %74 ]
-  %80 = call i32 (ptr, i32, ptr, ...) @ma_log_postf(ptr noundef %.0.i1.i40, i32 noundef 4, ptr noundef nonnull @.str.551), !range !4
+  %80 = call i32 (ptr, i32, ptr, ...) @ma_log_postf(ptr noundef %.0.i1.i40, i32 noundef 4, ptr noundef nonnull @.str.551)
   br label %.loopexit
 
 81:                                               ; preds = %41
@@ -107302,7 +107302,7 @@ ma_device_get_log.exit56:                         ; preds = %ma_device_get_conte
   %124 = getelementptr inbounds i8, ptr %119, i64 752
   %125 = load ptr, ptr %124, align 8
   %126 = call i32 %125(ptr noundef %1) #68
-  %127 = call i32 (ptr, i32, ptr, ...) @ma_log_postf(ptr noundef %.0.i1.i55, i32 noundef 2, ptr noundef nonnull @.str.553, i32 noundef %126), !range !4
+  %127 = call i32 (ptr, i32, ptr, ...) @ma_log_postf(ptr noundef %.0.i1.i55, i32 noundef 2, ptr noundef nonnull @.str.553, i32 noundef %126)
   br label %128
 
 128:                                              ; preds = %ma_device_get_log.exit56, %113, %110
@@ -107379,7 +107379,7 @@ ma_strncpy_s.exit24:                              ; preds = %.lr.ph.i18
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal noundef i32 @ma_context_get_device_info__null(ptr nocapture readnone %0, i32 noundef %1, ptr noundef readonly %2, ptr nocapture noundef writeonly %3) #29 {
+define internal range(i32 -204, 1) i32 @ma_context_get_device_info__null(ptr nocapture readnone %0, i32 noundef %1, ptr noundef readonly %2, ptr nocapture noundef writeonly %3) #29 {
   %.not = icmp eq ptr %2, null
   br i1 %.not, label %7, label %5
 
@@ -107465,7 +107465,7 @@ define internal noundef i32 @ma_device_init__null(ptr noundef %0, ptr nocapture 
   %.024.i = phi i32 [ %22, %.preheader.i ], [ 0, %.preheader.i.preheader ]
   %.01723.i = phi ptr [ %20, %.preheader.i ], [ %15, %.preheader.i.preheader ]
   %.01822.i = phi i64 [ %21, %.preheader.i ], [ 254, %.preheader.i.preheader ]
-  %19 = tail call fastcc zeroext i8 @ma_channel_map_init_standard_channel(i32 noundef 0, i32 noundef %18, i32 noundef %.024.i), !range !6
+  %19 = tail call fastcc zeroext i8 @ma_channel_map_init_standard_channel(i32 noundef 0, i32 noundef %18, i32 noundef %.024.i)
   store i8 %19, ptr %.01723.i, align 1
   %20 = getelementptr inbounds i8, ptr %.01723.i, i64 1
   %21 = add nsw i64 %.01822.i, -1
@@ -107552,7 +107552,7 @@ ma_calculate_buffer_size_in_frames_from_descriptor.exit: ; preds = %.thread97, %
   %.024.i81 = phi i32 [ %64, %.preheader.i80 ], [ 0, %.preheader.i80.preheader ]
   %.01723.i82 = phi ptr [ %62, %.preheader.i80 ], [ %57, %.preheader.i80.preheader ]
   %.01822.i83 = phi i64 [ %63, %.preheader.i80 ], [ 254, %.preheader.i80.preheader ]
-  %61 = tail call fastcc zeroext i8 @ma_channel_map_init_standard_channel(i32 noundef 0, i32 noundef %60, i32 noundef %.024.i81), !range !6
+  %61 = tail call fastcc zeroext i8 @ma_channel_map_init_standard_channel(i32 noundef 0, i32 noundef %60, i32 noundef %.024.i81)
   store i8 %61, ptr %.01723.i82, align 1
   %62 = getelementptr inbounds i8, ptr %.01723.i82, i64 1
   %63 = add nsw i64 %.01822.i83, -1
@@ -108737,11 +108737,11 @@ declare double @sqrt(double noundef) local_unnamed_addr #69
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define internal noundef i32 @ma_resampling_backend_get_heap_size__linear(ptr nocapture readnone %0, ptr nocapture noundef readonly %1, ptr noundef writeonly %2) #16 {
-  %4 = load i32, ptr %1, align 8, !noalias !315
+  %4 = load i32, ptr %1, align 8, !noalias !293
   %5 = getelementptr inbounds i8, ptr %1, i64 4
-  %6 = load i32, ptr %5, align 4, !noalias !315
+  %6 = load i32, ptr %5, align 4, !noalias !293
   %7 = getelementptr inbounds i8, ptr %1, i64 40
-  %8 = load i32, ptr %7, align 8, !noalias !315
+  %8 = load i32, ptr %7, align 8, !noalias !293
   %9 = icmp eq ptr %2, null
   br i1 %9, label %ma_linear_resampler_get_heap_size.exit, label %10
 
@@ -108803,8 +108803,8 @@ ma_linear_resampler_get_heap_size.exit:           ; preds = %3, %10, %11, %32
 define internal noundef i32 @ma_resampling_backend_init__linear(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, ptr nocapture noundef writeonly %3) #5 {
   %5 = alloca %struct.ma_linear_resampler_config, align 16
   %6 = getelementptr inbounds i8, ptr %1, i64 40
-  %7 = load i32, ptr %6, align 8, !noalias !318
-  %8 = load <4 x i32>, ptr %1, align 8, !noalias !318
+  %7 = load i32, ptr %6, align 8, !noalias !296
+  %8 = load <4 x i32>, ptr %1, align 8, !noalias !296
   store <4 x i32> %8, ptr %5, align 16
   %.sroa.5.0..sroa_idx = getelementptr inbounds i8, ptr %5, i64 16
   %.sroa.5.sroa.0.0.insert.ext = zext i32 %7 to i64
@@ -108867,8 +108867,8 @@ ma_linear_resampler_uninit.exit:                  ; preds = %3, %5, %9, %14, %17
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind uwtable
-define internal noundef i32 @ma_resampling_backend_process__linear(ptr nocapture readnone %0, ptr noundef %1, ptr noundef %2, ptr nocapture noundef %3, ptr noundef %4, ptr nocapture noundef %5) #42 {
-  %7 = tail call i32 @ma_linear_resampler_process_pcm_frames(ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5), !range !11
+define internal range(i32 -2, 1) i32 @ma_resampling_backend_process__linear(ptr nocapture readnone %0, ptr noundef %1, ptr noundef %2, ptr nocapture noundef %3, ptr noundef %4, ptr nocapture noundef %5) #42 {
+  %7 = tail call i32 @ma_linear_resampler_process_pcm_frames(ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5)
   ret i32 %7
 }
 
@@ -108879,7 +108879,7 @@ define internal noundef i32 @ma_resampling_backend_set_rate__linear(ptr nocaptur
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal i64 @ma_resampling_backend_get_input_latency__linear(ptr nocapture readnone %0, ptr noundef readonly %1) #15 {
+define internal range(i64 0, 4294967296) i64 @ma_resampling_backend_get_input_latency__linear(ptr nocapture readnone %0, ptr noundef readonly %1) #15 {
   %3 = icmp eq ptr %1, null
   br i1 %3, label %ma_linear_resampler_get_input_latency.exit, label %4
 
@@ -108900,7 +108900,7 @@ ma_linear_resampler_get_input_latency.exit:       ; preds = %2, %4
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal i64 @ma_resampling_backend_get_output_latency__linear(ptr nocapture readnone %0, ptr noundef readonly %1) #15 {
+define internal range(i64 0, -8589934590) i64 @ma_resampling_backend_get_output_latency__linear(ptr nocapture readnone %0, ptr noundef readonly %1) #15 {
   %3 = icmp eq ptr %1, null
   br i1 %3, label %ma_linear_resampler_get_output_latency.exit, label %ma_linear_resampler_get_input_latency.exit.i
 
@@ -108929,7 +108929,7 @@ ma_linear_resampler_get_output_latency.exit:      ; preds = %2, %ma_linear_resam
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal noundef i32 @ma_resampling_backend_get_required_input_frame_count__linear(ptr nocapture readnone %0, ptr noundef readonly %1, i64 noundef %2, ptr noundef writeonly %3) #16 {
+define internal range(i32 -2, 1) i32 @ma_resampling_backend_get_required_input_frame_count__linear(ptr nocapture readnone %0, ptr noundef readonly %1, i64 noundef %2, ptr noundef writeonly %3) #16 {
   %5 = icmp eq ptr %3, null
   br i1 %5, label %ma_linear_resampler_get_required_input_frame_count.exit, label %6
 
@@ -108974,7 +108974,7 @@ ma_linear_resampler_get_required_input_frame_count.exit: ; preds = %4, %6, %8, %
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal noundef i32 @ma_resampling_backend_get_expected_output_frame_count__linear(ptr nocapture readnone %0, ptr noundef readonly %1, i64 noundef %2, ptr noundef writeonly %3) #16 {
+define internal range(i32 -2, 1) i32 @ma_resampling_backend_get_expected_output_frame_count__linear(ptr nocapture readnone %0, ptr noundef readonly %1, i64 noundef %2, ptr noundef writeonly %3) #16 {
   %5 = icmp eq ptr %3, null
   br i1 %5, label %ma_linear_resampler_get_expected_output_frame_count.exit, label %6
 
@@ -109022,13 +109022,13 @@ ma_linear_resampler_get_expected_output_frame_count.exit: ; preds = %4, %6, %8
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal noundef i32 @ma_resampling_backend_reset__linear(ptr nocapture readnone %0, ptr noundef %1) #3 {
-  %3 = tail call i32 @ma_linear_resampler_reset(ptr noundef %1), !range !11
+define internal range(i32 -2, 1) i32 @ma_resampling_backend_reset__linear(ptr nocapture readnone %0, ptr noundef %1) #3 {
+  %3 = tail call i32 @ma_linear_resampler_reset(ptr noundef %1)
   ret i32 %3
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read) uwtable
-define internal fastcc noundef i32 @ma_channel_map_get_conversion_path(ptr noundef readonly %0, i32 noundef %1, ptr noundef readonly %2, i32 noundef %3, i32 noundef %4) unnamed_addr #43 {
+define internal fastcc range(i32 1, 6) i32 @ma_channel_map_get_conversion_path(ptr noundef readonly %0, i32 noundef %1, ptr noundef readonly %2, i32 noundef %3, i32 noundef %4) unnamed_addr #43 {
   %6 = icmp eq i32 %3, %1
   br i1 %6, label %7, label %ma_channel_map_is_passthrough.exit
 
@@ -109053,7 +109053,7 @@ ma_channel_map_get_channel.exit.us.preheader.i.i: ; preds = %.lr.ph.split.us.i.i
 ma_channel_map_get_channel.exit.us.i.i:           ; preds = %16, %ma_channel_map_get_channel.exit.us.preheader.i.i
   %indvars.iv44.i.i = phi i64 [ 0, %ma_channel_map_get_channel.exit.us.preheader.i.i ], [ %indvars.iv.next45.i.i, %16 ]
   %12 = trunc nuw i64 %indvars.iv44.i.i to i32
-  %13 = tail call fastcc zeroext i8 @ma_channel_map_init_standard_channel(i32 noundef 0, i32 noundef %3, i32 noundef %12), !range !6
+  %13 = tail call fastcc zeroext i8 @ma_channel_map_init_standard_channel(i32 noundef 0, i32 noundef %3, i32 noundef %12)
   %14 = getelementptr inbounds i8, ptr %0, i64 %indvars.iv44.i.i
   %15 = load i8, ptr %14, align 1
   %.not.us.i.i = icmp eq i8 %13, %15
@@ -109073,7 +109073,7 @@ ma_channel_map_get_channel.exit.us21.i.i:         ; preds = %.lr.ph.split.i.i, %
   %17 = getelementptr inbounds i8, ptr %2, i64 %indvars.iv39.i.i
   %18 = load i8, ptr %17, align 1
   %19 = trunc nuw i64 %indvars.iv39.i.i to i32
-  %20 = tail call fastcc zeroext i8 @ma_channel_map_init_standard_channel(i32 noundef 0, i32 noundef %3, i32 noundef %19), !range !6
+  %20 = tail call fastcc zeroext i8 @ma_channel_map_init_standard_channel(i32 noundef 0, i32 noundef %3, i32 noundef %19)
   %.not.us25.i.i = icmp eq i8 %18, %20
   br i1 %.not.us25.i.i, label %21, label %ma_channel_map_is_passthrough.exit
 
@@ -109166,7 +109166,7 @@ ma_channel_map_get_channel.exit.preheader.i.i:    ; preds = %.lr.ph.i.i33
 
 ma_channel_map_get_channel.exit.us.i.i38:         ; preds = %.lr.ph.i.i33, %52
   %.016.us.i.i = phi i32 [ %53, %52 ], [ 0, %.lr.ph.i.i33 ]
-  %50 = tail call fastcc zeroext i8 @ma_channel_map_init_standard_channel(i32 noundef 0, i32 noundef %3, i32 noundef %.016.us.i.i), !range !6
+  %50 = tail call fastcc zeroext i8 @ma_channel_map_init_standard_channel(i32 noundef 0, i32 noundef %3, i32 noundef %.016.us.i.i)
   %51 = icmp eq i8 %50, %.0.i3265
   br i1 %51, label %.critedge, label %52
 
@@ -109386,7 +109386,7 @@ define internal noundef i32 @ma_pcm_rb_data_source__on_get_data_format(ptr nocap
   %.024.i = phi i32 [ %27, %.preheader.i ], [ 0, %19 ]
   %.01723.i = phi ptr [ %25, %.preheader.i ], [ %4, %19 ]
   %.01822.i = phi i64 [ %26, %.preheader.i ], [ %5, %19 ]
-  %24 = tail call fastcc zeroext i8 @ma_channel_map_init_standard_channel(i32 noundef 0, i32 noundef %21, i32 noundef %.024.i), !range !6
+  %24 = tail call fastcc zeroext i8 @ma_channel_map_init_standard_channel(i32 noundef 0, i32 noundef %21, i32 noundef %.024.i)
   store i8 %24, ptr %.01723.i, align 1
   %25 = getelementptr inbounds i8, ptr %.01723.i, i64 1
   %26 = add i64 %.01822.i, -1
@@ -109401,7 +109401,7 @@ ma_channel_map_init_standard.exit:                ; preds = %.preheader.i, %19, 
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal i32 @ma_audio_buffer_ref__data_source_on_read(ptr noundef %0, ptr noundef writeonly %1, i64 noundef %2, ptr noundef writeonly %3) #3 {
+define internal range(i32 -17, 1) i32 @ma_audio_buffer_ref__data_source_on_read(ptr noundef %0, ptr noundef writeonly %1, i64 noundef %2, ptr noundef writeonly %3) #3 {
   %5 = icmp eq ptr %0, null
   %6 = icmp eq i64 %2, 0
   %or.cond.i = or i1 %5, %6
@@ -109506,7 +109506,7 @@ ma_audio_buffer_ref_read_pcm_frames.exit:         ; preds = %ma_copy_pcm_frames.
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal noundef i32 @ma_audio_buffer_ref__data_source_on_seek(ptr noundef %0, i64 noundef %1) #16 {
+define internal range(i32 -2, 1) i32 @ma_audio_buffer_ref__data_source_on_seek(ptr noundef %0, i64 noundef %1) #16 {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %ma_audio_buffer_ref_seek_to_pcm_frame.exit, label %4
 
@@ -109549,7 +109549,7 @@ define internal noundef i32 @ma_audio_buffer_ref__data_source_on_get_data_format
   %.024.i = phi i32 [ %20, %.preheader.i ], [ 0, %6 ]
   %.01723.i = phi ptr [ %18, %.preheader.i ], [ %4, %6 ]
   %.01822.i = phi i64 [ %19, %.preheader.i ], [ %5, %6 ]
-  %17 = tail call fastcc zeroext i8 @ma_channel_map_init_standard_channel(i32 noundef 0, i32 noundef %13, i32 noundef %.024.i), !range !6
+  %17 = tail call fastcc zeroext i8 @ma_channel_map_init_standard_channel(i32 noundef 0, i32 noundef %13, i32 noundef %.024.i)
   store i8 %17, ptr %.01723.i, align 1
   %18 = getelementptr inbounds i8, ptr %.01723.i, i64 1
   %19 = add i64 %.01822.i, -1
@@ -109580,7 +109580,7 @@ define internal noundef i32 @ma_audio_buffer_ref__data_source_on_get_length(ptr 
 }
 
 ; Function Attrs: nofree norecurse nounwind uwtable
-define internal noundef i32 @ma_paged_audio_buffer__data_source_on_read(ptr noundef %0, ptr noundef writeonly %1, i64 noundef %2, ptr noundef writeonly %3) #17 {
+define internal range(i32 -17, 1) i32 @ma_paged_audio_buffer__data_source_on_read(ptr noundef %0, ptr noundef writeonly %1, i64 noundef %2, ptr noundef writeonly %3) #17 {
   %5 = icmp eq ptr %0, null
   br i1 %5, label %ma_paged_audio_buffer_read_pcm_frames.exit, label %6
 
@@ -109690,7 +109690,7 @@ ma_paged_audio_buffer_read_pcm_frames.exit:       ; preds = %4, %._crit_edge.i, 
 }
 
 ; Function Attrs: nofree norecurse nounwind uwtable
-define internal noundef i32 @ma_paged_audio_buffer__data_source_on_seek(ptr noundef %0, i64 noundef %1) #17 {
+define internal range(i32 -25, 1) i32 @ma_paged_audio_buffer__data_source_on_seek(ptr noundef %0, i64 noundef %1) #17 {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %ma_paged_audio_buffer_seek_to_pcm_frame.exit, label %4
 
@@ -109810,7 +109810,7 @@ define internal noundef i32 @ma_paged_audio_buffer__data_source_on_get_data_form
   %.024.i = phi i32 [ %22, %.preheader.i ], [ 0, %6 ]
   %.01723.i = phi ptr [ %20, %.preheader.i ], [ %4, %6 ]
   %.01822.i = phi i64 [ %21, %.preheader.i ], [ %5, %6 ]
-  %19 = tail call fastcc zeroext i8 @ma_channel_map_init_standard_channel(i32 noundef 0, i32 noundef %15, i32 noundef %.024.i), !range !6
+  %19 = tail call fastcc zeroext i8 @ma_channel_map_init_standard_channel(i32 noundef 0, i32 noundef %15, i32 noundef %.024.i)
   store i8 %19, ptr %.01723.i, align 1
   %20 = getelementptr inbounds i8, ptr %.01723.i, i64 1
   %21 = add i64 %.01822.i, -1
@@ -109825,7 +109825,7 @@ ma_channel_map_init_standard.exit:                ; preds = %.preheader.i, %6
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal noundef i32 @ma_paged_audio_buffer__data_source_on_get_cursor(ptr noundef readonly %0, ptr noundef writeonly %1) #16 {
+define internal range(i32 -2, 1) i32 @ma_paged_audio_buffer__data_source_on_get_cursor(ptr noundef readonly %0, ptr noundef writeonly %1) #16 {
   %3 = icmp eq ptr %1, null
   br i1 %3, label %ma_paged_audio_buffer_get_cursor_in_pcm_frames.exit, label %4
 
@@ -109846,7 +109846,7 @@ ma_paged_audio_buffer_get_cursor_in_pcm_frames.exit: ; preds = %2, %4, %6
 }
 
 ; Function Attrs: nofree norecurse nounwind uwtable
-define internal noundef i32 @ma_paged_audio_buffer__data_source_on_get_length(ptr nocapture noundef readonly %0, ptr noundef %1) #17 {
+define internal range(i32 -2, 1) i32 @ma_paged_audio_buffer__data_source_on_get_length(ptr nocapture noundef readonly %0, ptr noundef %1) #17 {
   %3 = getelementptr inbounds i8, ptr %0, i64 72
   %4 = load ptr, ptr %3, align 8
   %5 = icmp eq ptr %1, null
@@ -109905,13 +109905,13 @@ define internal i32 @ma_decoder__data_source_on_seek(ptr noundef %0, i64 noundef
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal noundef i32 @ma_decoder__data_source_on_get_data_format(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, i64 noundef %5) #3 {
-  %7 = tail call i32 @ma_decoder_get_data_format(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, i64 noundef %5), !range !11
+define internal range(i32 -2, 1) i32 @ma_decoder__data_source_on_get_data_format(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, i64 noundef %5) #3 {
+  %7 = tail call i32 @ma_decoder_get_data_format(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, i64 noundef %5)
   ret i32 %7
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal noundef i32 @ma_decoder__data_source_on_get_cursor(ptr noundef readonly %0, ptr noundef writeonly %1) #16 {
+define internal range(i32 -2, 1) i32 @ma_decoder__data_source_on_get_cursor(ptr noundef readonly %0, ptr noundef writeonly %1) #16 {
   %3 = icmp eq ptr %1, null
   br i1 %3, label %ma_decoder_get_cursor_in_pcm_frames.exit, label %4
 
@@ -110036,7 +110036,7 @@ define internal noalias noundef ptr @drwav__realloc_default(ptr nocapture nounde
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @drwav__read_chunk_header(ptr nocapture noundef readonly %0, ptr noundef %1, i32 noundef %2, ptr nocapture noundef %3, ptr noundef %4) unnamed_addr #5 {
+define internal fastcc range(i32 -53, 1) i32 @drwav__read_chunk_header(ptr nocapture noundef readonly %0, ptr noundef %1, i32 noundef %2, ptr nocapture noundef %3, ptr noundef %4) unnamed_addr #5 {
   %6 = alloca [4 x i8], align 4
   %7 = alloca [8 x i8], align 8
   switch i32 %2, label %48 [
@@ -111298,7 +111298,7 @@ drwav_fourcc_equal.exit230.thread:                ; preds = %2, %238, %234, %drw
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @drwav__metadata_alloc(ptr nocapture noundef %0, ptr nocapture noundef readonly %1) unnamed_addr #5 {
+define internal fastcc range(i32 -4, 1) i32 @drwav__metadata_alloc(ptr nocapture noundef %0, ptr nocapture noundef readonly %1) unnamed_addr #5 {
   %3 = getelementptr inbounds i8, ptr %0, i64 72
   %4 = load i64, ptr %3, align 8
   %.not = icmp eq i64 %4, 0
@@ -113601,7 +113601,7 @@ switch.lookup:                                    ; preds = %1
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define internal noundef i32 @drwav__on_seek_stdio(ptr nocapture noundef %0, i32 noundef %1, i32 noundef %2) #7 {
+define internal range(i32 0, 2) i32 @drwav__on_seek_stdio(ptr nocapture noundef %0, i32 noundef %1, i32 noundef %2) #7 {
   %4 = sext i32 %1 to i64
   %5 = icmp eq i32 %2, 1
   %6 = zext i1 %5 to i32
@@ -113612,7 +113612,7 @@ define internal noundef i32 @drwav__on_seek_stdio(ptr nocapture noundef %0, i32 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @drwav_init_file_write__internal_FILE(ptr noundef %0, ptr noundef %1, ptr nocapture noundef readonly %2, i64 noundef %3, i32 noundef %4, ptr noundef readonly %5) unnamed_addr #5 {
+define internal fastcc range(i32 0, 2) i32 @drwav_init_file_write__internal_FILE(ptr noundef %0, ptr noundef %1, ptr nocapture noundef readonly %2, i64 noundef %3, i32 noundef %4, ptr noundef readonly %5) unnamed_addr #5 {
   %7 = icmp eq ptr %0, null
   br i1 %7, label %.sink.split, label %8
 
@@ -113707,7 +113707,7 @@ drwav_copy_allocation_callbacks_or_defaults.exit.i: ; preds = %11
   store i16 0, ptr %47, align 4
   %48 = getelementptr inbounds i8, ptr %0, i64 168
   store i32 %4, ptr %48, align 8
-  %49 = tail call fastcc i32 @drwav_init_write__internal(ptr noundef nonnull %0, ptr noundef nonnull %2, i64 noundef %3), !range !184
+  %49 = tail call fastcc i32 @drwav_init_write__internal(ptr noundef nonnull %0, ptr noundef nonnull %2, i64 noundef %3)
   %.not.not16 = icmp eq i32 %49, 0
   br i1 %.not.not16, label %.sink.split, label %51
 
@@ -113889,7 +113889,7 @@ define internal noundef i32 @drwav__on_seek_memory_write(ptr nocapture noundef %
 declare i64 @llvm.bswap.i64(i64) #36
 
 ; Function Attrs: nofree nounwind uwtable
-define internal fastcc noundef i32 @vorbis_decode_initial(ptr noundef %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef writeonly %2, ptr nocapture noundef writeonly %3, ptr nocapture noundef writeonly %4, ptr nocapture noundef writeonly %5) unnamed_addr #7 {
+define internal fastcc range(i32 0, 2) i32 @vorbis_decode_initial(ptr noundef %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef writeonly %2, ptr nocapture noundef writeonly %3, ptr nocapture noundef writeonly %4, ptr nocapture noundef writeonly %5) unnamed_addr #7 {
   %7 = getelementptr inbounds i8, ptr %0, i64 1896
   store i32 0, ptr %7, align 8
   %8 = getelementptr inbounds i8, ptr %0, i64 1892
@@ -113924,7 +113924,7 @@ define internal fastcc noundef i32 @vorbis_decode_initial(ptr noundef %0, ptr no
   br i1 %.not, label %27, label %.loopexit
 
 27:                                               ; preds = %.lr.ph, %.critedge
-  %28 = tail call fastcc i32 @maybe_start_packet(ptr noundef nonnull %0), !range !184
+  %28 = tail call fastcc i32 @maybe_start_packet(ptr noundef nonnull %0)
   %.not54 = icmp eq i32 %28, 0
   br i1 %.not54, label %.loopexit, label %29
 
@@ -113946,7 +113946,7 @@ define internal fastcc noundef i32 @vorbis_decode_initial(ptr noundef %0, ptr no
   br label %34
 
 34:                                               ; preds = %38, %.lr.ph.i
-  %35 = tail call fastcc i32 @get8_packet_raw(ptr noundef nonnull %0), !range !256
+  %35 = tail call fastcc i32 @get8_packet_raw(ptr noundef nonnull %0)
   %36 = icmp eq i32 %35, -1
   br i1 %36, label %37, label %38
 
@@ -114004,7 +114004,7 @@ get_bits.exit:                                    ; preds = %38, %.get_bits.exit
   %60 = load i32, ptr %17, align 8
   %61 = add nsw i32 %60, -1
   store i32 %61, ptr %18, align 8
-  %62 = tail call fastcc i32 @start_page(ptr noundef nonnull %0), !range !184
+  %62 = tail call fastcc i32 @start_page(ptr noundef nonnull %0)
   %.not20.i.i = icmp eq i32 %62, 0
   br i1 %.not20.i.i, label %63, label %64
 
@@ -114226,7 +114226,7 @@ ilog.exit:                                        ; preds = %get_bits.exit.threa
   br label %173
 
 173:                                              ; preds = %177, %.lr.ph.i63
-  %174 = tail call fastcc i32 @get8_packet_raw(ptr noundef nonnull %0), !range !256
+  %174 = tail call fastcc i32 @get8_packet_raw(ptr noundef nonnull %0)
   %175 = icmp eq i32 %174, -1
   br i1 %175, label %176, label %177
 
@@ -114261,7 +114261,7 @@ get_bits.exit64:                                  ; preds = %177, %.get_bits.exi
   br label %190
 
 190:                                              ; preds = %194, %.lr.ph.i67
-  %191 = tail call fastcc i32 @get8_packet_raw(ptr noundef nonnull %0), !range !256
+  %191 = tail call fastcc i32 @get8_packet_raw(ptr noundef nonnull %0)
   %192 = icmp eq i32 %191, -1
   br i1 %192, label %193, label %194
 
@@ -114395,7 +114395,7 @@ define internal fastcc i32 @get_bits(ptr nocapture noundef %0, i32 noundef %1) u
   br label %17
 
 17:                                               ; preds = %.lr.ph31, %20
-  %18 = tail call fastcc i32 @get8_packet_raw(ptr noundef nonnull %0), !range !256
+  %18 = tail call fastcc i32 @get8_packet_raw(ptr noundef nonnull %0)
   %19 = icmp eq i32 %18, -1
   br i1 %19, label %get_bits.exit, label %20
 
@@ -114448,7 +114448,7 @@ get_bits.exit:                                    ; preds = %17, %.loopexit
   br label %42
 
 42:                                               ; preds = %.lr.ph, %46
-  %43 = tail call fastcc i32 @get8_packet_raw(ptr noundef nonnull %0), !range !256
+  %43 = tail call fastcc i32 @get8_packet_raw(ptr noundef nonnull %0)
   %44 = icmp eq i32 %43, -1
   br i1 %44, label %45, label %46
 
@@ -114482,7 +114482,7 @@ get_bits.exit:                                    ; preds = %17, %.loopexit
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal fastcc i32 @ilog(i32 noundef %0) unnamed_addr #1 {
+define internal fastcc range(i32 -128, 158) i32 @ilog(i32 noundef %0) unnamed_addr #1 {
   %2 = icmp slt i32 %0, 0
   br i1 %2, label %62, label %3
 
@@ -114577,7 +114577,7 @@ define internal fastcc i32 @ilog(i32 noundef %0) unnamed_addr #1 {
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define internal fastcc i32 @get8_packet_raw(ptr nocapture noundef %0) unnamed_addr #7 {
+define internal fastcc range(i32 -1, 256) i32 @get8_packet_raw(ptr nocapture noundef %0) unnamed_addr #7 {
   %2 = getelementptr inbounds i8, ptr %0, i64 1764
   %3 = load i8, ptr %2, align 4
   %.not = icmp eq i8 %3, 0
@@ -114601,7 +114601,7 @@ define internal fastcc i32 @get8_packet_raw(ptr nocapture noundef %0) unnamed_ad
   %14 = add nsw i32 %13, -1
   %15 = getelementptr inbounds i8, ptr %0, i64 1776
   store i32 %14, ptr %15, align 8
-  %16 = tail call fastcc i32 @start_page(ptr noundef nonnull %0), !range !184
+  %16 = tail call fastcc i32 @start_page(ptr noundef nonnull %0)
   %.not20.i = icmp eq i32 %16, 0
   br i1 %.not20.i, label %17, label %18
 
@@ -114714,7 +114714,7 @@ next_segment.exit.thread:                         ; preds = %17, %22, %next_segm
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define internal fastcc i32 @next_segment(ptr nocapture noundef %0) unnamed_addr #7 {
+define internal fastcc range(i32 0, 256) i32 @next_segment(ptr nocapture noundef %0) unnamed_addr #7 {
   %2 = getelementptr inbounds i8, ptr %0, i64 1772
   %3 = load i32, ptr %2, align 4
   %.not = icmp eq i32 %3, 0
@@ -114732,7 +114732,7 @@ define internal fastcc i32 @next_segment(ptr nocapture noundef %0) unnamed_addr 
   %11 = add nsw i32 %10, -1
   %12 = getelementptr inbounds i8, ptr %0, i64 1776
   store i32 %11, ptr %12, align 8
-  %13 = tail call fastcc i32 @start_page(ptr noundef nonnull %0), !range !184
+  %13 = tail call fastcc i32 @start_page(ptr noundef nonnull %0)
   %.not20 = icmp eq i32 %13, 0
   br i1 %.not20, label %14, label %15
 
@@ -114840,7 +114840,7 @@ define internal fastcc zeroext i8 @get8(ptr nocapture noundef %0) unnamed_addr #
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define internal fastcc noundef i32 @start_page(ptr nocapture noundef %0) unnamed_addr #7 {
+define internal fastcc range(i32 0, 2) i32 @start_page(ptr nocapture noundef %0) unnamed_addr #7 {
   %2 = getelementptr inbounds i8, ptr %0, i64 64
   %3 = load ptr, ptr %2, align 8
   %.not.i.i = icmp eq ptr %3, null
@@ -114985,7 +114985,7 @@ capture_pattern.exit.thread:                      ; preds = %capture_pattern.exi
   br label %67
 
 65:                                               ; preds = %capture_pattern.exit
-  %66 = tail call fastcc i32 @start_page_no_capturepattern(ptr noundef nonnull %0), !range !184
+  %66 = tail call fastcc i32 @start_page_no_capturepattern(ptr noundef nonnull %0)
   br label %67
 
 67:                                               ; preds = %65, %capture_pattern.exit.thread
@@ -114994,7 +114994,7 @@ capture_pattern.exit.thread:                      ; preds = %capture_pattern.exi
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define internal fastcc noundef i32 @start_page_no_capturepattern(ptr nocapture noundef %0) unnamed_addr #7 {
+define internal fastcc range(i32 0, 2) i32 @start_page_no_capturepattern(ptr nocapture noundef %0) unnamed_addr #7 {
   %2 = getelementptr inbounds i8, ptr %0, i64 1765
   %3 = load i8, ptr %2, align 1
   %.not = icmp eq i8 %3, 0
@@ -115339,7 +115339,7 @@ define internal fastcc i32 @codebook_decode_scalar_raw(ptr nocapture noundef %0,
   br i1 %.not12.i, label %prep_huffman.exit, label %18
 
 18:                                               ; preds = %16, %14
-  %19 = tail call fastcc i32 @get8_packet_raw(ptr noundef nonnull %0), !range !256
+  %19 = tail call fastcc i32 @get8_packet_raw(ptr noundef nonnull %0)
   %20 = icmp eq i32 %19, -1
   br i1 %20, label %prep_huffman.exit, label %21
 
@@ -115718,7 +115718,7 @@ make_block_array.exit:                            ; preds = %66, %setup_temp_mal
   br i1 %.not12.i308.us, label %prep_huffman.exit309.us, label %123
 
 123:                                              ; preds = %121, %119
-  %124 = call fastcc i32 @get8_packet_raw(ptr noundef nonnull %0), !range !256
+  %124 = call fastcc i32 @get8_packet_raw(ptr noundef nonnull %0)
   %125 = icmp eq i32 %124, -1
   br i1 %125, label %prep_huffman.exit309.us, label %126
 
@@ -115912,7 +115912,7 @@ prep_huffman.exit309.us:                          ; preds = %121, %123, %126, %1
   %228 = load i32, ptr %91, align 8
   %229 = add nsw i32 %228, -1
   store i32 %229, ptr %92, align 8
-  %230 = call fastcc i32 @start_page(ptr noundef nonnull %0), !range !184
+  %230 = call fastcc i32 @start_page(ptr noundef nonnull %0)
   %.not20.i.i.us.us = icmp eq i32 %230, 0
   br i1 %.not20.i.i.us.us, label %271, label %231
 
@@ -116227,7 +116227,7 @@ residue_decode.exit.thread.us404.us:              ; preds = %.loopexit45.i.us.us
   %381 = load i32, ptr %91, align 8
   %382 = add nsw i32 %381, -1
   store i32 %382, ptr %92, align 8
-  %383 = call fastcc i32 @start_page(ptr noundef nonnull %0), !range !184
+  %383 = call fastcc i32 @start_page(ptr noundef nonnull %0)
   %.not20.i.i343.us.us.us.us = icmp eq i32 %383, 0
   br i1 %.not20.i.i343.us.us.us.us, label %424, label %384
 
@@ -116520,7 +116520,7 @@ residue_decode.exit.thread.us.us.us.us:           ; preds = %.loopexit.i.us.us.u
   br i1 %.not12.i.us.us, label %prep_huffman.exit.us.us, label %504
 
 504:                                              ; preds = %502, %500
-  %505 = call fastcc i32 @get8_packet_raw(ptr noundef nonnull %0), !range !256
+  %505 = call fastcc i32 @get8_packet_raw(ptr noundef nonnull %0)
   %506 = icmp eq i32 %505, -1
   br i1 %506, label %prep_huffman.exit.us.us, label %507
 
@@ -116639,7 +116639,7 @@ prep_huffman.exit.us.us:                          ; preds = %502, %504, %507, %4
   %575 = zext nneg i16 %565 to i64
   %576 = load ptr, ptr %20, align 8
   %577 = getelementptr inbounds %struct.Codebook, ptr %576, i64 %575
-  %578 = call fastcc i32 @codebook_decode_deinterleave_repeat(ptr noundef %0, ptr noundef %577, ptr noundef %1, i32 noundef 2, ptr noundef nonnull %7, ptr noundef nonnull %8, i32 noundef %3, i32 noundef %556), !range !184
+  %578 = call fastcc i32 @codebook_decode_deinterleave_repeat(ptr noundef %0, ptr noundef %577, ptr noundef %1, i32 noundef 2, ptr noundef nonnull %7, ptr noundef nonnull %8, i32 noundef %3, i32 noundef %556)
   %.not297.us.us = icmp eq i32 %578, 0
   br i1 %.not297.us.us, label %residue_decode.exit, label %._crit_edge528
 
@@ -116718,7 +116718,7 @@ prep_huffman.exit.us.us:                          ; preds = %502, %504, %507, %4
   br i1 %.not12.i305.us.us, label %prep_huffman.exit306.us.us, label %607
 
 607:                                              ; preds = %605, %603
-  %608 = call fastcc i32 @get8_packet_raw(ptr noundef nonnull %0), !range !256
+  %608 = call fastcc i32 @get8_packet_raw(ptr noundef nonnull %0)
   %609 = icmp eq i32 %608, -1
   br i1 %609, label %prep_huffman.exit306.us.us, label %610
 
@@ -116837,7 +116837,7 @@ prep_huffman.exit306.us.us:                       ; preds = %605, %607, %610, %5
   %678 = zext nneg i16 %668 to i64
   %679 = load ptr, ptr %20, align 8
   %680 = getelementptr inbounds %struct.Codebook, ptr %679, i64 %678
-  %681 = call fastcc i32 @codebook_decode_deinterleave_repeat(ptr noundef %0, ptr noundef %680, ptr noundef %1, i32 noundef %2, ptr noundef nonnull %9, ptr noundef nonnull %10, i32 noundef %3, i32 noundef %659), !range !184
+  %681 = call fastcc i32 @codebook_decode_deinterleave_repeat(ptr noundef %0, ptr noundef %680, ptr noundef %1, i32 noundef %2, ptr noundef nonnull %9, ptr noundef nonnull %10, i32 noundef %3, i32 noundef %659)
   %.not295.us.us = icmp eq i32 %681, 0
   br i1 %.not295.us.us, label %residue_decode.exit, label %._crit_edge527
 
@@ -117957,7 +117957,7 @@ define internal fastcc ptr @setup_temp_malloc(ptr nocapture noundef %0, i32 noun
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define internal fastcc noundef i32 @codebook_decode_deinterleave_repeat(ptr nocapture noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2, i32 noundef %3, ptr nocapture noundef %4, ptr nocapture noundef %5, i32 noundef %6, i32 noundef %7) unnamed_addr #7 {
+define internal fastcc range(i32 0, 2) i32 @codebook_decode_deinterleave_repeat(ptr nocapture noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2, i32 noundef %3, ptr nocapture noundef %4, ptr nocapture noundef %5, i32 noundef %6, i32 noundef %7) unnamed_addr #7 {
   %9 = load i32, ptr %4, align 4
   %10 = load i32, ptr %5, align 4
   %11 = load i32, ptr %1, align 8
@@ -118018,7 +118018,7 @@ define internal fastcc noundef i32 @codebook_decode_deinterleave_repeat(ptr noca
   br i1 %.not12.i, label %prep_huffman.exit, label %37
 
 37:                                               ; preds = %35, %33
-  %38 = tail call fastcc i32 @get8_packet_raw(ptr noundef nonnull %0), !range !256
+  %38 = tail call fastcc i32 @get8_packet_raw(ptr noundef nonnull %0)
   %39 = icmp eq i32 %38, -1
   br i1 %39, label %prep_huffman.exit, label %40
 
@@ -118474,7 +118474,7 @@ define internal fastcc void @imdct_step3_inner_r_loop(i32 noundef %0, ptr nocapt
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define internal fastcc noundef i32 @start_packet(ptr nocapture noundef %0) unnamed_addr #7 {
+define internal fastcc range(i32 0, 2) i32 @start_packet(ptr nocapture noundef %0) unnamed_addr #7 {
   %2 = getelementptr inbounds i8, ptr %0, i64 1768
   %3 = getelementptr inbounds i8, ptr %0, i64 1763
   br label %4
@@ -118485,7 +118485,7 @@ define internal fastcc noundef i32 @start_packet(ptr nocapture noundef %0) unnam
   br i1 %6, label %7, label %14
 
 7:                                                ; preds = %4
-  %8 = tail call fastcc i32 @start_page(ptr noundef nonnull %0), !range !184
+  %8 = tail call fastcc i32 @start_page(ptr noundef nonnull %0)
   %.not = icmp eq i32 %8, 0
   br i1 %.not, label %.loopexit, label %9
 
@@ -118518,18 +118518,18 @@ define internal fastcc noundef i32 @start_packet(ptr nocapture noundef %0) unnam
 
 ; Function Attrs: nofree nounwind uwtable
 define internal fastcc i32 @get32_packet(ptr nocapture noundef %0) unnamed_addr #7 {
-  %2 = tail call fastcc i32 @get8_packet_raw(ptr noundef %0), !range !256
+  %2 = tail call fastcc i32 @get8_packet_raw(ptr noundef %0)
   %3 = getelementptr inbounds i8, ptr %0, i64 1784
   store i32 0, ptr %3, align 8
-  %4 = tail call fastcc i32 @get8_packet_raw(ptr noundef %0), !range !256
+  %4 = tail call fastcc i32 @get8_packet_raw(ptr noundef %0)
   store i32 0, ptr %3, align 8
   %5 = shl nsw i32 %4, 8
   %6 = add i32 %5, %2
-  %7 = tail call fastcc i32 @get8_packet_raw(ptr noundef %0), !range !256
+  %7 = tail call fastcc i32 @get8_packet_raw(ptr noundef %0)
   store i32 0, ptr %3, align 8
   %8 = shl nsw i32 %7, 16
   %9 = add i32 %6, %8
-  %10 = tail call fastcc i32 @get8_packet_raw(ptr noundef %0), !range !256
+  %10 = tail call fastcc i32 @get8_packet_raw(ptr noundef %0)
   store i32 0, ptr %3, align 8
   %11 = shl i32 %10, 24
   %12 = add i32 %9, %11
@@ -118614,7 +118614,7 @@ define internal fastcc void @skip(ptr nocapture noundef %0, i32 noundef %1) unna
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal fastcc noundef i32 @compute_codewords(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, i32 noundef %2, ptr nocapture noundef writeonly %3) unnamed_addr #2 {
+define internal fastcc range(i32 0, 2) i32 @compute_codewords(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, i32 noundef %2, ptr nocapture noundef writeonly %3) unnamed_addr #2 {
   %5 = alloca [32 x i32], align 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(128) %5, i8 0, i64 128, i1 false)
   %6 = icmp sgt i32 %2, 0
@@ -119136,7 +119136,7 @@ define internal fastcc i32 @lookup1_values(i32 noundef %0, i32 noundef %1) unnam
 declare void @qsort(ptr noundef, i64 noundef, i64 noundef, ptr nocapture noundef) local_unnamed_addr #66
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal i32 @point_compare(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #15 {
+define internal range(i32 -1, 2) i32 @point_compare(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #15 {
   %3 = load i16, ptr %0, align 2
   %4 = load i16, ptr %1, align 2
   %5 = icmp ult i16 %3, %4
@@ -119147,7 +119147,7 @@ define internal i32 @point_compare(ptr nocapture noundef readonly %0, ptr nocapt
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define internal fastcc noundef i32 @init_blocksize(ptr nocapture noundef %0, i32 noundef %1, i32 noundef %2) unnamed_addr #7 {
+define internal fastcc range(i32 0, 2) i32 @init_blocksize(ptr nocapture noundef %0, i32 noundef %1, i32 noundef %2) unnamed_addr #7 {
   %4 = and i32 %2, -4
   %5 = shl i32 %2, 1
   %6 = and i32 %5, -4
@@ -119597,7 +119597,7 @@ compute_bitreverse.exit:                          ; preds = %245, %compute_bitre
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal i32 @uint32_compare(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #15 {
+define internal range(i32 -1, 2) i32 @uint32_compare(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #15 {
   %3 = load i32, ptr %0, align 4
   %4 = load i32, ptr %1, align 4
   %5 = icmp ult i32 %3, %4
@@ -119614,7 +119614,7 @@ declare double @ldexp(double noundef, i32 noundef) local_unnamed_addr #75
 declare double @cos(double noundef) local_unnamed_addr #69
 
 ; Function Attrs: nofree nounwind uwtable
-define internal fastcc noundef i32 @get_seek_page_info(ptr nocapture noundef %0, ptr nocapture noundef %1) unnamed_addr #7 {
+define internal fastcc range(i32 0, 2) i32 @get_seek_page_info(ptr nocapture noundef %0, ptr nocapture noundef %1) unnamed_addr #7 {
   %3 = alloca [27 x i8], align 16
   %4 = alloca [255 x i8], align 16
   %5 = getelementptr inbounds i8, ptr %0, i64 92
@@ -123117,320 +123117,298 @@ attributes #89 = { nounwind allocsize(0,1) }
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
 !3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = !{i32 -4, i32 1}
-!5 = !{i64 871140}
-!6 = !{i8 0, i8 46}
-!7 = !{i32 -51, i32 1}
-!8 = !{!9}
-!9 = distinct !{!9, !10, !"ma_job_init: argument 0"}
-!10 = distinct !{!10, !"ma_job_init"}
-!11 = !{i32 -2, i32 1}
-!12 = !{i32 1}
-!13 = !{i32 -3, i32 1}
-!14 = !{!15}
-!15 = distinct !{!15, !16, !"ma_lpf2__get_biquad_config: argument 0"}
-!16 = distinct !{!16, !"ma_lpf2__get_biquad_config"}
-!17 = !{!"branch_weights", i32 1, i32 2000}
-!18 = !{!19}
-!19 = distinct !{!19, !20, !"ma_lpf2__get_biquad_config: argument 0"}
-!20 = distinct !{!20, !"ma_lpf2__get_biquad_config"}
-!21 = !{!22}
-!22 = distinct !{!22, !23, !"ma_lpf2__get_biquad_config: argument 0"}
-!23 = distinct !{!23, !"ma_lpf2__get_biquad_config"}
-!24 = !{!25}
-!25 = distinct !{!25, !26, !"ma_lpf2__get_biquad_config: argument 0"}
-!26 = distinct !{!26, !"ma_lpf2__get_biquad_config"}
-!27 = !{!28}
-!28 = distinct !{!28, !29, !"ma_lpf2__get_biquad_config: argument 0"}
-!29 = distinct !{!29, !"ma_lpf2__get_biquad_config"}
-!30 = !{!31}
-!31 = distinct !{!31, !32, !"ma_lpf2__get_biquad_config: argument 0"}
-!32 = distinct !{!32, !"ma_lpf2__get_biquad_config"}
-!33 = !{!34}
-!34 = distinct !{!34, !35, !"ma_lpf2__get_biquad_config: argument 0"}
-!35 = distinct !{!35, !"ma_lpf2__get_biquad_config"}
+!4 = !{i64 871140}
+!5 = !{!6}
+!6 = distinct !{!6, !7, !"ma_job_init: argument 0"}
+!7 = distinct !{!7, !"ma_job_init"}
+!8 = !{i32 1}
+!9 = !{!10}
+!10 = distinct !{!10, !11, !"ma_lpf2__get_biquad_config: argument 0"}
+!11 = distinct !{!11, !"ma_lpf2__get_biquad_config"}
+!12 = !{!"branch_weights", i32 1, i32 2000}
+!13 = !{!14}
+!14 = distinct !{!14, !15, !"ma_lpf2__get_biquad_config: argument 0"}
+!15 = distinct !{!15, !"ma_lpf2__get_biquad_config"}
+!16 = !{!17}
+!17 = distinct !{!17, !18, !"ma_lpf2__get_biquad_config: argument 0"}
+!18 = distinct !{!18, !"ma_lpf2__get_biquad_config"}
+!19 = !{!20}
+!20 = distinct !{!20, !21, !"ma_lpf2__get_biquad_config: argument 0"}
+!21 = distinct !{!21, !"ma_lpf2__get_biquad_config"}
+!22 = !{!23}
+!23 = distinct !{!23, !24, !"ma_lpf2__get_biquad_config: argument 0"}
+!24 = distinct !{!24, !"ma_lpf2__get_biquad_config"}
+!25 = !{!26}
+!26 = distinct !{!26, !27, !"ma_lpf2__get_biquad_config: argument 0"}
+!27 = distinct !{!27, !"ma_lpf2__get_biquad_config"}
+!28 = !{!29}
+!29 = distinct !{!29, !30, !"ma_lpf2__get_biquad_config: argument 0"}
+!30 = distinct !{!30, !"ma_lpf2__get_biquad_config"}
+!31 = !{!32}
+!32 = distinct !{!32, !33, !"ma_lpf2__get_biquad_config: argument 0"}
+!33 = distinct !{!33, !"ma_lpf2__get_biquad_config"}
+!34 = distinct !{!34, !35}
+!35 = !{!"llvm.loop.unswitch.partial.disable"}
 !36 = !{!37}
 !37 = distinct !{!37, !38, !"ma_lpf2__get_biquad_config: argument 0"}
 !38 = distinct !{!38, !"ma_lpf2__get_biquad_config"}
-!39 = distinct !{!39, !40}
-!40 = !{!"llvm.loop.unswitch.partial.disable"}
-!41 = !{!42}
-!42 = distinct !{!42, !43, !"ma_lpf2__get_biquad_config: argument 0"}
-!43 = distinct !{!43, !"ma_lpf2__get_biquad_config"}
-!44 = distinct !{!44, !40}
-!45 = distinct !{!45, !40}
-!46 = distinct !{!46, !40}
-!47 = distinct !{!47, !40}
-!48 = !{!49}
-!49 = distinct !{!49, !50, !"ma_hpf2__get_biquad_config: argument 0"}
-!50 = distinct !{!50, !"ma_hpf2__get_biquad_config"}
-!51 = !{!52}
-!52 = distinct !{!52, !53, !"ma_hpf2__get_biquad_config: argument 0"}
-!53 = distinct !{!53, !"ma_hpf2__get_biquad_config"}
-!54 = !{!55}
-!55 = distinct !{!55, !56, !"ma_hpf2__get_biquad_config: argument 0"}
-!56 = distinct !{!56, !"ma_hpf2__get_biquad_config"}
-!57 = !{!58}
-!58 = distinct !{!58, !59, !"ma_hpf2__get_biquad_config: argument 0"}
-!59 = distinct !{!59, !"ma_hpf2__get_biquad_config"}
-!60 = !{!61}
-!61 = distinct !{!61, !62, !"ma_hpf2__get_biquad_config: argument 0"}
-!62 = distinct !{!62, !"ma_hpf2__get_biquad_config"}
-!63 = !{!64}
-!64 = distinct !{!64, !65, !"ma_hpf2__get_biquad_config: argument 0"}
-!65 = distinct !{!65, !"ma_hpf2__get_biquad_config"}
-!66 = !{!67}
-!67 = distinct !{!67, !68, !"ma_hpf2__get_biquad_config: argument 0"}
-!68 = distinct !{!68, !"ma_hpf2__get_biquad_config"}
-!69 = !{!70}
-!70 = distinct !{!70, !71, !"ma_hpf2__get_biquad_config: argument 0"}
-!71 = distinct !{!71, !"ma_hpf2__get_biquad_config"}
-!72 = distinct !{!72, !40}
+!39 = distinct !{!39, !35}
+!40 = distinct !{!40, !35}
+!41 = distinct !{!41, !35}
+!42 = distinct !{!42, !35}
+!43 = !{!44}
+!44 = distinct !{!44, !45, !"ma_hpf2__get_biquad_config: argument 0"}
+!45 = distinct !{!45, !"ma_hpf2__get_biquad_config"}
+!46 = !{!47}
+!47 = distinct !{!47, !48, !"ma_hpf2__get_biquad_config: argument 0"}
+!48 = distinct !{!48, !"ma_hpf2__get_biquad_config"}
+!49 = !{!50}
+!50 = distinct !{!50, !51, !"ma_hpf2__get_biquad_config: argument 0"}
+!51 = distinct !{!51, !"ma_hpf2__get_biquad_config"}
+!52 = !{!53}
+!53 = distinct !{!53, !54, !"ma_hpf2__get_biquad_config: argument 0"}
+!54 = distinct !{!54, !"ma_hpf2__get_biquad_config"}
+!55 = !{!56}
+!56 = distinct !{!56, !57, !"ma_hpf2__get_biquad_config: argument 0"}
+!57 = distinct !{!57, !"ma_hpf2__get_biquad_config"}
+!58 = !{!59}
+!59 = distinct !{!59, !60, !"ma_hpf2__get_biquad_config: argument 0"}
+!60 = distinct !{!60, !"ma_hpf2__get_biquad_config"}
+!61 = !{!62}
+!62 = distinct !{!62, !63, !"ma_hpf2__get_biquad_config: argument 0"}
+!63 = distinct !{!63, !"ma_hpf2__get_biquad_config"}
+!64 = !{!65}
+!65 = distinct !{!65, !66, !"ma_hpf2__get_biquad_config: argument 0"}
+!66 = distinct !{!66, !"ma_hpf2__get_biquad_config"}
+!67 = distinct !{!67, !35}
+!68 = !{!69}
+!69 = distinct !{!69, !70, !"ma_hpf2__get_biquad_config: argument 0"}
+!70 = distinct !{!70, !"ma_hpf2__get_biquad_config"}
+!71 = distinct !{!71, !35}
+!72 = distinct !{!72, !35}
 !73 = !{!74}
-!74 = distinct !{!74, !75, !"ma_hpf2__get_biquad_config: argument 0"}
-!75 = distinct !{!75, !"ma_hpf2__get_biquad_config"}
-!76 = distinct !{!76, !40}
-!77 = distinct !{!77, !40}
-!78 = !{!79}
-!79 = distinct !{!79, !80, !"ma_bpf2__get_biquad_config: argument 0"}
-!80 = distinct !{!80, !"ma_bpf2__get_biquad_config"}
-!81 = !{!82}
-!82 = distinct !{!82, !83, !"ma_bpf2__get_biquad_config: argument 0"}
-!83 = distinct !{!83, !"ma_bpf2__get_biquad_config"}
-!84 = !{!85}
-!85 = distinct !{!85, !86, !"ma_bpf2__get_biquad_config: argument 0"}
-!86 = distinct !{!86, !"ma_bpf2__get_biquad_config"}
-!87 = !{!88}
-!88 = distinct !{!88, !89, !"ma_bpf2__get_biquad_config: argument 0"}
-!89 = distinct !{!89, !"ma_bpf2__get_biquad_config"}
-!90 = !{!91}
-!91 = distinct !{!91, !92, !"ma_bpf2__get_biquad_config: argument 0"}
-!92 = distinct !{!92, !"ma_bpf2__get_biquad_config"}
-!93 = !{!94}
-!94 = distinct !{!94, !95, !"ma_bpf2__get_biquad_config: argument 0"}
-!95 = distinct !{!95, !"ma_bpf2__get_biquad_config"}
-!96 = !{!97}
-!97 = distinct !{!97, !98, !"ma_bpf2__get_biquad_config: argument 0"}
-!98 = distinct !{!98, !"ma_bpf2__get_biquad_config"}
-!99 = !{!100}
-!100 = distinct !{!100, !101, !"ma_bpf2__get_biquad_config: argument 0"}
-!101 = distinct !{!101, !"ma_bpf2__get_biquad_config"}
-!102 = !{!103}
-!103 = distinct !{!103, !104, !"ma_bpf2__get_biquad_config: argument 0"}
-!104 = distinct !{!104, !"ma_bpf2__get_biquad_config"}
-!105 = distinct !{!105, !40}
-!106 = !{!107}
-!107 = distinct !{!107, !108, !"ma_notch2__get_biquad_config: argument 0"}
-!108 = distinct !{!108, !"ma_notch2__get_biquad_config"}
-!109 = !{!110}
-!110 = distinct !{!110, !111, !"ma_notch2__get_biquad_config: argument 0"}
-!111 = distinct !{!111, !"ma_notch2__get_biquad_config"}
-!112 = !{!113}
-!113 = distinct !{!113, !114, !"ma_notch2__get_biquad_config: argument 0"}
-!114 = distinct !{!114, !"ma_notch2__get_biquad_config"}
-!115 = !{!116}
-!116 = distinct !{!116, !117, !"ma_notch2__get_biquad_config: argument 0"}
-!117 = distinct !{!117, !"ma_notch2__get_biquad_config"}
-!118 = !{!119}
-!119 = distinct !{!119, !120, !"ma_peak2__get_biquad_config: argument 0"}
-!120 = distinct !{!120, !"ma_peak2__get_biquad_config"}
-!121 = !{!122}
-!122 = distinct !{!122, !123, !"ma_peak2__get_biquad_config: argument 0"}
-!123 = distinct !{!123, !"ma_peak2__get_biquad_config"}
-!124 = !{!125}
-!125 = distinct !{!125, !126, !"ma_peak2__get_biquad_config: argument 0"}
-!126 = distinct !{!126, !"ma_peak2__get_biquad_config"}
-!127 = !{!128}
-!128 = distinct !{!128, !129, !"ma_peak2__get_biquad_config: argument 0"}
-!129 = distinct !{!129, !"ma_peak2__get_biquad_config"}
-!130 = !{!131}
-!131 = distinct !{!131, !132, !"ma_loshelf2__get_biquad_config: argument 0"}
-!132 = distinct !{!132, !"ma_loshelf2__get_biquad_config"}
-!133 = !{!134}
-!134 = distinct !{!134, !135, !"ma_loshelf2__get_biquad_config: argument 0"}
-!135 = distinct !{!135, !"ma_loshelf2__get_biquad_config"}
-!136 = !{!137}
-!137 = distinct !{!137, !138, !"ma_loshelf2__get_biquad_config: argument 0"}
-!138 = distinct !{!138, !"ma_loshelf2__get_biquad_config"}
-!139 = !{!140}
-!140 = distinct !{!140, !141, !"ma_loshelf2__get_biquad_config: argument 0"}
-!141 = distinct !{!141, !"ma_loshelf2__get_biquad_config"}
-!142 = !{!143}
-!143 = distinct !{!143, !144, !"ma_hishelf2__get_biquad_config: argument 0"}
-!144 = distinct !{!144, !"ma_hishelf2__get_biquad_config"}
-!145 = !{!146}
-!146 = distinct !{!146, !147, !"ma_hishelf2__get_biquad_config: argument 0"}
-!147 = distinct !{!147, !"ma_hishelf2__get_biquad_config"}
-!148 = !{!149}
-!149 = distinct !{!149, !150, !"ma_hishelf2__get_biquad_config: argument 0"}
-!150 = distinct !{!150, !"ma_hishelf2__get_biquad_config"}
-!151 = !{!152}
-!152 = distinct !{!152, !153, !"ma_hishelf2__get_biquad_config: argument 0"}
-!153 = distinct !{!153, !"ma_hishelf2__get_biquad_config"}
-!154 = distinct !{!154, !40}
-!155 = !{!156}
-!156 = distinct !{!156, !157, !"ma_gainer_process_pcm_frames_internal: argument 0"}
-!157 = distinct !{!157, !"ma_gainer_process_pcm_frames_internal"}
+!74 = distinct !{!74, !75, !"ma_bpf2__get_biquad_config: argument 0"}
+!75 = distinct !{!75, !"ma_bpf2__get_biquad_config"}
+!76 = !{!77}
+!77 = distinct !{!77, !78, !"ma_bpf2__get_biquad_config: argument 0"}
+!78 = distinct !{!78, !"ma_bpf2__get_biquad_config"}
+!79 = !{!80}
+!80 = distinct !{!80, !81, !"ma_bpf2__get_biquad_config: argument 0"}
+!81 = distinct !{!81, !"ma_bpf2__get_biquad_config"}
+!82 = !{!83}
+!83 = distinct !{!83, !84, !"ma_bpf2__get_biquad_config: argument 0"}
+!84 = distinct !{!84, !"ma_bpf2__get_biquad_config"}
+!85 = !{!86}
+!86 = distinct !{!86, !87, !"ma_bpf2__get_biquad_config: argument 0"}
+!87 = distinct !{!87, !"ma_bpf2__get_biquad_config"}
+!88 = !{!89}
+!89 = distinct !{!89, !90, !"ma_bpf2__get_biquad_config: argument 0"}
+!90 = distinct !{!90, !"ma_bpf2__get_biquad_config"}
+!91 = !{!92}
+!92 = distinct !{!92, !93, !"ma_bpf2__get_biquad_config: argument 0"}
+!93 = distinct !{!93, !"ma_bpf2__get_biquad_config"}
+!94 = !{!95}
+!95 = distinct !{!95, !96, !"ma_bpf2__get_biquad_config: argument 0"}
+!96 = distinct !{!96, !"ma_bpf2__get_biquad_config"}
+!97 = !{!98}
+!98 = distinct !{!98, !99, !"ma_bpf2__get_biquad_config: argument 0"}
+!99 = distinct !{!99, !"ma_bpf2__get_biquad_config"}
+!100 = distinct !{!100, !35}
+!101 = !{!102}
+!102 = distinct !{!102, !103, !"ma_notch2__get_biquad_config: argument 0"}
+!103 = distinct !{!103, !"ma_notch2__get_biquad_config"}
+!104 = !{!105}
+!105 = distinct !{!105, !106, !"ma_notch2__get_biquad_config: argument 0"}
+!106 = distinct !{!106, !"ma_notch2__get_biquad_config"}
+!107 = !{!108}
+!108 = distinct !{!108, !109, !"ma_notch2__get_biquad_config: argument 0"}
+!109 = distinct !{!109, !"ma_notch2__get_biquad_config"}
+!110 = !{!111}
+!111 = distinct !{!111, !112, !"ma_notch2__get_biquad_config: argument 0"}
+!112 = distinct !{!112, !"ma_notch2__get_biquad_config"}
+!113 = !{!114}
+!114 = distinct !{!114, !115, !"ma_peak2__get_biquad_config: argument 0"}
+!115 = distinct !{!115, !"ma_peak2__get_biquad_config"}
+!116 = !{!117}
+!117 = distinct !{!117, !118, !"ma_peak2__get_biquad_config: argument 0"}
+!118 = distinct !{!118, !"ma_peak2__get_biquad_config"}
+!119 = !{!120}
+!120 = distinct !{!120, !121, !"ma_peak2__get_biquad_config: argument 0"}
+!121 = distinct !{!121, !"ma_peak2__get_biquad_config"}
+!122 = !{!123}
+!123 = distinct !{!123, !124, !"ma_peak2__get_biquad_config: argument 0"}
+!124 = distinct !{!124, !"ma_peak2__get_biquad_config"}
+!125 = !{!126}
+!126 = distinct !{!126, !127, !"ma_loshelf2__get_biquad_config: argument 0"}
+!127 = distinct !{!127, !"ma_loshelf2__get_biquad_config"}
+!128 = !{!129}
+!129 = distinct !{!129, !130, !"ma_loshelf2__get_biquad_config: argument 0"}
+!130 = distinct !{!130, !"ma_loshelf2__get_biquad_config"}
+!131 = !{!132}
+!132 = distinct !{!132, !133, !"ma_loshelf2__get_biquad_config: argument 0"}
+!133 = distinct !{!133, !"ma_loshelf2__get_biquad_config"}
+!134 = !{!135}
+!135 = distinct !{!135, !136, !"ma_loshelf2__get_biquad_config: argument 0"}
+!136 = distinct !{!136, !"ma_loshelf2__get_biquad_config"}
+!137 = !{!138}
+!138 = distinct !{!138, !139, !"ma_hishelf2__get_biquad_config: argument 0"}
+!139 = distinct !{!139, !"ma_hishelf2__get_biquad_config"}
+!140 = !{!141}
+!141 = distinct !{!141, !142, !"ma_hishelf2__get_biquad_config: argument 0"}
+!142 = distinct !{!142, !"ma_hishelf2__get_biquad_config"}
+!143 = !{!144}
+!144 = distinct !{!144, !145, !"ma_hishelf2__get_biquad_config: argument 0"}
+!145 = distinct !{!145, !"ma_hishelf2__get_biquad_config"}
+!146 = !{!147}
+!147 = distinct !{!147, !148, !"ma_hishelf2__get_biquad_config: argument 0"}
+!148 = distinct !{!148, !"ma_hishelf2__get_biquad_config"}
+!149 = distinct !{!149, !35}
+!150 = !{!151}
+!151 = distinct !{!151, !152, !"ma_gainer_process_pcm_frames_internal: argument 0"}
+!152 = distinct !{!152, !"ma_gainer_process_pcm_frames_internal"}
+!153 = !{!154}
+!154 = distinct !{!154, !152, !"ma_gainer_process_pcm_frames_internal: argument 1"}
+!155 = !{!151, !154}
+!156 = distinct !{!156, !35}
+!157 = !{i64 882035}
 !158 = !{!159}
-!159 = distinct !{!159, !157, !"ma_gainer_process_pcm_frames_internal: argument 1"}
-!160 = !{!156, !159}
-!161 = distinct !{!161, !40}
-!162 = !{i64 882035}
-!163 = !{i32 1, i32 6}
+!159 = distinct !{!159, !160, !"ma_channel_map_apply_mono_in_f32: argument 0"}
+!160 = distinct !{!160, !"ma_channel_map_apply_mono_in_f32"}
+!161 = !{!162}
+!162 = distinct !{!162, !160, !"ma_channel_map_apply_mono_in_f32: argument 1"}
+!163 = !{!159, !162}
 !164 = !{!165}
-!165 = distinct !{!165, !166, !"ma_channel_map_apply_mono_in_f32: argument 0"}
-!166 = distinct !{!166, !"ma_channel_map_apply_mono_in_f32"}
+!165 = distinct !{!165, !166, !"ma_linear_resampler_interpolate_frame_s16: argument 0"}
+!166 = distinct !{!166, !"ma_linear_resampler_interpolate_frame_s16"}
 !167 = !{!168}
-!168 = distinct !{!168, !166, !"ma_channel_map_apply_mono_in_f32: argument 1"}
-!169 = !{!165, !168}
+!168 = distinct !{!168, !169, !"ma_linear_resampler_interpolate_frame_s16: argument 0"}
+!169 = distinct !{!169, !"ma_linear_resampler_interpolate_frame_s16"}
 !170 = !{!171}
-!171 = distinct !{!171, !172, !"ma_linear_resampler_interpolate_frame_s16: argument 0"}
-!172 = distinct !{!172, !"ma_linear_resampler_interpolate_frame_s16"}
+!171 = distinct !{!171, !172, !"ma_linear_resampler_interpolate_frame_f32: argument 0"}
+!172 = distinct !{!172, !"ma_linear_resampler_interpolate_frame_f32"}
 !173 = !{!174}
-!174 = distinct !{!174, !175, !"ma_linear_resampler_interpolate_frame_s16: argument 0"}
-!175 = distinct !{!175, !"ma_linear_resampler_interpolate_frame_s16"}
-!176 = !{!177}
-!177 = distinct !{!177, !178, !"ma_linear_resampler_interpolate_frame_f32: argument 0"}
-!178 = distinct !{!178, !"ma_linear_resampler_interpolate_frame_f32"}
-!179 = !{!180}
-!180 = distinct !{!180, !181, !"ma_linear_resampler_interpolate_frame_f32: argument 0"}
-!181 = distinct !{!181, !"ma_linear_resampler_interpolate_frame_f32"}
-!182 = distinct !{!182, !40}
-!183 = distinct !{!183, !40}
-!184 = !{i32 0, i32 2}
-!185 = distinct !{!185, !40}
-!186 = distinct !{!186, !40}
-!187 = distinct !{!187, !40}
-!188 = distinct !{!188, !40}
-!189 = distinct !{!189, !40}
-!190 = distinct !{!190, !40}
-!191 = distinct !{!191, !40}
-!192 = distinct !{!192, !40}
-!193 = distinct !{!193, !40}
-!194 = distinct !{!194, !40}
-!195 = distinct !{!195, !40}
-!196 = distinct !{!196, !40}
-!197 = distinct !{!197, !40}
-!198 = distinct !{!198, !40}
-!199 = distinct !{!199, !40}
-!200 = !{!201}
-!201 = distinct !{!201, !202, !"ma_data_converter_config_init_default: argument 0"}
-!202 = distinct !{!202, !"ma_data_converter_config_init_default"}
+!174 = distinct !{!174, !175, !"ma_linear_resampler_interpolate_frame_f32: argument 0"}
+!175 = distinct !{!175, !"ma_linear_resampler_interpolate_frame_f32"}
+!176 = distinct !{!176, !35}
+!177 = distinct !{!177, !35}
+!178 = distinct !{!178, !35}
+!179 = distinct !{!179, !35}
+!180 = distinct !{!180, !35}
+!181 = distinct !{!181, !35}
+!182 = distinct !{!182, !35}
+!183 = distinct !{!183, !35}
+!184 = distinct !{!184, !35}
+!185 = distinct !{!185, !35}
+!186 = distinct !{!186, !35}
+!187 = distinct !{!187, !35}
+!188 = distinct !{!188, !35}
+!189 = distinct !{!189, !35}
+!190 = distinct !{!190, !35}
+!191 = distinct !{!191, !35}
+!192 = distinct !{!192, !35}
+!193 = !{!194}
+!194 = distinct !{!194, !195, !"ma_data_converter_config_init_default: argument 0"}
+!195 = distinct !{!195, !"ma_data_converter_config_init_default"}
+!196 = !{!197}
+!197 = distinct !{!197, !198, !"ma_channel_converter_config_init_from_data_converter_config: argument 0"}
+!198 = distinct !{!198, !"ma_channel_converter_config_init_from_data_converter_config"}
+!199 = !{!200}
+!200 = distinct !{!200, !201, !"ma_resampler_config_init_from_data_converter_config: argument 0"}
+!201 = distinct !{!201, !"ma_resampler_config_init_from_data_converter_config"}
+!202 = !{}
 !203 = !{!204}
 !204 = distinct !{!204, !205, !"ma_channel_converter_config_init_from_data_converter_config: argument 0"}
 !205 = distinct !{!205, !"ma_channel_converter_config_init_from_data_converter_config"}
 !206 = !{!207}
 !207 = distinct !{!207, !208, !"ma_resampler_config_init_from_data_converter_config: argument 0"}
 !208 = distinct !{!208, !"ma_resampler_config_init_from_data_converter_config"}
-!209 = !{}
-!210 = !{!211}
-!211 = distinct !{!211, !212, !"ma_channel_converter_config_init_from_data_converter_config: argument 0"}
-!212 = distinct !{!212, !"ma_channel_converter_config_init_from_data_converter_config"}
-!213 = !{!214}
-!214 = distinct !{!214, !215, !"ma_resampler_config_init_from_data_converter_config: argument 0"}
-!215 = distinct !{!215, !"ma_resampler_config_init_from_data_converter_config"}
-!216 = !{!217}
-!217 = distinct !{!217, !218, !"ma_decoder_config_init: argument 0"}
-!218 = distinct !{!218, !"ma_decoder_config_init"}
-!219 = !{!220}
-!220 = distinct !{!220, !221, !"ma_decoder_config_init_copy: argument 0"}
-!221 = distinct !{!221, !"ma_decoder_config_init_copy"}
-!222 = !{!223}
-!223 = distinct !{!223, !224, !"ma_decoder_config_init_copy: argument 0"}
-!224 = distinct !{!224, !"ma_decoder_config_init_copy"}
-!225 = !{!226}
-!226 = distinct !{!226, !227, !"ma_decoder_config_init_copy: argument 0"}
-!227 = distinct !{!227, !"ma_decoder_config_init_copy"}
-!228 = !{!229}
-!229 = distinct !{!229, !230, !"ma_decoder_config_init_copy: argument 0"}
-!230 = distinct !{!230, !"ma_decoder_config_init_copy"}
-!231 = !{!232}
-!232 = distinct !{!232, !233, !"ma_decoder_config_init_copy: argument 0"}
-!233 = distinct !{!233, !"ma_decoder_config_init_copy"}
-!234 = !{!235}
-!235 = distinct !{!235, !236, !"ma_decoder_config_init_copy: argument 0"}
-!236 = distinct !{!236, !"ma_decoder_config_init_copy"}
-!237 = !{!238}
-!238 = distinct !{!238, !239, !"ma_decoder_config_init_copy: argument 0"}
-!239 = distinct !{!239, !"ma_decoder_config_init_copy"}
-!240 = !{i32 -11, i32 1}
-!241 = !{!242}
-!242 = distinct !{!242, !243, !"ma_decoder_config_init_copy: argument 0"}
-!243 = distinct !{!243, !"ma_decoder_config_init_copy"}
-!244 = !{!245}
-!245 = distinct !{!245, !246, !"ma_decoder_config_init_copy: argument 0"}
-!246 = distinct !{!246, !"ma_decoder_config_init_copy"}
-!247 = !{i32 1, i32 0}
-!248 = !{i32 -53, i32 1}
-!249 = !{i32 -10, i32 1}
-!250 = distinct !{!250, !40}
-!251 = distinct !{!251, !40}
-!252 = distinct !{!252, !40}
-!253 = distinct !{!253, !40}
-!254 = distinct !{!254, !40}
-!255 = distinct !{!255, !40}
-!256 = !{i32 -1, i32 256}
-!257 = !{i32 0, i32 256}
-!258 = !{i32 -128, i32 158}
-!259 = !{i32 0, i32 -1}
-!260 = !{i32 0, i32 1153}
-!261 = !{i32 0, i32 3}
-!262 = !{!263}
-!263 = distinct !{!263, !264, !"ma_context_config_init: argument 0"}
-!264 = distinct !{!264, !"ma_context_config_init"}
-!265 = !{!266}
-!266 = distinct !{!266, !267, !"ma_device_config_init: argument 0"}
-!267 = distinct !{!267, !"ma_device_config_init"}
-!268 = !{!269, !271}
-!269 = distinct !{!269, !270, !"ma_data_converter_config_init_default: argument 0"}
-!270 = distinct !{!270, !"ma_data_converter_config_init_default"}
-!271 = distinct !{!271, !272, !"ma_data_converter_config_init: argument 0"}
-!272 = distinct !{!272, !"ma_data_converter_config_init"}
-!273 = !{!271}
-!274 = !{!275}
-!275 = distinct !{!275, !276, !"stb_vorbis_get_info: argument 0"}
-!276 = distinct !{!276, !"stb_vorbis_get_info"}
-!277 = !{!278}
-!278 = distinct !{!278, !279, !"LoadWave: argument 0"}
-!279 = distinct !{!279, !"LoadWave"}
-!280 = !{!281}
-!281 = distinct !{!281, !282, !"LoadAudioStream: argument 0"}
-!282 = distinct !{!282, !"LoadAudioStream"}
-!283 = !{!284}
-!284 = distinct !{!284, !285, !"stb_vorbis_get_info: argument 0"}
-!285 = distinct !{!285, !"stb_vorbis_get_info"}
-!286 = !{!287}
-!287 = distinct !{!287, !288, !"LoadAudioStream: argument 0"}
-!288 = distinct !{!288, !"LoadAudioStream"}
-!289 = !{!290}
-!290 = distinct !{!290, !291, !"LoadAudioStream: argument 0"}
-!291 = distinct !{!291, !"LoadAudioStream"}
-!292 = !{!293}
-!293 = distinct !{!293, !294, !"LoadAudioStream: argument 0"}
-!294 = distinct !{!294, !"LoadAudioStream"}
-!295 = !{i32 0, i32 6}
-!296 = !{i64 0, i64 33554432}
-!297 = !{!298}
-!298 = distinct !{!298, !299, !"LoadAudioStream: argument 0"}
-!299 = distinct !{!299, !"LoadAudioStream"}
-!300 = !{!301}
-!301 = distinct !{!301, !302, !"stb_vorbis_get_info: argument 0"}
-!302 = distinct !{!302, !"stb_vorbis_get_info"}
-!303 = !{!304}
-!304 = distinct !{!304, !305, !"LoadAudioStream: argument 0"}
-!305 = distinct !{!305, !"LoadAudioStream"}
-!306 = !{!307}
-!307 = distinct !{!307, !308, !"LoadAudioStream: argument 0"}
-!308 = distinct !{!308, !"LoadAudioStream"}
-!309 = !{!310}
-!310 = distinct !{!310, !311, !"ma_device__pa_buffer_attr_new: argument 0"}
-!311 = distinct !{!311, !"ma_device__pa_buffer_attr_new"}
-!312 = !{i32 -204, i32 1}
-!313 = !{i8 0, i8 52}
-!314 = !{i8 0, i8 20}
-!315 = !{!316}
-!316 = distinct !{!316, !317, !"ma_resampling_backend_get_config__linear: argument 0"}
-!317 = distinct !{!317, !"ma_resampling_backend_get_config__linear"}
-!318 = !{!319}
-!319 = distinct !{!319, !320, !"ma_resampling_backend_get_config__linear: argument 0"}
-!320 = distinct !{!320, !"ma_resampling_backend_get_config__linear"}
+!209 = !{!210}
+!210 = distinct !{!210, !211, !"ma_decoder_config_init: argument 0"}
+!211 = distinct !{!211, !"ma_decoder_config_init"}
+!212 = !{!213}
+!213 = distinct !{!213, !214, !"ma_decoder_config_init_copy: argument 0"}
+!214 = distinct !{!214, !"ma_decoder_config_init_copy"}
+!215 = !{!216}
+!216 = distinct !{!216, !217, !"ma_decoder_config_init_copy: argument 0"}
+!217 = distinct !{!217, !"ma_decoder_config_init_copy"}
+!218 = !{!219}
+!219 = distinct !{!219, !220, !"ma_decoder_config_init_copy: argument 0"}
+!220 = distinct !{!220, !"ma_decoder_config_init_copy"}
+!221 = !{!222}
+!222 = distinct !{!222, !223, !"ma_decoder_config_init_copy: argument 0"}
+!223 = distinct !{!223, !"ma_decoder_config_init_copy"}
+!224 = !{!225}
+!225 = distinct !{!225, !226, !"ma_decoder_config_init_copy: argument 0"}
+!226 = distinct !{!226, !"ma_decoder_config_init_copy"}
+!227 = !{!228}
+!228 = distinct !{!228, !229, !"ma_decoder_config_init_copy: argument 0"}
+!229 = distinct !{!229, !"ma_decoder_config_init_copy"}
+!230 = !{!231}
+!231 = distinct !{!231, !232, !"ma_decoder_config_init_copy: argument 0"}
+!232 = distinct !{!232, !"ma_decoder_config_init_copy"}
+!233 = !{!234}
+!234 = distinct !{!234, !235, !"ma_decoder_config_init_copy: argument 0"}
+!235 = distinct !{!235, !"ma_decoder_config_init_copy"}
+!236 = !{!237}
+!237 = distinct !{!237, !238, !"ma_decoder_config_init_copy: argument 0"}
+!238 = distinct !{!238, !"ma_decoder_config_init_copy"}
+!239 = distinct !{!239, !35}
+!240 = distinct !{!240, !35}
+!241 = distinct !{!241, !35}
+!242 = distinct !{!242, !35}
+!243 = distinct !{!243, !35}
+!244 = distinct !{!244, !35}
+!245 = !{!246}
+!246 = distinct !{!246, !247, !"ma_context_config_init: argument 0"}
+!247 = distinct !{!247, !"ma_context_config_init"}
+!248 = !{!249}
+!249 = distinct !{!249, !250, !"ma_device_config_init: argument 0"}
+!250 = distinct !{!250, !"ma_device_config_init"}
+!251 = !{!252, !254}
+!252 = distinct !{!252, !253, !"ma_data_converter_config_init_default: argument 0"}
+!253 = distinct !{!253, !"ma_data_converter_config_init_default"}
+!254 = distinct !{!254, !255, !"ma_data_converter_config_init: argument 0"}
+!255 = distinct !{!255, !"ma_data_converter_config_init"}
+!256 = !{!254}
+!257 = !{!258}
+!258 = distinct !{!258, !259, !"stb_vorbis_get_info: argument 0"}
+!259 = distinct !{!259, !"stb_vorbis_get_info"}
+!260 = !{!261}
+!261 = distinct !{!261, !262, !"LoadWave: argument 0"}
+!262 = distinct !{!262, !"LoadWave"}
+!263 = !{!264}
+!264 = distinct !{!264, !265, !"LoadAudioStream: argument 0"}
+!265 = distinct !{!265, !"LoadAudioStream"}
+!266 = !{!267}
+!267 = distinct !{!267, !268, !"stb_vorbis_get_info: argument 0"}
+!268 = distinct !{!268, !"stb_vorbis_get_info"}
+!269 = !{!270}
+!270 = distinct !{!270, !271, !"LoadAudioStream: argument 0"}
+!271 = distinct !{!271, !"LoadAudioStream"}
+!272 = !{!273}
+!273 = distinct !{!273, !274, !"LoadAudioStream: argument 0"}
+!274 = distinct !{!274, !"LoadAudioStream"}
+!275 = !{!276}
+!276 = distinct !{!276, !277, !"LoadAudioStream: argument 0"}
+!277 = distinct !{!277, !"LoadAudioStream"}
+!278 = !{!279}
+!279 = distinct !{!279, !280, !"LoadAudioStream: argument 0"}
+!280 = distinct !{!280, !"LoadAudioStream"}
+!281 = !{!282}
+!282 = distinct !{!282, !283, !"stb_vorbis_get_info: argument 0"}
+!283 = distinct !{!283, !"stb_vorbis_get_info"}
+!284 = !{!285}
+!285 = distinct !{!285, !286, !"LoadAudioStream: argument 0"}
+!286 = distinct !{!286, !"LoadAudioStream"}
+!287 = !{!288}
+!288 = distinct !{!288, !289, !"LoadAudioStream: argument 0"}
+!289 = distinct !{!289, !"LoadAudioStream"}
+!290 = !{!291}
+!291 = distinct !{!291, !292, !"ma_device__pa_buffer_attr_new: argument 0"}
+!292 = distinct !{!292, !"ma_device__pa_buffer_attr_new"}
+!293 = !{!294}
+!294 = distinct !{!294, !295, !"ma_resampling_backend_get_config__linear: argument 0"}
+!295 = distinct !{!295, !"ma_resampling_backend_get_config__linear"}
+!296 = !{!297}
+!297 = distinct !{!297, !298, !"ma_resampling_backend_get_config__linear: argument 0"}
+!298 = distinct !{!298, !"ma_resampling_backend_get_config__linear"}

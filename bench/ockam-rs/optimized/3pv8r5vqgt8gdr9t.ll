@@ -4135,7 +4135,7 @@ define hidden void @"_ZN5tokio4sync4mpsc4list11Rx$LT$T$GT$3pop17ha1b95ae5c521547
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden noundef i8 @"_ZN5tokio4sync4mpsc4list11Rx$LT$T$GT$3pop17hae807a7120a70fa5E"(ptr noalias nocapture noundef align 8 dereferenceable(24) %0, ptr nocapture noundef nonnull readonly align 8 %1) unnamed_addr #3 {
+define hidden noundef range(i8 0, 4) i8 @"_ZN5tokio4sync4mpsc4list11Rx$LT$T$GT$3pop17hae807a7120a70fa5E"(ptr noalias nocapture noundef align 8 dereferenceable(24) %0, ptr nocapture noundef nonnull readonly align 8 %1) unnamed_addr #3 {
   tail call void @llvm.experimental.noalias.scope.decl(metadata !629)
   %3 = getelementptr inbounds i8, ptr %0, i64 16
   %4 = load i64, ptr %3, align 8, !alias.scope !629, !noundef !45
@@ -13146,7 +13146,7 @@ switch.lookup:
 }
 
 ; Function Attrs: mustprogress nofree nounwind nonlazybind willreturn memory(argmem: read) uwtable
-define noundef i8 @"_ZN81_$LT$ockam_abac..resource..ResourceType$u20$as$u20$core..str..traits..FromStr$GT$8from_str17h0c751c1400ed7e1dE"(ptr noalias nocapture noundef nonnull readonly align 1 %0, i64 noundef %1) unnamed_addr #16 {
+define noundef range(i8 0, 4) i8 @"_ZN81_$LT$ockam_abac..resource..ResourceType$u20$as$u20$core..str..traits..FromStr$GT$8from_str17h0c751c1400ed7e1dE"(ptr noalias nocapture noundef nonnull readonly align 1 %0, i64 noundef %1) unnamed_addr #16 {
   switch i64 %1, label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h8b144d685046224fE.exit10.thread" [
     i64 9, label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h8b144d685046224fE.exit"
     i64 10, label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h8b144d685046224fE.exit6"
@@ -13178,7 +13178,7 @@ define noundef i8 @"_ZN81_$LT$ockam_abac..resource..ResourceType$u20$as$u20$core
 }
 
 ; Function Attrs: mustprogress nofree nounwind nonlazybind willreturn memory(argmem: read) uwtable
-define noundef i8 @"_ZN92_$LT$ockam_abac..resource..ResourceType$u20$as$u20$core..convert..TryFrom$LT$$RF$str$GT$$GT$8try_from17h0fc078e5bde4d393E"(ptr noalias nocapture noundef nonnull readonly align 1 %0, i64 noundef %1) unnamed_addr #16 {
+define noundef range(i8 0, 4) i8 @"_ZN92_$LT$ockam_abac..resource..ResourceType$u20$as$u20$core..convert..TryFrom$LT$$RF$str$GT$$GT$8try_from17h0fc078e5bde4d393E"(ptr noalias nocapture noundef nonnull readonly align 1 %0, i64 noundef %1) unnamed_addr #16 {
   switch i64 %1, label %"_ZN81_$LT$ockam_abac..resource..ResourceType$u20$as$u20$core..str..traits..FromStr$GT$8from_str17h0c751c1400ed7e1dE.exit" [
     i64 9, label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h8b144d685046224fE.exit.i"
     i64 10, label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h8b144d685046224fE.exit6.i"
@@ -13261,7 +13261,7 @@ define noundef zeroext i1 @"_ZN75_$LT$ockam_abac..resource..ResourceTypeIter$u20
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define hidden noundef i8 @_ZN10ockam_abac8resource16ResourceTypeIter3get17h25b9cfb99770eff4E.llvm.5773138781079186978(ptr noalias nocapture noundef readonly align 8 dereferenceable(16) %0, i64 noundef %1) unnamed_addr #1 {
+define hidden noundef range(i8 0, 4) i8 @_ZN10ockam_abac8resource16ResourceTypeIter3get17h25b9cfb99770eff4E.llvm.5773138781079186978(ptr noalias nocapture noundef readonly align 8 dereferenceable(16) %0, i64 noundef %1) unnamed_addr #1 {
 switch.lookup:
   %spec.select1 = tail call i64 @llvm.umin.i64(i64 %1, i64 3)
   %spec.select = trunc nuw nsw i64 %spec.select1 to i8
@@ -13274,7 +13274,7 @@ define { i64, i64 } @"_ZN78_$LT$ockam_abac..resource..ResourceType$u20$as$u20$st
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
-define noundef i8 @"_ZN97_$LT$ockam_abac..resource..ResourceTypeIter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h82a7d3cbb5d21475E"(ptr noalias nocapture noundef align 8 dereferenceable(16) %0) unnamed_addr #8 {
+define noundef range(i8 0, 4) i8 @"_ZN97_$LT$ockam_abac..resource..ResourceTypeIter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h82a7d3cbb5d21475E"(ptr noalias nocapture noundef align 8 dereferenceable(16) %0) unnamed_addr #8 {
   %2 = load i64, ptr %0, align 8, !alias.scope !1775, !noundef !45
   %3 = add i64 %2, 1
   %4 = getelementptr inbounds i8, ptr %0, i64 8
@@ -13316,7 +13316,7 @@ define void @"_ZN97_$LT$ockam_abac..resource..ResourceTypeIter$u20$as$u20$core..
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
-define noundef i8 @"_ZN97_$LT$ockam_abac..resource..ResourceTypeIter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$3nth17h5c378ddcd421b848E"(ptr noalias nocapture noundef align 8 dereferenceable(16) %0, i64 noundef %1) unnamed_addr #8 {
+define noundef range(i8 0, 4) i8 @"_ZN97_$LT$ockam_abac..resource..ResourceTypeIter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$3nth17h5c378ddcd421b848E"(ptr noalias nocapture noundef align 8 dereferenceable(16) %0, i64 noundef %1) unnamed_addr #8 {
   %3 = load i64, ptr %0, align 8, !noundef !45
   %4 = add i64 %3, %1
   %5 = add i64 %4, 1
@@ -13354,7 +13354,7 @@ define noundef i64 @"_ZN108_$LT$ockam_abac..resource..ResourceTypeIter$u20$as$u2
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
-define noundef i8 @"_ZN112_$LT$ockam_abac..resource..ResourceTypeIter$u20$as$u20$core..iter..traits..double_ended..DoubleEndedIterator$GT$9next_back17h0af29edeb3e1c5ccE"(ptr noalias nocapture noundef align 8 dereferenceable(16) %0) unnamed_addr #8 {
+define noundef range(i8 0, 4) i8 @"_ZN112_$LT$ockam_abac..resource..ResourceTypeIter$u20$as$u20$core..iter..traits..double_ended..DoubleEndedIterator$GT$9next_back17h0af29edeb3e1c5ccE"(ptr noalias nocapture noundef align 8 dereferenceable(16) %0) unnamed_addr #8 {
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   %3 = load i64, ptr %2, align 8, !noundef !45
   %4 = add i64 %3, 1

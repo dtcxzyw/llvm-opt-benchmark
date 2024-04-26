@@ -2414,7 +2414,7 @@ define internal noundef zeroext i1 @_RNvXs2n_NtCs2al5CLA23zg_9rustc_ast3astNtB6_
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
-define hidden noundef i8 @_RNvXs2u_CsdF516cSs19B_10rustc_spanNtB6_7BytePosNtNtCs9nhK3FOW46N_4core3cmp3Ord3cmp.llvm.9097680112167513710(ptr noalias nocapture noundef readonly align 4 dereferenceable(4) %0, ptr noalias nocapture noundef readonly align 4 dereferenceable(4) %1) unnamed_addr #1 {
+define hidden noundef range(i8 -1, 2) i8 @_RNvXs2u_CsdF516cSs19B_10rustc_spanNtB6_7BytePosNtNtCs9nhK3FOW46N_4core3cmp3Ord3cmp.llvm.9097680112167513710(ptr noalias nocapture noundef readonly align 4 dereferenceable(4) %0, ptr noalias nocapture noundef readonly align 4 dereferenceable(4) %1) unnamed_addr #1 {
   %3 = load i32, ptr %0, align 4, !noundef !10
   %4 = load i32, ptr %1, align 4, !noundef !10
   %5 = icmp ult i32 %3, %4
@@ -9359,7 +9359,7 @@ _ZN4core3fmt8builders9DebugList7entries17he230813e5a7f24ccE.exit: ; preds = %.lr
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
-define hidden noundef i8 @"_ZN4core3cmp5impls50_$LT$impl$u20$core..cmp..Ord$u20$for$u20$usize$GT$3cmp17he0bff06e137ef0d3E.llvm.9097680112167513710"(ptr noalias nocapture noundef readonly align 8 dereferenceable(8) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(8) %1) unnamed_addr #1 {
+define hidden noundef range(i8 -1, 2) i8 @"_ZN4core3cmp5impls50_$LT$impl$u20$core..cmp..Ord$u20$for$u20$usize$GT$3cmp17he0bff06e137ef0d3E.llvm.9097680112167513710"(ptr noalias nocapture noundef readonly align 8 dereferenceable(8) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(8) %1) unnamed_addr #1 {
   %3 = load i64, ptr %0, align 8, !noundef !10
   %4 = load i64, ptr %1, align 8, !noundef !10
   %5 = icmp ult i64 %3, %4
@@ -9494,7 +9494,7 @@ define hidden void @_ZN4core3ops8function6FnOnce9call_once17h3aa664fc630adecaE.l
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read, inaccessiblemem: read) uwtable
-define hidden noundef i8 @_ZN4core3ops8function6FnOnce9call_once17hb78e0a793360f381E.llvm.9097680112167513710(ptr noalias nocapture noundef readonly align 8 dereferenceable(8) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(8) %1) unnamed_addr #10 {
+define hidden noundef range(i8 -1, 2) i8 @_ZN4core3ops8function6FnOnce9call_once17hb78e0a793360f381E.llvm.9097680112167513710(ptr noalias nocapture noundef readonly align 8 dereferenceable(8) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(8) %1) unnamed_addr #10 {
   tail call void @llvm.experimental.noalias.scope.decl(metadata !966)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !969)
   %3 = load i64, ptr %0, align 8, !alias.scope !966, !noalias !969, !noundef !10
@@ -9507,7 +9507,7 @@ define hidden noundef i8 @_ZN4core3ops8function6FnOnce9call_once17hb78e0a793360f
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read, inaccessiblemem: read) uwtable
-define hidden noundef i8 @_ZN4core3ops8function6FnOnce9call_once17hddc1a52070e237daE.llvm.9097680112167513710(ptr noalias nocapture noundef readonly align 4 dereferenceable(4) %0, ptr noalias nocapture noundef readonly align 4 dereferenceable(4) %1) unnamed_addr #10 {
+define hidden noundef range(i8 -1, 2) i8 @_ZN4core3ops8function6FnOnce9call_once17hddc1a52070e237daE.llvm.9097680112167513710(ptr noalias nocapture noundef readonly align 4 dereferenceable(4) %0, ptr noalias nocapture noundef readonly align 4 dereferenceable(4) %1) unnamed_addr #10 {
   tail call void @llvm.experimental.noalias.scope.decl(metadata !971)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !974)
   %3 = load i32, ptr %0, align 4, !alias.scope !971, !noalias !974, !noundef !10
@@ -15156,7 +15156,7 @@ define hidden { ptr, i64 } @"_ZN5alloc3str83_$LT$impl$u20$core..borrow..Borrow$L
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
-define hidden noundef i64 @"_ZN5alloc3vec13in_place_drop20InPlaceDrop$LT$T$GT$3len17h2da2f49ef814d8c9E"(ptr noalias nocapture noundef readonly align 8 dereferenceable(16) %0) unnamed_addr #6 {
+define hidden noundef range(i64 0, 768614336404564651) i64 @"_ZN5alloc3vec13in_place_drop20InPlaceDrop$LT$T$GT$3len17h2da2f49ef814d8c9E"(ptr noalias nocapture noundef readonly align 8 dereferenceable(16) %0) unnamed_addr #6 {
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8, !noundef !10
   %4 = load ptr, ptr %0, align 8, !noundef !10
@@ -15168,7 +15168,7 @@ define hidden noundef i64 @"_ZN5alloc3vec13in_place_drop20InPlaceDrop$LT$T$GT$3l
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
-define hidden noundef i64 @"_ZN5alloc3vec13in_place_drop20InPlaceDrop$LT$T$GT$3len17h5e52e6c09c0df05bE"(ptr noalias nocapture noundef readonly align 8 dereferenceable(16) %0) unnamed_addr #6 {
+define hidden noundef range(i64 0, 576460752303423488) i64 @"_ZN5alloc3vec13in_place_drop20InPlaceDrop$LT$T$GT$3len17h5e52e6c09c0df05bE"(ptr noalias nocapture noundef readonly align 8 dereferenceable(16) %0) unnamed_addr #6 {
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8, !noundef !10
   %4 = load ptr, ptr %0, align 8, !noundef !10
@@ -15180,7 +15180,7 @@ define hidden noundef i64 @"_ZN5alloc3vec13in_place_drop20InPlaceDrop$LT$T$GT$3l
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
-define hidden noundef i64 @"_ZN5alloc3vec13in_place_drop20InPlaceDrop$LT$T$GT$3len17h7c6f40a7ca06c518E"(ptr noalias nocapture noundef readonly align 8 dereferenceable(16) %0) unnamed_addr #6 {
+define hidden noundef range(i64 0, 135637824071393762) i64 @"_ZN5alloc3vec13in_place_drop20InPlaceDrop$LT$T$GT$3len17h7c6f40a7ca06c518E"(ptr noalias nocapture noundef readonly align 8 dereferenceable(16) %0) unnamed_addr #6 {
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8, !noundef !10
   %4 = load ptr, ptr %0, align 8, !noundef !10
@@ -15192,7 +15192,7 @@ define hidden noundef i64 @"_ZN5alloc3vec13in_place_drop20InPlaceDrop$LT$T$GT$3l
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
-define hidden noundef i64 @"_ZN5alloc3vec13in_place_drop20InPlaceDrop$LT$T$GT$3len17h7dc1e9a4eb881fdcE"(ptr noalias nocapture noundef readonly align 8 dereferenceable(16) %0) unnamed_addr #6 {
+define hidden noundef range(i64 0, 121360158379668103) i64 @"_ZN5alloc3vec13in_place_drop20InPlaceDrop$LT$T$GT$3len17h7dc1e9a4eb881fdcE"(ptr noalias nocapture noundef readonly align 8 dereferenceable(16) %0) unnamed_addr #6 {
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8, !noundef !10
   %4 = load ptr, ptr %0, align 8, !noundef !10
@@ -15204,7 +15204,7 @@ define hidden noundef i64 @"_ZN5alloc3vec13in_place_drop20InPlaceDrop$LT$T$GT$3l
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
-define hidden noundef i64 @"_ZN5alloc3vec13in_place_drop20InPlaceDrop$LT$T$GT$3len17hbee6581cfbef1459E"(ptr noalias nocapture noundef readonly align 8 dereferenceable(16) %0) unnamed_addr #6 {
+define hidden noundef range(i64 0, 230584300921369396) i64 @"_ZN5alloc3vec13in_place_drop20InPlaceDrop$LT$T$GT$3len17hbee6581cfbef1459E"(ptr noalias nocapture noundef readonly align 8 dereferenceable(16) %0) unnamed_addr #6 {
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8, !noundef !10
   %4 = load ptr, ptr %0, align 8, !noundef !10
@@ -15216,7 +15216,7 @@ define hidden noundef i64 @"_ZN5alloc3vec13in_place_drop20InPlaceDrop$LT$T$GT$3l
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
-define hidden noundef i64 @"_ZN5alloc3vec13in_place_drop20InPlaceDrop$LT$T$GT$3len17hd5af459ddace2859E"(ptr noalias nocapture noundef readonly align 8 dereferenceable(16) %0) unnamed_addr #6 {
+define hidden noundef range(i64 0, 768614336404564651) i64 @"_ZN5alloc3vec13in_place_drop20InPlaceDrop$LT$T$GT$3len17hd5af459ddace2859E"(ptr noalias nocapture noundef readonly align 8 dereferenceable(16) %0) unnamed_addr #6 {
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8, !noundef !10
   %4 = load ptr, ptr %0, align 8, !noundef !10
@@ -29121,6 +29121,7 @@ define internal fastcc void @_ZN15rustfmt_nightly6chains20ChainFormatterShared13
   %25 = load ptr, ptr %24, align 8, !nonnull !10, !noundef !10
   %26 = getelementptr inbounds i8, ptr %1, i64 16
   %27 = load i64, ptr %26, align 8, !noundef !10
+  %.idx = mul nsw i64 %27, 24
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %6)
   %28 = icmp eq i64 %27, 0
   br i1 %28, label %33, label %34
@@ -29161,7 +29162,6 @@ define internal fastcc void @_ZN15rustfmt_nightly6chains20ChainFormatterShared13
   %41 = load ptr, ptr %40, align 8, !nonnull !10, !align !11, !noundef !10
   %42 = getelementptr inbounds i8, ptr %1, i64 32
   %43 = load i64, ptr %42, align 8, !noundef !10
-  %.idx = mul nsw i64 %27, 24
   %gepdiff = add nsw i64 %.idx, -24
   %44 = udiv exact i64 %gepdiff, 24
   %.0.sroa.speculated.i.i.i = call noundef i64 @llvm.umin.i64(i64 %44, i64 %43)
@@ -40768,7 +40768,7 @@ define hidden { i64, ptr } @"_ZN94_$LT$rustc_ast..ptr..P$LT$T$GT$$u20$as$u20$rus
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define noundef i8 @"_ZN15rustfmt_nightly5parse7session167_$LT$impl$u20$core..convert..From$LT$rustfmt_nightly..config..options..__define_config_type_on_enum_Color..Color$GT$$u20$for$u20$rustc_errors..emitter..ColorConfig$GT$4from17h4cf1b97793e30fbaE"(i8 noundef %0) unnamed_addr #7 {
+define noundef range(i8 0, 3) i8 @"_ZN15rustfmt_nightly5parse7session167_$LT$impl$u20$core..convert..From$LT$rustfmt_nightly..config..options..__define_config_type_on_enum_Color..Color$GT$$u20$for$u20$rustc_errors..emitter..ColorConfig$GT$4from17h4cf1b97793e30fbaE"(i8 noundef %0) unnamed_addr #7 {
 switch.lookup:
   %switch.cast = zext i8 %0 to i24
   %switch.shiftamt = shl nuw nsw i24 %switch.cast, 3

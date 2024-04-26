@@ -11,7 +11,7 @@ target triple = "x86_64-pc-linux-gnu"
 @form_driver.Generic_Methods = internal unnamed_addr constant [9 x ptr] [ptr @Page_Navigation, ptr @Inter_Field_Navigation, ptr null, ptr @Vertical_Scrolling, ptr @Horizontal_Scrolling, ptr @Field_Editing, ptr null, ptr null, ptr null], align 16
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @_nc_Position_Form_Cursor(ptr noundef readonly %0) local_unnamed_addr #0 {
+define dso_local range(i32 -2, 1) i32 @_nc_Position_Form_Cursor(ptr noundef readonly %0) local_unnamed_addr #0 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %59, label %2
 
@@ -111,7 +111,7 @@ declare i32 @wmove(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 declare void @wcursyncup(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @_nc_Refresh_Current_Field(ptr noundef %0) local_unnamed_addr #0 {
+define dso_local range(i32 -2, 1) i32 @_nc_Refresh_Current_Field(ptr noundef %0) local_unnamed_addr #0 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %2, label %4
 
@@ -414,7 +414,7 @@ define dso_local noundef i32 @_nc_Refresh_Current_Field(ptr noundef %0) local_un
 165:                                              ; preds = %158, %160
   %166 = phi i32 [ %164, %160 ], [ -1, %158 ]
   %167 = tail call i32 @wtouchln(ptr noundef %159, i32 noundef 0, i32 noundef %166, i32 noundef 0) #13
-  %168 = tail call i32 @_nc_Position_Form_Cursor(ptr noundef nonnull %0), !range !9
+  %168 = tail call i32 @_nc_Position_Form_Cursor(ptr noundef nonnull %0)
   br label %169
 
 169:                                              ; preds = %165, %10, %2
@@ -434,7 +434,7 @@ declare void @wsyncup(ptr noundef) local_unnamed_addr #1
 declare i32 @wtouchln(ptr noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @_nc_Synchronize_Attributes(ptr noundef %0) local_unnamed_addr #0 {
+define dso_local range(i32 -2, 1) i32 @_nc_Synchronize_Attributes(ptr noundef %0) local_unnamed_addr #0 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %92, label %2
 
@@ -568,11 +568,11 @@ define dso_local noundef i32 @_nc_Synchronize_Attributes(ptr noundef %0) local_u
   %87 = load i16, ptr %0, align 8
   %88 = or i16 %87, 2
   store i16 %88, ptr %0, align 8
-  %89 = tail call i32 @_nc_Refresh_Current_Field(ptr noundef nonnull %4), !range !9
+  %89 = tail call i32 @_nc_Refresh_Current_Field(ptr noundef nonnull %4)
   br label %92
 
 90:                                               ; preds = %18
-  %91 = tail call fastcc i32 @Display_Or_Erase_Field(ptr noundef nonnull %0, i1 noundef zeroext false), !range !10
+  %91 = tail call fastcc i32 @Display_Or_Erase_Field(ptr noundef nonnull %0, i1 noundef zeroext false)
   br label %92
 
 92:                                               ; preds = %2, %5, %8, %12, %68, %59, %57, %90, %1
@@ -630,7 +630,7 @@ define internal fastcc void @Synchronize_Buffer(ptr nocapture noundef %0) unname
   %31 = add nsw i32 %30, %.02734.i
   %32 = add nuw nsw i32 %.02933.i, 1
   %exitcond.not.i = icmp eq i32 %.02933.i, %18
-  br i1 %exitcond.not.i, label %.critedge.i, label %22, !llvm.loop !11
+  br i1 %exitcond.not.i, label %.critedge.i, label %22, !llvm.loop !9
 
 .critedge.thread.i:                               ; preds = %15, %4
   store i8 0, ptr %14, align 1
@@ -662,7 +662,7 @@ define internal fastcc void @Synchronize_Buffer(ptr nocapture noundef %0) unname
   %41 = add nuw nsw i32 %.038.i, 1
   %42 = getelementptr inbounds i8, ptr %.02837.i, i64 1
   %exitcond40.not.i = icmp eq i32 %41, %.027.lcssa.i
-  br i1 %exitcond40.not.i, label %Window_To_Buffer.exit, label %.lr.ph39.i, !llvm.loop !12
+  br i1 %exitcond40.not.i, label %Window_To_Buffer.exit, label %.lr.ph39.i, !llvm.loop !10
 
 Window_To_Buffer.exit:                            ; preds = %40, %.critedge.thread.i, %.critedge.i
   %43 = load ptr, ptr %7, align 8
@@ -706,7 +706,7 @@ define internal fastcc void @Undo_Justification(ptr nocapture noundef readonly %
 15:                                               ; preds = %.lr.ph.i
   %16 = getelementptr inbounds i8, ptr %.010.i, i64 1
   %17 = icmp ult ptr %16, %11
-  br i1 %17, label %.lr.ph.i, label %Get_Start_Of_Data.exit, !llvm.loop !13
+  br i1 %17, label %.lr.ph.i, label %Get_Start_Of_Data.exit, !llvm.loop !11
 
 Get_Start_Of_Data.exit:                           ; preds = %.lr.ph.i, %15, %2
   %.0.lcssa.i = phi ptr [ %4, %2 ], [ %.010.i, %.lr.ph.i ], [ %16, %15 ]
@@ -723,7 +723,7 @@ Get_Start_Of_Data.exit:                           ; preds = %.lr.ph.i, %15, %2
   %23 = getelementptr inbounds i8, ptr %.0.i, i64 -1
   %24 = load i8, ptr %23, align 1
   %25 = icmp eq i8 %24, 32
-  br i1 %25, label %20, label %After_End_Of_Data.exit, !llvm.loop !14
+  br i1 %25, label %20, label %After_End_Of_Data.exit, !llvm.loop !12
 
 After_End_Of_Data.exit:                           ; preds = %20, %22
   %26 = ptrtoint ptr %.0.i to i64
@@ -778,7 +778,7 @@ define internal fastcc void @Buffer_To_Window(ptr nocapture noundef readonly %0,
   %17 = getelementptr inbounds i8, ptr %.0.i, i64 -1
   %18 = load i8, ptr %17, align 1
   %19 = icmp eq i8 %18, 32
-  br i1 %19, label %14, label %After_End_Of_Data.exit, !llvm.loop !14
+  br i1 %19, label %14, label %After_End_Of_Data.exit, !llvm.loop !12
 
 After_End_Of_Data.exit:                           ; preds = %14, %16
   %20 = ptrtoint ptr %.0.i to i64
@@ -796,14 +796,14 @@ After_End_Of_Data.exit:                           ; preds = %14, %16
 28:                                               ; preds = %After_End_Of_Data.exit, %25
   %29 = add nuw nsw i32 %.01720, 1
   %exitcond.not = icmp eq i32 %.01720, %5
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !15
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !13
 
 ._crit_edge:                                      ; preds = %28, %2, %.thread
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @Display_Or_Erase_Field(ptr noundef %0, i1 noundef zeroext %1) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @Display_Or_Erase_Field(ptr noundef %0, i1 noundef zeroext %1) unnamed_addr #0 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %97, label %3
 
@@ -944,7 +944,7 @@ define internal fastcc noundef i32 @Display_Or_Erase_Field(ptr noundef %0, i1 no
   %80 = getelementptr inbounds i8, ptr %.0.i.i, i64 -1
   %81 = load i8, ptr %80, align 1
   %82 = icmp eq i8 %81, 32
-  br i1 %82, label %77, label %After_End_Of_Data.exit.i, !llvm.loop !14
+  br i1 %82, label %77, label %After_End_Of_Data.exit.i, !llvm.loop !12
 
 After_End_Of_Data.exit.i:                         ; preds = %79, %77
   %83 = ptrtoint ptr %.0.i.i to i64
@@ -962,7 +962,7 @@ After_End_Of_Data.exit.i:                         ; preds = %79, %77
 91:                                               ; preds = %88, %After_End_Of_Data.exit.i
   %92 = add nuw nsw i32 %.01720.i, 1
   %exitcond.not.i = icmp eq i32 %.01720.i, %68
-  br i1 %exitcond.not.i, label %Buffer_To_Window.exit, label %.lr.ph.i, !llvm.loop !15
+  br i1 %exitcond.not.i, label %Buffer_To_Window.exit, label %.lr.ph.i, !llvm.loop !13
 
 Buffer_To_Window.exit:                            ; preds = %91, %.thread.i, %65, %45
   %93 = load i16, ptr %0, align 8
@@ -981,7 +981,7 @@ Buffer_To_Window.exit:                            ; preds = %91, %.thread.i, %65
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @_nc_Synchronize_Options(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0 {
+define dso_local range(i32 -14, 1) i32 @_nc_Synchronize_Options(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %107, label %3
 
@@ -1039,7 +1039,7 @@ define dso_local noundef i32 @_nc_Synchronize_Options(ptr noundef %0, i32 nounde
 
 .sink.split:                                      ; preds = %27, %25
   %.sink = phi i1 [ %.not68, %25 ], [ false, %27 ]
-  %30 = tail call fastcc i32 @Display_Or_Erase_Field(ptr noundef nonnull %0, i1 noundef zeroext %.sink), !range !10
+  %30 = tail call fastcc i32 @Display_Or_Erase_Field(ptr noundef nonnull %0, i1 noundef zeroext %.sink)
   br label %31
 
 31:                                               ; preds = %.sink.split, %14, %27, %17, %3
@@ -1177,8 +1177,9 @@ define dso_local noundef i32 @_nc_Synchronize_Options(ptr noundef %0, i32 nounde
   br i1 %104, label %105, label %.thread81
 
 105:                                              ; preds = %99, %63
-  %106 = tail call fastcc i32 @Display_Or_Erase_Field(ptr noundef nonnull %0, i1 noundef zeroext false), !range !10
-  %.not79 = icmp eq i32 %106, 0
+  %106 = tail call fastcc i32 @Display_Or_Erase_Field(ptr noundef nonnull %0, i1 noundef zeroext false)
+  %.0.fr = freeze i32 %106
+  %.not79 = icmp eq i32 %.0.fr, 0
   br i1 %.not79, label %.thread81, label %107
 
 .thread81:                                        ; preds = %.thread80, %74, %.critedge, %85, %88, %91, %93, %96, %99, %42, %45, %52, %55, %57, %60, %63, %105
@@ -1190,7 +1191,7 @@ define dso_local noundef i32 @_nc_Synchronize_Options(ptr noundef %0, i32 nounde
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @_nc_Set_Current_Field(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
+define dso_local range(i32 -11, 1) i32 @_nc_Set_Current_Field(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = icmp ne ptr %0, null
   %4 = icmp ne ptr %1, null
   %or.cond = and i1 %3, %4
@@ -1252,7 +1253,7 @@ define dso_local noundef i32 @_nc_Set_Current_Field(ptr noundef %0, ptr noundef 
   br i1 %34, label %35, label %80
 
 35:                                               ; preds = %27
-  %36 = tail call i32 @_nc_Refresh_Current_Field(ptr noundef nonnull %0), !range !9
+  %36 = tail call i32 @_nc_Refresh_Current_Field(ptr noundef nonnull %0)
   %37 = load i32, ptr %24, align 8
   %38 = and i32 %37, 4
   %.not106 = icmp eq i32 %38, 0
@@ -1523,7 +1524,7 @@ define internal fastcc void @Window_To_Buffer(ptr noundef %0, ptr nocapture noun
   %23 = add nsw i32 %22, %.02734
   %24 = add nuw nsw i32 %.02933, 1
   %exitcond.not = icmp eq i32 %.02933, %10
-  br i1 %exitcond.not, label %.critedge, label %14, !llvm.loop !11
+  br i1 %exitcond.not, label %.critedge, label %14, !llvm.loop !9
 
 .critedge.thread:                                 ; preds = %7, %2
   store i8 0, ptr %6, align 1
@@ -1555,7 +1556,7 @@ define internal fastcc void @Window_To_Buffer(ptr noundef %0, ptr nocapture noun
   %33 = add nuw nsw i32 %.038, 1
   %34 = getelementptr inbounds i8, ptr %.02837, i64 1
   %exitcond40.not = icmp eq i32 %33, %.027.lcssa
-  br i1 %exitcond40.not, label %.loopexit, label %.lr.ph39, !llvm.loop !12
+  br i1 %exitcond40.not, label %.loopexit, label %.lr.ph39, !llvm.loop !10
 
 .loopexit:                                        ; preds = %32, %.critedge.thread, %.critedge
   ret void
@@ -1584,7 +1585,7 @@ define internal fastcc void @Perform_Justification(ptr nocapture noundef readonl
 15:                                               ; preds = %.lr.ph.i
   %16 = getelementptr inbounds i8, ptr %.010.i, i64 1
   %17 = icmp ult ptr %16, %11
-  br i1 %17, label %.lr.ph.i, label %Get_Start_Of_Data.exit, !llvm.loop !13
+  br i1 %17, label %.lr.ph.i, label %Get_Start_Of_Data.exit, !llvm.loop !11
 
 Get_Start_Of_Data.exit:                           ; preds = %.lr.ph.i, %15, %2
   %.0.lcssa.i = phi ptr [ %4, %2 ], [ %.010.i, %.lr.ph.i ], [ %16, %15 ]
@@ -1601,7 +1602,7 @@ Get_Start_Of_Data.exit:                           ; preds = %.lr.ph.i, %15, %2
   %23 = getelementptr inbounds i8, ptr %.0.i, i64 -1
   %24 = load i8, ptr %23, align 1
   %25 = icmp eq i8 %24, 32
-  br i1 %25, label %20, label %After_End_Of_Data.exit, !llvm.loop !14
+  br i1 %25, label %20, label %After_End_Of_Data.exit, !llvm.loop !12
 
 After_End_Of_Data.exit:                           ; preds = %20, %22
   %26 = ptrtoint ptr %.0.i to i64
@@ -1691,11 +1692,11 @@ define dso_local noundef zeroext i1 @_nc_Internal_Validation(ptr nocapture nound
 
 .lr.ph.i:                                         ; preds = %16, %.lr.ph.i
   %.01219.i = phi ptr [ %25, %.lr.ph.i ], [ %22, %16 ]
-  %23 = tail call fastcc i32 @Synchronize_Field(ptr noundef %.01219.i), !range !9
+  %23 = tail call fastcc i32 @Synchronize_Field(ptr noundef %.01219.i)
   %24 = getelementptr inbounds i8, ptr %.01219.i, i64 72
   %25 = load ptr, ptr %24, align 8
   %.not17.i = icmp eq ptr %25, %3
-  br i1 %.not17.i, label %Synchronize_Linked_Fields.exit, label %.lr.ph.i, !llvm.loop !16
+  br i1 %.not17.i, label %Synchronize_Linked_Fields.exit, label %.lr.ph.i, !llvm.loop !14
 
 Synchronize_Linked_Fields.exit:                   ; preds = %.lr.ph.i, %16, %6, %10
   %.0 = phi i1 [ false, %10 ], [ true, %6 ], [ true, %16 ], [ true, %.lr.ph.i ]
@@ -1734,7 +1735,7 @@ define internal fastcc zeroext i1 @Check_Field(ptr noundef readonly %0, ptr noun
 
 13:                                               ; preds = %11
   %14 = getelementptr inbounds i8, ptr %.0, i64 1
-  br label %11, !llvm.loop !17
+  br label %11, !llvm.loop !15
 
 .loopexit:                                        ; preds = %11, %6
   %15 = load i16, ptr %.tr34, align 8
@@ -1821,7 +1822,7 @@ define dso_local ptr @_nc_First_Active_Field(ptr nocapture noundef readonly %0) 
   %43 = icmp eq i32 %42, 3
   %.not.i = icmp eq ptr %39, %13
   %or.cond.i = or i1 %.not.i, %43
-  br i1 %or.cond.i, label %Next_Field_On_Page.exit, label %35, !llvm.loop !18
+  br i1 %or.cond.i, label %Next_Field_On_Page.exit, label %35, !llvm.loop !16
 
 Next_Field_On_Page.exit:                          ; preds = %35
   %.not.i.not = xor i1 %.not.i, true
@@ -1851,7 +1852,7 @@ Next_Field_On_Page.exit:                          ; preds = %35
   %.not29 = icmp ne i32 %60, 0
   %.not30 = icmp eq ptr %39, %57
   %or.cond = or i1 %.not30, %.not29
-  br i1 %or.cond, label %61, label %53, !llvm.loop !19
+  br i1 %or.cond, label %61, label %53, !llvm.loop !17
 
 61:                                               ; preds = %53
   %62 = icmp eq ptr %57, %13
@@ -1869,7 +1870,7 @@ Next_Field_On_Page.exit:                          ; preds = %35
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @_nc_Set_Form_Page(ptr noundef %0, i32 noundef %1, ptr noundef %2) local_unnamed_addr #0 {
+define dso_local range(i32 -11, 1) i32 @_nc_Set_Form_Page(ptr noundef %0, i32 noundef %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = getelementptr inbounds i8, ptr %0, i64 28
   %5 = load i16, ptr %4, align 4
   %6 = sext i16 %5 to i32
@@ -1916,7 +1917,7 @@ define dso_local noundef i32 @_nc_Set_Form_Page(ptr noundef %0, i32 noundef %1, 
   br i1 %.not32, label %34, label %32
 
 32:                                               ; preds = %28
-  %33 = tail call fastcc i32 @Display_Or_Erase_Field(ptr noundef nonnull %.0, i1 noundef zeroext false), !range !10
+  %33 = tail call fastcc i32 @Display_Or_Erase_Field(ptr noundef nonnull %.0, i1 noundef zeroext false)
   %.not33 = icmp eq i32 %33, 0
   br i1 %.not33, label %34, label %.loopexit
 
@@ -1924,74 +1925,71 @@ define dso_local noundef i32 @_nc_Set_Form_Page(ptr noundef %0, i32 noundef %1, 
   %35 = getelementptr inbounds i8, ptr %.0, i64 56
   %36 = load ptr, ptr %35, align 8
   %.not34 = icmp eq ptr %36, %27
-  br i1 %.not34, label %37, label %28, !llvm.loop !20
+  br i1 %.not34, label %37, label %28, !llvm.loop !18
 
 37:                                               ; preds = %34
   %.not35 = icmp eq ptr %2, null
-  br i1 %.not35, label %40, label %38
+  br i1 %.not35, label %38, label %.loopexit.sink.split
 
 38:                                               ; preds = %37
-  %39 = tail call i32 @_nc_Set_Current_Field(ptr noundef %0, ptr noundef nonnull %2), !range !21
-  br label %.loopexit
-
-40:                                               ; preds = %37
-  %41 = load ptr, ptr %18, align 8
-  %42 = load ptr, ptr %20, align 8
-  %43 = load i16, ptr %4, align 4
-  %44 = sext i16 %43 to i64
-  %45 = getelementptr inbounds %struct._PAGE, ptr %42, i64 %44, i32 1
-  %46 = load i16, ptr %45, align 2
-  %47 = sext i16 %46 to i64
-  %48 = getelementptr inbounds ptr, ptr %41, i64 %47
+  %39 = load ptr, ptr %18, align 8
+  %40 = load ptr, ptr %20, align 8
+  %41 = load i16, ptr %4, align 4
+  %42 = sext i16 %41 to i64
+  %43 = getelementptr inbounds %struct._PAGE, ptr %40, i64 %42, i32 1
+  %44 = load i16, ptr %43, align 2
+  %45 = sext i16 %44 to i64
+  %46 = getelementptr inbounds ptr, ptr %39, i64 %45
+  %47 = load ptr, ptr %46, align 8
+  %48 = getelementptr inbounds i8, ptr %47, i64 80
   %49 = load ptr, ptr %48, align 8
-  %50 = getelementptr inbounds i8, ptr %49, i64 80
+  %50 = getelementptr inbounds i8, ptr %49, i64 64
   %51 = load ptr, ptr %50, align 8
-  %52 = getelementptr inbounds i8, ptr %51, i64 64
-  %53 = load ptr, ptr %52, align 8
-  %54 = getelementptr inbounds i8, ptr %49, i64 34
-  %55 = load i16, ptr %54, align 2
-  %56 = sext i16 %55 to i64
-  %57 = getelementptr inbounds ptr, ptr %53, i64 %56
-  %58 = getelementptr inbounds i8, ptr %51, i64 80
-  %59 = load ptr, ptr %58, align 8
-  %60 = getelementptr inbounds i8, ptr %51, i64 28
-  %61 = load i16, ptr %60, align 4
-  %62 = sext i16 %61 to i64
-  %63 = getelementptr inbounds %struct._PAGE, ptr %59, i64 %62
-  %64 = load i16, ptr %63, align 2
-  %65 = sext i16 %64 to i64
-  %66 = getelementptr inbounds ptr, ptr %53, i64 %65
-  %67 = getelementptr inbounds i8, ptr %63, i64 2
-  %68 = load i16, ptr %67, align 2
-  %69 = sext i16 %68 to i64
-  %70 = getelementptr inbounds ptr, ptr %53, i64 %69
-  br label %71
+  %52 = getelementptr inbounds i8, ptr %47, i64 34
+  %53 = load i16, ptr %52, align 2
+  %54 = sext i16 %53 to i64
+  %55 = getelementptr inbounds ptr, ptr %51, i64 %54
+  %56 = getelementptr inbounds i8, ptr %49, i64 80
+  %57 = load ptr, ptr %56, align 8
+  %58 = getelementptr inbounds i8, ptr %49, i64 28
+  %59 = load i16, ptr %58, align 4
+  %60 = sext i16 %59 to i64
+  %61 = getelementptr inbounds %struct._PAGE, ptr %57, i64 %60
+  %62 = load i16, ptr %61, align 2
+  %63 = sext i16 %62 to i64
+  %64 = getelementptr inbounds ptr, ptr %51, i64 %63
+  %65 = getelementptr inbounds i8, ptr %61, i64 2
+  %66 = load i16, ptr %65, align 2
+  %67 = sext i16 %66 to i64
+  %68 = getelementptr inbounds ptr, ptr %51, i64 %67
+  br label %69
 
-71:                                               ; preds = %71, %40
-  %.0.i.i = phi ptr [ %57, %40 ], [ %74, %71 ]
-  %72 = icmp eq ptr %.0.i.i, %70
-  %73 = getelementptr inbounds i8, ptr %.0.i.i, i64 8
-  %74 = select i1 %72, ptr %66, ptr %73
-  %75 = load ptr, ptr %74, align 8
-  %76 = getelementptr inbounds i8, ptr %75, i64 48
-  %77 = load i32, ptr %76, align 8
-  %78 = and i32 %77, 3
-  %79 = icmp eq i32 %78, 3
-  %.not.i.i = icmp eq ptr %75, %49
-  %or.cond.i.i = or i1 %.not.i.i, %79
-  br i1 %or.cond.i.i, label %FN_First_Field.exit, label %71, !llvm.loop !18
+69:                                               ; preds = %69, %38
+  %.0.i.i = phi ptr [ %55, %38 ], [ %72, %69 ]
+  %70 = icmp eq ptr %.0.i.i, %68
+  %71 = getelementptr inbounds i8, ptr %.0.i.i, i64 8
+  %72 = select i1 %70, ptr %64, ptr %71
+  %73 = load ptr, ptr %72, align 8
+  %74 = getelementptr inbounds i8, ptr %73, i64 48
+  %75 = load i32, ptr %74, align 8
+  %76 = and i32 %75, 3
+  %77 = icmp eq i32 %76, 3
+  %.not.i.i = icmp eq ptr %73, %47
+  %or.cond.i.i = or i1 %.not.i.i, %77
+  br i1 %or.cond.i.i, label %.loopexit.sink.split, label %69, !llvm.loop !16
 
-FN_First_Field.exit:                              ; preds = %71
-  %80 = tail call noundef i32 @_nc_Set_Current_Field(ptr noundef %0, ptr noundef nonnull %75), !range !21
+.loopexit.sink.split:                             ; preds = %69, %37
+  %.lcssa.sink = phi ptr [ %2, %37 ], [ %73, %69 ]
+  %78 = tail call i32 @_nc_Set_Current_Field(ptr noundef %0, ptr noundef nonnull %.lcssa.sink)
   br label %.loopexit
 
-.loopexit:                                        ; preds = %32, %3, %FN_First_Field.exit, %38
-  %.022 = phi i32 [ %39, %38 ], [ %80, %FN_First_Field.exit ], [ 0, %3 ], [ -1, %32 ]
+.loopexit:                                        ; preds = %32, %.loopexit.sink.split, %3
+  %.022 = phi i32 [ 0, %3 ], [ %78, %.loopexit.sink.split ], [ -1, %32 ]
   ret i32 %.022
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @FN_First_Field(ptr noundef %0) #0 {
+define internal range(i32 -11, 1) i32 @FN_First_Field(ptr noundef %0) #0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 64
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 80
@@ -2039,10 +2037,10 @@ define internal noundef i32 @FN_First_Field(ptr noundef %0) #0 {
   %43 = icmp eq i32 %42, 3
   %.not.i = icmp eq ptr %39, %13
   %or.cond.i = or i1 %.not.i, %43
-  br i1 %or.cond.i, label %Next_Field_On_Page.exit, label %35, !llvm.loop !18
+  br i1 %or.cond.i, label %Next_Field_On_Page.exit, label %35, !llvm.loop !16
 
 Next_Field_On_Page.exit:                          ; preds = %35
-  %44 = tail call i32 @_nc_Set_Current_Field(ptr noundef %0, ptr noundef nonnull %39), !range !21
+  %44 = tail call i32 @_nc_Set_Current_Field(ptr noundef %0, ptr noundef nonnull %39)
   ret i32 %44
 }
 
@@ -2117,7 +2115,7 @@ define dso_local i32 @form_driver(ptr noundef %0, i32 noundef %1) local_unnamed_
   %52 = icmp eq i32 %51, 3
   %.not.i.i = icmp eq ptr %48, %22
   %or.cond.i.i = or i1 %.not.i.i, %52
-  br i1 %or.cond.i.i, label %Next_Field_On_Page.exit.i, label %44, !llvm.loop !18
+  br i1 %or.cond.i.i, label %Next_Field_On_Page.exit.i, label %44, !llvm.loop !16
 
 Next_Field_On_Page.exit.i:                        ; preds = %44
   %.not.i.not.i = xor i1 %.not.i.i, true
@@ -2147,7 +2145,7 @@ Next_Field_On_Page.exit.i:                        ; preds = %44
   %.not29.i = icmp ne i32 %69, 0
   %.not30.i = icmp eq ptr %48, %66
   %or.cond.i = or i1 %.not30.i, %.not29.i
-  br i1 %or.cond.i, label %70, label %62, !llvm.loop !19
+  br i1 %or.cond.i, label %70, label %62, !llvm.loop !17
 
 70:                                               ; preds = %62
   %71 = icmp eq ptr %66, %22
@@ -2258,7 +2256,7 @@ _nc_First_Active_Field.exit:                      ; preds = %Next_Field_On_Page.
 
 .thread51:                                        ; preds = %87, %93, %97, %109, %110, %117, %125, %107, %103
   %.035 = phi i32 [ %106, %103 ], [ %108, %107 ], [ -8, %109 ], [ %126, %125 ], [ -8, %117 ], [ -8, %110 ], [ -1, %97 ], [ -1, %93 ], [ -8, %87 ]
-  %127 = tail call i32 @_nc_Refresh_Current_Field(ptr noundef nonnull %0), !range !9
+  %127 = tail call i32 @_nc_Refresh_Current_Field(ptr noundef nonnull %0)
   %128 = tail call ptr @__errno_location() #14
   store i32 %.035, ptr %128, align 4
   br label %129
@@ -2309,11 +2307,11 @@ define internal i32 @Page_Navigation(ptr nocapture noundef readonly %0, ptr noun
 
 .lr.ph.i.i:                                       ; preds = %17, %.lr.ph.i.i
   %.01219.i.i = phi ptr [ %26, %.lr.ph.i.i ], [ %23, %17 ]
-  %24 = tail call fastcc i32 @Synchronize_Field(ptr noundef %.01219.i.i), !range !9
+  %24 = tail call fastcc i32 @Synchronize_Field(ptr noundef %.01219.i.i)
   %25 = getelementptr inbounds i8, ptr %.01219.i.i, i64 72
   %26 = load ptr, ptr %25, align 8
   %.not17.i.i = icmp eq ptr %26, %4
-  br i1 %.not17.i.i, label %.loopexit, label %.lr.ph.i.i, !llvm.loop !16
+  br i1 %.not17.i.i, label %.loopexit, label %.lr.ph.i.i, !llvm.loop !14
 
 .loopexit:                                        ; preds = %.lr.ph.i.i, %17, %7
   %27 = getelementptr inbounds i8, ptr %1, i64 120
@@ -2426,11 +2424,11 @@ define internal i32 @Inter_Field_Navigation(ptr nocapture noundef readonly %0, p
 
 .lr.ph.i.i:                                       ; preds = %17, %.lr.ph.i.i
   %.01219.i.i = phi ptr [ %26, %.lr.ph.i.i ], [ %23, %17 ]
-  %24 = tail call fastcc i32 @Synchronize_Field(ptr noundef %.01219.i.i), !range !9
+  %24 = tail call fastcc i32 @Synchronize_Field(ptr noundef %.01219.i.i)
   %25 = getelementptr inbounds i8, ptr %.01219.i.i, i64 72
   %26 = load ptr, ptr %25, align 8
   %.not17.i.i = icmp eq ptr %26, %4
-  br i1 %.not17.i.i, label %.loopexit, label %.lr.ph.i.i, !llvm.loop !16
+  br i1 %.not17.i.i, label %.loopexit, label %.lr.ph.i.i, !llvm.loop !14
 
 .loopexit:                                        ; preds = %.lr.ph.i.i, %17, %7
   %27 = getelementptr inbounds i8, ptr %1, i64 120
@@ -2764,7 +2762,7 @@ define internal fastcc i32 @Data_Entry(ptr noundef %0, i32 noundef %1) unnamed_a
   br label %69
 
 69:                                               ; preds = %.critedge, %30
-  %70 = tail call fastcc i32 @Wrapping_Not_Necessary_Or_Wrapping_Ok(ptr noundef nonnull %0), !range !22
+  %70 = tail call fastcc i32 @Wrapping_Not_Necessary_Or_Wrapping_Ok(ptr noundef nonnull %0)
   %71 = icmp eq i32 %70, 0
   br i1 %71, label %72, label %IFN_Next_Character.exit
 
@@ -2938,7 +2936,7 @@ define dso_local i32 @set_field_buffer(ptr noundef %0, i32 noundef %1, ptr nound
   %35 = icmp ne i8 %34, 0
   %36 = icmp ult i32 %33, %17
   %37 = select i1 %35, i1 %36, i1 false
-  br i1 %37, label %25, label %.loopexit106, !llvm.loop !23
+  br i1 %37, label %25, label %.loopexit106, !llvm.loop !19
 
 .loopexit106:                                     ; preds = %31, %.preheader105, %12
   %38 = load i16, ptr %0, align 8
@@ -2982,7 +2980,7 @@ define dso_local i32 @set_field_buffer(ptr noundef %0, i32 noundef %1, ptr nound
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %lftr.wideiv = trunc i64 %indvars.iv.next to i32
   %exitcond.not = icmp eq i32 %lftr.wideiv, %42
-  br i1 %exitcond.not, label %.loopexit, label %64, !llvm.loop !24
+  br i1 %exitcond.not, label %.loopexit, label %64, !llvm.loop !20
 
 64:                                               ; preds = %.lr.ph111, %63
   %indvars.iv = phi i64 [ %62, %.lr.ph111 ], [ %indvars.iv.next, %63 ]
@@ -3030,7 +3028,7 @@ define dso_local i32 @set_field_buffer(ptr noundef %0, i32 noundef %1, ptr nound
   %94 = icmp ne i8 %93, 0
   %95 = icmp ult ptr %92, %81
   %96 = select i1 %94, i1 %95, i1 false
-  br i1 %96, label %87, label %._crit_edge, !llvm.loop !25
+  br i1 %96, label %87, label %._crit_edge, !llvm.loop !21
 
 ._crit_edge:                                      ; preds = %87, %.loopexit
   %.083.lcssa = phi ptr [ %2, %.loopexit ], [ %92, %87 ]
@@ -3068,7 +3066,7 @@ define dso_local i32 @set_field_buffer(ptr noundef %0, i32 noundef %1, ptr nound
   br i1 %18, label %116, label %.loopexit123
 
 116:                                              ; preds = %.thread
-  %117 = tail call fastcc i32 @Synchronize_Field(ptr noundef nonnull %0), !range !9
+  %117 = tail call fastcc i32 @Synchronize_Field(ptr noundef nonnull %0)
   %.not99 = icmp eq i32 %117, 0
   %118 = getelementptr inbounds i8, ptr %0, i64 72
   %119 = load ptr, ptr %118, align 8
@@ -3082,7 +3080,7 @@ define dso_local i32 @set_field_buffer(ptr noundef %0, i32 noundef %1, ptr nound
 .lr.ph.i:                                         ; preds = %.preheader.i, %.lr.ph.i
   %.01120.i = phi i32 [ %spec.select.i, %.lr.ph.i ], [ 0, %.preheader.i ]
   %.01219.i = phi ptr [ %124, %.lr.ph.i ], [ %119, %.preheader.i ]
-  %120 = tail call fastcc i32 @Synchronize_Field(ptr noundef %.01219.i), !range !9
+  %120 = tail call fastcc i32 @Synchronize_Field(ptr noundef %.01219.i)
   %121 = icmp ne i32 %120, 0
   %122 = icmp eq i32 %.01120.i, 0
   %or.cond.i = select i1 %121, i1 %122, i1 false
@@ -3090,7 +3088,7 @@ define dso_local i32 @set_field_buffer(ptr noundef %0, i32 noundef %1, ptr nound
   %123 = getelementptr inbounds i8, ptr %.01219.i, i64 72
   %124 = load ptr, ptr %123, align 8
   %.not17.i = icmp eq ptr %124, %0
-  br i1 %.not17.i, label %Synchronize_Linked_Fields.exit, label %.lr.ph.i, !llvm.loop !16
+  br i1 %.not17.i, label %Synchronize_Linked_Fields.exit, label %.lr.ph.i, !llvm.loop !14
 
 Synchronize_Linked_Fields.exit:                   ; preds = %.lr.ph.i, %116, %.preheader.i
   %.0.i = phi i32 [ -1, %116 ], [ 0, %.preheader.i ], [ %spec.select.i, %.lr.ph.i ]
@@ -3273,7 +3271,7 @@ define internal fastcc noundef zeroext i1 @Field_Grown(ptr noundef %0, i32 nound
   %93 = load i16, ptr %61, align 4
   %94 = sext i16 %93 to i64
   %.not163.us.not = icmp slt i64 %indvars.iv179, %94
-  br i1 %.not163.us.not, label %.lr.ph.split.us, label %._crit_edge, !llvm.loop !26
+  br i1 %.not163.us.not, label %.lr.ph.split.us, label %._crit_edge, !llvm.loop !22
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %.lr.ph.split
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph.split ], [ 0, %.lr.ph ]
@@ -3294,7 +3292,7 @@ define internal fastcc noundef zeroext i1 @Field_Grown(ptr noundef %0, i32 nound
   %106 = load i16, ptr %61, align 4
   %107 = sext i16 %106 to i64
   %.not163.not = icmp slt i64 %indvars.iv, %107
-  br i1 %.not163.not, label %.lr.ph.split, label %._crit_edge, !llvm.loop !26
+  br i1 %.not163.not, label %.lr.ph.split, label %._crit_edge, !llvm.loop !22
 
 ._crit_edge:                                      ; preds = %.lr.ph.split, %.lr.ph.split.us, %73
   br i1 %31, label %108, label %175
@@ -3383,7 +3381,7 @@ define internal fastcc noundef zeroext i1 @Field_Grown(ptr noundef %0, i32 nound
   %149 = getelementptr inbounds i8, ptr %.0.i.i, i64 -1
   %150 = load i8, ptr %149, align 1
   %151 = icmp eq i8 %150, 32
-  br i1 %151, label %146, label %After_End_Of_Data.exit.i, !llvm.loop !14
+  br i1 %151, label %146, label %After_End_Of_Data.exit.i, !llvm.loop !12
 
 After_End_Of_Data.exit.i:                         ; preds = %148, %146
   %152 = ptrtoint ptr %.0.i.i to i64
@@ -3401,7 +3399,7 @@ After_End_Of_Data.exit.i:                         ; preds = %148, %146
 160:                                              ; preds = %157, %After_End_Of_Data.exit.i
   %161 = add nuw nsw i32 %.01720.i, 1
   %exitcond.not.i = icmp eq i32 %.01720.i, %138
-  br i1 %exitcond.not.i, label %Buffer_To_Window.exit, label %.lr.ph.i, !llvm.loop !15
+  br i1 %exitcond.not.i, label %Buffer_To_Window.exit, label %.lr.ph.i, !llvm.loop !13
 
 Buffer_To_Window.exit:                            ; preds = %160
   %.pr.pre = load ptr, ptr %121, align 8
@@ -3449,7 +3447,7 @@ Buffer_To_Window.exit.thread:                     ; preds = %120, %Buffer_To_Win
   %184 = getelementptr inbounds i8, ptr %.0176, i64 72
   %185 = load ptr, ptr %184, align 8
   %.not169 = icmp eq ptr %185, %0
-  br i1 %.not169, label %.loopexit, label %.preheader, !llvm.loop !27
+  br i1 %.not169, label %.loopexit, label %.preheader, !llvm.loop !23
 
 .loopexit:                                        ; preds = %.preheader, %69, %2, %3, %175, %.critedge, %70, %119
   %.0135 = phi i1 [ false, %119 ], [ false, %70 ], [ false, %.critedge ], [ false, %3 ], [ false, %2 ], [ true, %175 ], [ false, %69 ], [ true, %.preheader ]
@@ -3460,7 +3458,7 @@ Buffer_To_Window.exit.thread:                     ; preds = %120, %Buffer_To_Win
 declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #5
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @Synchronize_Field(ptr noundef %0) unnamed_addr #0 {
+define internal fastcc range(i32 -2, 1) i32 @Synchronize_Field(ptr noundef %0) unnamed_addr #0 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %61, label %2
 
@@ -3550,11 +3548,11 @@ define internal fastcc noundef i32 @Synchronize_Field(ptr noundef %0) unnamed_ad
   %53 = load i16, ptr %0, align 8
   %54 = or i16 %53, 2
   store i16 %54, ptr %0, align 8
-  %55 = tail call i32 @_nc_Refresh_Current_Field(ptr noundef nonnull %4), !range !9
+  %55 = tail call i32 @_nc_Refresh_Current_Field(ptr noundef nonnull %4)
   br label %58
 
 56:                                               ; preds = %18
-  %57 = tail call fastcc i32 @Display_Or_Erase_Field(ptr noundef nonnull %0, i1 noundef zeroext false), !range !10
+  %57 = tail call fastcc i32 @Display_Or_Erase_Field(ptr noundef nonnull %0, i1 noundef zeroext false)
   br label %58
 
 58:                                               ; preds = %52, %56, %12, %8, %5, %2
@@ -3607,7 +3605,7 @@ declare i32 @waddnstr(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr 
 declare i32 @winnstr(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @PN_Next_Page(ptr noundef %0) #0 {
+define internal range(i32 -11, 1) i32 @PN_Next_Page(ptr noundef %0) #0 {
   %2 = getelementptr i8, ptr %0, i64 26
   %.val = load i16, ptr %2, align 2
   %3 = getelementptr i8, ptr %0, i64 28
@@ -3616,12 +3614,12 @@ define internal noundef i32 @PN_Next_Page(ptr noundef %0) #0 {
   %5 = add nsw i32 %4, 1
   %6 = sext i16 %.val to i32
   %7 = srem i32 %5, %6
-  %8 = tail call i32 @_nc_Set_Form_Page(ptr noundef %0, i32 noundef %7, ptr noundef null), !range !21
+  %8 = tail call i32 @_nc_Set_Form_Page(ptr noundef %0, i32 noundef %7, ptr noundef null)
   ret i32 %8
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @PN_Previous_Page(ptr noundef %0) #0 {
+define internal range(i32 -11, 1) i32 @PN_Previous_Page(ptr noundef %0) #0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 28
   %3 = load i16, ptr %2, align 4
   %.not.i = icmp eq i16 %3, 0
@@ -3636,28 +3634,28 @@ Previous_Page_Number.exit:                        ; preds = %1, %4
   %.in.in.i = phi i16 [ %6, %4 ], [ %3, %1 ]
   %.in.i = sext i16 %.in.in.i to i32
   %7 = add nsw i32 %.in.i, -1
-  %8 = tail call i32 @_nc_Set_Form_Page(ptr noundef nonnull %0, i32 noundef %7, ptr noundef null), !range !21
+  %8 = tail call i32 @_nc_Set_Form_Page(ptr noundef nonnull %0, i32 noundef %7, ptr noundef null)
   ret i32 %8
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @PN_First_Page(ptr noundef %0) #0 {
-  %2 = tail call i32 @_nc_Set_Form_Page(ptr noundef %0, i32 noundef 0, ptr noundef null), !range !21
+define internal range(i32 -11, 1) i32 @PN_First_Page(ptr noundef %0) #0 {
+  %2 = tail call i32 @_nc_Set_Form_Page(ptr noundef %0, i32 noundef 0, ptr noundef null)
   ret i32 %2
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @PN_Last_Page(ptr noundef %0) #0 {
+define internal range(i32 -11, 1) i32 @PN_Last_Page(ptr noundef %0) #0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 26
   %3 = load i16, ptr %2, align 2
   %4 = sext i16 %3 to i32
   %5 = add nsw i32 %4, -1
-  %6 = tail call i32 @_nc_Set_Form_Page(ptr noundef %0, i32 noundef %5, ptr noundef null), !range !21
+  %6 = tail call i32 @_nc_Set_Form_Page(ptr noundef %0, i32 noundef %5, ptr noundef null)
   ret i32 %6
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @FN_Next_Field(ptr noundef %0) #0 {
+define internal range(i32 -11, 1) i32 @FN_Next_Field(ptr noundef %0) #0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 72
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds i8, ptr %3, i64 80
@@ -3695,15 +3693,15 @@ define internal noundef i32 @FN_Next_Field(ptr noundef %0) #0 {
   %33 = icmp eq i32 %32, 3
   %.not.i = icmp eq ptr %29, %3
   %or.cond.i = or i1 %.not.i, %33
-  br i1 %or.cond.i, label %Next_Field_On_Page.exit, label %25, !llvm.loop !18
+  br i1 %or.cond.i, label %Next_Field_On_Page.exit, label %25, !llvm.loop !16
 
 Next_Field_On_Page.exit:                          ; preds = %25
-  %34 = tail call i32 @_nc_Set_Current_Field(ptr noundef %0, ptr noundef nonnull %29), !range !21
+  %34 = tail call i32 @_nc_Set_Current_Field(ptr noundef %0, ptr noundef nonnull %29)
   ret i32 %34
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @FN_Previous_Field(ptr noundef %0) #0 {
+define internal range(i32 -11, 1) i32 @FN_Previous_Field(ptr noundef %0) #0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 72
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds i8, ptr %3, i64 80
@@ -3741,15 +3739,15 @@ define internal noundef i32 @FN_Previous_Field(ptr noundef %0) #0 {
   %33 = icmp eq i32 %32, 3
   %.not.i = icmp eq ptr %29, %3
   %or.cond.i = or i1 %.not.i, %33
-  br i1 %or.cond.i, label %Previous_Field_On_Page.exit, label %25, !llvm.loop !28
+  br i1 %or.cond.i, label %Previous_Field_On_Page.exit, label %25, !llvm.loop !24
 
 Previous_Field_On_Page.exit:                      ; preds = %25
-  %34 = tail call i32 @_nc_Set_Current_Field(ptr noundef %0, ptr noundef nonnull %29), !range !21
+  %34 = tail call i32 @_nc_Set_Current_Field(ptr noundef %0, ptr noundef nonnull %29)
   ret i32 %34
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @FN_Last_Field(ptr noundef %0) #0 {
+define internal range(i32 -11, 1) i32 @FN_Last_Field(ptr noundef %0) #0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 64
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 80
@@ -3797,15 +3795,15 @@ define internal noundef i32 @FN_Last_Field(ptr noundef %0) #0 {
   %43 = icmp eq i32 %42, 3
   %.not.i = icmp eq ptr %39, %13
   %or.cond.i = or i1 %.not.i, %43
-  br i1 %or.cond.i, label %Previous_Field_On_Page.exit, label %35, !llvm.loop !28
+  br i1 %or.cond.i, label %Previous_Field_On_Page.exit, label %35, !llvm.loop !24
 
 Previous_Field_On_Page.exit:                      ; preds = %35
-  %44 = tail call i32 @_nc_Set_Current_Field(ptr noundef %0, ptr noundef nonnull %39), !range !21
+  %44 = tail call i32 @_nc_Set_Current_Field(ptr noundef %0, ptr noundef nonnull %39)
   ret i32 %44
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @FN_Sorted_Next_Field(ptr noundef %0) #0 {
+define internal range(i32 -11, 1) i32 @FN_Sorted_Next_Field(ptr noundef %0) #0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 72
   %3 = load ptr, ptr %2, align 8
   br label %4
@@ -3820,15 +3818,15 @@ define internal noundef i32 @FN_Sorted_Next_Field(ptr noundef %0) #0 {
   %10 = icmp eq i32 %9, 3
   %.not.i = icmp eq ptr %6, %3
   %or.cond.i = or i1 %.not.i, %10
-  br i1 %or.cond.i, label %Sorted_Next_Field.exit, label %4, !llvm.loop !29
+  br i1 %or.cond.i, label %Sorted_Next_Field.exit, label %4, !llvm.loop !25
 
 Sorted_Next_Field.exit:                           ; preds = %4
-  %11 = tail call i32 @_nc_Set_Current_Field(ptr noundef %0, ptr noundef nonnull %6), !range !21
+  %11 = tail call i32 @_nc_Set_Current_Field(ptr noundef %0, ptr noundef nonnull %6)
   ret i32 %11
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @FN_Sorted_Previous_Field(ptr noundef %0) #0 {
+define internal range(i32 -11, 1) i32 @FN_Sorted_Previous_Field(ptr noundef %0) #0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 72
   %3 = load ptr, ptr %2, align 8
   br label %4
@@ -3843,15 +3841,15 @@ define internal noundef i32 @FN_Sorted_Previous_Field(ptr noundef %0) #0 {
   %10 = icmp eq i32 %9, 3
   %.not.i = icmp eq ptr %6, %3
   %or.cond.i = or i1 %.not.i, %10
-  br i1 %or.cond.i, label %Sorted_Previous_Field.exit, label %4, !llvm.loop !30
+  br i1 %or.cond.i, label %Sorted_Previous_Field.exit, label %4, !llvm.loop !26
 
 Sorted_Previous_Field.exit:                       ; preds = %4
-  %11 = tail call i32 @_nc_Set_Current_Field(ptr noundef %0, ptr noundef nonnull %6), !range !21
+  %11 = tail call i32 @_nc_Set_Current_Field(ptr noundef %0, ptr noundef nonnull %6)
   ret i32 %11
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @FN_Sorted_First_Field(ptr noundef %0) #0 {
+define internal range(i32 -11, 1) i32 @FN_Sorted_First_Field(ptr noundef %0) #0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 64
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 80
@@ -3876,15 +3874,15 @@ define internal noundef i32 @FN_Sorted_First_Field(ptr noundef %0) #0 {
   %20 = icmp eq i32 %19, 3
   %.not.i = icmp eq ptr %16, %13
   %or.cond.i = or i1 %.not.i, %20
-  br i1 %or.cond.i, label %Sorted_Next_Field.exit, label %14, !llvm.loop !29
+  br i1 %or.cond.i, label %Sorted_Next_Field.exit, label %14, !llvm.loop !25
 
 Sorted_Next_Field.exit:                           ; preds = %14
-  %21 = tail call i32 @_nc_Set_Current_Field(ptr noundef %0, ptr noundef nonnull %16), !range !21
+  %21 = tail call i32 @_nc_Set_Current_Field(ptr noundef %0, ptr noundef nonnull %16)
   ret i32 %21
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @FN_Sorted_Last_Field(ptr noundef %0) #0 {
+define internal range(i32 -11, 1) i32 @FN_Sorted_Last_Field(ptr noundef %0) #0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 64
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 80
@@ -3909,15 +3907,15 @@ define internal noundef i32 @FN_Sorted_Last_Field(ptr noundef %0) #0 {
   %20 = icmp eq i32 %19, 3
   %.not.i = icmp eq ptr %16, %13
   %or.cond.i = or i1 %.not.i, %20
-  br i1 %or.cond.i, label %Sorted_Previous_Field.exit, label %14, !llvm.loop !30
+  br i1 %or.cond.i, label %Sorted_Previous_Field.exit, label %14, !llvm.loop !26
 
 Sorted_Previous_Field.exit:                       ; preds = %14
-  %21 = tail call i32 @_nc_Set_Current_Field(ptr noundef %0, ptr noundef nonnull %16), !range !21
+  %21 = tail call i32 @_nc_Set_Current_Field(ptr noundef %0, ptr noundef nonnull %16)
   ret i32 %21
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @FN_Left_Field(ptr noundef %0) #0 {
+define internal range(i32 -11, 1) i32 @FN_Left_Field(ptr noundef %0) #0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 72
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds i8, ptr %3, i64 6
@@ -3938,21 +3936,21 @@ define internal noundef i32 @FN_Left_Field(ptr noundef %0) #0 {
   %13 = icmp eq i32 %12, 3
   %.not.i.i = icmp eq ptr %9, %.0.i
   %or.cond.i.i = or i1 %.not.i.i, %13
-  br i1 %or.cond.i.i, label %Sorted_Previous_Field.exit.i, label %7, !llvm.loop !30
+  br i1 %or.cond.i.i, label %Sorted_Previous_Field.exit.i, label %7, !llvm.loop !26
 
 Sorted_Previous_Field.exit.i:                     ; preds = %7
   %14 = getelementptr inbounds i8, ptr %9, i64 6
   %15 = load i16, ptr %14, align 2
   %.not.i = icmp eq i16 %15, %5
-  br i1 %.not.i, label %Left_Neighbour_Field.exit, label %6, !llvm.loop !31
+  br i1 %.not.i, label %Left_Neighbour_Field.exit, label %6, !llvm.loop !27
 
 Left_Neighbour_Field.exit:                        ; preds = %Sorted_Previous_Field.exit.i
-  %16 = tail call i32 @_nc_Set_Current_Field(ptr noundef %0, ptr noundef nonnull %9), !range !21
+  %16 = tail call i32 @_nc_Set_Current_Field(ptr noundef %0, ptr noundef nonnull %9)
   ret i32 %16
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @FN_Right_Field(ptr noundef %0) #0 {
+define internal range(i32 -11, 1) i32 @FN_Right_Field(ptr noundef %0) #0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 72
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds i8, ptr %3, i64 6
@@ -3973,21 +3971,21 @@ define internal noundef i32 @FN_Right_Field(ptr noundef %0) #0 {
   %13 = icmp eq i32 %12, 3
   %.not.i.i = icmp eq ptr %9, %.0.i
   %or.cond.i.i = or i1 %.not.i.i, %13
-  br i1 %or.cond.i.i, label %Sorted_Next_Field.exit.i, label %7, !llvm.loop !29
+  br i1 %or.cond.i.i, label %Sorted_Next_Field.exit.i, label %7, !llvm.loop !25
 
 Sorted_Next_Field.exit.i:                         ; preds = %7
   %14 = getelementptr inbounds i8, ptr %9, i64 6
   %15 = load i16, ptr %14, align 2
   %.not.i = icmp eq i16 %15, %5
-  br i1 %.not.i, label %Right_Neighbour_Field.exit, label %6, !llvm.loop !32
+  br i1 %.not.i, label %Right_Neighbour_Field.exit, label %6, !llvm.loop !28
 
 Right_Neighbour_Field.exit:                       ; preds = %Sorted_Next_Field.exit.i
-  %16 = tail call i32 @_nc_Set_Current_Field(ptr noundef %0, ptr noundef nonnull %9), !range !21
+  %16 = tail call i32 @_nc_Set_Current_Field(ptr noundef %0, ptr noundef nonnull %9)
   ret i32 %16
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @FN_Up_Field(ptr noundef %0) #0 {
+define internal range(i32 -11, 1) i32 @FN_Up_Field(ptr noundef %0) #0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 72
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds i8, ptr %3, i64 6
@@ -4010,7 +4008,7 @@ define internal noundef i32 @FN_Up_Field(ptr noundef %0) #0 {
   %15 = icmp eq i32 %14, 3
   %.not.i.i = icmp eq ptr %11, %.0.i
   %or.cond.i.i = or i1 %.not.i.i, %15
-  br i1 %or.cond.i.i, label %Sorted_Previous_Field.exit.i, label %9, !llvm.loop !30
+  br i1 %or.cond.i.i, label %Sorted_Previous_Field.exit.i, label %9, !llvm.loop !26
 
 Sorted_Previous_Field.exit.i:                     ; preds = %9
   %16 = getelementptr inbounds i8, ptr %11, i64 6
@@ -4022,7 +4020,7 @@ Sorted_Previous_Field.exit.i:                     ; preds = %9
   %20 = getelementptr inbounds i8, ptr %11, i64 8
   %21 = load i16, ptr %20, align 8
   %.not.i = icmp eq i16 %21, %7
-  br i1 %.not.i, label %Upper_Neighbour_Field.exit, label %8, !llvm.loop !33
+  br i1 %.not.i, label %Upper_Neighbour_Field.exit, label %8, !llvm.loop !29
 
 .lr.ph.i:                                         ; preds = %Sorted_Previous_Field.exit.i, %Sorted_Previous_Field.exit27.i
   %.139.i = phi ptr [ %26, %Sorted_Previous_Field.exit27.i ], [ %11, %Sorted_Previous_Field.exit.i ]
@@ -4041,13 +4039,13 @@ Sorted_Previous_Field.exit.i:                     ; preds = %9
   %30 = icmp eq i32 %29, 3
   %.not.i25.i = icmp eq ptr %26, %.139.i
   %or.cond.i26.i = or i1 %.not.i25.i, %30
-  br i1 %or.cond.i26.i, label %Sorted_Previous_Field.exit27.i, label %.preheader.i, !llvm.loop !30
+  br i1 %or.cond.i26.i, label %Sorted_Previous_Field.exit27.i, label %.preheader.i, !llvm.loop !26
 
 Sorted_Previous_Field.exit27.i:                   ; preds = %.preheader.i
   %31 = getelementptr inbounds i8, ptr %26, i64 6
   %32 = load i16, ptr %31, align 2
   %33 = icmp eq i16 %32, %17
-  br i1 %33, label %.lr.ph.i, label %.critedge2.i, !llvm.loop !34
+  br i1 %33, label %.lr.ph.i, label %.critedge2.i, !llvm.loop !30
 
 .critedge2.i:                                     ; preds = %Sorted_Previous_Field.exit27.i, %.critedge2.i
   %.0.i28.i = phi ptr [ %35, %.critedge2.i ], [ %26, %Sorted_Previous_Field.exit27.i ]
@@ -4059,16 +4057,16 @@ Sorted_Previous_Field.exit27.i:                   ; preds = %.preheader.i
   %39 = icmp eq i32 %38, 3
   %.not.i29.i = icmp eq ptr %35, %26
   %or.cond.i30.i = or i1 %.not.i29.i, %39
-  br i1 %or.cond.i30.i, label %Upper_Neighbour_Field.exit, label %.critedge2.i, !llvm.loop !29
+  br i1 %or.cond.i30.i, label %Upper_Neighbour_Field.exit, label %.critedge2.i, !llvm.loop !25
 
 Upper_Neighbour_Field.exit:                       ; preds = %19, %.lr.ph.i, %.critedge2.i
   %.2.i = phi ptr [ %35, %.critedge2.i ], [ %.139.i, %.lr.ph.i ], [ %11, %19 ]
-  %40 = tail call i32 @_nc_Set_Current_Field(ptr noundef %0, ptr noundef nonnull %.2.i), !range !21
+  %40 = tail call i32 @_nc_Set_Current_Field(ptr noundef %0, ptr noundef nonnull %.2.i)
   ret i32 %40
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @FN_Down_Field(ptr noundef %0) #0 {
+define internal range(i32 -11, 1) i32 @FN_Down_Field(ptr noundef %0) #0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 72
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds i8, ptr %3, i64 6
@@ -4091,7 +4089,7 @@ define internal noundef i32 @FN_Down_Field(ptr noundef %0) #0 {
   %15 = icmp eq i32 %14, 3
   %.not.i.i = icmp eq ptr %11, %.0.i
   %or.cond.i.i = or i1 %.not.i.i, %15
-  br i1 %or.cond.i.i, label %Sorted_Next_Field.exit.i, label %9, !llvm.loop !29
+  br i1 %or.cond.i.i, label %Sorted_Next_Field.exit.i, label %9, !llvm.loop !25
 
 Sorted_Next_Field.exit.i:                         ; preds = %9
   %16 = getelementptr inbounds i8, ptr %11, i64 6
@@ -4103,7 +4101,7 @@ Sorted_Next_Field.exit.i:                         ; preds = %9
   %20 = getelementptr inbounds i8, ptr %11, i64 8
   %21 = load i16, ptr %20, align 8
   %.not.i = icmp eq i16 %21, %7
-  br i1 %.not.i, label %Down_Neighbour_Field.exit, label %8, !llvm.loop !35
+  br i1 %.not.i, label %Down_Neighbour_Field.exit, label %8, !llvm.loop !31
 
 .lr.ph.i:                                         ; preds = %Sorted_Next_Field.exit.i, %Sorted_Next_Field.exit27.i
   %.139.i = phi ptr [ %26, %Sorted_Next_Field.exit27.i ], [ %11, %Sorted_Next_Field.exit.i ]
@@ -4122,13 +4120,13 @@ Sorted_Next_Field.exit.i:                         ; preds = %9
   %30 = icmp eq i32 %29, 3
   %.not.i25.i = icmp eq ptr %26, %.139.i
   %or.cond.i26.i = or i1 %.not.i25.i, %30
-  br i1 %or.cond.i26.i, label %Sorted_Next_Field.exit27.i, label %.preheader.i, !llvm.loop !29
+  br i1 %or.cond.i26.i, label %Sorted_Next_Field.exit27.i, label %.preheader.i, !llvm.loop !25
 
 Sorted_Next_Field.exit27.i:                       ; preds = %.preheader.i
   %31 = getelementptr inbounds i8, ptr %26, i64 6
   %32 = load i16, ptr %31, align 2
   %33 = icmp eq i16 %32, %17
-  br i1 %33, label %.lr.ph.i, label %.critedge2.i, !llvm.loop !36
+  br i1 %33, label %.lr.ph.i, label %.critedge2.i, !llvm.loop !32
 
 .critedge2.i:                                     ; preds = %Sorted_Next_Field.exit27.i, %.critedge2.i
   %.0.i28.i = phi ptr [ %35, %.critedge2.i ], [ %26, %Sorted_Next_Field.exit27.i ]
@@ -4140,16 +4138,16 @@ Sorted_Next_Field.exit27.i:                       ; preds = %.preheader.i
   %39 = icmp eq i32 %38, 3
   %.not.i29.i = icmp eq ptr %35, %26
   %or.cond.i30.i = or i1 %.not.i29.i, %39
-  br i1 %or.cond.i30.i, label %Down_Neighbour_Field.exit, label %.critedge2.i, !llvm.loop !30
+  br i1 %or.cond.i30.i, label %Down_Neighbour_Field.exit, label %.critedge2.i, !llvm.loop !26
 
 Down_Neighbour_Field.exit:                        ; preds = %19, %.lr.ph.i, %.critedge2.i
   %.2.i = phi ptr [ %35, %.critedge2.i ], [ %.139.i, %.lr.ph.i ], [ %11, %19 ]
-  %40 = tail call i32 @_nc_Set_Current_Field(ptr noundef %0, ptr noundef nonnull %.2.i), !range !21
+  %40 = tail call i32 @_nc_Set_Current_Field(ptr noundef %0, ptr noundef nonnull %.2.i)
   ret i32 %40
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @IFN_Next_Character(ptr nocapture noundef %0) #0 {
+define internal range(i32 -12, 1) i32 @IFN_Next_Character(ptr nocapture noundef %0) #0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 72
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 12
@@ -4221,7 +4219,7 @@ define internal noundef i32 @IFN_Next_Character(ptr nocapture noundef %0) #0 {
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal noundef i32 @IFN_Previous_Character(ptr nocapture noundef %0) #7 {
+define internal range(i32 -12, 1) i32 @IFN_Previous_Character(ptr nocapture noundef %0) #7 {
   %2 = getelementptr inbounds i8, ptr %0, i64 12
   %3 = load i32, ptr %2, align 4
   %4 = add nsw i32 %3, -1
@@ -4261,7 +4259,7 @@ define internal noundef i32 @IFN_Previous_Character(ptr nocapture noundef %0) #7
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @IFN_Next_Line(ptr nocapture noundef %0) #0 {
+define internal range(i32 -12, 1) i32 @IFN_Next_Line(ptr nocapture noundef %0) #0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 72
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 8
@@ -4308,7 +4306,7 @@ define internal noundef i32 @IFN_Next_Line(ptr nocapture noundef %0) #0 {
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal noundef i32 @IFN_Previous_Line(ptr nocapture noundef %0) #8 {
+define internal range(i32 -12, 1) i32 @IFN_Previous_Line(ptr nocapture noundef %0) #8 {
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   %3 = load i32, ptr %2, align 8
   %4 = add nsw i32 %3, -1
@@ -4372,7 +4370,7 @@ define internal noundef i32 @IFN_Next_Word(ptr nocapture noundef %0) #0 {
 29:                                               ; preds = %.lr.ph.i
   %30 = getelementptr inbounds i8, ptr %.010.i, i64 1
   %31 = icmp ult ptr %30, %26
-  br i1 %31, label %.lr.ph.i, label %Get_First_Whitespace_Character.exit, !llvm.loop !37
+  br i1 %31, label %.lr.ph.i, label %Get_First_Whitespace_Character.exit, !llvm.loop !33
 
 Get_First_Whitespace_Character.exit:              ; preds = %.lr.ph.i, %29, %1
   %.0.lcssa.i = phi ptr [ %17, %1 ], [ %.010.i, %.lr.ph.i ], [ %30, %29 ]
@@ -4396,7 +4394,7 @@ Get_First_Whitespace_Character.exit:              ; preds = %.lr.ph.i, %29, %1
 41:                                               ; preds = %.lr.ph.i24
   %42 = getelementptr inbounds i8, ptr %.010.i25, i64 1
   %43 = icmp ult ptr %42, %37
-  br i1 %43, label %.lr.ph.i24, label %Get_Start_Of_Data.exit, !llvm.loop !13
+  br i1 %43, label %.lr.ph.i24, label %Get_Start_Of_Data.exit, !llvm.loop !11
 
 Get_Start_Of_Data.exit:                           ; preds = %.lr.ph.i24, %41, %Get_First_Whitespace_Character.exit
   %.0.lcssa.i23 = phi ptr [ %33, %Get_First_Whitespace_Character.exit ], [ %.010.i25, %.lr.ph.i24 ], [ %42, %41 ]
@@ -4468,7 +4466,7 @@ define internal noundef i32 @IFN_Previous_Word(ptr nocapture noundef %0) #0 {
   %26 = getelementptr inbounds i8, ptr %.0.i, i64 -1
   %27 = load i8, ptr %26, align 1
   %28 = icmp eq i8 %27, 32
-  br i1 %28, label %23, label %After_End_Of_Data.exit, !llvm.loop !14
+  br i1 %28, label %23, label %After_End_Of_Data.exit, !llvm.loop !12
 
 After_End_Of_Data.exit:                           ; preds = %23, %25
   %29 = icmp eq ptr %.0.i, %16
@@ -4488,7 +4486,7 @@ After_End_Of_Data.exit:                           ; preds = %23, %25
   %37 = getelementptr inbounds i8, ptr %.0.i25, i64 -1
   %38 = load i8, ptr %37, align 1
   %.not.i = icmp eq i8 %38, 32
-  br i1 %.not.i, label %After_Last_Whitespace_Character.exit, label %34, !llvm.loop !38
+  br i1 %.not.i, label %After_Last_Whitespace_Character.exit, label %34, !llvm.loop !34
 
 After_Last_Whitespace_Character.exit:             ; preds = %34, %36
   br i1 %29, label %39, label %After_Last_Whitespace_Character.exit30
@@ -4510,7 +4508,7 @@ After_Last_Whitespace_Character.exit:             ; preds = %34, %36
   %47 = getelementptr inbounds i8, ptr %.0.i26, i64 -1
   %48 = load i8, ptr %47, align 1
   %49 = icmp eq i8 %48, 32
-  br i1 %49, label %44, label %After_End_Of_Data.exit27, !llvm.loop !14
+  br i1 %49, label %44, label %After_End_Of_Data.exit27, !llvm.loop !12
 
 After_End_Of_Data.exit27:                         ; preds = %44, %46
   %50 = ptrtoint ptr %.0.i26 to i64
@@ -4529,7 +4527,7 @@ After_End_Of_Data.exit27:                         ; preds = %44, %46
   %57 = getelementptr inbounds i8, ptr %.0.i28, i64 -1
   %58 = load i8, ptr %57, align 1
   %.not.i29 = icmp eq i8 %58, 32
-  br i1 %.not.i29, label %After_Last_Whitespace_Character.exit30, label %54, !llvm.loop !38
+  br i1 %.not.i29, label %After_Last_Whitespace_Character.exit30, label %54, !llvm.loop !34
 
 After_Last_Whitespace_Character.exit30:           ; preds = %56, %54, %After_Last_Whitespace_Character.exit
   %.024 = phi ptr [ %.0.i25, %After_Last_Whitespace_Character.exit ], [ %.0.i28, %54 ], [ %.0.i28, %56 ]
@@ -4589,7 +4587,7 @@ define internal noundef i32 @IFN_Beginning_Of_Field(ptr nocapture noundef %0) #0
 16:                                               ; preds = %.lr.ph.i
   %17 = getelementptr inbounds i8, ptr %.010.i, i64 1
   %18 = icmp ult ptr %17, %12
-  br i1 %18, label %.lr.ph.i, label %Get_Start_Of_Data.exit, !llvm.loop !13
+  br i1 %18, label %.lr.ph.i, label %Get_Start_Of_Data.exit, !llvm.loop !11
 
 Get_Start_Of_Data.exit:                           ; preds = %.lr.ph.i, %16, %1
   %.0.lcssa.i = phi ptr [ %5, %1 ], [ %.010.i, %.lr.ph.i ], [ %17, %16 ]
@@ -4652,7 +4650,7 @@ define internal noundef i32 @IFN_End_Of_Field(ptr nocapture noundef %0) #0 {
   %16 = getelementptr inbounds i8, ptr %.0.i, i64 -1
   %17 = load i8, ptr %16, align 1
   %18 = icmp eq i8 %17, 32
-  br i1 %18, label %13, label %After_End_Of_Data.exit, !llvm.loop !14
+  br i1 %18, label %13, label %After_End_Of_Data.exit, !llvm.loop !12
 
 After_End_Of_Data.exit:                           ; preds = %13, %15
   %19 = icmp eq ptr %.0.i, %12
@@ -4721,7 +4719,7 @@ define internal noundef i32 @IFN_Beginning_Of_Line(ptr nocapture noundef %0) #0 
 21:                                               ; preds = %.lr.ph.i
   %22 = getelementptr inbounds i8, ptr %.010.i, i64 1
   %23 = icmp ult ptr %22, %17
-  br i1 %23, label %.lr.ph.i, label %Get_Start_Of_Data.exit, !llvm.loop !13
+  br i1 %23, label %.lr.ph.i, label %Get_Start_Of_Data.exit, !llvm.loop !11
 
 Get_Start_Of_Data.exit:                           ; preds = %.lr.ph.i, %21, %1
   %.0.lcssa.i = phi ptr [ %13, %1 ], [ %.010.i, %.lr.ph.i ], [ %22, %21 ]
@@ -4783,7 +4781,7 @@ define internal noundef i32 @IFN_End_Of_Line(ptr nocapture noundef %0) #0 {
   %21 = getelementptr inbounds i8, ptr %.0.i, i64 -1
   %22 = load i8, ptr %21, align 1
   %23 = icmp eq i8 %22, 32
-  br i1 %23, label %18, label %After_End_Of_Data.exit, !llvm.loop !14
+  br i1 %23, label %18, label %After_End_Of_Data.exit, !llvm.loop !12
 
 After_End_Of_Data.exit:                           ; preds = %18, %20
   %24 = icmp eq ptr %.0.i, %17
@@ -4816,7 +4814,7 @@ Adjust_Cursor_Position.exit:                      ; preds = %After_End_Of_Data.e
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal i32 @IFN_Left_Character(ptr nocapture noundef %0) #8 {
+define internal range(i32 -12, 1) i32 @IFN_Left_Character(ptr nocapture noundef %0) #8 {
   %2 = getelementptr inbounds i8, ptr %0, i64 12
   %3 = load i32, ptr %2, align 4
   %4 = icmp sgt i32 %3, 0
@@ -4828,7 +4826,7 @@ define internal i32 @IFN_Left_Character(ptr nocapture noundef %0) #8 {
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @IFN_Right_Character(ptr nocapture noundef %0) #0 {
+define internal range(i32 -12, 1) i32 @IFN_Right_Character(ptr nocapture noundef %0) #0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 12
   %3 = load i32, ptr %2, align 4
   %4 = add nsw i32 %3, 1
@@ -4870,7 +4868,7 @@ define internal noundef i32 @IFN_Right_Character(ptr nocapture noundef %0) #0 {
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal i32 @IFN_Up_Character(ptr nocapture noundef %0) #8 {
+define internal range(i32 -12, 1) i32 @IFN_Up_Character(ptr nocapture noundef %0) #8 {
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   %3 = load i32, ptr %2, align 8
   %4 = icmp sgt i32 %3, 0
@@ -4882,7 +4880,7 @@ define internal i32 @IFN_Up_Character(ptr nocapture noundef %0) #8 {
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @IFN_Down_Character(ptr nocapture noundef %0) #0 {
+define internal range(i32 -12, 1) i32 @IFN_Down_Character(ptr nocapture noundef %0) #0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 72
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 8
@@ -5046,7 +5044,7 @@ define internal i32 @FE_New_Line(ptr noundef %0) #0 {
   %77 = getelementptr inbounds i8, ptr %.0.i.i, i64 -1
   %78 = load i8, ptr %77, align 1
   %79 = icmp eq i8 %78, 32
-  br i1 %79, label %74, label %80, !llvm.loop !14
+  br i1 %79, label %74, label %80, !llvm.loop !12
 
 80:                                               ; preds = %76, %74
   %81 = icmp eq ptr %.0.i.i, %71
@@ -5096,7 +5094,7 @@ define internal i32 @FE_New_Line(ptr noundef %0) #0 {
   %104 = getelementptr inbounds i8, ptr %.0.i, i64 -1
   %105 = load i8, ptr %104, align 1
   %106 = icmp eq i8 %105, 32
-  br i1 %106, label %101, label %After_End_Of_Data.exit, !llvm.loop !14
+  br i1 %106, label %101, label %After_End_Of_Data.exit, !llvm.loop !12
 
 After_End_Of_Data.exit:                           ; preds = %101, %103
   %107 = getelementptr inbounds i8, ptr %0, i64 56
@@ -5127,7 +5125,7 @@ After_End_Of_Data.exit:                           ; preds = %101, %103
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @FE_Insert_Character(ptr nocapture noundef %0) #0 {
+define internal range(i32 -12, 1) i32 @FE_Insert_Character(ptr nocapture noundef %0) #0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 72
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds i8, ptr %3, i64 88
@@ -5186,7 +5184,7 @@ define internal noundef i32 @FE_Insert_Character(ptr nocapture noundef %0) #0 {
 .critedge:                                        ; preds = %9, %44
   %46 = load ptr, ptr %10, align 8
   %47 = tail call i32 @winsch(ptr noundef %46, i32 noundef 32) #13
-  %48 = tail call fastcc i32 @Wrapping_Not_Necessary_Or_Wrapping_Ok(ptr noundef nonnull %0), !range !22
+  %48 = tail call fastcc i32 @Wrapping_Not_Necessary_Or_Wrapping_Ok(ptr noundef nonnull %0)
   br label %49
 
 49:                                               ; preds = %44, %33, %41, %.critedge, %1
@@ -5195,7 +5193,7 @@ define internal noundef i32 @FE_Insert_Character(ptr nocapture noundef %0) #0 {
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @FE_Insert_Line(ptr nocapture noundef %0) #0 {
+define internal range(i32 -12, 1) i32 @FE_Insert_Line(ptr nocapture noundef %0) #0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 72
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds i8, ptr %3, i64 88
@@ -5240,7 +5238,7 @@ define internal noundef i32 @FE_Insert_Line(ptr nocapture noundef %0) #0 {
   %32 = getelementptr inbounds i8, ptr %.0.i.i, i64 -1
   %33 = load i8, ptr %32, align 1
   %34 = icmp eq i8 %33, 32
-  br i1 %34, label %29, label %35, !llvm.loop !14
+  br i1 %34, label %29, label %35, !llvm.loop !12
 
 35:                                               ; preds = %31, %29
   %36 = getelementptr inbounds i8, ptr %3, i64 2
@@ -5298,7 +5296,7 @@ define internal noundef i32 @FE_Delete_Character(ptr nocapture noundef readonly 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @FE_Delete_Previous(ptr nocapture noundef %0) #0 {
+define internal range(i32 -12, 1) i32 @FE_Delete_Previous(ptr nocapture noundef %0) #0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 72
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 8
@@ -5351,7 +5349,7 @@ define internal noundef i32 @FE_Delete_Previous(ptr nocapture noundef %0) #0 {
   %34 = getelementptr inbounds i8, ptr %.0.i, i64 -1
   %35 = load i8, ptr %34, align 1
   %36 = icmp eq i8 %35, 32
-  br i1 %36, label %31, label %After_End_Of_Data.exit, !llvm.loop !14
+  br i1 %36, label %31, label %After_End_Of_Data.exit, !llvm.loop !12
 
 After_End_Of_Data.exit:                           ; preds = %31, %33
   %37 = getelementptr inbounds i8, ptr %27, i64 %29
@@ -5366,7 +5364,7 @@ After_End_Of_Data.exit:                           ; preds = %31, %33
   %41 = getelementptr inbounds i8, ptr %.0.i43, i64 -1
   %42 = load i8, ptr %41, align 1
   %43 = icmp eq i8 %42, 32
-  br i1 %43, label %38, label %After_End_Of_Data.exit44, !llvm.loop !14
+  br i1 %43, label %38, label %After_End_Of_Data.exit44, !llvm.loop !12
 
 After_End_Of_Data.exit44:                         ; preds = %38, %40
   %44 = ptrtoint ptr %.0.i43 to i64
@@ -5445,7 +5443,7 @@ define internal noundef i32 @FE_Delete_Line(ptr nocapture noundef %0) #0 {
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @FE_Delete_Word(ptr nocapture noundef %0) #0 {
+define internal range(i32 -12, 1) i32 @FE_Delete_Word(ptr nocapture noundef %0) #0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 72
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds i8, ptr %3, i64 104
@@ -5464,7 +5462,7 @@ define internal noundef i32 @FE_Delete_Word(ptr nocapture noundef %0) #0 {
   tail call fastcc void @Synchronize_Buffer(ptr noundef %0)
   %17 = load i8, ptr %16, align 1
   %18 = icmp eq i8 %17, 32
-  br i1 %18, label %100, label %19
+  br i1 %18, label %97, label %19
 
 19:                                               ; preds = %1
   %20 = sext i32 %7 to i64
@@ -5483,7 +5481,7 @@ define internal noundef i32 @FE_Delete_Word(ptr nocapture noundef %0) #0 {
   %28 = getelementptr inbounds i8, ptr %.0.i, i64 -1
   %29 = load i8, ptr %28, align 1
   %.not.i = icmp eq i8 %29, 32
-  br i1 %.not.i, label %After_Last_Whitespace_Character.exit, label %25, !llvm.loop !38
+  br i1 %.not.i, label %After_Last_Whitespace_Character.exit, label %25, !llvm.loop !34
 
 After_Last_Whitespace_Character.exit:             ; preds = %25, %27
   %30 = load ptr, ptr %2, align 8
@@ -5520,91 +5518,88 @@ Adjust_Cursor_Position.exit:                      ; preds = %After_Last_Whitespa
   %53 = load ptr, ptr %50, align 8
   %54 = tail call i32 @wclrtoeol(ptr noundef %53) #13
   %55 = ptrtoint ptr %21 to i64
-  %56 = ptrtoint ptr %16 to i64
-  %57 = sub i64 %55, %56
-  %58 = trunc i64 %57 to i32
-  %sext = shl i64 %57, 32
-  %59 = ashr exact i64 %sext, 32
-  %60 = getelementptr inbounds i8, ptr %16, i64 %59
-  %61 = icmp sgt i32 %58, 0
-  br i1 %61, label %.lr.ph.i, label %Get_First_Whitespace_Character.exit
+  %gepdiff = sub i32 %7, %14
+  %56 = sext i32 %gepdiff to i64
+  %57 = getelementptr inbounds i8, ptr %16, i64 %56
+  %58 = icmp sgt i32 %gepdiff, 0
+  br i1 %58, label %.lr.ph.i, label %Get_First_Whitespace_Character.exit
 
-.lr.ph.i:                                         ; preds = %Adjust_Cursor_Position.exit, %63
-  %.010.i = phi ptr [ %64, %63 ], [ %16, %Adjust_Cursor_Position.exit ]
-  %62 = load i8, ptr %.010.i, align 1
-  %.not.i35 = icmp eq i8 %62, 32
-  br i1 %.not.i35, label %Get_First_Whitespace_Character.exit, label %63
+.lr.ph.i:                                         ; preds = %Adjust_Cursor_Position.exit, %60
+  %.010.i = phi ptr [ %61, %60 ], [ %16, %Adjust_Cursor_Position.exit ]
+  %59 = load i8, ptr %.010.i, align 1
+  %.not.i35 = icmp eq i8 %59, 32
+  br i1 %.not.i35, label %Get_First_Whitespace_Character.exit, label %60
 
-63:                                               ; preds = %.lr.ph.i
-  %64 = getelementptr inbounds i8, ptr %.010.i, i64 1
-  %65 = icmp ult ptr %64, %60
-  br i1 %65, label %.lr.ph.i, label %Get_First_Whitespace_Character.exit, !llvm.loop !37
+60:                                               ; preds = %.lr.ph.i
+  %61 = getelementptr inbounds i8, ptr %.010.i, i64 1
+  %62 = icmp ult ptr %61, %57
+  br i1 %62, label %.lr.ph.i, label %Get_First_Whitespace_Character.exit, !llvm.loop !33
 
-Get_First_Whitespace_Character.exit:              ; preds = %.lr.ph.i, %63, %Adjust_Cursor_Position.exit
-  %.0.lcssa.i = phi ptr [ %16, %Adjust_Cursor_Position.exit ], [ %.010.i, %.lr.ph.i ], [ %64, %63 ]
-  %66 = icmp eq ptr %.0.lcssa.i, %60
-  %67 = select i1 %66, ptr %16, ptr %.0.lcssa.i
-  %68 = ptrtoint ptr %67 to i64
-  %69 = sub i64 %55, %68
-  %70 = trunc i64 %69 to i32
-  %sext40 = shl i64 %69, 32
-  %71 = ashr exact i64 %sext40, 32
-  %72 = getelementptr inbounds i8, ptr %67, i64 %71
-  %73 = icmp sgt i32 %70, 0
-  br i1 %73, label %.lr.ph.i37, label %Get_Start_Of_Data.exit
+Get_First_Whitespace_Character.exit:              ; preds = %.lr.ph.i, %60, %Adjust_Cursor_Position.exit
+  %.0.lcssa.i = phi ptr [ %16, %Adjust_Cursor_Position.exit ], [ %.010.i, %.lr.ph.i ], [ %61, %60 ]
+  %63 = icmp eq ptr %.0.lcssa.i, %57
+  %64 = select i1 %63, ptr %16, ptr %.0.lcssa.i
+  %65 = ptrtoint ptr %64 to i64
+  %66 = sub i64 %55, %65
+  %67 = trunc i64 %66 to i32
+  %sext = shl i64 %66, 32
+  %68 = ashr exact i64 %sext, 32
+  %69 = getelementptr inbounds i8, ptr %64, i64 %68
+  %70 = icmp sgt i32 %67, 0
+  br i1 %70, label %.lr.ph.i37, label %Get_Start_Of_Data.exit
 
-.lr.ph.i37:                                       ; preds = %Get_First_Whitespace_Character.exit, %76
-  %.010.i38 = phi ptr [ %77, %76 ], [ %67, %Get_First_Whitespace_Character.exit ]
-  %74 = load i8, ptr %.010.i38, align 1
-  %75 = icmp eq i8 %74, 32
-  br i1 %75, label %76, label %Get_Start_Of_Data.exit
+.lr.ph.i37:                                       ; preds = %Get_First_Whitespace_Character.exit, %73
+  %.010.i38 = phi ptr [ %74, %73 ], [ %64, %Get_First_Whitespace_Character.exit ]
+  %71 = load i8, ptr %.010.i38, align 1
+  %72 = icmp eq i8 %71, 32
+  br i1 %72, label %73, label %Get_Start_Of_Data.exit
 
-76:                                               ; preds = %.lr.ph.i37
-  %77 = getelementptr inbounds i8, ptr %.010.i38, i64 1
-  %78 = icmp ult ptr %77, %72
-  br i1 %78, label %.lr.ph.i37, label %Get_Start_Of_Data.exit, !llvm.loop !13
+73:                                               ; preds = %.lr.ph.i37
+  %74 = getelementptr inbounds i8, ptr %.010.i38, i64 1
+  %75 = icmp ult ptr %74, %69
+  br i1 %75, label %.lr.ph.i37, label %Get_Start_Of_Data.exit, !llvm.loop !11
 
-Get_Start_Of_Data.exit:                           ; preds = %.lr.ph.i37, %76, %Get_First_Whitespace_Character.exit
-  %.0.lcssa.i36 = phi ptr [ %67, %Get_First_Whitespace_Character.exit ], [ %.010.i38, %.lr.ph.i37 ], [ %77, %76 ]
-  %79 = icmp eq ptr %.0.lcssa.i36, %72
-  %80 = select i1 %79, ptr %67, ptr %.0.lcssa.i36
-  %.not = icmp eq ptr %80, %16
-  br i1 %.not, label %100, label %81
+Get_Start_Of_Data.exit:                           ; preds = %.lr.ph.i37, %73, %Get_First_Whitespace_Character.exit
+  %.0.lcssa.i36 = phi ptr [ %64, %Get_First_Whitespace_Character.exit ], [ %.010.i38, %.lr.ph.i37 ], [ %74, %73 ]
+  %76 = icmp eq ptr %.0.lcssa.i36, %69
+  %77 = select i1 %76, ptr %64, ptr %.0.lcssa.i36
+  %.not = icmp eq ptr %77, %16
+  br i1 %.not, label %97, label %78
 
-81:                                               ; preds = %Get_Start_Of_Data.exit
-  %82 = load i8, ptr %80, align 1
-  %83 = icmp eq i8 %82, 32
-  br i1 %83, label %100, label %84
+78:                                               ; preds = %Get_Start_Of_Data.exit
+  %79 = load i8, ptr %77, align 1
+  %80 = icmp eq i8 %79, 32
+  br i1 %80, label %97, label %81
 
-84:                                               ; preds = %81
-  %85 = load ptr, ptr %50, align 8
-  %86 = ptrtoint ptr %80 to i64
-  %87 = sub i64 %55, %86
-  %sext41 = shl i64 %87, 32
-  %88 = ashr exact i64 %sext41, 32
-  %89 = getelementptr inbounds i8, ptr %80, i64 %88
-  br label %90
+81:                                               ; preds = %78
+  %82 = load ptr, ptr %50, align 8
+  %83 = ptrtoint ptr %77 to i64
+  %84 = sub i64 %55, %83
+  %sext40 = shl i64 %84, 32
+  %85 = ashr exact i64 %sext40, 32
+  %86 = getelementptr inbounds i8, ptr %77, i64 %85
+  br label %87
 
-90:                                               ; preds = %92, %84
-  %.0.i39 = phi ptr [ %89, %84 ], [ %93, %92 ]
-  %91 = icmp ugt ptr %.0.i39, %80
-  br i1 %91, label %92, label %After_End_Of_Data.exit
+87:                                               ; preds = %89, %81
+  %.0.i39 = phi ptr [ %86, %81 ], [ %90, %89 ]
+  %88 = icmp ugt ptr %.0.i39, %77
+  br i1 %88, label %89, label %After_End_Of_Data.exit
 
-92:                                               ; preds = %90
-  %93 = getelementptr inbounds i8, ptr %.0.i39, i64 -1
-  %94 = load i8, ptr %93, align 1
-  %95 = icmp eq i8 %94, 32
-  br i1 %95, label %90, label %After_End_Of_Data.exit, !llvm.loop !14
+89:                                               ; preds = %87
+  %90 = getelementptr inbounds i8, ptr %.0.i39, i64 -1
+  %91 = load i8, ptr %90, align 1
+  %92 = icmp eq i8 %91, 32
+  br i1 %92, label %87, label %After_End_Of_Data.exit, !llvm.loop !12
 
-After_End_Of_Data.exit:                           ; preds = %90, %92
-  %96 = ptrtoint ptr %.0.i39 to i64
-  %97 = sub i64 %86, %96
-  %98 = trunc i64 %97 to i32
-  %99 = tail call i32 @waddnstr(ptr noundef %85, ptr noundef nonnull %80, i32 noundef %98) #13
-  br label %100
+After_End_Of_Data.exit:                           ; preds = %87, %89
+  %93 = ptrtoint ptr %.0.i39 to i64
+  %94 = sub i64 %83, %93
+  %95 = trunc i64 %94 to i32
+  %96 = tail call i32 @waddnstr(ptr noundef %82, ptr noundef nonnull %77, i32 noundef %95) #13
+  br label %97
 
-100:                                              ; preds = %Get_Start_Of_Data.exit, %81, %After_End_Of_Data.exit, %1
-  %.0 = phi i32 [ -12, %1 ], [ 0, %After_End_Of_Data.exit ], [ 0, %81 ], [ 0, %Get_Start_Of_Data.exit ]
+97:                                               ; preds = %Get_Start_Of_Data.exit, %78, %After_End_Of_Data.exit, %1
+  %.0 = phi i32 [ -12, %1 ], [ 0, %After_End_Of_Data.exit ], [ 0, %78 ], [ 0, %Get_Start_Of_Data.exit ]
   ret i32 %.0
 }
 
@@ -5653,7 +5648,7 @@ define internal noundef i32 @EM_Insert_Mode(ptr nocapture noundef %0) #8 {
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal noundef i32 @VSC_Scroll_Line_Forward(ptr nocapture noundef %0) #7 {
+define internal range(i32 -12, 1) i32 @VSC_Scroll_Line_Forward(ptr nocapture noundef %0) #7 {
   %2 = getelementptr inbounds i8, ptr %0, i64 72
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 16
@@ -5685,7 +5680,7 @@ VSC_Generic.exit:                                 ; preds = %1, %14
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal noundef i32 @VSC_Scroll_Line_Backward(ptr nocapture noundef %0) #8 {
+define internal range(i32 -12, 1) i32 @VSC_Scroll_Line_Backward(ptr nocapture noundef %0) #8 {
   %2 = getelementptr inbounds i8, ptr %0, i64 16
   %3 = load i32, ptr %2, align 8
   %4 = icmp sgt i32 %3, 0
@@ -5706,7 +5701,7 @@ VSC_Generic.exit:                                 ; preds = %1, %5
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal noundef i32 @VSC_Scroll_Page_Forward(ptr nocapture noundef %0) #7 {
+define internal range(i32 -12, 1) i32 @VSC_Scroll_Page_Forward(ptr nocapture noundef %0) #7 {
   %2 = getelementptr inbounds i8, ptr %0, i64 72
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds i8, ptr %3, i64 2
@@ -5761,7 +5756,7 @@ VSC_Generic.exit:                                 ; preds = %VSC_Generic.exit.si
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal noundef i32 @VSC_Scroll_Page_Backward(ptr nocapture noundef %0) #7 {
+define internal range(i32 -12, 1) i32 @VSC_Scroll_Page_Backward(ptr nocapture noundef %0) #7 {
   %2 = getelementptr inbounds i8, ptr %0, i64 72
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds i8, ptr %3, i64 2
@@ -5816,7 +5811,7 @@ VSC_Generic.exit:                                 ; preds = %VSC_Generic.exit.si
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal noundef i32 @VSC_Scroll_Half_Page_Forward(ptr nocapture noundef %0) #7 {
+define internal range(i32 -12, 1) i32 @VSC_Scroll_Half_Page_Forward(ptr nocapture noundef %0) #7 {
   %2 = getelementptr inbounds i8, ptr %0, i64 72
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds i8, ptr %3, i64 2
@@ -5873,7 +5868,7 @@ VSC_Generic.exit:                                 ; preds = %VSC_Generic.exit.si
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal noundef i32 @VSC_Scroll_Half_Page_Backward(ptr nocapture noundef %0) #7 {
+define internal range(i32 -12, 1) i32 @VSC_Scroll_Half_Page_Backward(ptr nocapture noundef %0) #7 {
   %2 = getelementptr inbounds i8, ptr %0, i64 72
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds i8, ptr %3, i64 2
@@ -5930,7 +5925,7 @@ VSC_Generic.exit:                                 ; preds = %VSC_Generic.exit.si
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal noundef i32 @HSC_Scroll_Char_Forward(ptr nocapture noundef %0) #7 {
+define internal range(i32 -12, 1) i32 @HSC_Scroll_Char_Forward(ptr nocapture noundef %0) #7 {
   %2 = getelementptr inbounds i8, ptr %0, i64 72
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 20
@@ -5962,7 +5957,7 @@ HSC_Generic.exit:                                 ; preds = %1, %14
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal noundef i32 @HSC_Scroll_Char_Backward(ptr nocapture noundef %0) #8 {
+define internal range(i32 -12, 1) i32 @HSC_Scroll_Char_Backward(ptr nocapture noundef %0) #8 {
   %2 = getelementptr inbounds i8, ptr %0, i64 20
   %3 = load i32, ptr %2, align 4
   %4 = icmp sgt i32 %3, 0
@@ -5983,7 +5978,7 @@ HSC_Generic.exit:                                 ; preds = %1, %5
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal noundef i32 @HSC_Horizontal_Line_Forward(ptr nocapture noundef %0) #7 {
+define internal range(i32 -12, 1) i32 @HSC_Horizontal_Line_Forward(ptr nocapture noundef %0) #7 {
   %2 = getelementptr inbounds i8, ptr %0, i64 72
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds i8, ptr %3, i64 4
@@ -6038,7 +6033,7 @@ HSC_Generic.exit:                                 ; preds = %HSC_Generic.exit.si
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal noundef i32 @HSC_Horizontal_Line_Backward(ptr nocapture noundef %0) #7 {
+define internal range(i32 -12, 1) i32 @HSC_Horizontal_Line_Backward(ptr nocapture noundef %0) #7 {
   %2 = getelementptr inbounds i8, ptr %0, i64 72
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds i8, ptr %3, i64 4
@@ -6093,7 +6088,7 @@ HSC_Generic.exit:                                 ; preds = %HSC_Generic.exit.si
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal noundef i32 @HSC_Horizontal_Half_Line_Forward(ptr nocapture noundef %0) #7 {
+define internal range(i32 -12, 1) i32 @HSC_Horizontal_Half_Line_Forward(ptr nocapture noundef %0) #7 {
   %2 = getelementptr inbounds i8, ptr %0, i64 72
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds i8, ptr %3, i64 4
@@ -6150,7 +6145,7 @@ HSC_Generic.exit:                                 ; preds = %HSC_Generic.exit.si
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal noundef i32 @HSC_Horizontal_Half_Line_Backward(ptr nocapture noundef %0) #7 {
+define internal range(i32 -12, 1) i32 @HSC_Horizontal_Half_Line_Backward(ptr nocapture noundef %0) #7 {
   %2 = getelementptr inbounds i8, ptr %0, i64 72
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds i8, ptr %3, i64 4
@@ -6207,7 +6202,7 @@ HSC_Generic.exit:                                 ; preds = %HSC_Generic.exit.si
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @FV_Validation(ptr nocapture noundef %0) #0 {
+define internal range(i32 -13, 1) i32 @FV_Validation(ptr nocapture noundef %0) #0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 72
   %3 = load ptr, ptr %2, align 8
   tail call fastcc void @Synchronize_Buffer(ptr noundef %0)
@@ -6247,11 +6242,11 @@ define internal noundef i32 @FV_Validation(ptr nocapture noundef %0) #0 {
 
 .lr.ph.i.i:                                       ; preds = %16, %.lr.ph.i.i
   %.01219.i.i = phi ptr [ %25, %.lr.ph.i.i ], [ %22, %16 ]
-  %23 = tail call fastcc i32 @Synchronize_Field(ptr noundef %.01219.i.i), !range !9
+  %23 = tail call fastcc i32 @Synchronize_Field(ptr noundef %.01219.i.i)
   %24 = getelementptr inbounds i8, ptr %.01219.i.i, i64 72
   %25 = load ptr, ptr %24, align 8
   %.not17.i.i = icmp eq ptr %25, %3
-  br i1 %.not17.i.i, label %_nc_Internal_Validation.exit, label %.lr.ph.i.i, !llvm.loop !16
+  br i1 %.not17.i.i, label %_nc_Internal_Validation.exit, label %.lr.ph.i.i, !llvm.loop !14
 
 _nc_Internal_Validation.exit:                     ; preds = %.lr.ph.i.i, %16, %6, %10
   %26 = phi i32 [ -13, %10 ], [ 0, %6 ], [ 0, %16 ], [ 0, %.lr.ph.i.i ]
@@ -6259,7 +6254,7 @@ _nc_Internal_Validation.exit:                     ; preds = %.lr.ph.i.i, %16, %6
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @CR_Next_Choice(ptr nocapture noundef %0) #0 {
+define internal range(i32 -12, 1) i32 @CR_Next_Choice(ptr nocapture noundef %0) #0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 72
   %3 = load ptr, ptr %2, align 8
   tail call fastcc void @Synchronize_Buffer(ptr noundef %0)
@@ -6273,7 +6268,7 @@ define internal i32 @CR_Next_Choice(ptr nocapture noundef %0) #0 {
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @CR_Previous_Choice(ptr nocapture noundef %0) #0 {
+define internal range(i32 -12, 1) i32 @CR_Previous_Choice(ptr nocapture noundef %0) #0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 72
   %3 = load ptr, ptr %2, align 8
   tail call fastcc void @Synchronize_Buffer(ptr noundef %0)
@@ -6293,7 +6288,7 @@ declare i32 @winsdelln(ptr noundef, i32 noundef) local_unnamed_addr #1
 declare i32 @winsch(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @Wrapping_Not_Necessary_Or_Wrapping_Ok(ptr nocapture noundef %0) unnamed_addr #0 {
+define internal fastcc range(i32 -12, 1) i32 @Wrapping_Not_Necessary_Or_Wrapping_Ok(ptr nocapture noundef %0) unnamed_addr #0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 72
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds i8, ptr %3, i64 12
@@ -6399,7 +6394,7 @@ define internal fastcc noundef i32 @Wrapping_Not_Necessary_Or_Wrapping_Ok(ptr no
   %75 = add nsw i32 %74, %.02734.i
   %76 = add nuw nsw i32 %.02933.i, 1
   %exitcond.not.i = icmp eq i32 %.02933.i, %65
-  br i1 %exitcond.not.i, label %.critedge.i, label %.lr.ph.i, !llvm.loop !11
+  br i1 %exitcond.not.i, label %.critedge.i, label %.lr.ph.i, !llvm.loop !9
 
 .critedge.thread.i:                               ; preds = %62, %.critedge
   store i8 0, ptr %61, align 1
@@ -6431,7 +6426,7 @@ define internal fastcc noundef i32 @Wrapping_Not_Necessary_Or_Wrapping_Ok(ptr no
   %85 = add nuw nsw i32 %.038.i, 1
   %86 = getelementptr inbounds i8, ptr %.02837.i, i64 1
   %exitcond40.not.i = icmp eq i32 %85, %.027.lcssa.i
-  br i1 %exitcond40.not.i, label %Window_To_Buffer.exit, label %.lr.ph39.i, !llvm.loop !12
+  br i1 %exitcond40.not.i, label %Window_To_Buffer.exit, label %.lr.ph39.i, !llvm.loop !10
 
 Window_To_Buffer.exit:                            ; preds = %84, %.critedge.thread.i, %.critedge.i
   %87 = load i32, ptr %24, align 8
@@ -6448,7 +6443,7 @@ Window_To_Buffer.exit:                            ; preds = %84, %.critedge.thre
   %93 = getelementptr inbounds i8, ptr %.0.i, i64 -1
   %94 = load i8, ptr %93, align 1
   %.not.i52 = icmp eq i8 %94, 32
-  br i1 %.not.i52, label %After_Last_Whitespace_Character.exit, label %90, !llvm.loop !38
+  br i1 %.not.i52, label %After_Last_Whitespace_Character.exit, label %90, !llvm.loop !34
 
 After_Last_Whitespace_Character.exit:             ; preds = %90, %92
   %95 = ptrtoint ptr %.0.i to i64
@@ -6462,7 +6457,7 @@ After_Last_Whitespace_Character.exit:             ; preds = %90, %92
   %101 = sub nsw i32 %87, %98
   %102 = load i32, ptr %7, align 8
   %103 = add nsw i32 %102, 1
-  %104 = tail call fastcc i32 @Insert_String(ptr noundef %0, i32 noundef %103, ptr noundef %.0.i, i32 noundef %101), !range !22
+  %104 = tail call fastcc i32 @Insert_String(ptr noundef %0, i32 noundef %103, ptr noundef %.0.i, i32 noundef %101)
   %105 = icmp eq i32 %104, 0
   %106 = load ptr, ptr %22, align 8
   %107 = load i32, ptr %7, align 8
@@ -6518,7 +6513,7 @@ After_Last_Whitespace_Character.exit:             ; preds = %90, %92
   %138 = add nsw i32 %137, %.02734.i56
   %139 = add nuw nsw i32 %.02933.i57, 1
   %exitcond.not.i66 = icmp eq i32 %.02933.i57, %128
-  br i1 %exitcond.not.i66, label %.critedge.i58, label %.lr.ph.i55, !llvm.loop !11
+  br i1 %exitcond.not.i66, label %.critedge.i58, label %.lr.ph.i55, !llvm.loop !9
 
 .critedge.thread.i54:                             ; preds = %125, %117
   store i8 0, ptr %124, align 1
@@ -6550,7 +6545,7 @@ After_Last_Whitespace_Character.exit:             ; preds = %90, %92
   %148 = add nuw nsw i32 %.038.i63, 1
   %149 = getelementptr inbounds i8, ptr %.02837.i64, i64 1
   %exitcond40.not.i65 = icmp eq i32 %148, %.027.lcssa.i59
-  br i1 %exitcond40.not.i65, label %Window_To_Buffer.exit67, label %.lr.ph39.i62, !llvm.loop !12
+  br i1 %exitcond40.not.i65, label %Window_To_Buffer.exit67, label %.lr.ph39.i62, !llvm.loop !10
 
 Window_To_Buffer.exit67:                          ; preds = %147, %.critedge.i58, %.critedge.thread.i54, %43, %21, %13, %1, %After_Last_Whitespace_Character.exit, %108, %113, %46
   %.0 = phi i32 [ -1, %46 ], [ 0, %113 ], [ 0, %108 ], [ 0, %After_Last_Whitespace_Character.exit ], [ 0, %43 ], [ 0, %21 ], [ 0, %13 ], [ 0, %1 ], [ -12, %.critedge.thread.i54 ], [ -12, %.critedge.i58 ], [ -12, %147 ]
@@ -6560,7 +6555,7 @@ Window_To_Buffer.exit67:                          ; preds = %147, %.critedge.i58
 declare i32 @winch(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @Insert_String(ptr nocapture noundef readonly %0, i32 noundef %1, ptr noundef %2, i32 noundef %3) unnamed_addr #0 {
+define internal fastcc range(i32 -12, 1) i32 @Insert_String(ptr nocapture noundef readonly %0, i32 noundef %1, ptr noundef %2, i32 noundef %3) unnamed_addr #0 {
   %5 = getelementptr inbounds i8, ptr %0, i64 72
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds i8, ptr %6, i64 104
@@ -6584,7 +6579,7 @@ define internal fastcc i32 @Insert_String(ptr nocapture noundef readonly %0, i32
   %20 = getelementptr inbounds i8, ptr %.0.i, i64 -1
   %21 = load i8, ptr %20, align 1
   %22 = icmp eq i8 %21, 32
-  br i1 %22, label %17, label %After_End_Of_Data.exit, !llvm.loop !14
+  br i1 %22, label %17, label %After_End_Of_Data.exit, !llvm.loop !12
 
 After_End_Of_Data.exit:                           ; preds = %17, %19
   %23 = ptrtoint ptr %.0.i to i64
@@ -6668,7 +6663,7 @@ After_End_Of_Data.exit:                           ; preds = %17, %19
 67:                                               ; preds = %.lr.ph.i
   %68 = getelementptr inbounds i8, ptr %.010.i, i64 1
   %69 = icmp ult ptr %.010.i, %62
-  br i1 %69, label %.lr.ph.i, label %Get_Start_Of_Data.exit, !llvm.loop !13
+  br i1 %69, label %.lr.ph.i, label %Get_Start_Of_Data.exit, !llvm.loop !11
 
 Get_Start_Of_Data.exit:                           ; preds = %.lr.ph.i, %67, %56
   %.0.lcssa.i = phi ptr [ %60, %56 ], [ %.010.i, %.lr.ph.i ], [ %68, %67 ]
@@ -6691,7 +6686,7 @@ Get_Start_Of_Data.exit:                           ; preds = %.lr.ph.i, %67, %56
   %80 = getelementptr inbounds i8, ptr %.0.i77, i64 -1
   %81 = load i8, ptr %80, align 1
   %.not.i = icmp eq i8 %81, 32
-  br i1 %.not.i, label %After_Last_Whitespace_Character.exit, label %77, !llvm.loop !38
+  br i1 %.not.i, label %After_Last_Whitespace_Character.exit, label %77, !llvm.loop !34
 
 After_Last_Whitespace_Character.exit:             ; preds = %77, %79
   %82 = ptrtoint ptr %.0.i77 to i64
@@ -6700,7 +6695,7 @@ After_Last_Whitespace_Character.exit:             ; preds = %77, %79
   %85 = add i32 %25, %84
   %86 = sub i32 %54, %85
   %87 = add nsw i32 %1, 1
-  %88 = tail call fastcc i32 @Insert_String(ptr noundef %0, i32 noundef %87, ptr noundef %.0.i77, i32 noundef %86), !range !22
+  %88 = tail call fastcc i32 @Insert_String(ptr noundef %0, i32 noundef %87, ptr noundef %.0.i77, i32 noundef %86)
   %89 = icmp eq i32 %88, 0
   br i1 %89, label %90, label %104
 
@@ -6873,8 +6868,8 @@ attributes #16 = { nounwind allocsize(0) }
 !6 = !{!"llvm.loop.mustprogress"}
 !7 = distinct !{!7, !6, !8}
 !8 = !{!"llvm.loop.unswitch.partial.disable"}
-!9 = !{i32 -2, i32 1}
-!10 = !{i32 -1, i32 1}
+!9 = distinct !{!9, !6}
+!10 = distinct !{!10, !6}
 !11 = distinct !{!11, !6}
 !12 = distinct !{!12, !6}
 !13 = distinct !{!13, !6}
@@ -6885,8 +6880,8 @@ attributes #16 = { nounwind allocsize(0) }
 !18 = distinct !{!18, !6}
 !19 = distinct !{!19, !6}
 !20 = distinct !{!20, !6}
-!21 = !{i32 -11, i32 1}
-!22 = !{i32 -12, i32 1}
+!21 = distinct !{!21, !6}
+!22 = distinct !{!22, !6}
 !23 = distinct !{!23, !6}
 !24 = distinct !{!24, !6}
 !25 = distinct !{!25, !6}
@@ -6899,7 +6894,3 @@ attributes #16 = { nounwind allocsize(0) }
 !32 = distinct !{!32, !6}
 !33 = distinct !{!33, !6}
 !34 = distinct !{!34, !6}
-!35 = distinct !{!35, !6}
-!36 = distinct !{!36, !6}
-!37 = distinct !{!37, !6}
-!38 = distinct !{!38, !6}

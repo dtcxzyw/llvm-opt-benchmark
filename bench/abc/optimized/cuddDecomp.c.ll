@@ -11,7 +11,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.2 = private unnamed_addr constant [31 x i8] c"Not in table: Something wrong\0A\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @Cudd_bddApproxConjDecomp(ptr noundef %0, ptr noundef %1, ptr nocapture noundef writeonly %2) local_unnamed_addr #0 {
+define range(i32 0, 3) i32 @Cudd_bddApproxConjDecomp(ptr noundef %0, ptr noundef %1, ptr nocapture noundef writeonly %2) local_unnamed_addr #0 {
   %4 = tail call i32 @Cudd_SupportSize(ptr noundef %0, ptr noundef %1) #8
   %5 = tail call ptr @Cudd_RemapOverApprox(ptr noundef %0, ptr noundef %1, i32 noundef %4, i32 noundef 0, double noundef 1.000000e+00) #8
   %6 = icmp eq ptr %5, null
@@ -157,11 +157,11 @@ declare ptr @Cudd_bddLICompaction(ptr noundef, ptr noundef, ptr noundef) local_u
 declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @Cudd_bddApproxDisjDecomp(ptr noundef %0, ptr noundef %1, ptr nocapture noundef %2) local_unnamed_addr #0 {
+define range(i32 0, 3) i32 @Cudd_bddApproxDisjDecomp(ptr noundef %0, ptr noundef %1, ptr nocapture noundef %2) local_unnamed_addr #0 {
   %4 = ptrtoint ptr %1 to i64
   %5 = xor i64 %4, 1
   %6 = inttoptr i64 %5 to ptr
-  %7 = tail call i32 @Cudd_bddApproxConjDecomp(ptr noundef %0, ptr noundef %6, ptr noundef %2), !range !4
+  %7 = tail call i32 @Cudd_bddApproxConjDecomp(ptr noundef %0, ptr noundef %6, ptr noundef %2)
   %.not = icmp eq i32 %7, 0
   br i1 %.not, label %._crit_edge, label %.lr.ph.preheader
 
@@ -180,14 +180,14 @@ define noundef i32 @Cudd_bddApproxDisjDecomp(ptr noundef %0, ptr noundef %1, ptr
   store ptr %13, ptr %9, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !5
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !4
 
 ._crit_edge:                                      ; preds = %.lr.ph, %3
   ret i32 %7
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @Cudd_bddIterConjDecomp(ptr noundef %0, ptr noundef %1, ptr nocapture noundef writeonly %2) local_unnamed_addr #0 {
+define range(i32 0, 3) i32 @Cudd_bddIterConjDecomp(ptr noundef %0, ptr noundef %1, ptr nocapture noundef writeonly %2) local_unnamed_addr #0 {
   %4 = alloca [2 x ptr], align 16
   %5 = alloca [2 x ptr], align 16
   %6 = tail call i32 @Cudd_SupportSize(ptr noundef %0, ptr noundef %1) #8
@@ -434,11 +434,11 @@ declare i32 @Cudd_SharingSize(ptr noundef, i32 noundef) local_unnamed_addr #1
 declare ptr @Cudd_bddAnd(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @Cudd_bddIterDisjDecomp(ptr noundef %0, ptr noundef %1, ptr nocapture noundef %2) local_unnamed_addr #0 {
+define range(i32 -2147483648, 3) i32 @Cudd_bddIterDisjDecomp(ptr noundef %0, ptr noundef %1, ptr nocapture noundef %2) local_unnamed_addr #0 {
   %4 = ptrtoint ptr %1 to i64
   %5 = xor i64 %4, 1
   %6 = inttoptr i64 %5 to ptr
-  %7 = tail call i32 @Cudd_bddIterConjDecomp(ptr noundef %0, ptr noundef %6, ptr noundef %2), !range !4
+  %7 = tail call i32 @Cudd_bddIterConjDecomp(ptr noundef %0, ptr noundef %6, ptr noundef %2)
   %.not = icmp eq i32 %7, 0
   br i1 %.not, label %._crit_edge, label %.lr.ph.preheader
 
@@ -457,14 +457,14 @@ define noundef i32 @Cudd_bddIterDisjDecomp(ptr noundef %0, ptr noundef %1, ptr n
   store ptr %13, ptr %9, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !7
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !6
 
 ._crit_edge:                                      ; preds = %.lr.ph, %3
   ret i32 %7
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @Cudd_bddGenConjDecomp(ptr noundef %0, ptr noundef %1, ptr nocapture noundef writeonly %2) local_unnamed_addr #0 {
+define range(i32 0, 3) i32 @Cudd_bddGenConjDecomp(ptr noundef %0, ptr noundef %1, ptr nocapture noundef writeonly %2) local_unnamed_addr #0 {
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
   %6 = getelementptr inbounds i8, ptr %0, i64 40
@@ -550,7 +550,7 @@ define noundef i32 @Cudd_bddGenConjDecomp(ptr noundef %0, ptr noundef %1, ptr no
 49:                                               ; preds = %48, %.lr.ph181.i
   %50 = call i32 @st__gen(ptr noundef nonnull %44, ptr noundef nonnull %4, ptr noundef nonnull %5) #8
   %.not141.i = icmp eq i32 %50, 0
-  br i1 %.not141.i, label %cuddConjunctsAux.exit, label %.lr.ph181.i, !llvm.loop !8
+  br i1 %.not141.i, label %cuddConjunctsAux.exit, label %.lr.ph181.i, !llvm.loop !7
 
 51:                                               ; preds = %31
   %52 = call ptr @st__init_gen(ptr noundef nonnull %18) #8
@@ -570,7 +570,7 @@ define noundef i32 @Cudd_bddGenConjDecomp(ptr noundef %0, ptr noundef %1, ptr no
   %..0.i = call i32 @llvm.smax.i32(i32 %57, i32 %.0170.i)
   %58 = call i32 @st__gen(ptr noundef nonnull %52, ptr noundef nonnull %4, ptr noundef nonnull %5) #8
   %.not.i = icmp eq i32 %58, 0
-  br i1 %.not.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !9
+  br i1 %.not.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !8
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.i, %.preheader166.i
   %.0.lcssa.i = phi i32 [ 0, %.preheader166.i ], [ %..0.i, %.lr.ph.i ]
@@ -628,7 +628,7 @@ define noundef i32 @Cudd_bddGenConjDecomp(ptr noundef %0, ptr noundef %1, ptr no
 83:                                               ; preds = %82, %.lr.ph172.i
   %84 = call i32 @st__gen(ptr noundef nonnull %78, ptr noundef nonnull %4, ptr noundef nonnull %5) #8
   %.not134.i = icmp eq i32 %84, 0
-  br i1 %.not134.i, label %._crit_edge173.i, label %.lr.ph172.i, !llvm.loop !10
+  br i1 %.not134.i, label %._crit_edge173.i, label %.lr.ph172.i, !llvm.loop !9
 
 ._crit_edge173.i:                                 ; preds = %83, %.preheader165.i
   call void @st__free_gen(ptr noundef nonnull %78) #8
@@ -656,7 +656,7 @@ define noundef i32 @Cudd_bddGenConjDecomp(ptr noundef %0, ptr noundef %1, ptr no
 90:                                               ; preds = %89, %.lr.ph175.i
   %91 = call i32 @st__gen(ptr noundef nonnull %85, ptr noundef nonnull %4, ptr noundef nonnull %5) #8
   %.not135.i = icmp eq i32 %91, 0
-  br i1 %.not135.i, label %._crit_edge176.i, label %.lr.ph175.i, !llvm.loop !11
+  br i1 %.not135.i, label %._crit_edge176.i, label %.lr.ph175.i, !llvm.loop !10
 
 ._crit_edge176.i:                                 ; preds = %90, %.preheader164.i
   call void @st__free_gen(ptr noundef nonnull %85) #8
@@ -726,7 +726,7 @@ define noundef i32 @Cudd_bddGenConjDecomp(ptr noundef %0, ptr noundef %1, ptr no
   call void @free(ptr noundef %118) #8
   %122 = call i32 @st__gen(ptr noundef nonnull %115, ptr noundef nonnull %4, ptr noundef nonnull %5) #8
   %.not138.i = icmp eq i32 %122, 0
-  br i1 %.not138.i, label %cuddConjunctsAux.exit, label %.lr.ph178.i, !llvm.loop !12
+  br i1 %.not138.i, label %cuddConjunctsAux.exit, label %.lr.ph178.i, !llvm.loop !11
 
 .outer159.split.i:                                ; preds = %.outer159.i, %.outer159.split.i
   %123 = call ptr @st__init_gen(ptr noundef nonnull %.0109.ph160.i) #8
@@ -751,7 +751,7 @@ define noundef i32 @Cudd_bddGenConjDecomp(ptr noundef %0, ptr noundef %1, ptr no
 128:                                              ; preds = %127, %.lr.ph184.i
   %129 = call i32 @st__gen(ptr noundef nonnull %123, ptr noundef nonnull %4, ptr noundef nonnull %5) #8
   %.not144.i = icmp eq i32 %129, 0
-  br i1 %.not144.i, label %._crit_edge185.i, label %.lr.ph184.i, !llvm.loop !13
+  br i1 %.not144.i, label %._crit_edge185.i, label %.lr.ph184.i, !llvm.loop !12
 
 ._crit_edge185.i:                                 ; preds = %128, %.preheader153.i
   call void @st__free_gen(ptr noundef nonnull %123) #8
@@ -786,7 +786,7 @@ define noundef i32 @Cudd_bddGenConjDecomp(ptr noundef %0, ptr noundef %1, ptr no
 135:                                              ; preds = %134, %.lr.ph187.i
   %136 = call i32 @st__gen(ptr noundef nonnull %130, ptr noundef nonnull %4, ptr noundef nonnull %5) #8
   %.not146.i = icmp eq i32 %136, 0
-  br i1 %.not146.i, label %.loopexit158.split.us.sink.split.i, label %.lr.ph187.i, !llvm.loop !14
+  br i1 %.not146.i, label %.loopexit158.split.us.sink.split.i, label %.lr.ph187.i, !llvm.loop !13
 
 .loopexit158.split.us.sink.split.i:               ; preds = %135, %144, %.preheader153.us.i, %.preheader152.i
   %.lcssa196.sink.i = phi ptr [ %147, %.preheader153.us.i ], [ %130, %.preheader152.i ], [ %147, %144 ], [ %130, %135 ]
@@ -833,7 +833,7 @@ define noundef i32 @Cudd_bddGenConjDecomp(ptr noundef %0, ptr noundef %1, ptr no
 144:                                              ; preds = %143, %.lr.ph184.us.i
   %145 = call i32 @st__gen(ptr noundef nonnull %147, ptr noundef nonnull %4, ptr noundef nonnull %5) #8
   %.not144.us.i = icmp eq i32 %145, 0
-  br i1 %.not144.us.i, label %.loopexit158.split.us.sink.split.i, label %.lr.ph184.us.i, !llvm.loop !13
+  br i1 %.not144.us.i, label %.loopexit158.split.us.sink.split.i, label %.lr.ph184.us.i, !llvm.loop !12
 
 .preheader153.us.i:                               ; preds = %.outer159.split.us.i
   %146 = call i32 @st__gen(ptr noundef nonnull %147, ptr noundef nonnull %4, ptr noundef nonnull %5) #8
@@ -860,7 +860,7 @@ define noundef i32 @Cudd_bddGenConjDecomp(ptr noundef %0, ptr noundef %1, ptr no
   call void @free(ptr noundef %150) #8
   %154 = call i32 @st__gen(ptr noundef nonnull %140, ptr noundef nonnull %4, ptr noundef nonnull %5) #8
   %.not149.i = icmp eq i32 %154, 0
-  br i1 %.not149.i, label %._crit_edge191.i, label %.lr.ph190.i, !llvm.loop !15
+  br i1 %.not149.i, label %._crit_edge191.i, label %.lr.ph190.i, !llvm.loop !14
 
 ._crit_edge191.i:                                 ; preds = %.lr.ph190.i, %.preheader.i
   call void @st__free_gen(ptr noundef nonnull %140) #8
@@ -881,7 +881,7 @@ cuddConjunctsAux.exit:                            ; preds = %.lr.ph178.i, %49, %
   br i1 %156, label %.backedge.backedge, label %159
 
 .backedge.backedge:                               ; preds = %cuddConjunctsAux.exit, %cuddConjunctsAux.exit.thread
-  br label %.backedge, !llvm.loop !16
+  br label %.backedge, !llvm.loop !15
 
 cuddConjunctsAux.exit.thread:                     ; preds = %138, %._crit_edge191.i
   store i32 1, ptr %17, align 8
@@ -956,11 +956,11 @@ cuddConjunctsAux.exit.thread:                     ; preds = %138, %._crit_edge19
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @Cudd_bddGenDisjDecomp(ptr noundef %0, ptr noundef %1, ptr nocapture noundef %2) local_unnamed_addr #0 {
+define range(i32 -2147483648, 3) i32 @Cudd_bddGenDisjDecomp(ptr noundef %0, ptr noundef %1, ptr nocapture noundef %2) local_unnamed_addr #0 {
   %4 = ptrtoint ptr %1 to i64
   %5 = xor i64 %4, 1
   %6 = inttoptr i64 %5 to ptr
-  %7 = tail call i32 @Cudd_bddGenConjDecomp(ptr noundef %0, ptr noundef %6, ptr noundef %2), !range !4
+  %7 = tail call i32 @Cudd_bddGenConjDecomp(ptr noundef %0, ptr noundef %6, ptr noundef %2)
   %.not = icmp eq i32 %7, 0
   br i1 %.not, label %._crit_edge, label %.lr.ph.preheader
 
@@ -979,14 +979,14 @@ define noundef i32 @Cudd_bddGenDisjDecomp(ptr noundef %0, ptr noundef %1, ptr no
   store ptr %13, ptr %9, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !17
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !16
 
 ._crit_edge:                                      ; preds = %.lr.ph, %3
   ret i32 %7
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @Cudd_bddVarConjDecomp(ptr noundef %0, ptr noundef %1, ptr nocapture noundef writeonly %2) local_unnamed_addr #0 {
+define range(i32 0, 3) i32 @Cudd_bddVarConjDecomp(ptr noundef %0, ptr noundef %1, ptr nocapture noundef writeonly %2) local_unnamed_addr #0 {
   %4 = tail call ptr @Cudd_Support(ptr noundef %0, ptr noundef %1) #8
   %5 = icmp eq ptr %4, null
   br i1 %5, label %83, label %6
@@ -1046,7 +1046,7 @@ define noundef i32 @Cudd_bddVarConjDecomp(ptr noundef %0, ptr noundef %1, ptr no
   %36 = inttoptr i64 %35 to ptr
   %37 = load i32, ptr %36, align 8
   %.not = icmp eq i32 %37, 2147483647
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !18
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !17
 
 ._crit_edge:                                      ; preds = %.lr.ph
   tail call void @Cudd_RecursiveDeref(ptr noundef %0, ptr noundef nonnull %4) #8
@@ -1158,11 +1158,11 @@ declare ptr @Cudd_bddIthVar(ptr noundef, i32 noundef) local_unnamed_addr #1
 declare ptr @Cudd_bddOr(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @Cudd_bddVarDisjDecomp(ptr noundef %0, ptr noundef %1, ptr nocapture noundef %2) local_unnamed_addr #0 {
+define range(i32 0, 3) i32 @Cudd_bddVarDisjDecomp(ptr noundef %0, ptr noundef %1, ptr nocapture noundef %2) local_unnamed_addr #0 {
   %4 = ptrtoint ptr %1 to i64
   %5 = xor i64 %4, 1
   %6 = inttoptr i64 %5 to ptr
-  %7 = tail call i32 @Cudd_bddVarConjDecomp(ptr noundef %0, ptr noundef %6, ptr noundef %2), !range !4
+  %7 = tail call i32 @Cudd_bddVarConjDecomp(ptr noundef %0, ptr noundef %6, ptr noundef %2)
   %.not = icmp eq i32 %7, 0
   br i1 %.not, label %._crit_edge, label %.lr.ph.preheader
 
@@ -1181,7 +1181,7 @@ define noundef i32 @Cudd_bddVarDisjDecomp(ptr noundef %0, ptr noundef %1, ptr no
   store ptr %13, ptr %9, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !19
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !18
 
 ._crit_edge:                                      ; preds = %.lr.ph, %3
   ret i32 %7
@@ -2349,337 +2349,338 @@ declare ptr @cuddBddIteRecur(ptr noundef, ptr noundef, ptr noundef, ptr noundef)
 ; Function Attrs: nounwind uwtable
 define internal fastcc noundef ptr @CheckInTables(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef %6, ptr nocapture noundef writeonly %7) unnamed_addr #0 {
   store i32 0, ptr %7, align 4
-  %9 = tail call fastcc i32 @PairInTables(ptr noundef %1, ptr noundef %2, ptr noundef %5), !range !20
-  %10 = tail call fastcc i32 @PairInTables(ptr noundef %3, ptr noundef %4, ptr noundef %5), !range !20
-  %11 = or i32 %10, %9
-  %or.cond = icmp eq i32 %11, 0
-  br i1 %or.cond, label %153, label %12
+  %9 = tail call fastcc i32 @PairInTables(ptr noundef %1, ptr noundef %2, ptr noundef %5)
+  %10 = tail call fastcc i32 @PairInTables(ptr noundef %3, ptr noundef %4, ptr noundef %5)
+  %11 = icmp eq i32 %9, 0
+  %12 = icmp eq i32 %10, 0
+  %or.cond = select i1 %11, i1 %12, i1 false
+  br i1 %or.cond, label %154, label %13
 
-12:                                               ; preds = %8
-  %13 = tail call noalias dereferenceable_or_null(16) ptr @malloc(i64 noundef 16) #9
-  %14 = icmp eq ptr %13, null
-  br i1 %14, label %15, label %16
+13:                                               ; preds = %8
+  %14 = tail call noalias dereferenceable_or_null(16) ptr @malloc(i64 noundef 16) #9
+  %15 = icmp eq ptr %14, null
+  br i1 %15, label %16, label %17
 
-15:                                               ; preds = %12
+16:                                               ; preds = %13
   store i32 1, ptr %7, align 4
-  br label %153
+  br label %154
 
-16:                                               ; preds = %12
-  %17 = icmp eq i32 %9, 1
-  br i1 %17, label %.sink.split, label %18
+17:                                               ; preds = %13
+  %18 = icmp eq i32 %9, 1
+  br i1 %18, label %.sink.split, label %19
 
-18:                                               ; preds = %16
-  %19 = icmp eq i32 %10, 1
-  br i1 %19, label %.sink.split, label %20
+19:                                               ; preds = %17
+  %20 = icmp eq i32 %10, 1
+  br i1 %20, label %.sink.split, label %21
 
-20:                                               ; preds = %18
-  %21 = icmp eq i32 %9, 2
-  br i1 %21, label %.sink.split, label %22
+21:                                               ; preds = %19
+  %22 = icmp eq i32 %9, 2
+  br i1 %22, label %.sink.split, label %23
 
-22:                                               ; preds = %20
-  %23 = icmp eq i32 %10, 2
-  br i1 %23, label %.sink.split, label %24
+23:                                               ; preds = %21
+  %24 = icmp eq i32 %10, 2
+  br i1 %24, label %.sink.split, label %25
 
-24:                                               ; preds = %22
-  switch i32 %9, label %65 [
-    i32 3, label %25
-    i32 7, label %35
-    i32 5, label %45
-    i32 8, label %55
+25:                                               ; preds = %23
+  switch i32 %9, label %66 [
+    i32 3, label %26
+    i32 7, label %36
+    i32 5, label %46
+    i32 8, label %56
   ]
 
-25:                                               ; preds = %24
-  store ptr %1, ptr %13, align 8
-  %26 = getelementptr inbounds i8, ptr %13, i64 8
-  store ptr %2, ptr %26, align 8
-  %27 = load ptr, ptr @one, align 8
-  %.not206 = icmp eq ptr %27, %2
-  br i1 %.not206, label %149, label %28
+26:                                               ; preds = %25
+  store ptr %1, ptr %14, align 8
+  %27 = getelementptr inbounds i8, ptr %14, i64 8
+  store ptr %2, ptr %27, align 8
+  %28 = load ptr, ptr @one, align 8
+  %.not206 = icmp eq ptr %28, %2
+  br i1 %.not206, label %150, label %29
 
-28:                                               ; preds = %25
-  %29 = ptrtoint ptr %2 to i64
-  %30 = and i64 %29, -2
-  %31 = inttoptr i64 %30 to ptr
-  %32 = tail call i32 @st__insert(ptr noundef %5, ptr noundef %31, ptr noundef nonnull inttoptr (i64 2 to ptr)) #8
-  %33 = icmp eq i32 %32, -10000
-  br i1 %33, label %34, label %149
+29:                                               ; preds = %26
+  %30 = ptrtoint ptr %2 to i64
+  %31 = and i64 %30, -2
+  %32 = inttoptr i64 %31 to ptr
+  %33 = tail call i32 @st__insert(ptr noundef %5, ptr noundef %32, ptr noundef nonnull inttoptr (i64 2 to ptr)) #8
+  %34 = icmp eq i32 %33, -10000
+  br i1 %34, label %35, label %150
 
-34:                                               ; preds = %28
+35:                                               ; preds = %29
   store i32 1, ptr %7, align 4
-  tail call void @free(ptr noundef nonnull %13) #8
-  br label %153
+  tail call void @free(ptr noundef nonnull %14) #8
+  br label %154
 
-35:                                               ; preds = %24
-  store ptr %1, ptr %13, align 8
-  %36 = getelementptr inbounds i8, ptr %13, i64 8
-  store ptr %2, ptr %36, align 8
-  %37 = load ptr, ptr @one, align 8
-  %.not205 = icmp eq ptr %37, %2
-  br i1 %.not205, label %149, label %38
+36:                                               ; preds = %25
+  store ptr %1, ptr %14, align 8
+  %37 = getelementptr inbounds i8, ptr %14, i64 8
+  store ptr %2, ptr %37, align 8
+  %38 = load ptr, ptr @one, align 8
+  %.not205 = icmp eq ptr %38, %2
+  br i1 %.not205, label %150, label %39
 
-38:                                               ; preds = %35
-  %39 = ptrtoint ptr %2 to i64
-  %40 = and i64 %39, -2
-  %41 = inttoptr i64 %40 to ptr
-  %42 = tail call i32 @st__insert(ptr noundef %5, ptr noundef %41, ptr noundef nonnull inttoptr (i64 3 to ptr)) #8
-  %43 = icmp eq i32 %42, -10000
-  br i1 %43, label %44, label %149
+39:                                               ; preds = %36
+  %40 = ptrtoint ptr %2 to i64
+  %41 = and i64 %40, -2
+  %42 = inttoptr i64 %41 to ptr
+  %43 = tail call i32 @st__insert(ptr noundef %5, ptr noundef %42, ptr noundef nonnull inttoptr (i64 3 to ptr)) #8
+  %44 = icmp eq i32 %43, -10000
+  br i1 %44, label %45, label %150
 
-44:                                               ; preds = %38
+45:                                               ; preds = %39
   store i32 1, ptr %7, align 4
-  tail call void @free(ptr noundef nonnull %13) #8
-  br label %153
+  tail call void @free(ptr noundef nonnull %14) #8
+  br label %154
 
-45:                                               ; preds = %24
-  store ptr %1, ptr %13, align 8
-  %46 = getelementptr inbounds i8, ptr %13, i64 8
-  store ptr %2, ptr %46, align 8
-  %47 = load ptr, ptr @one, align 8
-  %.not204 = icmp eq ptr %47, %1
-  br i1 %.not204, label %149, label %48
+46:                                               ; preds = %25
+  store ptr %1, ptr %14, align 8
+  %47 = getelementptr inbounds i8, ptr %14, i64 8
+  store ptr %2, ptr %47, align 8
+  %48 = load ptr, ptr @one, align 8
+  %.not204 = icmp eq ptr %48, %1
+  br i1 %.not204, label %150, label %49
 
-48:                                               ; preds = %45
-  %49 = ptrtoint ptr %1 to i64
-  %50 = and i64 %49, -2
-  %51 = inttoptr i64 %50 to ptr
-  %52 = tail call i32 @st__insert(ptr noundef %5, ptr noundef %51, ptr noundef nonnull inttoptr (i64 1 to ptr)) #8
-  %53 = icmp eq i32 %52, -10000
-  br i1 %53, label %54, label %149
+49:                                               ; preds = %46
+  %50 = ptrtoint ptr %1 to i64
+  %51 = and i64 %50, -2
+  %52 = inttoptr i64 %51 to ptr
+  %53 = tail call i32 @st__insert(ptr noundef %5, ptr noundef %52, ptr noundef nonnull inttoptr (i64 1 to ptr)) #8
+  %54 = icmp eq i32 %53, -10000
+  br i1 %54, label %55, label %150
 
-54:                                               ; preds = %48
+55:                                               ; preds = %49
   store i32 1, ptr %7, align 4
-  tail call void @free(ptr noundef nonnull %13) #8
-  br label %153
+  tail call void @free(ptr noundef nonnull %14) #8
+  br label %154
 
-55:                                               ; preds = %24
-  store ptr %1, ptr %13, align 8
-  %56 = getelementptr inbounds i8, ptr %13, i64 8
-  store ptr %2, ptr %56, align 8
-  %57 = load ptr, ptr @one, align 8
-  %.not203 = icmp eq ptr %57, %1
-  br i1 %.not203, label %149, label %58
+56:                                               ; preds = %25
+  store ptr %1, ptr %14, align 8
+  %57 = getelementptr inbounds i8, ptr %14, i64 8
+  store ptr %2, ptr %57, align 8
+  %58 = load ptr, ptr @one, align 8
+  %.not203 = icmp eq ptr %58, %1
+  br i1 %.not203, label %150, label %59
 
-58:                                               ; preds = %55
-  %59 = ptrtoint ptr %1 to i64
-  %60 = and i64 %59, -2
-  %61 = inttoptr i64 %60 to ptr
-  %62 = tail call i32 @st__insert(ptr noundef %5, ptr noundef %61, ptr noundef nonnull inttoptr (i64 3 to ptr)) #8
-  %63 = icmp eq i32 %62, -10000
-  br i1 %63, label %64, label %149
+59:                                               ; preds = %56
+  %60 = ptrtoint ptr %1 to i64
+  %61 = and i64 %60, -2
+  %62 = inttoptr i64 %61 to ptr
+  %63 = tail call i32 @st__insert(ptr noundef %5, ptr noundef %62, ptr noundef nonnull inttoptr (i64 3 to ptr)) #8
+  %64 = icmp eq i32 %63, -10000
+  br i1 %64, label %65, label %150
 
-64:                                               ; preds = %58
+65:                                               ; preds = %59
   store i32 1, ptr %7, align 4
-  tail call void @free(ptr noundef nonnull %13) #8
-  br label %153
+  tail call void @free(ptr noundef nonnull %14) #8
+  br label %154
 
-65:                                               ; preds = %24
-  switch i32 %10, label %106 [
-    i32 3, label %66
-    i32 7, label %76
-    i32 5, label %86
-    i32 8, label %96
+66:                                               ; preds = %25
+  switch i32 %10, label %107 [
+    i32 3, label %67
+    i32 7, label %77
+    i32 5, label %87
+    i32 8, label %97
   ]
 
-66:                                               ; preds = %65
-  store ptr %3, ptr %13, align 8
-  %67 = getelementptr inbounds i8, ptr %13, i64 8
-  store ptr %4, ptr %67, align 8
-  %68 = load ptr, ptr @one, align 8
-  %.not202 = icmp eq ptr %68, %4
-  br i1 %.not202, label %149, label %69
+67:                                               ; preds = %66
+  store ptr %3, ptr %14, align 8
+  %68 = getelementptr inbounds i8, ptr %14, i64 8
+  store ptr %4, ptr %68, align 8
+  %69 = load ptr, ptr @one, align 8
+  %.not202 = icmp eq ptr %69, %4
+  br i1 %.not202, label %150, label %70
 
-69:                                               ; preds = %66
-  %70 = ptrtoint ptr %4 to i64
-  %71 = and i64 %70, -2
-  %72 = inttoptr i64 %71 to ptr
-  %73 = tail call i32 @st__insert(ptr noundef %5, ptr noundef %72, ptr noundef nonnull inttoptr (i64 2 to ptr)) #8
-  %74 = icmp eq i32 %73, -10000
-  br i1 %74, label %75, label %149
+70:                                               ; preds = %67
+  %71 = ptrtoint ptr %4 to i64
+  %72 = and i64 %71, -2
+  %73 = inttoptr i64 %72 to ptr
+  %74 = tail call i32 @st__insert(ptr noundef %5, ptr noundef %73, ptr noundef nonnull inttoptr (i64 2 to ptr)) #8
+  %75 = icmp eq i32 %74, -10000
+  br i1 %75, label %76, label %150
 
-75:                                               ; preds = %69
+76:                                               ; preds = %70
   store i32 1, ptr %7, align 4
-  tail call void @free(ptr noundef nonnull %13) #8
-  br label %153
+  tail call void @free(ptr noundef nonnull %14) #8
+  br label %154
 
-76:                                               ; preds = %65
-  store ptr %3, ptr %13, align 8
-  %77 = getelementptr inbounds i8, ptr %13, i64 8
-  store ptr %4, ptr %77, align 8
-  %78 = load ptr, ptr @one, align 8
-  %.not201 = icmp eq ptr %78, %4
-  br i1 %.not201, label %149, label %79
+77:                                               ; preds = %66
+  store ptr %3, ptr %14, align 8
+  %78 = getelementptr inbounds i8, ptr %14, i64 8
+  store ptr %4, ptr %78, align 8
+  %79 = load ptr, ptr @one, align 8
+  %.not201 = icmp eq ptr %79, %4
+  br i1 %.not201, label %150, label %80
 
-79:                                               ; preds = %76
-  %80 = ptrtoint ptr %4 to i64
-  %81 = and i64 %80, -2
-  %82 = inttoptr i64 %81 to ptr
-  %83 = tail call i32 @st__insert(ptr noundef %5, ptr noundef %82, ptr noundef nonnull inttoptr (i64 3 to ptr)) #8
-  %84 = icmp eq i32 %83, -10000
-  br i1 %84, label %85, label %149
+80:                                               ; preds = %77
+  %81 = ptrtoint ptr %4 to i64
+  %82 = and i64 %81, -2
+  %83 = inttoptr i64 %82 to ptr
+  %84 = tail call i32 @st__insert(ptr noundef %5, ptr noundef %83, ptr noundef nonnull inttoptr (i64 3 to ptr)) #8
+  %85 = icmp eq i32 %84, -10000
+  br i1 %85, label %86, label %150
 
-85:                                               ; preds = %79
+86:                                               ; preds = %80
   store i32 1, ptr %7, align 4
-  tail call void @free(ptr noundef nonnull %13) #8
-  br label %153
+  tail call void @free(ptr noundef nonnull %14) #8
+  br label %154
 
-86:                                               ; preds = %65
-  store ptr %3, ptr %13, align 8
-  %87 = getelementptr inbounds i8, ptr %13, i64 8
-  store ptr %4, ptr %87, align 8
-  %88 = load ptr, ptr @one, align 8
-  %.not200 = icmp eq ptr %88, %3
-  br i1 %.not200, label %149, label %89
+87:                                               ; preds = %66
+  store ptr %3, ptr %14, align 8
+  %88 = getelementptr inbounds i8, ptr %14, i64 8
+  store ptr %4, ptr %88, align 8
+  %89 = load ptr, ptr @one, align 8
+  %.not200 = icmp eq ptr %89, %3
+  br i1 %.not200, label %150, label %90
 
-89:                                               ; preds = %86
-  %90 = ptrtoint ptr %3 to i64
-  %91 = and i64 %90, -2
-  %92 = inttoptr i64 %91 to ptr
-  %93 = tail call i32 @st__insert(ptr noundef %5, ptr noundef %92, ptr noundef nonnull inttoptr (i64 1 to ptr)) #8
-  %94 = icmp eq i32 %93, -10000
-  br i1 %94, label %95, label %149
+90:                                               ; preds = %87
+  %91 = ptrtoint ptr %3 to i64
+  %92 = and i64 %91, -2
+  %93 = inttoptr i64 %92 to ptr
+  %94 = tail call i32 @st__insert(ptr noundef %5, ptr noundef %93, ptr noundef nonnull inttoptr (i64 1 to ptr)) #8
+  %95 = icmp eq i32 %94, -10000
+  br i1 %95, label %96, label %150
 
-95:                                               ; preds = %89
+96:                                               ; preds = %90
   store i32 1, ptr %7, align 4
-  tail call void @free(ptr noundef nonnull %13) #8
-  br label %153
+  tail call void @free(ptr noundef nonnull %14) #8
+  br label %154
 
-96:                                               ; preds = %65
-  store ptr %3, ptr %13, align 8
-  %97 = getelementptr inbounds i8, ptr %13, i64 8
-  store ptr %4, ptr %97, align 8
-  %98 = load ptr, ptr @one, align 8
-  %.not199 = icmp eq ptr %98, %3
-  br i1 %.not199, label %149, label %99
+97:                                               ; preds = %66
+  store ptr %3, ptr %14, align 8
+  %98 = getelementptr inbounds i8, ptr %14, i64 8
+  store ptr %4, ptr %98, align 8
+  %99 = load ptr, ptr @one, align 8
+  %.not199 = icmp eq ptr %99, %3
+  br i1 %.not199, label %150, label %100
 
-99:                                               ; preds = %96
-  %100 = ptrtoint ptr %3 to i64
-  %101 = and i64 %100, -2
-  %102 = inttoptr i64 %101 to ptr
-  %103 = tail call i32 @st__insert(ptr noundef %5, ptr noundef %102, ptr noundef nonnull inttoptr (i64 3 to ptr)) #8
-  %104 = icmp eq i32 %103, -10000
-  br i1 %104, label %105, label %149
+100:                                              ; preds = %97
+  %101 = ptrtoint ptr %3 to i64
+  %102 = and i64 %101, -2
+  %103 = inttoptr i64 %102 to ptr
+  %104 = tail call i32 @st__insert(ptr noundef %5, ptr noundef %103, ptr noundef nonnull inttoptr (i64 3 to ptr)) #8
+  %105 = icmp eq i32 %104, -10000
+  br i1 %105, label %106, label %150
 
-105:                                              ; preds = %99
+106:                                              ; preds = %100
   store i32 1, ptr %7, align 4
-  tail call void @free(ptr noundef nonnull %13) #8
-  br label %153
+  tail call void @free(ptr noundef nonnull %14) #8
+  br label %154
 
-106:                                              ; preds = %65
-  switch i32 %9, label %127 [
-    i32 4, label %107
-    i32 6, label %117
+107:                                              ; preds = %66
+  switch i32 %9, label %128 [
+    i32 4, label %108
+    i32 6, label %118
   ]
 
-107:                                              ; preds = %106
-  store ptr %2, ptr %13, align 8
-  %108 = getelementptr inbounds i8, ptr %13, i64 8
-  store ptr %1, ptr %108, align 8
-  %109 = load ptr, ptr @one, align 8
-  %.not198 = icmp eq ptr %109, %2
-  br i1 %.not198, label %149, label %110
+108:                                              ; preds = %107
+  store ptr %2, ptr %14, align 8
+  %109 = getelementptr inbounds i8, ptr %14, i64 8
+  store ptr %1, ptr %109, align 8
+  %110 = load ptr, ptr @one, align 8
+  %.not198 = icmp eq ptr %110, %2
+  br i1 %.not198, label %150, label %111
 
-110:                                              ; preds = %107
-  %111 = ptrtoint ptr %2 to i64
-  %112 = and i64 %111, -2
-  %113 = inttoptr i64 %112 to ptr
-  %114 = tail call i32 @st__insert(ptr noundef %5, ptr noundef %113, ptr noundef nonnull inttoptr (i64 1 to ptr)) #8
-  %115 = icmp eq i32 %114, -10000
-  br i1 %115, label %116, label %149
+111:                                              ; preds = %108
+  %112 = ptrtoint ptr %2 to i64
+  %113 = and i64 %112, -2
+  %114 = inttoptr i64 %113 to ptr
+  %115 = tail call i32 @st__insert(ptr noundef %5, ptr noundef %114, ptr noundef nonnull inttoptr (i64 1 to ptr)) #8
+  %116 = icmp eq i32 %115, -10000
+  br i1 %116, label %117, label %150
 
-116:                                              ; preds = %110
+117:                                              ; preds = %111
   store i32 1, ptr %7, align 4
-  tail call void @free(ptr noundef nonnull %13) #8
-  br label %153
+  tail call void @free(ptr noundef nonnull %14) #8
+  br label %154
 
-117:                                              ; preds = %106
-  store ptr %2, ptr %13, align 8
-  %118 = getelementptr inbounds i8, ptr %13, i64 8
-  store ptr %1, ptr %118, align 8
-  %119 = load ptr, ptr @one, align 8
-  %.not197 = icmp eq ptr %119, %1
-  br i1 %.not197, label %149, label %120
+118:                                              ; preds = %107
+  store ptr %2, ptr %14, align 8
+  %119 = getelementptr inbounds i8, ptr %14, i64 8
+  store ptr %1, ptr %119, align 8
+  %120 = load ptr, ptr @one, align 8
+  %.not197 = icmp eq ptr %120, %1
+  br i1 %.not197, label %150, label %121
 
-120:                                              ; preds = %117
-  %121 = ptrtoint ptr %1 to i64
-  %122 = and i64 %121, -2
-  %123 = inttoptr i64 %122 to ptr
-  %124 = tail call i32 @st__insert(ptr noundef %5, ptr noundef %123, ptr noundef nonnull inttoptr (i64 2 to ptr)) #8
-  %125 = icmp eq i32 %124, -10000
-  br i1 %125, label %126, label %149
+121:                                              ; preds = %118
+  %122 = ptrtoint ptr %1 to i64
+  %123 = and i64 %122, -2
+  %124 = inttoptr i64 %123 to ptr
+  %125 = tail call i32 @st__insert(ptr noundef %5, ptr noundef %124, ptr noundef nonnull inttoptr (i64 2 to ptr)) #8
+  %126 = icmp eq i32 %125, -10000
+  br i1 %126, label %127, label %150
 
-126:                                              ; preds = %120
+127:                                              ; preds = %121
   store i32 1, ptr %7, align 4
-  tail call void @free(ptr noundef nonnull %13) #8
-  br label %153
+  tail call void @free(ptr noundef nonnull %14) #8
+  br label %154
 
-127:                                              ; preds = %106
-  switch i32 %10, label %149 [
-    i32 4, label %128
-    i32 6, label %138
+128:                                              ; preds = %107
+  switch i32 %10, label %150 [
+    i32 4, label %129
+    i32 6, label %139
   ]
 
-128:                                              ; preds = %127
-  store ptr %4, ptr %13, align 8
-  %129 = getelementptr inbounds i8, ptr %13, i64 8
-  store ptr %3, ptr %129, align 8
-  %130 = load ptr, ptr @one, align 8
-  %.not196 = icmp eq ptr %130, %4
-  br i1 %.not196, label %149, label %131
+129:                                              ; preds = %128
+  store ptr %4, ptr %14, align 8
+  %130 = getelementptr inbounds i8, ptr %14, i64 8
+  store ptr %3, ptr %130, align 8
+  %131 = load ptr, ptr @one, align 8
+  %.not196 = icmp eq ptr %131, %4
+  br i1 %.not196, label %150, label %132
 
-131:                                              ; preds = %128
-  %132 = ptrtoint ptr %4 to i64
-  %133 = and i64 %132, -2
-  %134 = inttoptr i64 %133 to ptr
-  %135 = tail call i32 @st__insert(ptr noundef %5, ptr noundef %134, ptr noundef nonnull inttoptr (i64 1 to ptr)) #8
-  %136 = icmp eq i32 %135, -10000
-  br i1 %136, label %137, label %149
+132:                                              ; preds = %129
+  %133 = ptrtoint ptr %4 to i64
+  %134 = and i64 %133, -2
+  %135 = inttoptr i64 %134 to ptr
+  %136 = tail call i32 @st__insert(ptr noundef %5, ptr noundef %135, ptr noundef nonnull inttoptr (i64 1 to ptr)) #8
+  %137 = icmp eq i32 %136, -10000
+  br i1 %137, label %138, label %150
 
-137:                                              ; preds = %131
+138:                                              ; preds = %132
   store i32 1, ptr %7, align 4
-  tail call void @free(ptr noundef nonnull %13) #8
-  br label %153
+  tail call void @free(ptr noundef nonnull %14) #8
+  br label %154
 
-138:                                              ; preds = %127
-  store ptr %4, ptr %13, align 8
-  %139 = getelementptr inbounds i8, ptr %13, i64 8
-  store ptr %3, ptr %139, align 8
-  %140 = load ptr, ptr @one, align 8
-  %.not = icmp eq ptr %140, %3
-  br i1 %.not, label %149, label %141
+139:                                              ; preds = %128
+  store ptr %4, ptr %14, align 8
+  %140 = getelementptr inbounds i8, ptr %14, i64 8
+  store ptr %3, ptr %140, align 8
+  %141 = load ptr, ptr @one, align 8
+  %.not = icmp eq ptr %141, %3
+  br i1 %.not, label %150, label %142
 
-141:                                              ; preds = %138
-  %142 = ptrtoint ptr %3 to i64
-  %143 = and i64 %142, -2
-  %144 = inttoptr i64 %143 to ptr
-  %145 = tail call i32 @st__insert(ptr noundef %5, ptr noundef %144, ptr noundef nonnull inttoptr (i64 2 to ptr)) #8
-  %146 = icmp eq i32 %145, -10000
-  br i1 %146, label %147, label %149
+142:                                              ; preds = %139
+  %143 = ptrtoint ptr %3 to i64
+  %144 = and i64 %143, -2
+  %145 = inttoptr i64 %144 to ptr
+  %146 = tail call i32 @st__insert(ptr noundef %5, ptr noundef %145, ptr noundef nonnull inttoptr (i64 2 to ptr)) #8
+  %147 = icmp eq i32 %146, -10000
+  br i1 %147, label %148, label %150
 
-147:                                              ; preds = %141
+148:                                              ; preds = %142
   store i32 1, ptr %7, align 4
-  tail call void @free(ptr noundef nonnull %13) #8
-  br label %153
+  tail call void @free(ptr noundef nonnull %14) #8
+  br label %154
 
-.sink.split:                                      ; preds = %22, %20, %18, %16
-  %.sink208 = phi ptr [ %1, %16 ], [ %3, %18 ], [ %2, %20 ], [ %4, %22 ]
-  %.sink = phi ptr [ %2, %16 ], [ %4, %18 ], [ %1, %20 ], [ %3, %22 ]
-  store ptr %.sink208, ptr %13, align 8
-  %148 = getelementptr inbounds i8, ptr %13, i64 8
-  store ptr %.sink, ptr %148, align 8
-  br label %149
+.sink.split:                                      ; preds = %23, %21, %19, %17
+  %.sink208 = phi ptr [ %1, %17 ], [ %3, %19 ], [ %2, %21 ], [ %4, %23 ]
+  %.sink = phi ptr [ %2, %17 ], [ %4, %19 ], [ %1, %21 ], [ %3, %23 ]
+  store ptr %.sink208, ptr %14, align 8
+  %149 = getelementptr inbounds i8, ptr %14, i64 8
+  store ptr %.sink, ptr %149, align 8
+  br label %150
 
-149:                                              ; preds = %.sink.split, %127, %38, %35, %58, %55, %79, %76, %99, %96, %120, %117, %141, %138, %128, %131, %107, %110, %86, %89, %66, %69, %45, %48, %25, %28
-  %150 = tail call i32 @st__insert(ptr noundef %6, ptr noundef %0, ptr noundef nonnull %13) #8
-  %151 = icmp eq i32 %150, -10000
-  br i1 %151, label %152, label %153
+150:                                              ; preds = %.sink.split, %128, %39, %36, %59, %56, %80, %77, %100, %97, %121, %118, %142, %139, %129, %132, %108, %111, %87, %90, %67, %70, %46, %49, %26, %29
+  %151 = tail call i32 @st__insert(ptr noundef %6, ptr noundef %0, ptr noundef nonnull %14) #8
+  %152 = icmp eq i32 %151, -10000
+  br i1 %152, label %153, label %154
 
-152:                                              ; preds = %149
+153:                                              ; preds = %150
   store i32 1, ptr %7, align 4
-  tail call void @free(ptr noundef nonnull %13) #8
-  br label %153
+  tail call void @free(ptr noundef nonnull %14) #8
+  br label %154
 
-153:                                              ; preds = %149, %8, %152, %147, %137, %126, %116, %105, %95, %85, %75, %64, %54, %44, %34, %15
-  %.0 = phi ptr [ null, %15 ], [ null, %152 ], [ null, %34 ], [ null, %44 ], [ null, %54 ], [ null, %64 ], [ null, %75 ], [ null, %85 ], [ null, %95 ], [ null, %105 ], [ null, %116 ], [ null, %126 ], [ null, %137 ], [ null, %147 ], [ null, %8 ], [ %13, %149 ]
+154:                                              ; preds = %150, %8, %153, %148, %138, %127, %117, %106, %96, %86, %76, %65, %55, %45, %35, %16
+  %.0 = phi ptr [ null, %16 ], [ null, %153 ], [ null, %35 ], [ null, %45 ], [ null, %55 ], [ null, %65 ], [ null, %76 ], [ null, %86 ], [ null, %96 ], [ null, %106 ], [ null, %117 ], [ null, %127 ], [ null, %138 ], [ null, %148 ], [ null, %8 ], [ %14, %150 ]
   ret ptr %.0
 }
 
@@ -2859,7 +2860,7 @@ declare ptr @cuddBddAndRecur(ptr noundef, ptr noundef, ptr noundef) local_unname
 define internal fastcc noundef ptr @CheckTablesCacheAndReturn(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4) unnamed_addr #0 {
   %6 = alloca i32, align 4
   store i32 0, ptr %6, align 4
-  %7 = tail call fastcc i32 @PairInTables(ptr noundef %1, ptr noundef %2, ptr noundef %3), !range !20
+  %7 = tail call fastcc i32 @PairInTables(ptr noundef %1, ptr noundef %2, ptr noundef %3)
   %8 = tail call noalias dereferenceable_or_null(16) ptr @malloc(i64 noundef 16) #9
   %9 = icmp eq ptr %8, null
   br i1 %9, label %62, label %10
@@ -2981,7 +2982,7 @@ define internal fastcc noundef ptr @CheckTablesCacheAndReturn(ptr noundef %0, pt
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @PairInTables(ptr noundef %0, ptr noundef %1, ptr noundef %2) unnamed_addr #0 {
+define internal fastcc range(i32 0, 9) i32 @PairInTables(ptr noundef %0, ptr noundef %1, ptr noundef %2) unnamed_addr #0 {
   %4 = alloca i32, align 4
   %5 = alloca i32, align 4
   store i32 0, ptr %5, align 4
@@ -3094,20 +3095,18 @@ attributes #9 = { nounwind allocsize(0) }
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
 !3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = !{i32 0, i32 3}
-!5 = distinct !{!5, !6}
-!6 = !{!"llvm.loop.mustprogress"}
-!7 = distinct !{!7, !6}
-!8 = distinct !{!8, !6}
-!9 = distinct !{!9, !6}
-!10 = distinct !{!10, !6}
-!11 = distinct !{!11, !6}
-!12 = distinct !{!12, !6}
-!13 = distinct !{!13, !6}
-!14 = distinct !{!14, !6}
-!15 = distinct !{!15, !6}
-!16 = distinct !{!16, !6}
-!17 = distinct !{!17, !6}
-!18 = distinct !{!18, !6}
-!19 = distinct !{!19, !6}
-!20 = !{i32 0, i32 9}
+!4 = distinct !{!4, !5}
+!5 = !{!"llvm.loop.mustprogress"}
+!6 = distinct !{!6, !5}
+!7 = distinct !{!7, !5}
+!8 = distinct !{!8, !5}
+!9 = distinct !{!9, !5}
+!10 = distinct !{!10, !5}
+!11 = distinct !{!11, !5}
+!12 = distinct !{!12, !5}
+!13 = distinct !{!13, !5}
+!14 = distinct !{!14, !5}
+!15 = distinct !{!15, !5}
+!16 = distinct !{!16, !5}
+!17 = distinct !{!17, !5}
+!18 = distinct !{!18, !5}

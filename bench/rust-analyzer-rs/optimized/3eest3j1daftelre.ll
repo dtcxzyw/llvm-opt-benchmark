@@ -3461,7 +3461,7 @@ define hidden void @"_ZN143_$LT$hir_expand..files..InFileWrapper$LT$span..HirFil
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define internal noundef i32 @"_ZN143_$LT$hir_expand..files..InFileWrapper$LT$span..HirFileId$C$$RF$syntax..ast..generated..nodes..MacroCall$GT$$u20$as$u20$hir_def..AsMacroCall$GT$22as_call_id_with_errors28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h488598a0a1a251f9E"(ptr noalias nocapture noundef readonly align 8 dereferenceable(8) %0, i32 noundef %1, i32 noundef %2) unnamed_addr #1 {
+define internal noundef range(i32 1, 0) i32 @"_ZN143_$LT$hir_expand..files..InFileWrapper$LT$span..HirFileId$C$$RF$syntax..ast..generated..nodes..MacroCall$GT$$u20$as$u20$hir_def..AsMacroCall$GT$22as_call_id_with_errors28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h488598a0a1a251f9E"(ptr noalias nocapture noundef readonly align 8 dereferenceable(8) %0, i32 noundef %1, i32 noundef %2) unnamed_addr #1 {
   %4 = alloca { i32, { i32, i32 }, { i32, i32 } }, align 4
   call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %4)
   %5 = load ptr, ptr %0, align 8, !nonnull !17, !align !556, !noundef !17
@@ -3475,7 +3475,7 @@ define internal noundef i32 @"_ZN143_$LT$hir_expand..files..InFileWrapper$LT$spa
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define internal noundef i32 @"_ZN143_$LT$hir_expand..files..InFileWrapper$LT$span..HirFileId$C$$RF$syntax..ast..generated..nodes..MacroCall$GT$$u20$as$u20$hir_def..AsMacroCall$GT$22as_call_id_with_errors28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17ha4670ae23f06fd36E"(ptr noalias nocapture noundef readonly align 8 dereferenceable(8) %0, i32 noundef %1, i32 noundef %2) unnamed_addr #1 {
+define internal noundef range(i32 1, 0) i32 @"_ZN143_$LT$hir_expand..files..InFileWrapper$LT$span..HirFileId$C$$RF$syntax..ast..generated..nodes..MacroCall$GT$$u20$as$u20$hir_def..AsMacroCall$GT$22as_call_id_with_errors28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17ha4670ae23f06fd36E"(ptr noalias nocapture noundef readonly align 8 dereferenceable(8) %0, i32 noundef %1, i32 noundef %2) unnamed_addr #1 {
   %4 = alloca { i32, { i32, i32 }, { i32, i32 } }, align 4
   call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %4)
   %5 = load ptr, ptr %0, align 8, !nonnull !17, !align !556, !noundef !17
@@ -3570,7 +3570,7 @@ define hidden noundef nonnull ptr @_ZN4core3ops8function5FnMut8call_mut17hb82fb6
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define hidden noundef i32 @_ZN4core3ops8function5FnMut8call_mut17hd734cfb1968e1552E.llvm.11762030844908852975(ptr noalias nocapture noundef nonnull readnone align 1 %0, i32 noundef returned %1) unnamed_addr #5 {
+define hidden noundef range(i32 1, 0) i32 @_ZN4core3ops8function5FnMut8call_mut17hd734cfb1968e1552E.llvm.11762030844908852975(ptr noalias nocapture noundef nonnull readnone align 1 %0, i32 noundef returned %1) unnamed_addr #5 {
   ret i32 %1
 }
 
@@ -3700,7 +3700,7 @@ define hidden noundef ptr @"_ZN4core3ops8function5impls80_$LT$impl$u20$core..ops
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define hidden noundef i32 @"_ZN4core3ops8function5impls80_$LT$impl$u20$core..ops..function..FnOnce$LT$A$GT$$u20$for$u20$$RF$mut$u20$F$GT$9call_once17h95f254a02b873493E"(ptr noalias nocapture noundef nonnull readnone align 1 %0, i32 noundef returned %1) unnamed_addr #3 {
+define hidden noundef range(i32 1, 0) i32 @"_ZN4core3ops8function5impls80_$LT$impl$u20$core..ops..function..FnOnce$LT$A$GT$$u20$for$u20$$RF$mut$u20$F$GT$9call_once17h95f254a02b873493E"(ptr noalias nocapture noundef nonnull readnone align 1 %0, i32 noundef returned %1) unnamed_addr #3 {
   ret i32 %1
 }
 
@@ -3804,7 +3804,7 @@ define internal noundef zeroext i1 @"_ZN4core3ops8function6FnOnce40call_once$u7b
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define internal noundef i32 @"_ZN4core3ops8function6FnOnce40call_once$u7b$$u7b$vtable.shim$u7d$$u7d$17hd055d78a18c285e6E"(ptr nocapture noundef readonly %0, i32 noundef %1, i32 noundef %2) unnamed_addr #1 personality ptr @rust_eh_personality {
+define internal noundef range(i32 1, 0) i32 @"_ZN4core3ops8function6FnOnce40call_once$u7b$$u7b$vtable.shim$u7d$$u7d$17hd055d78a18c285e6E"(ptr nocapture noundef readonly %0, i32 noundef %1, i32 noundef %2) unnamed_addr #1 personality ptr @rust_eh_personality {
   %4 = alloca { i32, { i32, i32 }, { i32, i32 } }, align 4
   %5 = load ptr, ptr %0, align 8, !nonnull !17, !align !556, !noundef !17
   call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %4), !noalias !710
@@ -3818,7 +3818,7 @@ define internal noundef i32 @"_ZN4core3ops8function6FnOnce40call_once$u7b$$u7b$v
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define internal noundef i32 @"_ZN4core3ops8function6FnOnce40call_once$u7b$$u7b$vtable.shim$u7d$$u7d$17hf76cb7818baf0e0cE"(ptr nocapture noundef readonly %0, i32 noundef %1, i32 noundef %2) unnamed_addr #1 personality ptr @rust_eh_personality {
+define internal noundef range(i32 1, 0) i32 @"_ZN4core3ops8function6FnOnce40call_once$u7b$$u7b$vtable.shim$u7d$$u7d$17hf76cb7818baf0e0cE"(ptr nocapture noundef readonly %0, i32 noundef %1, i32 noundef %2) unnamed_addr #1 personality ptr @rust_eh_personality {
   %4 = alloca { i32, { i32, i32 }, { i32, i32 } }, align 4
   %5 = load ptr, ptr %0, align 8, !nonnull !17, !align !556, !noundef !17
   call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %4), !noalias !716
@@ -16961,7 +16961,7 @@ define void @_ZN3hir9semantics13SemanticsImpl19descend_into_macros17ha0222e9360f
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define internal fastcc noundef i16 @"_ZN3hir9semantics13SemanticsImpl19descend_into_macros28_$u7b$$u7b$closure$u7d$$u7d$17h8b376bdcfcdc4345E"(ptr readonly %.0.val) unnamed_addr #1 personality ptr @rust_eh_personality {
+define internal fastcc noundef range(i16 0, 273) i16 @"_ZN3hir9semantics13SemanticsImpl19descend_into_macros28_$u7b$$u7b$closure$u7d$$u7d$17h8b376bdcfcdc4345E"(ptr readonly %.0.val) unnamed_addr #1 personality ptr @rust_eh_personality {
   %1 = icmp ne ptr %.0.val, null
   tail call void @llvm.assume(i1 %1)
   %2 = getelementptr inbounds i8, ptr %.0.val, i64 16
@@ -17372,7 +17372,7 @@ define noundef nonnull ptr @_ZN3hir9semantics13SemanticsImpl26descend_into_macro
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define internal fastcc noundef i16 @"_ZN3hir9semantics13SemanticsImpl26descend_into_macros_single28_$u7b$$u7b$closure$u7d$$u7d$17h6cb3164ab042bf64E"(ptr readonly %.0.val) unnamed_addr #1 personality ptr @rust_eh_personality {
+define internal fastcc noundef range(i16 0, 273) i16 @"_ZN3hir9semantics13SemanticsImpl26descend_into_macros_single28_$u7b$$u7b$closure$u7d$$u7d$17h6cb3164ab042bf64E"(ptr readonly %.0.val) unnamed_addr #1 personality ptr @rust_eh_personality {
   %1 = icmp ne ptr %.0.val, null
   tail call void @llvm.assume(i1 %1)
   %2 = getelementptr inbounds i8, ptr %.0.val, i64 16
@@ -26050,7 +26050,7 @@ define void @_ZN3hir9semantics13SemanticsImpl19pattern_adjustments17hed375798379
 }
 
 ; Function Attrs: nonlazybind uwtable
-define noundef i8 @_ZN3hir9semantics13SemanticsImpl19binding_mode_of_pat17hc13e3c441093a15eE(ptr noundef nonnull align 8 %0, ptr noalias noundef readonly align 8 dereferenceable(8) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
+define noundef range(i8 0, 4) i8 @_ZN3hir9semantics13SemanticsImpl19binding_mode_of_pat17hc13e3c441093a15eE(ptr noundef nonnull align 8 %0, ptr noalias noundef readonly align 8 dereferenceable(8) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
   %3 = alloca { i64, [9 x i64] }, align 8
   %4 = alloca { { { { i64, ptr, {} }, i64 }, { ptr, i32, [1 x i32] } }, { i32, [5 x i32] }, ptr, i32, [1 x i32] }, align 8
   call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %4)

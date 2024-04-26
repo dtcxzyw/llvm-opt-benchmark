@@ -6008,7 +6008,7 @@ define hidden void @"_ZN12object_store11ObjectStore13delete_stream28_$u7b$$u7b$c
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define internal fastcc noundef i8 @_ZN12tracing_core8callsite15DefaultCallsite8interest17hfb4783fc25b01e0cE(ptr noundef nonnull align 8 %0) unnamed_addr #3 {
+define internal fastcc noundef range(i8 0, 3) i8 @_ZN12tracing_core8callsite15DefaultCallsite8interest17hfb4783fc25b01e0cE(ptr noundef nonnull align 8 %0) unnamed_addr #3 {
   %2 = getelementptr inbounds i8, ptr %0, i64 16
   %3 = load atomic i8, ptr %2 monotonic, align 8
   %4 = icmp ult i8 %3, 3
@@ -8972,7 +8972,7 @@ define hidden noundef i64 @"_ZN49_$LT$usize$u20$as$u20$core..iter..range..Step$G
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
-define hidden noundef i8 @"_ZN4core3cmp5impls55_$LT$impl$u20$core..cmp..PartialOrd$u20$for$u20$i64$GT$11partial_cmp17h5070ba001f170384E.llvm.5991570310944373761"(ptr noalias nocapture noundef readonly align 8 dereferenceable(8) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(8) %1) unnamed_addr #9 {
+define hidden noundef range(i8 -1, 2) i8 @"_ZN4core3cmp5impls55_$LT$impl$u20$core..cmp..PartialOrd$u20$for$u20$i64$GT$11partial_cmp17h5070ba001f170384E.llvm.5991570310944373761"(ptr noalias nocapture noundef readonly align 8 dereferenceable(8) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(8) %1) unnamed_addr #9 {
   %3 = load i64, ptr %0, align 8, !noundef !12
   %4 = load i64, ptr %1, align 8, !noundef !12
   %5 = icmp slt i64 %3, %4
@@ -31085,7 +31085,7 @@ define internal { ptr, ptr } @"_ZN68_$LT$parquet..errors..ParquetError$u20$as$u2
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
-define hidden noundef i32 @_ZN6chrono5naive4date9NaiveDate16num_days_from_ce17h18b3a45efd563587E.llvm.5991570310944373761(ptr noalias nocapture noundef readonly align 4 dereferenceable(4) %0) unnamed_addr #11 {
+define hidden noundef range(i32 -191445272, 95845018) i32 @_ZN6chrono5naive4date9NaiveDate16num_days_from_ce17h18b3a45efd563587E.llvm.5991570310944373761(ptr noalias nocapture noundef readonly align 4 dereferenceable(4) %0) unnamed_addr #11 {
   %2 = load i32, ptr %0, align 4, !range !9492, !noundef !12
   %3 = ashr i32 %2, 13
   %4 = add nsw i32 %3, -1
@@ -31118,7 +31118,7 @@ define hidden noundef i32 @_ZN6chrono5naive4date9NaiveDate16num_days_from_ce17h1
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
-define hidden noundef i64 @"_ZN6chrono8datetime18DateTime$LT$Tz$GT$16timestamp_millis17ha957ef86dd3b3f76E.llvm.5991570310944373761"(ptr noalias nocapture noundef readonly align 4 dereferenceable(16) %0) unnamed_addr #9 {
+define hidden noundef range(i64 -16603007184000000, 8223168752899295) i64 @"_ZN6chrono8datetime18DateTime$LT$Tz$GT$16timestamp_millis17ha957ef86dd3b3f76E.llvm.5991570310944373761"(ptr noalias nocapture noundef readonly align 4 dereferenceable(16) %0) unnamed_addr #9 {
   %2 = load i32, ptr %0, align 4, !range !9492, !noundef !12
   %3 = ashr i32 %2, 13
   %4 = add nsw i32 %3, -1
@@ -31164,7 +31164,7 @@ _ZN6chrono5naive4date9NaiveDate16num_days_from_ce17h18b3a45efd563587E.llvm.59915
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
-define hidden noundef i64 @"_ZN6chrono8datetime18DateTime$LT$Tz$GT$16timestamp_millis17hed541c1b3434d2b5E.llvm.5991570310944373761"(ptr noalias nocapture noundef readonly align 4 dereferenceable(12) %0) unnamed_addr #9 {
+define hidden noundef range(i64 -16603007184000000, 8223168752899295) i64 @"_ZN6chrono8datetime18DateTime$LT$Tz$GT$16timestamp_millis17hed541c1b3434d2b5E.llvm.5991570310944373761"(ptr noalias nocapture noundef readonly align 4 dereferenceable(12) %0) unnamed_addr #9 {
   %2 = load i32, ptr %0, align 4, !range !9492, !noundef !12
   %3 = ashr i32 %2, 13
   %4 = add nsw i32 %3, -1
@@ -31282,7 +31282,7 @@ define hidden void @"_ZN71_$LT$alloc..sync..Arc$LT$T$C$A$GT$$u20$as$u20$core..op
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read, inaccessiblemem: read) uwtable
-define hidden noundef i8 @"_ZN71_$LT$core..option..Option$LT$T$GT$$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17h5b08987d2b0e5125E.llvm.5991570310944373761"(ptr noalias nocapture noundef readonly align 8 dereferenceable(16) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(16) %1) unnamed_addr #21 {
+define hidden noundef range(i8 -1, 2) i8 @"_ZN71_$LT$core..option..Option$LT$T$GT$$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17h5b08987d2b0e5125E.llvm.5991570310944373761"(ptr noalias nocapture noundef readonly align 8 dereferenceable(16) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(16) %1) unnamed_addr #21 {
   %3 = load i64, ptr %0, align 8, !range !1506, !noundef !12
   %4 = load i64, ptr %1, align 8, !range !1506, !noundef !12
   %5 = icmp ne i64 %3, 0

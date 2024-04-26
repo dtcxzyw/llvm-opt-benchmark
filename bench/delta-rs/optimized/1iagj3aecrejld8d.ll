@@ -18427,7 +18427,7 @@ _ZN5alloc3fmt6format17h7ead8f60e83381d7E.exit.i.i: ; preds = %336
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define noundef i8 @_ZN13deltalake_aws8logstore18S3DynamoDbLogStore16map_retry_result17he58e5da4d31a99e7E(i1 noundef zeroext %0, i1 noundef zeroext %1) unnamed_addr #6 {
+define noundef range(i8 0, 4) i8 @_ZN13deltalake_aws8logstore18S3DynamoDbLogStore16map_retry_result17he58e5da4d31a99e7E(i1 noundef zeroext %0, i1 noundef zeroext %1) unnamed_addr #6 {
   %not. = xor i1 %1, true
   %. = zext i1 %not. to i8
   %.2 = select i1 %1, i8 2, i8 3
