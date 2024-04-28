@@ -104525,14 +104525,14 @@ define hidden noundef zeroext i1 @"_ZN81_$LT$hir_ty..mir..ProjectionElem$LT$V$C$
   switch i8 %3, label %"_ZN68_$LT$either..Either$LT$L$C$R$GT$$u20$as$u20$core..cmp..PartialEq$GT$2eq17hd6fad33cc74d2e53E.exit" [
     i8 1, label %7
     i8 2, label %34
-    i8 6, label %66
+    i8 6, label %63
     i8 4, label %40
-    i8 5, label %54
+    i8 5, label %51
   ]
 
-"_ZN68_$LT$either..Either$LT$L$C$R$GT$$u20$as$u20$core..cmp..PartialEq$GT$2eq17hd6fad33cc74d2e53E.exit": ; preds = %26, %16, %7, %54, %40, %6, %2, %60, %46, %66, %34
-  %.0 = phi i1 [ %69, %66 ], [ %65, %60 ], [ %53, %46 ], [ %39, %34 ], [ false, %2 ], [ true, %6 ], [ false, %40 ], [ false, %54 ], [ %.0.i5.i, %26 ], [ %.0.i.i, %16 ], [ false, %7 ]
-  ret i1 %.0
+"_ZN68_$LT$either..Either$LT$L$C$R$GT$$u20$as$u20$core..cmp..PartialEq$GT$2eq17hd6fad33cc74d2e53E.exit": ; preds = %26, %16, %7, %51, %40, %6, %2, %57, %46, %63, %34
+  %.0.shrunk = phi i1 [ %66, %63 ], [ %62, %57 ], [ %.not, %46 ], [ %39, %34 ], [ false, %2 ], [ true, %6 ], [ false, %40 ], [ false, %51 ], [ %.0.i5.i, %26 ], [ %.0.i.i, %16 ], [ false, %7 ]
+  ret i1 %.0.shrunk
 
 7:                                                ; preds = %6
   %8 = getelementptr inbounds i8, ptr %0, i64 4
@@ -104599,33 +104599,31 @@ define hidden noundef zeroext i1 @"_ZN81_$LT$hir_ty..mir..ProjectionElem$LT$V$C$
   %48 = load i8, ptr %47, align 1, !range !508, !noundef !4
   %49 = getelementptr inbounds i8, ptr %1, i64 1
   %50 = load i8, ptr %49, align 1, !range !508, !noundef !4
-  %51 = xor i8 %50, %48
-  %52 = trunc nuw i8 %51 to i1
-  %53 = xor i1 %52, true
+  %.not = icmp eq i8 %48, %50
   br label %"_ZN68_$LT$either..Either$LT$L$C$R$GT$$u20$as$u20$core..cmp..PartialEq$GT$2eq17hd6fad33cc74d2e53E.exit"
 
-54:                                               ; preds = %6
-  %55 = getelementptr inbounds i8, ptr %0, i64 8
-  %56 = load i64, ptr %55, align 8, !noundef !4
-  %57 = getelementptr inbounds i8, ptr %1, i64 8
-  %58 = load i64, ptr %57, align 8, !noundef !4
-  %59 = icmp eq i64 %56, %58
-  br i1 %59, label %60, label %"_ZN68_$LT$either..Either$LT$L$C$R$GT$$u20$as$u20$core..cmp..PartialEq$GT$2eq17hd6fad33cc74d2e53E.exit"
+51:                                               ; preds = %6
+  %52 = getelementptr inbounds i8, ptr %0, i64 8
+  %53 = load i64, ptr %52, align 8, !noundef !4
+  %54 = getelementptr inbounds i8, ptr %1, i64 8
+  %55 = load i64, ptr %54, align 8, !noundef !4
+  %56 = icmp eq i64 %53, %55
+  br i1 %56, label %57, label %"_ZN68_$LT$either..Either$LT$L$C$R$GT$$u20$as$u20$core..cmp..PartialEq$GT$2eq17hd6fad33cc74d2e53E.exit"
 
-60:                                               ; preds = %54
-  %61 = getelementptr inbounds i8, ptr %0, i64 16
-  %62 = load i64, ptr %61, align 8, !noundef !4
-  %63 = getelementptr inbounds i8, ptr %1, i64 16
-  %64 = load i64, ptr %63, align 8, !noundef !4
-  %65 = icmp eq i64 %62, %64
+57:                                               ; preds = %51
+  %58 = getelementptr inbounds i8, ptr %0, i64 16
+  %59 = load i64, ptr %58, align 8, !noundef !4
+  %60 = getelementptr inbounds i8, ptr %1, i64 16
+  %61 = load i64, ptr %60, align 8, !noundef !4
+  %62 = icmp eq i64 %59, %61
   br label %"_ZN68_$LT$either..Either$LT$L$C$R$GT$$u20$as$u20$core..cmp..PartialEq$GT$2eq17hd6fad33cc74d2e53E.exit"
 
-66:                                               ; preds = %6
-  %67 = getelementptr inbounds i8, ptr %0, i64 8
-  %68 = getelementptr inbounds i8, ptr %1, i64 8
-  %.val = load ptr, ptr %67, align 8, !nonnull !4, !noundef !4
-  %.val3 = load ptr, ptr %68, align 8, !nonnull !4, !noundef !4
-  %69 = icmp eq ptr %.val, %.val3
+63:                                               ; preds = %6
+  %64 = getelementptr inbounds i8, ptr %0, i64 8
+  %65 = getelementptr inbounds i8, ptr %1, i64 8
+  %.val = load ptr, ptr %64, align 8, !nonnull !4, !noundef !4
+  %.val3 = load ptr, ptr %65, align 8, !nonnull !4, !noundef !4
+  %66 = icmp eq ptr %.val, %.val3
   br label %"_ZN68_$LT$either..Either$LT$L$C$R$GT$$u20$as$u20$core..cmp..PartialEq$GT$2eq17hd6fad33cc74d2e53E.exit"
 }
 

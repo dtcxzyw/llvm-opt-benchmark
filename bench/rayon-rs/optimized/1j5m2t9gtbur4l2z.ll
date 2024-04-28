@@ -14,52 +14,52 @@ define { i64, i64 } @"_ZN90_$LT$rayon..range_inclusive..Iter$LT$char$GT$$u20$as$
   %.not.i.i = icmp ugt i32 %2, %4
   %5 = getelementptr inbounds i8, ptr %0, i64 8
   %6 = load i8, ptr %5, align 4, !range !11, !alias.scope !5
-  %7 = trunc nuw i8 %6 to i1
-  %8 = select i1 %.not.i.i, i1 true, i1 %7
-  br i1 %8, label %"_ZN97_$LT$rayon..range_inclusive..Iter$LT$char$GT$$u20$as$u20$rayon..iter..IndexedParallelIterator$GT$3len17h5cf2a5fa4789d50cE.exit", label %9
+  %.not.i.i.i = icmp ne i8 %6, 0
+  %.not.i = select i1 %.not.i.i, i1 true, i1 %.not.i.i.i
+  br i1 %.not.i, label %"_ZN97_$LT$rayon..range_inclusive..Iter$LT$char$GT$$u20$as$u20$rayon..iter..IndexedParallelIterator$GT$3len17h5cf2a5fa4789d50cE.exit", label %7
 
-9:                                                ; preds = %1
-  %10 = sub nsw i32 %4, %2
-  %11 = icmp ult i32 %2, 55296
-  %12 = icmp ugt i32 %4, 57343
-  %or.cond.i = and i1 %11, %12
-  %13 = add nsw i32 %10, -2048
-  %spec.select.i = select i1 %or.cond.i, i32 %13, i32 %10
-  %14 = add nsw i32 %spec.select.i, 1
-  %15 = zext i32 %14 to i64
+7:                                                ; preds = %1
+  %8 = sub nsw i32 %4, %2
+  %9 = icmp ult i32 %2, 55296
+  %10 = icmp ugt i32 %4, 57343
+  %or.cond.i = and i1 %9, %10
+  %11 = add nsw i32 %8, -2048
+  %spec.select.i = select i1 %or.cond.i, i32 %11, i32 %8
+  %12 = add nsw i32 %spec.select.i, 1
+  %13 = zext i32 %12 to i64
   br label %"_ZN97_$LT$rayon..range_inclusive..Iter$LT$char$GT$$u20$as$u20$rayon..iter..IndexedParallelIterator$GT$3len17h5cf2a5fa4789d50cE.exit"
 
-"_ZN97_$LT$rayon..range_inclusive..Iter$LT$char$GT$$u20$as$u20$rayon..iter..IndexedParallelIterator$GT$3len17h5cf2a5fa4789d50cE.exit": ; preds = %1, %9
-  %.0.i = phi i64 [ %15, %9 ], [ 0, %1 ]
-  %16 = insertvalue { i64, i64 } { i64 1, i64 poison }, i64 %.0.i, 1
-  ret { i64, i64 } %16
+"_ZN97_$LT$rayon..range_inclusive..Iter$LT$char$GT$$u20$as$u20$rayon..iter..IndexedParallelIterator$GT$3len17h5cf2a5fa4789d50cE.exit": ; preds = %1, %7
+  %.0.i = phi i64 [ %13, %7 ], [ 0, %1 ]
+  %14 = insertvalue { i64, i64 } { i64 1, i64 poison }, i64 %.0.i, 1
+  ret { i64, i64 } %14
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
-define noundef i64 @"_ZN97_$LT$rayon..range_inclusive..Iter$LT$char$GT$$u20$as$u20$rayon..iter..IndexedParallelIterator$GT$3len17h5cf2a5fa4789d50cE"(ptr noalias nocapture noundef readonly align 4 dereferenceable(12) %0) unnamed_addr #0 {
+define noundef range(i64 0, 4294967296) i64 @"_ZN97_$LT$rayon..range_inclusive..Iter$LT$char$GT$$u20$as$u20$rayon..iter..IndexedParallelIterator$GT$3len17h5cf2a5fa4789d50cE"(ptr noalias nocapture noundef readonly align 4 dereferenceable(12) %0) unnamed_addr #0 {
   %2 = load i32, ptr %0, align 4, !range !4, !alias.scope !12, !noundef !10
   %3 = getelementptr inbounds i8, ptr %0, i64 4
   %4 = load i32, ptr %3, align 4, !range !4, !alias.scope !12, !noundef !10
   %.not.i = icmp ugt i32 %2, %4
   %5 = getelementptr inbounds i8, ptr %0, i64 8
   %6 = load i8, ptr %5, align 4, !range !11, !alias.scope !12
-  %7 = trunc nuw i8 %6 to i1
-  %8 = select i1 %.not.i, i1 true, i1 %7
-  br i1 %8, label %16, label %9
+  %.not.i.i = icmp ne i8 %6, 0
+  %.not = select i1 %.not.i, i1 true, i1 %.not.i.i
+  br i1 %.not, label %14, label %7
 
-9:                                                ; preds = %1
-  %10 = sub nsw i32 %4, %2
-  %11 = icmp ult i32 %2, 55296
-  %12 = icmp ugt i32 %4, 57343
-  %or.cond = and i1 %11, %12
-  %13 = add nsw i32 %10, -2048
-  %spec.select = select i1 %or.cond, i32 %13, i32 %10
-  %14 = add nsw i32 %spec.select, 1
-  %15 = zext i32 %14 to i64
-  br label %16
+7:                                                ; preds = %1
+  %8 = sub nsw i32 %4, %2
+  %9 = icmp ult i32 %2, 55296
+  %10 = icmp ugt i32 %4, 57343
+  %or.cond = and i1 %9, %10
+  %11 = add nsw i32 %8, -2048
+  %spec.select = select i1 %or.cond, i32 %11, i32 %8
+  %12 = add nsw i32 %spec.select, 1
+  %13 = zext i32 %12 to i64
+  br label %14
 
-16:                                               ; preds = %1, %9
-  %.0 = phi i64 [ %15, %9 ], [ 0, %1 ]
+14:                                               ; preds = %1, %7
+  %.0 = phi i64 [ %13, %7 ], [ 0, %1 ]
   ret i64 %.0
 }
 
@@ -428,40 +428,38 @@ define { i64, i64 } @"_ZN5rayon15range_inclusive81_$LT$impl$u20$rayon..range_inc
   %2 = load i64, ptr %0, align 8, !alias.scope !57, !noalias !60, !noundef !10
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   %4 = load i64, ptr %3, align 8, !alias.scope !57, !noalias !60, !noundef !10
-  %.not.i = icmp ugt i64 %2, %4
-  br i1 %.not.i, label %"_ZN5rayon15range_inclusive13Iter$LT$T$GT$6bounds17hfd4edd9fe3d05948E.exit.thread", label %"_ZN84_$LT$core..ops..range..RangeInclusive$LT$Idx$GT$$u20$as$u20$core..cmp..PartialEq$GT$2eq17h3b91b60dfba4e1d5E.llvm.3541011278230818410.exit.i"
-
-"_ZN84_$LT$core..ops..range..RangeInclusive$LT$Idx$GT$$u20$as$u20$core..cmp..PartialEq$GT$2eq17h3b91b60dfba4e1d5E.llvm.3541011278230818410.exit.i": ; preds = %1
+  %.not.i = icmp ule i64 %2, %4
   %5 = getelementptr inbounds i8, ptr %0, i64 16
-  %6 = load i8, ptr %5, align 8, !range !11, !alias.scope !62, !noalias !65, !noundef !10
-  %7 = trunc nuw i8 %6 to i1
-  br i1 %7, label %"_ZN5rayon15range_inclusive13Iter$LT$T$GT$6bounds17hfd4edd9fe3d05948E.exit.thread", label %"_ZN5rayon15range_inclusive13Iter$LT$T$GT$6bounds17hfd4edd9fe3d05948E.exit"
+  %6 = load i8, ptr %5, align 8, !range !11, !alias.scope !57, !noalias !60
+  %.not.i.i = icmp eq i8 %6, 0
+  %or.cond.i = select i1 %.not.i, i1 %.not.i.i, i1 false
+  br i1 %or.cond.i, label %"_ZN5rayon15range_inclusive13Iter$LT$T$GT$6bounds17hfd4edd9fe3d05948E.exit", label %"_ZN5rayon15range_inclusive13Iter$LT$T$GT$6bounds17hfd4edd9fe3d05948E.exit.thread"
 
-"_ZN5rayon15range_inclusive13Iter$LT$T$GT$6bounds17hfd4edd9fe3d05948E.exit": ; preds = %"_ZN84_$LT$core..ops..range..RangeInclusive$LT$Idx$GT$$u20$as$u20$core..cmp..PartialEq$GT$2eq17h3b91b60dfba4e1d5E.llvm.3541011278230818410.exit.i"
-  %8 = tail call { i64, i1 } @llvm.uadd.with.overflow.i64(i64 %4, i64 1)
-  %9 = extractvalue { i64, i1 } %8, 1
-  br i1 %9, label %12, label %10
+"_ZN5rayon15range_inclusive13Iter$LT$T$GT$6bounds17hfd4edd9fe3d05948E.exit": ; preds = %1
+  %7 = tail call { i64, i1 } @llvm.uadd.with.overflow.i64(i64 %4, i64 1)
+  %8 = extractvalue { i64, i1 } %7, 1
+  br i1 %8, label %11, label %9
 
-10:                                               ; preds = %"_ZN5rayon15range_inclusive13Iter$LT$T$GT$6bounds17hfd4edd9fe3d05948E.exit"
-  %11 = extractvalue { i64, i1 } %8, 0
-  %spec.select.i.i.i = tail call noundef i64 @llvm.usub.sat.i64(i64 %11, i64 %2)
+9:                                                ; preds = %"_ZN5rayon15range_inclusive13Iter$LT$T$GT$6bounds17hfd4edd9fe3d05948E.exit"
+  %10 = extractvalue { i64, i1 } %7, 0
+  %spec.select.i.i.i = tail call noundef i64 @llvm.usub.sat.i64(i64 %10, i64 %2)
   br label %"_ZN5rayon15range_inclusive13Iter$LT$T$GT$6bounds17hfd4edd9fe3d05948E.exit.thread"
 
-12:                                               ; preds = %"_ZN5rayon15range_inclusive13Iter$LT$T$GT$6bounds17hfd4edd9fe3d05948E.exit"
+11:                                               ; preds = %"_ZN5rayon15range_inclusive13Iter$LT$T$GT$6bounds17hfd4edd9fe3d05948E.exit"
   %spec.select.i.i.i.i.i22 = sub nuw nsw i64 %4, %2
-  %13 = tail call { i64, i1 } @llvm.uadd.with.overflow.i64(i64 %spec.select.i.i.i.i.i22, i64 1)
-  %14 = extractvalue { i64, i1 } %13, 0
-  %15 = extractvalue { i64, i1 } %13, 1
-  %not..i = xor i1 %15, true
+  %12 = tail call { i64, i1 } @llvm.uadd.with.overflow.i64(i64 %spec.select.i.i.i.i.i22, i64 1)
+  %13 = extractvalue { i64, i1 } %12, 0
+  %14 = extractvalue { i64, i1 } %12, 1
+  %not..i = xor i1 %14, true
   %.11.i = zext i1 %not..i to i64
   br label %"_ZN5rayon15range_inclusive13Iter$LT$T$GT$6bounds17hfd4edd9fe3d05948E.exit.thread"
 
-"_ZN5rayon15range_inclusive13Iter$LT$T$GT$6bounds17hfd4edd9fe3d05948E.exit.thread": ; preds = %10, %12, %"_ZN84_$LT$core..ops..range..RangeInclusive$LT$Idx$GT$$u20$as$u20$core..cmp..PartialEq$GT$2eq17h3b91b60dfba4e1d5E.llvm.3541011278230818410.exit.i", %1
-  %.sroa.4.1 = phi i64 [ 0, %1 ], [ 0, %"_ZN84_$LT$core..ops..range..RangeInclusive$LT$Idx$GT$$u20$as$u20$core..cmp..PartialEq$GT$2eq17h3b91b60dfba4e1d5E.llvm.3541011278230818410.exit.i" ], [ %spec.select.i.i.i, %10 ], [ %14, %12 ]
-  %.sroa.0.1 = phi i64 [ 1, %1 ], [ 1, %"_ZN84_$LT$core..ops..range..RangeInclusive$LT$Idx$GT$$u20$as$u20$core..cmp..PartialEq$GT$2eq17h3b91b60dfba4e1d5E.llvm.3541011278230818410.exit.i" ], [ 1, %10 ], [ %.11.i, %12 ]
-  %16 = insertvalue { i64, i64 } poison, i64 %.sroa.0.1, 0
-  %17 = insertvalue { i64, i64 } %16, i64 %.sroa.4.1, 1
-  ret { i64, i64 } %17
+"_ZN5rayon15range_inclusive13Iter$LT$T$GT$6bounds17hfd4edd9fe3d05948E.exit.thread": ; preds = %9, %11, %1
+  %.sroa.4.1 = phi i64 [ 0, %1 ], [ %spec.select.i.i.i, %9 ], [ %13, %11 ]
+  %.sroa.0.1 = phi i64 [ 1, %1 ], [ 1, %9 ], [ %.11.i, %11 ]
+  %15 = insertvalue { i64, i64 } poison, i64 %.sroa.0.1, 0
+  %16 = insertvalue { i64, i64 } %15, i64 %.sroa.4.1, 1
+  ret { i64, i64 } %16
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
@@ -471,47 +469,45 @@ define void @"_ZN5rayon15range_inclusive81_$LT$impl$u20$rayon..range_inclusive..
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
 define { i64, i64 } @"_ZN5rayon15range_inclusive81_$LT$impl$u20$rayon..range_inclusive..private..RangeInteger$u20$for$u20$isize$GT$7opt_len17h405ac9eaac9812c8E"(ptr noalias nocapture noundef readonly align 8 dereferenceable(24) %0) unnamed_addr #0 personality ptr @rust_eh_personality {
-  %2 = load i64, ptr %0, align 8, !alias.scope !67, !noalias !70, !noundef !10
+  %2 = load i64, ptr %0, align 8, !alias.scope !62, !noalias !65, !noundef !10
   %3 = getelementptr inbounds i8, ptr %0, i64 8
-  %4 = load i64, ptr %3, align 8, !alias.scope !67, !noalias !70, !noundef !10
-  %.not.i = icmp sgt i64 %2, %4
-  br i1 %.not.i, label %"_ZN5rayon15range_inclusive13Iter$LT$T$GT$6bounds17h321d9f075d9849e2E.exit.thread", label %"_ZN84_$LT$core..ops..range..RangeInclusive$LT$Idx$GT$$u20$as$u20$core..cmp..PartialEq$GT$2eq17hf07db8920e49cec8E.llvm.3541011278230818410.exit.i"
-
-"_ZN84_$LT$core..ops..range..RangeInclusive$LT$Idx$GT$$u20$as$u20$core..cmp..PartialEq$GT$2eq17hf07db8920e49cec8E.llvm.3541011278230818410.exit.i": ; preds = %1
+  %4 = load i64, ptr %3, align 8, !alias.scope !62, !noalias !65, !noundef !10
+  %.not.i = icmp sle i64 %2, %4
   %5 = getelementptr inbounds i8, ptr %0, i64 16
-  %6 = load i8, ptr %5, align 8, !range !11, !alias.scope !72, !noalias !75, !noundef !10
-  %7 = trunc nuw i8 %6 to i1
-  br i1 %7, label %"_ZN5rayon15range_inclusive13Iter$LT$T$GT$6bounds17h321d9f075d9849e2E.exit.thread", label %"_ZN5rayon15range_inclusive13Iter$LT$T$GT$6bounds17h321d9f075d9849e2E.exit"
+  %6 = load i8, ptr %5, align 8, !range !11, !alias.scope !62, !noalias !65
+  %.not.i.i = icmp eq i8 %6, 0
+  %or.cond.i = select i1 %.not.i, i1 %.not.i.i, i1 false
+  br i1 %or.cond.i, label %"_ZN5rayon15range_inclusive13Iter$LT$T$GT$6bounds17h321d9f075d9849e2E.exit", label %"_ZN5rayon15range_inclusive13Iter$LT$T$GT$6bounds17h321d9f075d9849e2E.exit.thread"
 
-"_ZN5rayon15range_inclusive13Iter$LT$T$GT$6bounds17h321d9f075d9849e2E.exit": ; preds = %"_ZN84_$LT$core..ops..range..RangeInclusive$LT$Idx$GT$$u20$as$u20$core..cmp..PartialEq$GT$2eq17hf07db8920e49cec8E.llvm.3541011278230818410.exit.i"
-  %8 = tail call { i64, i1 } @llvm.sadd.with.overflow.i64(i64 %4, i64 1)
-  %9 = extractvalue { i64, i1 } %8, 1
-  br i1 %9, label %14, label %10
+"_ZN5rayon15range_inclusive13Iter$LT$T$GT$6bounds17h321d9f075d9849e2E.exit": ; preds = %1
+  %7 = tail call { i64, i1 } @llvm.sadd.with.overflow.i64(i64 %4, i64 1)
+  %8 = extractvalue { i64, i1 } %7, 1
+  br i1 %8, label %13, label %9
 
-10:                                               ; preds = %"_ZN5rayon15range_inclusive13Iter$LT$T$GT$6bounds17h321d9f075d9849e2E.exit"
-  %11 = extractvalue { i64, i1 } %8, 0
-  %12 = icmp slt i64 %2, %11
-  %13 = sub i64 %11, %2
-  %spec.select.i.i.i = select i1 %12, i64 %13, i64 0
+9:                                                ; preds = %"_ZN5rayon15range_inclusive13Iter$LT$T$GT$6bounds17h321d9f075d9849e2E.exit"
+  %10 = extractvalue { i64, i1 } %7, 0
+  %11 = icmp slt i64 %2, %10
+  %12 = sub i64 %10, %2
+  %spec.select.i.i.i = select i1 %11, i64 %12, i64 0
   br label %"_ZN5rayon15range_inclusive13Iter$LT$T$GT$6bounds17h321d9f075d9849e2E.exit.thread"
 
-14:                                               ; preds = %"_ZN5rayon15range_inclusive13Iter$LT$T$GT$6bounds17h321d9f075d9849e2E.exit"
-  %15 = icmp slt i64 %2, %4
-  %16 = sub i64 %4, %2
-  %spec.select.i.i.i.i.i = select i1 %15, i64 %16, i64 0
-  %17 = tail call { i64, i1 } @llvm.uadd.with.overflow.i64(i64 %spec.select.i.i.i.i.i, i64 1)
-  %18 = extractvalue { i64, i1 } %17, 0
-  %19 = extractvalue { i64, i1 } %17, 1
-  %not..i = xor i1 %19, true
+13:                                               ; preds = %"_ZN5rayon15range_inclusive13Iter$LT$T$GT$6bounds17h321d9f075d9849e2E.exit"
+  %14 = icmp slt i64 %2, %4
+  %15 = sub i64 %4, %2
+  %spec.select.i.i.i.i.i = select i1 %14, i64 %15, i64 0
+  %16 = tail call { i64, i1 } @llvm.uadd.with.overflow.i64(i64 %spec.select.i.i.i.i.i, i64 1)
+  %17 = extractvalue { i64, i1 } %16, 0
+  %18 = extractvalue { i64, i1 } %16, 1
+  %not..i = xor i1 %18, true
   %.11.i = zext i1 %not..i to i64
   br label %"_ZN5rayon15range_inclusive13Iter$LT$T$GT$6bounds17h321d9f075d9849e2E.exit.thread"
 
-"_ZN5rayon15range_inclusive13Iter$LT$T$GT$6bounds17h321d9f075d9849e2E.exit.thread": ; preds = %10, %14, %"_ZN84_$LT$core..ops..range..RangeInclusive$LT$Idx$GT$$u20$as$u20$core..cmp..PartialEq$GT$2eq17hf07db8920e49cec8E.llvm.3541011278230818410.exit.i", %1
-  %.sroa.4.1 = phi i64 [ 0, %1 ], [ 0, %"_ZN84_$LT$core..ops..range..RangeInclusive$LT$Idx$GT$$u20$as$u20$core..cmp..PartialEq$GT$2eq17hf07db8920e49cec8E.llvm.3541011278230818410.exit.i" ], [ %spec.select.i.i.i, %10 ], [ %18, %14 ]
-  %.sroa.0.1 = phi i64 [ 1, %1 ], [ 1, %"_ZN84_$LT$core..ops..range..RangeInclusive$LT$Idx$GT$$u20$as$u20$core..cmp..PartialEq$GT$2eq17hf07db8920e49cec8E.llvm.3541011278230818410.exit.i" ], [ 1, %10 ], [ %.11.i, %14 ]
-  %20 = insertvalue { i64, i64 } poison, i64 %.sroa.0.1, 0
-  %21 = insertvalue { i64, i64 } %20, i64 %.sroa.4.1, 1
-  ret { i64, i64 } %21
+"_ZN5rayon15range_inclusive13Iter$LT$T$GT$6bounds17h321d9f075d9849e2E.exit.thread": ; preds = %9, %13, %1
+  %.sroa.4.1 = phi i64 [ 0, %1 ], [ %spec.select.i.i.i, %9 ], [ %17, %13 ]
+  %.sroa.0.1 = phi i64 [ 1, %1 ], [ 1, %9 ], [ %.11.i, %13 ]
+  %19 = insertvalue { i64, i64 } poison, i64 %.sroa.0.1, 0
+  %20 = insertvalue { i64, i64 } %19, i64 %.sroa.4.1, 1
+  ret { i64, i64 } %20
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
@@ -521,39 +517,37 @@ define void @"_ZN5rayon15range_inclusive81_$LT$impl$u20$rayon..range_inclusive..
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
 define { i64, i64 } @"_ZN5rayon15range_inclusive79_$LT$impl$u20$rayon..range_inclusive..private..RangeInteger$u20$for$u20$u32$GT$7opt_len17h15a5681ac020e255E"(ptr noalias nocapture noundef readonly align 4 dereferenceable(12) %0) unnamed_addr #0 personality ptr @rust_eh_personality {
-  %2 = load i32, ptr %0, align 4, !alias.scope !77, !noalias !80, !noundef !10
+  %2 = load i32, ptr %0, align 4, !alias.scope !67, !noalias !70, !noundef !10
   %3 = getelementptr inbounds i8, ptr %0, i64 4
-  %4 = load i32, ptr %3, align 4, !alias.scope !77, !noalias !80, !noundef !10
-  %.not.i = icmp ugt i32 %2, %4
-  br i1 %.not.i, label %"_ZN5rayon15range_inclusive13Iter$LT$T$GT$6bounds17he8c999639bb6c7dcE.exit.thread", label %"_ZN84_$LT$core..ops..range..RangeInclusive$LT$Idx$GT$$u20$as$u20$core..cmp..PartialEq$GT$2eq17h7bf0b063fdeeb5d0E.llvm.3541011278230818410.exit.i"
-
-"_ZN84_$LT$core..ops..range..RangeInclusive$LT$Idx$GT$$u20$as$u20$core..cmp..PartialEq$GT$2eq17h7bf0b063fdeeb5d0E.llvm.3541011278230818410.exit.i": ; preds = %1
+  %4 = load i32, ptr %3, align 4, !alias.scope !67, !noalias !70, !noundef !10
+  %.not.i = icmp ule i32 %2, %4
   %5 = getelementptr inbounds i8, ptr %0, i64 8
-  %6 = load i8, ptr %5, align 4, !range !11, !alias.scope !82, !noalias !85, !noundef !10
-  %7 = trunc nuw i8 %6 to i1
-  br i1 %7, label %"_ZN5rayon15range_inclusive13Iter$LT$T$GT$6bounds17he8c999639bb6c7dcE.exit.thread", label %"_ZN5rayon15range_inclusive13Iter$LT$T$GT$6bounds17he8c999639bb6c7dcE.exit"
+  %6 = load i8, ptr %5, align 4, !range !11, !alias.scope !67, !noalias !70
+  %.not.i.i = icmp eq i8 %6, 0
+  %or.cond.i = select i1 %.not.i, i1 %.not.i.i, i1 false
+  br i1 %or.cond.i, label %"_ZN5rayon15range_inclusive13Iter$LT$T$GT$6bounds17he8c999639bb6c7dcE.exit", label %"_ZN5rayon15range_inclusive13Iter$LT$T$GT$6bounds17he8c999639bb6c7dcE.exit.thread"
 
-"_ZN5rayon15range_inclusive13Iter$LT$T$GT$6bounds17he8c999639bb6c7dcE.exit": ; preds = %"_ZN84_$LT$core..ops..range..RangeInclusive$LT$Idx$GT$$u20$as$u20$core..cmp..PartialEq$GT$2eq17h7bf0b063fdeeb5d0E.llvm.3541011278230818410.exit.i"
-  %8 = tail call { i32, i1 } @llvm.uadd.with.overflow.i32(i32 %4, i32 1)
-  %9 = extractvalue { i32, i1 } %8, 1
-  br i1 %9, label %12, label %10
+"_ZN5rayon15range_inclusive13Iter$LT$T$GT$6bounds17he8c999639bb6c7dcE.exit": ; preds = %1
+  %7 = tail call { i32, i1 } @llvm.uadd.with.overflow.i32(i32 %4, i32 1)
+  %8 = extractvalue { i32, i1 } %7, 1
+  br i1 %8, label %11, label %9
 
-10:                                               ; preds = %"_ZN5rayon15range_inclusive13Iter$LT$T$GT$6bounds17he8c999639bb6c7dcE.exit"
-  %11 = extractvalue { i32, i1 } %8, 0
-  %narrow.i.i.i = tail call i32 @llvm.usub.sat.i32(i32 %11, i32 %2)
+9:                                                ; preds = %"_ZN5rayon15range_inclusive13Iter$LT$T$GT$6bounds17he8c999639bb6c7dcE.exit"
+  %10 = extractvalue { i32, i1 } %7, 0
+  %narrow.i.i.i = tail call i32 @llvm.usub.sat.i32(i32 %10, i32 %2)
   %.sink4.i.i.i = zext i32 %narrow.i.i.i to i64
   br label %"_ZN5rayon15range_inclusive13Iter$LT$T$GT$6bounds17he8c999639bb6c7dcE.exit.thread"
 
-12:                                               ; preds = %"_ZN5rayon15range_inclusive13Iter$LT$T$GT$6bounds17he8c999639bb6c7dcE.exit"
+11:                                               ; preds = %"_ZN5rayon15range_inclusive13Iter$LT$T$GT$6bounds17he8c999639bb6c7dcE.exit"
   %narrow.i.i.i.i.i22 = sub nuw nsw i32 %4, %2
   %.sink4.i.i.i.i.i = zext i32 %narrow.i.i.i.i.i22 to i64
-  %13 = add nuw nsw i64 %.sink4.i.i.i.i.i, 1
+  %12 = add nuw nsw i64 %.sink4.i.i.i.i.i, 1
   br label %"_ZN5rayon15range_inclusive13Iter$LT$T$GT$6bounds17he8c999639bb6c7dcE.exit.thread"
 
-"_ZN5rayon15range_inclusive13Iter$LT$T$GT$6bounds17he8c999639bb6c7dcE.exit.thread": ; preds = %10, %12, %"_ZN84_$LT$core..ops..range..RangeInclusive$LT$Idx$GT$$u20$as$u20$core..cmp..PartialEq$GT$2eq17h7bf0b063fdeeb5d0E.llvm.3541011278230818410.exit.i", %1
-  %.sroa.4.1 = phi i64 [ 0, %1 ], [ 0, %"_ZN84_$LT$core..ops..range..RangeInclusive$LT$Idx$GT$$u20$as$u20$core..cmp..PartialEq$GT$2eq17h7bf0b063fdeeb5d0E.llvm.3541011278230818410.exit.i" ], [ %.sink4.i.i.i, %10 ], [ %13, %12 ]
-  %14 = insertvalue { i64, i64 } { i64 1, i64 poison }, i64 %.sroa.4.1, 1
-  ret { i64, i64 } %14
+"_ZN5rayon15range_inclusive13Iter$LT$T$GT$6bounds17he8c999639bb6c7dcE.exit.thread": ; preds = %9, %11, %1
+  %.sroa.4.1 = phi i64 [ 0, %1 ], [ %.sink4.i.i.i, %9 ], [ %12, %11 ]
+  %13 = insertvalue { i64, i64 } { i64 1, i64 poison }, i64 %.sroa.4.1, 1
+  ret { i64, i64 } %13
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
@@ -563,45 +557,43 @@ define void @"_ZN5rayon15range_inclusive79_$LT$impl$u20$rayon..range_inclusive..
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
 define { i64, i64 } @"_ZN5rayon15range_inclusive79_$LT$impl$u20$rayon..range_inclusive..private..RangeInteger$u20$for$u20$i32$GT$7opt_len17hc7871e4efa91ef7eE"(ptr noalias nocapture noundef readonly align 4 dereferenceable(12) %0) unnamed_addr #0 personality ptr @rust_eh_personality {
-  %2 = load i32, ptr %0, align 4, !alias.scope !87, !noalias !90, !noundef !10
+  %2 = load i32, ptr %0, align 4, !alias.scope !72, !noalias !75, !noundef !10
   %3 = getelementptr inbounds i8, ptr %0, i64 4
-  %4 = load i32, ptr %3, align 4, !alias.scope !87, !noalias !90, !noundef !10
-  %.not.i = icmp sgt i32 %2, %4
-  br i1 %.not.i, label %"_ZN5rayon15range_inclusive13Iter$LT$T$GT$6bounds17hd89b372e1134fdaaE.exit.thread", label %"_ZN84_$LT$core..ops..range..RangeInclusive$LT$Idx$GT$$u20$as$u20$core..cmp..PartialEq$GT$2eq17hc147f714830ed770E.llvm.3541011278230818410.exit.i"
-
-"_ZN84_$LT$core..ops..range..RangeInclusive$LT$Idx$GT$$u20$as$u20$core..cmp..PartialEq$GT$2eq17hc147f714830ed770E.llvm.3541011278230818410.exit.i": ; preds = %1
+  %4 = load i32, ptr %3, align 4, !alias.scope !72, !noalias !75, !noundef !10
+  %.not.i = icmp sle i32 %2, %4
   %5 = getelementptr inbounds i8, ptr %0, i64 8
-  %6 = load i8, ptr %5, align 4, !range !11, !alias.scope !92, !noalias !95, !noundef !10
-  %7 = trunc nuw i8 %6 to i1
-  br i1 %7, label %"_ZN5rayon15range_inclusive13Iter$LT$T$GT$6bounds17hd89b372e1134fdaaE.exit.thread", label %"_ZN5rayon15range_inclusive13Iter$LT$T$GT$6bounds17hd89b372e1134fdaaE.exit"
+  %6 = load i8, ptr %5, align 4, !range !11, !alias.scope !72, !noalias !75
+  %.not.i.i = icmp eq i8 %6, 0
+  %or.cond.i = select i1 %.not.i, i1 %.not.i.i, i1 false
+  br i1 %or.cond.i, label %"_ZN5rayon15range_inclusive13Iter$LT$T$GT$6bounds17hd89b372e1134fdaaE.exit", label %"_ZN5rayon15range_inclusive13Iter$LT$T$GT$6bounds17hd89b372e1134fdaaE.exit.thread"
 
-"_ZN5rayon15range_inclusive13Iter$LT$T$GT$6bounds17hd89b372e1134fdaaE.exit": ; preds = %"_ZN84_$LT$core..ops..range..RangeInclusive$LT$Idx$GT$$u20$as$u20$core..cmp..PartialEq$GT$2eq17hc147f714830ed770E.llvm.3541011278230818410.exit.i"
-  %8 = tail call { i32, i1 } @llvm.sadd.with.overflow.i32(i32 %4, i32 1)
-  %9 = extractvalue { i32, i1 } %8, 1
-  br i1 %9, label %16, label %10
+"_ZN5rayon15range_inclusive13Iter$LT$T$GT$6bounds17hd89b372e1134fdaaE.exit": ; preds = %1
+  %7 = tail call { i32, i1 } @llvm.sadd.with.overflow.i32(i32 %4, i32 1)
+  %8 = extractvalue { i32, i1 } %7, 1
+  br i1 %8, label %15, label %9
 
-10:                                               ; preds = %"_ZN5rayon15range_inclusive13Iter$LT$T$GT$6bounds17hd89b372e1134fdaaE.exit"
-  %11 = extractvalue { i32, i1 } %8, 0
-  %12 = icmp slt i32 %2, %11
-  %13 = sext i32 %11 to i64
-  %14 = sext i32 %2 to i64
-  %15 = sub nsw i64 %13, %14
-  %.sink4.i.i.i = select i1 %12, i64 %15, i64 0
+9:                                                ; preds = %"_ZN5rayon15range_inclusive13Iter$LT$T$GT$6bounds17hd89b372e1134fdaaE.exit"
+  %10 = extractvalue { i32, i1 } %7, 0
+  %11 = icmp slt i32 %2, %10
+  %12 = sext i32 %10 to i64
+  %13 = sext i32 %2 to i64
+  %14 = sub nsw i64 %12, %13
+  %.sink4.i.i.i = select i1 %11, i64 %14, i64 0
   br label %"_ZN5rayon15range_inclusive13Iter$LT$T$GT$6bounds17hd89b372e1134fdaaE.exit.thread"
 
-16:                                               ; preds = %"_ZN5rayon15range_inclusive13Iter$LT$T$GT$6bounds17hd89b372e1134fdaaE.exit"
-  %17 = icmp slt i32 %2, %4
-  %18 = zext nneg i32 %4 to i64
-  %19 = sext i32 %2 to i64
-  %reass.sub = sub nsw i64 %18, %19
-  %20 = add nuw nsw i64 %reass.sub, 1
-  %21 = select i1 %17, i64 %20, i64 1
+15:                                               ; preds = %"_ZN5rayon15range_inclusive13Iter$LT$T$GT$6bounds17hd89b372e1134fdaaE.exit"
+  %16 = icmp slt i32 %2, %4
+  %17 = zext nneg i32 %4 to i64
+  %18 = sext i32 %2 to i64
+  %reass.sub = sub nsw i64 %17, %18
+  %19 = add nuw nsw i64 %reass.sub, 1
+  %20 = select i1 %16, i64 %19, i64 1
   br label %"_ZN5rayon15range_inclusive13Iter$LT$T$GT$6bounds17hd89b372e1134fdaaE.exit.thread"
 
-"_ZN5rayon15range_inclusive13Iter$LT$T$GT$6bounds17hd89b372e1134fdaaE.exit.thread": ; preds = %10, %16, %"_ZN84_$LT$core..ops..range..RangeInclusive$LT$Idx$GT$$u20$as$u20$core..cmp..PartialEq$GT$2eq17hc147f714830ed770E.llvm.3541011278230818410.exit.i", %1
-  %.sroa.4.1 = phi i64 [ 0, %1 ], [ 0, %"_ZN84_$LT$core..ops..range..RangeInclusive$LT$Idx$GT$$u20$as$u20$core..cmp..PartialEq$GT$2eq17hc147f714830ed770E.llvm.3541011278230818410.exit.i" ], [ %.sink4.i.i.i, %10 ], [ %21, %16 ]
-  %22 = insertvalue { i64, i64 } { i64 1, i64 poison }, i64 %.sroa.4.1, 1
-  ret { i64, i64 } %22
+"_ZN5rayon15range_inclusive13Iter$LT$T$GT$6bounds17hd89b372e1134fdaaE.exit.thread": ; preds = %9, %15, %1
+  %.sroa.4.1 = phi i64 [ 0, %1 ], [ %.sink4.i.i.i, %9 ], [ %20, %15 ]
+  %21 = insertvalue { i64, i64 } { i64 1, i64 poison }, i64 %.sroa.4.1, 1
+  ret { i64, i64 } %21
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
@@ -611,43 +603,41 @@ define void @"_ZN5rayon15range_inclusive79_$LT$impl$u20$rayon..range_inclusive..
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
 define { i64, i64 } @"_ZN5rayon15range_inclusive79_$LT$impl$u20$rayon..range_inclusive..private..RangeInteger$u20$for$u20$u64$GT$7opt_len17h999c6bbe04843796E"(ptr noalias nocapture noundef readonly align 8 dereferenceable(24) %0) unnamed_addr #0 personality ptr @rust_eh_personality {
-  %2 = load i64, ptr %0, align 8, !alias.scope !97, !noalias !100, !noundef !10
+  %2 = load i64, ptr %0, align 8, !alias.scope !77, !noalias !80, !noundef !10
   %3 = getelementptr inbounds i8, ptr %0, i64 8
-  %4 = load i64, ptr %3, align 8, !alias.scope !97, !noalias !100, !noundef !10
-  %.not.i = icmp ugt i64 %2, %4
-  br i1 %.not.i, label %"_ZN5rayon15range_inclusive13Iter$LT$T$GT$6bounds17ha1bfb117fa13a8a7E.exit.thread", label %"_ZN84_$LT$core..ops..range..RangeInclusive$LT$Idx$GT$$u20$as$u20$core..cmp..PartialEq$GT$2eq17h7b9e3690d9fa478dE.llvm.3541011278230818410.exit.i"
-
-"_ZN84_$LT$core..ops..range..RangeInclusive$LT$Idx$GT$$u20$as$u20$core..cmp..PartialEq$GT$2eq17h7b9e3690d9fa478dE.llvm.3541011278230818410.exit.i": ; preds = %1
+  %4 = load i64, ptr %3, align 8, !alias.scope !77, !noalias !80, !noundef !10
+  %.not.i = icmp ule i64 %2, %4
   %5 = getelementptr inbounds i8, ptr %0, i64 16
-  %6 = load i8, ptr %5, align 8, !range !11, !alias.scope !102, !noalias !105, !noundef !10
-  %7 = trunc nuw i8 %6 to i1
-  br i1 %7, label %"_ZN5rayon15range_inclusive13Iter$LT$T$GT$6bounds17ha1bfb117fa13a8a7E.exit.thread", label %"_ZN5rayon15range_inclusive13Iter$LT$T$GT$6bounds17ha1bfb117fa13a8a7E.exit"
+  %6 = load i8, ptr %5, align 8, !range !11, !alias.scope !77, !noalias !80
+  %.not.i.i = icmp eq i8 %6, 0
+  %or.cond.i = select i1 %.not.i, i1 %.not.i.i, i1 false
+  br i1 %or.cond.i, label %"_ZN5rayon15range_inclusive13Iter$LT$T$GT$6bounds17ha1bfb117fa13a8a7E.exit", label %"_ZN5rayon15range_inclusive13Iter$LT$T$GT$6bounds17ha1bfb117fa13a8a7E.exit.thread"
 
-"_ZN5rayon15range_inclusive13Iter$LT$T$GT$6bounds17ha1bfb117fa13a8a7E.exit": ; preds = %"_ZN84_$LT$core..ops..range..RangeInclusive$LT$Idx$GT$$u20$as$u20$core..cmp..PartialEq$GT$2eq17h7b9e3690d9fa478dE.llvm.3541011278230818410.exit.i"
-  %8 = tail call { i64, i1 } @llvm.uadd.with.overflow.i64(i64 %4, i64 1)
-  %9 = extractvalue { i64, i1 } %8, 1
-  br i1 %9, label %12, label %10
+"_ZN5rayon15range_inclusive13Iter$LT$T$GT$6bounds17ha1bfb117fa13a8a7E.exit": ; preds = %1
+  %7 = tail call { i64, i1 } @llvm.uadd.with.overflow.i64(i64 %4, i64 1)
+  %8 = extractvalue { i64, i1 } %7, 1
+  br i1 %8, label %11, label %9
 
-10:                                               ; preds = %"_ZN5rayon15range_inclusive13Iter$LT$T$GT$6bounds17ha1bfb117fa13a8a7E.exit"
-  %11 = extractvalue { i64, i1 } %8, 0
-  %.0.i.i = tail call noundef i64 @llvm.usub.sat.i64(i64 %11, i64 %2)
+9:                                                ; preds = %"_ZN5rayon15range_inclusive13Iter$LT$T$GT$6bounds17ha1bfb117fa13a8a7E.exit"
+  %10 = extractvalue { i64, i1 } %7, 0
+  %.0.i.i = tail call noundef i64 @llvm.usub.sat.i64(i64 %10, i64 %2)
   br label %"_ZN5rayon15range_inclusive13Iter$LT$T$GT$6bounds17ha1bfb117fa13a8a7E.exit.thread"
 
-12:                                               ; preds = %"_ZN5rayon15range_inclusive13Iter$LT$T$GT$6bounds17ha1bfb117fa13a8a7E.exit"
+11:                                               ; preds = %"_ZN5rayon15range_inclusive13Iter$LT$T$GT$6bounds17ha1bfb117fa13a8a7E.exit"
   %.0.i.i.i.i22 = sub nuw nsw i64 %4, %2
-  %13 = tail call { i64, i1 } @llvm.uadd.with.overflow.i64(i64 %.0.i.i.i.i22, i64 1)
-  %14 = extractvalue { i64, i1 } %13, 0
-  %15 = extractvalue { i64, i1 } %13, 1
-  %not..i = xor i1 %15, true
+  %12 = tail call { i64, i1 } @llvm.uadd.with.overflow.i64(i64 %.0.i.i.i.i22, i64 1)
+  %13 = extractvalue { i64, i1 } %12, 0
+  %14 = extractvalue { i64, i1 } %12, 1
+  %not..i = xor i1 %14, true
   %.11.i = zext i1 %not..i to i64
   br label %"_ZN5rayon15range_inclusive13Iter$LT$T$GT$6bounds17ha1bfb117fa13a8a7E.exit.thread"
 
-"_ZN5rayon15range_inclusive13Iter$LT$T$GT$6bounds17ha1bfb117fa13a8a7E.exit.thread": ; preds = %10, %12, %"_ZN84_$LT$core..ops..range..RangeInclusive$LT$Idx$GT$$u20$as$u20$core..cmp..PartialEq$GT$2eq17h7b9e3690d9fa478dE.llvm.3541011278230818410.exit.i", %1
-  %.sroa.4.1 = phi i64 [ 0, %1 ], [ 0, %"_ZN84_$LT$core..ops..range..RangeInclusive$LT$Idx$GT$$u20$as$u20$core..cmp..PartialEq$GT$2eq17h7b9e3690d9fa478dE.llvm.3541011278230818410.exit.i" ], [ %.0.i.i, %10 ], [ %14, %12 ]
-  %.sroa.0.1 = phi i64 [ 1, %1 ], [ 1, %"_ZN84_$LT$core..ops..range..RangeInclusive$LT$Idx$GT$$u20$as$u20$core..cmp..PartialEq$GT$2eq17h7b9e3690d9fa478dE.llvm.3541011278230818410.exit.i" ], [ 1, %10 ], [ %.11.i, %12 ]
-  %16 = insertvalue { i64, i64 } poison, i64 %.sroa.0.1, 0
-  %17 = insertvalue { i64, i64 } %16, i64 %.sroa.4.1, 1
-  ret { i64, i64 } %17
+"_ZN5rayon15range_inclusive13Iter$LT$T$GT$6bounds17ha1bfb117fa13a8a7E.exit.thread": ; preds = %9, %11, %1
+  %.sroa.4.1 = phi i64 [ 0, %1 ], [ %.0.i.i, %9 ], [ %13, %11 ]
+  %.sroa.0.1 = phi i64 [ 1, %1 ], [ 1, %9 ], [ %.11.i, %11 ]
+  %15 = insertvalue { i64, i64 } poison, i64 %.sroa.0.1, 0
+  %16 = insertvalue { i64, i64 } %15, i64 %.sroa.4.1, 1
+  ret { i64, i64 } %16
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
@@ -657,47 +647,45 @@ define void @"_ZN5rayon15range_inclusive79_$LT$impl$u20$rayon..range_inclusive..
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
 define { i64, i64 } @"_ZN5rayon15range_inclusive79_$LT$impl$u20$rayon..range_inclusive..private..RangeInteger$u20$for$u20$i64$GT$7opt_len17ha2fab0e1f1aea774E"(ptr noalias nocapture noundef readonly align 8 dereferenceable(24) %0) unnamed_addr #0 personality ptr @rust_eh_personality {
-  %2 = load i64, ptr %0, align 8, !alias.scope !107, !noalias !110, !noundef !10
+  %2 = load i64, ptr %0, align 8, !alias.scope !82, !noalias !85, !noundef !10
   %3 = getelementptr inbounds i8, ptr %0, i64 8
-  %4 = load i64, ptr %3, align 8, !alias.scope !107, !noalias !110, !noundef !10
-  %.not.i = icmp sgt i64 %2, %4
-  br i1 %.not.i, label %"_ZN5rayon15range_inclusive13Iter$LT$T$GT$6bounds17h681d372db6ee704aE.exit.thread", label %"_ZN84_$LT$core..ops..range..RangeInclusive$LT$Idx$GT$$u20$as$u20$core..cmp..PartialEq$GT$2eq17h19ae2b39af46dc59E.llvm.3541011278230818410.exit.i"
-
-"_ZN84_$LT$core..ops..range..RangeInclusive$LT$Idx$GT$$u20$as$u20$core..cmp..PartialEq$GT$2eq17h19ae2b39af46dc59E.llvm.3541011278230818410.exit.i": ; preds = %1
+  %4 = load i64, ptr %3, align 8, !alias.scope !82, !noalias !85, !noundef !10
+  %.not.i = icmp sle i64 %2, %4
   %5 = getelementptr inbounds i8, ptr %0, i64 16
-  %6 = load i8, ptr %5, align 8, !range !11, !alias.scope !112, !noalias !115, !noundef !10
-  %7 = trunc nuw i8 %6 to i1
-  br i1 %7, label %"_ZN5rayon15range_inclusive13Iter$LT$T$GT$6bounds17h681d372db6ee704aE.exit.thread", label %"_ZN5rayon15range_inclusive13Iter$LT$T$GT$6bounds17h681d372db6ee704aE.exit"
+  %6 = load i8, ptr %5, align 8, !range !11, !alias.scope !82, !noalias !85
+  %.not.i.i = icmp eq i8 %6, 0
+  %or.cond.i = select i1 %.not.i, i1 %.not.i.i, i1 false
+  br i1 %or.cond.i, label %"_ZN5rayon15range_inclusive13Iter$LT$T$GT$6bounds17h681d372db6ee704aE.exit", label %"_ZN5rayon15range_inclusive13Iter$LT$T$GT$6bounds17h681d372db6ee704aE.exit.thread"
 
-"_ZN5rayon15range_inclusive13Iter$LT$T$GT$6bounds17h681d372db6ee704aE.exit": ; preds = %"_ZN84_$LT$core..ops..range..RangeInclusive$LT$Idx$GT$$u20$as$u20$core..cmp..PartialEq$GT$2eq17h19ae2b39af46dc59E.llvm.3541011278230818410.exit.i"
-  %8 = tail call { i64, i1 } @llvm.sadd.with.overflow.i64(i64 %4, i64 1)
-  %9 = extractvalue { i64, i1 } %8, 1
-  br i1 %9, label %14, label %10
+"_ZN5rayon15range_inclusive13Iter$LT$T$GT$6bounds17h681d372db6ee704aE.exit": ; preds = %1
+  %7 = tail call { i64, i1 } @llvm.sadd.with.overflow.i64(i64 %4, i64 1)
+  %8 = extractvalue { i64, i1 } %7, 1
+  br i1 %8, label %13, label %9
 
-10:                                               ; preds = %"_ZN5rayon15range_inclusive13Iter$LT$T$GT$6bounds17h681d372db6ee704aE.exit"
-  %11 = extractvalue { i64, i1 } %8, 0
-  %12 = icmp sgt i64 %11, %2
-  %13 = sub i64 %11, %2
-  %.0.i.i = select i1 %12, i64 %13, i64 0
+9:                                                ; preds = %"_ZN5rayon15range_inclusive13Iter$LT$T$GT$6bounds17h681d372db6ee704aE.exit"
+  %10 = extractvalue { i64, i1 } %7, 0
+  %11 = icmp sgt i64 %10, %2
+  %12 = sub i64 %10, %2
+  %.0.i.i = select i1 %11, i64 %12, i64 0
   br label %"_ZN5rayon15range_inclusive13Iter$LT$T$GT$6bounds17h681d372db6ee704aE.exit.thread"
 
-14:                                               ; preds = %"_ZN5rayon15range_inclusive13Iter$LT$T$GT$6bounds17h681d372db6ee704aE.exit"
-  %15 = icmp sgt i64 %4, %2
-  %16 = sub i64 %4, %2
-  %.0.i.i.i.i = select i1 %15, i64 %16, i64 0
-  %17 = tail call { i64, i1 } @llvm.uadd.with.overflow.i64(i64 %.0.i.i.i.i, i64 1)
-  %18 = extractvalue { i64, i1 } %17, 0
-  %19 = extractvalue { i64, i1 } %17, 1
-  %not..i = xor i1 %19, true
+13:                                               ; preds = %"_ZN5rayon15range_inclusive13Iter$LT$T$GT$6bounds17h681d372db6ee704aE.exit"
+  %14 = icmp sgt i64 %4, %2
+  %15 = sub i64 %4, %2
+  %.0.i.i.i.i = select i1 %14, i64 %15, i64 0
+  %16 = tail call { i64, i1 } @llvm.uadd.with.overflow.i64(i64 %.0.i.i.i.i, i64 1)
+  %17 = extractvalue { i64, i1 } %16, 0
+  %18 = extractvalue { i64, i1 } %16, 1
+  %not..i = xor i1 %18, true
   %.11.i = zext i1 %not..i to i64
   br label %"_ZN5rayon15range_inclusive13Iter$LT$T$GT$6bounds17h681d372db6ee704aE.exit.thread"
 
-"_ZN5rayon15range_inclusive13Iter$LT$T$GT$6bounds17h681d372db6ee704aE.exit.thread": ; preds = %10, %14, %"_ZN84_$LT$core..ops..range..RangeInclusive$LT$Idx$GT$$u20$as$u20$core..cmp..PartialEq$GT$2eq17h19ae2b39af46dc59E.llvm.3541011278230818410.exit.i", %1
-  %.sroa.4.1 = phi i64 [ 0, %1 ], [ 0, %"_ZN84_$LT$core..ops..range..RangeInclusive$LT$Idx$GT$$u20$as$u20$core..cmp..PartialEq$GT$2eq17h19ae2b39af46dc59E.llvm.3541011278230818410.exit.i" ], [ %.0.i.i, %10 ], [ %18, %14 ]
-  %.sroa.0.1 = phi i64 [ 1, %1 ], [ 1, %"_ZN84_$LT$core..ops..range..RangeInclusive$LT$Idx$GT$$u20$as$u20$core..cmp..PartialEq$GT$2eq17h19ae2b39af46dc59E.llvm.3541011278230818410.exit.i" ], [ 1, %10 ], [ %.11.i, %14 ]
-  %20 = insertvalue { i64, i64 } poison, i64 %.sroa.0.1, 0
-  %21 = insertvalue { i64, i64 } %20, i64 %.sroa.4.1, 1
-  ret { i64, i64 } %21
+"_ZN5rayon15range_inclusive13Iter$LT$T$GT$6bounds17h681d372db6ee704aE.exit.thread": ; preds = %9, %13, %1
+  %.sroa.4.1 = phi i64 [ 0, %1 ], [ %.0.i.i, %9 ], [ %17, %13 ]
+  %.sroa.0.1 = phi i64 [ 1, %1 ], [ 1, %9 ], [ %.11.i, %13 ]
+  %19 = insertvalue { i64, i64 } poison, i64 %.sroa.0.1, 0
+  %20 = insertvalue { i64, i64 } %19, i64 %.sroa.4.1, 1
+  ret { i64, i64 } %20
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
@@ -707,27 +695,20 @@ define void @"_ZN5rayon15range_inclusive79_$LT$impl$u20$rayon..range_inclusive..
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
 define { i64, i64 } @"_ZN5rayon15range_inclusive80_$LT$impl$u20$rayon..range_inclusive..private..RangeInteger$u20$for$u20$u128$GT$7opt_len17hc352089400ed1535E"(ptr noalias nocapture noundef readonly align 8 dereferenceable(40) %0) unnamed_addr #0 personality ptr @rust_eh_personality {
-  %2 = load i128, ptr %0, align 8, !alias.scope !117, !noalias !120, !noundef !10
-  %3 = getelementptr inbounds i8, ptr %0, i64 16
-  %4 = load i128, ptr %3, align 8, !alias.scope !117, !noalias !120, !noundef !10
-  %.not.i = icmp ugt i128 %2, %4
-  br i1 %.not.i, label %"_ZN5rayon15range_inclusive13Iter$LT$T$GT$6bounds17hdd91f230d6f5cc9aE.exit.thread", label %"_ZN84_$LT$core..ops..range..RangeInclusive$LT$Idx$GT$$u20$as$u20$core..cmp..PartialEq$GT$2eq17h58cced2adca39688E.llvm.3541011278230818410.exit.i"
-
-"_ZN84_$LT$core..ops..range..RangeInclusive$LT$Idx$GT$$u20$as$u20$core..cmp..PartialEq$GT$2eq17h58cced2adca39688E.llvm.3541011278230818410.exit.i": ; preds = %1
-  %5 = getelementptr inbounds i8, ptr %0, i64 32
-  %6 = load i8, ptr %5, align 8, !range !11, !alias.scope !122, !noalias !125, !noundef !10
-  %7 = trunc nuw i8 %6 to i1
-  br i1 %7, label %"_ZN5rayon15range_inclusive13Iter$LT$T$GT$6bounds17hdd91f230d6f5cc9aE.exit.thread", label %8
-
-8:                                                ; preds = %"_ZN84_$LT$core..ops..range..RangeInclusive$LT$Idx$GT$$u20$as$u20$core..cmp..PartialEq$GT$2eq17h58cced2adca39688E.llvm.3541011278230818410.exit.i"
-  %.0.i.i = tail call noundef i128 @llvm.usub.sat.i128(i128 1, i128 %2)
-  %9 = trunc nuw nsw i128 %.0.i.i to i64
-  br label %"_ZN5rayon15range_inclusive13Iter$LT$T$GT$6bounds17hdd91f230d6f5cc9aE.exit.thread"
-
-"_ZN5rayon15range_inclusive13Iter$LT$T$GT$6bounds17hdd91f230d6f5cc9aE.exit.thread": ; preds = %"_ZN84_$LT$core..ops..range..RangeInclusive$LT$Idx$GT$$u20$as$u20$core..cmp..PartialEq$GT$2eq17h58cced2adca39688E.llvm.3541011278230818410.exit.i", %1, %8
-  %.sroa.4.1 = phi i64 [ %9, %8 ], [ 0, %1 ], [ 0, %"_ZN84_$LT$core..ops..range..RangeInclusive$LT$Idx$GT$$u20$as$u20$core..cmp..PartialEq$GT$2eq17h58cced2adca39688E.llvm.3541011278230818410.exit.i" ]
-  %10 = insertvalue { i64, i64 } { i64 1, i64 poison }, i64 %.sroa.4.1, 1
-  ret { i64, i64 } %10
+"_ZN5rayon15range_inclusive13Iter$LT$T$GT$6bounds17hdd91f230d6f5cc9aE.exit.thread":
+  %1 = load i128, ptr %0, align 8, !alias.scope !87, !noalias !90, !noundef !10
+  %2 = getelementptr inbounds i8, ptr %0, i64 16
+  %3 = load i128, ptr %2, align 8, !alias.scope !87, !noalias !90, !noundef !10
+  %.not.i = icmp ule i128 %1, %3
+  %4 = getelementptr inbounds i8, ptr %0, i64 32
+  %5 = load i8, ptr %4, align 8, !range !11, !alias.scope !87, !noalias !90
+  %.not.i.i = icmp eq i8 %5, 0
+  %or.cond.i = select i1 %.not.i, i1 %.not.i.i, i1 false
+  %.0.i.i = tail call i128 @llvm.usub.sat.i128(i128 1, i128 %1)
+  %6 = trunc nuw nsw i128 %.0.i.i to i64
+  %.sroa.4.1 = select i1 %or.cond.i, i64 %6, i64 0
+  %7 = insertvalue { i64, i64 } { i64 1, i64 poison }, i64 %.sroa.4.1, 1
+  ret { i64, i64 } %7
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
@@ -737,34 +718,32 @@ define void @"_ZN5rayon15range_inclusive80_$LT$impl$u20$rayon..range_inclusive..
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
 define { i64, i64 } @"_ZN5rayon15range_inclusive80_$LT$impl$u20$rayon..range_inclusive..private..RangeInteger$u20$for$u20$i128$GT$7opt_len17h90156dd4ff398ddcE"(ptr noalias nocapture noundef readonly align 8 dereferenceable(40) %0) unnamed_addr #0 personality ptr @rust_eh_personality {
-  %2 = load i128, ptr %0, align 8, !alias.scope !127, !noalias !130, !noundef !10
+  %2 = load i128, ptr %0, align 8, !alias.scope !92, !noalias !95, !noundef !10
   %3 = getelementptr inbounds i8, ptr %0, i64 16
-  %4 = load i128, ptr %3, align 8, !alias.scope !127, !noalias !130, !noundef !10
-  %.not.i = icmp sgt i128 %2, %4
-  br i1 %.not.i, label %"_ZN5rayon15range_inclusive13Iter$LT$T$GT$6bounds17h064ca31ab29b9ba6E.exit.thread", label %"_ZN84_$LT$core..ops..range..RangeInclusive$LT$Idx$GT$$u20$as$u20$core..cmp..PartialEq$GT$2eq17hbe888f23f9e54272E.llvm.3541011278230818410.exit.i"
-
-"_ZN84_$LT$core..ops..range..RangeInclusive$LT$Idx$GT$$u20$as$u20$core..cmp..PartialEq$GT$2eq17hbe888f23f9e54272E.llvm.3541011278230818410.exit.i": ; preds = %1
+  %4 = load i128, ptr %3, align 8, !alias.scope !92, !noalias !95, !noundef !10
+  %.not.i = icmp sle i128 %2, %4
   %5 = getelementptr inbounds i8, ptr %0, i64 32
-  %6 = load i8, ptr %5, align 8, !range !11, !alias.scope !132, !noalias !135, !noundef !10
-  %7 = trunc nuw i8 %6 to i1
-  br i1 %7, label %"_ZN5rayon15range_inclusive13Iter$LT$T$GT$6bounds17h064ca31ab29b9ba6E.exit.thread", label %8
+  %6 = load i8, ptr %5, align 8, !range !11, !alias.scope !92, !noalias !95
+  %.not.i.i = icmp eq i8 %6, 0
+  %or.cond.i = select i1 %.not.i, i1 %.not.i.i, i1 false
+  br i1 %or.cond.i, label %7, label %"_ZN5rayon15range_inclusive13Iter$LT$T$GT$6bounds17h064ca31ab29b9ba6E.exit.thread"
 
-8:                                                ; preds = %"_ZN84_$LT$core..ops..range..RangeInclusive$LT$Idx$GT$$u20$as$u20$core..cmp..PartialEq$GT$2eq17hbe888f23f9e54272E.llvm.3541011278230818410.exit.i"
-  %9 = sub i128 1, %2
+7:                                                ; preds = %1
+  %8 = sub i128 1, %2
   %.inv = icmp sgt i128 %2, 0
-  %.0.i.i = select i1 %.inv, i128 0, i128 %9
-  %10 = icmp ult i128 %.0.i.i, 18446744073709551616
-  %11 = trunc nuw i128 %.0.i.i to i64
-  %.sroa.5.0.i = select i1 %10, i64 %11, i64 undef
-  %spec.select.i = zext i1 %10 to i64
+  %.0.i.i = select i1 %.inv, i128 0, i128 %8
+  %9 = icmp ult i128 %.0.i.i, 18446744073709551616
+  %10 = trunc nuw i128 %.0.i.i to i64
+  %.sroa.5.0.i = select i1 %9, i64 %10, i64 undef
+  %spec.select.i = zext i1 %9 to i64
   br label %"_ZN5rayon15range_inclusive13Iter$LT$T$GT$6bounds17h064ca31ab29b9ba6E.exit.thread"
 
-"_ZN5rayon15range_inclusive13Iter$LT$T$GT$6bounds17h064ca31ab29b9ba6E.exit.thread": ; preds = %"_ZN84_$LT$core..ops..range..RangeInclusive$LT$Idx$GT$$u20$as$u20$core..cmp..PartialEq$GT$2eq17hbe888f23f9e54272E.llvm.3541011278230818410.exit.i", %1, %8
-  %.sroa.4.1 = phi i64 [ %.sroa.5.0.i, %8 ], [ 0, %1 ], [ 0, %"_ZN84_$LT$core..ops..range..RangeInclusive$LT$Idx$GT$$u20$as$u20$core..cmp..PartialEq$GT$2eq17hbe888f23f9e54272E.llvm.3541011278230818410.exit.i" ]
-  %.sroa.0.1 = phi i64 [ %spec.select.i, %8 ], [ 1, %1 ], [ 1, %"_ZN84_$LT$core..ops..range..RangeInclusive$LT$Idx$GT$$u20$as$u20$core..cmp..PartialEq$GT$2eq17hbe888f23f9e54272E.llvm.3541011278230818410.exit.i" ]
-  %12 = insertvalue { i64, i64 } poison, i64 %.sroa.0.1, 0
-  %13 = insertvalue { i64, i64 } %12, i64 %.sroa.4.1, 1
-  ret { i64, i64 } %13
+"_ZN5rayon15range_inclusive13Iter$LT$T$GT$6bounds17h064ca31ab29b9ba6E.exit.thread": ; preds = %1, %7
+  %.sroa.4.1 = phi i64 [ %.sroa.5.0.i, %7 ], [ 0, %1 ]
+  %.sroa.0.1 = phi i64 [ %spec.select.i, %7 ], [ 1, %1 ]
+  %11 = insertvalue { i64, i64 } poison, i64 %.sroa.0.1, 0
+  %12 = insertvalue { i64, i64 } %11, i64 %.sroa.4.1, 1
+  ret { i64, i64 } %12
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
@@ -904,78 +883,38 @@ attributes #8 = { noreturn }
 !59 = distinct !{!59, !"_ZN5rayon15range_inclusive13Iter$LT$T$GT$6bounds17hfd4edd9fe3d05948E"}
 !60 = !{!61}
 !61 = distinct !{!61, !59, !"_ZN5rayon15range_inclusive13Iter$LT$T$GT$6bounds17hfd4edd9fe3d05948E: argument 0"}
-!62 = !{!63, !58}
-!63 = distinct !{!63, !64, !"_ZN84_$LT$core..ops..range..RangeInclusive$LT$Idx$GT$$u20$as$u20$core..cmp..PartialEq$GT$2eq17h3b91b60dfba4e1d5E.llvm.3541011278230818410: argument 0"}
-!64 = distinct !{!64, !"_ZN84_$LT$core..ops..range..RangeInclusive$LT$Idx$GT$$u20$as$u20$core..cmp..PartialEq$GT$2eq17h3b91b60dfba4e1d5E.llvm.3541011278230818410"}
-!65 = !{!66, !61}
-!66 = distinct !{!66, !64, !"_ZN84_$LT$core..ops..range..RangeInclusive$LT$Idx$GT$$u20$as$u20$core..cmp..PartialEq$GT$2eq17h3b91b60dfba4e1d5E.llvm.3541011278230818410: argument 1"}
+!62 = !{!63}
+!63 = distinct !{!63, !64, !"_ZN5rayon15range_inclusive13Iter$LT$T$GT$6bounds17h321d9f075d9849e2E: argument 1"}
+!64 = distinct !{!64, !"_ZN5rayon15range_inclusive13Iter$LT$T$GT$6bounds17h321d9f075d9849e2E"}
+!65 = !{!66}
+!66 = distinct !{!66, !64, !"_ZN5rayon15range_inclusive13Iter$LT$T$GT$6bounds17h321d9f075d9849e2E: argument 0"}
 !67 = !{!68}
-!68 = distinct !{!68, !69, !"_ZN5rayon15range_inclusive13Iter$LT$T$GT$6bounds17h321d9f075d9849e2E: argument 1"}
-!69 = distinct !{!69, !"_ZN5rayon15range_inclusive13Iter$LT$T$GT$6bounds17h321d9f075d9849e2E"}
+!68 = distinct !{!68, !69, !"_ZN5rayon15range_inclusive13Iter$LT$T$GT$6bounds17he8c999639bb6c7dcE: argument 1"}
+!69 = distinct !{!69, !"_ZN5rayon15range_inclusive13Iter$LT$T$GT$6bounds17he8c999639bb6c7dcE"}
 !70 = !{!71}
-!71 = distinct !{!71, !69, !"_ZN5rayon15range_inclusive13Iter$LT$T$GT$6bounds17h321d9f075d9849e2E: argument 0"}
-!72 = !{!73, !68}
-!73 = distinct !{!73, !74, !"_ZN84_$LT$core..ops..range..RangeInclusive$LT$Idx$GT$$u20$as$u20$core..cmp..PartialEq$GT$2eq17hf07db8920e49cec8E.llvm.3541011278230818410: argument 0"}
-!74 = distinct !{!74, !"_ZN84_$LT$core..ops..range..RangeInclusive$LT$Idx$GT$$u20$as$u20$core..cmp..PartialEq$GT$2eq17hf07db8920e49cec8E.llvm.3541011278230818410"}
-!75 = !{!76, !71}
-!76 = distinct !{!76, !74, !"_ZN84_$LT$core..ops..range..RangeInclusive$LT$Idx$GT$$u20$as$u20$core..cmp..PartialEq$GT$2eq17hf07db8920e49cec8E.llvm.3541011278230818410: argument 1"}
+!71 = distinct !{!71, !69, !"_ZN5rayon15range_inclusive13Iter$LT$T$GT$6bounds17he8c999639bb6c7dcE: argument 0"}
+!72 = !{!73}
+!73 = distinct !{!73, !74, !"_ZN5rayon15range_inclusive13Iter$LT$T$GT$6bounds17hd89b372e1134fdaaE: argument 1"}
+!74 = distinct !{!74, !"_ZN5rayon15range_inclusive13Iter$LT$T$GT$6bounds17hd89b372e1134fdaaE"}
+!75 = !{!76}
+!76 = distinct !{!76, !74, !"_ZN5rayon15range_inclusive13Iter$LT$T$GT$6bounds17hd89b372e1134fdaaE: argument 0"}
 !77 = !{!78}
-!78 = distinct !{!78, !79, !"_ZN5rayon15range_inclusive13Iter$LT$T$GT$6bounds17he8c999639bb6c7dcE: argument 1"}
-!79 = distinct !{!79, !"_ZN5rayon15range_inclusive13Iter$LT$T$GT$6bounds17he8c999639bb6c7dcE"}
+!78 = distinct !{!78, !79, !"_ZN5rayon15range_inclusive13Iter$LT$T$GT$6bounds17ha1bfb117fa13a8a7E: argument 1"}
+!79 = distinct !{!79, !"_ZN5rayon15range_inclusive13Iter$LT$T$GT$6bounds17ha1bfb117fa13a8a7E"}
 !80 = !{!81}
-!81 = distinct !{!81, !79, !"_ZN5rayon15range_inclusive13Iter$LT$T$GT$6bounds17he8c999639bb6c7dcE: argument 0"}
-!82 = !{!83, !78}
-!83 = distinct !{!83, !84, !"_ZN84_$LT$core..ops..range..RangeInclusive$LT$Idx$GT$$u20$as$u20$core..cmp..PartialEq$GT$2eq17h7bf0b063fdeeb5d0E.llvm.3541011278230818410: argument 0"}
-!84 = distinct !{!84, !"_ZN84_$LT$core..ops..range..RangeInclusive$LT$Idx$GT$$u20$as$u20$core..cmp..PartialEq$GT$2eq17h7bf0b063fdeeb5d0E.llvm.3541011278230818410"}
-!85 = !{!86, !81}
-!86 = distinct !{!86, !84, !"_ZN84_$LT$core..ops..range..RangeInclusive$LT$Idx$GT$$u20$as$u20$core..cmp..PartialEq$GT$2eq17h7bf0b063fdeeb5d0E.llvm.3541011278230818410: argument 1"}
+!81 = distinct !{!81, !79, !"_ZN5rayon15range_inclusive13Iter$LT$T$GT$6bounds17ha1bfb117fa13a8a7E: argument 0"}
+!82 = !{!83}
+!83 = distinct !{!83, !84, !"_ZN5rayon15range_inclusive13Iter$LT$T$GT$6bounds17h681d372db6ee704aE: argument 1"}
+!84 = distinct !{!84, !"_ZN5rayon15range_inclusive13Iter$LT$T$GT$6bounds17h681d372db6ee704aE"}
+!85 = !{!86}
+!86 = distinct !{!86, !84, !"_ZN5rayon15range_inclusive13Iter$LT$T$GT$6bounds17h681d372db6ee704aE: argument 0"}
 !87 = !{!88}
-!88 = distinct !{!88, !89, !"_ZN5rayon15range_inclusive13Iter$LT$T$GT$6bounds17hd89b372e1134fdaaE: argument 1"}
-!89 = distinct !{!89, !"_ZN5rayon15range_inclusive13Iter$LT$T$GT$6bounds17hd89b372e1134fdaaE"}
+!88 = distinct !{!88, !89, !"_ZN5rayon15range_inclusive13Iter$LT$T$GT$6bounds17hdd91f230d6f5cc9aE: argument 1"}
+!89 = distinct !{!89, !"_ZN5rayon15range_inclusive13Iter$LT$T$GT$6bounds17hdd91f230d6f5cc9aE"}
 !90 = !{!91}
-!91 = distinct !{!91, !89, !"_ZN5rayon15range_inclusive13Iter$LT$T$GT$6bounds17hd89b372e1134fdaaE: argument 0"}
-!92 = !{!93, !88}
-!93 = distinct !{!93, !94, !"_ZN84_$LT$core..ops..range..RangeInclusive$LT$Idx$GT$$u20$as$u20$core..cmp..PartialEq$GT$2eq17hc147f714830ed770E.llvm.3541011278230818410: argument 0"}
-!94 = distinct !{!94, !"_ZN84_$LT$core..ops..range..RangeInclusive$LT$Idx$GT$$u20$as$u20$core..cmp..PartialEq$GT$2eq17hc147f714830ed770E.llvm.3541011278230818410"}
-!95 = !{!96, !91}
-!96 = distinct !{!96, !94, !"_ZN84_$LT$core..ops..range..RangeInclusive$LT$Idx$GT$$u20$as$u20$core..cmp..PartialEq$GT$2eq17hc147f714830ed770E.llvm.3541011278230818410: argument 1"}
-!97 = !{!98}
-!98 = distinct !{!98, !99, !"_ZN5rayon15range_inclusive13Iter$LT$T$GT$6bounds17ha1bfb117fa13a8a7E: argument 1"}
-!99 = distinct !{!99, !"_ZN5rayon15range_inclusive13Iter$LT$T$GT$6bounds17ha1bfb117fa13a8a7E"}
-!100 = !{!101}
-!101 = distinct !{!101, !99, !"_ZN5rayon15range_inclusive13Iter$LT$T$GT$6bounds17ha1bfb117fa13a8a7E: argument 0"}
-!102 = !{!103, !98}
-!103 = distinct !{!103, !104, !"_ZN84_$LT$core..ops..range..RangeInclusive$LT$Idx$GT$$u20$as$u20$core..cmp..PartialEq$GT$2eq17h7b9e3690d9fa478dE.llvm.3541011278230818410: argument 0"}
-!104 = distinct !{!104, !"_ZN84_$LT$core..ops..range..RangeInclusive$LT$Idx$GT$$u20$as$u20$core..cmp..PartialEq$GT$2eq17h7b9e3690d9fa478dE.llvm.3541011278230818410"}
-!105 = !{!106, !101}
-!106 = distinct !{!106, !104, !"_ZN84_$LT$core..ops..range..RangeInclusive$LT$Idx$GT$$u20$as$u20$core..cmp..PartialEq$GT$2eq17h7b9e3690d9fa478dE.llvm.3541011278230818410: argument 1"}
-!107 = !{!108}
-!108 = distinct !{!108, !109, !"_ZN5rayon15range_inclusive13Iter$LT$T$GT$6bounds17h681d372db6ee704aE: argument 1"}
-!109 = distinct !{!109, !"_ZN5rayon15range_inclusive13Iter$LT$T$GT$6bounds17h681d372db6ee704aE"}
-!110 = !{!111}
-!111 = distinct !{!111, !109, !"_ZN5rayon15range_inclusive13Iter$LT$T$GT$6bounds17h681d372db6ee704aE: argument 0"}
-!112 = !{!113, !108}
-!113 = distinct !{!113, !114, !"_ZN84_$LT$core..ops..range..RangeInclusive$LT$Idx$GT$$u20$as$u20$core..cmp..PartialEq$GT$2eq17h19ae2b39af46dc59E.llvm.3541011278230818410: argument 0"}
-!114 = distinct !{!114, !"_ZN84_$LT$core..ops..range..RangeInclusive$LT$Idx$GT$$u20$as$u20$core..cmp..PartialEq$GT$2eq17h19ae2b39af46dc59E.llvm.3541011278230818410"}
-!115 = !{!116, !111}
-!116 = distinct !{!116, !114, !"_ZN84_$LT$core..ops..range..RangeInclusive$LT$Idx$GT$$u20$as$u20$core..cmp..PartialEq$GT$2eq17h19ae2b39af46dc59E.llvm.3541011278230818410: argument 1"}
-!117 = !{!118}
-!118 = distinct !{!118, !119, !"_ZN5rayon15range_inclusive13Iter$LT$T$GT$6bounds17hdd91f230d6f5cc9aE: argument 1"}
-!119 = distinct !{!119, !"_ZN5rayon15range_inclusive13Iter$LT$T$GT$6bounds17hdd91f230d6f5cc9aE"}
-!120 = !{!121}
-!121 = distinct !{!121, !119, !"_ZN5rayon15range_inclusive13Iter$LT$T$GT$6bounds17hdd91f230d6f5cc9aE: argument 0"}
-!122 = !{!123, !118}
-!123 = distinct !{!123, !124, !"_ZN84_$LT$core..ops..range..RangeInclusive$LT$Idx$GT$$u20$as$u20$core..cmp..PartialEq$GT$2eq17h58cced2adca39688E.llvm.3541011278230818410: argument 0"}
-!124 = distinct !{!124, !"_ZN84_$LT$core..ops..range..RangeInclusive$LT$Idx$GT$$u20$as$u20$core..cmp..PartialEq$GT$2eq17h58cced2adca39688E.llvm.3541011278230818410"}
-!125 = !{!126, !121}
-!126 = distinct !{!126, !124, !"_ZN84_$LT$core..ops..range..RangeInclusive$LT$Idx$GT$$u20$as$u20$core..cmp..PartialEq$GT$2eq17h58cced2adca39688E.llvm.3541011278230818410: argument 1"}
-!127 = !{!128}
-!128 = distinct !{!128, !129, !"_ZN5rayon15range_inclusive13Iter$LT$T$GT$6bounds17h064ca31ab29b9ba6E: argument 1"}
-!129 = distinct !{!129, !"_ZN5rayon15range_inclusive13Iter$LT$T$GT$6bounds17h064ca31ab29b9ba6E"}
-!130 = !{!131}
-!131 = distinct !{!131, !129, !"_ZN5rayon15range_inclusive13Iter$LT$T$GT$6bounds17h064ca31ab29b9ba6E: argument 0"}
-!132 = !{!133, !128}
-!133 = distinct !{!133, !134, !"_ZN84_$LT$core..ops..range..RangeInclusive$LT$Idx$GT$$u20$as$u20$core..cmp..PartialEq$GT$2eq17hbe888f23f9e54272E.llvm.3541011278230818410: argument 0"}
-!134 = distinct !{!134, !"_ZN84_$LT$core..ops..range..RangeInclusive$LT$Idx$GT$$u20$as$u20$core..cmp..PartialEq$GT$2eq17hbe888f23f9e54272E.llvm.3541011278230818410"}
-!135 = !{!136, !131}
-!136 = distinct !{!136, !134, !"_ZN84_$LT$core..ops..range..RangeInclusive$LT$Idx$GT$$u20$as$u20$core..cmp..PartialEq$GT$2eq17hbe888f23f9e54272E.llvm.3541011278230818410: argument 1"}
+!91 = distinct !{!91, !89, !"_ZN5rayon15range_inclusive13Iter$LT$T$GT$6bounds17hdd91f230d6f5cc9aE: argument 0"}
+!92 = !{!93}
+!93 = distinct !{!93, !94, !"_ZN5rayon15range_inclusive13Iter$LT$T$GT$6bounds17h064ca31ab29b9ba6E: argument 1"}
+!94 = distinct !{!94, !"_ZN5rayon15range_inclusive13Iter$LT$T$GT$6bounds17h064ca31ab29b9ba6E"}
+!95 = !{!96}
+!96 = distinct !{!96, !94, !"_ZN5rayon15range_inclusive13Iter$LT$T$GT$6bounds17h064ca31ab29b9ba6E: argument 0"}

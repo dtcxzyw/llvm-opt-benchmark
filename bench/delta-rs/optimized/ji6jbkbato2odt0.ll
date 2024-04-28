@@ -23448,148 +23448,146 @@ define noundef zeroext i1 @"_ZN81_$LT$deltalake_aws..storage..S3StorageOptions$u
   %4 = load i8, ptr %3, align 8, !range !1053, !noundef !14
   %5 = getelementptr inbounds i8, ptr %1, i64 496
   %6 = load i8, ptr %5, align 8, !range !1053, !noundef !14
-  %7 = xor i8 %6, %4
-  %8 = trunc nuw i8 %7 to i1
-  br i1 %8, label %.critedge, label %9
+  %.not = icmp eq i8 %4, %6
+  br i1 %.not, label %7, label %.critedge
 
-9:                                                ; preds = %2
-  %10 = load i64, ptr %0, align 8, !range !424, !noundef !14
+7:                                                ; preds = %2
+  %8 = load i64, ptr %0, align 8, !range !424, !noundef !14
+  %9 = icmp eq i64 %8, -9223372036854775808
+  %10 = load i64, ptr %1, align 8, !range !424, !noundef !14
   %11 = icmp eq i64 %10, -9223372036854775808
-  %12 = load i64, ptr %1, align 8, !range !424, !noundef !14
-  %13 = icmp eq i64 %12, -9223372036854775808
-  br i1 %11, label %14, label %15
+  br i1 %9, label %12, label %13
 
-14:                                               ; preds = %9
-  br i1 %13, label %23, label %.critedge
+12:                                               ; preds = %7
+  br i1 %11, label %21, label %.critedge
 
-15:                                               ; preds = %9
-  br i1 %13, label %.critedge, label %20
+13:                                               ; preds = %7
+  br i1 %11, label %.critedge, label %18
 
-16:                                               ; preds = %20
-  %17 = getelementptr inbounds i8, ptr %1, i64 8
-  %.val27 = load ptr, ptr %17, align 8, !nonnull !14, !noundef !14
-  %18 = getelementptr inbounds i8, ptr %0, i64 8
-  %.val = load ptr, ptr %18, align 8, !nonnull !14, !noundef !14
-  %bcmp.i.i = tail call i32 @bcmp(ptr nonnull %.val, ptr nonnull %.val27, i64 %.val26), !alias.scope !4323
-  %19 = icmp eq i32 %bcmp.i.i, 0
-  br i1 %19, label %23, label %.critedge
+14:                                               ; preds = %18
+  %15 = getelementptr inbounds i8, ptr %1, i64 8
+  %.val29 = load ptr, ptr %15, align 8, !nonnull !14, !noundef !14
+  %16 = getelementptr inbounds i8, ptr %0, i64 8
+  %.val = load ptr, ptr %16, align 8, !nonnull !14, !noundef !14
+  %bcmp.i.i = tail call i32 @bcmp(ptr nonnull %.val, ptr nonnull %.val29, i64 %.val28), !alias.scope !4323
+  %17 = icmp eq i32 %bcmp.i.i, 0
+  br i1 %17, label %21, label %.critedge
 
-20:                                               ; preds = %15
-  %21 = getelementptr inbounds i8, ptr %0, i64 16
-  %.val26 = load i64, ptr %21, align 8, !noundef !14
-  %22 = getelementptr inbounds i8, ptr %1, i64 16
-  %.val28 = load i64, ptr %22, align 8, !noundef !14
-  %.not.i.i = icmp eq i64 %.val26, %.val28
-  br i1 %.not.i.i, label %16, label %.critedge
+18:                                               ; preds = %13
+  %19 = getelementptr inbounds i8, ptr %0, i64 16
+  %.val28 = load i64, ptr %19, align 8, !noundef !14
+  %20 = getelementptr inbounds i8, ptr %1, i64 16
+  %.val30 = load i64, ptr %20, align 8, !noundef !14
+  %.not.i.i = icmp eq i64 %.val28, %.val30
+  br i1 %.not.i.i, label %14, label %.critedge
 
-23:                                               ; preds = %14, %16
-  %24 = getelementptr inbounds i8, ptr %0, i64 408
+21:                                               ; preds = %12, %14
+  %22 = getelementptr inbounds i8, ptr %0, i64 408
+  %23 = load i64, ptr %22, align 8, !noundef !14
+  %24 = getelementptr inbounds i8, ptr %1, i64 408
   %25 = load i64, ptr %24, align 8, !noundef !14
-  %26 = getelementptr inbounds i8, ptr %1, i64 408
-  %27 = load i64, ptr %26, align 8, !noundef !14
-  %28 = icmp eq i64 %25, %27
-  %29 = getelementptr inbounds i8, ptr %0, i64 416
+  %26 = icmp eq i64 %23, %25
+  %27 = getelementptr inbounds i8, ptr %0, i64 416
+  %28 = load i32, ptr %27, align 8
+  %29 = getelementptr inbounds i8, ptr %1, i64 416
   %30 = load i32, ptr %29, align 8
-  %31 = getelementptr inbounds i8, ptr %1, i64 416
-  %32 = load i32, ptr %31, align 8
-  %33 = icmp eq i32 %30, %32
-  %.017 = select i1 %28, i1 %33, i1 false
-  br i1 %.017, label %34, label %.critedge
+  %31 = icmp eq i32 %28, %30
+  %.017 = select i1 %26, i1 %31, i1 false
+  br i1 %.017, label %32, label %.critedge
 
-34:                                               ; preds = %23
-  %35 = getelementptr inbounds i8, ptr %0, i64 424
+32:                                               ; preds = %21
+  %33 = getelementptr inbounds i8, ptr %0, i64 424
+  %34 = load i64, ptr %33, align 8, !noundef !14
+  %35 = getelementptr inbounds i8, ptr %1, i64 424
   %36 = load i64, ptr %35, align 8, !noundef !14
-  %37 = getelementptr inbounds i8, ptr %1, i64 424
-  %38 = load i64, ptr %37, align 8, !noundef !14
-  %39 = icmp eq i64 %36, %38
-  %40 = getelementptr inbounds i8, ptr %0, i64 432
+  %37 = icmp eq i64 %34, %36
+  %38 = getelementptr inbounds i8, ptr %0, i64 432
+  %39 = load i32, ptr %38, align 8
+  %40 = getelementptr inbounds i8, ptr %1, i64 432
   %41 = load i32, ptr %40, align 8
-  %42 = getelementptr inbounds i8, ptr %1, i64 432
-  %43 = load i32, ptr %42, align 8
-  %44 = icmp eq i32 %41, %43
-  %.018 = select i1 %39, i1 %44, i1 false
-  br i1 %.018, label %45, label %.critedge
+  %42 = icmp eq i32 %39, %41
+  %.018 = select i1 %37, i1 %42, i1 false
+  br i1 %.018, label %43, label %.critedge
 
-45:                                               ; preds = %34
-  %46 = getelementptr inbounds i8, ptr %0, i64 488
+43:                                               ; preds = %32
+  %44 = getelementptr inbounds i8, ptr %0, i64 488
+  %45 = load i64, ptr %44, align 8, !noundef !14
+  %46 = getelementptr inbounds i8, ptr %1, i64 488
   %47 = load i64, ptr %46, align 8, !noundef !14
-  %48 = getelementptr inbounds i8, ptr %1, i64 488
-  %49 = load i64, ptr %48, align 8, !noundef !14
-  %50 = icmp eq i64 %47, %49
-  br i1 %50, label %51, label %.critedge
+  %48 = icmp eq i64 %45, %47
+  br i1 %48, label %49, label %.critedge
 
-51:                                               ; preds = %45
-  %52 = getelementptr inbounds i8, ptr %0, i64 497
+49:                                               ; preds = %43
+  %50 = getelementptr inbounds i8, ptr %0, i64 497
+  %51 = load i8, ptr %50, align 1, !range !1053, !noundef !14
+  %52 = getelementptr inbounds i8, ptr %1, i64 497
   %53 = load i8, ptr %52, align 1, !range !1053, !noundef !14
-  %54 = getelementptr inbounds i8, ptr %1, i64 497
-  %55 = load i8, ptr %54, align 1, !range !1053, !noundef !14
-  %56 = xor i8 %55, %53
-  %57 = trunc nuw i8 %56 to i1
-  br i1 %57, label %.critedge, label %58
+  %.not23 = icmp eq i8 %51, %53
+  br i1 %.not23, label %54, label %.critedge
 
-58:                                               ; preds = %51
-  %59 = getelementptr inbounds i8, ptr %0, i64 440
-  %60 = getelementptr inbounds i8, ptr %1, i64 440
-  %61 = tail call noundef zeroext i1 @"_ZN94_$LT$std..collections..hash..map..HashMap$LT$K$C$V$C$S$GT$$u20$as$u20$core..cmp..PartialEq$GT$2eq17h851cb6ec9740b735E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(48) %59, ptr noalias noundef nonnull readonly align 8 dereferenceable(48) %60)
-  br i1 %61, label %62, label %.critedge
+54:                                               ; preds = %49
+  %55 = getelementptr inbounds i8, ptr %0, i64 440
+  %56 = getelementptr inbounds i8, ptr %1, i64 440
+  %57 = tail call noundef zeroext i1 @"_ZN94_$LT$std..collections..hash..map..HashMap$LT$K$C$V$C$S$GT$$u20$as$u20$core..cmp..PartialEq$GT$2eq17h851cb6ec9740b735E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(48) %55, ptr noalias noundef nonnull readonly align 8 dereferenceable(48) %56)
+  br i1 %57, label %58, label %.critedge
 
-62:                                               ; preds = %58
-  %63 = getelementptr inbounds i8, ptr %0, i64 24
+58:                                               ; preds = %54
+  %59 = getelementptr inbounds i8, ptr %0, i64 24
+  %60 = tail call { ptr, i64 } @_ZN9aws_types10sdk_config9SdkConfig12endpoint_url17h3c3d38c7c01f4adfE(ptr noalias noundef nonnull readonly align 8 dereferenceable(384) %59)
+  %61 = extractvalue { ptr, i64 } %60, 0
+  %62 = extractvalue { ptr, i64 } %60, 1
+  %63 = getelementptr inbounds i8, ptr %1, i64 24
   %64 = tail call { ptr, i64 } @_ZN9aws_types10sdk_config9SdkConfig12endpoint_url17h3c3d38c7c01f4adfE(ptr noalias noundef nonnull readonly align 8 dereferenceable(384) %63)
   %65 = extractvalue { ptr, i64 } %64, 0
-  %66 = extractvalue { ptr, i64 } %64, 1
-  %67 = getelementptr inbounds i8, ptr %1, i64 24
-  %68 = tail call { ptr, i64 } @_ZN9aws_types10sdk_config9SdkConfig12endpoint_url17h3c3d38c7c01f4adfE(ptr noalias noundef nonnull readonly align 8 dereferenceable(384) %67)
-  %69 = extractvalue { ptr, i64 } %68, 0
-  %70 = icmp eq ptr %65, null
-  br i1 %70, label %71, label %73
+  %66 = icmp eq ptr %61, null
+  br i1 %66, label %67, label %69
 
-71:                                               ; preds = %62
-  %72 = icmp eq ptr %69, null
-  br i1 %72, label %77, label %.critedge
+67:                                               ; preds = %58
+  %68 = icmp eq ptr %65, null
+  br i1 %68, label %73, label %.critedge
 
-73:                                               ; preds = %62
-  %74 = extractvalue { ptr, i64 } %68, 1
-  %.not22 = icmp ne ptr %69, null
-  %.not.i = icmp eq i64 %66, %74
-  %or.cond = select i1 %.not22, i1 %.not.i, i1 false
-  br i1 %or.cond, label %75, label %.critedge
+69:                                               ; preds = %58
+  %70 = extractvalue { ptr, i64 } %64, 1
+  %.not24 = icmp ne ptr %65, null
+  %.not.i = icmp eq i64 %62, %70
+  %or.cond = select i1 %.not24, i1 %.not.i, i1 false
+  br i1 %or.cond, label %71, label %.critedge
 
-75:                                               ; preds = %73
-  %bcmp.i = tail call i32 @bcmp(ptr nonnull %65, ptr nonnull %69, i64 %66), !alias.scope !4327
-  %76 = icmp eq i32 %bcmp.i, 0
-  br i1 %76, label %77, label %.critedge
+71:                                               ; preds = %69
+  %bcmp.i = tail call i32 @bcmp(ptr nonnull %61, ptr nonnull %65, i64 %62), !alias.scope !4327
+  %72 = icmp eq i32 %bcmp.i, 0
+  br i1 %72, label %73, label %.critedge
 
-77:                                               ; preds = %71, %75
-  %78 = getelementptr inbounds i8, ptr %0, i64 72
-  %79 = load i64, ptr %78, align 8, !range !1025, !noundef !14
-  %80 = icmp eq i64 %79, -9223372036854775807
-  %81 = getelementptr inbounds i8, ptr %1, i64 72
-  %82 = load i64, ptr %81, align 8, !range !1025, !noundef !14
-  %83 = icmp eq i64 %82, -9223372036854775807
-  %brmerge = or i1 %80, %83
-  %.mux = and i1 %80, %83
-  br i1 %brmerge, label %.critedge, label %84
+73:                                               ; preds = %67, %71
+  %74 = getelementptr inbounds i8, ptr %0, i64 72
+  %75 = load i64, ptr %74, align 8, !range !1025, !noundef !14
+  %76 = icmp eq i64 %75, -9223372036854775807
+  %77 = getelementptr inbounds i8, ptr %1, i64 72
+  %78 = load i64, ptr %77, align 8, !range !1025, !noundef !14
+  %79 = icmp eq i64 %78, -9223372036854775807
+  %brmerge = or i1 %76, %79
+  %.mux = and i1 %76, %79
+  br i1 %brmerge, label %.critedge, label %80
 
-.critedge:                                        ; preds = %77, %87, %84, %71, %20, %14, %75, %73, %15, %2, %16, %23, %34, %45, %51, %58
-  %.0 = phi i1 [ false, %58 ], [ false, %51 ], [ false, %45 ], [ false, %34 ], [ false, %23 ], [ false, %16 ], [ false, %2 ], [ false, %15 ], [ false, %73 ], [ false, %75 ], [ false, %14 ], [ false, %20 ], [ false, %71 ], [ %.mux, %77 ], [ %90, %87 ], [ false, %84 ]
+.critedge:                                        ; preds = %73, %83, %80, %67, %18, %12, %71, %69, %13, %2, %14, %21, %32, %43, %49, %54
+  %.0 = phi i1 [ false, %54 ], [ false, %49 ], [ false, %43 ], [ false, %32 ], [ false, %21 ], [ false, %14 ], [ false, %2 ], [ false, %13 ], [ false, %69 ], [ false, %71 ], [ false, %12 ], [ false, %18 ], [ false, %67 ], [ %.mux, %73 ], [ %86, %83 ], [ false, %80 ]
   ret i1 %.0
 
-84:                                               ; preds = %77
-  %85 = getelementptr inbounds i8, ptr %0, i64 88
-  %..val29 = load i64, ptr %85, align 8, !alias.scope !4331, !noundef !14
-  %86 = getelementptr inbounds i8, ptr %1, i64 88
-  %.020.val30 = load i64, ptr %86, align 8, !alias.scope !4334, !noundef !14
-  %.not.i.i31 = icmp eq i64 %..val29, %.020.val30
-  br i1 %.not.i.i31, label %87, label %.critedge
+80:                                               ; preds = %73
+  %81 = getelementptr inbounds i8, ptr %0, i64 88
+  %..val31 = load i64, ptr %81, align 8, !alias.scope !4331, !noundef !14
+  %82 = getelementptr inbounds i8, ptr %1, i64 88
+  %.020.val32 = load i64, ptr %82, align 8, !alias.scope !4334, !noundef !14
+  %.not.i.i33 = icmp eq i64 %..val31, %.020.val32
+  br i1 %.not.i.i33, label %83, label %.critedge
 
-87:                                               ; preds = %84
-  %88 = getelementptr inbounds i8, ptr %1, i64 80
-  %.020.val = load ptr, ptr %88, align 8, !alias.scope !4334, !nonnull !14, !noundef !14
-  %89 = getelementptr inbounds i8, ptr %0, i64 80
-  %..val = load ptr, ptr %89, align 8, !alias.scope !4331, !nonnull !14, !noundef !14
-  %bcmp.i.i33 = tail call i32 @bcmp(ptr nonnull %..val, ptr nonnull %.020.val, i64 %..val29), !alias.scope !4337
-  %90 = icmp eq i32 %bcmp.i.i33, 0
+83:                                               ; preds = %80
+  %84 = getelementptr inbounds i8, ptr %1, i64 80
+  %.020.val = load ptr, ptr %84, align 8, !alias.scope !4334, !nonnull !14, !noundef !14
+  %85 = getelementptr inbounds i8, ptr %0, i64 80
+  %..val = load ptr, ptr %85, align 8, !alias.scope !4331, !nonnull !14, !noundef !14
+  %bcmp.i.i35 = tail call i32 @bcmp(ptr nonnull %..val, ptr nonnull %.020.val, i64 %..val31), !alias.scope !4337
+  %86 = icmp eq i32 %bcmp.i.i35, 0
   br label %.critedge
 }
 

@@ -38421,7 +38421,7 @@ _ZN15rustfmt_nightly7rewrite14RewriteContext7snippet17h7d81c3a187049865E.exit: ;
   %.016.neg.i.i.i = phi i64 [ -1, %242 ], [ %..i.i.i, %246 ], [ -2, %244 ]
   %187 = add i64 %.016.neg.i.i.i, %.fr101.i.i1216.i
   %.fr101.i.i.i = freeze i64 %187
-  %188 = trunc nuw i8 %191 to i1
+  %188 = icmp ne i8 %.in.i, 1
   %189 = icmp eq i64 %.fr101.i.i.i, 0
   br i1 %189, label %.thread.i.i.i, label %.lr.ph.i
 

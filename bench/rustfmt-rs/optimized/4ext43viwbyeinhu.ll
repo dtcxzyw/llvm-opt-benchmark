@@ -1331,14 +1331,14 @@ define internal fastcc noundef zeroext i1 @_RNvXsF_NtCs2al5CLA23zg_9rustc_ast5to
     i8 30, label %25
     i8 31, label %31
     i8 32, label %58
-    i8 33, label %72
-    i8 34, label %78
-    i8 35, label %104
+    i8 33, label %69
+    i8 34, label %75
+    i8 35, label %101
   ]
 
-_RNvXsC_NtCs2al5CLA23zg_9rustc_ast5tokenNtB5_3LitNtNtCs9nhK3FOW46N_4core3cmp9PartialEq2eq.exit: ; preds = %56, %54, %_RNvXsx_NtCs2al5CLA23zg_9rustc_ast5tokenNtB5_7LitKindNtNtCs9nhK3FOW46N_4core3cmp9PartialEq2eq.exit.thread.i, %_RNvXsx_NtCs2al5CLA23zg_9rustc_ast5tokenNtB5_7LitKindNtNtCs9nhK3FOW46N_4core3cmp9PartialEq2eq.exit.i, %42, %40, %31, %104, %110, %86, %92, %78, %58, %6, %2, %116, %98, %64, %72, %25, %19, %13, %7
-  %.0 = phi i1 [ %121, %116 ], [ %103, %98 ], [ %77, %72 ], [ %71, %64 ], [ %30, %25 ], [ %24, %19 ], [ %18, %13 ], [ %12, %7 ], [ false, %2 ], [ true, %6 ], [ false, %58 ], [ false, %78 ], [ false, %92 ], [ false, %86 ], [ false, %110 ], [ false, %104 ], [ %55, %54 ], [ false, %_RNvXsx_NtCs2al5CLA23zg_9rustc_ast5tokenNtB5_7LitKindNtNtCs9nhK3FOW46N_4core3cmp9PartialEq2eq.exit.thread.i ], [ false, %_RNvXsx_NtCs2al5CLA23zg_9rustc_ast5tokenNtB5_7LitKindNtNtCs9nhK3FOW46N_4core3cmp9PartialEq2eq.exit.i ], [ %57, %56 ], [ false, %40 ], [ false, %42 ], [ false, %31 ]
-  ret i1 %.0
+_RNvXsC_NtCs2al5CLA23zg_9rustc_ast5tokenNtB5_3LitNtNtCs9nhK3FOW46N_4core3cmp9PartialEq2eq.exit: ; preds = %56, %54, %_RNvXsx_NtCs2al5CLA23zg_9rustc_ast5tokenNtB5_7LitKindNtNtCs9nhK3FOW46N_4core3cmp9PartialEq2eq.exit.thread.i, %_RNvXsx_NtCs2al5CLA23zg_9rustc_ast5tokenNtB5_7LitKindNtNtCs9nhK3FOW46N_4core3cmp9PartialEq2eq.exit.i, %42, %40, %31, %101, %107, %83, %89, %75, %58, %6, %2, %113, %95, %64, %69, %25, %19, %13, %7
+  %.0.shrunk = phi i1 [ %118, %113 ], [ %100, %95 ], [ %74, %69 ], [ %.not, %64 ], [ %30, %25 ], [ %24, %19 ], [ %18, %13 ], [ %12, %7 ], [ false, %2 ], [ true, %6 ], [ false, %58 ], [ false, %75 ], [ false, %89 ], [ false, %83 ], [ false, %107 ], [ false, %101 ], [ %55, %54 ], [ false, %_RNvXsx_NtCs2al5CLA23zg_9rustc_ast5tokenNtB5_7LitKindNtNtCs9nhK3FOW46N_4core3cmp9PartialEq2eq.exit.thread.i ], [ false, %_RNvXsx_NtCs2al5CLA23zg_9rustc_ast5tokenNtB5_7LitKindNtNtCs9nhK3FOW46N_4core3cmp9PartialEq2eq.exit.i ], [ %57, %56 ], [ false, %40 ], [ false, %42 ], [ false, %31 ]
+  ret i1 %.0.shrunk
 
 7:                                                ; preds = %6
   %8 = getelementptr inbounds i8, ptr %0, i64 1
@@ -1442,75 +1442,73 @@ _RNvXsx_NtCs2al5CLA23zg_9rustc_ast5tokenNtB5_7LitKindNtNtCs9nhK3FOW46N_4core3cmp
   %66 = load i8, ptr %65, align 1, !range !29, !noundef !14
   %67 = getelementptr inbounds i8, ptr %1, i64 1
   %68 = load i8, ptr %67, align 1, !range !29, !noundef !14
-  %69 = xor i8 %68, %66
-  %70 = trunc nuw i8 %69 to i1
-  %71 = xor i1 %70, true
+  %.not = icmp eq i8 %66, %68
   br label %_RNvXsC_NtCs2al5CLA23zg_9rustc_ast5tokenNtB5_3LitNtNtCs9nhK3FOW46N_4core3cmp9PartialEq2eq.exit
 
-72:                                               ; preds = %6
-  %73 = getelementptr inbounds i8, ptr %0, i64 4
-  %74 = load i32, ptr %73, align 4, !noundef !14
-  %75 = getelementptr inbounds i8, ptr %1, i64 4
-  %76 = load i32, ptr %75, align 4, !noundef !14
-  %77 = icmp eq i32 %74, %76
+69:                                               ; preds = %6
+  %70 = getelementptr inbounds i8, ptr %0, i64 4
+  %71 = load i32, ptr %70, align 4, !noundef !14
+  %72 = getelementptr inbounds i8, ptr %1, i64 4
+  %73 = load i32, ptr %72, align 4, !noundef !14
+  %74 = icmp eq i32 %71, %73
   br label %_RNvXsC_NtCs2al5CLA23zg_9rustc_ast5tokenNtB5_3LitNtNtCs9nhK3FOW46N_4core3cmp9PartialEq2eq.exit
 
-78:                                               ; preds = %6
-  %79 = getelementptr inbounds i8, ptr %0, i64 8
-  %80 = load ptr, ptr %79, align 8, !nonnull !14, !noundef !14
-  %81 = getelementptr inbounds i8, ptr %1, i64 8
-  %82 = load ptr, ptr %81, align 8, !nonnull !14, !noundef !14
-  %83 = getelementptr inbounds i8, ptr %80, i64 16
-  %84 = getelementptr inbounds i8, ptr %82, i64 16
-  %85 = tail call noundef zeroext i1 @_RNvXs8_NtCs2al5CLA23zg_9rustc_ast5tokenNtB5_11NonterminalNtNtCs9nhK3FOW46N_4core3cmp9PartialEq2eq(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %83, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %84)
-  br i1 %85, label %86, label %_RNvXsC_NtCs2al5CLA23zg_9rustc_ast5tokenNtB5_3LitNtNtCs9nhK3FOW46N_4core3cmp9PartialEq2eq.exit
+75:                                               ; preds = %6
+  %76 = getelementptr inbounds i8, ptr %0, i64 8
+  %77 = load ptr, ptr %76, align 8, !nonnull !14, !noundef !14
+  %78 = getelementptr inbounds i8, ptr %1, i64 8
+  %79 = load ptr, ptr %78, align 8, !nonnull !14, !noundef !14
+  %80 = getelementptr inbounds i8, ptr %77, i64 16
+  %81 = getelementptr inbounds i8, ptr %79, i64 16
+  %82 = tail call noundef zeroext i1 @_RNvXs8_NtCs2al5CLA23zg_9rustc_ast5tokenNtB5_11NonterminalNtNtCs9nhK3FOW46N_4core3cmp9PartialEq2eq(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %80, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %81)
+  br i1 %82, label %83, label %_RNvXsC_NtCs2al5CLA23zg_9rustc_ast5tokenNtB5_3LitNtNtCs9nhK3FOW46N_4core3cmp9PartialEq2eq.exit
 
-86:                                               ; preds = %78
-  %87 = getelementptr inbounds i8, ptr %80, i64 32
-  %88 = load i32, ptr %87, align 8, !noundef !14
-  %89 = getelementptr inbounds i8, ptr %82, i64 32
-  %90 = load i32, ptr %89, align 8, !noundef !14
-  %91 = icmp eq i32 %88, %90
-  br i1 %91, label %92, label %_RNvXsC_NtCs2al5CLA23zg_9rustc_ast5tokenNtB5_3LitNtNtCs9nhK3FOW46N_4core3cmp9PartialEq2eq.exit
+83:                                               ; preds = %75
+  %84 = getelementptr inbounds i8, ptr %77, i64 32
+  %85 = load i32, ptr %84, align 8, !noundef !14
+  %86 = getelementptr inbounds i8, ptr %79, i64 32
+  %87 = load i32, ptr %86, align 8, !noundef !14
+  %88 = icmp eq i32 %85, %87
+  br i1 %88, label %89, label %_RNvXsC_NtCs2al5CLA23zg_9rustc_ast5tokenNtB5_3LitNtNtCs9nhK3FOW46N_4core3cmp9PartialEq2eq.exit
 
-92:                                               ; preds = %86
-  %93 = getelementptr inbounds i8, ptr %80, i64 36
-  %94 = load i16, ptr %93, align 4, !noundef !14
-  %95 = getelementptr inbounds i8, ptr %82, i64 36
-  %96 = load i16, ptr %95, align 4, !noundef !14
-  %97 = icmp eq i16 %94, %96
-  br i1 %97, label %98, label %_RNvXsC_NtCs2al5CLA23zg_9rustc_ast5tokenNtB5_3LitNtNtCs9nhK3FOW46N_4core3cmp9PartialEq2eq.exit
+89:                                               ; preds = %83
+  %90 = getelementptr inbounds i8, ptr %77, i64 36
+  %91 = load i16, ptr %90, align 4, !noundef !14
+  %92 = getelementptr inbounds i8, ptr %79, i64 36
+  %93 = load i16, ptr %92, align 4, !noundef !14
+  %94 = icmp eq i16 %91, %93
+  br i1 %94, label %95, label %_RNvXsC_NtCs2al5CLA23zg_9rustc_ast5tokenNtB5_3LitNtNtCs9nhK3FOW46N_4core3cmp9PartialEq2eq.exit
 
-98:                                               ; preds = %92
-  %99 = getelementptr inbounds i8, ptr %80, i64 38
-  %100 = load i16, ptr %99, align 2, !noundef !14
-  %101 = getelementptr inbounds i8, ptr %82, i64 38
-  %102 = load i16, ptr %101, align 2, !noundef !14
-  %103 = icmp eq i16 %100, %102
+95:                                               ; preds = %89
+  %96 = getelementptr inbounds i8, ptr %77, i64 38
+  %97 = load i16, ptr %96, align 2, !noundef !14
+  %98 = getelementptr inbounds i8, ptr %79, i64 38
+  %99 = load i16, ptr %98, align 2, !noundef !14
+  %100 = icmp eq i16 %97, %99
   br label %_RNvXsC_NtCs2al5CLA23zg_9rustc_ast5tokenNtB5_3LitNtNtCs9nhK3FOW46N_4core3cmp9PartialEq2eq.exit
 
-104:                                              ; preds = %6
-  %105 = getelementptr inbounds i8, ptr %0, i64 1
-  %106 = load i8, ptr %105, align 1, !range !29, !noundef !14
-  %107 = getelementptr inbounds i8, ptr %1, i64 1
-  %108 = load i8, ptr %107, align 1, !range !29, !noundef !14
-  %109 = icmp eq i8 %106, %108
-  br i1 %109, label %110, label %_RNvXsC_NtCs2al5CLA23zg_9rustc_ast5tokenNtB5_3LitNtNtCs9nhK3FOW46N_4core3cmp9PartialEq2eq.exit
+101:                                              ; preds = %6
+  %102 = getelementptr inbounds i8, ptr %0, i64 1
+  %103 = load i8, ptr %102, align 1, !range !29, !noundef !14
+  %104 = getelementptr inbounds i8, ptr %1, i64 1
+  %105 = load i8, ptr %104, align 1, !range !29, !noundef !14
+  %106 = icmp eq i8 %103, %105
+  br i1 %106, label %107, label %_RNvXsC_NtCs2al5CLA23zg_9rustc_ast5tokenNtB5_3LitNtNtCs9nhK3FOW46N_4core3cmp9PartialEq2eq.exit
 
-110:                                              ; preds = %104
-  %111 = getelementptr inbounds i8, ptr %0, i64 2
-  %112 = load i8, ptr %111, align 2, !range !29, !noundef !14
-  %113 = getelementptr inbounds i8, ptr %1, i64 2
-  %114 = load i8, ptr %113, align 2, !range !29, !noundef !14
-  %115 = icmp eq i8 %112, %114
-  br i1 %115, label %116, label %_RNvXsC_NtCs2al5CLA23zg_9rustc_ast5tokenNtB5_3LitNtNtCs9nhK3FOW46N_4core3cmp9PartialEq2eq.exit
+107:                                              ; preds = %101
+  %108 = getelementptr inbounds i8, ptr %0, i64 2
+  %109 = load i8, ptr %108, align 2, !range !29, !noundef !14
+  %110 = getelementptr inbounds i8, ptr %1, i64 2
+  %111 = load i8, ptr %110, align 2, !range !29, !noundef !14
+  %112 = icmp eq i8 %109, %111
+  br i1 %112, label %113, label %_RNvXsC_NtCs2al5CLA23zg_9rustc_ast5tokenNtB5_3LitNtNtCs9nhK3FOW46N_4core3cmp9PartialEq2eq.exit
 
-116:                                              ; preds = %110
-  %117 = getelementptr inbounds i8, ptr %0, i64 4
-  %118 = load i32, ptr %117, align 4, !noundef !14
-  %119 = getelementptr inbounds i8, ptr %1, i64 4
-  %120 = load i32, ptr %119, align 4, !noundef !14
-  %121 = icmp eq i32 %118, %120
+113:                                              ; preds = %107
+  %114 = getelementptr inbounds i8, ptr %0, i64 4
+  %115 = load i32, ptr %114, align 4, !noundef !14
+  %116 = getelementptr inbounds i8, ptr %1, i64 4
+  %117 = load i32, ptr %116, align 4, !noundef !14
+  %118 = icmp eq i32 %115, %117
   br label %_RNvXsC_NtCs2al5CLA23zg_9rustc_ast5tokenNtB5_3LitNtNtCs9nhK3FOW46N_4core3cmp9PartialEq2eq.exit
 }
 

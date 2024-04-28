@@ -31971,8 +31971,8 @@ if.then441:                                       ; preds = %if.end438
   %lnot = and i8 %241, 1
   %frombool444 = xor i8 %lnot, 1
   store i8 %frombool444, ptr %Collapsed, align 1
-  %tobool446 = trunc nuw i8 %frombool444 to i1
-  %spec.select250 = select i1 %tobool446, i8 %frombool1434, i8 1
+  %tobool446.not.not = icmp eq i8 %lnot, 0
+  %spec.select250 = select i1 %tobool446.not.not, i8 %frombool1434, i8 1
   %and.i453 = and i32 %223, 256
   %tobool.not.i454 = icmp eq i32 %and.i453, 0
   br i1 %tobool.not.i454, label %if.then.i455, label %if.end452

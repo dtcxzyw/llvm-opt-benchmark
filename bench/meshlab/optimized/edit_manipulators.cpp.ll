@@ -3981,7 +3981,7 @@ thread-pre-split172:                              ; preds = %46, %64
   %108 = load i32, ptr %107, align 4
   %.not52 = icmp eq i32 %108, 0
   %or.cond = select i1 %switch56, i1 %.not52, i1 false
-  br i1 %or.cond, label %319, label %109
+  br i1 %or.cond, label %318, label %109
 
 109:                                              ; preds = %104
   %110 = load i32, ptr %31, align 8
@@ -4651,30 +4651,30 @@ thread-pre-split144:                              ; preds = %_ZN7QStringD2Ev.exi
   %306 = and i8 %305, 1
   %307 = xor i8 %306, 1
   store i8 %307, ptr %304, align 8
-  %308 = trunc nuw i8 %307 to i1
-  %309 = getelementptr inbounds i8, ptr %0, i64 192
-  %310 = call noundef float @_ZNK7QString7toFloatEPb(ptr noundef nonnull align 8 dereferenceable(8) %309, ptr noundef null)
-  %311 = fneg float %310
-  %.sink.c = select i1 %308, float %311, float %310
-  %312 = getelementptr inbounds i8, ptr %0, i64 204
-  store float %.sink.c, ptr %312, align 4
-  br label %318
+  %.not176.not = icmp eq i8 %306, 0
+  %308 = getelementptr inbounds i8, ptr %0, i64 192
+  %309 = call noundef float @_ZNK7QString7toFloatEPb(ptr noundef nonnull align 8 dereferenceable(8) %308, ptr noundef null)
+  %310 = fneg float %309
+  %.sink.c = select i1 %.not176.not, float %310, float %309
+  %311 = getelementptr inbounds i8, ptr %0, i64 204
+  store float %.sink.c, ptr %311, align 4
+  br label %317
 
 ._crit_edge:                                      ; preds = %301
-  %313 = trunc i8 %305 to i1
-  %314 = getelementptr inbounds i8, ptr %0, i64 192
-  %315 = call noundef float @_ZNK7QString7toFloatEPb(ptr noundef nonnull align 8 dereferenceable(8) %314, ptr noundef null)
-  %316 = fneg float %315
-  %.sink = select i1 %313, float %316, float %315
-  %317 = getelementptr inbounds i8, ptr %0, i64 204
-  store float %.sink, ptr %317, align 4
-  br i1 %.10, label %318, label %319
+  %312 = trunc i8 %305 to i1
+  %313 = getelementptr inbounds i8, ptr %0, i64 192
+  %314 = call noundef float @_ZNK7QString7toFloatEPb(ptr noundef nonnull align 8 dereferenceable(8) %313, ptr noundef null)
+  %315 = fneg float %314
+  %.sink = select i1 %312, float %315, float %314
+  %316 = getelementptr inbounds i8, ptr %0, i64 204
+  store float %.sink, ptr %316, align 4
+  br i1 %.10, label %317, label %318
 
-318:                                              ; preds = %.critedge175, %._crit_edge
+317:                                              ; preds = %.critedge175, %._crit_edge
   call void @_ZN22EditManipulatorsPlugin12UpdateMatrixER9MeshModelP6GLAreabb(ptr noundef nonnull align 8 dereferenceable(304) %0, ptr noundef nonnull align 8 dereferenceable(1288) %2, ptr noundef %3, i1 noundef zeroext false, i1 noundef zeroext true)
-  br label %319
+  br label %318
 
-319:                                              ; preds = %104, %._crit_edge, %318
+318:                                              ; preds = %104, %._crit_edge, %317
   call void @_ZN7QWidget6updateEv(ptr noundef nonnull align 8 dereferenceable(48) %3)
   ret void
 }

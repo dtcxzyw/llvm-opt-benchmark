@@ -103,7 +103,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @anon.93860d8c1ba8e9822194161df2090b00.5.llvm.12924684182139021660 = external hidden unnamed_addr constant <{ ptr, [16 x i8] }>, align 8
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read, inaccessiblemem: write) uwtable
-define internal fastcc noundef i8 @_ZN3std2io5error5Error4kind17h86902a500789bccbE(ptr %.0.val) unnamed_addr #0 personality ptr @rust_eh_personality {
+define internal fastcc noundef range(i8 0, 41) i8 @_ZN3std2io5error5Error4kind17h86902a500789bccbE(ptr %.0.val) unnamed_addr #0 personality ptr @rust_eh_personality {
   %1 = icmp ne ptr %.0.val, null
   tail call void @llvm.assume(i1 %1)
   %2 = ptrtoint ptr %.0.val to i64
@@ -2002,7 +2002,7 @@ define void @_ZN9uu_mktemp6Params4from17h1b7886859fa0f651E(ptr noalias nocapture
 .loopexit.i.i.i:                                  ; preds = %131, %129, %127
   %.013.neg.i.i.i.i = phi i64 [ -1, %127 ], [ %..i.i.i.i, %131 ], [ -2, %129 ]
   %72 = add i64 %.013.neg.i.i.i.i, %76
-  %73 = trunc nuw i8 %77 to i1
+  %73 = icmp ne i8 %.in.i.i, 1
   %74 = icmp eq i64 %72, 0
   br i1 %74, label %"_ZN4core3str21_$LT$impl$u20$str$GT$5rfind17h6dfb6aa82238df0fE.exit.i", label %.lr.ph.i.i
 

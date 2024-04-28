@@ -2951,8 +2951,8 @@ invoke.cont:                                      ; preds = %entry
   store i8 %frombool, ptr %gtest_ar_, align 8
   %message_.i = getelementptr inbounds i8, ptr %gtest_ar_, i64 8
   store ptr null, ptr %message_.i, align 8
-  %tobool.i21 = trunc i8 %frombool to i1
-  br i1 %tobool.i21, label %_ZN7testing15AssertionResultD2Ev.exit, label %if.else
+  %tobool.i21.not.not = icmp eq i8 %lnot, 0
+  br i1 %tobool.i21.not.not, label %_ZN7testing15AssertionResultD2Ev.exit, label %if.else
 
 lpad:                                             ; preds = %entry
   %1 = landingpad { ptr, i32 }
@@ -6591,8 +6591,8 @@ _ZN7testing15AssertionResultD2Ev.exit49:          ; preds = %if.end41, %_ZNKSt14
   store i8 %frombool46, ptr %gtest_ar_43, align 8
   %message_.i51 = getelementptr inbounds i8, ptr %gtest_ar_43, i64 8
   store ptr null, ptr %message_.i51, align 8
-  %tobool.i52 = trunc i8 %frombool46 to i1
-  br i1 %tobool.i52, label %_ZN7testing15AssertionResultD2Ev.exit66, label %if.else49
+  %tobool.i52.not.not = icmp eq i8 %lnot45, 0
+  br i1 %tobool.i52.not.not, label %_ZN7testing15AssertionResultD2Ev.exit66, label %if.else49
 
 ehcleanup42:                                      ; preds = %_ZN7testing7MessageD2Ev.exit45, %lpad30
   %.pn4.pn = phi { ptr, i32 } [ %.pn4, %_ZN7testing7MessageD2Ev.exit45 ], [ %17, %lpad30 ]
@@ -18189,8 +18189,8 @@ for.body.i.i.i.i.i:                               ; preds = %if.then.i.i.i.i.i, 
   %frombool.i.i.i.i.i = xor i8 %lnot18.i.i.i.i.i, 1
   store i8 %frombool.i.i.i.i.i, ptr %gtest_ar_.i.i.i.i.i, align 8
   store ptr null, ptr %message_.i.i.i.i.i.i, align 8
-  %tobool.i14.i.i.i.i.i = trunc i8 %frombool.i.i.i.i.i to i1
-  br i1 %tobool.i14.i.i.i.i.i, label %for.inc.i.i.i.i.i, label %if.else.i.i.i.i.i
+  %tobool.i14.not.not.i.i.i.i.i = icmp eq i8 %lnot18.i.i.i.i.i, 0
+  br i1 %tobool.i14.not.not.i.i.i.i.i, label %for.inc.i.i.i.i.i, label %if.else.i.i.i.i.i
 
 lpad19.i.i.i.i.i:                                 ; preds = %if.end40.i.i.i.i.i
   %15 = landingpad { ptr, i32 }
@@ -18411,7 +18411,7 @@ entry:
 
 if.then:                                          ; preds = %entry
   %add = add nuw nsw i64 %sub, 1
-  %div.rhs.trunc = trunc i64 %add to i32
+  %div.rhs.trunc = trunc nuw i64 %add to i32
   %div22 = udiv i32 2147483645, %div.rhs.trunc
   %div.zext = zext nneg i32 %div22 to i64
   %mul = mul nuw nsw i64 %add, %div.zext

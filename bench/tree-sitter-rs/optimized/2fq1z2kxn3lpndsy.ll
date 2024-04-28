@@ -17728,11 +17728,10 @@ define hidden noundef zeroext i1 @_ZN4core4iter6traits8iterator8Iterator8try_fol
   %.val2.i.i.i = load i64, ptr %24, align 8, !alias.scope !4041, !noalias !4040, !noundef !4
   %26 = getelementptr inbounds i8, ptr %12, i64 32
   %.val3.i.i.i = load i8, ptr %26, align 8, !alias.scope !4041, !noalias !4040
-  %27 = icmp ne i64 %.val.i.i.i, %.val2.i.i.i
-  %28 = xor i8 %.val3.i.i.i, %.val1.i.i.i
-  %29 = trunc nuw i8 %28 to i1
-  %or.cond.not = select i1 %27, i1 true, i1 %29
-  br i1 %or.cond.not, label %"_ZN4core4iter6traits8iterator8Iterator3all5check28_$u7b$$u7b$closure$u7d$$u7d$17h2c0a4f1caef3afd8E.exit.thread", label %6
+  %27 = icmp eq i64 %.val.i.i.i, %.val2.i.i.i
+  %.not.i.i.i.i.not = icmp eq i8 %.val1.i.i.i, %.val3.i.i.i
+  %or.cond = select i1 %27, i1 %.not.i.i.i.i.not, i1 false
+  br i1 %or.cond, label %6, label %"_ZN4core4iter6traits8iterator8Iterator3all5check28_$u7b$$u7b$closure$u7d$$u7d$17h2c0a4f1caef3afd8E.exit.thread"
 
 "_ZN4core4iter6traits8iterator8Iterator3all5check28_$u7b$$u7b$closure$u7d$$u7d$17h2c0a4f1caef3afd8E.exit.thread": ; preds = %6, %22, %9, %"_ZN62_$LT$alloc..string..String$u20$as$u20$core..cmp..PartialEq$GT$2eq17hb3d5e3fda35a1e76E.llvm.11948190557966450743.exit.i.i.i"
   ret i1 %8
@@ -24765,11 +24764,10 @@ define hidden noundef zeroext i1 @"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice.
   %.val2.i.i.i.i = load i64, ptr %21, align 8, !alias.scope !5733, !noalias !5734, !noundef !4
   %23 = getelementptr inbounds i8, ptr %9, i64 32
   %.val3.i.i.i.i = load i8, ptr %23, align 8, !alias.scope !5733, !noalias !5734
-  %24 = icmp ne i64 %.val.i.i.i.i, %.val2.i.i.i.i
-  %25 = xor i8 %.val3.i.i.i.i, %.val1.i.i.i.i
-  %26 = trunc nuw i8 %25 to i1
-  %or.cond.not.i = select i1 %24, i1 true, i1 %26
-  br i1 %or.cond.not.i, label %"_ZN90_$LT$core..ops..control_flow..ControlFlow$LT$B$C$C$GT$$u20$as$u20$core..cmp..PartialEq$GT$2eq17h8700cd6c4ab2a691E.llvm.11948190557966450743.exit", label %.preheader
+  %24 = icmp eq i64 %.val.i.i.i.i, %.val2.i.i.i.i
+  %.not.i.i.i.i.not.i = icmp eq i8 %.val1.i.i.i.i, %.val3.i.i.i.i
+  %or.cond.i = select i1 %24, i1 %.not.i.i.i.i.not.i, i1 false
+  br i1 %or.cond.i, label %.preheader, label %"_ZN90_$LT$core..ops..control_flow..ControlFlow$LT$B$C$C$GT$$u20$as$u20$core..cmp..PartialEq$GT$2eq17h8700cd6c4ab2a691E.llvm.11948190557966450743.exit"
 
 "_ZN90_$LT$core..ops..control_flow..ControlFlow$LT$B$C$C$GT$$u20$as$u20$core..cmp..PartialEq$GT$2eq17h8700cd6c4ab2a691E.llvm.11948190557966450743.exit": ; preds = %.preheader, %19, %"_ZN62_$LT$alloc..string..String$u20$as$u20$core..cmp..PartialEq$GT$2eq17hb3d5e3fda35a1e76E.llvm.11948190557966450743.exit.i.i.i.i", %6, %4
   %.0 = phi i1 [ false, %4 ], [ %exitcond.not, %6 ], [ %exitcond.not, %"_ZN62_$LT$alloc..string..String$u20$as$u20$core..cmp..PartialEq$GT$2eq17hb3d5e3fda35a1e76E.llvm.11948190557966450743.exit.i.i.i.i" ], [ %exitcond.not, %19 ], [ %exitcond.not, %.preheader ]

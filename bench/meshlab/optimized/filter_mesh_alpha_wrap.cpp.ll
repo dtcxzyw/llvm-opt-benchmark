@@ -210870,64 +210870,48 @@ define linkonce_odr void @_ZNSt6detail7get_maxILj0ELj0ELN5boost14multiprecision1
 
 22:                                               ; preds = %11
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %0, ptr noundef nonnull align 16 dereferenceable(16) @_ZZNSt6detail7get_maxILj0ELj0ELN5boost14multiprecision16cpp_integer_typeE1ELNS2_18cpp_int_check_typeE0ESaIyELNS2_26expression_template_optionE1ELb0EEENS2_6numberINS2_8backends15cpp_int_backendIXT_EXT0_EXT1_EXT2_ET3_EEXT4_EEERKN4mpl_5bool_ILb0EEERKNSE_ILb1EEERKNSE_IXT5_EEEE3val, i64 16, i1 false)
-  br label %48
+  br label %44
 
 23:                                               ; preds = %11
   %spec.select.i = tail call i32 @llvm.umin.i32(i32 %15, i32 67108864)
-  %24 = trunc nuw i8 %20 to i1
-  %25 = select i1 %24, i32 2, i32 0
-  %26 = icmp ugt i32 %15, %25
-  br i1 %26, label %.noexc, label %38
+  %24 = shl nuw nsw i8 %not., 1
+  %25 = xor i8 %24, 2
+  %26 = zext nneg i8 %25 to i32
+  %27 = icmp ugt i32 %15, %26
+  br i1 %27, label %.noexc, label %34
 
 .noexc:                                           ; preds = %23
-  %27 = shl nuw nsw i32 %25, 2
-  %28 = tail call i32 @llvm.umax.i32(i32 %27, i32 %spec.select.i)
-  %29 = shl nuw nsw i32 %28, 3
-  %30 = zext nneg i32 %29 to i64
-  %31 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %30) #39
-  %32 = getelementptr inbounds i8, ptr %0, i64 8
-  br i1 %24, label %36, label %33
-
-33:                                               ; preds = %.noexc
-  %34 = load ptr, ptr %32, align 8
-  tail call void @_ZdlPv(ptr noundef %34) #36
-  %.pre29.pre = load i32, ptr getelementptr inbounds (%"class.boost::multiprecision::number.2456", ptr @_ZZNSt6detail7get_maxILj0ELj0ELN5boost14multiprecision16cpp_integer_typeE1ELNS2_18cpp_int_check_typeE0ESaIyELNS2_26expression_template_optionE1ELb0EEENS2_6numberINS2_8backends15cpp_int_backendIXT_EXT0_EXT1_EXT2_ET3_EEXT4_EEERKN4mpl_5bool_ILb0EEERKNSE_ILb1EEERKNSE_IXT5_EEEE3val, i64 0, i32 0, i32 0, i32 1), align 16
-  %35 = trunc nuw i8 %20 to i1
-  br label %37
-
-36:                                               ; preds = %.noexc
+  %28 = shl nuw nsw i32 %26, 2
+  %29 = tail call i32 @llvm.umax.i32(i32 %28, i32 %spec.select.i)
+  %30 = shl nuw nsw i32 %29, 3
+  %31 = zext nneg i32 %30 to i64
+  %32 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %31) #39
+  %33 = getelementptr inbounds i8, ptr %0, i64 8
   store i8 0, ptr %19, align 1
-  br label %37
-
-37:                                               ; preds = %36, %33
-  %.pre29 = phi i32 [ %15, %36 ], [ %.pre29.pre, %33 ]
-  %.pre31 = phi i1 [ false, %36 ], [ %35, %33 ]
-  store i32 %spec.select.i, ptr %12, align 16
-  store i32 %28, ptr %0, align 16
-  store ptr %31, ptr %32, align 8
+  store i32 %29, ptr %0, align 16
+  store ptr %32, ptr %33, align 8
   br label %_ZN5boost14multiprecision8backends12cpp_int_baseILj0ELj4294967295ELNS0_16cpp_integer_typeE1ELNS0_18cpp_int_check_typeE0ESaIyELb0EE6resizeEjj.exit
 
-38:                                               ; preds = %23
-  store i32 %spec.select.i, ptr %12, align 16
+34:                                               ; preds = %23
   %.phi.trans.insert = getelementptr inbounds i8, ptr %0, i64 8
   %.pre = load ptr, ptr %.phi.trans.insert, align 8
+  %35 = icmp eq i8 %not., 0
+  %36 = select i1 %35, ptr %0, ptr %.pre
   br label %_ZN5boost14multiprecision8backends12cpp_int_baseILj0ELj4294967295ELNS0_16cpp_integer_typeE1ELNS0_18cpp_int_check_typeE0ESaIyELb0EE6resizeEjj.exit
 
-_ZN5boost14multiprecision8backends12cpp_int_baseILj0ELj4294967295ELNS0_16cpp_integer_typeE1ELNS0_18cpp_int_check_typeE0ESaIyELb0EE6resizeEjj.exit: ; preds = %38, %37
-  %.pre-phi = phi i1 [ %24, %38 ], [ %.pre31, %37 ]
-  %39 = phi i32 [ %15, %38 ], [ %.pre29, %37 ]
-  %40 = phi ptr [ %.pre, %38 ], [ %31, %37 ]
-  %41 = select i1 %.pre-phi, ptr %0, ptr %40
-  %42 = load i8, ptr getelementptr inbounds (%"class.boost::multiprecision::number.2456", ptr @_ZZNSt6detail7get_maxILj0ELj0ELN5boost14multiprecision16cpp_integer_typeE1ELNS2_18cpp_int_check_typeE0ESaIyELNS2_26expression_template_optionE1ELb0EEENS2_6numberINS2_8backends15cpp_int_backendIXT_EXT0_EXT1_EXT2_ET3_EEXT4_EEERKN4mpl_5bool_ILb0EEERKNSE_ILb1EEERKNSE_IXT5_EEEE3val, i64 0, i32 0, i32 0, i32 3), align 1
-  %43 = trunc i8 %42 to i1
-  %44 = load ptr, ptr getelementptr inbounds (%"struct.boost::multiprecision::backends::cpp_int_base<0, 4294967295, boost::multiprecision::signed_magnitude, boost::multiprecision::unchecked, std::allocator<unsigned long long>>::limb_data", ptr @_ZZNSt6detail7get_maxILj0ELj0ELN5boost14multiprecision16cpp_integer_typeE1ELNS2_18cpp_int_check_typeE0ESaIyELNS2_26expression_template_optionE1ELb0EEENS2_6numberINS2_8backends15cpp_int_backendIXT_EXT0_EXT1_EXT2_ET3_EEXT4_EEERKN4mpl_5bool_ILb0EEERKNSE_ILb1EEERKNSE_IXT5_EEEE3val, i64 0, i32 1), align 8
-  %45 = select i1 %43, ptr @_ZZNSt6detail7get_maxILj0ELj0ELN5boost14multiprecision16cpp_integer_typeE1ELNS2_18cpp_int_check_typeE0ESaIyELNS2_26expression_template_optionE1ELb0EEENS2_6numberINS2_8backends15cpp_int_backendIXT_EXT0_EXT1_EXT2_ET3_EEXT4_EEERKN4mpl_5bool_ILb0EEERKNSE_ILb1EEERKNSE_IXT5_EEEE3val, ptr %44
-  %46 = zext i32 %39 to i64
-  %47 = shl nuw nsw i64 %46, 3
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 8 %41, ptr align 8 %45, i64 %47, i1 false)
-  br label %48
+_ZN5boost14multiprecision8backends12cpp_int_baseILj0ELj4294967295ELNS0_16cpp_integer_typeE1ELNS0_18cpp_int_check_typeE0ESaIyELb0EE6resizeEjj.exit: ; preds = %34, %.noexc
+  %37 = phi ptr [ %36, %34 ], [ %32, %.noexc ]
+  store i32 %spec.select.i, ptr %12, align 16
+  %38 = load i8, ptr getelementptr inbounds (%"class.boost::multiprecision::number.2456", ptr @_ZZNSt6detail7get_maxILj0ELj0ELN5boost14multiprecision16cpp_integer_typeE1ELNS2_18cpp_int_check_typeE0ESaIyELNS2_26expression_template_optionE1ELb0EEENS2_6numberINS2_8backends15cpp_int_backendIXT_EXT0_EXT1_EXT2_ET3_EEXT4_EEERKN4mpl_5bool_ILb0EEERKNSE_ILb1EEERKNSE_IXT5_EEEE3val, i64 0, i32 0, i32 0, i32 3), align 1
+  %39 = trunc i8 %38 to i1
+  %40 = load ptr, ptr getelementptr inbounds (%"struct.boost::multiprecision::backends::cpp_int_base<0, 4294967295, boost::multiprecision::signed_magnitude, boost::multiprecision::unchecked, std::allocator<unsigned long long>>::limb_data", ptr @_ZZNSt6detail7get_maxILj0ELj0ELN5boost14multiprecision16cpp_integer_typeE1ELNS2_18cpp_int_check_typeE0ESaIyELNS2_26expression_template_optionE1ELb0EEENS2_6numberINS2_8backends15cpp_int_backendIXT_EXT0_EXT1_EXT2_ET3_EEXT4_EEERKN4mpl_5bool_ILb0EEERKNSE_ILb1EEERKNSE_IXT5_EEEE3val, i64 0, i32 1), align 8
+  %41 = select i1 %39, ptr @_ZZNSt6detail7get_maxILj0ELj0ELN5boost14multiprecision16cpp_integer_typeE1ELNS2_18cpp_int_check_typeE0ESaIyELNS2_26expression_template_optionE1ELb0EEENS2_6numberINS2_8backends15cpp_int_backendIXT_EXT0_EXT1_EXT2_ET3_EEXT4_EEERKN4mpl_5bool_ILb0EEERKNSE_ILb1EEERKNSE_IXT5_EEEE3val, ptr %40
+  %42 = zext i32 %15 to i64
+  %43 = shl nuw nsw i64 %42, 3
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 8 %37, ptr align 8 %41, i64 %43, i1 false)
+  br label %44
 
-48:                                               ; preds = %_ZN5boost14multiprecision8backends12cpp_int_baseILj0ELj4294967295ELNS0_16cpp_integer_typeE1ELNS0_18cpp_int_check_typeE0ESaIyELb0EE6resizeEjj.exit, %22
+44:                                               ; preds = %_ZN5boost14multiprecision8backends12cpp_int_baseILj0ELj4294967295ELNS0_16cpp_integer_typeE1ELNS0_18cpp_int_check_typeE0ESaIyELb0EE6resizeEjj.exit, %22
   ret void
 }
 
@@ -210974,64 +210958,48 @@ define linkonce_odr void @_ZNSt6detail7get_minILj0ELj0ELN5boost14multiprecision1
 
 22:                                               ; preds = %11
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %0, ptr noundef nonnull align 16 dereferenceable(16) @_ZZNSt6detail7get_minILj0ELj0ELN5boost14multiprecision16cpp_integer_typeE1ELNS2_18cpp_int_check_typeE0ESaIyELNS2_26expression_template_optionE1ELb0EEENS2_6numberINS2_8backends15cpp_int_backendIXT_EXT0_EXT1_EXT2_ET3_EEXT4_EEERKN4mpl_5bool_ILb0EEERKNSE_ILb1EEERKNSE_IXT5_EEEE3val, i64 16, i1 false)
-  br label %48
+  br label %44
 
 23:                                               ; preds = %11
   %spec.select.i = tail call i32 @llvm.umin.i32(i32 %15, i32 67108864)
-  %24 = trunc nuw i8 %20 to i1
-  %25 = select i1 %24, i32 2, i32 0
-  %26 = icmp ugt i32 %15, %25
-  br i1 %26, label %.noexc, label %38
+  %24 = shl nuw nsw i8 %not., 1
+  %25 = xor i8 %24, 2
+  %26 = zext nneg i8 %25 to i32
+  %27 = icmp ugt i32 %15, %26
+  br i1 %27, label %.noexc, label %34
 
 .noexc:                                           ; preds = %23
-  %27 = shl nuw nsw i32 %25, 2
-  %28 = tail call i32 @llvm.umax.i32(i32 %27, i32 %spec.select.i)
-  %29 = shl nuw nsw i32 %28, 3
-  %30 = zext nneg i32 %29 to i64
-  %31 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %30) #39
-  %32 = getelementptr inbounds i8, ptr %0, i64 8
-  br i1 %24, label %36, label %33
-
-33:                                               ; preds = %.noexc
-  %34 = load ptr, ptr %32, align 8
-  tail call void @_ZdlPv(ptr noundef %34) #36
-  %.pre29.pre = load i32, ptr getelementptr inbounds (%"class.boost::multiprecision::number.2456", ptr @_ZZNSt6detail7get_minILj0ELj0ELN5boost14multiprecision16cpp_integer_typeE1ELNS2_18cpp_int_check_typeE0ESaIyELNS2_26expression_template_optionE1ELb0EEENS2_6numberINS2_8backends15cpp_int_backendIXT_EXT0_EXT1_EXT2_ET3_EEXT4_EEERKN4mpl_5bool_ILb0EEERKNSE_ILb1EEERKNSE_IXT5_EEEE3val, i64 0, i32 0, i32 0, i32 1), align 16
-  %35 = trunc nuw i8 %20 to i1
-  br label %37
-
-36:                                               ; preds = %.noexc
+  %28 = shl nuw nsw i32 %26, 2
+  %29 = tail call i32 @llvm.umax.i32(i32 %28, i32 %spec.select.i)
+  %30 = shl nuw nsw i32 %29, 3
+  %31 = zext nneg i32 %30 to i64
+  %32 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %31) #39
+  %33 = getelementptr inbounds i8, ptr %0, i64 8
   store i8 0, ptr %19, align 1
-  br label %37
-
-37:                                               ; preds = %36, %33
-  %.pre29 = phi i32 [ %15, %36 ], [ %.pre29.pre, %33 ]
-  %.pre31 = phi i1 [ false, %36 ], [ %35, %33 ]
-  store i32 %spec.select.i, ptr %12, align 16
-  store i32 %28, ptr %0, align 16
-  store ptr %31, ptr %32, align 8
+  store i32 %29, ptr %0, align 16
+  store ptr %32, ptr %33, align 8
   br label %_ZN5boost14multiprecision8backends12cpp_int_baseILj0ELj4294967295ELNS0_16cpp_integer_typeE1ELNS0_18cpp_int_check_typeE0ESaIyELb0EE6resizeEjj.exit
 
-38:                                               ; preds = %23
-  store i32 %spec.select.i, ptr %12, align 16
+34:                                               ; preds = %23
   %.phi.trans.insert = getelementptr inbounds i8, ptr %0, i64 8
   %.pre = load ptr, ptr %.phi.trans.insert, align 8
+  %35 = icmp eq i8 %not., 0
+  %36 = select i1 %35, ptr %0, ptr %.pre
   br label %_ZN5boost14multiprecision8backends12cpp_int_baseILj0ELj4294967295ELNS0_16cpp_integer_typeE1ELNS0_18cpp_int_check_typeE0ESaIyELb0EE6resizeEjj.exit
 
-_ZN5boost14multiprecision8backends12cpp_int_baseILj0ELj4294967295ELNS0_16cpp_integer_typeE1ELNS0_18cpp_int_check_typeE0ESaIyELb0EE6resizeEjj.exit: ; preds = %38, %37
-  %.pre-phi = phi i1 [ %24, %38 ], [ %.pre31, %37 ]
-  %39 = phi i32 [ %15, %38 ], [ %.pre29, %37 ]
-  %40 = phi ptr [ %.pre, %38 ], [ %31, %37 ]
-  %41 = select i1 %.pre-phi, ptr %0, ptr %40
-  %42 = load i8, ptr getelementptr inbounds (%"class.boost::multiprecision::number.2456", ptr @_ZZNSt6detail7get_minILj0ELj0ELN5boost14multiprecision16cpp_integer_typeE1ELNS2_18cpp_int_check_typeE0ESaIyELNS2_26expression_template_optionE1ELb0EEENS2_6numberINS2_8backends15cpp_int_backendIXT_EXT0_EXT1_EXT2_ET3_EEXT4_EEERKN4mpl_5bool_ILb0EEERKNSE_ILb1EEERKNSE_IXT5_EEEE3val, i64 0, i32 0, i32 0, i32 3), align 1
-  %43 = trunc i8 %42 to i1
-  %44 = load ptr, ptr getelementptr inbounds (%"struct.boost::multiprecision::backends::cpp_int_base<0, 4294967295, boost::multiprecision::signed_magnitude, boost::multiprecision::unchecked, std::allocator<unsigned long long>>::limb_data", ptr @_ZZNSt6detail7get_minILj0ELj0ELN5boost14multiprecision16cpp_integer_typeE1ELNS2_18cpp_int_check_typeE0ESaIyELNS2_26expression_template_optionE1ELb0EEENS2_6numberINS2_8backends15cpp_int_backendIXT_EXT0_EXT1_EXT2_ET3_EEXT4_EEERKN4mpl_5bool_ILb0EEERKNSE_ILb1EEERKNSE_IXT5_EEEE3val, i64 0, i32 1), align 8
-  %45 = select i1 %43, ptr @_ZZNSt6detail7get_minILj0ELj0ELN5boost14multiprecision16cpp_integer_typeE1ELNS2_18cpp_int_check_typeE0ESaIyELNS2_26expression_template_optionE1ELb0EEENS2_6numberINS2_8backends15cpp_int_backendIXT_EXT0_EXT1_EXT2_ET3_EEXT4_EEERKN4mpl_5bool_ILb0EEERKNSE_ILb1EEERKNSE_IXT5_EEEE3val, ptr %44
-  %46 = zext i32 %39 to i64
-  %47 = shl nuw nsw i64 %46, 3
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 8 %41, ptr align 8 %45, i64 %47, i1 false)
-  br label %48
+_ZN5boost14multiprecision8backends12cpp_int_baseILj0ELj4294967295ELNS0_16cpp_integer_typeE1ELNS0_18cpp_int_check_typeE0ESaIyELb0EE6resizeEjj.exit: ; preds = %34, %.noexc
+  %37 = phi ptr [ %36, %34 ], [ %32, %.noexc ]
+  store i32 %spec.select.i, ptr %12, align 16
+  %38 = load i8, ptr getelementptr inbounds (%"class.boost::multiprecision::number.2456", ptr @_ZZNSt6detail7get_minILj0ELj0ELN5boost14multiprecision16cpp_integer_typeE1ELNS2_18cpp_int_check_typeE0ESaIyELNS2_26expression_template_optionE1ELb0EEENS2_6numberINS2_8backends15cpp_int_backendIXT_EXT0_EXT1_EXT2_ET3_EEXT4_EEERKN4mpl_5bool_ILb0EEERKNSE_ILb1EEERKNSE_IXT5_EEEE3val, i64 0, i32 0, i32 0, i32 3), align 1
+  %39 = trunc i8 %38 to i1
+  %40 = load ptr, ptr getelementptr inbounds (%"struct.boost::multiprecision::backends::cpp_int_base<0, 4294967295, boost::multiprecision::signed_magnitude, boost::multiprecision::unchecked, std::allocator<unsigned long long>>::limb_data", ptr @_ZZNSt6detail7get_minILj0ELj0ELN5boost14multiprecision16cpp_integer_typeE1ELNS2_18cpp_int_check_typeE0ESaIyELNS2_26expression_template_optionE1ELb0EEENS2_6numberINS2_8backends15cpp_int_backendIXT_EXT0_EXT1_EXT2_ET3_EEXT4_EEERKN4mpl_5bool_ILb0EEERKNSE_ILb1EEERKNSE_IXT5_EEEE3val, i64 0, i32 1), align 8
+  %41 = select i1 %39, ptr @_ZZNSt6detail7get_minILj0ELj0ELN5boost14multiprecision16cpp_integer_typeE1ELNS2_18cpp_int_check_typeE0ESaIyELNS2_26expression_template_optionE1ELb0EEENS2_6numberINS2_8backends15cpp_int_backendIXT_EXT0_EXT1_EXT2_ET3_EEXT4_EEERKN4mpl_5bool_ILb0EEERKNSE_ILb1EEERKNSE_IXT5_EEEE3val, ptr %40
+  %42 = zext i32 %15 to i64
+  %43 = shl nuw nsw i64 %42, 3
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 8 %37, ptr align 8 %41, i64 %43, i1 false)
+  br label %44
 
-48:                                               ; preds = %_ZN5boost14multiprecision8backends12cpp_int_baseILj0ELj4294967295ELNS0_16cpp_integer_typeE1ELNS0_18cpp_int_check_typeE0ESaIyELb0EE6resizeEjj.exit, %22
+44:                                               ; preds = %_ZN5boost14multiprecision8backends12cpp_int_baseILj0ELj4294967295ELNS0_16cpp_integer_typeE1ELNS0_18cpp_int_check_typeE0ESaIyELb0EE6resizeEjj.exit, %22
   ret void
 }
 

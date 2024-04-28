@@ -15999,7 +15999,7 @@ invoke.cont381:                                   ; preds = %invoke.cont379
           to label %invoke.cont384 unwind label %lpad380
 
 invoke.cont384:                                   ; preds = %invoke.cont381
-  %120 = trunc nuw i8 %115 to i1
+  %120 = xor i1 %113, true
   %121 = load i8, ptr %known, align 1
   %tobool410 = trunc i8 %121 to i1
   %not.call27 = xor i1 %call27, true
