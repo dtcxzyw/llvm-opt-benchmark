@@ -33,13 +33,12 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str.2 = private unnamed_addr constant [64 x i8] c"This format allows you to easily copy the output to a csv file.\00", align 1
 @.str.3 = private unnamed_addr constant [35 x i8] c"%serror %d with wolfCrypt_Cleanup\0A\00", align 1
 @.str.4 = private unnamed_addr constant [22 x i8] c"%sBenchmark complete\0A\00", align 1
-@devId = internal thread_local global i32 -2, align 4
 @.str.5 = private unnamed_addr constant [19 x i8] c"InitRNG failed %d\0A\00", align 1
 @numBlocks = internal unnamed_addr global i32 5, align 4
-@bench_plain = internal thread_local global ptr null, align 8
+@bench_plain = internal thread_local unnamed_addr global ptr null, align 8
 @.str.6 = private unnamed_addr constant [4 x i8] c"RNG\00", align 1
-@bench_key = internal thread_local global ptr null, align 8
-@bench_iv = internal thread_local global ptr null, align 8
+@bench_key = internal thread_local unnamed_addr global ptr null, align 8
+@bench_iv = internal thread_local unnamed_addr global ptr null, align 8
 @.str.7 = private unnamed_addr constant [16 x i8] c"AES-128-CBC-enc\00", align 1
 @.str.8 = private unnamed_addr constant [16 x i8] c"AES-128-CBC-dec\00", align 1
 @.str.9 = private unnamed_addr constant [16 x i8] c"AES-192-CBC-enc\00", align 1
@@ -70,7 +69,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str.32 = private unnamed_addr constant [33 x i8] c"Poly1305SetKey failed, ret = %d\0A\00", align 1
 @.str.33 = private unnamed_addr constant [27 x i8] c"Poly1305Update failed: %d\0A\00", align 1
 @.str.34 = private unnamed_addr constant [9 x i8] c"POLY1305\00", align 1
-@bench_cipher = internal thread_local global ptr null, align 8
+@bench_cipher = internal thread_local unnamed_addr global ptr null, align 8
 @.str.35 = private unnamed_addr constant [7 x i8] c"CHACHA\00", align 1
 @.str.36 = private unnamed_addr constant [39 x i8] c"wc_ChaCha20Poly1305_Encrypt error: %d\0A\00", align 1
 @.str.37 = private unnamed_addr constant [9 x i8] c"CHA-POLY\00", align 1
@@ -146,9 +145,9 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str.93 = private unnamed_addr constant [5 x i8] c"-csv\00", align 1
 @.str.94 = private unnamed_addr constant [8 x i8] c"-blocks\00", align 1
 @.str.95 = private unnamed_addr constant [12 x i8] c"-hash_input\00", align 1
-@hash_input = internal thread_local global ptr null, align 8
+@hash_input = internal thread_local unnamed_addr global ptr null, align 8
 @.str.96 = private unnamed_addr constant [14 x i8] c"-cipher_input\00", align 1
-@cipher_input = internal thread_local global ptr null, align 8
+@cipher_input = internal thread_local unnamed_addr global ptr null, align 8
 @bench_cipher_opt = internal unnamed_addr constant [6 x %struct.bench_alg] [%struct.bench_alg { ptr @.str.210, i32 -1 }, %struct.bench_alg { ptr @.str.211, i32 1 }, %struct.bench_alg { ptr @.str.212, i32 2 }, %struct.bench_alg { ptr @.str.213, i32 4096 }, %struct.bench_alg { ptr @.str.214, i32 8192 }, %struct.bench_alg zeroinitializer], align 16
 @bench_cipher_algs = internal unnamed_addr global i32 0, align 4
 @bench_digest_opt = internal unnamed_addr constant [15 x %struct.bench_alg] [%struct.bench_alg { ptr @.str.215, i32 -1 }, %struct.bench_alg { ptr @.str.216, i32 1 }, %struct.bench_alg { ptr @.str.217, i32 2 }, %struct.bench_alg { ptr @.str.218, i32 4 }, %struct.bench_alg { ptr @.str.219, i32 240 }, %struct.bench_alg { ptr @.str.220, i32 16 }, %struct.bench_alg { ptr @.str.221, i32 32 }, %struct.bench_alg { ptr @.str.222, i32 64 }, %struct.bench_alg { ptr @.str.223, i32 128 }, %struct.bench_alg { ptr @.str.224, i32 3840 }, %struct.bench_alg { ptr @.str.225, i32 256 }, %struct.bench_alg { ptr @.str.226, i32 512 }, %struct.bench_alg { ptr @.str.227, i32 1024 }, %struct.bench_alg { ptr @.str.228, i32 2048 }, %struct.bench_alg zeroinitializer], align 16
@@ -167,7 +166,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @bench_key_buf = internal constant [64 x i8] c"\01#Eg\89\AB\CD\EF\FE\DE\BA\98vT2\10\89\AB\CD\EF\01#Eg\01#Eg\89\AB\CD\EF\F0\F1\F2\F3\F4\F5\F6\F7\F8\F9\FA\FB\FC\FD\FE\FF\00\01\02\03\04\05\06\07\08\09\0A\0B\0C\0D\0E\0F", align 16
 @bench_iv_buf = internal constant [24 x i8] c"\124Vx\90\AB\CD\EF\01\01\01\01\01\01\01\01\11!1AQaq\81", align 16
 @.str.101 = private unnamed_addr constant [20 x i8] c"\0A%sECC Benchmarks:\0A\00", align 1
-@total_cycles = internal thread_local global i64 0, align 8
+@total_cycles = internal thread_local unnamed_addr global i64 0, align 8
 @bench_result_words1 = internal unnamed_addr constant [2 x [4 x ptr]] [[4 x ptr] [ptr @.str.112, ptr @.str.113, ptr @.str.114, ptr null], [4 x ptr] [ptr @.str.115, ptr @.str.116, ptr @.str.117, ptr null]], align 16
 @bench_stats_sym_finish.sym_header_printed = internal unnamed_addr global i1 false, align 4
 @.str.104 = private unnamed_addr constant [32 x i8] c"Algorithm,MB/s,Cycles per byte,\00", align 1
@@ -325,7 +324,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @str.11 = private unnamed_addr constant [65 x i8] c"-cipher_input <file>   Input data to use for cipher benchmarking\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @benchmark_init() local_unnamed_addr #0 {
+define dso_local range(i32 0, 2) i32 @benchmark_init() local_unnamed_addr #0 {
 entry:
   %.b.i = load i1, ptr @benchmark_static_init.gBenchStaticInit, align 4
   br i1 %.b.i, label %benchmark_static_init.exit, label %if.then.i
@@ -404,15 +403,13 @@ entry:
   %key.i93.i = alloca [28 x i8], align 16
   %key.i92.i = alloca [20 x i8], align 16
   %key.i.i = alloca [16 x i8], align 16
-  %call = tail call i32 @benchmark_init(), !range !5
+  %call = tail call i32 @benchmark_init()
   %cmp.not = icmp eq i32 %call, 0
   br i1 %cmp.not, label %if.end, label %return
 
 if.end:                                           ; preds = %entry
   %0 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @gRng)
-  %1 = tail call align 4 ptr @llvm.threadlocal.address.p0(ptr align 4 @devId)
-  %2 = load i32, ptr %1, align 4
-  %call.i = tail call i32 @wc_InitRng_ex(ptr noundef nonnull %0, ptr noundef null, i32 noundef %2) #16
+  %call.i = tail call i32 @wc_InitRng_ex(ptr noundef nonnull %0, ptr noundef null, i32 noundef -2) #16
   %cmp.i = icmp slt i32 %call.i, 0
   br i1 %cmp.i, label %if.then.i, label %if.end.i
 
@@ -421,8 +418,8 @@ if.then.i:                                        ; preds = %if.end
   br label %benchmarks_do.exit
 
 if.end.i:                                         ; preds = %if.end
-  %3 = load i32, ptr @bench_size, align 4
-  %add.i = add nsw i32 %3, 16
+  %1 = load i32, ptr @bench_size, align 4
+  %add.i = add nsw i32 %1, 16
   %conv.i = sext i32 %add.i to i64
   %rem15.i = srem i32 %add.i, 16
   %tobool.not.i = icmp eq i32 %rem15.i, 0
@@ -433,13 +430,13 @@ if.end.i:                                         ; preds = %if.end
   %bench_buf_size.0.i = select i1 %tobool.not.i, i64 %conv.i, i64 %add4.i
   %add6.i = add nsw i64 %bench_buf_size.0.i, 16
   %call7.i = tail call ptr @wolfSSL_Malloc(i64 noundef %add6.i) #16
-  %4 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @bench_plain)
-  store ptr %call7.i, ptr %4, align 8
+  %2 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @bench_plain)
+  store ptr %call7.i, ptr %2, align 8
   %call9.i = tail call ptr @wolfSSL_Malloc(i64 noundef %add6.i) #16
-  %5 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @bench_cipher)
-  store ptr %call9.i, ptr %5, align 8
-  %6 = load ptr, ptr %4, align 8
-  %cmp10.i = icmp eq ptr %6, null
+  %3 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @bench_cipher)
+  store ptr %call9.i, ptr %3, align 8
+  %4 = load ptr, ptr %2, align 8
+  %cmp10.i = icmp eq ptr %4, null
   %cmp12.i = icmp eq ptr %call9.i, null
   %or.cond.i = select i1 %cmp10.i, i1 true, i1 %cmp12.i
   br i1 %or.cond.i, label %if.then14.i, label %if.end23.i
@@ -448,33 +445,33 @@ if.then14.i:                                      ; preds = %if.end.i
   br i1 %cmp10.i, label %if.end17.i, label %if.then16.i
 
 if.then16.i:                                      ; preds = %if.then14.i
-  tail call void @wolfSSL_Free(ptr noundef nonnull %6) #16
-  %.pre53.i = load ptr, ptr %5, align 8
+  tail call void @wolfSSL_Free(ptr noundef nonnull %4) #16
+  %.pre53.i = load ptr, ptr %3, align 8
   br label %if.end17.i
 
 if.end17.i:                                       ; preds = %if.then16.i, %if.then14.i
-  %7 = phi ptr [ %.pre53.i, %if.then16.i ], [ %call9.i, %if.then14.i ]
-  %tobool19.not.i = icmp eq ptr %7, null
+  %5 = phi ptr [ %.pre53.i, %if.then16.i ], [ %call9.i, %if.then14.i ]
+  %tobool19.not.i = icmp eq ptr %5, null
   br i1 %tobool19.not.i, label %if.end21.i, label %if.then20.i
 
 if.then20.i:                                      ; preds = %if.end17.i
-  tail call void @wolfSSL_Free(ptr noundef nonnull %7) #16
+  tail call void @wolfSSL_Free(ptr noundef nonnull %5) #16
   br label %if.end21.i
 
 if.end21.i:                                       ; preds = %if.then20.i, %if.end17.i
-  store ptr null, ptr %5, align 8
-  store ptr null, ptr %4, align 8
+  store ptr null, ptr %3, align 8
+  store ptr null, ptr %2, align 8
   %call22.i = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.99, ptr noundef nonnull @.str.108)
   br label %exit.i
 
 if.end23.i:                                       ; preds = %if.end.i
-  %8 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @hash_input)
-  %9 = load ptr, ptr %8, align 8
-  %tobool24.not.i = icmp eq ptr %9, null
+  %6 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @hash_input)
+  %7 = load ptr, ptr %6, align 8
+  %tobool24.not.i = icmp eq ptr %7, null
   br i1 %tobool24.not.i, label %if.else.i, label %if.then25.i
 
 if.then25.i:                                      ; preds = %if.end23.i
-  %call26.i = tail call noalias ptr @fopen(ptr noundef nonnull %9, ptr noundef nonnull @.str.100)
+  %call26.i = tail call noalias ptr @fopen(ptr noundef nonnull %7, ptr noundef nonnull @.str.100)
   %cmp27.i = icmp eq ptr %call26.i, null
   br i1 %cmp27.i, label %exit.i, label %if.end30.i
 
@@ -498,12 +495,12 @@ if.then41.i:                                      ; preds = %if.end36.i
   br label %exit.i
 
 if.end43.i:                                       ; preds = %if.end36.i
-  %10 = load ptr, ptr %4, align 8
-  %tobool45.not.i = icmp eq ptr %10, null
+  %8 = load ptr, ptr %2, align 8
+  %tobool45.not.i = icmp eq ptr %8, null
   br i1 %tobool45.not.i, label %if.end47.i, label %if.then46.i
 
 if.then46.i:                                      ; preds = %if.end43.i
-  tail call void @wolfSSL_Free(ptr noundef nonnull %10) #16
+  tail call void @wolfSSL_Free(ptr noundef nonnull %8) #16
   br label %if.end47.i
 
 if.end47.i:                                       ; preds = %if.then46.i, %if.end43.i
@@ -516,7 +513,7 @@ if.end47.i:                                       ; preds = %if.then46.i, %if.en
   store i32 %conv56.i, ptr @bench_size, align 4
   %add57.i = add i64 %bench_buf_size.1.i, 32
   %call58.i = tail call ptr @wolfSSL_Malloc(i64 noundef %add57.i) #16
-  store ptr %call58.i, ptr %4, align 8
+  store ptr %call58.i, ptr %2, align 8
   %cmp59.i = icmp eq ptr %call58.i, null
   br i1 %cmp59.i, label %if.then61.i, label %if.end63.i
 
@@ -533,18 +530,18 @@ if.end63.i:                                       ; preds = %if.end47.i
   br i1 %cmp67.not.i, label %if.end73.i, label %exit.i
 
 if.else.i:                                        ; preds = %if.end23.i
-  tail call void @llvm.memset.p0.i64(ptr nonnull align 1 %6, i8 0, i64 %bench_buf_size.0.i, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr nonnull align 1 %4, i8 0, i64 %bench_buf_size.0.i, i1 false)
   br label %if.end73.i
 
 if.end73.i:                                       ; preds = %if.else.i, %if.end63.i
   %bench_buf_size.2.i = phi i64 [ %bench_buf_size.0.i, %if.else.i ], [ %bench_buf_size.1.i, %if.end63.i ]
-  %11 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @cipher_input)
-  %12 = load ptr, ptr %11, align 8
-  %tobool74.not.i = icmp eq ptr %12, null
+  %9 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @cipher_input)
+  %10 = load ptr, ptr %9, align 8
+  %tobool74.not.i = icmp eq ptr %10, null
   br i1 %tobool74.not.i, label %if.else130.i, label %if.then75.i
 
 if.then75.i:                                      ; preds = %if.end73.i
-  %call78.i = tail call noalias ptr @fopen(ptr noundef nonnull %12, ptr noundef nonnull @.str.100)
+  %call78.i = tail call noalias ptr @fopen(ptr noundef nonnull %10, ptr noundef nonnull @.str.100)
   %cmp79.i = icmp eq ptr %call78.i, null
   br i1 %cmp79.i, label %exit.i, label %if.end82.i
 
@@ -568,12 +565,12 @@ if.then93.i:                                      ; preds = %if.end88.i
   br label %exit.i
 
 if.end95.i:                                       ; preds = %if.end88.i
-  %13 = load ptr, ptr %5, align 8
-  %tobool97.not.i = icmp eq ptr %13, null
+  %11 = load ptr, ptr %3, align 8
+  %tobool97.not.i = icmp eq ptr %11, null
   br i1 %tobool97.not.i, label %if.end99.i, label %if.then98.i
 
 if.then98.i:                                      ; preds = %if.end95.i
-  tail call void @wolfSSL_Free(ptr noundef nonnull %13) #16
+  tail call void @wolfSSL_Free(ptr noundef nonnull %11) #16
   br label %if.end99.i
 
 if.end99.i:                                       ; preds = %if.then98.i, %if.end95.i
@@ -582,9 +579,9 @@ if.end99.i:                                       ; preds = %if.then98.i, %if.en
   %reass.sub87.i = add i64 %call89.i, 16
   %add106.i = sub i64 %reass.sub87.i, %rem101.i
   %bench_buf_size.3.i = select i1 %tobool102.not.i, i64 %call89.i, i64 %add106.i
-  %14 = load i32, ptr @bench_size, align 4
+  %12 = load i32, ptr @bench_size, align 4
   %conv108.i = trunc i64 %bench_buf_size.3.i to i32
-  %cmp109.i = icmp ugt i32 %14, %conv108.i
+  %cmp109.i = icmp ugt i32 %12, %conv108.i
   br i1 %cmp109.i, label %if.then111.i, label %if.end113.i
 
 if.then111.i:                                     ; preds = %if.end99.i
@@ -594,7 +591,7 @@ if.then111.i:                                     ; preds = %if.end99.i
 if.end113.i:                                      ; preds = %if.then111.i, %if.end99.i
   %add114.i = add i64 %bench_buf_size.3.i, 32
   %call115.i = tail call ptr @wolfSSL_Malloc(i64 noundef %add114.i) #16
-  store ptr %call115.i, ptr %5, align 8
+  store ptr %call115.i, ptr %3, align 8
   %cmp116.i = icmp eq ptr %call115.i, null
   br i1 %cmp116.i, label %if.then118.i, label %if.end120.i
 
@@ -611,21 +608,21 @@ if.end120.i:                                      ; preds = %if.end113.i
   br i1 %cmp124.not.i, label %if.end131.i, label %exit.i
 
 if.else130.i:                                     ; preds = %if.end73.i
-  %15 = load ptr, ptr %5, align 8
-  tail call void @llvm.memset.p0.i64(ptr align 1 %15, i8 0, i64 %bench_buf_size.2.i, i1 false)
+  %13 = load ptr, ptr %3, align 8
+  tail call void @llvm.memset.p0.i64(ptr align 1 %13, i8 0, i64 %bench_buf_size.2.i, i1 false)
   br label %if.end131.i
 
 if.end131.i:                                      ; preds = %if.else130.i, %if.end120.i
-  %16 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @bench_key)
-  store ptr @bench_key_buf, ptr %16, align 8
-  %17 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @bench_iv)
-  store ptr @bench_iv_buf, ptr %17, align 8
+  %14 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @bench_key)
+  store ptr @bench_key_buf, ptr %14, align 8
+  %15 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @bench_iv)
+  store ptr @bench_iv_buf, ptr %15, align 8
   %.b85.i = load i1, ptr @bench_all, align 4
   br i1 %.b85.i, label %lor.lhs.false133.i, label %if.end136.i
 
 lor.lhs.false133.i:                               ; preds = %if.end131.i
-  %18 = load i32, ptr @bench_other_algs, align 4
-  %and.i = and i32 %18, 1
+  %16 = load i32, ptr @bench_other_algs, align 4
+  %and.i = and i32 %16, 1
   %tobool134.not.i = icmp eq i32 %and.i, 0
   br i1 %tobool134.not.i, label %lor.lhs.false138.i, label %if.end136.i
 
@@ -635,21 +632,21 @@ if.end136.i:                                      ; preds = %lor.lhs.false133.i,
   br i1 %.b84.pr.i, label %lor.lhs.false138.i, label %if.end142.i
 
 lor.lhs.false138.i:                               ; preds = %if.end136.i, %lor.lhs.false133.i
-  %19 = load i32, ptr @bench_cipher_algs, align 4
-  %and139.i = and i32 %19, 1
+  %17 = load i32, ptr @bench_cipher_algs, align 4
+  %and139.i = and i32 %17, 1
   %tobool140.not.i = icmp eq i32 %and139.i, 0
   br i1 %tobool140.not.i, label %lor.lhs.false144.i, label %if.end142.i
 
 if.end142.i:                                      ; preds = %lor.lhs.false138.i, %if.end136.i
-  %20 = load ptr, ptr %16, align 8
-  %21 = load ptr, ptr %17, align 8
-  tail call fastcc void @bench_aescbc_internal(i32 noundef 0, ptr noundef %20, i32 noundef 16, ptr noundef %21, ptr noundef nonnull @.str.7, ptr noundef nonnull @.str.8)
-  %22 = load ptr, ptr %16, align 8
-  %23 = load ptr, ptr %17, align 8
-  tail call fastcc void @bench_aescbc_internal(i32 noundef 0, ptr noundef %22, i32 noundef 24, ptr noundef %23, ptr noundef nonnull @.str.9, ptr noundef nonnull @.str.10)
-  %24 = load ptr, ptr %16, align 8
-  %25 = load ptr, ptr %17, align 8
-  tail call fastcc void @bench_aescbc_internal(i32 noundef 0, ptr noundef %24, i32 noundef 32, ptr noundef %25, ptr noundef nonnull @.str.11, ptr noundef nonnull @.str.12)
+  %18 = load ptr, ptr %14, align 8
+  %19 = load ptr, ptr %15, align 8
+  tail call fastcc void @bench_aescbc_internal(ptr noundef %18, i32 noundef 16, ptr noundef %19, ptr noundef nonnull @.str.7, ptr noundef nonnull @.str.8)
+  %20 = load ptr, ptr %14, align 8
+  %21 = load ptr, ptr %15, align 8
+  tail call fastcc void @bench_aescbc_internal(ptr noundef %20, i32 noundef 24, ptr noundef %21, ptr noundef nonnull @.str.9, ptr noundef nonnull @.str.10)
+  %22 = load ptr, ptr %14, align 8
+  %23 = load ptr, ptr %15, align 8
+  tail call fastcc void @bench_aescbc_internal(ptr noundef %22, i32 noundef 32, ptr noundef %23, ptr noundef nonnull @.str.11, ptr noundef nonnull @.str.12)
   %.b83.pre.i = load i1, ptr @bench_all, align 4
   br i1 %.b83.pre.i, label %if.end142.i.lor.lhs.false144.i_crit_edge, label %if.then147.i
 
@@ -658,19 +655,19 @@ if.end142.i.lor.lhs.false144.i_crit_edge:         ; preds = %if.end142.i
   br label %lor.lhs.false144.i
 
 lor.lhs.false144.i:                               ; preds = %if.end142.i.lor.lhs.false144.i_crit_edge, %lor.lhs.false138.i
-  %26 = phi i32 [ %.pre, %if.end142.i.lor.lhs.false144.i_crit_edge ], [ %19, %lor.lhs.false138.i ]
-  %and145.i = and i32 %26, 2
+  %24 = phi i32 [ %.pre, %if.end142.i.lor.lhs.false144.i_crit_edge ], [ %17, %lor.lhs.false138.i ]
+  %and145.i = and i32 %24, 2
   %tobool146.not.i = icmp eq i32 %and145.i, 0
   br i1 %tobool146.not.i, label %lor.lhs.false150.i, label %if.then147.i
 
 if.then147.i:                                     ; preds = %lor.lhs.false144.i, %if.end142.i
-  %27 = load i32, ptr @aesAuthAddSz, align 4
-  %28 = load i32, ptr @aes_aad_options, align 4
-  %tobool.not1.i.i = icmp eq i32 %28, 0
+  %25 = load i32, ptr @aesAuthAddSz, align 4
+  %26 = load i32, ptr @aes_aad_options, align 4
+  %tobool.not1.i.i = icmp eq i32 %26, 0
   br i1 %tobool.not1.i.i, label %if.end148.i, label %while.body.i.i
 
 while.body.i.i:                                   ; preds = %if.then147.i, %if.end13.i.i
-  %options.02.i.i = phi i32 [ %options.1.i.i, %if.end13.i.i ], [ %28, %if.then147.i ]
+  %options.02.i.i = phi i32 [ %options.1.i.i, %if.end13.i.i ], [ %26, %if.then147.i ]
   %and.i.i = and i32 %options.02.i.i, 1
   %tobool1.not.i.i = icmp eq i32 %and.i.i, 0
   br i1 %tobool1.not.i.i, label %if.else.i.i, label %if.end13.sink.split.i.i
@@ -686,54 +683,54 @@ if.else7.i.i:                                     ; preds = %if.else.i.i
   br i1 %tobool9.not.i.i, label %if.end13.i.i, label %if.then10.i.i
 
 if.then10.i.i:                                    ; preds = %if.else7.i.i
-  %29 = load i32, ptr @aes_aad_size, align 4
+  %27 = load i32, ptr @aes_aad_size, align 4
   br label %if.end13.sink.split.i.i
 
 if.end13.sink.split.i.i:                          ; preds = %if.then10.i.i, %if.else.i.i, %while.body.i.i
-  %.sink3.i.i = phi i32 [ %29, %if.then10.i.i ], [ 13, %while.body.i.i ], [ 0, %if.else.i.i ]
+  %.sink3.i.i = phi i32 [ %27, %if.then10.i.i ], [ 13, %while.body.i.i ], [ 0, %if.else.i.i ]
   %.sink.i.i = phi i32 [ -8, %if.then10.i.i ], [ -2, %while.body.i.i ], [ -4, %if.else.i.i ]
   store i32 %.sink3.i.i, ptr @aesAuthAddSz, align 4
   %and6.i.i = and i32 %.sink.i.i, %options.02.i.i
   br label %if.end13.i.i
 
 if.end13.i.i:                                     ; preds = %if.end13.sink.split.i.i, %if.else7.i.i
-  %30 = phi i32 [ %27, %if.else7.i.i ], [ %.sink3.i.i, %if.end13.sink.split.i.i ]
+  %28 = phi i32 [ %25, %if.else7.i.i ], [ %.sink3.i.i, %if.end13.sink.split.i.i ]
   %options.1.i.i = phi i32 [ %options.02.i.i, %if.else7.i.i ], [ %and6.i.i, %if.end13.sink.split.i.i ]
-  %31 = load ptr, ptr %16, align 8
-  %32 = load ptr, ptr %17, align 8
-  %cmp.i.i.i = icmp eq i32 %30, 0
-  %cmp1.i.i.i = icmp eq i32 %30, 13
+  %29 = load ptr, ptr %14, align 8
+  %30 = load ptr, ptr %15, align 8
+  %cmp.i.i.i = icmp eq i32 %28, 0
+  %cmp1.i.i.i = icmp eq i32 %28, 13
   %cond.i.i.i = select i1 %cmp1.i.i.i, ptr @.str.14, ptr @.str.15
   %cond2.i.i.i = select i1 %cmp.i.i.i, ptr @.str.13, ptr %cond.i.i.i
   %cond7.i.i.i = select i1 %cmp1.i.i.i, ptr @.str.17, ptr @.str.18
   %cond9.i.i.i = select i1 %cmp.i.i.i, ptr @.str.16, ptr %cond7.i.i.i
-  tail call fastcc void @bench_aesgcm_internal(i32 noundef 0, ptr noundef %31, i32 noundef 16, ptr noundef %32, ptr noundef nonnull %cond2.i.i.i, ptr noundef nonnull %cond9.i.i.i)
-  %33 = load ptr, ptr %16, align 8
-  %34 = load ptr, ptr %17, align 8
-  %35 = load i32, ptr @aesAuthAddSz, align 4
-  %cmp10.i.i.i = icmp eq i32 %35, 0
-  %cmp13.i.i.i = icmp eq i32 %35, 13
+  tail call fastcc void @bench_aesgcm_internal(ptr noundef %29, i32 noundef 16, ptr noundef %30, ptr noundef nonnull %cond2.i.i.i, ptr noundef nonnull %cond9.i.i.i)
+  %31 = load ptr, ptr %14, align 8
+  %32 = load ptr, ptr %15, align 8
+  %33 = load i32, ptr @aesAuthAddSz, align 4
+  %cmp10.i.i.i = icmp eq i32 %33, 0
+  %cmp13.i.i.i = icmp eq i32 %33, 13
   %cond14.i.i.i = select i1 %cmp13.i.i.i, ptr @.str.20, ptr @.str.21
   %cond16.i.i.i = select i1 %cmp10.i.i.i, ptr @.str.19, ptr %cond14.i.i.i
   %cond21.i.i.i = select i1 %cmp13.i.i.i, ptr @.str.23, ptr @.str.24
   %cond23.i.i.i = select i1 %cmp10.i.i.i, ptr @.str.22, ptr %cond21.i.i.i
-  tail call fastcc void @bench_aesgcm_internal(i32 noundef 0, ptr noundef %33, i32 noundef 24, ptr noundef %34, ptr noundef nonnull %cond16.i.i.i, ptr noundef nonnull %cond23.i.i.i)
-  %36 = load ptr, ptr %16, align 8
-  %37 = load ptr, ptr %17, align 8
-  %38 = load i32, ptr @aesAuthAddSz, align 4
-  %cmp24.i.i.i = icmp eq i32 %38, 0
-  %cmp27.i.i.i = icmp eq i32 %38, 13
+  tail call fastcc void @bench_aesgcm_internal(ptr noundef %31, i32 noundef 24, ptr noundef %32, ptr noundef nonnull %cond16.i.i.i, ptr noundef nonnull %cond23.i.i.i)
+  %34 = load ptr, ptr %14, align 8
+  %35 = load ptr, ptr %15, align 8
+  %36 = load i32, ptr @aesAuthAddSz, align 4
+  %cmp24.i.i.i = icmp eq i32 %36, 0
+  %cmp27.i.i.i = icmp eq i32 %36, 13
   %cond28.i.i.i = select i1 %cmp27.i.i.i, ptr @.str.26, ptr @.str.27
   %cond30.i.i.i = select i1 %cmp24.i.i.i, ptr @.str.25, ptr %cond28.i.i.i
   %cond35.i.i.i = select i1 %cmp27.i.i.i, ptr @.str.29, ptr @.str.30
   %cond37.i.i.i = select i1 %cmp24.i.i.i, ptr @.str.28, ptr %cond35.i.i.i
-  tail call fastcc void @bench_aesgcm_internal(i32 noundef 0, ptr noundef %36, i32 noundef 32, ptr noundef %37, ptr noundef nonnull %cond30.i.i.i, ptr noundef nonnull %cond37.i.i.i)
-  store i32 %27, ptr @aesAuthAddSz, align 4
+  tail call fastcc void @bench_aesgcm_internal(ptr noundef %34, i32 noundef 32, ptr noundef %35, ptr noundef nonnull %cond30.i.i.i, ptr noundef nonnull %cond37.i.i.i)
+  store i32 %25, ptr @aesAuthAddSz, align 4
   %tobool.not.i.i = icmp eq i32 %options.1.i.i, 0
-  br i1 %tobool.not.i.i, label %if.end148.i, label %while.body.i.i, !llvm.loop !6
+  br i1 %tobool.not.i.i, label %if.end148.i, label %while.body.i.i, !llvm.loop !5
 
 if.end148.i:                                      ; preds = %if.end13.i.i, %if.then147.i
-  tail call void @bench_gmac(i32 noundef 0)
+  tail call void @bench_gmac(i32 poison)
   %.b82.pr.i = load i1, ptr @bench_all, align 4
   br i1 %.b82.pr.i, label %if.end148.lor.lhs.false150_crit_edge.i, label %if.end154.i
 
@@ -742,8 +739,8 @@ if.end148.lor.lhs.false150_crit_edge.i:           ; preds = %if.end148.i
   br label %lor.lhs.false150.i
 
 lor.lhs.false150.i:                               ; preds = %if.end148.lor.lhs.false150_crit_edge.i, %lor.lhs.false144.i
-  %39 = phi i32 [ %.pre.i, %if.end148.lor.lhs.false150_crit_edge.i ], [ %26, %lor.lhs.false144.i ]
-  %and151.i = and i32 %39, 4096
+  %37 = phi i32 [ %.pre.i, %if.end148.lor.lhs.false150_crit_edge.i ], [ %24, %lor.lhs.false144.i ]
+  %and151.i = and i32 %37, 4096
   %tobool152.not.i = icmp eq i32 %and151.i, 0
   br i1 %tobool152.not.i, label %lor.lhs.false156.i, label %if.end154.i
 
@@ -757,8 +754,8 @@ if.end154.i.lor.lhs.false156.i_crit_edge:         ; preds = %if.end154.i
   br label %lor.lhs.false156.i
 
 lor.lhs.false156.i:                               ; preds = %if.end154.i.lor.lhs.false156.i_crit_edge, %lor.lhs.false150.i
-  %40 = phi i32 [ %.pre7, %if.end154.i.lor.lhs.false156.i_crit_edge ], [ %39, %lor.lhs.false150.i ]
-  %and157.i = and i32 %40, 8192
+  %38 = phi i32 [ %.pre7, %if.end154.i.lor.lhs.false156.i_crit_edge ], [ %37, %lor.lhs.false150.i ]
+  %and157.i = and i32 %38, 8192
   %tobool158.not.i = icmp eq i32 %and157.i, 0
   br i1 %tobool158.not.i, label %lor.lhs.false162.i, label %if.end160.i
 
@@ -768,13 +765,13 @@ if.end160.i:                                      ; preds = %lor.lhs.false156.i,
   br i1 %.b80.pr.i, label %lor.lhs.false162.i, label %if.end166.i
 
 lor.lhs.false162.i:                               ; preds = %if.end160.i, %lor.lhs.false156.i
-  %41 = load i32, ptr @bench_digest_algs, align 4
-  %and163.i = and i32 %41, 1
+  %39 = load i32, ptr @bench_digest_algs, align 4
+  %and163.i = and i32 %39, 1
   %tobool164.not.i = icmp eq i32 %and163.i, 0
   br i1 %tobool164.not.i, label %lor.lhs.false168.i, label %if.end166.i
 
 if.end166.i:                                      ; preds = %lor.lhs.false162.i, %if.end160.i
-  tail call void @bench_md5(i32 noundef 0)
+  tail call void @bench_md5(i32 poison)
   %.b79.pre.i = load i1, ptr @bench_all, align 4
   br i1 %.b79.pre.i, label %if.end166.i.lor.lhs.false168.i_crit_edge, label %if.end172.i
 
@@ -783,8 +780,8 @@ if.end166.i.lor.lhs.false168.i_crit_edge:         ; preds = %if.end166.i
   br label %lor.lhs.false168.i
 
 lor.lhs.false168.i:                               ; preds = %if.end166.i.lor.lhs.false168.i_crit_edge, %lor.lhs.false162.i
-  %42 = phi i32 [ %.pre8, %if.end166.i.lor.lhs.false168.i_crit_edge ], [ %41, %lor.lhs.false162.i ]
-  %and169.i = and i32 %42, 2
+  %40 = phi i32 [ %.pre8, %if.end166.i.lor.lhs.false168.i_crit_edge ], [ %39, %lor.lhs.false162.i ]
+  %and169.i = and i32 %40, 2
   %tobool170.not.i = icmp eq i32 %and169.i, 0
   br i1 %tobool170.not.i, label %lor.lhs.false174.i, label %if.end172.i
 
@@ -798,13 +795,13 @@ if.end172.lor.lhs.false174_crit_edge.i:           ; preds = %if.end172.i
   br label %lor.lhs.false174.i
 
 lor.lhs.false174.i:                               ; preds = %if.end172.lor.lhs.false174_crit_edge.i, %lor.lhs.false168.i
-  %43 = phi i32 [ %.pre22.i, %if.end172.lor.lhs.false174_crit_edge.i ], [ %42, %lor.lhs.false168.i ]
-  %and175.i = and i32 %43, 4
+  %41 = phi i32 [ %.pre22.i, %if.end172.lor.lhs.false174_crit_edge.i ], [ %40, %lor.lhs.false168.i ]
+  %and175.i = and i32 %41, 4
   %tobool176.not.i = icmp eq i32 %and175.i, 0
   br i1 %tobool176.not.i, label %lor.lhs.false180.i, label %if.end178.i
 
 if.end178.i:                                      ; preds = %lor.lhs.false174.i, %if.end172.i
-  tail call void @bench_sha(i32 noundef 0)
+  tail call void @bench_sha(i32 poison)
   %.b77.pre.i = load i1, ptr @bench_all, align 4
   br i1 %.b77.pre.i, label %if.end178.i.lor.lhs.false180.i_crit_edge, label %if.end184.i
 
@@ -813,13 +810,13 @@ if.end178.i.lor.lhs.false180.i_crit_edge:         ; preds = %if.end178.i
   br label %lor.lhs.false180.i
 
 lor.lhs.false180.i:                               ; preds = %if.end178.i.lor.lhs.false180.i_crit_edge, %lor.lhs.false174.i
-  %44 = phi i32 [ %.pre9, %if.end178.i.lor.lhs.false180.i_crit_edge ], [ %43, %lor.lhs.false174.i ]
-  %and181.i = and i32 %44, 16
+  %42 = phi i32 [ %.pre9, %if.end178.i.lor.lhs.false180.i_crit_edge ], [ %41, %lor.lhs.false174.i ]
+  %and181.i = and i32 %42, 16
   %tobool182.not.i = icmp eq i32 %and181.i, 0
   br i1 %tobool182.not.i, label %lor.lhs.false186.i, label %if.end184.i
 
 if.end184.i:                                      ; preds = %lor.lhs.false180.i, %if.end178.i
-  tail call void @bench_sha224(i32 noundef 0)
+  tail call void @bench_sha224(i32 poison)
   %.b76.pr.i = load i1, ptr @bench_all, align 4
   br i1 %.b76.pr.i, label %if.end184.lor.lhs.false186_crit_edge.i, label %if.end190.i
 
@@ -828,13 +825,13 @@ if.end184.lor.lhs.false186_crit_edge.i:           ; preds = %if.end184.i
   br label %lor.lhs.false186.i
 
 lor.lhs.false186.i:                               ; preds = %if.end184.lor.lhs.false186_crit_edge.i, %lor.lhs.false180.i
-  %45 = phi i32 [ %.pre25.i, %if.end184.lor.lhs.false186_crit_edge.i ], [ %44, %lor.lhs.false180.i ]
-  %and187.i = and i32 %45, 32
+  %43 = phi i32 [ %.pre25.i, %if.end184.lor.lhs.false186_crit_edge.i ], [ %42, %lor.lhs.false180.i ]
+  %and187.i = and i32 %43, 32
   %tobool188.not.i = icmp eq i32 %and187.i, 0
   br i1 %tobool188.not.i, label %lor.lhs.false192.i, label %if.end190.i
 
 if.end190.i:                                      ; preds = %lor.lhs.false186.i, %if.end184.i
-  tail call void @bench_sha256(i32 noundef 0)
+  tail call void @bench_sha256(i32 poison)
   %.b75.pre.i = load i1, ptr @bench_all, align 4
   br i1 %.b75.pre.i, label %if.end190.i.lor.lhs.false192.i_crit_edge, label %if.end196.i
 
@@ -843,13 +840,13 @@ if.end190.i.lor.lhs.false192.i_crit_edge:         ; preds = %if.end190.i
   br label %lor.lhs.false192.i
 
 lor.lhs.false192.i:                               ; preds = %if.end190.i.lor.lhs.false192.i_crit_edge, %lor.lhs.false186.i
-  %46 = phi i32 [ %.pre10, %if.end190.i.lor.lhs.false192.i_crit_edge ], [ %45, %lor.lhs.false186.i ]
-  %and193.i = and i32 %46, 64
+  %44 = phi i32 [ %.pre10, %if.end190.i.lor.lhs.false192.i_crit_edge ], [ %43, %lor.lhs.false186.i ]
+  %and193.i = and i32 %44, 64
   %tobool194.not.i = icmp eq i32 %and193.i, 0
   br i1 %tobool194.not.i, label %lor.lhs.false198.i, label %if.end196.i
 
 if.end196.i:                                      ; preds = %lor.lhs.false192.i, %if.end190.i
-  tail call void @bench_sha384(i32 noundef 0)
+  tail call void @bench_sha384(i32 poison)
   %.b74.pr.i = load i1, ptr @bench_all, align 4
   br i1 %.b74.pr.i, label %if.end196.lor.lhs.false198_crit_edge.i, label %if.end202.i
 
@@ -858,13 +855,13 @@ if.end196.lor.lhs.false198_crit_edge.i:           ; preds = %if.end196.i
   br label %lor.lhs.false198.i
 
 lor.lhs.false198.i:                               ; preds = %if.end196.lor.lhs.false198_crit_edge.i, %lor.lhs.false192.i
-  %47 = phi i32 [ %.pre28.i, %if.end196.lor.lhs.false198_crit_edge.i ], [ %46, %lor.lhs.false192.i ]
-  %and199.i = and i32 %47, 128
+  %45 = phi i32 [ %.pre28.i, %if.end196.lor.lhs.false198_crit_edge.i ], [ %44, %lor.lhs.false192.i ]
+  %and199.i = and i32 %45, 128
   %tobool200.not.i = icmp eq i32 %and199.i, 0
   br i1 %tobool200.not.i, label %lor.lhs.false216.i, label %if.end202.i
 
 if.end202.i:                                      ; preds = %lor.lhs.false198.i, %if.end196.i
-  tail call void @bench_sha512(i32 noundef 0)
+  tail call void @bench_sha512(i32 poison)
   %.b73.pre.i = load i1, ptr @bench_all, align 4
   br i1 %.b73.pre.i, label %lor.lhs.false204.i, label %if.end208.i
 
@@ -875,7 +872,7 @@ lor.lhs.false204.i:                               ; preds = %if.end202.i
   br i1 %tobool206.not.i, label %lor.lhs.false216.i, label %if.end208.i
 
 if.end208.i:                                      ; preds = %lor.lhs.false204.i, %if.end202.i
-  tail call void @bench_sha512_224(i32 noundef 0)
+  tail call void @bench_sha512_224(i32 poison)
   %.b72.pr.i = load i1, ptr @bench_all, align 4
   br i1 %.b72.pr.i, label %lor.lhs.false210.i, label %if.end214.i
 
@@ -886,7 +883,7 @@ lor.lhs.false210.i:                               ; preds = %if.end208.i
   br i1 %tobool212.not.i, label %lor.lhs.false216.i, label %if.end214.i
 
 if.end214.i:                                      ; preds = %lor.lhs.false210.i, %if.end208.i
-  tail call void @bench_sha512_256(i32 noundef 0)
+  tail call void @bench_sha512_256(i32 poison)
   %.b71.pre.i = load i1, ptr @bench_all, align 4
   br i1 %.b71.pre.i, label %if.end214.i.lor.lhs.false216.i_crit_edge, label %if.end220.i
 
@@ -895,13 +892,13 @@ if.end214.i.lor.lhs.false216.i_crit_edge:         ; preds = %if.end214.i
   br label %lor.lhs.false216.i
 
 lor.lhs.false216.i:                               ; preds = %lor.lhs.false198.i, %if.end214.i.lor.lhs.false216.i_crit_edge, %lor.lhs.false210.i, %lor.lhs.false204.i
-  %48 = phi i32 [ %.pre12, %if.end214.i.lor.lhs.false216.i_crit_edge ], [ %.pre31.i, %lor.lhs.false210.i ], [ %.pre11, %lor.lhs.false204.i ], [ %47, %lor.lhs.false198.i ]
-  %and217.i = and i32 %48, 256
+  %46 = phi i32 [ %.pre12, %if.end214.i.lor.lhs.false216.i_crit_edge ], [ %.pre31.i, %lor.lhs.false210.i ], [ %.pre11, %lor.lhs.false204.i ], [ %45, %lor.lhs.false198.i ]
+  %and217.i = and i32 %46, 256
   %tobool218.not.i = icmp eq i32 %and217.i, 0
   br i1 %tobool218.not.i, label %lor.lhs.false222.i, label %if.end220.i
 
 if.end220.i:                                      ; preds = %lor.lhs.false216.i, %if.end214.i
-  tail call void @bench_sha3_224(i32 noundef 0)
+  tail call void @bench_sha3_224(i32 poison)
   %.b70.pr.i = load i1, ptr @bench_all, align 4
   br i1 %.b70.pr.i, label %if.end220.lor.lhs.false222_crit_edge.i, label %if.end226.i
 
@@ -910,13 +907,13 @@ if.end220.lor.lhs.false222_crit_edge.i:           ; preds = %if.end220.i
   br label %lor.lhs.false222.i
 
 lor.lhs.false222.i:                               ; preds = %if.end220.lor.lhs.false222_crit_edge.i, %lor.lhs.false216.i
-  %49 = phi i32 [ %.pre34.i, %if.end220.lor.lhs.false222_crit_edge.i ], [ %48, %lor.lhs.false216.i ]
-  %and223.i = and i32 %49, 512
+  %47 = phi i32 [ %.pre34.i, %if.end220.lor.lhs.false222_crit_edge.i ], [ %46, %lor.lhs.false216.i ]
+  %and223.i = and i32 %47, 512
   %tobool224.not.i = icmp eq i32 %and223.i, 0
   br i1 %tobool224.not.i, label %lor.lhs.false228.i, label %if.end226.i
 
 if.end226.i:                                      ; preds = %lor.lhs.false222.i, %if.end220.i
-  tail call void @bench_sha3_256(i32 noundef 0)
+  tail call void @bench_sha3_256(i32 poison)
   %.b69.pre.i = load i1, ptr @bench_all, align 4
   br i1 %.b69.pre.i, label %if.end226.i.lor.lhs.false228.i_crit_edge, label %if.end232.i
 
@@ -925,13 +922,13 @@ if.end226.i.lor.lhs.false228.i_crit_edge:         ; preds = %if.end226.i
   br label %lor.lhs.false228.i
 
 lor.lhs.false228.i:                               ; preds = %if.end226.i.lor.lhs.false228.i_crit_edge, %lor.lhs.false222.i
-  %50 = phi i32 [ %.pre13, %if.end226.i.lor.lhs.false228.i_crit_edge ], [ %49, %lor.lhs.false222.i ]
-  %and229.i = and i32 %50, 1024
+  %48 = phi i32 [ %.pre13, %if.end226.i.lor.lhs.false228.i_crit_edge ], [ %47, %lor.lhs.false222.i ]
+  %and229.i = and i32 %48, 1024
   %tobool230.not.i = icmp eq i32 %and229.i, 0
   br i1 %tobool230.not.i, label %lor.lhs.false234.i, label %if.end232.i
 
 if.end232.i:                                      ; preds = %lor.lhs.false228.i, %if.end226.i
-  tail call void @bench_sha3_384(i32 noundef 0)
+  tail call void @bench_sha3_384(i32 poison)
   %.b68.pr.i = load i1, ptr @bench_all, align 4
   br i1 %.b68.pr.i, label %if.end232.lor.lhs.false234_crit_edge.i, label %if.end238.i
 
@@ -940,26 +937,26 @@ if.end232.lor.lhs.false234_crit_edge.i:           ; preds = %if.end232.i
   br label %lor.lhs.false234.i
 
 lor.lhs.false234.i:                               ; preds = %if.end232.lor.lhs.false234_crit_edge.i, %lor.lhs.false228.i
-  %51 = phi i32 [ %.pre37.i, %if.end232.lor.lhs.false234_crit_edge.i ], [ %50, %lor.lhs.false228.i ]
-  %and235.i = and i32 %51, 2048
+  %49 = phi i32 [ %.pre37.i, %if.end232.lor.lhs.false234_crit_edge.i ], [ %48, %lor.lhs.false228.i ]
+  %and235.i = and i32 %49, 2048
   %tobool236.not.i = icmp eq i32 %and235.i, 0
   br i1 %tobool236.not.i, label %lor.lhs.false240.i, label %if.end238.i
 
 if.end238.i:                                      ; preds = %lor.lhs.false234.i, %if.end232.i
-  tail call void @bench_sha3_512(i32 noundef 0)
+  tail call void @bench_sha3_512(i32 poison)
   %.b67.pre.i = load i1, ptr @bench_all, align 4
   br i1 %.b67.pre.i, label %lor.lhs.false240.i, label %if.end244.i
 
 lor.lhs.false240.i:                               ; preds = %if.end238.i, %lor.lhs.false234.i
-  %52 = load i32, ptr @bench_mac_algs, align 4
-  %and241.i = and i32 %52, 2
+  %50 = load i32, ptr @bench_mac_algs, align 4
+  %and241.i = and i32 %50, 2
   %tobool242.not.i = icmp eq i32 %and241.i, 0
   br i1 %tobool242.not.i, label %lor.lhs.false246.i, label %if.end244.i
 
 if.end244.i:                                      ; preds = %lor.lhs.false240.i, %if.end238.i
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %key.i.i)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %key.i.i, i8 11, i64 16, i1 false)
-  call fastcc void @bench_hmac(i32 noundef 0, i32 noundef 3, ptr noundef nonnull %key.i.i, i32 noundef 16, ptr noundef nonnull @.str.62)
+  call fastcc void @bench_hmac(i32 noundef 3, ptr noundef nonnull %key.i.i, i32 noundef 16, ptr noundef nonnull @.str.62)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %key.i.i)
   %.b66.pr.i = load i1, ptr @bench_all, align 4
   br i1 %.b66.pr.i, label %if.end244.lor.lhs.false246_crit_edge.i, label %if.end250.i
@@ -969,15 +966,15 @@ if.end244.lor.lhs.false246_crit_edge.i:           ; preds = %if.end244.i
   br label %lor.lhs.false246.i
 
 lor.lhs.false246.i:                               ; preds = %if.end244.lor.lhs.false246_crit_edge.i, %lor.lhs.false240.i
-  %53 = phi i32 [ %.pre40.i, %if.end244.lor.lhs.false246_crit_edge.i ], [ %52, %lor.lhs.false240.i ]
-  %and247.i = and i32 %53, 4
+  %51 = phi i32 [ %.pre40.i, %if.end244.lor.lhs.false246_crit_edge.i ], [ %50, %lor.lhs.false240.i ]
+  %and247.i = and i32 %51, 4
   %tobool248.not.i = icmp eq i32 %and247.i, 0
   br i1 %tobool248.not.i, label %lor.lhs.false252.i, label %if.end250.i
 
 if.end250.i:                                      ; preds = %lor.lhs.false246.i, %if.end244.i
   call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %key.i92.i)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(20) %key.i92.i, i8 11, i64 20, i1 false)
-  call fastcc void @bench_hmac(i32 noundef 0, i32 noundef 4, ptr noundef nonnull %key.i92.i, i32 noundef 20, ptr noundef nonnull @.str.63)
+  call fastcc void @bench_hmac(i32 noundef 4, ptr noundef nonnull %key.i92.i, i32 noundef 20, ptr noundef nonnull @.str.63)
   call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %key.i92.i)
   %.b65.pre.i = load i1, ptr @bench_all, align 4
   br i1 %.b65.pre.i, label %if.end250.i.lor.lhs.false252.i_crit_edge, label %if.end256.i
@@ -987,15 +984,15 @@ if.end250.i.lor.lhs.false252.i_crit_edge:         ; preds = %if.end250.i
   br label %lor.lhs.false252.i
 
 lor.lhs.false252.i:                               ; preds = %if.end250.i.lor.lhs.false252.i_crit_edge, %lor.lhs.false246.i
-  %54 = phi i32 [ %.pre14, %if.end250.i.lor.lhs.false252.i_crit_edge ], [ %53, %lor.lhs.false246.i ]
-  %and253.i = and i32 %54, 16
+  %52 = phi i32 [ %.pre14, %if.end250.i.lor.lhs.false252.i_crit_edge ], [ %51, %lor.lhs.false246.i ]
+  %and253.i = and i32 %52, 16
   %tobool254.not.i = icmp eq i32 %and253.i, 0
   br i1 %tobool254.not.i, label %lor.lhs.false258.i, label %if.end256.i
 
 if.end256.i:                                      ; preds = %lor.lhs.false252.i, %if.end250.i
   call void @llvm.lifetime.start.p0(i64 28, ptr nonnull %key.i93.i)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(28) %key.i93.i, i8 11, i64 28, i1 false)
-  call fastcc void @bench_hmac(i32 noundef 0, i32 noundef 5, ptr noundef nonnull %key.i93.i, i32 noundef 28, ptr noundef nonnull @.str.64)
+  call fastcc void @bench_hmac(i32 noundef 5, ptr noundef nonnull %key.i93.i, i32 noundef 28, ptr noundef nonnull @.str.64)
   call void @llvm.lifetime.end.p0(i64 28, ptr nonnull %key.i93.i)
   %.b64.pr.i = load i1, ptr @bench_all, align 4
   br i1 %.b64.pr.i, label %if.end256.lor.lhs.false258_crit_edge.i, label %if.end262.i
@@ -1005,15 +1002,15 @@ if.end256.lor.lhs.false258_crit_edge.i:           ; preds = %if.end256.i
   br label %lor.lhs.false258.i
 
 lor.lhs.false258.i:                               ; preds = %if.end256.lor.lhs.false258_crit_edge.i, %lor.lhs.false252.i
-  %55 = phi i32 [ %.pre43.i, %if.end256.lor.lhs.false258_crit_edge.i ], [ %54, %lor.lhs.false252.i ]
-  %and259.i = and i32 %55, 32
+  %53 = phi i32 [ %.pre43.i, %if.end256.lor.lhs.false258_crit_edge.i ], [ %52, %lor.lhs.false252.i ]
+  %and259.i = and i32 %53, 32
   %tobool260.not.i = icmp eq i32 %and259.i, 0
   br i1 %tobool260.not.i, label %lor.lhs.false264.i, label %if.end262.i
 
 if.end262.i:                                      ; preds = %lor.lhs.false258.i, %if.end256.i
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %key.i94.i)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %key.i94.i, i8 11, i64 32, i1 false)
-  call fastcc void @bench_hmac(i32 noundef 0, i32 noundef 6, ptr noundef nonnull %key.i94.i, i32 noundef 32, ptr noundef nonnull @.str.65)
+  call fastcc void @bench_hmac(i32 noundef 6, ptr noundef nonnull %key.i94.i, i32 noundef 32, ptr noundef nonnull @.str.65)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %key.i94.i)
   %.b63.pre.i = load i1, ptr @bench_all, align 4
   br i1 %.b63.pre.i, label %if.end262.i.lor.lhs.false264.i_crit_edge, label %if.end268.i
@@ -1023,15 +1020,15 @@ if.end262.i.lor.lhs.false264.i_crit_edge:         ; preds = %if.end262.i
   br label %lor.lhs.false264.i
 
 lor.lhs.false264.i:                               ; preds = %if.end262.i.lor.lhs.false264.i_crit_edge, %lor.lhs.false258.i
-  %56 = phi i32 [ %.pre15, %if.end262.i.lor.lhs.false264.i_crit_edge ], [ %55, %lor.lhs.false258.i ]
-  %and265.i = and i32 %56, 64
+  %54 = phi i32 [ %.pre15, %if.end262.i.lor.lhs.false264.i_crit_edge ], [ %53, %lor.lhs.false258.i ]
+  %and265.i = and i32 %54, 64
   %tobool266.not.i = icmp eq i32 %and265.i, 0
   br i1 %tobool266.not.i, label %lor.lhs.false270.i, label %if.end268.i
 
 if.end268.i:                                      ; preds = %lor.lhs.false264.i, %if.end262.i
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %key.i95.i)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(48) %key.i95.i, i8 11, i64 48, i1 false)
-  call fastcc void @bench_hmac(i32 noundef 0, i32 noundef 7, ptr noundef nonnull %key.i95.i, i32 noundef 48, ptr noundef nonnull @.str.66)
+  call fastcc void @bench_hmac(i32 noundef 7, ptr noundef nonnull %key.i95.i, i32 noundef 48, ptr noundef nonnull @.str.66)
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %key.i95.i)
   %.b62.pr.i = load i1, ptr @bench_all, align 4
   br i1 %.b62.pr.i, label %if.end268.lor.lhs.false270_crit_edge.i, label %if.end274.i
@@ -1041,15 +1038,15 @@ if.end268.lor.lhs.false270_crit_edge.i:           ; preds = %if.end268.i
   br label %lor.lhs.false270.i
 
 lor.lhs.false270.i:                               ; preds = %if.end268.lor.lhs.false270_crit_edge.i, %lor.lhs.false264.i
-  %57 = phi i32 [ %.pre46.i, %if.end268.lor.lhs.false270_crit_edge.i ], [ %56, %lor.lhs.false264.i ]
-  %and271.i = and i32 %57, 128
+  %55 = phi i32 [ %.pre46.i, %if.end268.lor.lhs.false270_crit_edge.i ], [ %54, %lor.lhs.false264.i ]
+  %and271.i = and i32 %55, 128
   %tobool272.not.i = icmp eq i32 %and271.i, 0
   br i1 %tobool272.not.i, label %lor.lhs.false276.i, label %if.end274.i
 
 if.end274.i:                                      ; preds = %lor.lhs.false270.i, %if.end268.i
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %key.i96.i)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(64) %key.i96.i, i8 11, i64 64, i1 false)
-  call fastcc void @bench_hmac(i32 noundef 0, i32 noundef 8, ptr noundef nonnull %key.i96.i, i32 noundef 64, ptr noundef nonnull @.str.67)
+  call fastcc void @bench_hmac(i32 noundef 8, ptr noundef nonnull %key.i96.i, i32 noundef 64, ptr noundef nonnull @.str.67)
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %key.i96.i)
   %.b61.pre.i = load i1, ptr @bench_all, align 4
   br i1 %.b61.pre.i, label %if.end274.i.lor.lhs.false276.i_crit_edge, label %if.end280.i
@@ -1059,8 +1056,8 @@ if.end274.i.lor.lhs.false276.i_crit_edge:         ; preds = %if.end274.i
   br label %lor.lhs.false276.i
 
 lor.lhs.false276.i:                               ; preds = %if.end274.i.lor.lhs.false276.i_crit_edge, %lor.lhs.false270.i
-  %58 = phi i32 [ %.pre16, %if.end274.i.lor.lhs.false276.i_crit_edge ], [ %57, %lor.lhs.false270.i ]
-  %and277.i = and i32 %58, 256
+  %56 = phi i32 [ %.pre16, %if.end274.i.lor.lhs.false276.i_crit_edge ], [ %55, %lor.lhs.false270.i ]
+  %and277.i = and i32 %56, 256
   %tobool278.not.i = icmp eq i32 %and277.i, 0
   br i1 %tobool278.not.i, label %lor.lhs.false282.i, label %if.end280.i
 
@@ -1070,13 +1067,13 @@ if.end280.i:                                      ; preds = %lor.lhs.false276.i,
   br i1 %.b60.pr.i, label %lor.lhs.false282.i, label %if.end286.i
 
 lor.lhs.false282.i:                               ; preds = %if.end280.i, %lor.lhs.false276.i
-  %59 = load i32, ptr @bench_asym_algs, align 4
-  %and283.i = and i32 %59, 2
+  %57 = load i32, ptr @bench_asym_algs, align 4
+  %and283.i = and i32 %57, 2
   %tobool284.not.i = icmp eq i32 %and283.i, 0
   br i1 %tobool284.not.i, label %lor.lhs.false288.i, label %if.end286.i
 
 if.end286.i:                                      ; preds = %lor.lhs.false282.i, %if.end280.i
-  call void @bench_rsa(i32 noundef 0)
+  call void @bench_rsa(i32 poison)
   %.b59.pre.i = load i1, ptr @bench_all, align 4
   br i1 %.b59.pre.i, label %if.end286.i.lor.lhs.false288.i_crit_edge, label %if.end292.i
 
@@ -1085,31 +1082,31 @@ if.end286.i.lor.lhs.false288.i_crit_edge:         ; preds = %if.end286.i
   br label %lor.lhs.false288.i
 
 lor.lhs.false288.i:                               ; preds = %if.end286.i.lor.lhs.false288.i_crit_edge, %lor.lhs.false282.i
-  %60 = phi i32 [ %.pre17, %if.end286.i.lor.lhs.false288.i_crit_edge ], [ %59, %lor.lhs.false282.i ]
-  %and289.i = and i32 %60, 16
+  %58 = phi i32 [ %.pre17, %if.end286.i.lor.lhs.false288.i_crit_edge ], [ %57, %lor.lhs.false282.i ]
+  %and289.i = and i32 %58, 16
   %tobool290.not.i = icmp eq i32 %and289.i, 0
   br i1 %tobool290.not.i, label %lor.lhs.false294.i, label %if.end292.i
 
 if.end292.i:                                      ; preds = %lor.lhs.false288.i, %if.end286.i
-  call void @bench_dh(i32 noundef 0)
+  call void @bench_dh(i32 poison)
   %.b58.pr.i = load i1, ptr @bench_all, align 4
   %.pre52.i = load i32, ptr @bench_asym_algs, align 4
   br i1 %.b58.pr.i, label %lor.lhs.false294.i, label %if.then306.i
 
 lor.lhs.false294.i:                               ; preds = %if.end292.i, %lor.lhs.false288.i
-  %61 = phi i32 [ %60, %lor.lhs.false288.i ], [ %.pre52.i, %if.end292.i ]
-  %62 = and i32 %61, 61440
-  %or.cond91.i = icmp eq i32 %62, 0
+  %59 = phi i32 [ %58, %lor.lhs.false288.i ], [ %.pre52.i, %if.end292.i ]
+  %60 = and i32 %59, 61440
+  %or.cond91.i = icmp eq i32 %60, 0
   br i1 %or.cond91.i, label %exit.i, label %if.then306.i
 
 if.then306.i:                                     ; preds = %lor.lhs.false294.i, %if.end292.i
-  %63 = phi i32 [ %61, %lor.lhs.false294.i ], [ %.pre52.i, %if.end292.i ]
-  %and307.i = and i32 %63, 32768
+  %61 = phi i32 [ %59, %lor.lhs.false294.i ], [ %.pre52.i, %if.end292.i ]
+  %and307.i = and i32 %61, 32768
   %tobool308.not.i = icmp eq i32 %and307.i, 0
   br i1 %tobool308.not.i, label %if.else327.i, label %if.then309.i
 
 if.then309.i:                                     ; preds = %if.then306.i
-  %or.i = or i32 %63, 28672
+  %or.i = or i32 %61, 28672
   store i32 %or.i, ptr @bench_asym_algs, align 4
   %.b57.i = load i1, ptr @csv_format, align 4
   br i1 %.b57.i, label %do.body.i.preheader, label %if.then312.i
@@ -1132,13 +1129,13 @@ if.then318.i:                                     ; preds = %do.body.i
   br i1 %.b2.i.i, label %lor.lhs.false.i.i, label %if.end.i.i
 
 lor.lhs.false.i.i:                                ; preds = %if.then318.i
-  %64 = load i32, ptr @bench_asym_algs, align 4
-  %and.i97.i = and i32 %64, 4096
+  %62 = load i32, ptr @bench_asym_algs, align 4
+  %and.i97.i = and i32 %62, 4096
   %tobool1.not.i98.i = icmp eq i32 %and.i97.i, 0
   br i1 %tobool1.not.i98.i, label %lor.lhs.false3.i.i, label %if.end.i.i
 
 if.end.i.i:                                       ; preds = %lor.lhs.false.i.i, %if.then318.i
-  call void @bench_eccMakeKey(i32 noundef 0, i32 noundef %curveId.0.i)
+  call void @bench_eccMakeKey(i32 poison, i32 noundef %curveId.0.i)
   %.b.pr.i.i = load i1, ptr @bench_all, align 4
   br i1 %.b.pr.i.i, label %if.end.lor.lhs.false3_crit_edge.i.i, label %if.then6.i.i
 
@@ -1147,13 +1144,13 @@ if.end.lor.lhs.false3_crit_edge.i.i:              ; preds = %if.end.i.i
   br label %lor.lhs.false3.i.i
 
 lor.lhs.false3.i.i:                               ; preds = %if.end.lor.lhs.false3_crit_edge.i.i, %lor.lhs.false.i.i
-  %65 = phi i32 [ %.pre.i.i, %if.end.lor.lhs.false3_crit_edge.i.i ], [ %64, %lor.lhs.false.i.i ]
-  %and4.i.i = and i32 %65, 8192
+  %63 = phi i32 [ %.pre.i.i, %if.end.lor.lhs.false3_crit_edge.i.i ], [ %62, %lor.lhs.false.i.i ]
+  %and4.i.i = and i32 %63, 8192
   %tobool5.not.i.i = icmp eq i32 %and4.i.i, 0
   br i1 %tobool5.not.i.i, label %bench_ecc_curve.exit.i, label %if.then6.i.i
 
 if.then6.i.i:                                     ; preds = %lor.lhs.false3.i.i, %if.end.i.i
-  call void @bench_ecc(i32 noundef 0, i32 noundef %curveId.0.i)
+  call void @bench_ecc(i32 poison, i32 noundef %curveId.0.i)
   br label %bench_ecc_curve.exit.i
 
 bench_ecc_curve.exit.i:                           ; preds = %if.then6.i.i, %lor.lhs.false3.i.i
@@ -1167,10 +1164,10 @@ if.then321.i:                                     ; preds = %bench_ecc_curve.exi
 if.end324.i:                                      ; preds = %if.then321.i, %bench_ecc_curve.exit.i, %do.body.i
   %inc.i = add nuw nsw i32 %curveId.0.i, 1
   %cmp325.not.i = icmp eq i32 %inc.i, 29
-  br i1 %cmp325.not.i, label %exit.i, label %do.body.i, !llvm.loop !8
+  br i1 %cmp325.not.i, label %exit.i, label %do.body.i, !llvm.loop !7
 
 if.else327.i:                                     ; preds = %if.then306.i
-  %and328.i = and i32 %63, 16777216
+  %and328.i = and i32 %61, 16777216
   %tobool329.not.i = icmp eq i32 %and328.i, 0
   br i1 %tobool329.not.i, label %if.else331.i, label %if.then330.i
 
@@ -1179,7 +1176,7 @@ if.then330.i:                                     ; preds = %if.else327.i
   br label %exit.i
 
 if.else331.i:                                     ; preds = %if.else327.i
-  %and332.i = and i32 %63, 33554432
+  %and332.i = and i32 %61, 33554432
   %tobool333.not.i = icmp eq i32 %and332.i, 0
   br i1 %tobool333.not.i, label %if.else335.i, label %if.then334.i
 
@@ -1188,7 +1185,7 @@ if.then334.i:                                     ; preds = %if.else331.i
   br label %exit.i
 
 if.else335.i:                                     ; preds = %if.else331.i
-  %and336.i = and i32 %63, 67108864
+  %and336.i = and i32 %61, 67108864
   %tobool337.not.i = icmp eq i32 %and336.i, 0
   br i1 %tobool337.not.i, label %if.else339.i, label %if.then338.i
 
@@ -1201,21 +1198,21 @@ if.else339.i:                                     ; preds = %if.else335.i
   br label %exit.i
 
 exit.i:                                           ; preds = %if.end324.i, %if.else339.i, %if.then338.i, %if.then334.i, %if.then330.i, %lor.lhs.false294.i, %if.end120.i, %if.then118.i, %if.then93.i, %if.then86.i, %if.then75.i, %if.end63.i, %if.then61.i, %if.then41.i, %if.then34.i, %if.then25.i, %if.end21.i
-  %66 = load ptr, ptr %4, align 8
-  %tobool346.not.i = icmp eq ptr %66, null
+  %64 = load ptr, ptr %2, align 8
+  %tobool346.not.i = icmp eq ptr %64, null
   br i1 %tobool346.not.i, label %if.end348.i, label %if.then347.i
 
 if.then347.i:                                     ; preds = %exit.i
-  call void @wolfSSL_Free(ptr noundef nonnull %66) #16
+  call void @wolfSSL_Free(ptr noundef nonnull %64) #16
   br label %if.end348.i
 
 if.end348.i:                                      ; preds = %if.then347.i, %exit.i
-  %67 = load ptr, ptr %5, align 8
-  %tobool350.not.i = icmp eq ptr %67, null
+  %65 = load ptr, ptr %3, align 8
+  %tobool350.not.i = icmp eq ptr %65, null
   br i1 %tobool350.not.i, label %if.end352.i, label %if.then351.i
 
 if.then351.i:                                     ; preds = %if.end348.i
-  call void @wolfSSL_Free(ptr noundef nonnull %67) #16
+  call void @wolfSSL_Free(ptr noundef nonnull %65) #16
   br label %if.end352.i
 
 if.end352.i:                                      ; preds = %if.then351.i, %if.end348.i
@@ -1243,9 +1240,7 @@ entry:
   %tv.i.i12 = alloca %struct.timespec, align 8
   %tv.i.i = alloca %struct.timespec, align 8
   %myrng = alloca %struct.WC_RNG, align 8
-  %0 = tail call align 4 ptr @llvm.threadlocal.address.p0(ptr align 4 @devId)
-  %1 = load i32, ptr %0, align 4
-  %call = call i32 @wc_InitRng_ex(ptr noundef nonnull %myrng, ptr noundef null, i32 noundef %1) #16
+  %call = call i32 @wc_InitRng_ex(ptr noundef nonnull %myrng, ptr noundef null, i32 noundef -2) #16
   %cmp = icmp slt i32 %call, 0
   br i1 %cmp, label %if.then, label %if.end
 
@@ -1261,81 +1256,81 @@ if.end:                                           ; preds = %entry
 
 if.then.i.i:                                      ; preds = %if.end
   %call1.i.i = tail call ptr @__errno_location() #17
-  %2 = load i32, ptr %call1.i.i, align 4
-  %call2.i.i = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.76, ptr noundef nonnull @.str.108, ptr noundef nonnull @.str.77, i32 noundef 12507, i32 noundef %2, ptr noundef nonnull @.str.78)
-  %3 = load ptr, ptr @stdout, align 8
-  %call3.i.i = call i32 @fflush(ptr noundef %3)
+  %0 = load i32, ptr %call1.i.i, align 4
+  %call2.i.i = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.76, ptr noundef nonnull @.str.108, ptr noundef nonnull @.str.77, i32 noundef 12507, i32 noundef %0, ptr noundef nonnull @.str.78)
+  %1 = load ptr, ptr @stdout, align 8
+  %call3.i.i = call i32 @fflush(ptr noundef %1)
   call void @_exit(i32 noundef 1) #18
   unreachable
 
 bench_stats_start.exit:                           ; preds = %if.end
-  %4 = load i64, ptr %tv.i.i, align 8
-  %conv.i.i = sitofp i64 %4 to double
+  %2 = load i64, ptr %tv.i.i, align 8
+  %conv.i.i = sitofp i64 %2 to double
   %tv_nsec.i.i = getelementptr inbounds i8, ptr %tv.i.i, i64 8
-  %5 = load i64, ptr %tv_nsec.i.i, align 8
-  %conv4.i.i = sitofp i64 %5 to double
+  %3 = load i64, ptr %tv_nsec.i.i, align 8
+  %conv4.i.i = sitofp i64 %3 to double
   %div.i.i = fdiv double %conv4.i.i, 1.000000e+09
   %add.i.i = fadd double %div.i.i, %conv.i.i
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %tv.i.i)
-  %6 = call { i32, i32 } asm sideeffect "cpuid\0A\09rdtsc", "={ax},={dx},{ax},~{ebx},~{ecx},~{dirflag},~{fpsr},~{flags}"(i32 0) #16, !srcloc !9
-  %asmresult.i.i = extractvalue { i32, i32 } %6, 0
-  %asmresult1.i.i = extractvalue { i32, i32 } %6, 1
+  %4 = call { i32, i32 } asm sideeffect "cpuid\0A\09rdtsc", "={ax},={dx},{ax},~{ebx},~{ecx},~{dirflag},~{fpsr},~{flags}"(i32 0) #16, !srcloc !8
+  %asmresult.i.i = extractvalue { i32, i32 } %4, 0
+  %asmresult1.i.i = extractvalue { i32, i32 } %4, 1
   %conv.i1.i = zext i32 %asmresult.i.i to i64
   %conv2.i.i = zext i32 %asmresult1.i.i to i64
   %shl.i.i = shl nuw i64 %conv2.i.i, 32
   %or.i.i = or disjoint i64 %shl.i.i, %conv.i1.i
-  %7 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @total_cycles)
-  store i64 %or.i.i, ptr %7, align 8
-  %8 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @bench_plain)
+  %5 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @total_cycles)
+  store i64 %or.i.i, ptr %5, align 8
+  %6 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @bench_plain)
   %tv_nsec.i.i16 = getelementptr inbounds i8, ptr %tv.i.i12, i64 8
   br label %do.body
 
 do.body:                                          ; preds = %bench_stats_check.exit, %bench_stats_start.exit
   %count.0 = phi i32 [ 0, %bench_stats_start.exit ], [ %add16, %bench_stats_check.exit ]
   %ret.0 = phi i32 [ %call, %bench_stats_start.exit ], [ %ret.1.lcssa, %bench_stats_check.exit ]
-  %9 = load i32, ptr @numBlocks, align 4
-  %cmp236 = icmp sgt i32 %9, 0
+  %7 = load i32, ptr @numBlocks, align 4
+  %cmp236 = icmp sgt i32 %7, 0
   br i1 %cmp236, label %for.body, label %for.end
 
 for.body:                                         ; preds = %do.body, %for.inc
-  %10 = phi i32 [ %14, %for.inc ], [ %9, %do.body ]
+  %8 = phi i32 [ %12, %for.inc ], [ %7, %do.body ]
   %i.038 = phi i32 [ %inc, %for.inc ], [ 0, %do.body ]
   %ret.137 = phi i32 [ %ret.2.lcssa, %for.inc ], [ %ret.0, %do.body ]
-  %11 = load i32, ptr @bench_size, align 4
-  %cmp333 = icmp sgt i32 %11, 0
+  %9 = load i32, ptr @bench_size, align 4
+  %cmp333 = icmp sgt i32 %9, 0
   br i1 %cmp333, label %while.body.preheader, label %for.inc
 
 while.body.preheader:                             ; preds = %for.body
-  %conv = zext nneg i32 %11 to i64
+  %conv = zext nneg i32 %9 to i64
   br label %while.body
 
 while.body:                                       ; preds = %while.body.preheader, %if.end14
   %remain.035 = phi i64 [ %sub, %if.end14 ], [ %conv, %while.body.preheader ]
   %pos.034 = phi i64 [ %add, %if.end14 ], [ 0, %while.body.preheader ]
-  %12 = call i64 @llvm.umin.i64(i64 %remain.035, i64 65536)
-  %13 = load ptr, ptr %8, align 8
-  %arrayidx = getelementptr inbounds i8, ptr %13, i64 %pos.034
-  %conv9 = trunc nuw nsw i64 %12 to i32
+  %10 = call i64 @llvm.umin.i64(i64 %remain.035, i64 65536)
+  %11 = load ptr, ptr %6, align 8
+  %arrayidx = getelementptr inbounds i8, ptr %11, i64 %pos.034
+  %conv9 = trunc nuw nsw i64 %10 to i32
   %call10 = call i32 @wc_RNG_GenerateBlock(ptr noundef nonnull %myrng, ptr noundef %arrayidx, i32 noundef %conv9) #16
   %cmp11 = icmp slt i32 %call10, 0
   br i1 %cmp11, label %exit_rng, label %if.end14
 
 if.end14:                                         ; preds = %while.body
-  %sub = sub nsw i64 %remain.035, %12
-  %add = add nuw nsw i64 %12, %pos.034
+  %sub = sub nsw i64 %remain.035, %10
+  %add = add nuw nsw i64 %10, %pos.034
   %cmp3 = icmp sgt i64 %sub, 0
-  br i1 %cmp3, label %while.body, label %for.inc.loopexit, !llvm.loop !10
+  br i1 %cmp3, label %while.body, label %for.inc.loopexit, !llvm.loop !9
 
 for.inc.loopexit:                                 ; preds = %if.end14
   %.pre = load i32, ptr @numBlocks, align 4
   br label %for.inc
 
 for.inc:                                          ; preds = %for.inc.loopexit, %for.body
-  %14 = phi i32 [ %10, %for.body ], [ %.pre, %for.inc.loopexit ]
+  %12 = phi i32 [ %8, %for.body ], [ %.pre, %for.inc.loopexit ]
   %ret.2.lcssa = phi i32 [ %ret.137, %for.body ], [ %call10, %for.inc.loopexit ]
   %inc = add nuw nsw i32 %i.038, 1
-  %cmp2 = icmp slt i32 %inc, %14
-  br i1 %cmp2, label %for.body, label %for.end, !llvm.loop !11
+  %cmp2 = icmp slt i32 %inc, %12
+  br i1 %cmp2, label %for.body, label %for.end, !llvm.loop !10
 
 for.end:                                          ; preds = %for.inc, %do.body
   %ret.1.lcssa = phi i32 [ %ret.0, %do.body ], [ %ret.2.lcssa, %for.inc ]
@@ -1347,31 +1342,31 @@ for.end:                                          ; preds = %for.inc, %do.body
 
 if.then.i.i20:                                    ; preds = %for.end
   %call1.i.i21 = tail call ptr @__errno_location() #17
-  %15 = load i32, ptr %call1.i.i21, align 4
-  %call2.i.i22 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.76, ptr noundef nonnull @.str.108, ptr noundef nonnull @.str.77, i32 noundef 12507, i32 noundef %15, ptr noundef nonnull @.str.78)
-  %16 = load ptr, ptr @stdout, align 8
-  %call3.i.i23 = call i32 @fflush(ptr noundef %16)
+  %13 = load i32, ptr %call1.i.i21, align 4
+  %call2.i.i22 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.76, ptr noundef nonnull @.str.108, ptr noundef nonnull @.str.77, i32 noundef 12507, i32 noundef %13, ptr noundef nonnull @.str.78)
+  %14 = load ptr, ptr @stdout, align 8
+  %call3.i.i23 = call i32 @fflush(ptr noundef %14)
   call void @_exit(i32 noundef 1) #18
   unreachable
 
 bench_stats_check.exit:                           ; preds = %for.end
   %add16 = add nuw nsw i32 %i.0.lcssa, %count.0
-  %17 = load i64, ptr %tv.i.i12, align 8
-  %conv.i.i15 = sitofp i64 %17 to double
-  %18 = load i64, ptr %tv_nsec.i.i16, align 8
-  %conv4.i.i17 = sitofp i64 %18 to double
+  %15 = load i64, ptr %tv.i.i12, align 8
+  %conv.i.i15 = sitofp i64 %15 to double
+  %16 = load i64, ptr %tv_nsec.i.i16, align 8
+  %conv4.i.i17 = sitofp i64 %16 to double
   %div.i.i18 = fdiv double %conv4.i.i17, 1.000000e+09
   %add.i.i19 = fadd double %div.i.i18, %conv.i.i15
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %tv.i.i12)
   %sub.i = fsub double %add.i.i19, %add.i.i
   %cmp.i = fcmp uge double %sub.i, 1.000000e+00
-  br i1 %cmp.i, label %exit_rng, label %do.body, !llvm.loop !12
+  br i1 %cmp.i, label %exit_rng, label %do.body, !llvm.loop !11
 
 exit_rng:                                         ; preds = %bench_stats_check.exit, %while.body
   %count.1 = phi i32 [ %count.0, %while.body ], [ %add16, %bench_stats_check.exit ]
   %ret.3 = phi i32 [ %call10, %while.body ], [ %ret.1.lcssa, %bench_stats_check.exit ]
-  %19 = load i32, ptr @bench_size, align 4
-  call fastcc void @bench_stats_sym_finish(ptr noundef nonnull @.str.6, i32 noundef %count.1, i32 noundef %19, double noundef %add.i.i, i32 noundef %ret.3)
+  %17 = load i32, ptr @bench_size, align 4
+  call fastcc void @bench_stats_sym_finish(ptr noundef nonnull @.str.6, i32 noundef %count.1, i32 noundef %17, double noundef %add.i.i, i32 noundef %ret.3)
   %call19 = call i32 @wc_FreeRng(ptr noundef nonnull %myrng) #16
   br label %return
 
@@ -1413,7 +1408,7 @@ current_time.exit:                                ; preds = %entry
   %add.i = fadd double %div.i, %conv.i
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %tv.i)
   store double %add.i, ptr %start, align 8
-  %4 = call { i32, i32 } asm sideeffect "cpuid\0A\09rdtsc", "={ax},={dx},{ax},~{ebx},~{ecx},~{dirflag},~{fpsr},~{flags}"(i32 0) #16, !srcloc !9
+  %4 = call { i32, i32 } asm sideeffect "cpuid\0A\09rdtsc", "={ax},={dx},{ax},~{ebx},~{ecx},~{dirflag},~{fpsr},~{flags}"(i32 0) #16, !srcloc !8
   %asmresult.i = extractvalue { i32, i32 } %4, 0
   %asmresult1.i = extractvalue { i32, i32 } %4, 1
   %conv.i1 = zext i32 %asmresult.i to i64
@@ -1428,7 +1423,7 @@ current_time.exit:                                ; preds = %entry
 declare i32 @wc_RNG_GenerateBlock(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @bench_stats_check(double noundef %start) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @bench_stats_check(double noundef %start) unnamed_addr #0 {
 entry:
   %tv.i = alloca %struct.timespec, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %tv.i)
@@ -1469,7 +1464,7 @@ entry:
   %idxprom = sext i32 %0 to i64
   %arrayidx = getelementptr inbounds [2 x [4 x ptr]], ptr @bench_result_words1, i64 0, i64 %idxprom
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(150) %msg, i8 0, i64 150, i1 false)
-  %1 = tail call { i32, i32 } asm sideeffect "cpuid\0A\09rdtsc", "={ax},={dx},{ax},~{ebx},~{ecx},~{dirflag},~{fpsr},~{flags}"(i32 0) #16, !srcloc !9
+  %1 = tail call { i32, i32 } asm sideeffect "cpuid\0A\09rdtsc", "={ax},={dx},{ax},~{ebx},~{ecx},~{dirflag},~{fpsr},~{flags}"(i32 0) #16, !srcloc !8
   %asmresult.i = extractvalue { i32, i32 } %1, 0
   %asmresult1.i = extractvalue { i32, i32 } %1, 1
   %conv.i = zext i32 %asmresult.i to i64
@@ -1639,18 +1634,18 @@ entry:
   %1 = load ptr, ptr %0, align 8
   %2 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @bench_iv)
   %3 = load ptr, ptr %2, align 8
-  tail call fastcc void @bench_aescbc_internal(i32 noundef %useDeviceID, ptr noundef %1, i32 noundef 16, ptr noundef %3, ptr noundef nonnull @.str.7, ptr noundef nonnull @.str.8)
+  tail call fastcc void @bench_aescbc_internal(ptr noundef %1, i32 noundef 16, ptr noundef %3, ptr noundef nonnull @.str.7, ptr noundef nonnull @.str.8)
   %4 = load ptr, ptr %0, align 8
   %5 = load ptr, ptr %2, align 8
-  tail call fastcc void @bench_aescbc_internal(i32 noundef %useDeviceID, ptr noundef %4, i32 noundef 24, ptr noundef %5, ptr noundef nonnull @.str.9, ptr noundef nonnull @.str.10)
+  tail call fastcc void @bench_aescbc_internal(ptr noundef %4, i32 noundef 24, ptr noundef %5, ptr noundef nonnull @.str.9, ptr noundef nonnull @.str.10)
   %6 = load ptr, ptr %0, align 8
   %7 = load ptr, ptr %2, align 8
-  tail call fastcc void @bench_aescbc_internal(i32 noundef %useDeviceID, ptr noundef %6, i32 noundef 32, ptr noundef %7, ptr noundef nonnull @.str.11, ptr noundef nonnull @.str.12)
+  tail call fastcc void @bench_aescbc_internal(ptr noundef %6, i32 noundef 32, ptr noundef %7, ptr noundef nonnull @.str.11, ptr noundef nonnull @.str.12)
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @bench_aescbc_internal(i32 noundef %useDeviceID, ptr noundef %key, i32 noundef %keySz, ptr noundef %iv, ptr noundef %encLabel, ptr noundef %decLabel) unnamed_addr #0 {
+define internal fastcc void @bench_aescbc_internal(ptr noundef %key, i32 noundef %keySz, ptr noundef %iv, ptr noundef %encLabel, ptr noundef %decLabel) unnamed_addr #0 {
 entry:
   %tv.i.i60 = alloca %struct.timespec, align 8
   %tv.i.i36 = alloca %struct.timespec, align 8
@@ -1658,11 +1653,7 @@ entry:
   %tv.i.i = alloca %struct.timespec, align 8
   %enc = alloca [1 x %struct.Aes], align 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(848) %enc, i8 0, i64 848, i1 false)
-  %tobool.not = icmp eq i32 %useDeviceID, 0
-  %0 = tail call align 4 ptr @llvm.threadlocal.address.p0(ptr align 4 @devId)
-  %1 = load i32, ptr %0, align 4
-  %cond = select i1 %tobool.not, i32 -2, i32 %1
-  %call = call i32 @wc_AesInit(ptr noundef nonnull %enc, ptr noundef null, i32 noundef %cond) #16
+  %call = call i32 @wc_AesInit(ptr noundef nonnull %enc, ptr noundef null, i32 noundef -2) #16
   %cmp1.not = icmp eq i32 %call, 0
   br i1 %cmp1.not, label %if.end, label %if.then
 
@@ -1687,61 +1678,61 @@ for.end:                                          ; preds = %if.end
 
 if.then.i.i:                                      ; preds = %for.end
   %call1.i.i = tail call ptr @__errno_location() #17
-  %2 = load i32, ptr %call1.i.i, align 4
-  %call2.i.i = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.76, ptr noundef nonnull @.str.108, ptr noundef nonnull @.str.77, i32 noundef 12507, i32 noundef %2, ptr noundef nonnull @.str.78)
-  %3 = load ptr, ptr @stdout, align 8
-  %call3.i.i = call i32 @fflush(ptr noundef %3)
+  %0 = load i32, ptr %call1.i.i, align 4
+  %call2.i.i = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.76, ptr noundef nonnull @.str.108, ptr noundef nonnull @.str.77, i32 noundef 12507, i32 noundef %0, ptr noundef nonnull @.str.78)
+  %1 = load ptr, ptr @stdout, align 8
+  %call3.i.i = call i32 @fflush(ptr noundef %1)
   call void @_exit(i32 noundef 1) #18
   unreachable
 
 bench_stats_start.exit:                           ; preds = %for.end
-  %4 = load i64, ptr %tv.i.i, align 8
-  %conv.i.i = sitofp i64 %4 to double
+  %2 = load i64, ptr %tv.i.i, align 8
+  %conv.i.i = sitofp i64 %2 to double
   %tv_nsec.i.i = getelementptr inbounds i8, ptr %tv.i.i, i64 8
-  %5 = load i64, ptr %tv_nsec.i.i, align 8
-  %conv4.i.i = sitofp i64 %5 to double
+  %3 = load i64, ptr %tv_nsec.i.i, align 8
+  %conv4.i.i = sitofp i64 %3 to double
   %div.i.i = fdiv double %conv4.i.i, 1.000000e+09
   %add.i.i = fadd double %div.i.i, %conv.i.i
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %tv.i.i)
-  %6 = call { i32, i32 } asm sideeffect "cpuid\0A\09rdtsc", "={ax},={dx},{ax},~{ebx},~{ecx},~{dirflag},~{fpsr},~{flags}"(i32 0) #16, !srcloc !9
-  %asmresult.i.i = extractvalue { i32, i32 } %6, 0
-  %asmresult1.i.i = extractvalue { i32, i32 } %6, 1
+  %4 = call { i32, i32 } asm sideeffect "cpuid\0A\09rdtsc", "={ax},={dx},{ax},~{ebx},~{ecx},~{dirflag},~{fpsr},~{flags}"(i32 0) #16, !srcloc !8
+  %asmresult.i.i = extractvalue { i32, i32 } %4, 0
+  %asmresult1.i.i = extractvalue { i32, i32 } %4, 1
   %conv.i1.i = zext i32 %asmresult.i.i to i64
   %conv2.i.i = zext i32 %asmresult1.i.i to i64
   %shl.i.i = shl nuw i64 %conv2.i.i, 32
   %or.i.i = or disjoint i64 %shl.i.i, %conv.i1.i
-  %7 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @total_cycles)
-  store i64 %or.i.i, ptr %7, align 8
-  %8 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @bench_plain)
-  %9 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @bench_cipher)
+  %5 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @total_cycles)
+  store i64 %or.i.i, ptr %5, align 8
+  %6 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @bench_plain)
+  %7 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @bench_cipher)
   %tv_nsec.i.i27 = getelementptr inbounds i8, ptr %tv.i.i23, i64 8
   br label %do.body
 
 do.body:                                          ; preds = %bench_stats_check.exit, %bench_stats_start.exit
   %count.0 = phi i32 [ 0, %bench_stats_start.exit ], [ %add, %bench_stats_check.exit ]
   %ret.0 = phi i32 [ 0, %bench_stats_start.exit ], [ %ret.1.lcssa, %bench_stats_check.exit ]
-  %10 = load i32, ptr @numBlocks, align 4
-  %cmp11111 = icmp sgt i32 %10, 0
+  %8 = load i32, ptr @numBlocks, align 4
+  %cmp11111 = icmp sgt i32 %8, 0
   br i1 %cmp11111, label %for.body17, label %for.end34
 
 for.body17:                                       ; preds = %do.body, %bench_async_handle.exit
   %times.0112 = phi i32 [ %inc.i, %bench_async_handle.exit ], [ 0, %do.body ]
-  %11 = load ptr, ptr %8, align 8
-  %12 = load ptr, ptr %9, align 8
-  %13 = load i32, ptr @bench_size, align 4
-  %call23 = call i32 @wc_AesCbcEncrypt(ptr noundef nonnull %enc, ptr noundef %11, ptr noundef %12, i32 noundef %13) #16
+  %9 = load ptr, ptr %6, align 8
+  %10 = load ptr, ptr %7, align 8
+  %11 = load i32, ptr @bench_size, align 4
+  %call23 = call i32 @wc_AesCbcEncrypt(ptr noundef nonnull %enc, ptr noundef %9, ptr noundef %10, i32 noundef %11) #16
   %cmp.i = icmp sgt i32 %call23, -1
   br i1 %cmp.i, label %bench_async_handle.exit, label %exit_aes_enc.thread
 
 exit_aes_enc.thread:                              ; preds = %for.body17
-  %14 = load i32, ptr @bench_size, align 4
-  call fastcc void @bench_stats_sym_finish(ptr noundef %encLabel, i32 noundef %count.0, i32 noundef %14, double noundef %add.i.i, i32 noundef %call23)
+  %12 = load i32, ptr @bench_size, align 4
+  call fastcc void @bench_stats_sym_finish(ptr noundef %encLabel, i32 noundef %count.0, i32 noundef %12, double noundef %add.i.i, i32 noundef %call23)
   br label %exit
 
 bench_async_handle.exit:                          ; preds = %for.body17
   %inc.i = add nuw nsw i32 %times.0112, 1
-  %15 = load i32, ptr @numBlocks, align 4
-  %cmp11 = icmp slt i32 %inc.i, %15
+  %13 = load i32, ptr @numBlocks, align 4
+  %cmp11 = icmp slt i32 %inc.i, %13
   br i1 %cmp11, label %for.body17, label %for.end34
 
 for.end34:                                        ; preds = %bench_async_handle.exit, %do.body
@@ -1754,29 +1745,29 @@ for.end34:                                        ; preds = %bench_async_handle.
 
 if.then.i.i32:                                    ; preds = %for.end34
   %call1.i.i33 = tail call ptr @__errno_location() #17
-  %16 = load i32, ptr %call1.i.i33, align 4
-  %call2.i.i34 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.76, ptr noundef nonnull @.str.108, ptr noundef nonnull @.str.77, i32 noundef 12507, i32 noundef %16, ptr noundef nonnull @.str.78)
-  %17 = load ptr, ptr @stdout, align 8
-  %call3.i.i35 = call i32 @fflush(ptr noundef %17)
+  %14 = load i32, ptr %call1.i.i33, align 4
+  %call2.i.i34 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.76, ptr noundef nonnull @.str.108, ptr noundef nonnull @.str.77, i32 noundef 12507, i32 noundef %14, ptr noundef nonnull @.str.78)
+  %15 = load ptr, ptr @stdout, align 8
+  %call3.i.i35 = call i32 @fflush(ptr noundef %15)
   call void @_exit(i32 noundef 1) #18
   unreachable
 
 bench_stats_check.exit:                           ; preds = %for.end34
   %add = add nuw nsw i32 %times.0.lcssa, %count.0
-  %18 = load i64, ptr %tv.i.i23, align 8
-  %conv.i.i26 = sitofp i64 %18 to double
-  %19 = load i64, ptr %tv_nsec.i.i27, align 8
-  %conv4.i.i28 = sitofp i64 %19 to double
+  %16 = load i64, ptr %tv.i.i23, align 8
+  %conv.i.i26 = sitofp i64 %16 to double
+  %17 = load i64, ptr %tv_nsec.i.i27, align 8
+  %conv4.i.i28 = sitofp i64 %17 to double
   %div.i.i29 = fdiv double %conv4.i.i28, 1.000000e+09
   %add.i.i30 = fadd double %div.i.i29, %conv.i.i26
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %tv.i.i23)
   %sub.i = fsub double %add.i.i30, %add.i.i
   %cmp.i31 = fcmp uge double %sub.i, 1.000000e+00
-  br i1 %cmp.i31, label %exit_aes_enc, label %do.body, !llvm.loop !13
+  br i1 %cmp.i31, label %exit_aes_enc, label %do.body, !llvm.loop !12
 
 exit_aes_enc:                                     ; preds = %bench_stats_check.exit
-  %20 = load i32, ptr @bench_size, align 4
-  call fastcc void @bench_stats_sym_finish(ptr noundef %encLabel, i32 noundef %add, i32 noundef %20, double noundef %add.i.i, i32 noundef %ret.1.lcssa)
+  %18 = load i32, ptr @bench_size, align 4
+  call fastcc void @bench_stats_sym_finish(ptr noundef %encLabel, i32 noundef %add, i32 noundef %18, double noundef %add.i.i, i32 noundef %ret.1.lcssa)
   %cmp38 = icmp slt i32 %ret.1.lcssa, 0
   br i1 %cmp38, label %exit, label %for.body43
 
@@ -1797,53 +1788,53 @@ do.end56:                                         ; preds = %for.body43
 
 if.then.i.i50:                                    ; preds = %do.end56
   %call1.i.i51 = tail call ptr @__errno_location() #17
-  %21 = load i32, ptr %call1.i.i51, align 4
-  %call2.i.i52 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.76, ptr noundef nonnull @.str.108, ptr noundef nonnull @.str.77, i32 noundef 12507, i32 noundef %21, ptr noundef nonnull @.str.78)
-  %22 = load ptr, ptr @stdout, align 8
-  %call3.i.i53 = call i32 @fflush(ptr noundef %22)
+  %19 = load i32, ptr %call1.i.i51, align 4
+  %call2.i.i52 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.76, ptr noundef nonnull @.str.108, ptr noundef nonnull @.str.77, i32 noundef 12507, i32 noundef %19, ptr noundef nonnull @.str.78)
+  %20 = load ptr, ptr @stdout, align 8
+  %call3.i.i53 = call i32 @fflush(ptr noundef %20)
   call void @_exit(i32 noundef 1) #18
   unreachable
 
 bench_stats_start.exit54:                         ; preds = %do.end56
-  %23 = load i64, ptr %tv.i.i36, align 8
-  %conv.i.i39 = sitofp i64 %23 to double
+  %21 = load i64, ptr %tv.i.i36, align 8
+  %conv.i.i39 = sitofp i64 %21 to double
   %tv_nsec.i.i40 = getelementptr inbounds i8, ptr %tv.i.i36, i64 8
-  %24 = load i64, ptr %tv_nsec.i.i40, align 8
-  %conv4.i.i41 = sitofp i64 %24 to double
+  %22 = load i64, ptr %tv_nsec.i.i40, align 8
+  %conv4.i.i41 = sitofp i64 %22 to double
   %div.i.i42 = fdiv double %conv4.i.i41, 1.000000e+09
   %add.i.i43 = fadd double %div.i.i42, %conv.i.i39
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %tv.i.i36)
-  %25 = call { i32, i32 } asm sideeffect "cpuid\0A\09rdtsc", "={ax},={dx},{ax},~{ebx},~{ecx},~{dirflag},~{fpsr},~{flags}"(i32 0) #16, !srcloc !9
-  %asmresult.i.i44 = extractvalue { i32, i32 } %25, 0
-  %asmresult1.i.i45 = extractvalue { i32, i32 } %25, 1
+  %23 = call { i32, i32 } asm sideeffect "cpuid\0A\09rdtsc", "={ax},={dx},{ax},~{ebx},~{ecx},~{dirflag},~{fpsr},~{flags}"(i32 0) #16, !srcloc !8
+  %asmresult.i.i44 = extractvalue { i32, i32 } %23, 0
+  %asmresult1.i.i45 = extractvalue { i32, i32 } %23, 1
   %conv.i1.i46 = zext i32 %asmresult.i.i44 to i64
   %conv2.i.i47 = zext i32 %asmresult1.i.i45 to i64
   %shl.i.i48 = shl nuw i64 %conv2.i.i47, 32
   %or.i.i49 = or disjoint i64 %shl.i.i48, %conv.i1.i46
-  store i64 %or.i.i49, ptr %7, align 8
+  store i64 %or.i.i49, ptr %5, align 8
   %tv_nsec.i.i64 = getelementptr inbounds i8, ptr %tv.i.i60, i64 8
   br label %do.body57
 
 do.body57:                                        ; preds = %bench_stats_check.exit75, %bench_stats_start.exit54
   %count.2 = phi i32 [ 0, %bench_stats_start.exit54 ], [ %add88, %bench_stats_check.exit75 ]
   %ret.3 = phi i32 [ 0, %bench_stats_start.exit54 ], [ %ret.4.lcssa, %bench_stats_check.exit75 ]
-  %26 = load i32, ptr @numBlocks, align 4
-  %cmp59114 = icmp sgt i32 %26, 0
+  %24 = load i32, ptr @numBlocks, align 4
+  %cmp59114 = icmp sgt i32 %24, 0
   br i1 %cmp59114, label %for.body69, label %for.end87
 
 for.body69:                                       ; preds = %do.body57, %bench_async_handle.exit59
   %times.2115 = phi i32 [ %inc.i58, %bench_async_handle.exit59 ], [ 0, %do.body57 ]
-  %27 = load ptr, ptr %9, align 8
-  %28 = load ptr, ptr %8, align 8
-  %29 = load i32, ptr @bench_size, align 4
-  %call75 = call i32 @wc_AesCbcDecrypt(ptr noundef nonnull %enc, ptr noundef %27, ptr noundef %28, i32 noundef %29) #16
+  %25 = load ptr, ptr %7, align 8
+  %26 = load ptr, ptr %6, align 8
+  %27 = load i32, ptr @bench_size, align 4
+  %call75 = call i32 @wc_AesCbcDecrypt(ptr noundef nonnull %enc, ptr noundef %25, ptr noundef %26, i32 noundef %27) #16
   %cmp.i55 = icmp sgt i32 %call75, -1
   br i1 %cmp.i55, label %bench_async_handle.exit59, label %exit_aes_dec
 
 bench_async_handle.exit59:                        ; preds = %for.body69
   %inc.i58 = add nuw nsw i32 %times.2115, 1
-  %30 = load i32, ptr @numBlocks, align 4
-  %cmp59 = icmp slt i32 %inc.i58, %30
+  %28 = load i32, ptr @numBlocks, align 4
+  %cmp59 = icmp slt i32 %inc.i58, %28
   br i1 %cmp59, label %for.body69, label %for.end87
 
 for.end87:                                        ; preds = %bench_async_handle.exit59, %do.body57
@@ -1856,31 +1847,31 @@ for.end87:                                        ; preds = %bench_async_handle.
 
 if.then.i.i71:                                    ; preds = %for.end87
   %call1.i.i72 = tail call ptr @__errno_location() #17
-  %31 = load i32, ptr %call1.i.i72, align 4
-  %call2.i.i73 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.76, ptr noundef nonnull @.str.108, ptr noundef nonnull @.str.77, i32 noundef 12507, i32 noundef %31, ptr noundef nonnull @.str.78)
-  %32 = load ptr, ptr @stdout, align 8
-  %call3.i.i74 = call i32 @fflush(ptr noundef %32)
+  %29 = load i32, ptr %call1.i.i72, align 4
+  %call2.i.i73 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.76, ptr noundef nonnull @.str.108, ptr noundef nonnull @.str.77, i32 noundef 12507, i32 noundef %29, ptr noundef nonnull @.str.78)
+  %30 = load ptr, ptr @stdout, align 8
+  %call3.i.i74 = call i32 @fflush(ptr noundef %30)
   call void @_exit(i32 noundef 1) #18
   unreachable
 
 bench_stats_check.exit75:                         ; preds = %for.end87
   %add88 = add nuw nsw i32 %times.2.lcssa, %count.2
-  %33 = load i64, ptr %tv.i.i60, align 8
-  %conv.i.i63 = sitofp i64 %33 to double
-  %34 = load i64, ptr %tv_nsec.i.i64, align 8
-  %conv4.i.i65 = sitofp i64 %34 to double
+  %31 = load i64, ptr %tv.i.i60, align 8
+  %conv.i.i63 = sitofp i64 %31 to double
+  %32 = load i64, ptr %tv_nsec.i.i64, align 8
+  %conv4.i.i65 = sitofp i64 %32 to double
   %div.i.i66 = fdiv double %conv4.i.i65, 1.000000e+09
   %add.i.i67 = fadd double %div.i.i66, %conv.i.i63
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %tv.i.i60)
   %sub.i68 = fsub double %add.i.i67, %add.i.i43
   %cmp.i69 = fcmp uge double %sub.i68, 1.000000e+00
-  br i1 %cmp.i69, label %exit_aes_dec, label %do.body57, !llvm.loop !14
+  br i1 %cmp.i69, label %exit_aes_dec, label %do.body57, !llvm.loop !13
 
 exit_aes_dec:                                     ; preds = %bench_stats_check.exit75, %for.body69
   %count.3 = phi i32 [ %count.2, %for.body69 ], [ %add88, %bench_stats_check.exit75 ]
   %ret.5 = phi i32 [ %call75, %for.body69 ], [ %ret.4.lcssa, %bench_stats_check.exit75 ]
-  %35 = load i32, ptr @bench_size, align 4
-  call fastcc void @bench_stats_sym_finish(ptr noundef %decLabel, i32 noundef %count.3, i32 noundef %35, double noundef %add.i.i43, i32 noundef %ret.5)
+  %33 = load i32, ptr @bench_size, align 4
+  call fastcc void @bench_stats_sym_finish(ptr noundef %decLabel, i32 noundef %count.3, i32 noundef %33, double noundef %add.i.i43, i32 noundef %ret.5)
   br label %exit
 
 exit:                                             ; preds = %exit_aes_enc.thread, %exit_aes_enc, %exit_aes_dec, %if.then48, %if.then7, %if.then
@@ -1902,7 +1893,7 @@ entry:
   %cond2 = select i1 %cmp, ptr @.str.13, ptr %cond
   %cond7 = select i1 %cmp1, ptr @.str.17, ptr @.str.18
   %cond9 = select i1 %cmp, ptr @.str.16, ptr %cond7
-  tail call fastcc void @bench_aesgcm_internal(i32 noundef %useDeviceID, ptr noundef %1, i32 noundef 16, ptr noundef %3, ptr noundef nonnull %cond2, ptr noundef nonnull %cond9)
+  tail call fastcc void @bench_aesgcm_internal(ptr noundef %1, i32 noundef 16, ptr noundef %3, ptr noundef nonnull %cond2, ptr noundef nonnull %cond9)
   %5 = load ptr, ptr %0, align 8
   %6 = load ptr, ptr %2, align 8
   %7 = load i32, ptr @aesAuthAddSz, align 4
@@ -1912,7 +1903,7 @@ entry:
   %cond16 = select i1 %cmp10, ptr @.str.19, ptr %cond14
   %cond21 = select i1 %cmp13, ptr @.str.23, ptr @.str.24
   %cond23 = select i1 %cmp10, ptr @.str.22, ptr %cond21
-  tail call fastcc void @bench_aesgcm_internal(i32 noundef %useDeviceID, ptr noundef %5, i32 noundef 24, ptr noundef %6, ptr noundef nonnull %cond16, ptr noundef nonnull %cond23)
+  tail call fastcc void @bench_aesgcm_internal(ptr noundef %5, i32 noundef 24, ptr noundef %6, ptr noundef nonnull %cond16, ptr noundef nonnull %cond23)
   %8 = load ptr, ptr %0, align 8
   %9 = load ptr, ptr %2, align 8
   %10 = load i32, ptr @aesAuthAddSz, align 4
@@ -1922,12 +1913,12 @@ entry:
   %cond30 = select i1 %cmp24, ptr @.str.25, ptr %cond28
   %cond35 = select i1 %cmp27, ptr @.str.29, ptr @.str.30
   %cond37 = select i1 %cmp24, ptr @.str.28, ptr %cond35
-  tail call fastcc void @bench_aesgcm_internal(i32 noundef %useDeviceID, ptr noundef %8, i32 noundef 32, ptr noundef %9, ptr noundef nonnull %cond30, ptr noundef nonnull %cond37)
+  tail call fastcc void @bench_aesgcm_internal(ptr noundef %8, i32 noundef 32, ptr noundef %9, ptr noundef nonnull %cond30, ptr noundef nonnull %cond37)
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @bench_aesgcm_internal(i32 noundef %useDeviceID, ptr noundef %key, i32 noundef %keySz, ptr noundef %iv, ptr noundef %encLabel, ptr noundef %decLabel) unnamed_addr #0 {
+define internal fastcc void @bench_aesgcm_internal(ptr noundef %key, i32 noundef %keySz, ptr noundef %iv, ptr noundef %encLabel, ptr noundef %decLabel) unnamed_addr #0 {
 entry:
   %tv.i.i30 = alloca %struct.timespec, align 8
   %tv.i.i = alloca %struct.timespec, align 8
@@ -1941,11 +1932,7 @@ entry:
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(848) %enc, i8 0, i64 848, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(13) %bench_additional, i8 0, i64 13, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %bench_tag, i8 0, i64 16, i1 false)
-  %tobool.not = icmp eq i32 %useDeviceID, 0
-  %0 = tail call align 4 ptr @llvm.threadlocal.address.p0(ptr align 4 @devId)
-  %1 = load i32, ptr %0, align 4
-  %cond = select i1 %tobool.not, i32 -2, i32 %1
-  %call = call i32 @wc_AesInit(ptr noundef nonnull %enc, ptr noundef null, i32 noundef %cond) #16
+  %call = call i32 @wc_AesInit(ptr noundef nonnull %enc, ptr noundef null, i32 noundef -2) #16
   %cmp3.not = icmp eq i32 %call, 0
   br i1 %cmp3.not, label %if.end, label %if.then
 
@@ -1970,58 +1957,58 @@ for.end:                                          ; preds = %if.end
 
 if.then.i.i:                                      ; preds = %for.end
   %call1.i.i = tail call ptr @__errno_location() #17
-  %2 = load i32, ptr %call1.i.i, align 4
-  %call2.i.i = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.76, ptr noundef nonnull @.str.108, ptr noundef nonnull @.str.77, i32 noundef 12507, i32 noundef %2, ptr noundef nonnull @.str.78)
-  %3 = load ptr, ptr @stdout, align 8
-  %call3.i.i = call i32 @fflush(ptr noundef %3)
+  %0 = load i32, ptr %call1.i.i, align 4
+  %call2.i.i = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.76, ptr noundef nonnull @.str.108, ptr noundef nonnull @.str.77, i32 noundef 12507, i32 noundef %0, ptr noundef nonnull @.str.78)
+  %1 = load ptr, ptr @stdout, align 8
+  %call3.i.i = call i32 @fflush(ptr noundef %1)
   call void @_exit(i32 noundef 1) #18
   unreachable
 
 bench_stats_start.exit:                           ; preds = %for.end
-  %4 = load i64, ptr %tv.i.i, align 8
-  %conv.i.i = sitofp i64 %4 to double
+  %2 = load i64, ptr %tv.i.i, align 8
+  %conv.i.i = sitofp i64 %2 to double
   %tv_nsec.i.i = getelementptr inbounds i8, ptr %tv.i.i, i64 8
-  %5 = load i64, ptr %tv_nsec.i.i, align 8
-  %conv4.i.i = sitofp i64 %5 to double
+  %3 = load i64, ptr %tv_nsec.i.i, align 8
+  %conv4.i.i = sitofp i64 %3 to double
   %div.i.i = fdiv double %conv4.i.i, 1.000000e+09
   %add.i.i = fadd double %div.i.i, %conv.i.i
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %tv.i.i)
   store double %add.i.i, ptr %start, align 8
-  %6 = call { i32, i32 } asm sideeffect "cpuid\0A\09rdtsc", "={ax},={dx},{ax},~{ebx},~{ecx},~{dirflag},~{fpsr},~{flags}"(i32 0) #16, !srcloc !9
-  %asmresult.i.i = extractvalue { i32, i32 } %6, 0
-  %asmresult1.i.i = extractvalue { i32, i32 } %6, 1
+  %4 = call { i32, i32 } asm sideeffect "cpuid\0A\09rdtsc", "={ax},={dx},{ax},~{ebx},~{ecx},~{dirflag},~{fpsr},~{flags}"(i32 0) #16, !srcloc !8
+  %asmresult.i.i = extractvalue { i32, i32 } %4, 0
+  %asmresult1.i.i = extractvalue { i32, i32 } %4, 1
   %conv.i1.i = zext i32 %asmresult.i.i to i64
   %conv2.i.i = zext i32 %asmresult1.i.i to i64
   %shl.i.i = shl nuw i64 %conv2.i.i, 32
   %or.i.i = or disjoint i64 %shl.i.i, %conv.i1.i
-  %7 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @total_cycles)
-  store i64 %or.i.i, ptr %7, align 8
-  %8 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @bench_cipher)
-  %9 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @bench_plain)
+  %5 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @total_cycles)
+  store i64 %or.i.i, ptr %5, align 8
+  %6 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @bench_cipher)
+  %7 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @bench_plain)
   %tv_nsec.i.i34 = getelementptr inbounds i8, ptr %tv.i.i30, i64 8
   br label %do.body
 
 do.body:                                          ; preds = %bench_stats_check.exit, %bench_stats_start.exit
   %add72 = phi i32 [ 0, %bench_stats_start.exit ], [ %add, %bench_stats_check.exit ]
   %ret.0 = phi i32 [ 0, %bench_stats_start.exit ], [ %ret.1.lcssa, %bench_stats_check.exit ]
-  %10 = load i32, ptr @numBlocks, align 4
-  %cmp1369 = icmp sgt i32 %10, 0
+  %8 = load i32, ptr @numBlocks, align 4
+  %cmp1369 = icmp sgt i32 %8, 0
   br i1 %cmp1369, label %for.body19, label %for.end38
 
 for.body19:                                       ; preds = %do.body, %bench_async_handle.exit
   %times.070 = phi i32 [ %inc.i, %bench_async_handle.exit ], [ 0, %do.body ]
-  %11 = load ptr, ptr %8, align 8
-  %12 = load ptr, ptr %9, align 8
-  %13 = load i32, ptr @bench_size, align 4
-  %14 = load i32, ptr @aesAuthAddSz, align 4
-  %call27 = call i32 @wc_AesGcmEncrypt(ptr noundef nonnull %enc, ptr noundef %11, ptr noundef %12, i32 noundef %13, ptr noundef %iv, i32 noundef 12, ptr noundef nonnull %bench_tag, i32 noundef 16, ptr noundef nonnull %bench_additional, i32 noundef %14) #16
+  %9 = load ptr, ptr %6, align 8
+  %10 = load ptr, ptr %7, align 8
+  %11 = load i32, ptr @bench_size, align 4
+  %12 = load i32, ptr @aesAuthAddSz, align 4
+  %call27 = call i32 @wc_AesGcmEncrypt(ptr noundef nonnull %enc, ptr noundef %9, ptr noundef %10, i32 noundef %11, ptr noundef %iv, i32 noundef 12, ptr noundef nonnull %bench_tag, i32 noundef 16, ptr noundef nonnull %bench_additional, i32 noundef %12) #16
   %cmp.i = icmp sgt i32 %call27, -1
   br i1 %cmp.i, label %bench_async_handle.exit, label %exit_aes_gcm
 
 bench_async_handle.exit:                          ; preds = %for.body19
   %inc.i = add nuw nsw i32 %times.070, 1
-  %15 = load i32, ptr @numBlocks, align 4
-  %cmp13 = icmp slt i32 %inc.i, %15
+  %13 = load i32, ptr @numBlocks, align 4
+  %cmp13 = icmp slt i32 %inc.i, %13
   br i1 %cmp13, label %for.body19, label %for.end38
 
 for.end38:                                        ; preds = %bench_async_handle.exit, %do.body
@@ -2034,36 +2021,34 @@ for.end38:                                        ; preds = %bench_async_handle.
 
 if.then.i.i39:                                    ; preds = %for.end38
   %call1.i.i40 = tail call ptr @__errno_location() #17
-  %16 = load i32, ptr %call1.i.i40, align 4
-  %call2.i.i41 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.76, ptr noundef nonnull @.str.108, ptr noundef nonnull @.str.77, i32 noundef 12507, i32 noundef %16, ptr noundef nonnull @.str.78)
-  %17 = load ptr, ptr @stdout, align 8
-  %call3.i.i42 = call i32 @fflush(ptr noundef %17)
+  %14 = load i32, ptr %call1.i.i40, align 4
+  %call2.i.i41 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.76, ptr noundef nonnull @.str.108, ptr noundef nonnull @.str.77, i32 noundef 12507, i32 noundef %14, ptr noundef nonnull @.str.78)
+  %15 = load ptr, ptr @stdout, align 8
+  %call3.i.i42 = call i32 @fflush(ptr noundef %15)
   call void @_exit(i32 noundef 1) #18
   unreachable
 
 bench_stats_check.exit:                           ; preds = %for.end38
   %add = add nsw i32 %add72, %times.0.lcssa
-  %18 = load i64, ptr %tv.i.i30, align 8
-  %conv.i.i33 = sitofp i64 %18 to double
-  %19 = load i64, ptr %tv_nsec.i.i34, align 8
-  %conv4.i.i35 = sitofp i64 %19 to double
+  %16 = load i64, ptr %tv.i.i30, align 8
+  %conv.i.i33 = sitofp i64 %16 to double
+  %17 = load i64, ptr %tv_nsec.i.i34, align 8
+  %conv4.i.i35 = sitofp i64 %17 to double
   %div.i.i36 = fdiv double %conv4.i.i35, 1.000000e+09
   %add.i.i37 = fadd double %div.i.i36, %conv.i.i33
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %tv.i.i30)
   %sub.i = fsub double %add.i.i37, %add.i.i
   %cmp.i38 = fcmp uge double %sub.i, 1.000000e+00
-  br i1 %cmp.i38, label %exit_aes_gcm, label %do.body, !llvm.loop !15
+  br i1 %cmp.i38, label %exit_aes_gcm, label %do.body, !llvm.loop !14
 
 exit_aes_gcm:                                     ; preds = %bench_stats_check.exit, %for.body19
   %storemerge = phi i32 [ %add72, %for.body19 ], [ %add, %bench_stats_check.exit ]
   %ret.2 = phi i32 [ %call27, %for.body19 ], [ %ret.1.lcssa, %bench_stats_check.exit ]
   store i32 %storemerge, ptr %count, align 4
-  %20 = load i32, ptr @bench_size, align 4
-  call fastcc void @bench_stats_sym_finish(ptr noundef %encLabel, i32 noundef %storemerge, i32 noundef %20, double noundef %add.i.i, i32 noundef %ret.2)
+  %18 = load i32, ptr @bench_size, align 4
+  call fastcc void @bench_stats_sym_finish(ptr noundef %encLabel, i32 noundef %storemerge, i32 noundef %18, double noundef %add.i.i, i32 noundef %ret.2)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(1696) %dec, i8 0, i64 1696, i1 false)
-  %21 = load i32, ptr %0, align 4
-  %cond55 = select i1 %tobool.not, i32 -2, i32 %21
-  %call56 = call i32 @wc_AesInit(ptr noundef nonnull %dec, ptr noundef null, i32 noundef %cond55) #16
+  %call56 = call i32 @wc_AesInit(ptr noundef nonnull %dec, ptr noundef null, i32 noundef -2) #16
   %cmp57.not = icmp eq i32 %call56, 0
   br i1 %cmp57.not, label %if.end60, label %if.then58
 
@@ -2083,45 +2068,45 @@ if.then65:                                        ; preds = %if.end60
 for.end70:                                        ; preds = %if.end60
   call fastcc void @bench_stats_start(ptr noundef nonnull %count, ptr noundef nonnull %start)
   %count.promoted78 = load i32, ptr %count, align 4
-  %22 = load double, ptr %start, align 8
+  %19 = load double, ptr %start, align 8
   br label %do.body71
 
 do.body71:                                        ; preds = %for.end103, %for.end70
   %add10479 = phi i32 [ %count.promoted78, %for.end70 ], [ %add104, %for.end103 ]
   %ret.3 = phi i32 [ 0, %for.end70 ], [ %ret.4.lcssa, %for.end103 ]
-  %23 = load i32, ptr @numBlocks, align 4
-  %cmp7374 = icmp sgt i32 %23, 0
+  %20 = load i32, ptr @numBlocks, align 4
+  %cmp7374 = icmp sgt i32 %20, 0
   br i1 %cmp7374, label %for.body83, label %for.end103
 
 for.body83:                                       ; preds = %do.body71, %bench_async_handle.exit47
   %times.275 = phi i32 [ %inc.i46, %bench_async_handle.exit47 ], [ 0, %do.body71 ]
-  %24 = load ptr, ptr %9, align 8
-  %25 = load ptr, ptr %8, align 8
-  %26 = load i32, ptr @bench_size, align 4
-  %27 = load i32, ptr @aesAuthAddSz, align 4
-  %call91 = call i32 @wc_AesGcmDecrypt(ptr noundef nonnull %dec, ptr noundef %24, ptr noundef %25, i32 noundef %26, ptr noundef %iv, i32 noundef 12, ptr noundef nonnull %bench_tag, i32 noundef 16, ptr noundef nonnull %bench_additional, i32 noundef %27) #16
+  %21 = load ptr, ptr %7, align 8
+  %22 = load ptr, ptr %6, align 8
+  %23 = load i32, ptr @bench_size, align 4
+  %24 = load i32, ptr @aesAuthAddSz, align 4
+  %call91 = call i32 @wc_AesGcmDecrypt(ptr noundef nonnull %dec, ptr noundef %21, ptr noundef %22, i32 noundef %23, ptr noundef %iv, i32 noundef 12, ptr noundef nonnull %bench_tag, i32 noundef 16, ptr noundef nonnull %bench_additional, i32 noundef %24) #16
   %cmp.i43 = icmp sgt i32 %call91, -1
   br i1 %cmp.i43, label %bench_async_handle.exit47, label %exit_aes_gcm_dec
 
 bench_async_handle.exit47:                        ; preds = %for.body83
   %inc.i46 = add nuw nsw i32 %times.275, 1
-  %28 = load i32, ptr @numBlocks, align 4
-  %cmp73 = icmp slt i32 %inc.i46, %28
+  %25 = load i32, ptr @numBlocks, align 4
+  %cmp73 = icmp slt i32 %inc.i46, %25
   br i1 %cmp73, label %for.body83, label %for.end103
 
 for.end103:                                       ; preds = %bench_async_handle.exit47, %do.body71
   %times.2.lcssa = phi i32 [ 0, %do.body71 ], [ %inc.i46, %bench_async_handle.exit47 ]
   %ret.4.lcssa = phi i32 [ %ret.3, %do.body71 ], [ %call91, %bench_async_handle.exit47 ]
   %add104 = add nsw i32 %add10479, %times.2.lcssa
-  %call106 = call fastcc i32 @bench_stats_check(double noundef %22), !range !5
+  %call106 = call fastcc i32 @bench_stats_check(double noundef %19)
   %tobool107.not = icmp eq i32 %call106, 0
-  br i1 %tobool107.not, label %exit_aes_gcm_dec, label %do.body71, !llvm.loop !16
+  br i1 %tobool107.not, label %exit_aes_gcm_dec, label %do.body71, !llvm.loop !15
 
 exit_aes_gcm_dec:                                 ; preds = %for.end103, %for.body83
   %storemerge80 = phi i32 [ %add10479, %for.body83 ], [ %add104, %for.end103 ]
   %ret.5 = phi i32 [ %call91, %for.body83 ], [ %ret.4.lcssa, %for.end103 ]
-  %29 = load i32, ptr @bench_size, align 4
-  call fastcc void @bench_stats_sym_finish(ptr noundef %decLabel, i32 noundef %storemerge80, i32 noundef %29, double noundef %22, i32 noundef %ret.5)
+  %26 = load i32, ptr @bench_size, align 4
+  call fastcc void @bench_stats_sym_finish(ptr noundef %decLabel, i32 noundef %storemerge80, i32 noundef %26, double noundef %19, i32 noundef %ret.5)
   br label %exit
 
 exit:                                             ; preds = %exit_aes_gcm_dec, %if.then65, %if.then58, %if.then9, %if.then
@@ -2140,7 +2125,7 @@ if.end112:                                        ; preds = %if.then110, %exit
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @bench_gmac(i32 noundef %useDeviceID) local_unnamed_addr #0 {
+define dso_local void @bench_gmac(i32 %useDeviceID) local_unnamed_addr #0 {
 entry:
   %tv.i.i1 = alloca %struct.timespec, align 8
   %tv.i.i = alloca %struct.timespec, align 8
@@ -2153,14 +2138,10 @@ entry:
   tail call void @llvm.memset.p0.i64(ptr align 1 %1, i8 0, i64 %conv, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %tag, i8 0, i64 16, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(848) %gmac, i8 0, i64 848, i1 false)
-  %tobool.not = icmp eq i32 %useDeviceID, 0
-  %3 = tail call align 4 ptr @llvm.threadlocal.address.p0(ptr align 4 @devId)
-  %4 = load i32, ptr %3, align 4
-  %cond = select i1 %tobool.not, i32 -2, i32 %4
-  %call = call i32 @wc_AesInit(ptr noundef nonnull %gmac, ptr noundef null, i32 noundef %cond) #16
-  %5 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @bench_key)
-  %6 = load ptr, ptr %5, align 8
-  %call1 = call i32 @wc_GmacSetKey(ptr noundef nonnull %gmac, ptr noundef %6, i32 noundef 16) #16
+  %call = call i32 @wc_AesInit(ptr noundef nonnull %gmac, ptr noundef null, i32 noundef -2) #16
+  %3 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @bench_key)
+  %4 = load ptr, ptr %3, align 8
+  %call1 = call i32 @wc_GmacSetKey(ptr noundef nonnull %gmac, ptr noundef %4, i32 noundef 16) #16
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %tv.i.i)
   %call.i.i = call i32 @clock_gettime(i32 noundef 0, ptr noundef nonnull %tv.i.i) #16
   %cmp.i.i = icmp slt i32 %call.i.i, 0
@@ -2168,41 +2149,41 @@ entry:
 
 if.then.i.i:                                      ; preds = %entry
   %call1.i.i = tail call ptr @__errno_location() #17
-  %7 = load i32, ptr %call1.i.i, align 4
-  %call2.i.i = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.76, ptr noundef nonnull @.str.108, ptr noundef nonnull @.str.77, i32 noundef 12507, i32 noundef %7, ptr noundef nonnull @.str.78)
-  %8 = load ptr, ptr @stdout, align 8
-  %call3.i.i = call i32 @fflush(ptr noundef %8)
+  %5 = load i32, ptr %call1.i.i, align 4
+  %call2.i.i = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.76, ptr noundef nonnull @.str.108, ptr noundef nonnull @.str.77, i32 noundef 12507, i32 noundef %5, ptr noundef nonnull @.str.78)
+  %6 = load ptr, ptr @stdout, align 8
+  %call3.i.i = call i32 @fflush(ptr noundef %6)
   call void @_exit(i32 noundef 1) #18
   unreachable
 
 bench_stats_start.exit:                           ; preds = %entry
-  %9 = load i64, ptr %tv.i.i, align 8
-  %conv.i.i = sitofp i64 %9 to double
+  %7 = load i64, ptr %tv.i.i, align 8
+  %conv.i.i = sitofp i64 %7 to double
   %tv_nsec.i.i = getelementptr inbounds i8, ptr %tv.i.i, i64 8
-  %10 = load i64, ptr %tv_nsec.i.i, align 8
-  %conv4.i.i = sitofp i64 %10 to double
+  %8 = load i64, ptr %tv_nsec.i.i, align 8
+  %conv4.i.i = sitofp i64 %8 to double
   %div.i.i = fdiv double %conv4.i.i, 1.000000e+09
   %add.i.i = fadd double %div.i.i, %conv.i.i
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %tv.i.i)
-  %11 = call { i32, i32 } asm sideeffect "cpuid\0A\09rdtsc", "={ax},={dx},{ax},~{ebx},~{ecx},~{dirflag},~{fpsr},~{flags}"(i32 0) #16, !srcloc !9
-  %asmresult.i.i = extractvalue { i32, i32 } %11, 0
-  %asmresult1.i.i = extractvalue { i32, i32 } %11, 1
+  %9 = call { i32, i32 } asm sideeffect "cpuid\0A\09rdtsc", "={ax},={dx},{ax},~{ebx},~{ecx},~{dirflag},~{fpsr},~{flags}"(i32 0) #16, !srcloc !8
+  %asmresult.i.i = extractvalue { i32, i32 } %9, 0
+  %asmresult1.i.i = extractvalue { i32, i32 } %9, 1
   %conv.i1.i = zext i32 %asmresult.i.i to i64
   %conv2.i.i = zext i32 %asmresult1.i.i to i64
   %shl.i.i = shl nuw i64 %conv2.i.i, 32
   %or.i.i = or disjoint i64 %shl.i.i, %conv.i1.i
-  %12 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @total_cycles)
-  store i64 %or.i.i, ptr %12, align 8
-  %13 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @bench_iv)
+  %10 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @total_cycles)
+  store i64 %or.i.i, ptr %10, align 8
+  %11 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @bench_iv)
   %tv_nsec.i.i5 = getelementptr inbounds i8, ptr %tv.i.i1, i64 8
   br label %do.body
 
 do.body:                                          ; preds = %bench_stats_check.exit, %bench_stats_start.exit
   %count.0 = phi i32 [ 0, %bench_stats_start.exit ], [ %inc, %bench_stats_check.exit ]
-  %14 = load ptr, ptr %13, align 8
-  %15 = load ptr, ptr %0, align 8
-  %16 = load i32, ptr @bench_size, align 4
-  %call3 = call i32 @wc_GmacUpdate(ptr noundef nonnull %gmac, ptr noundef %14, i32 noundef 12, ptr noundef %15, i32 noundef %16, ptr noundef nonnull %tag, i32 noundef 16) #16
+  %12 = load ptr, ptr %11, align 8
+  %13 = load ptr, ptr %0, align 8
+  %14 = load i32, ptr @bench_size, align 4
+  %call3 = call i32 @wc_GmacUpdate(ptr noundef nonnull %gmac, ptr noundef %12, i32 noundef 12, ptr noundef %13, i32 noundef %14, ptr noundef nonnull %tag, i32 noundef 16) #16
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %tv.i.i1)
   %call.i.i2 = call i32 @clock_gettime(i32 noundef 0, ptr noundef nonnull %tv.i.i1) #16
   %cmp.i.i3 = icmp slt i32 %call.i.i2, 0
@@ -2210,30 +2191,30 @@ do.body:                                          ; preds = %bench_stats_check.e
 
 if.then.i.i9:                                     ; preds = %do.body
   %call1.i.i10 = tail call ptr @__errno_location() #17
-  %17 = load i32, ptr %call1.i.i10, align 4
-  %call2.i.i11 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.76, ptr noundef nonnull @.str.108, ptr noundef nonnull @.str.77, i32 noundef 12507, i32 noundef %17, ptr noundef nonnull @.str.78)
-  %18 = load ptr, ptr @stdout, align 8
-  %call3.i.i12 = call i32 @fflush(ptr noundef %18)
+  %15 = load i32, ptr %call1.i.i10, align 4
+  %call2.i.i11 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.76, ptr noundef nonnull @.str.108, ptr noundef nonnull @.str.77, i32 noundef 12507, i32 noundef %15, ptr noundef nonnull @.str.78)
+  %16 = load ptr, ptr @stdout, align 8
+  %call3.i.i12 = call i32 @fflush(ptr noundef %16)
   call void @_exit(i32 noundef 1) #18
   unreachable
 
 bench_stats_check.exit:                           ; preds = %do.body
   %inc = add nuw nsw i32 %count.0, 1
-  %19 = load i64, ptr %tv.i.i1, align 8
-  %conv.i.i4 = sitofp i64 %19 to double
-  %20 = load i64, ptr %tv_nsec.i.i5, align 8
-  %conv4.i.i6 = sitofp i64 %20 to double
+  %17 = load i64, ptr %tv.i.i1, align 8
+  %conv.i.i4 = sitofp i64 %17 to double
+  %18 = load i64, ptr %tv_nsec.i.i5, align 8
+  %conv4.i.i6 = sitofp i64 %18 to double
   %div.i.i7 = fdiv double %conv4.i.i6, 1.000000e+09
   %add.i.i8 = fadd double %div.i.i7, %conv.i.i4
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %tv.i.i1)
   %sub.i = fsub double %add.i.i8, %add.i.i
   %cmp.i = fcmp uge double %sub.i, 1.000000e+00
-  br i1 %cmp.i, label %do.end7, label %do.body, !llvm.loop !17
+  br i1 %cmp.i, label %do.end7, label %do.body, !llvm.loop !16
 
 do.end7:                                          ; preds = %bench_stats_check.exit
   call void @wc_AesFree(ptr noundef nonnull %gmac) #16
-  %21 = load i32, ptr @bench_size, align 4
-  call fastcc void @bench_stats_sym_finish(ptr noundef nonnull @.str.31, i32 noundef %inc, i32 noundef %21, double noundef %add.i.i, i32 noundef %call3)
+  %19 = load i32, ptr @bench_size, align 4
+  call fastcc void @bench_stats_sym_finish(ptr noundef nonnull @.str.31, i32 noundef %inc, i32 noundef %19, double noundef %add.i.i, i32 noundef %call3)
   ret void
 }
 
@@ -2295,7 +2276,7 @@ bench_stats_start.exit:                           ; preds = %if.end
   %div.i.i = fdiv double %conv4.i.i, 1.000000e+09
   %add.i.i = fadd double %div.i.i, %conv.i.i
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %tv.i.i)
-  %6 = call { i32, i32 } asm sideeffect "cpuid\0A\09rdtsc", "={ax},={dx},{ax},~{ebx},~{ecx},~{dirflag},~{fpsr},~{flags}"(i32 0) #16, !srcloc !9
+  %6 = call { i32, i32 } asm sideeffect "cpuid\0A\09rdtsc", "={ax},={dx},{ax},~{ebx},~{ecx},~{dirflag},~{fpsr},~{flags}"(i32 0) #16, !srcloc !8
   %asmresult.i.i = extractvalue { i32, i32 } %6, 0
   %asmresult1.i.i = extractvalue { i32, i32 } %6, 1
   %conv.i1.i = zext i32 %asmresult.i.i to i64
@@ -2331,7 +2312,7 @@ for.inc:                                          ; preds = %for.body
   %inc = add nuw nsw i32 %i.078, 1
   %12 = load i32, ptr @numBlocks, align 4
   %cmp3 = icmp slt i32 %inc, %12
-  br i1 %cmp3, label %for.body, label %for.end, !llvm.loop !18
+  br i1 %cmp3, label %for.body, label %for.end, !llvm.loop !17
 
 for.end:                                          ; preds = %for.inc, %do.body, %if.then6
   %i.074 = phi i32 [ %i.078, %if.then6 ], [ 0, %do.body ], [ %inc, %for.inc ]
@@ -2362,7 +2343,7 @@ bench_stats_check.exit:                           ; preds = %for.end
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %tv.i.i14)
   %sub.i = fsub double %add.i.i21, %add.i.i
   %cmp.i = fcmp uge double %sub.i, 1.000000e+00
-  br i1 %cmp.i, label %if.end41, label %do.body, !llvm.loop !19
+  br i1 %cmp.i, label %if.end41, label %do.body, !llvm.loop !18
 
 if.else:                                          ; preds = %entry
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %tv.i.i26)
@@ -2388,7 +2369,7 @@ bench_stats_start.exit44:                         ; preds = %if.else
   %div.i.i32 = fdiv double %conv4.i.i31, 1.000000e+09
   %add.i.i33 = fadd double %div.i.i32, %conv.i.i29
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %tv.i.i26)
-  %21 = call { i32, i32 } asm sideeffect "cpuid\0A\09rdtsc", "={ax},={dx},{ax},~{ebx},~{ecx},~{dirflag},~{fpsr},~{flags}"(i32 0) #16, !srcloc !9
+  %21 = call { i32, i32 } asm sideeffect "cpuid\0A\09rdtsc", "={ax},={dx},{ax},~{ebx},~{ecx},~{dirflag},~{fpsr},~{flags}"(i32 0) #16, !srcloc !8
   %asmresult.i.i34 = extractvalue { i32, i32 } %21, 0
   %asmresult1.i.i35 = extractvalue { i32, i32 } %21, 1
   %conv.i1.i36 = zext i32 %asmresult.i.i34 to i64
@@ -2436,7 +2417,7 @@ if.end27:                                         ; preds = %if.end22
   %inc34 = add nuw nsw i32 %i.181, 1
   %29 = load i32, ptr @numBlocks, align 4
   %cmp16 = icmp slt i32 %inc34, %29
-  br i1 %cmp16, label %for.body17, label %for.end35, !llvm.loop !20
+  br i1 %cmp16, label %for.body17, label %for.end35, !llvm.loop !19
 
 for.end35:                                        ; preds = %if.end27, %do.body14, %if.then25
   %i.168 = phi i32 [ %i.181, %if.then25 ], [ 0, %do.body14 ], [ %inc34, %if.end27 ]
@@ -2466,7 +2447,7 @@ bench_stats_check.exit60:                         ; preds = %for.end35
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %tv.i.i45)
   %sub.i53 = fsub double %add.i.i52, %add.i.i33
   %cmp.i54 = fcmp uge double %sub.i53, 1.000000e+00
-  br i1 %cmp.i54, label %if.end41, label %do.body14, !llvm.loop !21
+  br i1 %cmp.i54, label %if.end41, label %do.body14, !llvm.loop !20
 
 if.end41:                                         ; preds = %bench_stats_check.exit, %bench_stats_check.exit60
   %start.0 = phi double [ %add.i.i33, %bench_stats_check.exit60 ], [ %add.i.i, %bench_stats_check.exit ]
@@ -2519,7 +2500,7 @@ bench_stats_start.exit:                           ; preds = %entry
   %div.i.i = fdiv double %conv4.i.i, 1.000000e+09
   %add.i.i = fadd double %div.i.i, %conv.i.i
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %tv.i.i)
-  %6 = call { i32, i32 } asm sideeffect "cpuid\0A\09rdtsc", "={ax},={dx},{ax},~{ebx},~{ecx},~{dirflag},~{fpsr},~{flags}"(i32 0) #16, !srcloc !9
+  %6 = call { i32, i32 } asm sideeffect "cpuid\0A\09rdtsc", "={ax},={dx},{ax},~{ebx},~{ecx},~{dirflag},~{fpsr},~{flags}"(i32 0) #16, !srcloc !8
   %asmresult.i.i = extractvalue { i32, i32 } %6, 0
   %asmresult1.i.i = extractvalue { i32, i32 } %6, 1
   %conv.i1.i = zext i32 %asmresult.i.i to i64
@@ -2551,7 +2532,7 @@ for.body:                                         ; preds = %do.body, %for.body
   %inc = add nuw nsw i32 %i.019, 1
   %16 = load i32, ptr @numBlocks, align 4
   %cmp = icmp slt i32 %inc, %16
-  br i1 %cmp, label %for.body, label %for.end, !llvm.loop !22
+  br i1 %cmp, label %for.body, label %for.end, !llvm.loop !21
 
 for.end:                                          ; preds = %for.body, %do.body
   %i.0.lcssa = phi i32 [ 0, %do.body ], [ %inc, %for.body ]
@@ -2580,7 +2561,7 @@ bench_stats_check.exit:                           ; preds = %for.end
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %tv.i.i3)
   %sub.i = fsub double %add.i.i10, %add.i.i
   %cmp.i = fcmp uge double %sub.i, 1.000000e+00
-  br i1 %cmp.i, label %do.end5, label %do.body, !llvm.loop !23
+  br i1 %cmp.i, label %do.end5, label %do.body, !llvm.loop !22
 
 do.end5:                                          ; preds = %bench_stats_check.exit
   %21 = load i32, ptr @bench_size, align 4
@@ -2624,7 +2605,7 @@ bench_stats_start.exit:                           ; preds = %entry
   %div.i.i = fdiv double %conv4.i.i, 1.000000e+09
   %add.i.i = fadd double %div.i.i, %conv.i.i
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %tv.i.i)
-  %4 = call { i32, i32 } asm sideeffect "cpuid\0A\09rdtsc", "={ax},={dx},{ax},~{ebx},~{ecx},~{dirflag},~{fpsr},~{flags}"(i32 0) #16, !srcloc !9
+  %4 = call { i32, i32 } asm sideeffect "cpuid\0A\09rdtsc", "={ax},={dx},{ax},~{ebx},~{ecx},~{dirflag},~{fpsr},~{flags}"(i32 0) #16, !srcloc !8
   %asmresult.i.i = extractvalue { i32, i32 } %4, 0
   %asmresult1.i.i = extractvalue { i32, i32 } %4, 1
   %conv.i1.i = zext i32 %asmresult.i.i to i64
@@ -2666,7 +2647,7 @@ for.inc:                                          ; preds = %for.body
   %inc = add nuw nsw i32 %i.025, 1
   %16 = load i32, ptr @numBlocks, align 4
   %cmp = icmp slt i32 %inc, %16
-  br i1 %cmp, label %for.body, label %for.end, !llvm.loop !24
+  br i1 %cmp, label %for.body, label %for.end, !llvm.loop !23
 
 for.end:                                          ; preds = %for.inc, %do.body, %if.then
   %i.020 = phi i32 [ %i.025, %if.then ], [ 0, %do.body ], [ %inc, %for.inc ]
@@ -2696,7 +2677,7 @@ bench_stats_check.exit:                           ; preds = %for.end
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %tv.i.i5)
   %sub.i = fsub double %add.i.i12, %add.i.i
   %cmp.i = fcmp uge double %sub.i, 1.000000e+00
-  br i1 %cmp.i, label %do.end6, label %do.body, !llvm.loop !25
+  br i1 %cmp.i, label %do.end6, label %do.body, !llvm.loop !24
 
 do.end6:                                          ; preds = %bench_stats_check.exit
   %21 = load i32, ptr @bench_size, align 4
@@ -2707,7 +2688,7 @@ do.end6:                                          ; preds = %bench_stats_check.e
 declare i32 @wc_ChaCha20Poly1305_Encrypt(ptr noundef, ptr noundef, ptr noundef, i32 noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @bench_md5(i32 noundef %useDeviceID) local_unnamed_addr #0 {
+define dso_local void @bench_md5(i32 %useDeviceID) local_unnamed_addr #0 {
 entry:
   %tv.i.i50 = alloca %struct.timespec, align 8
   %tv.i.i31 = alloca %struct.timespec, align 8
@@ -2720,11 +2701,7 @@ entry:
   br i1 %.b, label %if.else, label %for.body
 
 for.body:                                         ; preds = %entry
-  %tobool1.not = icmp eq i32 %useDeviceID, 0
-  %0 = tail call align 4 ptr @llvm.threadlocal.address.p0(ptr align 4 @devId)
-  %1 = load i32, ptr %0, align 4
-  %cond = select i1 %tobool1.not, i32 -2, i32 %1
-  %call = call i32 @wc_InitMd5_ex(ptr noundef nonnull %hash, ptr noundef null, i32 noundef %cond) #16
+  %call = call i32 @wc_InitMd5_ex(ptr noundef nonnull %hash, ptr noundef null, i32 noundef -2) #16
   %cmp2.not = icmp eq i32 %call, 0
   br i1 %cmp2.not, label %for.end, label %if.then3
 
@@ -2740,53 +2717,53 @@ for.end:                                          ; preds = %for.body
 
 if.then.i.i:                                      ; preds = %for.end
   %call1.i.i = tail call ptr @__errno_location() #17
-  %2 = load i32, ptr %call1.i.i, align 4
-  %call2.i.i = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.76, ptr noundef nonnull @.str.108, ptr noundef nonnull @.str.77, i32 noundef 12507, i32 noundef %2, ptr noundef nonnull @.str.78)
-  %3 = load ptr, ptr @stdout, align 8
-  %call3.i.i = call i32 @fflush(ptr noundef %3)
+  %0 = load i32, ptr %call1.i.i, align 4
+  %call2.i.i = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.76, ptr noundef nonnull @.str.108, ptr noundef nonnull @.str.77, i32 noundef 12507, i32 noundef %0, ptr noundef nonnull @.str.78)
+  %1 = load ptr, ptr @stdout, align 8
+  %call3.i.i = call i32 @fflush(ptr noundef %1)
   call void @_exit(i32 noundef 1) #18
   unreachable
 
 bench_stats_start.exit:                           ; preds = %for.end
-  %4 = load i64, ptr %tv.i.i, align 8
-  %conv.i.i = sitofp i64 %4 to double
+  %2 = load i64, ptr %tv.i.i, align 8
+  %conv.i.i = sitofp i64 %2 to double
   %tv_nsec.i.i = getelementptr inbounds i8, ptr %tv.i.i, i64 8
-  %5 = load i64, ptr %tv_nsec.i.i, align 8
-  %conv4.i.i = sitofp i64 %5 to double
+  %3 = load i64, ptr %tv_nsec.i.i, align 8
+  %conv4.i.i = sitofp i64 %3 to double
   %div.i.i = fdiv double %conv4.i.i, 1.000000e+09
   %add.i.i = fadd double %div.i.i, %conv.i.i
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %tv.i.i)
-  %6 = call { i32, i32 } asm sideeffect "cpuid\0A\09rdtsc", "={ax},={dx},{ax},~{ebx},~{ecx},~{dirflag},~{fpsr},~{flags}"(i32 0) #16, !srcloc !9
-  %asmresult.i.i = extractvalue { i32, i32 } %6, 0
-  %asmresult1.i.i = extractvalue { i32, i32 } %6, 1
+  %4 = call { i32, i32 } asm sideeffect "cpuid\0A\09rdtsc", "={ax},={dx},{ax},~{ebx},~{ecx},~{dirflag},~{fpsr},~{flags}"(i32 0) #16, !srcloc !8
+  %asmresult.i.i = extractvalue { i32, i32 } %4, 0
+  %asmresult1.i.i = extractvalue { i32, i32 } %4, 1
   %conv.i1.i = zext i32 %asmresult.i.i to i64
   %conv2.i.i = zext i32 %asmresult1.i.i to i64
   %shl.i.i = shl nuw i64 %conv2.i.i, 32
   %or.i.i = or disjoint i64 %shl.i.i, %conv.i1.i
-  %7 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @total_cycles)
-  store i64 %or.i.i, ptr %7, align 8
-  %8 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @bench_plain)
+  %5 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @total_cycles)
+  store i64 %or.i.i, ptr %5, align 8
+  %6 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @bench_plain)
   %tv_nsec.i.i22 = getelementptr inbounds i8, ptr %tv.i.i18, i64 8
   br label %do.body5
 
 do.body5:                                         ; preds = %bench_stats_check.exit, %bench_stats_start.exit
   %count.0 = phi i32 [ 0, %bench_stats_start.exit ], [ %add, %bench_stats_check.exit ]
-  %9 = load i32, ptr @numBlocks, align 4
-  %cmp799 = icmp sgt i32 %9, 0
+  %7 = load i32, ptr @numBlocks, align 4
+  %cmp799 = icmp sgt i32 %7, 0
   br i1 %cmp799, label %for.body14, label %do.body32
 
 for.body14:                                       ; preds = %do.body5, %bench_async_handle.exit
   %times.0100 = phi i32 [ %inc.i, %bench_async_handle.exit ], [ 0, %do.body5 ]
-  %10 = load ptr, ptr %8, align 8
-  %11 = load i32, ptr @bench_size, align 4
-  %call20 = call i32 @wc_Md5Update(ptr noundef nonnull %hash, ptr noundef %10, i32 noundef %11) #16
+  %8 = load ptr, ptr %6, align 8
+  %9 = load i32, ptr @bench_size, align 4
+  %call20 = call i32 @wc_Md5Update(ptr noundef nonnull %hash, ptr noundef %8, i32 noundef %9) #16
   %cmp.i = icmp sgt i32 %call20, -1
   br i1 %cmp.i, label %bench_async_handle.exit, label %exit_md5
 
 bench_async_handle.exit:                          ; preds = %for.body14
   %inc.i = add nuw nsw i32 %times.0100, 1
-  %12 = load i32, ptr @numBlocks, align 4
-  %cmp7 = icmp slt i32 %inc.i, %12
+  %10 = load i32, ptr @numBlocks, align 4
+  %cmp7 = icmp slt i32 %inc.i, %10
   br i1 %cmp7, label %for.body14, label %do.body32
 
 do.body32:                                        ; preds = %bench_async_handle.exit, %do.body5
@@ -2804,24 +2781,24 @@ do.cond57:                                        ; preds = %do.body32
 
 if.then.i.i27:                                    ; preds = %do.cond57
   %call1.i.i28 = tail call ptr @__errno_location() #17
-  %13 = load i32, ptr %call1.i.i28, align 4
-  %call2.i.i29 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.76, ptr noundef nonnull @.str.108, ptr noundef nonnull @.str.77, i32 noundef 12507, i32 noundef %13, ptr noundef nonnull @.str.78)
-  %14 = load ptr, ptr @stdout, align 8
-  %call3.i.i30 = call i32 @fflush(ptr noundef %14)
+  %11 = load i32, ptr %call1.i.i28, align 4
+  %call2.i.i29 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.76, ptr noundef nonnull @.str.108, ptr noundef nonnull @.str.77, i32 noundef 12507, i32 noundef %11, ptr noundef nonnull @.str.78)
+  %12 = load ptr, ptr @stdout, align 8
+  %call3.i.i30 = call i32 @fflush(ptr noundef %12)
   call void @_exit(i32 noundef 1) #18
   unreachable
 
 bench_stats_check.exit:                           ; preds = %do.cond57
-  %15 = load i64, ptr %tv.i.i18, align 8
-  %conv.i.i21 = sitofp i64 %15 to double
-  %16 = load i64, ptr %tv_nsec.i.i22, align 8
-  %conv4.i.i23 = sitofp i64 %16 to double
+  %13 = load i64, ptr %tv.i.i18, align 8
+  %conv.i.i21 = sitofp i64 %13 to double
+  %14 = load i64, ptr %tv_nsec.i.i22, align 8
+  %conv4.i.i23 = sitofp i64 %14 to double
   %div.i.i24 = fdiv double %conv4.i.i23, 1.000000e+09
   %add.i.i25 = fadd double %div.i.i24, %conv.i.i21
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %tv.i.i18)
   %sub.i = fsub double %add.i.i25, %add.i.i
   %cmp.i26 = fcmp uge double %sub.i, 1.000000e+00
-  br i1 %cmp.i26, label %exit_md5, label %do.body5, !llvm.loop !26
+  br i1 %cmp.i26, label %exit_md5, label %do.body5, !llvm.loop !25
 
 if.else:                                          ; preds = %entry
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %tv.i.i31)
@@ -2831,39 +2808,39 @@ if.else:                                          ; preds = %entry
 
 if.then.i.i45:                                    ; preds = %if.else
   %call1.i.i46 = tail call ptr @__errno_location() #17
-  %17 = load i32, ptr %call1.i.i46, align 4
-  %call2.i.i47 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.76, ptr noundef nonnull @.str.108, ptr noundef nonnull @.str.77, i32 noundef 12507, i32 noundef %17, ptr noundef nonnull @.str.78)
-  %18 = load ptr, ptr @stdout, align 8
-  %call3.i.i48 = call i32 @fflush(ptr noundef %18)
+  %15 = load i32, ptr %call1.i.i46, align 4
+  %call2.i.i47 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.76, ptr noundef nonnull @.str.108, ptr noundef nonnull @.str.77, i32 noundef 12507, i32 noundef %15, ptr noundef nonnull @.str.78)
+  %16 = load ptr, ptr @stdout, align 8
+  %call3.i.i48 = call i32 @fflush(ptr noundef %16)
   call void @_exit(i32 noundef 1) #18
   unreachable
 
 bench_stats_start.exit49:                         ; preds = %if.else
-  %19 = load i64, ptr %tv.i.i31, align 8
-  %conv.i.i34 = sitofp i64 %19 to double
+  %17 = load i64, ptr %tv.i.i31, align 8
+  %conv.i.i34 = sitofp i64 %17 to double
   %tv_nsec.i.i35 = getelementptr inbounds i8, ptr %tv.i.i31, i64 8
-  %20 = load i64, ptr %tv_nsec.i.i35, align 8
-  %conv4.i.i36 = sitofp i64 %20 to double
+  %18 = load i64, ptr %tv_nsec.i.i35, align 8
+  %conv4.i.i36 = sitofp i64 %18 to double
   %div.i.i37 = fdiv double %conv4.i.i36, 1.000000e+09
   %add.i.i38 = fadd double %div.i.i37, %conv.i.i34
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %tv.i.i31)
-  %21 = call { i32, i32 } asm sideeffect "cpuid\0A\09rdtsc", "={ax},={dx},{ax},~{ebx},~{ecx},~{dirflag},~{fpsr},~{flags}"(i32 0) #16, !srcloc !9
-  %asmresult.i.i39 = extractvalue { i32, i32 } %21, 0
-  %asmresult1.i.i40 = extractvalue { i32, i32 } %21, 1
+  %19 = call { i32, i32 } asm sideeffect "cpuid\0A\09rdtsc", "={ax},={dx},{ax},~{ebx},~{ecx},~{dirflag},~{fpsr},~{flags}"(i32 0) #16, !srcloc !8
+  %asmresult.i.i39 = extractvalue { i32, i32 } %19, 0
+  %asmresult1.i.i40 = extractvalue { i32, i32 } %19, 1
   %conv.i1.i41 = zext i32 %asmresult.i.i39 to i64
   %conv2.i.i42 = zext i32 %asmresult1.i.i40 to i64
   %shl.i.i43 = shl nuw i64 %conv2.i.i42, 32
   %or.i.i44 = or disjoint i64 %shl.i.i43, %conv.i1.i41
-  %22 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @total_cycles)
-  store i64 %or.i.i44, ptr %22, align 8
-  %23 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @bench_plain)
+  %20 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @total_cycles)
+  store i64 %or.i.i44, ptr %20, align 8
+  %21 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @bench_plain)
   %tv_nsec.i.i54 = getelementptr inbounds i8, ptr %tv.i.i50, i64 8
   br label %do.body61
 
 do.body61:                                        ; preds = %bench_stats_check.exit65, %bench_stats_start.exit49
   %count.1 = phi i32 [ 0, %bench_stats_start.exit49 ], [ %add88, %bench_stats_check.exit65 ]
-  %24 = load i32, ptr @numBlocks, align 4
-  %cmp63101 = icmp sgt i32 %24, 0
+  %22 = load i32, ptr @numBlocks, align 4
+  %cmp63101 = icmp sgt i32 %22, 0
   br i1 %cmp63101, label %for.body64, label %for.end87
 
 for.body64:                                       ; preds = %do.body61, %for.inc85
@@ -2873,9 +2850,9 @@ for.body64:                                       ; preds = %do.body61, %for.inc
   br i1 %cmp67, label %if.end71, label %exit_md5
 
 if.end71:                                         ; preds = %for.body64
-  %25 = load ptr, ptr %23, align 8
-  %26 = load i32, ptr @bench_size, align 4
-  %call70 = call i32 @wc_Md5Update(ptr noundef nonnull %hash, ptr noundef %25, i32 noundef %26) #16
+  %23 = load ptr, ptr %21, align 8
+  %24 = load i32, ptr @bench_size, align 4
+  %call70 = call i32 @wc_Md5Update(ptr noundef nonnull %hash, ptr noundef %23, i32 noundef %24) #16
   %cmp72 = icmp eq i32 %call70, 0
   br i1 %cmp72, label %if.end78, label %exit_md5
 
@@ -2886,9 +2863,9 @@ if.end78:                                         ; preds = %if.end71
 
 for.inc85:                                        ; preds = %if.end78
   %inc86 = add nuw nsw i32 %storemerge102, 1
-  %27 = load i32, ptr @numBlocks, align 4
-  %cmp63 = icmp slt i32 %inc86, %27
-  br i1 %cmp63, label %for.body64, label %for.end87, !llvm.loop !27
+  %25 = load i32, ptr @numBlocks, align 4
+  %cmp63 = icmp slt i32 %inc86, %25
+  br i1 %cmp63, label %for.body64, label %for.end87, !llvm.loop !26
 
 for.end87:                                        ; preds = %for.inc85, %do.body61
   %storemerge.lcssa = phi i32 [ 0, %do.body61 ], [ %inc86, %for.inc85 ]
@@ -2899,32 +2876,32 @@ for.end87:                                        ; preds = %for.inc85, %do.body
 
 if.then.i.i61:                                    ; preds = %for.end87
   %call1.i.i62 = tail call ptr @__errno_location() #17
-  %28 = load i32, ptr %call1.i.i62, align 4
-  %call2.i.i63 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.76, ptr noundef nonnull @.str.108, ptr noundef nonnull @.str.77, i32 noundef 12507, i32 noundef %28, ptr noundef nonnull @.str.78)
-  %29 = load ptr, ptr @stdout, align 8
-  %call3.i.i64 = call i32 @fflush(ptr noundef %29)
+  %26 = load i32, ptr %call1.i.i62, align 4
+  %call2.i.i63 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.76, ptr noundef nonnull @.str.108, ptr noundef nonnull @.str.77, i32 noundef 12507, i32 noundef %26, ptr noundef nonnull @.str.78)
+  %27 = load ptr, ptr @stdout, align 8
+  %call3.i.i64 = call i32 @fflush(ptr noundef %27)
   call void @_exit(i32 noundef 1) #18
   unreachable
 
 bench_stats_check.exit65:                         ; preds = %for.end87
   %add88 = add nuw nsw i32 %storemerge.lcssa, %count.1
-  %30 = load i64, ptr %tv.i.i50, align 8
-  %conv.i.i53 = sitofp i64 %30 to double
-  %31 = load i64, ptr %tv_nsec.i.i54, align 8
-  %conv4.i.i55 = sitofp i64 %31 to double
+  %28 = load i64, ptr %tv.i.i50, align 8
+  %conv.i.i53 = sitofp i64 %28 to double
+  %29 = load i64, ptr %tv_nsec.i.i54, align 8
+  %conv4.i.i55 = sitofp i64 %29 to double
   %div.i.i56 = fdiv double %conv4.i.i55, 1.000000e+09
   %add.i.i57 = fadd double %div.i.i56, %conv.i.i53
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %tv.i.i50)
   %sub.i58 = fsub double %add.i.i57, %add.i.i38
   %cmp.i59 = fcmp uge double %sub.i58, 1.000000e+00
-  br i1 %cmp.i59, label %exit_md5, label %do.body61, !llvm.loop !28
+  br i1 %cmp.i59, label %exit_md5, label %do.body61, !llvm.loop !27
 
 exit_md5:                                         ; preds = %do.body32, %bench_stats_check.exit, %for.body14, %bench_stats_check.exit65, %for.body64, %if.end71, %if.end78
   %ret.4 = phi i32 [ %call66, %for.body64 ], [ %call70, %if.end71 ], [ %call77, %if.end78 ], [ 0, %bench_stats_check.exit65 ], [ %call20, %for.body14 ], [ %call46, %bench_stats_check.exit ], [ %call46, %do.body32 ]
   %count.2 = phi i32 [ %count.1, %if.end78 ], [ %count.1, %if.end71 ], [ %count.1, %for.body64 ], [ %add88, %bench_stats_check.exit65 ], [ %count.0, %for.body14 ], [ %add, %bench_stats_check.exit ], [ %add, %do.body32 ]
   %start.0 = phi double [ %add.i.i38, %if.end78 ], [ %add.i.i38, %if.end71 ], [ %add.i.i38, %for.body64 ], [ %add.i.i38, %bench_stats_check.exit65 ], [ %add.i.i, %for.body14 ], [ %add.i.i, %bench_stats_check.exit ], [ %add.i.i, %do.body32 ]
-  %32 = load i32, ptr @bench_size, align 4
-  call fastcc void @bench_stats_sym_finish(ptr noundef nonnull @.str.39, i32 noundef %count.2, i32 noundef %32, double noundef %start.0, i32 noundef %ret.4)
+  %30 = load i32, ptr @bench_size, align 4
+  call fastcc void @bench_stats_sym_finish(ptr noundef nonnull @.str.39, i32 noundef %count.2, i32 noundef %30, double noundef %start.0, i32 noundef %ret.4)
   br label %do.end96
 
 do.end96:                                         ; preds = %exit_md5, %if.then3
@@ -2938,7 +2915,7 @@ declare i32 @wc_Md5Update(ptr noundef, ptr noundef, i32 noundef) local_unnamed_a
 declare i32 @wc_Md5Final(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @bench_sha(i32 noundef %useDeviceID) local_unnamed_addr #0 {
+define dso_local void @bench_sha(i32 %useDeviceID) local_unnamed_addr #0 {
 entry:
   %tv.i.i54 = alloca %struct.timespec, align 8
   %tv.i.i35 = alloca %struct.timespec, align 8
@@ -2951,11 +2928,7 @@ entry:
   br i1 %.b, label %if.else, label %for.body
 
 for.body:                                         ; preds = %entry
-  %tobool1.not = icmp eq i32 %useDeviceID, 0
-  %0 = tail call align 4 ptr @llvm.threadlocal.address.p0(ptr align 4 @devId)
-  %1 = load i32, ptr %0, align 4
-  %cond = select i1 %tobool1.not, i32 -2, i32 %1
-  %call = call i32 @wc_InitSha_ex(ptr noundef nonnull %hash, ptr noundef null, i32 noundef %cond) #16
+  %call = call i32 @wc_InitSha_ex(ptr noundef nonnull %hash, ptr noundef null, i32 noundef -2) #16
   %cmp2.not = icmp eq i32 %call, 0
   br i1 %cmp2.not, label %for.end, label %if.then3
 
@@ -2971,53 +2944,53 @@ for.end:                                          ; preds = %for.body
 
 if.then.i.i:                                      ; preds = %for.end
   %call1.i.i = tail call ptr @__errno_location() #17
-  %2 = load i32, ptr %call1.i.i, align 4
-  %call2.i.i = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.76, ptr noundef nonnull @.str.108, ptr noundef nonnull @.str.77, i32 noundef 12507, i32 noundef %2, ptr noundef nonnull @.str.78)
-  %3 = load ptr, ptr @stdout, align 8
-  %call3.i.i = call i32 @fflush(ptr noundef %3)
+  %0 = load i32, ptr %call1.i.i, align 4
+  %call2.i.i = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.76, ptr noundef nonnull @.str.108, ptr noundef nonnull @.str.77, i32 noundef 12507, i32 noundef %0, ptr noundef nonnull @.str.78)
+  %1 = load ptr, ptr @stdout, align 8
+  %call3.i.i = call i32 @fflush(ptr noundef %1)
   call void @_exit(i32 noundef 1) #18
   unreachable
 
 bench_stats_start.exit:                           ; preds = %for.end
-  %4 = load i64, ptr %tv.i.i, align 8
-  %conv.i.i = sitofp i64 %4 to double
+  %2 = load i64, ptr %tv.i.i, align 8
+  %conv.i.i = sitofp i64 %2 to double
   %tv_nsec.i.i = getelementptr inbounds i8, ptr %tv.i.i, i64 8
-  %5 = load i64, ptr %tv_nsec.i.i, align 8
-  %conv4.i.i = sitofp i64 %5 to double
+  %3 = load i64, ptr %tv_nsec.i.i, align 8
+  %conv4.i.i = sitofp i64 %3 to double
   %div.i.i = fdiv double %conv4.i.i, 1.000000e+09
   %add.i.i = fadd double %div.i.i, %conv.i.i
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %tv.i.i)
-  %6 = call { i32, i32 } asm sideeffect "cpuid\0A\09rdtsc", "={ax},={dx},{ax},~{ebx},~{ecx},~{dirflag},~{fpsr},~{flags}"(i32 0) #16, !srcloc !9
-  %asmresult.i.i = extractvalue { i32, i32 } %6, 0
-  %asmresult1.i.i = extractvalue { i32, i32 } %6, 1
+  %4 = call { i32, i32 } asm sideeffect "cpuid\0A\09rdtsc", "={ax},={dx},{ax},~{ebx},~{ecx},~{dirflag},~{fpsr},~{flags}"(i32 0) #16, !srcloc !8
+  %asmresult.i.i = extractvalue { i32, i32 } %4, 0
+  %asmresult1.i.i = extractvalue { i32, i32 } %4, 1
   %conv.i1.i = zext i32 %asmresult.i.i to i64
   %conv2.i.i = zext i32 %asmresult1.i.i to i64
   %shl.i.i = shl nuw i64 %conv2.i.i, 32
   %or.i.i = or disjoint i64 %shl.i.i, %conv.i1.i
-  %7 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @total_cycles)
-  store i64 %or.i.i, ptr %7, align 8
-  %8 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @bench_plain)
+  %5 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @total_cycles)
+  store i64 %or.i.i, ptr %5, align 8
+  %6 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @bench_plain)
   %tv_nsec.i.i26 = getelementptr inbounds i8, ptr %tv.i.i22, i64 8
   br label %do.body5
 
 do.body5:                                         ; preds = %bench_stats_check.exit, %bench_stats_start.exit
   %count.0 = phi i32 [ 0, %bench_stats_start.exit ], [ %add, %bench_stats_check.exit ]
-  %9 = load i32, ptr @numBlocks, align 4
-  %cmp7103 = icmp sgt i32 %9, 0
+  %7 = load i32, ptr @numBlocks, align 4
+  %cmp7103 = icmp sgt i32 %7, 0
   br i1 %cmp7103, label %for.body14, label %do.body32
 
 for.body14:                                       ; preds = %do.body5, %bench_async_handle.exit
   %times.0104 = phi i32 [ %inc.i, %bench_async_handle.exit ], [ 0, %do.body5 ]
-  %10 = load ptr, ptr %8, align 8
-  %11 = load i32, ptr @bench_size, align 4
-  %call20 = call i32 @wc_ShaUpdate(ptr noundef nonnull %hash, ptr noundef %10, i32 noundef %11) #16
+  %8 = load ptr, ptr %6, align 8
+  %9 = load i32, ptr @bench_size, align 4
+  %call20 = call i32 @wc_ShaUpdate(ptr noundef nonnull %hash, ptr noundef %8, i32 noundef %9) #16
   %cmp.i = icmp sgt i32 %call20, -1
   br i1 %cmp.i, label %bench_async_handle.exit, label %exit_sha
 
 bench_async_handle.exit:                          ; preds = %for.body14
   %inc.i = add nuw nsw i32 %times.0104, 1
-  %12 = load i32, ptr @numBlocks, align 4
-  %cmp7 = icmp slt i32 %inc.i, %12
+  %10 = load i32, ptr @numBlocks, align 4
+  %cmp7 = icmp slt i32 %inc.i, %10
   br i1 %cmp7, label %for.body14, label %do.body32
 
 do.body32:                                        ; preds = %bench_async_handle.exit, %do.body5
@@ -3035,24 +3008,24 @@ do.cond57:                                        ; preds = %do.body32
 
 if.then.i.i31:                                    ; preds = %do.cond57
   %call1.i.i32 = tail call ptr @__errno_location() #17
-  %13 = load i32, ptr %call1.i.i32, align 4
-  %call2.i.i33 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.76, ptr noundef nonnull @.str.108, ptr noundef nonnull @.str.77, i32 noundef 12507, i32 noundef %13, ptr noundef nonnull @.str.78)
-  %14 = load ptr, ptr @stdout, align 8
-  %call3.i.i34 = call i32 @fflush(ptr noundef %14)
+  %11 = load i32, ptr %call1.i.i32, align 4
+  %call2.i.i33 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.76, ptr noundef nonnull @.str.108, ptr noundef nonnull @.str.77, i32 noundef 12507, i32 noundef %11, ptr noundef nonnull @.str.78)
+  %12 = load ptr, ptr @stdout, align 8
+  %call3.i.i34 = call i32 @fflush(ptr noundef %12)
   call void @_exit(i32 noundef 1) #18
   unreachable
 
 bench_stats_check.exit:                           ; preds = %do.cond57
-  %15 = load i64, ptr %tv.i.i22, align 8
-  %conv.i.i25 = sitofp i64 %15 to double
-  %16 = load i64, ptr %tv_nsec.i.i26, align 8
-  %conv4.i.i27 = sitofp i64 %16 to double
+  %13 = load i64, ptr %tv.i.i22, align 8
+  %conv.i.i25 = sitofp i64 %13 to double
+  %14 = load i64, ptr %tv_nsec.i.i26, align 8
+  %conv4.i.i27 = sitofp i64 %14 to double
   %div.i.i28 = fdiv double %conv4.i.i27, 1.000000e+09
   %add.i.i29 = fadd double %div.i.i28, %conv.i.i25
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %tv.i.i22)
   %sub.i = fsub double %add.i.i29, %add.i.i
   %cmp.i30 = fcmp uge double %sub.i, 1.000000e+00
-  br i1 %cmp.i30, label %exit_sha, label %do.body5, !llvm.loop !29
+  br i1 %cmp.i30, label %exit_sha, label %do.body5, !llvm.loop !28
 
 if.else:                                          ; preds = %entry
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %tv.i.i35)
@@ -3062,104 +3035,51 @@ if.else:                                          ; preds = %entry
 
 if.then.i.i49:                                    ; preds = %if.else
   %call1.i.i50 = tail call ptr @__errno_location() #17
-  %17 = load i32, ptr %call1.i.i50, align 4
-  %call2.i.i51 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.76, ptr noundef nonnull @.str.108, ptr noundef nonnull @.str.77, i32 noundef 12507, i32 noundef %17, ptr noundef nonnull @.str.78)
-  %18 = load ptr, ptr @stdout, align 8
-  %call3.i.i52 = call i32 @fflush(ptr noundef %18)
+  %15 = load i32, ptr %call1.i.i50, align 4
+  %call2.i.i51 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.76, ptr noundef nonnull @.str.108, ptr noundef nonnull @.str.77, i32 noundef 12507, i32 noundef %15, ptr noundef nonnull @.str.78)
+  %16 = load ptr, ptr @stdout, align 8
+  %call3.i.i52 = call i32 @fflush(ptr noundef %16)
   call void @_exit(i32 noundef 1) #18
   unreachable
 
 bench_stats_start.exit53:                         ; preds = %if.else
-  %19 = load i64, ptr %tv.i.i35, align 8
-  %conv.i.i38 = sitofp i64 %19 to double
+  %17 = load i64, ptr %tv.i.i35, align 8
+  %conv.i.i38 = sitofp i64 %17 to double
   %tv_nsec.i.i39 = getelementptr inbounds i8, ptr %tv.i.i35, i64 8
-  %20 = load i64, ptr %tv_nsec.i.i39, align 8
-  %conv4.i.i40 = sitofp i64 %20 to double
+  %18 = load i64, ptr %tv_nsec.i.i39, align 8
+  %conv4.i.i40 = sitofp i64 %18 to double
   %div.i.i41 = fdiv double %conv4.i.i40, 1.000000e+09
   %add.i.i42 = fadd double %div.i.i41, %conv.i.i38
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %tv.i.i35)
-  %21 = call { i32, i32 } asm sideeffect "cpuid\0A\09rdtsc", "={ax},={dx},{ax},~{ebx},~{ecx},~{dirflag},~{fpsr},~{flags}"(i32 0) #16, !srcloc !9
-  %asmresult.i.i43 = extractvalue { i32, i32 } %21, 0
-  %asmresult1.i.i44 = extractvalue { i32, i32 } %21, 1
+  %19 = call { i32, i32 } asm sideeffect "cpuid\0A\09rdtsc", "={ax},={dx},{ax},~{ebx},~{ecx},~{dirflag},~{fpsr},~{flags}"(i32 0) #16, !srcloc !8
+  %asmresult.i.i43 = extractvalue { i32, i32 } %19, 0
+  %asmresult1.i.i44 = extractvalue { i32, i32 } %19, 1
   %conv.i1.i45 = zext i32 %asmresult.i.i43 to i64
   %conv2.i.i46 = zext i32 %asmresult1.i.i44 to i64
   %shl.i.i47 = shl nuw i64 %conv2.i.i46, 32
   %or.i.i48 = or disjoint i64 %shl.i.i47, %conv.i1.i45
-  %22 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @total_cycles)
-  store i64 %or.i.i48, ptr %22, align 8
-  %tobool66.not = icmp eq i32 %useDeviceID, 0
-  %23 = call align 4 ptr @llvm.threadlocal.address.p0(ptr align 4 @devId)
-  %24 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @bench_plain)
+  %20 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @total_cycles)
+  store i64 %or.i.i48, ptr %20, align 8
+  %21 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @bench_plain)
   %tv_nsec.i.i58 = getelementptr inbounds i8, ptr %tv.i.i54, i64 8
-  br i1 %tobool66.not, label %do.body61.us, label %do.body61
+  br label %do.body61
 
-do.body61.us:                                     ; preds = %bench_stats_start.exit53, %bench_stats_check.exit69.us
-  %count.1.us = phi i32 [ %add93.us, %bench_stats_check.exit69.us ], [ 0, %bench_stats_start.exit53 ]
-  %25 = load i32, ptr @numBlocks, align 4
-  %cmp63105.us = icmp sgt i32 %25, 0
-  br i1 %cmp63105.us, label %for.body64.us.us, label %for.end92.us
-
-for.end92.us:                                     ; preds = %for.inc90.us.us, %do.body61.us
-  %storemerge.lcssa.us = phi i32 [ 0, %do.body61.us ], [ %inc91.us.us, %for.inc90.us.us ]
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %tv.i.i54)
-  %call.i.i55.us = call i32 @clock_gettime(i32 noundef 0, ptr noundef nonnull %tv.i.i54) #16
-  %cmp.i.i56.us = icmp slt i32 %call.i.i55.us, 0
-  br i1 %cmp.i.i56.us, label %if.then.i.i65, label %bench_stats_check.exit69.us
-
-bench_stats_check.exit69.us:                      ; preds = %for.end92.us
-  %add93.us = add nuw nsw i32 %storemerge.lcssa.us, %count.1.us
-  %26 = load i64, ptr %tv.i.i54, align 8
-  %conv.i.i57.us = sitofp i64 %26 to double
-  %27 = load i64, ptr %tv_nsec.i.i58, align 8
-  %conv4.i.i59.us = sitofp i64 %27 to double
-  %div.i.i60.us = fdiv double %conv4.i.i59.us, 1.000000e+09
-  %add.i.i61.us = fadd double %div.i.i60.us, %conv.i.i57.us
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %tv.i.i54)
-  %sub.i62.us = fsub double %add.i.i61.us, %add.i.i42
-  %cmp.i63.us = fcmp uge double %sub.i62.us, 1.000000e+00
-  br i1 %cmp.i63.us, label %exit_sha, label %do.body61.us, !llvm.loop !30
-
-for.body64.us.us:                                 ; preds = %do.body61.us, %for.inc90.us.us
-  %storemerge106.us.us = phi i32 [ %inc91.us.us, %for.inc90.us.us ], [ 0, %do.body61.us ]
-  %call71.us.us = call i32 @wc_InitSha_ex(ptr noundef nonnull %hash, ptr noundef null, i32 noundef -2) #16
-  %cmp72.us.us = icmp eq i32 %call71.us.us, 0
-  br i1 %cmp72.us.us, label %if.end76.us.us, label %exit_sha
-
-if.end76.us.us:                                   ; preds = %for.body64.us.us
-  %28 = load ptr, ptr %24, align 8
-  %29 = load i32, ptr @bench_size, align 4
-  %call75.us.us = call i32 @wc_ShaUpdate(ptr noundef nonnull %hash, ptr noundef %28, i32 noundef %29) #16
-  %cmp77.us.us = icmp eq i32 %call75.us.us, 0
-  br i1 %cmp77.us.us, label %if.end83.us.us, label %exit_sha
-
-if.end83.us.us:                                   ; preds = %if.end76.us.us
-  %call82.us.us = call i32 @wc_ShaFinal(ptr noundef nonnull %hash, ptr noundef nonnull %digest) #16
-  %cmp84.not.us.us = icmp eq i32 %call82.us.us, 0
-  br i1 %cmp84.not.us.us, label %for.inc90.us.us, label %exit_sha
-
-for.inc90.us.us:                                  ; preds = %if.end83.us.us
-  %inc91.us.us = add nuw nsw i32 %storemerge106.us.us, 1
-  %30 = load i32, ptr @numBlocks, align 4
-  %cmp63.us.us = icmp slt i32 %inc91.us.us, %30
-  br i1 %cmp63.us.us, label %for.body64.us.us, label %for.end92.us, !llvm.loop !31
-
-do.body61:                                        ; preds = %bench_stats_start.exit53, %bench_stats_check.exit69
-  %count.1 = phi i32 [ %add93, %bench_stats_check.exit69 ], [ 0, %bench_stats_start.exit53 ]
-  %31 = load i32, ptr @numBlocks, align 4
-  %cmp63105 = icmp sgt i32 %31, 0
+do.body61:                                        ; preds = %bench_stats_check.exit69, %bench_stats_start.exit53
+  %count.1 = phi i32 [ 0, %bench_stats_start.exit53 ], [ %add93, %bench_stats_check.exit69 ]
+  %22 = load i32, ptr @numBlocks, align 4
+  %cmp63105 = icmp sgt i32 %22, 0
   br i1 %cmp63105, label %for.body64, label %for.end92
 
 for.body64:                                       ; preds = %do.body61, %for.inc90
   %storemerge106 = phi i32 [ %inc91, %for.inc90 ], [ 0, %do.body61 ]
-  %32 = load i32, ptr %23, align 4
-  %call71 = call i32 @wc_InitSha_ex(ptr noundef nonnull %hash, ptr noundef null, i32 noundef %32) #16
+  %call71 = call i32 @wc_InitSha_ex(ptr noundef nonnull %hash, ptr noundef null, i32 noundef -2) #16
   %cmp72 = icmp eq i32 %call71, 0
   br i1 %cmp72, label %if.end76, label %exit_sha
 
 if.end76:                                         ; preds = %for.body64
-  %33 = load ptr, ptr %24, align 8
-  %34 = load i32, ptr @bench_size, align 4
-  %call75 = call i32 @wc_ShaUpdate(ptr noundef nonnull %hash, ptr noundef %33, i32 noundef %34) #16
+  %23 = load ptr, ptr %21, align 8
+  %24 = load i32, ptr @bench_size, align 4
+  %call75 = call i32 @wc_ShaUpdate(ptr noundef nonnull %hash, ptr noundef %23, i32 noundef %24) #16
   %cmp77 = icmp eq i32 %call75, 0
   br i1 %cmp77, label %if.end83, label %exit_sha
 
@@ -3170,9 +3090,9 @@ if.end83:                                         ; preds = %if.end76
 
 for.inc90:                                        ; preds = %if.end83
   %inc91 = add nuw nsw i32 %storemerge106, 1
-  %35 = load i32, ptr @numBlocks, align 4
-  %cmp63 = icmp slt i32 %inc91, %35
-  br i1 %cmp63, label %for.body64, label %for.end92, !llvm.loop !31
+  %25 = load i32, ptr @numBlocks, align 4
+  %cmp63 = icmp slt i32 %inc91, %25
+  br i1 %cmp63, label %for.body64, label %for.end92, !llvm.loop !29
 
 for.end92:                                        ; preds = %for.inc90, %do.body61
   %storemerge.lcssa = phi i32 [ 0, %do.body61 ], [ %inc91, %for.inc90 ]
@@ -3181,21 +3101,21 @@ for.end92:                                        ; preds = %for.inc90, %do.body
   %cmp.i.i56 = icmp slt i32 %call.i.i55, 0
   br i1 %cmp.i.i56, label %if.then.i.i65, label %bench_stats_check.exit69
 
-if.then.i.i65:                                    ; preds = %for.end92, %for.end92.us
+if.then.i.i65:                                    ; preds = %for.end92
   %call1.i.i66 = tail call ptr @__errno_location() #17
-  %36 = load i32, ptr %call1.i.i66, align 4
-  %call2.i.i67 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.76, ptr noundef nonnull @.str.108, ptr noundef nonnull @.str.77, i32 noundef 12507, i32 noundef %36, ptr noundef nonnull @.str.78)
-  %37 = load ptr, ptr @stdout, align 8
-  %call3.i.i68 = call i32 @fflush(ptr noundef %37)
+  %26 = load i32, ptr %call1.i.i66, align 4
+  %call2.i.i67 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.76, ptr noundef nonnull @.str.108, ptr noundef nonnull @.str.77, i32 noundef 12507, i32 noundef %26, ptr noundef nonnull @.str.78)
+  %27 = load ptr, ptr @stdout, align 8
+  %call3.i.i68 = call i32 @fflush(ptr noundef %27)
   call void @_exit(i32 noundef 1) #18
   unreachable
 
 bench_stats_check.exit69:                         ; preds = %for.end92
   %add93 = add nuw nsw i32 %storemerge.lcssa, %count.1
-  %38 = load i64, ptr %tv.i.i54, align 8
-  %conv.i.i57 = sitofp i64 %38 to double
-  %39 = load i64, ptr %tv_nsec.i.i58, align 8
-  %conv4.i.i59 = sitofp i64 %39 to double
+  %28 = load i64, ptr %tv.i.i54, align 8
+  %conv.i.i57 = sitofp i64 %28 to double
+  %29 = load i64, ptr %tv_nsec.i.i58, align 8
+  %conv4.i.i59 = sitofp i64 %29 to double
   %div.i.i60 = fdiv double %conv4.i.i59, 1.000000e+09
   %add.i.i61 = fadd double %div.i.i60, %conv.i.i57
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %tv.i.i54)
@@ -3203,12 +3123,12 @@ bench_stats_check.exit69:                         ; preds = %for.end92
   %cmp.i63 = fcmp uge double %sub.i62, 1.000000e+00
   br i1 %cmp.i63, label %exit_sha, label %do.body61, !llvm.loop !30
 
-exit_sha:                                         ; preds = %do.body32, %bench_stats_check.exit, %for.body14, %bench_stats_check.exit69, %if.end83, %if.end76, %for.body64, %bench_stats_check.exit69.us, %for.body64.us.us, %if.end76.us.us, %if.end83.us.us
-  %ret.4 = phi i32 [ %call71.us.us, %for.body64.us.us ], [ %call75.us.us, %if.end76.us.us ], [ %call82.us.us, %if.end83.us.us ], [ 0, %bench_stats_check.exit69.us ], [ %call71, %for.body64 ], [ %call75, %if.end76 ], [ %call82, %if.end83 ], [ 0, %bench_stats_check.exit69 ], [ %call20, %for.body14 ], [ %call46, %bench_stats_check.exit ], [ %call46, %do.body32 ]
-  %count.2 = phi i32 [ %count.1.us, %if.end83.us.us ], [ %count.1.us, %if.end76.us.us ], [ %count.1.us, %for.body64.us.us ], [ %add93.us, %bench_stats_check.exit69.us ], [ %count.1, %for.body64 ], [ %count.1, %if.end76 ], [ %count.1, %if.end83 ], [ %add93, %bench_stats_check.exit69 ], [ %count.0, %for.body14 ], [ %add, %bench_stats_check.exit ], [ %add, %do.body32 ]
-  %start.0 = phi double [ %add.i.i42, %if.end83.us.us ], [ %add.i.i42, %if.end76.us.us ], [ %add.i.i42, %for.body64.us.us ], [ %add.i.i42, %bench_stats_check.exit69.us ], [ %add.i.i42, %for.body64 ], [ %add.i.i42, %if.end76 ], [ %add.i.i42, %if.end83 ], [ %add.i.i42, %bench_stats_check.exit69 ], [ %add.i.i, %for.body14 ], [ %add.i.i, %bench_stats_check.exit ], [ %add.i.i, %do.body32 ]
-  %40 = load i32, ptr @bench_size, align 4
-  call fastcc void @bench_stats_sym_finish(ptr noundef nonnull @.str.41, i32 noundef %count.2, i32 noundef %40, double noundef %start.0, i32 noundef %ret.4)
+exit_sha:                                         ; preds = %do.body32, %bench_stats_check.exit, %for.body14, %bench_stats_check.exit69, %for.body64, %if.end76, %if.end83
+  %ret.4 = phi i32 [ %call71, %for.body64 ], [ %call75, %if.end76 ], [ %call82, %if.end83 ], [ 0, %bench_stats_check.exit69 ], [ %call20, %for.body14 ], [ %call46, %bench_stats_check.exit ], [ %call46, %do.body32 ]
+  %count.2 = phi i32 [ %count.1, %if.end83 ], [ %count.1, %if.end76 ], [ %count.1, %for.body64 ], [ %add93, %bench_stats_check.exit69 ], [ %count.0, %for.body14 ], [ %add, %bench_stats_check.exit ], [ %add, %do.body32 ]
+  %start.0 = phi double [ %add.i.i42, %if.end83 ], [ %add.i.i42, %if.end76 ], [ %add.i.i42, %for.body64 ], [ %add.i.i42, %bench_stats_check.exit69 ], [ %add.i.i, %for.body14 ], [ %add.i.i, %bench_stats_check.exit ], [ %add.i.i, %do.body32 ]
+  %30 = load i32, ptr @bench_size, align 4
+  call fastcc void @bench_stats_sym_finish(ptr noundef nonnull @.str.41, i32 noundef %count.2, i32 noundef %30, double noundef %start.0, i32 noundef %ret.4)
   br label %exit
 
 exit:                                             ; preds = %exit_sha, %if.then3
@@ -3225,7 +3145,7 @@ declare i32 @wc_ShaFinal(ptr noundef, ptr noundef) local_unnamed_addr #1
 declare void @wc_ShaFree(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @bench_sha224(i32 noundef %useDeviceID) local_unnamed_addr #0 {
+define dso_local void @bench_sha224(i32 %useDeviceID) local_unnamed_addr #0 {
 entry:
   %tv.i.i54 = alloca %struct.timespec, align 8
   %tv.i.i35 = alloca %struct.timespec, align 8
@@ -3238,11 +3158,7 @@ entry:
   br i1 %.b, label %if.else, label %for.body
 
 for.body:                                         ; preds = %entry
-  %tobool1.not = icmp eq i32 %useDeviceID, 0
-  %0 = tail call align 4 ptr @llvm.threadlocal.address.p0(ptr align 4 @devId)
-  %1 = load i32, ptr %0, align 4
-  %cond = select i1 %tobool1.not, i32 -2, i32 %1
-  %call = call i32 @wc_InitSha224_ex(ptr noundef nonnull %hash, ptr noundef null, i32 noundef %cond) #16
+  %call = call i32 @wc_InitSha224_ex(ptr noundef nonnull %hash, ptr noundef null, i32 noundef -2) #16
   %cmp2.not = icmp eq i32 %call, 0
   br i1 %cmp2.not, label %for.end, label %if.then3
 
@@ -3258,53 +3174,53 @@ for.end:                                          ; preds = %for.body
 
 if.then.i.i:                                      ; preds = %for.end
   %call1.i.i = tail call ptr @__errno_location() #17
-  %2 = load i32, ptr %call1.i.i, align 4
-  %call2.i.i = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.76, ptr noundef nonnull @.str.108, ptr noundef nonnull @.str.77, i32 noundef 12507, i32 noundef %2, ptr noundef nonnull @.str.78)
-  %3 = load ptr, ptr @stdout, align 8
-  %call3.i.i = call i32 @fflush(ptr noundef %3)
+  %0 = load i32, ptr %call1.i.i, align 4
+  %call2.i.i = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.76, ptr noundef nonnull @.str.108, ptr noundef nonnull @.str.77, i32 noundef 12507, i32 noundef %0, ptr noundef nonnull @.str.78)
+  %1 = load ptr, ptr @stdout, align 8
+  %call3.i.i = call i32 @fflush(ptr noundef %1)
   call void @_exit(i32 noundef 1) #18
   unreachable
 
 bench_stats_start.exit:                           ; preds = %for.end
-  %4 = load i64, ptr %tv.i.i, align 8
-  %conv.i.i = sitofp i64 %4 to double
+  %2 = load i64, ptr %tv.i.i, align 8
+  %conv.i.i = sitofp i64 %2 to double
   %tv_nsec.i.i = getelementptr inbounds i8, ptr %tv.i.i, i64 8
-  %5 = load i64, ptr %tv_nsec.i.i, align 8
-  %conv4.i.i = sitofp i64 %5 to double
+  %3 = load i64, ptr %tv_nsec.i.i, align 8
+  %conv4.i.i = sitofp i64 %3 to double
   %div.i.i = fdiv double %conv4.i.i, 1.000000e+09
   %add.i.i = fadd double %div.i.i, %conv.i.i
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %tv.i.i)
-  %6 = call { i32, i32 } asm sideeffect "cpuid\0A\09rdtsc", "={ax},={dx},{ax},~{ebx},~{ecx},~{dirflag},~{fpsr},~{flags}"(i32 0) #16, !srcloc !9
-  %asmresult.i.i = extractvalue { i32, i32 } %6, 0
-  %asmresult1.i.i = extractvalue { i32, i32 } %6, 1
+  %4 = call { i32, i32 } asm sideeffect "cpuid\0A\09rdtsc", "={ax},={dx},{ax},~{ebx},~{ecx},~{dirflag},~{fpsr},~{flags}"(i32 0) #16, !srcloc !8
+  %asmresult.i.i = extractvalue { i32, i32 } %4, 0
+  %asmresult1.i.i = extractvalue { i32, i32 } %4, 1
   %conv.i1.i = zext i32 %asmresult.i.i to i64
   %conv2.i.i = zext i32 %asmresult1.i.i to i64
   %shl.i.i = shl nuw i64 %conv2.i.i, 32
   %or.i.i = or disjoint i64 %shl.i.i, %conv.i1.i
-  %7 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @total_cycles)
-  store i64 %or.i.i, ptr %7, align 8
-  %8 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @bench_plain)
+  %5 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @total_cycles)
+  store i64 %or.i.i, ptr %5, align 8
+  %6 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @bench_plain)
   %tv_nsec.i.i26 = getelementptr inbounds i8, ptr %tv.i.i22, i64 8
   br label %do.body5
 
 do.body5:                                         ; preds = %bench_stats_check.exit, %bench_stats_start.exit
   %count.0 = phi i32 [ 0, %bench_stats_start.exit ], [ %add, %bench_stats_check.exit ]
-  %9 = load i32, ptr @numBlocks, align 4
-  %cmp7103 = icmp sgt i32 %9, 0
+  %7 = load i32, ptr @numBlocks, align 4
+  %cmp7103 = icmp sgt i32 %7, 0
   br i1 %cmp7103, label %for.body14, label %do.body32
 
 for.body14:                                       ; preds = %do.body5, %bench_async_handle.exit
   %times.0104 = phi i32 [ %inc.i, %bench_async_handle.exit ], [ 0, %do.body5 ]
-  %10 = load ptr, ptr %8, align 8
-  %11 = load i32, ptr @bench_size, align 4
-  %call20 = call i32 @wc_Sha224Update(ptr noundef nonnull %hash, ptr noundef %10, i32 noundef %11) #16
+  %8 = load ptr, ptr %6, align 8
+  %9 = load i32, ptr @bench_size, align 4
+  %call20 = call i32 @wc_Sha224Update(ptr noundef nonnull %hash, ptr noundef %8, i32 noundef %9) #16
   %cmp.i = icmp sgt i32 %call20, -1
   br i1 %cmp.i, label %bench_async_handle.exit, label %exit_sha224
 
 bench_async_handle.exit:                          ; preds = %for.body14
   %inc.i = add nuw nsw i32 %times.0104, 1
-  %12 = load i32, ptr @numBlocks, align 4
-  %cmp7 = icmp slt i32 %inc.i, %12
+  %10 = load i32, ptr @numBlocks, align 4
+  %cmp7 = icmp slt i32 %inc.i, %10
   br i1 %cmp7, label %for.body14, label %do.body32
 
 do.body32:                                        ; preds = %bench_async_handle.exit, %do.body5
@@ -3322,24 +3238,24 @@ do.cond57:                                        ; preds = %do.body32
 
 if.then.i.i31:                                    ; preds = %do.cond57
   %call1.i.i32 = tail call ptr @__errno_location() #17
-  %13 = load i32, ptr %call1.i.i32, align 4
-  %call2.i.i33 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.76, ptr noundef nonnull @.str.108, ptr noundef nonnull @.str.77, i32 noundef 12507, i32 noundef %13, ptr noundef nonnull @.str.78)
-  %14 = load ptr, ptr @stdout, align 8
-  %call3.i.i34 = call i32 @fflush(ptr noundef %14)
+  %11 = load i32, ptr %call1.i.i32, align 4
+  %call2.i.i33 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.76, ptr noundef nonnull @.str.108, ptr noundef nonnull @.str.77, i32 noundef 12507, i32 noundef %11, ptr noundef nonnull @.str.78)
+  %12 = load ptr, ptr @stdout, align 8
+  %call3.i.i34 = call i32 @fflush(ptr noundef %12)
   call void @_exit(i32 noundef 1) #18
   unreachable
 
 bench_stats_check.exit:                           ; preds = %do.cond57
-  %15 = load i64, ptr %tv.i.i22, align 8
-  %conv.i.i25 = sitofp i64 %15 to double
-  %16 = load i64, ptr %tv_nsec.i.i26, align 8
-  %conv4.i.i27 = sitofp i64 %16 to double
+  %13 = load i64, ptr %tv.i.i22, align 8
+  %conv.i.i25 = sitofp i64 %13 to double
+  %14 = load i64, ptr %tv_nsec.i.i26, align 8
+  %conv4.i.i27 = sitofp i64 %14 to double
   %div.i.i28 = fdiv double %conv4.i.i27, 1.000000e+09
   %add.i.i29 = fadd double %div.i.i28, %conv.i.i25
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %tv.i.i22)
   %sub.i = fsub double %add.i.i29, %add.i.i
   %cmp.i30 = fcmp uge double %sub.i, 1.000000e+00
-  br i1 %cmp.i30, label %exit_sha224, label %do.body5, !llvm.loop !32
+  br i1 %cmp.i30, label %exit_sha224, label %do.body5, !llvm.loop !31
 
 if.else:                                          ; preds = %entry
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %tv.i.i35)
@@ -3349,104 +3265,51 @@ if.else:                                          ; preds = %entry
 
 if.then.i.i49:                                    ; preds = %if.else
   %call1.i.i50 = tail call ptr @__errno_location() #17
-  %17 = load i32, ptr %call1.i.i50, align 4
-  %call2.i.i51 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.76, ptr noundef nonnull @.str.108, ptr noundef nonnull @.str.77, i32 noundef 12507, i32 noundef %17, ptr noundef nonnull @.str.78)
-  %18 = load ptr, ptr @stdout, align 8
-  %call3.i.i52 = call i32 @fflush(ptr noundef %18)
+  %15 = load i32, ptr %call1.i.i50, align 4
+  %call2.i.i51 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.76, ptr noundef nonnull @.str.108, ptr noundef nonnull @.str.77, i32 noundef 12507, i32 noundef %15, ptr noundef nonnull @.str.78)
+  %16 = load ptr, ptr @stdout, align 8
+  %call3.i.i52 = call i32 @fflush(ptr noundef %16)
   call void @_exit(i32 noundef 1) #18
   unreachable
 
 bench_stats_start.exit53:                         ; preds = %if.else
-  %19 = load i64, ptr %tv.i.i35, align 8
-  %conv.i.i38 = sitofp i64 %19 to double
+  %17 = load i64, ptr %tv.i.i35, align 8
+  %conv.i.i38 = sitofp i64 %17 to double
   %tv_nsec.i.i39 = getelementptr inbounds i8, ptr %tv.i.i35, i64 8
-  %20 = load i64, ptr %tv_nsec.i.i39, align 8
-  %conv4.i.i40 = sitofp i64 %20 to double
+  %18 = load i64, ptr %tv_nsec.i.i39, align 8
+  %conv4.i.i40 = sitofp i64 %18 to double
   %div.i.i41 = fdiv double %conv4.i.i40, 1.000000e+09
   %add.i.i42 = fadd double %div.i.i41, %conv.i.i38
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %tv.i.i35)
-  %21 = call { i32, i32 } asm sideeffect "cpuid\0A\09rdtsc", "={ax},={dx},{ax},~{ebx},~{ecx},~{dirflag},~{fpsr},~{flags}"(i32 0) #16, !srcloc !9
-  %asmresult.i.i43 = extractvalue { i32, i32 } %21, 0
-  %asmresult1.i.i44 = extractvalue { i32, i32 } %21, 1
+  %19 = call { i32, i32 } asm sideeffect "cpuid\0A\09rdtsc", "={ax},={dx},{ax},~{ebx},~{ecx},~{dirflag},~{fpsr},~{flags}"(i32 0) #16, !srcloc !8
+  %asmresult.i.i43 = extractvalue { i32, i32 } %19, 0
+  %asmresult1.i.i44 = extractvalue { i32, i32 } %19, 1
   %conv.i1.i45 = zext i32 %asmresult.i.i43 to i64
   %conv2.i.i46 = zext i32 %asmresult1.i.i44 to i64
   %shl.i.i47 = shl nuw i64 %conv2.i.i46, 32
   %or.i.i48 = or disjoint i64 %shl.i.i47, %conv.i1.i45
-  %22 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @total_cycles)
-  store i64 %or.i.i48, ptr %22, align 8
-  %tobool66.not = icmp eq i32 %useDeviceID, 0
-  %23 = call align 4 ptr @llvm.threadlocal.address.p0(ptr align 4 @devId)
-  %24 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @bench_plain)
+  %20 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @total_cycles)
+  store i64 %or.i.i48, ptr %20, align 8
+  %21 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @bench_plain)
   %tv_nsec.i.i58 = getelementptr inbounds i8, ptr %tv.i.i54, i64 8
-  br i1 %tobool66.not, label %do.body61.us, label %do.body61
+  br label %do.body61
 
-do.body61.us:                                     ; preds = %bench_stats_start.exit53, %bench_stats_check.exit69.us
-  %count.1.us = phi i32 [ %add90.us, %bench_stats_check.exit69.us ], [ 0, %bench_stats_start.exit53 ]
-  %25 = load i32, ptr @numBlocks, align 4
-  %cmp63105.us = icmp sgt i32 %25, 0
-  br i1 %cmp63105.us, label %for.body64.us.us, label %for.end89.us
-
-for.end89.us:                                     ; preds = %for.inc87.us.us, %do.body61.us
-  %storemerge.lcssa.us = phi i32 [ 0, %do.body61.us ], [ %inc88.us.us, %for.inc87.us.us ]
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %tv.i.i54)
-  %call.i.i55.us = call i32 @clock_gettime(i32 noundef 0, ptr noundef nonnull %tv.i.i54) #16
-  %cmp.i.i56.us = icmp slt i32 %call.i.i55.us, 0
-  br i1 %cmp.i.i56.us, label %if.then.i.i65, label %bench_stats_check.exit69.us
-
-bench_stats_check.exit69.us:                      ; preds = %for.end89.us
-  %add90.us = add nuw nsw i32 %storemerge.lcssa.us, %count.1.us
-  %26 = load i64, ptr %tv.i.i54, align 8
-  %conv.i.i57.us = sitofp i64 %26 to double
-  %27 = load i64, ptr %tv_nsec.i.i58, align 8
-  %conv4.i.i59.us = sitofp i64 %27 to double
-  %div.i.i60.us = fdiv double %conv4.i.i59.us, 1.000000e+09
-  %add.i.i61.us = fadd double %div.i.i60.us, %conv.i.i57.us
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %tv.i.i54)
-  %sub.i62.us = fsub double %add.i.i61.us, %add.i.i42
-  %cmp.i63.us = fcmp uge double %sub.i62.us, 1.000000e+00
-  br i1 %cmp.i63.us, label %exit_sha224, label %do.body61.us, !llvm.loop !33
-
-for.body64.us.us:                                 ; preds = %do.body61.us, %for.inc87.us.us
-  %storemerge106.us.us = phi i32 [ %inc88.us.us, %for.inc87.us.us ], [ 0, %do.body61.us ]
-  %call71.us.us = call i32 @wc_InitSha224_ex(ptr noundef nonnull %hash, ptr noundef null, i32 noundef -2) #16
-  %cmp72.us.us = icmp eq i32 %call71.us.us, 0
-  br i1 %cmp72.us.us, label %if.end76.us.us, label %exit_sha224
-
-if.end76.us.us:                                   ; preds = %for.body64.us.us
-  %28 = load ptr, ptr %24, align 8
-  %29 = load i32, ptr @bench_size, align 4
-  %call75.us.us = call i32 @wc_Sha224Update(ptr noundef nonnull %hash, ptr noundef %28, i32 noundef %29) #16
-  %cmp77.us.us = icmp eq i32 %call75.us.us, 0
-  br i1 %cmp77.us.us, label %if.end83.us.us, label %exit_sha224
-
-if.end83.us.us:                                   ; preds = %if.end76.us.us
-  %call82.us.us = call i32 @wc_Sha224Final(ptr noundef nonnull %hash, ptr noundef nonnull %digest) #16
-  %cmp84.not.us.us = icmp eq i32 %call82.us.us, 0
-  br i1 %cmp84.not.us.us, label %for.inc87.us.us, label %exit_sha224
-
-for.inc87.us.us:                                  ; preds = %if.end83.us.us
-  %inc88.us.us = add nuw nsw i32 %storemerge106.us.us, 1
-  %30 = load i32, ptr @numBlocks, align 4
-  %cmp63.us.us = icmp slt i32 %inc88.us.us, %30
-  br i1 %cmp63.us.us, label %for.body64.us.us, label %for.end89.us, !llvm.loop !34
-
-do.body61:                                        ; preds = %bench_stats_start.exit53, %bench_stats_check.exit69
-  %count.1 = phi i32 [ %add90, %bench_stats_check.exit69 ], [ 0, %bench_stats_start.exit53 ]
-  %31 = load i32, ptr @numBlocks, align 4
-  %cmp63105 = icmp sgt i32 %31, 0
+do.body61:                                        ; preds = %bench_stats_check.exit69, %bench_stats_start.exit53
+  %count.1 = phi i32 [ 0, %bench_stats_start.exit53 ], [ %add90, %bench_stats_check.exit69 ]
+  %22 = load i32, ptr @numBlocks, align 4
+  %cmp63105 = icmp sgt i32 %22, 0
   br i1 %cmp63105, label %for.body64, label %for.end89
 
 for.body64:                                       ; preds = %do.body61, %for.inc87
   %storemerge106 = phi i32 [ %inc88, %for.inc87 ], [ 0, %do.body61 ]
-  %32 = load i32, ptr %23, align 4
-  %call71 = call i32 @wc_InitSha224_ex(ptr noundef nonnull %hash, ptr noundef null, i32 noundef %32) #16
+  %call71 = call i32 @wc_InitSha224_ex(ptr noundef nonnull %hash, ptr noundef null, i32 noundef -2) #16
   %cmp72 = icmp eq i32 %call71, 0
   br i1 %cmp72, label %if.end76, label %exit_sha224
 
 if.end76:                                         ; preds = %for.body64
-  %33 = load ptr, ptr %24, align 8
-  %34 = load i32, ptr @bench_size, align 4
-  %call75 = call i32 @wc_Sha224Update(ptr noundef nonnull %hash, ptr noundef %33, i32 noundef %34) #16
+  %23 = load ptr, ptr %21, align 8
+  %24 = load i32, ptr @bench_size, align 4
+  %call75 = call i32 @wc_Sha224Update(ptr noundef nonnull %hash, ptr noundef %23, i32 noundef %24) #16
   %cmp77 = icmp eq i32 %call75, 0
   br i1 %cmp77, label %if.end83, label %exit_sha224
 
@@ -3457,9 +3320,9 @@ if.end83:                                         ; preds = %if.end76
 
 for.inc87:                                        ; preds = %if.end83
   %inc88 = add nuw nsw i32 %storemerge106, 1
-  %35 = load i32, ptr @numBlocks, align 4
-  %cmp63 = icmp slt i32 %inc88, %35
-  br i1 %cmp63, label %for.body64, label %for.end89, !llvm.loop !34
+  %25 = load i32, ptr @numBlocks, align 4
+  %cmp63 = icmp slt i32 %inc88, %25
+  br i1 %cmp63, label %for.body64, label %for.end89, !llvm.loop !32
 
 for.end89:                                        ; preds = %for.inc87, %do.body61
   %storemerge.lcssa = phi i32 [ 0, %do.body61 ], [ %inc88, %for.inc87 ]
@@ -3468,21 +3331,21 @@ for.end89:                                        ; preds = %for.inc87, %do.body
   %cmp.i.i56 = icmp slt i32 %call.i.i55, 0
   br i1 %cmp.i.i56, label %if.then.i.i65, label %bench_stats_check.exit69
 
-if.then.i.i65:                                    ; preds = %for.end89, %for.end89.us
+if.then.i.i65:                                    ; preds = %for.end89
   %call1.i.i66 = tail call ptr @__errno_location() #17
-  %36 = load i32, ptr %call1.i.i66, align 4
-  %call2.i.i67 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.76, ptr noundef nonnull @.str.108, ptr noundef nonnull @.str.77, i32 noundef 12507, i32 noundef %36, ptr noundef nonnull @.str.78)
-  %37 = load ptr, ptr @stdout, align 8
-  %call3.i.i68 = call i32 @fflush(ptr noundef %37)
+  %26 = load i32, ptr %call1.i.i66, align 4
+  %call2.i.i67 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.76, ptr noundef nonnull @.str.108, ptr noundef nonnull @.str.77, i32 noundef 12507, i32 noundef %26, ptr noundef nonnull @.str.78)
+  %27 = load ptr, ptr @stdout, align 8
+  %call3.i.i68 = call i32 @fflush(ptr noundef %27)
   call void @_exit(i32 noundef 1) #18
   unreachable
 
 bench_stats_check.exit69:                         ; preds = %for.end89
   %add90 = add nuw nsw i32 %storemerge.lcssa, %count.1
-  %38 = load i64, ptr %tv.i.i54, align 8
-  %conv.i.i57 = sitofp i64 %38 to double
-  %39 = load i64, ptr %tv_nsec.i.i58, align 8
-  %conv4.i.i59 = sitofp i64 %39 to double
+  %28 = load i64, ptr %tv.i.i54, align 8
+  %conv.i.i57 = sitofp i64 %28 to double
+  %29 = load i64, ptr %tv_nsec.i.i58, align 8
+  %conv4.i.i59 = sitofp i64 %29 to double
   %div.i.i60 = fdiv double %conv4.i.i59, 1.000000e+09
   %add.i.i61 = fadd double %div.i.i60, %conv.i.i57
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %tv.i.i54)
@@ -3490,12 +3353,12 @@ bench_stats_check.exit69:                         ; preds = %for.end89
   %cmp.i63 = fcmp uge double %sub.i62, 1.000000e+00
   br i1 %cmp.i63, label %exit_sha224, label %do.body61, !llvm.loop !33
 
-exit_sha224:                                      ; preds = %do.body32, %bench_stats_check.exit, %for.body14, %bench_stats_check.exit69, %if.end83, %if.end76, %for.body64, %bench_stats_check.exit69.us, %for.body64.us.us, %if.end76.us.us, %if.end83.us.us
-  %ret.4 = phi i32 [ %call71.us.us, %for.body64.us.us ], [ %call75.us.us, %if.end76.us.us ], [ %call82.us.us, %if.end83.us.us ], [ 0, %bench_stats_check.exit69.us ], [ %call71, %for.body64 ], [ %call75, %if.end76 ], [ %call82, %if.end83 ], [ 0, %bench_stats_check.exit69 ], [ %call20, %for.body14 ], [ %call46, %bench_stats_check.exit ], [ %call46, %do.body32 ]
-  %count.2 = phi i32 [ %count.1.us, %if.end83.us.us ], [ %count.1.us, %if.end76.us.us ], [ %count.1.us, %for.body64.us.us ], [ %add90.us, %bench_stats_check.exit69.us ], [ %count.1, %for.body64 ], [ %count.1, %if.end76 ], [ %count.1, %if.end83 ], [ %add90, %bench_stats_check.exit69 ], [ %count.0, %for.body14 ], [ %add, %bench_stats_check.exit ], [ %add, %do.body32 ]
-  %start.0 = phi double [ %add.i.i42, %if.end83.us.us ], [ %add.i.i42, %if.end76.us.us ], [ %add.i.i42, %for.body64.us.us ], [ %add.i.i42, %bench_stats_check.exit69.us ], [ %add.i.i42, %for.body64 ], [ %add.i.i42, %if.end76 ], [ %add.i.i42, %if.end83 ], [ %add.i.i42, %bench_stats_check.exit69 ], [ %add.i.i, %for.body14 ], [ %add.i.i, %bench_stats_check.exit ], [ %add.i.i, %do.body32 ]
-  %40 = load i32, ptr @bench_size, align 4
-  call fastcc void @bench_stats_sym_finish(ptr noundef nonnull @.str.43, i32 noundef %count.2, i32 noundef %40, double noundef %start.0, i32 noundef %ret.4)
+exit_sha224:                                      ; preds = %do.body32, %bench_stats_check.exit, %for.body14, %bench_stats_check.exit69, %for.body64, %if.end76, %if.end83
+  %ret.4 = phi i32 [ %call71, %for.body64 ], [ %call75, %if.end76 ], [ %call82, %if.end83 ], [ 0, %bench_stats_check.exit69 ], [ %call20, %for.body14 ], [ %call46, %bench_stats_check.exit ], [ %call46, %do.body32 ]
+  %count.2 = phi i32 [ %count.1, %if.end83 ], [ %count.1, %if.end76 ], [ %count.1, %for.body64 ], [ %add90, %bench_stats_check.exit69 ], [ %count.0, %for.body14 ], [ %add, %bench_stats_check.exit ], [ %add, %do.body32 ]
+  %start.0 = phi double [ %add.i.i42, %if.end83 ], [ %add.i.i42, %if.end76 ], [ %add.i.i42, %for.body64 ], [ %add.i.i42, %bench_stats_check.exit69 ], [ %add.i.i, %for.body14 ], [ %add.i.i, %bench_stats_check.exit ], [ %add.i.i, %do.body32 ]
+  %30 = load i32, ptr @bench_size, align 4
+  call fastcc void @bench_stats_sym_finish(ptr noundef nonnull @.str.43, i32 noundef %count.2, i32 noundef %30, double noundef %start.0, i32 noundef %ret.4)
   br label %exit
 
 exit:                                             ; preds = %exit_sha224, %if.then3
@@ -3512,7 +3375,7 @@ declare i32 @wc_Sha224Final(ptr noundef, ptr noundef) local_unnamed_addr #1
 declare void @wc_Sha224Free(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @bench_sha256(i32 noundef %useDeviceID) local_unnamed_addr #0 {
+define dso_local void @bench_sha256(i32 %useDeviceID) local_unnamed_addr #0 {
 entry:
   %tv.i.i54 = alloca %struct.timespec, align 8
   %tv.i.i35 = alloca %struct.timespec, align 8
@@ -3525,11 +3388,7 @@ entry:
   br i1 %.b, label %if.else, label %for.body
 
 for.body:                                         ; preds = %entry
-  %tobool1.not = icmp eq i32 %useDeviceID, 0
-  %0 = tail call align 4 ptr @llvm.threadlocal.address.p0(ptr align 4 @devId)
-  %1 = load i32, ptr %0, align 4
-  %cond = select i1 %tobool1.not, i32 -2, i32 %1
-  %call = call i32 @wc_InitSha256_ex(ptr noundef nonnull %hash, ptr noundef null, i32 noundef %cond) #16
+  %call = call i32 @wc_InitSha256_ex(ptr noundef nonnull %hash, ptr noundef null, i32 noundef -2) #16
   %cmp2.not = icmp eq i32 %call, 0
   br i1 %cmp2.not, label %for.end, label %if.then3
 
@@ -3545,53 +3404,53 @@ for.end:                                          ; preds = %for.body
 
 if.then.i.i:                                      ; preds = %for.end
   %call1.i.i = tail call ptr @__errno_location() #17
-  %2 = load i32, ptr %call1.i.i, align 4
-  %call2.i.i = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.76, ptr noundef nonnull @.str.108, ptr noundef nonnull @.str.77, i32 noundef 12507, i32 noundef %2, ptr noundef nonnull @.str.78)
-  %3 = load ptr, ptr @stdout, align 8
-  %call3.i.i = call i32 @fflush(ptr noundef %3)
+  %0 = load i32, ptr %call1.i.i, align 4
+  %call2.i.i = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.76, ptr noundef nonnull @.str.108, ptr noundef nonnull @.str.77, i32 noundef 12507, i32 noundef %0, ptr noundef nonnull @.str.78)
+  %1 = load ptr, ptr @stdout, align 8
+  %call3.i.i = call i32 @fflush(ptr noundef %1)
   call void @_exit(i32 noundef 1) #18
   unreachable
 
 bench_stats_start.exit:                           ; preds = %for.end
-  %4 = load i64, ptr %tv.i.i, align 8
-  %conv.i.i = sitofp i64 %4 to double
+  %2 = load i64, ptr %tv.i.i, align 8
+  %conv.i.i = sitofp i64 %2 to double
   %tv_nsec.i.i = getelementptr inbounds i8, ptr %tv.i.i, i64 8
-  %5 = load i64, ptr %tv_nsec.i.i, align 8
-  %conv4.i.i = sitofp i64 %5 to double
+  %3 = load i64, ptr %tv_nsec.i.i, align 8
+  %conv4.i.i = sitofp i64 %3 to double
   %div.i.i = fdiv double %conv4.i.i, 1.000000e+09
   %add.i.i = fadd double %div.i.i, %conv.i.i
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %tv.i.i)
-  %6 = call { i32, i32 } asm sideeffect "cpuid\0A\09rdtsc", "={ax},={dx},{ax},~{ebx},~{ecx},~{dirflag},~{fpsr},~{flags}"(i32 0) #16, !srcloc !9
-  %asmresult.i.i = extractvalue { i32, i32 } %6, 0
-  %asmresult1.i.i = extractvalue { i32, i32 } %6, 1
+  %4 = call { i32, i32 } asm sideeffect "cpuid\0A\09rdtsc", "={ax},={dx},{ax},~{ebx},~{ecx},~{dirflag},~{fpsr},~{flags}"(i32 0) #16, !srcloc !8
+  %asmresult.i.i = extractvalue { i32, i32 } %4, 0
+  %asmresult1.i.i = extractvalue { i32, i32 } %4, 1
   %conv.i1.i = zext i32 %asmresult.i.i to i64
   %conv2.i.i = zext i32 %asmresult1.i.i to i64
   %shl.i.i = shl nuw i64 %conv2.i.i, 32
   %or.i.i = or disjoint i64 %shl.i.i, %conv.i1.i
-  %7 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @total_cycles)
-  store i64 %or.i.i, ptr %7, align 8
-  %8 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @bench_plain)
+  %5 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @total_cycles)
+  store i64 %or.i.i, ptr %5, align 8
+  %6 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @bench_plain)
   %tv_nsec.i.i26 = getelementptr inbounds i8, ptr %tv.i.i22, i64 8
   br label %do.body5
 
 do.body5:                                         ; preds = %bench_stats_check.exit, %bench_stats_start.exit
   %count.0 = phi i32 [ 0, %bench_stats_start.exit ], [ %add, %bench_stats_check.exit ]
-  %9 = load i32, ptr @numBlocks, align 4
-  %cmp7103 = icmp sgt i32 %9, 0
+  %7 = load i32, ptr @numBlocks, align 4
+  %cmp7103 = icmp sgt i32 %7, 0
   br i1 %cmp7103, label %for.body14, label %do.body32
 
 for.body14:                                       ; preds = %do.body5, %bench_async_handle.exit
   %times.0104 = phi i32 [ %inc.i, %bench_async_handle.exit ], [ 0, %do.body5 ]
-  %10 = load ptr, ptr %8, align 8
-  %11 = load i32, ptr @bench_size, align 4
-  %call20 = call i32 @wc_Sha256Update(ptr noundef nonnull %hash, ptr noundef %10, i32 noundef %11) #16
+  %8 = load ptr, ptr %6, align 8
+  %9 = load i32, ptr @bench_size, align 4
+  %call20 = call i32 @wc_Sha256Update(ptr noundef nonnull %hash, ptr noundef %8, i32 noundef %9) #16
   %cmp.i = icmp sgt i32 %call20, -1
   br i1 %cmp.i, label %bench_async_handle.exit, label %exit_sha256
 
 bench_async_handle.exit:                          ; preds = %for.body14
   %inc.i = add nuw nsw i32 %times.0104, 1
-  %12 = load i32, ptr @numBlocks, align 4
-  %cmp7 = icmp slt i32 %inc.i, %12
+  %10 = load i32, ptr @numBlocks, align 4
+  %cmp7 = icmp slt i32 %inc.i, %10
   br i1 %cmp7, label %for.body14, label %do.body32
 
 do.body32:                                        ; preds = %bench_async_handle.exit, %do.body5
@@ -3609,24 +3468,24 @@ do.cond57:                                        ; preds = %do.body32
 
 if.then.i.i31:                                    ; preds = %do.cond57
   %call1.i.i32 = tail call ptr @__errno_location() #17
-  %13 = load i32, ptr %call1.i.i32, align 4
-  %call2.i.i33 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.76, ptr noundef nonnull @.str.108, ptr noundef nonnull @.str.77, i32 noundef 12507, i32 noundef %13, ptr noundef nonnull @.str.78)
-  %14 = load ptr, ptr @stdout, align 8
-  %call3.i.i34 = call i32 @fflush(ptr noundef %14)
+  %11 = load i32, ptr %call1.i.i32, align 4
+  %call2.i.i33 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.76, ptr noundef nonnull @.str.108, ptr noundef nonnull @.str.77, i32 noundef 12507, i32 noundef %11, ptr noundef nonnull @.str.78)
+  %12 = load ptr, ptr @stdout, align 8
+  %call3.i.i34 = call i32 @fflush(ptr noundef %12)
   call void @_exit(i32 noundef 1) #18
   unreachable
 
 bench_stats_check.exit:                           ; preds = %do.cond57
-  %15 = load i64, ptr %tv.i.i22, align 8
-  %conv.i.i25 = sitofp i64 %15 to double
-  %16 = load i64, ptr %tv_nsec.i.i26, align 8
-  %conv4.i.i27 = sitofp i64 %16 to double
+  %13 = load i64, ptr %tv.i.i22, align 8
+  %conv.i.i25 = sitofp i64 %13 to double
+  %14 = load i64, ptr %tv_nsec.i.i26, align 8
+  %conv4.i.i27 = sitofp i64 %14 to double
   %div.i.i28 = fdiv double %conv4.i.i27, 1.000000e+09
   %add.i.i29 = fadd double %div.i.i28, %conv.i.i25
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %tv.i.i22)
   %sub.i = fsub double %add.i.i29, %add.i.i
   %cmp.i30 = fcmp uge double %sub.i, 1.000000e+00
-  br i1 %cmp.i30, label %exit_sha256, label %do.body5, !llvm.loop !35
+  br i1 %cmp.i30, label %exit_sha256, label %do.body5, !llvm.loop !34
 
 if.else:                                          ; preds = %entry
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %tv.i.i35)
@@ -3636,104 +3495,51 @@ if.else:                                          ; preds = %entry
 
 if.then.i.i49:                                    ; preds = %if.else
   %call1.i.i50 = tail call ptr @__errno_location() #17
-  %17 = load i32, ptr %call1.i.i50, align 4
-  %call2.i.i51 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.76, ptr noundef nonnull @.str.108, ptr noundef nonnull @.str.77, i32 noundef 12507, i32 noundef %17, ptr noundef nonnull @.str.78)
-  %18 = load ptr, ptr @stdout, align 8
-  %call3.i.i52 = call i32 @fflush(ptr noundef %18)
+  %15 = load i32, ptr %call1.i.i50, align 4
+  %call2.i.i51 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.76, ptr noundef nonnull @.str.108, ptr noundef nonnull @.str.77, i32 noundef 12507, i32 noundef %15, ptr noundef nonnull @.str.78)
+  %16 = load ptr, ptr @stdout, align 8
+  %call3.i.i52 = call i32 @fflush(ptr noundef %16)
   call void @_exit(i32 noundef 1) #18
   unreachable
 
 bench_stats_start.exit53:                         ; preds = %if.else
-  %19 = load i64, ptr %tv.i.i35, align 8
-  %conv.i.i38 = sitofp i64 %19 to double
+  %17 = load i64, ptr %tv.i.i35, align 8
+  %conv.i.i38 = sitofp i64 %17 to double
   %tv_nsec.i.i39 = getelementptr inbounds i8, ptr %tv.i.i35, i64 8
-  %20 = load i64, ptr %tv_nsec.i.i39, align 8
-  %conv4.i.i40 = sitofp i64 %20 to double
+  %18 = load i64, ptr %tv_nsec.i.i39, align 8
+  %conv4.i.i40 = sitofp i64 %18 to double
   %div.i.i41 = fdiv double %conv4.i.i40, 1.000000e+09
   %add.i.i42 = fadd double %div.i.i41, %conv.i.i38
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %tv.i.i35)
-  %21 = call { i32, i32 } asm sideeffect "cpuid\0A\09rdtsc", "={ax},={dx},{ax},~{ebx},~{ecx},~{dirflag},~{fpsr},~{flags}"(i32 0) #16, !srcloc !9
-  %asmresult.i.i43 = extractvalue { i32, i32 } %21, 0
-  %asmresult1.i.i44 = extractvalue { i32, i32 } %21, 1
+  %19 = call { i32, i32 } asm sideeffect "cpuid\0A\09rdtsc", "={ax},={dx},{ax},~{ebx},~{ecx},~{dirflag},~{fpsr},~{flags}"(i32 0) #16, !srcloc !8
+  %asmresult.i.i43 = extractvalue { i32, i32 } %19, 0
+  %asmresult1.i.i44 = extractvalue { i32, i32 } %19, 1
   %conv.i1.i45 = zext i32 %asmresult.i.i43 to i64
   %conv2.i.i46 = zext i32 %asmresult1.i.i44 to i64
   %shl.i.i47 = shl nuw i64 %conv2.i.i46, 32
   %or.i.i48 = or disjoint i64 %shl.i.i47, %conv.i1.i45
-  %22 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @total_cycles)
-  store i64 %or.i.i48, ptr %22, align 8
-  %tobool66.not = icmp eq i32 %useDeviceID, 0
-  %23 = call align 4 ptr @llvm.threadlocal.address.p0(ptr align 4 @devId)
-  %24 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @bench_plain)
+  %20 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @total_cycles)
+  store i64 %or.i.i48, ptr %20, align 8
+  %21 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @bench_plain)
   %tv_nsec.i.i58 = getelementptr inbounds i8, ptr %tv.i.i54, i64 8
-  br i1 %tobool66.not, label %do.body61.us, label %do.body61
+  br label %do.body61
 
-do.body61.us:                                     ; preds = %bench_stats_start.exit53, %bench_stats_check.exit69.us
-  %count.1.us = phi i32 [ %add93.us, %bench_stats_check.exit69.us ], [ 0, %bench_stats_start.exit53 ]
-  %25 = load i32, ptr @numBlocks, align 4
-  %cmp63105.us = icmp sgt i32 %25, 0
-  br i1 %cmp63105.us, label %for.body64.us.us, label %for.end92.us
-
-for.end92.us:                                     ; preds = %for.inc90.us.us, %do.body61.us
-  %storemerge.lcssa.us = phi i32 [ 0, %do.body61.us ], [ %inc91.us.us, %for.inc90.us.us ]
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %tv.i.i54)
-  %call.i.i55.us = call i32 @clock_gettime(i32 noundef 0, ptr noundef nonnull %tv.i.i54) #16
-  %cmp.i.i56.us = icmp slt i32 %call.i.i55.us, 0
-  br i1 %cmp.i.i56.us, label %if.then.i.i65, label %bench_stats_check.exit69.us
-
-bench_stats_check.exit69.us:                      ; preds = %for.end92.us
-  %add93.us = add nuw nsw i32 %storemerge.lcssa.us, %count.1.us
-  %26 = load i64, ptr %tv.i.i54, align 8
-  %conv.i.i57.us = sitofp i64 %26 to double
-  %27 = load i64, ptr %tv_nsec.i.i58, align 8
-  %conv4.i.i59.us = sitofp i64 %27 to double
-  %div.i.i60.us = fdiv double %conv4.i.i59.us, 1.000000e+09
-  %add.i.i61.us = fadd double %div.i.i60.us, %conv.i.i57.us
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %tv.i.i54)
-  %sub.i62.us = fsub double %add.i.i61.us, %add.i.i42
-  %cmp.i63.us = fcmp uge double %sub.i62.us, 1.000000e+00
-  br i1 %cmp.i63.us, label %exit_sha256, label %do.body61.us, !llvm.loop !36
-
-for.body64.us.us:                                 ; preds = %do.body61.us, %for.inc90.us.us
-  %storemerge106.us.us = phi i32 [ %inc91.us.us, %for.inc90.us.us ], [ 0, %do.body61.us ]
-  %call71.us.us = call i32 @wc_InitSha256_ex(ptr noundef nonnull %hash, ptr noundef null, i32 noundef -2) #16
-  %cmp72.us.us = icmp eq i32 %call71.us.us, 0
-  br i1 %cmp72.us.us, label %if.end76.us.us, label %exit_sha256
-
-if.end76.us.us:                                   ; preds = %for.body64.us.us
-  %28 = load ptr, ptr %24, align 8
-  %29 = load i32, ptr @bench_size, align 4
-  %call75.us.us = call i32 @wc_Sha256Update(ptr noundef nonnull %hash, ptr noundef %28, i32 noundef %29) #16
-  %cmp77.us.us = icmp eq i32 %call75.us.us, 0
-  br i1 %cmp77.us.us, label %if.end83.us.us, label %exit_sha256
-
-if.end83.us.us:                                   ; preds = %if.end76.us.us
-  %call82.us.us = call i32 @wc_Sha256Final(ptr noundef nonnull %hash, ptr noundef nonnull %digest) #16
-  %cmp84.not.us.us = icmp eq i32 %call82.us.us, 0
-  br i1 %cmp84.not.us.us, label %for.inc90.us.us, label %exit_sha256
-
-for.inc90.us.us:                                  ; preds = %if.end83.us.us
-  %inc91.us.us = add nuw nsw i32 %storemerge106.us.us, 1
-  %30 = load i32, ptr @numBlocks, align 4
-  %cmp63.us.us = icmp slt i32 %inc91.us.us, %30
-  br i1 %cmp63.us.us, label %for.body64.us.us, label %for.end92.us, !llvm.loop !37
-
-do.body61:                                        ; preds = %bench_stats_start.exit53, %bench_stats_check.exit69
-  %count.1 = phi i32 [ %add93, %bench_stats_check.exit69 ], [ 0, %bench_stats_start.exit53 ]
-  %31 = load i32, ptr @numBlocks, align 4
-  %cmp63105 = icmp sgt i32 %31, 0
+do.body61:                                        ; preds = %bench_stats_check.exit69, %bench_stats_start.exit53
+  %count.1 = phi i32 [ 0, %bench_stats_start.exit53 ], [ %add93, %bench_stats_check.exit69 ]
+  %22 = load i32, ptr @numBlocks, align 4
+  %cmp63105 = icmp sgt i32 %22, 0
   br i1 %cmp63105, label %for.body64, label %for.end92
 
 for.body64:                                       ; preds = %do.body61, %for.inc90
   %storemerge106 = phi i32 [ %inc91, %for.inc90 ], [ 0, %do.body61 ]
-  %32 = load i32, ptr %23, align 4
-  %call71 = call i32 @wc_InitSha256_ex(ptr noundef nonnull %hash, ptr noundef null, i32 noundef %32) #16
+  %call71 = call i32 @wc_InitSha256_ex(ptr noundef nonnull %hash, ptr noundef null, i32 noundef -2) #16
   %cmp72 = icmp eq i32 %call71, 0
   br i1 %cmp72, label %if.end76, label %exit_sha256
 
 if.end76:                                         ; preds = %for.body64
-  %33 = load ptr, ptr %24, align 8
-  %34 = load i32, ptr @bench_size, align 4
-  %call75 = call i32 @wc_Sha256Update(ptr noundef nonnull %hash, ptr noundef %33, i32 noundef %34) #16
+  %23 = load ptr, ptr %21, align 8
+  %24 = load i32, ptr @bench_size, align 4
+  %call75 = call i32 @wc_Sha256Update(ptr noundef nonnull %hash, ptr noundef %23, i32 noundef %24) #16
   %cmp77 = icmp eq i32 %call75, 0
   br i1 %cmp77, label %if.end83, label %exit_sha256
 
@@ -3744,9 +3550,9 @@ if.end83:                                         ; preds = %if.end76
 
 for.inc90:                                        ; preds = %if.end83
   %inc91 = add nuw nsw i32 %storemerge106, 1
-  %35 = load i32, ptr @numBlocks, align 4
-  %cmp63 = icmp slt i32 %inc91, %35
-  br i1 %cmp63, label %for.body64, label %for.end92, !llvm.loop !37
+  %25 = load i32, ptr @numBlocks, align 4
+  %cmp63 = icmp slt i32 %inc91, %25
+  br i1 %cmp63, label %for.body64, label %for.end92, !llvm.loop !35
 
 for.end92:                                        ; preds = %for.inc90, %do.body61
   %storemerge.lcssa = phi i32 [ 0, %do.body61 ], [ %inc91, %for.inc90 ]
@@ -3755,21 +3561,21 @@ for.end92:                                        ; preds = %for.inc90, %do.body
   %cmp.i.i56 = icmp slt i32 %call.i.i55, 0
   br i1 %cmp.i.i56, label %if.then.i.i65, label %bench_stats_check.exit69
 
-if.then.i.i65:                                    ; preds = %for.end92, %for.end92.us
+if.then.i.i65:                                    ; preds = %for.end92
   %call1.i.i66 = tail call ptr @__errno_location() #17
-  %36 = load i32, ptr %call1.i.i66, align 4
-  %call2.i.i67 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.76, ptr noundef nonnull @.str.108, ptr noundef nonnull @.str.77, i32 noundef 12507, i32 noundef %36, ptr noundef nonnull @.str.78)
-  %37 = load ptr, ptr @stdout, align 8
-  %call3.i.i68 = call i32 @fflush(ptr noundef %37)
+  %26 = load i32, ptr %call1.i.i66, align 4
+  %call2.i.i67 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.76, ptr noundef nonnull @.str.108, ptr noundef nonnull @.str.77, i32 noundef 12507, i32 noundef %26, ptr noundef nonnull @.str.78)
+  %27 = load ptr, ptr @stdout, align 8
+  %call3.i.i68 = call i32 @fflush(ptr noundef %27)
   call void @_exit(i32 noundef 1) #18
   unreachable
 
 bench_stats_check.exit69:                         ; preds = %for.end92
   %add93 = add nuw nsw i32 %storemerge.lcssa, %count.1
-  %38 = load i64, ptr %tv.i.i54, align 8
-  %conv.i.i57 = sitofp i64 %38 to double
-  %39 = load i64, ptr %tv_nsec.i.i58, align 8
-  %conv4.i.i59 = sitofp i64 %39 to double
+  %28 = load i64, ptr %tv.i.i54, align 8
+  %conv.i.i57 = sitofp i64 %28 to double
+  %29 = load i64, ptr %tv_nsec.i.i58, align 8
+  %conv4.i.i59 = sitofp i64 %29 to double
   %div.i.i60 = fdiv double %conv4.i.i59, 1.000000e+09
   %add.i.i61 = fadd double %div.i.i60, %conv.i.i57
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %tv.i.i54)
@@ -3777,12 +3583,12 @@ bench_stats_check.exit69:                         ; preds = %for.end92
   %cmp.i63 = fcmp uge double %sub.i62, 1.000000e+00
   br i1 %cmp.i63, label %exit_sha256, label %do.body61, !llvm.loop !36
 
-exit_sha256:                                      ; preds = %do.body32, %bench_stats_check.exit, %for.body14, %bench_stats_check.exit69, %if.end83, %if.end76, %for.body64, %bench_stats_check.exit69.us, %for.body64.us.us, %if.end76.us.us, %if.end83.us.us
-  %ret.4 = phi i32 [ %call71.us.us, %for.body64.us.us ], [ %call75.us.us, %if.end76.us.us ], [ %call82.us.us, %if.end83.us.us ], [ 0, %bench_stats_check.exit69.us ], [ %call71, %for.body64 ], [ %call75, %if.end76 ], [ %call82, %if.end83 ], [ 0, %bench_stats_check.exit69 ], [ %call20, %for.body14 ], [ %call46, %bench_stats_check.exit ], [ %call46, %do.body32 ]
-  %count.2 = phi i32 [ %count.1.us, %if.end83.us.us ], [ %count.1.us, %if.end76.us.us ], [ %count.1.us, %for.body64.us.us ], [ %add93.us, %bench_stats_check.exit69.us ], [ %count.1, %for.body64 ], [ %count.1, %if.end76 ], [ %count.1, %if.end83 ], [ %add93, %bench_stats_check.exit69 ], [ %count.0, %for.body14 ], [ %add, %bench_stats_check.exit ], [ %add, %do.body32 ]
-  %start.0 = phi double [ %add.i.i42, %if.end83.us.us ], [ %add.i.i42, %if.end76.us.us ], [ %add.i.i42, %for.body64.us.us ], [ %add.i.i42, %bench_stats_check.exit69.us ], [ %add.i.i42, %for.body64 ], [ %add.i.i42, %if.end76 ], [ %add.i.i42, %if.end83 ], [ %add.i.i42, %bench_stats_check.exit69 ], [ %add.i.i, %for.body14 ], [ %add.i.i, %bench_stats_check.exit ], [ %add.i.i, %do.body32 ]
-  %40 = load i32, ptr @bench_size, align 4
-  call fastcc void @bench_stats_sym_finish(ptr noundef nonnull @.str.45, i32 noundef %count.2, i32 noundef %40, double noundef %start.0, i32 noundef %ret.4)
+exit_sha256:                                      ; preds = %do.body32, %bench_stats_check.exit, %for.body14, %bench_stats_check.exit69, %for.body64, %if.end76, %if.end83
+  %ret.4 = phi i32 [ %call71, %for.body64 ], [ %call75, %if.end76 ], [ %call82, %if.end83 ], [ 0, %bench_stats_check.exit69 ], [ %call20, %for.body14 ], [ %call46, %bench_stats_check.exit ], [ %call46, %do.body32 ]
+  %count.2 = phi i32 [ %count.1, %if.end83 ], [ %count.1, %if.end76 ], [ %count.1, %for.body64 ], [ %add93, %bench_stats_check.exit69 ], [ %count.0, %for.body14 ], [ %add, %bench_stats_check.exit ], [ %add, %do.body32 ]
+  %start.0 = phi double [ %add.i.i42, %if.end83 ], [ %add.i.i42, %if.end76 ], [ %add.i.i42, %for.body64 ], [ %add.i.i42, %bench_stats_check.exit69 ], [ %add.i.i, %for.body14 ], [ %add.i.i, %bench_stats_check.exit ], [ %add.i.i, %do.body32 ]
+  %30 = load i32, ptr @bench_size, align 4
+  call fastcc void @bench_stats_sym_finish(ptr noundef nonnull @.str.45, i32 noundef %count.2, i32 noundef %30, double noundef %start.0, i32 noundef %ret.4)
   br label %exit
 
 exit:                                             ; preds = %exit_sha256, %if.then3
@@ -3799,7 +3605,7 @@ declare i32 @wc_Sha256Final(ptr noundef, ptr noundef) local_unnamed_addr #1
 declare void @wc_Sha256Free(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @bench_sha384(i32 noundef %useDeviceID) local_unnamed_addr #0 {
+define dso_local void @bench_sha384(i32 %useDeviceID) local_unnamed_addr #0 {
 entry:
   %tv.i.i54 = alloca %struct.timespec, align 8
   %tv.i.i35 = alloca %struct.timespec, align 8
@@ -3812,11 +3618,7 @@ entry:
   br i1 %.b, label %if.else, label %for.body
 
 for.body:                                         ; preds = %entry
-  %tobool1.not = icmp eq i32 %useDeviceID, 0
-  %0 = tail call align 4 ptr @llvm.threadlocal.address.p0(ptr align 4 @devId)
-  %1 = load i32, ptr %0, align 4
-  %cond = select i1 %tobool1.not, i32 -2, i32 %1
-  %call = call i32 @wc_InitSha384_ex(ptr noundef nonnull %hash, ptr noundef null, i32 noundef %cond) #16
+  %call = call i32 @wc_InitSha384_ex(ptr noundef nonnull %hash, ptr noundef null, i32 noundef -2) #16
   %cmp2.not = icmp eq i32 %call, 0
   br i1 %cmp2.not, label %for.end, label %if.then3
 
@@ -3832,53 +3634,53 @@ for.end:                                          ; preds = %for.body
 
 if.then.i.i:                                      ; preds = %for.end
   %call1.i.i = tail call ptr @__errno_location() #17
-  %2 = load i32, ptr %call1.i.i, align 4
-  %call2.i.i = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.76, ptr noundef nonnull @.str.108, ptr noundef nonnull @.str.77, i32 noundef 12507, i32 noundef %2, ptr noundef nonnull @.str.78)
-  %3 = load ptr, ptr @stdout, align 8
-  %call3.i.i = call i32 @fflush(ptr noundef %3)
+  %0 = load i32, ptr %call1.i.i, align 4
+  %call2.i.i = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.76, ptr noundef nonnull @.str.108, ptr noundef nonnull @.str.77, i32 noundef 12507, i32 noundef %0, ptr noundef nonnull @.str.78)
+  %1 = load ptr, ptr @stdout, align 8
+  %call3.i.i = call i32 @fflush(ptr noundef %1)
   call void @_exit(i32 noundef 1) #18
   unreachable
 
 bench_stats_start.exit:                           ; preds = %for.end
-  %4 = load i64, ptr %tv.i.i, align 8
-  %conv.i.i = sitofp i64 %4 to double
+  %2 = load i64, ptr %tv.i.i, align 8
+  %conv.i.i = sitofp i64 %2 to double
   %tv_nsec.i.i = getelementptr inbounds i8, ptr %tv.i.i, i64 8
-  %5 = load i64, ptr %tv_nsec.i.i, align 8
-  %conv4.i.i = sitofp i64 %5 to double
+  %3 = load i64, ptr %tv_nsec.i.i, align 8
+  %conv4.i.i = sitofp i64 %3 to double
   %div.i.i = fdiv double %conv4.i.i, 1.000000e+09
   %add.i.i = fadd double %div.i.i, %conv.i.i
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %tv.i.i)
-  %6 = call { i32, i32 } asm sideeffect "cpuid\0A\09rdtsc", "={ax},={dx},{ax},~{ebx},~{ecx},~{dirflag},~{fpsr},~{flags}"(i32 0) #16, !srcloc !9
-  %asmresult.i.i = extractvalue { i32, i32 } %6, 0
-  %asmresult1.i.i = extractvalue { i32, i32 } %6, 1
+  %4 = call { i32, i32 } asm sideeffect "cpuid\0A\09rdtsc", "={ax},={dx},{ax},~{ebx},~{ecx},~{dirflag},~{fpsr},~{flags}"(i32 0) #16, !srcloc !8
+  %asmresult.i.i = extractvalue { i32, i32 } %4, 0
+  %asmresult1.i.i = extractvalue { i32, i32 } %4, 1
   %conv.i1.i = zext i32 %asmresult.i.i to i64
   %conv2.i.i = zext i32 %asmresult1.i.i to i64
   %shl.i.i = shl nuw i64 %conv2.i.i, 32
   %or.i.i = or disjoint i64 %shl.i.i, %conv.i1.i
-  %7 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @total_cycles)
-  store i64 %or.i.i, ptr %7, align 8
-  %8 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @bench_plain)
+  %5 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @total_cycles)
+  store i64 %or.i.i, ptr %5, align 8
+  %6 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @bench_plain)
   %tv_nsec.i.i26 = getelementptr inbounds i8, ptr %tv.i.i22, i64 8
   br label %do.body5
 
 do.body5:                                         ; preds = %bench_stats_check.exit, %bench_stats_start.exit
   %count.0 = phi i32 [ 0, %bench_stats_start.exit ], [ %add, %bench_stats_check.exit ]
-  %9 = load i32, ptr @numBlocks, align 4
-  %cmp7103 = icmp sgt i32 %9, 0
+  %7 = load i32, ptr @numBlocks, align 4
+  %cmp7103 = icmp sgt i32 %7, 0
   br i1 %cmp7103, label %for.body14, label %do.body32
 
 for.body14:                                       ; preds = %do.body5, %bench_async_handle.exit
   %times.0104 = phi i32 [ %inc.i, %bench_async_handle.exit ], [ 0, %do.body5 ]
-  %10 = load ptr, ptr %8, align 8
-  %11 = load i32, ptr @bench_size, align 4
-  %call20 = call i32 @wc_Sha384Update(ptr noundef nonnull %hash, ptr noundef %10, i32 noundef %11) #16
+  %8 = load ptr, ptr %6, align 8
+  %9 = load i32, ptr @bench_size, align 4
+  %call20 = call i32 @wc_Sha384Update(ptr noundef nonnull %hash, ptr noundef %8, i32 noundef %9) #16
   %cmp.i = icmp sgt i32 %call20, -1
   br i1 %cmp.i, label %bench_async_handle.exit, label %exit_sha384
 
 bench_async_handle.exit:                          ; preds = %for.body14
   %inc.i = add nuw nsw i32 %times.0104, 1
-  %12 = load i32, ptr @numBlocks, align 4
-  %cmp7 = icmp slt i32 %inc.i, %12
+  %10 = load i32, ptr @numBlocks, align 4
+  %cmp7 = icmp slt i32 %inc.i, %10
   br i1 %cmp7, label %for.body14, label %do.body32
 
 do.body32:                                        ; preds = %bench_async_handle.exit, %do.body5
@@ -3896,24 +3698,24 @@ do.cond57:                                        ; preds = %do.body32
 
 if.then.i.i31:                                    ; preds = %do.cond57
   %call1.i.i32 = tail call ptr @__errno_location() #17
-  %13 = load i32, ptr %call1.i.i32, align 4
-  %call2.i.i33 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.76, ptr noundef nonnull @.str.108, ptr noundef nonnull @.str.77, i32 noundef 12507, i32 noundef %13, ptr noundef nonnull @.str.78)
-  %14 = load ptr, ptr @stdout, align 8
-  %call3.i.i34 = call i32 @fflush(ptr noundef %14)
+  %11 = load i32, ptr %call1.i.i32, align 4
+  %call2.i.i33 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.76, ptr noundef nonnull @.str.108, ptr noundef nonnull @.str.77, i32 noundef 12507, i32 noundef %11, ptr noundef nonnull @.str.78)
+  %12 = load ptr, ptr @stdout, align 8
+  %call3.i.i34 = call i32 @fflush(ptr noundef %12)
   call void @_exit(i32 noundef 1) #18
   unreachable
 
 bench_stats_check.exit:                           ; preds = %do.cond57
-  %15 = load i64, ptr %tv.i.i22, align 8
-  %conv.i.i25 = sitofp i64 %15 to double
-  %16 = load i64, ptr %tv_nsec.i.i26, align 8
-  %conv4.i.i27 = sitofp i64 %16 to double
+  %13 = load i64, ptr %tv.i.i22, align 8
+  %conv.i.i25 = sitofp i64 %13 to double
+  %14 = load i64, ptr %tv_nsec.i.i26, align 8
+  %conv4.i.i27 = sitofp i64 %14 to double
   %div.i.i28 = fdiv double %conv4.i.i27, 1.000000e+09
   %add.i.i29 = fadd double %div.i.i28, %conv.i.i25
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %tv.i.i22)
   %sub.i = fsub double %add.i.i29, %add.i.i
   %cmp.i30 = fcmp uge double %sub.i, 1.000000e+00
-  br i1 %cmp.i30, label %exit_sha384, label %do.body5, !llvm.loop !38
+  br i1 %cmp.i30, label %exit_sha384, label %do.body5, !llvm.loop !37
 
 if.else:                                          ; preds = %entry
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %tv.i.i35)
@@ -3923,104 +3725,51 @@ if.else:                                          ; preds = %entry
 
 if.then.i.i49:                                    ; preds = %if.else
   %call1.i.i50 = tail call ptr @__errno_location() #17
-  %17 = load i32, ptr %call1.i.i50, align 4
-  %call2.i.i51 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.76, ptr noundef nonnull @.str.108, ptr noundef nonnull @.str.77, i32 noundef 12507, i32 noundef %17, ptr noundef nonnull @.str.78)
-  %18 = load ptr, ptr @stdout, align 8
-  %call3.i.i52 = call i32 @fflush(ptr noundef %18)
+  %15 = load i32, ptr %call1.i.i50, align 4
+  %call2.i.i51 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.76, ptr noundef nonnull @.str.108, ptr noundef nonnull @.str.77, i32 noundef 12507, i32 noundef %15, ptr noundef nonnull @.str.78)
+  %16 = load ptr, ptr @stdout, align 8
+  %call3.i.i52 = call i32 @fflush(ptr noundef %16)
   call void @_exit(i32 noundef 1) #18
   unreachable
 
 bench_stats_start.exit53:                         ; preds = %if.else
-  %19 = load i64, ptr %tv.i.i35, align 8
-  %conv.i.i38 = sitofp i64 %19 to double
+  %17 = load i64, ptr %tv.i.i35, align 8
+  %conv.i.i38 = sitofp i64 %17 to double
   %tv_nsec.i.i39 = getelementptr inbounds i8, ptr %tv.i.i35, i64 8
-  %20 = load i64, ptr %tv_nsec.i.i39, align 8
-  %conv4.i.i40 = sitofp i64 %20 to double
+  %18 = load i64, ptr %tv_nsec.i.i39, align 8
+  %conv4.i.i40 = sitofp i64 %18 to double
   %div.i.i41 = fdiv double %conv4.i.i40, 1.000000e+09
   %add.i.i42 = fadd double %div.i.i41, %conv.i.i38
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %tv.i.i35)
-  %21 = call { i32, i32 } asm sideeffect "cpuid\0A\09rdtsc", "={ax},={dx},{ax},~{ebx},~{ecx},~{dirflag},~{fpsr},~{flags}"(i32 0) #16, !srcloc !9
-  %asmresult.i.i43 = extractvalue { i32, i32 } %21, 0
-  %asmresult1.i.i44 = extractvalue { i32, i32 } %21, 1
+  %19 = call { i32, i32 } asm sideeffect "cpuid\0A\09rdtsc", "={ax},={dx},{ax},~{ebx},~{ecx},~{dirflag},~{fpsr},~{flags}"(i32 0) #16, !srcloc !8
+  %asmresult.i.i43 = extractvalue { i32, i32 } %19, 0
+  %asmresult1.i.i44 = extractvalue { i32, i32 } %19, 1
   %conv.i1.i45 = zext i32 %asmresult.i.i43 to i64
   %conv2.i.i46 = zext i32 %asmresult1.i.i44 to i64
   %shl.i.i47 = shl nuw i64 %conv2.i.i46, 32
   %or.i.i48 = or disjoint i64 %shl.i.i47, %conv.i1.i45
-  %22 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @total_cycles)
-  store i64 %or.i.i48, ptr %22, align 8
-  %tobool66.not = icmp eq i32 %useDeviceID, 0
-  %23 = call align 4 ptr @llvm.threadlocal.address.p0(ptr align 4 @devId)
-  %24 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @bench_plain)
+  %20 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @total_cycles)
+  store i64 %or.i.i48, ptr %20, align 8
+  %21 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @bench_plain)
   %tv_nsec.i.i58 = getelementptr inbounds i8, ptr %tv.i.i54, i64 8
-  br i1 %tobool66.not, label %do.body61.us, label %do.body61
+  br label %do.body61
 
-do.body61.us:                                     ; preds = %bench_stats_start.exit53, %bench_stats_check.exit69.us
-  %count.1.us = phi i32 [ %add93.us, %bench_stats_check.exit69.us ], [ 0, %bench_stats_start.exit53 ]
-  %25 = load i32, ptr @numBlocks, align 4
-  %cmp63105.us = icmp sgt i32 %25, 0
-  br i1 %cmp63105.us, label %for.body64.us.us, label %for.end92.us
-
-for.end92.us:                                     ; preds = %for.inc90.us.us, %do.body61.us
-  %storemerge.lcssa.us = phi i32 [ 0, %do.body61.us ], [ %inc91.us.us, %for.inc90.us.us ]
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %tv.i.i54)
-  %call.i.i55.us = call i32 @clock_gettime(i32 noundef 0, ptr noundef nonnull %tv.i.i54) #16
-  %cmp.i.i56.us = icmp slt i32 %call.i.i55.us, 0
-  br i1 %cmp.i.i56.us, label %if.then.i.i65, label %bench_stats_check.exit69.us
-
-bench_stats_check.exit69.us:                      ; preds = %for.end92.us
-  %add93.us = add nuw nsw i32 %storemerge.lcssa.us, %count.1.us
-  %26 = load i64, ptr %tv.i.i54, align 8
-  %conv.i.i57.us = sitofp i64 %26 to double
-  %27 = load i64, ptr %tv_nsec.i.i58, align 8
-  %conv4.i.i59.us = sitofp i64 %27 to double
-  %div.i.i60.us = fdiv double %conv4.i.i59.us, 1.000000e+09
-  %add.i.i61.us = fadd double %div.i.i60.us, %conv.i.i57.us
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %tv.i.i54)
-  %sub.i62.us = fsub double %add.i.i61.us, %add.i.i42
-  %cmp.i63.us = fcmp uge double %sub.i62.us, 1.000000e+00
-  br i1 %cmp.i63.us, label %exit_sha384, label %do.body61.us, !llvm.loop !39
-
-for.body64.us.us:                                 ; preds = %do.body61.us, %for.inc90.us.us
-  %storemerge106.us.us = phi i32 [ %inc91.us.us, %for.inc90.us.us ], [ 0, %do.body61.us ]
-  %call71.us.us = call i32 @wc_InitSha384_ex(ptr noundef nonnull %hash, ptr noundef null, i32 noundef -2) #16
-  %cmp72.us.us = icmp eq i32 %call71.us.us, 0
-  br i1 %cmp72.us.us, label %if.end76.us.us, label %exit_sha384
-
-if.end76.us.us:                                   ; preds = %for.body64.us.us
-  %28 = load ptr, ptr %24, align 8
-  %29 = load i32, ptr @bench_size, align 4
-  %call75.us.us = call i32 @wc_Sha384Update(ptr noundef nonnull %hash, ptr noundef %28, i32 noundef %29) #16
-  %cmp77.us.us = icmp eq i32 %call75.us.us, 0
-  br i1 %cmp77.us.us, label %if.end83.us.us, label %exit_sha384
-
-if.end83.us.us:                                   ; preds = %if.end76.us.us
-  %call82.us.us = call i32 @wc_Sha384Final(ptr noundef nonnull %hash, ptr noundef nonnull %digest) #16
-  %cmp84.not.us.us = icmp eq i32 %call82.us.us, 0
-  br i1 %cmp84.not.us.us, label %for.inc90.us.us, label %exit_sha384
-
-for.inc90.us.us:                                  ; preds = %if.end83.us.us
-  %inc91.us.us = add nuw nsw i32 %storemerge106.us.us, 1
-  %30 = load i32, ptr @numBlocks, align 4
-  %cmp63.us.us = icmp slt i32 %inc91.us.us, %30
-  br i1 %cmp63.us.us, label %for.body64.us.us, label %for.end92.us, !llvm.loop !40
-
-do.body61:                                        ; preds = %bench_stats_start.exit53, %bench_stats_check.exit69
-  %count.1 = phi i32 [ %add93, %bench_stats_check.exit69 ], [ 0, %bench_stats_start.exit53 ]
-  %31 = load i32, ptr @numBlocks, align 4
-  %cmp63105 = icmp sgt i32 %31, 0
+do.body61:                                        ; preds = %bench_stats_check.exit69, %bench_stats_start.exit53
+  %count.1 = phi i32 [ 0, %bench_stats_start.exit53 ], [ %add93, %bench_stats_check.exit69 ]
+  %22 = load i32, ptr @numBlocks, align 4
+  %cmp63105 = icmp sgt i32 %22, 0
   br i1 %cmp63105, label %for.body64, label %for.end92
 
 for.body64:                                       ; preds = %do.body61, %for.inc90
   %storemerge106 = phi i32 [ %inc91, %for.inc90 ], [ 0, %do.body61 ]
-  %32 = load i32, ptr %23, align 4
-  %call71 = call i32 @wc_InitSha384_ex(ptr noundef nonnull %hash, ptr noundef null, i32 noundef %32) #16
+  %call71 = call i32 @wc_InitSha384_ex(ptr noundef nonnull %hash, ptr noundef null, i32 noundef -2) #16
   %cmp72 = icmp eq i32 %call71, 0
   br i1 %cmp72, label %if.end76, label %exit_sha384
 
 if.end76:                                         ; preds = %for.body64
-  %33 = load ptr, ptr %24, align 8
-  %34 = load i32, ptr @bench_size, align 4
-  %call75 = call i32 @wc_Sha384Update(ptr noundef nonnull %hash, ptr noundef %33, i32 noundef %34) #16
+  %23 = load ptr, ptr %21, align 8
+  %24 = load i32, ptr @bench_size, align 4
+  %call75 = call i32 @wc_Sha384Update(ptr noundef nonnull %hash, ptr noundef %23, i32 noundef %24) #16
   %cmp77 = icmp eq i32 %call75, 0
   br i1 %cmp77, label %if.end83, label %exit_sha384
 
@@ -4031,9 +3780,9 @@ if.end83:                                         ; preds = %if.end76
 
 for.inc90:                                        ; preds = %if.end83
   %inc91 = add nuw nsw i32 %storemerge106, 1
-  %35 = load i32, ptr @numBlocks, align 4
-  %cmp63 = icmp slt i32 %inc91, %35
-  br i1 %cmp63, label %for.body64, label %for.end92, !llvm.loop !40
+  %25 = load i32, ptr @numBlocks, align 4
+  %cmp63 = icmp slt i32 %inc91, %25
+  br i1 %cmp63, label %for.body64, label %for.end92, !llvm.loop !38
 
 for.end92:                                        ; preds = %for.inc90, %do.body61
   %storemerge.lcssa = phi i32 [ 0, %do.body61 ], [ %inc91, %for.inc90 ]
@@ -4042,21 +3791,21 @@ for.end92:                                        ; preds = %for.inc90, %do.body
   %cmp.i.i56 = icmp slt i32 %call.i.i55, 0
   br i1 %cmp.i.i56, label %if.then.i.i65, label %bench_stats_check.exit69
 
-if.then.i.i65:                                    ; preds = %for.end92, %for.end92.us
+if.then.i.i65:                                    ; preds = %for.end92
   %call1.i.i66 = tail call ptr @__errno_location() #17
-  %36 = load i32, ptr %call1.i.i66, align 4
-  %call2.i.i67 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.76, ptr noundef nonnull @.str.108, ptr noundef nonnull @.str.77, i32 noundef 12507, i32 noundef %36, ptr noundef nonnull @.str.78)
-  %37 = load ptr, ptr @stdout, align 8
-  %call3.i.i68 = call i32 @fflush(ptr noundef %37)
+  %26 = load i32, ptr %call1.i.i66, align 4
+  %call2.i.i67 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.76, ptr noundef nonnull @.str.108, ptr noundef nonnull @.str.77, i32 noundef 12507, i32 noundef %26, ptr noundef nonnull @.str.78)
+  %27 = load ptr, ptr @stdout, align 8
+  %call3.i.i68 = call i32 @fflush(ptr noundef %27)
   call void @_exit(i32 noundef 1) #18
   unreachable
 
 bench_stats_check.exit69:                         ; preds = %for.end92
   %add93 = add nuw nsw i32 %storemerge.lcssa, %count.1
-  %38 = load i64, ptr %tv.i.i54, align 8
-  %conv.i.i57 = sitofp i64 %38 to double
-  %39 = load i64, ptr %tv_nsec.i.i58, align 8
-  %conv4.i.i59 = sitofp i64 %39 to double
+  %28 = load i64, ptr %tv.i.i54, align 8
+  %conv.i.i57 = sitofp i64 %28 to double
+  %29 = load i64, ptr %tv_nsec.i.i58, align 8
+  %conv4.i.i59 = sitofp i64 %29 to double
   %div.i.i60 = fdiv double %conv4.i.i59, 1.000000e+09
   %add.i.i61 = fadd double %div.i.i60, %conv.i.i57
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %tv.i.i54)
@@ -4064,12 +3813,12 @@ bench_stats_check.exit69:                         ; preds = %for.end92
   %cmp.i63 = fcmp uge double %sub.i62, 1.000000e+00
   br i1 %cmp.i63, label %exit_sha384, label %do.body61, !llvm.loop !39
 
-exit_sha384:                                      ; preds = %do.body32, %bench_stats_check.exit, %for.body14, %bench_stats_check.exit69, %if.end83, %if.end76, %for.body64, %bench_stats_check.exit69.us, %for.body64.us.us, %if.end76.us.us, %if.end83.us.us
-  %ret.4 = phi i32 [ %call71.us.us, %for.body64.us.us ], [ %call75.us.us, %if.end76.us.us ], [ %call82.us.us, %if.end83.us.us ], [ 0, %bench_stats_check.exit69.us ], [ %call71, %for.body64 ], [ %call75, %if.end76 ], [ %call82, %if.end83 ], [ 0, %bench_stats_check.exit69 ], [ %call20, %for.body14 ], [ %call46, %bench_stats_check.exit ], [ %call46, %do.body32 ]
-  %count.2 = phi i32 [ %count.1.us, %if.end83.us.us ], [ %count.1.us, %if.end76.us.us ], [ %count.1.us, %for.body64.us.us ], [ %add93.us, %bench_stats_check.exit69.us ], [ %count.1, %for.body64 ], [ %count.1, %if.end76 ], [ %count.1, %if.end83 ], [ %add93, %bench_stats_check.exit69 ], [ %count.0, %for.body14 ], [ %add, %bench_stats_check.exit ], [ %add, %do.body32 ]
-  %start.0 = phi double [ %add.i.i42, %if.end83.us.us ], [ %add.i.i42, %if.end76.us.us ], [ %add.i.i42, %for.body64.us.us ], [ %add.i.i42, %bench_stats_check.exit69.us ], [ %add.i.i42, %for.body64 ], [ %add.i.i42, %if.end76 ], [ %add.i.i42, %if.end83 ], [ %add.i.i42, %bench_stats_check.exit69 ], [ %add.i.i, %for.body14 ], [ %add.i.i, %bench_stats_check.exit ], [ %add.i.i, %do.body32 ]
-  %40 = load i32, ptr @bench_size, align 4
-  call fastcc void @bench_stats_sym_finish(ptr noundef nonnull @.str.47, i32 noundef %count.2, i32 noundef %40, double noundef %start.0, i32 noundef %ret.4)
+exit_sha384:                                      ; preds = %do.body32, %bench_stats_check.exit, %for.body14, %bench_stats_check.exit69, %for.body64, %if.end76, %if.end83
+  %ret.4 = phi i32 [ %call71, %for.body64 ], [ %call75, %if.end76 ], [ %call82, %if.end83 ], [ 0, %bench_stats_check.exit69 ], [ %call20, %for.body14 ], [ %call46, %bench_stats_check.exit ], [ %call46, %do.body32 ]
+  %count.2 = phi i32 [ %count.1, %if.end83 ], [ %count.1, %if.end76 ], [ %count.1, %for.body64 ], [ %add93, %bench_stats_check.exit69 ], [ %count.0, %for.body14 ], [ %add, %bench_stats_check.exit ], [ %add, %do.body32 ]
+  %start.0 = phi double [ %add.i.i42, %if.end83 ], [ %add.i.i42, %if.end76 ], [ %add.i.i42, %for.body64 ], [ %add.i.i42, %bench_stats_check.exit69 ], [ %add.i.i, %for.body14 ], [ %add.i.i, %bench_stats_check.exit ], [ %add.i.i, %do.body32 ]
+  %30 = load i32, ptr @bench_size, align 4
+  call fastcc void @bench_stats_sym_finish(ptr noundef nonnull @.str.47, i32 noundef %count.2, i32 noundef %30, double noundef %start.0, i32 noundef %ret.4)
   br label %exit
 
 exit:                                             ; preds = %exit_sha384, %if.then3
@@ -4086,7 +3835,7 @@ declare i32 @wc_Sha384Final(ptr noundef, ptr noundef) local_unnamed_addr #1
 declare void @wc_Sha384Free(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @bench_sha512(i32 noundef %useDeviceID) local_unnamed_addr #0 {
+define dso_local void @bench_sha512(i32 %useDeviceID) local_unnamed_addr #0 {
 entry:
   %tv.i.i54 = alloca %struct.timespec, align 8
   %tv.i.i35 = alloca %struct.timespec, align 8
@@ -4099,11 +3848,7 @@ entry:
   br i1 %.b, label %if.else, label %for.body
 
 for.body:                                         ; preds = %entry
-  %tobool1.not = icmp eq i32 %useDeviceID, 0
-  %0 = tail call align 4 ptr @llvm.threadlocal.address.p0(ptr align 4 @devId)
-  %1 = load i32, ptr %0, align 4
-  %cond = select i1 %tobool1.not, i32 -2, i32 %1
-  %call = call i32 @wc_InitSha512_ex(ptr noundef nonnull %hash, ptr noundef null, i32 noundef %cond) #16
+  %call = call i32 @wc_InitSha512_ex(ptr noundef nonnull %hash, ptr noundef null, i32 noundef -2) #16
   %cmp2.not = icmp eq i32 %call, 0
   br i1 %cmp2.not, label %for.end, label %if.then3
 
@@ -4119,53 +3864,53 @@ for.end:                                          ; preds = %for.body
 
 if.then.i.i:                                      ; preds = %for.end
   %call1.i.i = tail call ptr @__errno_location() #17
-  %2 = load i32, ptr %call1.i.i, align 4
-  %call2.i.i = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.76, ptr noundef nonnull @.str.108, ptr noundef nonnull @.str.77, i32 noundef 12507, i32 noundef %2, ptr noundef nonnull @.str.78)
-  %3 = load ptr, ptr @stdout, align 8
-  %call3.i.i = call i32 @fflush(ptr noundef %3)
+  %0 = load i32, ptr %call1.i.i, align 4
+  %call2.i.i = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.76, ptr noundef nonnull @.str.108, ptr noundef nonnull @.str.77, i32 noundef 12507, i32 noundef %0, ptr noundef nonnull @.str.78)
+  %1 = load ptr, ptr @stdout, align 8
+  %call3.i.i = call i32 @fflush(ptr noundef %1)
   call void @_exit(i32 noundef 1) #18
   unreachable
 
 bench_stats_start.exit:                           ; preds = %for.end
-  %4 = load i64, ptr %tv.i.i, align 8
-  %conv.i.i = sitofp i64 %4 to double
+  %2 = load i64, ptr %tv.i.i, align 8
+  %conv.i.i = sitofp i64 %2 to double
   %tv_nsec.i.i = getelementptr inbounds i8, ptr %tv.i.i, i64 8
-  %5 = load i64, ptr %tv_nsec.i.i, align 8
-  %conv4.i.i = sitofp i64 %5 to double
+  %3 = load i64, ptr %tv_nsec.i.i, align 8
+  %conv4.i.i = sitofp i64 %3 to double
   %div.i.i = fdiv double %conv4.i.i, 1.000000e+09
   %add.i.i = fadd double %div.i.i, %conv.i.i
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %tv.i.i)
-  %6 = call { i32, i32 } asm sideeffect "cpuid\0A\09rdtsc", "={ax},={dx},{ax},~{ebx},~{ecx},~{dirflag},~{fpsr},~{flags}"(i32 0) #16, !srcloc !9
-  %asmresult.i.i = extractvalue { i32, i32 } %6, 0
-  %asmresult1.i.i = extractvalue { i32, i32 } %6, 1
+  %4 = call { i32, i32 } asm sideeffect "cpuid\0A\09rdtsc", "={ax},={dx},{ax},~{ebx},~{ecx},~{dirflag},~{fpsr},~{flags}"(i32 0) #16, !srcloc !8
+  %asmresult.i.i = extractvalue { i32, i32 } %4, 0
+  %asmresult1.i.i = extractvalue { i32, i32 } %4, 1
   %conv.i1.i = zext i32 %asmresult.i.i to i64
   %conv2.i.i = zext i32 %asmresult1.i.i to i64
   %shl.i.i = shl nuw i64 %conv2.i.i, 32
   %or.i.i = or disjoint i64 %shl.i.i, %conv.i1.i
-  %7 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @total_cycles)
-  store i64 %or.i.i, ptr %7, align 8
-  %8 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @bench_plain)
+  %5 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @total_cycles)
+  store i64 %or.i.i, ptr %5, align 8
+  %6 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @bench_plain)
   %tv_nsec.i.i26 = getelementptr inbounds i8, ptr %tv.i.i22, i64 8
   br label %do.body5
 
 do.body5:                                         ; preds = %bench_stats_check.exit, %bench_stats_start.exit
   %count.0 = phi i32 [ 0, %bench_stats_start.exit ], [ %add, %bench_stats_check.exit ]
-  %9 = load i32, ptr @numBlocks, align 4
-  %cmp7103 = icmp sgt i32 %9, 0
+  %7 = load i32, ptr @numBlocks, align 4
+  %cmp7103 = icmp sgt i32 %7, 0
   br i1 %cmp7103, label %for.body14, label %do.body32
 
 for.body14:                                       ; preds = %do.body5, %bench_async_handle.exit
   %times.0104 = phi i32 [ %inc.i, %bench_async_handle.exit ], [ 0, %do.body5 ]
-  %10 = load ptr, ptr %8, align 8
-  %11 = load i32, ptr @bench_size, align 4
-  %call20 = call i32 @wc_Sha512Update(ptr noundef nonnull %hash, ptr noundef %10, i32 noundef %11) #16
+  %8 = load ptr, ptr %6, align 8
+  %9 = load i32, ptr @bench_size, align 4
+  %call20 = call i32 @wc_Sha512Update(ptr noundef nonnull %hash, ptr noundef %8, i32 noundef %9) #16
   %cmp.i = icmp sgt i32 %call20, -1
   br i1 %cmp.i, label %bench_async_handle.exit, label %exit_sha512
 
 bench_async_handle.exit:                          ; preds = %for.body14
   %inc.i = add nuw nsw i32 %times.0104, 1
-  %12 = load i32, ptr @numBlocks, align 4
-  %cmp7 = icmp slt i32 %inc.i, %12
+  %10 = load i32, ptr @numBlocks, align 4
+  %cmp7 = icmp slt i32 %inc.i, %10
   br i1 %cmp7, label %for.body14, label %do.body32
 
 do.body32:                                        ; preds = %bench_async_handle.exit, %do.body5
@@ -4183,24 +3928,24 @@ do.cond57:                                        ; preds = %do.body32
 
 if.then.i.i31:                                    ; preds = %do.cond57
   %call1.i.i32 = tail call ptr @__errno_location() #17
-  %13 = load i32, ptr %call1.i.i32, align 4
-  %call2.i.i33 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.76, ptr noundef nonnull @.str.108, ptr noundef nonnull @.str.77, i32 noundef 12507, i32 noundef %13, ptr noundef nonnull @.str.78)
-  %14 = load ptr, ptr @stdout, align 8
-  %call3.i.i34 = call i32 @fflush(ptr noundef %14)
+  %11 = load i32, ptr %call1.i.i32, align 4
+  %call2.i.i33 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.76, ptr noundef nonnull @.str.108, ptr noundef nonnull @.str.77, i32 noundef 12507, i32 noundef %11, ptr noundef nonnull @.str.78)
+  %12 = load ptr, ptr @stdout, align 8
+  %call3.i.i34 = call i32 @fflush(ptr noundef %12)
   call void @_exit(i32 noundef 1) #18
   unreachable
 
 bench_stats_check.exit:                           ; preds = %do.cond57
-  %15 = load i64, ptr %tv.i.i22, align 8
-  %conv.i.i25 = sitofp i64 %15 to double
-  %16 = load i64, ptr %tv_nsec.i.i26, align 8
-  %conv4.i.i27 = sitofp i64 %16 to double
+  %13 = load i64, ptr %tv.i.i22, align 8
+  %conv.i.i25 = sitofp i64 %13 to double
+  %14 = load i64, ptr %tv_nsec.i.i26, align 8
+  %conv4.i.i27 = sitofp i64 %14 to double
   %div.i.i28 = fdiv double %conv4.i.i27, 1.000000e+09
   %add.i.i29 = fadd double %div.i.i28, %conv.i.i25
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %tv.i.i22)
   %sub.i = fsub double %add.i.i29, %add.i.i
   %cmp.i30 = fcmp uge double %sub.i, 1.000000e+00
-  br i1 %cmp.i30, label %exit_sha512, label %do.body5, !llvm.loop !41
+  br i1 %cmp.i30, label %exit_sha512, label %do.body5, !llvm.loop !40
 
 if.else:                                          ; preds = %entry
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %tv.i.i35)
@@ -4210,104 +3955,51 @@ if.else:                                          ; preds = %entry
 
 if.then.i.i49:                                    ; preds = %if.else
   %call1.i.i50 = tail call ptr @__errno_location() #17
-  %17 = load i32, ptr %call1.i.i50, align 4
-  %call2.i.i51 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.76, ptr noundef nonnull @.str.108, ptr noundef nonnull @.str.77, i32 noundef 12507, i32 noundef %17, ptr noundef nonnull @.str.78)
-  %18 = load ptr, ptr @stdout, align 8
-  %call3.i.i52 = call i32 @fflush(ptr noundef %18)
+  %15 = load i32, ptr %call1.i.i50, align 4
+  %call2.i.i51 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.76, ptr noundef nonnull @.str.108, ptr noundef nonnull @.str.77, i32 noundef 12507, i32 noundef %15, ptr noundef nonnull @.str.78)
+  %16 = load ptr, ptr @stdout, align 8
+  %call3.i.i52 = call i32 @fflush(ptr noundef %16)
   call void @_exit(i32 noundef 1) #18
   unreachable
 
 bench_stats_start.exit53:                         ; preds = %if.else
-  %19 = load i64, ptr %tv.i.i35, align 8
-  %conv.i.i38 = sitofp i64 %19 to double
+  %17 = load i64, ptr %tv.i.i35, align 8
+  %conv.i.i38 = sitofp i64 %17 to double
   %tv_nsec.i.i39 = getelementptr inbounds i8, ptr %tv.i.i35, i64 8
-  %20 = load i64, ptr %tv_nsec.i.i39, align 8
-  %conv4.i.i40 = sitofp i64 %20 to double
+  %18 = load i64, ptr %tv_nsec.i.i39, align 8
+  %conv4.i.i40 = sitofp i64 %18 to double
   %div.i.i41 = fdiv double %conv4.i.i40, 1.000000e+09
   %add.i.i42 = fadd double %div.i.i41, %conv.i.i38
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %tv.i.i35)
-  %21 = call { i32, i32 } asm sideeffect "cpuid\0A\09rdtsc", "={ax},={dx},{ax},~{ebx},~{ecx},~{dirflag},~{fpsr},~{flags}"(i32 0) #16, !srcloc !9
-  %asmresult.i.i43 = extractvalue { i32, i32 } %21, 0
-  %asmresult1.i.i44 = extractvalue { i32, i32 } %21, 1
+  %19 = call { i32, i32 } asm sideeffect "cpuid\0A\09rdtsc", "={ax},={dx},{ax},~{ebx},~{ecx},~{dirflag},~{fpsr},~{flags}"(i32 0) #16, !srcloc !8
+  %asmresult.i.i43 = extractvalue { i32, i32 } %19, 0
+  %asmresult1.i.i44 = extractvalue { i32, i32 } %19, 1
   %conv.i1.i45 = zext i32 %asmresult.i.i43 to i64
   %conv2.i.i46 = zext i32 %asmresult1.i.i44 to i64
   %shl.i.i47 = shl nuw i64 %conv2.i.i46, 32
   %or.i.i48 = or disjoint i64 %shl.i.i47, %conv.i1.i45
-  %22 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @total_cycles)
-  store i64 %or.i.i48, ptr %22, align 8
-  %tobool66.not = icmp eq i32 %useDeviceID, 0
-  %23 = call align 4 ptr @llvm.threadlocal.address.p0(ptr align 4 @devId)
-  %24 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @bench_plain)
+  %20 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @total_cycles)
+  store i64 %or.i.i48, ptr %20, align 8
+  %21 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @bench_plain)
   %tv_nsec.i.i58 = getelementptr inbounds i8, ptr %tv.i.i54, i64 8
-  br i1 %tobool66.not, label %do.body61.us, label %do.body61
+  br label %do.body61
 
-do.body61.us:                                     ; preds = %bench_stats_start.exit53, %bench_stats_check.exit69.us
-  %count.1.us = phi i32 [ %add93.us, %bench_stats_check.exit69.us ], [ 0, %bench_stats_start.exit53 ]
-  %25 = load i32, ptr @numBlocks, align 4
-  %cmp63105.us = icmp sgt i32 %25, 0
-  br i1 %cmp63105.us, label %for.body64.us.us, label %for.end92.us
-
-for.end92.us:                                     ; preds = %for.inc90.us.us, %do.body61.us
-  %storemerge.lcssa.us = phi i32 [ 0, %do.body61.us ], [ %inc91.us.us, %for.inc90.us.us ]
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %tv.i.i54)
-  %call.i.i55.us = call i32 @clock_gettime(i32 noundef 0, ptr noundef nonnull %tv.i.i54) #16
-  %cmp.i.i56.us = icmp slt i32 %call.i.i55.us, 0
-  br i1 %cmp.i.i56.us, label %if.then.i.i65, label %bench_stats_check.exit69.us
-
-bench_stats_check.exit69.us:                      ; preds = %for.end92.us
-  %add93.us = add nuw nsw i32 %storemerge.lcssa.us, %count.1.us
-  %26 = load i64, ptr %tv.i.i54, align 8
-  %conv.i.i57.us = sitofp i64 %26 to double
-  %27 = load i64, ptr %tv_nsec.i.i58, align 8
-  %conv4.i.i59.us = sitofp i64 %27 to double
-  %div.i.i60.us = fdiv double %conv4.i.i59.us, 1.000000e+09
-  %add.i.i61.us = fadd double %div.i.i60.us, %conv.i.i57.us
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %tv.i.i54)
-  %sub.i62.us = fsub double %add.i.i61.us, %add.i.i42
-  %cmp.i63.us = fcmp uge double %sub.i62.us, 1.000000e+00
-  br i1 %cmp.i63.us, label %exit_sha512, label %do.body61.us, !llvm.loop !42
-
-for.body64.us.us:                                 ; preds = %do.body61.us, %for.inc90.us.us
-  %storemerge106.us.us = phi i32 [ %inc91.us.us, %for.inc90.us.us ], [ 0, %do.body61.us ]
-  %call71.us.us = call i32 @wc_InitSha512_ex(ptr noundef nonnull %hash, ptr noundef null, i32 noundef -2) #16
-  %cmp72.us.us = icmp eq i32 %call71.us.us, 0
-  br i1 %cmp72.us.us, label %if.end76.us.us, label %exit_sha512
-
-if.end76.us.us:                                   ; preds = %for.body64.us.us
-  %28 = load ptr, ptr %24, align 8
-  %29 = load i32, ptr @bench_size, align 4
-  %call75.us.us = call i32 @wc_Sha512Update(ptr noundef nonnull %hash, ptr noundef %28, i32 noundef %29) #16
-  %cmp77.us.us = icmp eq i32 %call75.us.us, 0
-  br i1 %cmp77.us.us, label %if.end83.us.us, label %exit_sha512
-
-if.end83.us.us:                                   ; preds = %if.end76.us.us
-  %call82.us.us = call i32 @wc_Sha512Final(ptr noundef nonnull %hash, ptr noundef nonnull %digest) #16
-  %cmp84.not.us.us = icmp eq i32 %call82.us.us, 0
-  br i1 %cmp84.not.us.us, label %for.inc90.us.us, label %exit_sha512
-
-for.inc90.us.us:                                  ; preds = %if.end83.us.us
-  %inc91.us.us = add nuw nsw i32 %storemerge106.us.us, 1
-  %30 = load i32, ptr @numBlocks, align 4
-  %cmp63.us.us = icmp slt i32 %inc91.us.us, %30
-  br i1 %cmp63.us.us, label %for.body64.us.us, label %for.end92.us, !llvm.loop !43
-
-do.body61:                                        ; preds = %bench_stats_start.exit53, %bench_stats_check.exit69
-  %count.1 = phi i32 [ %add93, %bench_stats_check.exit69 ], [ 0, %bench_stats_start.exit53 ]
-  %31 = load i32, ptr @numBlocks, align 4
-  %cmp63105 = icmp sgt i32 %31, 0
+do.body61:                                        ; preds = %bench_stats_check.exit69, %bench_stats_start.exit53
+  %count.1 = phi i32 [ 0, %bench_stats_start.exit53 ], [ %add93, %bench_stats_check.exit69 ]
+  %22 = load i32, ptr @numBlocks, align 4
+  %cmp63105 = icmp sgt i32 %22, 0
   br i1 %cmp63105, label %for.body64, label %for.end92
 
 for.body64:                                       ; preds = %do.body61, %for.inc90
   %storemerge106 = phi i32 [ %inc91, %for.inc90 ], [ 0, %do.body61 ]
-  %32 = load i32, ptr %23, align 4
-  %call71 = call i32 @wc_InitSha512_ex(ptr noundef nonnull %hash, ptr noundef null, i32 noundef %32) #16
+  %call71 = call i32 @wc_InitSha512_ex(ptr noundef nonnull %hash, ptr noundef null, i32 noundef -2) #16
   %cmp72 = icmp eq i32 %call71, 0
   br i1 %cmp72, label %if.end76, label %exit_sha512
 
 if.end76:                                         ; preds = %for.body64
-  %33 = load ptr, ptr %24, align 8
-  %34 = load i32, ptr @bench_size, align 4
-  %call75 = call i32 @wc_Sha512Update(ptr noundef nonnull %hash, ptr noundef %33, i32 noundef %34) #16
+  %23 = load ptr, ptr %21, align 8
+  %24 = load i32, ptr @bench_size, align 4
+  %call75 = call i32 @wc_Sha512Update(ptr noundef nonnull %hash, ptr noundef %23, i32 noundef %24) #16
   %cmp77 = icmp eq i32 %call75, 0
   br i1 %cmp77, label %if.end83, label %exit_sha512
 
@@ -4318,9 +4010,9 @@ if.end83:                                         ; preds = %if.end76
 
 for.inc90:                                        ; preds = %if.end83
   %inc91 = add nuw nsw i32 %storemerge106, 1
-  %35 = load i32, ptr @numBlocks, align 4
-  %cmp63 = icmp slt i32 %inc91, %35
-  br i1 %cmp63, label %for.body64, label %for.end92, !llvm.loop !43
+  %25 = load i32, ptr @numBlocks, align 4
+  %cmp63 = icmp slt i32 %inc91, %25
+  br i1 %cmp63, label %for.body64, label %for.end92, !llvm.loop !41
 
 for.end92:                                        ; preds = %for.inc90, %do.body61
   %storemerge.lcssa = phi i32 [ 0, %do.body61 ], [ %inc91, %for.inc90 ]
@@ -4329,21 +4021,21 @@ for.end92:                                        ; preds = %for.inc90, %do.body
   %cmp.i.i56 = icmp slt i32 %call.i.i55, 0
   br i1 %cmp.i.i56, label %if.then.i.i65, label %bench_stats_check.exit69
 
-if.then.i.i65:                                    ; preds = %for.end92, %for.end92.us
+if.then.i.i65:                                    ; preds = %for.end92
   %call1.i.i66 = tail call ptr @__errno_location() #17
-  %36 = load i32, ptr %call1.i.i66, align 4
-  %call2.i.i67 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.76, ptr noundef nonnull @.str.108, ptr noundef nonnull @.str.77, i32 noundef 12507, i32 noundef %36, ptr noundef nonnull @.str.78)
-  %37 = load ptr, ptr @stdout, align 8
-  %call3.i.i68 = call i32 @fflush(ptr noundef %37)
+  %26 = load i32, ptr %call1.i.i66, align 4
+  %call2.i.i67 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.76, ptr noundef nonnull @.str.108, ptr noundef nonnull @.str.77, i32 noundef 12507, i32 noundef %26, ptr noundef nonnull @.str.78)
+  %27 = load ptr, ptr @stdout, align 8
+  %call3.i.i68 = call i32 @fflush(ptr noundef %27)
   call void @_exit(i32 noundef 1) #18
   unreachable
 
 bench_stats_check.exit69:                         ; preds = %for.end92
   %add93 = add nuw nsw i32 %storemerge.lcssa, %count.1
-  %38 = load i64, ptr %tv.i.i54, align 8
-  %conv.i.i57 = sitofp i64 %38 to double
-  %39 = load i64, ptr %tv_nsec.i.i58, align 8
-  %conv4.i.i59 = sitofp i64 %39 to double
+  %28 = load i64, ptr %tv.i.i54, align 8
+  %conv.i.i57 = sitofp i64 %28 to double
+  %29 = load i64, ptr %tv_nsec.i.i58, align 8
+  %conv4.i.i59 = sitofp i64 %29 to double
   %div.i.i60 = fdiv double %conv4.i.i59, 1.000000e+09
   %add.i.i61 = fadd double %div.i.i60, %conv.i.i57
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %tv.i.i54)
@@ -4351,12 +4043,12 @@ bench_stats_check.exit69:                         ; preds = %for.end92
   %cmp.i63 = fcmp uge double %sub.i62, 1.000000e+00
   br i1 %cmp.i63, label %exit_sha512, label %do.body61, !llvm.loop !42
 
-exit_sha512:                                      ; preds = %do.body32, %bench_stats_check.exit, %for.body14, %bench_stats_check.exit69, %if.end83, %if.end76, %for.body64, %bench_stats_check.exit69.us, %for.body64.us.us, %if.end76.us.us, %if.end83.us.us
-  %ret.4 = phi i32 [ %call71.us.us, %for.body64.us.us ], [ %call75.us.us, %if.end76.us.us ], [ %call82.us.us, %if.end83.us.us ], [ 0, %bench_stats_check.exit69.us ], [ %call71, %for.body64 ], [ %call75, %if.end76 ], [ %call82, %if.end83 ], [ 0, %bench_stats_check.exit69 ], [ %call20, %for.body14 ], [ %call46, %bench_stats_check.exit ], [ %call46, %do.body32 ]
-  %count.2 = phi i32 [ %count.1.us, %if.end83.us.us ], [ %count.1.us, %if.end76.us.us ], [ %count.1.us, %for.body64.us.us ], [ %add93.us, %bench_stats_check.exit69.us ], [ %count.1, %for.body64 ], [ %count.1, %if.end76 ], [ %count.1, %if.end83 ], [ %add93, %bench_stats_check.exit69 ], [ %count.0, %for.body14 ], [ %add, %bench_stats_check.exit ], [ %add, %do.body32 ]
-  %start.0 = phi double [ %add.i.i42, %if.end83.us.us ], [ %add.i.i42, %if.end76.us.us ], [ %add.i.i42, %for.body64.us.us ], [ %add.i.i42, %bench_stats_check.exit69.us ], [ %add.i.i42, %for.body64 ], [ %add.i.i42, %if.end76 ], [ %add.i.i42, %if.end83 ], [ %add.i.i42, %bench_stats_check.exit69 ], [ %add.i.i, %for.body14 ], [ %add.i.i, %bench_stats_check.exit ], [ %add.i.i, %do.body32 ]
-  %40 = load i32, ptr @bench_size, align 4
-  call fastcc void @bench_stats_sym_finish(ptr noundef nonnull @.str.49, i32 noundef %count.2, i32 noundef %40, double noundef %start.0, i32 noundef %ret.4)
+exit_sha512:                                      ; preds = %do.body32, %bench_stats_check.exit, %for.body14, %bench_stats_check.exit69, %for.body64, %if.end76, %if.end83
+  %ret.4 = phi i32 [ %call71, %for.body64 ], [ %call75, %if.end76 ], [ %call82, %if.end83 ], [ 0, %bench_stats_check.exit69 ], [ %call20, %for.body14 ], [ %call46, %bench_stats_check.exit ], [ %call46, %do.body32 ]
+  %count.2 = phi i32 [ %count.1, %if.end83 ], [ %count.1, %if.end76 ], [ %count.1, %for.body64 ], [ %add93, %bench_stats_check.exit69 ], [ %count.0, %for.body14 ], [ %add, %bench_stats_check.exit ], [ %add, %do.body32 ]
+  %start.0 = phi double [ %add.i.i42, %if.end83 ], [ %add.i.i42, %if.end76 ], [ %add.i.i42, %for.body64 ], [ %add.i.i42, %bench_stats_check.exit69 ], [ %add.i.i, %for.body14 ], [ %add.i.i, %bench_stats_check.exit ], [ %add.i.i, %do.body32 ]
+  %30 = load i32, ptr @bench_size, align 4
+  call fastcc void @bench_stats_sym_finish(ptr noundef nonnull @.str.49, i32 noundef %count.2, i32 noundef %30, double noundef %start.0, i32 noundef %ret.4)
   br label %exit
 
 exit:                                             ; preds = %exit_sha512, %if.then3
@@ -4373,7 +4065,7 @@ declare i32 @wc_Sha512Final(ptr noundef, ptr noundef) local_unnamed_addr #1
 declare void @wc_Sha512Free(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @bench_sha512_224(i32 noundef %useDeviceID) local_unnamed_addr #0 {
+define dso_local void @bench_sha512_224(i32 %useDeviceID) local_unnamed_addr #0 {
 entry:
   %tv.i.i54 = alloca %struct.timespec, align 8
   %tv.i.i35 = alloca %struct.timespec, align 8
@@ -4386,11 +4078,7 @@ entry:
   br i1 %.b, label %if.else, label %for.body
 
 for.body:                                         ; preds = %entry
-  %tobool1.not = icmp eq i32 %useDeviceID, 0
-  %0 = tail call align 4 ptr @llvm.threadlocal.address.p0(ptr align 4 @devId)
-  %1 = load i32, ptr %0, align 4
-  %cond = select i1 %tobool1.not, i32 -2, i32 %1
-  %call = call i32 @wc_InitSha512_224_ex(ptr noundef nonnull %hash, ptr noundef null, i32 noundef %cond) #16
+  %call = call i32 @wc_InitSha512_224_ex(ptr noundef nonnull %hash, ptr noundef null, i32 noundef -2) #16
   %cmp2.not = icmp eq i32 %call, 0
   br i1 %cmp2.not, label %for.end, label %if.then3
 
@@ -4406,53 +4094,53 @@ for.end:                                          ; preds = %for.body
 
 if.then.i.i:                                      ; preds = %for.end
   %call1.i.i = tail call ptr @__errno_location() #17
-  %2 = load i32, ptr %call1.i.i, align 4
-  %call2.i.i = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.76, ptr noundef nonnull @.str.108, ptr noundef nonnull @.str.77, i32 noundef 12507, i32 noundef %2, ptr noundef nonnull @.str.78)
-  %3 = load ptr, ptr @stdout, align 8
-  %call3.i.i = call i32 @fflush(ptr noundef %3)
+  %0 = load i32, ptr %call1.i.i, align 4
+  %call2.i.i = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.76, ptr noundef nonnull @.str.108, ptr noundef nonnull @.str.77, i32 noundef 12507, i32 noundef %0, ptr noundef nonnull @.str.78)
+  %1 = load ptr, ptr @stdout, align 8
+  %call3.i.i = call i32 @fflush(ptr noundef %1)
   call void @_exit(i32 noundef 1) #18
   unreachable
 
 bench_stats_start.exit:                           ; preds = %for.end
-  %4 = load i64, ptr %tv.i.i, align 8
-  %conv.i.i = sitofp i64 %4 to double
+  %2 = load i64, ptr %tv.i.i, align 8
+  %conv.i.i = sitofp i64 %2 to double
   %tv_nsec.i.i = getelementptr inbounds i8, ptr %tv.i.i, i64 8
-  %5 = load i64, ptr %tv_nsec.i.i, align 8
-  %conv4.i.i = sitofp i64 %5 to double
+  %3 = load i64, ptr %tv_nsec.i.i, align 8
+  %conv4.i.i = sitofp i64 %3 to double
   %div.i.i = fdiv double %conv4.i.i, 1.000000e+09
   %add.i.i = fadd double %div.i.i, %conv.i.i
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %tv.i.i)
-  %6 = call { i32, i32 } asm sideeffect "cpuid\0A\09rdtsc", "={ax},={dx},{ax},~{ebx},~{ecx},~{dirflag},~{fpsr},~{flags}"(i32 0) #16, !srcloc !9
-  %asmresult.i.i = extractvalue { i32, i32 } %6, 0
-  %asmresult1.i.i = extractvalue { i32, i32 } %6, 1
+  %4 = call { i32, i32 } asm sideeffect "cpuid\0A\09rdtsc", "={ax},={dx},{ax},~{ebx},~{ecx},~{dirflag},~{fpsr},~{flags}"(i32 0) #16, !srcloc !8
+  %asmresult.i.i = extractvalue { i32, i32 } %4, 0
+  %asmresult1.i.i = extractvalue { i32, i32 } %4, 1
   %conv.i1.i = zext i32 %asmresult.i.i to i64
   %conv2.i.i = zext i32 %asmresult1.i.i to i64
   %shl.i.i = shl nuw i64 %conv2.i.i, 32
   %or.i.i = or disjoint i64 %shl.i.i, %conv.i1.i
-  %7 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @total_cycles)
-  store i64 %or.i.i, ptr %7, align 8
-  %8 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @bench_plain)
+  %5 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @total_cycles)
+  store i64 %or.i.i, ptr %5, align 8
+  %6 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @bench_plain)
   %tv_nsec.i.i26 = getelementptr inbounds i8, ptr %tv.i.i22, i64 8
   br label %do.body5
 
 do.body5:                                         ; preds = %bench_stats_check.exit, %bench_stats_start.exit
   %count.0 = phi i32 [ 0, %bench_stats_start.exit ], [ %add, %bench_stats_check.exit ]
-  %9 = load i32, ptr @numBlocks, align 4
-  %cmp7103 = icmp sgt i32 %9, 0
+  %7 = load i32, ptr @numBlocks, align 4
+  %cmp7103 = icmp sgt i32 %7, 0
   br i1 %cmp7103, label %for.body14, label %do.body32
 
 for.body14:                                       ; preds = %do.body5, %bench_async_handle.exit
   %times.0104 = phi i32 [ %inc.i, %bench_async_handle.exit ], [ 0, %do.body5 ]
-  %10 = load ptr, ptr %8, align 8
-  %11 = load i32, ptr @bench_size, align 4
-  %call20 = call i32 @wc_Sha512_224Update(ptr noundef nonnull %hash, ptr noundef %10, i32 noundef %11) #16
+  %8 = load ptr, ptr %6, align 8
+  %9 = load i32, ptr @bench_size, align 4
+  %call20 = call i32 @wc_Sha512_224Update(ptr noundef nonnull %hash, ptr noundef %8, i32 noundef %9) #16
   %cmp.i = icmp sgt i32 %call20, -1
   br i1 %cmp.i, label %bench_async_handle.exit, label %exit_sha512_224
 
 bench_async_handle.exit:                          ; preds = %for.body14
   %inc.i = add nuw nsw i32 %times.0104, 1
-  %12 = load i32, ptr @numBlocks, align 4
-  %cmp7 = icmp slt i32 %inc.i, %12
+  %10 = load i32, ptr @numBlocks, align 4
+  %cmp7 = icmp slt i32 %inc.i, %10
   br i1 %cmp7, label %for.body14, label %do.body32
 
 do.body32:                                        ; preds = %bench_async_handle.exit, %do.body5
@@ -4470,24 +4158,24 @@ do.cond57:                                        ; preds = %do.body32
 
 if.then.i.i31:                                    ; preds = %do.cond57
   %call1.i.i32 = tail call ptr @__errno_location() #17
-  %13 = load i32, ptr %call1.i.i32, align 4
-  %call2.i.i33 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.76, ptr noundef nonnull @.str.108, ptr noundef nonnull @.str.77, i32 noundef 12507, i32 noundef %13, ptr noundef nonnull @.str.78)
-  %14 = load ptr, ptr @stdout, align 8
-  %call3.i.i34 = call i32 @fflush(ptr noundef %14)
+  %11 = load i32, ptr %call1.i.i32, align 4
+  %call2.i.i33 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.76, ptr noundef nonnull @.str.108, ptr noundef nonnull @.str.77, i32 noundef 12507, i32 noundef %11, ptr noundef nonnull @.str.78)
+  %12 = load ptr, ptr @stdout, align 8
+  %call3.i.i34 = call i32 @fflush(ptr noundef %12)
   call void @_exit(i32 noundef 1) #18
   unreachable
 
 bench_stats_check.exit:                           ; preds = %do.cond57
-  %15 = load i64, ptr %tv.i.i22, align 8
-  %conv.i.i25 = sitofp i64 %15 to double
-  %16 = load i64, ptr %tv_nsec.i.i26, align 8
-  %conv4.i.i27 = sitofp i64 %16 to double
+  %13 = load i64, ptr %tv.i.i22, align 8
+  %conv.i.i25 = sitofp i64 %13 to double
+  %14 = load i64, ptr %tv_nsec.i.i26, align 8
+  %conv4.i.i27 = sitofp i64 %14 to double
   %div.i.i28 = fdiv double %conv4.i.i27, 1.000000e+09
   %add.i.i29 = fadd double %div.i.i28, %conv.i.i25
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %tv.i.i22)
   %sub.i = fsub double %add.i.i29, %add.i.i
   %cmp.i30 = fcmp uge double %sub.i, 1.000000e+00
-  br i1 %cmp.i30, label %exit_sha512_224, label %do.body5, !llvm.loop !44
+  br i1 %cmp.i30, label %exit_sha512_224, label %do.body5, !llvm.loop !43
 
 if.else:                                          ; preds = %entry
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %tv.i.i35)
@@ -4497,104 +4185,51 @@ if.else:                                          ; preds = %entry
 
 if.then.i.i49:                                    ; preds = %if.else
   %call1.i.i50 = tail call ptr @__errno_location() #17
-  %17 = load i32, ptr %call1.i.i50, align 4
-  %call2.i.i51 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.76, ptr noundef nonnull @.str.108, ptr noundef nonnull @.str.77, i32 noundef 12507, i32 noundef %17, ptr noundef nonnull @.str.78)
-  %18 = load ptr, ptr @stdout, align 8
-  %call3.i.i52 = call i32 @fflush(ptr noundef %18)
+  %15 = load i32, ptr %call1.i.i50, align 4
+  %call2.i.i51 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.76, ptr noundef nonnull @.str.108, ptr noundef nonnull @.str.77, i32 noundef 12507, i32 noundef %15, ptr noundef nonnull @.str.78)
+  %16 = load ptr, ptr @stdout, align 8
+  %call3.i.i52 = call i32 @fflush(ptr noundef %16)
   call void @_exit(i32 noundef 1) #18
   unreachable
 
 bench_stats_start.exit53:                         ; preds = %if.else
-  %19 = load i64, ptr %tv.i.i35, align 8
-  %conv.i.i38 = sitofp i64 %19 to double
+  %17 = load i64, ptr %tv.i.i35, align 8
+  %conv.i.i38 = sitofp i64 %17 to double
   %tv_nsec.i.i39 = getelementptr inbounds i8, ptr %tv.i.i35, i64 8
-  %20 = load i64, ptr %tv_nsec.i.i39, align 8
-  %conv4.i.i40 = sitofp i64 %20 to double
+  %18 = load i64, ptr %tv_nsec.i.i39, align 8
+  %conv4.i.i40 = sitofp i64 %18 to double
   %div.i.i41 = fdiv double %conv4.i.i40, 1.000000e+09
   %add.i.i42 = fadd double %div.i.i41, %conv.i.i38
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %tv.i.i35)
-  %21 = call { i32, i32 } asm sideeffect "cpuid\0A\09rdtsc", "={ax},={dx},{ax},~{ebx},~{ecx},~{dirflag},~{fpsr},~{flags}"(i32 0) #16, !srcloc !9
-  %asmresult.i.i43 = extractvalue { i32, i32 } %21, 0
-  %asmresult1.i.i44 = extractvalue { i32, i32 } %21, 1
+  %19 = call { i32, i32 } asm sideeffect "cpuid\0A\09rdtsc", "={ax},={dx},{ax},~{ebx},~{ecx},~{dirflag},~{fpsr},~{flags}"(i32 0) #16, !srcloc !8
+  %asmresult.i.i43 = extractvalue { i32, i32 } %19, 0
+  %asmresult1.i.i44 = extractvalue { i32, i32 } %19, 1
   %conv.i1.i45 = zext i32 %asmresult.i.i43 to i64
   %conv2.i.i46 = zext i32 %asmresult1.i.i44 to i64
   %shl.i.i47 = shl nuw i64 %conv2.i.i46, 32
   %or.i.i48 = or disjoint i64 %shl.i.i47, %conv.i1.i45
-  %22 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @total_cycles)
-  store i64 %or.i.i48, ptr %22, align 8
-  %tobool66.not = icmp eq i32 %useDeviceID, 0
-  %23 = call align 4 ptr @llvm.threadlocal.address.p0(ptr align 4 @devId)
-  %24 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @bench_plain)
+  %20 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @total_cycles)
+  store i64 %or.i.i48, ptr %20, align 8
+  %21 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @bench_plain)
   %tv_nsec.i.i58 = getelementptr inbounds i8, ptr %tv.i.i54, i64 8
-  br i1 %tobool66.not, label %do.body61.us, label %do.body61
+  br label %do.body61
 
-do.body61.us:                                     ; preds = %bench_stats_start.exit53, %bench_stats_check.exit69.us
-  %count.1.us = phi i32 [ %add93.us, %bench_stats_check.exit69.us ], [ 0, %bench_stats_start.exit53 ]
-  %25 = load i32, ptr @numBlocks, align 4
-  %cmp63105.us = icmp sgt i32 %25, 0
-  br i1 %cmp63105.us, label %for.body64.us.us, label %for.end92.us
-
-for.end92.us:                                     ; preds = %for.inc90.us.us, %do.body61.us
-  %storemerge.lcssa.us = phi i32 [ 0, %do.body61.us ], [ %inc91.us.us, %for.inc90.us.us ]
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %tv.i.i54)
-  %call.i.i55.us = call i32 @clock_gettime(i32 noundef 0, ptr noundef nonnull %tv.i.i54) #16
-  %cmp.i.i56.us = icmp slt i32 %call.i.i55.us, 0
-  br i1 %cmp.i.i56.us, label %if.then.i.i65, label %bench_stats_check.exit69.us
-
-bench_stats_check.exit69.us:                      ; preds = %for.end92.us
-  %add93.us = add nuw nsw i32 %storemerge.lcssa.us, %count.1.us
-  %26 = load i64, ptr %tv.i.i54, align 8
-  %conv.i.i57.us = sitofp i64 %26 to double
-  %27 = load i64, ptr %tv_nsec.i.i58, align 8
-  %conv4.i.i59.us = sitofp i64 %27 to double
-  %div.i.i60.us = fdiv double %conv4.i.i59.us, 1.000000e+09
-  %add.i.i61.us = fadd double %div.i.i60.us, %conv.i.i57.us
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %tv.i.i54)
-  %sub.i62.us = fsub double %add.i.i61.us, %add.i.i42
-  %cmp.i63.us = fcmp uge double %sub.i62.us, 1.000000e+00
-  br i1 %cmp.i63.us, label %exit_sha512_224, label %do.body61.us, !llvm.loop !45
-
-for.body64.us.us:                                 ; preds = %do.body61.us, %for.inc90.us.us
-  %storemerge106.us.us = phi i32 [ %inc91.us.us, %for.inc90.us.us ], [ 0, %do.body61.us ]
-  %call71.us.us = call i32 @wc_InitSha512_224_ex(ptr noundef nonnull %hash, ptr noundef null, i32 noundef -2) #16
-  %cmp72.us.us = icmp eq i32 %call71.us.us, 0
-  br i1 %cmp72.us.us, label %if.end76.us.us, label %exit_sha512_224
-
-if.end76.us.us:                                   ; preds = %for.body64.us.us
-  %28 = load ptr, ptr %24, align 8
-  %29 = load i32, ptr @bench_size, align 4
-  %call75.us.us = call i32 @wc_Sha512_224Update(ptr noundef nonnull %hash, ptr noundef %28, i32 noundef %29) #16
-  %cmp77.us.us = icmp eq i32 %call75.us.us, 0
-  br i1 %cmp77.us.us, label %if.end83.us.us, label %exit_sha512_224
-
-if.end83.us.us:                                   ; preds = %if.end76.us.us
-  %call82.us.us = call i32 @wc_Sha512_224Final(ptr noundef nonnull %hash, ptr noundef nonnull %digest) #16
-  %cmp84.not.us.us = icmp eq i32 %call82.us.us, 0
-  br i1 %cmp84.not.us.us, label %for.inc90.us.us, label %exit_sha512_224
-
-for.inc90.us.us:                                  ; preds = %if.end83.us.us
-  %inc91.us.us = add nuw nsw i32 %storemerge106.us.us, 1
-  %30 = load i32, ptr @numBlocks, align 4
-  %cmp63.us.us = icmp slt i32 %inc91.us.us, %30
-  br i1 %cmp63.us.us, label %for.body64.us.us, label %for.end92.us, !llvm.loop !46
-
-do.body61:                                        ; preds = %bench_stats_start.exit53, %bench_stats_check.exit69
-  %count.1 = phi i32 [ %add93, %bench_stats_check.exit69 ], [ 0, %bench_stats_start.exit53 ]
-  %31 = load i32, ptr @numBlocks, align 4
-  %cmp63105 = icmp sgt i32 %31, 0
+do.body61:                                        ; preds = %bench_stats_check.exit69, %bench_stats_start.exit53
+  %count.1 = phi i32 [ 0, %bench_stats_start.exit53 ], [ %add93, %bench_stats_check.exit69 ]
+  %22 = load i32, ptr @numBlocks, align 4
+  %cmp63105 = icmp sgt i32 %22, 0
   br i1 %cmp63105, label %for.body64, label %for.end92
 
 for.body64:                                       ; preds = %do.body61, %for.inc90
   %storemerge106 = phi i32 [ %inc91, %for.inc90 ], [ 0, %do.body61 ]
-  %32 = load i32, ptr %23, align 4
-  %call71 = call i32 @wc_InitSha512_224_ex(ptr noundef nonnull %hash, ptr noundef null, i32 noundef %32) #16
+  %call71 = call i32 @wc_InitSha512_224_ex(ptr noundef nonnull %hash, ptr noundef null, i32 noundef -2) #16
   %cmp72 = icmp eq i32 %call71, 0
   br i1 %cmp72, label %if.end76, label %exit_sha512_224
 
 if.end76:                                         ; preds = %for.body64
-  %33 = load ptr, ptr %24, align 8
-  %34 = load i32, ptr @bench_size, align 4
-  %call75 = call i32 @wc_Sha512_224Update(ptr noundef nonnull %hash, ptr noundef %33, i32 noundef %34) #16
+  %23 = load ptr, ptr %21, align 8
+  %24 = load i32, ptr @bench_size, align 4
+  %call75 = call i32 @wc_Sha512_224Update(ptr noundef nonnull %hash, ptr noundef %23, i32 noundef %24) #16
   %cmp77 = icmp eq i32 %call75, 0
   br i1 %cmp77, label %if.end83, label %exit_sha512_224
 
@@ -4605,9 +4240,9 @@ if.end83:                                         ; preds = %if.end76
 
 for.inc90:                                        ; preds = %if.end83
   %inc91 = add nuw nsw i32 %storemerge106, 1
-  %35 = load i32, ptr @numBlocks, align 4
-  %cmp63 = icmp slt i32 %inc91, %35
-  br i1 %cmp63, label %for.body64, label %for.end92, !llvm.loop !46
+  %25 = load i32, ptr @numBlocks, align 4
+  %cmp63 = icmp slt i32 %inc91, %25
+  br i1 %cmp63, label %for.body64, label %for.end92, !llvm.loop !44
 
 for.end92:                                        ; preds = %for.inc90, %do.body61
   %storemerge.lcssa = phi i32 [ 0, %do.body61 ], [ %inc91, %for.inc90 ]
@@ -4616,21 +4251,21 @@ for.end92:                                        ; preds = %for.inc90, %do.body
   %cmp.i.i56 = icmp slt i32 %call.i.i55, 0
   br i1 %cmp.i.i56, label %if.then.i.i65, label %bench_stats_check.exit69
 
-if.then.i.i65:                                    ; preds = %for.end92, %for.end92.us
+if.then.i.i65:                                    ; preds = %for.end92
   %call1.i.i66 = tail call ptr @__errno_location() #17
-  %36 = load i32, ptr %call1.i.i66, align 4
-  %call2.i.i67 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.76, ptr noundef nonnull @.str.108, ptr noundef nonnull @.str.77, i32 noundef 12507, i32 noundef %36, ptr noundef nonnull @.str.78)
-  %37 = load ptr, ptr @stdout, align 8
-  %call3.i.i68 = call i32 @fflush(ptr noundef %37)
+  %26 = load i32, ptr %call1.i.i66, align 4
+  %call2.i.i67 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.76, ptr noundef nonnull @.str.108, ptr noundef nonnull @.str.77, i32 noundef 12507, i32 noundef %26, ptr noundef nonnull @.str.78)
+  %27 = load ptr, ptr @stdout, align 8
+  %call3.i.i68 = call i32 @fflush(ptr noundef %27)
   call void @_exit(i32 noundef 1) #18
   unreachable
 
 bench_stats_check.exit69:                         ; preds = %for.end92
   %add93 = add nuw nsw i32 %storemerge.lcssa, %count.1
-  %38 = load i64, ptr %tv.i.i54, align 8
-  %conv.i.i57 = sitofp i64 %38 to double
-  %39 = load i64, ptr %tv_nsec.i.i58, align 8
-  %conv4.i.i59 = sitofp i64 %39 to double
+  %28 = load i64, ptr %tv.i.i54, align 8
+  %conv.i.i57 = sitofp i64 %28 to double
+  %29 = load i64, ptr %tv_nsec.i.i58, align 8
+  %conv4.i.i59 = sitofp i64 %29 to double
   %div.i.i60 = fdiv double %conv4.i.i59, 1.000000e+09
   %add.i.i61 = fadd double %div.i.i60, %conv.i.i57
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %tv.i.i54)
@@ -4638,12 +4273,12 @@ bench_stats_check.exit69:                         ; preds = %for.end92
   %cmp.i63 = fcmp uge double %sub.i62, 1.000000e+00
   br i1 %cmp.i63, label %exit_sha512_224, label %do.body61, !llvm.loop !45
 
-exit_sha512_224:                                  ; preds = %do.body32, %bench_stats_check.exit, %for.body14, %bench_stats_check.exit69, %if.end83, %if.end76, %for.body64, %bench_stats_check.exit69.us, %for.body64.us.us, %if.end76.us.us, %if.end83.us.us
-  %ret.4 = phi i32 [ %call71.us.us, %for.body64.us.us ], [ %call75.us.us, %if.end76.us.us ], [ %call82.us.us, %if.end83.us.us ], [ 0, %bench_stats_check.exit69.us ], [ %call71, %for.body64 ], [ %call75, %if.end76 ], [ %call82, %if.end83 ], [ 0, %bench_stats_check.exit69 ], [ %call20, %for.body14 ], [ %call46, %bench_stats_check.exit ], [ %call46, %do.body32 ]
-  %count.2 = phi i32 [ %count.1.us, %if.end83.us.us ], [ %count.1.us, %if.end76.us.us ], [ %count.1.us, %for.body64.us.us ], [ %add93.us, %bench_stats_check.exit69.us ], [ %count.1, %for.body64 ], [ %count.1, %if.end76 ], [ %count.1, %if.end83 ], [ %add93, %bench_stats_check.exit69 ], [ %count.0, %for.body14 ], [ %add, %bench_stats_check.exit ], [ %add, %do.body32 ]
-  %start.0 = phi double [ %add.i.i42, %if.end83.us.us ], [ %add.i.i42, %if.end76.us.us ], [ %add.i.i42, %for.body64.us.us ], [ %add.i.i42, %bench_stats_check.exit69.us ], [ %add.i.i42, %for.body64 ], [ %add.i.i42, %if.end76 ], [ %add.i.i42, %if.end83 ], [ %add.i.i42, %bench_stats_check.exit69 ], [ %add.i.i, %for.body14 ], [ %add.i.i, %bench_stats_check.exit ], [ %add.i.i, %do.body32 ]
-  %40 = load i32, ptr @bench_size, align 4
-  call fastcc void @bench_stats_sym_finish(ptr noundef nonnull @.str.51, i32 noundef %count.2, i32 noundef %40, double noundef %start.0, i32 noundef %ret.4)
+exit_sha512_224:                                  ; preds = %do.body32, %bench_stats_check.exit, %for.body14, %bench_stats_check.exit69, %for.body64, %if.end76, %if.end83
+  %ret.4 = phi i32 [ %call71, %for.body64 ], [ %call75, %if.end76 ], [ %call82, %if.end83 ], [ 0, %bench_stats_check.exit69 ], [ %call20, %for.body14 ], [ %call46, %bench_stats_check.exit ], [ %call46, %do.body32 ]
+  %count.2 = phi i32 [ %count.1, %if.end83 ], [ %count.1, %if.end76 ], [ %count.1, %for.body64 ], [ %add93, %bench_stats_check.exit69 ], [ %count.0, %for.body14 ], [ %add, %bench_stats_check.exit ], [ %add, %do.body32 ]
+  %start.0 = phi double [ %add.i.i42, %if.end83 ], [ %add.i.i42, %if.end76 ], [ %add.i.i42, %for.body64 ], [ %add.i.i42, %bench_stats_check.exit69 ], [ %add.i.i, %for.body14 ], [ %add.i.i, %bench_stats_check.exit ], [ %add.i.i, %do.body32 ]
+  %30 = load i32, ptr @bench_size, align 4
+  call fastcc void @bench_stats_sym_finish(ptr noundef nonnull @.str.51, i32 noundef %count.2, i32 noundef %30, double noundef %start.0, i32 noundef %ret.4)
   br label %exit
 
 exit:                                             ; preds = %exit_sha512_224, %if.then3
@@ -4660,7 +4295,7 @@ declare i32 @wc_Sha512_224Final(ptr noundef, ptr noundef) local_unnamed_addr #1
 declare void @wc_Sha512_224Free(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @bench_sha512_256(i32 noundef %useDeviceID) local_unnamed_addr #0 {
+define dso_local void @bench_sha512_256(i32 %useDeviceID) local_unnamed_addr #0 {
 entry:
   %tv.i.i54 = alloca %struct.timespec, align 8
   %tv.i.i35 = alloca %struct.timespec, align 8
@@ -4673,11 +4308,7 @@ entry:
   br i1 %.b, label %if.else, label %for.body
 
 for.body:                                         ; preds = %entry
-  %tobool1.not = icmp eq i32 %useDeviceID, 0
-  %0 = tail call align 4 ptr @llvm.threadlocal.address.p0(ptr align 4 @devId)
-  %1 = load i32, ptr %0, align 4
-  %cond = select i1 %tobool1.not, i32 -2, i32 %1
-  %call = call i32 @wc_InitSha512_256_ex(ptr noundef nonnull %hash, ptr noundef null, i32 noundef %cond) #16
+  %call = call i32 @wc_InitSha512_256_ex(ptr noundef nonnull %hash, ptr noundef null, i32 noundef -2) #16
   %cmp2.not = icmp eq i32 %call, 0
   br i1 %cmp2.not, label %for.end, label %if.then3
 
@@ -4693,53 +4324,53 @@ for.end:                                          ; preds = %for.body
 
 if.then.i.i:                                      ; preds = %for.end
   %call1.i.i = tail call ptr @__errno_location() #17
-  %2 = load i32, ptr %call1.i.i, align 4
-  %call2.i.i = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.76, ptr noundef nonnull @.str.108, ptr noundef nonnull @.str.77, i32 noundef 12507, i32 noundef %2, ptr noundef nonnull @.str.78)
-  %3 = load ptr, ptr @stdout, align 8
-  %call3.i.i = call i32 @fflush(ptr noundef %3)
+  %0 = load i32, ptr %call1.i.i, align 4
+  %call2.i.i = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.76, ptr noundef nonnull @.str.108, ptr noundef nonnull @.str.77, i32 noundef 12507, i32 noundef %0, ptr noundef nonnull @.str.78)
+  %1 = load ptr, ptr @stdout, align 8
+  %call3.i.i = call i32 @fflush(ptr noundef %1)
   call void @_exit(i32 noundef 1) #18
   unreachable
 
 bench_stats_start.exit:                           ; preds = %for.end
-  %4 = load i64, ptr %tv.i.i, align 8
-  %conv.i.i = sitofp i64 %4 to double
+  %2 = load i64, ptr %tv.i.i, align 8
+  %conv.i.i = sitofp i64 %2 to double
   %tv_nsec.i.i = getelementptr inbounds i8, ptr %tv.i.i, i64 8
-  %5 = load i64, ptr %tv_nsec.i.i, align 8
-  %conv4.i.i = sitofp i64 %5 to double
+  %3 = load i64, ptr %tv_nsec.i.i, align 8
+  %conv4.i.i = sitofp i64 %3 to double
   %div.i.i = fdiv double %conv4.i.i, 1.000000e+09
   %add.i.i = fadd double %div.i.i, %conv.i.i
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %tv.i.i)
-  %6 = call { i32, i32 } asm sideeffect "cpuid\0A\09rdtsc", "={ax},={dx},{ax},~{ebx},~{ecx},~{dirflag},~{fpsr},~{flags}"(i32 0) #16, !srcloc !9
-  %asmresult.i.i = extractvalue { i32, i32 } %6, 0
-  %asmresult1.i.i = extractvalue { i32, i32 } %6, 1
+  %4 = call { i32, i32 } asm sideeffect "cpuid\0A\09rdtsc", "={ax},={dx},{ax},~{ebx},~{ecx},~{dirflag},~{fpsr},~{flags}"(i32 0) #16, !srcloc !8
+  %asmresult.i.i = extractvalue { i32, i32 } %4, 0
+  %asmresult1.i.i = extractvalue { i32, i32 } %4, 1
   %conv.i1.i = zext i32 %asmresult.i.i to i64
   %conv2.i.i = zext i32 %asmresult1.i.i to i64
   %shl.i.i = shl nuw i64 %conv2.i.i, 32
   %or.i.i = or disjoint i64 %shl.i.i, %conv.i1.i
-  %7 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @total_cycles)
-  store i64 %or.i.i, ptr %7, align 8
-  %8 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @bench_plain)
+  %5 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @total_cycles)
+  store i64 %or.i.i, ptr %5, align 8
+  %6 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @bench_plain)
   %tv_nsec.i.i26 = getelementptr inbounds i8, ptr %tv.i.i22, i64 8
   br label %do.body5
 
 do.body5:                                         ; preds = %bench_stats_check.exit, %bench_stats_start.exit
   %count.0 = phi i32 [ 0, %bench_stats_start.exit ], [ %add, %bench_stats_check.exit ]
-  %9 = load i32, ptr @numBlocks, align 4
-  %cmp7103 = icmp sgt i32 %9, 0
+  %7 = load i32, ptr @numBlocks, align 4
+  %cmp7103 = icmp sgt i32 %7, 0
   br i1 %cmp7103, label %for.body14, label %do.body32
 
 for.body14:                                       ; preds = %do.body5, %bench_async_handle.exit
   %times.0104 = phi i32 [ %inc.i, %bench_async_handle.exit ], [ 0, %do.body5 ]
-  %10 = load ptr, ptr %8, align 8
-  %11 = load i32, ptr @bench_size, align 4
-  %call20 = call i32 @wc_Sha512_256Update(ptr noundef nonnull %hash, ptr noundef %10, i32 noundef %11) #16
+  %8 = load ptr, ptr %6, align 8
+  %9 = load i32, ptr @bench_size, align 4
+  %call20 = call i32 @wc_Sha512_256Update(ptr noundef nonnull %hash, ptr noundef %8, i32 noundef %9) #16
   %cmp.i = icmp sgt i32 %call20, -1
   br i1 %cmp.i, label %bench_async_handle.exit, label %exit_sha512_256
 
 bench_async_handle.exit:                          ; preds = %for.body14
   %inc.i = add nuw nsw i32 %times.0104, 1
-  %12 = load i32, ptr @numBlocks, align 4
-  %cmp7 = icmp slt i32 %inc.i, %12
+  %10 = load i32, ptr @numBlocks, align 4
+  %cmp7 = icmp slt i32 %inc.i, %10
   br i1 %cmp7, label %for.body14, label %do.body32
 
 do.body32:                                        ; preds = %bench_async_handle.exit, %do.body5
@@ -4757,24 +4388,24 @@ do.cond57:                                        ; preds = %do.body32
 
 if.then.i.i31:                                    ; preds = %do.cond57
   %call1.i.i32 = tail call ptr @__errno_location() #17
-  %13 = load i32, ptr %call1.i.i32, align 4
-  %call2.i.i33 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.76, ptr noundef nonnull @.str.108, ptr noundef nonnull @.str.77, i32 noundef 12507, i32 noundef %13, ptr noundef nonnull @.str.78)
-  %14 = load ptr, ptr @stdout, align 8
-  %call3.i.i34 = call i32 @fflush(ptr noundef %14)
+  %11 = load i32, ptr %call1.i.i32, align 4
+  %call2.i.i33 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.76, ptr noundef nonnull @.str.108, ptr noundef nonnull @.str.77, i32 noundef 12507, i32 noundef %11, ptr noundef nonnull @.str.78)
+  %12 = load ptr, ptr @stdout, align 8
+  %call3.i.i34 = call i32 @fflush(ptr noundef %12)
   call void @_exit(i32 noundef 1) #18
   unreachable
 
 bench_stats_check.exit:                           ; preds = %do.cond57
-  %15 = load i64, ptr %tv.i.i22, align 8
-  %conv.i.i25 = sitofp i64 %15 to double
-  %16 = load i64, ptr %tv_nsec.i.i26, align 8
-  %conv4.i.i27 = sitofp i64 %16 to double
+  %13 = load i64, ptr %tv.i.i22, align 8
+  %conv.i.i25 = sitofp i64 %13 to double
+  %14 = load i64, ptr %tv_nsec.i.i26, align 8
+  %conv4.i.i27 = sitofp i64 %14 to double
   %div.i.i28 = fdiv double %conv4.i.i27, 1.000000e+09
   %add.i.i29 = fadd double %div.i.i28, %conv.i.i25
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %tv.i.i22)
   %sub.i = fsub double %add.i.i29, %add.i.i
   %cmp.i30 = fcmp uge double %sub.i, 1.000000e+00
-  br i1 %cmp.i30, label %exit_sha512_256, label %do.body5, !llvm.loop !47
+  br i1 %cmp.i30, label %exit_sha512_256, label %do.body5, !llvm.loop !46
 
 if.else:                                          ; preds = %entry
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %tv.i.i35)
@@ -4784,104 +4415,51 @@ if.else:                                          ; preds = %entry
 
 if.then.i.i49:                                    ; preds = %if.else
   %call1.i.i50 = tail call ptr @__errno_location() #17
-  %17 = load i32, ptr %call1.i.i50, align 4
-  %call2.i.i51 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.76, ptr noundef nonnull @.str.108, ptr noundef nonnull @.str.77, i32 noundef 12507, i32 noundef %17, ptr noundef nonnull @.str.78)
-  %18 = load ptr, ptr @stdout, align 8
-  %call3.i.i52 = call i32 @fflush(ptr noundef %18)
+  %15 = load i32, ptr %call1.i.i50, align 4
+  %call2.i.i51 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.76, ptr noundef nonnull @.str.108, ptr noundef nonnull @.str.77, i32 noundef 12507, i32 noundef %15, ptr noundef nonnull @.str.78)
+  %16 = load ptr, ptr @stdout, align 8
+  %call3.i.i52 = call i32 @fflush(ptr noundef %16)
   call void @_exit(i32 noundef 1) #18
   unreachable
 
 bench_stats_start.exit53:                         ; preds = %if.else
-  %19 = load i64, ptr %tv.i.i35, align 8
-  %conv.i.i38 = sitofp i64 %19 to double
+  %17 = load i64, ptr %tv.i.i35, align 8
+  %conv.i.i38 = sitofp i64 %17 to double
   %tv_nsec.i.i39 = getelementptr inbounds i8, ptr %tv.i.i35, i64 8
-  %20 = load i64, ptr %tv_nsec.i.i39, align 8
-  %conv4.i.i40 = sitofp i64 %20 to double
+  %18 = load i64, ptr %tv_nsec.i.i39, align 8
+  %conv4.i.i40 = sitofp i64 %18 to double
   %div.i.i41 = fdiv double %conv4.i.i40, 1.000000e+09
   %add.i.i42 = fadd double %div.i.i41, %conv.i.i38
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %tv.i.i35)
-  %21 = call { i32, i32 } asm sideeffect "cpuid\0A\09rdtsc", "={ax},={dx},{ax},~{ebx},~{ecx},~{dirflag},~{fpsr},~{flags}"(i32 0) #16, !srcloc !9
-  %asmresult.i.i43 = extractvalue { i32, i32 } %21, 0
-  %asmresult1.i.i44 = extractvalue { i32, i32 } %21, 1
+  %19 = call { i32, i32 } asm sideeffect "cpuid\0A\09rdtsc", "={ax},={dx},{ax},~{ebx},~{ecx},~{dirflag},~{fpsr},~{flags}"(i32 0) #16, !srcloc !8
+  %asmresult.i.i43 = extractvalue { i32, i32 } %19, 0
+  %asmresult1.i.i44 = extractvalue { i32, i32 } %19, 1
   %conv.i1.i45 = zext i32 %asmresult.i.i43 to i64
   %conv2.i.i46 = zext i32 %asmresult1.i.i44 to i64
   %shl.i.i47 = shl nuw i64 %conv2.i.i46, 32
   %or.i.i48 = or disjoint i64 %shl.i.i47, %conv.i1.i45
-  %22 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @total_cycles)
-  store i64 %or.i.i48, ptr %22, align 8
-  %tobool66.not = icmp eq i32 %useDeviceID, 0
-  %23 = call align 4 ptr @llvm.threadlocal.address.p0(ptr align 4 @devId)
-  %24 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @bench_plain)
+  %20 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @total_cycles)
+  store i64 %or.i.i48, ptr %20, align 8
+  %21 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @bench_plain)
   %tv_nsec.i.i58 = getelementptr inbounds i8, ptr %tv.i.i54, i64 8
-  br i1 %tobool66.not, label %do.body61.us, label %do.body61
+  br label %do.body61
 
-do.body61.us:                                     ; preds = %bench_stats_start.exit53, %bench_stats_check.exit69.us
-  %count.1.us = phi i32 [ %add93.us, %bench_stats_check.exit69.us ], [ 0, %bench_stats_start.exit53 ]
-  %25 = load i32, ptr @numBlocks, align 4
-  %cmp63105.us = icmp sgt i32 %25, 0
-  br i1 %cmp63105.us, label %for.body64.us.us, label %for.end92.us
-
-for.end92.us:                                     ; preds = %for.inc90.us.us, %do.body61.us
-  %storemerge.lcssa.us = phi i32 [ 0, %do.body61.us ], [ %inc91.us.us, %for.inc90.us.us ]
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %tv.i.i54)
-  %call.i.i55.us = call i32 @clock_gettime(i32 noundef 0, ptr noundef nonnull %tv.i.i54) #16
-  %cmp.i.i56.us = icmp slt i32 %call.i.i55.us, 0
-  br i1 %cmp.i.i56.us, label %if.then.i.i65, label %bench_stats_check.exit69.us
-
-bench_stats_check.exit69.us:                      ; preds = %for.end92.us
-  %add93.us = add nuw nsw i32 %storemerge.lcssa.us, %count.1.us
-  %26 = load i64, ptr %tv.i.i54, align 8
-  %conv.i.i57.us = sitofp i64 %26 to double
-  %27 = load i64, ptr %tv_nsec.i.i58, align 8
-  %conv4.i.i59.us = sitofp i64 %27 to double
-  %div.i.i60.us = fdiv double %conv4.i.i59.us, 1.000000e+09
-  %add.i.i61.us = fadd double %div.i.i60.us, %conv.i.i57.us
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %tv.i.i54)
-  %sub.i62.us = fsub double %add.i.i61.us, %add.i.i42
-  %cmp.i63.us = fcmp uge double %sub.i62.us, 1.000000e+00
-  br i1 %cmp.i63.us, label %exit_sha512_256, label %do.body61.us, !llvm.loop !48
-
-for.body64.us.us:                                 ; preds = %do.body61.us, %for.inc90.us.us
-  %storemerge106.us.us = phi i32 [ %inc91.us.us, %for.inc90.us.us ], [ 0, %do.body61.us ]
-  %call71.us.us = call i32 @wc_InitSha512_256_ex(ptr noundef nonnull %hash, ptr noundef null, i32 noundef -2) #16
-  %cmp72.us.us = icmp eq i32 %call71.us.us, 0
-  br i1 %cmp72.us.us, label %if.end76.us.us, label %exit_sha512_256
-
-if.end76.us.us:                                   ; preds = %for.body64.us.us
-  %28 = load ptr, ptr %24, align 8
-  %29 = load i32, ptr @bench_size, align 4
-  %call75.us.us = call i32 @wc_Sha512_256Update(ptr noundef nonnull %hash, ptr noundef %28, i32 noundef %29) #16
-  %cmp77.us.us = icmp eq i32 %call75.us.us, 0
-  br i1 %cmp77.us.us, label %if.end83.us.us, label %exit_sha512_256
-
-if.end83.us.us:                                   ; preds = %if.end76.us.us
-  %call82.us.us = call i32 @wc_Sha512_256Final(ptr noundef nonnull %hash, ptr noundef nonnull %digest) #16
-  %cmp84.not.us.us = icmp eq i32 %call82.us.us, 0
-  br i1 %cmp84.not.us.us, label %for.inc90.us.us, label %exit_sha512_256
-
-for.inc90.us.us:                                  ; preds = %if.end83.us.us
-  %inc91.us.us = add nuw nsw i32 %storemerge106.us.us, 1
-  %30 = load i32, ptr @numBlocks, align 4
-  %cmp63.us.us = icmp slt i32 %inc91.us.us, %30
-  br i1 %cmp63.us.us, label %for.body64.us.us, label %for.end92.us, !llvm.loop !49
-
-do.body61:                                        ; preds = %bench_stats_start.exit53, %bench_stats_check.exit69
-  %count.1 = phi i32 [ %add93, %bench_stats_check.exit69 ], [ 0, %bench_stats_start.exit53 ]
-  %31 = load i32, ptr @numBlocks, align 4
-  %cmp63105 = icmp sgt i32 %31, 0
+do.body61:                                        ; preds = %bench_stats_check.exit69, %bench_stats_start.exit53
+  %count.1 = phi i32 [ 0, %bench_stats_start.exit53 ], [ %add93, %bench_stats_check.exit69 ]
+  %22 = load i32, ptr @numBlocks, align 4
+  %cmp63105 = icmp sgt i32 %22, 0
   br i1 %cmp63105, label %for.body64, label %for.end92
 
 for.body64:                                       ; preds = %do.body61, %for.inc90
   %storemerge106 = phi i32 [ %inc91, %for.inc90 ], [ 0, %do.body61 ]
-  %32 = load i32, ptr %23, align 4
-  %call71 = call i32 @wc_InitSha512_256_ex(ptr noundef nonnull %hash, ptr noundef null, i32 noundef %32) #16
+  %call71 = call i32 @wc_InitSha512_256_ex(ptr noundef nonnull %hash, ptr noundef null, i32 noundef -2) #16
   %cmp72 = icmp eq i32 %call71, 0
   br i1 %cmp72, label %if.end76, label %exit_sha512_256
 
 if.end76:                                         ; preds = %for.body64
-  %33 = load ptr, ptr %24, align 8
-  %34 = load i32, ptr @bench_size, align 4
-  %call75 = call i32 @wc_Sha512_256Update(ptr noundef nonnull %hash, ptr noundef %33, i32 noundef %34) #16
+  %23 = load ptr, ptr %21, align 8
+  %24 = load i32, ptr @bench_size, align 4
+  %call75 = call i32 @wc_Sha512_256Update(ptr noundef nonnull %hash, ptr noundef %23, i32 noundef %24) #16
   %cmp77 = icmp eq i32 %call75, 0
   br i1 %cmp77, label %if.end83, label %exit_sha512_256
 
@@ -4892,9 +4470,9 @@ if.end83:                                         ; preds = %if.end76
 
 for.inc90:                                        ; preds = %if.end83
   %inc91 = add nuw nsw i32 %storemerge106, 1
-  %35 = load i32, ptr @numBlocks, align 4
-  %cmp63 = icmp slt i32 %inc91, %35
-  br i1 %cmp63, label %for.body64, label %for.end92, !llvm.loop !49
+  %25 = load i32, ptr @numBlocks, align 4
+  %cmp63 = icmp slt i32 %inc91, %25
+  br i1 %cmp63, label %for.body64, label %for.end92, !llvm.loop !47
 
 for.end92:                                        ; preds = %for.inc90, %do.body61
   %storemerge.lcssa = phi i32 [ 0, %do.body61 ], [ %inc91, %for.inc90 ]
@@ -4903,21 +4481,21 @@ for.end92:                                        ; preds = %for.inc90, %do.body
   %cmp.i.i56 = icmp slt i32 %call.i.i55, 0
   br i1 %cmp.i.i56, label %if.then.i.i65, label %bench_stats_check.exit69
 
-if.then.i.i65:                                    ; preds = %for.end92, %for.end92.us
+if.then.i.i65:                                    ; preds = %for.end92
   %call1.i.i66 = tail call ptr @__errno_location() #17
-  %36 = load i32, ptr %call1.i.i66, align 4
-  %call2.i.i67 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.76, ptr noundef nonnull @.str.108, ptr noundef nonnull @.str.77, i32 noundef 12507, i32 noundef %36, ptr noundef nonnull @.str.78)
-  %37 = load ptr, ptr @stdout, align 8
-  %call3.i.i68 = call i32 @fflush(ptr noundef %37)
+  %26 = load i32, ptr %call1.i.i66, align 4
+  %call2.i.i67 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.76, ptr noundef nonnull @.str.108, ptr noundef nonnull @.str.77, i32 noundef 12507, i32 noundef %26, ptr noundef nonnull @.str.78)
+  %27 = load ptr, ptr @stdout, align 8
+  %call3.i.i68 = call i32 @fflush(ptr noundef %27)
   call void @_exit(i32 noundef 1) #18
   unreachable
 
 bench_stats_check.exit69:                         ; preds = %for.end92
   %add93 = add nuw nsw i32 %storemerge.lcssa, %count.1
-  %38 = load i64, ptr %tv.i.i54, align 8
-  %conv.i.i57 = sitofp i64 %38 to double
-  %39 = load i64, ptr %tv_nsec.i.i58, align 8
-  %conv4.i.i59 = sitofp i64 %39 to double
+  %28 = load i64, ptr %tv.i.i54, align 8
+  %conv.i.i57 = sitofp i64 %28 to double
+  %29 = load i64, ptr %tv_nsec.i.i58, align 8
+  %conv4.i.i59 = sitofp i64 %29 to double
   %div.i.i60 = fdiv double %conv4.i.i59, 1.000000e+09
   %add.i.i61 = fadd double %div.i.i60, %conv.i.i57
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %tv.i.i54)
@@ -4925,12 +4503,12 @@ bench_stats_check.exit69:                         ; preds = %for.end92
   %cmp.i63 = fcmp uge double %sub.i62, 1.000000e+00
   br i1 %cmp.i63, label %exit_sha512_256, label %do.body61, !llvm.loop !48
 
-exit_sha512_256:                                  ; preds = %do.body32, %bench_stats_check.exit, %for.body14, %bench_stats_check.exit69, %if.end83, %if.end76, %for.body64, %bench_stats_check.exit69.us, %for.body64.us.us, %if.end76.us.us, %if.end83.us.us
-  %ret.4 = phi i32 [ %call71.us.us, %for.body64.us.us ], [ %call75.us.us, %if.end76.us.us ], [ %call82.us.us, %if.end83.us.us ], [ 0, %bench_stats_check.exit69.us ], [ %call71, %for.body64 ], [ %call75, %if.end76 ], [ %call82, %if.end83 ], [ 0, %bench_stats_check.exit69 ], [ %call20, %for.body14 ], [ %call46, %bench_stats_check.exit ], [ %call46, %do.body32 ]
-  %count.2 = phi i32 [ %count.1.us, %if.end83.us.us ], [ %count.1.us, %if.end76.us.us ], [ %count.1.us, %for.body64.us.us ], [ %add93.us, %bench_stats_check.exit69.us ], [ %count.1, %for.body64 ], [ %count.1, %if.end76 ], [ %count.1, %if.end83 ], [ %add93, %bench_stats_check.exit69 ], [ %count.0, %for.body14 ], [ %add, %bench_stats_check.exit ], [ %add, %do.body32 ]
-  %start.0 = phi double [ %add.i.i42, %if.end83.us.us ], [ %add.i.i42, %if.end76.us.us ], [ %add.i.i42, %for.body64.us.us ], [ %add.i.i42, %bench_stats_check.exit69.us ], [ %add.i.i42, %for.body64 ], [ %add.i.i42, %if.end76 ], [ %add.i.i42, %if.end83 ], [ %add.i.i42, %bench_stats_check.exit69 ], [ %add.i.i, %for.body14 ], [ %add.i.i, %bench_stats_check.exit ], [ %add.i.i, %do.body32 ]
-  %40 = load i32, ptr @bench_size, align 4
-  call fastcc void @bench_stats_sym_finish(ptr noundef nonnull @.str.53, i32 noundef %count.2, i32 noundef %40, double noundef %start.0, i32 noundef %ret.4)
+exit_sha512_256:                                  ; preds = %do.body32, %bench_stats_check.exit, %for.body14, %bench_stats_check.exit69, %for.body64, %if.end76, %if.end83
+  %ret.4 = phi i32 [ %call71, %for.body64 ], [ %call75, %if.end76 ], [ %call82, %if.end83 ], [ 0, %bench_stats_check.exit69 ], [ %call20, %for.body14 ], [ %call46, %bench_stats_check.exit ], [ %call46, %do.body32 ]
+  %count.2 = phi i32 [ %count.1, %if.end83 ], [ %count.1, %if.end76 ], [ %count.1, %for.body64 ], [ %add93, %bench_stats_check.exit69 ], [ %count.0, %for.body14 ], [ %add, %bench_stats_check.exit ], [ %add, %do.body32 ]
+  %start.0 = phi double [ %add.i.i42, %if.end83 ], [ %add.i.i42, %if.end76 ], [ %add.i.i42, %for.body64 ], [ %add.i.i42, %bench_stats_check.exit69 ], [ %add.i.i, %for.body14 ], [ %add.i.i, %bench_stats_check.exit ], [ %add.i.i, %do.body32 ]
+  %30 = load i32, ptr @bench_size, align 4
+  call fastcc void @bench_stats_sym_finish(ptr noundef nonnull @.str.53, i32 noundef %count.2, i32 noundef %30, double noundef %start.0, i32 noundef %ret.4)
   br label %exit
 
 exit:                                             ; preds = %exit_sha512_256, %if.then3
@@ -4947,7 +4525,7 @@ declare i32 @wc_Sha512_256Final(ptr noundef, ptr noundef) local_unnamed_addr #1
 declare void @wc_Sha512_256Free(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @bench_sha3_224(i32 noundef %useDeviceID) local_unnamed_addr #0 {
+define dso_local void @bench_sha3_224(i32 %useDeviceID) local_unnamed_addr #0 {
 entry:
   %tv.i.i54 = alloca %struct.timespec, align 8
   %tv.i.i35 = alloca %struct.timespec, align 8
@@ -4960,11 +4538,7 @@ entry:
   br i1 %.b, label %if.else, label %for.body
 
 for.body:                                         ; preds = %entry
-  %tobool1.not = icmp eq i32 %useDeviceID, 0
-  %0 = tail call align 4 ptr @llvm.threadlocal.address.p0(ptr align 4 @devId)
-  %1 = load i32, ptr %0, align 4
-  %cond = select i1 %tobool1.not, i32 -2, i32 %1
-  %call = call i32 @wc_InitSha3_224(ptr noundef nonnull %hash, ptr noundef null, i32 noundef %cond) #16
+  %call = call i32 @wc_InitSha3_224(ptr noundef nonnull %hash, ptr noundef null, i32 noundef -2) #16
   %cmp2.not = icmp eq i32 %call, 0
   br i1 %cmp2.not, label %for.end, label %if.then3
 
@@ -4980,53 +4554,53 @@ for.end:                                          ; preds = %for.body
 
 if.then.i.i:                                      ; preds = %for.end
   %call1.i.i = tail call ptr @__errno_location() #17
-  %2 = load i32, ptr %call1.i.i, align 4
-  %call2.i.i = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.76, ptr noundef nonnull @.str.108, ptr noundef nonnull @.str.77, i32 noundef 12507, i32 noundef %2, ptr noundef nonnull @.str.78)
-  %3 = load ptr, ptr @stdout, align 8
-  %call3.i.i = call i32 @fflush(ptr noundef %3)
+  %0 = load i32, ptr %call1.i.i, align 4
+  %call2.i.i = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.76, ptr noundef nonnull @.str.108, ptr noundef nonnull @.str.77, i32 noundef 12507, i32 noundef %0, ptr noundef nonnull @.str.78)
+  %1 = load ptr, ptr @stdout, align 8
+  %call3.i.i = call i32 @fflush(ptr noundef %1)
   call void @_exit(i32 noundef 1) #18
   unreachable
 
 bench_stats_start.exit:                           ; preds = %for.end
-  %4 = load i64, ptr %tv.i.i, align 8
-  %conv.i.i = sitofp i64 %4 to double
+  %2 = load i64, ptr %tv.i.i, align 8
+  %conv.i.i = sitofp i64 %2 to double
   %tv_nsec.i.i = getelementptr inbounds i8, ptr %tv.i.i, i64 8
-  %5 = load i64, ptr %tv_nsec.i.i, align 8
-  %conv4.i.i = sitofp i64 %5 to double
+  %3 = load i64, ptr %tv_nsec.i.i, align 8
+  %conv4.i.i = sitofp i64 %3 to double
   %div.i.i = fdiv double %conv4.i.i, 1.000000e+09
   %add.i.i = fadd double %div.i.i, %conv.i.i
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %tv.i.i)
-  %6 = call { i32, i32 } asm sideeffect "cpuid\0A\09rdtsc", "={ax},={dx},{ax},~{ebx},~{ecx},~{dirflag},~{fpsr},~{flags}"(i32 0) #16, !srcloc !9
-  %asmresult.i.i = extractvalue { i32, i32 } %6, 0
-  %asmresult1.i.i = extractvalue { i32, i32 } %6, 1
+  %4 = call { i32, i32 } asm sideeffect "cpuid\0A\09rdtsc", "={ax},={dx},{ax},~{ebx},~{ecx},~{dirflag},~{fpsr},~{flags}"(i32 0) #16, !srcloc !8
+  %asmresult.i.i = extractvalue { i32, i32 } %4, 0
+  %asmresult1.i.i = extractvalue { i32, i32 } %4, 1
   %conv.i1.i = zext i32 %asmresult.i.i to i64
   %conv2.i.i = zext i32 %asmresult1.i.i to i64
   %shl.i.i = shl nuw i64 %conv2.i.i, 32
   %or.i.i = or disjoint i64 %shl.i.i, %conv.i1.i
-  %7 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @total_cycles)
-  store i64 %or.i.i, ptr %7, align 8
-  %8 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @bench_plain)
+  %5 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @total_cycles)
+  store i64 %or.i.i, ptr %5, align 8
+  %6 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @bench_plain)
   %tv_nsec.i.i26 = getelementptr inbounds i8, ptr %tv.i.i22, i64 8
   br label %do.body5
 
 do.body5:                                         ; preds = %bench_stats_check.exit, %bench_stats_start.exit
   %count.0 = phi i32 [ 0, %bench_stats_start.exit ], [ %add, %bench_stats_check.exit ]
-  %9 = load i32, ptr @numBlocks, align 4
-  %cmp7103 = icmp sgt i32 %9, 0
+  %7 = load i32, ptr @numBlocks, align 4
+  %cmp7103 = icmp sgt i32 %7, 0
   br i1 %cmp7103, label %for.body14, label %do.body32
 
 for.body14:                                       ; preds = %do.body5, %bench_async_handle.exit
   %times.0104 = phi i32 [ %inc.i, %bench_async_handle.exit ], [ 0, %do.body5 ]
-  %10 = load ptr, ptr %8, align 8
-  %11 = load i32, ptr @bench_size, align 4
-  %call20 = call i32 @wc_Sha3_224_Update(ptr noundef nonnull %hash, ptr noundef %10, i32 noundef %11) #16
+  %8 = load ptr, ptr %6, align 8
+  %9 = load i32, ptr @bench_size, align 4
+  %call20 = call i32 @wc_Sha3_224_Update(ptr noundef nonnull %hash, ptr noundef %8, i32 noundef %9) #16
   %cmp.i = icmp sgt i32 %call20, -1
   br i1 %cmp.i, label %bench_async_handle.exit, label %exit_sha3_224
 
 bench_async_handle.exit:                          ; preds = %for.body14
   %inc.i = add nuw nsw i32 %times.0104, 1
-  %12 = load i32, ptr @numBlocks, align 4
-  %cmp7 = icmp slt i32 %inc.i, %12
+  %10 = load i32, ptr @numBlocks, align 4
+  %cmp7 = icmp slt i32 %inc.i, %10
   br i1 %cmp7, label %for.body14, label %do.body32
 
 do.body32:                                        ; preds = %bench_async_handle.exit, %do.body5
@@ -5044,24 +4618,24 @@ do.cond57:                                        ; preds = %do.body32
 
 if.then.i.i31:                                    ; preds = %do.cond57
   %call1.i.i32 = tail call ptr @__errno_location() #17
-  %13 = load i32, ptr %call1.i.i32, align 4
-  %call2.i.i33 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.76, ptr noundef nonnull @.str.108, ptr noundef nonnull @.str.77, i32 noundef 12507, i32 noundef %13, ptr noundef nonnull @.str.78)
-  %14 = load ptr, ptr @stdout, align 8
-  %call3.i.i34 = call i32 @fflush(ptr noundef %14)
+  %11 = load i32, ptr %call1.i.i32, align 4
+  %call2.i.i33 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.76, ptr noundef nonnull @.str.108, ptr noundef nonnull @.str.77, i32 noundef 12507, i32 noundef %11, ptr noundef nonnull @.str.78)
+  %12 = load ptr, ptr @stdout, align 8
+  %call3.i.i34 = call i32 @fflush(ptr noundef %12)
   call void @_exit(i32 noundef 1) #18
   unreachable
 
 bench_stats_check.exit:                           ; preds = %do.cond57
-  %15 = load i64, ptr %tv.i.i22, align 8
-  %conv.i.i25 = sitofp i64 %15 to double
-  %16 = load i64, ptr %tv_nsec.i.i26, align 8
-  %conv4.i.i27 = sitofp i64 %16 to double
+  %13 = load i64, ptr %tv.i.i22, align 8
+  %conv.i.i25 = sitofp i64 %13 to double
+  %14 = load i64, ptr %tv_nsec.i.i26, align 8
+  %conv4.i.i27 = sitofp i64 %14 to double
   %div.i.i28 = fdiv double %conv4.i.i27, 1.000000e+09
   %add.i.i29 = fadd double %div.i.i28, %conv.i.i25
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %tv.i.i22)
   %sub.i = fsub double %add.i.i29, %add.i.i
   %cmp.i30 = fcmp uge double %sub.i, 1.000000e+00
-  br i1 %cmp.i30, label %exit_sha3_224, label %do.body5, !llvm.loop !50
+  br i1 %cmp.i30, label %exit_sha3_224, label %do.body5, !llvm.loop !49
 
 if.else:                                          ; preds = %entry
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %tv.i.i35)
@@ -5071,104 +4645,51 @@ if.else:                                          ; preds = %entry
 
 if.then.i.i49:                                    ; preds = %if.else
   %call1.i.i50 = tail call ptr @__errno_location() #17
-  %17 = load i32, ptr %call1.i.i50, align 4
-  %call2.i.i51 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.76, ptr noundef nonnull @.str.108, ptr noundef nonnull @.str.77, i32 noundef 12507, i32 noundef %17, ptr noundef nonnull @.str.78)
-  %18 = load ptr, ptr @stdout, align 8
-  %call3.i.i52 = call i32 @fflush(ptr noundef %18)
+  %15 = load i32, ptr %call1.i.i50, align 4
+  %call2.i.i51 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.76, ptr noundef nonnull @.str.108, ptr noundef nonnull @.str.77, i32 noundef 12507, i32 noundef %15, ptr noundef nonnull @.str.78)
+  %16 = load ptr, ptr @stdout, align 8
+  %call3.i.i52 = call i32 @fflush(ptr noundef %16)
   call void @_exit(i32 noundef 1) #18
   unreachable
 
 bench_stats_start.exit53:                         ; preds = %if.else
-  %19 = load i64, ptr %tv.i.i35, align 8
-  %conv.i.i38 = sitofp i64 %19 to double
+  %17 = load i64, ptr %tv.i.i35, align 8
+  %conv.i.i38 = sitofp i64 %17 to double
   %tv_nsec.i.i39 = getelementptr inbounds i8, ptr %tv.i.i35, i64 8
-  %20 = load i64, ptr %tv_nsec.i.i39, align 8
-  %conv4.i.i40 = sitofp i64 %20 to double
+  %18 = load i64, ptr %tv_nsec.i.i39, align 8
+  %conv4.i.i40 = sitofp i64 %18 to double
   %div.i.i41 = fdiv double %conv4.i.i40, 1.000000e+09
   %add.i.i42 = fadd double %div.i.i41, %conv.i.i38
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %tv.i.i35)
-  %21 = call { i32, i32 } asm sideeffect "cpuid\0A\09rdtsc", "={ax},={dx},{ax},~{ebx},~{ecx},~{dirflag},~{fpsr},~{flags}"(i32 0) #16, !srcloc !9
-  %asmresult.i.i43 = extractvalue { i32, i32 } %21, 0
-  %asmresult1.i.i44 = extractvalue { i32, i32 } %21, 1
+  %19 = call { i32, i32 } asm sideeffect "cpuid\0A\09rdtsc", "={ax},={dx},{ax},~{ebx},~{ecx},~{dirflag},~{fpsr},~{flags}"(i32 0) #16, !srcloc !8
+  %asmresult.i.i43 = extractvalue { i32, i32 } %19, 0
+  %asmresult1.i.i44 = extractvalue { i32, i32 } %19, 1
   %conv.i1.i45 = zext i32 %asmresult.i.i43 to i64
   %conv2.i.i46 = zext i32 %asmresult1.i.i44 to i64
   %shl.i.i47 = shl nuw i64 %conv2.i.i46, 32
   %or.i.i48 = or disjoint i64 %shl.i.i47, %conv.i1.i45
-  %22 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @total_cycles)
-  store i64 %or.i.i48, ptr %22, align 8
-  %tobool66.not = icmp eq i32 %useDeviceID, 0
-  %23 = call align 4 ptr @llvm.threadlocal.address.p0(ptr align 4 @devId)
-  %24 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @bench_plain)
+  %20 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @total_cycles)
+  store i64 %or.i.i48, ptr %20, align 8
+  %21 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @bench_plain)
   %tv_nsec.i.i58 = getelementptr inbounds i8, ptr %tv.i.i54, i64 8
-  br i1 %tobool66.not, label %do.body61.us, label %do.body61
+  br label %do.body61
 
-do.body61.us:                                     ; preds = %bench_stats_start.exit53, %bench_stats_check.exit69.us
-  %count.1.us = phi i32 [ %add93.us, %bench_stats_check.exit69.us ], [ 0, %bench_stats_start.exit53 ]
-  %25 = load i32, ptr @numBlocks, align 4
-  %cmp63105.us = icmp sgt i32 %25, 0
-  br i1 %cmp63105.us, label %for.body64.us.us, label %for.end92.us
-
-for.end92.us:                                     ; preds = %for.inc90.us.us, %do.body61.us
-  %storemerge.lcssa.us = phi i32 [ 0, %do.body61.us ], [ %inc91.us.us, %for.inc90.us.us ]
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %tv.i.i54)
-  %call.i.i55.us = call i32 @clock_gettime(i32 noundef 0, ptr noundef nonnull %tv.i.i54) #16
-  %cmp.i.i56.us = icmp slt i32 %call.i.i55.us, 0
-  br i1 %cmp.i.i56.us, label %if.then.i.i65, label %bench_stats_check.exit69.us
-
-bench_stats_check.exit69.us:                      ; preds = %for.end92.us
-  %add93.us = add nuw nsw i32 %storemerge.lcssa.us, %count.1.us
-  %26 = load i64, ptr %tv.i.i54, align 8
-  %conv.i.i57.us = sitofp i64 %26 to double
-  %27 = load i64, ptr %tv_nsec.i.i58, align 8
-  %conv4.i.i59.us = sitofp i64 %27 to double
-  %div.i.i60.us = fdiv double %conv4.i.i59.us, 1.000000e+09
-  %add.i.i61.us = fadd double %div.i.i60.us, %conv.i.i57.us
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %tv.i.i54)
-  %sub.i62.us = fsub double %add.i.i61.us, %add.i.i42
-  %cmp.i63.us = fcmp uge double %sub.i62.us, 1.000000e+00
-  br i1 %cmp.i63.us, label %exit_sha3_224, label %do.body61.us, !llvm.loop !51
-
-for.body64.us.us:                                 ; preds = %do.body61.us, %for.inc90.us.us
-  %storemerge106.us.us = phi i32 [ %inc91.us.us, %for.inc90.us.us ], [ 0, %do.body61.us ]
-  %call71.us.us = call i32 @wc_InitSha3_224(ptr noundef nonnull %hash, ptr noundef null, i32 noundef -2) #16
-  %cmp72.us.us = icmp eq i32 %call71.us.us, 0
-  br i1 %cmp72.us.us, label %if.end76.us.us, label %exit_sha3_224
-
-if.end76.us.us:                                   ; preds = %for.body64.us.us
-  %28 = load ptr, ptr %24, align 8
-  %29 = load i32, ptr @bench_size, align 4
-  %call75.us.us = call i32 @wc_Sha3_224_Update(ptr noundef nonnull %hash, ptr noundef %28, i32 noundef %29) #16
-  %cmp77.us.us = icmp eq i32 %call75.us.us, 0
-  br i1 %cmp77.us.us, label %if.end83.us.us, label %exit_sha3_224
-
-if.end83.us.us:                                   ; preds = %if.end76.us.us
-  %call82.us.us = call i32 @wc_Sha3_224_Final(ptr noundef nonnull %hash, ptr noundef nonnull %digest) #16
-  %cmp84.not.us.us = icmp eq i32 %call82.us.us, 0
-  br i1 %cmp84.not.us.us, label %for.inc90.us.us, label %exit_sha3_224
-
-for.inc90.us.us:                                  ; preds = %if.end83.us.us
-  %inc91.us.us = add nuw nsw i32 %storemerge106.us.us, 1
-  %30 = load i32, ptr @numBlocks, align 4
-  %cmp63.us.us = icmp slt i32 %inc91.us.us, %30
-  br i1 %cmp63.us.us, label %for.body64.us.us, label %for.end92.us, !llvm.loop !52
-
-do.body61:                                        ; preds = %bench_stats_start.exit53, %bench_stats_check.exit69
-  %count.1 = phi i32 [ %add93, %bench_stats_check.exit69 ], [ 0, %bench_stats_start.exit53 ]
-  %31 = load i32, ptr @numBlocks, align 4
-  %cmp63105 = icmp sgt i32 %31, 0
+do.body61:                                        ; preds = %bench_stats_check.exit69, %bench_stats_start.exit53
+  %count.1 = phi i32 [ 0, %bench_stats_start.exit53 ], [ %add93, %bench_stats_check.exit69 ]
+  %22 = load i32, ptr @numBlocks, align 4
+  %cmp63105 = icmp sgt i32 %22, 0
   br i1 %cmp63105, label %for.body64, label %for.end92
 
 for.body64:                                       ; preds = %do.body61, %for.inc90
   %storemerge106 = phi i32 [ %inc91, %for.inc90 ], [ 0, %do.body61 ]
-  %32 = load i32, ptr %23, align 4
-  %call71 = call i32 @wc_InitSha3_224(ptr noundef nonnull %hash, ptr noundef null, i32 noundef %32) #16
+  %call71 = call i32 @wc_InitSha3_224(ptr noundef nonnull %hash, ptr noundef null, i32 noundef -2) #16
   %cmp72 = icmp eq i32 %call71, 0
   br i1 %cmp72, label %if.end76, label %exit_sha3_224
 
 if.end76:                                         ; preds = %for.body64
-  %33 = load ptr, ptr %24, align 8
-  %34 = load i32, ptr @bench_size, align 4
-  %call75 = call i32 @wc_Sha3_224_Update(ptr noundef nonnull %hash, ptr noundef %33, i32 noundef %34) #16
+  %23 = load ptr, ptr %21, align 8
+  %24 = load i32, ptr @bench_size, align 4
+  %call75 = call i32 @wc_Sha3_224_Update(ptr noundef nonnull %hash, ptr noundef %23, i32 noundef %24) #16
   %cmp77 = icmp eq i32 %call75, 0
   br i1 %cmp77, label %if.end83, label %exit_sha3_224
 
@@ -5179,9 +4700,9 @@ if.end83:                                         ; preds = %if.end76
 
 for.inc90:                                        ; preds = %if.end83
   %inc91 = add nuw nsw i32 %storemerge106, 1
-  %35 = load i32, ptr @numBlocks, align 4
-  %cmp63 = icmp slt i32 %inc91, %35
-  br i1 %cmp63, label %for.body64, label %for.end92, !llvm.loop !52
+  %25 = load i32, ptr @numBlocks, align 4
+  %cmp63 = icmp slt i32 %inc91, %25
+  br i1 %cmp63, label %for.body64, label %for.end92, !llvm.loop !50
 
 for.end92:                                        ; preds = %for.inc90, %do.body61
   %storemerge.lcssa = phi i32 [ 0, %do.body61 ], [ %inc91, %for.inc90 ]
@@ -5190,21 +4711,21 @@ for.end92:                                        ; preds = %for.inc90, %do.body
   %cmp.i.i56 = icmp slt i32 %call.i.i55, 0
   br i1 %cmp.i.i56, label %if.then.i.i65, label %bench_stats_check.exit69
 
-if.then.i.i65:                                    ; preds = %for.end92, %for.end92.us
+if.then.i.i65:                                    ; preds = %for.end92
   %call1.i.i66 = tail call ptr @__errno_location() #17
-  %36 = load i32, ptr %call1.i.i66, align 4
-  %call2.i.i67 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.76, ptr noundef nonnull @.str.108, ptr noundef nonnull @.str.77, i32 noundef 12507, i32 noundef %36, ptr noundef nonnull @.str.78)
-  %37 = load ptr, ptr @stdout, align 8
-  %call3.i.i68 = call i32 @fflush(ptr noundef %37)
+  %26 = load i32, ptr %call1.i.i66, align 4
+  %call2.i.i67 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.76, ptr noundef nonnull @.str.108, ptr noundef nonnull @.str.77, i32 noundef 12507, i32 noundef %26, ptr noundef nonnull @.str.78)
+  %27 = load ptr, ptr @stdout, align 8
+  %call3.i.i68 = call i32 @fflush(ptr noundef %27)
   call void @_exit(i32 noundef 1) #18
   unreachable
 
 bench_stats_check.exit69:                         ; preds = %for.end92
   %add93 = add nuw nsw i32 %storemerge.lcssa, %count.1
-  %38 = load i64, ptr %tv.i.i54, align 8
-  %conv.i.i57 = sitofp i64 %38 to double
-  %39 = load i64, ptr %tv_nsec.i.i58, align 8
-  %conv4.i.i59 = sitofp i64 %39 to double
+  %28 = load i64, ptr %tv.i.i54, align 8
+  %conv.i.i57 = sitofp i64 %28 to double
+  %29 = load i64, ptr %tv_nsec.i.i58, align 8
+  %conv4.i.i59 = sitofp i64 %29 to double
   %div.i.i60 = fdiv double %conv4.i.i59, 1.000000e+09
   %add.i.i61 = fadd double %div.i.i60, %conv.i.i57
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %tv.i.i54)
@@ -5212,12 +4733,12 @@ bench_stats_check.exit69:                         ; preds = %for.end92
   %cmp.i63 = fcmp uge double %sub.i62, 1.000000e+00
   br i1 %cmp.i63, label %exit_sha3_224, label %do.body61, !llvm.loop !51
 
-exit_sha3_224:                                    ; preds = %do.body32, %bench_stats_check.exit, %for.body14, %bench_stats_check.exit69, %if.end83, %if.end76, %for.body64, %bench_stats_check.exit69.us, %for.body64.us.us, %if.end76.us.us, %if.end83.us.us
-  %ret.4 = phi i32 [ %call71.us.us, %for.body64.us.us ], [ %call75.us.us, %if.end76.us.us ], [ %call82.us.us, %if.end83.us.us ], [ 0, %bench_stats_check.exit69.us ], [ %call71, %for.body64 ], [ %call75, %if.end76 ], [ %call82, %if.end83 ], [ 0, %bench_stats_check.exit69 ], [ %call20, %for.body14 ], [ %call46, %bench_stats_check.exit ], [ %call46, %do.body32 ]
-  %count.2 = phi i32 [ %count.1.us, %if.end83.us.us ], [ %count.1.us, %if.end76.us.us ], [ %count.1.us, %for.body64.us.us ], [ %add93.us, %bench_stats_check.exit69.us ], [ %count.1, %for.body64 ], [ %count.1, %if.end76 ], [ %count.1, %if.end83 ], [ %add93, %bench_stats_check.exit69 ], [ %count.0, %for.body14 ], [ %add, %bench_stats_check.exit ], [ %add, %do.body32 ]
-  %start.0 = phi double [ %add.i.i42, %if.end83.us.us ], [ %add.i.i42, %if.end76.us.us ], [ %add.i.i42, %for.body64.us.us ], [ %add.i.i42, %bench_stats_check.exit69.us ], [ %add.i.i42, %for.body64 ], [ %add.i.i42, %if.end76 ], [ %add.i.i42, %if.end83 ], [ %add.i.i42, %bench_stats_check.exit69 ], [ %add.i.i, %for.body14 ], [ %add.i.i, %bench_stats_check.exit ], [ %add.i.i, %do.body32 ]
-  %40 = load i32, ptr @bench_size, align 4
-  call fastcc void @bench_stats_sym_finish(ptr noundef nonnull @.str.55, i32 noundef %count.2, i32 noundef %40, double noundef %start.0, i32 noundef %ret.4)
+exit_sha3_224:                                    ; preds = %do.body32, %bench_stats_check.exit, %for.body14, %bench_stats_check.exit69, %for.body64, %if.end76, %if.end83
+  %ret.4 = phi i32 [ %call71, %for.body64 ], [ %call75, %if.end76 ], [ %call82, %if.end83 ], [ 0, %bench_stats_check.exit69 ], [ %call20, %for.body14 ], [ %call46, %bench_stats_check.exit ], [ %call46, %do.body32 ]
+  %count.2 = phi i32 [ %count.1, %if.end83 ], [ %count.1, %if.end76 ], [ %count.1, %for.body64 ], [ %add93, %bench_stats_check.exit69 ], [ %count.0, %for.body14 ], [ %add, %bench_stats_check.exit ], [ %add, %do.body32 ]
+  %start.0 = phi double [ %add.i.i42, %if.end83 ], [ %add.i.i42, %if.end76 ], [ %add.i.i42, %for.body64 ], [ %add.i.i42, %bench_stats_check.exit69 ], [ %add.i.i, %for.body14 ], [ %add.i.i, %bench_stats_check.exit ], [ %add.i.i, %do.body32 ]
+  %30 = load i32, ptr @bench_size, align 4
+  call fastcc void @bench_stats_sym_finish(ptr noundef nonnull @.str.55, i32 noundef %count.2, i32 noundef %30, double noundef %start.0, i32 noundef %ret.4)
   br label %exit
 
 exit:                                             ; preds = %exit_sha3_224, %if.then3
@@ -5234,7 +4755,7 @@ declare i32 @wc_Sha3_224_Final(ptr noundef, ptr noundef) local_unnamed_addr #1
 declare void @wc_Sha3_224_Free(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @bench_sha3_256(i32 noundef %useDeviceID) local_unnamed_addr #0 {
+define dso_local void @bench_sha3_256(i32 %useDeviceID) local_unnamed_addr #0 {
 entry:
   %tv.i.i54 = alloca %struct.timespec, align 8
   %tv.i.i35 = alloca %struct.timespec, align 8
@@ -5247,11 +4768,7 @@ entry:
   br i1 %.b, label %if.else, label %for.body
 
 for.body:                                         ; preds = %entry
-  %tobool1.not = icmp eq i32 %useDeviceID, 0
-  %0 = tail call align 4 ptr @llvm.threadlocal.address.p0(ptr align 4 @devId)
-  %1 = load i32, ptr %0, align 4
-  %cond = select i1 %tobool1.not, i32 -2, i32 %1
-  %call = call i32 @wc_InitSha3_256(ptr noundef nonnull %hash, ptr noundef null, i32 noundef %cond) #16
+  %call = call i32 @wc_InitSha3_256(ptr noundef nonnull %hash, ptr noundef null, i32 noundef -2) #16
   %cmp2.not = icmp eq i32 %call, 0
   br i1 %cmp2.not, label %for.end, label %if.then3
 
@@ -5267,53 +4784,53 @@ for.end:                                          ; preds = %for.body
 
 if.then.i.i:                                      ; preds = %for.end
   %call1.i.i = tail call ptr @__errno_location() #17
-  %2 = load i32, ptr %call1.i.i, align 4
-  %call2.i.i = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.76, ptr noundef nonnull @.str.108, ptr noundef nonnull @.str.77, i32 noundef 12507, i32 noundef %2, ptr noundef nonnull @.str.78)
-  %3 = load ptr, ptr @stdout, align 8
-  %call3.i.i = call i32 @fflush(ptr noundef %3)
+  %0 = load i32, ptr %call1.i.i, align 4
+  %call2.i.i = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.76, ptr noundef nonnull @.str.108, ptr noundef nonnull @.str.77, i32 noundef 12507, i32 noundef %0, ptr noundef nonnull @.str.78)
+  %1 = load ptr, ptr @stdout, align 8
+  %call3.i.i = call i32 @fflush(ptr noundef %1)
   call void @_exit(i32 noundef 1) #18
   unreachable
 
 bench_stats_start.exit:                           ; preds = %for.end
-  %4 = load i64, ptr %tv.i.i, align 8
-  %conv.i.i = sitofp i64 %4 to double
+  %2 = load i64, ptr %tv.i.i, align 8
+  %conv.i.i = sitofp i64 %2 to double
   %tv_nsec.i.i = getelementptr inbounds i8, ptr %tv.i.i, i64 8
-  %5 = load i64, ptr %tv_nsec.i.i, align 8
-  %conv4.i.i = sitofp i64 %5 to double
+  %3 = load i64, ptr %tv_nsec.i.i, align 8
+  %conv4.i.i = sitofp i64 %3 to double
   %div.i.i = fdiv double %conv4.i.i, 1.000000e+09
   %add.i.i = fadd double %div.i.i, %conv.i.i
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %tv.i.i)
-  %6 = call { i32, i32 } asm sideeffect "cpuid\0A\09rdtsc", "={ax},={dx},{ax},~{ebx},~{ecx},~{dirflag},~{fpsr},~{flags}"(i32 0) #16, !srcloc !9
-  %asmresult.i.i = extractvalue { i32, i32 } %6, 0
-  %asmresult1.i.i = extractvalue { i32, i32 } %6, 1
+  %4 = call { i32, i32 } asm sideeffect "cpuid\0A\09rdtsc", "={ax},={dx},{ax},~{ebx},~{ecx},~{dirflag},~{fpsr},~{flags}"(i32 0) #16, !srcloc !8
+  %asmresult.i.i = extractvalue { i32, i32 } %4, 0
+  %asmresult1.i.i = extractvalue { i32, i32 } %4, 1
   %conv.i1.i = zext i32 %asmresult.i.i to i64
   %conv2.i.i = zext i32 %asmresult1.i.i to i64
   %shl.i.i = shl nuw i64 %conv2.i.i, 32
   %or.i.i = or disjoint i64 %shl.i.i, %conv.i1.i
-  %7 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @total_cycles)
-  store i64 %or.i.i, ptr %7, align 8
-  %8 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @bench_plain)
+  %5 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @total_cycles)
+  store i64 %or.i.i, ptr %5, align 8
+  %6 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @bench_plain)
   %tv_nsec.i.i26 = getelementptr inbounds i8, ptr %tv.i.i22, i64 8
   br label %do.body5
 
 do.body5:                                         ; preds = %bench_stats_check.exit, %bench_stats_start.exit
   %count.0 = phi i32 [ 0, %bench_stats_start.exit ], [ %add, %bench_stats_check.exit ]
-  %9 = load i32, ptr @numBlocks, align 4
-  %cmp7103 = icmp sgt i32 %9, 0
+  %7 = load i32, ptr @numBlocks, align 4
+  %cmp7103 = icmp sgt i32 %7, 0
   br i1 %cmp7103, label %for.body14, label %do.body32
 
 for.body14:                                       ; preds = %do.body5, %bench_async_handle.exit
   %times.0104 = phi i32 [ %inc.i, %bench_async_handle.exit ], [ 0, %do.body5 ]
-  %10 = load ptr, ptr %8, align 8
-  %11 = load i32, ptr @bench_size, align 4
-  %call20 = call i32 @wc_Sha3_256_Update(ptr noundef nonnull %hash, ptr noundef %10, i32 noundef %11) #16
+  %8 = load ptr, ptr %6, align 8
+  %9 = load i32, ptr @bench_size, align 4
+  %call20 = call i32 @wc_Sha3_256_Update(ptr noundef nonnull %hash, ptr noundef %8, i32 noundef %9) #16
   %cmp.i = icmp sgt i32 %call20, -1
   br i1 %cmp.i, label %bench_async_handle.exit, label %exit_sha3_256
 
 bench_async_handle.exit:                          ; preds = %for.body14
   %inc.i = add nuw nsw i32 %times.0104, 1
-  %12 = load i32, ptr @numBlocks, align 4
-  %cmp7 = icmp slt i32 %inc.i, %12
+  %10 = load i32, ptr @numBlocks, align 4
+  %cmp7 = icmp slt i32 %inc.i, %10
   br i1 %cmp7, label %for.body14, label %do.body32
 
 do.body32:                                        ; preds = %bench_async_handle.exit, %do.body5
@@ -5331,24 +4848,24 @@ do.cond57:                                        ; preds = %do.body32
 
 if.then.i.i31:                                    ; preds = %do.cond57
   %call1.i.i32 = tail call ptr @__errno_location() #17
-  %13 = load i32, ptr %call1.i.i32, align 4
-  %call2.i.i33 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.76, ptr noundef nonnull @.str.108, ptr noundef nonnull @.str.77, i32 noundef 12507, i32 noundef %13, ptr noundef nonnull @.str.78)
-  %14 = load ptr, ptr @stdout, align 8
-  %call3.i.i34 = call i32 @fflush(ptr noundef %14)
+  %11 = load i32, ptr %call1.i.i32, align 4
+  %call2.i.i33 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.76, ptr noundef nonnull @.str.108, ptr noundef nonnull @.str.77, i32 noundef 12507, i32 noundef %11, ptr noundef nonnull @.str.78)
+  %12 = load ptr, ptr @stdout, align 8
+  %call3.i.i34 = call i32 @fflush(ptr noundef %12)
   call void @_exit(i32 noundef 1) #18
   unreachable
 
 bench_stats_check.exit:                           ; preds = %do.cond57
-  %15 = load i64, ptr %tv.i.i22, align 8
-  %conv.i.i25 = sitofp i64 %15 to double
-  %16 = load i64, ptr %tv_nsec.i.i26, align 8
-  %conv4.i.i27 = sitofp i64 %16 to double
+  %13 = load i64, ptr %tv.i.i22, align 8
+  %conv.i.i25 = sitofp i64 %13 to double
+  %14 = load i64, ptr %tv_nsec.i.i26, align 8
+  %conv4.i.i27 = sitofp i64 %14 to double
   %div.i.i28 = fdiv double %conv4.i.i27, 1.000000e+09
   %add.i.i29 = fadd double %div.i.i28, %conv.i.i25
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %tv.i.i22)
   %sub.i = fsub double %add.i.i29, %add.i.i
   %cmp.i30 = fcmp uge double %sub.i, 1.000000e+00
-  br i1 %cmp.i30, label %exit_sha3_256, label %do.body5, !llvm.loop !53
+  br i1 %cmp.i30, label %exit_sha3_256, label %do.body5, !llvm.loop !52
 
 if.else:                                          ; preds = %entry
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %tv.i.i35)
@@ -5358,104 +4875,51 @@ if.else:                                          ; preds = %entry
 
 if.then.i.i49:                                    ; preds = %if.else
   %call1.i.i50 = tail call ptr @__errno_location() #17
-  %17 = load i32, ptr %call1.i.i50, align 4
-  %call2.i.i51 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.76, ptr noundef nonnull @.str.108, ptr noundef nonnull @.str.77, i32 noundef 12507, i32 noundef %17, ptr noundef nonnull @.str.78)
-  %18 = load ptr, ptr @stdout, align 8
-  %call3.i.i52 = call i32 @fflush(ptr noundef %18)
+  %15 = load i32, ptr %call1.i.i50, align 4
+  %call2.i.i51 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.76, ptr noundef nonnull @.str.108, ptr noundef nonnull @.str.77, i32 noundef 12507, i32 noundef %15, ptr noundef nonnull @.str.78)
+  %16 = load ptr, ptr @stdout, align 8
+  %call3.i.i52 = call i32 @fflush(ptr noundef %16)
   call void @_exit(i32 noundef 1) #18
   unreachable
 
 bench_stats_start.exit53:                         ; preds = %if.else
-  %19 = load i64, ptr %tv.i.i35, align 8
-  %conv.i.i38 = sitofp i64 %19 to double
+  %17 = load i64, ptr %tv.i.i35, align 8
+  %conv.i.i38 = sitofp i64 %17 to double
   %tv_nsec.i.i39 = getelementptr inbounds i8, ptr %tv.i.i35, i64 8
-  %20 = load i64, ptr %tv_nsec.i.i39, align 8
-  %conv4.i.i40 = sitofp i64 %20 to double
+  %18 = load i64, ptr %tv_nsec.i.i39, align 8
+  %conv4.i.i40 = sitofp i64 %18 to double
   %div.i.i41 = fdiv double %conv4.i.i40, 1.000000e+09
   %add.i.i42 = fadd double %div.i.i41, %conv.i.i38
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %tv.i.i35)
-  %21 = call { i32, i32 } asm sideeffect "cpuid\0A\09rdtsc", "={ax},={dx},{ax},~{ebx},~{ecx},~{dirflag},~{fpsr},~{flags}"(i32 0) #16, !srcloc !9
-  %asmresult.i.i43 = extractvalue { i32, i32 } %21, 0
-  %asmresult1.i.i44 = extractvalue { i32, i32 } %21, 1
+  %19 = call { i32, i32 } asm sideeffect "cpuid\0A\09rdtsc", "={ax},={dx},{ax},~{ebx},~{ecx},~{dirflag},~{fpsr},~{flags}"(i32 0) #16, !srcloc !8
+  %asmresult.i.i43 = extractvalue { i32, i32 } %19, 0
+  %asmresult1.i.i44 = extractvalue { i32, i32 } %19, 1
   %conv.i1.i45 = zext i32 %asmresult.i.i43 to i64
   %conv2.i.i46 = zext i32 %asmresult1.i.i44 to i64
   %shl.i.i47 = shl nuw i64 %conv2.i.i46, 32
   %or.i.i48 = or disjoint i64 %shl.i.i47, %conv.i1.i45
-  %22 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @total_cycles)
-  store i64 %or.i.i48, ptr %22, align 8
-  %tobool66.not = icmp eq i32 %useDeviceID, 0
-  %23 = call align 4 ptr @llvm.threadlocal.address.p0(ptr align 4 @devId)
-  %24 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @bench_plain)
+  %20 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @total_cycles)
+  store i64 %or.i.i48, ptr %20, align 8
+  %21 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @bench_plain)
   %tv_nsec.i.i58 = getelementptr inbounds i8, ptr %tv.i.i54, i64 8
-  br i1 %tobool66.not, label %do.body61.us, label %do.body61
+  br label %do.body61
 
-do.body61.us:                                     ; preds = %bench_stats_start.exit53, %bench_stats_check.exit69.us
-  %count.1.us = phi i32 [ %add93.us, %bench_stats_check.exit69.us ], [ 0, %bench_stats_start.exit53 ]
-  %25 = load i32, ptr @numBlocks, align 4
-  %cmp63105.us = icmp sgt i32 %25, 0
-  br i1 %cmp63105.us, label %for.body64.us.us, label %for.end92.us
-
-for.end92.us:                                     ; preds = %for.inc90.us.us, %do.body61.us
-  %storemerge.lcssa.us = phi i32 [ 0, %do.body61.us ], [ %inc91.us.us, %for.inc90.us.us ]
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %tv.i.i54)
-  %call.i.i55.us = call i32 @clock_gettime(i32 noundef 0, ptr noundef nonnull %tv.i.i54) #16
-  %cmp.i.i56.us = icmp slt i32 %call.i.i55.us, 0
-  br i1 %cmp.i.i56.us, label %if.then.i.i65, label %bench_stats_check.exit69.us
-
-bench_stats_check.exit69.us:                      ; preds = %for.end92.us
-  %add93.us = add nuw nsw i32 %storemerge.lcssa.us, %count.1.us
-  %26 = load i64, ptr %tv.i.i54, align 8
-  %conv.i.i57.us = sitofp i64 %26 to double
-  %27 = load i64, ptr %tv_nsec.i.i58, align 8
-  %conv4.i.i59.us = sitofp i64 %27 to double
-  %div.i.i60.us = fdiv double %conv4.i.i59.us, 1.000000e+09
-  %add.i.i61.us = fadd double %div.i.i60.us, %conv.i.i57.us
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %tv.i.i54)
-  %sub.i62.us = fsub double %add.i.i61.us, %add.i.i42
-  %cmp.i63.us = fcmp uge double %sub.i62.us, 1.000000e+00
-  br i1 %cmp.i63.us, label %exit_sha3_256, label %do.body61.us, !llvm.loop !54
-
-for.body64.us.us:                                 ; preds = %do.body61.us, %for.inc90.us.us
-  %storemerge106.us.us = phi i32 [ %inc91.us.us, %for.inc90.us.us ], [ 0, %do.body61.us ]
-  %call71.us.us = call i32 @wc_InitSha3_256(ptr noundef nonnull %hash, ptr noundef null, i32 noundef -2) #16
-  %cmp72.us.us = icmp eq i32 %call71.us.us, 0
-  br i1 %cmp72.us.us, label %if.end76.us.us, label %exit_sha3_256
-
-if.end76.us.us:                                   ; preds = %for.body64.us.us
-  %28 = load ptr, ptr %24, align 8
-  %29 = load i32, ptr @bench_size, align 4
-  %call75.us.us = call i32 @wc_Sha3_256_Update(ptr noundef nonnull %hash, ptr noundef %28, i32 noundef %29) #16
-  %cmp77.us.us = icmp eq i32 %call75.us.us, 0
-  br i1 %cmp77.us.us, label %if.end83.us.us, label %exit_sha3_256
-
-if.end83.us.us:                                   ; preds = %if.end76.us.us
-  %call82.us.us = call i32 @wc_Sha3_256_Final(ptr noundef nonnull %hash, ptr noundef nonnull %digest) #16
-  %cmp84.not.us.us = icmp eq i32 %call82.us.us, 0
-  br i1 %cmp84.not.us.us, label %for.inc90.us.us, label %exit_sha3_256
-
-for.inc90.us.us:                                  ; preds = %if.end83.us.us
-  %inc91.us.us = add nuw nsw i32 %storemerge106.us.us, 1
-  %30 = load i32, ptr @numBlocks, align 4
-  %cmp63.us.us = icmp slt i32 %inc91.us.us, %30
-  br i1 %cmp63.us.us, label %for.body64.us.us, label %for.end92.us, !llvm.loop !55
-
-do.body61:                                        ; preds = %bench_stats_start.exit53, %bench_stats_check.exit69
-  %count.1 = phi i32 [ %add93, %bench_stats_check.exit69 ], [ 0, %bench_stats_start.exit53 ]
-  %31 = load i32, ptr @numBlocks, align 4
-  %cmp63105 = icmp sgt i32 %31, 0
+do.body61:                                        ; preds = %bench_stats_check.exit69, %bench_stats_start.exit53
+  %count.1 = phi i32 [ 0, %bench_stats_start.exit53 ], [ %add93, %bench_stats_check.exit69 ]
+  %22 = load i32, ptr @numBlocks, align 4
+  %cmp63105 = icmp sgt i32 %22, 0
   br i1 %cmp63105, label %for.body64, label %for.end92
 
 for.body64:                                       ; preds = %do.body61, %for.inc90
   %storemerge106 = phi i32 [ %inc91, %for.inc90 ], [ 0, %do.body61 ]
-  %32 = load i32, ptr %23, align 4
-  %call71 = call i32 @wc_InitSha3_256(ptr noundef nonnull %hash, ptr noundef null, i32 noundef %32) #16
+  %call71 = call i32 @wc_InitSha3_256(ptr noundef nonnull %hash, ptr noundef null, i32 noundef -2) #16
   %cmp72 = icmp eq i32 %call71, 0
   br i1 %cmp72, label %if.end76, label %exit_sha3_256
 
 if.end76:                                         ; preds = %for.body64
-  %33 = load ptr, ptr %24, align 8
-  %34 = load i32, ptr @bench_size, align 4
-  %call75 = call i32 @wc_Sha3_256_Update(ptr noundef nonnull %hash, ptr noundef %33, i32 noundef %34) #16
+  %23 = load ptr, ptr %21, align 8
+  %24 = load i32, ptr @bench_size, align 4
+  %call75 = call i32 @wc_Sha3_256_Update(ptr noundef nonnull %hash, ptr noundef %23, i32 noundef %24) #16
   %cmp77 = icmp eq i32 %call75, 0
   br i1 %cmp77, label %if.end83, label %exit_sha3_256
 
@@ -5466,9 +4930,9 @@ if.end83:                                         ; preds = %if.end76
 
 for.inc90:                                        ; preds = %if.end83
   %inc91 = add nuw nsw i32 %storemerge106, 1
-  %35 = load i32, ptr @numBlocks, align 4
-  %cmp63 = icmp slt i32 %inc91, %35
-  br i1 %cmp63, label %for.body64, label %for.end92, !llvm.loop !55
+  %25 = load i32, ptr @numBlocks, align 4
+  %cmp63 = icmp slt i32 %inc91, %25
+  br i1 %cmp63, label %for.body64, label %for.end92, !llvm.loop !53
 
 for.end92:                                        ; preds = %for.inc90, %do.body61
   %storemerge.lcssa = phi i32 [ 0, %do.body61 ], [ %inc91, %for.inc90 ]
@@ -5477,21 +4941,21 @@ for.end92:                                        ; preds = %for.inc90, %do.body
   %cmp.i.i56 = icmp slt i32 %call.i.i55, 0
   br i1 %cmp.i.i56, label %if.then.i.i65, label %bench_stats_check.exit69
 
-if.then.i.i65:                                    ; preds = %for.end92, %for.end92.us
+if.then.i.i65:                                    ; preds = %for.end92
   %call1.i.i66 = tail call ptr @__errno_location() #17
-  %36 = load i32, ptr %call1.i.i66, align 4
-  %call2.i.i67 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.76, ptr noundef nonnull @.str.108, ptr noundef nonnull @.str.77, i32 noundef 12507, i32 noundef %36, ptr noundef nonnull @.str.78)
-  %37 = load ptr, ptr @stdout, align 8
-  %call3.i.i68 = call i32 @fflush(ptr noundef %37)
+  %26 = load i32, ptr %call1.i.i66, align 4
+  %call2.i.i67 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.76, ptr noundef nonnull @.str.108, ptr noundef nonnull @.str.77, i32 noundef 12507, i32 noundef %26, ptr noundef nonnull @.str.78)
+  %27 = load ptr, ptr @stdout, align 8
+  %call3.i.i68 = call i32 @fflush(ptr noundef %27)
   call void @_exit(i32 noundef 1) #18
   unreachable
 
 bench_stats_check.exit69:                         ; preds = %for.end92
   %add93 = add nuw nsw i32 %storemerge.lcssa, %count.1
-  %38 = load i64, ptr %tv.i.i54, align 8
-  %conv.i.i57 = sitofp i64 %38 to double
-  %39 = load i64, ptr %tv_nsec.i.i58, align 8
-  %conv4.i.i59 = sitofp i64 %39 to double
+  %28 = load i64, ptr %tv.i.i54, align 8
+  %conv.i.i57 = sitofp i64 %28 to double
+  %29 = load i64, ptr %tv_nsec.i.i58, align 8
+  %conv4.i.i59 = sitofp i64 %29 to double
   %div.i.i60 = fdiv double %conv4.i.i59, 1.000000e+09
   %add.i.i61 = fadd double %div.i.i60, %conv.i.i57
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %tv.i.i54)
@@ -5499,12 +4963,12 @@ bench_stats_check.exit69:                         ; preds = %for.end92
   %cmp.i63 = fcmp uge double %sub.i62, 1.000000e+00
   br i1 %cmp.i63, label %exit_sha3_256, label %do.body61, !llvm.loop !54
 
-exit_sha3_256:                                    ; preds = %do.body32, %bench_stats_check.exit, %for.body14, %bench_stats_check.exit69, %if.end83, %if.end76, %for.body64, %bench_stats_check.exit69.us, %for.body64.us.us, %if.end76.us.us, %if.end83.us.us
-  %ret.4 = phi i32 [ %call71.us.us, %for.body64.us.us ], [ %call75.us.us, %if.end76.us.us ], [ %call82.us.us, %if.end83.us.us ], [ 0, %bench_stats_check.exit69.us ], [ %call71, %for.body64 ], [ %call75, %if.end76 ], [ %call82, %if.end83 ], [ 0, %bench_stats_check.exit69 ], [ %call20, %for.body14 ], [ %call46, %bench_stats_check.exit ], [ %call46, %do.body32 ]
-  %count.2 = phi i32 [ %count.1.us, %if.end83.us.us ], [ %count.1.us, %if.end76.us.us ], [ %count.1.us, %for.body64.us.us ], [ %add93.us, %bench_stats_check.exit69.us ], [ %count.1, %for.body64 ], [ %count.1, %if.end76 ], [ %count.1, %if.end83 ], [ %add93, %bench_stats_check.exit69 ], [ %count.0, %for.body14 ], [ %add, %bench_stats_check.exit ], [ %add, %do.body32 ]
-  %start.0 = phi double [ %add.i.i42, %if.end83.us.us ], [ %add.i.i42, %if.end76.us.us ], [ %add.i.i42, %for.body64.us.us ], [ %add.i.i42, %bench_stats_check.exit69.us ], [ %add.i.i42, %for.body64 ], [ %add.i.i42, %if.end76 ], [ %add.i.i42, %if.end83 ], [ %add.i.i42, %bench_stats_check.exit69 ], [ %add.i.i, %for.body14 ], [ %add.i.i, %bench_stats_check.exit ], [ %add.i.i, %do.body32 ]
-  %40 = load i32, ptr @bench_size, align 4
-  call fastcc void @bench_stats_sym_finish(ptr noundef nonnull @.str.57, i32 noundef %count.2, i32 noundef %40, double noundef %start.0, i32 noundef %ret.4)
+exit_sha3_256:                                    ; preds = %do.body32, %bench_stats_check.exit, %for.body14, %bench_stats_check.exit69, %for.body64, %if.end76, %if.end83
+  %ret.4 = phi i32 [ %call71, %for.body64 ], [ %call75, %if.end76 ], [ %call82, %if.end83 ], [ 0, %bench_stats_check.exit69 ], [ %call20, %for.body14 ], [ %call46, %bench_stats_check.exit ], [ %call46, %do.body32 ]
+  %count.2 = phi i32 [ %count.1, %if.end83 ], [ %count.1, %if.end76 ], [ %count.1, %for.body64 ], [ %add93, %bench_stats_check.exit69 ], [ %count.0, %for.body14 ], [ %add, %bench_stats_check.exit ], [ %add, %do.body32 ]
+  %start.0 = phi double [ %add.i.i42, %if.end83 ], [ %add.i.i42, %if.end76 ], [ %add.i.i42, %for.body64 ], [ %add.i.i42, %bench_stats_check.exit69 ], [ %add.i.i, %for.body14 ], [ %add.i.i, %bench_stats_check.exit ], [ %add.i.i, %do.body32 ]
+  %30 = load i32, ptr @bench_size, align 4
+  call fastcc void @bench_stats_sym_finish(ptr noundef nonnull @.str.57, i32 noundef %count.2, i32 noundef %30, double noundef %start.0, i32 noundef %ret.4)
   br label %exit
 
 exit:                                             ; preds = %exit_sha3_256, %if.then3
@@ -5521,7 +4985,7 @@ declare i32 @wc_Sha3_256_Final(ptr noundef, ptr noundef) local_unnamed_addr #1
 declare void @wc_Sha3_256_Free(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @bench_sha3_384(i32 noundef %useDeviceID) local_unnamed_addr #0 {
+define dso_local void @bench_sha3_384(i32 %useDeviceID) local_unnamed_addr #0 {
 entry:
   %tv.i.i54 = alloca %struct.timespec, align 8
   %tv.i.i35 = alloca %struct.timespec, align 8
@@ -5534,11 +4998,7 @@ entry:
   br i1 %.b, label %if.else, label %for.body
 
 for.body:                                         ; preds = %entry
-  %tobool1.not = icmp eq i32 %useDeviceID, 0
-  %0 = tail call align 4 ptr @llvm.threadlocal.address.p0(ptr align 4 @devId)
-  %1 = load i32, ptr %0, align 4
-  %cond = select i1 %tobool1.not, i32 -2, i32 %1
-  %call = call i32 @wc_InitSha3_384(ptr noundef nonnull %hash, ptr noundef null, i32 noundef %cond) #16
+  %call = call i32 @wc_InitSha3_384(ptr noundef nonnull %hash, ptr noundef null, i32 noundef -2) #16
   %cmp2.not = icmp eq i32 %call, 0
   br i1 %cmp2.not, label %for.end, label %if.then3
 
@@ -5554,53 +5014,53 @@ for.end:                                          ; preds = %for.body
 
 if.then.i.i:                                      ; preds = %for.end
   %call1.i.i = tail call ptr @__errno_location() #17
-  %2 = load i32, ptr %call1.i.i, align 4
-  %call2.i.i = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.76, ptr noundef nonnull @.str.108, ptr noundef nonnull @.str.77, i32 noundef 12507, i32 noundef %2, ptr noundef nonnull @.str.78)
-  %3 = load ptr, ptr @stdout, align 8
-  %call3.i.i = call i32 @fflush(ptr noundef %3)
+  %0 = load i32, ptr %call1.i.i, align 4
+  %call2.i.i = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.76, ptr noundef nonnull @.str.108, ptr noundef nonnull @.str.77, i32 noundef 12507, i32 noundef %0, ptr noundef nonnull @.str.78)
+  %1 = load ptr, ptr @stdout, align 8
+  %call3.i.i = call i32 @fflush(ptr noundef %1)
   call void @_exit(i32 noundef 1) #18
   unreachable
 
 bench_stats_start.exit:                           ; preds = %for.end
-  %4 = load i64, ptr %tv.i.i, align 8
-  %conv.i.i = sitofp i64 %4 to double
+  %2 = load i64, ptr %tv.i.i, align 8
+  %conv.i.i = sitofp i64 %2 to double
   %tv_nsec.i.i = getelementptr inbounds i8, ptr %tv.i.i, i64 8
-  %5 = load i64, ptr %tv_nsec.i.i, align 8
-  %conv4.i.i = sitofp i64 %5 to double
+  %3 = load i64, ptr %tv_nsec.i.i, align 8
+  %conv4.i.i = sitofp i64 %3 to double
   %div.i.i = fdiv double %conv4.i.i, 1.000000e+09
   %add.i.i = fadd double %div.i.i, %conv.i.i
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %tv.i.i)
-  %6 = call { i32, i32 } asm sideeffect "cpuid\0A\09rdtsc", "={ax},={dx},{ax},~{ebx},~{ecx},~{dirflag},~{fpsr},~{flags}"(i32 0) #16, !srcloc !9
-  %asmresult.i.i = extractvalue { i32, i32 } %6, 0
-  %asmresult1.i.i = extractvalue { i32, i32 } %6, 1
+  %4 = call { i32, i32 } asm sideeffect "cpuid\0A\09rdtsc", "={ax},={dx},{ax},~{ebx},~{ecx},~{dirflag},~{fpsr},~{flags}"(i32 0) #16, !srcloc !8
+  %asmresult.i.i = extractvalue { i32, i32 } %4, 0
+  %asmresult1.i.i = extractvalue { i32, i32 } %4, 1
   %conv.i1.i = zext i32 %asmresult.i.i to i64
   %conv2.i.i = zext i32 %asmresult1.i.i to i64
   %shl.i.i = shl nuw i64 %conv2.i.i, 32
   %or.i.i = or disjoint i64 %shl.i.i, %conv.i1.i
-  %7 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @total_cycles)
-  store i64 %or.i.i, ptr %7, align 8
-  %8 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @bench_plain)
+  %5 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @total_cycles)
+  store i64 %or.i.i, ptr %5, align 8
+  %6 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @bench_plain)
   %tv_nsec.i.i26 = getelementptr inbounds i8, ptr %tv.i.i22, i64 8
   br label %do.body5
 
 do.body5:                                         ; preds = %bench_stats_check.exit, %bench_stats_start.exit
   %count.0 = phi i32 [ 0, %bench_stats_start.exit ], [ %add, %bench_stats_check.exit ]
-  %9 = load i32, ptr @numBlocks, align 4
-  %cmp7103 = icmp sgt i32 %9, 0
+  %7 = load i32, ptr @numBlocks, align 4
+  %cmp7103 = icmp sgt i32 %7, 0
   br i1 %cmp7103, label %for.body14, label %do.body32
 
 for.body14:                                       ; preds = %do.body5, %bench_async_handle.exit
   %times.0104 = phi i32 [ %inc.i, %bench_async_handle.exit ], [ 0, %do.body5 ]
-  %10 = load ptr, ptr %8, align 8
-  %11 = load i32, ptr @bench_size, align 4
-  %call20 = call i32 @wc_Sha3_384_Update(ptr noundef nonnull %hash, ptr noundef %10, i32 noundef %11) #16
+  %8 = load ptr, ptr %6, align 8
+  %9 = load i32, ptr @bench_size, align 4
+  %call20 = call i32 @wc_Sha3_384_Update(ptr noundef nonnull %hash, ptr noundef %8, i32 noundef %9) #16
   %cmp.i = icmp sgt i32 %call20, -1
   br i1 %cmp.i, label %bench_async_handle.exit, label %exit_sha3_384
 
 bench_async_handle.exit:                          ; preds = %for.body14
   %inc.i = add nuw nsw i32 %times.0104, 1
-  %12 = load i32, ptr @numBlocks, align 4
-  %cmp7 = icmp slt i32 %inc.i, %12
+  %10 = load i32, ptr @numBlocks, align 4
+  %cmp7 = icmp slt i32 %inc.i, %10
   br i1 %cmp7, label %for.body14, label %do.body32
 
 do.body32:                                        ; preds = %bench_async_handle.exit, %do.body5
@@ -5618,24 +5078,24 @@ do.cond57:                                        ; preds = %do.body32
 
 if.then.i.i31:                                    ; preds = %do.cond57
   %call1.i.i32 = tail call ptr @__errno_location() #17
-  %13 = load i32, ptr %call1.i.i32, align 4
-  %call2.i.i33 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.76, ptr noundef nonnull @.str.108, ptr noundef nonnull @.str.77, i32 noundef 12507, i32 noundef %13, ptr noundef nonnull @.str.78)
-  %14 = load ptr, ptr @stdout, align 8
-  %call3.i.i34 = call i32 @fflush(ptr noundef %14)
+  %11 = load i32, ptr %call1.i.i32, align 4
+  %call2.i.i33 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.76, ptr noundef nonnull @.str.108, ptr noundef nonnull @.str.77, i32 noundef 12507, i32 noundef %11, ptr noundef nonnull @.str.78)
+  %12 = load ptr, ptr @stdout, align 8
+  %call3.i.i34 = call i32 @fflush(ptr noundef %12)
   call void @_exit(i32 noundef 1) #18
   unreachable
 
 bench_stats_check.exit:                           ; preds = %do.cond57
-  %15 = load i64, ptr %tv.i.i22, align 8
-  %conv.i.i25 = sitofp i64 %15 to double
-  %16 = load i64, ptr %tv_nsec.i.i26, align 8
-  %conv4.i.i27 = sitofp i64 %16 to double
+  %13 = load i64, ptr %tv.i.i22, align 8
+  %conv.i.i25 = sitofp i64 %13 to double
+  %14 = load i64, ptr %tv_nsec.i.i26, align 8
+  %conv4.i.i27 = sitofp i64 %14 to double
   %div.i.i28 = fdiv double %conv4.i.i27, 1.000000e+09
   %add.i.i29 = fadd double %div.i.i28, %conv.i.i25
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %tv.i.i22)
   %sub.i = fsub double %add.i.i29, %add.i.i
   %cmp.i30 = fcmp uge double %sub.i, 1.000000e+00
-  br i1 %cmp.i30, label %exit_sha3_384, label %do.body5, !llvm.loop !56
+  br i1 %cmp.i30, label %exit_sha3_384, label %do.body5, !llvm.loop !55
 
 if.else:                                          ; preds = %entry
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %tv.i.i35)
@@ -5645,104 +5105,51 @@ if.else:                                          ; preds = %entry
 
 if.then.i.i49:                                    ; preds = %if.else
   %call1.i.i50 = tail call ptr @__errno_location() #17
-  %17 = load i32, ptr %call1.i.i50, align 4
-  %call2.i.i51 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.76, ptr noundef nonnull @.str.108, ptr noundef nonnull @.str.77, i32 noundef 12507, i32 noundef %17, ptr noundef nonnull @.str.78)
-  %18 = load ptr, ptr @stdout, align 8
-  %call3.i.i52 = call i32 @fflush(ptr noundef %18)
+  %15 = load i32, ptr %call1.i.i50, align 4
+  %call2.i.i51 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.76, ptr noundef nonnull @.str.108, ptr noundef nonnull @.str.77, i32 noundef 12507, i32 noundef %15, ptr noundef nonnull @.str.78)
+  %16 = load ptr, ptr @stdout, align 8
+  %call3.i.i52 = call i32 @fflush(ptr noundef %16)
   call void @_exit(i32 noundef 1) #18
   unreachable
 
 bench_stats_start.exit53:                         ; preds = %if.else
-  %19 = load i64, ptr %tv.i.i35, align 8
-  %conv.i.i38 = sitofp i64 %19 to double
+  %17 = load i64, ptr %tv.i.i35, align 8
+  %conv.i.i38 = sitofp i64 %17 to double
   %tv_nsec.i.i39 = getelementptr inbounds i8, ptr %tv.i.i35, i64 8
-  %20 = load i64, ptr %tv_nsec.i.i39, align 8
-  %conv4.i.i40 = sitofp i64 %20 to double
+  %18 = load i64, ptr %tv_nsec.i.i39, align 8
+  %conv4.i.i40 = sitofp i64 %18 to double
   %div.i.i41 = fdiv double %conv4.i.i40, 1.000000e+09
   %add.i.i42 = fadd double %div.i.i41, %conv.i.i38
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %tv.i.i35)
-  %21 = call { i32, i32 } asm sideeffect "cpuid\0A\09rdtsc", "={ax},={dx},{ax},~{ebx},~{ecx},~{dirflag},~{fpsr},~{flags}"(i32 0) #16, !srcloc !9
-  %asmresult.i.i43 = extractvalue { i32, i32 } %21, 0
-  %asmresult1.i.i44 = extractvalue { i32, i32 } %21, 1
+  %19 = call { i32, i32 } asm sideeffect "cpuid\0A\09rdtsc", "={ax},={dx},{ax},~{ebx},~{ecx},~{dirflag},~{fpsr},~{flags}"(i32 0) #16, !srcloc !8
+  %asmresult.i.i43 = extractvalue { i32, i32 } %19, 0
+  %asmresult1.i.i44 = extractvalue { i32, i32 } %19, 1
   %conv.i1.i45 = zext i32 %asmresult.i.i43 to i64
   %conv2.i.i46 = zext i32 %asmresult1.i.i44 to i64
   %shl.i.i47 = shl nuw i64 %conv2.i.i46, 32
   %or.i.i48 = or disjoint i64 %shl.i.i47, %conv.i1.i45
-  %22 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @total_cycles)
-  store i64 %or.i.i48, ptr %22, align 8
-  %tobool66.not = icmp eq i32 %useDeviceID, 0
-  %23 = call align 4 ptr @llvm.threadlocal.address.p0(ptr align 4 @devId)
-  %24 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @bench_plain)
+  %20 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @total_cycles)
+  store i64 %or.i.i48, ptr %20, align 8
+  %21 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @bench_plain)
   %tv_nsec.i.i58 = getelementptr inbounds i8, ptr %tv.i.i54, i64 8
-  br i1 %tobool66.not, label %do.body61.us, label %do.body61
+  br label %do.body61
 
-do.body61.us:                                     ; preds = %bench_stats_start.exit53, %bench_stats_check.exit69.us
-  %count.1.us = phi i32 [ %add93.us, %bench_stats_check.exit69.us ], [ 0, %bench_stats_start.exit53 ]
-  %25 = load i32, ptr @numBlocks, align 4
-  %cmp63105.us = icmp sgt i32 %25, 0
-  br i1 %cmp63105.us, label %for.body64.us.us, label %for.end92.us
-
-for.end92.us:                                     ; preds = %for.inc90.us.us, %do.body61.us
-  %storemerge.lcssa.us = phi i32 [ 0, %do.body61.us ], [ %inc91.us.us, %for.inc90.us.us ]
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %tv.i.i54)
-  %call.i.i55.us = call i32 @clock_gettime(i32 noundef 0, ptr noundef nonnull %tv.i.i54) #16
-  %cmp.i.i56.us = icmp slt i32 %call.i.i55.us, 0
-  br i1 %cmp.i.i56.us, label %if.then.i.i65, label %bench_stats_check.exit69.us
-
-bench_stats_check.exit69.us:                      ; preds = %for.end92.us
-  %add93.us = add nuw nsw i32 %storemerge.lcssa.us, %count.1.us
-  %26 = load i64, ptr %tv.i.i54, align 8
-  %conv.i.i57.us = sitofp i64 %26 to double
-  %27 = load i64, ptr %tv_nsec.i.i58, align 8
-  %conv4.i.i59.us = sitofp i64 %27 to double
-  %div.i.i60.us = fdiv double %conv4.i.i59.us, 1.000000e+09
-  %add.i.i61.us = fadd double %div.i.i60.us, %conv.i.i57.us
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %tv.i.i54)
-  %sub.i62.us = fsub double %add.i.i61.us, %add.i.i42
-  %cmp.i63.us = fcmp uge double %sub.i62.us, 1.000000e+00
-  br i1 %cmp.i63.us, label %exit_sha3_384, label %do.body61.us, !llvm.loop !57
-
-for.body64.us.us:                                 ; preds = %do.body61.us, %for.inc90.us.us
-  %storemerge106.us.us = phi i32 [ %inc91.us.us, %for.inc90.us.us ], [ 0, %do.body61.us ]
-  %call71.us.us = call i32 @wc_InitSha3_384(ptr noundef nonnull %hash, ptr noundef null, i32 noundef -2) #16
-  %cmp72.us.us = icmp eq i32 %call71.us.us, 0
-  br i1 %cmp72.us.us, label %if.end76.us.us, label %exit_sha3_384
-
-if.end76.us.us:                                   ; preds = %for.body64.us.us
-  %28 = load ptr, ptr %24, align 8
-  %29 = load i32, ptr @bench_size, align 4
-  %call75.us.us = call i32 @wc_Sha3_384_Update(ptr noundef nonnull %hash, ptr noundef %28, i32 noundef %29) #16
-  %cmp77.us.us = icmp eq i32 %call75.us.us, 0
-  br i1 %cmp77.us.us, label %if.end83.us.us, label %exit_sha3_384
-
-if.end83.us.us:                                   ; preds = %if.end76.us.us
-  %call82.us.us = call i32 @wc_Sha3_384_Final(ptr noundef nonnull %hash, ptr noundef nonnull %digest) #16
-  %cmp84.not.us.us = icmp eq i32 %call82.us.us, 0
-  br i1 %cmp84.not.us.us, label %for.inc90.us.us, label %exit_sha3_384
-
-for.inc90.us.us:                                  ; preds = %if.end83.us.us
-  %inc91.us.us = add nuw nsw i32 %storemerge106.us.us, 1
-  %30 = load i32, ptr @numBlocks, align 4
-  %cmp63.us.us = icmp slt i32 %inc91.us.us, %30
-  br i1 %cmp63.us.us, label %for.body64.us.us, label %for.end92.us, !llvm.loop !58
-
-do.body61:                                        ; preds = %bench_stats_start.exit53, %bench_stats_check.exit69
-  %count.1 = phi i32 [ %add93, %bench_stats_check.exit69 ], [ 0, %bench_stats_start.exit53 ]
-  %31 = load i32, ptr @numBlocks, align 4
-  %cmp63105 = icmp sgt i32 %31, 0
+do.body61:                                        ; preds = %bench_stats_check.exit69, %bench_stats_start.exit53
+  %count.1 = phi i32 [ 0, %bench_stats_start.exit53 ], [ %add93, %bench_stats_check.exit69 ]
+  %22 = load i32, ptr @numBlocks, align 4
+  %cmp63105 = icmp sgt i32 %22, 0
   br i1 %cmp63105, label %for.body64, label %for.end92
 
 for.body64:                                       ; preds = %do.body61, %for.inc90
   %storemerge106 = phi i32 [ %inc91, %for.inc90 ], [ 0, %do.body61 ]
-  %32 = load i32, ptr %23, align 4
-  %call71 = call i32 @wc_InitSha3_384(ptr noundef nonnull %hash, ptr noundef null, i32 noundef %32) #16
+  %call71 = call i32 @wc_InitSha3_384(ptr noundef nonnull %hash, ptr noundef null, i32 noundef -2) #16
   %cmp72 = icmp eq i32 %call71, 0
   br i1 %cmp72, label %if.end76, label %exit_sha3_384
 
 if.end76:                                         ; preds = %for.body64
-  %33 = load ptr, ptr %24, align 8
-  %34 = load i32, ptr @bench_size, align 4
-  %call75 = call i32 @wc_Sha3_384_Update(ptr noundef nonnull %hash, ptr noundef %33, i32 noundef %34) #16
+  %23 = load ptr, ptr %21, align 8
+  %24 = load i32, ptr @bench_size, align 4
+  %call75 = call i32 @wc_Sha3_384_Update(ptr noundef nonnull %hash, ptr noundef %23, i32 noundef %24) #16
   %cmp77 = icmp eq i32 %call75, 0
   br i1 %cmp77, label %if.end83, label %exit_sha3_384
 
@@ -5753,9 +5160,9 @@ if.end83:                                         ; preds = %if.end76
 
 for.inc90:                                        ; preds = %if.end83
   %inc91 = add nuw nsw i32 %storemerge106, 1
-  %35 = load i32, ptr @numBlocks, align 4
-  %cmp63 = icmp slt i32 %inc91, %35
-  br i1 %cmp63, label %for.body64, label %for.end92, !llvm.loop !58
+  %25 = load i32, ptr @numBlocks, align 4
+  %cmp63 = icmp slt i32 %inc91, %25
+  br i1 %cmp63, label %for.body64, label %for.end92, !llvm.loop !56
 
 for.end92:                                        ; preds = %for.inc90, %do.body61
   %storemerge.lcssa = phi i32 [ 0, %do.body61 ], [ %inc91, %for.inc90 ]
@@ -5764,21 +5171,21 @@ for.end92:                                        ; preds = %for.inc90, %do.body
   %cmp.i.i56 = icmp slt i32 %call.i.i55, 0
   br i1 %cmp.i.i56, label %if.then.i.i65, label %bench_stats_check.exit69
 
-if.then.i.i65:                                    ; preds = %for.end92, %for.end92.us
+if.then.i.i65:                                    ; preds = %for.end92
   %call1.i.i66 = tail call ptr @__errno_location() #17
-  %36 = load i32, ptr %call1.i.i66, align 4
-  %call2.i.i67 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.76, ptr noundef nonnull @.str.108, ptr noundef nonnull @.str.77, i32 noundef 12507, i32 noundef %36, ptr noundef nonnull @.str.78)
-  %37 = load ptr, ptr @stdout, align 8
-  %call3.i.i68 = call i32 @fflush(ptr noundef %37)
+  %26 = load i32, ptr %call1.i.i66, align 4
+  %call2.i.i67 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.76, ptr noundef nonnull @.str.108, ptr noundef nonnull @.str.77, i32 noundef 12507, i32 noundef %26, ptr noundef nonnull @.str.78)
+  %27 = load ptr, ptr @stdout, align 8
+  %call3.i.i68 = call i32 @fflush(ptr noundef %27)
   call void @_exit(i32 noundef 1) #18
   unreachable
 
 bench_stats_check.exit69:                         ; preds = %for.end92
   %add93 = add nuw nsw i32 %storemerge.lcssa, %count.1
-  %38 = load i64, ptr %tv.i.i54, align 8
-  %conv.i.i57 = sitofp i64 %38 to double
-  %39 = load i64, ptr %tv_nsec.i.i58, align 8
-  %conv4.i.i59 = sitofp i64 %39 to double
+  %28 = load i64, ptr %tv.i.i54, align 8
+  %conv.i.i57 = sitofp i64 %28 to double
+  %29 = load i64, ptr %tv_nsec.i.i58, align 8
+  %conv4.i.i59 = sitofp i64 %29 to double
   %div.i.i60 = fdiv double %conv4.i.i59, 1.000000e+09
   %add.i.i61 = fadd double %div.i.i60, %conv.i.i57
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %tv.i.i54)
@@ -5786,12 +5193,12 @@ bench_stats_check.exit69:                         ; preds = %for.end92
   %cmp.i63 = fcmp uge double %sub.i62, 1.000000e+00
   br i1 %cmp.i63, label %exit_sha3_384, label %do.body61, !llvm.loop !57
 
-exit_sha3_384:                                    ; preds = %do.body32, %bench_stats_check.exit, %for.body14, %bench_stats_check.exit69, %if.end83, %if.end76, %for.body64, %bench_stats_check.exit69.us, %for.body64.us.us, %if.end76.us.us, %if.end83.us.us
-  %ret.4 = phi i32 [ %call71.us.us, %for.body64.us.us ], [ %call75.us.us, %if.end76.us.us ], [ %call82.us.us, %if.end83.us.us ], [ 0, %bench_stats_check.exit69.us ], [ %call71, %for.body64 ], [ %call75, %if.end76 ], [ %call82, %if.end83 ], [ 0, %bench_stats_check.exit69 ], [ %call20, %for.body14 ], [ %call46, %bench_stats_check.exit ], [ %call46, %do.body32 ]
-  %count.2 = phi i32 [ %count.1.us, %if.end83.us.us ], [ %count.1.us, %if.end76.us.us ], [ %count.1.us, %for.body64.us.us ], [ %add93.us, %bench_stats_check.exit69.us ], [ %count.1, %for.body64 ], [ %count.1, %if.end76 ], [ %count.1, %if.end83 ], [ %add93, %bench_stats_check.exit69 ], [ %count.0, %for.body14 ], [ %add, %bench_stats_check.exit ], [ %add, %do.body32 ]
-  %start.0 = phi double [ %add.i.i42, %if.end83.us.us ], [ %add.i.i42, %if.end76.us.us ], [ %add.i.i42, %for.body64.us.us ], [ %add.i.i42, %bench_stats_check.exit69.us ], [ %add.i.i42, %for.body64 ], [ %add.i.i42, %if.end76 ], [ %add.i.i42, %if.end83 ], [ %add.i.i42, %bench_stats_check.exit69 ], [ %add.i.i, %for.body14 ], [ %add.i.i, %bench_stats_check.exit ], [ %add.i.i, %do.body32 ]
-  %40 = load i32, ptr @bench_size, align 4
-  call fastcc void @bench_stats_sym_finish(ptr noundef nonnull @.str.59, i32 noundef %count.2, i32 noundef %40, double noundef %start.0, i32 noundef %ret.4)
+exit_sha3_384:                                    ; preds = %do.body32, %bench_stats_check.exit, %for.body14, %bench_stats_check.exit69, %for.body64, %if.end76, %if.end83
+  %ret.4 = phi i32 [ %call71, %for.body64 ], [ %call75, %if.end76 ], [ %call82, %if.end83 ], [ 0, %bench_stats_check.exit69 ], [ %call20, %for.body14 ], [ %call46, %bench_stats_check.exit ], [ %call46, %do.body32 ]
+  %count.2 = phi i32 [ %count.1, %if.end83 ], [ %count.1, %if.end76 ], [ %count.1, %for.body64 ], [ %add93, %bench_stats_check.exit69 ], [ %count.0, %for.body14 ], [ %add, %bench_stats_check.exit ], [ %add, %do.body32 ]
+  %start.0 = phi double [ %add.i.i42, %if.end83 ], [ %add.i.i42, %if.end76 ], [ %add.i.i42, %for.body64 ], [ %add.i.i42, %bench_stats_check.exit69 ], [ %add.i.i, %for.body14 ], [ %add.i.i, %bench_stats_check.exit ], [ %add.i.i, %do.body32 ]
+  %30 = load i32, ptr @bench_size, align 4
+  call fastcc void @bench_stats_sym_finish(ptr noundef nonnull @.str.59, i32 noundef %count.2, i32 noundef %30, double noundef %start.0, i32 noundef %ret.4)
   br label %exit
 
 exit:                                             ; preds = %exit_sha3_384, %if.then3
@@ -5808,7 +5215,7 @@ declare i32 @wc_Sha3_384_Final(ptr noundef, ptr noundef) local_unnamed_addr #1
 declare void @wc_Sha3_384_Free(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @bench_sha3_512(i32 noundef %useDeviceID) local_unnamed_addr #0 {
+define dso_local void @bench_sha3_512(i32 %useDeviceID) local_unnamed_addr #0 {
 entry:
   %tv.i.i54 = alloca %struct.timespec, align 8
   %tv.i.i35 = alloca %struct.timespec, align 8
@@ -5821,11 +5228,7 @@ entry:
   br i1 %.b, label %if.else, label %for.body
 
 for.body:                                         ; preds = %entry
-  %tobool1.not = icmp eq i32 %useDeviceID, 0
-  %0 = tail call align 4 ptr @llvm.threadlocal.address.p0(ptr align 4 @devId)
-  %1 = load i32, ptr %0, align 4
-  %cond = select i1 %tobool1.not, i32 -2, i32 %1
-  %call = call i32 @wc_InitSha3_512(ptr noundef nonnull %hash, ptr noundef null, i32 noundef %cond) #16
+  %call = call i32 @wc_InitSha3_512(ptr noundef nonnull %hash, ptr noundef null, i32 noundef -2) #16
   %cmp2.not = icmp eq i32 %call, 0
   br i1 %cmp2.not, label %for.end, label %if.then3
 
@@ -5841,53 +5244,53 @@ for.end:                                          ; preds = %for.body
 
 if.then.i.i:                                      ; preds = %for.end
   %call1.i.i = tail call ptr @__errno_location() #17
-  %2 = load i32, ptr %call1.i.i, align 4
-  %call2.i.i = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.76, ptr noundef nonnull @.str.108, ptr noundef nonnull @.str.77, i32 noundef 12507, i32 noundef %2, ptr noundef nonnull @.str.78)
-  %3 = load ptr, ptr @stdout, align 8
-  %call3.i.i = call i32 @fflush(ptr noundef %3)
+  %0 = load i32, ptr %call1.i.i, align 4
+  %call2.i.i = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.76, ptr noundef nonnull @.str.108, ptr noundef nonnull @.str.77, i32 noundef 12507, i32 noundef %0, ptr noundef nonnull @.str.78)
+  %1 = load ptr, ptr @stdout, align 8
+  %call3.i.i = call i32 @fflush(ptr noundef %1)
   call void @_exit(i32 noundef 1) #18
   unreachable
 
 bench_stats_start.exit:                           ; preds = %for.end
-  %4 = load i64, ptr %tv.i.i, align 8
-  %conv.i.i = sitofp i64 %4 to double
+  %2 = load i64, ptr %tv.i.i, align 8
+  %conv.i.i = sitofp i64 %2 to double
   %tv_nsec.i.i = getelementptr inbounds i8, ptr %tv.i.i, i64 8
-  %5 = load i64, ptr %tv_nsec.i.i, align 8
-  %conv4.i.i = sitofp i64 %5 to double
+  %3 = load i64, ptr %tv_nsec.i.i, align 8
+  %conv4.i.i = sitofp i64 %3 to double
   %div.i.i = fdiv double %conv4.i.i, 1.000000e+09
   %add.i.i = fadd double %div.i.i, %conv.i.i
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %tv.i.i)
-  %6 = call { i32, i32 } asm sideeffect "cpuid\0A\09rdtsc", "={ax},={dx},{ax},~{ebx},~{ecx},~{dirflag},~{fpsr},~{flags}"(i32 0) #16, !srcloc !9
-  %asmresult.i.i = extractvalue { i32, i32 } %6, 0
-  %asmresult1.i.i = extractvalue { i32, i32 } %6, 1
+  %4 = call { i32, i32 } asm sideeffect "cpuid\0A\09rdtsc", "={ax},={dx},{ax},~{ebx},~{ecx},~{dirflag},~{fpsr},~{flags}"(i32 0) #16, !srcloc !8
+  %asmresult.i.i = extractvalue { i32, i32 } %4, 0
+  %asmresult1.i.i = extractvalue { i32, i32 } %4, 1
   %conv.i1.i = zext i32 %asmresult.i.i to i64
   %conv2.i.i = zext i32 %asmresult1.i.i to i64
   %shl.i.i = shl nuw i64 %conv2.i.i, 32
   %or.i.i = or disjoint i64 %shl.i.i, %conv.i1.i
-  %7 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @total_cycles)
-  store i64 %or.i.i, ptr %7, align 8
-  %8 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @bench_plain)
+  %5 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @total_cycles)
+  store i64 %or.i.i, ptr %5, align 8
+  %6 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @bench_plain)
   %tv_nsec.i.i26 = getelementptr inbounds i8, ptr %tv.i.i22, i64 8
   br label %do.body5
 
 do.body5:                                         ; preds = %bench_stats_check.exit, %bench_stats_start.exit
   %count.0 = phi i32 [ 0, %bench_stats_start.exit ], [ %add, %bench_stats_check.exit ]
-  %9 = load i32, ptr @numBlocks, align 4
-  %cmp7103 = icmp sgt i32 %9, 0
+  %7 = load i32, ptr @numBlocks, align 4
+  %cmp7103 = icmp sgt i32 %7, 0
   br i1 %cmp7103, label %for.body14, label %do.body32
 
 for.body14:                                       ; preds = %do.body5, %bench_async_handle.exit
   %times.0104 = phi i32 [ %inc.i, %bench_async_handle.exit ], [ 0, %do.body5 ]
-  %10 = load ptr, ptr %8, align 8
-  %11 = load i32, ptr @bench_size, align 4
-  %call20 = call i32 @wc_Sha3_512_Update(ptr noundef nonnull %hash, ptr noundef %10, i32 noundef %11) #16
+  %8 = load ptr, ptr %6, align 8
+  %9 = load i32, ptr @bench_size, align 4
+  %call20 = call i32 @wc_Sha3_512_Update(ptr noundef nonnull %hash, ptr noundef %8, i32 noundef %9) #16
   %cmp.i = icmp sgt i32 %call20, -1
   br i1 %cmp.i, label %bench_async_handle.exit, label %exit_sha3_512
 
 bench_async_handle.exit:                          ; preds = %for.body14
   %inc.i = add nuw nsw i32 %times.0104, 1
-  %12 = load i32, ptr @numBlocks, align 4
-  %cmp7 = icmp slt i32 %inc.i, %12
+  %10 = load i32, ptr @numBlocks, align 4
+  %cmp7 = icmp slt i32 %inc.i, %10
   br i1 %cmp7, label %for.body14, label %do.body32
 
 do.body32:                                        ; preds = %bench_async_handle.exit, %do.body5
@@ -5905,24 +5308,24 @@ do.cond57:                                        ; preds = %do.body32
 
 if.then.i.i31:                                    ; preds = %do.cond57
   %call1.i.i32 = tail call ptr @__errno_location() #17
-  %13 = load i32, ptr %call1.i.i32, align 4
-  %call2.i.i33 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.76, ptr noundef nonnull @.str.108, ptr noundef nonnull @.str.77, i32 noundef 12507, i32 noundef %13, ptr noundef nonnull @.str.78)
-  %14 = load ptr, ptr @stdout, align 8
-  %call3.i.i34 = call i32 @fflush(ptr noundef %14)
+  %11 = load i32, ptr %call1.i.i32, align 4
+  %call2.i.i33 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.76, ptr noundef nonnull @.str.108, ptr noundef nonnull @.str.77, i32 noundef 12507, i32 noundef %11, ptr noundef nonnull @.str.78)
+  %12 = load ptr, ptr @stdout, align 8
+  %call3.i.i34 = call i32 @fflush(ptr noundef %12)
   call void @_exit(i32 noundef 1) #18
   unreachable
 
 bench_stats_check.exit:                           ; preds = %do.cond57
-  %15 = load i64, ptr %tv.i.i22, align 8
-  %conv.i.i25 = sitofp i64 %15 to double
-  %16 = load i64, ptr %tv_nsec.i.i26, align 8
-  %conv4.i.i27 = sitofp i64 %16 to double
+  %13 = load i64, ptr %tv.i.i22, align 8
+  %conv.i.i25 = sitofp i64 %13 to double
+  %14 = load i64, ptr %tv_nsec.i.i26, align 8
+  %conv4.i.i27 = sitofp i64 %14 to double
   %div.i.i28 = fdiv double %conv4.i.i27, 1.000000e+09
   %add.i.i29 = fadd double %div.i.i28, %conv.i.i25
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %tv.i.i22)
   %sub.i = fsub double %add.i.i29, %add.i.i
   %cmp.i30 = fcmp uge double %sub.i, 1.000000e+00
-  br i1 %cmp.i30, label %exit_sha3_512, label %do.body5, !llvm.loop !59
+  br i1 %cmp.i30, label %exit_sha3_512, label %do.body5, !llvm.loop !58
 
 if.else:                                          ; preds = %entry
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %tv.i.i35)
@@ -5932,104 +5335,51 @@ if.else:                                          ; preds = %entry
 
 if.then.i.i49:                                    ; preds = %if.else
   %call1.i.i50 = tail call ptr @__errno_location() #17
-  %17 = load i32, ptr %call1.i.i50, align 4
-  %call2.i.i51 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.76, ptr noundef nonnull @.str.108, ptr noundef nonnull @.str.77, i32 noundef 12507, i32 noundef %17, ptr noundef nonnull @.str.78)
-  %18 = load ptr, ptr @stdout, align 8
-  %call3.i.i52 = call i32 @fflush(ptr noundef %18)
+  %15 = load i32, ptr %call1.i.i50, align 4
+  %call2.i.i51 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.76, ptr noundef nonnull @.str.108, ptr noundef nonnull @.str.77, i32 noundef 12507, i32 noundef %15, ptr noundef nonnull @.str.78)
+  %16 = load ptr, ptr @stdout, align 8
+  %call3.i.i52 = call i32 @fflush(ptr noundef %16)
   call void @_exit(i32 noundef 1) #18
   unreachable
 
 bench_stats_start.exit53:                         ; preds = %if.else
-  %19 = load i64, ptr %tv.i.i35, align 8
-  %conv.i.i38 = sitofp i64 %19 to double
+  %17 = load i64, ptr %tv.i.i35, align 8
+  %conv.i.i38 = sitofp i64 %17 to double
   %tv_nsec.i.i39 = getelementptr inbounds i8, ptr %tv.i.i35, i64 8
-  %20 = load i64, ptr %tv_nsec.i.i39, align 8
-  %conv4.i.i40 = sitofp i64 %20 to double
+  %18 = load i64, ptr %tv_nsec.i.i39, align 8
+  %conv4.i.i40 = sitofp i64 %18 to double
   %div.i.i41 = fdiv double %conv4.i.i40, 1.000000e+09
   %add.i.i42 = fadd double %div.i.i41, %conv.i.i38
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %tv.i.i35)
-  %21 = call { i32, i32 } asm sideeffect "cpuid\0A\09rdtsc", "={ax},={dx},{ax},~{ebx},~{ecx},~{dirflag},~{fpsr},~{flags}"(i32 0) #16, !srcloc !9
-  %asmresult.i.i43 = extractvalue { i32, i32 } %21, 0
-  %asmresult1.i.i44 = extractvalue { i32, i32 } %21, 1
+  %19 = call { i32, i32 } asm sideeffect "cpuid\0A\09rdtsc", "={ax},={dx},{ax},~{ebx},~{ecx},~{dirflag},~{fpsr},~{flags}"(i32 0) #16, !srcloc !8
+  %asmresult.i.i43 = extractvalue { i32, i32 } %19, 0
+  %asmresult1.i.i44 = extractvalue { i32, i32 } %19, 1
   %conv.i1.i45 = zext i32 %asmresult.i.i43 to i64
   %conv2.i.i46 = zext i32 %asmresult1.i.i44 to i64
   %shl.i.i47 = shl nuw i64 %conv2.i.i46, 32
   %or.i.i48 = or disjoint i64 %shl.i.i47, %conv.i1.i45
-  %22 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @total_cycles)
-  store i64 %or.i.i48, ptr %22, align 8
-  %tobool66.not = icmp eq i32 %useDeviceID, 0
-  %23 = call align 4 ptr @llvm.threadlocal.address.p0(ptr align 4 @devId)
-  %24 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @bench_plain)
+  %20 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @total_cycles)
+  store i64 %or.i.i48, ptr %20, align 8
+  %21 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @bench_plain)
   %tv_nsec.i.i58 = getelementptr inbounds i8, ptr %tv.i.i54, i64 8
-  br i1 %tobool66.not, label %do.body61.us, label %do.body61
+  br label %do.body61
 
-do.body61.us:                                     ; preds = %bench_stats_start.exit53, %bench_stats_check.exit69.us
-  %count.1.us = phi i32 [ %add93.us, %bench_stats_check.exit69.us ], [ 0, %bench_stats_start.exit53 ]
-  %25 = load i32, ptr @numBlocks, align 4
-  %cmp63105.us = icmp sgt i32 %25, 0
-  br i1 %cmp63105.us, label %for.body64.us.us, label %for.end92.us
-
-for.end92.us:                                     ; preds = %for.inc90.us.us, %do.body61.us
-  %storemerge.lcssa.us = phi i32 [ 0, %do.body61.us ], [ %inc91.us.us, %for.inc90.us.us ]
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %tv.i.i54)
-  %call.i.i55.us = call i32 @clock_gettime(i32 noundef 0, ptr noundef nonnull %tv.i.i54) #16
-  %cmp.i.i56.us = icmp slt i32 %call.i.i55.us, 0
-  br i1 %cmp.i.i56.us, label %if.then.i.i65, label %bench_stats_check.exit69.us
-
-bench_stats_check.exit69.us:                      ; preds = %for.end92.us
-  %add93.us = add nuw nsw i32 %storemerge.lcssa.us, %count.1.us
-  %26 = load i64, ptr %tv.i.i54, align 8
-  %conv.i.i57.us = sitofp i64 %26 to double
-  %27 = load i64, ptr %tv_nsec.i.i58, align 8
-  %conv4.i.i59.us = sitofp i64 %27 to double
-  %div.i.i60.us = fdiv double %conv4.i.i59.us, 1.000000e+09
-  %add.i.i61.us = fadd double %div.i.i60.us, %conv.i.i57.us
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %tv.i.i54)
-  %sub.i62.us = fsub double %add.i.i61.us, %add.i.i42
-  %cmp.i63.us = fcmp uge double %sub.i62.us, 1.000000e+00
-  br i1 %cmp.i63.us, label %exit_sha3_512, label %do.body61.us, !llvm.loop !60
-
-for.body64.us.us:                                 ; preds = %do.body61.us, %for.inc90.us.us
-  %storemerge106.us.us = phi i32 [ %inc91.us.us, %for.inc90.us.us ], [ 0, %do.body61.us ]
-  %call71.us.us = call i32 @wc_InitSha3_512(ptr noundef nonnull %hash, ptr noundef null, i32 noundef -2) #16
-  %cmp72.us.us = icmp eq i32 %call71.us.us, 0
-  br i1 %cmp72.us.us, label %if.end76.us.us, label %exit_sha3_512
-
-if.end76.us.us:                                   ; preds = %for.body64.us.us
-  %28 = load ptr, ptr %24, align 8
-  %29 = load i32, ptr @bench_size, align 4
-  %call75.us.us = call i32 @wc_Sha3_512_Update(ptr noundef nonnull %hash, ptr noundef %28, i32 noundef %29) #16
-  %cmp77.us.us = icmp eq i32 %call75.us.us, 0
-  br i1 %cmp77.us.us, label %if.end83.us.us, label %exit_sha3_512
-
-if.end83.us.us:                                   ; preds = %if.end76.us.us
-  %call82.us.us = call i32 @wc_Sha3_512_Final(ptr noundef nonnull %hash, ptr noundef nonnull %digest) #16
-  %cmp84.not.us.us = icmp eq i32 %call82.us.us, 0
-  br i1 %cmp84.not.us.us, label %for.inc90.us.us, label %exit_sha3_512
-
-for.inc90.us.us:                                  ; preds = %if.end83.us.us
-  %inc91.us.us = add nuw nsw i32 %storemerge106.us.us, 1
-  %30 = load i32, ptr @numBlocks, align 4
-  %cmp63.us.us = icmp slt i32 %inc91.us.us, %30
-  br i1 %cmp63.us.us, label %for.body64.us.us, label %for.end92.us, !llvm.loop !61
-
-do.body61:                                        ; preds = %bench_stats_start.exit53, %bench_stats_check.exit69
-  %count.1 = phi i32 [ %add93, %bench_stats_check.exit69 ], [ 0, %bench_stats_start.exit53 ]
-  %31 = load i32, ptr @numBlocks, align 4
-  %cmp63105 = icmp sgt i32 %31, 0
+do.body61:                                        ; preds = %bench_stats_check.exit69, %bench_stats_start.exit53
+  %count.1 = phi i32 [ 0, %bench_stats_start.exit53 ], [ %add93, %bench_stats_check.exit69 ]
+  %22 = load i32, ptr @numBlocks, align 4
+  %cmp63105 = icmp sgt i32 %22, 0
   br i1 %cmp63105, label %for.body64, label %for.end92
 
 for.body64:                                       ; preds = %do.body61, %for.inc90
   %storemerge106 = phi i32 [ %inc91, %for.inc90 ], [ 0, %do.body61 ]
-  %32 = load i32, ptr %23, align 4
-  %call71 = call i32 @wc_InitSha3_512(ptr noundef nonnull %hash, ptr noundef null, i32 noundef %32) #16
+  %call71 = call i32 @wc_InitSha3_512(ptr noundef nonnull %hash, ptr noundef null, i32 noundef -2) #16
   %cmp72 = icmp eq i32 %call71, 0
   br i1 %cmp72, label %if.end76, label %exit_sha3_512
 
 if.end76:                                         ; preds = %for.body64
-  %33 = load ptr, ptr %24, align 8
-  %34 = load i32, ptr @bench_size, align 4
-  %call75 = call i32 @wc_Sha3_512_Update(ptr noundef nonnull %hash, ptr noundef %33, i32 noundef %34) #16
+  %23 = load ptr, ptr %21, align 8
+  %24 = load i32, ptr @bench_size, align 4
+  %call75 = call i32 @wc_Sha3_512_Update(ptr noundef nonnull %hash, ptr noundef %23, i32 noundef %24) #16
   %cmp77 = icmp eq i32 %call75, 0
   br i1 %cmp77, label %if.end83, label %exit_sha3_512
 
@@ -6040,9 +5390,9 @@ if.end83:                                         ; preds = %if.end76
 
 for.inc90:                                        ; preds = %if.end83
   %inc91 = add nuw nsw i32 %storemerge106, 1
-  %35 = load i32, ptr @numBlocks, align 4
-  %cmp63 = icmp slt i32 %inc91, %35
-  br i1 %cmp63, label %for.body64, label %for.end92, !llvm.loop !61
+  %25 = load i32, ptr @numBlocks, align 4
+  %cmp63 = icmp slt i32 %inc91, %25
+  br i1 %cmp63, label %for.body64, label %for.end92, !llvm.loop !59
 
 for.end92:                                        ; preds = %for.inc90, %do.body61
   %storemerge.lcssa = phi i32 [ 0, %do.body61 ], [ %inc91, %for.inc90 ]
@@ -6051,21 +5401,21 @@ for.end92:                                        ; preds = %for.inc90, %do.body
   %cmp.i.i56 = icmp slt i32 %call.i.i55, 0
   br i1 %cmp.i.i56, label %if.then.i.i65, label %bench_stats_check.exit69
 
-if.then.i.i65:                                    ; preds = %for.end92, %for.end92.us
+if.then.i.i65:                                    ; preds = %for.end92
   %call1.i.i66 = tail call ptr @__errno_location() #17
-  %36 = load i32, ptr %call1.i.i66, align 4
-  %call2.i.i67 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.76, ptr noundef nonnull @.str.108, ptr noundef nonnull @.str.77, i32 noundef 12507, i32 noundef %36, ptr noundef nonnull @.str.78)
-  %37 = load ptr, ptr @stdout, align 8
-  %call3.i.i68 = call i32 @fflush(ptr noundef %37)
+  %26 = load i32, ptr %call1.i.i66, align 4
+  %call2.i.i67 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.76, ptr noundef nonnull @.str.108, ptr noundef nonnull @.str.77, i32 noundef 12507, i32 noundef %26, ptr noundef nonnull @.str.78)
+  %27 = load ptr, ptr @stdout, align 8
+  %call3.i.i68 = call i32 @fflush(ptr noundef %27)
   call void @_exit(i32 noundef 1) #18
   unreachable
 
 bench_stats_check.exit69:                         ; preds = %for.end92
   %add93 = add nuw nsw i32 %storemerge.lcssa, %count.1
-  %38 = load i64, ptr %tv.i.i54, align 8
-  %conv.i.i57 = sitofp i64 %38 to double
-  %39 = load i64, ptr %tv_nsec.i.i58, align 8
-  %conv4.i.i59 = sitofp i64 %39 to double
+  %28 = load i64, ptr %tv.i.i54, align 8
+  %conv.i.i57 = sitofp i64 %28 to double
+  %29 = load i64, ptr %tv_nsec.i.i58, align 8
+  %conv4.i.i59 = sitofp i64 %29 to double
   %div.i.i60 = fdiv double %conv4.i.i59, 1.000000e+09
   %add.i.i61 = fadd double %div.i.i60, %conv.i.i57
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %tv.i.i54)
@@ -6073,12 +5423,12 @@ bench_stats_check.exit69:                         ; preds = %for.end92
   %cmp.i63 = fcmp uge double %sub.i62, 1.000000e+00
   br i1 %cmp.i63, label %exit_sha3_512, label %do.body61, !llvm.loop !60
 
-exit_sha3_512:                                    ; preds = %do.body32, %bench_stats_check.exit, %for.body14, %bench_stats_check.exit69, %if.end83, %if.end76, %for.body64, %bench_stats_check.exit69.us, %for.body64.us.us, %if.end76.us.us, %if.end83.us.us
-  %ret.4 = phi i32 [ %call71.us.us, %for.body64.us.us ], [ %call75.us.us, %if.end76.us.us ], [ %call82.us.us, %if.end83.us.us ], [ 0, %bench_stats_check.exit69.us ], [ %call71, %for.body64 ], [ %call75, %if.end76 ], [ %call82, %if.end83 ], [ 0, %bench_stats_check.exit69 ], [ %call20, %for.body14 ], [ %call46, %bench_stats_check.exit ], [ %call46, %do.body32 ]
-  %count.2 = phi i32 [ %count.1.us, %if.end83.us.us ], [ %count.1.us, %if.end76.us.us ], [ %count.1.us, %for.body64.us.us ], [ %add93.us, %bench_stats_check.exit69.us ], [ %count.1, %for.body64 ], [ %count.1, %if.end76 ], [ %count.1, %if.end83 ], [ %add93, %bench_stats_check.exit69 ], [ %count.0, %for.body14 ], [ %add, %bench_stats_check.exit ], [ %add, %do.body32 ]
-  %start.0 = phi double [ %add.i.i42, %if.end83.us.us ], [ %add.i.i42, %if.end76.us.us ], [ %add.i.i42, %for.body64.us.us ], [ %add.i.i42, %bench_stats_check.exit69.us ], [ %add.i.i42, %for.body64 ], [ %add.i.i42, %if.end76 ], [ %add.i.i42, %if.end83 ], [ %add.i.i42, %bench_stats_check.exit69 ], [ %add.i.i, %for.body14 ], [ %add.i.i, %bench_stats_check.exit ], [ %add.i.i, %do.body32 ]
-  %40 = load i32, ptr @bench_size, align 4
-  call fastcc void @bench_stats_sym_finish(ptr noundef nonnull @.str.61, i32 noundef %count.2, i32 noundef %40, double noundef %start.0, i32 noundef %ret.4)
+exit_sha3_512:                                    ; preds = %do.body32, %bench_stats_check.exit, %for.body14, %bench_stats_check.exit69, %for.body64, %if.end76, %if.end83
+  %ret.4 = phi i32 [ %call71, %for.body64 ], [ %call75, %if.end76 ], [ %call82, %if.end83 ], [ 0, %bench_stats_check.exit69 ], [ %call20, %for.body14 ], [ %call46, %bench_stats_check.exit ], [ %call46, %do.body32 ]
+  %count.2 = phi i32 [ %count.1, %if.end83 ], [ %count.1, %if.end76 ], [ %count.1, %for.body64 ], [ %add93, %bench_stats_check.exit69 ], [ %count.0, %for.body14 ], [ %add, %bench_stats_check.exit ], [ %add, %do.body32 ]
+  %start.0 = phi double [ %add.i.i42, %if.end83 ], [ %add.i.i42, %if.end76 ], [ %add.i.i42, %for.body64 ], [ %add.i.i42, %bench_stats_check.exit69 ], [ %add.i.i, %for.body14 ], [ %add.i.i, %bench_stats_check.exit ], [ %add.i.i, %do.body32 ]
+  %30 = load i32, ptr @bench_size, align 4
+  call fastcc void @bench_stats_sym_finish(ptr noundef nonnull @.str.61, i32 noundef %count.2, i32 noundef %30, double noundef %start.0, i32 noundef %ret.4)
   br label %exit
 
 exit:                                             ; preds = %exit_sha3_512, %if.then3
@@ -6099,7 +5449,7 @@ define dso_local void @bench_hmac_md5(i32 noundef %useDeviceID) local_unnamed_ad
 entry:
   %key = alloca [16 x i8], align 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %key, i8 11, i64 16, i1 false)
-  call fastcc void @bench_hmac(i32 noundef %useDeviceID, i32 noundef 3, ptr noundef nonnull %key, i32 noundef 16, ptr noundef nonnull @.str.62)
+  call fastcc void @bench_hmac(i32 noundef 3, ptr noundef nonnull %key, i32 noundef 16, ptr noundef nonnull @.str.62)
   ret void
 }
 
@@ -6107,18 +5457,14 @@ entry:
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #5
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @bench_hmac(i32 noundef %useDeviceID, i32 noundef %type, ptr noundef %key, i32 noundef %keySz, ptr noundef %label) unnamed_addr #0 {
+define internal fastcc void @bench_hmac(i32 noundef %type, ptr noundef %key, i32 noundef %keySz, ptr noundef %label) unnamed_addr #0 {
 entry:
   %tv.i.i23 = alloca %struct.timespec, align 8
   %tv.i.i = alloca %struct.timespec, align 8
   %hmac = alloca [1 x %struct.Hmac], align 16
   %digest = alloca [1 x [64 x i8]], align 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(784) %hmac, i8 0, i64 784, i1 false)
-  %tobool.not = icmp eq i32 %useDeviceID, 0
-  %0 = tail call align 4 ptr @llvm.threadlocal.address.p0(ptr align 4 @devId)
-  %1 = load i32, ptr %0, align 4
-  %cond = select i1 %tobool.not, i32 -2, i32 %1
-  %call = call i32 @wc_HmacInit(ptr noundef nonnull %hmac, ptr noundef null, i32 noundef %cond) #16
+  %call = call i32 @wc_HmacInit(ptr noundef nonnull %hmac, ptr noundef null, i32 noundef -2) #16
   %cmp1.not = icmp eq i32 %call, 0
   br i1 %cmp1.not, label %if.end, label %if.then
 
@@ -6143,53 +5489,53 @@ for.end:                                          ; preds = %if.end
 
 if.then.i.i:                                      ; preds = %for.end
   %call1.i.i = tail call ptr @__errno_location() #17
-  %2 = load i32, ptr %call1.i.i, align 4
-  %call2.i.i = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.76, ptr noundef nonnull @.str.108, ptr noundef nonnull @.str.77, i32 noundef 12507, i32 noundef %2, ptr noundef nonnull @.str.78)
-  %3 = load ptr, ptr @stdout, align 8
-  %call3.i.i = call i32 @fflush(ptr noundef %3)
+  %0 = load i32, ptr %call1.i.i, align 4
+  %call2.i.i = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.76, ptr noundef nonnull @.str.108, ptr noundef nonnull @.str.77, i32 noundef 12507, i32 noundef %0, ptr noundef nonnull @.str.78)
+  %1 = load ptr, ptr @stdout, align 8
+  %call3.i.i = call i32 @fflush(ptr noundef %1)
   call void @_exit(i32 noundef 1) #18
   unreachable
 
 bench_stats_start.exit:                           ; preds = %for.end
-  %4 = load i64, ptr %tv.i.i, align 8
-  %conv.i.i = sitofp i64 %4 to double
+  %2 = load i64, ptr %tv.i.i, align 8
+  %conv.i.i = sitofp i64 %2 to double
   %tv_nsec.i.i = getelementptr inbounds i8, ptr %tv.i.i, i64 8
-  %5 = load i64, ptr %tv_nsec.i.i, align 8
-  %conv4.i.i = sitofp i64 %5 to double
+  %3 = load i64, ptr %tv_nsec.i.i, align 8
+  %conv4.i.i = sitofp i64 %3 to double
   %div.i.i = fdiv double %conv4.i.i, 1.000000e+09
   %add.i.i = fadd double %div.i.i, %conv.i.i
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %tv.i.i)
-  %6 = call { i32, i32 } asm sideeffect "cpuid\0A\09rdtsc", "={ax},={dx},{ax},~{ebx},~{ecx},~{dirflag},~{fpsr},~{flags}"(i32 0) #16, !srcloc !9
-  %asmresult.i.i = extractvalue { i32, i32 } %6, 0
-  %asmresult1.i.i = extractvalue { i32, i32 } %6, 1
+  %4 = call { i32, i32 } asm sideeffect "cpuid\0A\09rdtsc", "={ax},={dx},{ax},~{ebx},~{ecx},~{dirflag},~{fpsr},~{flags}"(i32 0) #16, !srcloc !8
+  %asmresult.i.i = extractvalue { i32, i32 } %4, 0
+  %asmresult1.i.i = extractvalue { i32, i32 } %4, 1
   %conv.i1.i = zext i32 %asmresult.i.i to i64
   %conv2.i.i = zext i32 %asmresult1.i.i to i64
   %shl.i.i = shl nuw i64 %conv2.i.i, 32
   %or.i.i = or disjoint i64 %shl.i.i, %conv.i1.i
-  %7 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @total_cycles)
-  store i64 %or.i.i, ptr %7, align 8
-  %8 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @bench_plain)
+  %5 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @total_cycles)
+  store i64 %or.i.i, ptr %5, align 8
+  %6 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @bench_plain)
   %tv_nsec.i.i27 = getelementptr inbounds i8, ptr %tv.i.i23, i64 8
   br label %do.body
 
 do.body:                                          ; preds = %bench_stats_check.exit, %bench_stats_start.exit
   %count.0 = phi i32 [ 0, %bench_stats_start.exit ], [ %add, %bench_stats_check.exit ]
-  %9 = load i32, ptr @numBlocks, align 4
-  %cmp1155 = icmp sgt i32 %9, 0
+  %7 = load i32, ptr @numBlocks, align 4
+  %cmp1155 = icmp sgt i32 %7, 0
   br i1 %cmp1155, label %for.body17, label %do.body33
 
 for.body17:                                       ; preds = %do.body, %bench_async_handle.exit
   %times.056 = phi i32 [ %inc.i, %bench_async_handle.exit ], [ 0, %do.body ]
-  %10 = load ptr, ptr %8, align 8
-  %11 = load i32, ptr @bench_size, align 4
-  %call23 = call i32 @wc_HmacUpdate(ptr noundef nonnull %hmac, ptr noundef %10, i32 noundef %11) #16
+  %8 = load ptr, ptr %6, align 8
+  %9 = load i32, ptr @bench_size, align 4
+  %call23 = call i32 @wc_HmacUpdate(ptr noundef nonnull %hmac, ptr noundef %8, i32 noundef %9) #16
   %cmp.i = icmp sgt i32 %call23, -1
   br i1 %cmp.i, label %bench_async_handle.exit, label %exit_hmac
 
 bench_async_handle.exit:                          ; preds = %for.body17
   %inc.i = add nuw nsw i32 %times.056, 1
-  %12 = load i32, ptr @numBlocks, align 4
-  %cmp11 = icmp slt i32 %inc.i, %12
+  %10 = load i32, ptr @numBlocks, align 4
+  %cmp11 = icmp slt i32 %inc.i, %10
   br i1 %cmp11, label %for.body17, label %do.body33
 
 do.body33:                                        ; preds = %bench_async_handle.exit, %do.body
@@ -6207,30 +5553,30 @@ do.cond60:                                        ; preds = %do.body33
 
 if.then.i.i32:                                    ; preds = %do.cond60
   %call1.i.i33 = tail call ptr @__errno_location() #17
-  %13 = load i32, ptr %call1.i.i33, align 4
-  %call2.i.i34 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.76, ptr noundef nonnull @.str.108, ptr noundef nonnull @.str.77, i32 noundef 12507, i32 noundef %13, ptr noundef nonnull @.str.78)
-  %14 = load ptr, ptr @stdout, align 8
-  %call3.i.i35 = call i32 @fflush(ptr noundef %14)
+  %11 = load i32, ptr %call1.i.i33, align 4
+  %call2.i.i34 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.76, ptr noundef nonnull @.str.108, ptr noundef nonnull @.str.77, i32 noundef 12507, i32 noundef %11, ptr noundef nonnull @.str.78)
+  %12 = load ptr, ptr @stdout, align 8
+  %call3.i.i35 = call i32 @fflush(ptr noundef %12)
   call void @_exit(i32 noundef 1) #18
   unreachable
 
 bench_stats_check.exit:                           ; preds = %do.cond60
-  %15 = load i64, ptr %tv.i.i23, align 8
-  %conv.i.i26 = sitofp i64 %15 to double
-  %16 = load i64, ptr %tv_nsec.i.i27, align 8
-  %conv4.i.i28 = sitofp i64 %16 to double
+  %13 = load i64, ptr %tv.i.i23, align 8
+  %conv.i.i26 = sitofp i64 %13 to double
+  %14 = load i64, ptr %tv_nsec.i.i27, align 8
+  %conv4.i.i28 = sitofp i64 %14 to double
   %div.i.i29 = fdiv double %conv4.i.i28, 1.000000e+09
   %add.i.i30 = fadd double %div.i.i29, %conv.i.i26
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %tv.i.i23)
   %sub.i = fsub double %add.i.i30, %add.i.i
   %cmp.i31 = fcmp uge double %sub.i, 1.000000e+00
-  br i1 %cmp.i31, label %exit_hmac, label %do.body, !llvm.loop !62
+  br i1 %cmp.i31, label %exit_hmac, label %do.body, !llvm.loop !61
 
 exit_hmac:                                        ; preds = %do.body33, %bench_stats_check.exit, %for.body17
   %count.1 = phi i32 [ %count.0, %for.body17 ], [ %add, %bench_stats_check.exit ], [ %add, %do.body33 ]
   %ret.0 = phi i32 [ %call23, %for.body17 ], [ %call47, %bench_stats_check.exit ], [ %call47, %do.body33 ]
-  %17 = load i32, ptr @bench_size, align 4
-  call fastcc void @bench_stats_sym_finish(ptr noundef %label, i32 noundef %count.1, i32 noundef %17, double noundef %add.i.i, i32 noundef %ret.0)
+  %15 = load i32, ptr @bench_size, align 4
+  call fastcc void @bench_stats_sym_finish(ptr noundef %label, i32 noundef %count.1, i32 noundef %15, double noundef %add.i.i, i32 noundef %ret.0)
   br label %exit
 
 exit:                                             ; preds = %exit_hmac, %if.then7, %if.then
@@ -6243,7 +5589,7 @@ define dso_local void @bench_hmac_sha(i32 noundef %useDeviceID) local_unnamed_ad
 entry:
   %key = alloca [20 x i8], align 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(20) %key, i8 11, i64 20, i1 false)
-  call fastcc void @bench_hmac(i32 noundef %useDeviceID, i32 noundef 4, ptr noundef nonnull %key, i32 noundef 20, ptr noundef nonnull @.str.63)
+  call fastcc void @bench_hmac(i32 noundef 4, ptr noundef nonnull %key, i32 noundef 20, ptr noundef nonnull @.str.63)
   ret void
 }
 
@@ -6252,7 +5598,7 @@ define dso_local void @bench_hmac_sha224(i32 noundef %useDeviceID) local_unnamed
 entry:
   %key = alloca [28 x i8], align 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(28) %key, i8 11, i64 28, i1 false)
-  call fastcc void @bench_hmac(i32 noundef %useDeviceID, i32 noundef 5, ptr noundef nonnull %key, i32 noundef 28, ptr noundef nonnull @.str.64)
+  call fastcc void @bench_hmac(i32 noundef 5, ptr noundef nonnull %key, i32 noundef 28, ptr noundef nonnull @.str.64)
   ret void
 }
 
@@ -6261,7 +5607,7 @@ define dso_local void @bench_hmac_sha256(i32 noundef %useDeviceID) local_unnamed
 entry:
   %key = alloca [32 x i8], align 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %key, i8 11, i64 32, i1 false)
-  call fastcc void @bench_hmac(i32 noundef %useDeviceID, i32 noundef 6, ptr noundef nonnull %key, i32 noundef 32, ptr noundef nonnull @.str.65)
+  call fastcc void @bench_hmac(i32 noundef 6, ptr noundef nonnull %key, i32 noundef 32, ptr noundef nonnull @.str.65)
   ret void
 }
 
@@ -6270,7 +5616,7 @@ define dso_local void @bench_hmac_sha384(i32 noundef %useDeviceID) local_unnamed
 entry:
   %key = alloca [48 x i8], align 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(48) %key, i8 11, i64 48, i1 false)
-  call fastcc void @bench_hmac(i32 noundef %useDeviceID, i32 noundef 7, ptr noundef nonnull %key, i32 noundef 48, ptr noundef nonnull @.str.66)
+  call fastcc void @bench_hmac(i32 noundef 7, ptr noundef nonnull %key, i32 noundef 48, ptr noundef nonnull @.str.66)
   ret void
 }
 
@@ -6279,7 +5625,7 @@ define dso_local void @bench_hmac_sha512(i32 noundef %useDeviceID) local_unnamed
 entry:
   %key = alloca [64 x i8], align 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(64) %key, i8 11, i64 64, i1 false)
-  call fastcc void @bench_hmac(i32 noundef %useDeviceID, i32 noundef 8, ptr noundef nonnull %key, i32 noundef 64, ptr noundef nonnull @.str.67)
+  call fastcc void @bench_hmac(i32 noundef 8, ptr noundef nonnull %key, i32 noundef 64, ptr noundef nonnull @.str.67)
   ret void
 }
 
@@ -6314,7 +5660,7 @@ bench_stats_start.exit:                           ; preds = %entry
   %div.i.i = fdiv double %conv4.i.i, 1.000000e+09
   %add.i.i = fadd double %div.i.i, %conv.i.i
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %tv.i.i)
-  %4 = call { i32, i32 } asm sideeffect "cpuid\0A\09rdtsc", "={ax},={dx},{ax},~{ebx},~{ecx},~{dirflag},~{fpsr},~{flags}"(i32 0) #16, !srcloc !9
+  %4 = call { i32, i32 } asm sideeffect "cpuid\0A\09rdtsc", "={ax},={dx},{ax},~{ebx},~{ecx},~{dirflag},~{fpsr},~{flags}"(i32 0) #16, !srcloc !8
   %asmresult.i.i = extractvalue { i32, i32 } %4, 0
   %asmresult1.i.i = extractvalue { i32, i32 } %4, 1
   %conv.i1.i = zext i32 %asmresult.i.i to i64
@@ -6354,7 +5700,7 @@ bench_stats_check.exit:                           ; preds = %do.body
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %tv.i.i2)
   %sub.i = fsub double %add.i.i9, %add.i.i
   %cmp.i = fcmp uge double %sub.i, 1.000000e+00
-  br i1 %cmp.i, label %do.end5, label %do.body, !llvm.loop !63
+  br i1 %cmp.i, label %do.end5, label %do.body, !llvm.loop !62
 
 do.end5:                                          ; preds = %bench_stats_check.exit
   call fastcc void @bench_stats_sym_finish(ptr noundef nonnull @.str.69, i32 noundef %inc, i32 noundef 32, double noundef %add.i.i, i32 noundef %call2)
@@ -6367,7 +5713,7 @@ declare i32 @wc_PBKDF2(ptr noundef, ptr noundef, i32 noundef, ptr noundef, i32 n
 declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #6
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @bench_rsa(i32 noundef %useDeviceID) local_unnamed_addr #0 {
+define dso_local void @bench_rsa(i32 %useDeviceID) local_unnamed_addr #0 {
 entry:
   %tv.i.i198.i = alloca %struct.timespec, align 8
   %tv.i.i174.i = alloca %struct.timespec, align 8
@@ -6381,17 +5727,13 @@ entry:
   %rsaKey = alloca [1 x %struct.RsaKey], align 16
   %idx = alloca i32, align 4
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(8368) %rsaKey, i8 0, i64 8368, i1 false)
-  %tobool.not = icmp eq i32 %useDeviceID, 0
-  %0 = tail call align 4 ptr @llvm.threadlocal.address.p0(ptr align 4 @devId)
-  %1 = load i32, ptr %0, align 4
-  %cond = select i1 %tobool.not, i32 -2, i32 %1
-  %call = call i32 @wc_InitRsaKey_ex(ptr noundef nonnull %rsaKey, ptr noundef null, i32 noundef %cond) #16
+  %call = call i32 @wc_InitRsaKey_ex(ptr noundef nonnull %rsaKey, ptr noundef null, i32 noundef -2) #16
   %cmp1 = icmp slt i32 %call, 0
   br i1 %cmp1, label %exit_bench_rsa, label %if.end
 
 if.end:                                           ; preds = %entry
-  %2 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @gRng)
-  %call4 = call i32 @wc_RsaSetRNG(ptr noundef nonnull %rsaKey, ptr noundef nonnull %2) #16
+  %0 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @gRng)
+  %call4 = call i32 @wc_RsaSetRNG(ptr noundef nonnull %rsaKey, ptr noundef nonnull %0) #16
   %cmp5.not = icmp eq i32 %call4, 0
   br i1 %cmp5.not, label %if.end7, label %exit_bench_rsa
 
@@ -6407,8 +5749,8 @@ if.then13:                                        ; preds = %if.end7
 
 if.then18:                                        ; preds = %if.end7
   call void @llvm.lifetime.start.p0(i64 25, ptr nonnull %message.i)
-  %3 = load i32, ptr @lng_index, align 4
-  %idxprom.i = sext i32 %3 to i64
+  %1 = load i32, ptr @lng_index, align 4
+  %idxprom.i = sext i32 %1 to i64
   %arrayidx.i = getelementptr inbounds [2 x [15 x ptr]], ptr @bench_desc_words, i64 0, i64 %idxprom.i
   %call.i = call ptr @wolfSSL_Malloc(i64 noundef 2048) #16
   %call34.i = call ptr @wolfSSL_Malloc(i64 noundef 2048) #16
@@ -6432,31 +5774,31 @@ if.then83.i:                                      ; preds = %if.end80.i
 
 if.then.i.i.i:                                    ; preds = %if.then83.i
   %call1.i.i.i = tail call ptr @__errno_location() #17
-  %4 = load i32, ptr %call1.i.i.i, align 4
-  %call2.i.i.i = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.76, ptr noundef nonnull @.str.108, ptr noundef nonnull @.str.77, i32 noundef 12507, i32 noundef %4, ptr noundef nonnull @.str.78)
-  %5 = load ptr, ptr @stdout, align 8
-  %call3.i.i.i = call i32 @fflush(ptr noundef %5)
+  %2 = load i32, ptr %call1.i.i.i, align 4
+  %call2.i.i.i = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.76, ptr noundef nonnull @.str.108, ptr noundef nonnull @.str.77, i32 noundef 12507, i32 noundef %2, ptr noundef nonnull @.str.78)
+  %3 = load ptr, ptr @stdout, align 8
+  %call3.i.i.i = call i32 @fflush(ptr noundef %3)
   call void @_exit(i32 noundef 1) #18
   unreachable
 
 bench_stats_start.exit.i:                         ; preds = %if.then83.i
-  %6 = load i64, ptr %tv.i.i.i, align 8
-  %conv.i.i.i = sitofp i64 %6 to double
+  %4 = load i64, ptr %tv.i.i.i, align 8
+  %conv.i.i.i = sitofp i64 %4 to double
   %tv_nsec.i.i.i = getelementptr inbounds i8, ptr %tv.i.i.i, i64 8
-  %7 = load i64, ptr %tv_nsec.i.i.i, align 8
-  %conv4.i.i.i = sitofp i64 %7 to double
+  %5 = load i64, ptr %tv_nsec.i.i.i, align 8
+  %conv4.i.i.i = sitofp i64 %5 to double
   %div.i.i.i = fdiv double %conv4.i.i.i, 1.000000e+09
   %add.i.i.i = fadd double %div.i.i.i, %conv.i.i.i
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %tv.i.i.i)
-  %8 = call { i32, i32 } asm sideeffect "cpuid\0A\09rdtsc", "={ax},={dx},{ax},~{ebx},~{ecx},~{dirflag},~{fpsr},~{flags}"(i32 0) #16, !srcloc !9
-  %asmresult.i.i.i = extractvalue { i32, i32 } %8, 0
-  %asmresult1.i.i.i = extractvalue { i32, i32 } %8, 1
+  %6 = call { i32, i32 } asm sideeffect "cpuid\0A\09rdtsc", "={ax},={dx},{ax},~{ebx},~{ecx},~{dirflag},~{fpsr},~{flags}"(i32 0) #16, !srcloc !8
+  %asmresult.i.i.i = extractvalue { i32, i32 } %6, 0
+  %asmresult1.i.i.i = extractvalue { i32, i32 } %6, 1
   %conv.i1.i.i = zext i32 %asmresult.i.i.i to i64
   %conv2.i.i.i = zext i32 %asmresult1.i.i.i to i64
   %shl.i.i.i = shl nuw i64 %conv2.i.i.i, 32
   %or.i.i.i = or disjoint i64 %shl.i.i.i, %conv.i1.i.i
-  %9 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @total_cycles)
-  store i64 %or.i.i.i, ptr %9, align 8
+  %7 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @total_cycles)
+  store i64 %or.i.i.i, ptr %7, align 8
   %tv_nsec.i.i85.i = getelementptr inbounds i8, ptr %tv.i.i81.i, i64 8
   br label %do.body.i
 
@@ -6466,13 +5808,13 @@ do.body.i:                                        ; preds = %bench_stats_check.e
 
 for.body94.i:                                     ; preds = %bench_async_handle.exit.i, %do.body.i
   %times.0299.i = phi i32 [ 0, %do.body.i ], [ %inc.i.i, %bench_async_handle.exit.i ]
-  %call103.i = call i32 @wc_RsaPublicEncrypt(ptr noundef nonnull %message.i, i32 noundef 25, ptr noundef nonnull %call.i, i32 noundef 256, ptr noundef nonnull %rsaKey, ptr noundef nonnull %2) #16
+  %call103.i = call i32 @wc_RsaPublicEncrypt(ptr noundef nonnull %message.i, i32 noundef 25, ptr noundef nonnull %call.i, i32 noundef 256, ptr noundef nonnull %rsaKey, ptr noundef nonnull %0) #16
   %cmp.i.i = icmp sgt i32 %call103.i, -1
   br i1 %cmp.i.i, label %bench_async_handle.exit.i, label %exit_rsa_verify.thread.i
 
 exit_rsa_verify.thread.i:                         ; preds = %for.body94.i
-  %10 = load ptr, ptr %arrayidx.i, align 8
-  call fastcc void @bench_stats_asym_finish(ptr noundef nonnull @.str.130, i32 noundef 2048, ptr noundef %10, i32 noundef %count.0.i, double noundef %add.i.i.i, i32 noundef %call103.i)
+  %8 = load ptr, ptr %arrayidx.i, align 8
+  call fastcc void @bench_stats_asym_finish(ptr noundef nonnull @.str.130, i32 noundef 2048, ptr noundef %8, i32 noundef %count.0.i, double noundef %add.i.i.i, i32 noundef %call103.i)
   br label %exit.i
 
 bench_async_handle.exit.i:                        ; preds = %for.body94.i
@@ -6488,29 +5830,29 @@ for.end114.i:                                     ; preds = %bench_async_handle.
 
 if.then.i.i90.i:                                  ; preds = %for.end114.i
   %call1.i.i91.i = tail call ptr @__errno_location() #17
-  %11 = load i32, ptr %call1.i.i91.i, align 4
-  %call2.i.i92.i = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.76, ptr noundef nonnull @.str.108, ptr noundef nonnull @.str.77, i32 noundef 12507, i32 noundef %11, ptr noundef nonnull @.str.78)
-  %12 = load ptr, ptr @stdout, align 8
-  %call3.i.i93.i = call i32 @fflush(ptr noundef %12)
+  %9 = load i32, ptr %call1.i.i91.i, align 4
+  %call2.i.i92.i = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.76, ptr noundef nonnull @.str.108, ptr noundef nonnull @.str.77, i32 noundef 12507, i32 noundef %9, ptr noundef nonnull @.str.78)
+  %10 = load ptr, ptr @stdout, align 8
+  %call3.i.i93.i = call i32 @fflush(ptr noundef %10)
   call void @_exit(i32 noundef 1) #18
   unreachable
 
 bench_stats_check.exit.i:                         ; preds = %for.end114.i
   %add115.i = add nuw nsw i32 %count.0.i, 100
-  %13 = load i64, ptr %tv.i.i81.i, align 8
-  %conv.i.i84.i = sitofp i64 %13 to double
-  %14 = load i64, ptr %tv_nsec.i.i85.i, align 8
-  %conv4.i.i86.i = sitofp i64 %14 to double
+  %11 = load i64, ptr %tv.i.i81.i, align 8
+  %conv.i.i84.i = sitofp i64 %11 to double
+  %12 = load i64, ptr %tv_nsec.i.i85.i, align 8
+  %conv4.i.i86.i = sitofp i64 %12 to double
   %div.i.i87.i = fdiv double %conv4.i.i86.i, 1.000000e+09
   %add.i.i88.i = fadd double %div.i.i87.i, %conv.i.i84.i
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %tv.i.i81.i)
   %sub.i.i = fsub double %add.i.i88.i, %add.i.i.i
   %cmp.i89.i = fcmp uge double %sub.i.i, 1.000000e+00
-  br i1 %cmp.i89.i, label %do.end126.i, label %do.body.i, !llvm.loop !64
+  br i1 %cmp.i89.i, label %do.end126.i, label %do.body.i, !llvm.loop !63
 
 do.end126.i:                                      ; preds = %bench_stats_check.exit.i
-  %15 = load ptr, ptr %arrayidx.i, align 8
-  call fastcc void @bench_stats_asym_finish(ptr noundef nonnull @.str.130, i32 noundef 2048, ptr noundef %15, i32 noundef %add115.i, double noundef %add.i.i.i, i32 noundef %call103.i)
+  %13 = load ptr, ptr %arrayidx.i, align 8
+  call fastcc void @bench_stats_asym_finish(ptr noundef nonnull @.str.130, i32 noundef 2048, ptr noundef %13, i32 noundef %add115.i, double noundef %add.i.i.i, i32 noundef %call103.i)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %tv.i.i94.i)
   %call.i.i95.i = call i32 @clock_gettime(i32 noundef 0, ptr noundef nonnull %tv.i.i94.i) #16
   %cmp.i.i96.i = icmp slt i32 %call.i.i95.i, 0
@@ -6518,30 +5860,30 @@ do.end126.i:                                      ; preds = %bench_stats_check.e
 
 if.then.i.i108.i:                                 ; preds = %do.end126.i
   %call1.i.i109.i = tail call ptr @__errno_location() #17
-  %16 = load i32, ptr %call1.i.i109.i, align 4
-  %call2.i.i110.i = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.76, ptr noundef nonnull @.str.108, ptr noundef nonnull @.str.77, i32 noundef 12507, i32 noundef %16, ptr noundef nonnull @.str.78)
-  %17 = load ptr, ptr @stdout, align 8
-  %call3.i.i111.i = call i32 @fflush(ptr noundef %17)
+  %14 = load i32, ptr %call1.i.i109.i, align 4
+  %call2.i.i110.i = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.76, ptr noundef nonnull @.str.108, ptr noundef nonnull @.str.77, i32 noundef 12507, i32 noundef %14, ptr noundef nonnull @.str.78)
+  %15 = load ptr, ptr @stdout, align 8
+  %call3.i.i111.i = call i32 @fflush(ptr noundef %15)
   call void @_exit(i32 noundef 1) #18
   unreachable
 
 bench_stats_start.exit112.i:                      ; preds = %do.end126.i
-  %18 = load i64, ptr %tv.i.i94.i, align 8
-  %conv.i.i97.i = sitofp i64 %18 to double
+  %16 = load i64, ptr %tv.i.i94.i, align 8
+  %conv.i.i97.i = sitofp i64 %16 to double
   %tv_nsec.i.i98.i = getelementptr inbounds i8, ptr %tv.i.i94.i, i64 8
-  %19 = load i64, ptr %tv_nsec.i.i98.i, align 8
-  %conv4.i.i99.i = sitofp i64 %19 to double
+  %17 = load i64, ptr %tv_nsec.i.i98.i, align 8
+  %conv4.i.i99.i = sitofp i64 %17 to double
   %div.i.i100.i = fdiv double %conv4.i.i99.i, 1.000000e+09
   %add.i.i101.i = fadd double %div.i.i100.i, %conv.i.i97.i
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %tv.i.i94.i)
-  %20 = call { i32, i32 } asm sideeffect "cpuid\0A\09rdtsc", "={ax},={dx},{ax},~{ebx},~{ecx},~{dirflag},~{fpsr},~{flags}"(i32 0) #16, !srcloc !9
-  %asmresult.i.i102.i = extractvalue { i32, i32 } %20, 0
-  %asmresult1.i.i103.i = extractvalue { i32, i32 } %20, 1
+  %18 = call { i32, i32 } asm sideeffect "cpuid\0A\09rdtsc", "={ax},={dx},{ax},~{ebx},~{ecx},~{dirflag},~{fpsr},~{flags}"(i32 0) #16, !srcloc !8
+  %asmresult.i.i102.i = extractvalue { i32, i32 } %18, 0
+  %asmresult1.i.i103.i = extractvalue { i32, i32 } %18, 1
   %conv.i1.i104.i = zext i32 %asmresult.i.i102.i to i64
   %conv2.i.i105.i = zext i32 %asmresult1.i.i103.i to i64
   %shl.i.i106.i = shl nuw i64 %conv2.i.i105.i, 32
   %or.i.i107.i = or disjoint i64 %shl.i.i106.i, %conv.i1.i104.i
-  store i64 %or.i.i107.i, ptr %9, align 8
+  store i64 %or.i.i107.i, ptr %7, align 8
   %tv_nsec.i.i122.i = getelementptr inbounds i8, ptr %tv.i.i118.i, i64 8
   br label %do.body128.i
 
@@ -6568,31 +5910,31 @@ for.end166.i:                                     ; preds = %bench_async_handle.
 
 if.then.i.i129.i:                                 ; preds = %for.end166.i
   %call1.i.i130.i = tail call ptr @__errno_location() #17
-  %21 = load i32, ptr %call1.i.i130.i, align 4
-  %call2.i.i131.i = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.76, ptr noundef nonnull @.str.108, ptr noundef nonnull @.str.77, i32 noundef 12507, i32 noundef %21, ptr noundef nonnull @.str.78)
-  %22 = load ptr, ptr @stdout, align 8
-  %call3.i.i132.i = call i32 @fflush(ptr noundef %22)
+  %19 = load i32, ptr %call1.i.i130.i, align 4
+  %call2.i.i131.i = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.76, ptr noundef nonnull @.str.108, ptr noundef nonnull @.str.77, i32 noundef 12507, i32 noundef %19, ptr noundef nonnull @.str.78)
+  %20 = load ptr, ptr @stdout, align 8
+  %call3.i.i132.i = call i32 @fflush(ptr noundef %20)
   call void @_exit(i32 noundef 1) #18
   unreachable
 
 bench_stats_check.exit133.i:                      ; preds = %for.end166.i
   %add167.i = add nuw nsw i32 %count.2.i, 100
-  %23 = load i64, ptr %tv.i.i118.i, align 8
-  %conv.i.i121.i = sitofp i64 %23 to double
-  %24 = load i64, ptr %tv_nsec.i.i122.i, align 8
-  %conv4.i.i123.i = sitofp i64 %24 to double
+  %21 = load i64, ptr %tv.i.i118.i, align 8
+  %conv.i.i121.i = sitofp i64 %21 to double
+  %22 = load i64, ptr %tv_nsec.i.i122.i, align 8
+  %conv4.i.i123.i = sitofp i64 %22 to double
   %div.i.i124.i = fdiv double %conv4.i.i123.i, 1.000000e+09
   %add.i.i125.i = fadd double %div.i.i124.i, %conv.i.i121.i
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %tv.i.i118.i)
   %sub.i126.i = fsub double %add.i.i125.i, %add.i.i101.i
   %cmp.i127.i = fcmp uge double %sub.i126.i, 1.000000e+00
-  br i1 %cmp.i127.i, label %exit_rsa_pub.i, label %do.body128.i, !llvm.loop !65
+  br i1 %cmp.i127.i, label %exit_rsa_pub.i, label %do.body128.i, !llvm.loop !64
 
 exit_rsa_pub.i:                                   ; preds = %bench_stats_check.exit133.i, %for.body143.i
   %count.3.i = phi i32 [ %count.2.i, %for.body143.i ], [ %add167.i, %bench_stats_check.exit133.i ]
   %arrayidx172.i = getelementptr inbounds i8, ptr %arrayidx.i, i64 8
-  %25 = load ptr, ptr %arrayidx172.i, align 8
-  call fastcc void @bench_stats_asym_finish(ptr noundef nonnull @.str.130, i32 noundef 2048, ptr noundef %25, i32 noundef %count.3.i, double noundef %add.i.i101.i, i32 noundef %call154.i)
+  %23 = load ptr, ptr %arrayidx172.i, align 8
+  call fastcc void @bench_stats_asym_finish(ptr noundef nonnull @.str.130, i32 noundef 2048, ptr noundef %23, i32 noundef %count.3.i, double noundef %add.i.i101.i, i32 noundef %call154.i)
   br label %exit.i
 
 if.else.i:                                        ; preds = %if.end80.i
@@ -6603,31 +5945,31 @@ if.else.i:                                        ; preds = %if.end80.i
 
 if.then.i.i148.i:                                 ; preds = %if.else.i
   %call1.i.i149.i = tail call ptr @__errno_location() #17
-  %26 = load i32, ptr %call1.i.i149.i, align 4
-  %call2.i.i150.i = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.76, ptr noundef nonnull @.str.108, ptr noundef nonnull @.str.77, i32 noundef 12507, i32 noundef %26, ptr noundef nonnull @.str.78)
-  %27 = load ptr, ptr @stdout, align 8
-  %call3.i.i151.i = call i32 @fflush(ptr noundef %27)
+  %24 = load i32, ptr %call1.i.i149.i, align 4
+  %call2.i.i150.i = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.76, ptr noundef nonnull @.str.108, ptr noundef nonnull @.str.77, i32 noundef 12507, i32 noundef %24, ptr noundef nonnull @.str.78)
+  %25 = load ptr, ptr @stdout, align 8
+  %call3.i.i151.i = call i32 @fflush(ptr noundef %25)
   call void @_exit(i32 noundef 1) #18
   unreachable
 
 bench_stats_start.exit152.i:                      ; preds = %if.else.i
-  %28 = load i64, ptr %tv.i.i134.i, align 8
-  %conv.i.i137.i = sitofp i64 %28 to double
+  %26 = load i64, ptr %tv.i.i134.i, align 8
+  %conv.i.i137.i = sitofp i64 %26 to double
   %tv_nsec.i.i138.i = getelementptr inbounds i8, ptr %tv.i.i134.i, i64 8
-  %29 = load i64, ptr %tv_nsec.i.i138.i, align 8
-  %conv4.i.i139.i = sitofp i64 %29 to double
+  %27 = load i64, ptr %tv_nsec.i.i138.i, align 8
+  %conv4.i.i139.i = sitofp i64 %27 to double
   %div.i.i140.i = fdiv double %conv4.i.i139.i, 1.000000e+09
   %add.i.i141.i = fadd double %div.i.i140.i, %conv.i.i137.i
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %tv.i.i134.i)
-  %30 = call { i32, i32 } asm sideeffect "cpuid\0A\09rdtsc", "={ax},={dx},{ax},~{ebx},~{ecx},~{dirflag},~{fpsr},~{flags}"(i32 0) #16, !srcloc !9
-  %asmresult.i.i142.i = extractvalue { i32, i32 } %30, 0
-  %asmresult1.i.i143.i = extractvalue { i32, i32 } %30, 1
+  %28 = call { i32, i32 } asm sideeffect "cpuid\0A\09rdtsc", "={ax},={dx},{ax},~{ebx},~{ecx},~{dirflag},~{fpsr},~{flags}"(i32 0) #16, !srcloc !8
+  %asmresult.i.i142.i = extractvalue { i32, i32 } %28, 0
+  %asmresult1.i.i143.i = extractvalue { i32, i32 } %28, 1
   %conv.i1.i144.i = zext i32 %asmresult.i.i142.i to i64
   %conv2.i.i145.i = zext i32 %asmresult1.i.i143.i to i64
   %shl.i.i146.i = shl nuw i64 %conv2.i.i145.i, 32
   %or.i.i147.i = or disjoint i64 %shl.i.i146.i, %conv.i1.i144.i
-  %31 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @total_cycles)
-  store i64 %or.i.i147.i, ptr %31, align 8
+  %29 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @total_cycles)
+  store i64 %or.i.i147.i, ptr %29, align 8
   %tv_nsec.i.i162.i = getelementptr inbounds i8, ptr %tv.i.i158.i, i64 8
   br label %do.body173.i
 
@@ -6637,14 +5979,14 @@ do.body173.i:                                     ; preds = %bench_stats_check.e
 
 for.body188.i:                                    ; preds = %bench_async_handle.exit157.i, %do.body173.i
   %times.4301.i = phi i32 [ 0, %do.body173.i ], [ %inc.i156.i, %bench_async_handle.exit157.i ]
-  %call198.i = call i32 @wc_RsaSSL_Sign(ptr noundef nonnull %message.i, i32 noundef 25, ptr noundef nonnull %call.i, i32 noundef 256, ptr noundef nonnull %rsaKey, ptr noundef nonnull %2) #16
+  %call198.i = call i32 @wc_RsaSSL_Sign(ptr noundef nonnull %message.i, i32 noundef 25, ptr noundef nonnull %call.i, i32 noundef 256, ptr noundef nonnull %rsaKey, ptr noundef nonnull %0) #16
   %cmp.i153.i = icmp sgt i32 %call198.i, -1
   br i1 %cmp.i153.i, label %bench_async_handle.exit157.i, label %exit_rsa_sign.thread.i
 
 exit_rsa_sign.thread.i:                           ; preds = %for.body188.i
   %arrayidx216269.i = getelementptr inbounds i8, ptr %arrayidx.i, i64 32
-  %32 = load ptr, ptr %arrayidx216269.i, align 8
-  call fastcc void @bench_stats_asym_finish(ptr noundef nonnull @.str.130, i32 noundef 2048, ptr noundef %32, i32 noundef %count.4.i, double noundef %add.i.i141.i, i32 noundef %call198.i)
+  %30 = load ptr, ptr %arrayidx216269.i, align 8
+  call fastcc void @bench_stats_asym_finish(ptr noundef nonnull @.str.130, i32 noundef 2048, ptr noundef %30, i32 noundef %count.4.i, double noundef %add.i.i141.i, i32 noundef %call198.i)
   br label %exit.i
 
 bench_async_handle.exit157.i:                     ; preds = %for.body188.i
@@ -6660,30 +6002,30 @@ for.end210.i:                                     ; preds = %bench_async_handle.
 
 if.then.i.i169.i:                                 ; preds = %for.end210.i
   %call1.i.i170.i = tail call ptr @__errno_location() #17
-  %33 = load i32, ptr %call1.i.i170.i, align 4
-  %call2.i.i171.i = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.76, ptr noundef nonnull @.str.108, ptr noundef nonnull @.str.77, i32 noundef 12507, i32 noundef %33, ptr noundef nonnull @.str.78)
-  %34 = load ptr, ptr @stdout, align 8
-  %call3.i.i172.i = call i32 @fflush(ptr noundef %34)
+  %31 = load i32, ptr %call1.i.i170.i, align 4
+  %call2.i.i171.i = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.76, ptr noundef nonnull @.str.108, ptr noundef nonnull @.str.77, i32 noundef 12507, i32 noundef %31, ptr noundef nonnull @.str.78)
+  %32 = load ptr, ptr @stdout, align 8
+  %call3.i.i172.i = call i32 @fflush(ptr noundef %32)
   call void @_exit(i32 noundef 1) #18
   unreachable
 
 bench_stats_check.exit173.i:                      ; preds = %for.end210.i
   %add211.i = add nuw nsw i32 %count.4.i, 100
-  %35 = load i64, ptr %tv.i.i158.i, align 8
-  %conv.i.i161.i = sitofp i64 %35 to double
-  %36 = load i64, ptr %tv_nsec.i.i162.i, align 8
-  %conv4.i.i163.i = sitofp i64 %36 to double
+  %33 = load i64, ptr %tv.i.i158.i, align 8
+  %conv.i.i161.i = sitofp i64 %33 to double
+  %34 = load i64, ptr %tv_nsec.i.i162.i, align 8
+  %conv4.i.i163.i = sitofp i64 %34 to double
   %div.i.i164.i = fdiv double %conv4.i.i163.i, 1.000000e+09
   %add.i.i165.i = fadd double %div.i.i164.i, %conv.i.i161.i
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %tv.i.i158.i)
   %sub.i166.i = fsub double %add.i.i165.i, %add.i.i141.i
   %cmp.i167.i = fcmp uge double %sub.i166.i, 1.000000e+00
-  br i1 %cmp.i167.i, label %do.end223.i, label %do.body173.i, !llvm.loop !66
+  br i1 %cmp.i167.i, label %do.end223.i, label %do.body173.i, !llvm.loop !65
 
 do.end223.i:                                      ; preds = %bench_stats_check.exit173.i
   %arrayidx216.i = getelementptr inbounds i8, ptr %arrayidx.i, i64 32
-  %37 = load ptr, ptr %arrayidx216.i, align 8
-  call fastcc void @bench_stats_asym_finish(ptr noundef nonnull @.str.130, i32 noundef 2048, ptr noundef %37, i32 noundef %add211.i, double noundef %add.i.i141.i, i32 noundef %call198.i)
+  %35 = load ptr, ptr %arrayidx216.i, align 8
+  call fastcc void @bench_stats_asym_finish(ptr noundef nonnull @.str.130, i32 noundef 2048, ptr noundef %35, i32 noundef %add211.i, double noundef %add.i.i141.i, i32 noundef %call198.i)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %tv.i.i174.i)
   %call.i.i175.i = call i32 @clock_gettime(i32 noundef 0, ptr noundef nonnull %tv.i.i174.i) #16
   %cmp.i.i176.i = icmp slt i32 %call.i.i175.i, 0
@@ -6691,30 +6033,30 @@ do.end223.i:                                      ; preds = %bench_stats_check.e
 
 if.then.i.i188.i:                                 ; preds = %do.end223.i
   %call1.i.i189.i = tail call ptr @__errno_location() #17
-  %38 = load i32, ptr %call1.i.i189.i, align 4
-  %call2.i.i190.i = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.76, ptr noundef nonnull @.str.108, ptr noundef nonnull @.str.77, i32 noundef 12507, i32 noundef %38, ptr noundef nonnull @.str.78)
-  %39 = load ptr, ptr @stdout, align 8
-  %call3.i.i191.i = call i32 @fflush(ptr noundef %39)
+  %36 = load i32, ptr %call1.i.i189.i, align 4
+  %call2.i.i190.i = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.76, ptr noundef nonnull @.str.108, ptr noundef nonnull @.str.77, i32 noundef 12507, i32 noundef %36, ptr noundef nonnull @.str.78)
+  %37 = load ptr, ptr @stdout, align 8
+  %call3.i.i191.i = call i32 @fflush(ptr noundef %37)
   call void @_exit(i32 noundef 1) #18
   unreachable
 
 bench_stats_start.exit192.i:                      ; preds = %do.end223.i
-  %40 = load i64, ptr %tv.i.i174.i, align 8
-  %conv.i.i177.i = sitofp i64 %40 to double
+  %38 = load i64, ptr %tv.i.i174.i, align 8
+  %conv.i.i177.i = sitofp i64 %38 to double
   %tv_nsec.i.i178.i = getelementptr inbounds i8, ptr %tv.i.i174.i, i64 8
-  %41 = load i64, ptr %tv_nsec.i.i178.i, align 8
-  %conv4.i.i179.i = sitofp i64 %41 to double
+  %39 = load i64, ptr %tv_nsec.i.i178.i, align 8
+  %conv4.i.i179.i = sitofp i64 %39 to double
   %div.i.i180.i = fdiv double %conv4.i.i179.i, 1.000000e+09
   %add.i.i181.i = fadd double %div.i.i180.i, %conv.i.i177.i
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %tv.i.i174.i)
-  %42 = call { i32, i32 } asm sideeffect "cpuid\0A\09rdtsc", "={ax},={dx},{ax},~{ebx},~{ecx},~{dirflag},~{fpsr},~{flags}"(i32 0) #16, !srcloc !9
-  %asmresult.i.i182.i = extractvalue { i32, i32 } %42, 0
-  %asmresult1.i.i183.i = extractvalue { i32, i32 } %42, 1
+  %40 = call { i32, i32 } asm sideeffect "cpuid\0A\09rdtsc", "={ax},={dx},{ax},~{ebx},~{ecx},~{dirflag},~{fpsr},~{flags}"(i32 0) #16, !srcloc !8
+  %asmresult.i.i182.i = extractvalue { i32, i32 } %40, 0
+  %asmresult1.i.i183.i = extractvalue { i32, i32 } %40, 1
   %conv.i1.i184.i = zext i32 %asmresult.i.i182.i to i64
   %conv2.i.i185.i = zext i32 %asmresult1.i.i183.i to i64
   %shl.i.i186.i = shl nuw i64 %conv2.i.i185.i, 32
   %or.i.i187.i = or disjoint i64 %shl.i.i186.i, %conv.i1.i184.i
-  store i64 %or.i.i187.i, ptr %31, align 8
+  store i64 %or.i.i187.i, ptr %29, align 8
   %tv_nsec.i.i202.i = getelementptr inbounds i8, ptr %tv.i.i198.i, i64 8
   br label %do.body225.i
 
@@ -6741,31 +6083,31 @@ for.end263.i:                                     ; preds = %bench_async_handle.
 
 if.then.i.i209.i:                                 ; preds = %for.end263.i
   %call1.i.i210.i = tail call ptr @__errno_location() #17
-  %43 = load i32, ptr %call1.i.i210.i, align 4
-  %call2.i.i211.i = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.76, ptr noundef nonnull @.str.108, ptr noundef nonnull @.str.77, i32 noundef 12507, i32 noundef %43, ptr noundef nonnull @.str.78)
-  %44 = load ptr, ptr @stdout, align 8
-  %call3.i.i212.i = call i32 @fflush(ptr noundef %44)
+  %41 = load i32, ptr %call1.i.i210.i, align 4
+  %call2.i.i211.i = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.76, ptr noundef nonnull @.str.108, ptr noundef nonnull @.str.77, i32 noundef 12507, i32 noundef %41, ptr noundef nonnull @.str.78)
+  %42 = load ptr, ptr @stdout, align 8
+  %call3.i.i212.i = call i32 @fflush(ptr noundef %42)
   call void @_exit(i32 noundef 1) #18
   unreachable
 
 bench_stats_check.exit213.i:                      ; preds = %for.end263.i
   %add264.i = add nuw nsw i32 %count.6.i, 100
-  %45 = load i64, ptr %tv.i.i198.i, align 8
-  %conv.i.i201.i = sitofp i64 %45 to double
-  %46 = load i64, ptr %tv_nsec.i.i202.i, align 8
-  %conv4.i.i203.i = sitofp i64 %46 to double
+  %43 = load i64, ptr %tv.i.i198.i, align 8
+  %conv.i.i201.i = sitofp i64 %43 to double
+  %44 = load i64, ptr %tv_nsec.i.i202.i, align 8
+  %conv4.i.i203.i = sitofp i64 %44 to double
   %div.i.i204.i = fdiv double %conv4.i.i203.i, 1.000000e+09
   %add.i.i205.i = fadd double %div.i.i204.i, %conv.i.i201.i
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %tv.i.i198.i)
   %sub.i206.i = fsub double %add.i.i205.i, %add.i.i181.i
   %cmp.i207.i = fcmp uge double %sub.i206.i, 1.000000e+00
-  br i1 %cmp.i207.i, label %exit_rsa_verifyinline.i, label %do.body225.i, !llvm.loop !67
+  br i1 %cmp.i207.i, label %exit_rsa_verifyinline.i, label %do.body225.i, !llvm.loop !66
 
 exit_rsa_verifyinline.i:                          ; preds = %bench_stats_check.exit213.i, %for.body240.i
   %count.7.i = phi i32 [ %count.6.i, %for.body240.i ], [ %add264.i, %bench_stats_check.exit213.i ]
   %arrayidx269.i = getelementptr inbounds i8, ptr %arrayidx.i, i64 40
-  %47 = load ptr, ptr %arrayidx269.i, align 8
-  call fastcc void @bench_stats_asym_finish(ptr noundef nonnull @.str.130, i32 noundef 2048, ptr noundef %47, i32 noundef %count.7.i, double noundef %add.i.i181.i, i32 noundef %call251.i)
+  %45 = load ptr, ptr %arrayidx269.i, align 8
+  call fastcc void @bench_stats_asym_finish(ptr noundef nonnull @.str.130, i32 noundef 2048, ptr noundef %45, i32 noundef %count.7.i, double noundef %add.i.i181.i, i32 noundef %call251.i)
   br label %exit.i
 
 exit.i:                                           ; preds = %exit_rsa_verifyinline.i, %exit_rsa_sign.thread.i, %exit_rsa_pub.i, %exit_rsa_verify.thread.i, %if.then18
@@ -6801,7 +6143,7 @@ declare i32 @wc_RsaPrivateKeyDecode(ptr noundef, ptr noundef, ptr noundef, i32 n
 declare i32 @wc_FreeRsaKey(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @bench_dh(i32 noundef %useDeviceID) local_unnamed_addr #0 {
+define dso_local void @bench_dh(i32 %useDeviceID) local_unnamed_addr #0 {
 entry:
   %tv.i.i74 = alloca %struct.timespec, align 8
   %tv.i.i50 = alloca %struct.timespec, align 8
@@ -6836,11 +6178,7 @@ if.end6:                                          ; preds = %entry, %if.then5
   %bytes.0 = phi i32 [ 0, %if.then5 ], [ 268, %entry ]
   %params.0 = phi ptr [ %call, %if.then5 ], [ null, %entry ]
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(3136) %dhKey, i8 0, i64 3136, i1 false)
-  %tobool11.not = icmp eq i32 %useDeviceID, 0
-  %1 = tail call align 4 ptr @llvm.threadlocal.address.p0(ptr align 4 @devId)
-  %2 = load i32, ptr %1, align 4
-  %cond = select i1 %tobool11.not, i32 -2, i32 %2
-  %call12 = call i32 @wc_InitDhKey_ex(ptr noundef nonnull %dhKey, ptr noundef null, i32 noundef %cond) #16
+  %call12 = call i32 @wc_InitDhKey_ex(ptr noundef nonnull %dhKey, ptr noundef null, i32 noundef -2) #16
   %cmp13.not = icmp eq i32 %call12, 0
   br i1 %cmp13.not, label %if.end15, label %exit
 
@@ -6858,14 +6196,14 @@ if.else21:                                        ; preds = %if.end15
   br i1 %cmp22.not, label %for.end, label %if.then24
 
 if.then24:                                        ; preds = %if.else21
-  %3 = load ptr, ptr %params.0, align 8
+  %1 = load ptr, ptr %params.0, align 8
   %p_len = getelementptr inbounds i8, ptr %params.0, i64 8
-  %4 = load i32, ptr %p_len, align 8
+  %2 = load i32, ptr %p_len, align 8
   %g = getelementptr inbounds i8, ptr %params.0, i64 16
-  %5 = load ptr, ptr %g, align 8
+  %3 = load ptr, ptr %g, align 8
   %g_len = getelementptr inbounds i8, ptr %params.0, i64 24
-  %6 = load i32, ptr %g_len, align 8
-  %call27 = call i32 @wc_DhSetKey(ptr noundef nonnull %dhKey, ptr noundef %3, i32 noundef %4, ptr noundef %5, i32 noundef %6) #16
+  %4 = load i32, ptr %g_len, align 8
+  %call27 = call i32 @wc_DhSetKey(ptr noundef nonnull %dhKey, ptr noundef %1, i32 noundef %2, ptr noundef %3, i32 noundef %4) #16
   br label %if.end29
 
 if.end29:                                         ; preds = %if.then24, %if.then17
@@ -6885,32 +6223,32 @@ for.end:                                          ; preds = %if.else21, %if.end2
 
 if.then.i.i:                                      ; preds = %for.end
   %call1.i.i = tail call ptr @__errno_location() #17
-  %7 = load i32, ptr %call1.i.i, align 4
-  %call2.i.i = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.76, ptr noundef nonnull @.str.108, ptr noundef nonnull @.str.77, i32 noundef 12507, i32 noundef %7, ptr noundef nonnull @.str.78)
-  %8 = load ptr, ptr @stdout, align 8
-  %call3.i.i = call i32 @fflush(ptr noundef %8)
+  %5 = load i32, ptr %call1.i.i, align 4
+  %call2.i.i = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.76, ptr noundef nonnull @.str.108, ptr noundef nonnull @.str.77, i32 noundef 12507, i32 noundef %5, ptr noundef nonnull @.str.78)
+  %6 = load ptr, ptr @stdout, align 8
+  %call3.i.i = call i32 @fflush(ptr noundef %6)
   call void @_exit(i32 noundef 1) #18
   unreachable
 
 bench_stats_start.exit:                           ; preds = %for.end
-  %9 = load i64, ptr %tv.i.i, align 8
-  %conv.i.i = sitofp i64 %9 to double
+  %7 = load i64, ptr %tv.i.i, align 8
+  %conv.i.i = sitofp i64 %7 to double
   %tv_nsec.i.i = getelementptr inbounds i8, ptr %tv.i.i, i64 8
-  %10 = load i64, ptr %tv_nsec.i.i, align 8
-  %conv4.i.i = sitofp i64 %10 to double
+  %8 = load i64, ptr %tv_nsec.i.i, align 8
+  %conv4.i.i = sitofp i64 %8 to double
   %div.i.i = fdiv double %conv4.i.i, 1.000000e+09
   %add.i.i = fadd double %div.i.i, %conv.i.i
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %tv.i.i)
-  %11 = call { i32, i32 } asm sideeffect "cpuid\0A\09rdtsc", "={ax},={dx},{ax},~{ebx},~{ecx},~{dirflag},~{fpsr},~{flags}"(i32 0) #16, !srcloc !9
-  %asmresult.i.i = extractvalue { i32, i32 } %11, 0
-  %asmresult1.i.i = extractvalue { i32, i32 } %11, 1
+  %9 = call { i32, i32 } asm sideeffect "cpuid\0A\09rdtsc", "={ax},={dx},{ax},~{ebx},~{ecx},~{dirflag},~{fpsr},~{flags}"(i32 0) #16, !srcloc !8
+  %asmresult.i.i = extractvalue { i32, i32 } %9, 0
+  %asmresult1.i.i = extractvalue { i32, i32 } %9, 1
   %conv.i1.i = zext i32 %asmresult.i.i to i64
   %conv2.i.i = zext i32 %asmresult1.i.i to i64
   %shl.i.i = shl nuw i64 %conv2.i.i, 32
   %or.i.i = or disjoint i64 %shl.i.i, %conv.i1.i
-  %12 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @total_cycles)
-  store i64 %or.i.i, ptr %12, align 8
-  %13 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @gRng)
+  %10 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @total_cycles)
+  store i64 %or.i.i, ptr %10, align 8
+  %11 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @gRng)
   %tv_nsec.i.i41 = getelementptr inbounds i8, ptr %tv.i.i37, i64 8
   br label %do.body37
 
@@ -6918,14 +6256,14 @@ do.body37:                                        ; preds = %bench_stats_check.e
   %count.0 = phi i32 [ 0, %bench_stats_start.exit ], [ %add, %bench_stats_check.exit ]
   store i32 48, ptr %privSz, align 4
   store i32 384, ptr %pubSz, align 4
-  %call69 = call i32 @wc_DhGenerateKeyPair(ptr noundef nonnull %dhKey, ptr noundef nonnull %13, ptr noundef nonnull %priv, ptr noundef nonnull %privSz, ptr noundef nonnull %pub, ptr noundef nonnull %pubSz) #16
+  %call69 = call i32 @wc_DhGenerateKeyPair(ptr noundef nonnull %dhKey, ptr noundef nonnull %11, ptr noundef nonnull %priv, ptr noundef nonnull %privSz, ptr noundef nonnull %pub, ptr noundef nonnull %pubSz) #16
   %cmp.i = icmp sgt i32 %call69, -1
   br i1 %cmp.i, label %for.end80, label %exit_dh_gen.thread
 
 exit_dh_gen.thread:                               ; preds = %do.body37
   %arrayidx87113 = getelementptr inbounds i8, ptr %arrayidx, i64 16
-  %14 = load ptr, ptr %arrayidx87113, align 8
-  call fastcc void @bench_stats_asym_finish(ptr noundef nonnull @.str.72, i32 noundef 2048, ptr noundef %14, i32 noundef %count.0, double noundef %add.i.i, i32 noundef %call69)
+  %12 = load ptr, ptr %arrayidx87113, align 8
+  call fastcc void @bench_stats_asym_finish(ptr noundef nonnull @.str.72, i32 noundef 2048, ptr noundef %12, i32 noundef %count.0, double noundef %add.i.i, i32 noundef %call69)
   br label %exit
 
 for.end80:                                        ; preds = %do.body37
@@ -6936,31 +6274,31 @@ for.end80:                                        ; preds = %do.body37
 
 if.then.i.i46:                                    ; preds = %for.end80
   %call1.i.i47 = tail call ptr @__errno_location() #17
-  %15 = load i32, ptr %call1.i.i47, align 4
-  %call2.i.i48 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.76, ptr noundef nonnull @.str.108, ptr noundef nonnull @.str.77, i32 noundef 12507, i32 noundef %15, ptr noundef nonnull @.str.78)
-  %16 = load ptr, ptr @stdout, align 8
-  %call3.i.i49 = call i32 @fflush(ptr noundef %16)
+  %13 = load i32, ptr %call1.i.i47, align 4
+  %call2.i.i48 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.76, ptr noundef nonnull @.str.108, ptr noundef nonnull @.str.77, i32 noundef 12507, i32 noundef %13, ptr noundef nonnull @.str.78)
+  %14 = load ptr, ptr @stdout, align 8
+  %call3.i.i49 = call i32 @fflush(ptr noundef %14)
   call void @_exit(i32 noundef 1) #18
   unreachable
 
 bench_stats_check.exit:                           ; preds = %for.end80
   %add = add nuw nsw i32 %count.0, 1
-  %17 = load i64, ptr %tv.i.i37, align 8
-  %conv.i.i40 = sitofp i64 %17 to double
-  %18 = load i64, ptr %tv_nsec.i.i41, align 8
-  %conv4.i.i42 = sitofp i64 %18 to double
+  %15 = load i64, ptr %tv.i.i37, align 8
+  %conv.i.i40 = sitofp i64 %15 to double
+  %16 = load i64, ptr %tv_nsec.i.i41, align 8
+  %conv4.i.i42 = sitofp i64 %16 to double
   %div.i.i43 = fdiv double %conv4.i.i42, 1.000000e+09
   %add.i.i44 = fadd double %div.i.i43, %conv.i.i40
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %tv.i.i37)
   %sub.i = fsub double %add.i.i44, %add.i.i
   %cmp.i45 = fcmp uge double %sub.i, 1.000000e+00
-  br i1 %cmp.i45, label %do.end97, label %do.body37, !llvm.loop !68
+  br i1 %cmp.i45, label %do.end97, label %do.body37, !llvm.loop !67
 
 do.end97:                                         ; preds = %bench_stats_check.exit
   %arrayidx87 = getelementptr inbounds i8, ptr %arrayidx, i64 16
-  %19 = load ptr, ptr %arrayidx87, align 8
-  call fastcc void @bench_stats_asym_finish(ptr noundef nonnull @.str.72, i32 noundef 2048, ptr noundef %19, i32 noundef %add, double noundef %add.i.i, i32 noundef %call69)
-  %call101 = call i32 @wc_DhGenerateKeyPair(ptr noundef nonnull %dhKey, ptr noundef nonnull %13, ptr noundef nonnull %priv2, ptr noundef nonnull %privSz2, ptr noundef nonnull %pub2, ptr noundef nonnull %pubSz2) #16
+  %17 = load ptr, ptr %arrayidx87, align 8
+  call fastcc void @bench_stats_asym_finish(ptr noundef nonnull @.str.72, i32 noundef 2048, ptr noundef %17, i32 noundef %add, double noundef %add.i.i, i32 noundef %call69)
+  %call101 = call i32 @wc_DhGenerateKeyPair(ptr noundef nonnull %dhKey, ptr noundef nonnull %11, ptr noundef nonnull %priv2, ptr noundef nonnull %privSz2, ptr noundef nonnull %pub2, ptr noundef nonnull %pubSz2) #16
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %tv.i.i50)
   %call.i.i51 = call i32 @clock_gettime(i32 noundef 0, ptr noundef nonnull %tv.i.i50) #16
   %cmp.i.i52 = icmp slt i32 %call.i.i51, 0
@@ -6968,30 +6306,30 @@ do.end97:                                         ; preds = %bench_stats_check.e
 
 if.then.i.i64:                                    ; preds = %do.end97
   %call1.i.i65 = tail call ptr @__errno_location() #17
-  %20 = load i32, ptr %call1.i.i65, align 4
-  %call2.i.i66 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.76, ptr noundef nonnull @.str.108, ptr noundef nonnull @.str.77, i32 noundef 12507, i32 noundef %20, ptr noundef nonnull @.str.78)
-  %21 = load ptr, ptr @stdout, align 8
-  %call3.i.i67 = call i32 @fflush(ptr noundef %21)
+  %18 = load i32, ptr %call1.i.i65, align 4
+  %call2.i.i66 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.76, ptr noundef nonnull @.str.108, ptr noundef nonnull @.str.77, i32 noundef 12507, i32 noundef %18, ptr noundef nonnull @.str.78)
+  %19 = load ptr, ptr @stdout, align 8
+  %call3.i.i67 = call i32 @fflush(ptr noundef %19)
   call void @_exit(i32 noundef 1) #18
   unreachable
 
 bench_stats_start.exit68:                         ; preds = %do.end97
-  %22 = load i64, ptr %tv.i.i50, align 8
-  %conv.i.i53 = sitofp i64 %22 to double
+  %20 = load i64, ptr %tv.i.i50, align 8
+  %conv.i.i53 = sitofp i64 %20 to double
   %tv_nsec.i.i54 = getelementptr inbounds i8, ptr %tv.i.i50, i64 8
-  %23 = load i64, ptr %tv_nsec.i.i54, align 8
-  %conv4.i.i55 = sitofp i64 %23 to double
+  %21 = load i64, ptr %tv_nsec.i.i54, align 8
+  %conv4.i.i55 = sitofp i64 %21 to double
   %div.i.i56 = fdiv double %conv4.i.i55, 1.000000e+09
   %add.i.i57 = fadd double %div.i.i56, %conv.i.i53
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %tv.i.i50)
-  %24 = call { i32, i32 } asm sideeffect "cpuid\0A\09rdtsc", "={ax},={dx},{ax},~{ebx},~{ecx},~{dirflag},~{fpsr},~{flags}"(i32 0) #16, !srcloc !9
-  %asmresult.i.i58 = extractvalue { i32, i32 } %24, 0
-  %asmresult1.i.i59 = extractvalue { i32, i32 } %24, 1
+  %22 = call { i32, i32 } asm sideeffect "cpuid\0A\09rdtsc", "={ax},={dx},{ax},~{ebx},~{ecx},~{dirflag},~{fpsr},~{flags}"(i32 0) #16, !srcloc !8
+  %asmresult.i.i58 = extractvalue { i32, i32 } %22, 0
+  %asmresult1.i.i59 = extractvalue { i32, i32 } %22, 1
   %conv.i1.i60 = zext i32 %asmresult.i.i58 to i64
   %conv2.i.i61 = zext i32 %asmresult1.i.i59 to i64
   %shl.i.i62 = shl nuw i64 %conv2.i.i61, 32
   %or.i.i63 = or disjoint i64 %shl.i.i62, %conv.i1.i60
-  store i64 %or.i.i63, ptr %12, align 8
+  store i64 %or.i.i63, ptr %10, align 8
   %tv_nsec.i.i78 = getelementptr inbounds i8, ptr %tv.i.i74, i64 8
   br label %do.body108
 
@@ -7001,9 +6339,9 @@ do.body108:                                       ; preds = %bench_stats_check.e
 
 for.body123:                                      ; preds = %do.body108, %bench_async_handle.exit73
   %times.2130 = phi i32 [ 0, %do.body108 ], [ %inc.i72, %bench_async_handle.exit73 ]
-  %25 = load i32, ptr %privSz, align 4
-  %26 = load i32, ptr %pubSz2, align 4
-  %call140 = call i32 @wc_DhAgree(ptr noundef nonnull %dhKey, ptr noundef nonnull %agree, ptr noundef nonnull %agreeSz, ptr noundef nonnull %priv, i32 noundef %25, ptr noundef nonnull %pub2, i32 noundef %26) #16
+  %23 = load i32, ptr %privSz, align 4
+  %24 = load i32, ptr %pubSz2, align 4
+  %call140 = call i32 @wc_DhAgree(ptr noundef nonnull %dhKey, ptr noundef nonnull %agree, ptr noundef nonnull %agreeSz, ptr noundef nonnull %priv, i32 noundef %23, ptr noundef nonnull %pub2, i32 noundef %24) #16
   %cmp.i69 = icmp sgt i32 %call140, -1
   br i1 %cmp.i69, label %bench_async_handle.exit73, label %exit
 
@@ -7020,33 +6358,33 @@ for.end152:                                       ; preds = %bench_async_handle.
 
 if.then.i.i85:                                    ; preds = %for.end152
   %call1.i.i86 = tail call ptr @__errno_location() #17
-  %27 = load i32, ptr %call1.i.i86, align 4
-  %call2.i.i87 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.76, ptr noundef nonnull @.str.108, ptr noundef nonnull @.str.77, i32 noundef 12507, i32 noundef %27, ptr noundef nonnull @.str.78)
-  %28 = load ptr, ptr @stdout, align 8
-  %call3.i.i88 = call i32 @fflush(ptr noundef %28)
+  %25 = load i32, ptr %call1.i.i86, align 4
+  %call2.i.i87 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.76, ptr noundef nonnull @.str.108, ptr noundef nonnull @.str.77, i32 noundef 12507, i32 noundef %25, ptr noundef nonnull @.str.78)
+  %26 = load ptr, ptr @stdout, align 8
+  %call3.i.i88 = call i32 @fflush(ptr noundef %26)
   call void @_exit(i32 noundef 1) #18
   unreachable
 
 bench_stats_check.exit89:                         ; preds = %for.end152
   %add153 = add nuw nsw i32 %count.2, 100
-  %29 = load i64, ptr %tv.i.i74, align 8
-  %conv.i.i77 = sitofp i64 %29 to double
-  %30 = load i64, ptr %tv_nsec.i.i78, align 8
-  %conv4.i.i79 = sitofp i64 %30 to double
+  %27 = load i64, ptr %tv.i.i74, align 8
+  %conv.i.i77 = sitofp i64 %27 to double
+  %28 = load i64, ptr %tv_nsec.i.i78, align 8
+  %conv4.i.i79 = sitofp i64 %28 to double
   %div.i.i80 = fdiv double %conv4.i.i79, 1.000000e+09
   %add.i.i81 = fadd double %div.i.i80, %conv.i.i77
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %tv.i.i74)
   %sub.i82 = fsub double %add.i.i81, %add.i.i57
   %cmp.i83 = fcmp uge double %sub.i82, 1.000000e+00
-  br i1 %cmp.i83, label %exit, label %do.body108, !llvm.loop !69
+  br i1 %cmp.i83, label %exit, label %do.body108, !llvm.loop !68
 
 exit:                                             ; preds = %bench_stats_check.exit89, %for.body123, %exit_dh_gen.thread, %if.end6, %if.then32
   %count.3 = phi i32 [ 0, %if.then32 ], [ 0, %if.end6 ], [ %count.0, %exit_dh_gen.thread ], [ %count.2, %for.body123 ], [ %add153, %bench_stats_check.exit89 ]
   %ret.6 = phi i32 [ %ret.0, %if.then32 ], [ %call12, %if.end6 ], [ %call69, %exit_dh_gen.thread ], [ %call140, %for.body123 ], [ %call140, %bench_stats_check.exit89 ]
   %start.0 = phi double [ 0.000000e+00, %if.then32 ], [ 0.000000e+00, %if.end6 ], [ %add.i.i, %exit_dh_gen.thread ], [ %add.i.i57, %for.body123 ], [ %add.i.i57, %bench_stats_check.exit89 ]
   %arrayidx161 = getelementptr inbounds i8, ptr %arrayidx, i64 24
-  %31 = load ptr, ptr %arrayidx161, align 8
-  call fastcc void @bench_stats_asym_finish(ptr noundef nonnull @.str.72, i32 noundef 2048, ptr noundef %31, i32 noundef %count.3, double noundef %start.0, i32 noundef %ret.6)
+  %29 = load ptr, ptr %arrayidx161, align 8
+  call fastcc void @bench_stats_asym_finish(ptr noundef nonnull @.str.72, i32 noundef 2048, ptr noundef %29, i32 noundef %count.3, double noundef %start.0, i32 noundef %ret.6)
   %call168 = call i32 @wc_FreeDhKey(ptr noundef nonnull %dhKey) #16
   ret void
 }
@@ -7167,7 +6505,7 @@ lor.lhs.false:                                    ; preds = %entry
   br i1 %tobool1.not, label %lor.lhs.false3, label %if.end
 
 if.end:                                           ; preds = %entry, %lor.lhs.false
-  tail call void @bench_eccMakeKey(i32 noundef 0, i32 noundef %curveId)
+  tail call void @bench_eccMakeKey(i32 poison, i32 noundef %curveId)
   %.b.pr = load i1, ptr @bench_all, align 4
   br i1 %.b.pr, label %if.end.lor.lhs.false3_crit_edge, label %if.then6
 
@@ -7182,7 +6520,7 @@ lor.lhs.false3:                                   ; preds = %if.end.lor.lhs.fals
   br i1 %tobool5.not, label %if.end7, label %if.then6
 
 if.then6:                                         ; preds = %lor.lhs.false3, %if.end
-  tail call void @bench_ecc(i32 noundef 0, i32 noundef %curveId)
+  tail call void @bench_ecc(i32 poison, i32 noundef %curveId)
   br label %if.end7
 
 if.end7:                                          ; preds = %if.then6, %lor.lhs.false3
@@ -7190,17 +6528,13 @@ if.end7:                                          ; preds = %if.then6, %lor.lhs.
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @bench_eccMakeKey(i32 noundef %useDeviceID, i32 noundef %curveId) local_unnamed_addr #0 {
+define dso_local void @bench_eccMakeKey(i32 %useDeviceID, i32 noundef %curveId) local_unnamed_addr #0 {
 entry:
   %tv.i.i12 = alloca %struct.timespec, align 8
   %tv.i.i = alloca %struct.timespec, align 8
   %genKey = alloca [1 x %struct.ecc_key], align 16
   %name = alloca [24 x i8], align 16
   %0 = load i32, ptr @lng_index, align 4
-  %tobool.not = icmp eq i32 %useDeviceID, 0
-  %1 = tail call align 4 ptr @llvm.threadlocal.address.p0(ptr align 4 @devId)
-  %2 = load i32, ptr %1, align 4
-  %cond = select i1 %tobool.not, i32 -2, i32 %2
   %call = tail call i32 @wc_ecc_get_curve_size_from_id(i32 noundef %curveId) #16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(4200) %genKey, i8 0, i64 4200, i1 false)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %tv.i.i)
@@ -7210,32 +6544,32 @@ entry:
 
 if.then.i.i:                                      ; preds = %entry
   %call1.i.i = tail call ptr @__errno_location() #17
-  %3 = load i32, ptr %call1.i.i, align 4
-  %call2.i.i = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.76, ptr noundef nonnull @.str.108, ptr noundef nonnull @.str.77, i32 noundef 12507, i32 noundef %3, ptr noundef nonnull @.str.78)
-  %4 = load ptr, ptr @stdout, align 8
-  %call3.i.i = call i32 @fflush(ptr noundef %4)
+  %1 = load i32, ptr %call1.i.i, align 4
+  %call2.i.i = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.76, ptr noundef nonnull @.str.108, ptr noundef nonnull @.str.77, i32 noundef 12507, i32 noundef %1, ptr noundef nonnull @.str.78)
+  %2 = load ptr, ptr @stdout, align 8
+  %call3.i.i = call i32 @fflush(ptr noundef %2)
   call void @_exit(i32 noundef 1) #18
   unreachable
 
 bench_stats_start.exit:                           ; preds = %entry
-  %5 = load i64, ptr %tv.i.i, align 8
-  %conv.i.i = sitofp i64 %5 to double
+  %3 = load i64, ptr %tv.i.i, align 8
+  %conv.i.i = sitofp i64 %3 to double
   %tv_nsec.i.i = getelementptr inbounds i8, ptr %tv.i.i, i64 8
-  %6 = load i64, ptr %tv_nsec.i.i, align 8
-  %conv4.i.i = sitofp i64 %6 to double
+  %4 = load i64, ptr %tv_nsec.i.i, align 8
+  %conv4.i.i = sitofp i64 %4 to double
   %div.i.i = fdiv double %conv4.i.i, 1.000000e+09
   %add.i.i = fadd double %div.i.i, %conv.i.i
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %tv.i.i)
-  %7 = call { i32, i32 } asm sideeffect "cpuid\0A\09rdtsc", "={ax},={dx},{ax},~{ebx},~{ecx},~{dirflag},~{fpsr},~{flags}"(i32 0) #16, !srcloc !9
-  %asmresult.i.i = extractvalue { i32, i32 } %7, 0
-  %asmresult1.i.i = extractvalue { i32, i32 } %7, 1
+  %5 = call { i32, i32 } asm sideeffect "cpuid\0A\09rdtsc", "={ax},={dx},{ax},~{ebx},~{ecx},~{dirflag},~{fpsr},~{flags}"(i32 0) #16, !srcloc !8
+  %asmresult.i.i = extractvalue { i32, i32 } %5, 0
+  %asmresult1.i.i = extractvalue { i32, i32 } %5, 1
   %conv.i1.i = zext i32 %asmresult.i.i to i64
   %conv2.i.i = zext i32 %asmresult1.i.i to i64
   %shl.i.i = shl nuw i64 %conv2.i.i, 32
   %or.i.i = or disjoint i64 %shl.i.i, %conv.i1.i
-  %8 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @total_cycles)
-  store i64 %or.i.i, ptr %8, align 8
-  %9 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @gRng)
+  %6 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @total_cycles)
+  store i64 %or.i.i, ptr %6, align 8
+  %7 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @gRng)
   %tv_nsec.i.i16 = getelementptr inbounds i8, ptr %tv.i.i12, i64 8
   br label %do.body
 
@@ -7246,12 +6580,12 @@ do.body:                                          ; preds = %bench_stats_check.e
 for.body6:                                        ; preds = %do.body, %bench_async_handle.exit
   %times.038 = phi i32 [ 0, %do.body ], [ %inc.i, %bench_async_handle.exit ]
   %call11 = call i32 @wc_ecc_free(ptr noundef nonnull %genKey) #16
-  %call14 = call i32 @wc_ecc_init_ex(ptr noundef nonnull %genKey, ptr noundef null, i32 noundef %cond) #16
+  %call14 = call i32 @wc_ecc_init_ex(ptr noundef nonnull %genKey, ptr noundef null, i32 noundef -2) #16
   %cmp15 = icmp slt i32 %call14, 0
   br i1 %cmp15, label %exit, label %if.end
 
 if.end:                                           ; preds = %for.body6
-  %call19 = call i32 @wc_ecc_make_key_ex(ptr noundef nonnull %9, i32 noundef %call, ptr noundef nonnull %genKey, i32 noundef %curveId) #16
+  %call19 = call i32 @wc_ecc_make_key_ex(ptr noundef nonnull %7, i32 noundef %call, ptr noundef nonnull %genKey, i32 noundef %curveId) #16
   %cmp.i = icmp sgt i32 %call19, -1
   br i1 %cmp.i, label %bench_async_handle.exit, label %exit
 
@@ -7268,25 +6602,25 @@ for.end27:                                        ; preds = %bench_async_handle.
 
 if.then.i.i21:                                    ; preds = %for.end27
   %call1.i.i22 = tail call ptr @__errno_location() #17
-  %10 = load i32, ptr %call1.i.i22, align 4
-  %call2.i.i23 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.76, ptr noundef nonnull @.str.108, ptr noundef nonnull @.str.77, i32 noundef 12507, i32 noundef %10, ptr noundef nonnull @.str.78)
-  %11 = load ptr, ptr @stdout, align 8
-  %call3.i.i24 = call i32 @fflush(ptr noundef %11)
+  %8 = load i32, ptr %call1.i.i22, align 4
+  %call2.i.i23 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.76, ptr noundef nonnull @.str.108, ptr noundef nonnull @.str.77, i32 noundef 12507, i32 noundef %8, ptr noundef nonnull @.str.78)
+  %9 = load ptr, ptr @stdout, align 8
+  %call3.i.i24 = call i32 @fflush(ptr noundef %9)
   call void @_exit(i32 noundef 1) #18
   unreachable
 
 bench_stats_check.exit:                           ; preds = %for.end27
   %add = add nuw nsw i32 %count.0, 100
-  %12 = load i64, ptr %tv.i.i12, align 8
-  %conv.i.i15 = sitofp i64 %12 to double
-  %13 = load i64, ptr %tv_nsec.i.i16, align 8
-  %conv4.i.i17 = sitofp i64 %13 to double
+  %10 = load i64, ptr %tv.i.i12, align 8
+  %conv.i.i15 = sitofp i64 %10 to double
+  %11 = load i64, ptr %tv_nsec.i.i16, align 8
+  %conv4.i.i17 = sitofp i64 %11 to double
   %div.i.i18 = fdiv double %conv4.i.i17, 1.000000e+09
   %add.i.i19 = fadd double %div.i.i18, %conv.i.i15
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %tv.i.i12)
   %sub.i = fsub double %add.i.i19, %add.i.i
   %cmp.i20 = fcmp uge double %sub.i, 1.000000e+00
-  br i1 %cmp.i20, label %exit, label %do.body, !llvm.loop !70
+  br i1 %cmp.i20, label %exit, label %do.body, !llvm.loop !69
 
 exit:                                             ; preds = %bench_stats_check.exit, %if.end, %for.body6
   %count.1 = phi i32 [ %count.0, %for.body6 ], [ %count.0, %if.end ], [ %add, %bench_stats_check.exit ]
@@ -7296,14 +6630,14 @@ exit:                                             ; preds = %bench_stats_check.e
   %call33 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %name, i64 noundef 24, ptr noundef nonnull @.str.73, ptr noundef %call32) #16
   %mul = shl nsw i32 %call, 3
   %arrayidx35 = getelementptr inbounds [2 x [15 x ptr]], ptr @bench_desc_words, i64 0, i64 %idxprom, i64 2
-  %14 = load ptr, ptr %arrayidx35, align 8
-  call fastcc void @bench_stats_asym_finish(ptr noundef nonnull %name, i32 noundef %mul, ptr noundef %14, i32 noundef %count.1, double noundef %add.i.i, i32 noundef %ret.2)
+  %12 = load ptr, ptr %arrayidx35, align 8
+  call fastcc void @bench_stats_asym_finish(ptr noundef nonnull %name, i32 noundef %mul, ptr noundef %12, i32 noundef %count.1, double noundef %add.i.i, i32 noundef %ret.2)
   %call41 = call i32 @wc_ecc_free(ptr noundef nonnull %genKey) #16
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @bench_ecc(i32 noundef %useDeviceID, i32 noundef %curveId) local_unnamed_addr #0 {
+define dso_local void @bench_ecc(i32 %useDeviceID, i32 noundef %curveId) local_unnamed_addr #0 {
 entry:
   %tv.i.i141 = alloca %struct.timespec, align 8
   %tv.i.i117 = alloca %struct.timespec, align 8
@@ -7322,35 +6656,31 @@ entry:
   %0 = load i32, ptr @lng_index, align 4
   %idxprom = sext i32 %0 to i64
   %arrayidx = getelementptr inbounds [2 x [15 x ptr]], ptr @bench_desc_words, i64 0, i64 %idxprom
-  %tobool.not = icmp eq i32 %useDeviceID, 0
-  %1 = tail call align 4 ptr @llvm.threadlocal.address.p0(ptr align 4 @devId)
-  %2 = load i32, ptr %1, align 4
-  %cond = select i1 %tobool.not, i32 -2, i32 %2
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(4200) %genKey, i8 0, i64 4200, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(4200) %genKey2, i8 0, i64 4200, i1 false)
   %call = tail call i32 @wc_ecc_get_curve_size_from_id(i32 noundef %curveId) #16
-  %call9 = call i32 @wc_ecc_init_ex(ptr noundef nonnull %genKey, ptr noundef null, i32 noundef %cond) #16
+  %call9 = call i32 @wc_ecc_init_ex(ptr noundef nonnull %genKey, ptr noundef null, i32 noundef -2) #16
   %cmp10 = icmp slt i32 %call9, 0
   br i1 %cmp10, label %exit, label %if.end
 
 if.end:                                           ; preds = %entry
-  %3 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @gRng)
-  %call13 = call i32 @wc_ecc_make_key_ex(ptr noundef nonnull %3, i32 noundef %call, ptr noundef nonnull %genKey, i32 noundef %curveId) #16
+  %1 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @gRng)
+  %call13 = call i32 @wc_ecc_make_key_ex(ptr noundef nonnull %1, i32 noundef %call, ptr noundef nonnull %genKey, i32 noundef %curveId) #16
   %cmp14 = icmp slt i32 %call13, 0
   br i1 %cmp14, label %exit, label %if.end16
 
 if.end16:                                         ; preds = %if.end
-  %call19 = call i32 @wc_ecc_init_ex(ptr noundef nonnull %genKey2, ptr noundef null, i32 noundef %cond) #16
+  %call19 = call i32 @wc_ecc_init_ex(ptr noundef nonnull %genKey2, ptr noundef null, i32 noundef -2) #16
   %cmp20 = icmp slt i32 %call19, 0
   br i1 %cmp20, label %exit, label %if.end22
 
 if.end22:                                         ; preds = %if.end16
-  %call25 = call i32 @wc_ecc_make_key_ex(ptr noundef nonnull %3, i32 noundef %call, ptr noundef nonnull %genKey2, i32 noundef %curveId) #16
+  %call25 = call i32 @wc_ecc_make_key_ex(ptr noundef nonnull %1, i32 noundef %call, ptr noundef nonnull %genKey2, i32 noundef %curveId) #16
   %cmp26 = icmp sgt i32 %call25, 0
   br i1 %cmp26, label %exit, label %for.body31
 
 for.body31:                                       ; preds = %if.end22
-  %call34 = call i32 @wc_ecc_set_rng(ptr noundef nonnull %genKey, ptr noundef nonnull %3) #16
+  %call34 = call i32 @wc_ecc_set_rng(ptr noundef nonnull %genKey, ptr noundef nonnull %1) #16
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %tv.i.i)
   %call.i.i = call i32 @clock_gettime(i32 noundef 0, ptr noundef nonnull %tv.i.i) #16
   %cmp.i.i = icmp slt i32 %call.i.i, 0
@@ -7358,31 +6688,31 @@ for.body31:                                       ; preds = %if.end22
 
 if.then.i.i:                                      ; preds = %for.body31
   %call1.i.i = tail call ptr @__errno_location() #17
-  %4 = load i32, ptr %call1.i.i, align 4
-  %call2.i.i = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.76, ptr noundef nonnull @.str.108, ptr noundef nonnull @.str.77, i32 noundef 12507, i32 noundef %4, ptr noundef nonnull @.str.78)
-  %5 = load ptr, ptr @stdout, align 8
-  %call3.i.i = call i32 @fflush(ptr noundef %5)
+  %2 = load i32, ptr %call1.i.i, align 4
+  %call2.i.i = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.76, ptr noundef nonnull @.str.108, ptr noundef nonnull @.str.77, i32 noundef 12507, i32 noundef %2, ptr noundef nonnull @.str.78)
+  %3 = load ptr, ptr @stdout, align 8
+  %call3.i.i = call i32 @fflush(ptr noundef %3)
   call void @_exit(i32 noundef 1) #18
   unreachable
 
 bench_stats_start.exit:                           ; preds = %for.body31
-  %6 = load i64, ptr %tv.i.i, align 8
-  %conv.i.i = sitofp i64 %6 to double
+  %4 = load i64, ptr %tv.i.i, align 8
+  %conv.i.i = sitofp i64 %4 to double
   %tv_nsec.i.i = getelementptr inbounds i8, ptr %tv.i.i, i64 8
-  %7 = load i64, ptr %tv_nsec.i.i, align 8
-  %conv4.i.i = sitofp i64 %7 to double
+  %5 = load i64, ptr %tv_nsec.i.i, align 8
+  %conv4.i.i = sitofp i64 %5 to double
   %div.i.i = fdiv double %conv4.i.i, 1.000000e+09
   %add.i.i = fadd double %div.i.i, %conv.i.i
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %tv.i.i)
-  %8 = call { i32, i32 } asm sideeffect "cpuid\0A\09rdtsc", "={ax},={dx},{ax},~{ebx},~{ecx},~{dirflag},~{fpsr},~{flags}"(i32 0) #16, !srcloc !9
-  %asmresult.i.i = extractvalue { i32, i32 } %8, 0
-  %asmresult1.i.i = extractvalue { i32, i32 } %8, 1
+  %6 = call { i32, i32 } asm sideeffect "cpuid\0A\09rdtsc", "={ax},={dx},{ax},~{ebx},~{ecx},~{dirflag},~{fpsr},~{flags}"(i32 0) #16, !srcloc !8
+  %asmresult.i.i = extractvalue { i32, i32 } %6, 0
+  %asmresult1.i.i = extractvalue { i32, i32 } %6, 1
   %conv.i1.i = zext i32 %asmresult.i.i to i64
   %conv2.i.i = zext i32 %asmresult1.i.i to i64
   %shl.i.i = shl nuw i64 %conv2.i.i, 32
   %or.i.i = or disjoint i64 %shl.i.i, %conv.i1.i
-  %9 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @total_cycles)
-  store i64 %or.i.i, ptr %9, align 8
+  %7 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @total_cycles)
+  store i64 %or.i.i, ptr %7, align 8
   %tv_nsec.i.i68 = getelementptr inbounds i8, ptr %tv.i.i64, i64 8
   br label %do.body40
 
@@ -7410,25 +6740,25 @@ for.end75:                                        ; preds = %bench_async_handle.
 
 if.then.i.i73:                                    ; preds = %for.end75
   %call1.i.i74 = tail call ptr @__errno_location() #17
-  %10 = load i32, ptr %call1.i.i74, align 4
-  %call2.i.i75 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.76, ptr noundef nonnull @.str.108, ptr noundef nonnull @.str.77, i32 noundef 12507, i32 noundef %10, ptr noundef nonnull @.str.78)
-  %11 = load ptr, ptr @stdout, align 8
-  %call3.i.i76 = call i32 @fflush(ptr noundef %11)
+  %8 = load i32, ptr %call1.i.i74, align 4
+  %call2.i.i75 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.76, ptr noundef nonnull @.str.108, ptr noundef nonnull @.str.77, i32 noundef 12507, i32 noundef %8, ptr noundef nonnull @.str.78)
+  %9 = load ptr, ptr @stdout, align 8
+  %call3.i.i76 = call i32 @fflush(ptr noundef %9)
   call void @_exit(i32 noundef 1) #18
   unreachable
 
 bench_stats_check.exit:                           ; preds = %for.end75
   %add = add nuw nsw i32 %count.0, 100
-  %12 = load i64, ptr %tv.i.i64, align 8
-  %conv.i.i67 = sitofp i64 %12 to double
-  %13 = load i64, ptr %tv_nsec.i.i68, align 8
-  %conv4.i.i69 = sitofp i64 %13 to double
+  %10 = load i64, ptr %tv.i.i64, align 8
+  %conv.i.i67 = sitofp i64 %10 to double
+  %11 = load i64, ptr %tv_nsec.i.i68, align 8
+  %conv4.i.i69 = sitofp i64 %11 to double
   %div.i.i70 = fdiv double %conv4.i.i69, 1.000000e+09
   %add.i.i71 = fadd double %div.i.i70, %conv.i.i67
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %tv.i.i64)
   %sub.i = fsub double %add.i.i71, %add.i.i
   %cmp.i72 = fcmp uge double %sub.i, 1.000000e+00
-  br i1 %cmp.i72, label %exit_ecdhe, label %do.body40, !llvm.loop !71
+  br i1 %cmp.i72, label %exit_ecdhe, label %do.body40, !llvm.loop !70
 
 exit_ecdhe:                                       ; preds = %bench_stats_check.exit, %for.body49
   %count.1 = phi i32 [ %count.0, %for.body49 ], [ %add, %bench_stats_check.exit ]
@@ -7436,8 +6766,8 @@ exit_ecdhe:                                       ; preds = %bench_stats_check.e
   %call84 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %name, i64 noundef 24, ptr noundef nonnull @.str.74, ptr noundef %call83) #16
   %mul = shl nsw i32 %call, 3
   %arrayidx86 = getelementptr inbounds i8, ptr %arrayidx, i64 24
-  %14 = load ptr, ptr %arrayidx86, align 8
-  call fastcc void @bench_stats_asym_finish(ptr noundef nonnull %name, i32 noundef %mul, ptr noundef %14, i32 noundef %count.1, double noundef %add.i.i, i32 noundef %call64)
+  %12 = load ptr, ptr %arrayidx86, align 8
+  call fastcc void @bench_stats_asym_finish(ptr noundef nonnull %name, i32 noundef %mul, ptr noundef %12, i32 noundef %count.1, double noundef %add.i.i, i32 noundef %call64)
   %cmp90 = icmp slt i32 %call64, 0
   br i1 %cmp90, label %exit, label %for.cond96.preheader
 
@@ -7456,7 +6786,7 @@ for.body98:                                       ; preds = %for.body98.preheade
   store i8 %conv, ptr %arrayidx102, align 1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond233.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond233.not, label %for.end108, label %for.body98, !llvm.loop !72
+  br i1 %exitcond233.not, label %for.end108, label %for.body98, !llvm.loop !71
 
 for.end108:                                       ; preds = %for.body98, %for.cond96.preheader
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %tv.i.i77)
@@ -7466,30 +6796,30 @@ for.end108:                                       ; preds = %for.body98, %for.co
 
 if.then.i.i91:                                    ; preds = %for.end108
   %call1.i.i92 = tail call ptr @__errno_location() #17
-  %15 = load i32, ptr %call1.i.i92, align 4
-  %call2.i.i93 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.76, ptr noundef nonnull @.str.108, ptr noundef nonnull @.str.77, i32 noundef 12507, i32 noundef %15, ptr noundef nonnull @.str.78)
-  %16 = load ptr, ptr @stdout, align 8
-  %call3.i.i94 = call i32 @fflush(ptr noundef %16)
+  %13 = load i32, ptr %call1.i.i92, align 4
+  %call2.i.i93 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.76, ptr noundef nonnull @.str.108, ptr noundef nonnull @.str.77, i32 noundef 12507, i32 noundef %13, ptr noundef nonnull @.str.78)
+  %14 = load ptr, ptr @stdout, align 8
+  %call3.i.i94 = call i32 @fflush(ptr noundef %14)
   call void @_exit(i32 noundef 1) #18
   unreachable
 
 bench_stats_start.exit95:                         ; preds = %for.end108
-  %17 = load i64, ptr %tv.i.i77, align 8
-  %conv.i.i80 = sitofp i64 %17 to double
+  %15 = load i64, ptr %tv.i.i77, align 8
+  %conv.i.i80 = sitofp i64 %15 to double
   %tv_nsec.i.i81 = getelementptr inbounds i8, ptr %tv.i.i77, i64 8
-  %18 = load i64, ptr %tv_nsec.i.i81, align 8
-  %conv4.i.i82 = sitofp i64 %18 to double
+  %16 = load i64, ptr %tv_nsec.i.i81, align 8
+  %conv4.i.i82 = sitofp i64 %16 to double
   %div.i.i83 = fdiv double %conv4.i.i82, 1.000000e+09
   %add.i.i84 = fadd double %div.i.i83, %conv.i.i80
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %tv.i.i77)
-  %19 = call { i32, i32 } asm sideeffect "cpuid\0A\09rdtsc", "={ax},={dx},{ax},~{ebx},~{ecx},~{dirflag},~{fpsr},~{flags}"(i32 0) #16, !srcloc !9
-  %asmresult.i.i85 = extractvalue { i32, i32 } %19, 0
-  %asmresult1.i.i86 = extractvalue { i32, i32 } %19, 1
+  %17 = call { i32, i32 } asm sideeffect "cpuid\0A\09rdtsc", "={ax},={dx},{ax},~{ebx},~{ecx},~{dirflag},~{fpsr},~{flags}"(i32 0) #16, !srcloc !8
+  %asmresult.i.i85 = extractvalue { i32, i32 } %17, 0
+  %asmresult1.i.i86 = extractvalue { i32, i32 } %17, 1
   %conv.i1.i87 = zext i32 %asmresult.i.i85 to i64
   %conv2.i.i88 = zext i32 %asmresult1.i.i86 to i64
   %shl.i.i89 = shl nuw i64 %conv2.i.i88, 32
   %or.i.i90 = or disjoint i64 %shl.i.i89, %conv.i1.i87
-  store i64 %or.i.i90, ptr %9, align 8
+  store i64 %or.i.i90, ptr %7, align 8
   %state = getelementptr inbounds i8, ptr %genKey, i64 8
   %tv_nsec.i.i105 = getelementptr inbounds i8, ptr %tv.i.i101, i64 8
   br label %do.body109
@@ -7500,8 +6830,8 @@ do.body109:                                       ; preds = %bench_stats_check.e
 
 for.body124:                                      ; preds = %do.body109, %bench_async_handle.exit100
   %times.2212 = phi i32 [ 0, %do.body109 ], [ %inc.i99, %bench_async_handle.exit100 ]
-  %20 = load i32, ptr %state, align 8
-  %cmp130 = icmp eq i32 %20, 0
+  %18 = load i32, ptr %state, align 8
+  %cmp130 = icmp eq i32 %18, 0
   br i1 %cmp130, label %if.then132, label %if.end135
 
 if.then132:                                       ; preds = %for.body124
@@ -7509,7 +6839,7 @@ if.then132:                                       ; preds = %for.body124
   br label %if.end135
 
 if.end135:                                        ; preds = %if.then132, %for.body124
-  %call146 = call i32 @wc_ecc_sign_hash(ptr noundef nonnull %digest, i32 noundef %call, ptr noundef nonnull %sig, ptr noundef nonnull %x, ptr noundef nonnull %3, ptr noundef nonnull %genKey) #16
+  %call146 = call i32 @wc_ecc_sign_hash(ptr noundef nonnull %digest, i32 noundef %call, ptr noundef nonnull %sig, ptr noundef nonnull %x, ptr noundef nonnull %1, ptr noundef nonnull %genKey) #16
   %cmp.i96 = icmp sgt i32 %call146, -1
   br i1 %cmp.i96, label %bench_async_handle.exit100, label %exit_ecdsa_sign
 
@@ -7526,33 +6856,33 @@ for.end158:                                       ; preds = %bench_async_handle.
 
 if.then.i.i112:                                   ; preds = %for.end158
   %call1.i.i113 = tail call ptr @__errno_location() #17
-  %21 = load i32, ptr %call1.i.i113, align 4
-  %call2.i.i114 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.76, ptr noundef nonnull @.str.108, ptr noundef nonnull @.str.77, i32 noundef 12507, i32 noundef %21, ptr noundef nonnull @.str.78)
-  %22 = load ptr, ptr @stdout, align 8
-  %call3.i.i115 = call i32 @fflush(ptr noundef %22)
+  %19 = load i32, ptr %call1.i.i113, align 4
+  %call2.i.i114 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.76, ptr noundef nonnull @.str.108, ptr noundef nonnull @.str.77, i32 noundef 12507, i32 noundef %19, ptr noundef nonnull @.str.78)
+  %20 = load ptr, ptr @stdout, align 8
+  %call3.i.i115 = call i32 @fflush(ptr noundef %20)
   call void @_exit(i32 noundef 1) #18
   unreachable
 
 bench_stats_check.exit116:                        ; preds = %for.end158
   %add159 = add nuw nsw i32 %count.2, 100
-  %23 = load i64, ptr %tv.i.i101, align 8
-  %conv.i.i104 = sitofp i64 %23 to double
-  %24 = load i64, ptr %tv_nsec.i.i105, align 8
-  %conv4.i.i106 = sitofp i64 %24 to double
+  %21 = load i64, ptr %tv.i.i101, align 8
+  %conv.i.i104 = sitofp i64 %21 to double
+  %22 = load i64, ptr %tv_nsec.i.i105, align 8
+  %conv4.i.i106 = sitofp i64 %22 to double
   %div.i.i107 = fdiv double %conv4.i.i106, 1.000000e+09
   %add.i.i108 = fadd double %div.i.i107, %conv.i.i104
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %tv.i.i101)
   %sub.i109 = fsub double %add.i.i108, %add.i.i84
   %cmp.i110 = fcmp uge double %sub.i109, 1.000000e+00
-  br i1 %cmp.i110, label %exit_ecdsa_sign, label %do.body109, !llvm.loop !73
+  br i1 %cmp.i110, label %exit_ecdsa_sign, label %do.body109, !llvm.loop !72
 
 exit_ecdsa_sign:                                  ; preds = %bench_stats_check.exit116, %if.end135
   %count.3 = phi i32 [ %count.2, %if.end135 ], [ %add159, %bench_stats_check.exit116 ]
   %call165 = call ptr @wc_ecc_get_name(i32 noundef %curveId) #16
   %call166 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %name, i64 noundef 24, ptr noundef nonnull @.str.75, ptr noundef %call165) #16
   %arrayidx169 = getelementptr inbounds i8, ptr %arrayidx, i64 32
-  %25 = load ptr, ptr %arrayidx169, align 8
-  call fastcc void @bench_stats_asym_finish(ptr noundef nonnull %name, i32 noundef %mul, ptr noundef %25, i32 noundef %count.3, double noundef %add.i.i84, i32 noundef %call146)
+  %23 = load ptr, ptr %arrayidx169, align 8
+  call fastcc void @bench_stats_asym_finish(ptr noundef nonnull %name, i32 noundef %mul, ptr noundef %23, i32 noundef %count.3, double noundef %add.i.i84, i32 noundef %call146)
   %cmp173 = icmp slt i32 %call146, 0
   br i1 %cmp173, label %exit, label %if.end176
 
@@ -7564,30 +6894,30 @@ if.end176:                                        ; preds = %exit_ecdsa_sign
 
 if.then.i.i131:                                   ; preds = %if.end176
   %call1.i.i132 = tail call ptr @__errno_location() #17
-  %26 = load i32, ptr %call1.i.i132, align 4
-  %call2.i.i133 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.76, ptr noundef nonnull @.str.108, ptr noundef nonnull @.str.77, i32 noundef 12507, i32 noundef %26, ptr noundef nonnull @.str.78)
-  %27 = load ptr, ptr @stdout, align 8
-  %call3.i.i134 = call i32 @fflush(ptr noundef %27)
+  %24 = load i32, ptr %call1.i.i132, align 4
+  %call2.i.i133 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.76, ptr noundef nonnull @.str.108, ptr noundef nonnull @.str.77, i32 noundef 12507, i32 noundef %24, ptr noundef nonnull @.str.78)
+  %25 = load ptr, ptr @stdout, align 8
+  %call3.i.i134 = call i32 @fflush(ptr noundef %25)
   call void @_exit(i32 noundef 1) #18
   unreachable
 
 bench_stats_start.exit135:                        ; preds = %if.end176
-  %28 = load i64, ptr %tv.i.i117, align 8
-  %conv.i.i120 = sitofp i64 %28 to double
+  %26 = load i64, ptr %tv.i.i117, align 8
+  %conv.i.i120 = sitofp i64 %26 to double
   %tv_nsec.i.i121 = getelementptr inbounds i8, ptr %tv.i.i117, i64 8
-  %29 = load i64, ptr %tv_nsec.i.i121, align 8
-  %conv4.i.i122 = sitofp i64 %29 to double
+  %27 = load i64, ptr %tv_nsec.i.i121, align 8
+  %conv4.i.i122 = sitofp i64 %27 to double
   %div.i.i123 = fdiv double %conv4.i.i122, 1.000000e+09
   %add.i.i124 = fadd double %div.i.i123, %conv.i.i120
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %tv.i.i117)
-  %30 = call { i32, i32 } asm sideeffect "cpuid\0A\09rdtsc", "={ax},={dx},{ax},~{ebx},~{ecx},~{dirflag},~{fpsr},~{flags}"(i32 0) #16, !srcloc !9
-  %asmresult.i.i125 = extractvalue { i32, i32 } %30, 0
-  %asmresult1.i.i126 = extractvalue { i32, i32 } %30, 1
+  %28 = call { i32, i32 } asm sideeffect "cpuid\0A\09rdtsc", "={ax},={dx},{ax},~{ebx},~{ecx},~{dirflag},~{fpsr},~{flags}"(i32 0) #16, !srcloc !8
+  %asmresult.i.i125 = extractvalue { i32, i32 } %28, 0
+  %asmresult1.i.i126 = extractvalue { i32, i32 } %28, 1
   %conv.i1.i127 = zext i32 %asmresult.i.i125 to i64
   %conv2.i.i128 = zext i32 %asmresult1.i.i126 to i64
   %shl.i.i129 = shl nuw i64 %conv2.i.i128, 32
   %or.i.i130 = or disjoint i64 %shl.i.i129, %conv.i1.i127
-  store i64 %or.i.i130, ptr %9, align 8
+  store i64 %or.i.i130, ptr %7, align 8
   %tv_nsec.i.i145 = getelementptr inbounds i8, ptr %tv.i.i141, i64 8
   br label %do.body177
 
@@ -7597,8 +6927,8 @@ do.body177:                                       ; preds = %bench_stats_check.e
 
 for.body192:                                      ; preds = %do.body177, %bench_async_handle.exit140
   %times.4213 = phi i32 [ 0, %do.body177 ], [ %inc.i139, %bench_async_handle.exit140 ]
-  %31 = load i32, ptr %state, align 8
-  %cmp199 = icmp eq i32 %31, 0
+  %29 = load i32, ptr %state, align 8
+  %cmp199 = icmp eq i32 %29, 0
   br i1 %cmp199, label %if.then201, label %if.end204
 
 if.then201:                                       ; preds = %for.body192
@@ -7606,8 +6936,8 @@ if.then201:                                       ; preds = %for.body192
   br label %if.end204
 
 if.end204:                                        ; preds = %if.then201, %for.body192
-  %32 = load i32, ptr %x, align 4
-  %call217 = call i32 @wc_ecc_verify_hash(ptr noundef nonnull %sig, i32 noundef %32, ptr noundef nonnull %digest, i32 noundef %call, ptr noundef nonnull %verify, ptr noundef nonnull %genKey) #16
+  %30 = load i32, ptr %x, align 4
+  %call217 = call i32 @wc_ecc_verify_hash(ptr noundef nonnull %sig, i32 noundef %30, ptr noundef nonnull %digest, i32 noundef %call, ptr noundef nonnull %verify, ptr noundef nonnull %genKey) #16
   %cmp.i136 = icmp sgt i32 %call217, -1
   br i1 %cmp.i136, label %bench_async_handle.exit140, label %exit_ecdsa_verify
 
@@ -7624,33 +6954,33 @@ for.end229:                                       ; preds = %bench_async_handle.
 
 if.then.i.i152:                                   ; preds = %for.end229
   %call1.i.i153 = tail call ptr @__errno_location() #17
-  %33 = load i32, ptr %call1.i.i153, align 4
-  %call2.i.i154 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.76, ptr noundef nonnull @.str.108, ptr noundef nonnull @.str.77, i32 noundef 12507, i32 noundef %33, ptr noundef nonnull @.str.78)
-  %34 = load ptr, ptr @stdout, align 8
-  %call3.i.i155 = call i32 @fflush(ptr noundef %34)
+  %31 = load i32, ptr %call1.i.i153, align 4
+  %call2.i.i154 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.76, ptr noundef nonnull @.str.108, ptr noundef nonnull @.str.77, i32 noundef 12507, i32 noundef %31, ptr noundef nonnull @.str.78)
+  %32 = load ptr, ptr @stdout, align 8
+  %call3.i.i155 = call i32 @fflush(ptr noundef %32)
   call void @_exit(i32 noundef 1) #18
   unreachable
 
 bench_stats_check.exit156:                        ; preds = %for.end229
   %add230 = add nuw nsw i32 %count.4, 100
-  %35 = load i64, ptr %tv.i.i141, align 8
-  %conv.i.i144 = sitofp i64 %35 to double
-  %36 = load i64, ptr %tv_nsec.i.i145, align 8
-  %conv4.i.i146 = sitofp i64 %36 to double
+  %33 = load i64, ptr %tv.i.i141, align 8
+  %conv.i.i144 = sitofp i64 %33 to double
+  %34 = load i64, ptr %tv_nsec.i.i145, align 8
+  %conv4.i.i146 = sitofp i64 %34 to double
   %div.i.i147 = fdiv double %conv4.i.i146, 1.000000e+09
   %add.i.i148 = fadd double %div.i.i147, %conv.i.i144
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %tv.i.i141)
   %sub.i149 = fsub double %add.i.i148, %add.i.i124
   %cmp.i150 = fcmp uge double %sub.i149, 1.000000e+00
-  br i1 %cmp.i150, label %exit_ecdsa_verify, label %do.body177, !llvm.loop !74
+  br i1 %cmp.i150, label %exit_ecdsa_verify, label %do.body177, !llvm.loop !73
 
 exit_ecdsa_verify:                                ; preds = %bench_stats_check.exit156, %if.end204
   %count.5 = phi i32 [ %count.4, %if.end204 ], [ %add230, %bench_stats_check.exit156 ]
   %call236 = call ptr @wc_ecc_get_name(i32 noundef %curveId) #16
   %call237 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %name, i64 noundef 24, ptr noundef nonnull @.str.75, ptr noundef %call236) #16
   %arrayidx240 = getelementptr inbounds i8, ptr %arrayidx, i64 40
-  %37 = load ptr, ptr %arrayidx240, align 8
-  call fastcc void @bench_stats_asym_finish(ptr noundef nonnull %name, i32 noundef %mul, ptr noundef %37, i32 noundef %count.5, double noundef %add.i.i124, i32 noundef %call217)
+  %35 = load ptr, ptr %arrayidx240, align 8
+  call fastcc void @bench_stats_asym_finish(ptr noundef nonnull %name, i32 noundef %mul, ptr noundef %35, i32 noundef %count.5, double noundef %add.i.i124, i32 noundef %call217)
   br label %exit
 
 exit:                                             ; preds = %exit_ecdsa_sign, %exit_ecdhe, %if.end22, %if.end16, %if.end, %entry, %exit_ecdsa_verify
@@ -7982,7 +7312,7 @@ for.cond.preheader:                               ; preds = %if.else117
 land.rhs:                                         ; preds = %for.body
   %indvars.iv.next = add nuw nsw i64 %indvars.iv265, 1
   %exitcond = icmp eq i64 %indvars.iv.next, 5
-  br i1 %exitcond, label %land.rhs140.preheader, label %for.body, !llvm.loop !75
+  br i1 %exitcond, label %land.rhs140.preheader, label %for.body, !llvm.loop !74
 
 for.body:                                         ; preds = %for.cond.preheader, %land.rhs
   %indvars.iv265 = phi i64 [ 0, %for.cond.preheader ], [ %indvars.iv.next, %land.rhs ]
@@ -8007,7 +7337,7 @@ land.rhs140.preheader:                            ; preds = %land.rhs
 land.rhs140:                                      ; preds = %for.body147
   %indvars.iv.next196 = add nuw nsw i64 %indvars.iv195266, 1
   %exitcond198 = icmp eq i64 %indvars.iv.next196, 14
-  br i1 %exitcond198, label %land.rhs165.preheader, label %for.body147, !llvm.loop !76
+  br i1 %exitcond198, label %land.rhs165.preheader, label %for.body147, !llvm.loop !75
 
 for.body147:                                      ; preds = %land.rhs140.preheader, %land.rhs140
   %indvars.iv195266 = phi i64 [ 0, %land.rhs140.preheader ], [ %indvars.iv.next196, %land.rhs140 ]
@@ -8032,7 +7362,7 @@ land.rhs165.preheader:                            ; preds = %land.rhs140
 land.rhs165:                                      ; preds = %for.body172
   %indvars.iv.next200 = add nuw nsw i64 %indvars.iv199267, 1
   %exitcond202 = icmp eq i64 %indvars.iv.next200, 9
-  br i1 %exitcond202, label %for.body197, label %for.body172, !llvm.loop !77
+  br i1 %exitcond202, label %for.body197, label %for.body172, !llvm.loop !76
 
 for.body172:                                      ; preds = %land.rhs165.preheader, %land.rhs165
   %indvars.iv199267 = phi i64 [ 0, %land.rhs165.preheader ], [ %indvars.iv.next200, %land.rhs165 ]
@@ -8067,7 +7397,7 @@ land.rhs215.preheader:                            ; preds = %for.body197
 land.rhs215:                                      ; preds = %for.body222
   %indvars.iv.next208 = add nuw nsw i64 %indvars.iv207269, 1
   %exitcond210 = icmp eq i64 %indvars.iv.next208, 7
-  br i1 %exitcond210, label %land.rhs240.preheader, label %for.body222, !llvm.loop !78
+  br i1 %exitcond210, label %land.rhs240.preheader, label %for.body222, !llvm.loop !77
 
 for.body222:                                      ; preds = %land.rhs215.preheader, %land.rhs215
   %indvars.iv207269 = phi i64 [ 0, %land.rhs215.preheader ], [ %indvars.iv.next208, %land.rhs215 ]
@@ -8092,7 +7422,7 @@ land.rhs240.preheader:                            ; preds = %land.rhs215
 land.rhs240:                                      ; preds = %for.body247
   %indvars.iv.next212 = add nuw nsw i64 %indvars.iv211270, 1
   %exitcond214 = icmp eq i64 %indvars.iv.next212, 2
-  br i1 %exitcond214, label %if.then264, label %for.body247, !llvm.loop !79
+  br i1 %exitcond214, label %if.then264, label %for.body247, !llvm.loop !78
 
 for.body247:                                      ; preds = %land.rhs240.preheader, %land.rhs240
   %indvars.iv211270 = phi i64 [ 0, %land.rhs240.preheader ], [ %indvars.iv.next212, %land.rhs240 ]
@@ -8135,7 +7465,7 @@ if.end285:                                        ; preds = %for.inc160.thread, 
   %dec286 = add nsw i32 %argc.addr.1, -1
   %incdec.ptr287 = getelementptr inbounds i8, ptr %argv.addr.1, i64 8
   %cmp = icmp sgt i32 %argc.addr.1, 2
-  br i1 %cmp, label %while.body, label %while.end, !llvm.loop !80
+  br i1 %cmp, label %while.body, label %while.end, !llvm.loop !79
 
 while.end:                                        ; preds = %if.then110, %if.then99, %if.then87, %if.then48, %if.then15, %if.end285, %entry
   %call288 = tail call i32 @benchmark_test(ptr poison)
@@ -8239,7 +7569,7 @@ print_alg.exit:                                   ; preds = %if.end.i, %if.then6
   %arrayidx80 = getelementptr inbounds [6 x %struct.bench_alg], ptr @bench_cipher_opt, i64 0, i64 %indvars.iv.next
   %21 = load ptr, ptr %arrayidx80, align 16
   %exitcond = icmp eq i64 %indvars.iv.next, 5
-  br i1 %exitcond, label %for.body90, label %for.body, !llvm.loop !81
+  br i1 %exitcond, label %for.body90, label %for.body, !llvm.loop !80
 
 for.body90:                                       ; preds = %print_alg.exit, %print_alg.exit63
   %indvars.iv145 = phi i64 [ %indvars.iv.next146, %print_alg.exit63 ], [ 0, %print_alg.exit ]
@@ -8272,7 +7602,7 @@ print_alg.exit63:                                 ; preds = %if.end.i52, %if.the
   %arrayidx87 = getelementptr inbounds [15 x %struct.bench_alg], ptr @bench_digest_opt, i64 0, i64 %indvars.iv.next146
   %23 = load ptr, ptr %arrayidx87, align 16
   %exitcond148 = icmp eq i64 %indvars.iv.next146, 14
-  br i1 %exitcond148, label %for.body102, label %for.body90, !llvm.loop !82
+  br i1 %exitcond148, label %for.body102, label %for.body90, !llvm.loop !81
 
 for.body102:                                      ; preds = %print_alg.exit63, %for.body102.backedge
   %indvars.iv149 = phi i64 [ %indvars.iv149.be, %for.body102.backedge ], [ 0, %print_alg.exit63 ]
@@ -8305,7 +7635,7 @@ for.body102.backedge:                             ; preds = %print_alg.exit76, %
   %line.6131.be = phi i32 [ %add3.i70, %print_alg.exit76 ], [ 0, %print_alg.exit76.thread ]
   %.be.in = getelementptr inbounds [10 x %struct.bench_alg], ptr @bench_mac_opt, i64 0, i64 %indvars.iv149.be
   %.be = load ptr, ptr %.be.in, align 16
-  br label %for.body102, !llvm.loop !83
+  br label %for.body102, !llvm.loop !82
 
 print_alg.exit76.thread:                          ; preds = %if.end.i65
   %putchar.i73 = tail call i32 @putchar(i32 10)
@@ -8367,7 +7697,7 @@ print_alg.exit102:                                ; preds = %if.end.i91, %if.the
   %arrayidx123 = getelementptr inbounds [8 x %struct.bench_alg], ptr @bench_asym_opt, i64 0, i64 %indvars.iv.next157
   %26 = load ptr, ptr %arrayidx123, align 16
   %exitcond159 = icmp eq i64 %indvars.iv.next157, 7
-  br i1 %exitcond159, label %for.body138, label %for.body126, !llvm.loop !84
+  br i1 %exitcond159, label %for.body138, label %for.body126, !llvm.loop !83
 
 for.body138:                                      ; preds = %print_alg.exit102, %print_alg.exit115
   %indvars.iv160 = phi i64 [ %indvars.iv.next161, %print_alg.exit115 ], [ 0, %print_alg.exit102 ]
@@ -8400,7 +7730,7 @@ print_alg.exit115:                                ; preds = %if.end.i104, %if.th
   %arrayidx135 = getelementptr inbounds [3 x %struct.bench_alg], ptr @bench_other_opt, i64 0, i64 %indvars.iv.next161
   %28 = load ptr, ptr %arrayidx135, align 16
   %exitcond163 = icmp eq i64 %indvars.iv.next161, 2
-  br i1 %exitcond163, label %for.end144, label %for.body138, !llvm.loop !85
+  br i1 %exitcond163, label %for.end144, label %for.body138, !llvm.loop !84
 
 for.end144:                                       ; preds = %print_alg.exit115
   %putchar = tail call i32 @putchar(i32 10)
@@ -8522,84 +7852,83 @@ attributes #19 = { nounwind willreturn memory(read) }
 !2 = !{i32 7, !"PIE Level", i32 2}
 !3 = !{i32 7, !"uwtable", i32 2}
 !4 = !{i32 7, !"frame-pointer", i32 2}
-!5 = !{i32 0, i32 2}
-!6 = distinct !{!6, !7}
-!7 = !{!"llvm.loop.mustprogress"}
-!8 = distinct !{!8, !7}
-!9 = !{i64 400574, i64 400582}
-!10 = distinct !{!10, !7}
-!11 = distinct !{!11, !7}
-!12 = distinct !{!12, !7}
-!13 = distinct !{!13, !7}
-!14 = distinct !{!14, !7}
-!15 = distinct !{!15, !7}
-!16 = distinct !{!16, !7}
-!17 = distinct !{!17, !7}
-!18 = distinct !{!18, !7}
-!19 = distinct !{!19, !7}
-!20 = distinct !{!20, !7}
-!21 = distinct !{!21, !7}
-!22 = distinct !{!22, !7}
-!23 = distinct !{!23, !7}
-!24 = distinct !{!24, !7}
-!25 = distinct !{!25, !7}
-!26 = distinct !{!26, !7}
-!27 = distinct !{!27, !7}
-!28 = distinct !{!28, !7}
-!29 = distinct !{!29, !7}
-!30 = distinct !{!30, !7}
-!31 = distinct !{!31, !7}
-!32 = distinct !{!32, !7}
-!33 = distinct !{!33, !7}
-!34 = distinct !{!34, !7}
-!35 = distinct !{!35, !7}
-!36 = distinct !{!36, !7}
-!37 = distinct !{!37, !7}
-!38 = distinct !{!38, !7}
-!39 = distinct !{!39, !7}
-!40 = distinct !{!40, !7}
-!41 = distinct !{!41, !7}
-!42 = distinct !{!42, !7}
-!43 = distinct !{!43, !7}
-!44 = distinct !{!44, !7}
-!45 = distinct !{!45, !7}
-!46 = distinct !{!46, !7}
-!47 = distinct !{!47, !7}
-!48 = distinct !{!48, !7}
-!49 = distinct !{!49, !7}
-!50 = distinct !{!50, !7}
-!51 = distinct !{!51, !7}
-!52 = distinct !{!52, !7}
-!53 = distinct !{!53, !7}
-!54 = distinct !{!54, !7}
-!55 = distinct !{!55, !7}
-!56 = distinct !{!56, !7}
-!57 = distinct !{!57, !7}
-!58 = distinct !{!58, !7}
-!59 = distinct !{!59, !7}
-!60 = distinct !{!60, !7}
-!61 = distinct !{!61, !7}
-!62 = distinct !{!62, !7}
-!63 = distinct !{!63, !7}
-!64 = distinct !{!64, !7}
-!65 = distinct !{!65, !7}
-!66 = distinct !{!66, !7}
-!67 = distinct !{!67, !7}
-!68 = distinct !{!68, !7}
-!69 = distinct !{!69, !7}
-!70 = distinct !{!70, !7}
-!71 = distinct !{!71, !7}
-!72 = distinct !{!72, !7}
-!73 = distinct !{!73, !7}
-!74 = distinct !{!74, !7}
-!75 = distinct !{!75, !7}
-!76 = distinct !{!76, !7}
-!77 = distinct !{!77, !7}
-!78 = distinct !{!78, !7}
-!79 = distinct !{!79, !7}
-!80 = distinct !{!80, !7}
-!81 = distinct !{!81, !7}
-!82 = distinct !{!82, !7}
-!83 = distinct !{!83, !7}
-!84 = distinct !{!84, !7}
-!85 = distinct !{!85, !7}
+!5 = distinct !{!5, !6}
+!6 = !{!"llvm.loop.mustprogress"}
+!7 = distinct !{!7, !6}
+!8 = !{i64 400574, i64 400582}
+!9 = distinct !{!9, !6}
+!10 = distinct !{!10, !6}
+!11 = distinct !{!11, !6}
+!12 = distinct !{!12, !6}
+!13 = distinct !{!13, !6}
+!14 = distinct !{!14, !6}
+!15 = distinct !{!15, !6}
+!16 = distinct !{!16, !6}
+!17 = distinct !{!17, !6}
+!18 = distinct !{!18, !6}
+!19 = distinct !{!19, !6}
+!20 = distinct !{!20, !6}
+!21 = distinct !{!21, !6}
+!22 = distinct !{!22, !6}
+!23 = distinct !{!23, !6}
+!24 = distinct !{!24, !6}
+!25 = distinct !{!25, !6}
+!26 = distinct !{!26, !6}
+!27 = distinct !{!27, !6}
+!28 = distinct !{!28, !6}
+!29 = distinct !{!29, !6}
+!30 = distinct !{!30, !6}
+!31 = distinct !{!31, !6}
+!32 = distinct !{!32, !6}
+!33 = distinct !{!33, !6}
+!34 = distinct !{!34, !6}
+!35 = distinct !{!35, !6}
+!36 = distinct !{!36, !6}
+!37 = distinct !{!37, !6}
+!38 = distinct !{!38, !6}
+!39 = distinct !{!39, !6}
+!40 = distinct !{!40, !6}
+!41 = distinct !{!41, !6}
+!42 = distinct !{!42, !6}
+!43 = distinct !{!43, !6}
+!44 = distinct !{!44, !6}
+!45 = distinct !{!45, !6}
+!46 = distinct !{!46, !6}
+!47 = distinct !{!47, !6}
+!48 = distinct !{!48, !6}
+!49 = distinct !{!49, !6}
+!50 = distinct !{!50, !6}
+!51 = distinct !{!51, !6}
+!52 = distinct !{!52, !6}
+!53 = distinct !{!53, !6}
+!54 = distinct !{!54, !6}
+!55 = distinct !{!55, !6}
+!56 = distinct !{!56, !6}
+!57 = distinct !{!57, !6}
+!58 = distinct !{!58, !6}
+!59 = distinct !{!59, !6}
+!60 = distinct !{!60, !6}
+!61 = distinct !{!61, !6}
+!62 = distinct !{!62, !6}
+!63 = distinct !{!63, !6}
+!64 = distinct !{!64, !6}
+!65 = distinct !{!65, !6}
+!66 = distinct !{!66, !6}
+!67 = distinct !{!67, !6}
+!68 = distinct !{!68, !6}
+!69 = distinct !{!69, !6}
+!70 = distinct !{!70, !6}
+!71 = distinct !{!71, !6}
+!72 = distinct !{!72, !6}
+!73 = distinct !{!73, !6}
+!74 = distinct !{!74, !6}
+!75 = distinct !{!75, !6}
+!76 = distinct !{!76, !6}
+!77 = distinct !{!77, !6}
+!78 = distinct !{!78, !6}
+!79 = distinct !{!79, !6}
+!80 = distinct !{!80, !6}
+!81 = distinct !{!81, !6}
+!82 = distinct !{!82, !6}
+!83 = distinct !{!83, !6}
+!84 = distinct !{!84, !6}
