@@ -326,7 +326,7 @@ Extra_ProgressBarUpdate.exit.us.i:                ; preds = %.lr.ph17.i, %Extra_
   %.val89.val.us.i = load ptr, ptr %146, align 8
   %147 = getelementptr inbounds ptr, ptr %.val89.val.us.i, i64 %indvars.iv30.i
   %148 = load ptr, ptr %147, align 8
-  %149 = trunc i64 %indvars.iv30.i to i32
+  %149 = trunc nuw nsw i64 %indvars.iv30.i to i32
   call void @Extra_ProgressBarUpdate_int(ptr noundef null, i32 noundef %149, ptr noundef null) #11
   %.val79.us.i = load ptr, ptr %148, align 8
   %150 = getelementptr i8, ptr %148, i64 32
@@ -361,7 +361,7 @@ Extra_ProgressBarUpdate.exit.us.i:                ; preds = %.lr.ph17.i, %Extra_
   br i1 %164, label %Extra_ProgressBarUpdate.exit.i, label %165
 
 165:                                              ; preds = %.lr.ph17.split.i
-  %166 = trunc i64 %indvars.iv27.i to i32
+  %166 = trunc nuw nsw i64 %indvars.iv27.i to i32
   call void @Extra_ProgressBarUpdate_int(ptr noundef nonnull %143, i32 noundef %166, ptr noundef null) #11
   br label %Extra_ProgressBarUpdate.exit.i
 
@@ -466,7 +466,7 @@ define ptr @Abc_NtkToFraig(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 n
   %.val56.val = load ptr, ptr %17, align 8
   %18 = getelementptr inbounds ptr, ptr %.val56.val, i64 %indvars.iv
   %19 = load ptr, ptr %18, align 8
-  %20 = trunc i64 %indvars.iv to i32
+  %20 = trunc nuw nsw i64 %indvars.iv to i32
   %21 = tail call ptr @Fraig_ManReadIthVar(ptr noundef %10, i32 noundef %20) #11
   %22 = getelementptr inbounds i8, ptr %19, i64 64
   store ptr %21, ptr %22, align 8
@@ -523,7 +523,7 @@ define ptr @Abc_NtkToFraig(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 n
   br i1 %45, label %Extra_ProgressBarUpdate.exit, label %46
 
 46:                                               ; preds = %42
-  %47 = trunc i64 %indvars.iv85 to i32
+  %47 = trunc nuw nsw i64 %indvars.iv85 to i32
   tail call void @Extra_ProgressBarUpdate_int(ptr noundef nonnull %.050, i32 noundef %47, ptr noundef null) #11
   br label %Extra_ProgressBarUpdate.exit
 
@@ -927,7 +927,7 @@ define ptr @Abc_NtkFromFraig(ptr noundef %0, ptr noundef %1) local_unnamed_addr 
   %.val28.val = load ptr, ptr %7, align 8
   %8 = getelementptr inbounds ptr, ptr %.val28.val, i64 %indvars.iv
   %9 = load ptr, ptr %8, align 8
-  %10 = trunc i64 %indvars.iv to i32
+  %10 = trunc nuw nsw i64 %indvars.iv to i32
   %11 = tail call ptr @Fraig_ManReadIthVar(ptr noundef %0, i32 noundef %10) #11
   %12 = getelementptr inbounds i8, ptr %9, i64 64
   %13 = load ptr, ptr %12, align 8
@@ -967,7 +967,7 @@ Extra_ProgressBarUpdate.exit.us:                  ; preds = %.lr.ph40, %Extra_Pr
   %.val31.val.us = load ptr, ptr %25, align 8
   %26 = getelementptr inbounds ptr, ptr %.val31.val.us, i64 %indvars.iv46
   %27 = load ptr, ptr %26, align 8
-  %28 = trunc i64 %indvars.iv46 to i32
+  %28 = trunc nuw nsw i64 %indvars.iv46 to i32
   tail call void @Extra_ProgressBarUpdate_int(ptr noundef null, i32 noundef %28, ptr noundef null) #11
   %29 = tail call ptr @Fraig_ManReadOutputs(ptr noundef %0) #11
   %30 = getelementptr inbounds ptr, ptr %29, i64 %indvars.iv46
@@ -997,7 +997,7 @@ Extra_ProgressBarUpdate.exit.us:                  ; preds = %.lr.ph40, %Extra_Pr
   br i1 %43, label %Extra_ProgressBarUpdate.exit, label %44
 
 44:                                               ; preds = %.lr.ph40.split
-  %45 = trunc i64 %indvars.iv43 to i32
+  %45 = trunc nuw nsw i64 %indvars.iv43 to i32
   tail call void @Extra_ProgressBarUpdate_int(ptr noundef nonnull %22, i32 noundef %45, ptr noundef null) #11
   br label %Extra_ProgressBarUpdate.exit
 
@@ -1098,7 +1098,7 @@ define ptr @Abc_NtkToFraigExdc(ptr noundef %0, ptr noundef %1, ptr noundef %2) l
   br i1 %26, label %27, label %31
 
 27:                                               ; preds = %.lr.ph
-  %28 = trunc i64 %indvars.iv to i32
+  %28 = trunc nuw nsw i64 %indvars.iv to i32
   %29 = tail call ptr @Fraig_ManReadIthVar(ptr noundef %0, i32 noundef %28) #11
   %30 = getelementptr inbounds i8, ptr %19, i64 64
   store ptr %29, ptr %30, align 8
@@ -1487,7 +1487,7 @@ Abc_NtkFraigTrustCheck.exit:                      ; preds = %28
   br i1 %52, label %Extra_ProgressBarUpdate.exit.i, label %53
 
 53:                                               ; preds = %49, %46
-  %54 = trunc i64 %indvars.iv.i18 to i32
+  %54 = trunc nuw nsw i64 %indvars.iv.i18 to i32
   tail call void @Extra_ProgressBarUpdate_int(ptr noundef %42, i32 noundef %54, ptr noundef null) #11
   br label %Extra_ProgressBarUpdate.exit.i
 
@@ -1636,7 +1636,7 @@ Extra_ProgressBarUpdate.exit.i:                   ; preds = %53, %49
   store ptr %142, ptr %.03150.i.i, align 8
   %143 = getelementptr inbounds i8, ptr %142, i64 56
   %144 = load ptr, ptr %119, align 8
-  %145 = trunc i64 %indvars.iv.i.i to i32
+  %145 = trunc nuw nsw i64 %indvars.iv.i.i to i32
   %146 = tail call i32 @Abc_SopGetIthCareLit(ptr noundef %144, i32 noundef %145) #11
   %.not34.i.i = icmp eq i32 %121, %146
   br i1 %.not34.i.i, label %152, label %147
@@ -1723,7 +1723,7 @@ declare void @Abc_NtkFinalize(ptr noundef, ptr noundef) local_unnamed_addr #2
 declare i32 @Abc_NtkGetChoiceNum(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @Abc_NtkFraigStore(ptr noundef %0) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @Abc_NtkFraigStore(ptr noundef %0) local_unnamed_addr #0 {
   %2 = tail call ptr @Abc_NtkStrash(ptr noundef %0, i32 noundef 0, i32 noundef 0, i32 noundef 0) #11
   %3 = icmp eq ptr %2, null
   br i1 %3, label %4, label %5
@@ -1941,7 +1941,7 @@ Vec_PtrPush.exit:                                 ; preds = %Vec_PtrPush.exit.si
   %.021.val.val = load i32, ptr %37, align 4
   %38 = add nsw i32 %.021.val.val, %.021.val27
   %39 = sdiv i32 134217728, %38
-  %40 = tail call noundef i32 @llvm.smin.i32(i32 %39, i32 32)
+  %40 = tail call i32 @llvm.smin.i32(i32 %39, i32 32)
   call void @Fraig_ParamsSetDefault(ptr noundef nonnull %4) #11
   %.not = icmp eq i32 %0, 0
   %41 = shl nsw i32 %40, 5
@@ -2043,7 +2043,6 @@ define void @Abc_NtkFraigStoreCheck(ptr nocapture noundef readonly %0) local_unn
 
 .lr.ph.us.preheader:                              ; preds = %1
   %8 = zext nneg i32 %5 to i64
-  %wide.trip.count36 = zext nneg i32 %5 to i64
   %wide.trip.count = zext nneg i32 %4 to i64
   br label %.lr.ph.us
 
@@ -2066,12 +2065,12 @@ define void @Abc_NtkFraigStoreCheck(ptr nocapture noundef readonly %0) local_unn
   %16 = getelementptr inbounds ptr, ptr %.val21.val.val.us, i64 %15
   %17 = load ptr, ptr %16, align 8
   %indvars.iv.next34 = add nuw nsw i64 %indvars.iv33, 1
-  %18 = trunc i64 %indvars.iv.next34 to i32
+  %18 = trunc nuw nsw i64 %indvars.iv.next34 to i32
   br label %19
 
 19:                                               ; preds = %.lr.ph.us, %._crit_edge
   %indvars.iv = phi i64 [ 1, %.lr.ph.us ], [ %.pre, %._crit_edge ]
-  %20 = mul nsw i64 %indvars.iv, %8
+  %20 = mul nuw nsw i64 %indvars.iv, %8
   %.val23.us = load ptr, ptr %2, align 8
   %21 = getelementptr i8, ptr %.val23.us, i64 8
   %.val23.val.us = load ptr, ptr %21, align 8
@@ -2094,7 +2093,7 @@ define void @Abc_NtkFraigStoreCheck(ptr nocapture noundef readonly %0) local_unn
   br i1 %.not.us, label %._crit_edge, label %31
 
 31:                                               ; preds = %19
-  %32 = trunc i64 %.pre to i32
+  %32 = trunc nuw nsw i64 %.pre to i32
   %33 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.10, i32 noundef %18, i32 noundef %32)
   br label %._crit_edge
 
@@ -2103,7 +2102,7 @@ define void @Abc_NtkFraigStoreCheck(ptr nocapture noundef readonly %0) local_unn
   br i1 %exitcond.not, label %._crit_edge.us, label %19, !llvm.loop !31
 
 ._crit_edge.us:                                   ; preds = %._crit_edge
-  %exitcond37.not = icmp eq i64 %indvars.iv.next34, %wide.trip.count36
+  %exitcond37.not = icmp eq i64 %indvars.iv.next34, %8
   br i1 %exitcond37.not, label %._crit_edge30, label %.lr.ph.us, !llvm.loop !32
 
 ._crit_edge30:                                    ; preds = %._crit_edge.us, %1

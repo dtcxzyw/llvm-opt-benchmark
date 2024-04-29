@@ -22,7 +22,7 @@ define void @Ptngc_comp_conv_to_mtf_partial(ptr nocapture noundef readonly %0, i
   br i1 %11, label %.preheader.us.preheader, label %.preheader
 
 .preheader.us.preheader:                          ; preds = %3
-  %invariant.gep = getelementptr i8, ptr %8, i64 %wide.trip.count.i
+  %invariant.gep = getelementptr inbounds i8, ptr %8, i64 %wide.trip.count.i
   br label %.lr.ph.us
 
 ._crit_edge.us:                                   ; preds = %48
@@ -110,7 +110,7 @@ define void @Ptngc_comp_conv_to_mtf_partial(ptr nocapture noundef readonly %0, i
 
 41:                                               ; preds = %.lr.ph32.us, %41
   %indvars.iv73 = phi i64 [ 0, %.lr.ph32.us ], [ %indvars.iv.next74, %41 ]
-  %gep = getelementptr i8, ptr %invariant.gep, i64 %indvars.iv73
+  %gep = getelementptr inbounds i8, ptr %invariant.gep, i64 %indvars.iv73
   %42 = load i8, ptr %gep, align 1
   %43 = zext i8 %42 to i32
   %44 = shl nuw i32 %43, %55
@@ -300,7 +300,7 @@ comp_conv_to_mtf_byte.exit.loopexit.us.us:        ; preds = %37
   br i1 %exitcond46.not, label %.split23.us, label %.preheader.us.us, !llvm.loop !13
 
 ._crit_edge.us.us:                                ; preds = %38
-  %44 = mul nsw i64 %indvars.iv43, %6
+  %44 = mul nuw nsw i64 %indvars.iv43, %wide.trip.count.i
   call void @llvm.lifetime.start.p0(i64 1024, ptr nonnull %4)
   call void @llvm.lifetime.start.p0(i64 1024, ptr nonnull %5)
   br label %11
@@ -358,7 +358,7 @@ define void @Ptngc_comp_conv_from_mtf_partial(ptr nocapture noundef readonly %0,
   br i1 %11, label %.preheader.us.preheader, label %.preheader
 
 .preheader.us.preheader:                          ; preds = %3
-  %invariant.gep = getelementptr i8, ptr %8, i64 %wide.trip.count.i
+  %invariant.gep = getelementptr inbounds i8, ptr %8, i64 %wide.trip.count.i
   br label %.lr.ph.us
 
 ._crit_edge.us:                                   ; preds = %49
@@ -447,7 +447,7 @@ define void @Ptngc_comp_conv_from_mtf_partial(ptr nocapture noundef readonly %0,
 
 42:                                               ; preds = %.lr.ph32.us, %42
   %indvars.iv72 = phi i64 [ 0, %.lr.ph32.us ], [ %indvars.iv.next73, %42 ]
-  %gep = getelementptr i8, ptr %invariant.gep, i64 %indvars.iv72
+  %gep = getelementptr inbounds i8, ptr %invariant.gep, i64 %indvars.iv72
   %43 = load i8, ptr %gep, align 1
   %44 = zext i8 %43 to i32
   %45 = shl nuw i32 %44, %56
@@ -533,7 +533,7 @@ define void @Ptngc_comp_conv_from_mtf_partial3(ptr nocapture noundef readonly %0
 
 .split.us.split.us:                               ; preds = %3, %._crit_edge.us.us
   %indvars.iv42 = phi i64 [ %indvars.iv.next43, %._crit_edge.us.us ], [ 0, %3 ]
-  %11 = mul nsw i64 %indvars.iv42, %6
+  %11 = mul nuw nsw i64 %indvars.iv42, %wide.trip.count.i
   call void @llvm.lifetime.start.p0(i64 1024, ptr nonnull %4)
   call void @llvm.lifetime.start.p0(i64 1024, ptr nonnull %5)
   br label %12

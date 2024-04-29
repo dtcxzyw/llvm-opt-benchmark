@@ -365,7 +365,7 @@ define void @Acec_VerifyBoxLeaves(ptr nocapture noundef readonly %0, ptr noundef
 
 .lr.ph:                                           ; preds = %9
   %15 = getelementptr i8, ptr %12, i64 8
-  %16 = trunc i64 %indvars.iv40 to i32
+  %16 = trunc nuw nsw i64 %indvars.iv40 to i32
   br label %17
 
 17:                                               ; preds = %.lr.ph, %39
@@ -597,7 +597,7 @@ Vec_BitStart.exit133:                             ; preds = %3, %10
 98:                                               ; preds = %93
   %99 = trunc i64 %.val116 to i32
   %100 = and i32 %99, 536870911
-  %101 = trunc i64 %indvars.iv153 to i32
+  %101 = trunc nuw nsw i64 %indvars.iv153 to i32
   %102 = sub nsw i32 %101, %100
   %103 = ashr i32 %102, 5
   %104 = sext i32 %103 to i64
@@ -611,7 +611,7 @@ Vec_BitStart.exit133:                             ; preds = %3, %10
 
 110:                                              ; preds = %98
   %111 = lshr i64 %.val116, 32
-  %112 = trunc i64 %111 to i32
+  %112 = trunc nuw i64 %111 to i32
   %113 = and i32 %112, 536870911
   %114 = sub nsw i32 %101, %113
   %115 = ashr i32 %114, 5
@@ -816,7 +816,7 @@ tailrecurse:                                      ; preds = %.lr.ph
   tail call void @Acec_TreeMarkTFI_rec(ptr noundef nonnull %0, i32 noundef %26, ptr noundef nonnull %2)
   %.val18 = load i64, ptr %18, align 4
   %27 = lshr i64 %.val18, 32
-  %28 = trunc i64 %27 to i32
+  %28 = trunc nuw i64 %27 to i32
   %29 = and i32 %28, 536870911
   %30 = sub nsw i32 %.tr2025, %29
   %.val = load ptr, ptr %4, align 8
@@ -1002,7 +1002,7 @@ Vec_BitStart.exit114:                             ; preds = %Vec_BitStart.exit, 
   br i1 %narrow.i.not, label %.critedge2, label %103
 
 103:                                              ; preds = %98
-  %104 = trunc i64 %indvars.iv134 to i32
+  %104 = trunc nuw nsw i64 %indvars.iv134 to i32
   %105 = lshr i64 %indvars.iv134, 5
   %106 = and i64 %105, 134217727
   %107 = getelementptr inbounds i32, ptr %15, i64 %106
@@ -1671,7 +1671,7 @@ Vec_BitWriteEntry.exit96:                         ; preds = %95, %102
   %152 = load i32, ptr %151, align 4
   %153 = getelementptr i8, ptr %141, i64 16
   %154 = load i32, ptr %153, align 4
-  %155 = trunc i64 %indvars.iv117 to i32
+  %155 = trunc nuw nsw i64 %indvars.iv117 to i32
   %156 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.7, i32 noundef %155, i32 noundef %129, i32 noundef %123, i32 noundef %152, i32 noundef %154)
   br label %157
 
@@ -1982,7 +1982,7 @@ Vec_IntCountLarger.exit88.thread:                 ; preds = %Vec_IntCountLarger.
 111:                                              ; preds = %109, %107
   %112 = phi ptr [ %108, %107 ], [ %110, %109 ]
   store ptr %112, ptr %104, align 8
-  %113 = trunc i64 %93 to i32
+  %113 = trunc nuw nsw i64 %93 to i32
   br label %Vec_IntGrow.exit.sink.split.i.i.i
 
 114:                                              ; preds = %97
@@ -2034,7 +2034,7 @@ Vec_IntGrow.exit.i.i.i:                           ; preds = %Vec_IntGrow.exit.si
   br i1 %exitcond.not.i.i.i, label %._crit_edge.i.i.i, label %126, !llvm.loop !32
 
 ._crit_edge.i.i.i:                                ; preds = %126, %Vec_IntGrow.exit.i.i.i
-  %129 = trunc i64 %93 to i32
+  %129 = trunc nuw nsw i64 %93 to i32
   store i32 %129, ptr %94, align 4
   br label %Gia_ObjLevelId.exit
 
@@ -2043,7 +2043,7 @@ Gia_ObjLevelId.exit:                              ; preds = %92, %._crit_edge.i.
   %.val.i.i = load ptr, ptr %130, align 8
   %131 = getelementptr inbounds i32, ptr %.val.i.i, i64 %indvars.iv133
   %132 = load i32, ptr %131, align 4
-  %133 = trunc i64 %indvars.iv133 to i32
+  %133 = trunc nuw nsw i64 %indvars.iv133 to i32
   %134 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.11, i32 noundef %133, i32 noundef %132, i32 noundef %90)
   br label %135
 
@@ -2226,7 +2226,7 @@ Acec_SignSetBit2.exit:                            ; preds = %39, %34, %21
   %47 = getelementptr i32, ptr %.val, i64 %25
   %48 = getelementptr i8, ptr %47, i64 20
   %49 = load i32, ptr %48, align 4
-  %50 = trunc i64 %indvars.iv to i32
+  %50 = trunc nuw nsw i64 %indvars.iv to i32
   %51 = lshr i32 %49, %50
   %52 = and i32 %51, 1
   %53 = xor i32 %52, %.0
@@ -2354,149 +2354,148 @@ Vec_IntStartFull.exit:                            ; preds = %Vec_IntAlloc.exit.t
   %19 = getelementptr i8, ptr %1, i64 8
   %20 = getelementptr i8, ptr %2, i64 8
   %.val39.pre.pre = load ptr, ptr %19, align 8
-  %21 = zext nneg i32 %.val61 to i64
-  br label %22
+  br label %21
 
-22:                                               ; preds = %.lr.ph, %Acec_TreeAddInOutPoint.exit60
+21:                                               ; preds = %.lr.ph, %Acec_TreeAddInOutPoint.exit60
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %Acec_TreeAddInOutPoint.exit60 ]
-  %23 = phi i32 [ 0, %.lr.ph ], [ %97, %Acec_TreeAddInOutPoint.exit60 ]
-  %.pre = zext nneg i32 %23 to i64
-  br i1 %.not, label %._crit_edge65, label %24
+  %22 = phi i32 [ 0, %.lr.ph ], [ %95, %Acec_TreeAddInOutPoint.exit60 ]
+  %.pre = zext nneg i32 %22 to i64
+  br i1 %.not, label %._crit_edge65, label %23
 
-24:                                               ; preds = %22
-  %25 = getelementptr i32, ptr %.val39.pre.pre, i64 %.pre
-  %26 = getelementptr i8, ptr %25, i64 12
-  %27 = load i32, ptr %26, align 4
+23:                                               ; preds = %21
+  %24 = getelementptr inbounds i32, ptr %.val39.pre.pre, i64 %.pre
+  %25 = getelementptr inbounds i8, ptr %24, i64 12
+  %26 = load i32, ptr %25, align 4
   %.val43 = load ptr, ptr %20, align 8
-  %28 = ashr i32 %27, 5
-  %29 = sext i32 %28 to i64
-  %30 = getelementptr inbounds i32, ptr %.val43, i64 %29
-  %31 = load i32, ptr %30, align 4
-  %32 = and i32 %27, 31
-  %33 = shl nuw i32 1, %32
-  %34 = and i32 %31, %33
-  %.not33 = icmp eq i32 %34, 0
-  br i1 %.not33, label %35, label %Acec_TreeAddInOutPoint.exit60
+  %27 = ashr i32 %26, 5
+  %28 = sext i32 %27 to i64
+  %29 = getelementptr inbounds i32, ptr %.val43, i64 %28
+  %30 = load i32, ptr %29, align 4
+  %31 = and i32 %26, 31
+  %32 = shl nuw i32 1, %31
+  %33 = and i32 %30, %32
+  %.not33 = icmp eq i32 %33, 0
+  br i1 %.not33, label %34, label %Acec_TreeAddInOutPoint.exit60
 
-35:                                               ; preds = %24
-  %36 = getelementptr i8, ptr %25, i64 16
-  %37 = load i32, ptr %36, align 4
-  %38 = ashr i32 %37, 5
-  %39 = sext i32 %38 to i64
-  %40 = getelementptr inbounds i32, ptr %.val43, i64 %39
-  %41 = load i32, ptr %40, align 4
-  %42 = and i32 %37, 31
-  %43 = shl nuw i32 1, %42
-  %44 = and i32 %43, %41
-  %.not34 = icmp eq i32 %44, 0
+34:                                               ; preds = %23
+  %35 = getelementptr inbounds i8, ptr %24, i64 16
+  %36 = load i32, ptr %35, align 4
+  %37 = ashr i32 %36, 5
+  %38 = sext i32 %37 to i64
+  %39 = getelementptr inbounds i32, ptr %.val43, i64 %38
+  %40 = load i32, ptr %39, align 4
+  %41 = and i32 %36, 31
+  %42 = shl nuw i32 1, %41
+  %43 = and i32 %42, %40
+  %.not34 = icmp eq i32 %43, 0
   br i1 %.not34, label %._crit_edge65, label %Acec_TreeAddInOutPoint.exit60
 
-._crit_edge65:                                    ; preds = %22, %35
-  %45 = getelementptr i32, ptr %.val39.pre.pre, i64 %.pre
-  %46 = load i32, ptr %45, align 4
-  %47 = shl nsw i32 %46, 1
-  %48 = sext i32 %47 to i64
-  %49 = getelementptr inbounds i32, ptr %.val.i, i64 %48
-  %50 = load i32, ptr %49, align 4
-  %51 = icmp eq i32 %50, -1
-  %52 = trunc i64 %indvars.iv to i32
-  br i1 %51, label %.sink.split.i, label %53
+._crit_edge65:                                    ; preds = %21, %34
+  %44 = getelementptr inbounds i32, ptr %.val39.pre.pre, i64 %.pre
+  %45 = load i32, ptr %44, align 4
+  %46 = shl nsw i32 %45, 1
+  %47 = sext i32 %46 to i64
+  %48 = getelementptr inbounds i32, ptr %.val.i, i64 %47
+  %49 = load i32, ptr %48, align 4
+  %50 = icmp eq i32 %49, -1
+  %51 = trunc nuw nsw i64 %indvars.iv to i32
+  br i1 %50, label %.sink.split.i, label %52
 
-53:                                               ; preds = %._crit_edge65
-  %54 = icmp sgt i32 %50, -1
-  br i1 %54, label %.sink.split.i, label %Acec_TreeAddInOutPoint.exit
+52:                                               ; preds = %._crit_edge65
+  %53 = icmp sgt i32 %49, -1
+  br i1 %53, label %.sink.split.i, label %Acec_TreeAddInOutPoint.exit
 
-.sink.split.i:                                    ; preds = %53, %._crit_edge65
-  %.sink.i = phi i32 [ %52, %._crit_edge65 ], [ -2, %53 ]
-  store i32 %.sink.i, ptr %49, align 4
+.sink.split.i:                                    ; preds = %52, %._crit_edge65
+  %.sink.i = phi i32 [ %51, %._crit_edge65 ], [ -2, %52 ]
+  store i32 %.sink.i, ptr %48, align 4
   br label %Acec_TreeAddInOutPoint.exit
 
-Acec_TreeAddInOutPoint.exit:                      ; preds = %53, %.sink.split.i
-  %55 = or disjoint i32 %23, 1
-  %56 = zext nneg i32 %55 to i64
-  %57 = getelementptr inbounds i32, ptr %.val39.pre.pre, i64 %56
-  %58 = load i32, ptr %57, align 4
-  %59 = shl nsw i32 %58, 1
-  %60 = sext i32 %59 to i64
-  %61 = getelementptr inbounds i32, ptr %.val.i, i64 %60
-  %62 = load i32, ptr %61, align 4
-  %63 = icmp eq i32 %62, -1
-  br i1 %63, label %.sink.split.i46, label %64
+Acec_TreeAddInOutPoint.exit:                      ; preds = %52, %.sink.split.i
+  %54 = or disjoint i32 %22, 1
+  %55 = zext nneg i32 %54 to i64
+  %56 = getelementptr inbounds i32, ptr %.val39.pre.pre, i64 %55
+  %57 = load i32, ptr %56, align 4
+  %58 = shl nsw i32 %57, 1
+  %59 = sext i32 %58 to i64
+  %60 = getelementptr inbounds i32, ptr %.val.i, i64 %59
+  %61 = load i32, ptr %60, align 4
+  %62 = icmp eq i32 %61, -1
+  br i1 %62, label %.sink.split.i46, label %63
 
-64:                                               ; preds = %Acec_TreeAddInOutPoint.exit
-  %65 = icmp sgt i32 %62, -1
-  br i1 %65, label %.sink.split.i46, label %Acec_TreeAddInOutPoint.exit48
+63:                                               ; preds = %Acec_TreeAddInOutPoint.exit
+  %64 = icmp sgt i32 %61, -1
+  br i1 %64, label %.sink.split.i46, label %Acec_TreeAddInOutPoint.exit48
 
-.sink.split.i46:                                  ; preds = %64, %Acec_TreeAddInOutPoint.exit
-  %.sink.i47 = phi i32 [ %52, %Acec_TreeAddInOutPoint.exit ], [ -2, %64 ]
-  store i32 %.sink.i47, ptr %61, align 4
+.sink.split.i46:                                  ; preds = %63, %Acec_TreeAddInOutPoint.exit
+  %.sink.i47 = phi i32 [ %51, %Acec_TreeAddInOutPoint.exit ], [ -2, %63 ]
+  store i32 %.sink.i47, ptr %60, align 4
   br label %Acec_TreeAddInOutPoint.exit48
 
-Acec_TreeAddInOutPoint.exit48:                    ; preds = %64, %.sink.split.i46
-  %66 = getelementptr i8, ptr %45, i64 8
-  %67 = load i32, ptr %66, align 4
-  %68 = shl nsw i32 %67, 1
-  %69 = sext i32 %68 to i64
-  %70 = getelementptr inbounds i32, ptr %.val.i, i64 %69
-  %71 = load i32, ptr %70, align 4
-  %72 = icmp eq i32 %71, -1
-  br i1 %72, label %.sink.split.i50, label %73
+Acec_TreeAddInOutPoint.exit48:                    ; preds = %63, %.sink.split.i46
+  %65 = getelementptr inbounds i8, ptr %44, i64 8
+  %66 = load i32, ptr %65, align 4
+  %67 = shl nsw i32 %66, 1
+  %68 = sext i32 %67 to i64
+  %69 = getelementptr inbounds i32, ptr %.val.i, i64 %68
+  %70 = load i32, ptr %69, align 4
+  %71 = icmp eq i32 %70, -1
+  br i1 %71, label %.sink.split.i50, label %72
 
-73:                                               ; preds = %Acec_TreeAddInOutPoint.exit48
-  %74 = icmp sgt i32 %71, -1
-  br i1 %74, label %.sink.split.i50, label %Acec_TreeAddInOutPoint.exit52
+72:                                               ; preds = %Acec_TreeAddInOutPoint.exit48
+  %73 = icmp sgt i32 %70, -1
+  br i1 %73, label %.sink.split.i50, label %Acec_TreeAddInOutPoint.exit52
 
-.sink.split.i50:                                  ; preds = %73, %Acec_TreeAddInOutPoint.exit48
-  %.sink.i51 = phi i32 [ %52, %Acec_TreeAddInOutPoint.exit48 ], [ -2, %73 ]
-  store i32 %.sink.i51, ptr %70, align 4
+.sink.split.i50:                                  ; preds = %72, %Acec_TreeAddInOutPoint.exit48
+  %.sink.i51 = phi i32 [ %51, %Acec_TreeAddInOutPoint.exit48 ], [ -2, %72 ]
+  store i32 %.sink.i51, ptr %69, align 4
   br label %Acec_TreeAddInOutPoint.exit52
 
-Acec_TreeAddInOutPoint.exit52:                    ; preds = %73, %.sink.split.i50
-  %75 = getelementptr i8, ptr %45, i64 12
-  %76 = load i32, ptr %75, align 4
-  %77 = shl nsw i32 %76, 1
-  %78 = or disjoint i32 %77, 1
-  %79 = sext i32 %78 to i64
-  %80 = getelementptr inbounds i32, ptr %.val.i, i64 %79
-  %81 = load i32, ptr %80, align 4
-  %82 = icmp eq i32 %81, -1
-  br i1 %82, label %.sink.split.i54, label %83
+Acec_TreeAddInOutPoint.exit52:                    ; preds = %72, %.sink.split.i50
+  %74 = getelementptr inbounds i8, ptr %44, i64 12
+  %75 = load i32, ptr %74, align 4
+  %76 = shl nsw i32 %75, 1
+  %77 = or disjoint i32 %76, 1
+  %78 = sext i32 %77 to i64
+  %79 = getelementptr inbounds i32, ptr %.val.i, i64 %78
+  %80 = load i32, ptr %79, align 4
+  %81 = icmp eq i32 %80, -1
+  br i1 %81, label %.sink.split.i54, label %82
 
-83:                                               ; preds = %Acec_TreeAddInOutPoint.exit52
-  %84 = icmp sgt i32 %81, -1
-  br i1 %84, label %.sink.split.i54, label %Acec_TreeAddInOutPoint.exit56
+82:                                               ; preds = %Acec_TreeAddInOutPoint.exit52
+  %83 = icmp sgt i32 %80, -1
+  br i1 %83, label %.sink.split.i54, label %Acec_TreeAddInOutPoint.exit56
 
-.sink.split.i54:                                  ; preds = %83, %Acec_TreeAddInOutPoint.exit52
-  %.sink.i55 = phi i32 [ %52, %Acec_TreeAddInOutPoint.exit52 ], [ -2, %83 ]
-  store i32 %.sink.i55, ptr %80, align 4
+.sink.split.i54:                                  ; preds = %82, %Acec_TreeAddInOutPoint.exit52
+  %.sink.i55 = phi i32 [ %51, %Acec_TreeAddInOutPoint.exit52 ], [ -2, %82 ]
+  store i32 %.sink.i55, ptr %79, align 4
   br label %Acec_TreeAddInOutPoint.exit56
 
-Acec_TreeAddInOutPoint.exit56:                    ; preds = %83, %.sink.split.i54
-  %85 = getelementptr i8, ptr %45, i64 16
-  %86 = load i32, ptr %85, align 4
-  %87 = shl nsw i32 %86, 1
-  %88 = or disjoint i32 %87, 1
-  %89 = sext i32 %88 to i64
-  %90 = getelementptr inbounds i32, ptr %.val.i, i64 %89
-  %91 = load i32, ptr %90, align 4
-  %92 = icmp eq i32 %91, -1
-  br i1 %92, label %.sink.split.i58, label %93
+Acec_TreeAddInOutPoint.exit56:                    ; preds = %82, %.sink.split.i54
+  %84 = getelementptr inbounds i8, ptr %44, i64 16
+  %85 = load i32, ptr %84, align 4
+  %86 = shl nsw i32 %85, 1
+  %87 = or disjoint i32 %86, 1
+  %88 = sext i32 %87 to i64
+  %89 = getelementptr inbounds i32, ptr %.val.i, i64 %88
+  %90 = load i32, ptr %89, align 4
+  %91 = icmp eq i32 %90, -1
+  br i1 %91, label %.sink.split.i58, label %92
 
-93:                                               ; preds = %Acec_TreeAddInOutPoint.exit56
-  %94 = icmp sgt i32 %91, -1
-  br i1 %94, label %.sink.split.i58, label %Acec_TreeAddInOutPoint.exit60
+92:                                               ; preds = %Acec_TreeAddInOutPoint.exit56
+  %93 = icmp sgt i32 %90, -1
+  br i1 %93, label %.sink.split.i58, label %Acec_TreeAddInOutPoint.exit60
 
-.sink.split.i58:                                  ; preds = %93, %Acec_TreeAddInOutPoint.exit56
-  %.sink.i59 = phi i32 [ %52, %Acec_TreeAddInOutPoint.exit56 ], [ -2, %93 ]
-  store i32 %.sink.i59, ptr %90, align 4
+.sink.split.i58:                                  ; preds = %92, %Acec_TreeAddInOutPoint.exit56
+  %.sink.i59 = phi i32 [ %51, %Acec_TreeAddInOutPoint.exit56 ], [ -2, %92 ]
+  store i32 %.sink.i59, ptr %89, align 4
   br label %Acec_TreeAddInOutPoint.exit60
 
-Acec_TreeAddInOutPoint.exit60:                    ; preds = %.sink.split.i58, %93, %24, %35
+Acec_TreeAddInOutPoint.exit60:                    ; preds = %.sink.split.i58, %92, %23, %34
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %95 = mul nsw i64 %indvars.iv.next, 6
-  %96 = icmp ult i64 %95, %21
-  %97 = trunc i64 %95 to i32
-  br i1 %96, label %22, label %._crit_edge, !llvm.loop !37
+  %94 = trunc i64 %indvars.iv.next to i32
+  %95 = mul i32 %94, 6
+  %96 = icmp slt i32 %95, %.val61
+  br i1 %96, label %21, label %._crit_edge, !llvm.loop !37
 
 ._crit_edge:                                      ; preds = %Acec_TreeAddInOutPoint.exit60, %Vec_IntStartFull.exit
   ret ptr %6
@@ -2524,7 +2523,7 @@ define i32 @Acec_TreeWhichPoint(ptr nocapture noundef readonly %0, i32 noundef %
   br i1 %exitcond.not, label %.split.loop.exit, label %7, !llvm.loop !38
 
 .split.loop.exit10:                               ; preds = %7
-  %11 = trunc i64 %indvars.iv to i32
+  %11 = trunc nuw nsw i64 %indvars.iv to i32
   br label %.split.loop.exit
 
 .split.loop.exit:                                 ; preds = %10, %.split.loop.exit10
@@ -2721,7 +2720,7 @@ define void @Acec_TreeFindTrees_rec(ptr nocapture noundef readonly %0, ptr nocap
   br i1 %or.cond, label %30, label %18
 
 18:                                               ; preds = %6
-  %19 = mul nsw i32 %12, 6
+  %19 = mul nuw nsw i32 %12, 6
   %20 = getelementptr i8, ptr %0, i64 8
   %.val.i = load ptr, ptr %20, align 8
   %21 = zext nneg i32 %19 to i64
@@ -2912,7 +2911,7 @@ Vec_WecPushLevel.exit:                            ; preds = %.Vec_WecGrow.exit12
   br i1 %or.cond.i, label %Acec_TreeFindTrees_rec.exit, label %89
 
 89:                                               ; preds = %Vec_WecPushLevel.exit
-  %90 = mul nsw i32 %85, 6
+  %90 = mul nuw nsw i32 %85, 6
   %.val.i.i = load ptr, ptr %30, align 8
   %91 = zext nneg i32 %90 to i64
   %invariant.gep.i.i = getelementptr i32, ptr %.val.i.i, i64 %91
@@ -3209,7 +3208,7 @@ Abc_Clock.exit21:                                 ; preds = %Vec_WecSizeSize.exi
 59:                                               ; preds = %.critedge2.i, %.lr.ph23.i
   %indvars.iv25.i = phi i64 [ 0, %.lr.ph23.i ], [ %indvars.iv.next26.i, %.critedge2.i ]
   %60 = getelementptr inbounds %struct.Vec_Int_t_, ptr %.val16.i, i64 %indvars.iv25.i
-  %61 = trunc i64 %indvars.iv25.i to i32
+  %61 = trunc nuw nsw i64 %indvars.iv25.i to i32
   %62 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.28, i32 noundef %61)
   %63 = getelementptr i8, ptr %60, i64 4
   %.val1719.i = load i32, ptr %63, align 4
@@ -3312,7 +3311,7 @@ define void @Acec_PrintAdders(ptr nocapture noundef readonly %0, ptr nocapture n
   %8 = getelementptr inbounds %struct.Vec_Int_t_, ptr %.val21, i64 %indvars.iv34
   %9 = getelementptr i8, ptr %8, i64 4
   %.val23 = load i32, ptr %9, align 4
-  %10 = trunc i64 %indvars.iv34 to i32
+  %10 = trunc nuw nsw i64 %indvars.iv34 to i32
   %11 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.15, i32 noundef %10, i32 noundef %.val23)
   %.val2228 = load i32, ptr %9, align 4
   %12 = icmp sgt i32 %.val2228, 0
@@ -3379,7 +3378,7 @@ define void @Acec_TreePrintBox(ptr nocapture noundef readonly %0, ptr nocapture 
   %10 = getelementptr inbounds %struct.Vec_Int_t_, ptr %.val21.i, i64 %indvars.iv34.i
   %11 = getelementptr i8, ptr %10, i64 4
   %.val23.i = load i32, ptr %11, align 4
-  %12 = trunc i64 %indvars.iv34.i to i32
+  %12 = trunc nuw nsw i64 %indvars.iv34.i to i32
   %13 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.15, i32 noundef %12, i32 noundef %.val23.i)
   %.val2228.i = load i32, ptr %11, align 4
   %14 = icmp sgt i32 %.val2228.i, 0
@@ -3440,7 +3439,7 @@ Acec_PrintAdders.exit:                            ; preds = %.critedge2.i, %2
   %41 = getelementptr inbounds %struct.Vec_Int_t_, ptr %.val16.i, i64 %indvars.iv26.i
   %42 = getelementptr i8, ptr %41, i64 4
   %.val18.i = load i32, ptr %42, align 4
-  %43 = trunc i64 %indvars.iv26.i to i32
+  %43 = trunc nuw nsw i64 %indvars.iv26.i to i32
   %44 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.15, i32 noundef %43, i32 noundef %.val18.i)
   %.val1720.i = load i32, ptr %42, align 4
   %45 = icmp sgt i32 %.val1720.i, 0
@@ -3493,7 +3492,7 @@ Vec_WecPrintLits.exit:                            ; preds = %.critedge2.i7, %Ace
   %64 = getelementptr inbounds %struct.Vec_Int_t_, ptr %.val16.i16, i64 %indvars.iv26.i15
   %65 = getelementptr i8, ptr %64, i64 4
   %.val18.i17 = load i32, ptr %65, align 4
-  %66 = trunc i64 %indvars.iv26.i15 to i32
+  %66 = trunc nuw nsw i64 %indvars.iv26.i15 to i32
   %67 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.15, i32 noundef %66, i32 noundef %.val18.i17)
   %.val1720.i18 = load i32, ptr %65, align 4
   %68 = icmp sgt i32 %.val1720.i18, 0
@@ -4039,9 +4038,9 @@ Vec_IntFree.exit:                                 ; preds = %Vec_BitFree.exit, %
 .lr.ph273:                                        ; preds = %222
   %228 = getelementptr i8, ptr %225, i64 8
   %229 = add nuw nsw i64 %indvars.iv304, 1
-  %230 = trunc i64 %229 to i32
-  %231 = trunc i64 %indvars.iv304 to i32
-  %232 = trunc i64 %229 to i32
+  %230 = trunc nuw nsw i64 %229 to i32
+  %231 = trunc nuw nsw i64 %indvars.iv304 to i32
+  %232 = trunc nuw nsw i64 %229 to i32
   br label %233
 
 233:                                              ; preds = %.lr.ph273, %472
@@ -4932,7 +4931,7 @@ Vec_WecSizeSize.exit57:                           ; preds = %74, %Vec_WecSizeSiz
 
 Vec_WecSizeSize.exit68:                           ; preds = %82, %Vec_WecSizeSize.exit57
   %.0.lcssa.i59 = phi i32 [ 0, %Vec_WecSizeSize.exit57 ], [ %84, %82 ]
-  %85 = trunc i64 %indvars.iv to i32
+  %85 = trunc nuw nsw i64 %indvars.iv to i32
   %86 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.23, i32 noundef %85, i32 noundef %.val, i32 noundef %.0.lcssa.i37, i32 noundef %.0.lcssa.i48, i32 noundef %.0.lcssa.i59)
   call void @Acec_TreePrintBox(ptr noundef %60, ptr noundef %12)
   %.not.i = icmp eq ptr %60, null
@@ -5174,7 +5173,7 @@ declare noalias noundef ptr @realloc(ptr allocptr nocapture noundef, i64 noundef
 declare void @qsort(ptr noundef, i64 noundef, i64 noundef, ptr nocapture noundef) local_unnamed_addr #13
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal i32 @Vec_WecSortCompare2(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #14 {
+define internal range(i32 -1, 2) i32 @Vec_WecSortCompare2(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #14 {
   %3 = getelementptr i8, ptr %0, i64 4
   %.val6 = load i32, ptr %3, align 4
   %4 = getelementptr i8, ptr %1, i64 4
@@ -5198,7 +5197,7 @@ define internal void @Abc_Print(i32 %0, ptr noundef %1, ...) unnamed_addr #0 {
 
 5:                                                ; preds = %2
   %6 = tail call i32 (...) @Abc_FrameIsBridgeMode() #21
-  call void @llvm.va_start(ptr nonnull %3)
+  call void @llvm.va_start.p0(ptr nonnull %3)
   %7 = call i32 (...) @Abc_FrameIsBridgeMode() #21
   %.not9 = icmp eq i32 %7, 0
   br i1 %.not9, label %14, label %8
@@ -5217,7 +5216,7 @@ define internal void @Abc_Print(i32 %0, ptr noundef %1, ...) unnamed_addr #0 {
   br label %16
 
 16:                                               ; preds = %14, %8
-  call void @llvm.va_end(ptr nonnull %3)
+  call void @llvm.va_end.p0(ptr nonnull %3)
   br label %17
 
 17:                                               ; preds = %2, %16
@@ -5228,22 +5227,16 @@ declare i32 @Abc_FrameIsBridgeMode(...) local_unnamed_addr #5
 
 declare i32 @Gia_ManToBridgeText(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #5
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_start(ptr) #16
-
 declare ptr @vnsprintf(ptr noundef, ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #17
+declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #16
 
 ; Function Attrs: nofree nounwind
 declare noundef i32 @vprintf(ptr nocapture noundef readonly, ptr noundef) local_unnamed_addr #3
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_end(ptr) #16
-
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal i32 @Vec_IntSortCompare2(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #14 {
+define internal range(i32 -1, 2) i32 @Vec_IntSortCompare2(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #14 {
   %3 = load i32, ptr %0, align 4
   %4 = load i32, ptr %1, align 4
   %5 = icmp sgt i32 %3, %4
@@ -5254,7 +5247,7 @@ define internal i32 @Vec_IntSortCompare2(ptr nocapture noundef readonly %0, ptr 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal i32 @Vec_IntSortCompare1(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #14 {
+define internal range(i32 -1, 2) i32 @Vec_IntSortCompare1(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #14 {
   %3 = load i32, ptr %0, align 4
   %4 = load i32, ptr %1, align 4
   %5 = icmp slt i32 %3, %4
@@ -5263,6 +5256,12 @@ define internal i32 @Vec_IntSortCompare1(ptr nocapture noundef readonly %0, ptr 
   %.0 = select i1 %5, i32 -1, i32 %.
   ret i32 %.0
 }
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
+declare void @llvm.va_start.p0(ptr) #17
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
+declare void @llvm.va_end.p0(ptr) #17
 
 ; Function Attrs: nofree nounwind
 declare noundef i32 @puts(ptr nocapture noundef readonly) local_unnamed_addr #18
@@ -5295,8 +5294,8 @@ attributes #12 = { mustprogress nounwind willreturn allockind("realloc") allocsi
 attributes #13 = { nofree "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #14 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #15 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #16 = { mustprogress nocallback nofree nosync nounwind willreturn }
-attributes #17 = { mustprogress nofree nounwind willreturn memory(argmem: read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #16 = { mustprogress nofree nounwind willreturn memory(argmem: read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #17 = { mustprogress nocallback nofree nosync nounwind willreturn }
 attributes #18 = { nofree nounwind }
 attributes #19 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #20 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }

@@ -5200,7 +5200,7 @@ define hidden void @"_ZN12jpeg_decoder7decoder16Decoder$LT$R$GT$11icc_profile17h
   %19 = getelementptr inbounds i8, ptr %4, i64 16
   store i64 0, ptr %19, align 8
   %.idx = shl nuw nsw i64 %7, 3
-  %20 = getelementptr i8, ptr %5, i64 %.idx
+  %20 = getelementptr inbounds i8, ptr %5, i64 %.idx
   %.ptr = getelementptr inbounds i8, ptr %5, i64 8
   br label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hfd73fbd0d403d060E.exit"
 

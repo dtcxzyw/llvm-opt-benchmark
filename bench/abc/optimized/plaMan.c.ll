@@ -474,7 +474,7 @@ Abc_UtilStrsav.exit:                              ; preds = %4, %7
 31:                                               ; preds = %31, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %31 ]
   %32 = getelementptr inbounds i32, ptr %30, i64 %indvars.iv.i
-  %33 = trunc i64 %indvars.iv.i to i32
+  %33 = trunc nuw nsw i64 %indvars.iv.i to i32
   store i32 %33, ptr %32, align 4
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
@@ -1159,7 +1159,7 @@ Vec_WecInit.exit61:                               ; preds = %Vec_WecInit.exit, %
   %indvars.iv = phi i64 [ 0, %.lr.ph87 ], [ %93, %.critedge4 ]
   %.val45 = load i32, ptr %58, align 4
   %.val46 = load ptr, ptr %59, align 8
-  %63 = trunc i64 %indvars.iv to i32
+  %63 = trunc nuw nsw i64 %indvars.iv to i32
   %64 = mul nsw i32 %.val45, %63
   %65 = sext i32 %64 to i64
   %66 = getelementptr inbounds i64, ptr %.val46, i64 %65
@@ -1224,7 +1224,7 @@ Vec_IntGrow.exit:                                 ; preds = %.critedge2, %90
   br i1 %92, label %.lr.ph84, label %.critedge4
 
 .lr.ph84:                                         ; preds = %Vec_IntGrow.exit
-  %94 = trunc i64 %93 to i32
+  %94 = trunc nuw nsw i64 %93 to i32
   br label %95
 
 95:                                               ; preds = %.lr.ph84, %221
@@ -1541,7 +1541,7 @@ Vec_IntGrow.exit.i:                               ; preds = %14, %1
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %18 ]
   %19 = load ptr, ptr %17, align 8
   %20 = getelementptr inbounds i32, ptr %19, i64 %indvars.iv.i
-  %21 = trunc i64 %indvars.iv.i to i32
+  %21 = trunc nuw nsw i64 %indvars.iv.i to i32
   store i32 %21, ptr %20, align 4
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
@@ -1622,7 +1622,7 @@ Vec_WrdFill.exit:                                 ; preds = %41, %Vec_WrdGrow.ex
 
 .lr.ph:                                           ; preds = %48
   %52 = getelementptr i8, ptr %49, i64 8
-  %53 = trunc i64 %indvars.iv41 to i32
+  %53 = trunc nuw nsw i64 %indvars.iv41 to i32
   br label %54
 
 54:                                               ; preds = %.lr.ph, %54
@@ -1682,12 +1682,11 @@ define i32 @Pla_ManDist1Num(ptr nocapture noundef readonly %0) local_unnamed_add
   %5 = getelementptr i8, ptr %0, i64 80
   %.val24 = load ptr, ptr %5, align 8
   %6 = icmp sgt i32 %.val23.fr, 0
-  %wide.trip.count.i = zext nneg i32 %.val23.fr to i64
+  %wide.trip.count.i = zext i32 %.val23.fr to i64
   br i1 %6, label %.lr.ph29.split.us.preheader, label %.critedge
 
 .lr.ph29.split.us.preheader:                      ; preds = %.lr.ph29
-  %7 = zext nneg i32 %.val23.fr to i64
-  %8 = zext nneg i32 %.val20 to i64
+  %7 = zext nneg i32 %.val20 to i64
   %wide.trip.count39 = zext nneg i32 %.val20 to i64
   br label %.lr.ph29.split.us
 
@@ -1695,60 +1694,60 @@ define i32 @Pla_ManDist1Num(ptr nocapture noundef readonly %0) local_unnamed_add
   %indvars.iv36 = phi i64 [ 0, %.lr.ph29.split.us.preheader ], [ %indvars.iv.next37, %.critedge2.loopexit.us ]
   %indvars.iv = phi i64 [ 1, %.lr.ph29.split.us.preheader ], [ %indvars.iv.next, %.critedge2.loopexit.us ]
   %.028.us = phi i32 [ 0, %.lr.ph29.split.us.preheader ], [ %.1.lcssa.us, %.critedge2.loopexit.us ]
-  %9 = mul nsw i64 %indvars.iv36, %7
-  %10 = getelementptr inbounds i64, ptr %.val24, i64 %9
+  %8 = mul nuw nsw i64 %indvars.iv36, %wide.trip.count.i
+  %9 = getelementptr inbounds i64, ptr %.val24, i64 %8
   %indvars.iv.next37 = add nuw nsw i64 %indvars.iv36, 1
-  %11 = icmp ult i64 %indvars.iv.next37, %8
-  br i1 %11, label %.lr.ph.preheader.i.us.us, label %.critedge2.loopexit.us
+  %10 = icmp ult i64 %indvars.iv.next37, %7
+  br i1 %10, label %.lr.ph.preheader.i.us.us, label %.critedge2.loopexit.us
 
 .critedge2.loopexit.us:                           ; preds = %Pla_CubesAreDistance1.exit.loopexit.us.us, %.lr.ph29.split.us
-  %.1.lcssa.us = phi i32 [ %.028.us, %.lr.ph29.split.us ], [ %27, %Pla_CubesAreDistance1.exit.loopexit.us.us ]
+  %.1.lcssa.us = phi i32 [ %.028.us, %.lr.ph29.split.us ], [ %26, %Pla_CubesAreDistance1.exit.loopexit.us.us ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond40.not = icmp eq i64 %indvars.iv.next37, %wide.trip.count39
   br i1 %exitcond40.not, label %.critedge, label %.lr.ph29.split.us, !llvm.loop !30
 
 .lr.ph.preheader.i.us.us:                         ; preds = %.lr.ph29.split.us, %Pla_CubesAreDistance1.exit.loopexit.us.us
   %indvars.iv33 = phi i64 [ %indvars.iv.next34, %Pla_CubesAreDistance1.exit.loopexit.us.us ], [ %indvars.iv, %.lr.ph29.split.us ]
-  %.126.us.us = phi i32 [ %27, %Pla_CubesAreDistance1.exit.loopexit.us.us ], [ %.028.us, %.lr.ph29.split.us ]
-  %12 = mul nsw i64 %indvars.iv33, %7
-  %13 = getelementptr inbounds i64, ptr %.val24, i64 %12
+  %.126.us.us = phi i32 [ %26, %Pla_CubesAreDistance1.exit.loopexit.us.us ], [ %.028.us, %.lr.ph29.split.us ]
+  %11 = mul nuw nsw i64 %indvars.iv33, %wide.trip.count.i
+  %12 = getelementptr inbounds i64, ptr %.val24, i64 %11
   br label %.lr.ph.i.us.us
 
-.lr.ph.i.us.us:                                   ; preds = %26, %.lr.ph.preheader.i.us.us
-  %indvars.iv.i.us.us = phi i64 [ 0, %.lr.ph.preheader.i.us.us ], [ %indvars.iv.next.i.us.us, %26 ]
-  %.026.i.us.us = phi i32 [ 0, %.lr.ph.preheader.i.us.us ], [ %.1.i.us.us, %26 ]
-  %14 = getelementptr inbounds i64, ptr %10, i64 %indvars.iv.i.us.us
-  %15 = load i64, ptr %14, align 8
-  %16 = getelementptr inbounds i64, ptr %13, i64 %indvars.iv.i.us.us
-  %17 = load i64, ptr %16, align 8
-  %18 = icmp eq i64 %15, %17
-  br i1 %18, label %26, label %19
+.lr.ph.i.us.us:                                   ; preds = %25, %.lr.ph.preheader.i.us.us
+  %indvars.iv.i.us.us = phi i64 [ 0, %.lr.ph.preheader.i.us.us ], [ %indvars.iv.next.i.us.us, %25 ]
+  %.026.i.us.us = phi i32 [ 0, %.lr.ph.preheader.i.us.us ], [ %.1.i.us.us, %25 ]
+  %13 = getelementptr inbounds i64, ptr %9, i64 %indvars.iv.i.us.us
+  %14 = load i64, ptr %13, align 8
+  %15 = getelementptr inbounds i64, ptr %12, i64 %indvars.iv.i.us.us
+  %16 = load i64, ptr %15, align 8
+  %17 = icmp eq i64 %14, %16
+  br i1 %17, label %25, label %18
 
-19:                                               ; preds = %.lr.ph.i.us.us
+18:                                               ; preds = %.lr.ph.i.us.us
   %.not.i.us.us = icmp eq i32 %.026.i.us.us, 0
-  br i1 %.not.i.us.us, label %20, label %Pla_CubesAreDistance1.exit.loopexit.us.us
+  br i1 %.not.i.us.us, label %19, label %Pla_CubesAreDistance1.exit.loopexit.us.us
 
-20:                                               ; preds = %19
-  %21 = xor i64 %17, %15
-  %22 = lshr i64 %21, 1
-  %23 = or i64 %22, %21
-  %24 = and i64 %23, 6148914691236517205
-  %25 = tail call i64 @llvm.ctpop.i64(i64 %24), !range !31
-  %or.cond.not.i.us.us = icmp eq i64 %25, 1
-  br i1 %or.cond.not.i.us.us, label %26, label %Pla_CubesAreDistance1.exit.loopexit.us.us
+19:                                               ; preds = %18
+  %20 = xor i64 %16, %14
+  %21 = lshr i64 %20, 1
+  %22 = or i64 %21, %20
+  %23 = and i64 %22, 6148914691236517205
+  %24 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %23)
+  %or.cond.not.i.us.us = icmp eq i64 %24, 1
+  br i1 %or.cond.not.i.us.us, label %25, label %Pla_CubesAreDistance1.exit.loopexit.us.us
 
-26:                                               ; preds = %20, %.lr.ph.i.us.us
-  %.1.i.us.us = phi i32 [ %.026.i.us.us, %.lr.ph.i.us.us ], [ 1, %20 ]
+25:                                               ; preds = %19, %.lr.ph.i.us.us
+  %.1.i.us.us = phi i32 [ %.026.i.us.us, %.lr.ph.i.us.us ], [ 1, %19 ]
   %indvars.iv.next.i.us.us = add nuw nsw i64 %indvars.iv.i.us.us, 1
   %exitcond.not.i.us.us = icmp eq i64 %indvars.iv.next.i.us.us, %wide.trip.count.i
-  br i1 %exitcond.not.i.us.us, label %Pla_CubesAreDistance1.exit.loopexit.us.us, label %.lr.ph.i.us.us, !llvm.loop !32
+  br i1 %exitcond.not.i.us.us, label %Pla_CubesAreDistance1.exit.loopexit.us.us, label %.lr.ph.i.us.us, !llvm.loop !31
 
-Pla_CubesAreDistance1.exit.loopexit.us.us:        ; preds = %26, %20, %19
-  %.019.i.ph.us.us = phi i32 [ 0, %19 ], [ %.1.i.us.us, %26 ], [ 0, %20 ]
-  %27 = add nsw i32 %.019.i.ph.us.us, %.126.us.us
+Pla_CubesAreDistance1.exit.loopexit.us.us:        ; preds = %25, %19, %18
+  %.019.i.ph.us.us = phi i32 [ 0, %18 ], [ %.1.i.us.us, %25 ], [ 0, %19 ]
+  %26 = add nsw i32 %.019.i.ph.us.us, %.126.us.us
   %indvars.iv.next34 = add nuw nsw i64 %indvars.iv33, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next34, %wide.trip.count39
-  br i1 %exitcond.not, label %.critedge2.loopexit.us, label %.lr.ph.preheader.i.us.us, !llvm.loop !33
+  br i1 %exitcond.not, label %.critedge2.loopexit.us, label %.lr.ph.preheader.i.us.us, !llvm.loop !32
 
 .critedge:                                        ; preds = %.critedge2.loopexit.us, %.lr.ph29, %1
   %.0.lcssa = phi i32 [ 0, %1 ], [ 0, %.lr.ph29 ], [ %.1.lcssa.us, %.critedge2.loopexit.us ]
@@ -1788,7 +1787,7 @@ Abc_Clock.exit:                                   ; preds = %1, %6
   %13 = getelementptr i8, ptr %0, i64 80
   %.val24.i = load ptr, ptr %13, align 8
   %14 = icmp sgt i32 %.val23.fr.i, 0
-  %wide.trip.count.i.i = zext nneg i32 %.val23.fr.i to i64
+  %wide.trip.count.i.i = zext i32 %.val23.fr.i to i64
   br i1 %14, label %.lr.ph29.split.us.preheader.i, label %Pla_ManDist1Num.exit
 
 .lr.ph29.split.us.preheader.i:                    ; preds = %.lr.ph29.i
@@ -1837,7 +1836,7 @@ Abc_Clock.exit:                                   ; preds = %1, %6
   %29 = lshr i64 %28, 1
   %30 = or i64 %29, %28
   %31 = and i64 %30, 6148914691236517205
-  %32 = call i64 @llvm.ctpop.i64(i64 %31), !range !31
+  %32 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %31)
   %or.cond.not.i.us.us.i = icmp eq i64 %32, 1
   br i1 %or.cond.not.i.us.us.i, label %33, label %Pla_CubesAreDistance1.exit.loopexit.us.us.i
 
@@ -1845,14 +1844,14 @@ Abc_Clock.exit:                                   ; preds = %1, %6
   %.1.i.us.us.i = phi i32 [ %.026.i.us.us.i, %.lr.ph.i.us.us.i ], [ 1, %27 ]
   %indvars.iv.next.i.us.us.i = add nuw nsw i64 %indvars.iv.i.us.us.i, 1
   %exitcond.not.i.us.us.i = icmp eq i64 %indvars.iv.next.i.us.us.i, %wide.trip.count.i.i
-  br i1 %exitcond.not.i.us.us.i, label %Pla_CubesAreDistance1.exit.loopexit.us.us.i, label %.lr.ph.i.us.us.i, !llvm.loop !32
+  br i1 %exitcond.not.i.us.us.i, label %Pla_CubesAreDistance1.exit.loopexit.us.us.i, label %.lr.ph.i.us.us.i, !llvm.loop !31
 
 Pla_CubesAreDistance1.exit.loopexit.us.us.i:      ; preds = %33, %27, %26
   %.019.i.ph.us.us.i = phi i32 [ 0, %26 ], [ %.1.i.us.us.i, %33 ], [ 0, %27 ]
   %34 = add nsw i32 %.019.i.ph.us.us.i, %.126.us.us.i
   %indvars.iv.next34.i = add nuw nsw i64 %indvars.iv33.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next34.i, %15
-  br i1 %exitcond.not.i, label %.critedge2.loopexit.us.i, label %.lr.ph.preheader.i.us.us.i, !llvm.loop !33
+  br i1 %exitcond.not.i, label %.critedge2.loopexit.us.i, label %.lr.ph.preheader.i.us.us.i, !llvm.loop !32
 
 Pla_ManDist1Num.exit:                             ; preds = %.critedge2.loopexit.us.i, %Abc_Clock.exit, %.lr.ph29.i
   %.0.lcssa.i = phi i32 [ 0, %Abc_Clock.exit ], [ 0, %.lr.ph29.i ], [ %.1.lcssa.us.i, %.critedge2.loopexit.us.i ]
@@ -1917,7 +1916,7 @@ define internal void @Abc_Print(i32 %0, ptr noundef %1, ...) unnamed_addr #0 {
 
 5:                                                ; preds = %2
   %6 = tail call i32 (...) @Abc_FrameIsBridgeMode() #17
-  call void @llvm.va_start(ptr nonnull %3)
+  call void @llvm.va_start.p0(ptr nonnull %3)
   %7 = call i32 (...) @Abc_FrameIsBridgeMode() #17
   %.not9 = icmp eq i32 %7, 0
   br i1 %.not9, label %14, label %8
@@ -1936,7 +1935,7 @@ define internal void @Abc_Print(i32 %0, ptr noundef %1, ...) unnamed_addr #0 {
   br label %16
 
 16:                                               ; preds = %14, %8
-  call void @llvm.va_end(ptr nonnull %3)
+  call void @llvm.va_end.p0(ptr nonnull %3)
   br label %17
 
 17:                                               ; preds = %2, %16
@@ -1947,16 +1946,16 @@ declare i32 @Abc_FrameIsBridgeMode(...) local_unnamed_addr #2
 
 declare i32 @Gia_ManToBridgeText(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_start(ptr) #13
-
 declare ptr @vnsprintf(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nofree nounwind
 declare noundef i32 @vprintf(ptr nocapture noundef readonly, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_end(ptr) #13
+declare void @llvm.va_start.p0(ptr) #13
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
+declare void @llvm.va_end.p0(ptr) #13
 
 ; Function Attrs: nofree nounwind
 declare noundef i64 @fwrite(ptr nocapture noundef, i64 noundef, i64 noundef, ptr nocapture noundef) local_unnamed_addr #14
@@ -2032,6 +2031,5 @@ attributes #21 = { nounwind willreturn memory(read) }
 !28 = distinct !{!28, !5}
 !29 = distinct !{!29, !5}
 !30 = distinct !{!30, !5}
-!31 = !{i64 0, i64 65}
+!31 = distinct !{!31, !5}
 !32 = distinct !{!32, !5}
-!33 = distinct !{!33, !5}

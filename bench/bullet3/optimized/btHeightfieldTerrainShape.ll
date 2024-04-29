@@ -3739,52 +3739,52 @@ for.body.lr.ph:                                   ; preds = %_ZN20btAlignedObjec
 
 for.body.us.preheader:                            ; preds = %for.body.lr.ph
   %15 = zext nneg i32 %chunkSize to i64
+  %16 = zext nneg i32 %spec.select to i64
   %wide.trip.count112 = zext nneg i32 %nChunksZ.0 to i64
-  %wide.trip.count = zext nneg i32 %spec.select to i64
   br label %for.body28.us76.preheader
 
 for.body28.us76.preheader:                        ; preds = %for.cond26.for.inc72_crit_edge.us, %for.body.us.preheader
   %indvars.iv106 = phi i64 [ 0, %for.body.us.preheader ], [ %indvars.iv.next107, %for.cond26.for.inc72_crit_edge.us ]
-  %16 = mul nsw i64 %indvars.iv106, %15
-  %17 = add nuw nsw i64 %16, %15
-  %18 = trunc i64 %indvars.iv106 to i32
-  %19 = mul i32 %spec.select, %18
-  %20 = zext i32 %19 to i64
-  %21 = trunc nsw i64 %16 to i32
+  %17 = mul nuw nsw i64 %indvars.iv106, %15
+  %18 = mul nuw nsw i64 %indvars.iv106, %16
+  %19 = trunc nuw i64 %17 to i32
+  %20 = trunc i64 %17 to i32
+  %21 = add i32 %20, %chunkSize
   br label %for.body34.us82.preheader
 
 for.body34.us82.preheader:                        ; preds = %for.cond31.for.end64_crit_edge.us, %for.body28.us76.preheader
   %indvars.iv = phi i64 [ 0, %for.body28.us76.preheader ], [ %indvars.iv.next, %for.cond31.for.end64_crit_edge.us ]
-  %22 = mul nsw i64 %indvars.iv, %15
+  %22 = mul nuw nsw i64 %indvars.iv, %15
   %vtable.us79 = load ptr, ptr %this, align 8
   %vfn.us80 = getelementptr inbounds i8, ptr %vtable.us79, i64 136
   %23 = load ptr, ptr %vfn.us80, align 8
-  %24 = trunc nsw i64 %22 to i32
-  %call.us81 = tail call noundef float %23(ptr noundef nonnull align 8 dereferenceable(208) %this, i32 noundef %24, i32 noundef %21)
-  %25 = add nuw nsw i64 %22, %15
+  %24 = trunc nuw i64 %22 to i32
+  %call.us81 = tail call noundef float %23(ptr noundef nonnull align 8 dereferenceable(208) %this, i32 noundef %24, i32 noundef %19)
+  %25 = trunc i64 %22 to i32
+  %26 = add i32 %25, %chunkSize
   br label %for.body34.us82
 
 for.body34.us82:                                  ; preds = %for.body34.us82.preheader, %for.inc62.us85
-  %z.067.us83 = phi i32 [ %inc63.us86, %for.inc62.us85 ], [ %21, %for.body34.us82.preheader ]
+  %z.067.us83 = phi i32 [ %inc63.us86, %for.inc62.us85 ], [ %19, %for.body34.us82.preheader ]
   %r.sroa.0.066.us = phi float [ %r.sroa.0.3.us, %for.inc62.us85 ], [ %call.us81, %for.body34.us82.preheader ]
   %r.sroa.4.065.us = phi float [ %r.sroa.4.3.us, %for.inc62.us85 ], [ %call.us81, %for.body34.us82.preheader ]
-  %26 = load i32, ptr %m_heightStickLength, align 8
-  %cmp36.not.us84 = icmp slt i32 %z.067.us83, %26
+  %27 = load i32, ptr %m_heightStickLength, align 8
+  %cmp36.not.us84 = icmp slt i32 %z.067.us83, %27
   br i1 %cmp36.not.us84, label %for.body43.us, label %for.inc62.us85
 
 for.body43.us:                                    ; preds = %for.body34.us82, %for.inc.us
   %x.062.us = phi i32 [ %inc61.us, %for.inc.us ], [ %24, %for.body34.us82 ]
   %r.sroa.0.161.us = phi float [ %r.sroa.0.2.us, %for.inc.us ], [ %r.sroa.0.066.us, %for.body34.us82 ]
   %r.sroa.4.160.us = phi float [ %r.sroa.4.2.us, %for.inc.us ], [ %r.sroa.4.065.us, %for.body34.us82 ]
-  %27 = load i32, ptr %m_heightStickWidth, align 4
-  %cmp45.not.us = icmp slt i32 %x.062.us, %27
+  %28 = load i32, ptr %m_heightStickWidth, align 4
+  %cmp45.not.us = icmp slt i32 %x.062.us, %28
   br i1 %cmp45.not.us, label %if.end47.us, label %for.inc.us
 
 if.end47.us:                                      ; preds = %for.body43.us
   %vtable48.us = load ptr, ptr %this, align 8
   %vfn49.us = getelementptr inbounds i8, ptr %vtable48.us, i64 136
-  %28 = load ptr, ptr %vfn49.us, align 8
-  %call50.us = tail call noundef float %28(ptr noundef nonnull align 8 dereferenceable(208) %this, i32 noundef %x.062.us, i32 noundef %z.067.us83)
+  %29 = load ptr, ptr %vfn49.us, align 8
+  %call50.us = tail call noundef float %29(ptr noundef nonnull align 8 dereferenceable(208) %this, i32 noundef %x.062.us, i32 noundef %z.067.us83)
   %cmp52.us = fcmp olt float %call50.us, %r.sroa.0.161.us
   br i1 %cmp52.us, label %for.inc.us, label %if.else.us
 
@@ -3799,27 +3799,25 @@ for.inc.us:                                       ; preds = %if.then57.us, %if.e
   %r.sroa.4.2.us = phi float [ %call50.us, %if.then57.us ], [ %r.sroa.4.160.us, %if.else.us ], [ %r.sroa.4.160.us, %for.body43.us ], [ %r.sroa.4.160.us, %if.end47.us ]
   %r.sroa.0.2.us = phi float [ %r.sroa.0.161.us, %if.then57.us ], [ %r.sroa.0.161.us, %if.else.us ], [ %r.sroa.0.161.us, %for.body43.us ], [ %call50.us, %if.end47.us ]
   %inc61.us = add nuw nsw i32 %x.062.us, 1
-  %29 = sext i32 %x.062.us to i64
-  %cmp42.not.us.not = icmp sgt i64 %25, %29
+  %cmp42.not.us.not = icmp slt i32 %x.062.us, %26
   br i1 %cmp42.not.us.not, label %for.body43.us, label %for.inc62.us85, !llvm.loop !15
 
 for.inc62.us85:                                   ; preds = %for.inc.us, %for.body34.us82
   %r.sroa.4.3.us = phi float [ %r.sroa.4.065.us, %for.body34.us82 ], [ %r.sroa.4.2.us, %for.inc.us ]
   %r.sroa.0.3.us = phi float [ %r.sroa.0.066.us, %for.body34.us82 ], [ %r.sroa.0.2.us, %for.inc.us ]
   %inc63.us86 = add nuw nsw i32 %z.067.us83, 1
-  %30 = sext i32 %z.067.us83 to i64
-  %cmp33.not.us87.not = icmp sgt i64 %17, %30
+  %cmp33.not.us87.not = icmp slt i32 %z.067.us83, %21
   br i1 %cmp33.not.us87.not, label %for.body34.us82, label %for.cond31.for.end64_crit_edge.us, !llvm.loop !16
 
 for.cond31.for.end64_crit_edge.us:                ; preds = %for.inc62.us85
-  %31 = load ptr, ptr %m_data.i, align 8
-  %32 = getelementptr %"struct.btHeightfieldTerrainShape::Range", ptr %31, i64 %indvars.iv
-  %arrayidx.i.us93 = getelementptr %"struct.btHeightfieldTerrainShape::Range", ptr %32, i64 %20
+  %30 = load ptr, ptr %m_data.i, align 8
+  %31 = getelementptr inbounds %"struct.btHeightfieldTerrainShape::Range", ptr %30, i64 %indvars.iv
+  %arrayidx.i.us93 = getelementptr inbounds %"struct.btHeightfieldTerrainShape::Range", ptr %31, i64 %18
   store float %r.sroa.0.3.us, ptr %arrayidx.i.us93, align 4
   %arrayidx.i.sroa_idx.us94 = getelementptr inbounds i8, ptr %arrayidx.i.us93, i64 4
   store float %r.sroa.4.3.us, ptr %arrayidx.i.sroa_idx.us94, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
+  %exitcond.not = icmp eq i64 %indvars.iv.next, %16
   br i1 %exitcond.not, label %for.cond26.for.inc72_crit_edge.us, label %for.body34.us82.preheader, !llvm.loop !17
 
 for.cond26.for.inc72_crit_edge.us:                ; preds = %for.cond31.for.end64_crit_edge.us

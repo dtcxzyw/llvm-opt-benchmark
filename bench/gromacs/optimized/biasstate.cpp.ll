@@ -1890,51 +1890,50 @@ _ZNSt6vectorIdSaIdEEC2EmRKdRKS0_.exit:            ; preds = %.noexc64, %_ZNSt6ve
   br i1 %or.cond, label %.lr.ph94.split.us.preheader, label %._crit_edge
 
 .lr.ph94.split.us.preheader:                      ; preds = %.preheader82
+  %57 = and i64 %19, 2147483647
   %wide.trip.count118 = and i64 %28, 2147483647
-  %wide.trip.count113 = and i64 %19, 2147483647
   br label %.lr.ph94.split.us
 
 .lr.ph94.split.us:                                ; preds = %.lr.ph94.split.us.preheader, %..loopexit80_crit_edge.us
-  %57 = phi ptr [ %24, %.lr.ph94.split.us.preheader ], [ %61, %..loopexit80_crit_edge.us ]
+  %58 = phi ptr [ %24, %.lr.ph94.split.us.preheader ], [ %62, %..loopexit80_crit_edge.us ]
   %indvars.iv115 = phi i64 [ 0, %.lr.ph94.split.us.preheader ], [ %indvars.iv.next116, %..loopexit80_crit_edge.us ]
-  %58 = getelementptr inbounds %"class.gmx::PointState", ptr %57, i64 %indvars.iv115, i32 2
-  %59 = load double, ptr %58, align 8
-  %60 = fcmp ogt double %59, 0.000000e+00
-  br i1 %60, label %.preheader79.us, label %..loopexit80_crit_edge.us
+  %59 = getelementptr inbounds %"class.gmx::PointState", ptr %58, i64 %indvars.iv115, i32 2
+  %60 = load double, ptr %59, align 8
+  %61 = fcmp ogt double %60, 0.000000e+00
+  br i1 %61, label %.preheader79.us, label %..loopexit80_crit_edge.us
 
-..loopexit80_crit_edge.us:                        ; preds = %68, %.lr.ph94.split.us
-  %61 = phi ptr [ %57, %.lr.ph94.split.us ], [ %70, %68 ]
+..loopexit80_crit_edge.us:                        ; preds = %69, %.lr.ph94.split.us
+  %62 = phi ptr [ %58, %.lr.ph94.split.us ], [ %71, %69 ]
   %indvars.iv.next116 = add nuw nsw i64 %indvars.iv115, 1
   %exitcond119.not = icmp eq i64 %indvars.iv.next116, %wide.trip.count118
   br i1 %exitcond119.not, label %._crit_edge, label %.lr.ph94.split.us, !llvm.loop !16
 
-62:                                               ; preds = %.preheader79.us, %68
-  %indvars.iv110 = phi i64 [ 0, %.preheader79.us ], [ %indvars.iv.next111, %68 ]
-  %63 = load ptr, ptr %5, align 8
-  %64 = getelementptr inbounds %"class.gmx::CorrelationTensor", ptr %63, i64 %indvars.iv115
-  %65 = load double, ptr %2, align 8
-  %66 = trunc nuw nsw i64 %indvars.iv110 to i32
-  %67 = invoke noundef double @_ZNK3gmx17CorrelationTensor15getTimeIntegralEid(ptr noundef nonnull align 8 dereferenceable(24) %64, i32 noundef %66, double noundef %65)
-          to label %68 unwind label %.loopexit81.split.us
+63:                                               ; preds = %.preheader79.us, %69
+  %indvars.iv110 = phi i64 [ 0, %.preheader79.us ], [ %indvars.iv.next111, %69 ]
+  %64 = load ptr, ptr %5, align 8
+  %65 = getelementptr inbounds %"class.gmx::CorrelationTensor", ptr %64, i64 %indvars.iv115
+  %66 = load double, ptr %2, align 8
+  %67 = trunc nuw nsw i64 %indvars.iv110 to i32
+  %68 = invoke noundef double @_ZNK3gmx17CorrelationTensor15getTimeIntegralEid(ptr noundef nonnull align 8 dereferenceable(24) %65, i32 noundef %67, double noundef %66)
+          to label %69 unwind label %.loopexit81.split.us
 
-68:                                               ; preds = %62
-  %69 = add nuw nsw i64 %indvars.iv110, %76
-  %70 = load ptr, ptr %21, align 8
-  %71 = getelementptr inbounds %"class.gmx::PointState", ptr %70, i64 %indvars.iv115, i32 11
-  %72 = load double, ptr %71, align 8
-  %73 = fmul double %67, %72
-  %74 = getelementptr inbounds double, ptr %.sroa.069.0, i64 %69
-  store double %73, ptr %74, align 8
+69:                                               ; preds = %63
+  %70 = add nuw nsw i64 %indvars.iv110, %76
+  %71 = load ptr, ptr %21, align 8
+  %72 = getelementptr inbounds %"class.gmx::PointState", ptr %71, i64 %indvars.iv115, i32 11
+  %73 = load double, ptr %72, align 8
+  %74 = fmul double %68, %73
+  %75 = getelementptr inbounds double, ptr %.sroa.069.0, i64 %70
+  store double %74, ptr %75, align 8
   %indvars.iv.next111 = add nuw nsw i64 %indvars.iv110, 1
-  %exitcond114.not = icmp eq i64 %indvars.iv.next111, %wide.trip.count113
-  br i1 %exitcond114.not, label %..loopexit80_crit_edge.us, label %62, !llvm.loop !17
+  %exitcond114.not = icmp eq i64 %indvars.iv.next111, %57
+  br i1 %exitcond114.not, label %..loopexit80_crit_edge.us, label %63, !llvm.loop !17
 
 .preheader79.us:                                  ; preds = %.lr.ph94.split.us
-  %75 = mul i64 %indvars.iv115, %19
-  %76 = and i64 %75, 4294967295
-  br label %62
+  %76 = mul nuw nsw i64 %indvars.iv115, %57
+  br label %63
 
-.loopexit81.split.us:                             ; preds = %62
+.loopexit81.split.us:                             ; preds = %63
   %lpad.loopexit.us = landingpad { ptr, i32 }
           cleanup
   br label %.loopexit.split-lp
@@ -1980,14 +1979,13 @@ _ZNSt6vectorIdSaIdEEC2EmRKdRKS0_.exit:            ; preds = %.noexc64, %_ZNSt6ve
   br i1 %88, label %.preheader.us.preheader, label %.loopexit
 
 .preheader.us.preheader:                          ; preds = %.preheader.lr.ph
+  %90 = and i64 %19, 2147483647
   %wide.trip.count128 = and i64 %28, 2147483647
-  %wide.trip.count123 = and i64 %19, 2147483647
   br label %.preheader.us
 
 .preheader.us:                                    ; preds = %.preheader.us.preheader, %._crit_edge96.us
   %indvars.iv125 = phi i64 [ 0, %.preheader.us.preheader ], [ %indvars.iv.next126, %._crit_edge96.us ]
-  %90 = mul i64 %indvars.iv125, %19
-  %91 = and i64 %90, 4294967295
+  %91 = mul nuw nsw i64 %indvars.iv125, %90
   br label %92
 
 92:                                               ; preds = %.preheader.us, %107
@@ -2020,7 +2018,7 @@ _ZNSt6vectorIdSaIdEEC2EmRKdRKS0_.exit:            ; preds = %.noexc64, %_ZNSt6ve
   %111 = getelementptr inbounds double, ptr %110, i64 %indvars.iv120
   store double %.sink, ptr %111, align 8
   %indvars.iv.next121 = add nuw nsw i64 %indvars.iv120, 1
-  %exitcond124.not = icmp eq i64 %indvars.iv.next121, %wide.trip.count123
+  %exitcond124.not = icmp eq i64 %indvars.iv.next121, %90
   br i1 %exitcond124.not, label %._crit_edge96.us, label %92, !llvm.loop !18
 
 ._crit_edge96.us:                                 ; preds = %107

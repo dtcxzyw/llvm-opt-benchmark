@@ -177,20 +177,19 @@ for.cond1.preheader.lr.ph:                        ; preds = %entry
   %m_data.i.i = getelementptr inbounds i8, ptr %m, i64 40
   %1 = load ptr, ptr %m_data.i.i, align 8
   %2 = zext nneg i32 %0 to i64
-  %wide.trip.count = zext nneg i32 %0 to i64
   br label %for.cond1.preheader
 
 for.cond1.preheader:                              ; preds = %for.cond1.preheader.lr.ph, %for.inc7
   %indvars.iv16 = phi i64 [ 0, %for.cond1.preheader.lr.ph ], [ %indvars.iv.next17, %for.inc7 ]
   %result.011 = phi float [ 0.000000e+00, %for.cond1.preheader.lr.ph ], [ %.sroa.speculated, %for.inc7 ]
-  %invariant.gep = getelementptr float, ptr %1, i64 %indvars.iv16
+  %invariant.gep = getelementptr inbounds float, ptr %1, i64 %indvars.iv16
   br label %for.body3
 
 for.body3:                                        ; preds = %for.cond1.preheader, %for.body3
   %indvars.iv = phi i64 [ 0, %for.cond1.preheader ], [ %indvars.iv.next, %for.body3 ]
   %result.18 = phi float [ %result.011, %for.cond1.preheader ], [ %.sroa.speculated, %for.body3 ]
-  %3 = mul nsw i64 %indvars.iv, %2
-  %gep = getelementptr float, ptr %invariant.gep, i64 %3
+  %3 = mul nuw nsw i64 %indvars.iv, %2
+  %gep = getelementptr inbounds float, ptr %invariant.gep, i64 %3
   %4 = load float, ptr %gep, align 4
   %5 = tail call noundef float @llvm.fabs.f32(float %4)
   %cmp.i = fcmp ogt float %result.18, %5
@@ -201,7 +200,7 @@ for.body3:                                        ; preds = %for.cond1.preheader
 
 for.inc7:                                         ; preds = %for.body3
   %indvars.iv.next17 = add nuw nsw i64 %indvars.iv16, 1
-  %exitcond19.not = icmp eq i64 %indvars.iv.next17, %wide.trip.count
+  %exitcond19.not = icmp eq i64 %indvars.iv.next17, %2
   br i1 %exitcond19.not, label %for.end9, label %for.cond1.preheader, !llvm.loop !10
 
 for.end9:                                         ; preds = %for.inc7, %entry
@@ -253,7 +252,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   %arrayidx.i.i = getelementptr inbounds float, ptr %6, i64 %indvars.iv
   %7 = load float, ptr %arrayidx.i.i, align 4
   %8 = load float, ptr %arrayidx.i, align 4
-  %9 = trunc i64 %indvars.iv to i32
+  %9 = trunc nuw nsw i64 %indvars.iv to i32
   %add.i = add nsw i32 %4, %9
   %idxprom.i.i44 = sext i32 %add.i to i64
   %arrayidx.i.i45 = getelementptr inbounds float, ptr %6, i64 %idxprom.i.i44
@@ -1040,7 +1039,7 @@ for.body:                                         ; preds = %for.body.preheader,
 
 do.body111:                                       ; preds = %for.body
   %arrayidx.i133.le = getelementptr inbounds float, ptr %arrayidx.i.i132, i64 %indvars.iv
-  %46 = trunc i64 %indvars.iv to i32
+  %46 = trunc nuw nsw i64 %indvars.iv to i32
   tail call void (ptr, ...) @b3OutputErrorMessageVarArgsInternal(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 415)
   %47 = load float, ptr %arrayidx.i133.le, align 4
   %conv113 = fpext float %47 to double
@@ -1129,7 +1128,7 @@ do.body:                                          ; preds = %for.body
   %arrayidx.i.le = getelementptr inbounds float, ptr %m, i64 %indvars.iv
   %arrayidx.i88.le = getelementptr inbounds float, ptr %arrayidx.i.i, i64 %indvars.iv
   %arrayidx.i94.le = getelementptr inbounds float, ptr %arrayidx.i.i92, i64 %indvars.iv
-  %6 = trunc i64 %indvars.iv to i32
+  %6 = trunc nuw nsw i64 %indvars.iv to i32
   tail call void (ptr, ...) @b3OutputErrorMessageVarArgsInternal(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 462)
   %7 = load float, ptr %arrayidx.i.le, align 4
   %conv11 = fpext float %7 to double

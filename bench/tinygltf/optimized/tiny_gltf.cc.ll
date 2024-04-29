@@ -6399,9 +6399,9 @@ define internal fastcc noundef range(i32 0, 2) i32 @_ZL19stbi_write_hdr_coreP19s
   %36 = zext nneg i32 %33 to i64
   %37 = zext nneg i32 %34 to i64
   %38 = sext i32 %3 to i64
-  %invariant.gep.i = getelementptr i8, ptr %19, i64 %35
-  %invariant.gep195.i = getelementptr i8, ptr %19, i64 %36
-  %invariant.gep197.i = getelementptr i8, ptr %19, i64 %37
+  %invariant.gep.i = getelementptr inbounds i8, ptr %19, i64 %35
+  %invariant.gep195.i = getelementptr inbounds i8, ptr %19, i64 %36
+  %invariant.gep197.i = getelementptr inbounds i8, ptr %19, i64 %37
   %39 = zext nneg i32 %3 to i64
   %invariant.op.i = add nsw i64 %35, -3
   %40 = getelementptr inbounds i8, ptr %10, i64 1
@@ -6428,7 +6428,7 @@ define internal fastcc noundef range(i32 0, 2) i32 @_ZL19stbi_write_hdr_coreP19s
 
 50:                                               ; preds = %_ZL21stbiw__linear_to_rgbePhPf.exit.i.us.us.us, %.preheader.i.us.us
   %indvars.iv187.i.us.us.us = phi i64 [ 0, %.preheader.i.us.us ], [ %indvars.iv.next188.i.us.us.us, %_ZL21stbiw__linear_to_rgbePhPf.exit.i.us.us.us ]
-  %51 = mul nsw i64 %indvars.iv187.i.us.us.us, %38
+  %51 = mul nuw nsw i64 %indvars.iv187.i.us.us.us, %38
   %52 = getelementptr float, ptr %49, i64 %51
   %53 = getelementptr i8, ptr %52, i64 8
   %54 = load float, ptr %53, align 4
@@ -6592,11 +6592,11 @@ _ZL21stbiw__linear_to_rgbePhPf.exit119.us.i:      ; preds = %122, %.lr.ph.split.
   %.sink.i118.us.i = phi i8 [ %133, %122 ], [ 0, %.lr.ph.split.us.i ]
   %138 = getelementptr inbounds i8, ptr %19, i64 %indvars.iv168.i
   store i8 %137, ptr %138, align 1
-  %gep200.i = getelementptr i8, ptr %invariant.gep.i, i64 %indvars.iv168.i
+  %gep200.i = getelementptr inbounds i8, ptr %invariant.gep.i, i64 %indvars.iv168.i
   store i8 %136, ptr %gep200.i, align 1
-  %gep202.i = getelementptr i8, ptr %invariant.gep195.i, i64 %indvars.iv168.i
+  %gep202.i = getelementptr inbounds i8, ptr %invariant.gep195.i, i64 %indvars.iv168.i
   store i8 %.sink.i118.us.i, ptr %gep202.i, align 1
-  %gep204.i = getelementptr i8, ptr %invariant.gep197.i, i64 %indvars.iv168.i
+  %gep204.i = getelementptr inbounds i8, ptr %invariant.gep197.i, i64 %indvars.iv168.i
   store i8 %.sink32.i117.us.i, ptr %gep204.i, align 1
   %indvars.iv.next169.i = add nuw nsw i64 %indvars.iv168.i, 1
   %exitcond172.not.i = icmp eq i64 %indvars.iv.next169.i, %35
@@ -6627,11 +6627,11 @@ _ZL21stbiw__linear_to_rgbePhPf.exit119.i:         ; preds = %143, %.lr.ph.split.
   %.sink32.i117.i = phi i8 [ %152, %143 ], [ 0, %.lr.ph.split.i ]
   %154 = getelementptr inbounds i8, ptr %19, i64 %indvars.iv.i
   store i8 %153, ptr %154, align 1
-  %gep.i = getelementptr i8, ptr %invariant.gep.i, i64 %indvars.iv.i
+  %gep.i = getelementptr inbounds i8, ptr %invariant.gep.i, i64 %indvars.iv.i
   store i8 %153, ptr %gep.i, align 1
-  %gep196.i = getelementptr i8, ptr %invariant.gep195.i, i64 %indvars.iv.i
+  %gep196.i = getelementptr inbounds i8, ptr %invariant.gep195.i, i64 %indvars.iv.i
   store i8 %153, ptr %gep196.i, align 1
-  %gep198.i = getelementptr i8, ptr %invariant.gep197.i, i64 %indvars.iv.i
+  %gep198.i = getelementptr inbounds i8, ptr %invariant.gep197.i, i64 %indvars.iv.i
   store i8 %.sink32.i117.i, ptr %gep198.i, align 1
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %35
@@ -8621,7 +8621,7 @@ define noundef ptr @stbi_write_png_to_mem(ptr nocapture noundef readonly %0, i32
 
 33:                                               ; preds = %.split.us.us, %32
   %34 = trunc i32 %spec.select112.us.us to i8
-  %35 = mul nsw i64 %indvars.iv208, %30
+  %35 = mul nuw nsw i64 %indvars.iv208, %30
   %36 = getelementptr inbounds i8, ptr %15, i64 %35
   store i8 %34, ptr %36, align 1
   %37 = getelementptr inbounds i8, ptr %36, i64 1
@@ -15848,7 +15848,7 @@ define noundef zeroext i1 @_ZN8tinygltf13LoadImageDataEPNS_5ImageEiPNSt7__cxx111
   %185 = getelementptr inbounds i8, ptr %0, i64 48
   store i32 %.074141148, ptr %185, align 8
   %186 = getelementptr inbounds i8, ptr %0, i64 56
-  %187 = mul nsw i32 %96, %94
+  %187 = mul nuw nsw i32 %96, %94
   %188 = mul nsw i32 %180, %187
   %189 = sext i32 %188 to i64
   %190 = lshr exact i32 %.075139149, 3
@@ -63570,7 +63570,7 @@ _ZL21stbi__mul2sizes_validii.exit.i.i:            ; preds = %263
   br i1 %.not23.i.i, label %271, label %_ZL21stbi__mul2sizes_validii.exit.thread15.i.i
 
 _ZL21stbi__mul2sizes_validii.exit.thread15.i.i:   ; preds = %_ZL21stbi__mul2sizes_validii.exit.i.i, %263
-  %266 = mul nsw i32 %261, %spec.select.i
+  %266 = mul nuw nsw i32 %261, %spec.select.i
   %267 = or i32 %266, %262
   %or.cond.not.i10.i.i = icmp sgt i32 %267, -1
   br i1 %or.cond.not.i10.i.i, label %268, label %271
@@ -71709,7 +71709,7 @@ _ZL10stbi__get8P13stbi__context.exit158.us.us:    ; preds = %190, %_ZL19stbi__re
   br i1 %exitcond139.not, label %.lr.ph55.us, label %.preheader15.us.us, !llvm.loop !1819
 
 .lr.ph55.us:                                      ; preds = %._crit_edge49.us.us
-  %205 = mul nsw i64 %indvars.iv145, %78
+  %205 = mul nuw nsw i64 %indvars.iv145, %78
   br label %93
 
 206:                                              ; preds = %62, %290
@@ -72056,7 +72056,7 @@ _ZL17stbi__malloc_mad3iiii.exit.thread:           ; preds = %_ZL21stbi__mul2size
 
 .preheader.us58:                                  ; preds = %.preheader.us58.preheader, %.preheader.us58
   %indvars.iv = phi i64 [ 0, %.preheader.us58.preheader ], [ %indvars.iv.next, %.preheader.us58 ]
-  %55 = mul nsw i64 %indvars.iv, %54
+  %55 = mul nuw nsw i64 %indvars.iv, %54
   %56 = getelementptr inbounds float, ptr %0, i64 %55
   %57 = load float, ptr %56, align 4
   %58 = tail call float @llvm.fmuladd.f32(float %57, float 2.550000e+02, float 5.000000e-01)
@@ -73037,7 +73037,7 @@ _ZL21stbi__mul2sizes_validii.exit.i.i:            ; preds = %_ZL21stbi__mul2size
 
 _ZL17stbi__malloc_mad3iiii.exit:                  ; preds = %_ZL21stbi__mul2sizes_validii.exit.i.i, %_ZL21stbi__mul2sizes_validii.exit12.i
   %263 = phi i32 [ %258, %_ZL21stbi__mul2sizes_validii.exit.i.i ], [ %256, %_ZL21stbi__mul2sizes_validii.exit12.i ]
-  %264 = mul nsw i32 %263, %.0194.ph
+  %264 = mul nuw nsw i32 %263, %.0194.ph
   %265 = zext nneg i32 %264 to i64
   %266 = tail call noalias noundef ptr @malloc(i64 noundef %265) #52
   %.not206 = icmp eq ptr %266, null
@@ -76372,7 +76372,7 @@ _ZL17stbi__malloc_mad3iiii.exit.thread:           ; preds = %_ZL21stbi__mul2size
   %75 = mul i32 %49, %74
   %76 = add i32 %75, %47
   %77 = mul i32 %76, %factor.op.mul
-  %78 = mul nsw i64 %indvars.iv97, %72
+  %78 = mul nuw nsw i64 %indvars.iv97, %72
   %79 = zext i32 %77 to i64
   %80 = getelementptr inbounds i8, ptr %29, i64 %79
   br label %81
@@ -77916,14 +77916,14 @@ _ZL21stbi__mad3sizes_validiiii.exit._crit_edge:   ; preds = %39, %_ZL21stbi__mul
   %457 = or disjoint i64 %456, 3
   %458 = getelementptr inbounds i8, ptr %448, i64 %457
   store i8 -1, ptr %458, align 1
-  %459 = mul nsw i64 %indvars.iv967, 3
-  %460 = getelementptr i8, ptr %448, i64 %459
-  %461 = getelementptr i8, ptr %460, i64 2
+  %459 = mul nuw nsw i64 %indvars.iv967, 3
+  %460 = getelementptr inbounds i8, ptr %448, i64 %459
+  %461 = getelementptr inbounds i8, ptr %460, i64 2
   %462 = load i8, ptr %461, align 1
   %463 = or disjoint i64 %456, 2
   %464 = getelementptr inbounds i8, ptr %448, i64 %463
   store i8 %462, ptr %464, align 1
-  %465 = getelementptr i8, ptr %460, i64 1
+  %465 = getelementptr inbounds i8, ptr %460, i64 1
   %466 = load i8, ptr %465, align 1
   %467 = or disjoint i64 %456, 1
   %468 = getelementptr inbounds i8, ptr %448, i64 %467
@@ -78745,7 +78745,7 @@ _ZL21stbi__mul2sizes_validii.exit12.i:            ; preds = %14
   br i1 %.not.i, label %_ZL24stbi__process_gif_rasterP13stbi__contextP9stbi__gif.exit.thread.sink.split, label %_ZL21stbi__mad3sizes_validiiii.exit
 
 _ZL21stbi__mad3sizes_validiiii.exit:              ; preds = %_ZL21stbi__mul2sizes_validii.exit12.i, %14
-  %17 = mul nsw i32 %12, %10
+  %17 = mul nuw nsw i32 %12, %10
   %18 = shl nsw i32 %17, 2
   %19 = zext nneg i32 %18 to i64
   %20 = tail call noalias noundef ptr @malloc(i64 noundef %19) #52
@@ -84059,29 +84059,27 @@ define internal noundef ptr @_ZL26stbi__resample_row_genericPhS_S_ii(ptr noundef
   br i1 %or.cond, label %.preheader.us.preheader, label %._crit_edge16
 
 .preheader.us.preheader:                          ; preds = %5
+  %8 = zext nneg i32 %4 to i64
   %wide.trip.count22 = zext nneg i32 %3 to i64
-  %wide.trip.count = zext nneg i32 %4 to i64
   br label %.preheader.us
 
 .preheader.us:                                    ; preds = %.preheader.us.preheader, %._crit_edge.us
   %indvars.iv19 = phi i64 [ 0, %.preheader.us.preheader ], [ %indvars.iv.next20, %._crit_edge.us ]
-  %8 = getelementptr inbounds i8, ptr %1, i64 %indvars.iv19
-  %9 = trunc i64 %indvars.iv19 to i32
-  %10 = mul i32 %9, %4
-  %11 = zext i32 %10 to i64
-  %.pre = load i8, ptr %8, align 1
-  %invariant.gep = getelementptr i8, ptr %0, i64 %11
-  br label %12
+  %9 = getelementptr inbounds i8, ptr %1, i64 %indvars.iv19
+  %10 = mul nuw nsw i64 %indvars.iv19, %8
+  %.pre = load i8, ptr %9, align 1
+  %invariant.gep = getelementptr inbounds i8, ptr %0, i64 %10
+  br label %11
 
-12:                                               ; preds = %.preheader.us, %12
-  %indvars.iv = phi i64 [ 0, %.preheader.us ], [ %indvars.iv.next, %12 ]
-  %gep = getelementptr i8, ptr %invariant.gep, i64 %indvars.iv
+11:                                               ; preds = %.preheader.us, %11
+  %indvars.iv = phi i64 [ 0, %.preheader.us ], [ %indvars.iv.next, %11 ]
+  %gep = getelementptr inbounds i8, ptr %invariant.gep, i64 %indvars.iv
   store i8 %.pre, ptr %gep, align 1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge.us, label %12, !llvm.loop !1948
+  %exitcond.not = icmp eq i64 %indvars.iv.next, %8
+  br i1 %exitcond.not, label %._crit_edge.us, label %11, !llvm.loop !1948
 
-._crit_edge.us:                                   ; preds = %12
+._crit_edge.us:                                   ; preds = %11
   %indvars.iv.next20 = add nuw nsw i64 %indvars.iv19, 1
   %exitcond23.not = icmp eq i64 %indvars.iv.next20, %wide.trip.count22
   br i1 %exitcond23.not, label %._crit_edge16, label %.preheader.us, !llvm.loop !1949
@@ -88556,9 +88554,9 @@ define internal fastcc noundef i32 @_ZL20stbiw__jpg_processDUP19stbi__write_cont
   %96 = sext i32 %90 to i64
   %97 = sext i32 %91 to i64
   %invariant.gep = getelementptr float, ptr %3, i64 %.pre-phi
-  %invariant.gep340 = getelementptr float, ptr %3, i64 %92
+  %invariant.gep340 = getelementptr inbounds float, ptr %3, i64 %92
   %invariant.gep342 = getelementptr float, ptr %3, i64 %93
-  %invariant.gep344 = getelementptr float, ptr %3, i64 %94
+  %invariant.gep344 = getelementptr inbounds float, ptr %3, i64 %94
   %invariant.gep346 = getelementptr float, ptr %3, i64 %95
   %invariant.gep348 = getelementptr float, ptr %3, i64 %96
   %invariant.gep350 = getelementptr float, ptr %3, i64 %97
@@ -88639,9 +88637,9 @@ define internal fastcc noundef i32 @_ZL20stbiw__jpg_processDUP19stbi__write_cont
   %indvars.iv297 = phi i64 [ 0, %.preheader243 ], [ %indvars.iv.next298, %154 ]
   %155 = getelementptr inbounds float, ptr %3, i64 %indvars.iv297
   %gep = getelementptr float, ptr %invariant.gep, i64 %indvars.iv297
-  %gep341 = getelementptr float, ptr %invariant.gep340, i64 %indvars.iv297
+  %gep341 = getelementptr inbounds float, ptr %invariant.gep340, i64 %indvars.iv297
   %gep343 = getelementptr float, ptr %invariant.gep342, i64 %indvars.iv297
-  %gep345 = getelementptr float, ptr %invariant.gep344, i64 %indvars.iv297
+  %gep345 = getelementptr inbounds float, ptr %invariant.gep344, i64 %indvars.iv297
   %gep347 = getelementptr float, ptr %invariant.gep346, i64 %indvars.iv297
   %gep349 = getelementptr float, ptr %invariant.gep348, i64 %indvars.iv297
   %gep351 = getelementptr float, ptr %invariant.gep350, i64 %indvars.iv297
@@ -113983,11 +113981,11 @@ _ZN8nlohmann6detail9dtoa_impl6grisu2IdEEvPcRiS4_T_.exit: ; preds = %.lr.ph.i23.i
 
 69:                                               ; preds = %66
   %70 = zext nneg i32 %57 to i64
-  %71 = getelementptr i8, ptr %.012, i64 %70
-  %72 = getelementptr i8, ptr %71, i64 1
+  %71 = getelementptr inbounds i8, ptr %.012, i64 %70
+  %72 = getelementptr inbounds i8, ptr %71, i64 1
   %73 = sext i32 %55 to i64
   %74 = sub nsw i64 %73, %70
-  call void @llvm.memmove.p0.p0.i64(ptr align 1 %72, ptr nonnull align 1 %71, i64 %74, i1 false)
+  call void @llvm.memmove.p0.p0.i64(ptr nonnull align 1 %72, ptr nonnull align 1 %71, i64 %74, i1 false)
   store i8 46, ptr %71, align 1
   %75 = getelementptr i8, ptr %.012, i64 %73
   %76 = getelementptr i8, ptr %75, i64 1

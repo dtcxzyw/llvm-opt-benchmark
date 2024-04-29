@@ -3784,14 +3784,14 @@ define void @_Z21calc_triclinic_imagesPA3_KfPA3_f(ptr nocapture noundef readonly
 34:                                               ; preds = %24, %34
   %indvars.iv = phi i64 [ 0, %24 ], [ %indvars.iv.next, %34 ]
   %35 = getelementptr inbounds [3 x float], ptr %1, i64 %indvars.iv
-  %36 = getelementptr i8, ptr %35, i64 36
+  %36 = getelementptr inbounds i8, ptr %35, i64 36
   %37 = load <2 x float>, ptr %35, align 4
   %38 = fneg <2 x float> %37
   store <2 x float> %38, ptr %36, align 4
   %39 = getelementptr inbounds i8, ptr %35, i64 8
   %40 = load float, ptr %39, align 4
   %41 = fneg float %40
-  %42 = getelementptr i8, ptr %35, i64 44
+  %42 = getelementptr inbounds i8, ptr %35, i64 44
   store float %41, ptr %42, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 3
@@ -3831,15 +3831,15 @@ define void @_Z21calc_triclinic_imagesPA3_KfPA3_f(ptr nocapture noundef readonly
   %indvars.iv37 = phi i64 [ 0, %59 ], [ %indvars.iv.next38, %62 ]
   %indvars.iv.next38 = add nuw nsw i64 %indvars.iv37, 1
   %63 = getelementptr inbounds [3 x float], ptr %1, i64 %indvars.iv.next38
-  %64 = getelementptr [3 x float], ptr %1, i64 %indvars.iv37
-  %65 = getelementptr i8, ptr %64, i64 84
+  %64 = getelementptr inbounds [3 x float], ptr %1, i64 %indvars.iv37
+  %65 = getelementptr inbounds i8, ptr %64, i64 84
   %66 = getelementptr inbounds i8, ptr %63, i64 8
   %67 = load float, ptr %66, align 4
   %68 = fadd float %60, %67
   %69 = load <2 x float>, ptr %63, align 4
   %70 = fadd <2 x float> %61, %69
   store <2 x float> %70, ptr %65, align 4
-  %71 = getelementptr i8, ptr %64, i64 92
+  %71 = getelementptr inbounds i8, ptr %64, i64 92
   store float %68, ptr %71, align 4
   %exitcond40.not = icmp eq i64 %indvars.iv.next38, 3
   br i1 %exitcond40.not, label %.preheader, label %62, !llvm.loop !76
@@ -3848,28 +3848,23 @@ define void @_Z21calc_triclinic_imagesPA3_KfPA3_f(ptr nocapture noundef readonly
   %indvars.iv41 = phi i64 [ %indvars.iv.next42, %.preheader ], [ 0, %62 ]
   %72 = and i64 %indvars.iv41, 4294967295
   %73 = xor i64 %72, 2
-  %74 = getelementptr [3 x float], ptr %1, i64 %73
-  %75 = getelementptr i8, ptr %74, i64 72
-  %76 = getelementptr [3 x float], ptr %1, i64 %indvars.iv41
-  %77 = getelementptr i8, ptr %76, i64 120
-  %78 = load float, ptr %75, align 4
-  %79 = fneg float %78
-  store float %79, ptr %77, align 4
-  %80 = getelementptr i8, ptr %74, i64 76
+  %74 = getelementptr inbounds [3 x float], ptr %1, i64 %73
+  %75 = getelementptr inbounds i8, ptr %74, i64 72
+  %76 = getelementptr inbounds [3 x float], ptr %1, i64 %indvars.iv41
+  %77 = getelementptr inbounds i8, ptr %76, i64 120
+  %78 = load <2 x float>, ptr %75, align 4
+  %79 = fneg <2 x float> %78
+  store <2 x float> %79, ptr %77, align 4
+  %80 = getelementptr inbounds i8, ptr %74, i64 80
   %81 = load float, ptr %80, align 4
   %82 = fneg float %81
-  %83 = getelementptr i8, ptr %76, i64 124
+  %83 = getelementptr inbounds i8, ptr %76, i64 128
   store float %82, ptr %83, align 4
-  %84 = getelementptr i8, ptr %74, i64 80
-  %85 = load float, ptr %84, align 4
-  %86 = fneg float %85
-  %87 = getelementptr i8, ptr %76, i64 128
-  store float %86, ptr %87, align 4
   %indvars.iv.next42 = add nuw nsw i64 %indvars.iv41, 1
   %exitcond44.not = icmp eq i64 %indvars.iv.next42, 4
-  br i1 %exitcond44.not, label %88, label %.preheader, !llvm.loop !77
+  br i1 %exitcond44.not, label %84, label %.preheader, !llvm.loop !77
 
-88:                                               ; preds = %.preheader
+84:                                               ; preds = %.preheader
   ret void
 }
 

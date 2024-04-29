@@ -3008,60 +3008,58 @@ createPauliHamil.exit:                            ; preds = %._crit_edge, %.lr.p
   br i1 %39, label %.lr.ph80.us.preheader, label %.lr.ph83.split
 
 .lr.ph80.us.preheader:                            ; preds = %.lr.ph83
-  %wide.trip.count91 = zext nneg i32 %spec.select69 to i64
+  %40 = zext nneg i32 %spec.select69 to i64
   br label %.lr.ph80.us
 
 .lr.ph80.us:                                      ; preds = %.lr.ph80.us.preheader, %._crit_edge81.us
   %indvars.iv93 = phi i64 [ 0, %.lr.ph80.us.preheader ], [ %indvars.iv.next94, %._crit_edge81.us ]
-  %40 = load ptr, ptr %31, align 8
-  %41 = getelementptr inbounds double, ptr %40, i64 %indvars.iv93
-  %42 = call i32 (ptr, ptr, ...) @__isoc99_fscanf(ptr noundef %5, ptr noundef nonnull %3, ptr noundef %41) #17
-  %43 = icmp eq i32 %42, 1
-  %44 = zext i1 %43 to i32
-  call void @validateHamilFileCoeffParsed(i32 noundef %44, ptr noundef nonnull byval(%struct.PauliHamil) align 8 %0, ptr noundef %5, ptr noundef %1, ptr noundef nonnull @__func__.createPauliHamilFromFile) #17
-  %45 = trunc i64 %indvars.iv93 to i32
-  %46 = mul i32 %spec.select69, %45
-  %47 = zext i32 %46 to i64
-  br label %48
+  %41 = load ptr, ptr %31, align 8
+  %42 = getelementptr inbounds double, ptr %41, i64 %indvars.iv93
+  %43 = call i32 (ptr, ptr, ...) @__isoc99_fscanf(ptr noundef %5, ptr noundef nonnull %3, ptr noundef %42) #17
+  %44 = icmp eq i32 %43, 1
+  %45 = zext i1 %44 to i32
+  call void @validateHamilFileCoeffParsed(i32 noundef %45, ptr noundef nonnull byval(%struct.PauliHamil) align 8 %0, ptr noundef %5, ptr noundef %1, ptr noundef nonnull @__func__.createPauliHamilFromFile) #17
+  %46 = mul nuw nsw i64 %indvars.iv93, %40
+  br label %47
 
-48:                                               ; preds = %.lr.ph80.us, %48
-  %indvars.iv88 = phi i64 [ 0, %.lr.ph80.us ], [ %indvars.iv.next89, %48 ]
-  %49 = add nuw nsw i64 %indvars.iv88, %47
-  %50 = call i32 (ptr, ptr, ...) @__isoc99_fscanf(ptr noundef %5, ptr noundef nonnull @.str.46, ptr noundef nonnull %4) #17
-  %51 = icmp eq i32 %50, 1
-  %52 = zext i1 %51 to i32
-  %53 = load i32, ptr %4, align 4
-  %54 = load ptr, ptr %0, align 8
-  %55 = getelementptr inbounds i32, ptr %54, i64 %49
-  store i32 %53, ptr %55, align 4
-  call void @validateHamilFilePauliParsed(i32 noundef %52, ptr noundef nonnull byval(%struct.PauliHamil) align 8 %0, ptr noundef %5, ptr noundef %1, ptr noundef nonnull @__func__.createPauliHamilFromFile) #17
-  %56 = load ptr, ptr %0, align 8
-  %57 = getelementptr inbounds i32, ptr %56, i64 %49
-  %58 = load i32, ptr %57, align 4
-  call void @validateHamilFilePauliCode(i32 noundef %58, ptr noundef nonnull byval(%struct.PauliHamil) align 8 %0, ptr noundef %5, ptr noundef %1, ptr noundef nonnull @__func__.createPauliHamilFromFile) #17
+47:                                               ; preds = %.lr.ph80.us, %47
+  %indvars.iv88 = phi i64 [ 0, %.lr.ph80.us ], [ %indvars.iv.next89, %47 ]
+  %48 = add nuw nsw i64 %indvars.iv88, %46
+  %49 = call i32 (ptr, ptr, ...) @__isoc99_fscanf(ptr noundef %5, ptr noundef nonnull @.str.46, ptr noundef nonnull %4) #17
+  %50 = icmp eq i32 %49, 1
+  %51 = zext i1 %50 to i32
+  %52 = load i32, ptr %4, align 4
+  %53 = load ptr, ptr %0, align 8
+  %54 = getelementptr inbounds i32, ptr %53, i64 %48
+  store i32 %52, ptr %54, align 4
+  call void @validateHamilFilePauliParsed(i32 noundef %51, ptr noundef nonnull byval(%struct.PauliHamil) align 8 %0, ptr noundef %5, ptr noundef %1, ptr noundef nonnull @__func__.createPauliHamilFromFile) #17
+  %55 = load ptr, ptr %0, align 8
+  %56 = getelementptr inbounds i32, ptr %55, i64 %48
+  %57 = load i32, ptr %56, align 4
+  call void @validateHamilFilePauliCode(i32 noundef %57, ptr noundef nonnull byval(%struct.PauliHamil) align 8 %0, ptr noundef %5, ptr noundef %1, ptr noundef nonnull @__func__.createPauliHamilFromFile) #17
   %indvars.iv.next89 = add nuw nsw i64 %indvars.iv88, 1
-  %exitcond92.not = icmp eq i64 %indvars.iv.next89, %wide.trip.count91
-  br i1 %exitcond92.not, label %._crit_edge81.us, label %48
+  %exitcond92.not = icmp eq i64 %indvars.iv.next89, %40
+  br i1 %exitcond92.not, label %._crit_edge81.us, label %47
 
-._crit_edge81.us:                                 ; preds = %48
+._crit_edge81.us:                                 ; preds = %47
   %indvars.iv.next94 = add nuw nsw i64 %indvars.iv93, 1
   %exitcond97.not = icmp eq i64 %indvars.iv.next94, %28
   br i1 %exitcond97.not, label %._crit_edge84, label %.lr.ph80.us
 
 .lr.ph83.split:                                   ; preds = %.lr.ph83, %.lr.ph83.split
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph83.split ], [ 0, %.lr.ph83 ]
-  %59 = load ptr, ptr %31, align 8
-  %60 = getelementptr inbounds double, ptr %59, i64 %indvars.iv
-  %61 = call i32 (ptr, ptr, ...) @__isoc99_fscanf(ptr noundef %5, ptr noundef nonnull %3, ptr noundef %60) #17
-  %62 = icmp eq i32 %61, 1
-  %63 = zext i1 %62 to i32
-  call void @validateHamilFileCoeffParsed(i32 noundef %63, ptr noundef nonnull byval(%struct.PauliHamil) align 8 %0, ptr noundef %5, ptr noundef %1, ptr noundef nonnull @__func__.createPauliHamilFromFile) #17
+  %58 = load ptr, ptr %31, align 8
+  %59 = getelementptr inbounds double, ptr %58, i64 %indvars.iv
+  %60 = call i32 (ptr, ptr, ...) @__isoc99_fscanf(ptr noundef %5, ptr noundef nonnull %3, ptr noundef %59) #17
+  %61 = icmp eq i32 %60, 1
+  %62 = zext i1 %61 to i32
+  call void @validateHamilFileCoeffParsed(i32 noundef %62, ptr noundef nonnull byval(%struct.PauliHamil) align 8 %0, ptr noundef %5, ptr noundef %1, ptr noundef nonnull @__func__.createPauliHamilFromFile) #17
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %28
   br i1 %exitcond.not, label %._crit_edge84, label %.lr.ph83.split
 
 ._crit_edge84:                                    ; preds = %.lr.ph83.split, %._crit_edge81.us, %createPauliHamil.exit
-  %64 = call i32 @fclose(ptr noundef %5)
+  %63 = call i32 @fclose(ptr noundef %5)
   ret void
 }
 

@@ -2195,7 +2195,6 @@ Vec_IntPush.exit673:                              ; preds = %.Vec_IntGrow.exit10
   %908 = getelementptr inbounds i8, ptr %3, i64 52
   %.phi.trans.insert.i689 = getelementptr inbounds i8, ptr %3, i64 56
   %909 = zext nneg i32 %4 to i64
-  %wide.trip.count = zext nneg i32 %4 to i64
   br label %910
 
 910:                                              ; preds = %.lr.ph717, %Vec_IntPush.exit694
@@ -2211,10 +2210,10 @@ Vec_IntPush.exit673:                              ; preds = %.Vec_IntGrow.exit10
   %.val492 = load ptr, ptr %905, align 8
   %912 = getelementptr inbounds i32, ptr %.val492, i64 %indvars.iv
   %913 = load i32, ptr %912, align 4
-  %914 = mul nsw i64 %indvars.iv, %909
+  %914 = mul nuw nsw i64 %indvars.iv, %909
   %.val493 = load ptr, ptr %906, align 8
-  %915 = getelementptr i32, ptr %.val493, i64 %914
-  %916 = getelementptr i32, ptr %915, i64 %indvars.iv776
+  %915 = getelementptr inbounds i32, ptr %.val493, i64 %914
+  %916 = getelementptr inbounds i32, ptr %915, i64 %indvars.iv776
   %917 = load i32, ptr %916, align 4
   %918 = tail call i32 @Gia_ManHashAnd(ptr noundef %0, i32 noundef %913, i32 noundef %917) #9
   %919 = xor i32 %918, 1
@@ -2422,7 +2421,7 @@ Vec_IntPush.exit694:                              ; preds = %.Vec_IntGrow.exit10
   %1013 = getelementptr inbounds i32, ptr %1009, i64 %1012
   store i32 %985, ptr %1013, align 4
   %indvars.iv.next777 = add nuw nsw i64 %indvars.iv776, 1
-  %exitcond.not = icmp eq i64 %indvars.iv.next777, %wide.trip.count
+  %exitcond.not = icmp eq i64 %indvars.iv.next777, %909
   br i1 %exitcond.not, label %.critedge, label %910, !llvm.loop !24
 
 .critedge:                                        ; preds = %Vec_IntPush.exit694, %Vec_IntPush.exit673, %Vec_IntPush.exit624, %Vec_IntPush.exit613, %Vec_IntPush.exit666, %Vec_IntPush.exit659, %Vec_IntPush.exit598, %Vec_IntPush.exit589, %Vec_IntPush.exit575, %Vec_IntPush.exit561, %Vec_IntPush.exit547, %Vec_IntPush.exit533, %Vec_IntPush.exit, %899, %854, %Vec_IntFill.exit617, %Vec_IntFill.exit606, %747, %.critedge13, %Vec_IntFill.exit, %Vec_IntPush.exit582, %Vec_IntPush.exit568, %Vec_IntPush.exit554, %Vec_IntPush.exit540, %.preheader695, %.preheader, %846, %853, %7, %10, %844, %830, %832, %848, %805, %795, %.critedge10, %.critedge8, %.critedge6, %.critedge4, %87

@@ -4336,32 +4336,30 @@ for.cond36.preheader.lr.ph:                       ; preds = %for.cond32.preheade
   br i1 %cmp3720, label %for.cond36.preheader.us.preheader, label %sw.epilog
 
 for.cond36.preheader.us.preheader:                ; preds = %for.cond36.preheader.lr.ph
+  %3 = zext nneg i32 %2 to i64
   %wide.trip.count48 = zext nneg i32 %1 to i64
-  %wide.trip.count = zext nneg i32 %2 to i64
   br label %for.cond36.preheader.us
 
 for.cond36.preheader.us:                          ; preds = %for.cond36.preheader.us.preheader, %for.inc52.us
   %indvars.iv45 = phi i64 [ 0, %for.cond36.preheader.us.preheader ], [ %indvars.iv.next46, %for.inc52.us ]
   %hasMask.224.us = phi i1 [ false, %for.cond36.preheader.us.preheader ], [ %hasMask.3.us, %for.inc52.us ]
-  %3 = trunc i64 %indvars.iv45 to i32
-  %4 = mul i32 %2, %3
+  %4 = mul nuw nsw i64 %indvars.iv45, %3
   br label %for.body38.us
 
 for.cond36.us:                                    ; preds = %for.body38.us
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
+  %exitcond.not = icmp eq i64 %indvars.iv.next, %3
   br i1 %exitcond.not, label %for.inc52.us, label %for.body38.us, !llvm.loop !38
 
 for.body38.us:                                    ; preds = %for.cond36.preheader.us, %for.cond36.us
   %indvars.iv = phi i64 [ 0, %for.cond36.preheader.us ], [ %indvars.iv.next, %for.cond36.us ]
-  %5 = trunc i64 %indvars.iv to i32
-  %6 = add i32 %4, %5
-  %mul41.us = shl nsw i32 %6, 2
-  %add42.us = or disjoint i32 %mul41.us, 3
-  %idxprom43.us = zext nneg i32 %add42.us to i64
+  %5 = add nuw nsw i64 %4, %indvars.iv
+  %mul41.us = shl i64 %5, 2
+  %add42.us = and i64 %mul41.us, 4294967292
+  %idxprom43.us = or disjoint i64 %add42.us, 3
   %arrayidx44.us = getelementptr inbounds i8, ptr %call1, i64 %idxprom43.us
-  %7 = load i8, ptr %arrayidx44.us, align 1
-  %cmp46.not.us = icmp eq i8 %7, -1
+  %6 = load i8, ptr %arrayidx44.us, align 1
+  %cmp46.not.us = icmp eq i8 %6, -1
   br i1 %cmp46.not.us, label %for.cond36.us, label %for.inc52.us
 
 for.inc52.us:                                     ; preds = %for.cond36.us, %for.body38.us
@@ -4371,41 +4369,39 @@ for.inc52.us:                                     ; preds = %for.cond36.us, %for
   br i1 %exitcond49.not, label %sw.epilog, label %for.cond36.preheader.us, !llvm.loop !39
 
 for.cond8.preheader:                              ; preds = %if.end
-  %8 = load i32, ptr %ySize, align 4
-  %cmp930 = icmp sgt i32 %8, 0
+  %7 = load i32, ptr %ySize, align 4
+  %cmp930 = icmp sgt i32 %7, 0
   br i1 %cmp930, label %for.cond11.preheader.lr.ph, label %sw.epilog
 
 for.cond11.preheader.lr.ph:                       ; preds = %for.cond8.preheader
-  %9 = load i32, ptr %xSize, align 4
-  %cmp1226 = icmp sgt i32 %9, 0
+  %8 = load i32, ptr %xSize, align 4
+  %cmp1226 = icmp sgt i32 %8, 0
   br i1 %cmp1226, label %for.cond11.preheader.us.preheader, label %sw.epilog
 
 for.cond11.preheader.us.preheader:                ; preds = %for.cond11.preheader.lr.ph
-  %wide.trip.count61 = zext nneg i32 %8 to i64
-  %wide.trip.count56 = zext nneg i32 %9 to i64
+  %9 = zext nneg i32 %8 to i64
+  %wide.trip.count61 = zext nneg i32 %7 to i64
   br label %for.cond11.preheader.us
 
 for.cond11.preheader.us:                          ; preds = %for.cond11.preheader.us.preheader, %for.inc26.us
   %indvars.iv58 = phi i64 [ 0, %for.cond11.preheader.us.preheader ], [ %indvars.iv.next59, %for.inc26.us ]
   %hasMask.031.us = phi i1 [ false, %for.cond11.preheader.us.preheader ], [ %hasMask.1.us, %for.inc26.us ]
-  %10 = trunc i64 %indvars.iv58 to i32
-  %11 = mul i32 %9, %10
-  %12 = zext i32 %11 to i64
+  %10 = mul nuw nsw i64 %indvars.iv58, %9
   br label %for.body13.us
 
 for.cond11.us:                                    ; preds = %for.body13.us
   %indvars.iv.next51 = add nuw nsw i64 %indvars.iv50, 1
-  %exitcond57.not = icmp eq i64 %indvars.iv.next51, %wide.trip.count56
+  %exitcond57.not = icmp eq i64 %indvars.iv.next51, %9
   br i1 %exitcond57.not, label %for.inc26.us, label %for.body13.us, !llvm.loop !40
 
 for.body13.us:                                    ; preds = %for.cond11.preheader.us, %for.cond11.us
   %indvars.iv50 = phi i64 [ 0, %for.cond11.preheader.us ], [ %indvars.iv.next51, %for.cond11.us ]
-  %13 = add nuw nsw i64 %indvars.iv50, %12
-  %14 = shl nuw nsw i64 %13, 1
-  %15 = or disjoint i64 %14, 1
-  %arrayidx18.us = getelementptr inbounds i8, ptr %call1, i64 %15
-  %16 = load i8, ptr %arrayidx18.us, align 1
-  %cmp20.not.us = icmp eq i8 %16, -1
+  %11 = add nuw nsw i64 %10, %indvars.iv50
+  %12 = shl nuw nsw i64 %11, 1
+  %13 = or disjoint i64 %12, 1
+  %arrayidx18.us = getelementptr inbounds i8, ptr %call1, i64 %13
+  %14 = load i8, ptr %arrayidx18.us, align 1
+  %cmp20.not.us = icmp eq i8 %14, -1
   br i1 %cmp20.not.us, label %for.cond11.us, label %for.inc26.us
 
 for.inc26.us:                                     ; preds = %for.cond11.us, %for.body13.us
@@ -4415,9 +4411,9 @@ for.inc26.us:                                     ; preds = %for.cond11.us, %for
   br i1 %exitcond62.not, label %sw.epilog, label %for.cond11.preheader.us, !llvm.loop !41
 
 for.cond.preheader:                               ; preds = %if.end
-  %17 = load i32, ptr %xSize, align 4
-  %18 = load i32, ptr %ySize, align 4
-  %mul = mul nsw i32 %18, %17
+  %15 = load i32, ptr %xSize, align 4
+  %16 = load i32, ptr %ySize, align 4
+  %mul = mul nsw i32 %16, %15
   %cmp35 = icmp sgt i32 %mul, 0
   br i1 %cmp35, label %for.body.preheader, label %sw.epilog
 
@@ -4428,8 +4424,8 @@ for.body.preheader:                               ; preds = %for.cond.preheader
 for.body:                                         ; preds = %for.body, %for.body.preheader
   %indvars.iv63 = phi i64 [ 0, %for.body.preheader ], [ %indvars.iv.next64, %for.body ]
   %arrayidx = getelementptr inbounds i8, ptr %call1, i64 %indvars.iv63
-  %19 = load i8, ptr %arrayidx, align 1
-  %cmp4.not.not = icmp ne i8 %19, -1
+  %17 = load i8, ptr %arrayidx, align 1
+  %cmp4.not.not = icmp ne i8 %17, -1
   %indvars.iv.next64 = add nuw nsw i64 %indvars.iv63, 1
   %exitcond67.not = icmp eq i64 %indvars.iv.next64, %wide.trip.count66
   %or.cond = select i1 %cmp4.not.not, i1 true, i1 %exitcond67.not
@@ -4438,8 +4434,8 @@ for.body:                                         ; preds = %for.body, %for.body
 sw.default:                                       ; preds = %if.end
   %call55 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsIcSt11char_traitsIcESaIcEERSt13basic_ostreamIT_T0_ES7_RKNSt7__cxx1112basic_stringIS4_S5_T1_EE(ptr noundef nonnull align 8 dereferenceable(8) @_ZSt4cerr, ptr noundef nonnull align 8 dereferenceable(32) %filename)
   %call56 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %call55, ptr noundef nonnull @.str.69)
-  %20 = load i32, ptr %nComponents, align 4
-  %call57 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEi(ptr noundef nonnull align 8 dereferenceable(8) %call56, i32 noundef %20)
+  %18 = load i32, ptr %nComponents, align 4
+  %call57 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEi(ptr noundef nonnull align 8 dereferenceable(8) %call56, i32 noundef %18)
   %call58 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %call57, ptr noundef nonnull @.str.70)
   br label %sw.epilog
 

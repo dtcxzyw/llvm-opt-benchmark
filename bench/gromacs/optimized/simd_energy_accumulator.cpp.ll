@@ -107,32 +107,30 @@ _ZNSt6vectorIiN3gmx9AllocatorIiNS0_23AlignedAllocationPolicyEEEE6resizeEm.exit: 
   br i1 %32, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %.preheader
-  %33 = trunc nuw nsw i64 %indvars.iv20 to i32
-  %34 = mul nsw i32 %31, %33
+  %33 = zext nneg i32 %31 to i64
+  %34 = mul nuw nsw i64 %indvars.iv20, %33
   %35 = load i32, ptr %0, align 8
-  %36 = zext i32 %34 to i64
-  %wide.trip.count = zext nneg i32 %31 to i64
-  %invariant.gep = getelementptr i32, ptr %1, i64 %36
+  %36 = getelementptr inbounds i32, ptr %1, i64 %34
   br label %37
 
 37:                                               ; preds = %.lr.ph, %37
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %37 ]
-  %.01215 = phi i32 [ 0, %.lr.ph ], [ %42, %37 ]
-  %gep = getelementptr i32, ptr %invariant.gep, i64 %indvars.iv
-  %38 = load i32, ptr %gep, align 4
-  %39 = trunc i64 %indvars.iv to i32
-  %40 = mul i32 %35, %39
-  %41 = shl i32 %38, %40
-  %42 = or i32 %41, %.01215
+  %.01215 = phi i32 [ 0, %.lr.ph ], [ %43, %37 ]
+  %38 = getelementptr inbounds i32, ptr %36, i64 %indvars.iv
+  %39 = load i32, ptr %38, align 4
+  %40 = trunc i64 %indvars.iv to i32
+  %41 = mul i32 %35, %40
+  %42 = shl i32 %39, %41
+  %43 = or i32 %42, %.01215
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
+  %exitcond.not = icmp eq i64 %indvars.iv.next, %33
   br i1 %exitcond.not, label %._crit_edge, label %37, !llvm.loop !7
 
 ._crit_edge:                                      ; preds = %37, %.preheader
-  %.012.lcssa = phi i32 [ 0, %.preheader ], [ %42, %37 ]
-  %43 = load ptr, ptr %13, align 8
-  %44 = getelementptr inbounds i32, ptr %43, i64 %indvars.iv20
-  store i32 %.012.lcssa, ptr %44, align 4
+  %.012.lcssa = phi i32 [ 0, %.preheader ], [ %43, %37 ]
+  %44 = load ptr, ptr %13, align 8
+  %45 = getelementptr inbounds i32, ptr %44, i64 %indvars.iv20
+  store i32 %.012.lcssa, ptr %45, align 4
   %indvars.iv.next21 = add nuw nsw i64 %indvars.iv20, 1
   %exitcond24.not = icmp eq i64 %indvars.iv.next21, %wide.trip.count23
   br i1 %exitcond24.not, label %._crit_edge18, label %.preheader, !llvm.loop !8

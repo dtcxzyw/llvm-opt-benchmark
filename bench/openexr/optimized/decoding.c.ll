@@ -1202,36 +1202,34 @@ for.cond5.preheader:                              ; preds = %for.end
   br i1 %or.cond105, label %for.cond9.preheader.us.preheader, label %for.end29
 
 for.cond9.preheader.us.preheader:                 ; preds = %for.cond5.preheader
+  %8 = zext nneg i32 %0 to i64
   %wide.trip.count86 = zext nneg i32 %1 to i64
-  %wide.trip.count80 = zext nneg i32 %0 to i64
   br label %for.cond9.preheader.us
 
 for.cond9.preheader.us:                           ; preds = %for.cond9.preheader.us.preheader, %for.cond9.for.end25_crit_edge.us
   %indvars.iv82 = phi i64 [ 0, %for.cond9.preheader.us.preheader ], [ %indvars.iv.next83, %for.cond9.for.end25_crit_edge.us ]
   %totsamp.059.us = phi i32 [ 0, %for.cond9.preheader.us.preheader ], [ %add26.us, %for.cond9.for.end25_crit_edge.us ]
-  %8 = trunc i64 %indvars.iv82 to i32
-  %9 = mul i32 %0, %8
-  %10 = zext i32 %9 to i64
-  %invariant.gep = getelementptr i32, ptr %2, i64 %10
+  %9 = mul nuw nsw i64 %indvars.iv82, %8
+  %invariant.gep = getelementptr inbounds i32, ptr %2, i64 %9
   br label %for.body12.us
 
 for.body12.us:                                    ; preds = %for.cond9.preheader.us, %if.end.us
   %indvars.iv76 = phi i64 [ 0, %for.cond9.preheader.us ], [ %indvars.iv.next77, %if.end.us ]
-  %prevsamp.055.us = phi i32 [ 0, %for.cond9.preheader.us ], [ %11, %if.end.us ]
-  %gep = getelementptr i32, ptr %invariant.gep, i64 %indvars.iv76
-  %11 = load i32, ptr %gep, align 4
-  %cmp16.us = icmp slt i32 %11, 0
+  %prevsamp.055.us = phi i32 [ 0, %for.cond9.preheader.us ], [ %10, %if.end.us ]
+  %gep = getelementptr inbounds i32, ptr %invariant.gep, i64 %indvars.iv76
+  %10 = load i32, ptr %gep, align 4
+  %cmp16.us = icmp slt i32 %10, 0
   br i1 %cmp16.us, label %return, label %if.end.us
 
 if.end.us:                                        ; preds = %for.body12.us
-  %sub.us = sub nsw i32 %11, %prevsamp.055.us
+  %sub.us = sub nsw i32 %10, %prevsamp.055.us
   store i32 %sub.us, ptr %gep, align 4
   %indvars.iv.next77 = add nuw nsw i64 %indvars.iv76, 1
-  %exitcond81.not = icmp eq i64 %indvars.iv.next77, %wide.trip.count80
+  %exitcond81.not = icmp eq i64 %indvars.iv.next77, %8
   br i1 %exitcond81.not, label %for.cond9.for.end25_crit_edge.us, label %for.body12.us, !llvm.loop !9
 
 for.cond9.for.end25_crit_edge.us:                 ; preds = %if.end.us
-  %add26.us = add nuw nsw i32 %11, %totsamp.059.us
+  %add26.us = add nuw nsw i32 %10, %totsamp.059.us
   %indvars.iv.next83 = add nuw nsw i64 %indvars.iv82, 1
   %exitcond87.not = icmp eq i64 %indvars.iv.next83, %wide.trip.count86
   br i1 %exitcond87.not, label %for.end29, label %for.cond9.preheader.us, !llvm.loop !10
@@ -1240,33 +1238,31 @@ for.cond34.preheader:                             ; preds = %for.end
   br i1 %or.cond105, label %for.cond40.preheader.us.preheader, label %lor.lhs.false
 
 for.cond40.preheader.us.preheader:                ; preds = %for.cond34.preheader
+  %11 = zext nneg i32 %0 to i64
   %wide.trip.count98 = zext nneg i32 %1 to i64
-  %wide.trip.count92 = zext nneg i32 %0 to i64
   br label %for.cond40.preheader.us
 
 for.cond40.preheader.us:                          ; preds = %for.cond40.preheader.us.preheader, %for.cond40.for.end60_crit_edge.us
   %indvars.iv94 = phi i64 [ 0, %for.cond40.preheader.us.preheader ], [ %indvars.iv.next95, %for.cond40.for.end60_crit_edge.us ]
   %totsamp.166.us = phi i32 [ 0, %for.cond40.preheader.us.preheader ], [ %add61.us, %for.cond40.for.end60_crit_edge.us ]
-  %12 = trunc i64 %indvars.iv94 to i32
-  %13 = mul i32 %0, %12
-  %14 = zext i32 %13 to i64
-  %invariant.gep103 = getelementptr i32, ptr %2, i64 %14
+  %12 = mul nuw nsw i64 %indvars.iv94, %11
+  %invariant.gep103 = getelementptr inbounds i32, ptr %2, i64 %12
   br label %for.body43.us
 
 for.cond40.us:                                    ; preds = %for.body43.us
   %indvars.iv.next89 = add nuw nsw i64 %indvars.iv88, 1
-  %exitcond93.not = icmp eq i64 %indvars.iv.next89, %wide.trip.count92
+  %exitcond93.not = icmp eq i64 %indvars.iv.next89, %11
   br i1 %exitcond93.not, label %for.cond40.for.end60_crit_edge.us, label %for.body43.us, !llvm.loop !11
 
 for.body43.us:                                    ; preds = %for.cond40.preheader.us, %for.cond40.us
   %indvars.iv88 = phi i64 [ 0, %for.cond40.preheader.us ], [ %indvars.iv.next89, %for.cond40.us ]
-  %gep104 = getelementptr i32, ptr %invariant.gep103, i64 %indvars.iv88
-  %15 = load i32, ptr %gep104, align 4
-  %cmp50.us = icmp slt i32 %15, 0
+  %gep104 = getelementptr inbounds i32, ptr %invariant.gep103, i64 %indvars.iv88
+  %13 = load i32, ptr %gep104, align 4
+  %cmp50.us = icmp slt i32 %13, 0
   br i1 %cmp50.us, label %return, label %for.cond40.us
 
 for.cond40.for.end60_crit_edge.us:                ; preds = %for.cond40.us
-  %add61.us = add nuw nsw i32 %15, %totsamp.166.us
+  %add61.us = add nuw nsw i32 %13, %totsamp.166.us
   %indvars.iv.next95 = add nuw nsw i64 %indvars.iv94, 1
   %exitcond99.not = icmp eq i64 %indvars.iv.next95, %wide.trip.count98
   br i1 %exitcond99.not, label %lor.lhs.false, label %for.cond40.preheader.us, !llvm.loop !12
@@ -1284,14 +1280,14 @@ lor.lhs.false:                                    ; preds = %for.cond40.for.end6
   %conv68 = zext nneg i32 %totsamp.2 to i64
   %mul69 = mul i64 %combSampSize.0.lcssa, %conv68
   %unpacked_size = getelementptr inbounds i8, ptr %decode, i64 64
-  %16 = load i64, ptr %unpacked_size, align 8
-  %cmp71 = icmp ugt i64 %mul69, %16
+  %14 = load i64, ptr %unpacked_size, align 8
+  %cmp71 = icmp ugt i64 %mul69, %14
   br i1 %cmp71, label %if.then73, label %return
 
 if.then73:                                        ; preds = %lor.lhs.false
   %report_error = getelementptr inbounds i8, ptr %pctxt, i64 64
-  %17 = load ptr, ptr %report_error, align 8
-  %call74 = tail call i32 %17(ptr noundef %pctxt, i32 noundef 30, ptr noundef nonnull @.str.17) #4
+  %15 = load ptr, ptr %report_error, align 8
+  %call74 = tail call i32 %15(ptr noundef %pctxt, i32 noundef 30, ptr noundef nonnull @.str.17) #4
   br label %return
 
 return:                                           ; preds = %for.body12.us, %for.body43.us, %lor.lhs.false, %if.then73
@@ -1300,7 +1296,7 @@ return:                                           ; preds = %for.body12.us, %for
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @exr_decoding_destroy(ptr noundef readonly %ctxt, ptr noundef %decode) local_unnamed_addr #0 {
+define range(i32 0, 3) i32 @exr_decoding_destroy(ptr noundef readonly %ctxt, ptr noundef %decode) local_unnamed_addr #0 {
 entry:
   %tobool.not = icmp eq ptr %ctxt, null
   br i1 %tobool.not, label %return, label %if.end

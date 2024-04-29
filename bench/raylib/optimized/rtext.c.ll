@@ -224,7 +224,7 @@ define hidden void @stbrp_init_target(ptr noundef %0, i32 noundef %1, i32 nounde
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define hidden i32 @stbrp_pack_rects(ptr noundef %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #2 {
+define hidden range(i32 0, 2) i32 @stbrp_pack_rects(ptr noundef %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #2 {
   %4 = icmp sgt i32 %2, 0
   br i1 %4, label %.lr.ph.preheader, label %._crit_edge.thread
 
@@ -733,7 +733,7 @@ stbrp__skyline_pack_rectangle.exit:               ; preds = %159, %stbrp__skylin
 declare void @qsort(ptr noundef, i64 noundef, i64 noundef, ptr nocapture noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal i32 @rect_height_compare(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #4 {
+define internal range(i32 -1, 2) i32 @rect_height_compare(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #4 {
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   %4 = load i32, ptr %3, align 4
   %5 = getelementptr inbounds i8, ptr %1, i64 8
@@ -762,7 +762,7 @@ define internal i32 @rect_height_compare(ptr nocapture noundef readonly %0, ptr 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal i32 @rect_original_order(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #4 {
+define internal range(i32 -1, 2) i32 @rect_original_order(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #4 {
   %3 = getelementptr inbounds i8, ptr %0, i64 20
   %4 = load i32, ptr %3, align 4
   %5 = getelementptr inbounds i8, ptr %1, i64 20
@@ -1683,63 +1683,62 @@ define void @LoadFontFromImage(ptr dead_on_unwind noalias nocapture writable wri
 
 .preheader196.us.preheader:                       ; preds = %.preheader196.lr.ph
   %20 = zext nneg i32 %15 to i64
-  %wide.trip.count281 = zext nneg i32 %15 to i64
   br label %.preheader196.us
 
 .preheader196.us:                                 ; preds = %.preheader196.us.preheader, %63
   %indvars.iv283 = phi i64 [ 0, %.preheader196.us.preheader ], [ %indvars.iv.next284, %63 ]
-  %21 = mul nsw i64 %indvars.iv283, %20
-  %22 = and i64 %21, 4294967295
-  %23 = getelementptr %struct.Color, ptr %10, i64 %22
-  br label %24
+  %21 = mul nuw nsw i64 %indvars.iv283, %20
+  %22 = getelementptr inbounds %struct.Color, ptr %10, i64 %21
+  br label %23
 
-24:                                               ; preds = %.preheader196.us, %64
+23:                                               ; preds = %.preheader196.us, %64
   %indvars.iv278 = phi i64 [ 0, %.preheader196.us ], [ %indvars.iv.next279, %64 ]
-  %25 = getelementptr %struct.Color, ptr %23, i64 %indvars.iv278
-  %26 = load i8, ptr %25, align 1
-  %27 = icmp eq i8 %26, %17
-  br i1 %27, label %28, label %._crit_edge.us.split.loop.exit321
+  %24 = getelementptr inbounds %struct.Color, ptr %22, i64 %indvars.iv278
+  %25 = load i8, ptr %24, align 1
+  %26 = icmp eq i8 %25, %17
+  br i1 %26, label %27, label %._crit_edge.us.split.loop.exit321
 
-28:                                               ; preds = %24
-  %29 = getelementptr inbounds i8, ptr %25, i64 1
-  %30 = load i8, ptr %29, align 1
-  %31 = icmp eq i8 %30, %18
-  br i1 %31, label %32, label %._crit_edge.us.split.loop.exit319
+27:                                               ; preds = %23
+  %28 = getelementptr inbounds i8, ptr %24, i64 1
+  %29 = load i8, ptr %28, align 1
+  %30 = icmp eq i8 %29, %18
+  br i1 %30, label %31, label %._crit_edge.us.split.loop.exit319
 
-32:                                               ; preds = %28
-  %33 = getelementptr inbounds i8, ptr %25, i64 2
-  %34 = load i8, ptr %33, align 1
-  %35 = icmp eq i8 %34, %19
-  br i1 %35, label %36, label %._crit_edge.us.split.loop.exit317
+31:                                               ; preds = %27
+  %32 = getelementptr inbounds i8, ptr %24, i64 2
+  %33 = load i8, ptr %32, align 1
+  %34 = icmp eq i8 %33, %19
+  br i1 %34, label %35, label %._crit_edge.us.split.loop.exit317
 
-36:                                               ; preds = %32
-  %37 = getelementptr inbounds i8, ptr %25, i64 3
-  %38 = load i8, ptr %37, align 1
-  %39 = zext i8 %38 to i32
-  %40 = icmp eq i32 %.sroa.19.0.extract.shift, %39
-  br i1 %40, label %64, label %._crit_edge.us.split.loop.exit315
+35:                                               ; preds = %31
+  %36 = getelementptr inbounds i8, ptr %24, i64 3
+  %37 = load i8, ptr %36, align 1
+  %38 = zext i8 %37 to i32
+  %39 = icmp eq i32 %.sroa.19.0.extract.shift, %38
+  br i1 %39, label %64, label %._crit_edge.us.split.loop.exit315
 
-._crit_edge.us.split.loop.exit315:                ; preds = %36
+._crit_edge.us.split.loop.exit315:                ; preds = %35
+  %40 = trunc nuw nsw i64 %indvars.iv278 to i32
+  br label %._crit_edge.us
+
+._crit_edge.us.split.loop.exit317:                ; preds = %31
   %41 = trunc nuw nsw i64 %indvars.iv278 to i32
   br label %._crit_edge.us
 
-._crit_edge.us.split.loop.exit317:                ; preds = %32
+._crit_edge.us.split.loop.exit319:                ; preds = %27
   %42 = trunc nuw nsw i64 %indvars.iv278 to i32
   br label %._crit_edge.us
 
-._crit_edge.us.split.loop.exit319:                ; preds = %28
+._crit_edge.us.split.loop.exit321:                ; preds = %23
   %43 = trunc nuw nsw i64 %indvars.iv278 to i32
   br label %._crit_edge.us
 
-._crit_edge.us.split.loop.exit321:                ; preds = %24
-  %44 = trunc nuw nsw i64 %indvars.iv278 to i32
-  br label %._crit_edge.us
-
 ._crit_edge.us:                                   ; preds = %64, %._crit_edge.us.split.loop.exit321, %._crit_edge.us.split.loop.exit319, %._crit_edge.us.split.loop.exit317, %._crit_edge.us.split.loop.exit315
-  %.1.lcssa.us = phi i32 [ %41, %._crit_edge.us.split.loop.exit315 ], [ %42, %._crit_edge.us.split.loop.exit317 ], [ %43, %._crit_edge.us.split.loop.exit319 ], [ %44, %._crit_edge.us.split.loop.exit321 ], [ %15, %64 ]
-  %45 = sext i32 %.1.lcssa.us to i64
-  %46 = getelementptr %struct.Color, ptr %10, i64 %21
-  %47 = getelementptr %struct.Color, ptr %46, i64 %45
+  %.1.lcssa.us = phi i32 [ %40, %._crit_edge.us.split.loop.exit315 ], [ %41, %._crit_edge.us.split.loop.exit317 ], [ %42, %._crit_edge.us.split.loop.exit319 ], [ %43, %._crit_edge.us.split.loop.exit321 ], [ %15, %64 ]
+  %44 = trunc nuw i64 %21 to i32
+  %45 = add nsw i32 %.1.lcssa.us, %44
+  %46 = sext i32 %45 to i64
+  %47 = getelementptr inbounds %struct.Color, ptr %10, i64 %46
   %48 = load i8, ptr %47, align 1
   %49 = icmp eq i8 %48, %17
   br i1 %49, label %50, label %._crit_edge222.split.loop.exit335
@@ -1768,10 +1767,10 @@ define void @LoadFontFromImage(ptr dead_on_unwind noalias nocapture writable wri
   %exitcond287.not = icmp eq i64 %indvars.iv.next284, %wide.trip.count286
   br i1 %exitcond287.not, label %._crit_edge222, label %.preheader196.us
 
-64:                                               ; preds = %36
+64:                                               ; preds = %35
   %indvars.iv.next279 = add nuw nsw i64 %indvars.iv278, 1
-  %exitcond282.not = icmp eq i64 %indvars.iv.next279, %wide.trip.count281
-  br i1 %exitcond282.not, label %._crit_edge.us, label %24
+  %exitcond282.not = icmp eq i64 %indvars.iv.next279, %20
+  br i1 %exitcond282.not, label %._crit_edge.us, label %23
 
 ._crit_edge222.split.loop.exit326:                ; preds = %58
   %65 = trunc nuw nsw i64 %indvars.iv283 to i32
@@ -1945,7 +1944,7 @@ define void @LoadFontFromImage(ptr dead_on_unwind noalias nocapture writable wri
 .critedge.us:                                     ; preds = %120, %148
   %.1183.lcssa.us.in = phi i64 [ %indvars.iv.next295, %148 ], [ %indvars.iv294, %120 ]
   %155 = add nuw nsw i32 %.0181261.us, 1
-  %156 = mul nsw i32 %155, %97
+  %156 = mul nuw nsw i32 %155, %97
   %157 = add nuw nsw i32 %156, %.0176.lcssa
   %158 = icmp slt i32 %157, %12
   br i1 %158, label %.preheader193.us, label %.preheader.loopexit
@@ -1957,7 +1956,7 @@ define void @LoadFontFromImage(ptr dead_on_unwind noalias nocapture writable wri
 .preheader193:                                    ; preds = %.preheader193.lr.ph, %.preheader193
   %.0181261 = phi i32 [ %159, %.preheader193 ], [ 0, %.preheader193.lr.ph ]
   %159 = add nuw nsw i32 %.0181261, 1
-  %160 = mul nsw i32 %159, %97
+  %160 = mul nuw nsw i32 %159, %97
   %161 = add nuw nsw i32 %160, %.0176.lcssa
   %162 = icmp slt i32 %161, %12
   br i1 %162, label %.preheader193, label %.preheader
@@ -6350,7 +6349,7 @@ stbtt__fill_active_edges_new.exit.i.i.i.i.i.i:    ; preds = %stbtt__handle_clipp
   br i1 %1002, label %.lr.ph22.i.i.i.preheader.i.i.i, label %.preheader.i.i.i.i.i.i
 
 .lr.ph22.i.i.i.preheader.i.i.i:                   ; preds = %stbtt__fill_active_edges_new.exit.i.i.i.i.i.i
-  %2111 = mul nsw i32 %.07630.i.i.i.i.i.i, %815
+  %2111 = mul nuw nsw i32 %.07630.i.i.i.i.i.i, %815
   br label %.lr.ph22.i.i.i.i.i.i
 
 .preheader.i.i.i.i.i.i:                           ; preds = %.lr.ph22.i.i.i.i.i.i, %stbtt__fill_active_edges_new.exit.i.i.i.i.i.i
@@ -7725,17 +7724,17 @@ define void @GenImageFontAtlas(ptr dead_on_unwind noalias nocapture writable wri
 
 .preheader214.us:                                 ; preds = %._crit_edge.us231, %.preheader214.lr.ph.split.us
   %indvars.iv273 = phi i64 [ %indvars.iv.next274, %._crit_edge.us231 ], [ 0, %.preheader214.lr.ph.split.us ]
-  %67 = mul nsw i64 %indvars.iv273, %66
+  %67 = mul nuw nsw i64 %indvars.iv273, %66
   %68 = trunc i64 %indvars.iv273 to i32
   %69 = add i32 %.1201, %68
   %70 = mul i32 %69, %31
   %71 = add i32 %70, %.1203
-  %72 = getelementptr i8, ptr %65, i64 %67
+  %72 = getelementptr inbounds i8, ptr %65, i64 %67
   br label %73
 
 73:                                               ; preds = %.preheader214.us, %73
   %indvars.iv268 = phi i64 [ 0, %.preheader214.us ], [ %indvars.iv.next269, %73 ]
-  %74 = getelementptr i8, ptr %72, i64 %indvars.iv268
+  %74 = getelementptr inbounds i8, ptr %72, i64 %indvars.iv268
   %75 = load i8, ptr %74, align 1
   %76 = trunc nuw nsw i64 %indvars.iv268 to i32
   %77 = add i32 %71, %76
@@ -7839,7 +7838,7 @@ stbrp_init_target.exit:                           ; preds = %.lr.ph.i, %87
   br i1 %exitcond252.not, label %121, label %114
 
 121:                                              ; preds = %114
-  %122 = tail call i32 @stbrp_pack_rects(ptr noundef nonnull %88, ptr noundef nonnull %111, i32 noundef %12), !range !15
+  %122 = tail call i32 @stbrp_pack_rects(ptr noundef nonnull %88, ptr noundef nonnull %111, i32 noundef %12)
   %123 = sitofp i32 %5 to float
   %124 = insertelement <2 x float> poison, float %123, i64 0
   %125 = shufflevector <2 x float> %124, <2 x float> poison, <2 x i32> zeroinitializer
@@ -7888,17 +7887,17 @@ stbrp_init_target.exit:                           ; preds = %.lr.ph.i, %87
 
 .preheader217.us:                                 ; preds = %._crit_edge.us, %.preheader217.lr.ph.split.us
   %indvars.iv258 = phi i64 [ %indvars.iv.next259, %._crit_edge.us ], [ 0, %.preheader217.lr.ph.split.us ]
-  %150 = mul nsw i64 %indvars.iv258, %149
+  %150 = mul nuw nsw i64 %indvars.iv258, %149
   %151 = trunc i64 %indvars.iv258 to i32
   %152 = add i32 %147, %151
   %153 = mul i32 %152, %31
   %154 = add i32 %145, %153
-  %155 = getelementptr i8, ptr %148, i64 %150
+  %155 = getelementptr inbounds i8, ptr %148, i64 %150
   br label %156
 
 156:                                              ; preds = %.preheader217.us, %156
   %indvars.iv253 = phi i64 [ 0, %.preheader217.us ], [ %indvars.iv.next254, %156 ]
-  %157 = getelementptr i8, ptr %155, i64 %indvars.iv253
+  %157 = getelementptr inbounds i8, ptr %155, i64 %indvars.iv253
   %158 = load i8, ptr %157, align 1
   %159 = trunc nuw nsw i64 %indvars.iv253 to i32
   %160 = add i32 %154, %159
@@ -9407,7 +9406,7 @@ define i32 @TextLength(ptr noundef readonly %0) local_unnamed_addr #17 {
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define i32 @GetCodepointNext(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #0 {
+define range(i32 -128, 2097152) i32 @GetCodepointNext(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #0 {
   store i32 1, ptr %1, align 4
   %3 = load i8, ptr %0, align 1
   %4 = sext i8 %3 to i32
@@ -11353,7 +11352,7 @@ GetCodepointNext.exit:                            ; preds = %30, %7, %11, %15, %
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define i32 @GetCodepoint(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #0 {
+define range(i32 -128, 2097152) i32 @GetCodepoint(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #0 {
   %3 = load i8, ptr %0, align 1
   %4 = zext i8 %3 to i32
   store i32 1, ptr %1, align 4
@@ -11544,7 +11543,7 @@ define i32 @GetCodepoint(ptr nocapture noundef readonly %0, ptr nocapture nounde
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define i32 @GetCodepointPrevious(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #32 {
+define range(i32 -128, 2097152) i32 @GetCodepointPrevious(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #32 {
   store i32 0, ptr %1, align 4
   br label %3
 
@@ -12663,14 +12662,14 @@ stbtt__GetGlyfOffset.exit:                        ; preds = %82
   br i1 %exitcond66.not, label %.preheader25.preheader, label %122
 
 .preheader25.preheader:                           ; preds = %133
-  %invariant.gep = getelementptr %struct.stbtt_vertex, ptr %110, i64 %119
+  %invariant.gep = getelementptr inbounds %struct.stbtt_vertex, ptr %110, i64 %119
   br label %.preheader25
 
 .preheader25:                                     ; preds = %.preheader25.preheader, %160
   %indvars.iv67 = phi i64 [ 0, %.preheader25.preheader ], [ %indvars.iv.next68, %160 ]
   %.2294.i38 = phi ptr [ %.1293.i, %.preheader25.preheader ], [ %.3295.i, %160 ]
   %.0316.i37 = phi i16 [ 0, %.preheader25.preheader ], [ %.1317.i, %160 ]
-  %gep = getelementptr %struct.stbtt_vertex, ptr %invariant.gep, i64 %indvars.iv67
+  %gep = getelementptr inbounds %struct.stbtt_vertex, ptr %invariant.gep, i64 %indvars.iv67
   %136 = getelementptr inbounds i8, ptr %gep, i64 12
   %137 = load i8, ptr %136, align 2
   %138 = zext i8 %137 to i32
@@ -12715,14 +12714,14 @@ stbtt__GetGlyfOffset.exit:                        ; preds = %82
   br i1 %exitcond70.not, label %.preheader24.preheader, label %.preheader25
 
 .preheader24.preheader:                           ; preds = %160
-  %invariant.gep76 = getelementptr %struct.stbtt_vertex, ptr %110, i64 %119
+  %invariant.gep76 = getelementptr inbounds %struct.stbtt_vertex, ptr %110, i64 %119
   br label %.preheader24
 
 .preheader24:                                     ; preds = %.preheader24.preheader, %185
   %indvars.iv71 = phi i64 [ 0, %.preheader24.preheader ], [ %indvars.iv.next72, %185 ]
   %.4296.i41 = phi ptr [ %.3295.i, %.preheader24.preheader ], [ %.5297.i, %185 ]
   %.0314.i40 = phi i16 [ 0, %.preheader24.preheader ], [ %.1315.i, %185 ]
-  %gep77 = getelementptr %struct.stbtt_vertex, ptr %invariant.gep76, i64 %indvars.iv71
+  %gep77 = getelementptr inbounds %struct.stbtt_vertex, ptr %invariant.gep76, i64 %indvars.iv71
   %161 = getelementptr inbounds i8, ptr %gep77, i64 12
   %162 = load i8, ptr %161, align 2
   %163 = zext i8 %162 to i32
@@ -13395,7 +13394,7 @@ stbtt__GetGlyphShapeTT.exit:                      ; preds = %stbtt__GetGlyfOffse
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %4, i8 0, i64 56, i1 false)
   store i32 1, ptr %4, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %5, i8 0, i64 56, i1 false)
-  %526 = call fastcc i32 @stbtt__run_charstring(ptr noundef nonnull %0, i32 noundef %1, ptr noundef nonnull %4), !range !15
+  %526 = call fastcc i32 @stbtt__run_charstring(ptr noundef nonnull %0, i32 noundef %1, ptr noundef nonnull %4)
   %.not.i7 = icmp eq i32 %526, 0
   br i1 %.not.i7, label %538, label %527
 
@@ -13408,7 +13407,7 @@ stbtt__GetGlyphShapeTT.exit:                      ; preds = %stbtt__GetGlyfOffse
   store ptr %532, ptr %2, align 8
   %533 = getelementptr inbounds i8, ptr %5, i64 40
   store ptr %532, ptr %533, align 8
-  %534 = call fastcc i32 @stbtt__run_charstring(ptr noundef nonnull %0, i32 noundef %1, ptr noundef nonnull %5), !range !15
+  %534 = call fastcc i32 @stbtt__run_charstring(ptr noundef nonnull %0, i32 noundef %1, ptr noundef nonnull %5)
   %.not7.i = icmp eq i32 %534, 0
   br i1 %.not7.i, label %538, label %535
 
@@ -13444,7 +13443,7 @@ define internal fastcc void @stbtt_GetGlyphBitmapBoxSubpixel(ptr nocapture nound
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %9)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %9, i8 0, i64 56, i1 false)
   store i32 1, ptr %9, align 8
-  %13 = call fastcc i32 @stbtt__run_charstring(ptr noundef nonnull %0, i32 noundef %1, ptr noundef nonnull %9), !range !15
+  %13 = call fastcc i32 @stbtt__run_charstring(ptr noundef nonnull %0, i32 noundef %1, ptr noundef nonnull %9)
   %.not17.i.i = icmp eq i32 %13, 0
   %14 = getelementptr inbounds i8, ptr %9, i64 24
   %15 = load i32, ptr %14, align 8
@@ -13693,7 +13692,7 @@ stbtt_GetGlyphBox.exit:                           ; preds = %102, %12
 declare double @sqrt(double noundef) local_unnamed_addr #18
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc noundef i32 @stbtt__run_charstring(ptr nocapture noundef readonly %0, i32 noundef %1, ptr nocapture noundef %2) unnamed_addr #23 {
+define internal fastcc range(i32 0, 2) i32 @stbtt__run_charstring(ptr nocapture noundef readonly %0, i32 noundef %1, ptr nocapture noundef %2) unnamed_addr #23 {
   %4 = alloca [48 x float], align 16
   %5 = alloca [10 x %struct.stbtt__buf], align 16
   %6 = alloca %struct.stbtt__buf, align 8
@@ -15679,4 +15678,3 @@ attributes #46 = { nounwind allocsize(1) }
 !12 = distinct !{!12, !"LoadFontEx"}
 !13 = distinct !{!13, !14}
 !14 = !{!"llvm.loop.unswitch.partial.disable"}
-!15 = !{i32 0, i32 2}

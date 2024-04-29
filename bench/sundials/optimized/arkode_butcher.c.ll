@@ -386,67 +386,65 @@ define noundef ptr @ARKodeButcherTable_Create(i32 noundef %0, i32 noundef %1, i3
   %15 = getelementptr inbounds i8, ptr %11, i64 24
   %16 = getelementptr inbounds i8, ptr %11, i64 32
   %17 = getelementptr inbounds i8, ptr %11, i64 16
-  %wide.trip.count56 = zext nneg i32 %0 to i64
+  %18 = zext nneg i32 %0 to i64
   br label %.lr.ph.us
 
 .lr.ph.us:                                        ; preds = %._crit_edge.us, %.lr.ph49
   %indvars.iv53 = phi i64 [ %indvars.iv.next54, %._crit_edge.us ], [ 0, %.lr.ph49 ]
-  %18 = getelementptr inbounds double, ptr %3, i64 %indvars.iv53
-  %19 = load double, ptr %18, align 8
-  %20 = load ptr, ptr %15, align 8
-  %21 = getelementptr inbounds double, ptr %20, i64 %indvars.iv53
-  store double %19, ptr %21, align 8
-  %22 = getelementptr inbounds double, ptr %5, i64 %indvars.iv53
-  %23 = load double, ptr %22, align 8
-  %24 = load ptr, ptr %16, align 8
-  %25 = getelementptr inbounds double, ptr %24, i64 %indvars.iv53
-  store double %23, ptr %25, align 8
-  %26 = trunc i64 %indvars.iv53 to i32
-  %27 = mul i32 %26, %0
-  %28 = zext i32 %27 to i64
-  %invariant.gep = getelementptr double, ptr %4, i64 %28
-  br label %29
+  %19 = getelementptr inbounds double, ptr %3, i64 %indvars.iv53
+  %20 = load double, ptr %19, align 8
+  %21 = load ptr, ptr %15, align 8
+  %22 = getelementptr inbounds double, ptr %21, i64 %indvars.iv53
+  store double %20, ptr %22, align 8
+  %23 = getelementptr inbounds double, ptr %5, i64 %indvars.iv53
+  %24 = load double, ptr %23, align 8
+  %25 = load ptr, ptr %16, align 8
+  %26 = getelementptr inbounds double, ptr %25, i64 %indvars.iv53
+  store double %24, ptr %26, align 8
+  %27 = mul nuw nsw i64 %indvars.iv53, %18
+  %invariant.gep = getelementptr inbounds double, ptr %4, i64 %27
+  br label %28
 
-29:                                               ; preds = %.lr.ph.us, %29
-  %indvars.iv = phi i64 [ 0, %.lr.ph.us ], [ %indvars.iv.next, %29 ]
-  %gep = getelementptr double, ptr %invariant.gep, i64 %indvars.iv
-  %30 = load double, ptr %gep, align 8
-  %31 = load ptr, ptr %17, align 8
-  %32 = getelementptr inbounds ptr, ptr %31, i64 %indvars.iv53
-  %33 = load ptr, ptr %32, align 8
-  %34 = getelementptr inbounds double, ptr %33, i64 %indvars.iv
-  store double %30, ptr %34, align 8
+28:                                               ; preds = %.lr.ph.us, %28
+  %indvars.iv = phi i64 [ 0, %.lr.ph.us ], [ %indvars.iv.next, %28 ]
+  %gep = getelementptr inbounds double, ptr %invariant.gep, i64 %indvars.iv
+  %29 = load double, ptr %gep, align 8
+  %30 = load ptr, ptr %17, align 8
+  %31 = getelementptr inbounds ptr, ptr %30, i64 %indvars.iv53
+  %32 = load ptr, ptr %31, align 8
+  %33 = getelementptr inbounds double, ptr %32, i64 %indvars.iv
+  store double %29, ptr %33, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count56
-  br i1 %exitcond.not, label %._crit_edge.us, label %29
+  %exitcond.not = icmp eq i64 %indvars.iv.next, %18
+  br i1 %exitcond.not, label %._crit_edge.us, label %28
 
-._crit_edge.us:                                   ; preds = %29
+._crit_edge.us:                                   ; preds = %28
   %indvars.iv.next54 = add nuw nsw i64 %indvars.iv53, 1
-  %exitcond57.not = icmp eq i64 %indvars.iv.next54, %wide.trip.count56
+  %exitcond57.not = icmp eq i64 %indvars.iv.next54, %18
   br i1 %exitcond57.not, label %._crit_edge50, label %.lr.ph.us
 
 ._crit_edge50:                                    ; preds = %._crit_edge.us
   br i1 %.not, label %.lr.ph, label %.loopexit
 
 .lr.ph:                                           ; preds = %._crit_edge50
-  %35 = getelementptr inbounds i8, ptr %11, i64 40
+  %34 = getelementptr inbounds i8, ptr %11, i64 40
   %smax = tail call i32 @llvm.smax.i32(i32 %0, i32 1)
   %wide.trip.count61 = zext nneg i32 %smax to i64
-  br label %36
+  br label %35
 
-36:                                               ; preds = %.lr.ph, %36
-  %indvars.iv58 = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next59, %36 ]
-  %37 = getelementptr inbounds double, ptr %6, i64 %indvars.iv58
-  %38 = load double, ptr %37, align 8
-  %39 = load ptr, ptr %35, align 8
-  %40 = getelementptr inbounds double, ptr %39, i64 %indvars.iv58
-  store double %38, ptr %40, align 8
+35:                                               ; preds = %.lr.ph, %35
+  %indvars.iv58 = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next59, %35 ]
+  %36 = getelementptr inbounds double, ptr %6, i64 %indvars.iv58
+  %37 = load double, ptr %36, align 8
+  %38 = load ptr, ptr %34, align 8
+  %39 = getelementptr inbounds double, ptr %38, i64 %indvars.iv58
+  store double %37, ptr %39, align 8
   %indvars.iv.next59 = add nuw nsw i64 %indvars.iv58, 1
   %exitcond62.not = icmp eq i64 %indvars.iv.next59, %wide.trip.count61
-  br i1 %exitcond62.not, label %.loopexit, label %36
+  br i1 %exitcond62.not, label %.loopexit, label %35
 
-.loopexit:                                        ; preds = %36, %._crit_edge50, %9, %7
-  %.0 = phi ptr [ null, %7 ], [ null, %9 ], [ %11, %._crit_edge50 ], [ %11, %36 ]
+.loopexit:                                        ; preds = %35, %._crit_edge50, %9, %7
+  %.0 = phi ptr [ null, %7 ], [ null, %9 ], [ %11, %._crit_edge50 ], [ %11, %35 ]
   ret ptr %.0
 }
 
@@ -734,7 +732,7 @@ define void @ARKodeButcherTable_Write(ptr noundef readonly %0, ptr nocapture nou
 declare noundef i32 @fprintf(ptr nocapture noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #6
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
-define noundef i32 @ARKodeButcherTable_IsStifflyAccurate(ptr nocapture noundef readonly %0) local_unnamed_addr #7 {
+define range(i32 0, 2) i32 @ARKodeButcherTable_IsStifflyAccurate(ptr nocapture noundef readonly %0) local_unnamed_addr #7 {
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   %3 = load i32, ptr %2, align 8
   %4 = icmp sgt i32 %3, 0
@@ -776,7 +774,7 @@ define noundef i32 @ARKodeButcherTable_IsStifflyAccurate(ptr nocapture noundef r
 declare double @llvm.fabs.f64(double) #8
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @ARKodeButcherTable_CheckOrder(ptr noundef readonly %0, ptr nocapture noundef %1, ptr nocapture noundef %2, ptr noundef %3) local_unnamed_addr #0 {
+define range(i32 -2, 2) i32 @ARKodeButcherTable_CheckOrder(ptr noundef readonly %0, ptr nocapture noundef %1, ptr nocapture noundef %2, ptr noundef %3) local_unnamed_addr #0 {
   store i32 0, ptr %2, align 4
   store i32 0, ptr %1, align 4
   %5 = icmp eq ptr %0, null
@@ -1074,7 +1072,7 @@ thread-pre-split1005:                             ; preds = %113, %.thread1002
   br i1 %116, label %117, label %.thread1124
 
 117:                                              ; preds = %.thread1007, %114
-  %118 = tail call fastcc i32 @__order4a(ptr noundef %23, ptr noundef %19, ptr noundef %19, ptr noundef %19, i32 noundef %8), !range !4
+  %118 = tail call fastcc i32 @__order4a(ptr noundef %23, ptr noundef %19, ptr noundef %19, ptr noundef %19, i32 noundef %8)
   %.not791 = icmp ne i32 %118, 0
   %brmerge869 = or i1 %.not, %.not791
   br i1 %brmerge869, label %121, label %119
@@ -1084,7 +1082,7 @@ thread-pre-split1005:                             ; preds = %113, %.thread1002
   br label %121
 
 121:                                              ; preds = %117, %119
-  %122 = tail call fastcc i32 @__order4b(ptr noundef %23, ptr noundef %19, ptr noundef %12, ptr noundef %19, i32 noundef %8), !range !4
+  %122 = tail call fastcc i32 @__order4b(ptr noundef %23, ptr noundef %19, ptr noundef %12, ptr noundef %19, i32 noundef %8)
   %.not792 = icmp ne i32 %122, 0
   %brmerge871 = or i1 %.not, %.not792
   %.2.mux = select i1 %.not792, i32 %118, i32 0
@@ -1096,7 +1094,7 @@ thread-pre-split1005:                             ; preds = %113, %.thread1002
 
 125:                                              ; preds = %121, %123
   %.3 = phi i32 [ %.2.mux, %121 ], [ 0, %123 ]
-  %126 = tail call fastcc i32 @__order4c(ptr noundef %23, ptr noundef %12, ptr noundef %19, ptr noundef %19, i32 noundef %8), !range !4
+  %126 = tail call fastcc i32 @__order4c(ptr noundef %23, ptr noundef %12, ptr noundef %19, ptr noundef %19, i32 noundef %8)
   %.not793 = icmp ne i32 %126, 0
   %brmerge872 = or i1 %.not, %.not793
   %.3.mux = select i1 %.not793, i32 %.3, i32 0
@@ -1108,7 +1106,7 @@ thread-pre-split1005:                             ; preds = %113, %.thread1002
 
 129:                                              ; preds = %125, %127
   %.4 = phi i32 [ %.3.mux, %125 ], [ 0, %127 ]
-  %130 = tail call fastcc i32 @__order4d(ptr noundef %23, ptr noundef %12, ptr noundef %12, ptr noundef %19, i32 noundef %8), !range !4
+  %130 = tail call fastcc i32 @__order4d(ptr noundef %23, ptr noundef %12, ptr noundef %12, ptr noundef %19, i32 noundef %8)
   %.not794 = icmp ne i32 %130, 0
   %brmerge873 = or i1 %.not, %.not794
   br i1 %brmerge873, label %132, label %.thread1009
@@ -1132,7 +1130,7 @@ thread-pre-split1005:                             ; preds = %113, %.thread1002
   br i1 %133, label %134, label %170
 
 134:                                              ; preds = %.thread1014, %.thread1124
-  %135 = tail call fastcc i32 @__order5a(ptr noundef %23, ptr noundef %19, ptr noundef %19, ptr noundef %19, ptr noundef %19, i32 noundef %8), !range !4
+  %135 = tail call fastcc i32 @__order5a(ptr noundef %23, ptr noundef %19, ptr noundef %19, ptr noundef %19, ptr noundef %19, i32 noundef %8)
   %.not796 = icmp ne i32 %135, 0
   %brmerge874 = or i1 %.not, %.not796
   br i1 %brmerge874, label %138, label %136
@@ -1142,7 +1140,7 @@ thread-pre-split1005:                             ; preds = %113, %.thread1002
   br label %138
 
 138:                                              ; preds = %134, %136
-  %139 = tail call fastcc i32 @__order5b(ptr noundef %23, ptr noundef %19, ptr noundef %19, ptr noundef %12, ptr noundef %19, i32 noundef %8), !range !4
+  %139 = tail call fastcc i32 @__order5b(ptr noundef %23, ptr noundef %19, ptr noundef %19, ptr noundef %12, ptr noundef %19, i32 noundef %8)
   %.not797 = icmp ne i32 %139, 0
   %brmerge876 = or i1 %.not, %.not797
   %.6.mux = select i1 %.not797, i32 %135, i32 0
@@ -1154,7 +1152,7 @@ thread-pre-split1005:                             ; preds = %113, %.thread1002
 
 142:                                              ; preds = %138, %140
   %.7 = phi i32 [ %.6.mux, %138 ], [ 0, %140 ]
-  %143 = tail call fastcc i32 @__order5c(ptr noundef %23, ptr noundef %12, ptr noundef %19, ptr noundef %12, ptr noundef %19, i32 noundef %8), !range !4
+  %143 = tail call fastcc i32 @__order5c(ptr noundef %23, ptr noundef %12, ptr noundef %19, ptr noundef %12, ptr noundef %19, i32 noundef %8)
   %.not798 = icmp ne i32 %143, 0
   %brmerge877 = or i1 %.not, %.not798
   %.7.mux = select i1 %.not798, i32 %.7, i32 0
@@ -1166,7 +1164,7 @@ thread-pre-split1005:                             ; preds = %113, %.thread1002
 
 146:                                              ; preds = %142, %144
   %.8 = phi i32 [ %.7.mux, %142 ], [ 0, %144 ]
-  %147 = tail call fastcc i32 @__order5d(ptr noundef %23, ptr noundef %19, ptr noundef %12, ptr noundef %19, ptr noundef %19, i32 noundef %8), !range !4
+  %147 = tail call fastcc i32 @__order5d(ptr noundef %23, ptr noundef %19, ptr noundef %12, ptr noundef %19, ptr noundef %19, i32 noundef %8)
   %.not799 = icmp ne i32 %147, 0
   %brmerge878 = or i1 %.not, %.not799
   %.8.mux = select i1 %.not799, i32 %.8, i32 0
@@ -1178,7 +1176,7 @@ thread-pre-split1005:                             ; preds = %113, %.thread1002
 
 150:                                              ; preds = %146, %148
   %.9 = phi i32 [ %.8.mux, %146 ], [ 0, %148 ]
-  %151 = tail call fastcc i32 @__order5e(ptr noundef %23, ptr noundef %12, ptr noundef %19, ptr noundef %19, ptr noundef %19, i32 noundef %8), !range !4
+  %151 = tail call fastcc i32 @__order5e(ptr noundef %23, ptr noundef %12, ptr noundef %19, ptr noundef %19, ptr noundef %19, i32 noundef %8)
   %.not800 = icmp ne i32 %151, 0
   %brmerge879 = or i1 %.not, %.not800
   %.9.mux = select i1 %.not800, i32 %.9, i32 0
@@ -1190,7 +1188,7 @@ thread-pre-split1005:                             ; preds = %113, %.thread1002
 
 154:                                              ; preds = %150, %152
   %.10 = phi i32 [ %.9.mux, %150 ], [ 0, %152 ]
-  %155 = tail call fastcc i32 @__order5f(ptr noundef %23, ptr noundef %19, ptr noundef %12, ptr noundef %12, ptr noundef %19, i32 noundef %8), !range !4
+  %155 = tail call fastcc i32 @__order5f(ptr noundef %23, ptr noundef %19, ptr noundef %12, ptr noundef %12, ptr noundef %19, i32 noundef %8)
   %.not801 = icmp ne i32 %155, 0
   %brmerge880 = or i1 %.not, %.not801
   %.10.mux = select i1 %.not801, i32 %.10, i32 0
@@ -1202,7 +1200,7 @@ thread-pre-split1005:                             ; preds = %113, %.thread1002
 
 158:                                              ; preds = %154, %156
   %.11 = phi i32 [ %.10.mux, %154 ], [ 0, %156 ]
-  %159 = tail call fastcc i32 @__order5g(ptr noundef %23, ptr noundef %12, ptr noundef %19, ptr noundef %12, ptr noundef %19, i32 noundef %8), !range !4
+  %159 = tail call fastcc i32 @__order5g(ptr noundef %23, ptr noundef %12, ptr noundef %19, ptr noundef %12, ptr noundef %19, i32 noundef %8)
   %.not802 = icmp ne i32 %159, 0
   %brmerge881 = or i1 %.not, %.not802
   %.11.mux = select i1 %.not802, i32 %.11, i32 0
@@ -1214,7 +1212,7 @@ thread-pre-split1005:                             ; preds = %113, %.thread1002
 
 162:                                              ; preds = %158, %160
   %.12 = phi i32 [ %.11.mux, %158 ], [ 0, %160 ]
-  %163 = tail call fastcc i32 @__order5h(ptr noundef %23, ptr noundef %12, ptr noundef %12, ptr noundef %19, ptr noundef %19, i32 noundef %8), !range !4
+  %163 = tail call fastcc i32 @__order5h(ptr noundef %23, ptr noundef %12, ptr noundef %12, ptr noundef %19, ptr noundef %19, i32 noundef %8)
   %.not803 = icmp ne i32 %163, 0
   %brmerge882 = or i1 %.not, %.not803
   %.12.mux = select i1 %.not803, i32 %.12, i32 0
@@ -1226,7 +1224,7 @@ thread-pre-split1005:                             ; preds = %113, %.thread1002
 
 166:                                              ; preds = %162, %164
   %.13 = phi i32 [ %.12.mux, %162 ], [ 0, %164 ]
-  %167 = tail call fastcc i32 @__order5i(ptr noundef %23, ptr noundef %12, ptr noundef %12, ptr noundef %12, ptr noundef %19, i32 noundef %8), !range !4
+  %167 = tail call fastcc i32 @__order5i(ptr noundef %23, ptr noundef %12, ptr noundef %12, ptr noundef %12, ptr noundef %19, i32 noundef %8)
   %.not804 = icmp ne i32 %167, 0
   %brmerge883 = or i1 %.not, %.not804
   br i1 %brmerge883, label %169, label %.thread1016
@@ -1254,7 +1252,7 @@ thread-pre-split1019:                             ; preds = %__rowsum.exit, %169
   br i1 %172, label %173, label %249
 
 173:                                              ; preds = %.thread1021, %170
-  %174 = tail call fastcc i32 @__order6a(ptr noundef %23, ptr noundef %19, ptr noundef %19, ptr noundef %19, ptr noundef %19, ptr noundef %19, i32 noundef %8), !range !4
+  %174 = tail call fastcc i32 @__order6a(ptr noundef %23, ptr noundef %19, ptr noundef %19, ptr noundef %19, ptr noundef %19, ptr noundef %19, i32 noundef %8)
   %.not806 = icmp ne i32 %174, 0
   %brmerge884 = or i1 %.not, %.not806
   br i1 %brmerge884, label %177, label %175
@@ -1264,7 +1262,7 @@ thread-pre-split1019:                             ; preds = %__rowsum.exit, %169
   br label %177
 
 177:                                              ; preds = %173, %175
-  %178 = tail call fastcc i32 @__order6b(ptr noundef %23, ptr noundef %19, ptr noundef %19, ptr noundef %19, ptr noundef %12, ptr noundef %19, i32 noundef %8), !range !4
+  %178 = tail call fastcc i32 @__order6b(ptr noundef %23, ptr noundef %19, ptr noundef %19, ptr noundef %19, ptr noundef %12, ptr noundef %19, i32 noundef %8)
   %.not807 = icmp ne i32 %178, 0
   %brmerge886 = or i1 %.not, %.not807
   %.15.mux = select i1 %.not807, i32 %174, i32 0
@@ -1276,7 +1274,7 @@ thread-pre-split1019:                             ; preds = %__rowsum.exit, %169
 
 181:                                              ; preds = %177, %179
   %.16 = phi i32 [ %.15.mux, %177 ], [ 0, %179 ]
-  %182 = tail call fastcc i32 @__order6c(ptr noundef %23, ptr noundef %19, ptr noundef %12, ptr noundef %19, ptr noundef %12, ptr noundef %19, i32 noundef %8), !range !4
+  %182 = tail call fastcc i32 @__order6c(ptr noundef %23, ptr noundef %19, ptr noundef %12, ptr noundef %19, ptr noundef %12, ptr noundef %19, i32 noundef %8)
   %.not808 = icmp ne i32 %182, 0
   %brmerge887 = or i1 %.not, %.not808
   %.16.mux = select i1 %.not808, i32 %.16, i32 0
@@ -1288,7 +1286,7 @@ thread-pre-split1019:                             ; preds = %__rowsum.exit, %169
 
 185:                                              ; preds = %181, %183
   %.17 = phi i32 [ %.16.mux, %181 ], [ 0, %183 ]
-  %186 = tail call fastcc i32 @__order6d(ptr noundef %23, ptr noundef %19, ptr noundef %19, ptr noundef %12, ptr noundef %19, ptr noundef %19, i32 noundef %8), !range !4
+  %186 = tail call fastcc i32 @__order6d(ptr noundef %23, ptr noundef %19, ptr noundef %19, ptr noundef %12, ptr noundef %19, ptr noundef %19, i32 noundef %8)
   %.not809 = icmp ne i32 %186, 0
   %brmerge888 = or i1 %.not, %.not809
   %.17.mux = select i1 %.not809, i32 %.17, i32 0
@@ -1300,7 +1298,7 @@ thread-pre-split1019:                             ; preds = %__rowsum.exit, %169
 
 189:                                              ; preds = %185, %187
   %.18 = phi i32 [ %.17.mux, %185 ], [ 0, %187 ]
-  %190 = tail call fastcc i32 @__order6e(ptr noundef %23, ptr noundef %19, ptr noundef %19, ptr noundef %12, ptr noundef %12, ptr noundef %19, i32 noundef %8), !range !4
+  %190 = tail call fastcc i32 @__order6e(ptr noundef %23, ptr noundef %19, ptr noundef %19, ptr noundef %12, ptr noundef %12, ptr noundef %19, i32 noundef %8)
   %.not810 = icmp ne i32 %190, 0
   %brmerge889 = or i1 %.not, %.not810
   %.18.mux = select i1 %.not810, i32 %.18, i32 0
@@ -1312,7 +1310,7 @@ thread-pre-split1019:                             ; preds = %__rowsum.exit, %169
 
 193:                                              ; preds = %189, %191
   %.19 = phi i32 [ %.18.mux, %189 ], [ 0, %191 ]
-  %194 = tail call fastcc i32 @__order6f(ptr noundef %23, ptr noundef %12, ptr noundef %12, ptr noundef %19, ptr noundef %12, ptr noundef %19, i32 noundef %8), !range !4
+  %194 = tail call fastcc i32 @__order6f(ptr noundef %23, ptr noundef %12, ptr noundef %12, ptr noundef %19, ptr noundef %12, ptr noundef %19, i32 noundef %8)
   %.not811 = icmp ne i32 %194, 0
   %brmerge890 = or i1 %.not, %.not811
   %.19.mux = select i1 %.not811, i32 %.19, i32 0
@@ -1324,7 +1322,7 @@ thread-pre-split1019:                             ; preds = %__rowsum.exit, %169
 
 197:                                              ; preds = %193, %195
   %.20 = phi i32 [ %.19.mux, %193 ], [ 0, %195 ]
-  %198 = tail call fastcc i32 @__order6g(ptr noundef %23, ptr noundef %19, ptr noundef %12, ptr noundef %19, ptr noundef %19, ptr noundef %19, i32 noundef %8), !range !4
+  %198 = tail call fastcc i32 @__order6g(ptr noundef %23, ptr noundef %19, ptr noundef %12, ptr noundef %19, ptr noundef %19, ptr noundef %19, i32 noundef %8)
   %.not812 = icmp ne i32 %198, 0
   %brmerge891 = or i1 %.not, %.not812
   %.20.mux = select i1 %.not812, i32 %.20, i32 0
@@ -1336,7 +1334,7 @@ thread-pre-split1019:                             ; preds = %__rowsum.exit, %169
 
 201:                                              ; preds = %197, %199
   %.21 = phi i32 [ %.20.mux, %197 ], [ 0, %199 ]
-  %202 = tail call fastcc i32 @__order6h(ptr noundef %23, ptr noundef %19, ptr noundef %12, ptr noundef %19, ptr noundef %12, ptr noundef %19, i32 noundef %8), !range !4
+  %202 = tail call fastcc i32 @__order6h(ptr noundef %23, ptr noundef %19, ptr noundef %12, ptr noundef %19, ptr noundef %12, ptr noundef %19, i32 noundef %8)
   %.not813 = icmp ne i32 %202, 0
   %brmerge892 = or i1 %.not, %.not813
   %.21.mux = select i1 %.not813, i32 %.21, i32 0
@@ -1348,7 +1346,7 @@ thread-pre-split1019:                             ; preds = %__rowsum.exit, %169
 
 205:                                              ; preds = %201, %203
   %.22 = phi i32 [ %.21.mux, %201 ], [ 0, %203 ]
-  %206 = tail call fastcc i32 @__order6i(ptr noundef %23, ptr noundef %19, ptr noundef %12, ptr noundef %12, ptr noundef %19, ptr noundef %19, i32 noundef %8), !range !4
+  %206 = tail call fastcc i32 @__order6i(ptr noundef %23, ptr noundef %19, ptr noundef %12, ptr noundef %12, ptr noundef %19, ptr noundef %19, i32 noundef %8)
   %.not814 = icmp ne i32 %206, 0
   %brmerge893 = or i1 %.not, %.not814
   %.22.mux = select i1 %.not814, i32 %.22, i32 0
@@ -1360,7 +1358,7 @@ thread-pre-split1019:                             ; preds = %__rowsum.exit, %169
 
 209:                                              ; preds = %205, %207
   %.23 = phi i32 [ %.22.mux, %205 ], [ 0, %207 ]
-  %210 = tail call fastcc i32 @__order6j(ptr noundef %23, ptr noundef %19, ptr noundef %12, ptr noundef %12, ptr noundef %12, ptr noundef %19, i32 noundef %8), !range !4
+  %210 = tail call fastcc i32 @__order6j(ptr noundef %23, ptr noundef %19, ptr noundef %12, ptr noundef %12, ptr noundef %12, ptr noundef %19, i32 noundef %8)
   %.not815 = icmp ne i32 %210, 0
   %brmerge894 = or i1 %.not, %.not815
   %.23.mux = select i1 %.not815, i32 %.23, i32 0
@@ -1372,7 +1370,7 @@ thread-pre-split1019:                             ; preds = %__rowsum.exit, %169
 
 213:                                              ; preds = %209, %211
   %.24 = phi i32 [ %.23.mux, %209 ], [ 0, %211 ]
-  %214 = tail call fastcc i32 @__order6k(ptr noundef %23, ptr noundef %12, ptr noundef %19, ptr noundef %19, ptr noundef %19, ptr noundef %19, i32 noundef %8), !range !4
+  %214 = tail call fastcc i32 @__order6k(ptr noundef %23, ptr noundef %12, ptr noundef %19, ptr noundef %19, ptr noundef %19, ptr noundef %19, i32 noundef %8)
   %.not816 = icmp ne i32 %214, 0
   %brmerge895 = or i1 %.not, %.not816
   %.24.mux = select i1 %.not816, i32 %.24, i32 0
@@ -1384,7 +1382,7 @@ thread-pre-split1019:                             ; preds = %__rowsum.exit, %169
 
 217:                                              ; preds = %213, %215
   %.25 = phi i32 [ %.24.mux, %213 ], [ 0, %215 ]
-  %218 = tail call fastcc i32 @__order6l(ptr noundef %23, ptr noundef %12, ptr noundef %19, ptr noundef %19, ptr noundef %12, ptr noundef %19, i32 noundef %8), !range !4
+  %218 = tail call fastcc i32 @__order6l(ptr noundef %23, ptr noundef %12, ptr noundef %19, ptr noundef %19, ptr noundef %12, ptr noundef %19, i32 noundef %8)
   %.not817 = icmp ne i32 %218, 0
   %brmerge896 = or i1 %.not, %.not817
   %.25.mux = select i1 %.not817, i32 %.25, i32 0
@@ -1396,7 +1394,7 @@ thread-pre-split1019:                             ; preds = %__rowsum.exit, %169
 
 221:                                              ; preds = %217, %219
   %.26 = phi i32 [ %.25.mux, %217 ], [ 0, %219 ]
-  %222 = tail call fastcc i32 @__order6m(ptr noundef %23, ptr noundef %12, ptr noundef %12, ptr noundef %19, ptr noundef %12, ptr noundef %19, i32 noundef %8), !range !4
+  %222 = tail call fastcc i32 @__order6m(ptr noundef %23, ptr noundef %12, ptr noundef %12, ptr noundef %19, ptr noundef %12, ptr noundef %19, i32 noundef %8)
   %.not818 = icmp ne i32 %222, 0
   %brmerge897 = or i1 %.not, %.not818
   %.26.mux = select i1 %.not818, i32 %.26, i32 0
@@ -1408,7 +1406,7 @@ thread-pre-split1019:                             ; preds = %__rowsum.exit, %169
 
 225:                                              ; preds = %221, %223
   %.27 = phi i32 [ %.26.mux, %221 ], [ 0, %223 ]
-  %226 = tail call fastcc i32 @__order6n(ptr noundef %23, ptr noundef %12, ptr noundef %19, ptr noundef %12, ptr noundef %19, ptr noundef %19, i32 noundef %8), !range !4
+  %226 = tail call fastcc i32 @__order6n(ptr noundef %23, ptr noundef %12, ptr noundef %19, ptr noundef %12, ptr noundef %19, ptr noundef %19, i32 noundef %8)
   %.not819 = icmp ne i32 %226, 0
   %brmerge898 = or i1 %.not, %.not819
   %.27.mux = select i1 %.not819, i32 %.27, i32 0
@@ -1420,7 +1418,7 @@ thread-pre-split1019:                             ; preds = %__rowsum.exit, %169
 
 229:                                              ; preds = %225, %227
   %.28 = phi i32 [ %.27.mux, %225 ], [ 0, %227 ]
-  %230 = tail call fastcc i32 @__order6o(ptr noundef %23, ptr noundef %12, ptr noundef %19, ptr noundef %12, ptr noundef %12, ptr noundef %19, i32 noundef %8), !range !4
+  %230 = tail call fastcc i32 @__order6o(ptr noundef %23, ptr noundef %12, ptr noundef %19, ptr noundef %12, ptr noundef %12, ptr noundef %19, i32 noundef %8)
   %.not820 = icmp ne i32 %230, 0
   %brmerge899 = or i1 %.not, %.not820
   %.28.mux = select i1 %.not820, i32 %.28, i32 0
@@ -1432,7 +1430,7 @@ thread-pre-split1019:                             ; preds = %__rowsum.exit, %169
 
 233:                                              ; preds = %229, %231
   %.29 = phi i32 [ %.28.mux, %229 ], [ 0, %231 ]
-  %234 = tail call fastcc i32 @__order6p(ptr noundef %23, ptr noundef %12, ptr noundef %12, ptr noundef %19, ptr noundef %19, ptr noundef %19, i32 noundef %8), !range !4
+  %234 = tail call fastcc i32 @__order6p(ptr noundef %23, ptr noundef %12, ptr noundef %12, ptr noundef %19, ptr noundef %19, ptr noundef %19, i32 noundef %8)
   %.not821 = icmp ne i32 %234, 0
   %brmerge900 = or i1 %.not, %.not821
   %.29.mux = select i1 %.not821, i32 %.29, i32 0
@@ -1444,7 +1442,7 @@ thread-pre-split1019:                             ; preds = %__rowsum.exit, %169
 
 237:                                              ; preds = %233, %235
   %.30 = phi i32 [ %.29.mux, %233 ], [ 0, %235 ]
-  %238 = tail call fastcc i32 @__order6q(ptr noundef %23, ptr noundef %12, ptr noundef %12, ptr noundef %19, ptr noundef %12, ptr noundef %19, i32 noundef %8), !range !4
+  %238 = tail call fastcc i32 @__order6q(ptr noundef %23, ptr noundef %12, ptr noundef %12, ptr noundef %19, ptr noundef %12, ptr noundef %19, i32 noundef %8)
   %.not822 = icmp ne i32 %238, 0
   %brmerge901 = or i1 %.not, %.not822
   %.30.mux = select i1 %.not822, i32 %.30, i32 0
@@ -1456,7 +1454,7 @@ thread-pre-split1019:                             ; preds = %__rowsum.exit, %169
 
 241:                                              ; preds = %237, %239
   %.31 = phi i32 [ %.30.mux, %237 ], [ 0, %239 ]
-  %242 = tail call fastcc i32 @__order6r(ptr noundef %23, ptr noundef %12, ptr noundef %12, ptr noundef %12, ptr noundef %19, ptr noundef %19, i32 noundef %8), !range !4
+  %242 = tail call fastcc i32 @__order6r(ptr noundef %23, ptr noundef %12, ptr noundef %12, ptr noundef %12, ptr noundef %19, ptr noundef %19, i32 noundef %8)
   %.not823 = icmp ne i32 %242, 0
   %brmerge902 = or i1 %.not, %.not823
   %.31.mux = select i1 %.not823, i32 %.31, i32 0
@@ -1645,7 +1643,7 @@ __order2.exit991:                                 ; preds = %285
   br i1 %299, label %300, label %308
 
 300:                                              ; preds = %.thread1051, %298
-  %301 = tail call fastcc i32 @__order3a(ptr noundef %27, ptr noundef %19, ptr noundef %19, i32 noundef %8), !range !4
+  %301 = tail call fastcc i32 @__order3a(ptr noundef %27, ptr noundef %19, ptr noundef %19, i32 noundef %8)
   %.not830 = icmp ne i32 %301, 0
   %brmerge904 = or i1 %.not, %.not830
   br i1 %brmerge904, label %304, label %302
@@ -1655,7 +1653,7 @@ __order2.exit991:                                 ; preds = %285
   br label %304
 
 304:                                              ; preds = %300, %302
-  %305 = tail call fastcc i32 @__order3b(ptr noundef %27, ptr noundef %12, ptr noundef %19, i32 noundef %8), !range !4
+  %305 = tail call fastcc i32 @__order3b(ptr noundef %27, ptr noundef %12, ptr noundef %19, i32 noundef %8)
   %.not831 = icmp ne i32 %305, 0
   %brmerge906 = or i1 %.not, %.not831
   br i1 %brmerge906, label %307, label %.thread1053
@@ -1683,7 +1681,7 @@ thread-pre-split1056:                             ; preds = %307, %.thread1053
   br i1 %310, label %311, label %.thread1128
 
 311:                                              ; preds = %.thread1058, %308
-  %312 = tail call fastcc i32 @__order4a(ptr noundef %27, ptr noundef %19, ptr noundef %19, ptr noundef %19, i32 noundef %8), !range !4
+  %312 = tail call fastcc i32 @__order4a(ptr noundef %27, ptr noundef %19, ptr noundef %19, ptr noundef %19, i32 noundef %8)
   %.not833 = icmp ne i32 %312, 0
   %brmerge907 = or i1 %.not, %.not833
   br i1 %brmerge907, label %315, label %313
@@ -1693,7 +1691,7 @@ thread-pre-split1056:                             ; preds = %307, %.thread1053
   br label %315
 
 315:                                              ; preds = %311, %313
-  %316 = tail call fastcc i32 @__order4b(ptr noundef %27, ptr noundef %19, ptr noundef %12, ptr noundef %19, i32 noundef %8), !range !4
+  %316 = tail call fastcc i32 @__order4b(ptr noundef %27, ptr noundef %19, ptr noundef %12, ptr noundef %19, i32 noundef %8)
   %.not834 = icmp ne i32 %316, 0
   %brmerge909 = or i1 %.not, %.not834
   %.36.mux = select i1 %.not834, i32 %312, i32 0
@@ -1705,7 +1703,7 @@ thread-pre-split1056:                             ; preds = %307, %.thread1053
 
 319:                                              ; preds = %315, %317
   %.37 = phi i32 [ %.36.mux, %315 ], [ 0, %317 ]
-  %320 = tail call fastcc i32 @__order4c(ptr noundef %27, ptr noundef %12, ptr noundef %19, ptr noundef %19, i32 noundef %8), !range !4
+  %320 = tail call fastcc i32 @__order4c(ptr noundef %27, ptr noundef %12, ptr noundef %19, ptr noundef %19, i32 noundef %8)
   %.not835 = icmp ne i32 %320, 0
   %brmerge910 = or i1 %.not, %.not835
   %.37.mux = select i1 %.not835, i32 %.37, i32 0
@@ -1717,7 +1715,7 @@ thread-pre-split1056:                             ; preds = %307, %.thread1053
 
 323:                                              ; preds = %319, %321
   %.38 = phi i32 [ %.37.mux, %319 ], [ 0, %321 ]
-  %324 = tail call fastcc i32 @__order4d(ptr noundef %27, ptr noundef %12, ptr noundef %12, ptr noundef %19, i32 noundef %8), !range !4
+  %324 = tail call fastcc i32 @__order4d(ptr noundef %27, ptr noundef %12, ptr noundef %12, ptr noundef %19, i32 noundef %8)
   %.not836 = icmp ne i32 %324, 0
   %brmerge911 = or i1 %.not, %.not836
   br i1 %brmerge911, label %326, label %.thread1060
@@ -1741,7 +1739,7 @@ thread-pre-split1056:                             ; preds = %307, %.thread1053
   br i1 %327, label %328, label %364
 
 328:                                              ; preds = %.thread1065, %.thread1128
-  %329 = tail call fastcc i32 @__order5a(ptr noundef %27, ptr noundef %19, ptr noundef %19, ptr noundef %19, ptr noundef %19, i32 noundef %8), !range !4
+  %329 = tail call fastcc i32 @__order5a(ptr noundef %27, ptr noundef %19, ptr noundef %19, ptr noundef %19, ptr noundef %19, i32 noundef %8)
   %.not838 = icmp ne i32 %329, 0
   %brmerge912 = or i1 %.not, %.not838
   br i1 %brmerge912, label %332, label %330
@@ -1751,7 +1749,7 @@ thread-pre-split1056:                             ; preds = %307, %.thread1053
   br label %332
 
 332:                                              ; preds = %328, %330
-  %333 = tail call fastcc i32 @__order5b(ptr noundef %27, ptr noundef %19, ptr noundef %19, ptr noundef %12, ptr noundef %19, i32 noundef %8), !range !4
+  %333 = tail call fastcc i32 @__order5b(ptr noundef %27, ptr noundef %19, ptr noundef %19, ptr noundef %12, ptr noundef %19, i32 noundef %8)
   %.not839 = icmp ne i32 %333, 0
   %brmerge914 = or i1 %.not, %.not839
   %.40.mux = select i1 %.not839, i32 %329, i32 0
@@ -1763,7 +1761,7 @@ thread-pre-split1056:                             ; preds = %307, %.thread1053
 
 336:                                              ; preds = %332, %334
   %.41 = phi i32 [ %.40.mux, %332 ], [ 0, %334 ]
-  %337 = tail call fastcc i32 @__order5c(ptr noundef %27, ptr noundef %12, ptr noundef %19, ptr noundef %12, ptr noundef %19, i32 noundef %8), !range !4
+  %337 = tail call fastcc i32 @__order5c(ptr noundef %27, ptr noundef %12, ptr noundef %19, ptr noundef %12, ptr noundef %19, i32 noundef %8)
   %.not840 = icmp ne i32 %337, 0
   %brmerge915 = or i1 %.not, %.not840
   %.41.mux = select i1 %.not840, i32 %.41, i32 0
@@ -1775,7 +1773,7 @@ thread-pre-split1056:                             ; preds = %307, %.thread1053
 
 340:                                              ; preds = %336, %338
   %.42 = phi i32 [ %.41.mux, %336 ], [ 0, %338 ]
-  %341 = tail call fastcc i32 @__order5d(ptr noundef %27, ptr noundef %19, ptr noundef %12, ptr noundef %19, ptr noundef %19, i32 noundef %8), !range !4
+  %341 = tail call fastcc i32 @__order5d(ptr noundef %27, ptr noundef %19, ptr noundef %12, ptr noundef %19, ptr noundef %19, i32 noundef %8)
   %.not841 = icmp ne i32 %341, 0
   %brmerge916 = or i1 %.not, %.not841
   %.42.mux = select i1 %.not841, i32 %.42, i32 0
@@ -1787,7 +1785,7 @@ thread-pre-split1056:                             ; preds = %307, %.thread1053
 
 344:                                              ; preds = %340, %342
   %.43 = phi i32 [ %.42.mux, %340 ], [ 0, %342 ]
-  %345 = tail call fastcc i32 @__order5e(ptr noundef %27, ptr noundef %12, ptr noundef %19, ptr noundef %19, ptr noundef %19, i32 noundef %8), !range !4
+  %345 = tail call fastcc i32 @__order5e(ptr noundef %27, ptr noundef %12, ptr noundef %19, ptr noundef %19, ptr noundef %19, i32 noundef %8)
   %.not842 = icmp ne i32 %345, 0
   %brmerge917 = or i1 %.not, %.not842
   %.43.mux = select i1 %.not842, i32 %.43, i32 0
@@ -1799,7 +1797,7 @@ thread-pre-split1056:                             ; preds = %307, %.thread1053
 
 348:                                              ; preds = %344, %346
   %.44 = phi i32 [ %.43.mux, %344 ], [ 0, %346 ]
-  %349 = tail call fastcc i32 @__order5f(ptr noundef %27, ptr noundef %19, ptr noundef %12, ptr noundef %12, ptr noundef %19, i32 noundef %8), !range !4
+  %349 = tail call fastcc i32 @__order5f(ptr noundef %27, ptr noundef %19, ptr noundef %12, ptr noundef %12, ptr noundef %19, i32 noundef %8)
   %.not843 = icmp ne i32 %349, 0
   %brmerge918 = or i1 %.not, %.not843
   %.44.mux = select i1 %.not843, i32 %.44, i32 0
@@ -1811,7 +1809,7 @@ thread-pre-split1056:                             ; preds = %307, %.thread1053
 
 352:                                              ; preds = %348, %350
   %.45 = phi i32 [ %.44.mux, %348 ], [ 0, %350 ]
-  %353 = tail call fastcc i32 @__order5g(ptr noundef %27, ptr noundef %12, ptr noundef %19, ptr noundef %12, ptr noundef %19, i32 noundef %8), !range !4
+  %353 = tail call fastcc i32 @__order5g(ptr noundef %27, ptr noundef %12, ptr noundef %19, ptr noundef %12, ptr noundef %19, i32 noundef %8)
   %.not844 = icmp ne i32 %353, 0
   %brmerge919 = or i1 %.not, %.not844
   %.45.mux = select i1 %.not844, i32 %.45, i32 0
@@ -1823,7 +1821,7 @@ thread-pre-split1056:                             ; preds = %307, %.thread1053
 
 356:                                              ; preds = %352, %354
   %.46 = phi i32 [ %.45.mux, %352 ], [ 0, %354 ]
-  %357 = tail call fastcc i32 @__order5h(ptr noundef %27, ptr noundef %12, ptr noundef %12, ptr noundef %19, ptr noundef %19, i32 noundef %8), !range !4
+  %357 = tail call fastcc i32 @__order5h(ptr noundef %27, ptr noundef %12, ptr noundef %12, ptr noundef %19, ptr noundef %19, i32 noundef %8)
   %.not845 = icmp ne i32 %357, 0
   %brmerge920 = or i1 %.not, %.not845
   %.46.mux = select i1 %.not845, i32 %.46, i32 0
@@ -1835,7 +1833,7 @@ thread-pre-split1056:                             ; preds = %307, %.thread1053
 
 360:                                              ; preds = %356, %358
   %.47 = phi i32 [ %.46.mux, %356 ], [ 0, %358 ]
-  %361 = tail call fastcc i32 @__order5i(ptr noundef %27, ptr noundef %12, ptr noundef %12, ptr noundef %12, ptr noundef %19, i32 noundef %8), !range !4
+  %361 = tail call fastcc i32 @__order5i(ptr noundef %27, ptr noundef %12, ptr noundef %12, ptr noundef %12, ptr noundef %19, i32 noundef %8)
   %.not846 = icmp ne i32 %361, 0
   %brmerge921 = or i1 %.not, %.not846
   br i1 %brmerge921, label %363, label %.thread1067
@@ -1863,7 +1861,7 @@ thread-pre-split1070:                             ; preds = %__rowsum.exit974, %
   br i1 %366, label %367, label %443
 
 367:                                              ; preds = %.thread1072, %364
-  %368 = tail call fastcc i32 @__order6a(ptr noundef %27, ptr noundef %19, ptr noundef %19, ptr noundef %19, ptr noundef %19, ptr noundef %19, i32 noundef %8), !range !4
+  %368 = tail call fastcc i32 @__order6a(ptr noundef %27, ptr noundef %19, ptr noundef %19, ptr noundef %19, ptr noundef %19, ptr noundef %19, i32 noundef %8)
   %.not848 = icmp ne i32 %368, 0
   %brmerge922 = or i1 %.not, %.not848
   br i1 %brmerge922, label %371, label %369
@@ -1873,7 +1871,7 @@ thread-pre-split1070:                             ; preds = %__rowsum.exit974, %
   br label %371
 
 371:                                              ; preds = %367, %369
-  %372 = tail call fastcc i32 @__order6b(ptr noundef %27, ptr noundef %19, ptr noundef %19, ptr noundef %19, ptr noundef %12, ptr noundef %19, i32 noundef %8), !range !4
+  %372 = tail call fastcc i32 @__order6b(ptr noundef %27, ptr noundef %19, ptr noundef %19, ptr noundef %19, ptr noundef %12, ptr noundef %19, i32 noundef %8)
   %.not849 = icmp ne i32 %372, 0
   %brmerge924 = or i1 %.not, %.not849
   %.49.mux = select i1 %.not849, i32 %368, i32 0
@@ -1885,7 +1883,7 @@ thread-pre-split1070:                             ; preds = %__rowsum.exit974, %
 
 375:                                              ; preds = %371, %373
   %.50 = phi i32 [ %.49.mux, %371 ], [ 0, %373 ]
-  %376 = tail call fastcc i32 @__order6c(ptr noundef %27, ptr noundef %19, ptr noundef %12, ptr noundef %19, ptr noundef %12, ptr noundef %19, i32 noundef %8), !range !4
+  %376 = tail call fastcc i32 @__order6c(ptr noundef %27, ptr noundef %19, ptr noundef %12, ptr noundef %19, ptr noundef %12, ptr noundef %19, i32 noundef %8)
   %.not850 = icmp ne i32 %376, 0
   %brmerge925 = or i1 %.not, %.not850
   %.50.mux = select i1 %.not850, i32 %.50, i32 0
@@ -1897,7 +1895,7 @@ thread-pre-split1070:                             ; preds = %__rowsum.exit974, %
 
 379:                                              ; preds = %375, %377
   %.51 = phi i32 [ %.50.mux, %375 ], [ 0, %377 ]
-  %380 = tail call fastcc i32 @__order6d(ptr noundef %27, ptr noundef %19, ptr noundef %19, ptr noundef %12, ptr noundef %19, ptr noundef %19, i32 noundef %8), !range !4
+  %380 = tail call fastcc i32 @__order6d(ptr noundef %27, ptr noundef %19, ptr noundef %19, ptr noundef %12, ptr noundef %19, ptr noundef %19, i32 noundef %8)
   %.not851 = icmp ne i32 %380, 0
   %brmerge926 = or i1 %.not, %.not851
   %.51.mux = select i1 %.not851, i32 %.51, i32 0
@@ -1909,7 +1907,7 @@ thread-pre-split1070:                             ; preds = %__rowsum.exit974, %
 
 383:                                              ; preds = %379, %381
   %.52 = phi i32 [ %.51.mux, %379 ], [ 0, %381 ]
-  %384 = tail call fastcc i32 @__order6e(ptr noundef %27, ptr noundef %19, ptr noundef %19, ptr noundef %12, ptr noundef %12, ptr noundef %19, i32 noundef %8), !range !4
+  %384 = tail call fastcc i32 @__order6e(ptr noundef %27, ptr noundef %19, ptr noundef %19, ptr noundef %12, ptr noundef %12, ptr noundef %19, i32 noundef %8)
   %.not852 = icmp ne i32 %384, 0
   %brmerge927 = or i1 %.not, %.not852
   %.52.mux = select i1 %.not852, i32 %.52, i32 0
@@ -1921,7 +1919,7 @@ thread-pre-split1070:                             ; preds = %__rowsum.exit974, %
 
 387:                                              ; preds = %383, %385
   %.53 = phi i32 [ %.52.mux, %383 ], [ 0, %385 ]
-  %388 = tail call fastcc i32 @__order6f(ptr noundef %27, ptr noundef %12, ptr noundef %12, ptr noundef %19, ptr noundef %12, ptr noundef %19, i32 noundef %8), !range !4
+  %388 = tail call fastcc i32 @__order6f(ptr noundef %27, ptr noundef %12, ptr noundef %12, ptr noundef %19, ptr noundef %12, ptr noundef %19, i32 noundef %8)
   %.not853 = icmp ne i32 %388, 0
   %brmerge928 = or i1 %.not, %.not853
   %.53.mux = select i1 %.not853, i32 %.53, i32 0
@@ -1933,7 +1931,7 @@ thread-pre-split1070:                             ; preds = %__rowsum.exit974, %
 
 391:                                              ; preds = %387, %389
   %.54 = phi i32 [ %.53.mux, %387 ], [ 0, %389 ]
-  %392 = tail call fastcc i32 @__order6g(ptr noundef %27, ptr noundef %19, ptr noundef %12, ptr noundef %19, ptr noundef %19, ptr noundef %19, i32 noundef %8), !range !4
+  %392 = tail call fastcc i32 @__order6g(ptr noundef %27, ptr noundef %19, ptr noundef %12, ptr noundef %19, ptr noundef %19, ptr noundef %19, i32 noundef %8)
   %.not854 = icmp ne i32 %392, 0
   %brmerge929 = or i1 %.not, %.not854
   %.54.mux = select i1 %.not854, i32 %.54, i32 0
@@ -1945,7 +1943,7 @@ thread-pre-split1070:                             ; preds = %__rowsum.exit974, %
 
 395:                                              ; preds = %391, %393
   %.55 = phi i32 [ %.54.mux, %391 ], [ 0, %393 ]
-  %396 = tail call fastcc i32 @__order6h(ptr noundef %27, ptr noundef %19, ptr noundef %12, ptr noundef %19, ptr noundef %12, ptr noundef %19, i32 noundef %8), !range !4
+  %396 = tail call fastcc i32 @__order6h(ptr noundef %27, ptr noundef %19, ptr noundef %12, ptr noundef %19, ptr noundef %12, ptr noundef %19, i32 noundef %8)
   %.not855 = icmp ne i32 %396, 0
   %brmerge930 = or i1 %.not, %.not855
   %.55.mux = select i1 %.not855, i32 %.55, i32 0
@@ -1957,7 +1955,7 @@ thread-pre-split1070:                             ; preds = %__rowsum.exit974, %
 
 399:                                              ; preds = %395, %397
   %.56 = phi i32 [ %.55.mux, %395 ], [ 0, %397 ]
-  %400 = tail call fastcc i32 @__order6i(ptr noundef %27, ptr noundef %19, ptr noundef %12, ptr noundef %12, ptr noundef %19, ptr noundef %19, i32 noundef %8), !range !4
+  %400 = tail call fastcc i32 @__order6i(ptr noundef %27, ptr noundef %19, ptr noundef %12, ptr noundef %12, ptr noundef %19, ptr noundef %19, i32 noundef %8)
   %.not856 = icmp ne i32 %400, 0
   %brmerge931 = or i1 %.not, %.not856
   %.56.mux = select i1 %.not856, i32 %.56, i32 0
@@ -1969,7 +1967,7 @@ thread-pre-split1070:                             ; preds = %__rowsum.exit974, %
 
 403:                                              ; preds = %399, %401
   %.57 = phi i32 [ %.56.mux, %399 ], [ 0, %401 ]
-  %404 = tail call fastcc i32 @__order6j(ptr noundef %27, ptr noundef %19, ptr noundef %12, ptr noundef %12, ptr noundef %12, ptr noundef %19, i32 noundef %8), !range !4
+  %404 = tail call fastcc i32 @__order6j(ptr noundef %27, ptr noundef %19, ptr noundef %12, ptr noundef %12, ptr noundef %12, ptr noundef %19, i32 noundef %8)
   %.not857 = icmp ne i32 %404, 0
   %brmerge932 = or i1 %.not, %.not857
   %.57.mux = select i1 %.not857, i32 %.57, i32 0
@@ -1981,7 +1979,7 @@ thread-pre-split1070:                             ; preds = %__rowsum.exit974, %
 
 407:                                              ; preds = %403, %405
   %.58 = phi i32 [ %.57.mux, %403 ], [ 0, %405 ]
-  %408 = tail call fastcc i32 @__order6k(ptr noundef %27, ptr noundef %12, ptr noundef %19, ptr noundef %19, ptr noundef %19, ptr noundef %19, i32 noundef %8), !range !4
+  %408 = tail call fastcc i32 @__order6k(ptr noundef %27, ptr noundef %12, ptr noundef %19, ptr noundef %19, ptr noundef %19, ptr noundef %19, i32 noundef %8)
   %.not858 = icmp ne i32 %408, 0
   %brmerge933 = or i1 %.not, %.not858
   %.58.mux = select i1 %.not858, i32 %.58, i32 0
@@ -1993,7 +1991,7 @@ thread-pre-split1070:                             ; preds = %__rowsum.exit974, %
 
 411:                                              ; preds = %407, %409
   %.59 = phi i32 [ %.58.mux, %407 ], [ 0, %409 ]
-  %412 = tail call fastcc i32 @__order6l(ptr noundef %27, ptr noundef %12, ptr noundef %19, ptr noundef %19, ptr noundef %12, ptr noundef %19, i32 noundef %8), !range !4
+  %412 = tail call fastcc i32 @__order6l(ptr noundef %27, ptr noundef %12, ptr noundef %19, ptr noundef %19, ptr noundef %12, ptr noundef %19, i32 noundef %8)
   %.not859 = icmp ne i32 %412, 0
   %brmerge934 = or i1 %.not, %.not859
   %.59.mux = select i1 %.not859, i32 %.59, i32 0
@@ -2005,7 +2003,7 @@ thread-pre-split1070:                             ; preds = %__rowsum.exit974, %
 
 415:                                              ; preds = %411, %413
   %.60 = phi i32 [ %.59.mux, %411 ], [ 0, %413 ]
-  %416 = tail call fastcc i32 @__order6m(ptr noundef %27, ptr noundef %12, ptr noundef %12, ptr noundef %19, ptr noundef %12, ptr noundef %19, i32 noundef %8), !range !4
+  %416 = tail call fastcc i32 @__order6m(ptr noundef %27, ptr noundef %12, ptr noundef %12, ptr noundef %19, ptr noundef %12, ptr noundef %19, i32 noundef %8)
   %.not860 = icmp ne i32 %416, 0
   %brmerge935 = or i1 %.not, %.not860
   %.60.mux = select i1 %.not860, i32 %.60, i32 0
@@ -2017,7 +2015,7 @@ thread-pre-split1070:                             ; preds = %__rowsum.exit974, %
 
 419:                                              ; preds = %415, %417
   %.61 = phi i32 [ %.60.mux, %415 ], [ 0, %417 ]
-  %420 = tail call fastcc i32 @__order6n(ptr noundef %27, ptr noundef %12, ptr noundef %19, ptr noundef %12, ptr noundef %19, ptr noundef %19, i32 noundef %8), !range !4
+  %420 = tail call fastcc i32 @__order6n(ptr noundef %27, ptr noundef %12, ptr noundef %19, ptr noundef %12, ptr noundef %19, ptr noundef %19, i32 noundef %8)
   %.not861 = icmp ne i32 %420, 0
   %brmerge936 = or i1 %.not, %.not861
   %.61.mux = select i1 %.not861, i32 %.61, i32 0
@@ -2029,7 +2027,7 @@ thread-pre-split1070:                             ; preds = %__rowsum.exit974, %
 
 423:                                              ; preds = %419, %421
   %.62 = phi i32 [ %.61.mux, %419 ], [ 0, %421 ]
-  %424 = tail call fastcc i32 @__order6o(ptr noundef %27, ptr noundef %12, ptr noundef %19, ptr noundef %12, ptr noundef %12, ptr noundef %19, i32 noundef %8), !range !4
+  %424 = tail call fastcc i32 @__order6o(ptr noundef %27, ptr noundef %12, ptr noundef %19, ptr noundef %12, ptr noundef %12, ptr noundef %19, i32 noundef %8)
   %.not862 = icmp ne i32 %424, 0
   %brmerge937 = or i1 %.not, %.not862
   %.62.mux = select i1 %.not862, i32 %.62, i32 0
@@ -2041,7 +2039,7 @@ thread-pre-split1070:                             ; preds = %__rowsum.exit974, %
 
 427:                                              ; preds = %423, %425
   %.63 = phi i32 [ %.62.mux, %423 ], [ 0, %425 ]
-  %428 = tail call fastcc i32 @__order6p(ptr noundef %27, ptr noundef %12, ptr noundef %12, ptr noundef %19, ptr noundef %19, ptr noundef %19, i32 noundef %8), !range !4
+  %428 = tail call fastcc i32 @__order6p(ptr noundef %27, ptr noundef %12, ptr noundef %12, ptr noundef %19, ptr noundef %19, ptr noundef %19, i32 noundef %8)
   %.not863 = icmp ne i32 %428, 0
   %brmerge938 = or i1 %.not, %.not863
   %.63.mux = select i1 %.not863, i32 %.63, i32 0
@@ -2053,7 +2051,7 @@ thread-pre-split1070:                             ; preds = %__rowsum.exit974, %
 
 431:                                              ; preds = %427, %429
   %.64 = phi i32 [ %.63.mux, %427 ], [ 0, %429 ]
-  %432 = tail call fastcc i32 @__order6q(ptr noundef %27, ptr noundef %12, ptr noundef %12, ptr noundef %19, ptr noundef %12, ptr noundef %19, i32 noundef %8), !range !4
+  %432 = tail call fastcc i32 @__order6q(ptr noundef %27, ptr noundef %12, ptr noundef %12, ptr noundef %19, ptr noundef %12, ptr noundef %19, i32 noundef %8)
   %.not864 = icmp ne i32 %432, 0
   %brmerge939 = or i1 %.not, %.not864
   %.64.mux = select i1 %.not864, i32 %.64, i32 0
@@ -2065,7 +2063,7 @@ thread-pre-split1070:                             ; preds = %__rowsum.exit974, %
 
 435:                                              ; preds = %431, %433
   %.65 = phi i32 [ %.64.mux, %431 ], [ 0, %433 ]
-  %436 = tail call fastcc i32 @__order6r(ptr noundef %27, ptr noundef %12, ptr noundef %12, ptr noundef %12, ptr noundef %19, ptr noundef %19, i32 noundef %8), !range !4
+  %436 = tail call fastcc i32 @__order6r(ptr noundef %27, ptr noundef %12, ptr noundef %12, ptr noundef %12, ptr noundef %19, ptr noundef %19, i32 noundef %8)
   %.not865 = icmp ne i32 %436, 0
   %brmerge940 = or i1 %.not, %.not865
   %.65.mux = select i1 %.not865, i32 %.65, i32 0
@@ -2169,7 +2167,7 @@ thread-pre-split1070:                             ; preds = %__rowsum.exit974, %
 }
 
 ; Function Attrs: nounwind memory(readwrite, argmem: read) uwtable
-define internal fastcc i32 @__order3a(ptr noundef readonly %0, ptr noundef readonly %1, ptr noundef readonly %2, i32 noundef %3) unnamed_addr #9 {
+define internal fastcc range(i32 0, 2) i32 @__order3a(ptr noundef readonly %0, ptr noundef readonly %1, ptr noundef readonly %2, i32 noundef %3) unnamed_addr #9 {
   %5 = sext i32 %3 to i64
   %6 = tail call noalias ptr @calloc(i64 noundef %5, i64 noundef 8) #15
   %7 = icmp eq ptr %1, null
@@ -2232,7 +2230,7 @@ __dot.exit:                                       ; preds = %17, %25, %__vv.exit
 }
 
 ; Function Attrs: nounwind memory(readwrite, argmem: read) uwtable
-define internal fastcc i32 @__order3b(ptr noundef readonly %0, ptr noundef readonly %1, ptr noundef readonly %2, i32 noundef %3) unnamed_addr #9 {
+define internal fastcc range(i32 0, 2) i32 @__order3b(ptr noundef readonly %0, ptr noundef readonly %1, ptr noundef readonly %2, i32 noundef %3) unnamed_addr #9 {
   %5 = sext i32 %3 to i64
   %6 = tail call noalias ptr @calloc(i64 noundef %5, i64 noundef 8) #15
   %7 = icmp eq ptr %1, null
@@ -2308,7 +2306,7 @@ __dot.exit:                                       ; preds = %22, %30, %__mv.exit
 }
 
 ; Function Attrs: nounwind memory(readwrite, argmem: read) uwtable
-define internal fastcc i32 @__order4a(ptr noundef readonly %0, ptr noundef readonly %1, ptr noundef readonly %2, ptr noundef readonly %3, i32 noundef %4) unnamed_addr #9 {
+define internal fastcc range(i32 0, 2) i32 @__order4a(ptr noundef readonly %0, ptr noundef readonly %1, ptr noundef readonly %2, ptr noundef readonly %3, i32 noundef %4) unnamed_addr #9 {
   %6 = sext i32 %4 to i64
   %7 = tail call noalias ptr @calloc(i64 noundef %6, i64 noundef 8) #15
   %8 = tail call noalias ptr @calloc(i64 noundef %6, i64 noundef 8) #15
@@ -2398,7 +2396,7 @@ __dot.exit:                                       ; preds = %28, %36, %__vv.exit
 }
 
 ; Function Attrs: nounwind memory(readwrite, argmem: read) uwtable
-define internal fastcc i32 @__order4b(ptr noundef readonly %0, ptr noundef readonly %1, ptr noundef readonly %2, ptr noundef readonly %3, i32 noundef %4) unnamed_addr #9 {
+define internal fastcc range(i32 0, 2) i32 @__order4b(ptr noundef readonly %0, ptr noundef readonly %1, ptr noundef readonly %2, ptr noundef readonly %3, i32 noundef %4) unnamed_addr #9 {
   %6 = sext i32 %4 to i64
   %7 = tail call noalias ptr @calloc(i64 noundef %6, i64 noundef 8) #15
   %8 = tail call noalias ptr @calloc(i64 noundef %6, i64 noundef 8) #15
@@ -2499,7 +2497,7 @@ __dot.exit:                                       ; preds = %39, %__mv.exit, %__
 }
 
 ; Function Attrs: nounwind memory(readwrite, argmem: read) uwtable
-define internal fastcc i32 @__order4c(ptr noundef readonly %0, ptr noundef readonly %1, ptr noundef readonly %2, ptr noundef readonly %3, i32 noundef %4) unnamed_addr #9 {
+define internal fastcc range(i32 0, 2) i32 @__order4c(ptr noundef readonly %0, ptr noundef readonly %1, ptr noundef readonly %2, ptr noundef readonly %3, i32 noundef %4) unnamed_addr #9 {
   %6 = sext i32 %4 to i64
   %7 = tail call noalias ptr @calloc(i64 noundef %6, i64 noundef 8) #15
   %8 = tail call noalias ptr @calloc(i64 noundef %6, i64 noundef 8) #15
@@ -2602,7 +2600,7 @@ __dot.exit:                                       ; preds = %32, %40, %__mv.exit
 }
 
 ; Function Attrs: nounwind memory(readwrite, argmem: read) uwtable
-define internal fastcc i32 @__order4d(ptr noundef readonly %0, ptr noundef readonly %1, ptr noundef readonly %2, ptr noundef readonly %3, i32 noundef %4) unnamed_addr #9 {
+define internal fastcc range(i32 0, 2) i32 @__order4d(ptr noundef readonly %0, ptr noundef readonly %1, ptr noundef readonly %2, ptr noundef readonly %3, i32 noundef %4) unnamed_addr #9 {
   %6 = sext i32 %4 to i64
   %7 = tail call noalias ptr @calloc(i64 noundef %6, i64 noundef 8) #15
   %8 = tail call noalias ptr @calloc(i64 noundef %6, i64 noundef 8) #15
@@ -2718,7 +2716,7 @@ __dot.exit:                                       ; preds = %37, %45, %__mv.exit
 }
 
 ; Function Attrs: nounwind memory(readwrite, argmem: read) uwtable
-define internal fastcc i32 @__order5a(ptr noundef readonly %0, ptr noundef readonly %1, ptr noundef readonly %2, ptr noundef readonly %3, ptr noundef readonly %4, i32 noundef %5) unnamed_addr #9 {
+define internal fastcc range(i32 0, 2) i32 @__order5a(ptr noundef readonly %0, ptr noundef readonly %1, ptr noundef readonly %2, ptr noundef readonly %3, ptr noundef readonly %4, i32 noundef %5) unnamed_addr #9 {
   %7 = sext i32 %5 to i64
   %8 = tail call noalias ptr @calloc(i64 noundef %7, i64 noundef 8) #15
   %9 = tail call noalias ptr @calloc(i64 noundef %7, i64 noundef 8) #15
@@ -2830,7 +2828,7 @@ __dot.exit:                                       ; preds = %37, %45, %__vv.exit
 }
 
 ; Function Attrs: nounwind memory(readwrite, argmem: read) uwtable
-define internal fastcc i32 @__order5b(ptr noundef readonly %0, ptr noundef readonly %1, ptr noundef readonly %2, ptr noundef readonly %3, ptr noundef readonly %4, i32 noundef %5) unnamed_addr #9 {
+define internal fastcc range(i32 0, 2) i32 @__order5b(ptr noundef readonly %0, ptr noundef readonly %1, ptr noundef readonly %2, ptr noundef readonly %3, ptr noundef readonly %4, i32 noundef %5) unnamed_addr #9 {
   %7 = sext i32 %5 to i64
   %8 = tail call noalias ptr @calloc(i64 noundef %7, i64 noundef 8) #15
   %9 = tail call noalias ptr @calloc(i64 noundef %7, i64 noundef 8) #15
@@ -2958,7 +2956,7 @@ __dot.exit:                                       ; preds = %49, %__mv.exit, %__
 }
 
 ; Function Attrs: nounwind memory(readwrite, argmem: read) uwtable
-define internal fastcc i32 @__order5c(ptr noundef readonly %0, ptr noundef readonly %1, ptr noundef readonly %2, ptr noundef readonly %3, ptr noundef readonly %4, i32 noundef %5) unnamed_addr #9 {
+define internal fastcc range(i32 0, 2) i32 @__order5c(ptr noundef readonly %0, ptr noundef readonly %1, ptr noundef readonly %2, ptr noundef readonly %3, ptr noundef readonly %4, i32 noundef %5) unnamed_addr #9 {
   %7 = sext i32 %5 to i64
   %8 = tail call noalias ptr @calloc(i64 noundef %7, i64 noundef 8) #15
   %9 = tail call noalias ptr @calloc(i64 noundef %7, i64 noundef 8) #15
@@ -3102,7 +3100,7 @@ __dot.exit:                                       ; preds = %48, %56, %__vv.exit
 }
 
 ; Function Attrs: nounwind memory(readwrite, argmem: read) uwtable
-define internal fastcc i32 @__order5d(ptr noundef readonly %0, ptr noundef readonly %1, ptr noundef readonly %2, ptr noundef readonly %3, ptr noundef readonly %4, i32 noundef %5) unnamed_addr #9 {
+define internal fastcc range(i32 0, 2) i32 @__order5d(ptr noundef readonly %0, ptr noundef readonly %1, ptr noundef readonly %2, ptr noundef readonly %3, ptr noundef readonly %4, i32 noundef %5) unnamed_addr #9 {
   %7 = sext i32 %5 to i64
   %8 = tail call noalias ptr @calloc(i64 noundef %7, i64 noundef 8) #15
   %9 = tail call noalias ptr @calloc(i64 noundef %7, i64 noundef 8) #15
@@ -3225,7 +3223,7 @@ __dot.exit:                                       ; preds = %48, %__vv.exit44, %
 }
 
 ; Function Attrs: nounwind memory(readwrite, argmem: read) uwtable
-define internal fastcc i32 @__order5e(ptr noundef readonly %0, ptr noundef readonly %1, ptr noundef readonly %2, ptr noundef readonly %3, ptr noundef readonly %4, i32 noundef %5) unnamed_addr #9 {
+define internal fastcc range(i32 0, 2) i32 @__order5e(ptr noundef readonly %0, ptr noundef readonly %1, ptr noundef readonly %2, ptr noundef readonly %3, ptr noundef readonly %4, i32 noundef %5) unnamed_addr #9 {
   %7 = sext i32 %5 to i64
   %8 = tail call noalias ptr @calloc(i64 noundef %7, i64 noundef 8) #15
   %9 = tail call noalias ptr @calloc(i64 noundef %7, i64 noundef 8) #15
@@ -3355,7 +3353,7 @@ __dot.exit:                                       ; preds = %42, %50, %__mv.exit
 }
 
 ; Function Attrs: nounwind memory(readwrite, argmem: read) uwtable
-define internal fastcc i32 @__order5f(ptr noundef readonly %0, ptr noundef readonly %1, ptr noundef readonly %2, ptr noundef readonly %3, ptr noundef readonly %4, i32 noundef %5) unnamed_addr #9 {
+define internal fastcc range(i32 0, 2) i32 @__order5f(ptr noundef readonly %0, ptr noundef readonly %1, ptr noundef readonly %2, ptr noundef readonly %3, ptr noundef readonly %4, i32 noundef %5) unnamed_addr #9 {
   %7 = sext i32 %5 to i64
   %8 = tail call noalias ptr @calloc(i64 noundef %7, i64 noundef 8) #15
   %9 = tail call noalias ptr @calloc(i64 noundef %7, i64 noundef 8) #15
@@ -3491,7 +3489,7 @@ __dot.exit:                                       ; preds = %53, %__vv.exit, %__
 }
 
 ; Function Attrs: nounwind memory(readwrite, argmem: read) uwtable
-define internal fastcc i32 @__order5g(ptr noundef readonly %0, ptr noundef readonly %1, ptr noundef readonly %2, ptr noundef readonly %3, ptr noundef readonly %4, i32 noundef %5) unnamed_addr #9 {
+define internal fastcc range(i32 0, 2) i32 @__order5g(ptr noundef readonly %0, ptr noundef readonly %1, ptr noundef readonly %2, ptr noundef readonly %3, ptr noundef readonly %4, i32 noundef %5) unnamed_addr #9 {
   %7 = sext i32 %5 to i64
   %8 = tail call noalias ptr @calloc(i64 noundef %7, i64 noundef 8) #15
   %9 = tail call noalias ptr @calloc(i64 noundef %7, i64 noundef 8) #15
@@ -3634,7 +3632,7 @@ __dot.exit:                                       ; preds = %47, %55, %__mv.exit
 }
 
 ; Function Attrs: nounwind memory(readwrite, argmem: read) uwtable
-define internal fastcc i32 @__order5h(ptr noundef readonly %0, ptr noundef readonly %1, ptr noundef readonly %2, ptr noundef readonly %3, ptr noundef readonly %4, i32 noundef %5) unnamed_addr #9 {
+define internal fastcc range(i32 0, 2) i32 @__order5h(ptr noundef readonly %0, ptr noundef readonly %1, ptr noundef readonly %2, ptr noundef readonly %3, ptr noundef readonly %4, i32 noundef %5) unnamed_addr #9 {
   %7 = sext i32 %5 to i64
   %8 = tail call noalias ptr @calloc(i64 noundef %7, i64 noundef 8) #15
   %9 = tail call noalias ptr @calloc(i64 noundef %7, i64 noundef 8) #15
@@ -3780,7 +3778,7 @@ __dot.exit:                                       ; preds = %46, %54, %__mv.exit
 }
 
 ; Function Attrs: nounwind memory(readwrite, argmem: read) uwtable
-define internal fastcc i32 @__order5i(ptr noundef readonly %0, ptr noundef readonly %1, ptr noundef readonly %2, ptr noundef readonly %3, ptr noundef readonly %4, i32 noundef %5) unnamed_addr #9 {
+define internal fastcc range(i32 0, 2) i32 @__order5i(ptr noundef readonly %0, ptr noundef readonly %1, ptr noundef readonly %2, ptr noundef readonly %3, ptr noundef readonly %4, i32 noundef %5) unnamed_addr #9 {
   %7 = sext i32 %5 to i64
   %8 = tail call noalias ptr @calloc(i64 noundef %7, i64 noundef 8) #15
   %9 = tail call noalias ptr @calloc(i64 noundef %7, i64 noundef 8) #15
@@ -3936,7 +3934,7 @@ __dot.exit:                                       ; preds = %51, %59, %__mv.exit
 }
 
 ; Function Attrs: nounwind memory(readwrite, argmem: read) uwtable
-define internal fastcc i32 @__order6a(ptr noundef readonly %0, ptr noundef readonly %1, ptr noundef readonly %2, ptr noundef readonly %3, ptr noundef readonly %4, ptr noundef readonly %5, i32 noundef %6) unnamed_addr #9 {
+define internal fastcc range(i32 0, 2) i32 @__order6a(ptr noundef readonly %0, ptr noundef readonly %1, ptr noundef readonly %2, ptr noundef readonly %3, ptr noundef readonly %4, ptr noundef readonly %5, i32 noundef %6) unnamed_addr #9 {
   %8 = sext i32 %6 to i64
   %9 = tail call noalias ptr @calloc(i64 noundef %8, i64 noundef 8) #15
   %10 = tail call noalias ptr @calloc(i64 noundef %8, i64 noundef 8) #15
@@ -4070,7 +4068,7 @@ __dot.exit:                                       ; preds = %46, %54, %__vv.exit
 }
 
 ; Function Attrs: nounwind memory(readwrite, argmem: read) uwtable
-define internal fastcc i32 @__order6b(ptr noundef readonly %0, ptr noundef readonly %1, ptr noundef readonly %2, ptr noundef readonly %3, ptr noundef readonly %4, ptr noundef readonly %5, i32 noundef %6) unnamed_addr #9 {
+define internal fastcc range(i32 0, 2) i32 @__order6b(ptr noundef readonly %0, ptr noundef readonly %1, ptr noundef readonly %2, ptr noundef readonly %3, ptr noundef readonly %4, ptr noundef readonly %5, i32 noundef %6) unnamed_addr #9 {
   %8 = sext i32 %6 to i64
   %9 = tail call noalias ptr @calloc(i64 noundef %8, i64 noundef 8) #15
   %10 = tail call noalias ptr @calloc(i64 noundef %8, i64 noundef 8) #15
@@ -4220,7 +4218,7 @@ __dot.exit:                                       ; preds = %58, %__mv.exit, %__
 }
 
 ; Function Attrs: nounwind memory(readwrite, argmem: read) uwtable
-define internal fastcc i32 @__order6c(ptr noundef readonly %0, ptr noundef readonly %1, ptr noundef readonly %2, ptr noundef readonly %3, ptr noundef readonly %4, ptr noundef readonly %5, i32 noundef %6) unnamed_addr #9 {
+define internal fastcc range(i32 0, 2) i32 @__order6c(ptr noundef readonly %0, ptr noundef readonly %1, ptr noundef readonly %2, ptr noundef readonly %3, ptr noundef readonly %4, ptr noundef readonly %5, i32 noundef %6) unnamed_addr #9 {
   %8 = sext i32 %6 to i64
   %9 = tail call noalias ptr @calloc(i64 noundef %8, i64 noundef 8) #15
   %10 = tail call noalias ptr @calloc(i64 noundef %8, i64 noundef 8) #15
@@ -4387,7 +4385,7 @@ __dot.exit:                                       ; preds = %57, %65, %__vv.exit
 }
 
 ; Function Attrs: nounwind memory(readwrite, argmem: read) uwtable
-define internal fastcc i32 @__order6d(ptr noundef readonly %0, ptr noundef readonly %1, ptr noundef readonly %2, ptr noundef readonly %3, ptr noundef readonly %4, ptr noundef readonly %5, i32 noundef %6) unnamed_addr #9 {
+define internal fastcc range(i32 0, 2) i32 @__order6d(ptr noundef readonly %0, ptr noundef readonly %1, ptr noundef readonly %2, ptr noundef readonly %3, ptr noundef readonly %4, ptr noundef readonly %5, i32 noundef %6) unnamed_addr #9 {
   %8 = sext i32 %6 to i64
   %9 = tail call noalias ptr @calloc(i64 noundef %8, i64 noundef 8) #15
   %10 = tail call noalias ptr @calloc(i64 noundef %8, i64 noundef 8) #15
@@ -4540,7 +4538,7 @@ __dot.exit:                                       ; preds = %59, %__vv.exit68, %
 }
 
 ; Function Attrs: nounwind memory(readwrite, argmem: read) uwtable
-define internal fastcc i32 @__order6e(ptr noundef readonly %0, ptr noundef readonly %1, ptr noundef readonly %2, ptr noundef readonly %3, ptr noundef readonly %4, ptr noundef readonly %5, i32 noundef %6) unnamed_addr #9 {
+define internal fastcc range(i32 0, 2) i32 @__order6e(ptr noundef readonly %0, ptr noundef readonly %1, ptr noundef readonly %2, ptr noundef readonly %3, ptr noundef readonly %4, ptr noundef readonly %5, i32 noundef %6) unnamed_addr #9 {
   %8 = sext i32 %6 to i64
   %9 = tail call noalias ptr @calloc(i64 noundef %8, i64 noundef 8) #15
   %10 = tail call noalias ptr @calloc(i64 noundef %8, i64 noundef 8) #15
@@ -4711,7 +4709,7 @@ __dot.exit:                                       ; preds = %64, %__mv.exit72, %
 }
 
 ; Function Attrs: nounwind memory(readwrite, argmem: read) uwtable
-define internal fastcc i32 @__order6f(ptr noundef readonly %0, ptr noundef readonly %1, ptr noundef readonly %2, ptr noundef readonly %3, ptr noundef readonly %4, ptr noundef readonly %5, i32 noundef %6) unnamed_addr #9 {
+define internal fastcc range(i32 0, 2) i32 @__order6f(ptr noundef readonly %0, ptr noundef readonly %1, ptr noundef readonly %2, ptr noundef readonly %3, ptr noundef readonly %4, ptr noundef readonly %5, i32 noundef %6) unnamed_addr #9 {
   %8 = sext i32 %6 to i64
   %9 = tail call noalias ptr @calloc(i64 noundef %8, i64 noundef 8) #15
   %10 = tail call noalias ptr @calloc(i64 noundef %8, i64 noundef 8) #15
@@ -4896,7 +4894,7 @@ __dot.exit:                                       ; preds = %62, %70, %__vv.exit
 }
 
 ; Function Attrs: nounwind memory(readwrite, argmem: read) uwtable
-define internal fastcc i32 @__order6g(ptr noundef readonly %0, ptr noundef readonly %1, ptr noundef readonly %2, ptr noundef readonly %3, ptr noundef readonly %4, ptr noundef readonly %5, i32 noundef %6) unnamed_addr #9 {
+define internal fastcc range(i32 0, 2) i32 @__order6g(ptr noundef readonly %0, ptr noundef readonly %1, ptr noundef readonly %2, ptr noundef readonly %3, ptr noundef readonly %4, ptr noundef readonly %5, i32 noundef %6) unnamed_addr #9 {
   %8 = sext i32 %6 to i64
   %9 = tail call noalias ptr @calloc(i64 noundef %8, i64 noundef 8) #15
   %10 = tail call noalias ptr @calloc(i64 noundef %8, i64 noundef 8) #15
@@ -5048,7 +5046,7 @@ __dot.exit:                                       ; preds = %51, %59, %__vv.exit
 }
 
 ; Function Attrs: nounwind memory(readwrite, argmem: read) uwtable
-define internal fastcc i32 @__order6h(ptr noundef readonly %0, ptr noundef readonly %1, ptr noundef readonly %2, ptr noundef readonly %3, ptr noundef readonly %4, ptr noundef readonly %5, i32 noundef %6) unnamed_addr #9 {
+define internal fastcc range(i32 0, 2) i32 @__order6h(ptr noundef readonly %0, ptr noundef readonly %1, ptr noundef readonly %2, ptr noundef readonly %3, ptr noundef readonly %4, ptr noundef readonly %5, i32 noundef %6) unnamed_addr #9 {
   %8 = sext i32 %6 to i64
   %9 = tail call noalias ptr @calloc(i64 noundef %8, i64 noundef 8) #15
   %10 = tail call noalias ptr @calloc(i64 noundef %8, i64 noundef 8) #15
@@ -5213,7 +5211,7 @@ __dot.exit:                                       ; preds = %56, %64, %__vv.exit
 }
 
 ; Function Attrs: nounwind memory(readwrite, argmem: read) uwtable
-define internal fastcc i32 @__order6i(ptr noundef readonly %0, ptr noundef readonly %1, ptr noundef readonly %2, ptr noundef readonly %3, ptr noundef readonly %4, ptr noundef readonly %5, i32 noundef %6) unnamed_addr #9 {
+define internal fastcc range(i32 0, 2) i32 @__order6i(ptr noundef readonly %0, ptr noundef readonly %1, ptr noundef readonly %2, ptr noundef readonly %3, ptr noundef readonly %4, ptr noundef readonly %5, i32 noundef %6) unnamed_addr #9 {
   %8 = sext i32 %6 to i64
   %9 = tail call noalias ptr @calloc(i64 noundef %8, i64 noundef 8) #15
   %10 = tail call noalias ptr @calloc(i64 noundef %8, i64 noundef 8) #15
@@ -5381,7 +5379,7 @@ __dot.exit:                                       ; preds = %55, %63, %__vv.exit
 }
 
 ; Function Attrs: nounwind memory(readwrite, argmem: read) uwtable
-define internal fastcc i32 @__order6j(ptr noundef readonly %0, ptr noundef readonly %1, ptr noundef readonly %2, ptr noundef readonly %3, ptr noundef readonly %4, ptr noundef readonly %5, i32 noundef %6) unnamed_addr #9 {
+define internal fastcc range(i32 0, 2) i32 @__order6j(ptr noundef readonly %0, ptr noundef readonly %1, ptr noundef readonly %2, ptr noundef readonly %3, ptr noundef readonly %4, ptr noundef readonly %5, i32 noundef %6) unnamed_addr #9 {
   %8 = sext i32 %6 to i64
   %9 = tail call noalias ptr @calloc(i64 noundef %8, i64 noundef 8) #15
   %10 = tail call noalias ptr @calloc(i64 noundef %8, i64 noundef 8) #15
@@ -5559,7 +5557,7 @@ __dot.exit:                                       ; preds = %60, %68, %__vv.exit
 }
 
 ; Function Attrs: nounwind memory(readwrite, argmem: read) uwtable
-define internal fastcc i32 @__order6k(ptr noundef readonly %0, ptr noundef readonly %1, ptr noundef readonly %2, ptr noundef readonly %3, ptr noundef readonly %4, ptr noundef readonly %5, i32 noundef %6) unnamed_addr #9 {
+define internal fastcc range(i32 0, 2) i32 @__order6k(ptr noundef readonly %0, ptr noundef readonly %1, ptr noundef readonly %2, ptr noundef readonly %3, ptr noundef readonly %4, ptr noundef readonly %5, i32 noundef %6) unnamed_addr #9 {
   %8 = sext i32 %6 to i64
   %9 = tail call noalias ptr @calloc(i64 noundef %8, i64 noundef 8) #15
   %10 = tail call noalias ptr @calloc(i64 noundef %8, i64 noundef 8) #15
@@ -5711,7 +5709,7 @@ __dot.exit:                                       ; preds = %51, %59, %__mv.exit
 }
 
 ; Function Attrs: nounwind memory(readwrite, argmem: read) uwtable
-define internal fastcc i32 @__order6l(ptr noundef readonly %0, ptr noundef readonly %1, ptr noundef readonly %2, ptr noundef readonly %3, ptr noundef readonly %4, ptr noundef readonly %5, i32 noundef %6) unnamed_addr #9 {
+define internal fastcc range(i32 0, 2) i32 @__order6l(ptr noundef readonly %0, ptr noundef readonly %1, ptr noundef readonly %2, ptr noundef readonly %3, ptr noundef readonly %4, ptr noundef readonly %5, i32 noundef %6) unnamed_addr #9 {
   %8 = sext i32 %6 to i64
   %9 = tail call noalias ptr @calloc(i64 noundef %8, i64 noundef 8) #15
   %10 = tail call noalias ptr @calloc(i64 noundef %8, i64 noundef 8) #15
@@ -5876,7 +5874,7 @@ __dot.exit:                                       ; preds = %56, %64, %__mv.exit
 }
 
 ; Function Attrs: nounwind memory(readwrite, argmem: read) uwtable
-define internal fastcc i32 @__order6m(ptr noundef readonly %0, ptr noundef readonly %1, ptr noundef readonly %2, ptr noundef readonly %3, ptr noundef readonly %4, ptr noundef readonly %5, i32 noundef %6) unnamed_addr #9 {
+define internal fastcc range(i32 0, 2) i32 @__order6m(ptr noundef readonly %0, ptr noundef readonly %1, ptr noundef readonly %2, ptr noundef readonly %3, ptr noundef readonly %4, ptr noundef readonly %5, i32 noundef %6) unnamed_addr #9 {
   %8 = sext i32 %6 to i64
   %9 = tail call noalias ptr @calloc(i64 noundef %8, i64 noundef 8) #15
   %10 = tail call noalias ptr @calloc(i64 noundef %8, i64 noundef 8) #15
@@ -6061,7 +6059,7 @@ __dot.exit:                                       ; preds = %62, %70, %__mv.exit
 }
 
 ; Function Attrs: nounwind memory(readwrite, argmem: read) uwtable
-define internal fastcc i32 @__order6n(ptr noundef readonly %0, ptr noundef readonly %1, ptr noundef readonly %2, ptr noundef readonly %3, ptr noundef readonly %4, ptr noundef readonly %5, i32 noundef %6) unnamed_addr #9 {
+define internal fastcc range(i32 0, 2) i32 @__order6n(ptr noundef readonly %0, ptr noundef readonly %1, ptr noundef readonly %2, ptr noundef readonly %3, ptr noundef readonly %4, ptr noundef readonly %5, i32 noundef %6) unnamed_addr #9 {
   %8 = sext i32 %6 to i64
   %9 = tail call noalias ptr @calloc(i64 noundef %8, i64 noundef 8) #15
   %10 = tail call noalias ptr @calloc(i64 noundef %8, i64 noundef 8) #15
@@ -6229,7 +6227,7 @@ __dot.exit:                                       ; preds = %55, %63, %__mv.exit
 }
 
 ; Function Attrs: nounwind memory(readwrite, argmem: read) uwtable
-define internal fastcc i32 @__order6o(ptr noundef readonly %0, ptr noundef readonly %1, ptr noundef readonly %2, ptr noundef readonly %3, ptr noundef readonly %4, ptr noundef readonly %5, i32 noundef %6) unnamed_addr #9 {
+define internal fastcc range(i32 0, 2) i32 @__order6o(ptr noundef readonly %0, ptr noundef readonly %1, ptr noundef readonly %2, ptr noundef readonly %3, ptr noundef readonly %4, ptr noundef readonly %5, i32 noundef %6) unnamed_addr #9 {
   %8 = sext i32 %6 to i64
   %9 = tail call noalias ptr @calloc(i64 noundef %8, i64 noundef 8) #15
   %10 = tail call noalias ptr @calloc(i64 noundef %8, i64 noundef 8) #15
@@ -6407,7 +6405,7 @@ __dot.exit:                                       ; preds = %60, %68, %__mv.exit
 }
 
 ; Function Attrs: nounwind memory(readwrite, argmem: read) uwtable
-define internal fastcc i32 @__order6p(ptr noundef readonly %0, ptr noundef readonly %1, ptr noundef readonly %2, ptr noundef readonly %3, ptr noundef readonly %4, ptr noundef readonly %5, i32 noundef %6) unnamed_addr #9 {
+define internal fastcc range(i32 0, 2) i32 @__order6p(ptr noundef readonly %0, ptr noundef readonly %1, ptr noundef readonly %2, ptr noundef readonly %3, ptr noundef readonly %4, ptr noundef readonly %5, i32 noundef %6) unnamed_addr #9 {
   %8 = sext i32 %6 to i64
   %9 = tail call noalias ptr @calloc(i64 noundef %8, i64 noundef 8) #15
   %10 = tail call noalias ptr @calloc(i64 noundef %8, i64 noundef 8) #15
@@ -6576,7 +6574,7 @@ __dot.exit:                                       ; preds = %55, %63, %__mv.exit
 }
 
 ; Function Attrs: nounwind memory(readwrite, argmem: read) uwtable
-define internal fastcc i32 @__order6q(ptr noundef readonly %0, ptr noundef readonly %1, ptr noundef readonly %2, ptr noundef readonly %3, ptr noundef readonly %4, ptr noundef readonly %5, i32 noundef %6) unnamed_addr #9 {
+define internal fastcc range(i32 0, 2) i32 @__order6q(ptr noundef readonly %0, ptr noundef readonly %1, ptr noundef readonly %2, ptr noundef readonly %3, ptr noundef readonly %4, ptr noundef readonly %5, i32 noundef %6) unnamed_addr #9 {
   %8 = sext i32 %6 to i64
   %9 = tail call noalias ptr @calloc(i64 noundef %8, i64 noundef 8) #15
   %10 = tail call noalias ptr @calloc(i64 noundef %8, i64 noundef 8) #15
@@ -6758,7 +6756,7 @@ __dot.exit:                                       ; preds = %60, %68, %__mv.exit
 }
 
 ; Function Attrs: nounwind memory(readwrite, argmem: read) uwtable
-define internal fastcc i32 @__order6r(ptr noundef readonly %0, ptr noundef readonly %1, ptr noundef readonly %2, ptr noundef readonly %3, ptr noundef readonly %4, ptr noundef readonly %5, i32 noundef %6) unnamed_addr #9 {
+define internal fastcc range(i32 0, 2) i32 @__order6r(ptr noundef readonly %0, ptr noundef readonly %1, ptr noundef readonly %2, ptr noundef readonly %3, ptr noundef readonly %4, ptr noundef readonly %5, i32 noundef %6) unnamed_addr #9 {
   %8 = sext i32 %6 to i64
   %9 = tail call noalias ptr @calloc(i64 noundef %8, i64 noundef 8) #15
   %10 = tail call noalias ptr @calloc(i64 noundef %8, i64 noundef 8) #15
@@ -6943,7 +6941,7 @@ __dot.exit:                                       ; preds = %59, %67, %__mv.exit
 }
 
 ; Function Attrs: nounwind memory(readwrite, argmem: read) uwtable
-define internal fastcc i32 @__order6s(ptr noundef readonly %0, ptr noundef readonly %1, ptr noundef readonly %2, ptr noundef readonly %3, ptr noundef readonly %4, i32 noundef %5) unnamed_addr #9 {
+define internal fastcc range(i32 0, 2) i32 @__order6s(ptr noundef readonly %0, ptr noundef readonly %1, ptr noundef readonly %2, ptr noundef readonly %3, ptr noundef readonly %4, i32 noundef %5) unnamed_addr #9 {
   %7 = sext i32 %5 to i64
   %8 = tail call noalias ptr @calloc(i64 noundef %7, i64 noundef 8) #15
   %9 = tail call noalias ptr @calloc(i64 noundef %7, i64 noundef 8) #15
@@ -7360,7 +7358,7 @@ __dot.exit113:                                    ; preds = %43
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @ARKodeButcherTable_CheckARKOrder(ptr noundef readonly %0, ptr noundef readonly %1, ptr nocapture noundef %2, ptr nocapture noundef %3, ptr noundef %4) local_unnamed_addr #0 {
+define range(i32 -1, 2) i32 @ARKodeButcherTable_CheckARKOrder(ptr noundef readonly %0, ptr noundef readonly %1, ptr nocapture noundef %2, ptr nocapture noundef %3, ptr noundef %4) local_unnamed_addr #0 {
   %.sroa.05891 = alloca ptr, align 16
   %.sroa.118 = alloca ptr, align 8
   %.sroa.05774 = alloca ptr, align 16
@@ -8515,7 +8513,7 @@ thread-pre-split4978:                             ; preds = %419, %.thread2566
   %431 = load ptr, ptr %indvars.iv3955.sroa.phi, align 8
   %432 = load ptr, ptr %indvars.iv3952.sroa.phi, align 8
   %433 = load ptr, ptr %indvars.iv3949.sroa.phi, align 8
-  %434 = tail call fastcc i32 @__order5a(ptr noundef %429, ptr noundef %430, ptr noundef %431, ptr noundef %432, ptr noundef %433, i32 noundef %9), !range !4
+  %434 = tail call fastcc i32 @__order5a(ptr noundef %429, ptr noundef %430, ptr noundef %431, ptr noundef %432, ptr noundef %433, i32 noundef %9)
   %435 = icmp ne i32 %434, 0
   br label %436
 
@@ -8585,7 +8583,7 @@ thread-pre-split4978:                             ; preds = %419, %.thread2566
   %456 = load ptr, ptr %indvars.iv3970.sroa.phi, align 8
   %457 = load ptr, ptr %indvars.iv3967.sroa.phi, align 8
   %458 = load ptr, ptr %indvars.iv3964.sroa.phi, align 8
-  %459 = tail call fastcc i32 @__order5b(ptr noundef %454, ptr noundef %455, ptr noundef %456, ptr noundef %457, ptr noundef %458, i32 noundef %9), !range !4
+  %459 = tail call fastcc i32 @__order5b(ptr noundef %454, ptr noundef %455, ptr noundef %456, ptr noundef %457, ptr noundef %458, i32 noundef %9)
   %460 = icmp ne i32 %459, 0
   br label %461
 
@@ -8655,7 +8653,7 @@ thread-pre-split4978:                             ; preds = %419, %.thread2566
   %481 = load ptr, ptr %indvars.iv3985.sroa.phi, align 8
   %482 = load ptr, ptr %indvars.iv3982.sroa.phi, align 8
   %483 = load ptr, ptr %indvars.iv3979.sroa.phi, align 8
-  %484 = tail call fastcc i32 @__order5c(ptr noundef %479, ptr noundef %480, ptr noundef %481, ptr noundef %482, ptr noundef %483, i32 noundef %9), !range !4
+  %484 = tail call fastcc i32 @__order5c(ptr noundef %479, ptr noundef %480, ptr noundef %481, ptr noundef %482, ptr noundef %483, i32 noundef %9)
   %485 = icmp ne i32 %484, 0
   br label %486
 
@@ -8725,7 +8723,7 @@ thread-pre-split4978:                             ; preds = %419, %.thread2566
   %506 = load ptr, ptr %indvars.iv4000.sroa.phi, align 8
   %507 = load ptr, ptr %indvars.iv3997.sroa.phi, align 8
   %508 = load ptr, ptr %indvars.iv3994.sroa.phi, align 8
-  %509 = tail call fastcc i32 @__order5d(ptr noundef %504, ptr noundef %505, ptr noundef %506, ptr noundef %507, ptr noundef %508, i32 noundef %9), !range !4
+  %509 = tail call fastcc i32 @__order5d(ptr noundef %504, ptr noundef %505, ptr noundef %506, ptr noundef %507, ptr noundef %508, i32 noundef %9)
   %510 = icmp ne i32 %509, 0
   br label %511
 
@@ -8795,7 +8793,7 @@ thread-pre-split4978:                             ; preds = %419, %.thread2566
   %531 = load ptr, ptr %indvars.iv4015.sroa.phi, align 8
   %532 = load ptr, ptr %indvars.iv4012.sroa.phi, align 8
   %533 = load ptr, ptr %indvars.iv4009.sroa.phi, align 8
-  %534 = tail call fastcc i32 @__order5e(ptr noundef %529, ptr noundef %530, ptr noundef %531, ptr noundef %532, ptr noundef %533, i32 noundef %9), !range !4
+  %534 = tail call fastcc i32 @__order5e(ptr noundef %529, ptr noundef %530, ptr noundef %531, ptr noundef %532, ptr noundef %533, i32 noundef %9)
   %535 = icmp ne i32 %534, 0
   br label %536
 
@@ -8865,7 +8863,7 @@ thread-pre-split4978:                             ; preds = %419, %.thread2566
   %556 = load ptr, ptr %indvars.iv4030.sroa.phi, align 8
   %557 = load ptr, ptr %indvars.iv4027.sroa.phi, align 8
   %558 = load ptr, ptr %indvars.iv4024.sroa.phi, align 8
-  %559 = tail call fastcc i32 @__order5f(ptr noundef %554, ptr noundef %555, ptr noundef %556, ptr noundef %557, ptr noundef %558, i32 noundef %9), !range !4
+  %559 = tail call fastcc i32 @__order5f(ptr noundef %554, ptr noundef %555, ptr noundef %556, ptr noundef %557, ptr noundef %558, i32 noundef %9)
   %560 = icmp ne i32 %559, 0
   br label %561
 
@@ -8935,7 +8933,7 @@ thread-pre-split4978:                             ; preds = %419, %.thread2566
   %581 = load ptr, ptr %indvars.iv4045.sroa.phi, align 8
   %582 = load ptr, ptr %indvars.iv4042.sroa.phi, align 8
   %583 = load ptr, ptr %indvars.iv4039.sroa.phi, align 8
-  %584 = tail call fastcc i32 @__order5g(ptr noundef %579, ptr noundef %580, ptr noundef %581, ptr noundef %582, ptr noundef %583, i32 noundef %9), !range !4
+  %584 = tail call fastcc i32 @__order5g(ptr noundef %579, ptr noundef %580, ptr noundef %581, ptr noundef %582, ptr noundef %583, i32 noundef %9)
   %585 = icmp ne i32 %584, 0
   br label %586
 
@@ -9005,7 +9003,7 @@ thread-pre-split4978:                             ; preds = %419, %.thread2566
   %606 = load ptr, ptr %indvars.iv4060.sroa.phi, align 8
   %607 = load ptr, ptr %indvars.iv4057.sroa.phi, align 8
   %608 = load ptr, ptr %indvars.iv4054.sroa.phi, align 8
-  %609 = tail call fastcc i32 @__order5h(ptr noundef %604, ptr noundef %605, ptr noundef %606, ptr noundef %607, ptr noundef %608, i32 noundef %9), !range !4
+  %609 = tail call fastcc i32 @__order5h(ptr noundef %604, ptr noundef %605, ptr noundef %606, ptr noundef %607, ptr noundef %608, i32 noundef %9)
   %610 = icmp ne i32 %609, 0
   br label %611
 
@@ -9075,7 +9073,7 @@ thread-pre-split4978:                             ; preds = %419, %.thread2566
   %631 = load ptr, ptr %indvars.iv4075.sroa.phi, align 8
   %632 = load ptr, ptr %indvars.iv4072.sroa.phi, align 8
   %633 = load ptr, ptr %indvars.iv4069.sroa.phi, align 8
-  %634 = tail call fastcc i32 @__order5i(ptr noundef %629, ptr noundef %630, ptr noundef %631, ptr noundef %632, ptr noundef %633, i32 noundef %9), !range !4
+  %634 = tail call fastcc i32 @__order5i(ptr noundef %629, ptr noundef %630, ptr noundef %631, ptr noundef %632, ptr noundef %633, i32 noundef %9)
   %635 = icmp ne i32 %634, 0
   br label %636
 
@@ -9164,7 +9162,7 @@ thread-pre-split4978:                             ; preds = %419, %.thread2566
   %660 = load ptr, ptr %indvars.iv4090.sroa.phi, align 8
   %661 = load ptr, ptr %indvars.iv4087.sroa.phi, align 8
   %662 = load ptr, ptr %indvars.iv4084.sroa.phi, align 8
-  %663 = tail call fastcc i32 @__order6a(ptr noundef %657, ptr noundef %658, ptr noundef %659, ptr noundef %660, ptr noundef %661, ptr noundef %662, i32 noundef %9), !range !4
+  %663 = tail call fastcc i32 @__order6a(ptr noundef %657, ptr noundef %658, ptr noundef %659, ptr noundef %660, ptr noundef %661, ptr noundef %662, i32 noundef %9)
   %664 = icmp ne i32 %663, 0
   br label %665
 
@@ -9244,7 +9242,7 @@ thread-pre-split4978:                             ; preds = %419, %.thread2566
   %688 = load ptr, ptr %indvars.iv4108.sroa.phi, align 8
   %689 = load ptr, ptr %indvars.iv4105.sroa.phi, align 8
   %690 = load ptr, ptr %indvars.iv4102.sroa.phi, align 8
-  %691 = tail call fastcc i32 @__order6b(ptr noundef %685, ptr noundef %686, ptr noundef %687, ptr noundef %688, ptr noundef %689, ptr noundef %690, i32 noundef %9), !range !4
+  %691 = tail call fastcc i32 @__order6b(ptr noundef %685, ptr noundef %686, ptr noundef %687, ptr noundef %688, ptr noundef %689, ptr noundef %690, i32 noundef %9)
   %692 = icmp ne i32 %691, 0
   br label %693
 
@@ -9324,7 +9322,7 @@ thread-pre-split4978:                             ; preds = %419, %.thread2566
   %716 = load ptr, ptr %indvars.iv4126.sroa.phi, align 8
   %717 = load ptr, ptr %indvars.iv4123.sroa.phi, align 8
   %718 = load ptr, ptr %indvars.iv4120.sroa.phi, align 8
-  %719 = tail call fastcc i32 @__order6c(ptr noundef %713, ptr noundef %714, ptr noundef %715, ptr noundef %716, ptr noundef %717, ptr noundef %718, i32 noundef %9), !range !4
+  %719 = tail call fastcc i32 @__order6c(ptr noundef %713, ptr noundef %714, ptr noundef %715, ptr noundef %716, ptr noundef %717, ptr noundef %718, i32 noundef %9)
   %720 = icmp ne i32 %719, 0
   br label %721
 
@@ -9404,7 +9402,7 @@ thread-pre-split4978:                             ; preds = %419, %.thread2566
   %744 = load ptr, ptr %indvars.iv4144.sroa.phi, align 8
   %745 = load ptr, ptr %indvars.iv4141.sroa.phi, align 8
   %746 = load ptr, ptr %indvars.iv4138.sroa.phi, align 8
-  %747 = tail call fastcc i32 @__order6d(ptr noundef %741, ptr noundef %742, ptr noundef %743, ptr noundef %744, ptr noundef %745, ptr noundef %746, i32 noundef %9), !range !4
+  %747 = tail call fastcc i32 @__order6d(ptr noundef %741, ptr noundef %742, ptr noundef %743, ptr noundef %744, ptr noundef %745, ptr noundef %746, i32 noundef %9)
   %748 = icmp ne i32 %747, 0
   br label %749
 
@@ -9484,7 +9482,7 @@ thread-pre-split4978:                             ; preds = %419, %.thread2566
   %772 = load ptr, ptr %indvars.iv4162.sroa.phi, align 8
   %773 = load ptr, ptr %indvars.iv4159.sroa.phi, align 8
   %774 = load ptr, ptr %indvars.iv4156.sroa.phi, align 8
-  %775 = tail call fastcc i32 @__order6e(ptr noundef %769, ptr noundef %770, ptr noundef %771, ptr noundef %772, ptr noundef %773, ptr noundef %774, i32 noundef %9), !range !4
+  %775 = tail call fastcc i32 @__order6e(ptr noundef %769, ptr noundef %770, ptr noundef %771, ptr noundef %772, ptr noundef %773, ptr noundef %774, i32 noundef %9)
   %776 = icmp ne i32 %775, 0
   br label %777
 
@@ -9564,7 +9562,7 @@ thread-pre-split4978:                             ; preds = %419, %.thread2566
   %800 = load ptr, ptr %indvars.iv4180.sroa.phi, align 8
   %801 = load ptr, ptr %indvars.iv4177.sroa.phi, align 8
   %802 = load ptr, ptr %indvars.iv4174.sroa.phi, align 8
-  %803 = tail call fastcc i32 @__order6f(ptr noundef %797, ptr noundef %798, ptr noundef %799, ptr noundef %800, ptr noundef %801, ptr noundef %802, i32 noundef %9), !range !4
+  %803 = tail call fastcc i32 @__order6f(ptr noundef %797, ptr noundef %798, ptr noundef %799, ptr noundef %800, ptr noundef %801, ptr noundef %802, i32 noundef %9)
   %804 = icmp ne i32 %803, 0
   br label %805
 
@@ -9644,7 +9642,7 @@ thread-pre-split4978:                             ; preds = %419, %.thread2566
   %828 = load ptr, ptr %indvars.iv4198.sroa.phi, align 8
   %829 = load ptr, ptr %indvars.iv4195.sroa.phi, align 8
   %830 = load ptr, ptr %indvars.iv4192.sroa.phi, align 8
-  %831 = tail call fastcc i32 @__order6g(ptr noundef %825, ptr noundef %826, ptr noundef %827, ptr noundef %828, ptr noundef %829, ptr noundef %830, i32 noundef %9), !range !4
+  %831 = tail call fastcc i32 @__order6g(ptr noundef %825, ptr noundef %826, ptr noundef %827, ptr noundef %828, ptr noundef %829, ptr noundef %830, i32 noundef %9)
   %832 = icmp ne i32 %831, 0
   br label %833
 
@@ -9724,7 +9722,7 @@ thread-pre-split4978:                             ; preds = %419, %.thread2566
   %856 = load ptr, ptr %indvars.iv4216.sroa.phi, align 8
   %857 = load ptr, ptr %indvars.iv4213.sroa.phi, align 8
   %858 = load ptr, ptr %indvars.iv4210.sroa.phi, align 8
-  %859 = tail call fastcc i32 @__order6h(ptr noundef %853, ptr noundef %854, ptr noundef %855, ptr noundef %856, ptr noundef %857, ptr noundef %858, i32 noundef %9), !range !4
+  %859 = tail call fastcc i32 @__order6h(ptr noundef %853, ptr noundef %854, ptr noundef %855, ptr noundef %856, ptr noundef %857, ptr noundef %858, i32 noundef %9)
   %860 = icmp ne i32 %859, 0
   br label %861
 
@@ -9804,7 +9802,7 @@ thread-pre-split4978:                             ; preds = %419, %.thread2566
   %884 = load ptr, ptr %indvars.iv4234.sroa.phi, align 8
   %885 = load ptr, ptr %indvars.iv4231.sroa.phi, align 8
   %886 = load ptr, ptr %indvars.iv4228.sroa.phi, align 8
-  %887 = tail call fastcc i32 @__order6i(ptr noundef %881, ptr noundef %882, ptr noundef %883, ptr noundef %884, ptr noundef %885, ptr noundef %886, i32 noundef %9), !range !4
+  %887 = tail call fastcc i32 @__order6i(ptr noundef %881, ptr noundef %882, ptr noundef %883, ptr noundef %884, ptr noundef %885, ptr noundef %886, i32 noundef %9)
   %888 = icmp ne i32 %887, 0
   br label %889
 
@@ -9884,7 +9882,7 @@ thread-pre-split4978:                             ; preds = %419, %.thread2566
   %912 = load ptr, ptr %indvars.iv4252.sroa.phi, align 8
   %913 = load ptr, ptr %indvars.iv4249.sroa.phi, align 8
   %914 = load ptr, ptr %indvars.iv4246.sroa.phi, align 8
-  %915 = tail call fastcc i32 @__order6j(ptr noundef %909, ptr noundef %910, ptr noundef %911, ptr noundef %912, ptr noundef %913, ptr noundef %914, i32 noundef %9), !range !4
+  %915 = tail call fastcc i32 @__order6j(ptr noundef %909, ptr noundef %910, ptr noundef %911, ptr noundef %912, ptr noundef %913, ptr noundef %914, i32 noundef %9)
   %916 = icmp ne i32 %915, 0
   br label %917
 
@@ -9964,7 +9962,7 @@ thread-pre-split4978:                             ; preds = %419, %.thread2566
   %940 = load ptr, ptr %indvars.iv4270.sroa.phi, align 8
   %941 = load ptr, ptr %indvars.iv4267.sroa.phi, align 8
   %942 = load ptr, ptr %indvars.iv4264.sroa.phi, align 8
-  %943 = tail call fastcc i32 @__order6k(ptr noundef %937, ptr noundef %938, ptr noundef %939, ptr noundef %940, ptr noundef %941, ptr noundef %942, i32 noundef %9), !range !4
+  %943 = tail call fastcc i32 @__order6k(ptr noundef %937, ptr noundef %938, ptr noundef %939, ptr noundef %940, ptr noundef %941, ptr noundef %942, i32 noundef %9)
   %944 = icmp ne i32 %943, 0
   br label %945
 
@@ -10044,7 +10042,7 @@ thread-pre-split4978:                             ; preds = %419, %.thread2566
   %968 = load ptr, ptr %indvars.iv4288.sroa.phi, align 8
   %969 = load ptr, ptr %indvars.iv4285.sroa.phi, align 8
   %970 = load ptr, ptr %indvars.iv4282.sroa.phi, align 8
-  %971 = tail call fastcc i32 @__order6l(ptr noundef %965, ptr noundef %966, ptr noundef %967, ptr noundef %968, ptr noundef %969, ptr noundef %970, i32 noundef %9), !range !4
+  %971 = tail call fastcc i32 @__order6l(ptr noundef %965, ptr noundef %966, ptr noundef %967, ptr noundef %968, ptr noundef %969, ptr noundef %970, i32 noundef %9)
   %972 = icmp ne i32 %971, 0
   br label %973
 
@@ -10124,7 +10122,7 @@ thread-pre-split4978:                             ; preds = %419, %.thread2566
   %996 = load ptr, ptr %indvars.iv4306.sroa.phi, align 8
   %997 = load ptr, ptr %indvars.iv4303.sroa.phi, align 8
   %998 = load ptr, ptr %indvars.iv4300.sroa.phi, align 8
-  %999 = tail call fastcc i32 @__order6m(ptr noundef %993, ptr noundef %994, ptr noundef %995, ptr noundef %996, ptr noundef %997, ptr noundef %998, i32 noundef %9), !range !4
+  %999 = tail call fastcc i32 @__order6m(ptr noundef %993, ptr noundef %994, ptr noundef %995, ptr noundef %996, ptr noundef %997, ptr noundef %998, i32 noundef %9)
   %1000 = icmp ne i32 %999, 0
   br label %1001
 
@@ -10204,7 +10202,7 @@ thread-pre-split4978:                             ; preds = %419, %.thread2566
   %1024 = load ptr, ptr %indvars.iv4324.sroa.phi, align 8
   %1025 = load ptr, ptr %indvars.iv4321.sroa.phi, align 8
   %1026 = load ptr, ptr %indvars.iv4318.sroa.phi, align 8
-  %1027 = tail call fastcc i32 @__order6n(ptr noundef %1021, ptr noundef %1022, ptr noundef %1023, ptr noundef %1024, ptr noundef %1025, ptr noundef %1026, i32 noundef %9), !range !4
+  %1027 = tail call fastcc i32 @__order6n(ptr noundef %1021, ptr noundef %1022, ptr noundef %1023, ptr noundef %1024, ptr noundef %1025, ptr noundef %1026, i32 noundef %9)
   %1028 = icmp ne i32 %1027, 0
   br label %1029
 
@@ -10284,7 +10282,7 @@ thread-pre-split4978:                             ; preds = %419, %.thread2566
   %1052 = load ptr, ptr %indvars.iv4342.sroa.phi, align 8
   %1053 = load ptr, ptr %indvars.iv4339.sroa.phi, align 8
   %1054 = load ptr, ptr %indvars.iv4336.sroa.phi, align 8
-  %1055 = tail call fastcc i32 @__order6o(ptr noundef %1049, ptr noundef %1050, ptr noundef %1051, ptr noundef %1052, ptr noundef %1053, ptr noundef %1054, i32 noundef %9), !range !4
+  %1055 = tail call fastcc i32 @__order6o(ptr noundef %1049, ptr noundef %1050, ptr noundef %1051, ptr noundef %1052, ptr noundef %1053, ptr noundef %1054, i32 noundef %9)
   %1056 = icmp ne i32 %1055, 0
   br label %1057
 
@@ -10364,7 +10362,7 @@ thread-pre-split4978:                             ; preds = %419, %.thread2566
   %1080 = load ptr, ptr %indvars.iv4360.sroa.phi, align 8
   %1081 = load ptr, ptr %indvars.iv4357.sroa.phi, align 8
   %1082 = load ptr, ptr %indvars.iv4354.sroa.phi, align 8
-  %1083 = tail call fastcc i32 @__order6p(ptr noundef %1077, ptr noundef %1078, ptr noundef %1079, ptr noundef %1080, ptr noundef %1081, ptr noundef %1082, i32 noundef %9), !range !4
+  %1083 = tail call fastcc i32 @__order6p(ptr noundef %1077, ptr noundef %1078, ptr noundef %1079, ptr noundef %1080, ptr noundef %1081, ptr noundef %1082, i32 noundef %9)
   %1084 = icmp ne i32 %1083, 0
   br label %1085
 
@@ -10444,7 +10442,7 @@ thread-pre-split4978:                             ; preds = %419, %.thread2566
   %1108 = load ptr, ptr %indvars.iv4378.sroa.phi, align 8
   %1109 = load ptr, ptr %indvars.iv4375.sroa.phi, align 8
   %1110 = load ptr, ptr %indvars.iv4372.sroa.phi, align 8
-  %1111 = tail call fastcc i32 @__order6q(ptr noundef %1105, ptr noundef %1106, ptr noundef %1107, ptr noundef %1108, ptr noundef %1109, ptr noundef %1110, i32 noundef %9), !range !4
+  %1111 = tail call fastcc i32 @__order6q(ptr noundef %1105, ptr noundef %1106, ptr noundef %1107, ptr noundef %1108, ptr noundef %1109, ptr noundef %1110, i32 noundef %9)
   %1112 = icmp ne i32 %1111, 0
   br label %1113
 
@@ -10524,7 +10522,7 @@ thread-pre-split4978:                             ; preds = %419, %.thread2566
   %1136 = load ptr, ptr %indvars.iv4396.sroa.phi, align 8
   %1137 = load ptr, ptr %indvars.iv4393.sroa.phi, align 8
   %1138 = load ptr, ptr %indvars.iv4390.sroa.phi, align 8
-  %1139 = tail call fastcc i32 @__order6r(ptr noundef %1133, ptr noundef %1134, ptr noundef %1135, ptr noundef %1136, ptr noundef %1137, ptr noundef %1138, i32 noundef %9), !range !4
+  %1139 = tail call fastcc i32 @__order6r(ptr noundef %1133, ptr noundef %1134, ptr noundef %1135, ptr noundef %1136, ptr noundef %1137, ptr noundef %1138, i32 noundef %9)
   %1140 = icmp ne i32 %1139, 0
   br label %1141
 
@@ -11712,7 +11710,7 @@ thread-pre-split4990:                             ; preds = %1557, %.thread2595
   %1569 = load ptr, ptr %indvars.iv4501.sroa.phi, align 8
   %1570 = load ptr, ptr %indvars.iv4498.sroa.phi, align 8
   %1571 = load ptr, ptr %indvars.iv4495.sroa.phi, align 8
-  %1572 = tail call fastcc i32 @__order5a(ptr noundef %1567, ptr noundef %1568, ptr noundef %1569, ptr noundef %1570, ptr noundef %1571, i32 noundef %9), !range !4
+  %1572 = tail call fastcc i32 @__order5a(ptr noundef %1567, ptr noundef %1568, ptr noundef %1569, ptr noundef %1570, ptr noundef %1571, i32 noundef %9)
   %1573 = icmp ne i32 %1572, 0
   br label %1574
 
@@ -11782,7 +11780,7 @@ thread-pre-split4990:                             ; preds = %1557, %.thread2595
   %1594 = load ptr, ptr %indvars.iv4516.sroa.phi, align 8
   %1595 = load ptr, ptr %indvars.iv4513.sroa.phi, align 8
   %1596 = load ptr, ptr %indvars.iv4510.sroa.phi, align 8
-  %1597 = tail call fastcc i32 @__order5b(ptr noundef %1592, ptr noundef %1593, ptr noundef %1594, ptr noundef %1595, ptr noundef %1596, i32 noundef %9), !range !4
+  %1597 = tail call fastcc i32 @__order5b(ptr noundef %1592, ptr noundef %1593, ptr noundef %1594, ptr noundef %1595, ptr noundef %1596, i32 noundef %9)
   %1598 = icmp ne i32 %1597, 0
   br label %1599
 
@@ -11852,7 +11850,7 @@ thread-pre-split4990:                             ; preds = %1557, %.thread2595
   %1619 = load ptr, ptr %indvars.iv4531.sroa.phi, align 8
   %1620 = load ptr, ptr %indvars.iv4528.sroa.phi, align 8
   %1621 = load ptr, ptr %indvars.iv4525.sroa.phi, align 8
-  %1622 = tail call fastcc i32 @__order5c(ptr noundef %1617, ptr noundef %1618, ptr noundef %1619, ptr noundef %1620, ptr noundef %1621, i32 noundef %9), !range !4
+  %1622 = tail call fastcc i32 @__order5c(ptr noundef %1617, ptr noundef %1618, ptr noundef %1619, ptr noundef %1620, ptr noundef %1621, i32 noundef %9)
   %1623 = icmp ne i32 %1622, 0
   br label %1624
 
@@ -11922,7 +11920,7 @@ thread-pre-split4990:                             ; preds = %1557, %.thread2595
   %1644 = load ptr, ptr %indvars.iv4546.sroa.phi, align 8
   %1645 = load ptr, ptr %indvars.iv4543.sroa.phi, align 8
   %1646 = load ptr, ptr %indvars.iv4540.sroa.phi, align 8
-  %1647 = tail call fastcc i32 @__order5d(ptr noundef %1642, ptr noundef %1643, ptr noundef %1644, ptr noundef %1645, ptr noundef %1646, i32 noundef %9), !range !4
+  %1647 = tail call fastcc i32 @__order5d(ptr noundef %1642, ptr noundef %1643, ptr noundef %1644, ptr noundef %1645, ptr noundef %1646, i32 noundef %9)
   %1648 = icmp ne i32 %1647, 0
   br label %1649
 
@@ -11992,7 +11990,7 @@ thread-pre-split4990:                             ; preds = %1557, %.thread2595
   %1669 = load ptr, ptr %indvars.iv4561.sroa.phi, align 8
   %1670 = load ptr, ptr %indvars.iv4558.sroa.phi, align 8
   %1671 = load ptr, ptr %indvars.iv4555.sroa.phi, align 8
-  %1672 = tail call fastcc i32 @__order5e(ptr noundef %1667, ptr noundef %1668, ptr noundef %1669, ptr noundef %1670, ptr noundef %1671, i32 noundef %9), !range !4
+  %1672 = tail call fastcc i32 @__order5e(ptr noundef %1667, ptr noundef %1668, ptr noundef %1669, ptr noundef %1670, ptr noundef %1671, i32 noundef %9)
   %1673 = icmp ne i32 %1672, 0
   br label %1674
 
@@ -12062,7 +12060,7 @@ thread-pre-split4990:                             ; preds = %1557, %.thread2595
   %1694 = load ptr, ptr %indvars.iv4576.sroa.phi, align 8
   %1695 = load ptr, ptr %indvars.iv4573.sroa.phi, align 8
   %1696 = load ptr, ptr %indvars.iv4570.sroa.phi, align 8
-  %1697 = tail call fastcc i32 @__order5f(ptr noundef %1692, ptr noundef %1693, ptr noundef %1694, ptr noundef %1695, ptr noundef %1696, i32 noundef %9), !range !4
+  %1697 = tail call fastcc i32 @__order5f(ptr noundef %1692, ptr noundef %1693, ptr noundef %1694, ptr noundef %1695, ptr noundef %1696, i32 noundef %9)
   %1698 = icmp ne i32 %1697, 0
   br label %1699
 
@@ -12132,7 +12130,7 @@ thread-pre-split4990:                             ; preds = %1557, %.thread2595
   %1719 = load ptr, ptr %indvars.iv4591.sroa.phi, align 8
   %1720 = load ptr, ptr %indvars.iv4588.sroa.phi, align 8
   %1721 = load ptr, ptr %indvars.iv4585.sroa.phi, align 8
-  %1722 = tail call fastcc i32 @__order5g(ptr noundef %1717, ptr noundef %1718, ptr noundef %1719, ptr noundef %1720, ptr noundef %1721, i32 noundef %9), !range !4
+  %1722 = tail call fastcc i32 @__order5g(ptr noundef %1717, ptr noundef %1718, ptr noundef %1719, ptr noundef %1720, ptr noundef %1721, i32 noundef %9)
   %1723 = icmp ne i32 %1722, 0
   br label %1724
 
@@ -12202,7 +12200,7 @@ thread-pre-split4990:                             ; preds = %1557, %.thread2595
   %1744 = load ptr, ptr %indvars.iv4606.sroa.phi, align 8
   %1745 = load ptr, ptr %indvars.iv4603.sroa.phi, align 8
   %1746 = load ptr, ptr %indvars.iv4600.sroa.phi, align 8
-  %1747 = tail call fastcc i32 @__order5h(ptr noundef %1742, ptr noundef %1743, ptr noundef %1744, ptr noundef %1745, ptr noundef %1746, i32 noundef %9), !range !4
+  %1747 = tail call fastcc i32 @__order5h(ptr noundef %1742, ptr noundef %1743, ptr noundef %1744, ptr noundef %1745, ptr noundef %1746, i32 noundef %9)
   %1748 = icmp ne i32 %1747, 0
   br label %1749
 
@@ -12272,7 +12270,7 @@ thread-pre-split4990:                             ; preds = %1557, %.thread2595
   %1769 = load ptr, ptr %indvars.iv4621.sroa.phi, align 8
   %1770 = load ptr, ptr %indvars.iv4618.sroa.phi, align 8
   %1771 = load ptr, ptr %indvars.iv4615.sroa.phi, align 8
-  %1772 = tail call fastcc i32 @__order5i(ptr noundef %1767, ptr noundef %1768, ptr noundef %1769, ptr noundef %1770, ptr noundef %1771, i32 noundef %9), !range !4
+  %1772 = tail call fastcc i32 @__order5i(ptr noundef %1767, ptr noundef %1768, ptr noundef %1769, ptr noundef %1770, ptr noundef %1771, i32 noundef %9)
   %1773 = icmp ne i32 %1772, 0
   br label %1774
 
@@ -12361,7 +12359,7 @@ thread-pre-split4990:                             ; preds = %1557, %.thread2595
   %1798 = load ptr, ptr %indvars.iv4636.sroa.phi, align 8
   %1799 = load ptr, ptr %indvars.iv4633.sroa.phi, align 8
   %1800 = load ptr, ptr %indvars.iv4630.sroa.phi, align 8
-  %1801 = tail call fastcc i32 @__order6a(ptr noundef %1795, ptr noundef %1796, ptr noundef %1797, ptr noundef %1798, ptr noundef %1799, ptr noundef %1800, i32 noundef %9), !range !4
+  %1801 = tail call fastcc i32 @__order6a(ptr noundef %1795, ptr noundef %1796, ptr noundef %1797, ptr noundef %1798, ptr noundef %1799, ptr noundef %1800, i32 noundef %9)
   %1802 = icmp ne i32 %1801, 0
   br label %1803
 
@@ -12441,7 +12439,7 @@ thread-pre-split4990:                             ; preds = %1557, %.thread2595
   %1826 = load ptr, ptr %indvars.iv4654.sroa.phi, align 8
   %1827 = load ptr, ptr %indvars.iv4651.sroa.phi, align 8
   %1828 = load ptr, ptr %indvars.iv4648.sroa.phi, align 8
-  %1829 = tail call fastcc i32 @__order6b(ptr noundef %1823, ptr noundef %1824, ptr noundef %1825, ptr noundef %1826, ptr noundef %1827, ptr noundef %1828, i32 noundef %9), !range !4
+  %1829 = tail call fastcc i32 @__order6b(ptr noundef %1823, ptr noundef %1824, ptr noundef %1825, ptr noundef %1826, ptr noundef %1827, ptr noundef %1828, i32 noundef %9)
   %1830 = icmp ne i32 %1829, 0
   br label %1831
 
@@ -12521,7 +12519,7 @@ thread-pre-split4990:                             ; preds = %1557, %.thread2595
   %1854 = load ptr, ptr %indvars.iv4672.sroa.phi, align 8
   %1855 = load ptr, ptr %indvars.iv4669.sroa.phi, align 8
   %1856 = load ptr, ptr %indvars.iv4666.sroa.phi, align 8
-  %1857 = tail call fastcc i32 @__order6c(ptr noundef %1851, ptr noundef %1852, ptr noundef %1853, ptr noundef %1854, ptr noundef %1855, ptr noundef %1856, i32 noundef %9), !range !4
+  %1857 = tail call fastcc i32 @__order6c(ptr noundef %1851, ptr noundef %1852, ptr noundef %1853, ptr noundef %1854, ptr noundef %1855, ptr noundef %1856, i32 noundef %9)
   %1858 = icmp ne i32 %1857, 0
   br label %1859
 
@@ -12601,7 +12599,7 @@ thread-pre-split4990:                             ; preds = %1557, %.thread2595
   %1882 = load ptr, ptr %indvars.iv4690.sroa.phi, align 8
   %1883 = load ptr, ptr %indvars.iv4687.sroa.phi, align 8
   %1884 = load ptr, ptr %indvars.iv4684.sroa.phi, align 8
-  %1885 = tail call fastcc i32 @__order6d(ptr noundef %1879, ptr noundef %1880, ptr noundef %1881, ptr noundef %1882, ptr noundef %1883, ptr noundef %1884, i32 noundef %9), !range !4
+  %1885 = tail call fastcc i32 @__order6d(ptr noundef %1879, ptr noundef %1880, ptr noundef %1881, ptr noundef %1882, ptr noundef %1883, ptr noundef %1884, i32 noundef %9)
   %1886 = icmp ne i32 %1885, 0
   br label %1887
 
@@ -12681,7 +12679,7 @@ thread-pre-split4990:                             ; preds = %1557, %.thread2595
   %1910 = load ptr, ptr %indvars.iv4708.sroa.phi, align 8
   %1911 = load ptr, ptr %indvars.iv4705.sroa.phi, align 8
   %1912 = load ptr, ptr %indvars.iv4702.sroa.phi, align 8
-  %1913 = tail call fastcc i32 @__order6e(ptr noundef %1907, ptr noundef %1908, ptr noundef %1909, ptr noundef %1910, ptr noundef %1911, ptr noundef %1912, i32 noundef %9), !range !4
+  %1913 = tail call fastcc i32 @__order6e(ptr noundef %1907, ptr noundef %1908, ptr noundef %1909, ptr noundef %1910, ptr noundef %1911, ptr noundef %1912, i32 noundef %9)
   %1914 = icmp ne i32 %1913, 0
   br label %1915
 
@@ -12761,7 +12759,7 @@ thread-pre-split4990:                             ; preds = %1557, %.thread2595
   %1938 = load ptr, ptr %indvars.iv4726.sroa.phi, align 8
   %1939 = load ptr, ptr %indvars.iv4723.sroa.phi, align 8
   %1940 = load ptr, ptr %indvars.iv4720.sroa.phi, align 8
-  %1941 = tail call fastcc i32 @__order6f(ptr noundef %1935, ptr noundef %1936, ptr noundef %1937, ptr noundef %1938, ptr noundef %1939, ptr noundef %1940, i32 noundef %9), !range !4
+  %1941 = tail call fastcc i32 @__order6f(ptr noundef %1935, ptr noundef %1936, ptr noundef %1937, ptr noundef %1938, ptr noundef %1939, ptr noundef %1940, i32 noundef %9)
   %1942 = icmp ne i32 %1941, 0
   br label %1943
 
@@ -12841,7 +12839,7 @@ thread-pre-split4990:                             ; preds = %1557, %.thread2595
   %1966 = load ptr, ptr %indvars.iv4744.sroa.phi, align 8
   %1967 = load ptr, ptr %indvars.iv4741.sroa.phi, align 8
   %1968 = load ptr, ptr %indvars.iv4738.sroa.phi, align 8
-  %1969 = tail call fastcc i32 @__order6g(ptr noundef %1963, ptr noundef %1964, ptr noundef %1965, ptr noundef %1966, ptr noundef %1967, ptr noundef %1968, i32 noundef %9), !range !4
+  %1969 = tail call fastcc i32 @__order6g(ptr noundef %1963, ptr noundef %1964, ptr noundef %1965, ptr noundef %1966, ptr noundef %1967, ptr noundef %1968, i32 noundef %9)
   %1970 = icmp ne i32 %1969, 0
   br label %1971
 
@@ -12921,7 +12919,7 @@ thread-pre-split4990:                             ; preds = %1557, %.thread2595
   %1994 = load ptr, ptr %indvars.iv4762.sroa.phi, align 8
   %1995 = load ptr, ptr %indvars.iv4759.sroa.phi, align 8
   %1996 = load ptr, ptr %indvars.iv4756.sroa.phi, align 8
-  %1997 = tail call fastcc i32 @__order6h(ptr noundef %1991, ptr noundef %1992, ptr noundef %1993, ptr noundef %1994, ptr noundef %1995, ptr noundef %1996, i32 noundef %9), !range !4
+  %1997 = tail call fastcc i32 @__order6h(ptr noundef %1991, ptr noundef %1992, ptr noundef %1993, ptr noundef %1994, ptr noundef %1995, ptr noundef %1996, i32 noundef %9)
   %1998 = icmp ne i32 %1997, 0
   br label %1999
 
@@ -13001,7 +12999,7 @@ thread-pre-split4990:                             ; preds = %1557, %.thread2595
   %2022 = load ptr, ptr %indvars.iv4780.sroa.phi, align 8
   %2023 = load ptr, ptr %indvars.iv4777.sroa.phi, align 8
   %2024 = load ptr, ptr %indvars.iv4774.sroa.phi, align 8
-  %2025 = tail call fastcc i32 @__order6i(ptr noundef %2019, ptr noundef %2020, ptr noundef %2021, ptr noundef %2022, ptr noundef %2023, ptr noundef %2024, i32 noundef %9), !range !4
+  %2025 = tail call fastcc i32 @__order6i(ptr noundef %2019, ptr noundef %2020, ptr noundef %2021, ptr noundef %2022, ptr noundef %2023, ptr noundef %2024, i32 noundef %9)
   %2026 = icmp ne i32 %2025, 0
   br label %2027
 
@@ -13081,7 +13079,7 @@ thread-pre-split4990:                             ; preds = %1557, %.thread2595
   %2050 = load ptr, ptr %indvars.iv4798.sroa.phi, align 8
   %2051 = load ptr, ptr %indvars.iv4795.sroa.phi, align 8
   %2052 = load ptr, ptr %indvars.iv4792.sroa.phi, align 8
-  %2053 = tail call fastcc i32 @__order6j(ptr noundef %2047, ptr noundef %2048, ptr noundef %2049, ptr noundef %2050, ptr noundef %2051, ptr noundef %2052, i32 noundef %9), !range !4
+  %2053 = tail call fastcc i32 @__order6j(ptr noundef %2047, ptr noundef %2048, ptr noundef %2049, ptr noundef %2050, ptr noundef %2051, ptr noundef %2052, i32 noundef %9)
   %2054 = icmp ne i32 %2053, 0
   br label %2055
 
@@ -13161,7 +13159,7 @@ thread-pre-split4990:                             ; preds = %1557, %.thread2595
   %2078 = load ptr, ptr %indvars.iv4816.sroa.phi, align 8
   %2079 = load ptr, ptr %indvars.iv4813.sroa.phi, align 8
   %2080 = load ptr, ptr %indvars.iv4810.sroa.phi, align 8
-  %2081 = tail call fastcc i32 @__order6k(ptr noundef %2075, ptr noundef %2076, ptr noundef %2077, ptr noundef %2078, ptr noundef %2079, ptr noundef %2080, i32 noundef %9), !range !4
+  %2081 = tail call fastcc i32 @__order6k(ptr noundef %2075, ptr noundef %2076, ptr noundef %2077, ptr noundef %2078, ptr noundef %2079, ptr noundef %2080, i32 noundef %9)
   %2082 = icmp ne i32 %2081, 0
   br label %2083
 
@@ -13241,7 +13239,7 @@ thread-pre-split4990:                             ; preds = %1557, %.thread2595
   %2106 = load ptr, ptr %indvars.iv4834.sroa.phi, align 8
   %2107 = load ptr, ptr %indvars.iv4831.sroa.phi, align 8
   %2108 = load ptr, ptr %indvars.iv4828.sroa.phi, align 8
-  %2109 = tail call fastcc i32 @__order6l(ptr noundef %2103, ptr noundef %2104, ptr noundef %2105, ptr noundef %2106, ptr noundef %2107, ptr noundef %2108, i32 noundef %9), !range !4
+  %2109 = tail call fastcc i32 @__order6l(ptr noundef %2103, ptr noundef %2104, ptr noundef %2105, ptr noundef %2106, ptr noundef %2107, ptr noundef %2108, i32 noundef %9)
   %2110 = icmp ne i32 %2109, 0
   br label %2111
 
@@ -13321,7 +13319,7 @@ thread-pre-split4990:                             ; preds = %1557, %.thread2595
   %2134 = load ptr, ptr %indvars.iv4852.sroa.phi, align 8
   %2135 = load ptr, ptr %indvars.iv4849.sroa.phi, align 8
   %2136 = load ptr, ptr %indvars.iv4846.sroa.phi, align 8
-  %2137 = tail call fastcc i32 @__order6m(ptr noundef %2131, ptr noundef %2132, ptr noundef %2133, ptr noundef %2134, ptr noundef %2135, ptr noundef %2136, i32 noundef %9), !range !4
+  %2137 = tail call fastcc i32 @__order6m(ptr noundef %2131, ptr noundef %2132, ptr noundef %2133, ptr noundef %2134, ptr noundef %2135, ptr noundef %2136, i32 noundef %9)
   %2138 = icmp ne i32 %2137, 0
   br label %2139
 
@@ -13401,7 +13399,7 @@ thread-pre-split4990:                             ; preds = %1557, %.thread2595
   %2162 = load ptr, ptr %indvars.iv4870.sroa.phi, align 8
   %2163 = load ptr, ptr %indvars.iv4867.sroa.phi, align 8
   %2164 = load ptr, ptr %indvars.iv4864.sroa.phi, align 8
-  %2165 = tail call fastcc i32 @__order6n(ptr noundef %2159, ptr noundef %2160, ptr noundef %2161, ptr noundef %2162, ptr noundef %2163, ptr noundef %2164, i32 noundef %9), !range !4
+  %2165 = tail call fastcc i32 @__order6n(ptr noundef %2159, ptr noundef %2160, ptr noundef %2161, ptr noundef %2162, ptr noundef %2163, ptr noundef %2164, i32 noundef %9)
   %2166 = icmp ne i32 %2165, 0
   br label %2167
 
@@ -13481,7 +13479,7 @@ thread-pre-split4990:                             ; preds = %1557, %.thread2595
   %2190 = load ptr, ptr %indvars.iv4888.sroa.phi, align 8
   %2191 = load ptr, ptr %indvars.iv4885.sroa.phi, align 8
   %2192 = load ptr, ptr %indvars.iv4882.sroa.phi, align 8
-  %2193 = tail call fastcc i32 @__order6o(ptr noundef %2187, ptr noundef %2188, ptr noundef %2189, ptr noundef %2190, ptr noundef %2191, ptr noundef %2192, i32 noundef %9), !range !4
+  %2193 = tail call fastcc i32 @__order6o(ptr noundef %2187, ptr noundef %2188, ptr noundef %2189, ptr noundef %2190, ptr noundef %2191, ptr noundef %2192, i32 noundef %9)
   %2194 = icmp ne i32 %2193, 0
   br label %2195
 
@@ -13561,7 +13559,7 @@ thread-pre-split4990:                             ; preds = %1557, %.thread2595
   %2218 = load ptr, ptr %indvars.iv4906.sroa.phi, align 8
   %2219 = load ptr, ptr %indvars.iv4903.sroa.phi, align 8
   %2220 = load ptr, ptr %indvars.iv4900.sroa.phi, align 8
-  %2221 = tail call fastcc i32 @__order6p(ptr noundef %2215, ptr noundef %2216, ptr noundef %2217, ptr noundef %2218, ptr noundef %2219, ptr noundef %2220, i32 noundef %9), !range !4
+  %2221 = tail call fastcc i32 @__order6p(ptr noundef %2215, ptr noundef %2216, ptr noundef %2217, ptr noundef %2218, ptr noundef %2219, ptr noundef %2220, i32 noundef %9)
   %2222 = icmp ne i32 %2221, 0
   br label %2223
 
@@ -13641,7 +13639,7 @@ thread-pre-split4990:                             ; preds = %1557, %.thread2595
   %2246 = load ptr, ptr %indvars.iv4924.sroa.phi, align 8
   %2247 = load ptr, ptr %indvars.iv4921.sroa.phi, align 8
   %2248 = load ptr, ptr %indvars.iv4918.sroa.phi, align 8
-  %2249 = tail call fastcc i32 @__order6q(ptr noundef %2243, ptr noundef %2244, ptr noundef %2245, ptr noundef %2246, ptr noundef %2247, ptr noundef %2248, i32 noundef %9), !range !4
+  %2249 = tail call fastcc i32 @__order6q(ptr noundef %2243, ptr noundef %2244, ptr noundef %2245, ptr noundef %2246, ptr noundef %2247, ptr noundef %2248, i32 noundef %9)
   %2250 = icmp ne i32 %2249, 0
   br label %2251
 
@@ -13721,7 +13719,7 @@ thread-pre-split4990:                             ; preds = %1557, %.thread2595
   %2274 = load ptr, ptr %indvars.iv4942.sroa.phi, align 8
   %2275 = load ptr, ptr %indvars.iv4939.sroa.phi, align 8
   %2276 = load ptr, ptr %indvars.iv4936.sroa.phi, align 8
-  %2277 = tail call fastcc i32 @__order6r(ptr noundef %2271, ptr noundef %2272, ptr noundef %2273, ptr noundef %2274, ptr noundef %2275, ptr noundef %2276, i32 noundef %9), !range !4
+  %2277 = tail call fastcc i32 @__order6r(ptr noundef %2271, ptr noundef %2272, ptr noundef %2273, ptr noundef %2274, ptr noundef %2275, ptr noundef %2276, i32 noundef %9)
   %2278 = icmp ne i32 %2277, 0
   br label %2279
 
@@ -13958,4 +13956,3 @@ attributes #16 = { nounwind }
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
 !3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = !{i32 0, i32 2}

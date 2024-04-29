@@ -2814,7 +2814,7 @@ SparseMatrix_general_new.exit:                    ; preds = %13, %15
   ]
 
 .preheader314:                                    ; preds = %._crit_edge
-  %invariant.gep = getelementptr i8, ptr %18, i64 4
+  %invariant.gep = getelementptr inbounds i8, ptr %18, i64 4
   %.not481 = icmp eq i32 %0, 0
   br i1 %.not481, label %.lr.ph321.preheader, label %.lr.ph319.preheader
 
@@ -2823,7 +2823,7 @@ SparseMatrix_general_new.exit:                    ; preds = %13, %15
   br label %.lr.ph319
 
 .preheader310:                                    ; preds = %._crit_edge
-  %invariant.gep329 = getelementptr i8, ptr %18, i64 4
+  %invariant.gep329 = getelementptr inbounds i8, ptr %18, i64 4
   %.not482 = icmp eq i32 %0, 0
   br i1 %.not482, label %.lr.ph334.preheader, label %.lr.ph332.preheader
 
@@ -2834,7 +2834,7 @@ SparseMatrix_general_new.exit:                    ; preds = %13, %15
 24:                                               ; preds = %._crit_edge
   %25 = getelementptr inbounds i8, ptr %14, i64 40
   %26 = load ptr, ptr %25, align 8
-  %invariant.gep365 = getelementptr i8, ptr %18, i64 4
+  %invariant.gep365 = getelementptr inbounds i8, ptr %18, i64 4
   %.not485 = icmp eq i32 %0, 0
   br i1 %.not485, label %.lr.ph371.preheader, label %.lr.ph369.preheader
 
@@ -2862,7 +2862,7 @@ SparseMatrix_general_new.exit:                    ; preds = %13, %15
 
 32:                                               ; preds = %29
   %33 = zext nneg i32 %28 to i64
-  %gep366 = getelementptr i32, ptr %invariant.gep365, i64 %33
+  %gep366 = getelementptr inbounds i32, ptr %invariant.gep365, i64 %33
   %34 = load i32, ptr %gep366, align 4
   %35 = add nsw i32 %34, 1
   store i32 %35, ptr %gep366, align 4
@@ -2932,7 +2932,7 @@ SparseMatrix_general_new.exit:                    ; preds = %13, %15
 63:                                               ; preds = %._crit_edge
   %64 = getelementptr inbounds i8, ptr %14, i64 40
   %65 = load ptr, ptr %64, align 8
-  %invariant.gep352 = getelementptr i8, ptr %18, i64 4
+  %invariant.gep352 = getelementptr inbounds i8, ptr %18, i64 4
   %.not484 = icmp eq i32 %0, 0
   br i1 %.not484, label %.lr.ph358.preheader, label %.lr.ph356.preheader
 
@@ -2960,7 +2960,7 @@ SparseMatrix_general_new.exit:                    ; preds = %13, %15
 
 71:                                               ; preds = %68
   %72 = zext nneg i32 %67 to i64
-  %gep353 = getelementptr i32, ptr %invariant.gep352, i64 %72
+  %gep353 = getelementptr inbounds i32, ptr %invariant.gep352, i64 %72
   %73 = load i32, ptr %gep353, align 4
   %74 = add nsw i32 %73, 1
   store i32 %74, ptr %gep353, align 4
@@ -3043,7 +3043,7 @@ SparseMatrix_general_new.exit:                    ; preds = %13, %15
 113:                                              ; preds = %._crit_edge
   %114 = getelementptr inbounds i8, ptr %14, i64 40
   %115 = load ptr, ptr %114, align 8
-  %invariant.gep340 = getelementptr i8, ptr %18, i64 4
+  %invariant.gep340 = getelementptr inbounds i8, ptr %18, i64 4
   %.not483 = icmp eq i32 %0, 0
   br i1 %.not483, label %.lr.ph346.preheader, label %.lr.ph344.preheader
 
@@ -3071,7 +3071,7 @@ SparseMatrix_general_new.exit:                    ; preds = %13, %15
 
 121:                                              ; preds = %118
   %122 = zext nneg i32 %117 to i64
-  %gep341 = getelementptr i32, ptr %invariant.gep340, i64 %122
+  %gep341 = getelementptr inbounds i32, ptr %invariant.gep340, i64 %122
   %123 = load i32, ptr %gep341, align 4
   %124 = add nsw i32 %123, 1
   store i32 %124, ptr %gep341, align 4
@@ -3158,7 +3158,7 @@ SparseMatrix_general_new.exit:                    ; preds = %13, %15
 
 157:                                              ; preds = %154
   %158 = zext nneg i32 %153 to i64
-  %gep330 = getelementptr i32, ptr %invariant.gep329, i64 %158
+  %gep330 = getelementptr inbounds i32, ptr %invariant.gep329, i64 %158
   %159 = load i32, ptr %gep330, align 4
   %160 = add nsw i32 %159, 1
   store i32 %160, ptr %gep330, align 4
@@ -3236,7 +3236,7 @@ SparseMatrix_general_new.exit:                    ; preds = %13, %15
 
 185:                                              ; preds = %182
   %186 = zext nneg i32 %181 to i64
-  %gep = getelementptr i32, ptr %invariant.gep, i64 %186
+  %gep = getelementptr inbounds i32, ptr %invariant.gep, i64 %186
   %187 = load i32, ptr %gep, align 4
   %188 = add nsw i32 %187, 1
   store i32 %188, ptr %gep, align 4
@@ -3330,64 +3330,62 @@ define void @SparseMatrix_multiply_dense(ptr nocapture noundef readonly %0, ptr 
 .preheader37.us.us.preheader:                     ; preds = %4
   %14 = zext nneg i32 %3 to i64
   %15 = shl nuw nsw i64 %14, 3
-  %wide.trip.count62 = zext nneg i32 %11 to i64
+  %wide.trip.count60 = zext nneg i32 %11 to i64
   br label %.preheader37.us.us
 
 .preheader37.us.us:                               ; preds = %.preheader37.us.us.preheader, %.loopexit.us.us
-  %indvars.iv59 = phi i64 [ 0, %.preheader37.us.us.preheader ], [ %indvars.iv.next60, %.loopexit.us.us ]
-  %16 = trunc i64 %indvars.iv59 to i32
-  %17 = mul i32 %16, %3
-  %18 = zext i32 %17 to i64
-  %19 = shl nuw nsw i64 %18, 3
-  %scevgep = getelementptr i8, ptr %2, i64 %19
+  %indvar = phi i64 [ 0, %.preheader37.us.us.preheader ], [ %indvar.next, %.loopexit.us.us ]
+  %16 = mul i64 %15, %indvar
+  %scevgep = getelementptr i8, ptr %2, i64 %16
   tail call void @llvm.memset.p0.i64(ptr align 8 %scevgep, i8 0, i64 %15, i1 false)
-  %20 = getelementptr inbounds i32, ptr %8, i64 %indvars.iv59
-  %21 = load i32, ptr %20, align 4
-  %indvars.iv.next60 = add nuw nsw i64 %indvars.iv59, 1
-  %22 = getelementptr inbounds i32, ptr %8, i64 %indvars.iv.next60
-  %23 = load i32, ptr %22, align 4
-  %24 = icmp slt i32 %21, %23
-  br i1 %24, label %.preheader.lr.ph.us.us, label %.loopexit.us.us
+  %17 = getelementptr inbounds i32, ptr %8, i64 %indvar
+  %18 = load i32, ptr %17, align 4
+  %indvar.next = add nuw nsw i64 %indvar, 1
+  %19 = getelementptr inbounds i32, ptr %8, i64 %indvar.next
+  %20 = load i32, ptr %19, align 4
+  %21 = icmp slt i32 %18, %20
+  br i1 %21, label %.preheader.lr.ph.us.us, label %.loopexit.us.us
 
 .loopexit.us.us:                                  ; preds = %._crit_edge41.us.us.us, %.preheader37.us.us
-  %exitcond63.not = icmp eq i64 %indvars.iv.next60, %wide.trip.count62
-  br i1 %exitcond63.not, label %._crit_edge44, label %.preheader37.us.us
+  %exitcond61.not = icmp eq i64 %indvar.next, %wide.trip.count60
+  br i1 %exitcond61.not, label %._crit_edge44, label %.preheader37.us.us
 
 .preheader.lr.ph.us.us:                           ; preds = %.preheader37.us.us
-  %25 = sext i32 %21 to i64
-  %invariant.gep = getelementptr double, ptr %2, i64 %18
+  %22 = mul nuw nsw i64 %indvar, %14
+  %23 = sext i32 %18 to i64
+  %invariant.gep = getelementptr inbounds double, ptr %2, i64 %22
   br label %.preheader.us.us.us
 
 .preheader.us.us.us:                              ; preds = %._crit_edge41.us.us.us, %.preheader.lr.ph.us.us
-  %indvars.iv56 = phi i64 [ %indvars.iv.next57, %._crit_edge41.us.us.us ], [ %25, %.preheader.lr.ph.us.us ]
-  %26 = getelementptr inbounds double, ptr %6, i64 %indvars.iv56
-  %27 = getelementptr inbounds i32, ptr %10, i64 %indvars.iv56
-  br label %28
+  %indvars.iv56 = phi i64 [ %indvars.iv.next57, %._crit_edge41.us.us.us ], [ %23, %.preheader.lr.ph.us.us ]
+  %24 = getelementptr inbounds double, ptr %6, i64 %indvars.iv56
+  %25 = getelementptr inbounds i32, ptr %10, i64 %indvars.iv56
+  br label %26
 
-28:                                               ; preds = %28, %.preheader.us.us.us
-  %indvars.iv = phi i64 [ %indvars.iv.next, %28 ], [ 0, %.preheader.us.us.us ]
-  %29 = load double, ptr %26, align 8
-  %30 = load i32, ptr %27, align 4
-  %31 = mul nsw i32 %30, %3
-  %32 = trunc nuw nsw i64 %indvars.iv to i32
-  %33 = add nsw i32 %31, %32
-  %34 = sext i32 %33 to i64
-  %35 = getelementptr inbounds double, ptr %1, i64 %34
-  %36 = load double, ptr %35, align 8
-  %gep = getelementptr double, ptr %invariant.gep, i64 %indvars.iv
-  %37 = load double, ptr %gep, align 8
-  %38 = tail call double @llvm.fmuladd.f64(double %29, double %36, double %37)
-  store double %38, ptr %gep, align 8
+26:                                               ; preds = %26, %.preheader.us.us.us
+  %indvars.iv = phi i64 [ %indvars.iv.next, %26 ], [ 0, %.preheader.us.us.us ]
+  %27 = load double, ptr %24, align 8
+  %28 = load i32, ptr %25, align 4
+  %29 = mul nsw i32 %28, %3
+  %30 = trunc nuw nsw i64 %indvars.iv to i32
+  %31 = add nsw i32 %29, %30
+  %32 = sext i32 %31 to i64
+  %33 = getelementptr inbounds double, ptr %1, i64 %32
+  %34 = load double, ptr %33, align 8
+  %gep = getelementptr inbounds double, ptr %invariant.gep, i64 %indvars.iv
+  %35 = load double, ptr %gep, align 8
+  %36 = tail call double @llvm.fmuladd.f64(double %27, double %34, double %35)
+  store double %36, ptr %gep, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %14
-  br i1 %exitcond.not, label %._crit_edge41.us.us.us, label %28
+  br i1 %exitcond.not, label %._crit_edge41.us.us.us, label %26
 
-._crit_edge41.us.us.us:                           ; preds = %28
+._crit_edge41.us.us.us:                           ; preds = %26
   %indvars.iv.next57 = add nsw i64 %indvars.iv56, 1
-  %39 = load i32, ptr %22, align 4
-  %40 = sext i32 %39 to i64
-  %41 = icmp slt i64 %indvars.iv.next57, %40
-  br i1 %41, label %.preheader.us.us.us, label %.loopexit.us.us
+  %37 = load i32, ptr %19, align 4
+  %38 = sext i32 %37 to i64
+  %39 = icmp slt i64 %indvars.iv.next57, %38
+  br i1 %39, label %.preheader.us.us.us, label %.loopexit.us.us
 
 ._crit_edge44:                                    ; preds = %.loopexit.us.us, %4
   ret void
@@ -7207,7 +7205,7 @@ gv_calloc.exit260:                                ; preds = %.thread306, %36
 72:                                               ; preds = %.lr.ph375
   %73 = getelementptr inbounds i32, ptr %7, i64 %indvars.iv451
   %74 = load i32, ptr %73, align 4
-  %75 = getelementptr i8, ptr %73, i64 4
+  %75 = getelementptr inbounds i8, ptr %73, i64 4
   %76 = load i32, ptr %75, align 4
   %77 = icmp slt i32 %74, %76
   br i1 %77, label %.lr.ph371.preheader, label %.loopexit344
@@ -7330,7 +7328,7 @@ gv_calloc.exit272:                                ; preds = %.thread312, %113
 126:                                              ; preds = %.lr.ph412
   %127 = getelementptr inbounds i32, ptr %7, i64 %indvars.iv485
   %128 = load i32, ptr %127, align 4
-  %129 = getelementptr i8, ptr %127, i64 4
+  %129 = getelementptr inbounds i8, ptr %127, i64 4
   %130 = load i32, ptr %129, align 4
   %131 = icmp slt i32 %128, %130
   br i1 %131, label %.lr.ph408.preheader, label %.loopexit
@@ -7458,7 +7456,7 @@ gv_calloc.exit284.preheader:                      ; preds = %.thread490, %176
 190:                                              ; preds = %.lr.ph403
   %191 = getelementptr inbounds i32, ptr %7, i64 %indvars.iv477
   %192 = load i32, ptr %191, align 4
-  %193 = getelementptr i8, ptr %191, i64 4
+  %193 = getelementptr inbounds i8, ptr %191, i64 4
   %194 = load i32, ptr %193, align 4
   %195 = icmp slt i32 %192, %194
   br i1 %195, label %.lr.ph399.preheader, label %gv_calloc.exit284
@@ -7594,7 +7592,7 @@ gv_calloc.exit296:                                ; preds = %.thread324, %248
 261:                                              ; preds = %.lr.ph394
   %262 = getelementptr inbounds i32, ptr %7, i64 %indvars.iv469
   %263 = load i32, ptr %262, align 4
-  %264 = getelementptr i8, ptr %262, i64 4
+  %264 = getelementptr inbounds i8, ptr %262, i64 4
   %265 = load i32, ptr %264, align 4
   %266 = icmp slt i32 %263, %265
   br i1 %266, label %.lr.ph390.preheader, label %.loopexit340
@@ -7704,7 +7702,7 @@ gv_calloc.exit304:                                ; preds = %.thread328, %300
 312:                                              ; preds = %.lr.ph385
   %313 = getelementptr inbounds i32, ptr %7, i64 %indvars.iv461
   %314 = load i32, ptr %313, align 4
-  %315 = getelementptr i8, ptr %313, i64 4
+  %315 = getelementptr inbounds i8, ptr %313, i64 4
   %316 = load i32, ptr %315, align 4
   %317 = icmp slt i32 %314, %316
   br i1 %317, label %.lr.ph381.preheader, label %.loopexit342
@@ -7884,43 +7882,41 @@ SparseMatrix_new.exit:                            ; preds = %3, %7
   %20 = load ptr, ptr %19, align 8
   %21 = getelementptr inbounds i8, ptr %5, i64 40
   %22 = load ptr, ptr %21, align 8
+  %23 = zext nneg i32 %1 to i64
   %wide.trip.count62 = zext nneg i32 %0 to i64
-  %wide.trip.count57 = zext nneg i32 %1 to i64
   br label %.preheader.us
 
 .preheader.us:                                    ; preds = %.preheader.us.preheader, %._crit_edge47.us
   %indvars.iv59 = phi i64 [ 0, %.preheader.us.preheader ], [ %indvars.iv.next60, %._crit_edge47.us ]
-  %.03749.us = phi ptr [ %22, %.preheader.us.preheader ], [ %32, %._crit_edge47.us ]
-  %.03848.us = phi ptr [ %20, %.preheader.us.preheader ], [ %31, %._crit_edge47.us ]
-  %23 = trunc i64 %indvars.iv59 to i32
-  %24 = mul i32 %23, %1
-  %25 = zext i32 %24 to i64
-  %invariant.gep = getelementptr double, ptr %2, i64 %25
-  br label %26
+  %.03749.us = phi ptr [ %22, %.preheader.us.preheader ], [ %31, %._crit_edge47.us ]
+  %.03848.us = phi ptr [ %20, %.preheader.us.preheader ], [ %30, %._crit_edge47.us ]
+  %24 = mul nuw nsw i64 %indvars.iv59, %23
+  %invariant.gep = getelementptr inbounds double, ptr %2, i64 %24
+  br label %25
 
-26:                                               ; preds = %.preheader.us, %26
-  %indvars.iv54 = phi i64 [ 0, %.preheader.us ], [ %indvars.iv.next55, %26 ]
-  %27 = getelementptr inbounds i32, ptr %.03848.us, i64 %indvars.iv54
-  %28 = trunc nuw nsw i64 %indvars.iv54 to i32
-  store i32 %28, ptr %27, align 4
-  %gep = getelementptr double, ptr %invariant.gep, i64 %indvars.iv54
-  %29 = load double, ptr %gep, align 8
-  %30 = getelementptr inbounds double, ptr %.03749.us, i64 %indvars.iv54
-  store double %29, ptr %30, align 8
+25:                                               ; preds = %.preheader.us, %25
+  %indvars.iv54 = phi i64 [ 0, %.preheader.us ], [ %indvars.iv.next55, %25 ]
+  %26 = getelementptr inbounds i32, ptr %.03848.us, i64 %indvars.iv54
+  %27 = trunc nuw nsw i64 %indvars.iv54 to i32
+  store i32 %27, ptr %26, align 4
+  %gep = getelementptr inbounds double, ptr %invariant.gep, i64 %indvars.iv54
+  %28 = load double, ptr %gep, align 8
+  %29 = getelementptr inbounds double, ptr %.03749.us, i64 %indvars.iv54
+  store double %28, ptr %29, align 8
   %indvars.iv.next55 = add nuw nsw i64 %indvars.iv54, 1
-  %exitcond58.not = icmp eq i64 %indvars.iv.next55, %wide.trip.count57
-  br i1 %exitcond58.not, label %._crit_edge47.us, label %26
+  %exitcond58.not = icmp eq i64 %indvars.iv.next55, %23
+  br i1 %exitcond58.not, label %._crit_edge47.us, label %25
 
-._crit_edge47.us:                                 ; preds = %26
-  %31 = getelementptr inbounds i32, ptr %.03848.us, i64 %18
-  %32 = getelementptr inbounds double, ptr %.03749.us, i64 %wide.trip.count57
+._crit_edge47.us:                                 ; preds = %25
+  %30 = getelementptr inbounds i32, ptr %.03848.us, i64 %18
+  %31 = getelementptr inbounds double, ptr %.03749.us, i64 %23
   %indvars.iv.next60 = add nuw nsw i64 %indvars.iv59, 1
   %exitcond63.not = icmp eq i64 %indvars.iv.next60, %wide.trip.count62
   br i1 %exitcond63.not, label %._crit_edge51, label %.preheader.us
 
 ._crit_edge51:                                    ; preds = %._crit_edge47.us, %SparseMatrix_new.exit, %.preheader.lr.ph
-  %33 = getelementptr inbounds i8, ptr %5, i64 8
-  store i32 %4, ptr %33, align 8
+  %32 = getelementptr inbounds i8, ptr %5, i64 8
+  store i32 %4, ptr %32, align 8
   ret ptr %5
 }
 
@@ -7999,7 +7995,7 @@ gv_calloc.exit:                                   ; preds = %15
 
 .lr.ph44:                                         ; preds = %.lr.ph46
   %28 = load ptr, ptr %3, align 8
-  %29 = mul nsw i32 %.045, %8
+  %29 = mul nuw nsw i32 %.045, %8
   %30 = load ptr, ptr %4, align 8
   %wide.trip.count57 = zext nneg i32 %26 to i64
   %.pre = load i32, ptr %28, align 4
