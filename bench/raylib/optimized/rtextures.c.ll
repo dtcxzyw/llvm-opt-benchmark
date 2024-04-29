@@ -32492,8 +32492,8 @@ stbi__fill_bits.exit:                             ; preds = %stbi__zget8.exit.i,
   %63 = sext i32 %59 to i64
   %64 = getelementptr inbounds [288 x i8], ptr %62, i64 0, i64 %63
   %65 = load i8, ptr %64, align 1
-  %66 = zext i8 %65 to i32
-  %.not.i17 = icmp eq i32 %45, %66
+  %66 = zext i8 %65 to i64
+  %.not.i17 = icmp eq i64 %indvars.iv.i, %66
   br i1 %.not.i17, label %67, label %stbi__zhuffman_decode_slowpath.exit
 
 67:                                               ; preds = %61

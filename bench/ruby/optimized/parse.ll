@@ -22231,8 +22231,8 @@ define internal fastcc range(i32 -2, 1) i32 @yysyntax_error(ptr nocapture nounde
   %23 = sext i32 %22 to i64
   %24 = getelementptr [16026 x i16], ptr @yycheck, i64 0, i64 %23
   %25 = load i16, ptr %24, align 2
-  %26 = sext i16 %25 to i32
-  %27 = icmp eq i32 %21, %26
+  %26 = sext i16 %25 to i64
+  %27 = icmp eq i64 %indvars.iv.i.i, %26
   %28 = icmp ne i64 %indvars.iv.i.i, 1
   %or.cond.i.i = and i1 %28, %27
   br i1 %or.cond.i.i, label %29, label %39

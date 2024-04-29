@@ -10826,7 +10826,7 @@ while.cond5:                                      ; preds = %while.cond5, %while
 while.end11:                                      ; preds = %while.cond5
   %5 = trunc nsw i64 %indvars.iv to i32
   %6 = trunc nsw i64 %indvars.iv25 to i32
-  %cmp.not = icmp sgt i32 %5, %6
+  %cmp.not = icmp sgt i64 %indvars.iv, %indvars.iv25
   br i1 %cmp.not, label %do.cond, label %if.then
 
 if.then:                                          ; preds = %while.end11
@@ -10989,7 +10989,7 @@ while.cond5:                                      ; preds = %while.cond5, %while
 while.end11:                                      ; preds = %while.cond5
   %6 = trunc nsw i64 %indvars.iv to i32
   %7 = trunc nsw i64 %indvars.iv25 to i32
-  %cmp.not = icmp sgt i32 %6, %7
+  %cmp.not = icmp sgt i64 %indvars.iv, %indvars.iv25
   br i1 %cmp.not, label %do.cond, label %if.then
 
 if.then:                                          ; preds = %while.end11

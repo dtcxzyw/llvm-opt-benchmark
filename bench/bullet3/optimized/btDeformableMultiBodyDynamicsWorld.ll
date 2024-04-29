@@ -2661,8 +2661,8 @@ for.cond24.preheader.for.inc66_crit_edge:         ; preds = %for.cond24.preheade
   br label %for.inc66
 
 for.body28.lr.ph:                                 ; preds = %for.cond24.preheader
-  %27 = trunc i64 %indvars.iv241 to i32
-  %28 = trunc i64 %indvars.iv241 to i32
+  %27 = trunc nuw nsw i64 %indvars.iv241 to i32
+  %28 = trunc nuw nsw i64 %indvars.iv241 to i32
   br label %for.body28
 
 for.body28:                                       ; preds = %for.body28.lr.ph, %for.inc63
@@ -2713,7 +2713,7 @@ while.body.i:                                     ; preds = %land.rhs.i
   br i1 %exitcond.not.i, label %for.inc.i, label %land.rhs.i, !llvm.loop !20
 
 land.lhs.true.i:                                  ; preds = %land.rhs.i
-  %36 = trunc i64 %indvars.iv.i55 to i32
+  %36 = trunc nsw i64 %indvars.iv.i55 to i32
   %sext.i = shl i64 %indvars.iv.i55, 32
   %idxprom.i21.i = ashr exact i64 %sext.i, 32
   %arrayidx.i22.i = getelementptr inbounds i32, ptr %31, i64 %idxprom.i21.i
@@ -2781,7 +2781,7 @@ while.body.i104:                                  ; preds = %land.rhs.i86
   br i1 %exitcond.not.i107, label %for.inc.i79, label %land.rhs.i86, !llvm.loop !20
 
 land.lhs.true.i90:                                ; preds = %land.rhs.i86
-  %50 = trunc i64 %indvars.iv.i87 to i32
+  %50 = trunc nsw i64 %indvars.iv.i87 to i32
   %sext.i91 = shl i64 %indvars.iv.i87, 32
   %idxprom.i21.i92 = ashr exact i64 %sext.i91, 32
   %arrayidx.i22.i93 = getelementptr inbounds i32, ptr %31, i64 %idxprom.i21.i92
@@ -2866,7 +2866,7 @@ while.body.i155:                                  ; preds = %land.rhs.i137
   br i1 %exitcond.not.i158, label %for.inc.i130, label %land.rhs.i137, !llvm.loop !20
 
 land.lhs.true.i141:                               ; preds = %land.rhs.i137
-  %68 = trunc i64 %indvars.iv.i138 to i32
+  %68 = trunc nsw i64 %indvars.iv.i138 to i32
   %sext.i142 = shl i64 %indvars.iv.i138, 32
   %idxprom.i21.i143 = ashr exact i64 %sext.i142, 32
   %arrayidx.i22.i144 = getelementptr inbounds i32, ptr %61, i64 %idxprom.i21.i143
@@ -2932,7 +2932,7 @@ while.body.i206:                                  ; preds = %land.rhs.i188
   br i1 %exitcond.not.i209, label %for.inc.i181, label %land.rhs.i188, !llvm.loop !20
 
 land.lhs.true.i192:                               ; preds = %land.rhs.i188
-  %82 = trunc i64 %indvars.iv.i189 to i32
+  %82 = trunc nsw i64 %indvars.iv.i189 to i32
   %sext.i193 = shl i64 %indvars.iv.i189, 32
   %idxprom.i21.i194 = ashr exact i64 %sext.i193, 32
   %arrayidx.i22.i195 = getelementptr inbounds i32, ptr %61, i64 %idxprom.i21.i194
@@ -2968,7 +2968,7 @@ for.inc.i181:                                     ; preds = %while.body.i206, %i
 
 _ZNK15btReducedVector3dotERKS_.exit210.loopexit:  ; preds = %for.inc.i181
   %conv59 = fpext float %ret.1.i183 to double
-  %92 = trunc i64 %indvars.iv238 to i32
+  %92 = trunc nuw nsw i64 %indvars.iv238 to i32
   %call60 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.5, i32 noundef %27, i32 noundef %92, double noundef %conv59)
   br label %for.inc63
 
@@ -3748,7 +3748,7 @@ for.body14.i:                                     ; preds = %for.cond10.preheade
 .noexc19:                                         ; preds = %for.body14.i
   %indvars.iv.next34.i = add nuw nsw i64 %indvars.iv33.i, 1
   %18 = load i32, ptr %m_size.i.i, align 4
-  %19 = trunc i64 %indvars.iv.next34.i to i32
+  %19 = trunc nuw i64 %indvars.iv.next34.i to i32
   %cmp13.i = icmp sgt i32 %18, %19
   br i1 %cmp13.i, label %for.body14.i, label %for.inc22.loopexit.i, !llvm.loop !30
 
@@ -4497,7 +4497,7 @@ for.body14:                                       ; preds = %for.cond10.preheade
   tail call void @_ZN10btSoftBody23defaultCollisionHandlerEPS_(ptr noundef nonnull align 8 dereferenceable(2064) %9, ptr noundef %10)
   %indvars.iv.next34 = add nuw nsw i64 %indvars.iv33, 1
   %11 = load i32, ptr %m_size.i, align 4
-  %12 = trunc i64 %indvars.iv.next34 to i32
+  %12 = trunc nuw i64 %indvars.iv.next34 to i32
   %cmp13 = icmp sgt i32 %11, %12
   br i1 %cmp13, label %for.body14, label %for.inc22.loopexit, !llvm.loop !30
 
@@ -5028,7 +5028,7 @@ for.inc203:                                       ; preds = %if.then194.for.inc2
   %148 = phi i32 [ %.pre313, %if.then194.for.inc203_crit_edge ], [ %139, %land.lhs.true ], [ %139, %land.lhs.true ], [ %139, %land.lhs.true ], [ %139, %for.body183 ], [ %139, %for.body183 ], [ %139, %for.body183 ]
   %149 = phi i32 [ %.pre313, %if.then194.for.inc203_crit_edge ], [ %140, %land.lhs.true ], [ %140, %land.lhs.true ], [ %140, %land.lhs.true ], [ %140, %for.body183 ], [ %140, %for.body183 ], [ %140, %for.body183 ]
   %indvars.iv.next302 = add nuw nsw i64 %indvars.iv301, 1
-  %150 = trunc i64 %indvars.iv.next302 to i32
+  %150 = trunc nuw i64 %indvars.iv.next302 to i32
   %cmp182 = icmp sgt i32 %149, %150
   br i1 %cmp182, label %for.body183, label %for.inc206.loopexit, !llvm.loop !45
 
@@ -5241,7 +5241,7 @@ _ZN20btAlignedObjectArrayIiE6resizeEiRKi.exit:    ; preds = %for.body8.i
 for.body:                                         ; preds = %_ZN20btAlignedObjectArrayIiE6resizeEiRKi.exit, %for.body
   %indvars.iv = phi i64 [ %indvars.iv.next, %for.body ], [ 0, %_ZN20btAlignedObjectArrayIiE6resizeEiRKi.exit ]
   %arrayidx.i = getelementptr inbounds i32, ptr %call.i.i.i.i73, i64 %indvars.iv
-  %1 = trunc i64 %indvars.iv to i32
+  %1 = trunc nuw nsw i64 %indvars.iv to i32
   store i32 %1, ptr %arrayidx.i, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %2 = load i32, ptr %m_size.i, align 4
@@ -7515,7 +7515,7 @@ for.inc:                                          ; preds = %for.body
   br i1 %cmp, label %for.body, label %if.end21, !llvm.loop !78
 
 if.then20:                                        ; preds = %if.then
-  %15 = trunc i64 %indvars.iv to i32
+  %15 = trunc nuw nsw i64 %indvars.iv to i32
   %16 = load i32, ptr %m_size.i, align 4
   %cmp.i = icmp sgt i32 %16, %15
   br i1 %cmp.i, label %if.then.i, label %if.end21
@@ -7636,7 +7636,7 @@ for.inc.i.i:                                      ; preds = %for.body.i.i
   br i1 %exitcond.not.i.i, label %_ZN20btAlignedObjectArrayIP10btSoftBodyE6removeERKS1_.exit, label %for.body.i.i, !llvm.loop !80
 
 _ZNK20btAlignedObjectArrayIP10btSoftBodyE16findLinearSearchERKS1_.exit.i: ; preds = %for.body.i.i
-  %11 = trunc i64 %indvars.iv.i.i to i32
+  %11 = trunc nuw nsw i64 %indvars.iv.i.i to i32
   %cmp.i.i = icmp sgt i32 %8, %11
   br i1 %cmp.i.i, label %if.then.i.i, label %_ZN20btAlignedObjectArrayIP10btSoftBodyE6removeERKS1_.exit
 
@@ -8832,7 +8832,7 @@ for.inc:                                          ; preds = %_Z24btGetConstraint
 
 for.end.split.loop.exit:                          ; preds = %_Z24btGetConstraintIslandId2PK17btTypedConstraint.exit
   %arrayidx11.le = getelementptr inbounds ptr, ptr %1, i64 %indvars.iv
-  %28 = trunc i64 %indvars.iv to i32
+  %28 = trunc nuw nsw i64 %indvars.iv to i32
   br label %for.end
 
 for.end:                                          ; preds = %for.cond.preheader, %for.end.split.loop.exit
@@ -8884,7 +8884,7 @@ _Z24btGetConstraintIslandId2PK17btTypedConstraint.exit51: ; preds = %for.body21,
   %inc28 = zext i1 %cmp26 to i32
   %spec.select = add nuw nsw i32 %numCurConstraints.0271, %inc28
   %indvars.iv.next296 = add nuw nsw i64 %indvars.iv295, 1
-  %37 = trunc i64 %indvars.iv.next296 to i32
+  %37 = trunc nuw i64 %indvars.iv.next296 to i32
   %cmp20 = icmp sgt i32 %0, %37
   br i1 %cmp20, label %for.body21, label %for.cond33.preheader, !llvm.loop !85
 
@@ -8907,7 +8907,7 @@ for.body35:                                       ; preds = %for.body35.lr.ph, %
   br i1 %cmp40, label %if.then41, label %for.inc46
 
 if.then41:                                        ; preds = %for.body35
-  %42 = trunc i64 %indvars.iv298 to i32
+  %42 = trunc nuw nsw i64 %indvars.iv298 to i32
   %43 = load ptr, ptr %m_multiBodySortedConstraints36, align 8
   %arrayidx44 = getelementptr inbounds ptr, ptr %43, i64 %indvars.iv298
   %.pre = load i32, ptr %m_numMultiBodyConstraints, align 8
@@ -8921,7 +8921,7 @@ for.inc46:                                        ; preds = %for.body35
   br i1 %cmp34, label %for.body35, label %for.end48.loopexit.loopexit, !llvm.loop !86
 
 for.end48.loopexit.loopexit:                      ; preds = %for.inc46
-  %46 = trunc i64 %indvars.iv.next299 to i32
+  %46 = trunc nuw nsw i64 %indvars.iv.next299 to i32
   br label %for.end48
 
 for.end48:                                        ; preds = %for.cond33.preheader, %for.end48.loopexit.loopexit, %if.then41
@@ -8974,7 +8974,7 @@ for.body52:                                       ; preds = %for.body52.lr.ph, %
   %spec.select42 = add nuw nsw i32 %numCurMultiBodyConstraints.0279, %inc59
   %indvars.iv.next302 = add nuw nsw i64 %indvars.iv301, 1
   %53 = load i32, ptr %m_numMultiBodyConstraints, align 8
-  %54 = trunc i64 %indvars.iv.next302 to i32
+  %54 = trunc nuw i64 %indvars.iv.next302 to i32
   %cmp51 = icmp sgt i32 %53, %54
   br i1 %cmp51, label %for.body52, label %for.cond64.preheader, !llvm.loop !87
 
@@ -12110,9 +12110,9 @@ while.cond5:                                      ; preds = %while.cond5, %while
   br i1 %cmp.i41, label %while.cond5, label %while.end11, !llvm.loop !120
 
 while.end11:                                      ; preds = %while.cond5
-  %16 = trunc i64 %indvars.iv to i32
-  %17 = trunc i64 %indvars.iv43 to i32
-  %cmp.not = icmp sgt i32 %16, %17
+  %16 = trunc nsw i64 %indvars.iv to i32
+  %17 = trunc nsw i64 %indvars.iv43 to i32
+  %cmp.not = icmp sgt i64 %indvars.iv, %indvars.iv43
   br i1 %cmp.not, label %do.cond, label %if.then
 
 if.then:                                          ; preds = %while.end11

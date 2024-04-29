@@ -896,7 +896,7 @@ for.body.i.i.i83:                                 ; preds = %for.body.i.i.i83, %
   br i1 %exitcond.not.i.i.i88, label %if.then.i7.i.i73, label %for.body.i.i.i83, !llvm.loop !7
 
 if.then.i7.i.i73:                                 ; preds = %for.body.i.i.i83, %_ZN20btAlignedObjectArrayIPK10btDbvtNodeE8allocateEi.exit.i.i67
-  %tobool2.i.i.i75 = trunc i8 %0 to i1
+  %tobool2.i.i.i75 = trunc nuw i8 %0 to i1
   br i1 %tobool2.i.i.i75, label %if.then3.i.i.i79, label %_ZN20btAlignedObjectArrayIPK10btDbvtNodeE10deallocateEv.exit.i.i76
 
 if.then3.i.i.i79:                                 ; preds = %if.then.i7.i.i73
@@ -971,7 +971,7 @@ _ZNK20btAlignedObjectArrayIPK10btDbvtNodeE4copyEiiPS2_.exit.i.i115: ; preds = %_
   br i1 %tobool.not.i6.i.i117, label %_ZN20btAlignedObjectArrayIPK10btDbvtNodeE10deallocateEv.exit.i.i121, label %if.then.i7.i.i118
 
 if.then.i7.i.i118:                                ; preds = %for.body.i.i.i128, %_ZNK20btAlignedObjectArrayIPK10btDbvtNodeE4copyEiiPS2_.exit.i.i115
-  %tobool2.i.i.i120 = trunc i8 %15 to i1
+  %tobool2.i.i.i120 = trunc nuw i8 %15 to i1
   br i1 %tobool2.i.i.i120, label %if.then3.i.i.i124, label %_ZN20btAlignedObjectArrayIPK10btDbvtNodeE10deallocateEv.exit.i.i121
 
 if.then3.i.i.i124:                                ; preds = %if.then.i7.i.i118
@@ -1022,7 +1022,7 @@ do.end:                                           ; preds = %do.cond
   br i1 %tobool.not.i.i.i140, label %if.end22, label %if.then.i.i.i141
 
 if.then.i.i.i141:                                 ; preds = %do.end
-  %tobool2.i.i.i143 = trunc i8 %27 to i1
+  %tobool2.i.i.i143 = trunc nuw i8 %27 to i1
   br i1 %tobool2.i.i.i143, label %if.then3.i.i.i147, label %if.end22
 
 if.then3.i.i.i147:                                ; preds = %if.then.i.i.i141
@@ -3257,7 +3257,7 @@ land.lhs.true33.i:                                ; preds = %lor.lhs.false.i
   br i1 %cmp36.i, label %land.rhs.i, label %while.cond5.preheader
 
 while.cond5.preheader:                            ; preds = %_ZNK29btBroadphasePairSortPredicateclERK16btBroadphasePairS2_.exit, %land.rhs.i, %land.lhs.true33.i
-  %9 = trunc i64 %indvars.iv to i32
+  %9 = trunc nsw i64 %indvars.iv to i32
   %10 = sext i32 %j.0 to i64
   br label %while.cond5
 
@@ -3346,8 +3346,8 @@ while.body10:                                     ; preds = %cond.end24.i44, %la
   br label %while.cond5, !llvm.loop !23
 
 while.end11:                                      ; preds = %land.lhs.true33.i53, %land.rhs.i55, %_ZNK29btBroadphasePairSortPredicateclERK16btBroadphasePairS2_.exit59
-  %19 = trunc i64 %indvars.iv65 to i32
-  %cmp.not = icmp sgt i32 %9, %19
+  %19 = trunc nsw i64 %indvars.iv65 to i32
+  %cmp.not = icmp sgt i64 %indvars.iv, %indvars.iv65
   br i1 %cmp.not, label %do.cond, label %if.then
 
 if.then:                                          ; preds = %while.end11

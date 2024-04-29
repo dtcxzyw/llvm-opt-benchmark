@@ -3309,10 +3309,10 @@ for.cond:                                         ; preds = %_ZNK3fmt3v106detail
   %9 = add nsw i64 %indvars.iv, -1
   %10 = trunc nuw i64 %indvars.iv45 to i32
   %cmp12.not.not = icmp slt i32 %spec.store.select, %10
-  %11 = trunc nuw i64 %indvars.iv to i32
   br i1 %cmp12.not.not, label %_ZNK3fmt3v106detail6bigintixEi.exit, label %for.end
 
 _ZNK3fmt3v106detail6bigintixEi.exit:              ; preds = %for.cond
+  %11 = trunc nuw i64 %indvars.iv to i32
   %cmp.i.i24 = icmp sgt i32 %11, 0
   br i1 %cmp.i.i24, label %_ZNK3fmt3v106detail6bigintixEi.exit32, label %if.then.i.i25
 
@@ -3345,11 +3345,12 @@ if.then16:                                        ; preds = %_ZNK3fmt3v106detail
   br label %return
 
 for.end:                                          ; preds = %for.cond
-  %cmp21.not = icmp eq i32 %10, %11
+  %cmp21.not = icmp eq i64 %indvars.iv45, %indvars.iv
   br i1 %cmp21.not, label %return, label %if.then22
 
 if.then22:                                        ; preds = %for.end
-  %cmp23 = icmp sgt i32 %10, %11
+  %15 = trunc nuw i64 %indvars.iv to i32
+  %cmp23 = icmp sgt i32 %10, %15
   %cond24 = select i1 %cmp23, i32 1, i32 -1
   br label %return
 

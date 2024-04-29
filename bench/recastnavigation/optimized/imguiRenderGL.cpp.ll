@@ -201,7 +201,7 @@ _ZL13stbtt__isfontPKh.exit.thread18:              ; preds = %16, %23, %19, %62, 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define dso_local noundef i32 @stbtt_InitFont(ptr nocapture noundef writeonly %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #1 {
+define dso_local range(i32 0, 2) i32 @stbtt_InitFont(ptr nocapture noundef writeonly %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #1 {
   %4 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr %1, ptr %4, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 16
@@ -1281,14 +1281,14 @@ define dso_local i32 @stbtt_FindGlyphIndex(ptr nocapture noundef readonly %0, i3
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local i32 @stbtt_GetCodepointShape(ptr nocapture noundef readonly %0, i32 noundef %1, ptr nocapture noundef writeonly %2) local_unnamed_addr #3 {
+define dso_local range(i32 -2147483647, -2147483648) i32 @stbtt_GetCodepointShape(ptr nocapture noundef readonly %0, i32 noundef %1, ptr nocapture noundef writeonly %2) local_unnamed_addr #3 {
   %4 = tail call i32 @stbtt_FindGlyphIndex(ptr noundef %0, i32 noundef %1)
-  %5 = tail call i32 @stbtt_GetGlyphShape(ptr noundef %0, i32 noundef %4, ptr noundef %2), !range !10
+  %5 = tail call i32 @stbtt_GetGlyphShape(ptr noundef %0, i32 noundef %4, ptr noundef %2)
   ret i32 %5
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local i32 @stbtt_GetGlyphShape(ptr nocapture noundef readonly %0, i32 noundef %1, ptr nocapture noundef writeonly %2) local_unnamed_addr #3 {
+define dso_local range(i32 -2147483647, -2147483648) i32 @stbtt_GetGlyphShape(ptr nocapture noundef readonly %0, i32 noundef %1, ptr nocapture noundef writeonly %2) local_unnamed_addr #3 {
   %4 = alloca ptr, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 8
   %6 = load ptr, ptr %5, align 8
@@ -1477,17 +1477,17 @@ _ZL20stbtt__GetGlyfOffsetPK14stbtt_fontinfoi.exit: ; preds = %77
   store i8 %.1276, ptr %130, align 2
   %indvars.iv.next436 = add nuw nsw i64 %indvars.iv435, 1
   %exitcond438.not = icmp eq i64 %indvars.iv.next436, %wide.trip.count437
-  br i1 %exitcond438.not, label %.preheader397.preheader, label %117, !llvm.loop !11
+  br i1 %exitcond438.not, label %.preheader397.preheader, label %117, !llvm.loop !10
 
 .preheader397.preheader:                          ; preds = %128
-  %invariant.gep = getelementptr %struct.stbtt_vertex, ptr %105, i64 %114
+  %invariant.gep = getelementptr inbounds %struct.stbtt_vertex, ptr %105, i64 %114
   br label %.preheader397
 
 .preheader397:                                    ; preds = %.preheader397.preheader, %155
   %indvars.iv439 = phi i64 [ 0, %.preheader397.preheader ], [ %indvars.iv.next440, %155 ]
   %.2298410 = phi ptr [ %.1297, %.preheader397.preheader ], [ %.3299, %155 ]
   %.0320409 = phi i16 [ 0, %.preheader397.preheader ], [ %.1321, %155 ]
-  %gep = getelementptr %struct.stbtt_vertex, ptr %invariant.gep, i64 %indvars.iv439
+  %gep = getelementptr inbounds %struct.stbtt_vertex, ptr %invariant.gep, i64 %indvars.iv439
   %131 = getelementptr inbounds i8, ptr %gep, i64 8
   %132 = load i8, ptr %131, align 2
   %133 = zext i8 %132 to i32
@@ -1529,17 +1529,17 @@ _ZL20stbtt__GetGlyfOffsetPK14stbtt_fontinfoi.exit: ; preds = %77
   store i16 %.1321, ptr %gep, align 2
   %indvars.iv.next440 = add nuw nsw i64 %indvars.iv439, 1
   %exitcond442.not = icmp eq i64 %indvars.iv.next440, %wide.trip.count437
-  br i1 %exitcond442.not, label %.preheader396.preheader, label %.preheader397, !llvm.loop !12
+  br i1 %exitcond442.not, label %.preheader396.preheader, label %.preheader397, !llvm.loop !11
 
 .preheader396.preheader:                          ; preds = %155
-  %invariant.gep448 = getelementptr %struct.stbtt_vertex, ptr %105, i64 %114
+  %invariant.gep448 = getelementptr inbounds %struct.stbtt_vertex, ptr %105, i64 %114
   br label %.preheader396
 
 .preheader396:                                    ; preds = %.preheader396.preheader, %180
   %indvars.iv443 = phi i64 [ 0, %.preheader396.preheader ], [ %indvars.iv.next444, %180 ]
   %.4300413 = phi ptr [ %.3299, %.preheader396.preheader ], [ %.5301, %180 ]
   %.0318412 = phi i16 [ 0, %.preheader396.preheader ], [ %.1319, %180 ]
-  %gep449 = getelementptr %struct.stbtt_vertex, ptr %invariant.gep448, i64 %indvars.iv443
+  %gep449 = getelementptr inbounds %struct.stbtt_vertex, ptr %invariant.gep448, i64 %indvars.iv443
   %156 = getelementptr inbounds i8, ptr %gep449, i64 8
   %157 = load i8, ptr %156, align 2
   %158 = zext i8 %157 to i32
@@ -1582,7 +1582,7 @@ _ZL20stbtt__GetGlyfOffsetPK14stbtt_fontinfoi.exit: ; preds = %77
   store i16 %.1319, ptr %181, align 2
   %indvars.iv.next444 = add nuw nsw i64 %indvars.iv443, 1
   %exitcond446.not = icmp eq i64 %indvars.iv.next444, %wide.trip.count437
-  br i1 %exitcond446.not, label %.preheader, label %.preheader396, !llvm.loop !13
+  br i1 %exitcond446.not, label %.preheader, label %.preheader396, !llvm.loop !12
 
 .preheader:                                       ; preds = %180, %314
   %.0272432 = phi i32 [ %.4, %314 ], [ 0, %180 ]
@@ -1848,7 +1848,7 @@ _ZL18stbtt__close_shapeP12stbtt_vertexiiiiiiiii.exit: ; preds = %212, %229, %233
   %.4 = phi i32 [ %263, %262 ], [ %.3, %312 ], [ %286, %285 ], [ %.0272432, %284 ]
   %315 = add nsw i32 %.5285, 1
   %.not344.not = icmp slt i32 %.5285, %101
-  br i1 %.not344.not, label %.preheader, label %316, !llvm.loop !14
+  br i1 %.not344.not, label %.preheader, label %316, !llvm.loop !13
 
 316:                                              ; preds = %314
   %.not.i387 = icmp eq i32 %.1323, 0
@@ -2100,7 +2100,7 @@ _ZL18stbtt__close_shapeP12stbtt_vertexiiiiiiiii.exit393: ; preds = %334, %351, %
   %468 = tail call <2 x float> @llvm.fmuladd.v2f32(<2 x float> %465, <2 x float> %465, <2 x float> %467)
   %469 = tail call <2 x float> @llvm.sqrt.v2f32(<2 x float> %468)
   %470 = shufflevector <2 x float> %469, <2 x float> poison, <4 x i32> <i32 0, i32 1, i32 0, i32 1>
-  %471 = call i32 @stbtt_GetGlyphShape(ptr noundef %0, i32 noundef %371, ptr noundef nonnull %4), !range !10
+  %471 = call i32 @stbtt_GetGlyphShape(ptr noundef %0, i32 noundef %371, ptr noundef nonnull %4)
   %472 = icmp sgt i32 %471, 0
   br i1 %472, label %.preheader398, label %515
 
@@ -2137,7 +2137,7 @@ _ZL18stbtt__close_shapeP12stbtt_vertexiiiiiiiii.exit393: ; preds = %334, %351, %
   store <4 x i16> %497, ptr %477, align 2
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %498, label %476, !llvm.loop !15
+  br i1 %exitcond.not, label %498, label %476, !llvm.loop !14
 
 498:                                              ; preds = %476
   %499 = add nuw nsw i32 %471, %.5403
@@ -2189,7 +2189,7 @@ _ZL18stbtt__close_shapeP12stbtt_vertexiiiiiiiii.exit393: ; preds = %334, %351, %
   %.1 = phi ptr [ %502, %514 ], [ %.0271404, %464 ]
   %516 = and i32 %365, 32
   %.not = icmp eq i32 %516, 0
-  br i1 %.not, label %.loopexit, label %363, !llvm.loop !16
+  br i1 %.not, label %.loopexit, label %363, !llvm.loop !15
 
 .loopexit:                                        ; preds = %515, %359, %_ZL18stbtt__close_shapeP12stbtt_vertexiiiiiiiii.exit393
   %.7 = phi i32 [ %.1.i392, %_ZL18stbtt__close_shapeP12stbtt_vertexiiiiiiiii.exit393 ], [ 0, %359 ], [ %.6, %515 ]
@@ -2203,7 +2203,7 @@ _ZL18stbtt__close_shapeP12stbtt_vertexiiiiiiiii.exit393: ; preds = %334, %351, %
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define dso_local noundef i32 @stbtt_GetGlyphBox(ptr nocapture noundef readonly %0, i32 noundef %1, ptr noundef writeonly %2, ptr noundef writeonly %3, ptr noundef writeonly %4, ptr noundef writeonly %5) local_unnamed_addr #4 {
+define dso_local range(i32 0, 2) i32 @stbtt_GetGlyphBox(ptr nocapture noundef readonly %0, i32 noundef %1, ptr noundef writeonly %2, ptr noundef writeonly %3, ptr noundef writeonly %4, ptr noundef writeonly %5) local_unnamed_addr #4 {
   %7 = getelementptr inbounds i8, ptr %0, i64 20
   %8 = load i32, ptr %7, align 4
   %.not.i = icmp sgt i32 %8, %1
@@ -2385,14 +2385,14 @@ _ZL20stbtt__GetGlyfOffsetPK14stbtt_fontinfoi.exit.thread: ; preds = %79, %9, %6,
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define dso_local noundef i32 @stbtt_GetCodepointBox(ptr nocapture noundef readonly %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) local_unnamed_addr #4 {
+define dso_local range(i32 0, 2) i32 @stbtt_GetCodepointBox(ptr nocapture noundef readonly %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) local_unnamed_addr #4 {
   %7 = tail call i32 @stbtt_FindGlyphIndex(ptr noundef %0, i32 noundef %1)
-  %8 = tail call i32 @stbtt_GetGlyphBox(ptr noundef %0, i32 noundef %7, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5), !range !17
+  %8 = tail call i32 @stbtt_GetGlyphBox(ptr noundef %0, i32 noundef %7, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5)
   ret i32 %8
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define dso_local i32 @stbtt_IsGlyphEmpty(ptr nocapture noundef readonly %0, i32 noundef %1) local_unnamed_addr #2 {
+define dso_local range(i32 0, 2) i32 @stbtt_IsGlyphEmpty(ptr nocapture noundef readonly %0, i32 noundef %1) local_unnamed_addr #2 {
   %3 = getelementptr inbounds i8, ptr %0, i64 20
   %4 = load i32, ptr %3, align 4
   %.not.i = icmp sgt i32 %4, %1
@@ -2646,7 +2646,7 @@ define dso_local void @stbtt_GetGlyphHMetrics(ptr nocapture noundef readonly %0,
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define dso_local i32 @stbtt_GetGlyphKernAdvance(ptr nocapture noundef readonly %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #2 {
+define dso_local range(i32 -32768, 32768) i32 @stbtt_GetGlyphKernAdvance(ptr nocapture noundef readonly %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #2 {
   %4 = getelementptr inbounds i8, ptr %0, i64 8
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr inbounds i8, ptr %0, i64 44
@@ -2756,7 +2756,7 @@ define dso_local i32 @stbtt_GetGlyphKernAdvance(ptr nocapture noundef readonly %
   %.124 = phi i32 [ %.02337, %60 ], [ %65, %64 ]
   %.1 = phi i32 [ %61, %60 ], [ %.02238, %64 ]
   %.not28 = icmp sgt i32 %.124, %.1
-  br i1 %.not28, label %.loopexit, label %36, !llvm.loop !18
+  br i1 %.not28, label %.loopexit, label %36, !llvm.loop !16
 
 .loopexit:                                        ; preds = %75, %25, %18, %10, %3, %66
   %.0 = phi i32 [ %74, %66 ], [ 0, %3 ], [ 0, %10 ], [ 0, %18 ], [ 0, %25 ], [ 0, %75 ]
@@ -2764,7 +2764,7 @@ define dso_local i32 @stbtt_GetGlyphKernAdvance(ptr nocapture noundef readonly %
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define dso_local i32 @stbtt_GetCodepointKernAdvance(ptr nocapture noundef readonly %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #2 {
+define dso_local range(i32 -32768, 32768) i32 @stbtt_GetCodepointKernAdvance(ptr nocapture noundef readonly %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #2 {
   %4 = getelementptr inbounds i8, ptr %0, i64 44
   %5 = load i32, ptr %4, align 4
   %.not = icmp eq i32 %5, 0
@@ -2876,7 +2876,7 @@ define dso_local i32 @stbtt_GetCodepointKernAdvance(ptr nocapture noundef readon
   %.124.i = phi i32 [ %.02337.i, %62 ], [ %67, %66 ]
   %.1.i = phi i32 [ %63, %62 ], [ %.02238.i, %66 ]
   %.not28.i = icmp sgt i32 %.124.i, %.1.i
-  br i1 %.not28.i, label %stbtt_GetGlyphKernAdvance.exit, label %38, !llvm.loop !18
+  br i1 %.not28.i, label %stbtt_GetGlyphKernAdvance.exit, label %38, !llvm.loop !16
 
 stbtt_GetGlyphKernAdvance.exit:                   ; preds = %77, %68, %27, %20, %6, %3
   %.0 = phi i32 [ 0, %3 ], [ %76, %68 ], [ 0, %6 ], [ 0, %20 ], [ 0, %27 ], [ 0, %77 ]
@@ -3207,7 +3207,7 @@ define dso_local void @stbtt_GetGlyphBitmapBoxSubpixel(ptr nocapture noundef rea
   %14 = alloca i32, align 4
   store i32 0, ptr %11, align 4
   store i32 0, ptr %12, align 4
-  %15 = call i32 @stbtt_GetGlyphBox(ptr noundef %0, i32 noundef %1, ptr noundef nonnull %11, ptr noundef nonnull %12, ptr noundef nonnull %13, ptr noundef nonnull %14), !range !17
+  %15 = call i32 @stbtt_GetGlyphBox(ptr noundef %0, i32 noundef %1, ptr noundef nonnull %11, ptr noundef nonnull %12, ptr noundef nonnull %13, ptr noundef nonnull %14)
   %.not = icmp eq i32 %15, 0
   %.not31 = icmp eq ptr %6, null
   br i1 %.not, label %16, label %23
@@ -3312,7 +3312,7 @@ define dso_local void @stbtt_GetGlyphBitmapBox(ptr nocapture noundef readonly %0
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %12)
   store i32 0, ptr %9, align 4
   store i32 0, ptr %10, align 4
-  %13 = call i32 @stbtt_GetGlyphBox(ptr noundef %0, i32 noundef %1, ptr noundef nonnull %9, ptr noundef nonnull %10, ptr noundef nonnull %11, ptr noundef nonnull %12), !range !17
+  %13 = call i32 @stbtt_GetGlyphBox(ptr noundef %0, i32 noundef %1, ptr noundef nonnull %9, ptr noundef nonnull %10, ptr noundef nonnull %11, ptr noundef nonnull %12)
   %.not.i = icmp eq i32 %13, 0
   %.not31.i = icmp eq ptr %4, null
   br i1 %.not.i, label %14, label %21
@@ -3422,7 +3422,7 @@ define dso_local void @stbtt_GetCodepointBitmapBoxSubpixel(ptr nocapture noundef
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %14)
   store i32 0, ptr %11, align 4
   store i32 0, ptr %12, align 4
-  %16 = call i32 @stbtt_GetGlyphBox(ptr noundef %0, i32 noundef %15, ptr noundef nonnull %11, ptr noundef nonnull %12, ptr noundef nonnull %13, ptr noundef nonnull %14), !range !17
+  %16 = call i32 @stbtt_GetGlyphBox(ptr noundef %0, i32 noundef %15, ptr noundef nonnull %11, ptr noundef nonnull %12, ptr noundef nonnull %13, ptr noundef nonnull %14)
   %.not.i = icmp eq i32 %16, 0
   %.not31.i = icmp eq ptr %6, null
   br i1 %.not.i, label %17, label %24
@@ -3553,7 +3553,7 @@ define dso_local void @stbtt_Rasterize(ptr nocapture noundef readonly %0, float 
   %spec.select.i = add nuw nsw i32 %.0763.i, %24
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !19
+  br i1 %exitcond.not.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !17
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.i
   %25 = icmp eq i32 %spec.select.i, 0
@@ -3666,7 +3666,7 @@ _ZL16stbtt__add_pointP12stbtt__pointiff.exit.us.i: ; preds = %79, %74, %65, %60,
   %82 = phi <2 x float> [ %40, %39 ], [ %59, %44 ], [ %77, %74 ], [ %77, %79 ], [ %62, %60 ], [ %62, %65 ]
   %indvars.iv.next20.i = add nuw nsw i64 %indvars.iv19.i, 1
   %exitcond23.not.i = icmp eq i64 %indvars.iv.next20.i, %wide.trip.count.i
-  br i1 %exitcond23.not.i, label %._crit_edge11.us.i, label %39, !llvm.loop !20
+  br i1 %exitcond23.not.i, label %._crit_edge11.us.i, label %39, !llvm.loop !18
 
 ._crit_edge11.us.i:                               ; preds = %_ZL16stbtt__add_pointP12stbtt__pointiff.exit.us.i
   %83 = load i32, ptr %15, align 4
@@ -3674,7 +3674,7 @@ _ZL16stbtt__add_pointP12stbtt__pointiff.exit.us.i: ; preds = %79, %74, %65, %60,
   %85 = sext i32 %.3.us.i to i64
   %86 = getelementptr inbounds i32, ptr %29, i64 %85
   store i32 %84, ptr %86, align 4
-  br i1 %33, label %.preheader.split.us.i, label %_ZL19stbtt_FlattenCurvesP12stbtt_vertexifPPiS1_Pv.exit, !llvm.loop !21
+  br i1 %33, label %.preheader.split.us.i, label %_ZL19stbtt_FlattenCurvesP12stbtt_vertexifPPiS1_Pv.exit, !llvm.loop !19
 
 .split.us.i:                                      ; preds = %34
   tail call void @free(ptr noundef nonnull %29) #29
@@ -3702,7 +3702,7 @@ _ZL19stbtt_FlattenCurvesP12stbtt_vertexifPPiS1_Pv.exit: ; preds = %._crit_edge11
   %91 = add nsw i32 %90, %.0854.i
   %indvars.iv.next.i26 = add nuw nsw i64 %indvars.iv.i25, 1
   %exitcond.not.i27 = icmp eq i64 %indvars.iv.next.i26, %27
-  br i1 %exitcond.not.i27, label %._crit_edge.i28, label %.lr.ph.i24, !llvm.loop !22
+  br i1 %exitcond.not.i27, label %._crit_edge.i28, label %.lr.ph.i24, !llvm.loop !20
 
 ._crit_edge.i28:                                  ; preds = %.lr.ph.i24
   %92 = add nsw i32 %91, 1
@@ -3736,7 +3736,7 @@ _ZL19stbtt_FlattenCurvesP12stbtt_vertexifPPiS1_Pv.exit: ; preds = %._crit_edge11
   %.2.lcssa.us.i = phi i32 [ %.114.us.i, %.lr.ph15.split.us.i ], [ %.3.us.us.i, %.lr.ph9.us._crit_edge.i ]
   %indvars.iv.next41.i = add nuw nsw i64 %indvars.iv40.i, 1
   %exitcond44.not.i = icmp eq i64 %indvars.iv.next41.i, %27
-  br i1 %exitcond44.not.i, label %._crit_edge16.i, label %.lr.ph15.split.us.i, !llvm.loop !23
+  br i1 %exitcond44.not.i, label %._crit_edge16.i, label %.lr.ph15.split.us.i, !llvm.loop !21
 
 .lr.ph9.us.i:                                     ; preds = %.lr.ph9.us._crit_edge.i, %.lr.ph9.us.preheader.i
   %indvars.iv35.i = phi i64 [ 0, %.lr.ph9.us.preheader.i ], [ %indvars.iv.next36.i, %.lr.ph9.us._crit_edge.i ]
@@ -3788,7 +3788,7 @@ _ZL19stbtt_FlattenCurvesP12stbtt_vertexifPPiS1_Pv.exit: ; preds = %._crit_edge11
   %.pre-phi50.i = trunc i64 %indvars.iv35.i to i32
   %indvars.iv.next36.i = add nuw nsw i64 %indvars.iv35.i, 1
   %exitcond39.not.i = icmp eq i64 %indvars.iv.next36.i, %wide.trip.count38.i
-  br i1 %exitcond39.not.i, label %._crit_edge10.split.us.us.i, label %.lr.ph9.us.i, !llvm.loop !24
+  br i1 %exitcond39.not.i, label %._crit_edge10.split.us.us.i, label %.lr.ph9.us.i, !llvm.loop !22
 
 .lr.ph15.split.i:                                 ; preds = %.lr.ph15.i, %._crit_edge10.split.i
   %indvars.iv30.i = phi i64 [ %indvars.iv.next31.i, %._crit_edge10.split.i ], [ 0, %.lr.ph15.i ]
@@ -3857,13 +3857,13 @@ _ZL19stbtt_FlattenCurvesP12stbtt_vertexifPPiS1_Pv.exit: ; preds = %._crit_edge11
   %.pre-phi54.i = trunc i64 %indvars.iv25.i to i32
   %indvars.iv.next26.i = add nuw nsw i64 %indvars.iv25.i, 1
   %exitcond29.not.i = icmp eq i64 %indvars.iv.next26.i, %wide.trip.count28.i
-  br i1 %exitcond29.not.i, label %._crit_edge10.split.i, label %.lr.ph9.i, !llvm.loop !24
+  br i1 %exitcond29.not.i, label %._crit_edge10.split.i, label %.lr.ph9.i, !llvm.loop !22
 
 ._crit_edge10.split.i:                            ; preds = %.lr.ph9._crit_edge.i, %.lr.ph15.split.i
   %.2.lcssa.i = phi i32 [ %.114.i, %.lr.ph15.split.i ], [ %.3.i, %.lr.ph9._crit_edge.i ]
   %indvars.iv.next31.i = add nuw nsw i64 %indvars.iv30.i, 1
   %exitcond34.not.i = icmp eq i64 %indvars.iv.next31.i, %27
-  br i1 %exitcond34.not.i, label %._crit_edge16.i, label %.lr.ph15.split.i, !llvm.loop !23
+  br i1 %exitcond34.not.i, label %._crit_edge16.i, label %.lr.ph15.split.i, !llvm.loop !21
 
 ._crit_edge16.i:                                  ; preds = %._crit_edge10.split.i, %._crit_edge10.split.us.us.i
   %.1.lcssa.i = phi i32 [ %.2.lcssa.us.i, %._crit_edge10.split.us.us.i ], [ %.2.lcssa.i, %._crit_edge10.split.i ]
@@ -3898,7 +3898,7 @@ _ZL19stbtt_FlattenCurvesP12stbtt_vertexifPPiS1_Pv.exit: ; preds = %._crit_edge11
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %170, ptr noundef nonnull align 4 dereferenceable(20) %175, i64 20, i1 false)
   %indvars.iv.next28.i.i.i = add nsw i64 %indvars.iv27.i.i.i, -1
   %176 = icmp sgt i64 %indvars.iv27.i.i.i, 1
-  br i1 %176, label %169, label %.split.loop.exit31.i.i.i, !llvm.loop !25
+  br i1 %176, label %169, label %.split.loop.exit31.i.i.i, !llvm.loop !23
 
 .split.loop.exit.i.i.i:                           ; preds = %169
   %177 = trunc nuw i64 %indvars.iv27.i.i.i to i32
@@ -3921,7 +3921,7 @@ _ZL19stbtt_FlattenCurvesP12stbtt_vertexifPPiS1_Pv.exit: ; preds = %._crit_edge11
 182:                                              ; preds = %179, %.split.loop.exit31.i.i.i
   %indvars.iv.next.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i, 1
   %exitcond.not.i.i.i = icmp eq i64 %indvars.iv.next.i.i.i, %wide.trip.count.i.i.i
-  br i1 %exitcond.not.i.i.i, label %_ZL17stbtt__sort_edgesP11stbtt__edgei.exit.i, label %.lr.ph.i.i.i, !llvm.loop !26
+  br i1 %exitcond.not.i.i.i, label %_ZL17stbtt__sort_edgesP11stbtt__edgei.exit.i, label %.lr.ph.i.i.i, !llvm.loop !24
 
 _ZL17stbtt__sort_edgesP11stbtt__edgei.exit.i:     ; preds = %182, %._crit_edge16.i
   call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %.sroa.3.i.i.i)
@@ -4012,7 +4012,7 @@ _ZL17stbtt__sort_edgesP11stbtt__edgei.exit.i:     ; preds = %182, %._crit_edge16
   %.176.i.i = phi ptr [ %218, %.lr.ph.i.i ], [ %.07510.i.i, %222 ]
   %226 = load ptr, ptr %.176.i.i, align 8
   %.not84.i.i = icmp eq ptr %226, null
-  br i1 %.not84.i.i, label %.preheader7.i.i, label %.lr.ph.i.i, !llvm.loop !27
+  br i1 %.not84.i.i, label %.preheader7.i.i, label %.lr.ph.i.i, !llvm.loop !25
 
 .lr.ph15.i.i:                                     ; preds = %.preheader7.i.i, %_ZL17stbtt__new_activeP12stbtt__hheapP11stbtt__edgeifPv.exit.thread.i.i
   %227 = phi float [ %273, %_ZL17stbtt__new_activeP12stbtt__hheapP11stbtt__edgeifPv.exit.thread.i.i ], [ %216, %.preheader7.i.i ]
@@ -4111,7 +4111,7 @@ _ZL17stbtt__new_activeP12stbtt__hheapP11stbtt__edgeifPv.exit.thread.i.i: ; preds
   %272 = getelementptr inbounds i8, ptr %.114.i.i, i64 24
   %273 = load float, ptr %272, align 4
   %274 = fcmp ugt float %273, %208
-  br i1 %274, label %._crit_edge.i.i, label %.lr.ph15.i.i, !llvm.loop !28
+  br i1 %274, label %._crit_edge.i.i, label %.lr.ph15.i.i, !llvm.loop !26
 
 ._crit_edge.i.i:                                  ; preds = %_ZL17stbtt__new_activeP12stbtt__hheapP11stbtt__edgeifPv.exit.thread.i.i, %.preheader7.i.i
   %.sroa.5.3.lcssa.i.i = phi ptr [ %.sroa.5.1.lcssa.i.i, %.preheader7.i.i ], [ %.sroa.5.6.i.i, %_ZL17stbtt__new_activeP12stbtt__hheapP11stbtt__edgeifPv.exit.thread.i.i ]
@@ -4516,7 +4516,7 @@ _ZL17stbtt__new_activeP12stbtt__hheapP11stbtt__edgeifPv.exit.thread.i.i: ; preds
   %indvars.iv.next462.i.i.i = add nsw i64 %indvars.iv461.i.i.i, 1
   %lftr.wideiv.i.i.i = trunc i64 %indvars.iv.next462.i.i.i to i32
   %exitcond464.not.i.i.i = icmp eq i32 %.pre-phi465.i.i.i, %lftr.wideiv.i.i.i
-  br i1 %exitcond464.not.i.i.i, label %._crit_edge.i.i.i, label %523, !llvm.loop !29
+  br i1 %exitcond464.not.i.i.i, label %._crit_edge.i.i.i, label %523, !llvm.loop !27
 
 ._crit_edge.i.i.i:                                ; preds = %523, %501
   %.0295.lcssa.i.i.i = phi float [ %509, %501 ], [ %528, %523 ]
@@ -5782,12 +5782,12 @@ _ZL26stbtt__handle_clipped_edgePfiP18stbtt__active_edgeffff.exit435.i.i.i: ; pre
 
 _ZL26stbtt__handle_clipped_edgePfiP18stbtt__active_edgeffff.exit365.i.i.i: ; preds = %1294, %1291, %1285, %1265, %1262, %1261, %1249, %1246, %1240, %1216, %1213, %_ZL26stbtt__handle_clipped_edgePfiP18stbtt__active_edgeffff.exit435.i.i.i, %1149, %1146, %1140, %1116, %1113, %_ZL26stbtt__handle_clipped_edgePfiP18stbtt__active_edgeffff.exit421.i.i.i, %1049, %1046, %1040, %1016, %1013, %_ZL26stbtt__handle_clipped_edgePfiP18stbtt__active_edgeffff.exit407.i.i.i, %949, %946, %940, %916, %913, %_ZL26stbtt__handle_clipped_edgePfiP18stbtt__active_edgeffff.exit393.i.i.i, %849, %846, %840, %816, %813, %_ZL26stbtt__handle_clipped_edgePfiP18stbtt__active_edgeffff.exit379.i.i.i, %699, %696, %690, %666, %663, %_ZL26stbtt__handle_clipped_edgePfiP18stbtt__active_edgeffff.exit358.i.i.i
   %exitcond.not.i.i97.i = icmp eq i64 %indvars.iv.next.i.i96.i, %wide.trip.count.i.i93.i
-  br i1 %exitcond.not.i.i97.i, label %_ZL26stbtt__handle_clipped_edgePfiP18stbtt__active_edgeffff.exit337.i.i.i, label %551, !llvm.loop !30
+  br i1 %exitcond.not.i.i97.i, label %_ZL26stbtt__handle_clipped_edgePfiP18stbtt__active_edgeffff.exit337.i.i.i, label %551, !llvm.loop !28
 
 _ZL26stbtt__handle_clipped_edgePfiP18stbtt__active_edgeffff.exit337.i.i.i: ; preds = %_ZL26stbtt__handle_clipped_edgePfiP18stbtt__active_edgeffff.exit365.i.i.i, %548, %._crit_edge.i.i.i, %474, %441, %438, %432, %408, %404, %403, %389, %384, %376, %351, %347, %289, %285
   %1306 = load ptr, ptr %.0455.i.i.i, align 8
   %.not.i88.i.i = icmp eq ptr %1306, null
-  br i1 %.not.i88.i.i, label %_ZL28stbtt__fill_active_edges_newPfS_iP18stbtt__active_edgef.exit.i.i, label %279, !llvm.loop !31
+  br i1 %.not.i88.i.i, label %_ZL28stbtt__fill_active_edges_newPfS_iP18stbtt__active_edgef.exit.i.i, label %279, !llvm.loop !29
 
 _ZL28stbtt__fill_active_edges_newPfS_iP18stbtt__active_edgef.exit.i.i: ; preds = %_ZL26stbtt__handle_clipped_edgePfiP18stbtt__active_edgeffff.exit337.i.i.i, %._crit_edge.i.i
   %1307 = icmp sgt i32 %.pre43.i.i, 0
@@ -5822,7 +5822,7 @@ _ZL28stbtt__fill_active_edges_newPfS_iP18stbtt__active_edgef.exit.i.i: ; preds =
   %1325 = load i32, ptr %0, align 8
   %1326 = sext i32 %1325 to i64
   %1327 = icmp slt i64 %indvars.iv.next.i.i, %1326
-  br i1 %1327, label %.lr.ph22.i.i, label %.preheader.i.i, !llvm.loop !32
+  br i1 %1327, label %.lr.ph22.i.i, label %.preheader.i.i, !llvm.loop !30
 
 .lr.ph25.i.i:                                     ; preds = %.preheader.i.i, %.lr.ph25.i.i
   %1328 = phi ptr [ %1335, %.lr.ph25.i.i ], [ %.0..0..0..0..0..0..0..0.77.i.i, %.preheader.i.i ]
@@ -5836,14 +5836,14 @@ _ZL28stbtt__fill_active_edges_newPfS_iP18stbtt__active_edgef.exit.i.i: ; preds =
   %1334 = load ptr, ptr %.224.i.i, align 8
   %1335 = load ptr, ptr %1334, align 8
   %.not86.i.i = icmp eq ptr %1335, null
-  br i1 %.not86.i.i, label %._crit_edge26.i.i, label %.lr.ph25.i.i, !llvm.loop !33
+  br i1 %.not86.i.i, label %._crit_edge26.i.i, label %.lr.ph25.i.i, !llvm.loop !31
 
 ._crit_edge26.i.i:                                ; preds = %.lr.ph25.i.i, %.preheader.i.i
   %1336 = add nsw i32 %.07031.i.i, 1
   %1337 = add nuw nsw i32 %.07130.i.i, 1
   %1338 = load i32, ptr %194, align 4
   %1339 = icmp slt i32 %1337, %1338
-  br i1 %1339, label %206, label %._crit_edge35.i.i, !llvm.loop !34
+  br i1 %1339, label %206, label %._crit_edge35.i.i, !llvm.loop !32
 
 ._crit_edge35.i.i:                                ; preds = %._crit_edge26.i.i
   %.not1.i.i.i = icmp eq ptr %.sroa.0.1.lcssa.i.i, null
@@ -5854,7 +5854,7 @@ _ZL28stbtt__fill_active_edges_newPfS_iP18stbtt__active_edgef.exit.i.i: ; preds =
   %1340 = load ptr, ptr %.02.i.i.i, align 8
   tail call void @free(ptr noundef nonnull %.02.i.i.i) #29
   %.not.i90.i.i = icmp eq ptr %1340, null
-  br i1 %.not.i90.i.i, label %_ZL20stbtt__hheap_cleanupP12stbtt__hheapPv.exit.i.i, label %.lr.ph.i89.i.i, !llvm.loop !35
+  br i1 %.not.i90.i.i, label %_ZL20stbtt__hheap_cleanupP12stbtt__hheapPv.exit.i.i, label %.lr.ph.i89.i.i, !llvm.loop !33
 
 _ZL20stbtt__hheap_cleanupP12stbtt__hheapPv.exit.i.i: ; preds = %.lr.ph.i89.i.i, %._crit_edge35.i.i, %191
   %.not.i.i = icmp eq ptr %.074.i.i, %14
@@ -5893,7 +5893,7 @@ define dso_local noundef ptr @stbtt_GetGlyphBitmapSubpixel(ptr nocapture noundef
   %14 = alloca i32, align 4
   %15 = alloca %struct.stbtt__bitmap, align 8
   %16 = alloca ptr, align 8
-  %17 = call i32 @stbtt_GetGlyphShape(ptr noundef %0, i32 noundef %5, ptr noundef nonnull %16), !range !10
+  %17 = call i32 @stbtt_GetGlyphShape(ptr noundef %0, i32 noundef %5, ptr noundef nonnull %16)
   %18 = fcmp une float %1, 0.000000e+00
   %19 = fcmp une float %2, 0.000000e+00
   %brmerge = or i1 %18, %19
@@ -5913,7 +5913,7 @@ define dso_local noundef ptr @stbtt_GetGlyphBitmapSubpixel(ptr nocapture noundef
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %14)
   store i32 0, ptr %11, align 4
   store i32 0, ptr %12, align 4
-  %23 = call i32 @stbtt_GetGlyphBox(ptr noundef %0, i32 noundef %5, ptr noundef nonnull %11, ptr noundef nonnull %12, ptr noundef nonnull %13, ptr noundef nonnull %14), !range !17
+  %23 = call i32 @stbtt_GetGlyphBox(ptr noundef %0, i32 noundef %5, ptr noundef nonnull %11, ptr noundef nonnull %12, ptr noundef nonnull %13, ptr noundef nonnull %14)
   %.not.i = icmp eq i32 %23, 0
   br i1 %.not.i, label %stbtt_GetGlyphBitmapBoxSubpixel.exit, label %24
 
@@ -6043,13 +6043,13 @@ define dso_local void @stbtt_MakeGlyphBitmapSubpixel(ptr nocapture noundef reado
   %14 = alloca i32, align 4
   %15 = alloca ptr, align 8
   %16 = alloca %struct.stbtt__bitmap, align 8
-  %17 = call i32 @stbtt_GetGlyphShape(ptr noundef %0, i32 noundef %9, ptr noundef nonnull %15), !range !10
+  %17 = call i32 @stbtt_GetGlyphShape(ptr noundef %0, i32 noundef %9, ptr noundef nonnull %15)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %11)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %12)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %13)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %14)
   store i32 0, ptr %11, align 4
-  %18 = call i32 @stbtt_GetGlyphBox(ptr noundef %0, i32 noundef %9, ptr noundef nonnull %11, ptr noundef nonnull %12, ptr noundef nonnull %13, ptr noundef nonnull %14), !range !17
+  %18 = call i32 @stbtt_GetGlyphBox(ptr noundef %0, i32 noundef %9, ptr noundef nonnull %11, ptr noundef nonnull %12, ptr noundef nonnull %13, ptr noundef nonnull %14)
   %.not.i = icmp eq i32 %18, 0
   br i1 %.not.i, label %stbtt_GetGlyphBitmapBoxSubpixel.exit, label %19
 
@@ -6141,7 +6141,7 @@ define dso_local i32 @stbtt_BakeFontBitmap(ptr noundef %0, i32 noundef %1, float
   %13 = alloca i32, align 4
   %14 = alloca %struct.stbtt_fontinfo, align 8
   store ptr null, ptr %14, align 8
-  %15 = call i32 @stbtt_InitFont(ptr noundef nonnull %14, ptr noundef %0, i32 noundef %1), !range !17
+  %15 = call i32 @stbtt_InitFont(ptr noundef nonnull %14, ptr noundef %0, i32 noundef %1)
   %.not = icmp eq i32 %15, 0
   br i1 %.not, label %.loopexit, label %16
 
@@ -6229,7 +6229,7 @@ stbtt_GetGlyphHMetrics.exit:                      ; preds = %.lr.ph, %105
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %13)
   store i32 0, ptr %10, align 4
   store i32 0, ptr %11, align 4
-  %72 = call i32 @stbtt_GetGlyphBox(ptr noundef nonnull %14, i32 noundef %53, ptr noundef nonnull %10, ptr noundef nonnull %11, ptr noundef nonnull %12, ptr noundef nonnull %13), !range !17
+  %72 = call i32 @stbtt_GetGlyphBox(ptr noundef nonnull %14, i32 noundef %53, ptr noundef nonnull %10, ptr noundef nonnull %11, ptr noundef nonnull %12, ptr noundef nonnull %13)
   %.not.i.i = icmp eq i32 %72, 0
   br i1 %.not.i.i, label %stbtt_GetGlyphBitmapBox.exit, label %73
 
@@ -6312,7 +6312,7 @@ stbtt_GetGlyphBitmapBox.exit:                     ; preds = %stbtt_GetGlyphHMetr
   %spec.select73 = select i1 %.not71, i32 %.06687, i32 %101
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.loopexit, label %stbtt_GetGlyphHMetrics.exit, !llvm.loop !36
+  br i1 %exitcond.not, label %.loopexit, label %stbtt_GetGlyphHMetrics.exit, !llvm.loop !34
 
 .loopexit:                                        ; preds = %105, %16, %9, %102
   %.0 = phi i32 [ %104, %102 ], [ -1, %9 ], [ 1, %16 ], [ %spec.select73, %105 ]
@@ -6401,7 +6401,7 @@ define dso_local void @stbtt_GetBakedQuad(ptr nocapture noundef readonly %0, i32
 }
 
 ; Function Attrs: mustprogress nounwind willreturn memory(readwrite, argmem: write) uwtable
-define dso_local noundef i32 @stbtt_PackBegin(ptr nocapture noundef writeonly %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, ptr noundef %6) local_unnamed_addr #11 {
+define dso_local range(i32 0, 2) i32 @stbtt_PackBegin(ptr nocapture noundef writeonly %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, ptr noundef %6) local_unnamed_addr #11 {
   %8 = tail call noalias noundef dereferenceable_or_null(20) ptr @malloc(i64 noundef 20) #28
   %9 = sub nsw i32 %2, %5
   %10 = sext i32 %9 to i64
@@ -6799,7 +6799,7 @@ stbtt_GetGlyphBitmapBoxSubpixel.exit:             ; preds = %156, %90, %83, %159
   %224 = load i32, ptr %65, align 8
   %225 = sext i32 %224 to i64
   %226 = icmp slt i64 %indvars.iv.next, %225
-  br i1 %226, label %73, label %._crit_edge.loopexit, !llvm.loop !37
+  br i1 %226, label %73, label %._crit_edge.loopexit, !llvm.loop !35
 
 ._crit_edge.loopexit:                             ; preds = %stbtt_GetGlyphBitmapBoxSubpixel.exit
   %227 = trunc nsw i64 %indvars.iv.next94 to i32
@@ -6809,7 +6809,7 @@ stbtt_GetGlyphBitmapBoxSubpixel.exit:             ; preds = %156, %90, %83, %159
   %.1.lcssa = phi i32 [ %.04687, %57 ], [ %227, %._crit_edge.loopexit ]
   %indvars.iv.next99 = add nuw nsw i64 %indvars.iv98, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next99, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge91, label %17, !llvm.loop !38
+  br i1 %exitcond.not, label %._crit_edge91, label %17, !llvm.loop !36
 
 ._crit_edge91:                                    ; preds = %._crit_edge, %5
   %.046.lcssa = phi i32 [ 0, %5 ], [ %.1.lcssa, %._crit_edge ]
@@ -6817,7 +6817,7 @@ stbtt_GetGlyphBitmapBoxSubpixel.exit:             ; preds = %156, %90, %83, %159
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local i32 @stbtt_PackFontRangesRenderIntoRects(ptr nocapture noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2, i32 noundef %3, ptr nocapture noundef %4) local_unnamed_addr #3 {
+define dso_local range(i32 0, 2) i32 @stbtt_PackFontRangesRenderIntoRects(ptr nocapture noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2, i32 noundef %3, ptr nocapture noundef %4) local_unnamed_addr #3 {
   %6 = alloca [8 x i8], align 8
   %7 = alloca [8 x i8], align 8
   %8 = alloca ptr, align 8
@@ -7156,7 +7156,7 @@ stbtt_GetGlyphBitmapBox.exit:                     ; preds = %226, %161, %stbtt_G
   %262 = add <2 x i32> %261, <i32 1, i32 1>
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %9)
-  %263 = call i32 @stbtt_GetGlyphShape(ptr noundef nonnull %1, i32 noundef %117, ptr noundef nonnull %8), !range !10
+  %263 = call i32 @stbtt_GetGlyphShape(ptr noundef nonnull %1, i32 noundef %117, ptr noundef nonnull %8)
   %264 = load i32, ptr %19, align 4
   %.not.i.i160 = icmp sgt i32 %264, %117
   br i1 %.not.i.i160, label %265, label %stbtt_GetGlyphBitmapBoxSubpixel.exit.i
@@ -7379,7 +7379,7 @@ stbtt_MakeGlyphBitmapSubpixel.exit:               ; preds = %stbtt_GetGlyphBitma
   store i8 %398, ptr %385, align 1
   %indvars.iv.next175.i = add nuw nsw i64 %indvars.iv174.i, 1
   %exitcond178.not.i = icmp eq i64 %indvars.iv.next175.i, %wide.trip.count.i
-  br i1 %exitcond178.not.i, label %.loopexit.i, label %.lr.ph132.i, !llvm.loop !39
+  br i1 %exitcond178.not.i, label %.loopexit.i, label %.lr.ph132.i, !llvm.loop !37
 
 .lr.ph126.i:                                      ; preds = %.preheader107.i, %.lr.ph126.i
   %indvars.iv169.i = phi i64 [ %indvars.iv.next170.i, %.lr.ph126.i ], [ 0, %.preheader107.i ]
@@ -7402,7 +7402,7 @@ stbtt_MakeGlyphBitmapSubpixel.exit:               ; preds = %stbtt_GetGlyphBitma
   store i8 %412, ptr %399, align 1
   %indvars.iv.next170.i = add nuw nsw i64 %indvars.iv169.i, 1
   %exitcond173.not.i = icmp eq i64 %indvars.iv.next170.i, %wide.trip.count.i
-  br i1 %exitcond173.not.i, label %.loopexit.i, label %.lr.ph126.i, !llvm.loop !40
+  br i1 %exitcond173.not.i, label %.loopexit.i, label %.lr.ph126.i, !llvm.loop !38
 
 .lr.ph120.i:                                      ; preds = %.preheader109.i, %.lr.ph120.i
   %indvars.iv164.i = phi i64 [ %indvars.iv.next165.i, %.lr.ph120.i ], [ 0, %.preheader109.i ]
@@ -7424,7 +7424,7 @@ stbtt_MakeGlyphBitmapSubpixel.exit:               ; preds = %stbtt_GetGlyphBitma
   store i8 %425, ptr %413, align 1
   %indvars.iv.next165.i = add nuw nsw i64 %indvars.iv164.i, 1
   %exitcond168.not.i = icmp eq i64 %indvars.iv.next165.i, %wide.trip.count.i
-  br i1 %exitcond168.not.i, label %.loopexit.i, label %.lr.ph120.i, !llvm.loop !41
+  br i1 %exitcond168.not.i, label %.loopexit.i, label %.lr.ph120.i, !llvm.loop !39
 
 .lr.ph.i:                                         ; preds = %.preheader111.i, %.lr.ph.i
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %.lr.ph.i ], [ 0, %.preheader111.i ]
@@ -7447,7 +7447,7 @@ stbtt_MakeGlyphBitmapSubpixel.exit:               ; preds = %stbtt_GetGlyphBitma
   store i8 %439, ptr %426, align 1
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %.loopexit.i, label %.lr.ph.i, !llvm.loop !42
+  br i1 %exitcond.not.i, label %.loopexit.i, label %.lr.ph.i, !llvm.loop !40
 
 .lr.ph138.i:                                      ; preds = %.preheader.i, %.lr.ph138.i
   %indvars.iv179.i = phi i64 [ %indvars.iv.next180.i, %.lr.ph138.i ], [ 0, %.preheader.i ]
@@ -7472,7 +7472,7 @@ stbtt_MakeGlyphBitmapSubpixel.exit:               ; preds = %stbtt_GetGlyphBitma
   store i8 %455, ptr %440, align 1
   %indvars.iv.next180.i = add nuw nsw i64 %indvars.iv179.i, 1
   %exitcond183.not.i = icmp eq i64 %indvars.iv.next180.i, %wide.trip.count.i
-  br i1 %exitcond183.not.i, label %.loopexit.i, label %.lr.ph138.i, !llvm.loop !43
+  br i1 %exitcond183.not.i, label %.loopexit.i, label %.lr.ph138.i, !llvm.loop !41
 
 .loopexit.i:                                      ; preds = %.lr.ph.i, %.lr.ph120.i, %.lr.ph126.i, %.lr.ph132.i, %.lr.ph138.i, %.preheader.i, %.preheader105.i, %.preheader107.i, %.preheader109.i, %.preheader111.i
   %.593.i = phi i32 [ 0, %.preheader.i ], [ 0, %.preheader105.i ], [ 0, %.preheader107.i ], [ 0, %.preheader109.i ], [ 0, %.preheader111.i ], [ %383, %.lr.ph138.i ], [ %383, %.lr.ph132.i ], [ %383, %.lr.ph126.i ], [ %383, %.lr.ph120.i ], [ %383, %.lr.ph.i ]
@@ -7499,13 +7499,13 @@ stbtt_MakeGlyphBitmapSubpixel.exit:               ; preds = %stbtt_GetGlyphBitma
   %indvars.iv.next185.i = add nuw nsw i64 %indvars.iv184.i, 1
   %466 = trunc nuw i64 %indvars.iv.next185.i to i32
   %467 = icmp sgt i32 %372, %466
-  br i1 %467, label %.lr.ph143.i, label %._crit_edge.i, !llvm.loop !44
+  br i1 %467, label %.lr.ph143.i, label %._crit_edge.i, !llvm.loop !42
 
 ._crit_edge.i:                                    ; preds = %.lr.ph143.i, %.loopexit.i
   %468 = getelementptr inbounds i8, ptr %.096144.i, i64 %382
   %469 = add nuw nsw i32 %.095146.i, 1
   %exitcond187.not.i = icmp eq i32 %469, %373
-  br i1 %exitcond187.not.i, label %_ZL18stbtt__h_prefilterPhiiij.exit.loopexit, label %384, !llvm.loop !45
+  br i1 %exitcond187.not.i, label %_ZL18stbtt__h_prefilterPhiiij.exit.loopexit, label %384, !llvm.loop !43
 
 _ZL18stbtt__h_prefilterPhiiij.exit.loopexit:      ; preds = %._crit_edge.i
   %.pre287.pre.pre = load i32, ptr %101, align 4
@@ -7596,7 +7596,7 @@ _ZL18stbtt__h_prefilterPhiiij.exit:               ; preds = %_ZL18stbtt__h_prefi
   store i8 %504, ptr %491, align 1
   %indvars.iv.next190.i = add nuw nsw i64 %indvars.iv189.i, 1
   %exitcond193.not.i = icmp eq i64 %indvars.iv.next190.i, %wide.trip.count.i139
-  br i1 %exitcond193.not.i, label %.loopexit.i145, label %.lr.ph147.i, !llvm.loop !46
+  br i1 %exitcond193.not.i, label %.loopexit.i145, label %.lr.ph147.i, !llvm.loop !44
 
 .lr.ph141.i:                                      ; preds = %.preheader122.i, %.lr.ph141.i
   %indvars.iv184.i151 = phi i64 [ %indvars.iv.next185.i152, %.lr.ph141.i ], [ 0, %.preheader122.i ]
@@ -7620,7 +7620,7 @@ _ZL18stbtt__h_prefilterPhiiij.exit:               ; preds = %_ZL18stbtt__h_prefi
   store i8 %519, ptr %506, align 1
   %indvars.iv.next185.i152 = add nuw nsw i64 %indvars.iv184.i151, 1
   %exitcond188.not.i = icmp eq i64 %indvars.iv.next185.i152, %wide.trip.count.i139
-  br i1 %exitcond188.not.i, label %.loopexit.i145, label %.lr.ph141.i, !llvm.loop !47
+  br i1 %exitcond188.not.i, label %.loopexit.i145, label %.lr.ph141.i, !llvm.loop !45
 
 .lr.ph135.i:                                      ; preds = %.preheader124.i, %.lr.ph135.i
   %indvars.iv179.i148 = phi i64 [ %indvars.iv.next180.i149, %.lr.ph135.i ], [ 0, %.preheader124.i ]
@@ -7643,7 +7643,7 @@ _ZL18stbtt__h_prefilterPhiiij.exit:               ; preds = %_ZL18stbtt__h_prefi
   store i8 %533, ptr %521, align 1
   %indvars.iv.next180.i149 = add nuw nsw i64 %indvars.iv179.i148, 1
   %exitcond183.not.i150 = icmp eq i64 %indvars.iv.next180.i149, %wide.trip.count.i139
-  br i1 %exitcond183.not.i150, label %.loopexit.i145, label %.lr.ph135.i, !llvm.loop !48
+  br i1 %exitcond183.not.i150, label %.loopexit.i145, label %.lr.ph135.i, !llvm.loop !46
 
 .lr.ph.i141:                                      ; preds = %.preheader126.i, %.lr.ph.i141
   %indvars.iv.i142 = phi i64 [ %indvars.iv.next.i143, %.lr.ph.i141 ], [ 0, %.preheader126.i ]
@@ -7667,7 +7667,7 @@ _ZL18stbtt__h_prefilterPhiiij.exit:               ; preds = %_ZL18stbtt__h_prefi
   store i8 %548, ptr %535, align 1
   %indvars.iv.next.i143 = add nuw nsw i64 %indvars.iv.i142, 1
   %exitcond.not.i144 = icmp eq i64 %indvars.iv.next.i143, %wide.trip.count.i139
-  br i1 %exitcond.not.i144, label %.loopexit.i145, label %.lr.ph.i141, !llvm.loop !49
+  br i1 %exitcond.not.i144, label %.loopexit.i145, label %.lr.ph.i141, !llvm.loop !47
 
 .lr.ph153.i:                                      ; preds = %.preheader.i153, %.lr.ph153.i
   %indvars.iv194.i = phi i64 [ %indvars.iv.next195.i, %.lr.ph153.i ], [ 0, %.preheader.i153 ]
@@ -7693,7 +7693,7 @@ _ZL18stbtt__h_prefilterPhiiij.exit:               ; preds = %_ZL18stbtt__h_prefi
   store i8 %565, ptr %550, align 1
   %indvars.iv.next195.i = add nuw nsw i64 %indvars.iv194.i, 1
   %exitcond198.not.i = icmp eq i64 %indvars.iv.next195.i, %wide.trip.count.i139
-  br i1 %exitcond198.not.i, label %.loopexit.i145, label %.lr.ph153.i, !llvm.loop !50
+  br i1 %exitcond198.not.i, label %.loopexit.i145, label %.lr.ph153.i, !llvm.loop !48
 
 .loopexit.i145:                                   ; preds = %.lr.ph.i141, %.lr.ph135.i, %.lr.ph141.i, %.lr.ph147.i, %.lr.ph153.i, %.preheader.i153, %.preheader120.i, %.preheader122.i, %.preheader124.i, %.preheader126.i
   %.5108.i = phi i32 [ 0, %.preheader.i153 ], [ 0, %.preheader120.i ], [ 0, %.preheader122.i ], [ 0, %.preheader124.i ], [ 0, %.preheader126.i ], [ %488, %.lr.ph153.i ], [ %488, %.lr.ph147.i ], [ %488, %.lr.ph141.i ], [ %488, %.lr.ph135.i ], [ %488, %.lr.ph.i141 ]
@@ -7720,13 +7720,13 @@ _ZL18stbtt__h_prefilterPhiiij.exit:               ; preds = %_ZL18stbtt__h_prefi
   store i8 %574, ptr %576, align 1
   %indvars.iv.next200.i = add nsw i64 %indvars.iv199.i, 1
   %exitcond203.not.i = icmp eq i64 %indvars.iv.next200.i, %wide.trip.count202.i
-  br i1 %exitcond203.not.i, label %._crit_edge.i147, label %.lr.ph158.i, !llvm.loop !51
+  br i1 %exitcond203.not.i, label %._crit_edge.i147, label %.lr.ph158.i, !llvm.loop !49
 
 ._crit_edge.i147:                                 ; preds = %.lr.ph158.i, %.loopexit.i145
   %577 = getelementptr inbounds i8, ptr %.0111159.i, i64 1
   %578 = add nuw nsw i32 %.0110161.i, 1
   %exitcond204.not.i = icmp eq i32 %578, %477
-  br i1 %exitcond204.not.i, label %_ZL18stbtt__v_prefilterPhiiij.exit.loopexit, label %489, !llvm.loop !52
+  br i1 %exitcond204.not.i, label %_ZL18stbtt__v_prefilterPhiiij.exit.loopexit, label %489, !llvm.loop !50
 
 _ZL18stbtt__v_prefilterPhiiij.exit.loopexit:      ; preds = %._crit_edge.i147
   %.pre.pre = load i32, ptr %101, align 4
@@ -7789,7 +7789,7 @@ _ZL18stbtt__v_prefilterPhiiij.exit:               ; preds = %_ZL18stbtt__v_prefi
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %615 = sext i32 %614 to i64
   %616 = icmp slt i64 %indvars.iv.next, %615
-  br i1 %616, label %99, label %._crit_edge.loopexit, !llvm.loop !53
+  br i1 %616, label %99, label %._crit_edge.loopexit, !llvm.loop !51
 
 ._crit_edge.loopexit:                             ; preds = %613
   %617 = trunc nsw i64 %indvars.iv.next280 to i32
@@ -7800,7 +7800,7 @@ _ZL18stbtt__v_prefilterPhiiij.exit:               ; preds = %_ZL18stbtt__v_prefi
   %.1.lcssa = phi i32 [ %.0124254, %_ZL23stbtt__oversample_shifti.exit ], [ %617, %._crit_edge.loopexit ]
   %indvars.iv.next285 = add nuw nsw i64 %indvars.iv284, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next285, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge258, label %27, !llvm.loop !54
+  br i1 %exitcond.not, label %._crit_edge258, label %27, !llvm.loop !52
 
 ._crit_edge258:                                   ; preds = %._crit_edge, %5
   %.0125.lcssa = phi i32 [ 1, %5 ], [ %.1126.lcssa, %._crit_edge ]
@@ -7880,7 +7880,7 @@ define dso_local void @stbtt_PackFontRangesPackRects(ptr nocapture noundef reado
 42:                                               ; preds = %41, %29
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %_ZL16stbrp_pack_rectsP13stbrp_contextP10stbrp_recti.exit, label %11, !llvm.loop !55
+  br i1 %exitcond.not.i, label %_ZL16stbrp_pack_rectsP13stbrp_contextP10stbrp_recti.exit, label %11, !llvm.loop !53
 
 ._crit_edge.loopexit.i:                           ; preds = %21
   %43 = trunc nuw nsw i64 %indvars.iv.i to i32
@@ -7902,14 +7902,14 @@ define dso_local void @stbtt_PackFontRangesPackRects(ptr nocapture noundef reado
   store i32 0, ptr %46, align 4
   %indvars.iv.next47.i = add nuw nsw i64 %indvars.iv46.i, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next47.i, %wide.trip.count
-  br i1 %exitcond.not, label %_ZL16stbrp_pack_rectsP13stbrp_contextP10stbrp_recti.exit, label %.lr.ph43.i, !llvm.loop !56
+  br i1 %exitcond.not, label %_ZL16stbrp_pack_rectsP13stbrp_contextP10stbrp_recti.exit, label %.lr.ph43.i, !llvm.loop !54
 
 _ZL16stbrp_pack_rectsP13stbrp_contextP10stbrp_recti.exit: ; preds = %42, %.lr.ph43.i, %._crit_edge.i
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local i32 @stbtt_PackFontRanges(ptr nocapture noundef %0, ptr noundef %1, i32 noundef %2, ptr nocapture noundef %3, i32 noundef %4) local_unnamed_addr #3 {
+define dso_local range(i32 0, 2) i32 @stbtt_PackFontRanges(ptr nocapture noundef %0, ptr noundef %1, i32 noundef %2, ptr nocapture noundef %3, i32 noundef %4) local_unnamed_addr #3 {
   %6 = alloca %struct.stbtt_fontinfo, align 8
   %7 = icmp sgt i32 %4, 0
   br i1 %7, label %.preheader52.preheader, label %._crit_edge59
@@ -7955,12 +7955,12 @@ define dso_local i32 @stbtt_PackFontRanges(ptr nocapture noundef %0, ptr noundef
   %22 = load i32, ptr %9, align 8
   %23 = sext i32 %22 to i64
   %24 = icmp slt i64 %indvars.iv.next, %23
-  br i1 %24, label %13, label %._crit_edge, !llvm.loop !57
+  br i1 %24, label %13, label %._crit_edge, !llvm.loop !55
 
 ._crit_edge:                                      ; preds = %13, %.preheader52
   %indvars.iv.next64 = add nuw nsw i64 %indvars.iv63, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next64, %wide.trip.count
-  br i1 %exitcond.not, label %.preheader, label %.preheader52, !llvm.loop !58
+  br i1 %exitcond.not, label %.preheader, label %.preheader52, !llvm.loop !56
 
 .lr.ph58:                                         ; preds = %.lr.ph58.preheader, %.lr.ph58
   %indvars.iv66 = phi i64 [ 0, %.lr.ph58.preheader ], [ %indvars.iv.next67, %.lr.ph58 ]
@@ -7970,7 +7970,7 @@ define dso_local i32 @stbtt_PackFontRanges(ptr nocapture noundef %0, ptr noundef
   %27 = add nsw i32 %26, %.04657
   %indvars.iv.next67 = add nuw nsw i64 %indvars.iv66, 1
   %exitcond70.not = icmp eq i64 %indvars.iv.next67, %wide.trip.count69
-  br i1 %exitcond70.not, label %._crit_edge59.loopexit, label %.lr.ph58, !llvm.loop !59
+  br i1 %exitcond70.not, label %._crit_edge59.loopexit, label %.lr.ph58, !llvm.loop !57
 
 ._crit_edge59.loopexit:                           ; preds = %.lr.ph58
   %28 = sext i32 %27 to i64
@@ -7987,7 +7987,7 @@ define dso_local i32 @stbtt_PackFontRanges(ptr nocapture noundef %0, ptr noundef
   %33 = load ptr, ptr %0, align 8
   store ptr %33, ptr %6, align 8
   %34 = tail call i32 @stbtt_GetFontOffsetForIndex(ptr noundef %1, i32 noundef %2)
-  %35 = call i32 @stbtt_InitFont(ptr noundef nonnull %6, ptr noundef %1, i32 noundef %34), !range !17
+  %35 = call i32 @stbtt_InitFont(ptr noundef nonnull %6, ptr noundef %1, i32 noundef %34)
   %36 = call i32 @stbtt_PackFontRangesGatherRects(ptr noundef nonnull %0, ptr noundef nonnull %6, ptr noundef %3, i32 noundef %4, ptr noundef nonnull %30)
   %37 = icmp sgt i32 %36, 0
   br i1 %37, label %.lr.ph.i.i, label %._crit_edge.i.i
@@ -8053,7 +8053,7 @@ define dso_local i32 @stbtt_PackFontRanges(ptr nocapture noundef %0, ptr noundef
 68:                                               ; preds = %67, %61
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, %wide.trip.count.i.i
-  br i1 %exitcond.not.i.i, label %stbtt_PackFontRangesPackRects.exit, label %44, !llvm.loop !55
+  br i1 %exitcond.not.i.i, label %stbtt_PackFontRangesPackRects.exit, label %44, !llvm.loop !53
 
 ._crit_edge.loopexit.i.i:                         ; preds = %53
   %69 = trunc nuw nsw i64 %indvars.iv.i.i to i32
@@ -8075,10 +8075,10 @@ define dso_local i32 @stbtt_PackFontRanges(ptr nocapture noundef %0, ptr noundef
   store i32 0, ptr %72, align 4
   %indvars.iv.next47.i.i = add nuw nsw i64 %indvars.iv46.i.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next47.i.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %stbtt_PackFontRangesPackRects.exit, label %.lr.ph43.i.i, !llvm.loop !56
+  br i1 %exitcond.not.i, label %stbtt_PackFontRangesPackRects.exit, label %.lr.ph43.i.i, !llvm.loop !54
 
 stbtt_PackFontRangesPackRects.exit:               ; preds = %68, %.lr.ph43.i.i, %._crit_edge.i.i
-  %73 = call i32 @stbtt_PackFontRangesRenderIntoRects(ptr noundef nonnull %0, ptr noundef nonnull %6, ptr noundef %3, i32 noundef %4, ptr noundef nonnull %30), !range !17
+  %73 = call i32 @stbtt_PackFontRangesRenderIntoRects(ptr noundef nonnull %0, ptr noundef nonnull %6, ptr noundef %3, i32 noundef %4, ptr noundef nonnull %30)
   tail call void @free(ptr noundef nonnull %30) #29
   br label %74
 
@@ -8088,7 +8088,7 @@ stbtt_PackFontRangesPackRects.exit:               ; preds = %68, %.lr.ph43.i.i, 
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local i32 @stbtt_PackFontRange(ptr nocapture noundef %0, ptr noundef %1, i32 noundef %2, float noundef %3, i32 noundef %4, i32 noundef %5, ptr noundef %6) local_unnamed_addr #3 {
+define dso_local range(i32 0, 2) i32 @stbtt_PackFontRange(ptr nocapture noundef %0, ptr noundef %1, i32 noundef %2, float noundef %3, i32 noundef %4, i32 noundef %5, ptr noundef %6) local_unnamed_addr #3 {
   %8 = alloca %struct.stbtt_pack_range, align 8
   %9 = getelementptr inbounds i8, ptr %8, i64 4
   store i32 %4, ptr %9, align 4
@@ -8099,7 +8099,7 @@ define dso_local i32 @stbtt_PackFontRange(ptr nocapture noundef %0, ptr noundef 
   %12 = getelementptr inbounds i8, ptr %8, i64 24
   store ptr %6, ptr %12, align 8
   store float %3, ptr %8, align 8
-  %13 = call i32 @stbtt_PackFontRanges(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef nonnull %8, i32 noundef 1), !range !17
+  %13 = call i32 @stbtt_PackFontRanges(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef nonnull %8, i32 noundef 1)
   ret i32 %13
 }
 
@@ -8202,7 +8202,7 @@ define dso_local void @stbtt_GetPackedQuad(ptr nocapture noundef readonly %0, i3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define dso_local noundef i32 @stbtt_CompareUTF8toUTF16_bigendian(ptr nocapture noundef readonly %0, i32 noundef %1, ptr nocapture noundef readonly %2, i32 noundef %3) local_unnamed_addr #2 {
+define dso_local range(i32 0, 2) i32 @stbtt_CompareUTF8toUTF16_bigendian(ptr nocapture noundef readonly %0, i32 noundef %1, ptr nocapture noundef readonly %2, i32 noundef %3) local_unnamed_addr #2 {
   %5 = tail call fastcc noundef i32 @_ZL42stbtt__CompareUTF8toUTF16_bigendian_prefixPKhiS0_i(ptr noundef %0, i32 noundef %1, ptr noundef %2, i32 noundef %3)
   %6 = icmp eq i32 %5, %1
   %7 = zext i1 %6 to i32
@@ -8380,7 +8380,7 @@ define internal fastcc noundef i32 @_ZL42stbtt__CompareUTF8toUTF16_bigendian_pre
   %108 = getelementptr inbounds i8, ptr %.1, i64 2
   %109 = add nsw i32 %.163, -2
   %.not = icmp eq i32 %109, 0
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !60
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !58
 
 ._crit_edge:                                      ; preds = %13, %14, %22, %24, %31, %41, %44, %61, %68, %75, %84, %86, %93, %100, %107, %4
   %.0 = phi i32 [ 0, %4 ], [ %.165, %107 ], [ -1, %100 ], [ -1, %93 ], [ -1, %86 ], [ -1, %84 ], [ -1, %75 ], [ -1, %68 ], [ -1, %61 ], [ -1, %44 ], [ -1, %41 ], [ -1, %31 ], [ -1, %24 ], [ -1, %22 ], [ -1, %14 ], [ -1, %13 ]
@@ -8574,7 +8574,7 @@ _ZL17stbtt__find_tablePhjPKc.exit:                ; preds = %35
 127:                                              ; preds = %75, %87, %95, %103
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %_ZL17stbtt__find_tablePhjPKc.exit.thread, label %75, !llvm.loop !61
+  br i1 %exitcond.not, label %_ZL17stbtt__find_tablePhjPKc.exit.thread, label %75, !llvm.loop !59
 
 _ZL17stbtt__find_tablePhjPKc.exit.thread:         ; preds = %39, %127, %58, %6, %_ZL17stbtt__find_tablePhjPKc.exit, %111
   %.0 = phi ptr [ %126, %111 ], [ null, %_ZL17stbtt__find_tablePhjPKc.exit ], [ null, %6 ], [ null, %58 ], [ null, %127 ], [ null, %39 ]
@@ -8832,32 +8832,32 @@ _ZL17stbtt__find_tablePhjPKc.exit60.i:            ; preds = %120
   br i1 %.not39.i, label %150, label %144
 
 144:                                              ; preds = %143
-  %145 = tail call fastcc noundef i32 @_ZL16stbtt__matchpairPhjS_iii(ptr noundef nonnull %0, i32 noundef %142, ptr noundef %1, i32 noundef %7, i32 noundef 16, i32 noundef -1), !range !17
+  %145 = tail call fastcc noundef i32 @_ZL16stbtt__matchpairPhjS_iii(ptr noundef nonnull %0, i32 noundef %142, ptr noundef %1, i32 noundef %7, i32 noundef 16, i32 noundef -1)
   %.not45.i = icmp eq i32 %145, 0
   br i1 %.not45.i, label %146, label %_ZL14stbtt__matchesPhjS_i.exit
 
 146:                                              ; preds = %144
-  %147 = tail call fastcc noundef i32 @_ZL16stbtt__matchpairPhjS_iii(ptr noundef nonnull %0, i32 noundef %142, ptr noundef %1, i32 noundef %7, i32 noundef 1, i32 noundef -1), !range !17
+  %147 = tail call fastcc noundef i32 @_ZL16stbtt__matchpairPhjS_iii(ptr noundef nonnull %0, i32 noundef %142, ptr noundef %1, i32 noundef %7, i32 noundef 1, i32 noundef -1)
   %.not46.i = icmp eq i32 %147, 0
   br i1 %.not46.i, label %148, label %_ZL14stbtt__matchesPhjS_i.exit
 
 148:                                              ; preds = %146
-  %149 = tail call fastcc noundef i32 @_ZL16stbtt__matchpairPhjS_iii(ptr noundef nonnull %0, i32 noundef %142, ptr noundef %1, i32 noundef %7, i32 noundef 3, i32 noundef -1), !range !17
+  %149 = tail call fastcc noundef i32 @_ZL16stbtt__matchpairPhjS_iii(ptr noundef nonnull %0, i32 noundef %142, ptr noundef %1, i32 noundef %7, i32 noundef 3, i32 noundef -1)
   %.not47.i = icmp eq i32 %149, 0
   br i1 %.not47.i, label %.loopexit, label %_ZL14stbtt__matchesPhjS_i.exit
 
 150:                                              ; preds = %143
-  %151 = tail call fastcc noundef i32 @_ZL16stbtt__matchpairPhjS_iii(ptr noundef nonnull %0, i32 noundef %142, ptr noundef %1, i32 noundef %7, i32 noundef 16, i32 noundef 17), !range !17
+  %151 = tail call fastcc noundef i32 @_ZL16stbtt__matchpairPhjS_iii(ptr noundef nonnull %0, i32 noundef %142, ptr noundef %1, i32 noundef %7, i32 noundef 16, i32 noundef 17)
   %.not42.i = icmp eq i32 %151, 0
   br i1 %.not42.i, label %152, label %_ZL14stbtt__matchesPhjS_i.exit
 
 152:                                              ; preds = %150
-  %153 = tail call fastcc noundef i32 @_ZL16stbtt__matchpairPhjS_iii(ptr noundef nonnull %0, i32 noundef %142, ptr noundef %1, i32 noundef %7, i32 noundef 1, i32 noundef 2), !range !17
+  %153 = tail call fastcc noundef i32 @_ZL16stbtt__matchpairPhjS_iii(ptr noundef nonnull %0, i32 noundef %142, ptr noundef %1, i32 noundef %7, i32 noundef 1, i32 noundef 2)
   %.not43.i = icmp eq i32 %153, 0
   br i1 %.not43.i, label %154, label %_ZL14stbtt__matchesPhjS_i.exit
 
 154:                                              ; preds = %152
-  %155 = tail call fastcc noundef i32 @_ZL16stbtt__matchpairPhjS_iii(ptr noundef nonnull %0, i32 noundef %142, ptr noundef %1, i32 noundef %7, i32 noundef 3, i32 noundef -1), !range !17
+  %155 = tail call fastcc noundef i32 @_ZL16stbtt__matchpairPhjS_iii(ptr noundef nonnull %0, i32 noundef %142, ptr noundef %1, i32 noundef %7, i32 noundef 3, i32 noundef -1)
   %.not44.i = icmp eq i32 %155, 0
   br i1 %.not44.i, label %.loopexit, label %_ZL14stbtt__matchesPhjS_i.exit
 
@@ -8865,7 +8865,7 @@ _ZL17stbtt__find_tablePhjPKc.exit60.i:            ; preds = %120
   %156 = add nuw nsw i32 %.01017, 1
   %157 = tail call i32 @stbtt_GetFontOffsetForIndex(ptr noundef nonnull %0, i32 noundef %156)
   %158 = icmp slt i32 %157, 0
-  br i1 %158, label %_ZL14stbtt__matchesPhjS_i.exit, label %9, !llvm.loop !62
+  br i1 %158, label %_ZL14stbtt__matchesPhjS_i.exit, label %9, !llvm.loop !60
 
 _ZL14stbtt__matchesPhjS_i.exit:                   ; preds = %.loopexit, %144, %146, %148, %150, %152, %154, %3
   %.lcssa16 = phi i32 [ %4, %3 ], [ %10, %154 ], [ %10, %152 ], [ %10, %150 ], [ %10, %148 ], [ %10, %146 ], [ %10, %144 ], [ %157, %.loopexit ]
@@ -8899,7 +8899,7 @@ define dso_local noundef zeroext i1 @_Z17imguiRenderGLInitPKc(ptr nocapture noun
   store float %11, ptr %13, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 32
-  br i1 %exitcond.not, label %14, label %2, !llvm.loop !63
+  br i1 %exitcond.not, label %14, label %2, !llvm.loop !61
 
 14:                                               ; preds = %2
   %15 = tail call noalias ptr @fopen(ptr noundef %0, ptr noundef nonnull @.str.10)
@@ -9133,7 +9133,7 @@ define dso_local void @_Z17imguiRenderGLDrawv() local_unnamed_addr #19 {
   store <2 x float> %69, ptr %.07578.i, align 4
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 9
-  br i1 %exitcond.not.i, label %.preheader77.i, label %64, !llvm.loop !64
+  br i1 %exitcond.not.i, label %.preheader77.i, label %64, !llvm.loop !62
 
 .preheader76.i:                                   ; preds = %72
   %70 = extractelement <2 x float> %34, i64 1
@@ -9151,7 +9151,7 @@ define dso_local void @_Z17imguiRenderGLDrawv() local_unnamed_addr #19 {
   store <2 x float> %77, ptr %.180.i, align 4
   %indvars.iv.next91.i = add nuw nsw i64 %indvars.iv90.i, 1
   %exitcond93.not.i = icmp eq i64 %indvars.iv.next91.i, 17
-  br i1 %exitcond93.not.i, label %.preheader76.i, label %72, !llvm.loop !65
+  br i1 %exitcond93.not.i, label %.preheader76.i, label %72, !llvm.loop !63
 
 78:                                               ; preds = %78, %.preheader76.i
   %indvars.iv94.i = phi i64 [ 16, %.preheader76.i ], [ %indvars.iv.next95.i, %78 ]
@@ -9170,7 +9170,7 @@ define dso_local void @_Z17imguiRenderGLDrawv() local_unnamed_addr #19 {
   store float %87, ptr %83, align 4
   %indvars.iv.next95.i = add nuw nsw i64 %indvars.iv94.i, 1
   %exitcond97.not.i = icmp eq i64 %indvars.iv.next95.i, 25
-  br i1 %exitcond97.not.i, label %.preheader.i.preheader, label %78, !llvm.loop !66
+  br i1 %exitcond97.not.i, label %.preheader.i.preheader, label %78, !llvm.loop !64
 
 .preheader.i.preheader:                           ; preds = %78
   %89 = extractelement <2 x float> %60, i64 0
@@ -9193,7 +9193,7 @@ define dso_local void @_Z17imguiRenderGLDrawv() local_unnamed_addr #19 {
   store float %98, ptr %94, align 4
   %indvars.iv.next99.i = add nuw nsw i64 %indvars.iv98.i, 1
   %exitcond101.not.i = icmp eq i64 %indvars.iv.next99.i, 32
-  br i1 %exitcond101.not.i, label %_ZL15drawRoundedRectffffffj.exit, label %.preheader.i, !llvm.loop !67
+  br i1 %exitcond101.not.i, label %_ZL15drawRoundedRectffffffj.exit, label %.preheader.i, !llvm.loop !65
 
 _ZL15drawRoundedRectffffffj.exit:                 ; preds = %.preheader.i
   %100 = load <2 x float>, ptr @_ZL13g_circleVerts, align 16
@@ -9382,7 +9382,7 @@ _ZL15drawRoundedRectffffffj.exit:                 ; preds = %.preheader.i
 227:                                              ; preds = %.preheader.i.i
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, 4
-  br i1 %exitcond.not.i.i, label %.loopexit.i.i, label %.preheader.i.i, !llvm.loop !68
+  br i1 %exitcond.not.i.i, label %.loopexit.i.i, label %.preheader.i.i, !llvm.loop !66
 
 .preheader.i.i:                                   ; preds = %.preheader65.i, %227
   %indvars.iv.i.i = phi i64 [ %indvars.iv.next.i.i, %227 ], [ 0, %.preheader65.i ]
@@ -9424,7 +9424,7 @@ _ZL15drawRoundedRectffffffj.exit:                 ; preds = %.preheader.i
   %.124.i.i = phi float [ %251, %232 ], [ %.023.i.i, %231 ], [ %.023.i.i, %227 ], [ %.023.i.i, %.preheader.i.i ]
   %.1.i.i = phi float [ %254, %232 ], [ %.021.i.i, %231 ], [ %229, %.preheader.i.i ], [ %.021.i.i, %227 ]
   %255 = getelementptr inbounds i8, ptr %.0.i.i, i64 1
-  br label %.preheader65.i, !llvm.loop !69
+  br label %.preheader65.i, !llvm.loop !67
 
 _ZL13getTextLengthP15stbtt_bakedcharPKc.exit.i:   ; preds = %.preheader65.i
   %256 = fmul float %.023.i.i, 5.000000e-01
@@ -9444,7 +9444,7 @@ _ZL13getTextLengthP15stbtt_bakedcharPKc.exit.i:   ; preds = %.preheader65.i
 259:                                              ; preds = %.preheader.i33.i
   %indvars.iv.next.i35.i = add nuw nsw i64 %indvars.iv.i34.i, 1
   %exitcond.not.i36.i = icmp eq i64 %indvars.iv.next.i35.i, 4
-  br i1 %exitcond.not.i36.i, label %.loopexit.i37.i, label %.preheader.i33.i, !llvm.loop !68
+  br i1 %exitcond.not.i36.i, label %.loopexit.i37.i, label %.preheader.i33.i, !llvm.loop !66
 
 .preheader.i33.i:                                 ; preds = %.preheader66.i, %259
   %indvars.iv.i34.i = phi i64 [ %indvars.iv.next.i35.i, %259 ], [ 0, %.preheader66.i ]
@@ -9486,7 +9486,7 @@ _ZL13getTextLengthP15stbtt_bakedcharPKc.exit.i:   ; preds = %.preheader65.i
   %.124.i38.i = phi float [ %283, %264 ], [ %.023.i30.i, %263 ], [ %.023.i30.i, %259 ], [ %.023.i30.i, %.preheader.i33.i ]
   %.1.i39.i = phi float [ %286, %264 ], [ %.021.i31.i, %263 ], [ %261, %.preheader.i33.i ], [ %.021.i31.i, %259 ]
   %287 = getelementptr inbounds i8, ptr %.0.i32.i, i64 1
-  br label %.preheader66.i, !llvm.loop !69
+  br label %.preheader66.i, !llvm.loop !67
 
 _ZL13getTextLengthP15stbtt_bakedcharPKc.exit41.i: ; preds = %.preheader66.i
   %288 = fsub float %212, %.023.i30.i
@@ -9521,7 +9521,7 @@ _ZL13getTextLengthP15stbtt_bakedcharPKc.exit41.i: ; preds = %.preheader66.i
 302:                                              ; preds = %.preheader.i61
   %indvars.iv.next.i63 = add nuw nsw i64 %indvars.iv.i62, 1
   %exitcond.not.i64 = icmp eq i64 %indvars.iv.next.i63, 4
-  br i1 %exitcond.not.i64, label %.loopexit.i, label %.preheader.i61, !llvm.loop !70
+  br i1 %exitcond.not.i64, label %.loopexit.i, label %.preheader.i61, !llvm.loop !68
 
 .preheader.i61:                                   ; preds = %.lr.ph.i, %302
   %indvars.iv.i62 = phi i64 [ %indvars.iv.next.i63, %302 ], [ 0, %.lr.ph.i ]
@@ -9592,7 +9592,7 @@ _ZL13getTextLengthP15stbtt_bakedcharPKc.exit41.i: ; preds = %.preheader66.i
   %346 = getelementptr inbounds i8, ptr %.02470.i, i64 1
   %347 = load i8, ptr %346, align 1
   %.not.i = icmp eq i8 %347, 0
-  br i1 %.not.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !71
+  br i1 %.not.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !69
 
 ._crit_edge.i:                                    ; preds = %.loopexit.i, %289
   call void @glEnd()
@@ -9629,7 +9629,7 @@ _ZL13getTextLengthP15stbtt_bakedcharPKc.exit41.i: ; preds = %.preheader66.i
 _ZL8drawTextffPKcij.exit:                         ; preds = %._crit_edge.i, %209, %23, %_ZL15drawRoundedRectffffffj.exit, %38, %184, %181, %364, %351, %103
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %23, !llvm.loop !72
+  br i1 %exitcond.not, label %._crit_edge, label %23, !llvm.loop !70
 
 ._crit_edge:                                      ; preds = %_ZL8drawTextffPKcij.exit, %0
   call void @glDisable(i32 noundef 3089)
@@ -9697,7 +9697,7 @@ define internal fastcc void @_ZL11drawPolygonPKfjfj(ptr noundef %0, i32 noundef 
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %31 = trunc nuw nsw i64 %indvars.iv to i32
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.preheader, label %.lr.ph, !llvm.loop !73
+  br i1 %exitcond.not, label %.preheader, label %.lr.ph, !llvm.loop !71
 
 .lr.ph98:                                         ; preds = %.lr.ph98.preheader, %52
   %indvars.iv111 = phi i64 [ 0, %.lr.ph98.preheader ], [ %indvars.iv.next112, %52 ]
@@ -9737,7 +9737,7 @@ define internal fastcc void @_ZL11drawPolygonPKfjfj(ptr noundef %0, i32 noundef 
   %indvars.iv.next112 = add nuw nsw i64 %indvars.iv111, 1
   %58 = trunc nuw nsw i64 %indvars.iv111 to i32
   %exitcond115.not = icmp eq i64 %indvars.iv.next112, %wide.trip.count114
-  br i1 %exitcond115.not, label %._crit_edge, label %.lr.ph98, !llvm.loop !74
+  br i1 %exitcond115.not, label %._crit_edge, label %.lr.ph98, !llvm.loop !72
 
 ._crit_edge:                                      ; preds = %52
   %59 = and i32 %2, 16777215
@@ -9782,7 +9782,7 @@ define internal fastcc void @_ZL11drawPolygonPKfjfj(ptr noundef %0, i32 noundef 
   %indvars.iv.next117 = add nuw nsw i64 %indvars.iv116, 1
   %68 = trunc nuw nsw i64 %indvars.iv116 to i32
   %exitcond120.not = icmp eq i64 %indvars.iv.next117, %wide.trip.count119
-  br i1 %exitcond120.not, label %._crit_edge103, label %.lr.ph102, !llvm.loop !75
+  br i1 %exitcond120.not, label %._crit_edge103, label %.lr.ph102, !llvm.loop !73
 
 ._crit_edge103:                                   ; preds = %.lr.ph102
   call void @glColor4ubv(ptr noundef nonnull %4)
@@ -9804,7 +9804,7 @@ define internal fastcc void @_ZL11drawPolygonPKfjfj(ptr noundef %0, i32 noundef 
   call void @glVertex2fv(ptr noundef nonnull %71)
   %indvars.iv.next122 = add nuw nsw i64 %indvars.iv121, 1
   %exitcond125.not = icmp eq i64 %indvars.iv.next122, %wide.trip.count124
-  br i1 %exitcond125.not, label %._crit_edge107, label %.lr.ph106, !llvm.loop !76
+  br i1 %exitcond125.not, label %._crit_edge107, label %.lr.ph106, !llvm.loop !74
 
 ._crit_edge107:                                   ; preds = %.lr.ph106, %._crit_edge103.thread, %._crit_edge103
   call void @glEnd()
@@ -9936,9 +9936,9 @@ define internal fastcc void @_ZL27stbtt__sort_edges_quicksortP11stbtt__edgei(ptr
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %9, ptr noundef nonnull align 4 dereferenceable(20) %3, i64 20, i1 false)
   br label %24
 
-24:                                               ; preds = %41, %23
-  %.067 = phi i64 [ 1, %23 ], [ %42, %41 ]
-  %.065 = phi i32 [ %12, %23 ], [ %43, %41 ]
+24:                                               ; preds = %40, %23
+  %.067 = phi i64 [ 1, %23 ], [ %41, %40 ]
+  %.065 = phi i32 [ %12, %23 ], [ %42, %40 ]
   %25 = load float, ptr %6, align 4
   %sext = shl i64 %.067, 32
   %26 = ashr exact i64 %sext, 32
@@ -9951,7 +9951,7 @@ define internal fastcc void @_ZL27stbtt__sort_edges_quicksortP11stbtt__edgei(ptr
   %30 = load float, ptr %29, align 4
   %31 = fcmp olt float %30, %25
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
-  br i1 %31, label %27, label %.preheader, !llvm.loop !77
+  br i1 %31, label %27, label %.preheader, !llvm.loop !75
 
 .preheader:                                       ; preds = %27
   %32 = sext i32 %.065 to i64
@@ -9964,40 +9964,40 @@ define internal fastcc void @_ZL27stbtt__sort_edges_quicksortP11stbtt__edgei(ptr
   %36 = load float, ptr %35, align 4
   %37 = fcmp olt float %25, %36
   %indvars.iv.next82 = add nsw i64 %indvars.iv81, -1
-  br i1 %37, label %33, label %38, !llvm.loop !78
+  br i1 %37, label %33, label %38, !llvm.loop !76
 
 38:                                               ; preds = %33
-  %39 = trunc nsw i64 %indvars.iv to i32
-  %40 = trunc nsw i64 %indvars.iv81 to i32
-  %.not74 = icmp slt i32 %39, %40
-  br i1 %.not74, label %41, label %44
+  %39 = trunc nsw i64 %indvars.iv81 to i32
+  %.not74 = icmp slt i64 %indvars.iv, %indvars.iv81
+  br i1 %.not74, label %40, label %43
 
-41:                                               ; preds = %38
+40:                                               ; preds = %38
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %3, ptr noundef nonnull align 4 dereferenceable(20) %28, i64 20, i1 false)
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %28, ptr noundef nonnull align 4 dereferenceable(20) %34, i64 20, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %34, ptr noundef nonnull align 4 dereferenceable(20) %3, i64 20, i1 false)
-  %42 = add i64 %indvars.iv, 1
-  %43 = add nsw i32 %40, -1
-  br label %24, !llvm.loop !79
+  %41 = add nsw i64 %indvars.iv, 1
+  %42 = add nsw i32 %39, -1
+  br label %24, !llvm.loop !77
 
-44:                                               ; preds = %38
-  %45 = sub nsw i32 %.06977, %39
-  %46 = icmp sgt i32 %45, %40
+43:                                               ; preds = %38
+  %44 = trunc nsw i64 %indvars.iv to i32
+  %45 = sub nsw i32 %.06977, %44
+  %46 = icmp sgt i32 %45, %39
   br i1 %46, label %47, label %48
 
-47:                                               ; preds = %44
-  tail call fastcc void @_ZL27stbtt__sort_edges_quicksortP11stbtt__edgei(ptr noundef nonnull %.078, i32 noundef %40)
+47:                                               ; preds = %43
+  tail call fastcc void @_ZL27stbtt__sort_edges_quicksortP11stbtt__edgei(ptr noundef nonnull %.078, i32 noundef %39)
   br label %49
 
-48:                                               ; preds = %44
+48:                                               ; preds = %43
   tail call fastcc void @_ZL27stbtt__sort_edges_quicksortP11stbtt__edgei(ptr noundef nonnull %28, i32 noundef %45)
   br label %49
 
 49:                                               ; preds = %48, %47
-  %.170 = phi i32 [ %45, %47 ], [ %40, %48 ]
+  %.170 = phi i32 [ %45, %47 ], [ %39, %48 ]
   %.1 = phi ptr [ %28, %47 ], [ %.078, %48 ]
   %50 = icmp sgt i32 %.170, 12
-  br i1 %50, label %.lr.ph, label %._crit_edge, !llvm.loop !80
+  br i1 %50, label %.lr.ph, label %._crit_edge, !llvm.loop !78
 
 ._crit_edge:                                      ; preds = %49, %2
   ret void
@@ -10010,7 +10010,7 @@ declare float @llvm.fabs.f32(float) #7
 declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #25
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define internal fastcc noundef i32 @_ZL16stbtt__matchpairPhjS_iii(ptr nocapture noundef readonly %0, i32 noundef %1, ptr nocapture noundef readonly %2, i32 noundef %3, i32 noundef %4, i32 noundef %5) unnamed_addr #2 {
+define internal fastcc noundef range(i32 0, 2) i32 @_ZL16stbtt__matchpairPhjS_iii(ptr nocapture noundef readonly %0, i32 noundef %1, ptr nocapture noundef readonly %2, i32 noundef %3, i32 noundef %4, i32 noundef %5) unnamed_addr #2 {
   %7 = zext i32 %1 to i64
   %8 = getelementptr inbounds i8, ptr %0, i64 %7
   %9 = getelementptr inbounds i8, ptr %8, i64 2
@@ -10221,7 +10221,7 @@ define internal fastcc noundef i32 @_ZL16stbtt__matchpairPhjS_iii(ptr nocapture 
 146:                                              ; preds = %58, %26, %62, %144, %128, %137, %132, %130
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %25
-  br i1 %exitcond.not, label %._crit_edge, label %26, !llvm.loop !81
+  br i1 %exitcond.not, label %._crit_edge, label %26, !llvm.loop !79
 
 ._crit_edge:                                      ; preds = %128, %137, %144, %146, %6
   %.0 = phi i32 [ 0, %6 ], [ 0, %146 ], [ 1, %144 ], [ 1, %137 ], [ 1, %128 ]
@@ -10316,14 +10316,14 @@ attributes #30 = { nounwind willreturn memory(read) }
 !7 = distinct !{!7, !6}
 !8 = distinct !{!8, !6}
 !9 = distinct !{!9, !6}
-!10 = !{i32 -2147483647, i32 -2147483648}
+!10 = distinct !{!10, !6}
 !11 = distinct !{!11, !6}
 !12 = distinct !{!12, !6}
 !13 = distinct !{!13, !6}
 !14 = distinct !{!14, !6}
 !15 = distinct !{!15, !6}
 !16 = distinct !{!16, !6}
-!17 = !{i32 0, i32 2}
+!17 = distinct !{!17, !6}
 !18 = distinct !{!18, !6}
 !19 = distinct !{!19, !6}
 !20 = distinct !{!20, !6}
@@ -10386,5 +10386,3 @@ attributes #30 = { nounwind willreturn memory(read) }
 !77 = distinct !{!77, !6}
 !78 = distinct !{!78, !6}
 !79 = distinct !{!79, !6}
-!80 = distinct !{!80, !6}
-!81 = distinct !{!81, !6}

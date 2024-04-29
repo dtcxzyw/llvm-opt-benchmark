@@ -229,7 +229,7 @@ for.inc:                                          ; preds = %_ZN20btAlignedObjec
   %arrayidx.i51 = getelementptr inbounds %struct.CONTACT_KEY_TOKEN, ptr %26, i64 %idxprom.i50
   store i32 %add15.i, ptr %arrayidx.i51, align 4
   %m_value3.i.i = getelementptr inbounds i8, ptr %arrayidx.i51, i64 4
-  %27 = trunc i64 %indvars.iv to i32
+  %27 = trunc nuw nsw i64 %indvars.iv to i32
   store i32 %27, ptr %m_value3.i.i, align 4
   %28 = load i32, ptr %m_size.i.i32, align 4
   %inc.i = add nsw i32 %28, 1
@@ -688,7 +688,7 @@ while.cond:                                       ; preds = %while.cond, %do.bod
 
 while.cond5.preheader:                            ; preds = %while.cond
   %arrayidx4.le = getelementptr inbounds %struct.CONTACT_KEY_TOKEN, ptr %2, i64 %indvars.iv
-  %5 = trunc i64 %indvars.iv to i32
+  %5 = trunc nsw i64 %indvars.iv to i32
   %6 = sext i32 %j.0 to i64
   br label %while.cond5
 
@@ -701,8 +701,8 @@ while.cond5:                                      ; preds = %while.cond5, %while
   br i1 %cmp.i.i24, label %while.cond5, label %while.end11, !llvm.loop !12
 
 while.end11:                                      ; preds = %while.cond5
-  %8 = trunc i64 %indvars.iv29 to i32
-  %cmp.not = icmp sgt i32 %5, %8
+  %8 = trunc nsw i64 %indvars.iv29 to i32
+  %cmp.not = icmp sgt i64 %indvars.iv, %indvars.iv29
   br i1 %cmp.not, label %do.cond, label %if.then
 
 if.then:                                          ; preds = %while.end11

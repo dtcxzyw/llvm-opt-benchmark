@@ -11103,8 +11103,8 @@ for.body4:                                        ; preds = %for.cond2.preheader
   %cmp3 = phi i1 [ true, %for.cond2.preheader ], [ false, %for.inc13 ]
   %indvars.iv85 = phi i64 [ 0, %for.cond2.preheader ], [ 1, %for.inc13 ]
   %25 = load ptr, ptr %watches, align 8
-  %26 = getelementptr %"class.cvc5::internal::Minisat::vec.404", ptr %25, i64 %indvars.iv85
-  %arrayidx.i.i22 = getelementptr %"class.cvc5::internal::Minisat::vec.404", ptr %26, i64 %23
+  %26 = getelementptr inbounds %"class.cvc5::internal::Minisat::vec.404", ptr %25, i64 %indvars.iv85
+  %arrayidx.i.i22 = getelementptr inbounds %"class.cvc5::internal::Minisat::vec.404", ptr %26, i64 %23
   %sz.i = getelementptr inbounds i8, ptr %arrayidx.i.i22, i64 8
   %27 = load i32, ptr %sz.i, align 8
   %cmp1071 = icmp sgt i32 %27, 0
@@ -13901,7 +13901,7 @@ if.else:                                          ; preds = %entry, %for.end
   br label %for.cond
 
 for.cond:                                         ; preds = %if.end, %if.else
-  %j.0 = phi i32 [ %size.tr31, %if.else ], [ %6, %if.end ]
+  %j.0 = phi i32 [ %size.tr31, %if.else ], [ %5, %if.end ]
   %i.0 = phi i64 [ -1, %if.else ], [ %indvars.iv.next, %if.end ]
   %sext = shl i64 %i.0, 32
   %3 = ashr exact i64 %sext, 32
@@ -13917,12 +13917,11 @@ do.body:                                          ; preds = %do.body, %for.cond
 
 do.body6.preheader:                               ; preds = %do.body
   %arrayidx3.le = getelementptr inbounds %"struct.cvc5::internal::Minisat::Lit", ptr %array.tr30, i64 %indvars.iv.next
-  %4 = trunc nsw i64 %indvars.iv.next to i32
-  %5 = sext i32 %j.0 to i64
+  %4 = sext i32 %j.0 to i64
   br label %do.body6
 
 do.body6:                                         ; preds = %do.body6.preheader, %do.body6
-  %indvars.iv34 = phi i64 [ %5, %do.body6.preheader ], [ %indvars.iv.next35, %do.body6 ]
+  %indvars.iv34 = phi i64 [ %4, %do.body6.preheader ], [ %indvars.iv.next35, %do.body6 ]
   %indvars.iv.next35 = add nsw i64 %indvars.iv34, -1
   %arrayidx11 = getelementptr inbounds %"struct.cvc5::internal::Minisat::Lit", ptr %array.tr30, i64 %indvars.iv.next35
   %agg.tmp9.sroa.0.0.copyload = load i32, ptr %arrayidx11, align 4
@@ -13930,19 +13929,20 @@ do.body6:                                         ; preds = %do.body6.preheader,
   br i1 %cmp.i.i28, label %do.body6, label %do.end15, !llvm.loop !96
 
 do.end15:                                         ; preds = %do.body6
-  %6 = trunc nsw i64 %indvars.iv.next35 to i32
-  %cmp16.not = icmp slt i32 %4, %6
+  %cmp16.not = icmp slt i64 %indvars.iv.next, %indvars.iv.next35
   br i1 %cmp16.not, label %if.end, label %for.end
 
 if.end:                                           ; preds = %do.end15
   %arrayidx11.le = getelementptr inbounds %"struct.cvc5::internal::Minisat::Lit", ptr %array.tr30, i64 %indvars.iv.next35
+  %5 = trunc nsw i64 %indvars.iv.next35 to i32
   store i32 %agg.tmp9.sroa.0.0.copyload, ptr %arrayidx3.le, align 4
   store i32 %agg.tmp1.sroa.0.0.copyload, ptr %arrayidx11.le, align 4
   br label %for.cond, !llvm.loop !97
 
 for.end:                                          ; preds = %do.end15
-  tail call void @_ZN4cvc58internal7Minisat4sortINS1_3LitENS1_16LessThan_defaultIS3_EEEEvPT_iT0_(ptr noundef nonnull %array.tr30, i32 noundef %4)
-  %sub = sub nsw i32 %size.tr31, %4
+  %6 = trunc nsw i64 %indvars.iv.next to i32
+  tail call void @_ZN4cvc58internal7Minisat4sortINS1_3LitENS1_16LessThan_defaultIS3_EEEEvPT_iT0_(ptr noundef nonnull %array.tr30, i32 noundef %6)
+  %sub = sub nsw i32 %size.tr31, %6
   %cmp = icmp slt i32 %sub, 16
   br i1 %cmp, label %if.then, label %if.else
 

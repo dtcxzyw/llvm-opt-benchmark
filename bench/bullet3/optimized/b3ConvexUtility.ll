@@ -1212,7 +1212,7 @@ for.inc.i.i:                                      ; preds = %for.body.i.i
   br i1 %exitcond.not.i.i, label %for.inc199, label %for.body.i.i, !llvm.loop !14
 
 _ZNK20b3AlignedObjectArrayIiE16findLinearSearchERKi.exit.i: ; preds = %for.body.i.i
-  %138 = trunc i64 %indvars.iv.i.i to i32
+  %138 = trunc nuw nsw i64 %indvars.iv.i.i to i32
   %cmp.i292 = icmp sgt i32 %136, %138
   br i1 %cmp.i292, label %if.then.i293, label %for.inc199
 
@@ -3150,7 +3150,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   br i1 %cmp11469, label %for.body12.lr.ph, label %for.inc80
 
 for.body12.lr.ph:                                 ; preds = %for.body
-  %8 = trunc i64 %indvars.iv500 to i32
+  %8 = trunc nuw nsw i64 %indvars.iv500 to i32
   %conv72 = trunc i64 %indvars.iv500 to i16
   %ed.sroa.0.0.insert.insert430 = or i32 %8, -65536
   %9 = zext nneg i32 %7 to i64
@@ -3894,7 +3894,7 @@ for.body20.i:                                     ; preds = %for.body20.i, %for.
   store i32 %114, ptr %arrayidx.i41.i277, align 4
   %116 = load ptr, ptr %m_data.i.i.i, align 8
   %arrayidx.i44.i278 = getelementptr inbounds i32, ptr %116, i64 %idxprom.i37.i275
-  %117 = trunc i64 %indvars.iv57.i to i32
+  %117 = trunc nuw nsw i64 %indvars.iv57.i to i32
   store i32 %117, ptr %arrayidx.i44.i278, align 4
   %indvars.iv.next58.i = add nuw nsw i64 %indvars.iv57.i, 1
   %exitcond61.not.i = icmp eq i64 %indvars.iv.next58.i, %wide.trip.count60.i
@@ -4362,7 +4362,7 @@ if.then15.i:                                      ; preds = %if.else.i
   br i1 %cmp16.i, label %while.body, label %while.cond5.preheader
 
 while.cond5.preheader:                            ; preds = %_ZNK18b3AngleCompareFuncclERK15b3GrahamVector3S2_.exit, %if.then.i, %if.then15.i
-  %14 = trunc i64 %indvars.iv to i32
+  %14 = trunc nsw i64 %indvars.iv to i32
   %15 = sext i32 %j.0 to i64
   br label %while.cond5
 
@@ -4418,8 +4418,8 @@ while.body10:                                     ; preds = %if.then15.i48, %if.
   br label %while.cond5, !llvm.loop !52
 
 while.end11:                                      ; preds = %if.then15.i48, %if.then.i50, %_ZNK18b3AngleCompareFuncclERK15b3GrahamVector3S2_.exit52
-  %24 = trunc i64 %indvars.iv60 to i32
-  %cmp.not = icmp sgt i32 %14, %24
+  %24 = trunc nsw i64 %indvars.iv60 to i32
+  %cmp.not = icmp sgt i64 %indvars.iv, %indvars.iv60
   br i1 %cmp.not, label %do.cond, label %if.then
 
 if.then:                                          ; preds = %while.end11

@@ -5993,11 +5993,11 @@ invoke.cont15:                                    ; preds = %invoke.cont13
   call void @llvm.lifetime.start.p0(i64 256, ptr nonnull %lights) #21
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %data) #21
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(30) %data, i8 0, i64 30, i1 false)
-  %cmp.not579 = icmp sgt i16 %minblock.sroa.0.0.extract.trunc, %maxblock.sroa.0.0.extract.trunc
+  %cmp.not579 = icmp sgt i32 %div.i.i.i, %div.i.i.i395
   br i1 %cmp.not579, label %for.end270, label %for.cond26.preheader.lr.ph
 
 for.cond26.preheader.lr.ph:                       ; preds = %invoke.cont15
-  %cmp30.not577 = icmp sgt i16 %minblock.sroa.9.0.extract.trunc, %maxblock.sroa.9.0.extract.trunc
+  %cmp30.not577 = icmp sgt i32 %div.i19.i.i, %div.i19.i.i406
   %m_cache_extent.i.i = getelementptr inbounds i8, ptr %vm, i64 20
   %Y.i88.i = getelementptr inbounds i8, ptr %vm, i64 22
   %m_flags.i = getelementptr inbounds i8, ptr %vm, i64 40
@@ -6023,7 +6023,7 @@ for.cond26.preheader:                             ; preds = %for.cond26.preheade
   br label %for.body32
 
 for.cond112.preheader.lr.ph:                      ; preds = %for.cond26.for.cond.cleanup31_crit_edge
-  %cmp117.not592 = icmp sgt i16 %minblock.sroa.7.0.extract.trunc, %maxblock.sroa.7.0.extract.trunc
+  %cmp117.not592 = icmp sgt i32 %div.i11.i.i, %div.i11.i.i400
   br i1 %cmp117.not592, label %for.end270, label %for.cond112.preheader
 
 lpad:                                             ; preds = %if.end

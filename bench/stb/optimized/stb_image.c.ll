@@ -19041,21 +19041,21 @@ if.end13:                                         ; preds = %if.end3
   %idxprom14 = sext i32 %add to i64
   %arrayidx15 = getelementptr inbounds [288 x i8], ptr %size, i64 0, i64 %idxprom14
   %5 = load i8, ptr %arrayidx15, align 1
-  %conv16 = zext i8 %5 to i32
-  %cmp17.not = icmp eq i32 %2, %conv16
+  %6 = zext i8 %5 to i64
+  %cmp17.not = icmp eq i64 %indvars.iv, %6
   br i1 %cmp17.not, label %if.end20, label %return
 
 if.end20:                                         ; preds = %if.end13
   %shr22 = lshr i32 %0, %2
   store i32 %shr22, ptr %code_buffer, align 8
   %num_bits = getelementptr inbounds i8, ptr %a, i64 16
-  %6 = load i32, ptr %num_bits, align 8
-  %sub23 = sub nsw i32 %6, %2
+  %7 = load i32, ptr %num_bits, align 8
+  %sub23 = sub nsw i32 %7, %2
   store i32 %sub23, ptr %num_bits, align 8
   %value = getelementptr inbounds i8, ptr %z, i64 1444
   %arrayidx25 = getelementptr inbounds [288 x i16], ptr %value, i64 0, i64 %idxprom14
-  %7 = load i16, ptr %arrayidx25, align 2
-  %conv26 = zext i16 %7 to i32
+  %8 = load i16, ptr %arrayidx25, align 2
+  %conv26 = zext i16 %8 to i32
   br label %return
 
 return:                                           ; preds = %if.end13, %if.end3, %for.end, %if.end20
@@ -19191,8 +19191,8 @@ if.end13.i:                                       ; preds = %if.end3.i
   %idxprom14.i = sext i32 %add.i18 to i64
   %arrayidx15.i = getelementptr inbounds [288 x i8], ptr %size.i, i64 0, i64 %idxprom14.i
   %16 = load i8, ptr %arrayidx15.i, align 1
-  %conv16.i = zext i8 %16 to i32
-  %cmp17.not.i = icmp eq i32 %13, %conv16.i
+  %17 = zext i8 %16 to i64
+  %cmp17.not.i = icmp eq i64 %indvars.iv.i, %17
   br i1 %cmp17.not.i, label %if.end20.i, label %return
 
 if.end20.i:                                       ; preds = %if.end13.i
@@ -19202,8 +19202,8 @@ if.end20.i:                                       ; preds = %if.end13.i
   store i32 %sub23.i, ptr %num_bits, align 8
   %value.i = getelementptr inbounds i8, ptr %z, i64 1444
   %arrayidx25.i = getelementptr inbounds [288 x i16], ptr %value.i, i64 0, i64 %idxprom14.i
-  %17 = load i16, ptr %arrayidx25.i, align 2
-  %conv26.i = zext i16 %17 to i32
+  %18 = load i16, ptr %arrayidx25.i, align 2
+  %conv26.i = zext i16 %18 to i32
   br label %return
 
 return:                                           ; preds = %if.end20.i, %if.end13.i, %if.end3.i, %for.end.i, %if.then1, %if.then10

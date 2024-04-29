@@ -172115,8 +172115,8 @@ sqlite3ResolveExprNames.exit:                     ; preds = %211
 sqlite3StrICmp.exit.thread:                       ; preds = %248
   %260 = trunc nuw nsw i64 %indvars.iv283 to i32
   %261 = load i16, ptr %175, align 4
-  %262 = sext i16 %261 to i32
-  %263 = icmp eq i32 %260, %262
+  %262 = sext i16 %261 to i64
+  %263 = icmp eq i64 %indvars.iv283, %262
   br i1 %263, label %264, label %267
 
 264:                                              ; preds = %sqlite3StrICmp.exit.thread
@@ -174593,8 +174593,8 @@ sqlite3StrICmp.exit.thread:                       ; preds = %195
 
 sqlite3StrICmp.exit.thread..loopexit722_crit_edge: ; preds = %sqlite3StrICmp.exit.thread
   %214 = load i16, ptr %179, align 4
-  %215 = sext i16 %214 to i32
-  %216 = icmp eq i32 %207, %215
+  %215 = sext i16 %214 to i64
+  %216 = icmp eq i64 %indvars.iv786, %215
   %217 = trunc nuw nsw i64 %indvars.iv791 to i32
   %.1504 = select i1 %216, i32 %217, i32 %.0503747
   %218 = and i64 %indvars.iv786, 4294967295
@@ -284721,10 +284721,10 @@ select.unfold:                                    ; preds = %.select.unfold_crit
   br label %375
 
 .thread390:                                       ; preds = %344, %362, %.thread380, %sqlite3ExprSkipCollateAndLikely.exit348.thread
-  %371 = trunc nuw nsw i64 %indvars.iv554 to i32
-  %372 = icmp eq i32 %371, 0
-  %373 = zext i16 %.0226588 to i32
-  %374 = icmp ult i32 %371, %373
+  %371 = and i64 %indvars.iv554, 4294967295
+  %372 = icmp eq i64 %371, 0
+  %373 = zext i16 %.0226588 to i64
+  %374 = icmp ult i64 %indvars.iv554, %373
   %or.cond329 = select i1 %372, i1 true, i1 %374
   %spec.select333 = select i1 %or.cond329, i8 0, i8 %.4
   br label %.loopexit435

@@ -7921,8 +7921,8 @@ _ZN7Minisat8OccListsINS_3LitENS_3vecINS_6Solver7WatcherEiEENS3_14WatcherDeletedE
   %72 = phi i1 [ true, %.preheader70 ], [ false, %._crit_edge ]
   %indvars.iv103 = phi i64 [ 0, %.preheader70 ], [ 1, %._crit_edge ]
   %73 = load ptr, ptr %3, align 8
-  %74 = getelementptr %"class.Minisat::vec.26", ptr %73, i64 %indvars.iv103
-  %75 = getelementptr %"class.Minisat::vec.26", ptr %74, i64 %63
+  %74 = getelementptr inbounds %"class.Minisat::vec.26", ptr %73, i64 %indvars.iv103
+  %75 = getelementptr inbounds %"class.Minisat::vec.26", ptr %74, i64 %63
   %76 = getelementptr inbounds i8, ptr %75, i64 8
   %77 = load i32, ptr %76, align 8
   %78 = icmp sgt i32 %77, 0
@@ -9810,9 +9810,9 @@ tailrecurse._crit_edge:                           ; preds = %tailrecurse, %2
   %.sroa.018.0.copyload = load i32, ptr %18, align 4
   br label %19
 
-19:                                               ; preds = %32, %.lr.ph
-  %.034 = phi i32 [ %.tr4147, %.lr.ph ], [ %31, %32 ]
-  %.0 = phi i64 [ -1, %.lr.ph ], [ %indvars.iv.next, %32 ]
+19:                                               ; preds = %30, %.lr.ph
+  %.034 = phi i32 [ %.tr4147, %.lr.ph ], [ %32, %30 ]
+  %.0 = phi i64 [ -1, %.lr.ph ], [ %indvars.iv.next, %30 ]
   %sext = shl i64 %.0, 32
   %20 = ashr exact i64 %sext, 32
   br label %21
@@ -9827,32 +9827,32 @@ tailrecurse._crit_edge:                           ; preds = %tailrecurse, %2
 
 .preheader:                                       ; preds = %21
   %24 = getelementptr inbounds %"struct.Minisat::Lit", ptr %.tr46, i64 %indvars.iv.next
-  %25 = trunc nsw i64 %indvars.iv.next to i32
-  %26 = sext i32 %.034 to i64
-  br label %27
+  %25 = sext i32 %.034 to i64
+  br label %26
 
-27:                                               ; preds = %.preheader, %27
-  %indvars.iv55 = phi i64 [ %26, %.preheader ], [ %indvars.iv.next56, %27 ]
+26:                                               ; preds = %.preheader, %26
+  %indvars.iv55 = phi i64 [ %25, %.preheader ], [ %indvars.iv.next56, %26 ]
   %indvars.iv.next56 = add nsw i64 %indvars.iv55, -1
-  %28 = getelementptr inbounds %"struct.Minisat::Lit", ptr %.tr46, i64 %indvars.iv.next56
-  %.sroa.0.0.copyload = load i32, ptr %28, align 4
-  %29 = icmp slt i32 %.sroa.018.0.copyload, %.sroa.0.0.copyload
-  br i1 %29, label %27, label %30, !llvm.loop !87
+  %27 = getelementptr inbounds %"struct.Minisat::Lit", ptr %.tr46, i64 %indvars.iv.next56
+  %.sroa.0.0.copyload = load i32, ptr %27, align 4
+  %28 = icmp slt i32 %.sroa.018.0.copyload, %.sroa.0.0.copyload
+  br i1 %28, label %26, label %29, !llvm.loop !87
 
-30:                                               ; preds = %27
-  %31 = trunc nsw i64 %indvars.iv.next56 to i32
-  %.not = icmp slt i32 %25, %31
-  br i1 %.not, label %32, label %tailrecurse
+29:                                               ; preds = %26
+  %.not = icmp slt i64 %indvars.iv.next, %indvars.iv.next56
+  br i1 %.not, label %30, label %tailrecurse
 
-32:                                               ; preds = %30
-  %33 = getelementptr inbounds %"struct.Minisat::Lit", ptr %.tr46, i64 %indvars.iv.next56
+30:                                               ; preds = %29
+  %31 = getelementptr inbounds %"struct.Minisat::Lit", ptr %.tr46, i64 %indvars.iv.next56
+  %32 = trunc nsw i64 %indvars.iv.next56 to i32
   store i32 %.sroa.0.0.copyload, ptr %24, align 4
-  store i32 %.sroa.03.0.copyload, ptr %33, align 4
+  store i32 %.sroa.03.0.copyload, ptr %31, align 4
   br label %19, !llvm.loop !88
 
-tailrecurse:                                      ; preds = %30
-  tail call void @_ZN7Minisat4sortINS_3LitENS_16LessThan_defaultIS1_EEEEvPT_iT0_(ptr noundef nonnull %.tr46, i32 noundef %25)
-  %34 = sub nsw i32 %.tr4147, %25
+tailrecurse:                                      ; preds = %29
+  %33 = trunc nsw i64 %indvars.iv.next to i32
+  tail call void @_ZN7Minisat4sortINS_3LitENS_16LessThan_defaultIS1_EEEEvPT_iT0_(ptr noundef nonnull %.tr46, i32 noundef %33)
+  %34 = sub nsw i32 %.tr4147, %33
   %35 = icmp slt i32 %34, 16
   br i1 %35, label %tailrecurse._crit_edge, label %.lr.ph
 

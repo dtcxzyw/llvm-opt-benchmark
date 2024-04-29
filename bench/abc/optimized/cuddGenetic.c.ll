@@ -12,7 +12,7 @@ target triple = "x86_64-pc-linux-gnu"
 @large = internal unnamed_addr global i32 0, align 4
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @cuddGa(ptr noundef %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #0 {
+define i32 @cuddGa(ptr noundef %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #0 {
   %4 = alloca i32, align 4
   %5 = alloca ptr, align 8
   %6 = tail call i32 @cuddSifting(ptr noundef %0, i32 noundef %1, i32 noundef %2) #8
@@ -174,7 +174,7 @@ define noundef i32 @cuddGa(ptr noundef %0, i32 noundef %1, i32 noundef %2) local
   %76 = getelementptr i32, ptr %75, i64 %indvars.iv238
   %77 = getelementptr i32, ptr %76, i64 %73
   %78 = load i32, ptr %77, align 4
-  %79 = trunc i64 %indvars.iv238 to i32
+  %79 = trunc nuw nsw i64 %indvars.iv238 to i32
   %80 = sub i32 %factor, %79
   %81 = sext i32 %80 to i64
   %82 = getelementptr inbounds i32, ptr %72, i64 %81
@@ -228,7 +228,7 @@ define noundef i32 @cuddGa(ptr noundef %0, i32 noundef %1, i32 noundef %2) local
 
 102:                                              ; preds = %95
   %103 = getelementptr inbounds i32, ptr %85, i64 %99
-  %104 = trunc i64 %99 to i32
+  %104 = trunc nsw i64 %99 to i32
   store i32 1, ptr %103, align 4
   %105 = load ptr, ptr %89, align 8
   %106 = add nsw i32 %104, %1
@@ -285,8 +285,8 @@ make_random.exit:                                 ; preds = %._crit_edge.i, %.pr
 
 .lr.ph191:                                        ; preds = %make_random.exit, %177
   %indvars.iv243 = phi i64 [ %indvars.iv.next244, %177 ], [ 1, %make_random.exit ]
-  %131 = trunc i64 %indvars.iv243 to i32
-  %132 = call fastcc i32 @build_dd(ptr noundef %0, i32 noundef %131, i32 noundef %1, i32 noundef %2), !range !10
+  %131 = trunc nuw nsw i64 %indvars.iv243 to i32
+  %132 = call fastcc i32 @build_dd(ptr noundef %0, i32 noundef %131, i32 noundef %1, i32 noundef %2)
   %.not120 = icmp eq i32 %132, 0
   br i1 %.not120, label %133, label %141
 
@@ -386,7 +386,7 @@ make_random.exit:                                 ; preds = %._crit_edge.i, %.pr
   %180 = load i32, ptr @popsize, align 4
   %181 = sext i32 %180 to i64
   %182 = icmp slt i64 %indvars.iv.next244, %181
-  br i1 %182, label %.lr.ph191, label %find_best.exit, !llvm.loop !11
+  br i1 %182, label %.lr.ph191, label %find_best.exit, !llvm.loop !10
 
 find_best.exit:                                   ; preds = %177, %make_random.exit
   %.lcssa174266 = phi i32 [ %123, %make_random.exit ], [ %180, %177 ]
@@ -465,7 +465,7 @@ find_best.exit:                                   ; preds = %177, %make_random.e
   store double %224, ptr %219, align 8
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, %wide.trip.count.i.i
-  br i1 %exitcond.not.i.i, label %._crit_edge.i.i, label %218, !llvm.loop !12
+  br i1 %exitcond.not.i.i, label %._crit_edge.i.i, label %218, !llvm.loop !11
 
 ._crit_edge.i.i:                                  ; preds = %218, %207
   %225 = getelementptr double, ptr %205, i64 %210
@@ -493,10 +493,10 @@ find_best.exit:                                   ; preds = %177, %make_random.e
 237:                                              ; preds = %.lr.ph34.i.i
   %indvars.iv.next47.i.i = add nuw nsw i64 %indvars.iv46.i.i, 1
   %exitcond50.not.i.i = icmp eq i64 %indvars.iv.next47.i.i, %wide.trip.count49.i.i
-  br i1 %exitcond50.not.i.i, label %._crit_edge35.i.i, label %.lr.ph34.i.i, !llvm.loop !13
+  br i1 %exitcond50.not.i.i, label %._crit_edge35.i.i, label %.lr.ph34.i.i, !llvm.loop !12
 
 ._crit_edge35.loopexit.split.loop.exit.i.i:       ; preds = %.lr.ph34.i.i
-  %238 = trunc i64 %indvars.iv46.i.i to i32
+  %238 = trunc nuw nsw i64 %indvars.iv46.i.i to i32
   br label %._crit_edge35.i.i
 
 ._crit_edge35.i.i:                                ; preds = %237, %._crit_edge35.loopexit.split.loop.exit.i.i, %._crit_edge.i.i
@@ -531,16 +531,16 @@ find_best.exit:                                   ; preds = %177, %make_random.e
 252:                                              ; preds = %.lr.ph40.i.i
   %indvars.iv.next52.i.i = add nuw nsw i64 %indvars.iv51.i.i, 1
   %exitcond55.not.i.i = icmp eq i64 %indvars.iv.next52.i.i, %wide.trip.count54.i.i
-  br i1 %exitcond55.not.i.i, label %._crit_edge41.i.i, label %.lr.ph40.i.i, !llvm.loop !14
+  br i1 %exitcond55.not.i.i, label %._crit_edge41.i.i, label %.lr.ph40.i.i, !llvm.loop !13
 
 ._crit_edge41.loopexit.split.loop.exit60.i.i:     ; preds = %.lr.ph40.i.i
-  %253 = trunc i64 %indvars.iv51.i.i to i32
+  %253 = trunc nuw nsw i64 %indvars.iv51.i.i to i32
   br label %._crit_edge41.i.i
 
 ._crit_edge41.i.i:                                ; preds = %252, %._crit_edge41.loopexit.split.loop.exit60.i.i, %239
   %.2.lcssa.i.i = phi i32 [ 0, %239 ], [ %253, %._crit_edge41.loopexit.split.loop.exit60.i.i ], [ %247, %252 ]
   %254 = icmp eq i32 %.2.lcssa.i.i, %.1.lcssa.i.i
-  br i1 %254, label %239, label %256, !llvm.loop !15
+  br i1 %254, label %239, label %256, !llvm.loop !14
 
 255:                                              ; preds = %202
   call void @free(ptr noundef nonnull %197) #8
@@ -552,30 +552,30 @@ find_best.exit:                                   ; preds = %177, %make_random.e
   %258 = call i64 @Cudd_Random() #8
   %259 = sext i32 %257 to i64
   %260 = srem i64 %258, %259
-  %261 = trunc i64 %260 to i32
-  br label %262
+  br label %261
 
-262:                                              ; preds = %262, %256
-  %263 = load i32, ptr @numvars, align 4
-  %264 = call i64 @Cudd_Random() #8
-  %265 = sext i32 %263 to i64
-  %266 = srem i64 %264, %265
-  %267 = trunc i64 %266 to i32
-  %268 = icmp eq i32 %261, %267
-  br i1 %268, label %262, label %.preheader86.i, !llvm.loop !16
+261:                                              ; preds = %261, %256
+  %262 = load i32, ptr @numvars, align 4
+  %263 = call i64 @Cudd_Random() #8
+  %264 = sext i32 %262 to i64
+  %265 = srem i64 %263, %264
+  %266 = icmp eq i64 %260, %265
+  br i1 %266, label %261, label %.preheader86.i, !llvm.loop !15
 
-.preheader86.i:                                   ; preds = %262
+.preheader86.i:                                   ; preds = %261
+  %267 = trunc nsw i64 %260 to i32
+  %268 = trunc nsw i64 %265 to i32
   %269 = icmp sgt i32 %194, 0
-  br i1 %269, label %.lr.ph.preheader.i, label %.lr.ph99.i
+  br i1 %269, label %.lr.ph.preheader.i, label %.lr.ph100.i
 
 .lr.ph.preheader.i:                               ; preds = %.preheader86.i
   %270 = zext nneg i32 %194 to i64
   %271 = shl nuw nsw i64 %270, 2
   call void @llvm.memset.p0.i64(ptr nonnull align 4 %197, i8 -1, i64 %271, i1 false)
   call void @llvm.memset.p0.i64(ptr nonnull align 4 %200, i8 -1, i64 %271, i1 false)
-  br label %.lr.ph99.i
+  br label %.lr.ph100.i
 
-.lr.ph99.i:                                       ; preds = %.lr.ph.preheader.i, %.preheader86.i
+.lr.ph100.i:                                      ; preds = %.lr.ph.preheader.i, %.preheader86.i
   %272 = load ptr, ptr @storedd, align 8
   %273 = load i32, ptr @numvars, align 4
   %274 = add nsw i32 %273, 1
@@ -588,42 +588,42 @@ find_best.exit:                                   ; preds = %177, %make_random.e
   %281 = add nsw i32 %273, -1
   br label %282
 
-282:                                              ; preds = %282, %.lr.ph99.i
-  %.16498.i = phi i32 [ %261, %.lr.ph99.i ], [ %303, %282 ]
-  %283 = add nsw i32 %.16498.i, %275
+282:                                              ; preds = %282, %.lr.ph100.i
+  %.16499.i = phi i32 [ %267, %.lr.ph100.i ], [ %303, %282 ]
+  %283 = add nsw i32 %.16499.i, %275
   %284 = sext i32 %283 to i64
   %285 = getelementptr inbounds i32, ptr %272, i64 %284
   %286 = load i32, ptr %285, align 4
-  %287 = add nsw i32 %.16498.i, %277
+  %287 = add nsw i32 %.16499.i, %277
   %288 = sext i32 %287 to i64
   %289 = getelementptr inbounds i32, ptr %272, i64 %288
   store i32 %286, ptr %289, align 4
   %290 = sext i32 %286 to i64
   %291 = getelementptr inbounds i32, ptr %197, i64 %290
-  store i32 %.16498.i, ptr %291, align 4
-  %292 = add nsw i32 %.16498.i, %278
+  store i32 %.16499.i, ptr %291, align 4
+  %292 = add nsw i32 %.16499.i, %278
   %293 = sext i32 %292 to i64
   %294 = getelementptr inbounds i32, ptr %272, i64 %293
   %295 = load i32, ptr %294, align 4
-  %296 = add nsw i32 %.16498.i, %280
+  %296 = add nsw i32 %.16499.i, %280
   %297 = sext i32 %296 to i64
   %298 = getelementptr inbounds i32, ptr %272, i64 %297
   store i32 %295, ptr %298, align 4
   %299 = sext i32 %295 to i64
   %300 = getelementptr inbounds i32, ptr %200, i64 %299
-  store i32 %.16498.i, ptr %300, align 4
-  %301 = icmp eq i32 %.16498.i, %281
-  %302 = add nsw i32 %.16498.i, 1
+  store i32 %.16499.i, ptr %300, align 4
+  %301 = icmp eq i32 %.16499.i, %281
+  %302 = add nsw i32 %.16499.i, 1
   %303 = select i1 %301, i32 0, i32 %302
-  %.not70.i = icmp eq i32 %303, %267
-  br i1 %.not70.i, label %.preheader.i132, label %282, !llvm.loop !17
+  %.not70.i = icmp eq i32 %303, %268
+  br i1 %.not70.i, label %.preheader.i132, label %282, !llvm.loop !16
 
 .preheader.i132:                                  ; preds = %282, %325
-  %.2102.i = phi i32 [ %332, %325 ], [ %267, %282 ]
+  %.2103.i = phi i32 [ %332, %325 ], [ %268, %282 ]
   br label %304
 
 304:                                              ; preds = %304, %.preheader.i132
-  %.0.i133 = phi i32 [ %311, %304 ], [ %.2102.i, %.preheader.i132 ]
+  %.0.i133 = phi i32 [ %311, %304 ], [ %.2103.i, %.preheader.i132 ]
   %305 = add nsw i32 %.0.i133, %278
   %306 = sext i32 %305 to i64
   %307 = getelementptr inbounds i32, ptr %272, i64 %306
@@ -632,19 +632,19 @@ find_best.exit:                                   ; preds = %177, %make_random.e
   %310 = getelementptr inbounds i32, ptr %197, i64 %309
   %311 = load i32, ptr %310, align 4
   %.not72.i = icmp eq i32 %311, -1
-  br i1 %.not72.i, label %312, label %304, !llvm.loop !18
+  br i1 %.not72.i, label %312, label %304, !llvm.loop !17
 
 312:                                              ; preds = %304
   %313 = getelementptr inbounds i32, ptr %197, i64 %309
-  %314 = add nsw i32 %.2102.i, %277
+  %314 = add nsw i32 %.2103.i, %277
   %315 = sext i32 %314 to i64
   %316 = getelementptr inbounds i32, ptr %272, i64 %315
   store i32 %308, ptr %316, align 4
-  store i32 %.2102.i, ptr %313, align 4
+  store i32 %.2103.i, ptr %313, align 4
   br label %317
 
 317:                                              ; preds = %317, %312
-  %.1.i = phi i32 [ %.2102.i, %312 ], [ %324, %317 ]
+  %.1.i = phi i32 [ %.2103.i, %312 ], [ %324, %317 ]
   %318 = add nsw i32 %.1.i, %275
   %319 = sext i32 %318 to i64
   %320 = getelementptr inbounds i32, ptr %272, i64 %319
@@ -653,20 +653,20 @@ find_best.exit:                                   ; preds = %177, %make_random.e
   %323 = getelementptr inbounds i32, ptr %200, i64 %322
   %324 = load i32, ptr %323, align 4
   %.not73.i = icmp eq i32 %324, -1
-  br i1 %.not73.i, label %325, label %317, !llvm.loop !19
+  br i1 %.not73.i, label %325, label %317, !llvm.loop !18
 
 325:                                              ; preds = %317
   %326 = getelementptr inbounds i32, ptr %200, i64 %322
-  %327 = add nsw i32 %.2102.i, %280
+  %327 = add nsw i32 %.2103.i, %280
   %328 = sext i32 %327 to i64
   %329 = getelementptr inbounds i32, ptr %272, i64 %328
   store i32 %321, ptr %329, align 4
-  store i32 %.2102.i, ptr %326, align 4
-  %330 = icmp eq i32 %.2102.i, %281
-  %331 = add nsw i32 %.2102.i, 1
+  store i32 %.2103.i, ptr %326, align 4
+  %330 = icmp eq i32 %.2103.i, %281
+  %331 = add nsw i32 %.2103.i, 1
   %332 = select i1 %330, i32 0, i32 %331
-  %.not71.i = icmp eq i32 %332, %261
-  br i1 %.not71.i, label %.lr.ph206.preheader, label %.preheader.i132, !llvm.loop !20
+  %.not71.i = icmp eq i32 %332, %267
+  br i1 %.not71.i, label %.lr.ph206.preheader, label %.preheader.i132, !llvm.loop !19
 
 PMX.exit.thread149:                               ; preds = %199, %255
   %.sink.i.ph = phi ptr [ %200, %255 ], [ %197, %199 ]
@@ -707,7 +707,7 @@ PMX.exit.thread:                                  ; preds = %192, %PMX.exit.thre
 
 .lr.ph206:                                        ; preds = %.lr.ph206.preheader, %466
   %.4203 = phi i32 [ %467, %466 ], [ %276, %.lr.ph206.preheader ]
-  %341 = call fastcc i32 @build_dd(ptr noundef %0, i32 noundef %.4203, i32 noundef %1, i32 noundef %2), !range !10
+  %341 = call fastcc i32 @build_dd(ptr noundef %0, i32 noundef %.4203, i32 noundef %1, i32 noundef %2)
   %.not107 = icmp eq i32 %341, 0
   br i1 %.not107, label %342, label %350
 
@@ -748,10 +748,10 @@ PMX.exit.thread:                                  ; preds = %192, %PMX.exit.thre
   %355 = icmp sgt i32 %354, 1
   %indvars.iv.next.i136 = add nuw nsw i64 %indvars.iv.i135, 1
   %indvars.iv.next16.i = add nuw i32 %indvars.iv15.i, 1
-  br i1 %355, label %352, label %.preheader.i137, !llvm.loop !21
+  br i1 %355, label %352, label %.preheader.i137, !llvm.loop !20
 
 .preheader.i137:                                  ; preds = %352
-  %356 = trunc i64 %indvars.iv.i135 to i32
+  %356 = trunc nuw nsw i64 %indvars.iv.i135 to i32
   %357 = load i32, ptr @popsize, align 4
   %.01011.i = add nuw nsw i32 %356, 1
   %358 = icmp slt i32 %.01011.i, %357
@@ -785,7 +785,7 @@ PMX.exit.thread:                                  ; preds = %192, %PMX.exit.thre
   %372 = getelementptr inbounds i32, ptr %351, i64 %indvars.iv17.i
   %373 = load i32, ptr %372, align 4
   %374 = icmp slt i32 %373, 2
-  %375 = trunc i64 %indvars.iv17.i to i32
+  %375 = trunc nsw i64 %indvars.iv17.i to i32
   %spec.select.i143 = select i1 %374, i32 %375, i32 %.112.i
   br label %376
 
@@ -794,7 +794,7 @@ PMX.exit.thread:                                  ; preds = %192, %PMX.exit.thre
   %indvars.iv.next18.i = add nsw i64 %indvars.iv17.i, 1
   %lftr.wideiv = trunc i64 %indvars.iv.next18.i to i32
   %exitcond246 = icmp eq i32 %357, %lftr.wideiv
-  br i1 %exitcond246, label %largest.exit, label %363, !llvm.loop !22
+  br i1 %exitcond246, label %largest.exit, label %363, !llvm.loop !21
 
 largest.exit:                                     ; preds = %376, %.preheader.i137
   %.1.lcssa.i = phi i32 [ %356, %.preheader.i137 ], [ %.2.i, %376 ]
@@ -929,7 +929,7 @@ largest.exit:                                     ; preds = %376, %.preheader.i1
   store i32 %437, ptr %gep298, align 4
   %indvars.iv.next249 = add nuw nsw i64 %indvars.iv248, 1
   %exitcond252.not = icmp eq i64 %indvars.iv.next249, %wide.trip.count251
-  br i1 %exitcond252.not, label %._crit_edge200, label %436, !llvm.loop !23
+  br i1 %exitcond252.not, label %._crit_edge200, label %436, !llvm.loop !22
 
 ._crit_edge200:                                   ; preds = %436, %.._crit_edge200_crit_edge
   %.pre-phi264 = phi i64 [ %.pre263, %.._crit_edge200_crit_edge ], [ %435, %436 ]
@@ -994,20 +994,20 @@ largest.exit:                                     ; preds = %376, %.preheader.i1
   %467 = add nsw i32 %.4203, 1
   %468 = load i32, ptr @popsize, align 4
   %.not106 = icmp sgt i32 %.4203, %468
-  br i1 %.not106, label %._crit_edge207, label %.lr.ph206, !llvm.loop !24
+  br i1 %.not106, label %._crit_edge207, label %.lr.ph206, !llvm.loop !23
 
 ._crit_edge207:                                   ; preds = %466
   %469 = add nuw nsw i32 %.0208, 1
   %470 = load i32, ptr @cross, align 4
   %471 = icmp slt i32 %469, %470
-  br i1 %471, label %192, label %._crit_edge211, !llvm.loop !25
+  br i1 %471, label %192, label %._crit_edge211, !llvm.loop !24
 
 ._crit_edge211:                                   ; preds = %._crit_edge207, %189
   %472 = call fastcc i32 @find_best()
   %473 = load ptr, ptr @computed, align 8
   call void @st__free_table(ptr noundef %473) #8
   store ptr null, ptr @computed, align 8
-  %474 = call fastcc i32 @build_dd(ptr noundef %0, i32 noundef %472, i32 noundef %1, i32 noundef %2), !range !10
+  %474 = call fastcc i32 @build_dd(ptr noundef %0, i32 noundef %472, i32 noundef %1, i32 noundef %2)
   %475 = load ptr, ptr @storedd, align 8
   %.not101 = icmp eq ptr %475, null
   br i1 %.not101, label %477, label %476
@@ -1043,7 +1043,7 @@ declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #3
 declare ptr @st__init_table(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
-define internal noundef i32 @array_compare(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #4 {
+define internal range(i32 0, 2) i32 @array_compare(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #4 {
   %3 = load i32, ptr @numvars, align 4
   %4 = icmp sgt i32 %3, 0
   br i1 %4, label %.lr.ph.preheader, label %._crit_edge
@@ -1055,7 +1055,7 @@ define internal noundef i32 @array_compare(ptr nocapture noundef readonly %0, pt
 5:                                                ; preds = %.lr.ph
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !26
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !25
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %5
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %5 ]
@@ -1090,7 +1090,7 @@ define internal i32 @array_hash(ptr nocapture noundef readonly %0, i32 noundef %
   %8 = add nsw i32 %7, %5
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !27
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !26
 
 ._crit_edge:                                      ; preds = %.lr.ph, %2
   %.0.lcssa = phi i32 [ 0, %2 ], [ %8, %.lr.ph ]
@@ -1104,7 +1104,7 @@ declare i32 @st__insert(ptr noundef, ptr noundef, ptr noundef) local_unnamed_add
 declare void @st__free_table(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @build_dd(ptr noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @build_dd(ptr noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3) unnamed_addr #0 {
   %5 = alloca i32, align 4
   %6 = load ptr, ptr @computed, align 8
   %.not = icmp eq ptr %6, null
@@ -1155,7 +1155,7 @@ define internal fastcc noundef i32 @build_dd(ptr noundef %0, i32 noundef %1, i32
   %39 = add nuw nsw i32 %.02939, 1
   %40 = load i32, ptr @numvars, align 4
   %41 = icmp slt i32 %39, %40
-  br i1 %41, label %42, label %._crit_edge, !llvm.loop !28
+  br i1 %41, label %42, label %._crit_edge, !llvm.loop !27
 
 42:                                               ; preds = %.lr.ph, %38
   %43 = phi i32 [ %29, %.lr.ph ], [ %40, %38 ]
@@ -1186,7 +1186,7 @@ define internal fastcc noundef i32 @build_dd(ptr noundef %0, i32 noundef %1, i32
 59:                                               ; preds = %.lr.ph.i
   %60 = call i32 @cuddNextLow(ptr noundef %0, i32 noundef %.01115.i) #8
   %.not.i = icmp slt i32 %60, %55
-  br i1 %.not.i, label %.loopexit, label %.lr.ph.i, !llvm.loop !29
+  br i1 %.not.i, label %.loopexit, label %.lr.ph.i, !llvm.loop !28
 
 .loopexit:                                        ; preds = %59, %42
   %61 = load i32, ptr %36, align 4
@@ -1231,7 +1231,7 @@ define internal fastcc noundef i32 @build_dd(ptr noundef %0, i32 noundef %1, i32
   store i32 %77, ptr %gep, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge43, label %73, !llvm.loop !30
+  br i1 %exitcond.not, label %._crit_edge43, label %73, !llvm.loop !29
 
 ._crit_edge43:                                    ; preds = %73, %.preheader.._crit_edge43_crit_edge
   %.pre-phi47 = phi i32 [ %.pre46, %.preheader.._crit_edge43_crit_edge ], [ %70, %73 ]
@@ -1287,11 +1287,11 @@ define internal fastcc i32 @find_best() unnamed_addr #4 {
   %14 = getelementptr inbounds i32, ptr %3, i64 %13
   %15 = load i32, ptr %14, align 4
   %16 = icmp slt i32 %10, %15
-  %17 = trunc i64 %indvars.iv to i32
+  %17 = trunc nuw nsw i64 %indvars.iv to i32
   %spec.select = select i1 %16, i32 %17, i32 %.08
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %8, !llvm.loop !31
+  br i1 %exitcond.not, label %._crit_edge, label %8, !llvm.loop !30
 
 ._crit_edge:                                      ; preds = %8, %0
   %.0.lcssa = phi i32 [ 0, %0 ], [ %spec.select, %8 ]
@@ -1344,7 +1344,7 @@ attributes #9 = { nounwind allocsize(0) }
 !7 = distinct !{!7, !5}
 !8 = distinct !{!8, !5}
 !9 = distinct !{!9, !5}
-!10 = !{i32 0, i32 2}
+!10 = distinct !{!10, !5}
 !11 = distinct !{!11, !5}
 !12 = distinct !{!12, !5}
 !13 = distinct !{!13, !5}
@@ -1365,4 +1365,3 @@ attributes #9 = { nounwind allocsize(0) }
 !28 = distinct !{!28, !5}
 !29 = distinct !{!29, !5}
 !30 = distinct !{!30, !5}
-!31 = distinct !{!31, !5}

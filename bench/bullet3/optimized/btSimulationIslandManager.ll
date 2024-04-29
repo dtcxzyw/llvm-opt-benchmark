@@ -453,7 +453,7 @@ _ZN11btUnionFind4findEi.exit:                     ; preds = %while.body.i, %if.t
   store i32 %x.addr.0.lcssa.i, ptr %m_islandTag1.i, align 4
   %11 = load ptr, ptr %m_data.i.i, align 8
   %m_sz = getelementptr inbounds %struct.btElement, ptr %11, i64 %idxprom.i15.i, i32 1
-  %12 = trunc i64 %indvars.iv to i32
+  %12 = trunc nuw nsw i64 %indvars.iv to i32
   store i32 %12, ptr %m_sz, align 4
   %m_companionId.i = getelementptr inbounds i8, ptr %2, i64 232
   store i32 -1, ptr %m_companionId.i, align 8
@@ -599,8 +599,8 @@ lpad:                                             ; preds = %lpad.loopexit.split
   resume { ptr, i32 } %lpad.phi
 
 for.end.split.loop.exit174:                       ; preds = %land.rhs
-  %13 = trunc i64 %indvars.iv to i32
-  %14 = trunc i64 %indvars.iv.next to i32
+  %13 = trunc nsw i64 %indvars.iv to i32
+  %14 = trunc nsw i64 %indvars.iv.next to i32
   br label %for.end
 
 for.end:                                          ; preds = %for.cond14, %for.end.split.loop.exit174
@@ -1163,7 +1163,7 @@ _ZNK17btCollisionObject8isActiveEv.exit:          ; preds = %invoke.cont47, %inv
   br i1 %cmp33, label %land.rhs, label %for.end, !llvm.loop !19
 
 for.end.split.loop.exit116:                       ; preds = %land.rhs
-  %32 = trunc i64 %indvars.iv to i32
+  %32 = trunc nsw i64 %indvars.iv to i32
   br label %for.end
 
 for.end:                                          ; preds = %_ZNK17btCollisionObject8isActiveEv.exit, %for.end.split.loop.exit116
@@ -1230,7 +1230,7 @@ _Z11getIslandIdPK20btPersistentManifold.exit69:   ; preds = %land.rhs66, %cond.f
   br i1 %cmp72, label %for.cond64, label %for.end77.split.loop.exit119, !llvm.loop !20
 
 for.end77.split.loop.exit119:                     ; preds = %_Z11getIslandIdPK20btPersistentManifold.exit69
-  %45 = trunc i64 %indvars.iv.next112 to i32
+  %45 = trunc nsw i64 %indvars.iv.next112 to i32
   br label %for.end77
 
 for.end77:                                        ; preds = %for.cond64, %for.end77.split.loop.exit119
@@ -1479,7 +1479,7 @@ land.rhs.i:                                       ; preds = %land.lhs.true15.i
 
 while.cond5.preheader:                            ; preds = %land.rhs.i, %land.lhs.true15.i, %_Z11getIslandIdPK20btPersistentManifold.exit52.i
   %arrayidx4.le = getelementptr inbounds ptr, ptr %2, i64 %indvars.iv
-  %35 = trunc i64 %indvars.iv to i32
+  %35 = trunc nsw i64 %indvars.iv to i32
   %36 = sext i32 %j.0 to i64
   br label %while.cond5
 
@@ -1612,8 +1612,8 @@ while.body10:                                     ; preds = %_Z11getIslandIdPK20
   br label %while.cond5, !llvm.loop !23
 
 while.end11:                                      ; preds = %_Z11getIslandIdPK20btPersistentManifold.exit52.i63, %land.lhs.true15.i66, %_ZNK46btPersistentManifoldSortPredicateDeterministicclEPK20btPersistentManifoldS2_.exit86
-  %66 = trunc i64 %indvars.iv114 to i32
-  %cmp.not = icmp sgt i32 %35, %66
+  %66 = trunc nsw i64 %indvars.iv114 to i32
+  %cmp.not = icmp sgt i64 %indvars.iv, %indvars.iv114
   br i1 %cmp.not, label %do.cond, label %if.then
 
 if.then:                                          ; preds = %while.end11

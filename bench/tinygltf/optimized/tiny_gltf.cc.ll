@@ -86522,8 +86522,8 @@ _ZL15stbi__fill_bitsP10stbi__zbuf.exit:           ; preds = %_ZL11stbi__zget8P10
   %68 = sext i32 %64 to i64
   %69 = getelementptr inbounds [288 x i8], ptr %67, i64 0, i64 %68
   %70 = load i8, ptr %69, align 1
-  %71 = zext i8 %70 to i32
-  %.not.i21 = icmp eq i32 %50, %71
+  %71 = zext i8 %70 to i64
+  %.not.i21 = icmp eq i64 %indvars.iv.i, %71
   br i1 %.not.i21, label %72, label %_ZL30stbi__zhuffman_decode_slowpathP10stbi__zbufP14stbi__zhuffman.exit
 
 72:                                               ; preds = %66

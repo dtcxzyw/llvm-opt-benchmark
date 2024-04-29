@@ -351,7 +351,7 @@ for.body:                                         ; preds = %arrayctor.cont, %fo
   %12 = load ptr, ptr %m_pHandles, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %m_minEdges.i = getelementptr inbounds %"class.btAxisSweep3Internal<unsigned short>::Handle", ptr %12, i64 %indvars.iv, i32 1
-  %13 = trunc i64 %indvars.iv.next to i16
+  %13 = trunc nuw i64 %indvars.iv.next to i16
   store i16 %13, ptr %m_minEdges.i, align 4
   %exitcond.not = icmp eq i64 %indvars.iv.next, %conv44
   br i1 %exitcond.not, label %for.end.loopexit, label %for.body, !llvm.loop !5
@@ -546,7 +546,7 @@ for.body:                                         ; preds = %arrayctor.cont, %fo
   %12 = load ptr, ptr %m_pHandles, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %m_minEdges.i = getelementptr inbounds %"class.btAxisSweep3Internal<unsigned int>::Handle", ptr %12, i64 %indvars.iv, i32 1
-  %13 = trunc i64 %indvars.iv.next to i32
+  %13 = trunc nuw i64 %indvars.iv.next to i32
   store i32 %13, ptr %m_minEdges.i, align 4
   %exitcond.not = icmp eq i64 %indvars.iv.next, %conv41
   br i1 %exitcond.not, label %for.end.loopexit, label %for.body, !llvm.loop !9
@@ -1264,7 +1264,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   %3 = load ptr, ptr %m_pHandles, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %m_minEdges.i = getelementptr inbounds %"class.btAxisSweep3Internal<unsigned short>::Handle", ptr %3, i64 %indvars.iv, i32 1
-  %4 = trunc i64 %indvars.iv.next to i16
+  %4 = trunc nuw i64 %indvars.iv.next to i16
   store i16 %4, ptr %m_minEdges.i, align 4
   %5 = load i16, ptr %m_maxHandles, align 2
   %6 = zext i16 %5 to i64
@@ -1933,7 +1933,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   %3 = load ptr, ptr %m_pHandles, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %m_minEdges.i = getelementptr inbounds %"class.btAxisSweep3Internal<unsigned int>::Handle", ptr %3, i64 %indvars.iv, i32 1
-  %4 = trunc i64 %indvars.iv.next to i32
+  %4 = trunc nuw i64 %indvars.iv.next to i32
   store i32 %4, ptr %m_minEdges.i, align 4
   %5 = load i32, ptr %m_maxHandles, align 4
   %6 = zext i32 %5 to i64
@@ -3991,7 +3991,7 @@ for.body:                                         ; preds = %_ZNK20btAxisSweep3I
   br i1 %cmp39, label %if.then, label %if.end
 
 if.then:                                          ; preds = %for.body
-  %39 = trunc i64 %indvars.iv to i32
+  %39 = trunc nuw nsw i64 %indvars.iv to i32
   tail call void @_ZN20btAxisSweep3InternalItE11sortMinDownEitP12btDispatcherb(ptr noundef nonnull align 8 dereferenceable(168) %this, i32 noundef %39, i16 noundef zeroext %31, ptr noundef %dispatcher, i1 noundef zeroext true)
   br label %if.end
 
@@ -4000,7 +4000,7 @@ if.end:                                           ; preds = %if.then, %for.body
   br i1 %cmp40, label %if.then41, label %if.end42
 
 if.then41:                                        ; preds = %if.end
-  %40 = trunc i64 %indvars.iv to i32
+  %40 = trunc nuw nsw i64 %indvars.iv to i32
   tail call void @_ZN20btAxisSweep3InternalItE9sortMaxUpEitP12btDispatcherb(ptr noundef nonnull align 8 dereferenceable(168) %this, i32 noundef %40, i16 noundef zeroext %32, ptr noundef %dispatcher, i1 noundef zeroext true)
   br label %if.end42
 
@@ -4009,7 +4009,7 @@ if.end42:                                         ; preds = %if.then41, %if.end
   br i1 %cmp43, label %if.then44, label %if.end45
 
 if.then44:                                        ; preds = %if.end42
-  %41 = trunc i64 %indvars.iv to i32
+  %41 = trunc nuw nsw i64 %indvars.iv to i32
   tail call void @_ZN20btAxisSweep3InternalItE9sortMinUpEitP12btDispatcherb(ptr noundef nonnull align 8 dereferenceable(168) %this, i32 noundef %41, i16 noundef zeroext %31, ptr noundef %dispatcher, i1 noundef zeroext true)
   br label %if.end45
 
@@ -4018,7 +4018,7 @@ if.end45:                                         ; preds = %if.then44, %if.end4
   br i1 %cmp46, label %if.then47, label %for.inc
 
 if.then47:                                        ; preds = %if.end45
-  %42 = trunc i64 %indvars.iv to i32
+  %42 = trunc nuw nsw i64 %indvars.iv to i32
   tail call void @_ZN20btAxisSweep3InternalItE11sortMaxDownEitP12btDispatcherb(ptr noundef nonnull align 8 dereferenceable(168) %this, i32 noundef %42, i16 noundef zeroext %32, ptr noundef %dispatcher, i1 noundef zeroext true)
   br label %for.inc
 
@@ -4120,7 +4120,7 @@ land.lhs.true33.i:                                ; preds = %lor.lhs.false.i
   br i1 %cmp36.i, label %land.rhs.i, label %while.cond5.preheader
 
 while.cond5.preheader:                            ; preds = %_ZNK29btBroadphasePairSortPredicateclERK16btBroadphasePairS2_.exit, %land.rhs.i, %land.lhs.true33.i
-  %9 = trunc i64 %indvars.iv to i32
+  %9 = trunc nsw i64 %indvars.iv to i32
   %10 = sext i32 %j.0 to i64
   br label %while.cond5
 
@@ -4209,8 +4209,8 @@ while.body10:                                     ; preds = %cond.end24.i44, %la
   br label %while.cond5, !llvm.loop !35
 
 while.end11:                                      ; preds = %land.lhs.true33.i53, %land.rhs.i55, %_ZNK29btBroadphasePairSortPredicateclERK16btBroadphasePairS2_.exit59
-  %19 = trunc i64 %indvars.iv65 to i32
-  %cmp.not = icmp sgt i32 %9, %19
+  %19 = trunc nsw i64 %indvars.iv65 to i32
+  %cmp.not = icmp sgt i64 %indvars.iv, %indvars.iv65
   br i1 %cmp.not, label %do.cond, label %if.then
 
 if.then:                                          ; preds = %while.end11
@@ -5930,7 +5930,7 @@ for.body:                                         ; preds = %_ZNK20btAxisSweep3I
   br i1 %cmp36, label %if.then, label %if.end
 
 if.then:                                          ; preds = %for.body
-  %39 = trunc i64 %indvars.iv to i32
+  %39 = trunc nuw nsw i64 %indvars.iv to i32
   tail call void @_ZN20btAxisSweep3InternalIjE11sortMinDownEijP12btDispatcherb(ptr noundef nonnull align 8 dereferenceable(176) %this, i32 noundef %39, i32 noundef %31, ptr noundef %dispatcher, i1 noundef zeroext true)
   br label %if.end
 
@@ -5939,7 +5939,7 @@ if.end:                                           ; preds = %if.then, %for.body
   br i1 %cmp37, label %if.then38, label %if.end39
 
 if.then38:                                        ; preds = %if.end
-  %40 = trunc i64 %indvars.iv to i32
+  %40 = trunc nuw nsw i64 %indvars.iv to i32
   tail call void @_ZN20btAxisSweep3InternalIjE9sortMaxUpEijP12btDispatcherb(ptr noundef nonnull align 8 dereferenceable(176) %this, i32 noundef %40, i32 noundef %32, ptr noundef %dispatcher, i1 noundef zeroext true)
   br label %if.end39
 
@@ -5948,7 +5948,7 @@ if.end39:                                         ; preds = %if.then38, %if.end
   br i1 %cmp40, label %if.then41, label %if.end42
 
 if.then41:                                        ; preds = %if.end39
-  %41 = trunc i64 %indvars.iv to i32
+  %41 = trunc nuw nsw i64 %indvars.iv to i32
   tail call void @_ZN20btAxisSweep3InternalIjE9sortMinUpEijP12btDispatcherb(ptr noundef nonnull align 8 dereferenceable(176) %this, i32 noundef %41, i32 noundef %31, ptr noundef %dispatcher, i1 noundef zeroext true)
   br label %if.end42
 
@@ -5957,7 +5957,7 @@ if.end42:                                         ; preds = %if.then41, %if.end3
   br i1 %cmp43, label %if.then44, label %for.inc
 
 if.then44:                                        ; preds = %if.end42
-  %42 = trunc i64 %indvars.iv to i32
+  %42 = trunc nuw nsw i64 %indvars.iv to i32
   tail call void @_ZN20btAxisSweep3InternalIjE11sortMaxDownEijP12btDispatcherb(ptr noundef nonnull align 8 dereferenceable(176) %this, i32 noundef %42, i32 noundef %32, ptr noundef %dispatcher, i1 noundef zeroext true)
   br label %for.inc
 

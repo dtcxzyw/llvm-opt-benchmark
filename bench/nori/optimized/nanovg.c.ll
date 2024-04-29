@@ -26031,9 +26031,9 @@ define internal fastcc void @stbtt__sort_edges_quicksort(ptr noundef %0, i32 nou
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %9, ptr noundef nonnull align 4 dereferenceable(20) %3, i64 20, i1 false)
   br label %24
 
-24:                                               ; preds = %41, %23
-  %.067 = phi i64 [ 1, %23 ], [ %42, %41 ]
-  %.065 = phi i32 [ %12, %23 ], [ %43, %41 ]
+24:                                               ; preds = %40, %23
+  %.067 = phi i64 [ 1, %23 ], [ %41, %40 ]
+  %.065 = phi i32 [ %12, %23 ], [ %42, %40 ]
   %25 = load float, ptr %6, align 4
   %sext = shl i64 %.067, 32
   %26 = ashr exact i64 %sext, 32
@@ -26062,34 +26062,34 @@ define internal fastcc void @stbtt__sort_edges_quicksort(ptr noundef %0, i32 nou
   br i1 %37, label %33, label %38
 
 38:                                               ; preds = %33
-  %39 = trunc nsw i64 %indvars.iv to i32
-  %40 = trunc nsw i64 %indvars.iv81 to i32
-  %.not74 = icmp slt i32 %39, %40
-  br i1 %.not74, label %41, label %44
+  %39 = trunc nsw i64 %indvars.iv81 to i32
+  %.not74 = icmp slt i64 %indvars.iv, %indvars.iv81
+  br i1 %.not74, label %40, label %43
 
-41:                                               ; preds = %38
+40:                                               ; preds = %38
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %3, ptr noundef nonnull align 4 dereferenceable(20) %28, i64 20, i1 false)
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %28, ptr noundef nonnull align 4 dereferenceable(20) %34, i64 20, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %34, ptr noundef nonnull align 4 dereferenceable(20) %3, i64 20, i1 false)
-  %42 = add i64 %indvars.iv, 1
-  %43 = add nsw i32 %40, -1
+  %41 = add nsw i64 %indvars.iv, 1
+  %42 = add nsw i32 %39, -1
   br label %24
 
-44:                                               ; preds = %38
-  %45 = sub nsw i32 %.06977, %39
-  %46 = icmp sgt i32 %45, %40
+43:                                               ; preds = %38
+  %44 = trunc nsw i64 %indvars.iv to i32
+  %45 = sub nsw i32 %.06977, %44
+  %46 = icmp sgt i32 %45, %39
   br i1 %46, label %47, label %48
 
-47:                                               ; preds = %44
-  tail call fastcc void @stbtt__sort_edges_quicksort(ptr noundef nonnull %.078, i32 noundef %40)
+47:                                               ; preds = %43
+  tail call fastcc void @stbtt__sort_edges_quicksort(ptr noundef nonnull %.078, i32 noundef %39)
   br label %49
 
-48:                                               ; preds = %44
+48:                                               ; preds = %43
   tail call fastcc void @stbtt__sort_edges_quicksort(ptr noundef nonnull %28, i32 noundef %45)
   br label %49
 
 49:                                               ; preds = %48, %47
-  %.170 = phi i32 [ %45, %47 ], [ %40, %48 ]
+  %.170 = phi i32 [ %45, %47 ], [ %39, %48 ]
   %.1 = phi ptr [ %28, %47 ], [ %.078, %48 ]
   %50 = icmp sgt i32 %.170, 12
   br i1 %50, label %.lr.ph, label %._crit_edge, !llvm.loop !130

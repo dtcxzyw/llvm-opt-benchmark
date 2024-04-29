@@ -2921,8 +2921,6 @@ entry:
   %cmp9.i17.i = icmp slt i48 %retval.sroa.2.0.insert.insert.i32, 0
   %cond.i18.i = select i1 %cmp9.i17.i, i32 %add.i16.i, i32 %conv.i13.i
   %div.i19.i = sdiv i32 %cond.i18.i, 16
-  %previous_block.sroa.4.0.extract.trunc = trunc nsw i32 %div.i11.i to i16
-  %previous_block.sroa.5.0.extract.trunc = trunc nsw i32 %div.i19.i to i16
   %17 = shufflevector <2 x float> %pos.coerce0, <2 x float> poison, <2 x i32> <i32 poison, i32 0>
   %18 = insertelement <2 x float> %17, float %pos.coerce1, i64 0
   %19 = fcmp nsz ogt <2 x float> %18, zeroinitializer
@@ -2960,14 +2958,12 @@ entry:
   %33 = select <2 x i1> %32, <2 x i32> %31, <2 x i32> %30
   %34 = sdiv <2 x i32> %33, <i32 16, i32 16>
   %35 = trunc nsw <2 x i32> %34 to <2 x i16>
-  %current_block.sroa.4.0.extract.trunc = trunc nsw i32 %div.i11.i93 to i16
-  %current_block.sroa.5.0.extract.trunc = trunc nsw i32 %div.i19.i100 to i16
   %36 = extractelement <2 x i16> %35, i64 0
   %37 = extractelement <2 x i16> %35, i64 1
   %cmp.i.i = icmp ne i16 %36, %37
-  %cmp7.i.i = icmp ne i16 %previous_block.sroa.4.0.extract.trunc, %current_block.sroa.4.0.extract.trunc
+  %cmp7.i.i = icmp ne i32 %div.i11.i, %div.i11.i93
   %or.cond.not125 = select i1 %cmp.i.i, i1 true, i1 %cmp7.i.i
-  %cmp11.i.i = icmp ne i16 %previous_block.sroa.5.0.extract.trunc, %current_block.sroa.5.0.extract.trunc
+  %cmp11.i.i = icmp ne i32 %div.i19.i, %div.i19.i100
   %or.cond122 = select i1 %or.cond.not125, i1 true, i1 %cmp11.i.i
   br i1 %or.cond122, label %if.then, label %if.end
 
@@ -6051,7 +6047,7 @@ if.end:                                           ; preds = %entry
   %not.cmp15.2 = xor i1 %cmp15.2, true
   %tobool.not.2 = and i1 %cmp21.2, %not.cmp15.2
   %mul33 = mul nuw nsw i32 %conv, %conv
-  %mul35 = mul nsw i32 %mul33, %conv
+  %mul35 = mul nuw nsw i32 %mul33, %conv
   %tobool.not.i.i.i = icmp eq i32 %mul35, 0
   br i1 %tobool.not.i.i.i, label %invoke.cont, label %if.then.i.i.i
 

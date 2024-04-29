@@ -120,7 +120,7 @@ for.body:                                         ; preds = %for.body.preheader,
   %0 = load ptr, ptr %m_pHandles, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %m_nextFree.i = getelementptr inbounds %struct.btSimpleBroadphaseProxy, ptr %0, i64 %indvars.iv, i32 1
-  %1 = trunc i64 %indvars.iv.next to i32
+  %1 = trunc nuw nsw i64 %indvars.iv.next to i32
   store i32 %1, ptr %m_nextFree.i, align 4
   %2 = load ptr, ptr %m_pHandles, align 8
   %m_uniqueId = getelementptr inbounds %struct.btSimpleBroadphaseProxy, ptr %2, i64 %indvars.iv, i32 0, i32 3
@@ -572,7 +572,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
 for.cond4.preheader:                              ; preds = %for.body
   %5 = sext i32 %2 to i64
   %cmp6.not.not95 = icmp slt i64 %indvars.iv, %5
-  %6 = trunc i64 %indvars.iv to i32
+  %6 = trunc nuw nsw i64 %indvars.iv to i32
   br i1 %cmp6.not.not95, label %for.body7.lr.ph, label %for.inc44
 
 for.body7.lr.ph:                                  ; preds = %for.cond4.preheader
@@ -679,7 +679,7 @@ if.then36:                                        ; preds = %if.then30
 
 for.inc:                                          ; preds = %if.then20, %if.then17, %if.then30, %if.then36, %if.else, %for.body7
   %31 = load i32, ptr %m_LastHandleIndex, align 8
-  %32 = trunc i64 %indvars.iv.next108 to i32
+  %32 = trunc nuw i64 %indvars.iv.next108 to i32
   %cmp6.not.not = icmp sgt i32 %31, %32
   br i1 %cmp6.not.not, label %for.body7, label %for.inc44, !llvm.loop !9
 
@@ -1182,7 +1182,7 @@ land.lhs.true33.i:                                ; preds = %lor.lhs.false.i
   br i1 %cmp36.i, label %land.rhs.i, label %while.cond5.preheader
 
 while.cond5.preheader:                            ; preds = %_ZNK29btBroadphasePairSortPredicateclERK16btBroadphasePairS2_.exit, %land.rhs.i, %land.lhs.true33.i
-  %9 = trunc i64 %indvars.iv to i32
+  %9 = trunc nsw i64 %indvars.iv to i32
   %10 = sext i32 %j.0 to i64
   br label %while.cond5
 
@@ -1271,8 +1271,8 @@ while.body10:                                     ; preds = %cond.end24.i44, %la
   br label %while.cond5, !llvm.loop !15
 
 while.end11:                                      ; preds = %land.lhs.true33.i53, %land.rhs.i55, %_ZNK29btBroadphasePairSortPredicateclERK16btBroadphasePairS2_.exit59
-  %19 = trunc i64 %indvars.iv65 to i32
-  %cmp.not = icmp sgt i32 %9, %19
+  %19 = trunc nsw i64 %indvars.iv65 to i32
+  %cmp.not = icmp sgt i64 %indvars.iv, %indvars.iv65
   br i1 %cmp.not, label %do.cond, label %if.then
 
 if.then:                                          ; preds = %while.end11

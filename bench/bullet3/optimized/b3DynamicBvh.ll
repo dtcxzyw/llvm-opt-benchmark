@@ -612,7 +612,7 @@ for.body4.lr.ph:                                  ; preds = %for.body
   %arrayidx = getelementptr inbounds ptr, ptr %leaves, i64 %indvars.iv62
   %1 = load ptr, ptr %arrayidx, align 8
   %mx.i.i = getelementptr inbounds i8, ptr %1, i64 16
-  %2 = trunc i64 %indvars.iv62 to i32
+  %2 = trunc nuw nsw i64 %indvars.iv62 to i32
   br label %for.body4
 
 for.body4:                                        ; preds = %for.body4.lr.ph, %_ZL7b3MergeRK12b3DbvtAabbMmS1_.exit
@@ -664,7 +664,7 @@ _ZL7b3MergeRK12b3DbvtAabbMmS1_.exit:              ; preds = %for.body.i.i
   %add6.i = fadd float %13, %add.i
   %cmp8 = fcmp olt float %add6.i, %minsize.150
   %minidx.sroa.0.2 = select i1 %cmp8, i32 %2, i32 %minidx.sroa.0.148
-  %15 = trunc i64 %indvars.iv59 to i32
+  %15 = trunc nuw nsw i64 %indvars.iv59 to i32
   %minidx.sroa.4.2 = select i1 %cmp8, i32 %15, i32 %minidx.sroa.4.149
   %minsize.2 = select i1 %cmp8, float %add6.i, float %minsize.150
   %indvars.iv.next60 = add nuw nsw i64 %indvars.iv59, 1
@@ -1070,7 +1070,7 @@ if.then42:                                        ; preds = %land.lhs.true
   %28 = tail call noundef float @llvm.fabs.f32(float %conv)
   %conv50 = fptosi float %28 to i32
   %cmp51 = icmp sgt i32 %bestmidp.095, %conv50
-  %29 = trunc i64 %indvars.iv109 to i32
+  %29 = trunc nuw nsw i64 %indvars.iv109 to i32
   %spec.select = select i1 %cmp51, i32 %29, i32 %bestaxis.094
   %spec.select45 = tail call i32 @llvm.smin.i32(i32 %bestmidp.095, i32 %conv50)
   br label %for.inc54
@@ -1134,7 +1134,7 @@ land.rhs.i:                                       ; preds = %while.body.i, %land
   br i1 %cmp.i.i, label %while.cond2.preheader.i, label %while.body.i
 
 while.cond2.preheader.i:                          ; preds = %land.rhs.i
-  %43 = trunc i64 %indvars.iv.i66 to i32
+  %43 = trunc nsw i64 %indvars.iv.i66 to i32
   %cmp3.not52.i = icmp eq i32 %end.057.i, %43
   br i1 %cmp3.not52.i, label %if.end62, label %land.rhs4.lr.ph.i
 
@@ -1180,22 +1180,21 @@ land.rhs4.i:                                      ; preds = %while.body9.i, %lan
 
 while.body9.i:                                    ; preds = %land.rhs4.i
   %indvars.iv.next67.i = add nsw i64 %indvars.iv66.i, -1
-  %54 = trunc i64 %indvars.iv.next67.i to i32
-  %cmp3.not.i = icmp eq i32 %43, %54
+  %cmp3.not.i = icmp eq i64 %indvars.iv.i66, %indvars.iv.next67.i
   br i1 %cmp3.not.i, label %if.end62, label %land.rhs4.i, !llvm.loop !23
 
 if.end13.i:                                       ; preds = %land.rhs4.i
-  %55 = trunc i64 %indvars.iv66.i to i32
-  %dec14.i = add nsw i32 %55, -1
+  %54 = trunc nsw i64 %indvars.iv66.i to i32
+  %dec14.i = add nsw i32 %54, -1
   %sext.i = shl i64 %indvars.iv.i66, 32
   %idxprom15.i = ashr exact i64 %sext.i, 32
   %arrayidx16.i = getelementptr inbounds ptr, ptr %leaves, i64 %idxprom15.i
-  %56 = load ptr, ptr %arrayidx16.i, align 8
+  %55 = load ptr, ptr %arrayidx16.i, align 8
   %idxprom17.i = sext i32 %dec14.i to i64
   %arrayidx18.i = getelementptr inbounds ptr, ptr %leaves, i64 %idxprom17.i
-  %57 = load ptr, ptr %arrayidx18.i, align 8
-  store ptr %57, ptr %arrayidx16.i, align 8
-  store ptr %56, ptr %arrayidx18.i, align 8
+  %56 = load ptr, ptr %arrayidx18.i, align 8
+  store ptr %56, ptr %arrayidx16.i, align 8
+  store ptr %55, ptr %arrayidx18.i, align 8
   %inc23.i = add nsw i32 %43, 1
   %cmp.not49.i = icmp eq i32 %inc23.i, %dec14.i
   br i1 %cmp.not49.i, label %if.end62, label %land.rhs.lr.ph.i, !llvm.loop !24
@@ -1208,8 +1207,8 @@ if.else:                                          ; preds = %for.end56
 if.end62:                                         ; preds = %if.end13.i, %while.cond2.preheader.i, %while.body.i, %while.body9.i, %if.else
   %partition.0 = phi i32 [ %add, %if.else ], [ %43, %while.body9.i ], [ %end.057.i, %while.body.i ], [ %dec14.i, %if.end13.i ], [ %end.057.i, %while.cond2.preheader.i ]
   %m_free.i.i = getelementptr inbounds i8, ptr %pdbvt, i64 8
-  %58 = load ptr, ptr %m_free.i.i, align 8
-  %tobool.not.i.i = icmp eq ptr %58, null
+  %57 = load ptr, ptr %m_free.i.i, align 8
+  %tobool.not.i.i = icmp eq ptr %57, null
   br i1 %tobool.not.i.i, label %if.else.i.i, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %if.end62
@@ -1222,40 +1221,40 @@ if.else.i.i:                                      ; preds = %if.end62
   br label %_ZL12b3CreateNodeP12b3DynamicBvhP10b3DbvtNodeRK12b3DbvtAabbMmPv.exit
 
 common.ret140:                                    ; preds = %if.end77, %if.else75, %_ZL12b3CreateNodeP12b3DynamicBvhP10b3DbvtNodeRK12b3DbvtAabbMmPv.exit
-  %common.ret140.op = phi ptr [ %node.0.i.i, %_ZL12b3CreateNodeP12b3DynamicBvhP10b3DbvtNodeRK12b3DbvtAabbMmPv.exit ], [ %62, %if.else75 ], [ %63, %if.end77 ]
+  %common.ret140.op = phi ptr [ %node.0.i.i, %_ZL12b3CreateNodeP12b3DynamicBvhP10b3DbvtNodeRK12b3DbvtAabbMmPv.exit ], [ %61, %if.else75 ], [ %62, %if.end77 ]
   ret ptr %common.ret140.op
 
 _ZL12b3CreateNodeP12b3DynamicBvhP10b3DbvtNodeRK12b3DbvtAabbMmPv.exit: ; preds = %if.then.i.i, %if.else.i.i
-  %node.0.i.i = phi ptr [ %58, %if.then.i.i ], [ %call.i.i, %if.else.i.i ]
+  %node.0.i.i = phi ptr [ %57, %if.then.i.i ], [ %call.i.i, %if.else.i.i ]
   %parent3.i.i = getelementptr inbounds i8, ptr %node.0.i.i, i64 32
-  %59 = getelementptr inbounds i8, ptr %node.0.i.i, i64 40
+  %58 = getelementptr inbounds i8, ptr %node.0.i.i, i64 40
   %arrayidx.i.i68 = getelementptr inbounds i8, ptr %node.0.i.i, i64 48
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %parent3.i.i, i8 0, i64 24, i1 false)
   store <4 x float> %8, ptr %node.0.i.i, align 16
   %vol.sroa.579.0.node.0.i.i.sroa_idx = getelementptr inbounds i8, ptr %node.0.i.i, i64 16
   store <4 x float> %9, ptr %vol.sroa.579.0.node.0.i.i.sroa_idx, align 16
   %call65 = tail call fastcc noundef ptr @_ZL9b3TopDownP12b3DynamicBvhPP10b3DbvtNodeii(ptr noundef nonnull %pdbvt, ptr noundef nonnull %leaves, i32 noundef %partition.0, i32 noundef %bu_treshold)
-  store ptr %call65, ptr %59, align 8
+  store ptr %call65, ptr %58, align 8
   %idxprom67 = sext i32 %partition.0 to i64
   %arrayidx68 = getelementptr inbounds ptr, ptr %leaves, i64 %idxprom67
   %sub69 = sub nsw i32 %count, %partition.0
   %call70 = tail call fastcc noundef ptr @_ZL9b3TopDownP12b3DynamicBvhPP10b3DbvtNodeii(ptr noundef nonnull %pdbvt, ptr noundef nonnull %arrayidx68, i32 noundef %sub69, i32 noundef %bu_treshold)
   store ptr %call70, ptr %arrayidx.i.i68, align 8
-  %60 = load ptr, ptr %59, align 8
-  %parent = getelementptr inbounds i8, ptr %60, i64 32
+  %59 = load ptr, ptr %58, align 8
+  %parent = getelementptr inbounds i8, ptr %59, i64 32
   store ptr %node.0.i.i, ptr %parent, align 16
-  %61 = load ptr, ptr %arrayidx.i.i68, align 8
-  %parent74 = getelementptr inbounds i8, ptr %61, i64 32
+  %60 = load ptr, ptr %arrayidx.i.i68, align 8
+  %parent74 = getelementptr inbounds i8, ptr %60, i64 32
   store ptr %node.0.i.i, ptr %parent74, align 16
   br label %common.ret140
 
 if.else75:                                        ; preds = %if.then
   tail call fastcc void @_ZL10b3BottomUpP12b3DynamicBvhPP10b3DbvtNodei(ptr noundef %pdbvt, ptr noundef %leaves, i32 noundef %count)
-  %62 = load ptr, ptr %leaves, align 8
+  %61 = load ptr, ptr %leaves, align 8
   br label %common.ret140
 
 if.end77:                                         ; preds = %init.end
-  %63 = load ptr, ptr %leaves, align 8
+  %62 = load ptr, ptr %leaves, align 8
   br label %common.ret140
 }
 
@@ -2406,7 +2405,7 @@ for.inc.i:                                        ; preds = %for.body.i
   br i1 %exitcond.not.i, label %if.end, label %for.body.i, !llvm.loop !33
 
 for.end.loopexit.split.loop.exit.i:               ; preds = %for.body.i
-  %16 = trunc i64 %indvars.iv.i to i32
+  %16 = trunc nuw nsw i64 %indvars.iv.i to i32
   br label %if.end
 
 lpad.loopexit:                                    ; preds = %_ZNK20b3AlignedObjectArrayIPK10b3DbvtNodeE16findLinearSearchERKS2_.exit53, %if.else
@@ -2454,7 +2453,7 @@ for.inc.i34:                                      ; preds = %for.body.i30
   br i1 %exitcond.not.i36, label %_ZNK20b3AlignedObjectArrayIPK10b3DbvtNodeE16findLinearSearchERKS2_.exit38, label %for.body.i30, !llvm.loop !33
 
 for.end.loopexit.split.loop.exit.i37:             ; preds = %for.body.i30
-  %21 = trunc i64 %indvars.iv.i31 to i32
+  %21 = trunc nuw nsw i64 %indvars.iv.i31 to i32
   br label %_ZNK20b3AlignedObjectArrayIPK10b3DbvtNodeE16findLinearSearchERKS2_.exit38
 
 _ZNK20b3AlignedObjectArrayIPK10b3DbvtNodeE16findLinearSearchERKS2_.exit38: ; preds = %for.inc.i34, %for.end.loopexit.split.loop.exit.i37
@@ -2474,7 +2473,7 @@ for.inc.i49:                                      ; preds = %for.body.i45
   br i1 %exitcond.not.i51, label %_ZNK20b3AlignedObjectArrayIPK10b3DbvtNodeE16findLinearSearchERKS2_.exit53, label %for.body.i45, !llvm.loop !33
 
 for.end.loopexit.split.loop.exit.i52:             ; preds = %for.body.i45
-  %23 = trunc i64 %indvars.iv.i46 to i32
+  %23 = trunc nuw nsw i64 %indvars.iv.i46 to i32
   br label %_ZNK20b3AlignedObjectArrayIPK10b3DbvtNodeE16findLinearSearchERKS2_.exit53
 
 _ZNK20b3AlignedObjectArrayIPK10b3DbvtNodeE16findLinearSearchERKS2_.exit53: ; preds = %for.inc.i49, %if.then20, %for.end.loopexit.split.loop.exit.i52
@@ -2483,7 +2482,7 @@ _ZNK20b3AlignedObjectArrayIPK10b3DbvtNodeE16findLinearSearchERKS2_.exit53: ; pre
   %vtable28 = load ptr, ptr %iwriter, align 8
   %vfn29 = getelementptr inbounds i8, ptr %vtable28, i64 24
   %24 = load ptr, ptr %vfn29, align 8
-  %25 = trunc i64 %indvars.iv to i32
+  %25 = trunc nuw nsw i64 %indvars.iv to i32
   invoke void %24(ptr noundef nonnull align 8 dereferenceable(8) %iwriter, ptr noundef nonnull %13, i32 noundef %25, i32 noundef %p.0, i32 noundef %index.0.i2655, i32 noundef %index.0.i41)
           to label %for.inc unwind label %lpad.loopexit
 
@@ -2491,7 +2490,7 @@ if.else:                                          ; preds = %if.end
   %vtable31 = load ptr, ptr %iwriter, align 8
   %vfn32 = getelementptr inbounds i8, ptr %vtable31, i64 32
   %26 = load ptr, ptr %vfn32, align 8
-  %27 = trunc i64 %indvars.iv to i32
+  %27 = trunc nuw nsw i64 %indvars.iv to i32
   invoke void %26(ptr noundef nonnull align 8 dereferenceable(8) %iwriter, ptr noundef nonnull %13, i32 noundef %27, i32 noundef %p.0)
           to label %for.inc unwind label %lpad.loopexit
 

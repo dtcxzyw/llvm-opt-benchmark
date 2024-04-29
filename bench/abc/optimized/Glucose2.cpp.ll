@@ -17552,9 +17552,9 @@ tailrecurse._crit_edge:                           ; preds = %tailrecurse, %2
   %.sroa.018.0.copyload = load i32, ptr %18, align 4
   br label %19
 
-19:                                               ; preds = %32, %.lr.ph
-  %.034 = phi i32 [ %.tr4147, %.lr.ph ], [ %31, %32 ]
-  %.0 = phi i64 [ -1, %.lr.ph ], [ %indvars.iv.next, %32 ]
+19:                                               ; preds = %30, %.lr.ph
+  %.034 = phi i32 [ %.tr4147, %.lr.ph ], [ %32, %30 ]
+  %.0 = phi i64 [ -1, %.lr.ph ], [ %indvars.iv.next, %30 ]
   %sext = shl i64 %.0, 32
   %20 = ashr exact i64 %sext, 32
   br label %21
@@ -17569,32 +17569,32 @@ tailrecurse._crit_edge:                           ; preds = %tailrecurse, %2
 
 .preheader:                                       ; preds = %21
   %24 = getelementptr inbounds %"struct.Gluco2::Lit", ptr %.tr46, i64 %indvars.iv.next
-  %25 = trunc nsw i64 %indvars.iv.next to i32
-  %26 = sext i32 %.034 to i64
-  br label %27
+  %25 = sext i32 %.034 to i64
+  br label %26
 
-27:                                               ; preds = %.preheader, %27
-  %indvars.iv55 = phi i64 [ %26, %.preheader ], [ %indvars.iv.next56, %27 ]
+26:                                               ; preds = %.preheader, %26
+  %indvars.iv55 = phi i64 [ %25, %.preheader ], [ %indvars.iv.next56, %26 ]
   %indvars.iv.next56 = add nsw i64 %indvars.iv55, -1
-  %28 = getelementptr inbounds %"struct.Gluco2::Lit", ptr %.tr46, i64 %indvars.iv.next56
-  %.sroa.0.0.copyload = load i32, ptr %28, align 4
-  %29 = icmp slt i32 %.sroa.018.0.copyload, %.sroa.0.0.copyload
-  br i1 %29, label %27, label %30, !llvm.loop !119
+  %27 = getelementptr inbounds %"struct.Gluco2::Lit", ptr %.tr46, i64 %indvars.iv.next56
+  %.sroa.0.0.copyload = load i32, ptr %27, align 4
+  %28 = icmp slt i32 %.sroa.018.0.copyload, %.sroa.0.0.copyload
+  br i1 %28, label %26, label %29, !llvm.loop !119
 
-30:                                               ; preds = %27
-  %31 = trunc nsw i64 %indvars.iv.next56 to i32
-  %.not = icmp slt i32 %25, %31
-  br i1 %.not, label %32, label %tailrecurse
+29:                                               ; preds = %26
+  %.not = icmp slt i64 %indvars.iv.next, %indvars.iv.next56
+  br i1 %.not, label %30, label %tailrecurse
 
-32:                                               ; preds = %30
-  %33 = getelementptr inbounds %"struct.Gluco2::Lit", ptr %.tr46, i64 %indvars.iv.next56
+30:                                               ; preds = %29
+  %31 = getelementptr inbounds %"struct.Gluco2::Lit", ptr %.tr46, i64 %indvars.iv.next56
+  %32 = trunc nsw i64 %indvars.iv.next56 to i32
   store i32 %.sroa.0.0.copyload, ptr %24, align 4
-  store i32 %.sroa.03.0.copyload, ptr %33, align 4
+  store i32 %.sroa.03.0.copyload, ptr %31, align 4
   br label %19, !llvm.loop !120
 
-tailrecurse:                                      ; preds = %30
-  tail call void @_ZN6Gluco24sortINS_3LitENS_16LessThan_defaultIS1_EEEEvPT_iT0_(ptr noundef nonnull %.tr46, i32 noundef %25)
-  %34 = sub nsw i32 %.tr4147, %25
+tailrecurse:                                      ; preds = %29
+  %33 = trunc nsw i64 %indvars.iv.next to i32
+  tail call void @_ZN6Gluco24sortINS_3LitENS_16LessThan_defaultIS1_EEEEvPT_iT0_(ptr noundef nonnull %.tr46, i32 noundef %33)
+  %34 = sub nsw i32 %.tr4147, %33
   %35 = icmp slt i32 %34, 16
   br i1 %35, label %tailrecurse._crit_edge, label %.lr.ph
 
@@ -17733,9 +17733,9 @@ _ZN11reduceDB_ltclEjj.exit.thread.i:              ; preds = %_ZN11reduceDB_ltclE
   %63 = zext i32 %62 to i64
   br label %64
 
-64:                                               ; preds = %135, %.lr.ph
-  %.032 = phi i32 [ %.tr5379, %.lr.ph ], [ %134, %135 ]
-  %.0 = phi i64 [ -1, %.lr.ph ], [ %indvars.iv.next, %135 ]
+64:                                               ; preds = %133, %.lr.ph
+  %.032 = phi i32 [ %.tr5379, %.lr.ph ], [ %134, %133 ]
+  %.0 = phi i64 [ -1, %.lr.ph ], [ %indvars.iv.next, %133 ]
   %65 = load ptr, ptr %2, align 8
   %66 = getelementptr inbounds i32, ptr %65, i64 %63
   %67 = load i96, ptr %66, align 4
@@ -17814,84 +17814,84 @@ _ZN11reduceDB_ltclEjj.exit:                       ; preds = %88, %89, %94
   %.pre-phi102 = phi i32 [ %.pre101, %_ZN11reduceDB_ltclEjj.exit ], [ %76, %96 ]
   %.pre-phi = phi i64 [ %.pre, %_ZN11reduceDB_ltclEjj.exit ], [ %77, %96 ]
   %104 = getelementptr inbounds i32, ptr %.tr78, i64 %indvars.iv.next
-  %105 = trunc i64 %indvars.iv.next to i32
-  %106 = getelementptr inbounds [0 x %union.anon], ptr %73, i64 0, i64 %.pre-phi
-  %107 = sext i32 %.032 to i64
+  %105 = getelementptr inbounds [0 x %union.anon], ptr %73, i64 0, i64 %.pre-phi
+  %106 = sext i32 %.032 to i64
   br label %.backedge
 
 .backedge:                                        ; preds = %.backedge.backedge, %.preheader
-  %indvars.iv96 = phi i64 [ %107, %.preheader ], [ %indvars.iv.next97, %.backedge.backedge ]
+  %indvars.iv96 = phi i64 [ %106, %.preheader ], [ %indvars.iv.next97, %.backedge.backedge ]
   %indvars.iv.next97 = add nsw i64 %indvars.iv96, -1
-  %108 = getelementptr inbounds i32, ptr %.tr78, i64 %indvars.iv.next97
-  %109 = load i32, ptr %108, align 4
-  %110 = zext i32 %109 to i64
-  %111 = getelementptr inbounds i32, ptr %65, i64 %110
-  %112 = load i96, ptr %111, align 4
-  %113 = lshr i96 %112, 32
-  %114 = trunc i96 %113 to i32
-  br i1 %71, label %115, label %._crit_edge.i40
+  %107 = getelementptr inbounds i32, ptr %.tr78, i64 %indvars.iv.next97
+  %108 = load i32, ptr %107, align 4
+  %109 = zext i32 %108 to i64
+  %110 = getelementptr inbounds i32, ptr %65, i64 %109
+  %111 = load i96, ptr %110, align 4
+  %112 = lshr i96 %111, 32
+  %113 = trunc i96 %112 to i32
+  br i1 %71, label %114, label %._crit_edge.i40
 
 ._crit_edge.i40:                                  ; preds = %.backedge
-  %extract.t.i41 = trunc i96 %112 to i32
-  %extract.t20.i42 = trunc i96 %112 to i64
-  br label %117
+  %extract.t.i41 = trunc i96 %111 to i32
+  %extract.t20.i42 = trunc i96 %111 to i64
+  br label %116
 
-115:                                              ; preds = %.backedge
-  %116 = icmp eq i32 %114, 2
-  %extract.t18.i48 = trunc i96 %112 to i32
-  %extract.t21.i49 = trunc i96 %112 to i64
-  br i1 %116, label %.backedge.backedge, label %117
+114:                                              ; preds = %.backedge
+  %115 = icmp eq i32 %113, 2
+  %extract.t18.i48 = trunc i96 %111 to i32
+  %extract.t21.i49 = trunc i96 %111 to i64
+  br i1 %115, label %.backedge.backedge, label %116
 
-117:                                              ; preds = %115, %._crit_edge.i40
-  %.off0.i43 = phi i32 [ %extract.t.i41, %._crit_edge.i40 ], [ %extract.t18.i48, %115 ]
-  %.off019.i44 = phi i64 [ %extract.t20.i42, %._crit_edge.i40 ], [ %extract.t21.i49, %115 ]
-  %118 = icmp sgt i32 %114, 2
-  br i1 %118, label %119, label %120
+116:                                              ; preds = %114, %._crit_edge.i40
+  %.off0.i43 = phi i32 [ %extract.t.i41, %._crit_edge.i40 ], [ %extract.t18.i48, %114 ]
+  %.off019.i44 = phi i64 [ %extract.t20.i42, %._crit_edge.i40 ], [ %extract.t21.i49, %114 ]
+  %117 = icmp sgt i32 %113, 2
+  br i1 %117, label %118, label %119
 
-119:                                              ; preds = %117
+118:                                              ; preds = %116
   br i1 %72, label %_ZN11reduceDB_ltclEjj.exit50.thread, label %.thread.i46
 
-120:                                              ; preds = %117
-  %121 = icmp eq i32 %114, 2
-  %or.cond.i45 = and i1 %72, %121
+119:                                              ; preds = %116
+  %120 = icmp eq i32 %113, 2
+  %or.cond.i45 = and i1 %72, %120
   br i1 %or.cond.i45, label %_ZN11reduceDB_ltclEjj.exit50.thread, label %.thread.i46
 
-.thread.i46:                                      ; preds = %120, %119
-  %122 = lshr i32 %.off0.i43, 5
-  %123 = and i32 %122, 67108863
-  %124 = icmp ugt i32 %.pre-phi102, %123
-  br i1 %124, label %.backedge.backedge, label %125
+.thread.i46:                                      ; preds = %119, %118
+  %121 = lshr i32 %.off0.i43, 5
+  %122 = and i32 %121, 67108863
+  %123 = icmp ugt i32 %.pre-phi102, %122
+  br i1 %123, label %.backedge.backedge, label %124
 
-.backedge.backedge:                               ; preds = %.thread.i46, %115, %127
+.backedge.backedge:                               ; preds = %.thread.i46, %114, %126
   br label %.backedge, !llvm.loop !124
 
-125:                                              ; preds = %.thread.i46
-  %126 = icmp ult i32 %.pre-phi102, %123
-  br i1 %126, label %_ZN11reduceDB_ltclEjj.exit50.thread, label %127
+124:                                              ; preds = %.thread.i46
+  %125 = icmp ult i32 %.pre-phi102, %122
+  br i1 %125, label %_ZN11reduceDB_ltclEjj.exit50.thread, label %126
 
-127:                                              ; preds = %125
-  %128 = load float, ptr %106, align 4
-  %129 = getelementptr inbounds i8, ptr %111, i64 12
-  %130 = lshr i64 %.off019.i44, 32
-  %131 = getelementptr inbounds [0 x %union.anon], ptr %129, i64 0, i64 %130
-  %132 = load float, ptr %131, align 4
-  %133 = fcmp olt float %128, %132
-  br i1 %133, label %.backedge.backedge, label %_ZN11reduceDB_ltclEjj.exit50.thread
+126:                                              ; preds = %124
+  %127 = load float, ptr %105, align 4
+  %128 = getelementptr inbounds i8, ptr %110, i64 12
+  %129 = lshr i64 %.off019.i44, 32
+  %130 = getelementptr inbounds [0 x %union.anon], ptr %128, i64 0, i64 %129
+  %131 = load float, ptr %130, align 4
+  %132 = fcmp olt float %127, %131
+  br i1 %132, label %.backedge.backedge, label %_ZN11reduceDB_ltclEjj.exit50.thread
 
-_ZN11reduceDB_ltclEjj.exit50.thread:              ; preds = %120, %125, %119, %127
+_ZN11reduceDB_ltclEjj.exit50.thread:              ; preds = %119, %124, %118, %126
+  %.not = icmp slt i64 %indvars.iv.next, %indvars.iv.next97
+  br i1 %.not, label %133, label %tailrecurse
+
+133:                                              ; preds = %_ZN11reduceDB_ltclEjj.exit50.thread
   %134 = trunc nsw i64 %indvars.iv.next97 to i32
-  %.not = icmp slt i32 %105, %134
-  br i1 %.not, label %135, label %tailrecurse
-
-135:                                              ; preds = %_ZN11reduceDB_ltclEjj.exit50.thread
-  %136 = getelementptr inbounds i32, ptr %.tr78, i64 %indvars.iv.next97
-  store i32 %109, ptr %104, align 4
-  store i32 %80, ptr %136, align 4
+  %135 = getelementptr inbounds i32, ptr %.tr78, i64 %indvars.iv.next97
+  store i32 %108, ptr %104, align 4
+  store i32 %80, ptr %135, align 4
   br label %64, !llvm.loop !125
 
 tailrecurse:                                      ; preds = %_ZN11reduceDB_ltclEjj.exit50.thread
-  tail call void @_ZN6Gluco24sortIj11reduceDB_ltEEvPT_iT0_(ptr noundef nonnull %.tr78, i32 noundef %105, ptr nonnull %2)
-  %137 = sub nsw i32 %.tr5379, %105
+  %136 = trunc i64 %indvars.iv.next to i32
+  tail call void @_ZN6Gluco24sortIj11reduceDB_ltEEvPT_iT0_(ptr noundef nonnull %.tr78, i32 noundef %136, ptr nonnull %2)
+  %137 = sub nsw i32 %.tr5379, %136
   %138 = icmp slt i32 %137, 16
   br i1 %138, label %tailrecurse._crit_edge, label %.lr.ph
 

@@ -38,7 +38,7 @@ tailrecurse._crit_edge:                           ; preds = %tailrecurse, %2
 .lr.ph.preheader.i:                               ; preds = %._crit_edge.i, %.lr.ph27.preheader.i
   %indvars.iv32.i = phi i64 [ 0, %.lr.ph27.preheader.i ], [ %indvars.iv.next33.i, %._crit_edge.i ]
   %indvars.iv.i = phi i64 [ 1, %.lr.ph27.preheader.i ], [ %indvars.iv.next.i, %._crit_edge.i ]
-  %6 = trunc i64 %indvars.iv32.i to i32
+  %6 = trunc nuw nsw i64 %indvars.iv32.i to i32
   br label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %.lr.ph.i, %.lr.ph.preheader.i
@@ -52,7 +52,7 @@ tailrecurse._crit_edge:                           ; preds = %tailrecurse, %2
   %12 = load ptr, ptr %11, align 8
   %13 = tail call float @Msat_ClauseReadActivity(ptr noundef %12) #2
   %14 = fcmp olt float %9, %13
-  %15 = trunc i64 %indvars.iv29.i to i32
+  %15 = trunc nuw nsw i64 %indvars.iv29.i to i32
   %.1.i = select i1 %14, i32 %15, i32 %.024.i
   %indvars.iv.next30.i = add nuw nsw i64 %indvars.iv29.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next30.i, %wide.trip.count.i
@@ -82,9 +82,9 @@ tailrecurse._crit_edge:                           ; preds = %tailrecurse, %2
   %26 = load ptr, ptr %25, align 8
   br label %27
 
-27:                                               ; preds = %46, %.lr.ph
-  %.033 = phi i64 [ -1, %.lr.ph ], [ %indvars.iv.next, %46 ]
-  %.0 = phi i32 [ %.tr4047, %.lr.ph ], [ %45, %46 ]
+27:                                               ; preds = %44, %.lr.ph
+  %.033 = phi i64 [ -1, %.lr.ph ], [ %indvars.iv.next, %44 ]
+  %.0 = phi i32 [ %.tr4047, %.lr.ph ], [ %46, %44 ]
   %sext = shl i64 %.033, 32
   %28 = ashr exact i64 %sext, 32
   br label %29
@@ -101,36 +101,36 @@ tailrecurse._crit_edge:                           ; preds = %tailrecurse, %2
 
 .preheader:                                       ; preds = %29
   %35 = getelementptr inbounds ptr, ptr %.tr46, i64 %indvars.iv.next
-  %36 = trunc i64 %indvars.iv.next to i32
-  %37 = sext i32 %.0 to i64
-  br label %38
+  %36 = sext i32 %.0 to i64
+  br label %37
 
-38:                                               ; preds = %.preheader, %38
-  %indvars.iv55 = phi i64 [ %37, %.preheader ], [ %indvars.iv.next56, %38 ]
+37:                                               ; preds = %.preheader, %37
+  %indvars.iv55 = phi i64 [ %36, %.preheader ], [ %indvars.iv.next56, %37 ]
   %indvars.iv.next56 = add nsw i64 %indvars.iv55, -1
-  %39 = tail call float @Msat_ClauseReadActivity(ptr noundef %26) #2
-  %40 = getelementptr inbounds ptr, ptr %.tr46, i64 %indvars.iv.next56
-  %41 = load ptr, ptr %40, align 8
-  %42 = tail call float @Msat_ClauseReadActivity(ptr noundef %41) #2
-  %43 = fcmp olt float %39, %42
-  br i1 %43, label %38, label %44, !llvm.loop !8
+  %38 = tail call float @Msat_ClauseReadActivity(ptr noundef %26) #2
+  %39 = getelementptr inbounds ptr, ptr %.tr46, i64 %indvars.iv.next56
+  %40 = load ptr, ptr %39, align 8
+  %41 = tail call float @Msat_ClauseReadActivity(ptr noundef %40) #2
+  %42 = fcmp olt float %38, %41
+  br i1 %42, label %37, label %43, !llvm.loop !8
 
-44:                                               ; preds = %38
-  %45 = trunc i64 %indvars.iv.next56 to i32
-  %.not = icmp slt i32 %36, %45
-  br i1 %.not, label %46, label %tailrecurse
+43:                                               ; preds = %37
+  %.not = icmp slt i64 %indvars.iv.next, %indvars.iv.next56
+  br i1 %.not, label %44, label %tailrecurse
 
-46:                                               ; preds = %44
-  %47 = getelementptr inbounds ptr, ptr %.tr46, i64 %indvars.iv.next56
-  %48 = load ptr, ptr %35, align 8
-  %49 = load ptr, ptr %47, align 8
-  store ptr %49, ptr %35, align 8
-  store ptr %48, ptr %47, align 8
+44:                                               ; preds = %43
+  %45 = getelementptr inbounds ptr, ptr %.tr46, i64 %indvars.iv.next56
+  %46 = trunc nsw i64 %indvars.iv.next56 to i32
+  %47 = load ptr, ptr %35, align 8
+  %48 = load ptr, ptr %45, align 8
+  store ptr %48, ptr %35, align 8
+  store ptr %47, ptr %45, align 8
   br label %27
 
-tailrecurse:                                      ; preds = %44
-  tail call fastcc void @Msat_SolverSort(ptr noundef nonnull %.tr46, i32 noundef %36)
-  %50 = sub nsw i32 %.tr4047, %36
+tailrecurse:                                      ; preds = %43
+  %49 = trunc nsw i64 %indvars.iv.next to i32
+  tail call fastcc void @Msat_SolverSort(ptr noundef nonnull %.tr46, i32 noundef %49)
+  %50 = sub nsw i32 %.tr4047, %49
   %51 = icmp slt i32 %50, 16
   br i1 %51, label %tailrecurse._crit_edge, label %.lr.ph
 
@@ -153,7 +153,7 @@ define void @Msat_SolverSortSelection(ptr nocapture noundef %0, i32 noundef %1) 
   %indvars.iv32 = phi i64 [ 0, %.lr.ph27.preheader ], [ %indvars.iv.next33, %._crit_edge ]
   %indvars.iv = phi i64 [ 1, %.lr.ph27.preheader ], [ %indvars.iv.next, %._crit_edge ]
   %indvars.iv.next33 = add nuw nsw i64 %indvars.iv32, 1
-  %5 = trunc i64 %indvars.iv32 to i32
+  %5 = trunc nuw nsw i64 %indvars.iv32 to i32
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
@@ -167,7 +167,7 @@ define void @Msat_SolverSortSelection(ptr nocapture noundef %0, i32 noundef %1) 
   %11 = load ptr, ptr %10, align 8
   %12 = tail call float @Msat_ClauseReadActivity(ptr noundef %11) #2
   %13 = fcmp olt float %8, %12
-  %14 = trunc i64 %indvars.iv29 to i32
+  %14 = trunc nuw nsw i64 %indvars.iv29 to i32
   %.1 = select i1 %13, i32 %14, i32 %.024
   %indvars.iv.next30 = add nuw nsw i64 %indvars.iv29, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next30, %wide.trip.count

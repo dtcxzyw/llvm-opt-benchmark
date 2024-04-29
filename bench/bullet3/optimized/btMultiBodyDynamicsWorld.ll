@@ -217,7 +217,7 @@ for.inc.i.i:                                      ; preds = %for.body.i.i
   br i1 %exitcond.not.i.i, label %_ZN20btAlignedObjectArrayIP11btMultiBodyE6removeERKS1_.exit, label %for.body.i.i, !llvm.loop !7
 
 _ZNK20btAlignedObjectArrayIP11btMultiBodyE16findLinearSearchERKS1_.exit.i: ; preds = %for.body.i.i
-  %3 = trunc i64 %indvars.iv.i.i to i32
+  %3 = trunc nuw nsw i64 %indvars.iv.i.i to i32
   %cmp.i.i = icmp sgt i32 %0, %3
   br i1 %cmp.i.i, label %if.then.i.i, label %_ZN20btAlignedObjectArrayIP11btMultiBodyE6removeERKS1_.exit
 
@@ -5110,7 +5110,7 @@ for.inc.i.i:                                      ; preds = %for.body.i.i
   br i1 %exitcond.not.i.i, label %_ZN20btAlignedObjectArrayIP21btMultiBodyConstraintE6removeERKS1_.exit, label %for.body.i.i, !llvm.loop !51
 
 _ZNK20btAlignedObjectArrayIP21btMultiBodyConstraintE16findLinearSearchERKS1_.exit.i: ; preds = %for.body.i.i
-  %3 = trunc i64 %indvars.iv.i.i to i32
+  %3 = trunc nuw nsw i64 %indvars.iv.i.i to i32
   %cmp.i.i = icmp sgt i32 %0, %3
   br i1 %cmp.i.i, label %if.then.i.i, label %_ZN20btAlignedObjectArrayIP21btMultiBodyConstraintE6removeERKS1_.exit
 
@@ -7894,7 +7894,7 @@ for.inc:                                          ; preds = %_Z24btGetConstraint
 
 for.end.split.loop.exit:                          ; preds = %_Z24btGetConstraintIslandId2PK17btTypedConstraint.exit
   %arrayidx11.le = getelementptr inbounds ptr, ptr %1, i64 %indvars.iv
-  %28 = trunc i64 %indvars.iv to i32
+  %28 = trunc nuw nsw i64 %indvars.iv to i32
   br label %for.end
 
 for.end:                                          ; preds = %for.cond.preheader, %for.end.split.loop.exit
@@ -7946,7 +7946,7 @@ _Z24btGetConstraintIslandId2PK17btTypedConstraint.exit51: ; preds = %for.body21,
   %inc28 = zext i1 %cmp26 to i32
   %spec.select = add nuw nsw i32 %numCurConstraints.0271, %inc28
   %indvars.iv.next296 = add nuw nsw i64 %indvars.iv295, 1
-  %37 = trunc i64 %indvars.iv.next296 to i32
+  %37 = trunc nuw i64 %indvars.iv.next296 to i32
   %cmp20 = icmp sgt i32 %0, %37
   br i1 %cmp20, label %for.body21, label %for.cond33.preheader, !llvm.loop !69
 
@@ -7969,7 +7969,7 @@ for.body35:                                       ; preds = %for.body35.lr.ph, %
   br i1 %cmp40, label %if.then41, label %for.inc46
 
 if.then41:                                        ; preds = %for.body35
-  %42 = trunc i64 %indvars.iv298 to i32
+  %42 = trunc nuw nsw i64 %indvars.iv298 to i32
   %43 = load ptr, ptr %m_multiBodySortedConstraints36, align 8
   %arrayidx44 = getelementptr inbounds ptr, ptr %43, i64 %indvars.iv298
   %.pre = load i32, ptr %m_numMultiBodyConstraints, align 8
@@ -7983,7 +7983,7 @@ for.inc46:                                        ; preds = %for.body35
   br i1 %cmp34, label %for.body35, label %for.end48.loopexit.loopexit, !llvm.loop !70
 
 for.end48.loopexit.loopexit:                      ; preds = %for.inc46
-  %46 = trunc i64 %indvars.iv.next299 to i32
+  %46 = trunc nuw nsw i64 %indvars.iv.next299 to i32
   br label %for.end48
 
 for.end48:                                        ; preds = %for.cond33.preheader, %for.end48.loopexit.loopexit, %if.then41
@@ -8036,7 +8036,7 @@ for.body52:                                       ; preds = %for.body52.lr.ph, %
   %spec.select42 = add nuw nsw i32 %numCurMultiBodyConstraints.0279, %inc59
   %indvars.iv.next302 = add nuw nsw i64 %indvars.iv301, 1
   %53 = load i32, ptr %m_numMultiBodyConstraints, align 8
-  %54 = trunc i64 %indvars.iv.next302 to i32
+  %54 = trunc nuw i64 %indvars.iv.next302 to i32
   %cmp51 = icmp sgt i32 %53, %54
   br i1 %cmp51, label %for.body52, label %for.cond64.preheader, !llvm.loop !71
 
@@ -9564,9 +9564,9 @@ while.cond5:                                      ; preds = %while.cond5, %while
   br i1 %cmp.i41, label %while.cond5, label %while.end11, !llvm.loop !85
 
 while.end11:                                      ; preds = %while.cond5
-  %16 = trunc i64 %indvars.iv to i32
-  %17 = trunc i64 %indvars.iv43 to i32
-  %cmp.not = icmp sgt i32 %16, %17
+  %16 = trunc nsw i64 %indvars.iv to i32
+  %17 = trunc nsw i64 %indvars.iv43 to i32
+  %cmp.not = icmp sgt i64 %indvars.iv, %indvars.iv43
   br i1 %cmp.not, label %do.cond, label %if.then
 
 if.then:                                          ; preds = %while.end11

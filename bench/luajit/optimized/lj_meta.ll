@@ -1997,12 +1997,14 @@ mmcall.exit:                                      ; preds = %if.end, %if.then.i4
   br label %return
 
 if.else:                                          ; preds = %lor.lhs.false
-  %cmp25 = icmp eq i32 %conv, %conv3
+  %cmp25 = icmp eq i64 %shr, %shr2
   br i1 %cmp25, label %if.then27, label %if.else78
 
 if.then27:                                        ; preds = %if.else
-  %cmp34 = icmp eq i32 %conv, -5
-  br i1 %cmp34, label %if.then36, label %trymt
+  %cmp30 = icmp eq i32 %conv, -5
+  %cmp34 = icmp eq i32 %conv3, -5
+  %or.cond = and i1 %cmp30, %cmp34
+  br i1 %or.cond, label %if.then36, label %trymt
 
 if.then36:                                        ; preds = %if.then27
   %and37 = and i64 %0, 140737488355327

@@ -1857,44 +1857,42 @@ for.body97.i:                                     ; preds = %for.cond94.preheade
 
 while.cond102.outer.split.lr.ph.i:                ; preds = %for.body97.i
   %conv101.i = zext i16 %99 to i32
-  %100 = trunc nsw i64 %indvars.iv102.i to i32
   %conv134.i = trunc i64 %indvars.iv102.i to i16
   br label %while.cond102.outer.split.i
 
 while.cond102.outer.split.us.i:                   ; preds = %if.end138.i, %for.body97.i
-  %h.2.ph.lcssa.i = phi i32 [ %h.191.i, %for.body97.i ], [ %104, %if.end138.i ]
+  %h.2.ph.lcssa.i = phi i32 [ %h.191.i, %for.body97.i ], [ %103, %if.end138.i ]
   %indvars.iv.next103.i = add nsw i64 %indvars.iv102.i, -1
-  %101 = and i64 %indvars.iv.next103.i, 4294967295
-  %cmp95.not.i = icmp eq i64 %101, 0
+  %100 = and i64 %indvars.iv.next103.i, 4294967295
+  %cmp95.not.i = icmp eq i64 %100, 0
   br i1 %cmp95.not.i, label %gen_bitlen.exit, label %for.body97.i, !llvm.loop !21
 
 while.cond102.outer.split.i:                      ; preds = %if.end138.i, %while.cond102.outer.split.lr.ph.i
-  %h.2.ph87.i = phi i32 [ %h.191.i, %while.cond102.outer.split.lr.ph.i ], [ %104, %if.end138.i ]
+  %h.2.ph87.i = phi i32 [ %h.191.i, %while.cond102.outer.split.lr.ph.i ], [ %103, %if.end138.i ]
   %n.0.ph86.i = phi i32 [ %conv101.i, %while.cond102.outer.split.lr.ph.i ], [ %dec139.i, %if.end138.i ]
-  %102 = sext i32 %h.2.ph87.i to i64
+  %101 = sext i32 %h.2.ph87.i to i64
   br label %while.cond102.i
 
 while.cond102.i:                                  ; preds = %while.cond102.i, %while.cond102.outer.split.i
-  %indvars.iv99.i = phi i64 [ %102, %while.cond102.outer.split.i ], [ %indvars.iv.next100.i, %while.cond102.i ]
+  %indvars.iv99.i = phi i64 [ %101, %while.cond102.outer.split.i ], [ %indvars.iv.next100.i, %while.cond102.i ]
   %indvars.iv.next100.i = add nsw i64 %indvars.iv99.i, -1
   %arrayidx109.i = getelementptr inbounds [573 x i32], ptr %heap45, i64 0, i64 %indvars.iv.next100.i
-  %103 = load i32, ptr %arrayidx109.i, align 4
-  %cmp110.i = icmp sgt i32 %103, %75
+  %102 = load i32, ptr %arrayidx109.i, align 4
+  %cmp110.i = icmp sgt i32 %102, %75
   br i1 %cmp110.i, label %while.cond102.i, label %if.end113.i, !llvm.loop !22
 
 if.end113.i:                                      ; preds = %while.cond102.i
-  %104 = trunc nsw i64 %indvars.iv.next100.i to i32
-  %idxprom114.i = sext i32 %103 to i64
+  %103 = trunc nsw i64 %indvars.iv.next100.i to i32
+  %idxprom114.i = sext i32 %102 to i64
   %arrayidx115.i = getelementptr inbounds %struct.ct_data_s, ptr %74, i64 %idxprom114.i
   %dl116.i = getelementptr inbounds i8, ptr %arrayidx115.i, i64 2
-  %105 = load i16, ptr %dl116.i, align 2
-  %conv117.i = zext i16 %105 to i32
-  %cmp118.not.i = icmp eq i32 %100, %conv117.i
+  %104 = load i16, ptr %dl116.i, align 2
+  %105 = zext i16 %104 to i64
+  %cmp118.not.i = icmp eq i64 %indvars.iv102.i, %105
   br i1 %cmp118.not.i, label %if.end138.i, label %if.then120.i
 
 if.then120.i:                                     ; preds = %if.end113.i
-  %conv125.i = zext i16 %105 to i64
-  %sub126.i = sub nsw i64 %indvars.iv102.i, %conv125.i
+  %sub126.i = sub nsw i64 %indvars.iv102.i, %105
   %106 = load i16, ptr %arrayidx115.i, align 2
   %conv130.i = zext i16 %106 to i64
   %mul131.i = mul nsw i64 %sub126.i, %conv130.i
@@ -2075,9 +2073,9 @@ if.else65:                                        ; preds = %do.body
   %arrayidx67 = getelementptr inbounds [256 x i8], ptr @_length_code, i64 0, i64 %idxprom15
   %17 = load i8, ptr %arrayidx67, align 1
   %18 = zext i8 %17 to i64
-  %19 = getelementptr %struct.ct_data_s, ptr %ltree, i64 %18
-  %arrayidx73 = getelementptr i8, ptr %19, i64 1028
-  %dl74 = getelementptr i8, ptr %19, i64 1030
+  %19 = getelementptr inbounds %struct.ct_data_s, ptr %ltree, i64 %18
+  %arrayidx73 = getelementptr inbounds i8, ptr %19, i64 1028
+  %dl74 = getelementptr inbounds i8, ptr %19, i64 1030
   %20 = load i16, ptr %dl74, align 2
   %conv75 = zext i16 %20 to i32
   %21 = load i32, ptr %bi_valid76, align 4
@@ -2366,7 +2364,7 @@ if.end399:                                        ; preds = %if.else387, %if.the
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define i32 @_tr_tally(ptr nocapture noundef %s, i32 noundef %dist, i32 noundef %lc) local_unnamed_addr #1 {
+define range(i32 0, 2) i32 @_tr_tally(ptr nocapture noundef %s, i32 noundef %dist, i32 noundef %lc) local_unnamed_addr #1 {
 entry:
   %conv = trunc i32 %dist to i8
   %sym_buf = getelementptr inbounds i8, ptr %s, i64 5888

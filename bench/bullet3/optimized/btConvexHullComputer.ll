@@ -10229,7 +10229,7 @@ while.body10:                                     ; preds = %land.rhs.i29, %whil
 
 while.end11:                                      ; preds = %lor.rhs8.i31, %lor.rhs.i27, %_ZNK8pointCmpclERKN20btConvexHullInternal7Point32ES3_.exit37
   %11 = trunc nsw i64 %indvars.iv49 to i32
-  %cmp.not = icmp sgt i32 %6, %11
+  %cmp.not = icmp sgt i64 %indvars.iv, %indvars.iv49
   br i1 %cmp.not, label %do.cond, label %if.then
 
 if.then:                                          ; preds = %while.end11
