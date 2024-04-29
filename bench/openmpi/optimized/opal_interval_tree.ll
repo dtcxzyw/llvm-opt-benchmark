@@ -271,7 +271,7 @@ define i32 @opal_interval_tree_init(ptr noundef %0) local_unnamed_addr #0 {
 declare i32 @opal_free_list_init(ptr noundef, i64 noundef, i64 noundef, ptr noundef, i64 noundef, i64 noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @opal_interval_tree_insert(ptr noundef %0, ptr noundef %1, i64 noundef %2, i64 noundef %3) local_unnamed_addr #0 {
+define range(i32 -5, 1) i32 @opal_interval_tree_insert(ptr noundef %0, ptr noundef %1, i64 noundef %2, i64 noundef %3) local_unnamed_addr #0 {
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
   %.sroa.22.i.i.i.i = alloca i64, align 8
@@ -950,78 +950,91 @@ opal_atomic_compare_exchange_strong_32.exit.thread.i: ; preds = %11, %3
   %16 = zext nneg i32 %9 to i64
   %17 = getelementptr inbounds [128 x i32], ptr %15, i64 0, i64 %16
   %18 = getelementptr inbounds i8, ptr %0, i64 688
-  br label %opal_thread_compare_exchange_strong_32.exit.i.outer
+  %19 = load i8, ptr @opal_uses_threads, align 1
+  %20 = trunc i8 %19 to i1
+  br i1 %20, label %opal_atomic_compare_exchange_strong_32.exit.thread.split.i.outer, label %opal_atomic_compare_exchange_strong_32.exit.thread.split.us.i
 
-opal_thread_compare_exchange_strong_32.exit.i.outer: ; preds = %21, %opal_atomic_compare_exchange_strong_32.exit.thread.i
-  %.ph = load i8, ptr @opal_uses_threads, align 1
-  %19 = load i32, ptr %18, align 16
-  %20 = trunc i8 %.ph to i1
-  br label %opal_thread_compare_exchange_strong_32.exit.i
+opal_atomic_compare_exchange_strong_32.exit.thread.split.us.i: ; preds = %opal_atomic_compare_exchange_strong_32.exit.thread.i
+  %21 = load i32, ptr %18, align 16
+  br label %opal_thread_compare_exchange_strong_32.exit.us.i
 
-opal_thread_compare_exchange_strong_32.exit.i:    ; preds = %opal_thread_compare_exchange_strong_32.exit.i.outer, %24
-  br i1 %20, label %21, label %24
+opal_thread_compare_exchange_strong_32.exit.us.i: ; preds = %opal_thread_compare_exchange_strong_32.exit.us.i, %opal_atomic_compare_exchange_strong_32.exit.thread.split.us.i
+  %22 = load volatile i32, ptr %17, align 4
+  %23 = icmp eq i32 %22, -1
+  br i1 %23, label %.split.us.i, label %opal_thread_compare_exchange_strong_32.exit.us.i, !llvm.loop !13
 
-21:                                               ; preds = %opal_thread_compare_exchange_strong_32.exit.i
-  %22 = cmpxchg volatile ptr %17, i32 -1, i32 %19 acquire monotonic, align 4
-  %23 = extractvalue { i32, i1 } %22, 1
-  br i1 %23, label %opal_interval_tree_reader_get_token.exit, label %opal_thread_compare_exchange_strong_32.exit.i.outer, !llvm.loop !13
+opal_atomic_compare_exchange_strong_32.exit.thread.split.i: ; preds = %opal_atomic_compare_exchange_strong_32.exit.thread.split.i.outer, %29
+  br i1 %28, label %24, label %29
 
-24:                                               ; preds = %opal_thread_compare_exchange_strong_32.exit.i
-  %25 = load volatile i32, ptr %17, align 4
-  %26 = icmp eq i32 %25, -1
-  br i1 %26, label %27, label %opal_thread_compare_exchange_strong_32.exit.i, !llvm.loop !13
+24:                                               ; preds = %opal_atomic_compare_exchange_strong_32.exit.thread.split.i
+  %25 = cmpxchg volatile ptr %17, i32 -1, i32 %27 acquire monotonic, align 4
+  %26 = extractvalue { i32, i1 } %25, 1
+  %.pre.i = load i8, ptr @opal_uses_threads, align 1
+  br i1 %26, label %opal_interval_tree_reader_get_token.exit, label %opal_atomic_compare_exchange_strong_32.exit.thread.split.i.outer, !llvm.loop !14
 
-27:                                               ; preds = %24
-  store i32 %19, ptr %17, align 4
+opal_atomic_compare_exchange_strong_32.exit.thread.split.i.outer: ; preds = %opal_atomic_compare_exchange_strong_32.exit.thread.i, %24
+  %.ph = phi i8 [ %.pre.i, %24 ], [ %19, %opal_atomic_compare_exchange_strong_32.exit.thread.i ]
+  %27 = load i32, ptr %18, align 16
+  %28 = trunc i8 %.ph to i1
+  br label %opal_atomic_compare_exchange_strong_32.exit.thread.split.i
+
+29:                                               ; preds = %opal_atomic_compare_exchange_strong_32.exit.thread.split.i
+  %30 = load volatile i32, ptr %17, align 4
+  %31 = icmp eq i32 %30, -1
+  br i1 %31, label %.split.us.i, label %opal_atomic_compare_exchange_strong_32.exit.thread.split.i, !llvm.loop !14
+
+.split.us.i:                                      ; preds = %opal_thread_compare_exchange_strong_32.exit.us.i, %29
+  %.us-phi22.i = phi i32 [ %27, %29 ], [ %21, %opal_thread_compare_exchange_strong_32.exit.us.i ]
+  store i32 %.us-phi22.i, ptr %17, align 4
   br label %opal_interval_tree_reader_get_token.exit
 
-opal_interval_tree_reader_get_token.exit:         ; preds = %21, %27
-  %28 = getelementptr inbounds i8, ptr %0, i64 88
-  %29 = load ptr, ptr %28, align 8
-  %30 = getelementptr inbounds i8, ptr %0, i64 144
-  %31 = icmp eq ptr %30, %29
-  br i1 %31, label %opal_interval_tree_find_node.exit.thread, label %.critedge.i.us.i.i
+opal_interval_tree_reader_get_token.exit:         ; preds = %24, %.split.us.i
+  %32 = getelementptr inbounds i8, ptr %0, i64 88
+  %33 = load ptr, ptr %32, align 8
+  %34 = getelementptr inbounds i8, ptr %0, i64 144
+  %35 = icmp eq ptr %34, %33
+  br i1 %35, label %opal_interval_tree_find_node.exit.thread, label %.critedge.i.us.i.i
 
 .critedge.i.us.i.i:                               ; preds = %opal_interval_tree_reader_get_token.exit, %tailrecurse.backedge.us.i.i
-  %.tr2529.us.i.i = phi ptr [ %.tr25.be.us.i.i, %tailrecurse.backedge.us.i.i ], [ %29, %opal_interval_tree_reader_get_token.exit ]
-  %32 = getelementptr inbounds i8, ptr %.tr2529.us.i.i, i64 104
-  %33 = load i64, ptr %32, align 8
-  %.not27.i.us.i.i = icmp ugt i64 %33, %1
-  br i1 %.not27.i.us.i.i, label %select.unfold.us.i.i, label %34
+  %.tr2529.us.i.i = phi ptr [ %.tr25.be.us.i.i, %tailrecurse.backedge.us.i.i ], [ %33, %opal_interval_tree_reader_get_token.exit ]
+  %36 = getelementptr inbounds i8, ptr %.tr2529.us.i.i, i64 104
+  %37 = load i64, ptr %36, align 8
+  %.not27.i.us.i.i = icmp ugt i64 %37, %1
+  br i1 %.not27.i.us.i.i, label %select.unfold.us.i.i, label %38
 
-34:                                               ; preds = %.critedge.i.us.i.i
-  %35 = getelementptr inbounds i8, ptr %.tr2529.us.i.i, i64 112
-  %36 = load i64, ptr %35, align 8
-  %.not28.i.us.i.i = icmp ult i64 %36, %2
-  br i1 %.not28.i.us.i.i, label %37, label %41
+38:                                               ; preds = %.critedge.i.us.i.i
+  %39 = getelementptr inbounds i8, ptr %.tr2529.us.i.i, i64 112
+  %40 = load i64, ptr %39, align 8
+  %.not28.i.us.i.i = icmp ult i64 %40, %2
+  br i1 %.not28.i.us.i.i, label %41, label %45
 
-37:                                               ; preds = %34
-  %38 = icmp ult i64 %33, %1
-  br i1 %38, label %tailrecurse.backedge.us.i.i, label %select.unfold.us.i.i
+41:                                               ; preds = %38
+  %42 = icmp ult i64 %37, %1
+  br i1 %42, label %tailrecurse.backedge.us.i.i, label %select.unfold.us.i.i
 
-select.unfold.us.i.i:                             ; preds = %37, %.critedge.i.us.i.i
+select.unfold.us.i.i:                             ; preds = %41, %.critedge.i.us.i.i
   br label %tailrecurse.backedge.us.i.i
 
-tailrecurse.backedge.us.i.i:                      ; preds = %select.unfold.us.i.i, %37
-  %.sink.i.i = phi i64 [ 72, %select.unfold.us.i.i ], [ 80, %37 ]
-  %39 = getelementptr inbounds i8, ptr %.tr2529.us.i.i, i64 %.sink.i.i
-  %.tr25.be.us.i.i = load ptr, ptr %39, align 8
-  %40 = icmp eq ptr %30, %.tr25.be.us.i.i
-  br i1 %40, label %opal_interval_tree_find_node.exit.thread, label %.critedge.i.us.i.i
+tailrecurse.backedge.us.i.i:                      ; preds = %select.unfold.us.i.i, %41
+  %.sink.i.i = phi i64 [ 72, %select.unfold.us.i.i ], [ 80, %41 ]
+  %43 = getelementptr inbounds i8, ptr %.tr2529.us.i.i, i64 %.sink.i.i
+  %.tr25.be.us.i.i = load ptr, ptr %43, align 8
+  %44 = icmp eq ptr %34, %.tr25.be.us.i.i
+  br i1 %44, label %opal_interval_tree_find_node.exit.thread, label %.critedge.i.us.i.i
 
 opal_interval_tree_find_node.exit.thread:         ; preds = %tailrecurse.backedge.us.i.i, %opal_interval_tree_reader_get_token.exit
   store volatile i32 -1, ptr %17, align 4
-  br label %44
+  br label %48
 
-41:                                               ; preds = %34
+45:                                               ; preds = %38
   store volatile i32 -1, ptr %17, align 4
-  %42 = getelementptr inbounds i8, ptr %.tr2529.us.i.i, i64 96
-  %43 = load ptr, ptr %42, align 8
-  br label %44
+  %46 = getelementptr inbounds i8, ptr %.tr2529.us.i.i, i64 96
+  %47 = load ptr, ptr %46, align 8
+  br label %48
 
-44:                                               ; preds = %opal_interval_tree_find_node.exit.thread, %41
-  %45 = phi ptr [ %43, %41 ], [ null, %opal_interval_tree_find_node.exit.thread ]
-  ret ptr %45
+48:                                               ; preds = %opal_interval_tree_find_node.exit.thread, %45
+  %49 = phi ptr [ %47, %45 ], [ null, %opal_interval_tree_find_node.exit.thread ]
+  ret ptr %49
 }
 
 ; Function Attrs: nofree nounwind memory(read, argmem: readwrite, inaccessiblemem: readwrite) uwtable
@@ -1054,36 +1067,49 @@ opal_atomic_compare_exchange_strong_32.exit.thread.i: ; preds = %9, %1
   %14 = zext nneg i32 %7 to i64
   %15 = getelementptr inbounds [128 x i32], ptr %13, i64 0, i64 %14
   %16 = getelementptr inbounds i8, ptr %0, i64 688
-  br label %opal_thread_compare_exchange_strong_32.exit.i.outer
+  %17 = load i8, ptr @opal_uses_threads, align 1
+  %18 = trunc i8 %17 to i1
+  br i1 %18, label %opal_atomic_compare_exchange_strong_32.exit.thread.split.i.outer, label %opal_atomic_compare_exchange_strong_32.exit.thread.split.us.i
 
-opal_thread_compare_exchange_strong_32.exit.i.outer: ; preds = %19, %opal_atomic_compare_exchange_strong_32.exit.thread.i
-  %.ph = load i8, ptr @opal_uses_threads, align 1
-  %17 = load i32, ptr %16, align 16
-  %18 = trunc i8 %.ph to i1
-  br label %opal_thread_compare_exchange_strong_32.exit.i
+opal_atomic_compare_exchange_strong_32.exit.thread.split.us.i: ; preds = %opal_atomic_compare_exchange_strong_32.exit.thread.i
+  %19 = load i32, ptr %16, align 16
+  br label %opal_thread_compare_exchange_strong_32.exit.us.i
 
-opal_thread_compare_exchange_strong_32.exit.i:    ; preds = %opal_thread_compare_exchange_strong_32.exit.i.outer, %22
-  br i1 %18, label %19, label %22
+opal_thread_compare_exchange_strong_32.exit.us.i: ; preds = %opal_thread_compare_exchange_strong_32.exit.us.i, %opal_atomic_compare_exchange_strong_32.exit.thread.split.us.i
+  %20 = load volatile i32, ptr %15, align 4
+  %21 = icmp eq i32 %20, -1
+  br i1 %21, label %.split.us.i, label %opal_thread_compare_exchange_strong_32.exit.us.i, !llvm.loop !13
 
-19:                                               ; preds = %opal_thread_compare_exchange_strong_32.exit.i
-  %20 = cmpxchg volatile ptr %15, i32 -1, i32 %17 acquire monotonic, align 4
-  %21 = extractvalue { i32, i1 } %20, 1
-  br i1 %21, label %opal_interval_tree_reader_get_token.exit, label %opal_thread_compare_exchange_strong_32.exit.i.outer, !llvm.loop !13
+opal_atomic_compare_exchange_strong_32.exit.thread.split.i: ; preds = %opal_atomic_compare_exchange_strong_32.exit.thread.split.i.outer, %27
+  br i1 %26, label %22, label %27
 
-22:                                               ; preds = %opal_thread_compare_exchange_strong_32.exit.i
-  %23 = load volatile i32, ptr %15, align 4
-  %24 = icmp eq i32 %23, -1
-  br i1 %24, label %25, label %opal_thread_compare_exchange_strong_32.exit.i, !llvm.loop !13
+22:                                               ; preds = %opal_atomic_compare_exchange_strong_32.exit.thread.split.i
+  %23 = cmpxchg volatile ptr %15, i32 -1, i32 %25 acquire monotonic, align 4
+  %24 = extractvalue { i32, i1 } %23, 1
+  %.pre.i = load i8, ptr @opal_uses_threads, align 1
+  br i1 %24, label %opal_interval_tree_reader_get_token.exit, label %opal_atomic_compare_exchange_strong_32.exit.thread.split.i.outer, !llvm.loop !14
 
-25:                                               ; preds = %22
-  store i32 %17, ptr %15, align 4
+opal_atomic_compare_exchange_strong_32.exit.thread.split.i.outer: ; preds = %opal_atomic_compare_exchange_strong_32.exit.thread.i, %22
+  %.ph = phi i8 [ %.pre.i, %22 ], [ %17, %opal_atomic_compare_exchange_strong_32.exit.thread.i ]
+  %25 = load i32, ptr %16, align 16
+  %26 = trunc i8 %.ph to i1
+  br label %opal_atomic_compare_exchange_strong_32.exit.thread.split.i
+
+27:                                               ; preds = %opal_atomic_compare_exchange_strong_32.exit.thread.split.i
+  %28 = load volatile i32, ptr %15, align 4
+  %29 = icmp eq i32 %28, -1
+  br i1 %29, label %.split.us.i, label %opal_atomic_compare_exchange_strong_32.exit.thread.split.i, !llvm.loop !14
+
+.split.us.i:                                      ; preds = %opal_thread_compare_exchange_strong_32.exit.us.i, %27
+  %.us-phi22.i = phi i32 [ %25, %27 ], [ %19, %opal_thread_compare_exchange_strong_32.exit.us.i ]
+  store i32 %.us-phi22.i, ptr %15, align 4
   br label %opal_interval_tree_reader_get_token.exit
 
-opal_interval_tree_reader_get_token.exit:         ; preds = %19, %25
-  %26 = getelementptr inbounds i8, ptr %0, i64 16
-  %27 = tail call fastcc i64 @opal_interval_tree_depth_node(ptr noundef nonnull %0, ptr noundef nonnull %26)
+opal_interval_tree_reader_get_token.exit:         ; preds = %22, %.split.us.i
+  %30 = getelementptr inbounds i8, ptr %0, i64 16
+  %31 = tail call fastcc i64 @opal_interval_tree_depth_node(ptr noundef nonnull %0, ptr noundef nonnull %30)
   store volatile i32 -1, ptr %15, align 4
-  ret i64 %27
+  ret i64 %31
 }
 
 ; Function Attrs: nofree nosync nounwind memory(read, inaccessiblemem: none) uwtable
@@ -1109,7 +1135,7 @@ common.ret11:                                     ; preds = %2, %5
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @opal_interval_tree_delete(ptr noundef %0, i64 noundef %1, i64 noundef %2, ptr noundef readnone %3) local_unnamed_addr #0 {
+define range(i32 -13, 1) i32 @opal_interval_tree_delete(ptr noundef %0, i64 noundef %1, i64 noundef %2, ptr noundef readnone %3) local_unnamed_addr #0 {
   %5 = alloca ptr, align 8
   %.sroa.22.i.i.i7.i.i.i = alloca i64, align 8
   %6 = alloca ptr, align 8
@@ -1303,7 +1329,7 @@ opal_interval_tree_find_node.exit._crit_edge:     ; preds = %opal_interval_tree_
   %85 = getelementptr inbounds i8, ptr %.1.i.i, i64 72
   %86 = load ptr, ptr %85, align 8
   %.not.i.i19 = icmp eq ptr %86, %17
-  br i1 %.not.i.i19, label %opal_interval_tree_next.exit.i, label %.preheader22.i.i, !llvm.loop !14
+  br i1 %.not.i.i19, label %opal_interval_tree_next.exit.i, label %.preheader22.i.i, !llvm.loop !16
 
 opal_interval_tree_next.exit.i:                   ; preds = %.preheader22.i.i
   %87 = getelementptr inbounds i8, ptr %.1.i.i, i64 72
@@ -1533,7 +1559,7 @@ opal_lifo_pop_atomic.exit.i30.i.i.i:              ; preds = %opal_update_counted
   %.0.i9.i.i.i = phi ptr [ %.0.i.i31.i.i.i, %opal_lifo_pop_atomic.exit.i30.i.i.i ], [ null, %161 ]
   store ptr %.0.i9.i.i.i, ptr %9, align 8
   %171 = icmp eq ptr %.0.i9.i.i.i, null
-  br i1 %171, label %129, label %opal_interval_tree_node_copy.exit.i, !llvm.loop !15
+  br i1 %171, label %129, label %opal_interval_tree_node_copy.exit.i, !llvm.loop !17
 
 opal_interval_tree_node_copy.exit.i:              ; preds = %170, %137, %.thread54.i.i.i, %opal_lifo_pop.exit.i.i.i, %opal_lifo_pop.exit.thread48.i.i.i
   %.lcssa36.i.i.i = phi ptr [ %102, %opal_lifo_pop.exit.i.i.i ], [ %115, %opal_lifo_pop.exit.thread48.i.i.i ], [ %163, %.thread54.i.i.i ], [ %.0.i9.i.i.i, %170 ], [ %138, %137 ]
@@ -1579,14 +1605,14 @@ opal_interval_tree_node_copy.exit.i:              ; preds = %170, %137, %.thread
 191:                                              ; preds = %191, %.preheader.i.i.i
   %192 = load volatile i32, ptr %190, align 4
   %193 = icmp ult i32 %192, %185
-  br i1 %193, label %191, label %194, !llvm.loop !16
+  br i1 %193, label %191, label %194, !llvm.loop !18
 
 194:                                              ; preds = %191
   %indvars.iv.next.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i, 1
   %195 = load volatile i32, ptr %186, align 4
   %196 = sext i32 %195 to i64
   %197 = icmp slt i64 %indvars.iv.next.i.i.i, %196
-  br i1 %197, label %.preheader.i.i.i, label %rp_wait_for_readers.exit.i.i, !llvm.loop !17
+  br i1 %197, label %.preheader.i.i.i, label %rp_wait_for_readers.exit.i.i, !llvm.loop !19
 
 rp_wait_for_readers.exit.i.i:                     ; preds = %194, %opal_interval_tree_node_copy.exit.i
   %198 = getelementptr inbounds i8, ptr %0, i64 296
@@ -1845,7 +1871,7 @@ opal_free_list_return_st.exit20:                  ; preds = %48, %45, %42, %32, 
 ; Function Attrs: nounwind uwtable
 define i32 @opal_interval_tree_traverse(ptr noundef %0, i64 noundef %1, i64 noundef %2, i1 noundef zeroext %3, ptr noundef %4, ptr noundef %5) local_unnamed_addr #0 {
   %7 = icmp eq ptr %4, null
-  br i1 %7, label %36, label %8
+  br i1 %7, label %40, label %8
 
 8:                                                ; preds = %6
   %9 = getelementptr inbounds i8, ptr %0, i64 708
@@ -1876,40 +1902,53 @@ opal_atomic_compare_exchange_strong_32.exit.thread.i: ; preds = %16, %8
   %21 = zext nneg i32 %14 to i64
   %22 = getelementptr inbounds [128 x i32], ptr %20, i64 0, i64 %21
   %23 = getelementptr inbounds i8, ptr %0, i64 688
-  br label %opal_thread_compare_exchange_strong_32.exit.i.outer
+  %24 = load i8, ptr @opal_uses_threads, align 1
+  %25 = trunc i8 %24 to i1
+  br i1 %25, label %opal_atomic_compare_exchange_strong_32.exit.thread.split.i.outer, label %opal_atomic_compare_exchange_strong_32.exit.thread.split.us.i
 
-opal_thread_compare_exchange_strong_32.exit.i.outer: ; preds = %26, %opal_atomic_compare_exchange_strong_32.exit.thread.i
-  %.ph = load i8, ptr @opal_uses_threads, align 1
-  %24 = load i32, ptr %23, align 16
-  %25 = trunc i8 %.ph to i1
-  br label %opal_thread_compare_exchange_strong_32.exit.i
+opal_atomic_compare_exchange_strong_32.exit.thread.split.us.i: ; preds = %opal_atomic_compare_exchange_strong_32.exit.thread.i
+  %26 = load i32, ptr %23, align 16
+  br label %opal_thread_compare_exchange_strong_32.exit.us.i
 
-opal_thread_compare_exchange_strong_32.exit.i:    ; preds = %opal_thread_compare_exchange_strong_32.exit.i.outer, %29
-  br i1 %25, label %26, label %29
+opal_thread_compare_exchange_strong_32.exit.us.i: ; preds = %opal_thread_compare_exchange_strong_32.exit.us.i, %opal_atomic_compare_exchange_strong_32.exit.thread.split.us.i
+  %27 = load volatile i32, ptr %22, align 4
+  %28 = icmp eq i32 %27, -1
+  br i1 %28, label %.split.us.i, label %opal_thread_compare_exchange_strong_32.exit.us.i, !llvm.loop !13
 
-26:                                               ; preds = %opal_thread_compare_exchange_strong_32.exit.i
-  %27 = cmpxchg volatile ptr %22, i32 -1, i32 %24 acquire monotonic, align 4
-  %28 = extractvalue { i32, i1 } %27, 1
-  br i1 %28, label %opal_interval_tree_reader_get_token.exit, label %opal_thread_compare_exchange_strong_32.exit.i.outer, !llvm.loop !13
+opal_atomic_compare_exchange_strong_32.exit.thread.split.i: ; preds = %opal_atomic_compare_exchange_strong_32.exit.thread.split.i.outer, %34
+  br i1 %33, label %29, label %34
 
-29:                                               ; preds = %opal_thread_compare_exchange_strong_32.exit.i
-  %30 = load volatile i32, ptr %22, align 4
-  %31 = icmp eq i32 %30, -1
-  br i1 %31, label %32, label %opal_thread_compare_exchange_strong_32.exit.i, !llvm.loop !13
+29:                                               ; preds = %opal_atomic_compare_exchange_strong_32.exit.thread.split.i
+  %30 = cmpxchg volatile ptr %22, i32 -1, i32 %32 acquire monotonic, align 4
+  %31 = extractvalue { i32, i1 } %30, 1
+  %.pre.i = load i8, ptr @opal_uses_threads, align 1
+  br i1 %31, label %opal_interval_tree_reader_get_token.exit, label %opal_atomic_compare_exchange_strong_32.exit.thread.split.i.outer, !llvm.loop !14
 
-32:                                               ; preds = %29
-  store i32 %24, ptr %22, align 4
+opal_atomic_compare_exchange_strong_32.exit.thread.split.i.outer: ; preds = %opal_atomic_compare_exchange_strong_32.exit.thread.i, %29
+  %.ph = phi i8 [ %.pre.i, %29 ], [ %24, %opal_atomic_compare_exchange_strong_32.exit.thread.i ]
+  %32 = load i32, ptr %23, align 16
+  %33 = trunc i8 %.ph to i1
+  br label %opal_atomic_compare_exchange_strong_32.exit.thread.split.i
+
+34:                                               ; preds = %opal_atomic_compare_exchange_strong_32.exit.thread.split.i
+  %35 = load volatile i32, ptr %22, align 4
+  %36 = icmp eq i32 %35, -1
+  br i1 %36, label %.split.us.i, label %opal_atomic_compare_exchange_strong_32.exit.thread.split.i, !llvm.loop !14
+
+.split.us.i:                                      ; preds = %opal_thread_compare_exchange_strong_32.exit.us.i, %34
+  %.us-phi22.i = phi i32 [ %32, %34 ], [ %26, %opal_thread_compare_exchange_strong_32.exit.us.i ]
+  store i32 %.us-phi22.i, ptr %22, align 4
   br label %opal_interval_tree_reader_get_token.exit
 
-opal_interval_tree_reader_get_token.exit:         ; preds = %26, %32
-  %33 = getelementptr inbounds i8, ptr %0, i64 88
-  %34 = load ptr, ptr %33, align 8
-  %35 = tail call fastcc i32 @inorder_traversal(ptr noundef nonnull %0, i64 noundef %1, i64 noundef %2, i1 noundef zeroext %3, ptr noundef nonnull %4, ptr noundef %34, ptr noundef %5)
+opal_interval_tree_reader_get_token.exit:         ; preds = %29, %.split.us.i
+  %37 = getelementptr inbounds i8, ptr %0, i64 88
+  %38 = load ptr, ptr %37, align 8
+  %39 = tail call fastcc i32 @inorder_traversal(ptr noundef nonnull %0, i64 noundef %1, i64 noundef %2, i1 noundef zeroext %3, ptr noundef nonnull %4, ptr noundef %38, ptr noundef %5)
   store volatile i32 -1, ptr %22, align 4
-  br label %36
+  br label %40
 
-36:                                               ; preds = %6, %opal_interval_tree_reader_get_token.exit
-  %.0 = phi i32 [ %35, %opal_interval_tree_reader_get_token.exit ], [ -5, %6 ]
+40:                                               ; preds = %6, %opal_interval_tree_reader_get_token.exit
+  %.0 = phi i32 [ %39, %opal_interval_tree_reader_get_token.exit ], [ -5, %6 ]
   ret i32 %.0
 }
 
@@ -2146,7 +2185,7 @@ tailrecurse:                                      ; preds = %34
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define noundef i32 @opal_interval_tree_dump(ptr noundef %0, ptr nocapture noundef readonly %1) local_unnamed_addr #5 {
+define range(i32 -5, 1) i32 @opal_interval_tree_dump(ptr noundef %0, ptr nocapture noundef readonly %1) local_unnamed_addr #5 {
   %3 = tail call noalias ptr @fopen(ptr noundef %1, ptr noundef nonnull @.str.4)
   %4 = icmp eq ptr %3, null
   br i1 %4, label %12, label %5
@@ -2656,7 +2695,7 @@ opal_interval_tree_delete_fixup_helper.exit:      ; preds = %76, %.thread20.i, %
   %200 = getelementptr inbounds i8, ptr %.014, i64 64
   %201 = load ptr, ptr %200, align 8
   %.not = icmp eq ptr %.014, %.pre
-  br i1 %.not, label %.critedge, label %7, !llvm.loop !18
+  br i1 %.not, label %.critedge, label %7, !llvm.loop !20
 
 .critedge:                                        ; preds = %7, %opal_interval_tree_delete_fixup_helper.exit, %opal_interval_tree_delete_fixup_helper.exit.thread, %3
   %.011.lcssa = phi ptr [ %1, %3 ], [ %198, %opal_interval_tree_delete_fixup_helper.exit.thread ], [ %.014, %opal_interval_tree_delete_fixup_helper.exit ], [ %.01113, %7 ]
@@ -2718,8 +2757,10 @@ attributes #16 = { cold nounwind }
 !11 = distinct !{!11, !5}
 !12 = distinct !{!12, !5}
 !13 = distinct !{!13, !5}
-!14 = distinct !{!14, !5}
-!15 = distinct !{!15, !5}
+!14 = distinct !{!14, !5, !15}
+!15 = !{!"llvm.loop.unswitch.partial.disable"}
 !16 = distinct !{!16, !5}
 !17 = distinct !{!17, !5}
 !18 = distinct !{!18, !5}
+!19 = distinct !{!19, !5}
+!20 = distinct !{!20, !5}

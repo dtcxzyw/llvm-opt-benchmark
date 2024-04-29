@@ -141,115 +141,134 @@ define internal void @proc_open_rsrc_dtor(ptr nocapture noundef readonly %0) #0 
   %spec.select = zext i1 %.not to i32
   %28 = getelementptr inbounds i8, ptr %4, i64 44
   %29 = getelementptr inbounds i8, ptr %4, i64 40
-  br label %30
+  %30 = load i8, ptr %28, align 4
+  %31 = trunc i8 %30 to i1
+  br i1 %31, label %waitpid_cached.exit.us.preheader, label %.split
 
-30:                                               ; preds = %46, %._crit_edge
-  %31 = load i8, ptr %28, align 4
-  %32 = trunc i8 %31 to i1
-  br i1 %32, label %33, label %36
+waitpid_cached.exit.us.preheader:                 ; preds = %._crit_edge
+  %.pre47 = load i32, ptr %29, align 8
+  %.pre48 = load i32, ptr %4, align 8
+  %32 = icmp eq i32 %.pre48, -1
+  br label %waitpid_cached.exit.us
 
-33:                                               ; preds = %30
-  %34 = load i32, ptr %29, align 8
-  store i32 %34, ptr %2, align 4
-  %35 = load i32, ptr %4, align 8
+waitpid_cached.exit.us:                           ; preds = %waitpid_cached.exit.us.preheader, %33
+  store i32 %.pre47, ptr %2, align 4
+  br i1 %32, label %33, label %.critedge
+
+33:                                               ; preds = %waitpid_cached.exit.us
+  %34 = tail call ptr @__errno_location() #14
+  %35 = load i32, ptr %34, align 4
+  %36 = icmp eq i32 %35, 4
+  br i1 %36, label %waitpid_cached.exit.us, label %.critedge.thread
+
+.split:                                           ; preds = %._crit_edge, %52
+  %37 = load i8, ptr %28, align 4
+  %38 = trunc i8 %37 to i1
+  br i1 %38, label %39, label %42
+
+39:                                               ; preds = %.split
+  %40 = load i32, ptr %29, align 8
+  store i32 %40, ptr %2, align 4
+  %41 = load i32, ptr %4, align 8
   br label %waitpid_cached.exit
 
-36:                                               ; preds = %30
-  %37 = load i32, ptr %4, align 8
-  %38 = call i32 @waitpid(i32 noundef %37, ptr noundef nonnull %2, i32 noundef %spec.select) #13
-  %39 = icmp sgt i32 %38, 0
-  br i1 %39, label %40, label %waitpid_cached.exit
+42:                                               ; preds = %.split
+  %43 = load i32, ptr %4, align 8
+  %44 = call i32 @waitpid(i32 noundef %43, ptr noundef nonnull %2, i32 noundef %spec.select) #13
+  %45 = icmp sgt i32 %44, 0
+  br i1 %45, label %46, label %waitpid_cached.exit
 
-40:                                               ; preds = %36
-  %41 = load i32, ptr %2, align 4
-  %42 = and i32 %41, 127
-  %43 = icmp eq i32 %42, 0
-  br i1 %43, label %44, label %.critedge.thread36
+46:                                               ; preds = %42
+  %47 = load i32, ptr %2, align 4
+  %48 = and i32 %47, 127
+  %49 = icmp eq i32 %48, 0
+  br i1 %49, label %50, label %.critedge.thread36
 
-44:                                               ; preds = %40
+50:                                               ; preds = %46
   store i8 1, ptr %28, align 4
-  store i32 %41, ptr %29, align 8
+  store i32 %47, ptr %29, align 8
   br label %.critedge.thread36
 
-waitpid_cached.exit:                              ; preds = %33, %36
-  %.0.i = phi i32 [ %35, %33 ], [ %38, %36 ]
-  %45 = icmp eq i32 %.0.i, -1
-  br i1 %45, label %46, label %.critedge
+waitpid_cached.exit:                              ; preds = %39, %42
+  %.0.i = phi i32 [ %41, %39 ], [ %44, %42 ]
+  %51 = icmp eq i32 %.0.i, -1
+  br i1 %51, label %52, label %.critedge
 
-46:                                               ; preds = %waitpid_cached.exit
-  %47 = tail call ptr @__errno_location() #14
-  %48 = load i32, ptr %47, align 4
-  %49 = icmp eq i32 %48, 4
-  br i1 %49, label %30, label %.critedge.thread
+52:                                               ; preds = %waitpid_cached.exit
+  %53 = tail call ptr @__errno_location() #14
+  %54 = load i32, ptr %53, align 4
+  %55 = icmp eq i32 %54, 4
+  br i1 %55, label %.split, label %.critedge.thread, !llvm.loop !4
 
-.critedge:                                        ; preds = %waitpid_cached.exit
-  %50 = icmp slt i32 %.0.i, 1
-  br i1 %50, label %.critedge.thread, label %.critedge..critedge.thread36_crit_edge
+.critedge:                                        ; preds = %waitpid_cached.exit, %waitpid_cached.exit.us
+  %.us-phi = phi i32 [ %.pre48, %waitpid_cached.exit.us ], [ %.0.i, %waitpid_cached.exit ]
+  %56 = icmp slt i32 %.us-phi, 1
+  br i1 %56, label %.critedge.thread, label %.critedge..critedge.thread36_crit_edge
 
 .critedge..critedge.thread36_crit_edge:           ; preds = %.critedge
-  %.pre44 = load i32, ptr %2, align 4
+  %.pre49 = load i32, ptr %2, align 4
   br label %.critedge.thread36
 
-.critedge.thread36:                               ; preds = %.critedge..critedge.thread36_crit_edge, %44, %40
-  %51 = phi i32 [ %.pre44, %.critedge..critedge.thread36_crit_edge ], [ %41, %44 ], [ %41, %40 ]
-  %52 = and i32 %51, 127
-  %53 = icmp eq i32 %52, 0
-  br i1 %53, label %54, label %.critedge.thread
+.critedge.thread36:                               ; preds = %.critedge..critedge.thread36_crit_edge, %50, %46
+  %57 = phi i32 [ %.pre49, %.critedge..critedge.thread36_crit_edge ], [ %47, %50 ], [ %47, %46 ]
+  %58 = and i32 %57, 127
+  %59 = icmp eq i32 %58, 0
+  br i1 %59, label %60, label %.critedge.thread
 
-54:                                               ; preds = %.critedge.thread36
-  %55 = lshr i32 %51, 8
-  %56 = and i32 %55, 255
-  store i32 %56, ptr %2, align 4
+60:                                               ; preds = %.critedge.thread36
+  %61 = lshr i32 %57, 8
+  %62 = and i32 %61, 255
+  store i32 %62, ptr %2, align 4
   br label %.critedge.thread
 
-.critedge.thread:                                 ; preds = %46, %.critedge.thread36, %54, %.critedge
-  %storemerge = phi i32 [ -1, %.critedge ], [ %56, %54 ], [ %51, %.critedge.thread36 ], [ -1, %46 ]
+.critedge.thread:                                 ; preds = %52, %33, %.critedge.thread36, %60, %.critedge
+  %storemerge = phi i32 [ -1, %.critedge ], [ %62, %60 ], [ %57, %.critedge.thread36 ], [ -1, %33 ], [ -1, %52 ]
   store i32 %storemerge, ptr @file_globals, align 8
-  %57 = getelementptr inbounds i8, ptr %4, i64 24
-  %58 = load ptr, ptr %57, align 8
-  %59 = getelementptr inbounds i8, ptr %4, i64 32
-  %60 = load ptr, ptr %59, align 8
-  %.not.i = icmp eq ptr %60, null
-  br i1 %.not.i, label %62, label %61
+  %63 = getelementptr inbounds i8, ptr %4, i64 24
+  %64 = load ptr, ptr %63, align 8
+  %65 = getelementptr inbounds i8, ptr %4, i64 32
+  %66 = load ptr, ptr %65, align 8
+  %.not.i = icmp eq ptr %66, null
+  br i1 %.not.i, label %68, label %67
 
-61:                                               ; preds = %.critedge.thread
-  call void @_efree(ptr noundef nonnull %60) #13
-  br label %62
+67:                                               ; preds = %.critedge.thread
+  call void @_efree(ptr noundef nonnull %66) #13
+  br label %68
 
-62:                                               ; preds = %61, %.critedge.thread
-  %.not4.i = icmp eq ptr %58, null
-  br i1 %.not4.i, label %_php_free_envp.exit, label %63
+68:                                               ; preds = %67, %.critedge.thread
+  %.not4.i = icmp eq ptr %64, null
+  br i1 %.not4.i, label %_php_free_envp.exit, label %69
 
-63:                                               ; preds = %62
-  call void @_efree(ptr noundef nonnull %58) #13
+69:                                               ; preds = %68
+  call void @_efree(ptr noundef nonnull %64) #13
   br label %_php_free_envp.exit
 
-_php_free_envp.exit:                              ; preds = %62, %63
-  %64 = getelementptr inbounds i8, ptr %4, i64 8
-  %65 = load ptr, ptr %64, align 8
-  call void @_efree(ptr noundef %65) #13
-  %66 = getelementptr inbounds i8, ptr %4, i64 16
-  %67 = load ptr, ptr %66, align 8
-  %68 = getelementptr inbounds i8, ptr %67, i64 4
-  %69 = load i32, ptr %68, align 4
-  %70 = and i32 %69, 64
-  %.not31 = icmp eq i32 %70, 0
-  br i1 %.not31, label %71, label %77
+_php_free_envp.exit:                              ; preds = %68, %69
+  %70 = getelementptr inbounds i8, ptr %4, i64 8
+  %71 = load ptr, ptr %70, align 8
+  call void @_efree(ptr noundef %71) #13
+  %72 = getelementptr inbounds i8, ptr %4, i64 16
+  %73 = load ptr, ptr %72, align 8
+  %74 = getelementptr inbounds i8, ptr %73, i64 4
+  %75 = load i32, ptr %74, align 4
+  %76 = and i32 %75, 64
+  %.not31 = icmp eq i32 %76, 0
+  br i1 %.not31, label %77, label %83
 
-71:                                               ; preds = %_php_free_envp.exit
-  %72 = load i32, ptr %67, align 4
-  %73 = icmp ne i32 %72, 0
-  call void @llvm.assume(i1 %73)
-  %74 = add i32 %72, -1
-  store i32 %74, ptr %67, align 4
-  %75 = icmp eq i32 %74, 0
-  br i1 %75, label %76, label %77
+77:                                               ; preds = %_php_free_envp.exit
+  %78 = load i32, ptr %73, align 4
+  %79 = icmp ne i32 %78, 0
+  call void @llvm.assume(i1 %79)
+  %80 = add i32 %78, -1
+  store i32 %80, ptr %73, align 4
+  %81 = icmp eq i32 %80, 0
+  br i1 %81, label %82, label %83
 
-76:                                               ; preds = %71
-  call void @_efree(ptr noundef nonnull %67) #13
-  br label %77
+82:                                               ; preds = %77
+  call void @_efree(ptr noundef nonnull %73) #13
+  br label %83
 
-77:                                               ; preds = %71, %76, %_php_free_envp.exit
+83:                                               ; preds = %77, %82, %_php_free_envp.exit
   call void @_efree(ptr noundef nonnull %4) #13
   ret void
 }
@@ -1740,7 +1759,7 @@ set_proc_descriptor_to_file.exit.i:               ; preds = %502, %499, %get_str
 524:                                              ; preds = %520
   %525 = load i64, ptr %.0.ph.i, align 8
   %526 = trunc i64 %525 to i32
-  %527 = call fastcc i32 @redirect_proc_descriptor(ptr noundef nonnull %342, i32 noundef %526, ptr noundef nonnull %311, i32 noundef %.0404629, i32 noundef %340), !range !4
+  %527 = call fastcc i32 @redirect_proc_descriptor(ptr noundef nonnull %342, i32 noundef %526, ptr noundef nonnull %311, i32 noundef %.0404629, i32 noundef %340)
   br label %set_proc_descriptor_to_blackhole.exit.thread.thread.i
 
 .critedge8.i:                                     ; preds = %507, %.critedge6.i
@@ -1790,7 +1809,7 @@ set_proc_descriptor_to_file.exit.i:               ; preds = %502, %499, %get_str
   br i1 %.not149.i487, label %549, label %.critedge14.i
 
 549:                                              ; preds = %547
-  %550 = call fastcc i32 @set_proc_descriptor_to_pty(ptr noundef nonnull %342, ptr noundef nonnull %11, ptr noundef nonnull %12), !range !4
+  %550 = call fastcc i32 @set_proc_descriptor_to_pty(ptr noundef nonnull %342, ptr noundef nonnull %11, ptr noundef nonnull %12)
   br label %set_proc_descriptor_to_blackhole.exit.thread.thread.i
 
 .critedge14.i:                                    ; preds = %547, %.critedge12.i
@@ -2423,7 +2442,7 @@ declare i32 @dup(i32 noundef) local_unnamed_addr #3
 declare ptr @zend_zval_value_name(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @redirect_proc_descriptor(ptr nocapture noundef writeonly %0, i32 noundef %1, ptr nocapture noundef readonly %2, i32 noundef %3, i32 noundef %4) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @redirect_proc_descriptor(ptr nocapture noundef writeonly %0, i32 noundef %1, ptr nocapture noundef readonly %2, i32 noundef %3, i32 noundef %4) unnamed_addr #0 {
   %6 = icmp sgt i32 %3, 0
   br i1 %6, label %.lr.ph.preheader, label %.thread
 
@@ -2479,7 +2498,7 @@ dup_proc_descriptor.exit:                         ; preds = %20, %16, %15
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @set_proc_descriptor_to_pty(ptr nocapture noundef writeonly %0, ptr noundef %1, ptr noundef %2) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @set_proc_descriptor_to_pty(ptr nocapture noundef writeonly %0, ptr noundef %1, ptr noundef %2) unnamed_addr #0 {
   %4 = load i32, ptr %1, align 4
   %5 = icmp eq i32 %4, -1
   br i1 %5, label %6, label %12
@@ -2589,4 +2608,5 @@ attributes #17 = { nounwind allocsize(0) }
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
 !3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = !{i32 -1, i32 1}
+!4 = distinct !{!4, !5}
+!5 = !{!"llvm.loop.unswitch.partial.disable"}

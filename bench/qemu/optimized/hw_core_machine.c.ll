@@ -1075,12 +1075,12 @@ for.inc.i:                                        ; preds = %for.body.i
   br i1 %exitcond.not.i, label %for.body11.lr.ph.i.thread, label %for.body.i, !llvm.loop !9
 
 for.body11.lr.ph.i.thread:                        ; preds = %for.inc.i
-  %get_default_cpu_node_id.i89 = getelementptr inbounds i8, ptr %call1.i.i59, i64 344
-  %node_id.i90 = getelementptr inbounds i8, ptr %props19.i, i64 8
+  %get_default_cpu_node_id.i84 = getelementptr inbounds i8, ptr %call1.i.i59, i64 344
+  %node_id.i85 = getelementptr inbounds i8, ptr %props19.i, i64 8
   br label %for.body11.lr.ph.split.us.i
 
 for.body11.lr.ph.i:                               ; preds = %for.body.i
-  %19 = trunc i64 %indvars.iv.i to i32
+  %19 = trunc nuw nsw i64 %indvars.iv.i to i32
   %cmp7.i = icmp eq i32 %17, %19
   %get_default_cpu_node_id.i = getelementptr inbounds i8, ptr %call1.i.i59, i64 344
   %node_id.i = getelementptr inbounds i8, ptr %props19.i, i64 8
@@ -1089,8 +1089,8 @@ for.body11.lr.ph.i:                               ; preds = %for.body.i
   br i1 %cmp7.fr.i, label %for.body11.lr.ph.split.us.i, label %for.body11.i
 
 for.body11.lr.ph.split.us.i:                      ; preds = %for.body11.lr.ph.i.thread, %for.body11.lr.ph.i
-  %node_id.i94 = phi ptr [ %node_id.i90, %for.body11.lr.ph.i.thread ], [ %node_id.i, %for.body11.lr.ph.i ]
-  %get_default_cpu_node_id.i93 = phi ptr [ %get_default_cpu_node_id.i89, %for.body11.lr.ph.i.thread ], [ %get_default_cpu_node_id.i, %for.body11.lr.ph.i ]
+  %node_id.i89 = phi ptr [ %node_id.i85, %for.body11.lr.ph.i.thread ], [ %node_id.i, %for.body11.lr.ph.i ]
+  %get_default_cpu_node_id.i88 = phi ptr [ %get_default_cpu_node_id.i84, %for.body11.lr.ph.i.thread ], [ %get_default_cpu_node_id.i, %for.body11.lr.ph.i ]
   %invariant.gep.i = getelementptr i8, ptr %call2.i, i64 24
   br label %for.body11.us.i
 
@@ -1104,10 +1104,10 @@ for.body11.us.i:                                  ; preds = %for.inc31.us.i, %fo
 
 if.then18.us.i:                                   ; preds = %for.body11.us.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %props19.i, ptr noundef nonnull align 8 dereferenceable(128) %gep.i, i64 128, i1 false)
-  %22 = load ptr, ptr %get_default_cpu_node_id.i93, align 8
-  %23 = trunc i64 %indvars.iv52.i to i32
+  %22 = load ptr, ptr %get_default_cpu_node_id.i88, align 8
+  %23 = trunc nuw nsw i64 %indvars.iv52.i to i32
   %call21.us.i = call i64 %22(ptr noundef %machine, i32 noundef %23) #15
-  store i64 %call21.us.i, ptr %node_id.i94, align 8
+  store i64 %call21.us.i, ptr %node_id.i89, align 8
   store i8 1, ptr %props19.i, align 8
   call void @machine_set_cpu_numa_node(ptr noundef %machine, ptr noundef nonnull %props19.i, ptr noundef nonnull @error_fatal)
   %.pre55.i = load i32, ptr %call2.i, align 8
@@ -1132,7 +1132,7 @@ for.body11.i:                                     ; preds = %for.body11.lr.ph.i,
 if.then18.i:                                      ; preds = %for.body11.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %props19.i, ptr noundef nonnull align 8 dereferenceable(128) %props15.i, i64 128, i1 false)
   %28 = load ptr, ptr %get_default_cpu_node_id.i, align 8
-  %29 = trunc i64 %indvars.iv49.i to i32
+  %29 = trunc nuw nsw i64 %indvars.iv49.i to i32
   %call21.i = call i64 %28(ptr noundef %machine, i32 noundef %29) #15
   store i64 %call21.i, ptr %node_id.i, align 8
   %call.i27.i = call ptr @g_string_new(ptr noundef null) #15
@@ -1300,7 +1300,7 @@ if.end13.i.i:                                     ; preds = %if.end.i28.i
   br i1 %tobool19.i.i, label %for.inc.i.i, label %if.then20.i.i
 
 if.then20.i.i:                                    ; preds = %if.end13.i.i
-  %53 = trunc i64 %indvars.iv.i.i to i32
+  %53 = trunc nuw nsw i64 %indvars.iv.i.i to i32
   call void (ptr, ...) @error_report(ptr noundef nonnull @.str.243, i32 noundef %53) #15
   call void @exit(i32 noundef 1) #18
   unreachable
@@ -1352,204 +1352,209 @@ lor.lhs.false.i:                                  ; preds = %if.then45
   %cmp3.i = icmp slt i32 %61, 2
   br i1 %cmp3.i, label %if.end48, label %for.body.i67
 
-for.cond.loopexit.loopexit.i:                     ; preds = %for.inc.i75
-  %.pre55.i77 = sext i32 %81 to i64
+for.cond.loopexit.loopexit.i:                     ; preds = %for.inc.i72
+  %.pre56.i = sext i32 %83 to i64
   br label %for.cond.loopexit.i
 
-for.cond.loopexit.i:                              ; preds = %for.body.i67, %for.cond.loopexit.loopexit.i
-  %.pre-phi.i = phi i64 [ %.pre55.i77, %for.cond.loopexit.loopexit.i ], [ %64, %for.body.i67 ]
-  %62 = phi i32 [ %81, %for.cond.loopexit.loopexit.i ], [ %63, %for.body.i67 ]
-  %cmp5.i = icmp slt i64 %indvars.iv.next53.i70, %.pre-phi.i
-  %indvars.iv.next.i71 = add nuw nsw i64 %indvars.iv.i69, 1
+for.cond.loopexit.i:                              ; preds = %for.body9.lr.ph.i, %for.body.i67, %for.cond.loopexit.loopexit.i
+  %.pre-phi.i = phi i64 [ %.pre56.i, %for.cond.loopexit.loopexit.i ], [ %64, %for.body.i67 ], [ %64, %for.body9.lr.ph.i ]
+  %62 = phi i32 [ %83, %for.cond.loopexit.loopexit.i ], [ %63, %for.body.i67 ], [ %63, %for.body9.lr.ph.i ]
+  %cmp5.i = icmp slt i64 %indvars.iv.next54.i, %.pre-phi.i
+  %indvars.iv.next.i69 = add nuw nsw i64 %indvars.iv.i68, 1
   br i1 %cmp5.i, label %for.body.i67, label %if.end48, !llvm.loop !12
 
 for.body.i67:                                     ; preds = %lor.lhs.false.i, %for.cond.loopexit.i
   %63 = phi i32 [ %62, %for.cond.loopexit.i ], [ %61, %lor.lhs.false.i ]
-  %indvars.iv52.i68 = phi i64 [ %indvars.iv.next53.i70, %for.cond.loopexit.i ], [ 0, %lor.lhs.false.i ]
-  %indvars.iv.i69 = phi i64 [ %indvars.iv.next.i71, %for.cond.loopexit.i ], [ 1, %lor.lhs.false.i ]
-  %indvars.iv.next53.i70 = add nuw nsw i64 %indvars.iv52.i68, 1
+  %indvars.iv53.i = phi i64 [ %indvars.iv.next54.i, %for.cond.loopexit.i ], [ 0, %lor.lhs.false.i ]
+  %indvars.iv.i68 = phi i64 [ %indvars.iv.next.i69, %for.cond.loopexit.i ], [ 1, %lor.lhs.false.i ]
+  %indvars.iv.next54.i = add nuw nsw i64 %indvars.iv53.i, 1
   %64 = sext i32 %63 to i64
-  %cmp845.i = icmp slt i64 %indvars.iv.next53.i70, %64
+  %cmp845.i = icmp slt i64 %indvars.iv.next54.i, %64
   br i1 %cmp845.i, label %for.body9.lr.ph.i, label %for.cond.loopexit.i
 
 for.body9.lr.ph.i:                                ; preds = %for.body.i67
-  %props.i72 = getelementptr %struct.CPUArchId, ptr %cpus2.i, i64 %indvars.iv52.i68, i32 2
-  %has_socket_id.i = getelementptr inbounds i8, ptr %props.i72, i64 48
-  %has_cluster_id.i = getelementptr inbounds i8, ptr %props.i72, i64 80
-  %socket_id.i = getelementptr inbounds i8, ptr %props.i72, i64 56
-  %cluster_id.i = getelementptr inbounds i8, ptr %props.i72, i64 88
-  %node_id.i73 = getelementptr inbounds i8, ptr %props.i72, i64 8
-  %65 = trunc i64 %indvars.iv52.i68 to i32
+  %props.i70 = getelementptr %struct.CPUArchId, ptr %cpus2.i, i64 %indvars.iv53.i, i32 2
+  %has_socket_id.i = getelementptr inbounds i8, ptr %props.i70, i64 48
+  %has_cluster_id.i = getelementptr inbounds i8, ptr %props.i70, i64 80
+  %socket_id.i = getelementptr inbounds i8, ptr %props.i70, i64 56
+  %cluster_id.i = getelementptr inbounds i8, ptr %props.i70, i64 88
+  %node_id.i71 = getelementptr inbounds i8, ptr %props.i70, i64 8
+  %65 = load i8, ptr %has_socket_id.i, align 8
+  %66 = trunc i8 %65 to i1
+  br i1 %66, label %for.body9.preheader.i, label %for.cond.loopexit.i
+
+for.body9.preheader.i:                            ; preds = %for.body9.lr.ph.i
+  %67 = trunc nuw nsw i64 %indvars.iv53.i to i32
   br label %for.body9.i
 
-for.body9.i:                                      ; preds = %for.inc.i75, %for.body9.lr.ph.i
-  %66 = phi i32 [ %63, %for.body9.lr.ph.i ], [ %81, %for.inc.i75 ]
-  %67 = phi i32 [ %63, %for.body9.lr.ph.i ], [ %82, %for.inc.i75 ]
-  %indvars.iv49.i74 = phi i64 [ %indvars.iv.i69, %for.body9.lr.ph.i ], [ %indvars.iv.next50.i76, %for.inc.i75 ]
-  %68 = load i8, ptr %has_socket_id.i, align 8
-  %tobool.i = trunc i8 %68 to i1
-  br i1 %tobool.i, label %land.lhs.true.i78, label %for.inc.i75
+for.body9.i:                                      ; preds = %for.inc.i72, %for.body9.preheader.i
+  %68 = phi i32 [ %63, %for.body9.preheader.i ], [ %83, %for.inc.i72 ]
+  %69 = phi i32 [ %63, %for.body9.preheader.i ], [ %84, %for.inc.i72 ]
+  %indvars.iv50.i = phi i64 [ %indvars.iv.i68, %for.body9.preheader.i ], [ %indvars.iv.next51.i, %for.inc.i72 ]
+  %70 = load i8, ptr %has_socket_id.i, align 8
+  %tobool.i = trunc i8 %70 to i1
+  br i1 %tobool.i, label %land.lhs.true.i73, label %for.inc.i72
 
-land.lhs.true.i78:                                ; preds = %for.body9.i
-  %69 = load i8, ptr %has_cluster_id.i, align 8
-  %tobool13.i = trunc i8 %69 to i1
-  br i1 %tobool13.i, label %land.lhs.true14.i, label %for.inc.i75
+land.lhs.true.i73:                                ; preds = %for.body9.i
+  %71 = load i8, ptr %has_cluster_id.i, align 8
+  %tobool13.i = trunc i8 %71 to i1
+  br i1 %tobool13.i, label %land.lhs.true14.i, label %for.inc.i72
 
-land.lhs.true14.i:                                ; preds = %land.lhs.true.i78
-  %70 = load i8, ptr %props.i72, align 8
-  %tobool18.i = trunc i8 %70 to i1
-  br i1 %tobool18.i, label %land.lhs.true19.i, label %for.inc.i75
+land.lhs.true14.i:                                ; preds = %land.lhs.true.i73
+  %72 = load i8, ptr %props.i70, align 8
+  %tobool18.i = trunc i8 %72 to i1
+  br i1 %tobool18.i, label %land.lhs.true19.i, label %for.inc.i72
 
 land.lhs.true19.i:                                ; preds = %land.lhs.true14.i
-  %props22.i = getelementptr %struct.CPUArchId, ptr %cpus2.i, i64 %indvars.iv49.i74, i32 2
+  %props22.i = getelementptr %struct.CPUArchId, ptr %cpus2.i, i64 %indvars.iv50.i, i32 2
   %has_socket_id23.i = getelementptr inbounds i8, ptr %props22.i, i64 48
-  %71 = load i8, ptr %has_socket_id23.i, align 8
-  %tobool24.i = trunc i8 %71 to i1
-  br i1 %tobool24.i, label %land.lhs.true25.i, label %for.inc.i75
+  %73 = load i8, ptr %has_socket_id23.i, align 8
+  %tobool24.i = trunc i8 %73 to i1
+  br i1 %tobool24.i, label %land.lhs.true25.i, label %for.inc.i72
 
 land.lhs.true25.i:                                ; preds = %land.lhs.true19.i
   %has_cluster_id29.i = getelementptr inbounds i8, ptr %props22.i, i64 80
-  %72 = load i8, ptr %has_cluster_id29.i, align 8
-  %tobool30.i = trunc i8 %72 to i1
-  br i1 %tobool30.i, label %land.lhs.true31.i, label %for.inc.i75
+  %74 = load i8, ptr %has_cluster_id29.i, align 8
+  %tobool30.i = trunc i8 %74 to i1
+  br i1 %tobool30.i, label %land.lhs.true31.i, label %for.inc.i72
 
 land.lhs.true31.i:                                ; preds = %land.lhs.true25.i
-  %73 = load i8, ptr %props22.i, align 8
-  %tobool36.i = trunc i8 %73 to i1
-  br i1 %tobool36.i, label %land.lhs.true37.i, label %for.inc.i75
+  %75 = load i8, ptr %props22.i, align 8
+  %tobool36.i = trunc i8 %75 to i1
+  br i1 %tobool36.i, label %land.lhs.true37.i, label %for.inc.i72
 
 land.lhs.true37.i:                                ; preds = %land.lhs.true31.i
-  %74 = load i64, ptr %socket_id.i, align 8
+  %76 = load i64, ptr %socket_id.i, align 8
   %socket_id44.i = getelementptr inbounds i8, ptr %props22.i, i64 56
-  %75 = load i64, ptr %socket_id44.i, align 8
-  %cmp45.i = icmp eq i64 %74, %75
-  br i1 %cmp45.i, label %land.lhs.true46.i, label %for.inc.i75
+  %77 = load i64, ptr %socket_id44.i, align 8
+  %cmp45.i = icmp eq i64 %76, %77
+  br i1 %cmp45.i, label %land.lhs.true46.i, label %for.inc.i72
 
 land.lhs.true46.i:                                ; preds = %land.lhs.true37.i
-  %76 = load i64, ptr %cluster_id.i, align 8
+  %78 = load i64, ptr %cluster_id.i, align 8
   %cluster_id53.i = getelementptr inbounds i8, ptr %props22.i, i64 88
-  %77 = load i64, ptr %cluster_id53.i, align 8
-  %cmp54.i = icmp eq i64 %76, %77
-  br i1 %cmp54.i, label %land.lhs.true55.i, label %for.inc.i75
+  %79 = load i64, ptr %cluster_id53.i, align 8
+  %cmp54.i = icmp eq i64 %78, %79
+  br i1 %cmp54.i, label %land.lhs.true55.i, label %for.inc.i72
 
 land.lhs.true55.i:                                ; preds = %land.lhs.true46.i
-  %78 = load i64, ptr %node_id.i73, align 8
+  %80 = load i64, ptr %node_id.i71, align 8
   %node_id62.i = getelementptr inbounds i8, ptr %props22.i, i64 8
-  %79 = load i64, ptr %node_id62.i, align 8
-  %cmp63.not.i = icmp eq i64 %78, %79
-  br i1 %cmp63.not.i, label %for.inc.i75, label %if.then64.i
+  %81 = load i64, ptr %node_id62.i, align 8
+  %cmp63.not.i = icmp eq i64 %80, %81
+  br i1 %cmp63.not.i, label %for.inc.i72, label %if.then64.i
 
 if.then64.i:                                      ; preds = %land.lhs.true55.i
-  %80 = trunc i64 %indvars.iv49.i74 to i32
-  call void (ptr, ...) @warn_report(ptr noundef nonnull @.str.244, i32 noundef %65, i32 noundef %80, i64 noundef %74, i64 noundef %76, i64 noundef %78, i64 noundef %79) #15
-  %.pre.i79 = load i32, ptr %call1.i66, align 8
-  br label %for.inc.i75
+  %82 = trunc nuw nsw i64 %indvars.iv50.i to i32
+  call void (ptr, ...) @warn_report(ptr noundef nonnull @.str.244, i32 noundef %67, i32 noundef %82, i64 noundef %76, i64 noundef %78, i64 noundef %80, i64 noundef %81) #15
+  %.pre.i74 = load i32, ptr %call1.i66, align 8
+  br label %for.inc.i72
 
-for.inc.i75:                                      ; preds = %if.then64.i, %land.lhs.true55.i, %land.lhs.true46.i, %land.lhs.true37.i, %land.lhs.true31.i, %land.lhs.true25.i, %land.lhs.true19.i, %land.lhs.true14.i, %land.lhs.true.i78, %for.body9.i
-  %81 = phi i32 [ %66, %for.body9.i ], [ %66, %land.lhs.true.i78 ], [ %66, %land.lhs.true14.i ], [ %66, %land.lhs.true19.i ], [ %66, %land.lhs.true25.i ], [ %66, %land.lhs.true31.i ], [ %66, %land.lhs.true37.i ], [ %66, %land.lhs.true46.i ], [ %66, %land.lhs.true55.i ], [ %.pre.i79, %if.then64.i ]
-  %82 = phi i32 [ %67, %for.body9.i ], [ %67, %land.lhs.true.i78 ], [ %67, %land.lhs.true14.i ], [ %67, %land.lhs.true19.i ], [ %67, %land.lhs.true25.i ], [ %67, %land.lhs.true31.i ], [ %67, %land.lhs.true37.i ], [ %67, %land.lhs.true46.i ], [ %67, %land.lhs.true55.i ], [ %.pre.i79, %if.then64.i ]
-  %indvars.iv.next50.i76 = add nuw nsw i64 %indvars.iv49.i74, 1
-  %83 = trunc i64 %indvars.iv.next50.i76 to i32
-  %cmp8.i = icmp sgt i32 %82, %83
+for.inc.i72:                                      ; preds = %if.then64.i, %land.lhs.true55.i, %land.lhs.true46.i, %land.lhs.true37.i, %land.lhs.true31.i, %land.lhs.true25.i, %land.lhs.true19.i, %land.lhs.true14.i, %land.lhs.true.i73, %for.body9.i
+  %83 = phi i32 [ %68, %for.body9.i ], [ %68, %land.lhs.true.i73 ], [ %68, %land.lhs.true14.i ], [ %68, %land.lhs.true19.i ], [ %68, %land.lhs.true25.i ], [ %68, %land.lhs.true31.i ], [ %68, %land.lhs.true37.i ], [ %68, %land.lhs.true46.i ], [ %68, %land.lhs.true55.i ], [ %.pre.i74, %if.then64.i ]
+  %84 = phi i32 [ %69, %for.body9.i ], [ %69, %land.lhs.true.i73 ], [ %69, %land.lhs.true14.i ], [ %69, %land.lhs.true19.i ], [ %69, %land.lhs.true25.i ], [ %69, %land.lhs.true31.i ], [ %69, %land.lhs.true37.i ], [ %69, %land.lhs.true46.i ], [ %69, %land.lhs.true55.i ], [ %.pre.i74, %if.then64.i ]
+  %indvars.iv.next51.i = add nuw nsw i64 %indvars.iv50.i, 1
+  %85 = trunc nuw i64 %indvars.iv.next51.i to i32
+  %cmp8.i = icmp sgt i32 %84, %85
   br i1 %cmp8.i, label %for.body9.i, label %for.cond.loopexit.loopexit.i, !llvm.loop !13
 
 if.end48:                                         ; preds = %for.cond.loopexit.i, %lor.lhs.false.i, %if.then45, %if.then40, %machine_numa_finish_cpu_init.exit, %if.end38
   %ram = getelementptr inbounds i8, ptr %machine, i64 120
-  %84 = load ptr, ptr %ram, align 8
-  %tobool49.not = icmp eq ptr %84, null
+  %86 = load ptr, ptr %ram, align 8
+  %tobool49.not = icmp eq ptr %86, null
   br i1 %tobool49.not, label %land.lhs.true50, label %if.end57
 
 land.lhs.true50:                                  ; preds = %if.end48
-  %85 = load ptr, ptr %memdev, align 8
-  %tobool52.not = icmp eq ptr %85, null
+  %87 = load ptr, ptr %memdev, align 8
+  %tobool52.not = icmp eq ptr %87, null
   br i1 %tobool52.not, label %if.end57, label %if.then53
 
 if.then53:                                        ; preds = %land.lhs.true50
-  %call.i80 = call ptr @host_memory_backend_get_memory(ptr noundef nonnull %85) #15
-  %call1.i81 = call zeroext i1 @host_memory_backend_is_mapped(ptr noundef nonnull %85) #15
-  br i1 %call1.i81, label %if.then.i82, label %machine_consume_memdev.exit
+  %call.i75 = call ptr @host_memory_backend_get_memory(ptr noundef nonnull %87) #15
+  %call1.i76 = call zeroext i1 @host_memory_backend_is_mapped(ptr noundef nonnull %87) #15
+  br i1 %call1.i76, label %if.then.i77, label %machine_consume_memdev.exit
 
-if.then.i82:                                      ; preds = %if.then53
-  %call2.i83 = call ptr @object_get_canonical_path_component(ptr noundef nonnull %85) #15
-  call void (ptr, ...) @error_report(ptr noundef nonnull @.str.212, ptr noundef %call2.i83) #15
+if.then.i77:                                      ; preds = %if.then53
+  %call2.i78 = call ptr @object_get_canonical_path_component(ptr noundef nonnull %87) #15
+  call void (ptr, ...) @error_report(ptr noundef nonnull @.str.212, ptr noundef %call2.i78) #15
   call void @exit(i32 noundef 1) #18
   unreachable
 
 machine_consume_memdev.exit:                      ; preds = %if.then53
-  call void @host_memory_backend_set_mapped(ptr noundef nonnull %85, i1 noundef zeroext true) #15
-  call void @vmstate_register_ram_global(ptr noundef %call.i80) #15
-  store ptr %call.i80, ptr %ram, align 8
+  call void @host_memory_backend_set_mapped(ptr noundef nonnull %87, i1 noundef zeroext true) #15
+  call void @vmstate_register_ram_global(ptr noundef %call.i75) #15
+  store ptr %call.i75, ptr %ram, align 8
   br label %if.end57
 
 if.end57:                                         ; preds = %machine_consume_memdev.exit, %land.lhs.true50, %if.end48
   %valid_cpu_types = getelementptr inbounds i8, ptr %call1.i, i64 272
-  %86 = load ptr, ptr %valid_cpu_types, align 8
-  %tobool58.not = icmp eq ptr %86, null
+  %88 = load ptr, ptr %valid_cpu_types, align 8
+  %tobool58.not = icmp eq ptr %88, null
   br i1 %tobool58.not, label %if.end96, label %land.lhs.true59
 
 land.lhs.true59:                                  ; preds = %if.end57
-  %87 = load ptr, ptr %cpu_type, align 8
-  %tobool61.not = icmp eq ptr %87, null
+  %89 = load ptr, ptr %cpu_type, align 8
+  %tobool61.not = icmp eq ptr %89, null
   br i1 %tobool61.not, label %if.end96, label %for.cond.preheader
 
 for.cond.preheader:                               ; preds = %land.lhs.true59
-  %88 = load ptr, ptr %86, align 8
-  %tobool64.not102 = icmp eq ptr %88, null
-  br i1 %tobool64.not102, label %if.then76, label %for.body.preheader
+  %90 = load ptr, ptr %88, align 8
+  %tobool64.not97 = icmp eq ptr %90, null
+  br i1 %tobool64.not97, label %if.then76, label %for.body.preheader
 
 for.body.preheader:                               ; preds = %for.cond.preheader
-  %call68137 = call ptr @object_class_dynamic_cast(ptr noundef %call3, ptr noundef nonnull %88) #15
-  %tobool69.not138 = icmp eq ptr %call68137, null
-  %.pre.pre139 = load ptr, ptr %valid_cpu_types, align 8
-  br i1 %tobool69.not138, label %for.cond, label %for.end
+  %call68132 = call ptr @object_class_dynamic_cast(ptr noundef %call3, ptr noundef nonnull %90) #15
+  %tobool69.not133 = icmp eq ptr %call68132, null
+  %.pre.pre134 = load ptr, ptr %valid_cpu_types, align 8
+  br i1 %tobool69.not133, label %for.cond, label %for.end
 
 for.cond:                                         ; preds = %for.body.preheader, %for.body
-  %.pre.pre141 = phi ptr [ %.pre.pre, %for.body ], [ %.pre.pre139, %for.body.preheader ]
-  %i.0103140 = phi i32 [ %inc, %for.body ], [ 0, %for.body.preheader ]
-  %inc = add i32 %i.0103140, 1
+  %.pre.pre136 = phi ptr [ %.pre.pre, %for.body ], [ %.pre.pre134, %for.body.preheader ]
+  %i.098135 = phi i32 [ %inc, %for.body ], [ 0, %for.body.preheader ]
+  %inc = add i32 %i.098135, 1
   %idxprom = sext i32 %inc to i64
-  %arrayidx = getelementptr ptr, ptr %.pre.pre141, i64 %idxprom
-  %89 = load ptr, ptr %arrayidx, align 8
-  %tobool64.not = icmp eq ptr %89, null
-  br i1 %tobool64.not, label %if.then76, label %for.body, !llvm.loop !14
+  %arrayidx = getelementptr ptr, ptr %.pre.pre136, i64 %idxprom
+  %91 = load ptr, ptr %arrayidx, align 8
+  %tobool64.not = icmp eq ptr %91, null
+  br i1 %tobool64.not, label %if.then76, label %for.body, !llvm.loop !15
 
 for.body:                                         ; preds = %for.cond
-  %call68 = call ptr @object_class_dynamic_cast(ptr noundef %call3, ptr noundef nonnull %89) #15
+  %call68 = call ptr @object_class_dynamic_cast(ptr noundef %call3, ptr noundef nonnull %91) #15
   %tobool69.not = icmp eq ptr %call68, null
   %.pre.pre = load ptr, ptr %valid_cpu_types, align 8
-  br i1 %tobool69.not, label %for.cond, label %for.end, !llvm.loop !14
+  br i1 %tobool69.not, label %for.cond, label %for.end, !llvm.loop !15
 
 for.end:                                          ; preds = %for.body, %for.body.preheader
-  %idxprom104.lcssa = phi i64 [ 0, %for.body.preheader ], [ %idxprom, %for.body ]
-  %.pre.pre.lcssa = phi ptr [ %.pre.pre139, %for.body.preheader ], [ %.pre.pre, %for.body ]
-  %arrayidx74.phi.trans.insert.phi.trans.insert = getelementptr ptr, ptr %.pre.pre.lcssa, i64 %idxprom104.lcssa
-  %.pre116.pre = load ptr, ptr %arrayidx74.phi.trans.insert.phi.trans.insert, align 8
-  %90 = icmp eq ptr %.pre116.pre, null
-  br i1 %90, label %if.then76, label %if.end96
+  %idxprom99.lcssa = phi i64 [ 0, %for.body.preheader ], [ %idxprom, %for.body ]
+  %.pre.pre.lcssa = phi ptr [ %.pre.pre134, %for.body.preheader ], [ %.pre.pre, %for.body ]
+  %arrayidx74.phi.trans.insert.phi.trans.insert = getelementptr ptr, ptr %.pre.pre.lcssa, i64 %idxprom99.lcssa
+  %.pre111.pre = load ptr, ptr %arrayidx74.phi.trans.insert.phi.trans.insert, align 8
+  %92 = icmp eq ptr %.pre111.pre, null
+  br i1 %92, label %if.then76, label %if.end96
 
 if.then76:                                        ; preds = %for.cond, %for.cond.preheader, %for.end
-  %91 = load ptr, ptr %cpu_type, align 8
-  call void (ptr, ...) @error_report(ptr noundef nonnull @.str.218, ptr noundef %91) #15
-  %92 = load ptr, ptr %valid_cpu_types, align 8
-  %93 = load ptr, ptr %92, align 8
-  %call80 = call i32 (ptr, ...) @error_printf(ptr noundef nonnull @.str.219, ptr noundef %93) #15
+  %93 = load ptr, ptr %cpu_type, align 8
+  call void (ptr, ...) @error_report(ptr noundef nonnull @.str.218, ptr noundef %93) #15
   %94 = load ptr, ptr %valid_cpu_types, align 8
-  %arrayidx84106 = getelementptr i8, ptr %94, i64 8
-  %95 = load ptr, ptr %arrayidx84106, align 8
-  %tobool85.not107 = icmp eq ptr %95, null
-  br i1 %tobool85.not107, label %for.end93, label %for.body86
+  %95 = load ptr, ptr %94, align 8
+  %call80 = call i32 (ptr, ...) @error_printf(ptr noundef nonnull @.str.219, ptr noundef %95) #15
+  %96 = load ptr, ptr %valid_cpu_types, align 8
+  %arrayidx84101 = getelementptr i8, ptr %96, i64 8
+  %97 = load ptr, ptr %arrayidx84101, align 8
+  %tobool85.not102 = icmp eq ptr %97, null
+  br i1 %tobool85.not102, label %for.end93, label %for.body86
 
 for.body86:                                       ; preds = %if.then76, %for.body86
-  %96 = phi ptr [ %98, %for.body86 ], [ %95, %if.then76 ]
-  %i.1108 = phi i32 [ %inc92, %for.body86 ], [ 1, %if.then76 ]
-  %call90 = call i32 (ptr, ...) @error_printf(ptr noundef nonnull @.str.220, ptr noundef nonnull %96) #15
-  %inc92 = add i32 %i.1108, 1
-  %97 = load ptr, ptr %valid_cpu_types, align 8
+  %98 = phi ptr [ %100, %for.body86 ], [ %97, %if.then76 ]
+  %i.1103 = phi i32 [ %inc92, %for.body86 ], [ 1, %if.then76 ]
+  %call90 = call i32 (ptr, ...) @error_printf(ptr noundef nonnull @.str.220, ptr noundef nonnull %98) #15
+  %inc92 = add i32 %i.1103, 1
+  %99 = load ptr, ptr %valid_cpu_types, align 8
   %idxprom83 = sext i32 %inc92 to i64
-  %arrayidx84 = getelementptr ptr, ptr %97, i64 %idxprom83
-  %98 = load ptr, ptr %arrayidx84, align 8
-  %tobool85.not = icmp eq ptr %98, null
-  br i1 %tobool85.not, label %for.end93, label %for.body86, !llvm.loop !15
+  %arrayidx84 = getelementptr ptr, ptr %99, i64 %idxprom83
+  %100 = load ptr, ptr %arrayidx84, align 8
+  %tobool85.not = icmp eq ptr %100, null
+  br i1 %tobool85.not, label %for.end93, label %for.body86, !llvm.loop !16
 
 for.end93:                                        ; preds = %for.body86, %if.then76
   %call94 = call i32 (ptr, ...) @error_printf(ptr noundef nonnull @.str.221) #15
@@ -1557,30 +1562,30 @@ for.end93:                                        ; preds = %for.body86, %if.the
   unreachable
 
 if.end96:                                         ; preds = %for.end, %land.lhs.true59, %if.end57
-  %call.i84 = call ptr @object_class_dynamic_cast_assert(ptr noundef %call3, ptr noundef nonnull @.str.245, ptr noundef nonnull @.str.246, i32 noundef 64, ptr noundef nonnull @__func__.CPU_CLASS) #15
-  %tobool98.not = icmp eq ptr %call.i84, null
+  %call.i79 = call ptr @object_class_dynamic_cast_assert(ptr noundef %call3, ptr noundef nonnull @.str.245, ptr noundef nonnull @.str.246, i32 noundef 64, ptr noundef nonnull @__func__.CPU_CLASS) #15
+  %tobool98.not = icmp eq ptr %call.i79, null
   br i1 %tobool98.not, label %if.end104, label %land.lhs.true99
 
 land.lhs.true99:                                  ; preds = %if.end96
-  %deprecation_note = getelementptr inbounds i8, ptr %call.i84, i64 304
-  %99 = load ptr, ptr %deprecation_note, align 8
-  %tobool100.not = icmp eq ptr %99, null
+  %deprecation_note = getelementptr inbounds i8, ptr %call.i79, i64 304
+  %101 = load ptr, ptr %deprecation_note, align 8
+  %tobool100.not = icmp eq ptr %101, null
   br i1 %tobool100.not, label %if.end104, label %if.then101
 
 if.then101:                                       ; preds = %land.lhs.true99
-  %100 = load ptr, ptr %cpu_type, align 8
-  call void (ptr, ...) @warn_report(ptr noundef nonnull @.str.222, ptr noundef %100, ptr noundef nonnull %99) #15
+  %102 = load ptr, ptr %cpu_type, align 8
+  call void (ptr, ...) @warn_report(ptr noundef nonnull @.str.222, ptr noundef %102, ptr noundef nonnull %101) #15
   br label %if.end104
 
 if.end104:                                        ; preds = %if.then101, %land.lhs.true99, %if.end96
   %cgs = getelementptr inbounds i8, ptr %machine, i64 104
-  %101 = load ptr, ptr %cgs, align 8
-  %tobool105.not = icmp eq ptr %101, null
+  %103 = load ptr, ptr %cgs, align 8
+  %tobool105.not = icmp eq ptr %103, null
   br i1 %tobool105.not, label %if.end107, label %if.then106
 
 if.then106:                                       ; preds = %if.end104
-  %call.i.i85 = call ptr @object_dynamic_cast_assert(ptr noundef nonnull %machine, ptr noundef nonnull @.str.225, ptr noundef nonnull @.str.226, i32 noundef 23, ptr noundef nonnull @__func__.MACHINE) #15
-  %mem_merge.i = getelementptr inbounds i8, ptr %call.i.i85, i64 81
+  %call.i.i80 = call ptr @object_dynamic_cast_assert(ptr noundef nonnull %machine, ptr noundef nonnull @.str.225, ptr noundef nonnull @.str.226, i32 noundef 23, ptr noundef nonnull @__func__.MACHINE) #15
+  %mem_merge.i = getelementptr inbounds i8, ptr %call.i.i80, i64 81
   store i8 0, ptr %mem_merge.i, align 1
   call void @object_register_sugar_prop(ptr noundef nonnull @.str.68, ptr noundef nonnull @.str.171, ptr noundef nonnull @.str.12, i1 noundef zeroext true) #15
   call void @object_register_sugar_prop(ptr noundef nonnull @.str.26, ptr noundef nonnull @.str.223, ptr noundef nonnull @.str.12, i1 noundef zeroext false) #15
@@ -1588,13 +1593,13 @@ if.then106:                                       ; preds = %if.end104
 
 if.end107:                                        ; preds = %if.then106, %if.end104
   %accelerator = getelementptr inbounds i8, ptr %machine, i64 272
-  %102 = load ptr, ptr %accelerator, align 8
-  %call108 = call ptr @object_get_class(ptr noundef %102) #15
+  %104 = load ptr, ptr %accelerator, align 8
+  %call108 = call ptr @object_get_class(ptr noundef %104) #15
   %call109 = call ptr @object_class_dynamic_cast_assert(ptr noundef %call108, ptr noundef nonnull @.str.224, ptr noundef nonnull @.str.199, i32 noundef 1508, ptr noundef nonnull @__func__.machine_run_board_init) #15
   call void @accel_init_interfaces(ptr noundef %call109) #15
   %init = getelementptr inbounds i8, ptr %call1.i, i64 136
-  %103 = load ptr, ptr %init, align 8
-  call void %103(ptr noundef nonnull %machine) #15
+  %105 = load ptr, ptr %init, align 8
+  call void %105(ptr noundef nonnull %machine) #15
   call void @phase_advance(i32 noundef 3) #15
   br label %cleanup
 
@@ -2915,6 +2920,7 @@ attributes #19 = { nounwind willreturn memory(read) }
 !10 = distinct !{!10, !6}
 !11 = distinct !{!11, !6}
 !12 = distinct !{!12, !6}
-!13 = distinct !{!13, !6}
-!14 = distinct !{!14, !6}
+!13 = distinct !{!13, !6, !14}
+!14 = !{!"llvm.loop.unswitch.partial.disable"}
 !15 = distinct !{!15, !6}
+!16 = distinct !{!16, !6}

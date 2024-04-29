@@ -825,7 +825,7 @@ define dso_local ptr @RelationGetIndexAttOptions(ptr noundef %0, i1 noundef zero
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 72
   %6 = load i32, ptr %5, align 8
-  %.fr59 = freeze i32 %6
+  %.fr60 = freeze i32 %6
   %7 = getelementptr inbounds i8, ptr %0, i64 56
   %8 = load ptr, ptr %7, align 8
   %9 = getelementptr inbounds i8, ptr %8, i64 116
@@ -874,113 +874,118 @@ define dso_local ptr @RelationGetIndexAttOptions(ptr noundef %0, i1 noundef zero
   %29 = shl nsw i64 %28, 3
   %30 = tail call ptr @palloc0(i64 noundef %29) #12
   %31 = icmp slt i16 %10, 1
-  %.not60 = icmp eq i32 %.fr59, 2659
-  %or.cond = or i1 %31, %.not60
-  br i1 %or.cond, label %._crit_edge, label %.lr.ph.split.preheader
+  %.not61 = icmp eq i32 %.fr60, 2659
+  %or.cond = or i1 %31, %.not61
+  br i1 %or.cond, label %._crit_edge, label %.lr.ph.split
 
-.lr.ph.split.preheader:                           ; preds = %27
-  %wide.trip.count = zext nneg i32 %11 to i64
-  br label %.lr.ph.split
-
-.lr.ph.split:                                     ; preds = %.lr.ph.split.preheader, %42
-  %indvars.iv = phi i64 [ 0, %.lr.ph.split.preheader ], [ %indvars.iv.next, %42 ]
+.lr.ph.split:                                     ; preds = %27
   %32 = load i8, ptr @criticalRelcachesBuilt, align 1
   %33 = trunc i8 %32 to i1
-  br i1 %33, label %34, label %42
+  br i1 %33, label %.lr.ph.split.split.preheader, label %._crit_edge
 
-34:                                               ; preds = %.lr.ph.split
-  %35 = trunc i64 %indvars.iv to i16
-  %36 = add i16 %35, 1
-  %37 = tail call i64 @get_attoptions(i32 noundef %.fr59, i16 noundef signext %36) #12
-  %38 = tail call ptr @index_opclass_options(ptr noundef %0, i16 noundef signext %36, i64 noundef %37, i1 noundef zeroext false) #12
-  %39 = getelementptr ptr, ptr %30, i64 %indvars.iv
-  store ptr %38, ptr %39, align 8
-  %.not46 = icmp eq i64 %37, 0
-  br i1 %.not46, label %42, label %40
+.lr.ph.split.split.preheader:                     ; preds = %.lr.ph.split
+  %wide.trip.count = zext nneg i32 %11 to i64
+  br label %.lr.ph.split.split
 
-40:                                               ; preds = %34
-  %41 = inttoptr i64 %37 to ptr
-  tail call void @pfree(ptr noundef nonnull %41) #12
-  br label %42
+.lr.ph.split.split:                               ; preds = %.lr.ph.split.split.preheader, %44
+  %indvars.iv = phi i64 [ 0, %.lr.ph.split.split.preheader ], [ %indvars.iv.next, %44 ]
+  %34 = load i8, ptr @criticalRelcachesBuilt, align 1
+  %35 = trunc i8 %34 to i1
+  br i1 %35, label %36, label %44
 
-42:                                               ; preds = %.lr.ph.split, %40, %34
+36:                                               ; preds = %.lr.ph.split.split
+  %37 = trunc i64 %indvars.iv to i16
+  %38 = add i16 %37, 1
+  %39 = tail call i64 @get_attoptions(i32 noundef %.fr60, i16 noundef signext %38) #12
+  %40 = tail call ptr @index_opclass_options(ptr noundef %0, i16 noundef signext %38, i64 noundef %39, i1 noundef zeroext false) #12
+  %41 = getelementptr ptr, ptr %30, i64 %indvars.iv
+  store ptr %40, ptr %41, align 8
+  %.not46 = icmp eq i64 %39, 0
+  br i1 %.not46, label %44, label %42
+
+42:                                               ; preds = %36
+  %43 = inttoptr i64 %39 to ptr
+  tail call void @pfree(ptr noundef nonnull %43) #12
+  br label %44
+
+44:                                               ; preds = %.lr.ph.split.split, %42, %36
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph.split, !llvm.loop !10
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph.split.split, !llvm.loop !10
 
-._crit_edge:                                      ; preds = %42, %27
-  %43 = getelementptr inbounds i8, ptr %0, i64 336
-  %44 = load ptr, ptr %43, align 8
-  %45 = load ptr, ptr @CurrentMemoryContext, align 8
-  store ptr %44, ptr @CurrentMemoryContext, align 8
-  %46 = tail call ptr @palloc(i64 noundef %29) #12
+._crit_edge:                                      ; preds = %44, %.lr.ph.split, %27
+  %45 = getelementptr inbounds i8, ptr %0, i64 336
+  %46 = load ptr, ptr %45, align 8
+  %47 = load ptr, ptr @CurrentMemoryContext, align 8
+  store ptr %46, ptr @CurrentMemoryContext, align 8
+  %48 = tail call ptr @palloc(i64 noundef %29) #12
   br i1 %31, label %CopyIndexAttOptions.exit54.thread, label %.lr.ph.preheader.i47
 
 .lr.ph.preheader.i47:                             ; preds = %._crit_edge
   %wide.trip.count.i48 = zext nneg i32 %11 to i64
   br label %.lr.ph.i49
 
-.lr.ph.i49:                                       ; preds = %53, %.lr.ph.preheader.i47
-  %indvars.iv.i50 = phi i64 [ 0, %.lr.ph.preheader.i47 ], [ %indvars.iv.next.i52, %53 ]
-  %47 = getelementptr ptr, ptr %30, i64 %indvars.iv.i50
-  %48 = load ptr, ptr %47, align 8
-  %.not.i51 = icmp eq ptr %48, null
-  br i1 %.not.i51, label %53, label %49
+.lr.ph.i49:                                       ; preds = %55, %.lr.ph.preheader.i47
+  %indvars.iv.i50 = phi i64 [ 0, %.lr.ph.preheader.i47 ], [ %indvars.iv.next.i52, %55 ]
+  %49 = getelementptr ptr, ptr %30, i64 %indvars.iv.i50
+  %50 = load ptr, ptr %49, align 8
+  %.not.i51 = icmp eq ptr %50, null
+  br i1 %.not.i51, label %55, label %51
 
-49:                                               ; preds = %.lr.ph.i49
-  %50 = ptrtoint ptr %48 to i64
-  %51 = tail call i64 @datumCopy(i64 noundef %50, i1 noundef zeroext false, i32 noundef -1) #12
-  %52 = inttoptr i64 %51 to ptr
-  br label %53
+51:                                               ; preds = %.lr.ph.i49
+  %52 = ptrtoint ptr %50 to i64
+  %53 = tail call i64 @datumCopy(i64 noundef %52, i1 noundef zeroext false, i32 noundef -1) #12
+  %54 = inttoptr i64 %53 to ptr
+  br label %55
 
-53:                                               ; preds = %49, %.lr.ph.i49
-  %54 = phi ptr [ %52, %49 ], [ null, %.lr.ph.i49 ]
-  %55 = getelementptr ptr, ptr %46, i64 %indvars.iv.i50
-  store ptr %54, ptr %55, align 8
+55:                                               ; preds = %51, %.lr.ph.i49
+  %56 = phi ptr [ %54, %51 ], [ null, %.lr.ph.i49 ]
+  %57 = getelementptr ptr, ptr %48, i64 %indvars.iv.i50
+  store ptr %56, ptr %57, align 8
   %indvars.iv.next.i52 = add nuw nsw i64 %indvars.iv.i50, 1
   %exitcond.not.i53 = icmp eq i64 %indvars.iv.next.i52, %wide.trip.count.i48
   br i1 %exitcond.not.i53, label %CopyIndexAttOptions.exit54, label %.lr.ph.i49, !llvm.loop !9
 
-CopyIndexAttOptions.exit54:                       ; preds = %53
-  store ptr %46, ptr %3, align 8
-  store ptr %45, ptr @CurrentMemoryContext, align 8
+CopyIndexAttOptions.exit54:                       ; preds = %55
+  store ptr %48, ptr %3, align 8
+  store ptr %47, ptr @CurrentMemoryContext, align 8
   br i1 %1, label %CopyIndexAttOptions.exit, label %.preheader
 
 CopyIndexAttOptions.exit54.thread:                ; preds = %._crit_edge
-  store ptr %46, ptr %3, align 8
-  store ptr %45, ptr @CurrentMemoryContext, align 8
-  br i1 %1, label %CopyIndexAttOptions.exit, label %._crit_edge58
+  store ptr %48, ptr %3, align 8
+  store ptr %47, ptr @CurrentMemoryContext, align 8
+  br i1 %1, label %CopyIndexAttOptions.exit, label %._crit_edge59
 
 .preheader:                                       ; preds = %CopyIndexAttOptions.exit54
-  br i1 %31, label %._crit_edge58, label %.lr.ph57.preheader
+  br i1 %31, label %._crit_edge59, label %.lr.ph58.preheader
 
-.lr.ph57.preheader:                               ; preds = %.preheader
-  %wide.trip.count66 = zext nneg i32 %11 to i64
-  br label %.lr.ph57
+.lr.ph58.preheader:                               ; preds = %.preheader
+  %wide.trip.count68 = zext nneg i32 %11 to i64
+  br label %.lr.ph58
 
-.lr.ph57:                                         ; preds = %.lr.ph57.preheader, %59
-  %indvars.iv63 = phi i64 [ 0, %.lr.ph57.preheader ], [ %indvars.iv.next64, %59 ]
-  %56 = getelementptr ptr, ptr %30, i64 %indvars.iv63
-  %57 = load ptr, ptr %56, align 8
-  %.not45 = icmp eq ptr %57, null
-  br i1 %.not45, label %59, label %58
+.lr.ph58:                                         ; preds = %.lr.ph58.preheader, %61
+  %indvars.iv65 = phi i64 [ 0, %.lr.ph58.preheader ], [ %indvars.iv.next66, %61 ]
+  %58 = getelementptr ptr, ptr %30, i64 %indvars.iv65
+  %59 = load ptr, ptr %58, align 8
+  %.not45 = icmp eq ptr %59, null
+  br i1 %.not45, label %61, label %60
 
-58:                                               ; preds = %.lr.ph57
-  tail call void @pfree(ptr noundef nonnull %57) #12
-  br label %59
+60:                                               ; preds = %.lr.ph58
+  tail call void @pfree(ptr noundef nonnull %59) #12
+  br label %61
 
-59:                                               ; preds = %.lr.ph57, %58
-  %indvars.iv.next64 = add nuw nsw i64 %indvars.iv63, 1
-  %exitcond67.not = icmp eq i64 %indvars.iv.next64, %wide.trip.count66
-  br i1 %exitcond67.not, label %._crit_edge58, label %.lr.ph57, !llvm.loop !11
+61:                                               ; preds = %.lr.ph58, %60
+  %indvars.iv.next66 = add nuw nsw i64 %indvars.iv65, 1
+  %exitcond69.not = icmp eq i64 %indvars.iv.next66, %wide.trip.count68
+  br i1 %exitcond69.not, label %._crit_edge59, label %.lr.ph58, !llvm.loop !12
 
-._crit_edge58:                                    ; preds = %59, %CopyIndexAttOptions.exit54.thread, %.preheader
+._crit_edge59:                                    ; preds = %61, %CopyIndexAttOptions.exit54.thread, %.preheader
   tail call void @pfree(ptr noundef %30) #12
-  %60 = load ptr, ptr %3, align 8
+  %62 = load ptr, ptr %3, align 8
   br label %CopyIndexAttOptions.exit
 
-CopyIndexAttOptions.exit:                         ; preds = %24, %CopyIndexAttOptions.exit54.thread, %13, %CopyIndexAttOptions.exit54, %12, %._crit_edge58
-  %.0 = phi ptr [ %60, %._crit_edge58 ], [ %4, %12 ], [ %30, %CopyIndexAttOptions.exit54 ], [ %16, %13 ], [ %30, %CopyIndexAttOptions.exit54.thread ], [ %16, %24 ]
+CopyIndexAttOptions.exit:                         ; preds = %24, %CopyIndexAttOptions.exit54.thread, %13, %CopyIndexAttOptions.exit54, %12, %._crit_edge59
+  %.0 = phi ptr [ %62, %._crit_edge59 ], [ %4, %12 ], [ %30, %CopyIndexAttOptions.exit54 ], [ %16, %13 ], [ %30, %CopyIndexAttOptions.exit54.thread ], [ %16, %24 ]
   ret ptr %.0
 }
 
@@ -1560,7 +1565,7 @@ RelationCloseSmgr.exit:                           ; preds = %2, %6
   %104 = load i32, ptr %93, align 8
   %105 = sext i32 %104 to i64
   %106 = icmp slt i64 %indvars.iv.next.i, %105
-  br i1 %106, label %107, label %.loopexit.i, !llvm.loop !12
+  br i1 %106, label %107, label %.loopexit.i, !llvm.loop !13
 
 107:                                              ; preds = %103, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %103 ]
@@ -1810,7 +1815,7 @@ list_length.exit38.thread.i:                      ; preds = %list_length.exit.th
 248:                                              ; preds = %.lr.ph.i.i
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, %wide.trip.count.i.i
-  br i1 %exitcond.not.i.i, label %._crit_edge.i.i, label %.lr.ph.i.i, !llvm.loop !13
+  br i1 %exitcond.not.i.i, label %._crit_edge.i.i, label %.lr.ph.i.i, !llvm.loop !14
 
 .lr.ph.i.i:                                       ; preds = %248, %.lr.ph.preheader.i.i
   %indvars.iv.i.i = phi i64 [ 0, %.lr.ph.preheader.i.i ], [ %indvars.iv.next.i.i, %248 ]
@@ -1842,7 +1847,7 @@ list_length.exit38.thread.i:                      ; preds = %list_length.exit.th
 
 equalPolicy.exit.i:                               ; preds = %264, %258
   %265 = add nuw i32 %.sroa.8.0.i, 1
-  br label %.preheader.split.i, !llvm.loop !14
+  br label %.preheader.split.i, !llvm.loop !15
 
 equalRSDesc.exit:                                 ; preds = %178, %182, %192, %193, %198, %205, %209, %._crit_edge.i.i, %258, %264, %.lr.ph.i.i, %equalRuleLocks.exit, %152, %list_length.exit.thread.i, %list_length.exit38.i, %list_length.exit38.thread.i
   %.0.i152 = phi i1 [ true, %equalRuleLocks.exit ], [ false, %152 ], [ false, %list_length.exit38.thread.i ], [ true, %list_length.exit.thread.i ], [ %.not.i153, %list_length.exit38.i ], [ false, %.lr.ph.i.i ], [ true, %182 ], [ true, %178 ], [ false, %192 ], [ false, %193 ], [ false, %198 ], [ false, %205 ], [ false, %209 ], [ false, %._crit_edge.i.i ], [ false, %258 ], [ false, %264 ]
@@ -2443,7 +2448,7 @@ heap_getattr.exit.i:                              ; preds = %207, %206, %200, %1
   %.2.i = phi ptr [ %.077.i, %heap_getattr.exit.i ], [ %.178.i, %244 ], [ %.077.i, %145 ]
   %247 = add i32 %.0.i, -1
   %248 = icmp eq i32 %247, 0
-  br i1 %248, label %249, label %106, !llvm.loop !15
+  br i1 %248, label %249, label %106, !llvm.loop !16
 
 249:                                              ; preds = %246, %106
   %.281.i = phi i32 [ %spec.select89.i, %246 ], [ %.079.i, %106 ]
@@ -2667,7 +2672,7 @@ fastgetattr.exit:                                 ; preds = %346
   %.1.i.i = phi i32 [ %.043.i.i, %353 ], [ %.043.i.i, %fastgetattr.exit ], [ %370, %360 ]
   %372 = call ptr @systable_getnext(ptr noundef %289) #12
   %.not.i.i = icmp eq ptr %372, null
-  br i1 %.not.i.i, label %.loopexit.i.i, label %292, !llvm.loop !16
+  br i1 %.not.i.i, label %.loopexit.i.i, label %292, !llvm.loop !17
 
 .loopexit.i.i:                                    ; preds = %371, %302, %300, %281
   %.041.i.i = phi i32 [ %.043.i.i, %302 ], [ %.043.i.i, %300 ], [ 0, %281 ], [ %.1.i.i, %371 ]
@@ -2768,7 +2773,7 @@ AttrDefaultFetch.exit.i:                          ; preds = %382, %380
   %424 = getelementptr inbounds i8, ptr %423, i64 72
   %425 = load i8, ptr %424, align 4
   %.not44.i.i = icmp eq i8 %425, 99
-  br i1 %.not44.i.i, label %426, label %415, !llvm.loop !17
+  br i1 %.not44.i.i, label %426, label %415, !llvm.loop !18
 
 426:                                              ; preds = %417
   br i1 %.not45.i.i, label %433, label %427
@@ -2815,7 +2820,7 @@ AttrDefaultFetch.exit.i:                          ; preds = %382, %380
   br label %.outer.i.i.backedge
 
 .outer.i.i.backedge:                              ; preds = %449, %447
-  br label %.outer.i.i, !llvm.loop !17
+  br label %.outer.i.i, !llvm.loop !18
 
 453:                                              ; preds = %433
   %454 = inttoptr i64 %444 to ptr
@@ -2826,7 +2831,7 @@ AttrDefaultFetch.exit.i:                          ; preds = %382, %380
   store ptr %457, ptr %458, align 8
   call void @pfree(ptr noundef %455) #12
   %459 = add nuw nsw i32 %.0.ph.i.i.ph, 1
-  br label %.outer.i.i.outer, !llvm.loop !17
+  br label %.outer.i.i.outer, !llvm.loop !18
 
 .loopexit.i91.i:                                  ; preds = %415, %429, %427
   call void @systable_endscan(ptr noundef %409) #12
@@ -3280,7 +3285,7 @@ RelationIncrementReferenceCount.exit.i:           ; preds = %26, %19
 47:                                               ; preds = %40, %45
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %RelationFlushRelation.exit, label %40, !llvm.loop !18
+  br i1 %exitcond.not, label %RelationFlushRelation.exit, label %40, !llvm.loop !19
 
 RelationFlushRelation.exit:                       ; preds = %47, %.preheader, %36, %33, %RelationIncrementReferenceCount.exit.i
   ret void
@@ -3338,7 +3343,7 @@ RelationCloseSmgr.exit:                           ; preds = %6, %12
 19:                                               ; preds = %16, %RelationCloseSmgr.exit
   %20 = call ptr @hash_seq_search(ptr noundef nonnull %2) #12
   %.not = icmp eq ptr %20, null
-  br i1 %.not, label %.outer._crit_edge, label %6, !llvm.loop !19
+  br i1 %.not, label %.outer._crit_edge, label %6, !llvm.loop !20
 
 21:                                               ; preds = %16
   %22 = load i64, ptr @relcacheInvalsReceived, align 8
@@ -3411,7 +3416,7 @@ RelationCloseSmgr.exit:                           ; preds = %6, %12
   %.1 = phi ptr [ %.0.ph71, %27 ], [ %42, %41 ], [ %44, %43 ], [ %.0.ph71, %49 ], [ %.0.ph71, %51 ]
   %53 = call ptr @hash_seq_search(ptr noundef nonnull %2) #12
   %.not65 = icmp eq ptr %53, null
-  br i1 %.not65, label %.outer._crit_edge, label %.lr.ph, !llvm.loop !19
+  br i1 %.not65, label %.outer._crit_edge, label %.lr.ph, !llvm.loop !20
 
 .outer._crit_edge:                                ; preds = %.outer, %19
   %.048.ph.lcssa = phi ptr [ %.048.ph70, %19 ], [ %.149, %.outer ]
@@ -3485,7 +3490,7 @@ RelationCloseSmgr.exit:                           ; preds = %6, %12
   store i8 1, ptr %78, align 4
   %indvars.iv.next99 = add nuw nsw i64 %indvars.iv98, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next99, %wide.trip.count
-  br i1 %exitcond.not, label %.loopexit, label %77, !llvm.loop !20
+  br i1 %exitcond.not, label %.loopexit, label %77, !llvm.loop !21
 
 .loopexit:                                        ; preds = %77, %.preheader, %._crit_edge84
   ret void
@@ -3725,7 +3730,7 @@ AtEOXact_cleanup.exit17.us:                       ; preds = %8, %24, %19, %17, %
   %25 = load i32, ptr @eoxact_list_len, align 4
   %26 = sext i32 %25 to i64
   %27 = icmp slt i64 %indvars.iv.next29, %26
-  br i1 %27, label %.lr.ph.split.us, label %.loopexit, !llvm.loop !21
+  br i1 %27, label %.lr.ph.split.us, label %.loopexit, !llvm.loop !22
 
 28:                                               ; preds = %1
   %29 = load ptr, ptr @RelationIdCache, align 8
@@ -3771,7 +3776,7 @@ AtEOXact_cleanup.exit17.us:                       ; preds = %8, %24, %19, %17, %
 AtEOXact_cleanup.exit:                            ; preds = %.lr.ph22, %40, %41, %43
   %48 = call ptr @hash_seq_search(ptr noundef nonnull %2) #12
   %.not13 = icmp eq ptr %48, null
-  br i1 %.not13, label %.loopexit, label %.lr.ph22, !llvm.loop !22
+  br i1 %.not13, label %.loopexit, label %.lr.ph22, !llvm.loop !23
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %AtEOXact_cleanup.exit17
   %indvars.iv = phi i64 [ %indvars.iv.next, %AtEOXact_cleanup.exit17 ], [ 0, %.lr.ph ]
@@ -3817,7 +3822,7 @@ AtEOXact_cleanup.exit17:                          ; preds = %63, %61, %60, %52, 
   %68 = load i32, ptr @eoxact_list_len, align 4
   %69 = sext i32 %68 to i64
   %70 = icmp slt i64 %indvars.iv.next, %69
-  br i1 %70, label %.lr.ph.split, label %.loopexit, !llvm.loop !21
+  br i1 %70, label %.lr.ph.split, label %.loopexit, !llvm.loop !22
 
 .loopexit:                                        ; preds = %AtEOXact_cleanup.exit17, %AtEOXact_cleanup.exit17.us, %AtEOXact_cleanup.exit, %.preheader18, %28
   %71 = load i32, ptr @EOXactTupleDescArrayLen, align 4
@@ -3839,7 +3844,7 @@ AtEOXact_cleanup.exit17:                          ; preds = %63, %61, %60, %52, 
   %78 = load i32, ptr @NextEOXactTupleDescNum, align 4
   %79 = sext i32 %78 to i64
   %80 = icmp slt i64 %indvars.iv.next32, %79
-  br i1 %80, label %.lr.ph24, label %._crit_edge, !llvm.loop !23
+  br i1 %80, label %.lr.ph24, label %._crit_edge, !llvm.loop !24
 
 ._crit_edge:                                      ; preds = %.lr.ph24, %.preheader
   %81 = load ptr, ptr @EOXactTupleDescArray, align 8
@@ -3885,7 +3890,7 @@ define dso_local void @AtEOSubXact_RelationCache(i1 noundef zeroext %0, i32 noun
   call fastcc void @AtEOSubXact_cleanup(ptr noundef %12, i1 noundef zeroext %0, i32 noundef %1, i32 noundef %2)
   %13 = call ptr @hash_seq_search(ptr noundef nonnull %4) #12
   %.not14 = icmp eq ptr %13, null
-  br i1 %.not14, label %.loopexit, label %.lr.ph18, !llvm.loop !24
+  br i1 %.not14, label %.loopexit, label %.lr.ph18, !llvm.loop !25
 
 .lr.ph:                                           ; preds = %.preheader, %20
   %indvars.iv = phi i64 [ %indvars.iv.next, %20 ], [ 0, %.preheader ]
@@ -3906,7 +3911,7 @@ define dso_local void @AtEOSubXact_RelationCache(i1 noundef zeroext %0, i32 noun
   %21 = load i32, ptr @eoxact_list_len, align 4
   %22 = sext i32 %21 to i64
   %23 = icmp slt i64 %indvars.iv.next, %22
-  br i1 %23, label %.lr.ph, label %.loopexit, !llvm.loop !25
+  br i1 %23, label %.lr.ph, label %.loopexit, !llvm.loop !26
 
 .loopexit:                                        ; preds = %20, %.lr.ph18, %.preheader, %7
   ret void
@@ -4117,7 +4122,7 @@ define dso_local ptr @RelationBuildLocalRelation(ptr noundef %0, i32 noundef %1,
   %62 = icmp ne i8 %61, 0
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %43, !llvm.loop !26
+  br i1 %exitcond.not, label %._crit_edge, label %43, !llvm.loop !27
 
 ._crit_edge:                                      ; preds = %43
   br i1 %62, label %63, label %.critedge
@@ -4228,7 +4233,7 @@ switch.lookup144:                                 ; preds = %100
   store i32 %3, ptr %111, align 8
   %indvars.iv.next131 = add nuw nsw i64 %indvars.iv130, 1
   %exitcond134.not = icmp eq i64 %indvars.iv.next131, %wide.trip.count133
-  br i1 %exitcond134.not, label %._crit_edge129, label %.lr.ph128, !llvm.loop !27
+  br i1 %exitcond134.not, label %._crit_edge129, label %.lr.ph128, !llvm.loop !28
 
 ._crit_edge129:                                   ; preds = %.lr.ph128, %103
   %112 = load ptr, ptr %69, align 8
@@ -5126,7 +5131,7 @@ define internal fastcc noundef zeroext i1 @load_relcache_init_file(i1 noundef ze
   %75 = load i16, ptr %45, align 4
   %76 = sext i16 %75 to i64
   %77 = icmp slt i64 %indvars.iv.next, %76
-  br i1 %77, label %.lr.ph, label %._crit_edge, !llvm.loop !28
+  br i1 %77, label %.lr.ph, label %._crit_edge, !llvm.loop !29
 
 ._crit_edge:                                      ; preds = %68, %43
   %.0217.lcssa = phi i1 [ false, %43 ], [ %74, %68 ]
@@ -5337,7 +5342,7 @@ define internal fastcc noundef zeroext i1 @load_relcache_init_file(i1 noundef ze
   %192 = load i16, ptr %45, align 4
   %193 = sext i16 %192 to i64
   %194 = icmp slt i64 %indvars.iv.next301, %193
-  br i1 %194, label %.lr.ph276, label %._crit_edge277, !llvm.loop !29
+  br i1 %194, label %.lr.ph276, label %._crit_edge277, !llvm.loop !30
 
 ._crit_edge277:                                   ; preds = %191, %171
   %.lcssa.in = phi i16 [ %178, %171 ], [ %192, %191 ]
@@ -5505,7 +5510,7 @@ define internal fastcc noundef zeroext i1 @load_relcache_init_file(i1 noundef ze
 273:                                              ; preds = %259, %265, %263, %260, %270
   %indvars.iv.next304 = add nuw nsw i64 %indvars.iv303, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next304, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge282, label %.lr.ph281, !llvm.loop !30
+  br i1 %exitcond.not, label %._crit_edge282, label %.lr.ph281, !llvm.loop !31
 
 ._crit_edge282:                                   ; preds = %273, %243
   call void @pfree(ptr noundef %.0203) #12
@@ -5642,7 +5647,7 @@ define internal fastcc void @formrdesc(ptr noundef %0, i32 noundef %1, i1 nounde
   store i32 -1, ptr %67, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !31
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !32
 
 ._crit_edge:                                      ; preds = %.lr.ph
   %68 = load ptr, ptr %48, align 8
@@ -6014,7 +6019,7 @@ RelationDecrementReferenceCount.exit:             ; preds = %120, %125
 130:                                              ; preds = %128, %RelationDecrementReferenceCount.exit
   %131 = call ptr @hash_seq_search(ptr noundef nonnull %1) #12
   %.not = icmp eq ptr %131, null
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !32
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !33
 
 ._crit_edge:                                      ; preds = %130, %22
   %132 = trunc i8 %.0 to i1
@@ -6307,7 +6312,7 @@ heap_getattr.exit77:                              ; preds = %62, %64
   store ptr %29, ptr %96, align 8
   %97 = call ptr @systable_getnext(ptr noundef %18) #12
   %.not = icmp eq ptr %97, null
-  br i1 %.not, label %._crit_edge, label %21, !llvm.loop !33
+  br i1 %.not, label %._crit_edge, label %21, !llvm.loop !34
 
 ._crit_edge:                                      ; preds = %93, %1
   %.068.lcssa = phi ptr [ %11, %1 ], [ %.1, %93 ]
@@ -6491,7 +6496,7 @@ write_item.exit:                                  ; preds = %63, %65
   %70 = load i16, ptr %51, align 4
   %71 = sext i16 %70 to i64
   %72 = icmp slt i64 %indvars.iv.next, %71
-  br i1 %72, label %55, label %._crit_edge, !llvm.loop !34
+  br i1 %72, label %55, label %._crit_edge, !llvm.loop !35
 
 ._crit_edge:                                      ; preds = %write_item.exit, %RelationIdIsInInitFile.exit.thread
   %73 = getelementptr inbounds i8, ptr %39, i64 296
@@ -6592,12 +6597,12 @@ write_item.exit:                                  ; preds = %63, %65
   %131 = load i16, ptr %51, align 4
   %132 = sext i16 %131 to i64
   %133 = icmp slt i64 %indvars.iv.next79, %132
-  br i1 %133, label %123, label %.backedge, !llvm.loop !35
+  br i1 %133, label %123, label %.backedge, !llvm.loop !36
 
 .backedge:                                        ; preds = %130, %78, %83, %.lr.ph75, %RelationIdIsInInitFile.exit
   %134 = call ptr @hash_seq_search(ptr noundef nonnull %6) #12
   %.not61 = icmp eq ptr %134, null
-  br i1 %.not61, label %._crit_edge76, label %.lr.ph75, !llvm.loop !36
+  br i1 %.not61, label %._crit_edge76, label %.lr.ph75, !llvm.loop !37
 
 ._crit_edge76:                                    ; preds = %.backedge, %34
   %135 = call i32 @FreeFile(ptr noundef nonnull %21) #12
@@ -6694,7 +6699,7 @@ define dso_local ptr @RelationGetFKeyList(ptr nocapture noundef %0) local_unname
   %33 = getelementptr inbounds i8, ptr %32, i64 72
   %34 = load i8, ptr %33, align 4
   %.not36 = icmp eq i8 %34, 102
-  br i1 %.not36, label %35, label %24, !llvm.loop !37
+  br i1 %.not36, label %35, label %24, !llvm.loop !38
 
 35:                                               ; preds = %26
   %36 = call noundef ptr @palloc0(i64 noundef 276) #12
@@ -6716,7 +6721,7 @@ define dso_local ptr @RelationGetFKeyList(ptr nocapture noundef %0) local_unname
   %48 = getelementptr inbounds i8, ptr %36, i64 148
   call void @DeconstructFkConstraintRow(ptr noundef nonnull %25, ptr noundef nonnull %45, ptr noundef nonnull %46, ptr noundef nonnull %47, ptr noundef nonnull %48, ptr noundef null, ptr noundef null, ptr noundef null, ptr noundef null) #12
   %49 = call ptr @lappend(ptr noundef %.033.ph, ptr noundef nonnull %36) #12
-  br label %.outer, !llvm.loop !37
+  br label %.outer, !llvm.loop !38
 
 50:                                               ; preds = %24
   call void @systable_endscan(ptr noundef %23) #12
@@ -6814,7 +6819,7 @@ define dso_local ptr @RelationGetIndexList(ptr nocapture noundef %0) local_unnam
   %29 = getelementptr inbounds i8, ptr %28, i64 21
   %30 = load i8, ptr %29, align 1
   %31 = trunc i8 %30 to i1
-  br i1 %31, label %32, label %20, !llvm.loop !38
+  br i1 %31, label %32, label %20, !llvm.loop !39
 
 32:                                               ; preds = %22
   %33 = load i32, ptr %28, align 4
@@ -6835,7 +6840,7 @@ define dso_local ptr @RelationGetIndexList(ptr nocapture noundef %0) local_unnam
   br i1 %43, label %44, label %.outer50.backedge
 
 .outer50.backedge:                                ; preds = %42, %38, %32
-  br label %.outer50, !llvm.loop !38
+  br label %.outer50, !llvm.loop !39
 
 44:                                               ; preds = %42
   %45 = getelementptr inbounds i8, ptr %28, i64 14
@@ -6863,17 +6868,17 @@ define dso_local ptr @RelationGetIndexList(ptr nocapture noundef %0) local_unnam
 ._crit_edge:                                      ; preds = %44, %57, %52
   %.148 = phi i32 [ %58, %57 ], [ %.047.ph, %52 ], [ %.047.ph, %44 ]
   %59 = trunc i8 %49 to i1
-  br i1 %59, label %60, label %.outer, !llvm.loop !38
+  br i1 %59, label %60, label %.outer, !llvm.loop !39
 
 60:                                               ; preds = %._crit_edge
   %61 = getelementptr inbounds i8, ptr %28, i64 22
   %62 = load i8, ptr %61, align 2
   %63 = trunc i8 %62 to i1
-  br i1 %63, label %64, label %.outer.outer, !llvm.loop !38
+  br i1 %63, label %64, label %.outer.outer, !llvm.loop !39
 
 64:                                               ; preds = %60
   %65 = load i32, ptr %28, align 4
-  br label %.outer.outer.outer, !llvm.loop !38
+  br label %.outer.outer.outer, !llvm.loop !39
 
 66:                                               ; preds = %20
   call void @systable_endscan(ptr noundef %19) #12
@@ -6972,7 +6977,7 @@ define dso_local ptr @RelationGetStatExtList(ptr nocapture noundef %0) local_unn
   %25 = call ptr @lappend_oid(ptr noundef %.01922, i32 noundef %24) #12
   %26 = call ptr @systable_getnext(ptr noundef %15) #12
   %.not = icmp eq ptr %26, null
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !39
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !40
 
 ._crit_edge:                                      ; preds = %.lr.ph, %10
   %.019.lcssa = phi ptr [ null, %10 ], [ %25, %.lr.ph ]
@@ -7850,7 +7855,7 @@ heap_getattr.exit124:                             ; preds = %203, %202, %196, %1
   %264 = load i16, ptr %263, align 4
   %265 = sext i16 %264 to i64
   %266 = icmp slt i64 %indvars.iv.next, %265
-  br i1 %266, label %.lr.ph, label %._crit_edge, !llvm.loop !40
+  br i1 %266, label %.lr.ph, label %._crit_edge, !llvm.loop !41
 
 ._crit_edge:                                      ; preds = %261, %211
   %.1109.lcssa = phi ptr [ %.0108152, %211 ], [ %.2110, %261 ]
@@ -7863,7 +7868,7 @@ heap_getattr.exit124:                             ; preds = %203, %202, %196, %1
   %267 = load i32, ptr %47, align 4
   %268 = sext i32 %267 to i64
   %.not = icmp slt i64 %indvars.iv.next174, %268
-  br i1 %.not, label %50, label %._crit_edge157, !llvm.loop !41
+  br i1 %.not, label %50, label %._crit_edge157, !llvm.loop !42
 
 ._crit_edge157:                                   ; preds = %._crit_edge, %43
   %.0108.lcssa = phi ptr [ null, %43 ], [ %.1109.lcssa, %._crit_edge ]
@@ -8075,7 +8080,7 @@ RelationGetReplicaIndex.exit:                     ; preds = %12, %16
   %47 = load i16, ptr %46, align 4
   %48 = sext i16 %47 to i64
   %49 = icmp slt i64 %indvars.iv.next, %48
-  br i1 %49, label %.lr.ph, label %._crit_edge, !llvm.loop !42
+  br i1 %49, label %.lr.ph, label %._crit_edge, !llvm.loop !43
 
 ._crit_edge:                                      ; preds = %44, %.preheader
   %.025.lcssa = phi ptr [ null, %.preheader ], [ %.1, %44 ]
@@ -8239,7 +8244,7 @@ define dso_local void @RelationGetExclusionInfo(ptr nocapture noundef %0, ptr no
 56:                                               ; preds = %51, %52, %47
   %57 = call ptr @systable_getnext(ptr noundef %32) #12
   %.not90 = icmp eq ptr %57, null
-  br i1 %.not90, label %.outer._crit_edge, label %37, !llvm.loop !43
+  br i1 %.not90, label %.outer._crit_edge, label %37, !llvm.loop !44
 
 58:                                               ; preds = %52
   br i1 %.0.ph107, label %59, label %65
@@ -8309,7 +8314,7 @@ define dso_local void @RelationGetExclusionInfo(ptr nocapture noundef %0, ptr no
   call void @llvm.memcpy.p0.p0.i64(ptr align 4 %14, ptr align 1 %93, i64 %13, i1 false)
   %94 = call ptr @systable_getnext(ptr noundef %32) #12
   %.not90104 = icmp eq ptr %94, null
-  br i1 %.not90104, label %.preheader.critedge, label %.lr.ph, !llvm.loop !43
+  br i1 %.not90104, label %.preheader.critedge, label %.lr.ph, !llvm.loop !44
 
 .outer._crit_edge:                                ; preds = %56
   call void @systable_endscan(ptr noundef %32) #12
@@ -8348,7 +8353,7 @@ define dso_local void @RelationGetExclusionInfo(ptr nocapture noundef %0, ptr no
 103:                                              ; preds = %104
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge111, label %104, !llvm.loop !44
+  br i1 %exitcond.not, label %._crit_edge111, label %104, !llvm.loop !45
 
 104:                                              ; preds = %.lr.ph110, %103
   %indvars.iv = phi i64 [ 0, %.lr.ph110 ], [ %indvars.iv.next, %103 ]
@@ -8977,7 +8982,7 @@ unlink_initfile.exit:                             ; preds = %8, %10, %0, %5
 22:                                               ; preds = %20, %.lr.ph
   %23 = call ptr @ReadDirExtended(ptr noundef %13, ptr noundef nonnull @.str.37, i32 noundef 15) #12
   %.not = icmp eq ptr %23, null
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !45
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !46
 
 ._crit_edge:                                      ; preds = %22, %unlink_initfile.exit
   %24 = call i32 @FreeDir(ptr noundef %13) #12
@@ -9025,7 +9030,7 @@ define internal fastcc void @RelationCacheInitFileRemoveInDir(ptr noundef %0) un
 unlink_initfile.exit:                             ; preds = %14, %10, %19, %17, %.lr.ph
   %22 = call ptr @ReadDirExtended(ptr noundef %3, ptr noundef %0, i32 noundef 15) #12
   %.not = icmp eq ptr %22, null
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !46
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !47
 
 ._crit_edge:                                      ; preds = %unlink_initfile.exit, %1
   %23 = call i32 @FreeDir(ptr noundef %3) #12
@@ -9112,7 +9117,7 @@ declare i64 @datumCopy(i64 noundef, i1 noundef zeroext, i32 noundef) local_unnam
 declare void @pg_qsort(ptr noundef, i64 noundef, i64 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal i32 @AttrDefaultCmp(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #6 {
+define internal range(i32 -65535, 65536) i32 @AttrDefaultCmp(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #6 {
   %3 = load i16, ptr %0, align 8
   %4 = load i16, ptr %1, align 8
   %5 = sext i16 %3 to i32
@@ -9329,8 +9334,8 @@ attributes #15 = { nounwind willreturn memory(none) }
 !7 = distinct !{!7, !6}
 !8 = distinct !{!8, !6}
 !9 = distinct !{!9, !6}
-!10 = distinct !{!10, !6}
-!11 = distinct !{!11, !6}
+!10 = distinct !{!10, !6, !11}
+!11 = !{!"llvm.loop.unswitch.partial.disable"}
 !12 = distinct !{!12, !6}
 !13 = distinct !{!13, !6}
 !14 = distinct !{!14, !6}
@@ -9366,3 +9371,4 @@ attributes #15 = { nounwind willreturn memory(none) }
 !44 = distinct !{!44, !6}
 !45 = distinct !{!45, !6}
 !46 = distinct !{!46, !6}
+!47 = distinct !{!47, !6}

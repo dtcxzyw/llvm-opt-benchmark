@@ -1031,7 +1031,7 @@ define internal void @era_tree_fn_binary(ptr nocapture noundef writeonly %0, i32
   %14 = and i64 %indvars.iv, 1
   %.not21.not = icmp eq i64 %14, 0
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %15 = trunc i64 %indvars.iv.next to i32
+  %15 = trunc nuw nsw i64 %indvars.iv.next to i32
   %16 = select i1 %.not21.not, i32 %1, i32 %15
   %17 = getelementptr inbounds i8, ptr %8, i64 8
   store i32 %16, ptr %17, align 4
@@ -1053,14 +1053,14 @@ define internal void @era_tree_fn_string(ptr nocapture noundef writeonly %0, i32
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %4 = trunc i64 %indvars.iv to i32
+  %4 = trunc nuw nsw i64 %indvars.iv to i32
   %5 = tail call i32 @llvm.usub.sat.i32(i32 %4, i32 1)
   %6 = getelementptr inbounds %struct.era_tree_s, ptr %0, i64 %indvars.iv
   %7 = getelementptr inbounds i8, ptr %6, i64 4
   store i32 %5, ptr %7, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %8 = getelementptr inbounds i8, ptr %6, i64 12
-  %9 = trunc i64 %indvars.iv.next to i32
+  %9 = trunc nuw nsw i64 %indvars.iv.next to i32
   store i32 %9, ptr %8, align 4
   %10 = getelementptr inbounds i8, ptr %6, i64 8
   store i32 %1, ptr %10, align 4
@@ -1090,7 +1090,7 @@ define internal void @era_tree_fn_star(ptr nocapture noundef writeonly %0, i32 n
   %8 = getelementptr inbounds i8, ptr %4, i64 12
   store i32 %7, ptr %8, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %9 = trunc i64 %indvars.iv.next to i32
+  %9 = trunc nuw nsw i64 %indvars.iv.next to i32
   %10 = select i1 %6, i32 %1, i32 %9
   %11 = getelementptr inbounds i8, ptr %4, i64 8
   store i32 %10, ptr %11, align 4
@@ -1489,7 +1489,7 @@ ompi_group_get_proc_name.exit:                    ; preds = %25, %29
 
 55:                                               ; preds = %48
   %.sroa.2.0.extract.shift = lshr i64 %49, 32
-  %.sroa.2.0.extract.trunc = trunc i64 %.sroa.2.0.extract.shift to i32
+  %.sroa.2.0.extract.trunc = trunc nuw i64 %.sroa.2.0.extract.shift to i32
   %56 = load i32, ptr %46, align 8
   %57 = icmp eq i32 %56, %.sroa.2.0.extract.trunc
   br i1 %57, label %58, label %82
@@ -1894,9 +1894,9 @@ declare ptr @ompi_pmix_print_name(ptr noundef) local_unnamed_addr #5
 define i32 @mca_coll_ftagree_era_intra(ptr noundef %0, i32 noundef %1, ptr nocapture noundef readonly %2, ptr nocapture noundef readonly %3, ptr noundef %4, i1 noundef zeroext %5, ptr noundef %6, ptr nocapture noundef readonly %7) local_unnamed_addr #2 {
   %9 = alloca %struct.ompi_wait_sync_t, align 8
   %10 = alloca ptr, align 8
-  %11 = call i32 @mca_coll_ftagree_iera_intra(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, i1 noundef zeroext %5, ptr noundef %6, ptr noundef nonnull %10, ptr noundef %7), !range !19
+  %11 = call i32 @mca_coll_ftagree_iera_intra(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, i1 noundef zeroext %5, ptr noundef %6, ptr noundef nonnull %10, ptr noundef %7)
   %.not = icmp eq i32 %11, 0
-  br i1 %.not, label %12, label %120
+  br i1 %.not, label %12, label %128
 
 12:                                               ; preds = %8
   %13 = load ptr, ptr %10, align 8
@@ -1909,7 +1909,7 @@ define i32 @mca_coll_ftagree_era_intra(ptr noundef %0, i32 noundef %1, ptr nocap
 17:                                               ; preds = %12
   %18 = load ptr, ptr %16, align 8
   %19 = icmp eq ptr %18, inttoptr (i64 1 to ptr)
-  br i1 %19, label %103, label %.preheader19.i
+  br i1 %19, label %111, label %.preheader19.i
 
 .preheader19.i:                                   ; preds = %17
   %20 = getelementptr inbounds i8, ptr %9, i64 96
@@ -1952,10 +1952,10 @@ define i32 @mca_coll_ftagree_era_intra(ptr noundef %0, i32 noundef %1, ptr nocap
 39:                                               ; preds = %36
   %40 = cmpxchg volatile ptr %16, i64 0, i64 %25 acquire monotonic, align 8
   %41 = extractvalue { i64, i1 } %40, 1
-  br i1 %41, label %._crit_edge25.i, label %opal_thread_compare_exchange_strong_ptr.exit.i
+  br i1 %41, label %._crit_edge27.i, label %opal_thread_compare_exchange_strong_ptr.exit.i
 
-._crit_edge25.i:                                  ; preds = %39
-  %.pre26.i = load i8, ptr @opal_uses_threads, align 1
+._crit_edge27.i:                                  ; preds = %39
+  %.pre28.i = load i8, ptr @opal_uses_threads, align 1
   br label %46
 
 42:                                               ; preds = %36
@@ -1967,8 +1967,8 @@ define i32 @mca_coll_ftagree_era_intra(ptr noundef %0, i32 noundef %1, ptr nocap
   store i64 %25, ptr %16, align 8
   br label %46
 
-46:                                               ; preds = %45, %._crit_edge25.i
-  %47 = phi i8 [ %.pre26.i, %._crit_edge25.i ], [ %37, %45 ]
+46:                                               ; preds = %45, %._crit_edge27.i
+  %47 = phi i8 [ %.pre28.i, %._crit_edge27.i ], [ %37, %45 ]
   %48 = trunc i8 %47 to i1
   br i1 %48, label %49, label %51
 
@@ -1986,7 +1986,7 @@ define i32 @mca_coll_ftagree_era_intra(ptr noundef %0, i32 noundef %1, ptr nocap
   %54 = call i32 @opal_progress() #19
   %55 = load volatile i32, ptr %9, align 8
   %56 = icmp sgt i32 %55, 0
-  br i1 %56, label %.lr.ph.i.i, label %sync_wait_st.exit.i, !llvm.loop !20
+  br i1 %56, label %.lr.ph.i.i, label %sync_wait_st.exit.i, !llvm.loop !19
 
 sync_wait_st.exit.i:                              ; preds = %.lr.ph.i.i, %51
   store ptr null, ptr @opal_threads_base_wait_sync_list, align 8
@@ -1999,11 +1999,11 @@ opal_thread_compare_exchange_strong_ptr.exit.i:   ; preds = %42, %39
 57:                                               ; preds = %opal_thread_compare_exchange_strong_ptr.exit.i, %sync_wait_st.exit.i, %49
   %58 = load i32, ptr %21, align 4
   %.not9.i = icmp eq i32 %58, 0
-  %.pre30.i = load i8, ptr @opal_uses_threads, align 1
+  %.pre32.i = load i8, ptr @opal_uses_threads, align 1
   br i1 %.not9.i, label %opal_thread_compare_exchange_strong_ptr.exit11.i, label %59
 
 59:                                               ; preds = %57
-  %60 = trunc i8 %.pre30.i to i1
+  %60 = trunc i8 %.pre32.i to i1
   br i1 %60, label %61, label %64
 
 61:                                               ; preds = %59
@@ -2012,7 +2012,7 @@ opal_thread_compare_exchange_strong_ptr.exit.i:   ; preds = %42, %39
   br i1 %63, label %68, label %.opal_thread_compare_exchange_strong_ptr.exit11_crit_edge.i
 
 .opal_thread_compare_exchange_strong_ptr.exit11_crit_edge.i: ; preds = %61
-  %.pre29.i = load i8, ptr @opal_uses_threads, align 1
+  %.pre31.i = load i8, ptr @opal_uses_threads, align 1
   br label %opal_thread_compare_exchange_strong_ptr.exit11.i
 
 64:                                               ; preds = %59
@@ -2043,115 +2043,127 @@ opal_thread_compare_exchange_strong_ptr.exit.i:   ; preds = %42, %39
 .preheader18.i:                                   ; preds = %74
   %77 = load volatile i8, ptr %22, align 8
   %78 = trunc i8 %77 to i1
-  br i1 %78, label %.lr.ph.preheader.i, label %._crit_edge.i
+  br i1 %78, label %.lr.ph.i, label %._crit_edge.i
 
-.lr.ph.preheader.i:                               ; preds = %.preheader18.i
-  %.pre28.i = load i8, ptr @opal_progress_yield_when_idle, align 1
-  br label %.lr.ph.i
-
-.lr.ph.i:                                         ; preds = %83, %.lr.ph.preheader.i
-  %79 = phi i8 [ %.pre28.i, %.lr.ph.preheader.i ], [ %84, %83 ]
+.lr.ph.i:                                         ; preds = %.preheader18.i
+  %79 = load i8, ptr @opal_progress_yield_when_idle, align 1
   %80 = trunc i8 %79 to i1
-  br i1 %80, label %81, label %83
+  br i1 %80, label %.lr.ph.split.i, label %.lr.ph.split.us.i
 
-81:                                               ; preds = %.lr.ph.i
-  %82 = load ptr, ptr @opal_threads_pthreads_yield_fn, align 8
-  call void %82() #19
-  %.pre27.i = load i8, ptr @opal_progress_yield_when_idle, align 1
-  br label %83
+.lr.ph.split.us.i:                                ; preds = %.lr.ph.i, %.lr.ph.split.us.i
+  %81 = load volatile i8, ptr %22, align 8
+  %82 = trunc i8 %81 to i1
+  br i1 %82, label %.lr.ph.split.us.i, label %._crit_edge.i, !llvm.loop !20
 
-83:                                               ; preds = %81, %.lr.ph.i
-  %84 = phi i8 [ %.pre27.i, %81 ], [ %79, %.lr.ph.i ]
-  %85 = load volatile i8, ptr %22, align 8
-  %86 = trunc i8 %85 to i1
-  br i1 %86, label %.lr.ph.i, label %._crit_edge.i, !llvm.loop !21
+.lr.ph.split.i:                                   ; preds = %.lr.ph.i, %87
+  %83 = phi i8 [ %88, %87 ], [ %79, %.lr.ph.i ]
+  %84 = trunc i8 %83 to i1
+  br i1 %84, label %85, label %87
 
-._crit_edge.i:                                    ; preds = %83, %.preheader18.i
-  %87 = call i32 @pthread_cond_destroy(ptr noundef nonnull %23) #19
-  %88 = call i32 @pthread_mutex_destroy(ptr noundef nonnull %24) #19
+85:                                               ; preds = %.lr.ph.split.i
+  %86 = load ptr, ptr @opal_threads_pthreads_yield_fn, align 8
+  call void %86() #19
+  %.pre29.i = load i8, ptr @opal_progress_yield_when_idle, align 1
+  br label %87
+
+87:                                               ; preds = %85, %.lr.ph.split.i
+  %88 = phi i8 [ %.pre29.i, %85 ], [ %83, %.lr.ph.split.i ]
+  %89 = load volatile i8, ptr %22, align 8
+  %90 = trunc i8 %89 to i1
+  br i1 %90, label %.lr.ph.split.i, label %._crit_edge.i, !llvm.loop !21
+
+._crit_edge.i:                                    ; preds = %.lr.ph.split.us.i, %87, %.preheader18.i
+  %91 = call i32 @pthread_cond_destroy(ptr noundef nonnull %23) #19
+  %92 = call i32 @pthread_mutex_destroy(ptr noundef nonnull %24) #19
   br label %.backedge
 
 .backedge:                                        ; preds = %._crit_edge.i, %74
   br label %26
 
 opal_thread_compare_exchange_strong_ptr.exit11.i: ; preds = %64, %57, %.opal_thread_compare_exchange_strong_ptr.exit11_crit_edge.i
-  %89 = phi i8 [ %.pre29.i, %.opal_thread_compare_exchange_strong_ptr.exit11_crit_edge.i ], [ %.pre30.i, %57 ], [ %.pre30.i, %64 ]
-  %90 = trunc i8 %89 to i1
-  br i1 %90, label %.preheader.i, label %103
+  %93 = phi i8 [ %.pre31.i, %.opal_thread_compare_exchange_strong_ptr.exit11_crit_edge.i ], [ %.pre32.i, %57 ], [ %.pre32.i, %64 ]
+  %94 = trunc i8 %93 to i1
+  br i1 %94, label %.preheader.i, label %111
 
 .preheader.i:                                     ; preds = %opal_thread_compare_exchange_strong_ptr.exit11.i
-  %91 = load volatile i8, ptr %22, align 8
-  %92 = trunc i8 %91 to i1
-  br i1 %92, label %.lr.ph22.preheader.i, label %._crit_edge23.i
+  %95 = load volatile i8, ptr %22, align 8
+  %96 = trunc i8 %95 to i1
+  br i1 %96, label %.lr.ph22.i, label %._crit_edge23.i
 
-.lr.ph22.preheader.i:                             ; preds = %.preheader.i
-  %.pre32.i = load i8, ptr @opal_progress_yield_when_idle, align 1
-  br label %.lr.ph22.i
+.lr.ph22.i:                                       ; preds = %.preheader.i
+  %97 = load i8, ptr @opal_progress_yield_when_idle, align 1
+  %98 = trunc i8 %97 to i1
+  br i1 %98, label %.lr.ph22.split.i, label %.lr.ph22.split.us.i
 
-.lr.ph22.i:                                       ; preds = %97, %.lr.ph22.preheader.i
-  %93 = phi i8 [ %.pre32.i, %.lr.ph22.preheader.i ], [ %98, %97 ]
-  %94 = trunc i8 %93 to i1
-  br i1 %94, label %95, label %97
-
-95:                                               ; preds = %.lr.ph22.i
-  %96 = load ptr, ptr @opal_threads_pthreads_yield_fn, align 8
-  call void %96() #19
-  %.pre31.i = load i8, ptr @opal_progress_yield_when_idle, align 1
-  br label %97
-
-97:                                               ; preds = %95, %.lr.ph22.i
-  %98 = phi i8 [ %.pre31.i, %95 ], [ %93, %.lr.ph22.i ]
+.lr.ph22.split.us.i:                              ; preds = %.lr.ph22.i, %.lr.ph22.split.us.i
   %99 = load volatile i8, ptr %22, align 8
   %100 = trunc i8 %99 to i1
-  br i1 %100, label %.lr.ph22.i, label %._crit_edge23.i, !llvm.loop !22
+  br i1 %100, label %.lr.ph22.split.us.i, label %._crit_edge23.i, !llvm.loop !23
 
-._crit_edge23.i:                                  ; preds = %97, %.preheader.i
-  %101 = call i32 @pthread_cond_destroy(ptr noundef nonnull %23) #19
-  %102 = call i32 @pthread_mutex_destroy(ptr noundef nonnull %24) #19
-  br label %103
+.lr.ph22.split.i:                                 ; preds = %.lr.ph22.i, %105
+  %101 = phi i8 [ %106, %105 ], [ %97, %.lr.ph22.i ]
+  %102 = trunc i8 %101 to i1
+  br i1 %102, label %103, label %105
 
-103:                                              ; preds = %._crit_edge23.i, %opal_thread_compare_exchange_strong_ptr.exit11.i, %17
+103:                                              ; preds = %.lr.ph22.split.i
+  %104 = load ptr, ptr @opal_threads_pthreads_yield_fn, align 8
+  call void %104() #19
+  %.pre33.i = load i8, ptr @opal_progress_yield_when_idle, align 1
+  br label %105
+
+105:                                              ; preds = %103, %.lr.ph22.split.i
+  %106 = phi i8 [ %.pre33.i, %103 ], [ %101, %.lr.ph22.split.i ]
+  %107 = load volatile i8, ptr %22, align 8
+  %108 = trunc i8 %107 to i1
+  br i1 %108, label %.lr.ph22.split.i, label %._crit_edge23.i, !llvm.loop !24
+
+._crit_edge23.i:                                  ; preds = %.lr.ph22.split.us.i, %105, %.preheader.i
+  %109 = call i32 @pthread_cond_destroy(ptr noundef nonnull %23) #19
+  %110 = call i32 @pthread_mutex_destroy(ptr noundef nonnull %24) #19
+  br label %111
+
+111:                                              ; preds = %._crit_edge23.i, %opal_thread_compare_exchange_strong_ptr.exit11.i, %17
   fence acquire
   br label %ompi_request_wait_completion.exit
 
-.preheader20.i:                                   ; preds = %12, %112
-  %104 = load ptr, ptr %16, align 8
-  %.not.i = icmp eq ptr %104, inttoptr (i64 1 to ptr)
-  br i1 %.not.i, label %ompi_request_wait_completion.exit, label %105
+.preheader20.i:                                   ; preds = %12, %120
+  %112 = load ptr, ptr %16, align 8
+  %.not.i = icmp eq ptr %112, inttoptr (i64 1 to ptr)
+  br i1 %.not.i, label %ompi_request_wait_completion.exit, label %113
 
-105:                                              ; preds = %.preheader20.i
-  %106 = tail call i32 @opal_progress() #19
-  %107 = load i8, ptr @ompi_ftmpi_enabled, align 1
-  %108 = trunc i8 %107 to i1
-  br i1 %108, label %109, label %112
+113:                                              ; preds = %.preheader20.i
+  %114 = tail call i32 @opal_progress() #19
+  %115 = load i8, ptr @ompi_ftmpi_enabled, align 1
+  %116 = trunc i8 %115 to i1
+  br i1 %116, label %117, label %120
 
-109:                                              ; preds = %105
-  %110 = tail call zeroext i1 @ompi_request_is_failed_fn(ptr noundef nonnull %13) #19
-  %111 = zext i1 %110 to i32
-  br label %112
-
-112:                                              ; preds = %109, %105
-  %113 = phi i32 [ %111, %109 ], [ 0, %105 ]
-  %.not7.i = icmp eq i32 %113, 0
-  br i1 %.not7.i, label %.preheader20.i, label %ompi_request_wait_completion.exit, !llvm.loop !23
-
-ompi_request_wait_completion.exit:                ; preds = %.preheader20.i, %112, %29, %103
-  call void @llvm.lifetime.end.p0(i64 120, ptr nonnull %9)
-  %114 = load ptr, ptr %10, align 8
-  %115 = getelementptr inbounds i8, ptr %114, i64 72
-  %116 = load i32, ptr %115, align 8
-  %117 = getelementptr inbounds i8, ptr %114, i64 120
-  %118 = load ptr, ptr %117, align 8
-  %119 = call i32 %118(ptr noundef nonnull %10) #19
+117:                                              ; preds = %113
+  %118 = tail call zeroext i1 @ompi_request_is_failed_fn(ptr noundef nonnull %13) #19
+  %119 = zext i1 %118 to i32
   br label %120
 
-120:                                              ; preds = %8, %ompi_request_wait_completion.exit
-  %.0 = phi i32 [ %116, %ompi_request_wait_completion.exit ], [ %11, %8 ]
+120:                                              ; preds = %117, %113
+  %121 = phi i32 [ %119, %117 ], [ 0, %113 ]
+  %.not7.i = icmp eq i32 %121, 0
+  br i1 %.not7.i, label %.preheader20.i, label %ompi_request_wait_completion.exit, !llvm.loop !25
+
+ompi_request_wait_completion.exit:                ; preds = %.preheader20.i, %120, %29, %111
+  call void @llvm.lifetime.end.p0(i64 120, ptr nonnull %9)
+  %122 = load ptr, ptr %10, align 8
+  %123 = getelementptr inbounds i8, ptr %122, i64 72
+  %124 = load i32, ptr %123, align 8
+  %125 = getelementptr inbounds i8, ptr %122, i64 120
+  %126 = load ptr, ptr %125, align 8
+  %127 = call i32 %126(ptr noundef nonnull %10) #19
+  br label %128
+
+128:                                              ; preds = %8, %ompi_request_wait_completion.exit
+  %.0 = phi i32 [ %124, %ompi_request_wait_completion.exit ], [ %11, %8 ]
   ret i32 %.0
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @mca_coll_ftagree_iera_intra(ptr noundef %0, i32 noundef %1, ptr nocapture noundef readonly %2, ptr nocapture noundef readonly %3, ptr noundef %4, i1 noundef zeroext %5, ptr noundef %6, ptr nocapture noundef writeonly %7, ptr nocapture noundef readonly %8) local_unnamed_addr #2 {
+define range(i32 -2, 1) i32 @mca_coll_ftagree_iera_intra(ptr noundef %0, i32 noundef %1, ptr nocapture noundef readonly %2, ptr nocapture noundef readonly %3, ptr noundef %4, i1 noundef zeroext %5, ptr noundef %6, ptr nocapture noundef writeonly %7, ptr nocapture noundef readonly %8) local_unnamed_addr #2 {
   %10 = alloca i64, align 8
   %11 = alloca ptr, align 8
   %12 = alloca ptr, align 8
@@ -2214,7 +2226,7 @@ opal_update_counted_pointer.exit.i.i.i:           ; preds = %.lr.ph.i.i.i
   %35 = extractvalue { i128, i1 } %33, 0
   %.sroa.0.0.extract.trunc.i.i.i = trunc i128 %35 to i64
   %.sroa.4.0.extract.shift.i.i.i = lshr i128 %35, 64
-  %.sroa.4.0.extract.trunc.i.i.i = trunc i128 %.sroa.4.0.extract.shift.i.i.i to i64
+  %.sroa.4.0.extract.trunc.i.i.i = trunc nuw i128 %.sroa.4.0.extract.shift.i.i.i to i64
   store i64 %.sroa.4.0.extract.trunc.i.i.i, ptr %.sroa.4.i.i.i, align 8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %17)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %.sroa.22.i.i.i.i)
@@ -2467,11 +2479,11 @@ opal_obj_new.exit.i.i:                            ; preds = %.lr.ph.i.i.i.i, %12
 .lr.ph.i85.i:                                     ; preds = %.lr.ph.i85.i, %.lr.ph.preheader.i.i
   %indvars.iv.i.i = phi i64 [ 0, %.lr.ph.preheader.i.i ], [ %indvars.iv.next.i.i, %.lr.ph.i85.i ]
   %145 = getelementptr inbounds i32, ptr %144, i64 %indvars.iv.i.i
-  %146 = trunc i64 %indvars.iv.i.i to i32
+  %146 = trunc nuw nsw i64 %indvars.iv.i.i to i32
   store i32 %146, ptr %145, align 4
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, %137
-  br i1 %exitcond.not.i.i, label %._crit_edge.i.i, label %.lr.ph.i85.i, !llvm.loop !24
+  br i1 %exitcond.not.i.i, label %._crit_edge.i.i, label %.lr.ph.i85.i, !llvm.loop !26
 
 ._crit_edge.i.i:                                  ; preds = %.lr.ph.i85.i
   %147 = getelementptr inbounds i8, ptr %6, i64 248
@@ -2728,10 +2740,10 @@ opal_thread_add_fetch_32.exit43.i.i.i:            ; preds = %237, %235
   %indvars.iv.next.i.i.i.i = add nsw i64 %indvars.iv.i.i.i.i, 1
   %291 = add nsw i32 %.13237.i.i.i.i, 1
   %exitcond.not.i.i.i.i = icmp eq i64 %indvars.iv.next.i.i.i.i, %282
-  br i1 %exitcond.not.i.i.i.i, label %.critedge.i.i.i.i, label %285, !llvm.loop !25
+  br i1 %exitcond.not.i.i.i.i, label %.critedge.i.i.i.i, label %285, !llvm.loop !27
 
 .critedge.loopexit.split.loop.exit56.i.i.i.i:     ; preds = %285
-  %292 = trunc i64 %indvars.iv.i.i.i.i to i32
+  %292 = trunc nsw i64 %indvars.iv.i.i.i.i to i32
   br label %.critedge.i.i.i.i
 
 .critedge.i.i.i.i:                                ; preds = %290, %.critedge.loopexit.split.loop.exit56.i.i.i.i, %.preheader.i.i.i.i
@@ -2775,7 +2787,7 @@ opal_thread_add_fetch_32.exit43.i.i.i:            ; preds = %237, %235
   %323 = load i32, ptr %322, align 8
   %324 = sext i32 %323 to i64
   %325 = icmp slt i64 %indvars.iv.next52.i.i.i.i, %324
-  br i1 %325, label %.preheader.i.i.i.i, label %era_build_tree_structure.exit.i.i.i, !llvm.loop !26
+  br i1 %325, label %.preheader.i.i.i.i, label %era_build_tree_structure.exit.i.i.i, !llvm.loop !28
 
 era_build_tree_structure.exit.i.i.i:              ; preds = %.critedge.i.i.i.i, %245
   %.lcssa36.i.i.i.i = phi ptr [ %271, %245 ], [ %321, %.critedge.i.i.i.i ]
@@ -2783,7 +2795,7 @@ era_build_tree_structure.exit.i.i.i:              ; preds = %.critedge.i.i.i.i, 
   %326 = getelementptr i8, ptr %.lcssa36.i.i.i.i, i64 32
   %.val34.val.val.i.i.i.i = load ptr, ptr %326, align 8
   %327 = load ptr, ptr @era_tree_fn, align 8
-  call void %327(ptr noundef %.val34.val.val.i.i.i.i, i32 noundef %.lcssa.i.i.i.i) #19, !callees !27
+  call void %327(ptr noundef %.val34.val.val.i.i.i.i, i32 noundef %.lcssa.i.i.i.i) #19, !callees !29
   %328 = load ptr, ptr %231, align 8
   %329 = getelementptr inbounds i8, ptr %328, i64 56
   %330 = load i32, ptr %329, align 8
@@ -2864,7 +2876,7 @@ era_build_tree_structure.exit.i.i.i:              ; preds = %.critedge.i.i.i.i, 
   %372 = getelementptr i8, ptr %371, i64 16
   %.val.i46.i.i.i = load i32, ptr %372, align 8
   %373 = icmp slt i32 %370, %.val.i46.i.i.i
-  br i1 %373, label %352, label %._crit_edge.i.i.i.i, !llvm.loop !28
+  br i1 %373, label %352, label %._crit_edge.i.i.i.i, !llvm.loop !30
 
 ._crit_edge.i.i.i.i:                              ; preds = %369, %344
   %.021.lcssa.i.i.i.i = phi i32 [ 0, %344 ], [ %.1.i.i.i.i, %369 ]
@@ -2985,7 +2997,7 @@ opal_obj_run_destructors.exit.i:                  ; preds = %.lr.ph.i88.i, %397
   %421 = load ptr, ptr %12, align 8
   %422 = call i32 @opal_hash_table_get_next_key_uint64(ptr noundef nonnull @era_passed_agreements, ptr noundef nonnull %10, ptr noundef nonnull %11, ptr noundef %421, ptr noundef nonnull %12) #19
   %423 = icmp eq i32 %422, 0
-  br i1 %423, label %.lr.ph.i92.i, label %._crit_edge.i93.i, !llvm.loop !29
+  br i1 %423, label %.lr.ph.i92.i, label %._crit_edge.i93.i, !llvm.loop !31
 
 ._crit_edge.i93.i:                                ; preds = %420
   switch i64 %.133.i.i, label %.lr.ph44.preheader.i.i [
@@ -3020,7 +3032,7 @@ opal_obj_run_destructors.exit.i:                  ; preds = %.lr.ph.i88.i, %397
 435:                                              ; preds = %.lr.ph44.i.i
   %436 = add nuw i64 %.02742.i.i, 1
   %exitcond.not.i94.i = icmp eq i64 %436, %.133.i.i
-  br i1 %exitcond.not.i94.i, label %._crit_edge45.loopexit.i.i, label %.lr.ph44.i.i, !llvm.loop !30
+  br i1 %exitcond.not.i94.i, label %._crit_edge45.loopexit.i.i, label %.lr.ph44.i.i, !llvm.loop !32
 
 ._crit_edge45.loopexit.i.i:                       ; preds = %435, %.lr.ph44.i.i
   %.027.lcssa.ph.i.i = phi i64 [ %.133.i.i, %435 ], [ %.02742.i.i, %.lr.ph44.i.i ]
@@ -3581,7 +3593,7 @@ ompi_group_get_proc_ptr.exit.i:                   ; preds = %101, %99, %85, %71
   %108 = load i32, ptr %107, align 8
   %109 = sext i32 %108 to i64
   %110 = icmp slt i64 %indvars.iv.next.i, %109
-  br i1 %110, label %71, label %._crit_edge.i, !llvm.loop !31
+  br i1 %110, label %71, label %._crit_edge.i, !llvm.loop !33
 
 ._crit_edge.i:                                    ; preds = %ompi_group_get_proc_ptr.exit.i, %opal_pointer_array_get_item.exit.i
   %.not.i = icmp eq ptr %8, null
@@ -3783,7 +3795,7 @@ define internal fastcc void @result_request(ptr noundef %0) unnamed_addr #2 {
   %38 = load i32, ptr %37, align 4
   %.not10.i.i = icmp eq i32 %38, %.val.i
   %indvars.iv.next.i.i = add nsw i64 %indvars.iv.i.i, -1
-  br i1 %.not10.i.i, label %era_tree_rank_from_comm_rank.exit.preheader.i, label %36, !llvm.loop !32
+  br i1 %.not10.i.i, label %era_tree_rank_from_comm_rank.exit.preheader.i, label %36, !llvm.loop !34
 
 era_tree_rank_from_comm_rank.exit.preheader.i:    ; preds = %36
   %sext.i = shl i64 %indvars.iv.i.i, 32
@@ -3977,7 +3989,7 @@ define internal fastcc void @msg_up(ptr noundef %0, ptr noundef %1, ptr noundef 
   %48 = getelementptr inbounds i8, ptr %.087, i64 16
   %.0 = load volatile ptr, ptr %48, align 8
   %.not61 = icmp eq ptr %.0, %44
-  br i1 %.not61, label %._crit_edge90, label %49, !llvm.loop !33
+  br i1 %.not61, label %._crit_edge90, label %49, !llvm.loop !35
 
 49:                                               ; preds = %.lr.ph89, %47
   %.087 = phi ptr [ %.085, %.lr.ph89 ], [ %.0, %47 ]
@@ -4057,7 +4069,7 @@ opal_obj_new.exit:                                ; preds = %.lr.ph.i.i, %58, %5
   %84 = getelementptr inbounds i8, ptr %.184, i64 16
   %.1 = load volatile ptr, ptr %84, align 8
   %.not = icmp eq ptr %.1, %80
-  br i1 %.not, label %._crit_edge, label %85, !llvm.loop !34
+  br i1 %.not, label %._crit_edge, label %85, !llvm.loop !36
 
 85:                                               ; preds = %.lr.ph, %83
   %.184 = phi ptr [ %.182, %.lr.ph ], [ %.1, %83 ]
@@ -4396,7 +4408,7 @@ define internal fastcc void @send_msg(ptr noundef readonly %0, i32 noundef %1, p
   %.sroa.0.0.extract.trunc = trunc i64 %3 to i32
   %11 = lshr i32 %.sroa.0.0.extract.trunc, 16
   %.sroa.4.0.extract.shift = lshr i64 %3, 32
-  %.sroa.4.0.extract.trunc = trunc i64 %.sroa.4.0.extract.shift to i32
+  %.sroa.4.0.extract.trunc = trunc nuw i64 %.sroa.4.0.extract.shift to i32
   %12 = icmp eq ptr %0, null
   %.0.sroa.gep = getelementptr inbounds i8, ptr %9, i64 32
   %.0.sroa.gep133 = getelementptr inbounds i8, ptr %9, i64 16
@@ -4796,7 +4808,7 @@ opal_pointer_array_get_item.exit132:              ; preds = %166, %173
   %.2 = select i1 %233, i64 0, i64 %232
   %235 = add i64 %., %.0103137
   %236 = icmp ult i64 %235, %212
-  br i1 %236, label %223, label %._crit_edge, !llvm.loop !35
+  br i1 %236, label %223, label %._crit_edge, !llvm.loop !37
 
 ._crit_edge:                                      ; preds = %223, %203
   %.1101.lcssa = phi i64 [ %.0100141, %203 ], [ %.2102, %223 ]
@@ -4805,7 +4817,7 @@ opal_pointer_array_get_item.exit132:              ; preds = %166, %173
   %238 = call i32 %237(ptr noundef %90, ptr noundef %88, ptr noundef %207, i8 noundef zeroext 49) #19
   %239 = add i32 %.097143, %219
   %240 = icmp ult i32 %239, %123
-  br i1 %240, label %203, label %.loopexit, !llvm.loop !36
+  br i1 %240, label %203, label %.loopexit, !llvm.loop !38
 
 .loopexit:                                        ; preds = %._crit_edge, %196, %79, %60
   ret void
@@ -4899,7 +4911,7 @@ define internal fastcc void @era_tree_remove_node(ptr nocapture noundef readonly
   %47 = getelementptr inbounds %struct.era_tree_s, ptr %28, i64 %46, i32 2
   %48 = load i32, ptr %47, align 4
   %.not138 = icmp eq i32 %48, %1
-  br i1 %.not138, label %49, label %.preheader, !llvm.loop !37
+  br i1 %.not138, label %49, label %.preheader, !llvm.loop !39
 
 49:                                               ; preds = %.preheader
   %50 = icmp eq i32 %12, %27
@@ -4944,7 +4956,7 @@ define internal fastcc void @era_tree_remove_node(ptr nocapture noundef readonly
   %68 = getelementptr inbounds %struct.era_tree_s, ptr %6, i64 %67, i32 2
   %69 = load i32, ptr %68, align 4
   %.not130 = icmp eq i32 %69, %14
-  br i1 %.not130, label %._crit_edge, label %.lr.ph, !llvm.loop !38
+  br i1 %.not130, label %._crit_edge, label %.lr.ph, !llvm.loop !40
 
 ._crit_edge:                                      ; preds = %.lr.ph
   %.not172 = icmp sgt i32 %.0147, %.0113145
@@ -5052,7 +5064,7 @@ define internal fastcc void @era_tree_remove_node(ptr nocapture noundef readonly
   %120 = getelementptr inbounds i8, ptr %115, i64 40
   %121 = load i32, ptr %120, align 8
   %.not136 = icmp eq i32 %119, %121
-  br i1 %.not136, label %.loopexit, label %.lr.ph153, !llvm.loop !39
+  br i1 %.not136, label %.loopexit, label %.lr.ph153, !llvm.loop !41
 
 .loopexit:                                        ; preds = %114, %.lr.ph153, %104, %97, %38, %35, %54, %51
   ret void
@@ -5208,7 +5220,7 @@ opal_pointer_array_get_item.exit:                 ; preds = %40, %47
   %75 = load i32, ptr %60, align 4
   %76 = sext i32 %75 to i64
   %77 = icmp slt i64 %indvars.iv.next, %76
-  br i1 %77, label %.lr.ph, label %.loopexit, !llvm.loop !40
+  br i1 %77, label %.lr.ph, label %.loopexit, !llvm.loop !42
 
 .loopexit:                                        ; preds = %.lr.ph, %63, %59
   %78 = tail call i32 @opal_hash_table_set_value_uint64(ptr noundef nonnull @era_ongoing_agreements, i64 noundef %0, ptr noundef nonnull %4) #19
@@ -5245,7 +5257,7 @@ define internal fastcc void @era_check_status(ptr noundef %0) unnamed_addr #2 {
   %18 = load i32, ptr %17, align 4
   %.not10.i.i = icmp eq i32 %18, %.val.i
   %indvars.iv.next.i.i = add nsw i64 %indvars.iv.i.i, -1
-  br i1 %.not10.i.i, label %era_tree_rank_from_comm_rank.exit.preheader.i, label %16, !llvm.loop !32
+  br i1 %.not10.i.i, label %era_tree_rank_from_comm_rank.exit.preheader.i, label %16, !llvm.loop !34
 
 era_tree_rank_from_comm_rank.exit.preheader.i:    ; preds = %16
   %sext.i = shl i64 %indvars.iv.i.i, 32
@@ -5308,7 +5320,7 @@ era_parent.exit:                                  ; preds = %era_tree_rank_from_
   %52 = getelementptr inbounds i8, ptr %.046, i64 16
   %.0 = load volatile ptr, ptr %52, align 8
   %.not = icmp eq ptr %.0, %43
-  br i1 %.not, label %.thread, label %.lr.ph, !llvm.loop !41
+  br i1 %.not, label %.thread, label %.lr.ph, !llvm.loop !43
 
 .lr.ph:                                           ; preds = %49, %51
   %.046 = phi ptr [ %.0, %51 ], [ %.044, %49 ]
@@ -5339,7 +5351,7 @@ era_parent.exit:                                  ; preds = %era_tree_rank_from_
   %68 = load i32, ptr %67, align 4
   %.not10.i.i37 = icmp eq i32 %68, %58
   %indvars.iv.next.i.i38 = add nsw i64 %indvars.iv.i.i36, -1
-  br i1 %.not10.i.i37, label %era_tree_rank_from_comm_rank.exit.preheader.i39, label %66, !llvm.loop !32
+  br i1 %.not10.i.i37, label %era_tree_rank_from_comm_rank.exit.preheader.i39, label %66, !llvm.loop !34
 
 era_tree_rank_from_comm_rank.exit.preheader.i39:  ; preds = %66
   %sext.i40 = shl i64 %indvars.iv.i.i36, 32
@@ -5808,7 +5820,7 @@ define internal fastcc void @era_update_return_value(ptr nocapture noundef %0, i
 30:                                               ; preds = %.lr.ph
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !42
+  br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !44
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %30
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %30 ]
@@ -6183,7 +6195,7 @@ define internal fastcc i32 @era_next_child(ptr nocapture noundef readonly %0, i3
   %14 = load i32, ptr %13, align 4
   %.not10.i = icmp eq i32 %14, %1
   %indvars.iv.next.i = add nsw i64 %indvars.iv.i, -1
-  br i1 %.not10.i, label %era_tree_rank_from_comm_rank.exit, label %12, !llvm.loop !32
+  br i1 %.not10.i, label %era_tree_rank_from_comm_rank.exit, label %12, !llvm.loop !34
 
 era_tree_rank_from_comm_rank.exit:                ; preds = %12
   %15 = and i64 %indvars.iv.i, 4294967295
@@ -6207,7 +6219,7 @@ era_tree_rank_from_comm_rank.exit:                ; preds = %12
   %24 = load i32, ptr %23, align 4
   %.not10.i43 = icmp eq i32 %24, %.val
   %indvars.iv.next.i44 = add nsw i64 %indvars.iv.i42, -1
-  br i1 %.not10.i43, label %era_tree_rank_from_comm_rank.exit45.preheader, label %22, !llvm.loop !32
+  br i1 %.not10.i43, label %era_tree_rank_from_comm_rank.exit45.preheader, label %22, !llvm.loop !34
 
 era_tree_rank_from_comm_rank.exit45.preheader:    ; preds = %22
   %sext51 = shl i64 %indvars.iv.i42, 32
@@ -6244,7 +6256,7 @@ era_tree_rank_from_comm_rank.exit45:              ; preds = %.lr.ph54
   %44 = load i32, ptr %43, align 4
   %.not10.i48 = icmp eq i32 %44, %1
   %indvars.iv.next.i49 = add nsw i64 %indvars.iv.i47, -1
-  br i1 %.not10.i48, label %era_tree_rank_from_comm_rank.exit50.preheader, label %.preheader, !llvm.loop !32
+  br i1 %.not10.i48, label %era_tree_rank_from_comm_rank.exit50.preheader, label %.preheader, !llvm.loop !34
 
 era_tree_rank_from_comm_rank.exit50.preheader:    ; preds = %.preheader
   %sext = shl i64 %indvars.iv.i47, 32
@@ -6375,10 +6387,10 @@ opal_thread_add_fetch_32.exit:                    ; preds = %11, %13
 56:                                               ; preds = %52
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %51
-  br i1 %exitcond.not, label %.critedge.thread, label %52, !llvm.loop !43
+  br i1 %exitcond.not, label %.critedge.thread, label %52, !llvm.loop !45
 
 .critedge.loopexit:                               ; preds = %52
-  %57 = trunc i64 %indvars.iv to i32
+  %57 = trunc nsw i64 %indvars.iv to i32
   br label %.critedge
 
 .critedge:                                        ; preds = %.critedge.loopexit, %.preheader
@@ -6387,7 +6399,7 @@ opal_thread_add_fetch_32.exit:                    ; preds = %11, %13
   br i1 %58, label %.critedge.thread, label %82
 
 .critedge.thread:                                 ; preds = %.critedge, %56
-  %59 = trunc i64 %indvars.iv140 to i32
+  %59 = trunc nuw nsw i64 %indvars.iv140 to i32
   %60 = getelementptr inbounds i8, ptr %41, i64 16
   %61 = load ptr, ptr %60, align 8
   %62 = sext i32 %43 to i64
@@ -6470,7 +6482,7 @@ opal_thread_add_fetch_32.exit:                    ; preds = %11, %13
   %indvars.iv.next141 = add nuw nsw i64 %indvars.iv140, 1
   %117 = sext i32 %116 to i64
   %118 = icmp slt i64 %indvars.iv.next141, %117
-  br i1 %118, label %.preheader, label %.loopexit105, !llvm.loop !44
+  br i1 %118, label %.preheader, label %.loopexit105, !llvm.loop !46
 
 .loopexit105:                                     ; preds = %115, %24, %77, %.critedge.thread, %opal_thread_add_fetch_32.exit
   %119 = tail call fastcc i32 @era_next_child(ptr noundef %1, i32 noundef -1)
@@ -6525,7 +6537,7 @@ opal_thread_add_fetch_32.exit:                    ; preds = %11, %13
 
 146:                                              ; preds = %.lr.ph123
   %.not99 = icmp eq ptr %134, %125
-  br i1 %.not99, label %.loopexit104, label %.lr.ph123, !llvm.loop !45
+  br i1 %.not99, label %.loopexit104, label %.lr.ph123, !llvm.loop !47
 
 .loopexit104:                                     ; preds = %146, %129, %135, %126
   %147 = load i64, ptr %17, align 8
@@ -6535,7 +6547,7 @@ opal_thread_add_fetch_32.exit:                    ; preds = %11, %13
   %149 = getelementptr i8, ptr %.val, i64 16
   %.val.val = load i32, ptr %149, align 8
   %150 = icmp slt i32 %148, %.val.val
-  br i1 %150, label %126, label %._crit_edge, !llvm.loop !46
+  br i1 %150, label %126, label %._crit_edge, !llvm.loop !48
 
 ._crit_edge:                                      ; preds = %.loopexit104, %.loopexit105
   %151 = getelementptr inbounds i8, ptr %1, i64 264
@@ -6559,7 +6571,7 @@ opal_thread_add_fetch_32.exit:                    ; preds = %11, %13
   %159 = getelementptr inbounds i8, ptr %.1129, i64 16
   %.1 = load volatile ptr, ptr %159, align 8
   %.not95 = icmp eq ptr %.1, %155
-  br i1 %.not95, label %.loopexit, label %.lr.ph131, !llvm.loop !47
+  br i1 %.not95, label %.loopexit, label %.lr.ph131, !llvm.loop !49
 
 .loopexit:                                        ; preds = %.lr.ph131, %153, %._crit_edge
   %160 = getelementptr inbounds i8, ptr %0, i64 20
@@ -6635,7 +6647,7 @@ opal_obj_run_destructors.exit.i:                  ; preds = %.lr.ph.i.i, %186
 194:                                              ; preds = %opal_obj_run_destructors.exit.i, %opal_thread_add_fetch_32.exit.i, %168
   %195 = add nuw nsw i32 %.029.i, 1
   %exitcond.not.i = icmp eq i32 %.029.i, %166
-  br i1 %exitcond.not.i, label %era_collect_passed_agreements.exit, label %168, !llvm.loop !48
+  br i1 %exitcond.not.i, label %era_collect_passed_agreements.exit, label %168, !llvm.loop !50
 
 era_collect_passed_agreements.exit:               ; preds = %194, %.loopexit
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
@@ -6775,13 +6787,13 @@ define internal fastcc void @era_merge_new_dead_list(ptr nocapture noundef reado
   br label %.lr.ph.split
 
 .preheader64.loopexit:                            ; preds = %54
-  %25 = trunc i64 %indvars.iv125 to i32
-  %26 = trunc i64 %indvars.iv.next121 to i32
-  %27 = trunc i64 %indvars.iv.next to i32
+  %25 = trunc nuw nsw i64 %indvars.iv125 to i32
+  %26 = trunc nsw i64 %indvars.iv.next121 to i32
+  %27 = trunc nsw i64 %indvars.iv.next to i32
   br label %.preheader64
 
 .preheader64.loopexit105:                         ; preds = %.outer.backedge
-  %28 = trunc i64 %indvars.iv.next126 to i32
+  %28 = trunc nuw nsw i64 %indvars.iv.next126 to i32
   br label %.preheader64
 
 .preheader64:                                     ; preds = %.preheader64.loopexit105, %.preheader64.loopexit, %12
@@ -6816,7 +6828,7 @@ define internal fastcc void @era_merge_new_dead_list(ptr nocapture noundef reado
   br i1 %41, label %.split.us, label %49
 
 .split.us:                                        ; preds = %.lr.ph.split
-  %42 = trunc i64 %indvars.iv120 to i32
+  %42 = trunc nsw i64 %indvars.iv120 to i32
   %sext146 = shl i64 %indvars.iv, 32
   %43 = ashr exact i64 %sext146, 32
   %44 = getelementptr inbounds i32, ptr %15, i64 %43
@@ -6832,14 +6844,14 @@ define internal fastcc void @era_merge_new_dead_list(ptr nocapture noundef reado
   %46 = icmp ult i64 %indvars.iv.next126, %20
   %47 = icmp slt i32 %.056.ph.be, %1
   %48 = select i1 %46, i1 %47, i1 false
-  br i1 %48, label %.lr.ph.split.preheader, label %.preheader64.loopexit105, !llvm.loop !49
+  br i1 %48, label %.lr.ph.split.preheader, label %.preheader64.loopexit105, !llvm.loop !51
 
 49:                                               ; preds = %.lr.ph.split
   %50 = icmp slt i32 %22, %40
   br i1 %50, label %.split80.us, label %54
 
 .split80.us:                                      ; preds = %49
-  %51 = trunc i64 %indvars.iv120 to i32
+  %51 = trunc nsw i64 %indvars.iv120 to i32
   %sext = shl i64 %indvars.iv, 32
   %52 = ashr exact i64 %sext, 32
   %53 = getelementptr inbounds i32, ptr %15, i64 %52
@@ -6852,10 +6864,10 @@ define internal fastcc void @era_merge_new_dead_list(ptr nocapture noundef reado
   store i32 %40, ptr %55, align 4
   %indvars.iv.next121 = add nsw i64 %indvars.iv120, 1
   %56 = icmp slt i64 %indvars.iv.next121, %19
-  br i1 %56, label %.lr.ph.split, label %.preheader64.loopexit, !llvm.loop !49
+  br i1 %56, label %.lr.ph.split, label %.preheader64.loopexit, !llvm.loop !51
 
 .preheader.loopexit:                              ; preds = %.lr.ph99
-  %57 = trunc i64 %indvars.iv.next129 to i32
+  %57 = trunc nsw i64 %indvars.iv.next129 to i32
   br label %.preheader
 
 .preheader:                                       ; preds = %.preheader.loopexit, %.preheader64
@@ -6885,7 +6897,7 @@ define internal fastcc void @era_merge_new_dead_list(ptr nocapture noundef reado
   %indvars.iv.next131 = add nuw nsw i64 %indvars.iv130, 1
   %indvars.iv.next129 = add nsw i64 %indvars.iv128, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next131, %wide.trip.count
-  br i1 %exitcond.not, label %.preheader.loopexit, label %.lr.ph99, !llvm.loop !50
+  br i1 %exitcond.not, label %.preheader.loopexit, label %.lr.ph99, !llvm.loop !52
 
 .lr.ph103:                                        ; preds = %.lr.ph103.preheader, %.lr.ph103
   %indvars.iv139 = phi i64 [ %61, %.lr.ph103.preheader ], [ %indvars.iv.next140, %.lr.ph103 ]
@@ -6893,10 +6905,10 @@ define internal fastcc void @era_merge_new_dead_list(ptr nocapture noundef reado
   %indvars.iv.next140 = add nsw i64 %indvars.iv139, 1
   %indvars.iv.next138 = add nsw i64 %indvars.iv137, 1
   %exitcond145.not = icmp eq i64 %indvars.iv.next140, %wide.trip.count144
-  br i1 %exitcond145.not, label %._crit_edge.loopexit, label %.lr.ph103, !llvm.loop !51
+  br i1 %exitcond145.not, label %._crit_edge.loopexit, label %.lr.ph103, !llvm.loop !53
 
 ._crit_edge.loopexit:                             ; preds = %.lr.ph103
-  %68 = trunc i64 %indvars.iv.next138 to i32
+  %68 = trunc nsw i64 %indvars.iv.next138 to i32
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %._crit_edge.loopexit, %.preheader
@@ -7003,7 +7015,7 @@ define internal fastcc void @era_mark_process_failed(ptr noundef %0, i32 noundef
   %40 = load i32, ptr %39, align 4
   %.not10.i.i = icmp eq i32 %40, %.val.i
   %indvars.iv.next.i.i = add nsw i64 %indvars.iv.i.i, -1
-  br i1 %.not10.i.i, label %era_tree_rank_from_comm_rank.exit.preheader.i, label %38, !llvm.loop !32
+  br i1 %.not10.i.i, label %era_tree_rank_from_comm_rank.exit.preheader.i, label %38, !llvm.loop !34
 
 era_tree_rank_from_comm_rank.exit.preheader.i:    ; preds = %38
   %sext.i = shl i64 %indvars.iv.i.i, 32
@@ -7059,7 +7071,7 @@ era_parent.exit:                                  ; preds = %era_tree_rank_from_
   %68 = load i32, ptr %67, align 4
   %.not10.i43.i = icmp eq i32 %68, %.val.i79
   %indvars.iv.next.i44.i = add nsw i64 %indvars.iv.i42.i, -1
-  br i1 %.not10.i43.i, label %era_tree_rank_from_comm_rank.exit45.preheader.i, label %66, !llvm.loop !32
+  br i1 %.not10.i43.i, label %era_tree_rank_from_comm_rank.exit45.preheader.i, label %66, !llvm.loop !34
 
 era_tree_rank_from_comm_rank.exit45.preheader.i:  ; preds = %66
   %sext51.i = shl i64 %indvars.iv.i42.i, 32
@@ -7176,7 +7188,7 @@ opal_obj_new.exit.i:                              ; preds = %.lr.ph.i.i.i, %105,
   %126 = getelementptr i8, ptr %.val.i72, i64 16
   %.val.val.i = load i32, ptr %126, align 8
   %.not.i = icmp eq i32 %123, %.val.val.i
-  br i1 %.not.i, label %restart_agreement_from_me.exit, label %97, !llvm.loop !52
+  br i1 %.not.i, label %restart_agreement_from_me.exit, label %97, !llvm.loop !54
 
 restart_agreement_from_me.exit:                   ; preds = %opal_obj_new.exit.i, %era_next_child.exit
   tail call fastcc void @era_check_status(ptr noundef nonnull %0)
@@ -7269,7 +7281,7 @@ opal_thread_add_fetch_32.exit:                    ; preds = %140, %142
   %175 = getelementptr inbounds i8, ptr %.194, i64 16
   %.1 = load volatile ptr, ptr %175, align 8
   %.not69 = icmp eq ptr %.1, %147
-  br i1 %.not69, label %._crit_edge, label %.lr.ph95, !llvm.loop !53
+  br i1 %.not69, label %._crit_edge, label %.lr.ph95, !llvm.loop !55
 
 .lr.ph95:                                         ; preds = %.preheader, %174
   %.194 = phi ptr [ %.1, %174 ], [ %.192, %.preheader ]
@@ -7341,11 +7353,11 @@ opal_obj_new.exit:                                ; preds = %.lr.ph.i.i, %184, %
   %206 = getelementptr i8, ptr %.val, i64 16
   %.val.val = load i32, ptr %206, align 8
   %.not68 = icmp eq i32 %203, %.val.val
-  br i1 %.not68, label %.loopexit82, label %.preheader, !llvm.loop !54
+  br i1 %.not68, label %.loopexit82, label %.preheader, !llvm.loop !56
 
 207:                                              ; preds = %.lr.ph
   %.not66 = icmp eq ptr %152, %147
-  br i1 %.not66, label %.loopexit82, label %.lr.ph, !llvm.loop !55
+  br i1 %.not66, label %.loopexit82, label %.lr.ph, !llvm.loop !57
 
 .loopexit82:                                      ; preds = %207, %.loopexit, %opal_thread_add_fetch_32.exit, %153
   tail call fastcc void @era_check_status(ptr noundef %0)
@@ -7436,7 +7448,7 @@ declare i32 @ompi_group_translate_ranks(ptr noundef, i32 noundef, ptr noundef, p
 declare void @qsort(ptr noundef, i64 noundef, i64 noundef, ptr nocapture noundef) local_unnamed_addr #14
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal i32 @compare_ints(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #15 {
+define internal range(i32 -1, 2) i32 @compare_ints(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #15 {
   %3 = load i32, ptr %0, align 4
   %4 = load i32, ptr %1, align 4
   %5 = icmp sgt i32 %3, %4
@@ -7448,7 +7460,7 @@ define internal i32 @compare_ints(ptr nocapture noundef readonly %0, ptr nocaptu
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal i32 @compare_uint16_ts(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #15 {
+define internal range(i32 -1, 2) i32 @compare_uint16_ts(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #15 {
   %3 = load i16, ptr %0, align 2
   %4 = load i16, ptr %1, align 2
   %5 = icmp ugt i16 %3, %4
@@ -7542,17 +7554,17 @@ attributes #21 = { nounwind allocsize(1) }
 !16 = distinct !{!16, !5}
 !17 = distinct !{!17, !5}
 !18 = distinct !{!18, !5}
-!19 = !{i32 -2, i32 1}
+!19 = distinct !{!19, !5}
 !20 = distinct !{!20, !5}
-!21 = distinct !{!21, !5}
-!22 = distinct !{!22, !5}
+!21 = distinct !{!21, !5, !22}
+!22 = !{!"llvm.loop.unswitch.partial.disable"}
 !23 = distinct !{!23, !5}
-!24 = distinct !{!24, !5}
+!24 = distinct !{!24, !5, !22}
 !25 = distinct !{!25, !5}
 !26 = distinct !{!26, !5}
-!27 = !{ptr @era_tree_fn_binary, ptr @era_tree_fn_star, ptr @era_tree_fn_string}
+!27 = distinct !{!27, !5}
 !28 = distinct !{!28, !5}
-!29 = distinct !{!29, !5}
+!29 = !{ptr @era_tree_fn_binary, ptr @era_tree_fn_star, ptr @era_tree_fn_string}
 !30 = distinct !{!30, !5}
 !31 = distinct !{!31, !5}
 !32 = distinct !{!32, !5}
@@ -7579,3 +7591,5 @@ attributes #21 = { nounwind allocsize(1) }
 !53 = distinct !{!53, !5}
 !54 = distinct !{!54, !5}
 !55 = distinct !{!55, !5}
+!56 = distinct !{!56, !5}
+!57 = distinct !{!57, !5}

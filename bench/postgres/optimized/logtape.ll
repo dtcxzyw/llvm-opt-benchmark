@@ -114,7 +114,7 @@ define dso_local noundef ptr @LogicalTapeImport(ptr noundef %0, i32 noundef %1, 
   %storemerge = phi i64 [ %24, %23 ], [ 0, %22 ]
   store i64 %storemerge, ptr %10, align 8
   %26 = call i64 @llvm.umin.i64(i64 %18, i64 1073741823)
-  %27 = trunc i64 %26 to i32
+  %27 = trunc nuw nsw i64 %26 to i32
   store i32 %27, ptr %11, align 4
   %28 = sdiv i64 %18, 8192
   %29 = getelementptr inbounds i8, ptr %0, i64 24
@@ -691,7 +691,7 @@ define dso_local void @LogicalTapeRewindForRead(ptr nocapture noundef %0, i64 no
   %40 = getelementptr inbounds i8, ptr %0, i64 72
   %41 = load ptr, ptr %40, align 8
   %.not34 = icmp eq ptr %41, null
-  br i1 %.not34, label %82, label %42
+  br i1 %.not34, label %83, label %42
 
 42:                                               ; preds = %38
   %43 = getelementptr inbounds i8, ptr %0, i64 80
@@ -704,88 +704,93 @@ define dso_local void @LogicalTapeRewindForRead(ptr nocapture noundef %0, i64 no
   %47 = getelementptr inbounds i8, ptr %3, i64 64
   %48 = getelementptr inbounds i8, ptr %3, i64 72
   %49 = getelementptr inbounds i8, ptr %3, i64 56
-  %50 = zext nneg i32 %44 to i64
-  br label %51
+  %50 = load i8, ptr %46, align 8
+  %51 = trunc i8 %50 to i1
+  br i1 %51, label %._crit_edge, label %.lr.ph.split.preheader
 
-51:                                               ; preds = %.lr.ph, %ltsReleaseBlock.exit
-  %indvars.iv = phi i64 [ %50, %.lr.ph ], [ %indvars.iv.next, %ltsReleaseBlock.exit ]
-  %52 = load ptr, ptr %40, align 8
-  %53 = getelementptr i64, ptr %52, i64 %indvars.iv
-  %54 = getelementptr i8, ptr %53, i64 -8
-  %55 = load i64, ptr %54, align 8
-  %56 = load i8, ptr %46, align 8
-  %57 = trunc i8 %56 to i1
-  br i1 %57, label %ltsReleaseBlock.exit, label %58
+.lr.ph.split.preheader:                           ; preds = %.lr.ph
+  %52 = zext nneg i32 %44 to i64
+  br label %.lr.ph.split
 
-58:                                               ; preds = %51
-  %59 = load i64, ptr %47, align 8
-  %60 = load i64, ptr %48, align 8
-  %.not.i = icmp ult i64 %59, %60
-  br i1 %.not.i, label %._crit_edge31.i, label %61
+.lr.ph.split:                                     ; preds = %.lr.ph.split.preheader, %ltsReleaseBlock.exit
+  %indvars.iv = phi i64 [ %52, %.lr.ph.split.preheader ], [ %indvars.iv.next, %ltsReleaseBlock.exit ]
+  %53 = load ptr, ptr %40, align 8
+  %54 = getelementptr i64, ptr %53, i64 %indvars.iv
+  %55 = getelementptr i8, ptr %54, i64 -8
+  %56 = load i64, ptr %55, align 8
+  %57 = load i8, ptr %46, align 8
+  %58 = trunc i8 %57 to i1
+  br i1 %58, label %ltsReleaseBlock.exit, label %59
 
-._crit_edge31.i:                                  ; preds = %58
+59:                                               ; preds = %.lr.ph.split
+  %60 = load i64, ptr %47, align 8
+  %61 = load i64, ptr %48, align 8
+  %.not.i = icmp ult i64 %60, %61
+  br i1 %.not.i, label %._crit_edge31.i, label %62
+
+._crit_edge31.i:                                  ; preds = %59
   %.pre.i = load ptr, ptr %49, align 8
-  br label %68
+  br label %69
 
-61:                                               ; preds = %58
-  %62 = shl i64 %60, 4
-  %63 = icmp ugt i64 %62, 1073741823
-  br i1 %63, label %ltsReleaseBlock.exit, label %64
+62:                                               ; preds = %59
+  %63 = shl i64 %61, 4
+  %64 = icmp ugt i64 %63, 1073741823
+  br i1 %64, label %ltsReleaseBlock.exit, label %65
 
-64:                                               ; preds = %61
-  %65 = shl i64 %60, 1
-  store i64 %65, ptr %48, align 8
-  %66 = load ptr, ptr %49, align 8
-  %67 = tail call ptr @repalloc(ptr noundef %66, i64 noundef %62) #9
-  store ptr %67, ptr %49, align 8
+65:                                               ; preds = %62
+  %66 = shl i64 %61, 1
+  store i64 %66, ptr %48, align 8
+  %67 = load ptr, ptr %49, align 8
+  %68 = tail call ptr @repalloc(ptr noundef %67, i64 noundef %63) #9
+  store ptr %68, ptr %49, align 8
   %.pre32.i = load i64, ptr %47, align 8
-  br label %68
+  br label %69
 
-68:                                               ; preds = %64, %._crit_edge31.i
-  %69 = phi i64 [ %59, %._crit_edge31.i ], [ %.pre32.i, %64 ]
-  %70 = phi ptr [ %.pre.i, %._crit_edge31.i ], [ %67, %64 ]
-  %71 = add i64 %69, 1
-  store i64 %71, ptr %47, align 8
-  %.not2627.i = icmp eq i64 %69, 0
+69:                                               ; preds = %65, %._crit_edge31.i
+  %70 = phi i64 [ %60, %._crit_edge31.i ], [ %.pre32.i, %65 ]
+  %71 = phi ptr [ %.pre.i, %._crit_edge31.i ], [ %68, %65 ]
+  %72 = add i64 %70, 1
+  store i64 %72, ptr %47, align 8
+  %.not2627.i = icmp eq i64 %70, 0
   br i1 %.not2627.i, label %._crit_edge.i, label %.lr.ph.i
 
-.lr.ph.i:                                         ; preds = %68, %77
-  %.028.i = phi i64 [ %73, %77 ], [ %69, %68 ]
-  %72 = add i64 %.028.i, -1
-  %73 = lshr i64 %72, 1
-  %74 = getelementptr i64, ptr %70, i64 %73
-  %75 = load i64, ptr %74, align 8
-  %76 = icmp slt i64 %75, %55
-  br i1 %76, label %._crit_edge.i, label %77
+.lr.ph.i:                                         ; preds = %69, %78
+  %.028.i = phi i64 [ %74, %78 ], [ %70, %69 ]
+  %73 = add i64 %.028.i, -1
+  %74 = lshr i64 %73, 1
+  %75 = getelementptr i64, ptr %71, i64 %74
+  %76 = load i64, ptr %75, align 8
+  %77 = icmp slt i64 %76, %56
+  br i1 %77, label %._crit_edge.i, label %78
 
-77:                                               ; preds = %.lr.ph.i
-  %78 = getelementptr i64, ptr %70, i64 %.028.i
-  store i64 %75, ptr %78, align 8
-  %.not26.i = icmp ult i64 %72, 2
+78:                                               ; preds = %.lr.ph.i
+  %79 = getelementptr i64, ptr %71, i64 %.028.i
+  store i64 %76, ptr %79, align 8
+  %.not26.i = icmp ult i64 %73, 2
   br i1 %.not26.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !9
 
-._crit_edge.i:                                    ; preds = %77, %.lr.ph.i, %68
-  %.0.lcssa.i = phi i64 [ 0, %68 ], [ %73, %77 ], [ %.028.i, %.lr.ph.i ]
-  %79 = getelementptr i64, ptr %70, i64 %.0.lcssa.i
-  store i64 %55, ptr %79, align 8
+._crit_edge.i:                                    ; preds = %78, %.lr.ph.i, %69
+  %.0.lcssa.i = phi i64 [ 0, %69 ], [ %74, %78 ], [ %.028.i, %.lr.ph.i ]
+  %80 = getelementptr i64, ptr %71, i64 %.0.lcssa.i
+  store i64 %56, ptr %80, align 8
   br label %ltsReleaseBlock.exit
 
-ltsReleaseBlock.exit:                             ; preds = %51, %61, %._crit_edge.i
+ltsReleaseBlock.exit:                             ; preds = %.lr.ph.split, %62, %._crit_edge.i
   %indvars.iv.next = add nsw i64 %indvars.iv, -1
-  %80 = icmp sgt i64 %indvars.iv, 1
-  br i1 %80, label %51, label %._crit_edge.loopexit, !llvm.loop !10
+  %81 = icmp sgt i64 %indvars.iv, 1
+  br i1 %81, label %.lr.ph.split, label %._crit_edge.loopexit36, !llvm.loop !10
 
-._crit_edge.loopexit:                             ; preds = %ltsReleaseBlock.exit
+._crit_edge.loopexit36:                           ; preds = %ltsReleaseBlock.exit
   %.pre = load ptr, ptr %40, align 8
   br label %._crit_edge
 
-._crit_edge:                                      ; preds = %._crit_edge.loopexit, %42
-  %81 = phi ptr [ %.pre, %._crit_edge.loopexit ], [ %41, %42 ]
-  tail call void @pfree(ptr noundef %81) #9
+._crit_edge:                                      ; preds = %.lr.ph, %._crit_edge.loopexit36, %42
+  %82 = phi ptr [ %.pre, %._crit_edge.loopexit36 ], [ %41, %42 ], [ %41, %.lr.ph ]
+  tail call void @pfree(ptr noundef %82) #9
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %40, i8 0, i64 16, i1 false)
-  br label %82
+  br label %83
 
-82:                                               ; preds = %._crit_edge, %38
+83:                                               ; preds = %._crit_edge, %38
   ret void
 }
 
@@ -859,7 +864,7 @@ define dso_local i64 @LogicalTapeRead(ptr nocapture noundef %0, ptr nocapture no
   %38 = sub i64 %.02430, %spec.select
   %39 = add i64 %spec.select, %.02331
   %.not = icmp eq i64 %38, 0
-  br i1 %.not, label %._crit_edge, label %21, !llvm.loop !11
+  br i1 %.not, label %._crit_edge, label %21, !llvm.loop !12
 
 ._crit_edge:                                      ; preds = %26, %24, %18
   %.023.lcssa = phi i64 [ 0, %18 ], [ %.02331, %24 ], [ %39, %26 ]
@@ -1003,7 +1008,7 @@ ltsReleaseBlock.exit:                             ; preds = %._crit_edge.i, %40,
   %73 = load i32, ptr %9, align 8
   %74 = sub i32 %73, %68
   %75 = icmp sgt i32 %74, 8192
-  br i1 %75, label %10, label %.loopexit, !llvm.loop !12
+  br i1 %75, label %10, label %.loopexit, !llvm.loop !13
 
 .loopexit:                                        ; preds = %10, %72, %71
   %76 = phi i32 [ %68, %71 ], [ %12, %10 ], [ %68, %72 ]
@@ -1234,7 +1239,7 @@ ltsReadBlock.exit:                                ; preds = %39
   store i64 %60, ptr %23, align 8
   %61 = add i64 %.03446, 8176
   %62 = icmp ult i64 %61, %1
-  br i1 %62, label %27, label %63, !llvm.loop !13
+  br i1 %62, label %27, label %63, !llvm.loop !14
 
 63:                                               ; preds = %59
   %64 = sub i64 %61, %1
@@ -1428,7 +1433,8 @@ attributes #10 = { cold nounwind }
 !7 = distinct !{!7, !6}
 !8 = distinct !{!8, !6}
 !9 = distinct !{!9, !6}
-!10 = distinct !{!10, !6}
-!11 = distinct !{!11, !6}
+!10 = distinct !{!10, !6, !11}
+!11 = !{!"llvm.loop.unswitch.partial.disable"}
 !12 = distinct !{!12, !6}
 !13 = distinct !{!13, !6}
+!14 = distinct !{!14, !6}
