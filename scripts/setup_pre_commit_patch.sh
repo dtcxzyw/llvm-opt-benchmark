@@ -16,7 +16,7 @@ PATCH_URL=https://github.com/${GITHUB_PATCH_ID}.diff
 
 echo "Downloading patch $PATCH_URL..."
 wget $PATCH_URL -O patch.diff
-git -C llvm/llvm-project apply ../../patch.diff
+git -C llvm/llvm-project apply --exclude=llvm/test/* ../../patch.diff
 PATCH_SHA256=$(sha256sum patch.diff | sed 's/\|/ /'|awk '{print $1}')
 echo "COMMIT_URL=$COMMIT_URL" >> $GITHUB_ENV
 echo "PATCH_SHA256=$PATCH_SHA256" >> $GITHUB_ENV
