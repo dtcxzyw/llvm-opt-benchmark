@@ -2268,7 +2268,7 @@ define noundef zeroext i1 @_ZN12typst_syntax4node10SyntaxNode11spanless_eq17hf00
 
 15:                                               ; preds = %2
   %16 = icmp eq i8 %9, -125
-  br i1 %16, label %84, label %_ZN12typst_syntax4node8LeafNode11spanless_eq17h15b7cc4255f985e2E.exit
+  br i1 %16, label %82, label %_ZN12typst_syntax4node8LeafNode11spanless_eq17h15b7cc4255f985e2E.exit
 
 17:                                               ; preds = %11
   tail call void @llvm.experimental.noalias.scope.decl(metadata !299)
@@ -2309,8 +2309,8 @@ define noundef zeroext i1 @_ZN12typst_syntax4node10SyntaxNode11spanless_eq17hf00
   %39 = icmp eq i32 %bcmp.i.i.i, 0
   br label %_ZN12typst_syntax4node8LeafNode11spanless_eq17h15b7cc4255f985e2E.exit
 
-_ZN12typst_syntax4node8LeafNode11spanless_eq17h15b7cc4255f985e2E.exit: ; preds = %_ZN4core3cmp9PartialEq2ne17he05f3a40efe24436E.llvm.10859166595437567863.exit.i.i.i.i, %131, %.preheader.split.i.i.i.i, %79, %77, %126, %"_ZN64_$LT$ecow..string..EcoString$u20$as$u20$core..cmp..PartialEq$GT$2eq17h577dd0ab5ccd840eE.exit.i.i", %106, %"_ZN64_$LT$ecow..string..EcoString$u20$as$u20$core..cmp..PartialEq$GT$2eq17h577dd0ab5ccd840eE.exit.i", %84, %67, %60, %54, %48, %40, %34, %19, %17, %11, %13, %15
-  %.0.shrunk = phi i1 [ false, %15 ], [ false, %13 ], [ false, %11 ], [ false, %17 ], [ %39, %34 ], [ false, %19 ], [ false, %67 ], [ false, %60 ], [ false, %54 ], [ false, %48 ], [ false, %40 ], [ false, %"_ZN64_$LT$ecow..string..EcoString$u20$as$u20$core..cmp..PartialEq$GT$2eq17h577dd0ab5ccd840eE.exit.i" ], [ false, %"_ZN64_$LT$ecow..string..EcoString$u20$as$u20$core..cmp..PartialEq$GT$2eq17h577dd0ab5ccd840eE.exit.i.i" ], [ false, %126 ], [ false, %106 ], [ false, %84 ], [ %exitcond, %77 ], [ %exitcond, %79 ], [ %exitcond.not.i.i.i.i, %.preheader.split.i.i.i.i ], [ %exitcond.not.i.i.i.i, %131 ], [ %exitcond.not.i.i.i.i, %_ZN4core3cmp9PartialEq2ne17he05f3a40efe24436E.llvm.10859166595437567863.exit.i.i.i.i ]
+_ZN12typst_syntax4node8LeafNode11spanless_eq17h15b7cc4255f985e2E.exit: ; preds = %_ZN4core3cmp9PartialEq2ne17he05f3a40efe24436E.llvm.10859166595437567863.exit.i.i.i.i, %129, %.preheader.split.i.i.i.i, %77, %75, %124, %"_ZN64_$LT$ecow..string..EcoString$u20$as$u20$core..cmp..PartialEq$GT$2eq17h577dd0ab5ccd840eE.exit.i.i", %104, %"_ZN64_$LT$ecow..string..EcoString$u20$as$u20$core..cmp..PartialEq$GT$2eq17h577dd0ab5ccd840eE.exit.i", %82, %65, %60, %54, %48, %40, %34, %19, %17, %11, %13, %15
+  %.0.shrunk = phi i1 [ false, %15 ], [ false, %13 ], [ false, %11 ], [ false, %17 ], [ %39, %34 ], [ false, %19 ], [ false, %65 ], [ false, %60 ], [ false, %54 ], [ false, %48 ], [ false, %40 ], [ false, %"_ZN64_$LT$ecow..string..EcoString$u20$as$u20$core..cmp..PartialEq$GT$2eq17h577dd0ab5ccd840eE.exit.i" ], [ false, %"_ZN64_$LT$ecow..string..EcoString$u20$as$u20$core..cmp..PartialEq$GT$2eq17h577dd0ab5ccd840eE.exit.i.i" ], [ false, %124 ], [ false, %104 ], [ false, %82 ], [ %exitcond, %75 ], [ %exitcond, %77 ], [ %exitcond.not.i.i.i.i, %.preheader.split.i.i.i.i ], [ %exitcond.not.i.i.i.i, %129 ], [ %exitcond.not.i.i.i.i, %_ZN4core3cmp9PartialEq2ne17he05f3a40efe24436E.llvm.10859166595437567863.exit.i.i.i.i ]
   ret i1 %.0.shrunk
 
 40:                                               ; preds = %13
@@ -2346,145 +2346,144 @@ _ZN12typst_syntax4node8LeafNode11spanless_eq17h15b7cc4255f985e2E.exit: ; preds =
   %62 = load i8, ptr %61, align 8, !range !17, !alias.scope !321, !noalias !324, !noundef !7
   %63 = getelementptr inbounds i8, ptr %42, i64 72
   %64 = load i8, ptr %63, align 8, !range !17, !alias.scope !324, !noalias !321, !noundef !7
-  %65 = xor i8 %64, %62
-  %66 = trunc nuw i8 %65 to i1
-  br i1 %66, label %_ZN12typst_syntax4node8LeafNode11spanless_eq17h15b7cc4255f985e2E.exit, label %67
+  %.not.i = icmp eq i8 %62, %64
+  br i1 %.not.i, label %65, label %_ZN12typst_syntax4node8LeafNode11spanless_eq17h15b7cc4255f985e2E.exit
 
-67:                                               ; preds = %60
-  %68 = getelementptr inbounds i8, ptr %41, i64 32
-  %69 = load i64, ptr %68, align 8, !alias.scope !321, !noalias !324, !noundef !7
-  %70 = getelementptr inbounds i8, ptr %42, i64 32
-  %71 = load i64, ptr %70, align 8, !alias.scope !324, !noalias !321, !noundef !7
-  %72 = icmp eq i64 %69, %71
-  br i1 %72, label %73, label %_ZN12typst_syntax4node8LeafNode11spanless_eq17h15b7cc4255f985e2E.exit
+65:                                               ; preds = %60
+  %66 = getelementptr inbounds i8, ptr %41, i64 32
+  %67 = load i64, ptr %66, align 8, !alias.scope !321, !noalias !324, !noundef !7
+  %68 = getelementptr inbounds i8, ptr %42, i64 32
+  %69 = load i64, ptr %68, align 8, !alias.scope !324, !noalias !321, !noundef !7
+  %70 = icmp eq i64 %67, %69
+  br i1 %70, label %71, label %_ZN12typst_syntax4node8LeafNode11spanless_eq17h15b7cc4255f985e2E.exit
 
-73:                                               ; preds = %67
-  %74 = getelementptr inbounds i8, ptr %41, i64 24
-  %75 = load ptr, ptr %74, align 8, !alias.scope !321, !noalias !324, !nonnull !7, !noundef !7
-  %76 = getelementptr i8, ptr %42, i64 24
-  %.val.i = load ptr, ptr %76, align 8, !alias.scope !324, !noalias !321, !nonnull !7, !noundef !7
-  br label %77
+71:                                               ; preds = %65
+  %72 = getelementptr inbounds i8, ptr %41, i64 24
+  %73 = load ptr, ptr %72, align 8, !alias.scope !321, !noalias !324, !nonnull !7, !noundef !7
+  %74 = getelementptr i8, ptr %42, i64 24
+  %.val.i = load ptr, ptr %74, align 8, !alias.scope !324, !noalias !321, !nonnull !7, !noundef !7
+  br label %75
 
-77:                                               ; preds = %79, %73
-  %78 = phi i64 [ %80, %79 ], [ 0, %73 ]
-  %exitcond = icmp eq i64 %78, %69
-  br i1 %exitcond, label %_ZN12typst_syntax4node8LeafNode11spanless_eq17h15b7cc4255f985e2E.exit, label %79
+75:                                               ; preds = %77, %71
+  %76 = phi i64 [ %78, %77 ], [ 0, %71 ]
+  %exitcond = icmp eq i64 %76, %67
+  br i1 %exitcond, label %_ZN12typst_syntax4node8LeafNode11spanless_eq17h15b7cc4255f985e2E.exit, label %77
 
-79:                                               ; preds = %77
-  %80 = add i64 %78, 1
-  %81 = getelementptr inbounds { { [24 x i8], i8, [7 x i8] } }, ptr %75, i64 %78
-  %82 = getelementptr inbounds { { [24 x i8], i8, [7 x i8] } }, ptr %.val.i, i64 %78
-  %83 = tail call noundef zeroext i1 @_ZN12typst_syntax4node10SyntaxNode11spanless_eq17hf00c5186e89f3bbaE(ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %81, ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %82), !noalias !326
-  br i1 %83, label %77, label %_ZN12typst_syntax4node8LeafNode11spanless_eq17h15b7cc4255f985e2E.exit
+77:                                               ; preds = %75
+  %78 = add i64 %76, 1
+  %79 = getelementptr inbounds { { [24 x i8], i8, [7 x i8] } }, ptr %73, i64 %76
+  %80 = getelementptr inbounds { { [24 x i8], i8, [7 x i8] } }, ptr %.val.i, i64 %76
+  %81 = tail call noundef zeroext i1 @_ZN12typst_syntax4node10SyntaxNode11spanless_eq17hf00c5186e89f3bbaE(ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %79, ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %80), !noalias !326
+  br i1 %81, label %75, label %_ZN12typst_syntax4node8LeafNode11spanless_eq17h15b7cc4255f985e2E.exit
 
-84:                                               ; preds = %15
-  %85 = load ptr, ptr %0, align 8, !nonnull !7, !noundef !7
-  %86 = load ptr, ptr %1, align 8, !nonnull !7, !noundef !7
+82:                                               ; preds = %15
+  %83 = load ptr, ptr %0, align 8, !nonnull !7, !noundef !7
+  %84 = load ptr, ptr %1, align 8, !nonnull !7, !noundef !7
   tail call void @llvm.experimental.noalias.scope.decl(metadata !329)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !332)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !334)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !337)
-  %87 = getelementptr inbounds i8, ptr %85, i64 71
-  %88 = load i8, ptr %87, align 1, !alias.scope !339, !noalias !342, !noundef !7
-  %89 = icmp slt i8 %88, 0
-  %90 = getelementptr inbounds i8, ptr %85, i64 64
-  %91 = load i64, ptr %90, align 8, !alias.scope !339, !noalias !342
-  %92 = and i8 %88, 127
-  %93 = zext nneg i8 %92 to i64
-  %.sroa.3.0.i.i.i2 = select i1 %89, i64 %93, i64 %91
-  %94 = getelementptr inbounds i8, ptr %86, i64 71
-  %95 = load i8, ptr %94, align 1, !alias.scope !343, !noalias !346, !noundef !7
-  %96 = icmp slt i8 %95, 0
-  %97 = getelementptr inbounds i8, ptr %86, i64 64
-  %98 = load i64, ptr %97, align 8, !alias.scope !343, !noalias !346
-  %99 = and i8 %95, 127
-  %100 = zext nneg i8 %99 to i64
-  %.sroa.3.0.i3.i.i3 = select i1 %96, i64 %100, i64 %98
+  %85 = getelementptr inbounds i8, ptr %83, i64 71
+  %86 = load i8, ptr %85, align 1, !alias.scope !339, !noalias !342, !noundef !7
+  %87 = icmp slt i8 %86, 0
+  %88 = getelementptr inbounds i8, ptr %83, i64 64
+  %89 = load i64, ptr %88, align 8, !alias.scope !339, !noalias !342
+  %90 = and i8 %86, 127
+  %91 = zext nneg i8 %90 to i64
+  %.sroa.3.0.i.i.i2 = select i1 %87, i64 %91, i64 %89
+  %92 = getelementptr inbounds i8, ptr %84, i64 71
+  %93 = load i8, ptr %92, align 1, !alias.scope !343, !noalias !346, !noundef !7
+  %94 = icmp slt i8 %93, 0
+  %95 = getelementptr inbounds i8, ptr %84, i64 64
+  %96 = load i64, ptr %95, align 8, !alias.scope !343, !noalias !346
+  %97 = and i8 %93, 127
+  %98 = zext nneg i8 %97 to i64
+  %.sroa.3.0.i3.i.i3 = select i1 %94, i64 %98, i64 %96
   %.not.i.i.i4 = icmp eq i64 %.sroa.3.0.i.i.i2, %.sroa.3.0.i3.i.i3
   br i1 %.not.i.i.i4, label %"_ZN64_$LT$ecow..string..EcoString$u20$as$u20$core..cmp..PartialEq$GT$2eq17h577dd0ab5ccd840eE.exit.i", label %_ZN12typst_syntax4node8LeafNode11spanless_eq17h15b7cc4255f985e2E.exit
 
-"_ZN64_$LT$ecow..string..EcoString$u20$as$u20$core..cmp..PartialEq$GT$2eq17h577dd0ab5ccd840eE.exit.i": ; preds = %84
-  %101 = getelementptr inbounds i8, ptr %86, i64 56
-  %102 = getelementptr inbounds i8, ptr %85, i64 56
-  %103 = load ptr, ptr %101, align 8, !alias.scope !343, !noalias !346, !nonnull !7
-  %.sroa.0.0.i4.i.i6 = select i1 %96, ptr %101, ptr %103
-  %104 = load ptr, ptr %102, align 8, !alias.scope !339, !noalias !342, !nonnull !7
-  %.sroa.0.0.i.i.i7 = select i1 %89, ptr %102, ptr %104
+"_ZN64_$LT$ecow..string..EcoString$u20$as$u20$core..cmp..PartialEq$GT$2eq17h577dd0ab5ccd840eE.exit.i": ; preds = %82
+  %99 = getelementptr inbounds i8, ptr %84, i64 56
+  %100 = getelementptr inbounds i8, ptr %83, i64 56
+  %101 = load ptr, ptr %99, align 8, !alias.scope !343, !noalias !346, !nonnull !7
+  %.sroa.0.0.i4.i.i6 = select i1 %94, ptr %99, ptr %101
+  %102 = load ptr, ptr %100, align 8, !alias.scope !339, !noalias !342, !nonnull !7
+  %.sroa.0.0.i.i.i7 = select i1 %87, ptr %100, ptr %102
   %bcmp.i.i.i8 = tail call i32 @bcmp(ptr nonnull %.sroa.0.0.i.i.i7, ptr nonnull %.sroa.0.0.i4.i.i6, i64 %.sroa.3.0.i.i.i2), !alias.scope !347
-  %105 = icmp eq i32 %bcmp.i.i.i8, 0
-  br i1 %105, label %106, label %_ZN12typst_syntax4node8LeafNode11spanless_eq17h15b7cc4255f985e2E.exit
+  %103 = icmp eq i32 %bcmp.i.i.i8, 0
+  br i1 %103, label %104, label %_ZN12typst_syntax4node8LeafNode11spanless_eq17h15b7cc4255f985e2E.exit
 
-106:                                              ; preds = %"_ZN64_$LT$ecow..string..EcoString$u20$as$u20$core..cmp..PartialEq$GT$2eq17h577dd0ab5ccd840eE.exit.i"
+104:                                              ; preds = %"_ZN64_$LT$ecow..string..EcoString$u20$as$u20$core..cmp..PartialEq$GT$2eq17h577dd0ab5ccd840eE.exit.i"
   tail call void @llvm.experimental.noalias.scope.decl(metadata !351)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !354)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !356)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !359)
-  %107 = getelementptr inbounds i8, ptr %85, i64 55
-  %108 = load i8, ptr %107, align 1, !alias.scope !361, !noalias !364, !noundef !7
-  %109 = icmp slt i8 %108, 0
-  %110 = getelementptr inbounds i8, ptr %85, i64 48
-  %111 = load i64, ptr %110, align 8, !alias.scope !361, !noalias !364
-  %112 = and i8 %108, 127
-  %113 = zext nneg i8 %112 to i64
-  %.sroa.3.0.i.i.i.i = select i1 %109, i64 %113, i64 %111
-  %114 = getelementptr inbounds i8, ptr %86, i64 55
-  %115 = load i8, ptr %114, align 1, !alias.scope !365, !noalias !368, !noundef !7
-  %116 = icmp slt i8 %115, 0
-  %117 = getelementptr inbounds i8, ptr %86, i64 48
-  %118 = load i64, ptr %117, align 8, !alias.scope !365, !noalias !368
-  %119 = and i8 %115, 127
-  %120 = zext nneg i8 %119 to i64
-  %.sroa.3.0.i3.i.i.i = select i1 %116, i64 %120, i64 %118
+  %105 = getelementptr inbounds i8, ptr %83, i64 55
+  %106 = load i8, ptr %105, align 1, !alias.scope !361, !noalias !364, !noundef !7
+  %107 = icmp slt i8 %106, 0
+  %108 = getelementptr inbounds i8, ptr %83, i64 48
+  %109 = load i64, ptr %108, align 8, !alias.scope !361, !noalias !364
+  %110 = and i8 %106, 127
+  %111 = zext nneg i8 %110 to i64
+  %.sroa.3.0.i.i.i.i = select i1 %107, i64 %111, i64 %109
+  %112 = getelementptr inbounds i8, ptr %84, i64 55
+  %113 = load i8, ptr %112, align 1, !alias.scope !365, !noalias !368, !noundef !7
+  %114 = icmp slt i8 %113, 0
+  %115 = getelementptr inbounds i8, ptr %84, i64 48
+  %116 = load i64, ptr %115, align 8, !alias.scope !365, !noalias !368
+  %117 = and i8 %113, 127
+  %118 = zext nneg i8 %117 to i64
+  %.sroa.3.0.i3.i.i.i = select i1 %114, i64 %118, i64 %116
   %.not.i.i.i.i = icmp eq i64 %.sroa.3.0.i.i.i.i, %.sroa.3.0.i3.i.i.i
   br i1 %.not.i.i.i.i, label %"_ZN64_$LT$ecow..string..EcoString$u20$as$u20$core..cmp..PartialEq$GT$2eq17h577dd0ab5ccd840eE.exit.i.i", label %_ZN12typst_syntax4node8LeafNode11spanless_eq17h15b7cc4255f985e2E.exit
 
-"_ZN64_$LT$ecow..string..EcoString$u20$as$u20$core..cmp..PartialEq$GT$2eq17h577dd0ab5ccd840eE.exit.i.i": ; preds = %106
-  %121 = getelementptr inbounds i8, ptr %86, i64 40
-  %122 = getelementptr inbounds i8, ptr %85, i64 40
-  %123 = load ptr, ptr %121, align 8, !alias.scope !365, !noalias !368, !nonnull !7
-  %.sroa.0.0.i4.i.i.i = select i1 %116, ptr %121, ptr %123
-  %124 = load ptr, ptr %122, align 8, !alias.scope !361, !noalias !364, !nonnull !7
-  %.sroa.0.0.i.i.i.i = select i1 %109, ptr %122, ptr %124
+"_ZN64_$LT$ecow..string..EcoString$u20$as$u20$core..cmp..PartialEq$GT$2eq17h577dd0ab5ccd840eE.exit.i.i": ; preds = %104
+  %119 = getelementptr inbounds i8, ptr %84, i64 40
+  %120 = getelementptr inbounds i8, ptr %83, i64 40
+  %121 = load ptr, ptr %119, align 8, !alias.scope !365, !noalias !368, !nonnull !7
+  %.sroa.0.0.i4.i.i.i = select i1 %114, ptr %119, ptr %121
+  %122 = load ptr, ptr %120, align 8, !alias.scope !361, !noalias !364, !nonnull !7
+  %.sroa.0.0.i.i.i.i = select i1 %107, ptr %120, ptr %122
   %bcmp.i.i.i.i = tail call i32 @bcmp(ptr nonnull %.sroa.0.0.i.i.i.i, ptr nonnull %.sroa.0.0.i4.i.i.i, i64 %.sroa.3.0.i.i.i.i), !alias.scope !369
-  %125 = icmp eq i32 %bcmp.i.i.i.i, 0
-  br i1 %125, label %126, label %_ZN12typst_syntax4node8LeafNode11spanless_eq17h15b7cc4255f985e2E.exit
+  %123 = icmp eq i32 %bcmp.i.i.i.i, 0
+  br i1 %123, label %124, label %_ZN12typst_syntax4node8LeafNode11spanless_eq17h15b7cc4255f985e2E.exit
 
-126:                                              ; preds = %"_ZN64_$LT$ecow..string..EcoString$u20$as$u20$core..cmp..PartialEq$GT$2eq17h577dd0ab5ccd840eE.exit.i.i"
-  %127 = getelementptr inbounds i8, ptr %85, i64 24
-  %128 = getelementptr inbounds i8, ptr %86, i64 24
-  %.val.i.i = load ptr, ptr %127, align 8, !alias.scope !373, !noalias !374, !nonnull !7, !noundef !7
-  %129 = getelementptr inbounds i8, ptr %85, i64 32
-  %.val1.i.i = load i64, ptr %129, align 8, !alias.scope !373, !noalias !374, !noundef !7
-  %.val2.i.i = load ptr, ptr %128, align 8, !alias.scope !374, !noalias !373, !nonnull !7, !noundef !7
-  %130 = getelementptr inbounds i8, ptr %86, i64 32
-  %.val3.i.i = load i64, ptr %130, align 8, !alias.scope !374, !noalias !373, !noundef !7
+124:                                              ; preds = %"_ZN64_$LT$ecow..string..EcoString$u20$as$u20$core..cmp..PartialEq$GT$2eq17h577dd0ab5ccd840eE.exit.i.i"
+  %125 = getelementptr inbounds i8, ptr %83, i64 24
+  %126 = getelementptr inbounds i8, ptr %84, i64 24
+  %.val.i.i = load ptr, ptr %125, align 8, !alias.scope !373, !noalias !374, !nonnull !7, !noundef !7
+  %127 = getelementptr inbounds i8, ptr %83, i64 32
+  %.val1.i.i = load i64, ptr %127, align 8, !alias.scope !373, !noalias !374, !noundef !7
+  %.val2.i.i = load ptr, ptr %126, align 8, !alias.scope !374, !noalias !373, !nonnull !7, !noundef !7
+  %128 = getelementptr inbounds i8, ptr %84, i64 32
+  %.val3.i.i = load i64, ptr %128, align 8, !alias.scope !374, !noalias !373, !noundef !7
   %.not.i.i4.i.i = icmp eq i64 %.val1.i.i, %.val3.i.i
   br i1 %.not.i.i4.i.i, label %.preheader.split.i.i.i.i, label %_ZN12typst_syntax4node8LeafNode11spanless_eq17h15b7cc4255f985e2E.exit
 
-.preheader.split.i.i.i.i:                         ; preds = %126, %_ZN4core3cmp9PartialEq2ne17he05f3a40efe24436E.llvm.10859166595437567863.exit.i.i.i.i
-  %.sroa.01.0.i.i.i.i = phi i64 [ %142, %_ZN4core3cmp9PartialEq2ne17he05f3a40efe24436E.llvm.10859166595437567863.exit.i.i.i.i ], [ 0, %126 ]
+.preheader.split.i.i.i.i:                         ; preds = %124, %_ZN4core3cmp9PartialEq2ne17he05f3a40efe24436E.llvm.10859166595437567863.exit.i.i.i.i
+  %.sroa.01.0.i.i.i.i = phi i64 [ %140, %_ZN4core3cmp9PartialEq2ne17he05f3a40efe24436E.llvm.10859166595437567863.exit.i.i.i.i ], [ 0, %124 ]
   %exitcond.not.i.i.i.i = icmp eq i64 %.sroa.01.0.i.i.i.i, %.val1.i.i
-  br i1 %exitcond.not.i.i.i.i, label %_ZN12typst_syntax4node8LeafNode11spanless_eq17h15b7cc4255f985e2E.exit, label %131
+  br i1 %exitcond.not.i.i.i.i, label %_ZN12typst_syntax4node8LeafNode11spanless_eq17h15b7cc4255f985e2E.exit, label %129
 
-131:                                              ; preds = %.preheader.split.i.i.i.i
-  %132 = getelementptr inbounds [0 x { { { [2 x i64] } } }], ptr %.val.i.i, i64 0, i64 %.sroa.01.0.i.i.i.i
-  %133 = getelementptr inbounds [0 x { { { [2 x i64] } } }], ptr %.val2.i.i, i64 0, i64 %.sroa.01.0.i.i.i.i
-  %134 = tail call { ptr, i64 } @_ZN4ecow7dynamic10DynamicVec8as_slice17h242300dddb8de35eE.llvm.10859166595437567863(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %132), !noalias !375
-  %135 = extractvalue { ptr, i64 } %134, 0
-  %136 = extractvalue { ptr, i64 } %134, 1
-  %137 = tail call { ptr, i64 } @_ZN4ecow7dynamic10DynamicVec8as_slice17h242300dddb8de35eE.llvm.10859166595437567863(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %133), !noalias !380
-  %138 = extractvalue { ptr, i64 } %137, 0
-  %139 = extractvalue { ptr, i64 } %137, 1
-  %140 = icmp ne ptr %135, null
-  tail call void @llvm.assume(i1 %140)
-  %141 = icmp ne ptr %138, null
-  tail call void @llvm.assume(i1 %141)
-  %.not.i.i.i.i.i.i.i = icmp eq i64 %136, %139
+129:                                              ; preds = %.preheader.split.i.i.i.i
+  %130 = getelementptr inbounds [0 x { { { [2 x i64] } } }], ptr %.val.i.i, i64 0, i64 %.sroa.01.0.i.i.i.i
+  %131 = getelementptr inbounds [0 x { { { [2 x i64] } } }], ptr %.val2.i.i, i64 0, i64 %.sroa.01.0.i.i.i.i
+  %132 = tail call { ptr, i64 } @_ZN4ecow7dynamic10DynamicVec8as_slice17h242300dddb8de35eE.llvm.10859166595437567863(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %130), !noalias !375
+  %133 = extractvalue { ptr, i64 } %132, 0
+  %134 = extractvalue { ptr, i64 } %132, 1
+  %135 = tail call { ptr, i64 } @_ZN4ecow7dynamic10DynamicVec8as_slice17h242300dddb8de35eE.llvm.10859166595437567863(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %131), !noalias !380
+  %136 = extractvalue { ptr, i64 } %135, 0
+  %137 = extractvalue { ptr, i64 } %135, 1
+  %138 = icmp ne ptr %133, null
+  tail call void @llvm.assume(i1 %138)
+  %139 = icmp ne ptr %136, null
+  tail call void @llvm.assume(i1 %139)
+  %.not.i.i.i.i.i.i.i = icmp eq i64 %134, %137
   br i1 %.not.i.i.i.i.i.i.i, label %_ZN4core3cmp9PartialEq2ne17he05f3a40efe24436E.llvm.10859166595437567863.exit.i.i.i.i, label %_ZN12typst_syntax4node8LeafNode11spanless_eq17h15b7cc4255f985e2E.exit
 
-_ZN4core3cmp9PartialEq2ne17he05f3a40efe24436E.llvm.10859166595437567863.exit.i.i.i.i: ; preds = %131
-  %142 = add i64 %.sroa.01.0.i.i.i.i, 1
-  %bcmp.i.i.i.i.i.i.i = tail call i32 @bcmp(ptr nonnull %135, ptr nonnull %138, i64 %136), !alias.scope !381
+_ZN4core3cmp9PartialEq2ne17he05f3a40efe24436E.llvm.10859166595437567863.exit.i.i.i.i: ; preds = %129
+  %140 = add i64 %.sroa.01.0.i.i.i.i, 1
+  %bcmp.i.i.i.i.i.i.i = tail call i32 @bcmp(ptr nonnull %133, ptr nonnull %136, i64 %134), !alias.scope !381
   %.not10.i.i.i.i = icmp eq i32 %bcmp.i.i.i.i.i.i.i, 0
   br i1 %.not10.i.i.i.i, label %.preheader.split.i.i.i.i, label %_ZN12typst_syntax4node8LeafNode11spanless_eq17h15b7cc4255f985e2E.exit
 }

@@ -961,7 +961,7 @@ define hidden noundef i64 @"_ZN56_$LT$i64$u20$as$u20$integer_encoding..varint..V
 
 13:                                               ; preds = %._crit_edge
   %14 = getelementptr inbounds [0 x i8], ptr %1, i64 0, i64 %.018.lcssa
-  %15 = trunc i64 %.017.lcssa to i8
+  %15 = trunc nuw nsw i64 %.017.lcssa to i8
   store i8 %15, ptr %14, align 1
   %16 = add nuw i64 %.018.lcssa, 1
   ret i64 %16
@@ -1018,7 +1018,7 @@ define hidden void @"_ZN64_$LT$Inner$u20$as$u20$integer_encoding..writer..VarInt
   unreachable
 
 "_ZN56_$LT$i64$u20$as$u20$integer_encoding..varint..VarInt$GT$10encode_var17h87f22350f4fbe9beE.llvm.7649464633611531201.exit.thread": ; preds = %3, %.preheader.i
-  %13 = trunc i64 %7 to i8
+  %13 = trunc nuw nsw i64 %7 to i8
   store i8 %13, ptr %4, align 1, !alias.scope !180
   br label %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h31ae1ef1c42e4f4aE.llvm.7649464633611531201.exit"
 
@@ -1052,7 +1052,7 @@ define hidden void @"_ZN64_$LT$Inner$u20$as$u20$integer_encoding..writer..VarInt
 
 "_ZN56_$LT$i64$u20$as$u20$integer_encoding..varint..VarInt$GT$10encode_var17h87f22350f4fbe9beE.llvm.7649464633611531201.exit": ; preds = %._crit_edge.i
   %24 = getelementptr inbounds [0 x i8], ptr %4, i64 0, i64 %20
-  %25 = trunc i64 %21 to i8
+  %25 = trunc nuw nsw i64 %21 to i8
   store i8 %25, ptr %24, align 1, !alias.scope !180
   %26 = add nuw nsw i64 %.01828.i, 2
   br label %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h31ae1ef1c42e4f4aE.llvm.7649464633611531201.exit"
@@ -1391,7 +1391,7 @@ define hidden void @"_ZN64_$LT$Inner$u20$as$u20$integer_encoding..writer..VarInt
   unreachable
 
 "_ZN56_$LT$i64$u20$as$u20$integer_encoding..varint..VarInt$GT$10encode_var17h87f22350f4fbe9beE.llvm.7649464633611531201.exit.thread": ; preds = %3, %.preheader.i
-  %13 = trunc i64 %7 to i8
+  %13 = trunc nuw nsw i64 %7 to i8
   store i8 %13, ptr %4, align 1, !alias.scope !305
   br label %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h31ae1ef1c42e4f4aE.llvm.7649464633611531201.exit"
 
@@ -1425,7 +1425,7 @@ define hidden void @"_ZN64_$LT$Inner$u20$as$u20$integer_encoding..writer..VarInt
 
 "_ZN56_$LT$i64$u20$as$u20$integer_encoding..varint..VarInt$GT$10encode_var17h87f22350f4fbe9beE.llvm.7649464633611531201.exit": ; preds = %._crit_edge.i
   %24 = getelementptr inbounds [0 x i8], ptr %4, i64 0, i64 %20
-  %25 = trunc i64 %21 to i8
+  %25 = trunc nuw nsw i64 %21 to i8
   store i8 %25, ptr %24, align 1, !alias.scope !305
   %26 = add nuw nsw i64 %.01828.i, 2
   br label %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h31ae1ef1c42e4f4aE.llvm.7649464633611531201.exit"
@@ -1639,7 +1639,7 @@ default.unreachable128:                           ; preds = %2
   %14 = getelementptr inbounds i8, ptr %1, i64 37
   %15 = load i8, ptr %14, align 1, !range !366, !alias.scope !367, !noalias !370, !noundef !5
   %16 = load i64, ptr %11, align 8, !range !78, !alias.scope !367, !noalias !370, !noundef !5
-  %trunc.i = trunc i64 %16 to i1
+  %trunc.i = trunc nuw i64 %16 to i1
   %17 = getelementptr inbounds i8, ptr %1, i64 16
   %18 = load i64, ptr %17, align 8, !alias.scope !367, !noalias !370
   %.sroa.5.0.i = select i1 %trunc.i, i64 %18, i64 undef
@@ -1666,18 +1666,18 @@ default.unreachable128:                           ; preds = %2
   %25 = getelementptr inbounds i8, ptr %1, i64 8
   %26 = getelementptr inbounds i8, ptr %1, i64 24
   %27 = load i32, ptr %26, align 8, !range !372, !alias.scope !373, !noalias !376, !noundef !5
-  %trunc.i1 = trunc i32 %27 to i1
+  %trunc.i1 = trunc nuw i32 %27 to i1
   %28 = getelementptr inbounds i8, ptr %1, i64 28
   %29 = load i32, ptr %28, align 4, !alias.scope !373, !noalias !376
   %.sroa.5.0.i2 = select i1 %trunc.i1, i32 %29, i32 undef
   %30 = getelementptr inbounds i8, ptr %1, i64 32
   %31 = load i32, ptr %30, align 8, !range !372, !alias.scope !373, !noalias !376, !noundef !5
-  %trunc6.i = trunc i32 %31 to i1
+  %trunc6.i = trunc nuw i32 %31 to i1
   %32 = getelementptr inbounds i8, ptr %1, i64 36
   %33 = load i32, ptr %32, align 4, !alias.scope !373, !noalias !376
   %.sroa.52.0.i = select i1 %trunc6.i, i32 %33, i32 undef
   %34 = load i64, ptr %25, align 8, !range !78, !alias.scope !373, !noalias !376, !noundef !5
-  %trunc7.i = trunc i64 %34 to i1
+  %trunc7.i = trunc nuw i64 %34 to i1
   %35 = getelementptr inbounds i8, ptr %1, i64 16
   %36 = load i64, ptr %35, align 8, !alias.scope !373, !noalias !376
   %.sroa.54.0.i = select i1 %trunc7.i, i64 %36, i64 undef
@@ -1707,19 +1707,19 @@ default.unreachable128:                           ; preds = %2
 42:                                               ; preds = %2
   %43 = getelementptr inbounds i8, ptr %1, i64 8
   %44 = load i64, ptr %43, align 8, !range !78, !alias.scope !378, !noalias !381, !noundef !5
-  %trunc.i3 = trunc i64 %44 to i1
+  %trunc.i3 = trunc nuw i64 %44 to i1
   %45 = getelementptr inbounds i8, ptr %1, i64 16
   %46 = load i64, ptr %45, align 8, !alias.scope !378, !noalias !381
   %.sroa.5.0.i4 = select i1 %trunc.i3, i64 %46, i64 undef
   %47 = getelementptr inbounds i8, ptr %1, i64 24
   %48 = load i64, ptr %47, align 8, !range !78, !alias.scope !378, !noalias !381, !noundef !5
-  %trunc6.i5 = trunc i64 %48 to i1
+  %trunc6.i5 = trunc nuw i64 %48 to i1
   %49 = getelementptr inbounds i8, ptr %1, i64 32
   %50 = load i64, ptr %49, align 8, !alias.scope !378, !noalias !381
   %.sroa.52.0.i6 = select i1 %trunc6.i5, i64 %50, i64 undef
   %51 = getelementptr inbounds i8, ptr %1, i64 40
   %52 = load i64, ptr %51, align 8, !range !78, !alias.scope !378, !noalias !381, !noundef !5
-  %trunc7.i7 = trunc i64 %52 to i1
+  %trunc7.i7 = trunc nuw i64 %52 to i1
   %53 = getelementptr inbounds i8, ptr %1, i64 48
   %54 = load i64, ptr %53, align 8, !alias.scope !378, !noalias !381
   %.sroa.54.0.i8 = select i1 %trunc7.i7, i64 %54, i64 undef
@@ -1750,7 +1750,7 @@ default.unreachable128:                           ; preds = %2
   %61 = getelementptr inbounds i8, ptr %1, i64 8
   %62 = getelementptr inbounds i8, ptr %1, i64 24
   %63 = load i32, ptr %62, align 8, !range !372, !alias.scope !383, !noalias !386, !noundef !5
-  %trunc.i9 = trunc i32 %63 to i1
+  %trunc.i9 = trunc nuw i32 %63 to i1
   br i1 %trunc.i9, label %64, label %66
 
 64:                                               ; preds = %60
@@ -1762,7 +1762,7 @@ default.unreachable128:                           ; preds = %2
   %.sroa.0.0.i = phi i32 [ 1, %64 ], [ 0, %60 ]
   %67 = getelementptr inbounds i8, ptr %1, i64 40
   %68 = load i32, ptr %67, align 8, !range !372, !alias.scope !383, !noalias !386, !noundef !5
-  %trunc6.i10 = trunc i32 %68 to i1
+  %trunc6.i10 = trunc nuw i32 %68 to i1
   br i1 %trunc6.i10, label %69, label %"_ZN90_$LT$parquet..file..statistics..ValueStatistics$LT$T$GT$$u20$as$u20$core..clone..Clone$GT$5clone17h4ee2718dd798a982E.exit"
 
 69:                                               ; preds = %66
@@ -1773,7 +1773,7 @@ default.unreachable128:                           ; preds = %2
 "_ZN90_$LT$parquet..file..statistics..ValueStatistics$LT$T$GT$$u20$as$u20$core..clone..Clone$GT$5clone17h4ee2718dd798a982E.exit": ; preds = %66, %69
   %.sroa.01.0.i = phi i32 [ 1, %69 ], [ 0, %66 ]
   %71 = load i64, ptr %61, align 8, !range !78, !alias.scope !383, !noalias !386, !noundef !5
-  %trunc7.i11 = trunc i64 %71 to i1
+  %trunc7.i11 = trunc nuw i64 %71 to i1
   %72 = getelementptr inbounds i8, ptr %1, i64 16
   %73 = load i64, ptr %72, align 8, !alias.scope !383, !noalias !386
   %.sroa.54.0.i12 = select i1 %trunc7.i11, i64 %73, i64 undef
@@ -1804,18 +1804,18 @@ default.unreachable128:                           ; preds = %2
   %80 = getelementptr inbounds i8, ptr %1, i64 8
   %81 = getelementptr inbounds i8, ptr %1, i64 24
   %82 = load i32, ptr %81, align 8, !range !372, !alias.scope !388, !noalias !391, !noundef !5
-  %trunc.i13 = trunc i32 %82 to i1
+  %trunc.i13 = trunc nuw i32 %82 to i1
   %83 = getelementptr inbounds i8, ptr %1, i64 28
   %84 = load float, ptr %83, align 4, !alias.scope !388, !noalias !391
   %.sroa.5.0.i14 = select i1 %trunc.i13, float %84, float undef
   %85 = getelementptr inbounds i8, ptr %1, i64 32
   %86 = load i32, ptr %85, align 8, !range !372, !alias.scope !388, !noalias !391, !noundef !5
-  %trunc6.i15 = trunc i32 %86 to i1
+  %trunc6.i15 = trunc nuw i32 %86 to i1
   %87 = getelementptr inbounds i8, ptr %1, i64 36
   %88 = load float, ptr %87, align 4, !alias.scope !388, !noalias !391
   %.sroa.52.0.i16 = select i1 %trunc6.i15, float %88, float undef
   %89 = load i64, ptr %80, align 8, !range !78, !alias.scope !388, !noalias !391, !noundef !5
-  %trunc7.i17 = trunc i64 %89 to i1
+  %trunc7.i17 = trunc nuw i64 %89 to i1
   %90 = getelementptr inbounds i8, ptr %1, i64 16
   %91 = load i64, ptr %90, align 8, !alias.scope !388, !noalias !391
   %.sroa.54.0.i18 = select i1 %trunc7.i17, i64 %91, i64 undef
@@ -1845,19 +1845,19 @@ default.unreachable128:                           ; preds = %2
 97:                                               ; preds = %2
   %98 = getelementptr inbounds i8, ptr %1, i64 8
   %99 = load i64, ptr %98, align 8, !range !78, !alias.scope !393, !noalias !396, !noundef !5
-  %trunc.i19 = trunc i64 %99 to i1
+  %trunc.i19 = trunc nuw i64 %99 to i1
   %100 = getelementptr inbounds i8, ptr %1, i64 16
   %101 = load double, ptr %100, align 8, !alias.scope !393, !noalias !396
   %.sroa.5.0.i20 = select i1 %trunc.i19, double %101, double undef
   %102 = getelementptr inbounds i8, ptr %1, i64 24
   %103 = load i64, ptr %102, align 8, !range !78, !alias.scope !393, !noalias !396, !noundef !5
-  %trunc6.i21 = trunc i64 %103 to i1
+  %trunc6.i21 = trunc nuw i64 %103 to i1
   %104 = getelementptr inbounds i8, ptr %1, i64 32
   %105 = load double, ptr %104, align 8, !alias.scope !393, !noalias !396
   %.sroa.52.0.i22 = select i1 %trunc6.i21, double %105, double undef
   %106 = getelementptr inbounds i8, ptr %1, i64 40
   %107 = load i64, ptr %106, align 8, !range !78, !alias.scope !393, !noalias !396, !noundef !5
-  %trunc7.i23 = trunc i64 %107 to i1
+  %trunc7.i23 = trunc nuw i64 %107 to i1
   %108 = getelementptr inbounds i8, ptr %1, i64 48
   %109 = load i64, ptr %108, align 8, !alias.scope !393, !noalias !396
   %.sroa.54.0.i24 = select i1 %trunc7.i23, i64 %109, i64 undef
@@ -1890,7 +1890,7 @@ default.unreachable128:                           ; preds = %2
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %.sroa.5.i.i)
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %8), !noalias !398
   %117 = load i64, ptr %116, align 8, !range !78, !noalias !398, !noundef !5
-  %trunc.i25 = trunc i64 %117 to i1
+  %trunc.i25 = trunc nuw i64 %117 to i1
   br i1 %trunc.i25, label %118, label %130
 
 118:                                              ; preds = %115
@@ -1928,7 +1928,7 @@ default.unreachable128:                           ; preds = %2
   store i64 %storemerge.i, ptr %8, align 8, !noalias !398
   %132 = getelementptr inbounds i8, ptr %1, i64 48
   %133 = load i64, ptr %132, align 8, !range !78, !noalias !398, !noundef !5
-  %trunc4.i = trunc i64 %133 to i1
+  %trunc4.i = trunc nuw i64 %133 to i1
   br i1 %trunc4.i, label %134, label %145
 
 134:                                              ; preds = %130
@@ -1960,7 +1960,7 @@ default.unreachable128:                           ; preds = %2
   %.sroa.0.0.i26 = phi i64 [ 0, %130 ], [ 1, %.noexc.i ], [ 1, %134 ]
   %146 = getelementptr inbounds i8, ptr %1, i64 88
   %147 = load i64, ptr %146, align 8, !range !78, !noalias !398, !noundef !5
-  %trunc5.i = trunc i64 %147 to i1
+  %trunc5.i = trunc nuw i64 %147 to i1
   br i1 %trunc5.i, label %160, label %"_ZN90_$LT$parquet..file..statistics..ValueStatistics$LT$T$GT$$u20$as$u20$core..clone..Clone$GT$5clone17h1502718c91e08d9eE.exit"
 
 148:                                              ; preds = %138
@@ -2039,7 +2039,7 @@ common.resume:                                    ; preds = %203, %205, %207, %1
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %.sroa.5.i.i31)
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %5), !noalias !424
   %172 = load i64, ptr %171, align 8, !range !78, !noalias !424, !noundef !5
-  %trunc.i32 = trunc i64 %172 to i1
+  %trunc.i32 = trunc nuw i64 %172 to i1
   br i1 %trunc.i32, label %173, label %185
 
 173:                                              ; preds = %170
@@ -2077,7 +2077,7 @@ common.resume:                                    ; preds = %203, %205, %207, %1
   store i64 %storemerge.i33, ptr %5, align 8, !noalias !424
   %187 = getelementptr inbounds i8, ptr %1, i64 48
   %188 = load i64, ptr %187, align 8, !range !78, !noalias !424, !noundef !5
-  %trunc4.i34 = trunc i64 %188 to i1
+  %trunc4.i34 = trunc nuw i64 %188 to i1
   br i1 %trunc4.i34, label %189, label %200
 
 189:                                              ; preds = %185
@@ -2109,7 +2109,7 @@ common.resume:                                    ; preds = %203, %205, %207, %1
   %.sroa.0.0.i36 = phi i64 [ 0, %185 ], [ 1, %.noexc.i42 ], [ 1, %189 ]
   %201 = getelementptr inbounds i8, ptr %1, i64 88
   %202 = load i64, ptr %201, align 8, !range !78, !noalias !424, !noundef !5
-  %trunc5.i37 = trunc i64 %202 to i1
+  %trunc5.i37 = trunc nuw i64 %202 to i1
   br i1 %trunc5.i37, label %215, label %"_ZN90_$LT$parquet..file..statistics..ValueStatistics$LT$T$GT$$u20$as$u20$core..clone..Clone$GT$5clone17hab2d3ef4f70659beE.exit"
 
 203:                                              ; preds = %193
@@ -2258,8 +2258,8 @@ define internal fastcc noundef zeroext i1 @"_ZN78_$LT$parquet..schema..types..Ba
   switch i8 %26, label %.thread15 [
     i8 4, label %42
     i8 6, label %48
-    i8 7, label %59
-    i8 8, label %70
+    i8 7, label %57
+    i8 8, label %66
   ]
 
 42:                                               ; preds = %41
@@ -2275,77 +2275,74 @@ define internal fastcc noundef zeroext i1 @"_ZN78_$LT$parquet..schema..types..Ba
   %50 = load i8, ptr %49, align 2, !range !465, !alias.scope !460, !noalias !463, !noundef !5
   %51 = getelementptr inbounds i8, ptr %1, i64 34
   %52 = load i8, ptr %51, align 2, !range !465, !alias.scope !463, !noalias !460, !noundef !5
-  %53 = xor i8 %52, %50
-  %54 = trunc i8 %53 to i1
-  br i1 %54, label %.critedge, label %55
+  %.not4.i = icmp eq i8 %50, %52
+  br i1 %.not4.i, label %53, label %.critedge
 
-55:                                               ; preds = %48
-  %56 = getelementptr inbounds i8, ptr %0, i64 33
-  %57 = getelementptr inbounds i8, ptr %1, i64 33
-  %.val4.i = load i8, ptr %56, align 1, !range !366, !alias.scope !460, !noalias !463, !noundef !5
-  %.val5.i = load i8, ptr %57, align 1, !range !366, !alias.scope !463, !noalias !460, !noundef !5
-  %58 = icmp eq i8 %.val4.i, %.val5.i
-  br i1 %58, label %.thread15, label %.critedge
+53:                                               ; preds = %48
+  %54 = getelementptr inbounds i8, ptr %0, i64 33
+  %55 = getelementptr inbounds i8, ptr %1, i64 33
+  %.val6.i = load i8, ptr %54, align 1, !range !366, !alias.scope !460, !noalias !463, !noundef !5
+  %.val7.i = load i8, ptr %55, align 1, !range !366, !alias.scope !463, !noalias !460, !noundef !5
+  %56 = icmp eq i8 %.val6.i, %.val7.i
+  br i1 %56, label %.thread15, label %.critedge
 
-59:                                               ; preds = %41
-  %60 = getelementptr inbounds i8, ptr %0, i64 34
-  %61 = load i8, ptr %60, align 2, !range !465, !alias.scope !460, !noalias !463, !noundef !5
-  %62 = getelementptr inbounds i8, ptr %1, i64 34
-  %63 = load i8, ptr %62, align 2, !range !465, !alias.scope !463, !noalias !460, !noundef !5
-  %64 = xor i8 %63, %61
-  %65 = trunc i8 %64 to i1
-  br i1 %65, label %.critedge, label %66
+57:                                               ; preds = %41
+  %58 = getelementptr inbounds i8, ptr %0, i64 34
+  %59 = load i8, ptr %58, align 2, !range !465, !alias.scope !460, !noalias !463, !noundef !5
+  %60 = getelementptr inbounds i8, ptr %1, i64 34
+  %61 = load i8, ptr %60, align 2, !range !465, !alias.scope !463, !noalias !460, !noundef !5
+  %.not3.i = icmp eq i8 %59, %61
+  br i1 %.not3.i, label %62, label %.critedge
 
-66:                                               ; preds = %59
+62:                                               ; preds = %57
+  %63 = getelementptr inbounds i8, ptr %0, i64 33
+  %64 = getelementptr inbounds i8, ptr %1, i64 33
+  %.val.i = load i8, ptr %63, align 1, !range !366, !alias.scope !460, !noalias !463, !noundef !5
+  %.val5.i = load i8, ptr %64, align 1, !range !366, !alias.scope !463, !noalias !460, !noundef !5
+  %65 = icmp eq i8 %.val.i, %.val5.i
+  br i1 %65, label %.thread15, label %.critedge
+
+66:                                               ; preds = %41
   %67 = getelementptr inbounds i8, ptr %0, i64 33
-  %68 = getelementptr inbounds i8, ptr %1, i64 33
-  %.val.i = load i8, ptr %67, align 1, !range !366, !alias.scope !460, !noalias !463, !noundef !5
-  %.val3.i = load i8, ptr %68, align 1, !range !366, !alias.scope !463, !noalias !460, !noundef !5
-  %69 = icmp eq i8 %.val.i, %.val3.i
-  br i1 %69, label %.thread15, label %.critedge
+  %68 = load i8, ptr %67, align 1, !alias.scope !460, !noalias !463, !noundef !5
+  %69 = getelementptr inbounds i8, ptr %1, i64 33
+  %70 = load i8, ptr %69, align 1, !alias.scope !463, !noalias !460, !noundef !5
+  %71 = icmp eq i8 %68, %70
+  br i1 %71, label %72, label %.critedge
 
-70:                                               ; preds = %41
-  %71 = getelementptr inbounds i8, ptr %0, i64 33
-  %72 = load i8, ptr %71, align 1, !alias.scope !460, !noalias !463, !noundef !5
-  %73 = getelementptr inbounds i8, ptr %1, i64 33
-  %74 = load i8, ptr %73, align 1, !alias.scope !463, !noalias !460, !noundef !5
-  %75 = icmp eq i8 %72, %74
-  br i1 %75, label %76, label %.critedge
+72:                                               ; preds = %66
+  %73 = getelementptr inbounds i8, ptr %0, i64 34
+  %74 = load i8, ptr %73, align 2, !range !465, !alias.scope !460, !noalias !463, !noundef !5
+  %75 = getelementptr inbounds i8, ptr %1, i64 34
+  %76 = load i8, ptr %75, align 2, !range !465, !alias.scope !463, !noalias !460, !noundef !5
+  %.not.i12 = icmp eq i8 %74, %76
+  br i1 %.not.i12, label %.thread15, label %.critedge
 
-76:                                               ; preds = %70
-  %77 = getelementptr inbounds i8, ptr %0, i64 34
-  %78 = load i8, ptr %77, align 2, !range !465, !alias.scope !460, !noalias !463, !noundef !5
-  %79 = getelementptr inbounds i8, ptr %1, i64 34
-  %80 = load i8, ptr %79, align 2, !range !465, !alias.scope !463, !noalias !460, !noundef !5
-  %81 = xor i8 %80, %78
-  %82 = trunc i8 %81 to i1
-  br i1 %82, label %.critedge, label %.thread15
+.thread15:                                        ; preds = %41, %53, %62, %72, %31, %33
+  %77 = load i32, ptr %0, align 8, !range !372, !noundef !5
+  %trunc = trunc nuw i32 %77 to i1
+  %78 = load i32, ptr %1, align 8, !range !372, !noundef !5
+  br i1 %trunc, label %82, label %79
 
-.thread15:                                        ; preds = %41, %55, %66, %76, %31, %33
-  %83 = load i32, ptr %0, align 8, !range !372, !noundef !5
-  %trunc = trunc i32 %83 to i1
-  %84 = load i32, ptr %1, align 8, !range !372, !noundef !5
-  br i1 %trunc, label %88, label %85
-
-.critedge:                                        ; preds = %70, %59, %48, %42, %39, %2, %55, %66, %76, %31, %14, %88, %32, %16, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h150e7aca27e11e91E.exit", %18, %33, %85, %89
-  %.0 = phi i1 [ %94, %89 ], [ %87, %85 ], [ false, %33 ], [ false, %18 ], [ false, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h150e7aca27e11e91E.exit" ], [ false, %16 ], [ false, %32 ], [ false, %88 ], [ false, %14 ], [ false, %31 ], [ false, %76 ], [ false, %66 ], [ false, %55 ], [ false, %2 ], [ false, %39 ], [ false, %42 ], [ false, %48 ], [ false, %59 ], [ false, %70 ]
+.critedge:                                        ; preds = %66, %57, %48, %42, %39, %2, %53, %62, %72, %31, %14, %82, %32, %16, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h150e7aca27e11e91E.exit", %18, %33, %79, %83
+  %.0 = phi i1 [ %88, %83 ], [ %81, %79 ], [ false, %33 ], [ false, %18 ], [ false, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h150e7aca27e11e91E.exit" ], [ false, %16 ], [ false, %32 ], [ false, %82 ], [ false, %14 ], [ false, %31 ], [ false, %72 ], [ false, %62 ], [ false, %53 ], [ false, %2 ], [ false, %39 ], [ false, %42 ], [ false, %48 ], [ false, %57 ], [ false, %66 ]
   ret i1 %.0
 
-85:                                               ; preds = %.thread15
-  %86 = trunc i32 %84 to i1
-  %87 = xor i1 %86, true
+79:                                               ; preds = %.thread15
+  %80 = trunc nuw i32 %78 to i1
+  %81 = xor i1 %80, true
   br label %.critedge
 
-88:                                               ; preds = %.thread15
-  %.not7 = icmp eq i32 %84, 0
-  br i1 %.not7, label %.critedge, label %89
+82:                                               ; preds = %.thread15
+  %.not7 = icmp eq i32 %78, 0
+  br i1 %.not7, label %.critedge, label %83
 
-89:                                               ; preds = %88
-  %90 = getelementptr inbounds i8, ptr %0, i64 4
-  %91 = load i32, ptr %90, align 4, !noundef !5
-  %92 = getelementptr inbounds i8, ptr %1, i64 4
-  %93 = load i32, ptr %92, align 4, !noundef !5
-  %94 = icmp eq i32 %91, %93
+83:                                               ; preds = %82
+  %84 = getelementptr inbounds i8, ptr %0, i64 4
+  %85 = load i32, ptr %84, align 4, !noundef !5
+  %86 = getelementptr inbounds i8, ptr %1, i64 4
+  %87 = load i32, ptr %86, align 4, !noundef !5
+  %88 = icmp eq i32 %85, %87
   br label %.critedge
 }
 
@@ -2384,7 +2381,7 @@ define hidden void @"_ZN79_$LT$parquet..file..writer..TrackedWrite$LT$W$GT$$u20$
   %.pre = load i64, ptr %5, align 8, !range !78
   %.phi.trans.insert = getelementptr inbounds i8, ptr %5, i64 8
   %.pre4 = load ptr, ptr %.phi.trans.insert, align 8
-  %16 = trunc i64 %.pre to i1
+  %16 = trunc nuw i64 %.pre to i1
   %17 = ptrtoint ptr %.pre4 to i64
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5)
   br i1 %16, label %22, label %18
@@ -3616,7 +3613,7 @@ define hidden void @"_ZN7parquet4file6writer29SerializedFileWriter$LT$W$GT$5clos
   %218 = load ptr, ptr %192, align 8, !alias.scope !570, !noalias !573, !nonnull !5, !noundef !5
   %219 = getelementptr inbounds i8, ptr %218, i64 264
   %220 = load i8, ptr %219, align 8, !range !465, !noalias !573, !noundef !5
-  %trunc.i = trunc i8 %220 to i1
+  %trunc.i = trunc nuw i8 %220 to i1
   %.151.i = select i1 %trunc.i, i32 2, i32 1
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %24), !noalias !575
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %23), !noalias !575
@@ -4247,7 +4244,7 @@ define hidden void @"_ZN7parquet4file6writer33SerializedRowGroupWriter$LT$W$GT$1
   %.0179 = phi i8 [ %.1180, %36 ], [ %.6185, %248 ], [ %.6185, %244 ]
   %.0 = phi i1 [ %.1, %36 ], [ %.6, %248 ], [ %.6, %244 ]
   %.pn205 = phi { ptr, i32 } [ %37, %36 ], [ %.pn203, %248 ], [ %.pn203, %244 ]
-  %35 = trunc i8 %.0179 to i1
+  %35 = trunc nuw i8 %.0179 to i1
   br i1 %35, label %349, label %348
 
 36:                                               ; preds = %305, %255, %54, %33
@@ -4479,7 +4476,7 @@ define hidden void @"_ZN7parquet4file6writer33SerializedRowGroupWriter$LT$W$GT$1
   %139 = load i64, ptr %138, align 8
   %140 = getelementptr inbounds i8, ptr %27, i64 320
   %141 = load i64, ptr %140, align 8, !noundef !5
-  %trunc = trunc i64 %137 to i1
+  %trunc = trunc nuw i64 %137 to i1
   %. = select i1 %trunc, i64 %139, i64 %141
   %142 = getelementptr inbounds i8, ptr %27, i64 304
   %143 = load i64, ptr %142, align 8, !noundef !5
@@ -4532,7 +4529,7 @@ define hidden void @"_ZN7parquet4file6writer33SerializedRowGroupWriter$LT$W$GT$1
 
 "_ZN106_$LT$std..sys..unix..kernel_copy..Copier$LT$R$C$W$GT$$u20$as$u20$std..sys..unix..kernel_copy..SpecCopy$GT$4copy17h8239d7903a7b416aE.exit": ; preds = %152
   %156 = load i64, ptr %21, align 8, !range !78, !noundef !5
-  %trunc192 = trunc i64 %156 to i1
+  %trunc192 = trunc nuw i64 %156 to i1
   %157 = getelementptr inbounds i8, ptr %21, i64 8
   %158 = load ptr, ptr %157, align 8
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %21)
@@ -5011,7 +5008,7 @@ _ZN5alloc3fmt6format17hce246aee5769fae0E.exit:    ; preds = %295
 
 "_ZN4core3ptr85drop_in_place$LT$alloc..sync..Arc$LT$parquet..schema..types..ColumnDescriptor$GT$$GT$17hab8bbf7e80b9d951E.exit249": ; preds = %301, %305
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %28)
-  %306 = trunc i8 %.11 to i1
+  %306 = trunc nuw i8 %.11 to i1
   br i1 %306, label %319, label %307
 
 307:                                              ; preds = %319, %"_ZN4core3ptr85drop_in_place$LT$alloc..sync..Arc$LT$parquet..schema..types..ColumnDescriptor$GT$$GT$17hab8bbf7e80b9d951E.exit249"
@@ -5212,7 +5209,7 @@ define hidden void @"_ZN7parquet4file6writer33SerializedRowGroupWriter$LT$W$GT$5
   %.2 = phi i8 [ %.3227237, %152 ], [ 1, %26 ]
   %34 = landingpad { ptr, i32 }
           cleanup
-  %35 = trunc i8 %.2 to i1
+  %35 = trunc nuw i8 %.2 to i1
   br label %.body159
 
 36:                                               ; preds = %18
@@ -5272,7 +5269,7 @@ define hidden void @"_ZN7parquet4file6writer33SerializedRowGroupWriter$LT$W$GT$5
   %49 = getelementptr inbounds i8, ptr %11, i64 80
   store i64 %48, ptr %49, align 8
   %50 = load i64, ptr %1, align 8, !range !78, !noundef !5
-  %trunc = trunc i64 %50 to i1
+  %trunc = trunc nuw i64 %50 to i1
   %51 = getelementptr inbounds i8, ptr %1, i64 8
   %52 = load i64, ptr %51, align 8
   %.0 = select i1 %trunc, i64 %52, i64 0
@@ -5670,7 +5667,7 @@ define hidden void @"_ZN7parquet4file6writer33SerializedRowGroupWriter$LT$W$GT$5
 
 193:                                              ; preds = %195, %"_ZN4core3ptr114drop_in_place$LT$core..option..Option$LT$alloc..sync..Arc$LT$parquet..file..metadata..RowGroupMetaData$GT$$GT$$GT$17h518624c9d3774659E.exit168"
   %.pn111 = phi { ptr, i32 } [ %196, %195 ], [ %.pn109, %"_ZN4core3ptr114drop_in_place$LT$core..option..Option$LT$alloc..sync..Arc$LT$parquet..file..metadata..RowGroupMetaData$GT$$GT$$GT$17h518624c9d3774659E.exit168" ]
-  %194 = trunc i8 %.081198 to i1
+  %194 = trunc nuw i8 %.081198 to i1
   br i1 %194, label %238, label %231
 
 195:                                              ; preds = %"_ZN4core3ptr114drop_in_place$LT$core..option..Option$LT$alloc..sync..Arc$LT$parquet..file..metadata..RowGroupMetaData$GT$$GT$$GT$17h518624c9d3774659E.exit170"
@@ -5679,7 +5676,7 @@ define hidden void @"_ZN7parquet4file6writer33SerializedRowGroupWriter$LT$W$GT$5
   br label %193
 
 197:                                              ; preds = %"_ZN4core3ptr114drop_in_place$LT$core..option..Option$LT$alloc..sync..Arc$LT$parquet..file..metadata..RowGroupMetaData$GT$$GT$$GT$17h518624c9d3774659E.exit170"
-  %198 = trunc i8 %.081198 to i1
+  %198 = trunc nuw i8 %.081198 to i1
   br i1 %198, label %199, label %206
 
 199:                                              ; preds = %197

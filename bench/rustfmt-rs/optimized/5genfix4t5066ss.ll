@@ -2330,8 +2330,8 @@ define hidden noundef zeroext i1 @_ZN13fluent_bundle5types11FluentValue7matches1
   %26 = icmp eq i32 %bcmp.i44, 0
   br i1 %26, label %32, label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h884929514755f779E.exit61"
 
-"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h884929514755f779E.exit": ; preds = %151, %150, %147, %136, %134, %133, %122, %120, %119, %108, %106, %105, %94, %92, %91, %83, %77, %72, %66, %65, %64, %51, %23, %22, %45, %3, %11, %16, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h37009720d1005d9fE.exit", %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h884929514755f779E.exit65.thread"
-  %.0 = phi i1 [ %44, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h37009720d1005d9fE.exit" ], [ false, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h884929514755f779E.exit65.thread" ], [ false, %16 ], [ false, %11 ], [ false, %3 ], [ false, %45 ], [ %24, %23 ], [ false, %22 ], [ %156, %151 ], [ %149, %147 ], [ false, %134 ], [ false, %120 ], [ false, %106 ], [ false, %92 ], [ false, %83 ], [ false, %77 ], [ false, %66 ], [ false, %51 ], [ false, %65 ], [ false, %91 ], [ false, %105 ], [ false, %119 ], [ false, %133 ], [ false, %150 ], [ false, %64 ], [ false, %72 ], [ false, %94 ], [ false, %108 ], [ false, %122 ], [ false, %136 ]
+"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h884929514755f779E.exit": ; preds = %149, %148, %145, %134, %132, %131, %120, %118, %117, %106, %104, %103, %92, %90, %89, %83, %77, %72, %66, %65, %64, %51, %23, %22, %45, %3, %11, %16, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h37009720d1005d9fE.exit", %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h884929514755f779E.exit65.thread"
+  %.0 = phi i1 [ %44, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h37009720d1005d9fE.exit" ], [ false, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h884929514755f779E.exit65.thread" ], [ false, %16 ], [ false, %11 ], [ false, %3 ], [ false, %45 ], [ %24, %23 ], [ false, %22 ], [ %154, %149 ], [ %147, %145 ], [ false, %132 ], [ false, %118 ], [ false, %104 ], [ false, %90 ], [ false, %83 ], [ false, %77 ], [ false, %66 ], [ false, %51 ], [ false, %65 ], [ false, %89 ], [ false, %103 ], [ false, %117 ], [ false, %131 ], [ false, %148 ], [ false, %64 ], [ false, %72 ], [ false, %92 ], [ false, %106 ], [ false, %120 ], [ false, %134 ]
   ret i1 %.0
 
 "_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h884929514755f779E.exit49": ; preds = %25
@@ -2456,125 +2456,124 @@ define hidden noundef zeroext i1 @_ZN13fluent_bundle5types11FluentValue7matches1
   %85 = load i8, ptr %84, align 8, !range !440, !alias.scope !441, !noalias !444, !noundef !5
   %86 = getelementptr inbounds i8, ptr %1, i64 104
   %87 = load i8, ptr %86, align 8, !range !440, !alias.scope !444, !noalias !441, !noundef !5
-  %88 = xor i8 %87, %85
-  %89 = trunc nuw i8 %88 to i1
-  br i1 %89, label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h884929514755f779E.exit", label %90
+  %.not11.i = icmp eq i8 %85, %87
+  br i1 %.not11.i, label %88, label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h884929514755f779E.exit"
 
-90:                                               ; preds = %83
+88:                                               ; preds = %83
   %trunc.i = trunc nuw i64 %7 to i1
-  br i1 %trunc.i, label %91, label %92
+  br i1 %trunc.i, label %89, label %90
 
-91:                                               ; preds = %90
-  %.not11.i = icmp eq i64 %17, 0
-  br i1 %.not11.i, label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h884929514755f779E.exit", label %94
+89:                                               ; preds = %88
+  %.not12.i = icmp eq i64 %17, 0
+  br i1 %.not12.i, label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h884929514755f779E.exit", label %92
 
-92:                                               ; preds = %90
-  %93 = trunc nuw i64 %17 to i1
-  br i1 %93, label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h884929514755f779E.exit", label %100
+90:                                               ; preds = %88
+  %91 = trunc nuw i64 %17 to i1
+  br i1 %91, label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h884929514755f779E.exit", label %98
 
-94:                                               ; preds = %91
-  %95 = getelementptr inbounds i8, ptr %0, i64 8
-  %96 = load i64, ptr %95, align 8, !alias.scope !441, !noalias !444, !noundef !5
-  %97 = getelementptr inbounds i8, ptr %1, i64 8
-  %98 = load i64, ptr %97, align 8, !alias.scope !444, !noalias !441, !noundef !5
-  %99 = icmp eq i64 %96, %98
-  br i1 %99, label %100, label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h884929514755f779E.exit"
+92:                                               ; preds = %89
+  %93 = getelementptr inbounds i8, ptr %0, i64 8
+  %94 = load i64, ptr %93, align 8, !alias.scope !441, !noalias !444, !noundef !5
+  %95 = getelementptr inbounds i8, ptr %1, i64 8
+  %96 = load i64, ptr %95, align 8, !alias.scope !444, !noalias !441, !noundef !5
+  %97 = icmp eq i64 %94, %96
+  br i1 %97, label %98, label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h884929514755f779E.exit"
 
-100:                                              ; preds = %94, %92
-  %101 = getelementptr inbounds i8, ptr %0, i64 16
-  %102 = load i64, ptr %101, align 8, !range !457, !alias.scope !441, !noalias !444, !noundef !5
-  %trunc12.i = trunc nuw i64 %102 to i1
-  %103 = getelementptr inbounds i8, ptr %1, i64 16
-  %104 = load i64, ptr %103, align 8, !range !457, !alias.scope !444, !noalias !441, !noundef !5
-  br i1 %trunc12.i, label %105, label %106
+98:                                               ; preds = %92, %90
+  %99 = getelementptr inbounds i8, ptr %0, i64 16
+  %100 = load i64, ptr %99, align 8, !range !457, !alias.scope !441, !noalias !444, !noundef !5
+  %trunc13.i = trunc nuw i64 %100 to i1
+  %101 = getelementptr inbounds i8, ptr %1, i64 16
+  %102 = load i64, ptr %101, align 8, !range !457, !alias.scope !444, !noalias !441, !noundef !5
+  br i1 %trunc13.i, label %103, label %104
 
-105:                                              ; preds = %100
-  %.not13.i = icmp eq i64 %104, 0
-  br i1 %.not13.i, label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h884929514755f779E.exit", label %108
+103:                                              ; preds = %98
+  %.not14.i = icmp eq i64 %102, 0
+  br i1 %.not14.i, label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h884929514755f779E.exit", label %106
 
-106:                                              ; preds = %100
-  %107 = trunc nuw i64 %104 to i1
-  br i1 %107, label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h884929514755f779E.exit", label %114
+104:                                              ; preds = %98
+  %105 = trunc nuw i64 %102 to i1
+  br i1 %105, label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h884929514755f779E.exit", label %112
 
-108:                                              ; preds = %105
-  %109 = getelementptr inbounds i8, ptr %0, i64 24
-  %110 = load i64, ptr %109, align 8, !alias.scope !441, !noalias !444, !noundef !5
-  %111 = getelementptr inbounds i8, ptr %1, i64 24
-  %112 = load i64, ptr %111, align 8, !alias.scope !444, !noalias !441, !noundef !5
-  %113 = icmp eq i64 %110, %112
-  br i1 %113, label %114, label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h884929514755f779E.exit"
+106:                                              ; preds = %103
+  %107 = getelementptr inbounds i8, ptr %0, i64 24
+  %108 = load i64, ptr %107, align 8, !alias.scope !441, !noalias !444, !noundef !5
+  %109 = getelementptr inbounds i8, ptr %1, i64 24
+  %110 = load i64, ptr %109, align 8, !alias.scope !444, !noalias !441, !noundef !5
+  %111 = icmp eq i64 %108, %110
+  br i1 %111, label %112, label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h884929514755f779E.exit"
 
-114:                                              ; preds = %108, %106
-  %115 = getelementptr inbounds i8, ptr %0, i64 32
-  %116 = load i64, ptr %115, align 8, !range !457, !alias.scope !441, !noalias !444, !noundef !5
-  %trunc14.i = trunc nuw i64 %116 to i1
-  %117 = getelementptr inbounds i8, ptr %1, i64 32
-  %118 = load i64, ptr %117, align 8, !range !457, !alias.scope !444, !noalias !441, !noundef !5
-  br i1 %trunc14.i, label %119, label %120
+112:                                              ; preds = %106, %104
+  %113 = getelementptr inbounds i8, ptr %0, i64 32
+  %114 = load i64, ptr %113, align 8, !range !457, !alias.scope !441, !noalias !444, !noundef !5
+  %trunc15.i = trunc nuw i64 %114 to i1
+  %115 = getelementptr inbounds i8, ptr %1, i64 32
+  %116 = load i64, ptr %115, align 8, !range !457, !alias.scope !444, !noalias !441, !noundef !5
+  br i1 %trunc15.i, label %117, label %118
 
-119:                                              ; preds = %114
-  %.not15.i = icmp eq i64 %118, 0
-  br i1 %.not15.i, label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h884929514755f779E.exit", label %122
+117:                                              ; preds = %112
+  %.not16.i = icmp eq i64 %116, 0
+  br i1 %.not16.i, label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h884929514755f779E.exit", label %120
 
-120:                                              ; preds = %114
-  %121 = trunc nuw i64 %118 to i1
-  br i1 %121, label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h884929514755f779E.exit", label %128
+118:                                              ; preds = %112
+  %119 = trunc nuw i64 %116 to i1
+  br i1 %119, label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h884929514755f779E.exit", label %126
 
-122:                                              ; preds = %119
-  %123 = getelementptr inbounds i8, ptr %0, i64 40
-  %124 = load i64, ptr %123, align 8, !alias.scope !441, !noalias !444, !noundef !5
-  %125 = getelementptr inbounds i8, ptr %1, i64 40
-  %126 = load i64, ptr %125, align 8, !alias.scope !444, !noalias !441, !noundef !5
-  %127 = icmp eq i64 %124, %126
-  br i1 %127, label %128, label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h884929514755f779E.exit"
+120:                                              ; preds = %117
+  %121 = getelementptr inbounds i8, ptr %0, i64 40
+  %122 = load i64, ptr %121, align 8, !alias.scope !441, !noalias !444, !noundef !5
+  %123 = getelementptr inbounds i8, ptr %1, i64 40
+  %124 = load i64, ptr %123, align 8, !alias.scope !444, !noalias !441, !noundef !5
+  %125 = icmp eq i64 %122, %124
+  br i1 %125, label %126, label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h884929514755f779E.exit"
 
-128:                                              ; preds = %122, %120
-  %129 = getelementptr inbounds i8, ptr %0, i64 48
-  %130 = load i64, ptr %129, align 8, !range !457, !alias.scope !441, !noalias !444, !noundef !5
-  %trunc16.i = trunc nuw i64 %130 to i1
-  %131 = getelementptr inbounds i8, ptr %1, i64 48
-  %132 = load i64, ptr %131, align 8, !range !457, !alias.scope !444, !noalias !441, !noundef !5
-  br i1 %trunc16.i, label %133, label %134
+126:                                              ; preds = %120, %118
+  %127 = getelementptr inbounds i8, ptr %0, i64 48
+  %128 = load i64, ptr %127, align 8, !range !457, !alias.scope !441, !noalias !444, !noundef !5
+  %trunc17.i = trunc nuw i64 %128 to i1
+  %129 = getelementptr inbounds i8, ptr %1, i64 48
+  %130 = load i64, ptr %129, align 8, !range !457, !alias.scope !444, !noalias !441, !noundef !5
+  br i1 %trunc17.i, label %131, label %132
 
-133:                                              ; preds = %128
-  %.not17.i = icmp eq i64 %132, 0
-  br i1 %.not17.i, label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h884929514755f779E.exit", label %136
+131:                                              ; preds = %126
+  %.not18.i = icmp eq i64 %130, 0
+  br i1 %.not18.i, label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h884929514755f779E.exit", label %134
 
-134:                                              ; preds = %128
-  %135 = trunc nuw i64 %132 to i1
-  br i1 %135, label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h884929514755f779E.exit", label %142
+132:                                              ; preds = %126
+  %133 = trunc nuw i64 %130 to i1
+  br i1 %133, label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h884929514755f779E.exit", label %140
 
-136:                                              ; preds = %133
-  %137 = getelementptr inbounds i8, ptr %0, i64 56
-  %138 = load i64, ptr %137, align 8, !alias.scope !441, !noalias !444, !noundef !5
-  %139 = getelementptr inbounds i8, ptr %1, i64 56
-  %140 = load i64, ptr %139, align 8, !alias.scope !444, !noalias !441, !noundef !5
-  %141 = icmp eq i64 %138, %140
-  br i1 %141, label %142, label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h884929514755f779E.exit"
+134:                                              ; preds = %131
+  %135 = getelementptr inbounds i8, ptr %0, i64 56
+  %136 = load i64, ptr %135, align 8, !alias.scope !441, !noalias !444, !noundef !5
+  %137 = getelementptr inbounds i8, ptr %1, i64 56
+  %138 = load i64, ptr %137, align 8, !alias.scope !444, !noalias !441, !noundef !5
+  %139 = icmp eq i64 %136, %138
+  br i1 %139, label %140, label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h884929514755f779E.exit"
 
-142:                                              ; preds = %136, %134
-  %143 = getelementptr inbounds i8, ptr %0, i64 64
-  %144 = load i64, ptr %143, align 8, !range !457, !alias.scope !441, !noalias !444, !noundef !5
-  %trunc18.i = trunc nuw i64 %144 to i1
-  %145 = getelementptr inbounds i8, ptr %1, i64 64
-  %146 = load i64, ptr %145, align 8, !range !457, !alias.scope !444, !noalias !441, !noundef !5
-  br i1 %trunc18.i, label %150, label %147
+140:                                              ; preds = %134, %132
+  %141 = getelementptr inbounds i8, ptr %0, i64 64
+  %142 = load i64, ptr %141, align 8, !range !457, !alias.scope !441, !noalias !444, !noundef !5
+  %trunc19.i = trunc nuw i64 %142 to i1
+  %143 = getelementptr inbounds i8, ptr %1, i64 64
+  %144 = load i64, ptr %143, align 8, !range !457, !alias.scope !444, !noalias !441, !noundef !5
+  br i1 %trunc19.i, label %148, label %145
 
-147:                                              ; preds = %142
-  %148 = trunc nuw i64 %146 to i1
-  %149 = xor i1 %148, true
+145:                                              ; preds = %140
+  %146 = trunc nuw i64 %144 to i1
+  %147 = xor i1 %146, true
   br label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h884929514755f779E.exit"
 
-150:                                              ; preds = %142
-  %.not19.i = icmp eq i64 %146, 0
-  br i1 %.not19.i, label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h884929514755f779E.exit", label %151
+148:                                              ; preds = %140
+  %.not20.i = icmp eq i64 %144, 0
+  br i1 %.not20.i, label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h884929514755f779E.exit", label %149
 
-151:                                              ; preds = %150
-  %152 = getelementptr inbounds i8, ptr %0, i64 72
-  %153 = load i64, ptr %152, align 8, !alias.scope !441, !noalias !444, !noundef !5
-  %154 = getelementptr inbounds i8, ptr %1, i64 72
-  %155 = load i64, ptr %154, align 8, !alias.scope !444, !noalias !441, !noundef !5
-  %156 = icmp eq i64 %153, %155
+149:                                              ; preds = %148
+  %150 = getelementptr inbounds i8, ptr %0, i64 72
+  %151 = load i64, ptr %150, align 8, !alias.scope !441, !noalias !444, !noundef !5
+  %152 = getelementptr inbounds i8, ptr %1, i64 72
+  %153 = load i64, ptr %152, align 8, !alias.scope !444, !noalias !441, !noundef !5
+  %154 = icmp eq i64 %151, %153
   br label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h884929514755f779E.exit"
 }
 

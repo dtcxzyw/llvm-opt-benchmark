@@ -190,14 +190,14 @@ define dso_local noundef i32 @SPI_connect_ext(i32 noundef %0) local_unnamed_addr
   br label %.sink.split
 
 .sink.split:                                      ; preds = %12, %26
-  %.sink9 = phi ptr [ %30, %26 ], [ %14, %12 ]
+  %.sink10 = phi ptr [ %30, %26 ], [ %14, %12 ]
   %.sink = phi i32 [ %27, %26 ], [ 16, %12 ]
-  store ptr %.sink9, ptr @_SPI_stack, align 8
+  store ptr %.sink10, ptr @_SPI_stack, align 8
   store i32 %.sink, ptr @_SPI_stack_depth, align 4
   br label %31
 
 31:                                               ; preds = %.sink.split, %23
-  %32 = phi ptr [ %2, %23 ], [ %.sink9, %.sink.split ]
+  %32 = phi ptr [ %2, %23 ], [ %.sink10, %.sink.split ]
   %33 = load i32, ptr @_SPI_connected, align 4
   %34 = add i32 %33, 1
   store i32 %34, ptr @_SPI_connected, align 4
@@ -229,29 +229,29 @@ define dso_local noundef i32 @SPI_connect_ext(i32 noundef %0) local_unnamed_addr
   %51 = load i32, ptr @SPI_result, align 4
   %52 = getelementptr inbounds i8, ptr %39, i64 96
   store i32 %51, ptr %52, align 8
-  %53 = trunc nuw i8 %45 to i1
-  %54 = load ptr, ptr @TopTransactionContext, align 8
-  %55 = load ptr, ptr @PortalContext, align 8
-  %56 = select i1 %53, ptr %54, ptr %55
-  %57 = tail call ptr @AllocSetContextCreateInternal(ptr noundef %56, ptr noundef nonnull @.str.2, i64 noundef 0, i64 noundef 8192, i64 noundef 8388608) #15
-  %58 = load ptr, ptr @_SPI_current, align 8
-  %59 = getelementptr inbounds i8, ptr %58, i64 32
-  store ptr %57, ptr %59, align 8
-  %60 = getelementptr inbounds i8, ptr %58, i64 72
-  %61 = load i8, ptr %60, align 8
-  %62 = trunc i8 %61 to i1
+  %.not9.not = icmp eq i8 %44, 0
+  %53 = load ptr, ptr @TopTransactionContext, align 8
+  %54 = load ptr, ptr @PortalContext, align 8
+  %55 = select i1 %.not9.not, ptr %53, ptr %54
+  %56 = tail call ptr @AllocSetContextCreateInternal(ptr noundef %55, ptr noundef nonnull @.str.2, i64 noundef 0, i64 noundef 8192, i64 noundef 8388608) #15
+  %57 = load ptr, ptr @_SPI_current, align 8
+  %58 = getelementptr inbounds i8, ptr %57, i64 32
+  store ptr %56, ptr %58, align 8
+  %59 = getelementptr inbounds i8, ptr %57, i64 72
+  %60 = load i8, ptr %59, align 8
+  %61 = trunc i8 %60 to i1
   %TopTransactionContext.val = load ptr, ptr @TopTransactionContext, align 8
-  %63 = select i1 %62, ptr %TopTransactionContext.val, ptr %57
-  %64 = tail call ptr @AllocSetContextCreateInternal(ptr noundef %63, ptr noundef nonnull @.str.3, i64 noundef 0, i64 noundef 8192, i64 noundef 8388608) #15
-  %65 = load ptr, ptr @_SPI_current, align 8
-  %66 = getelementptr inbounds i8, ptr %65, i64 40
-  store ptr %64, ptr %66, align 8
-  %67 = getelementptr inbounds i8, ptr %65, i64 32
-  %68 = load ptr, ptr %67, align 8
-  %69 = load ptr, ptr @CurrentMemoryContext, align 8
-  store ptr %68, ptr @CurrentMemoryContext, align 8
-  %70 = getelementptr inbounds i8, ptr %65, i64 48
-  store ptr %69, ptr %70, align 8
+  %62 = select i1 %61, ptr %TopTransactionContext.val, ptr %56
+  %63 = tail call ptr @AllocSetContextCreateInternal(ptr noundef %62, ptr noundef nonnull @.str.3, i64 noundef 0, i64 noundef 8192, i64 noundef 8388608) #15
+  %64 = load ptr, ptr @_SPI_current, align 8
+  %65 = getelementptr inbounds i8, ptr %64, i64 40
+  store ptr %63, ptr %65, align 8
+  %66 = getelementptr inbounds i8, ptr %64, i64 32
+  %67 = load ptr, ptr %66, align 8
+  %68 = load ptr, ptr @CurrentMemoryContext, align 8
+  store ptr %67, ptr @CurrentMemoryContext, align 8
+  %69 = getelementptr inbounds i8, ptr %64, i64 48
+  store ptr %68, ptr %69, align 8
   store i64 0, ptr @SPI_processed, align 8
   store ptr null, ptr @SPI_tuptable, align 8
   store i32 0, ptr @SPI_result, align 4
@@ -276,7 +276,7 @@ declare i32 @GetCurrentSubTransactionId() local_unnamed_addr #2
 declare ptr @AllocSetContextCreateInternal(ptr noundef, ptr noundef, i64 noundef, i64 noundef, i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @SPI_finish() local_unnamed_addr #0 {
+define dso_local range(i32 -4, 3) i32 @SPI_finish() local_unnamed_addr #0 {
   %1 = load ptr, ptr @_SPI_current, align 8
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %25, label %2
@@ -2527,7 +2527,7 @@ _SPI_begin_call.exit:                             ; preds = %8
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @SPI_keepplan(ptr noundef %0) local_unnamed_addr #0 {
+define dso_local range(i32 -6, 1) i32 @SPI_keepplan(ptr noundef %0) local_unnamed_addr #0 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %.thread, label %3
 
@@ -2727,7 +2727,7 @@ define dso_local noundef ptr @SPI_saveplan(ptr noundef readonly %0) local_unname
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @SPI_freeplan(ptr noundef readonly %0) local_unnamed_addr #0 {
+define dso_local range(i32 -6, 1) i32 @SPI_freeplan(ptr noundef readonly %0) local_unnamed_addr #0 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %20, label %3
 

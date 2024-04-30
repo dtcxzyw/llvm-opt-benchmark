@@ -33682,7 +33682,7 @@ lpad.body:                                        ; preds = %lpad.i.i.i, %lpad
   %5 = extractvalue { ptr, i32 } %eh.lpad-body, 0
   %6 = tail call ptr @__cxa_begin_catch(ptr %5) #24
   %tobool.not = icmp eq ptr %cond.i17, null
-  br i1 %tobool.not, label %if.end.thread, label %if.then.i35
+  br i1 %tobool.not, label %if.end.thread, label %if.then.i32
 
 if.end.thread:                                    ; preds = %lpad.body
   %second.i.i.i30 = getelementptr inbounds i8, ptr %add.ptr, i64 32
@@ -33696,11 +33696,11 @@ lpad19:                                           ; preds = %invoke.cont21
   invoke void @__cxa_end_catch()
           to label %eh.resume unwind label %terminate.lpad
 
-if.then.i35:                                      ; preds = %lpad.body
+if.then.i32:                                      ; preds = %lpad.body
   tail call void @_ZdlPv(ptr noundef nonnull %cond.i17) #28
   br label %invoke.cont21
 
-invoke.cont21:                                    ; preds = %if.then.i35, %if.end.thread
+invoke.cont21:                                    ; preds = %if.then.i32, %if.end.thread
   invoke void @__cxa_rethrow() #26
           to label %unreachable unwind label %lpad19
 
@@ -85728,8 +85728,8 @@ invoke.cont45:                                    ; preds = %invoke.cont41
   store i8 %frombool, ptr %gtest_ar_48, align 8
   %message_.i48 = getelementptr inbounds i8, ptr %gtest_ar_48, i64 8
   store ptr null, ptr %message_.i48, align 8
-  %tobool.i49 = trunc nuw i8 %frombool to i1
-  br i1 %tobool.i49, label %_ZN7testing15AssertionResultD2Ev.exit63, label %if.else54
+  %tobool.i49.not.not = icmp eq i8 %frombool.i46, 0
+  br i1 %tobool.i49.not.not, label %_ZN7testing15AssertionResultD2Ev.exit63, label %if.else54
 
 ehcleanup37:                                      ; preds = %_ZN7testing7MessageD2Ev.exit35, %lpad25
   %.pn4.pn = phi { ptr, i32 } [ %.pn4, %_ZN7testing7MessageD2Ev.exit35 ], [ %27, %lpad25 ]
@@ -86421,8 +86421,8 @@ invoke.cont48:                                    ; preds = %invoke.cont44
   store i8 %frombool, ptr %gtest_ar_51, align 8
   %message_.i48 = getelementptr inbounds i8, ptr %gtest_ar_51, i64 8
   store ptr null, ptr %message_.i48, align 8
-  %tobool.i49 = trunc nuw i8 %frombool to i1
-  br i1 %tobool.i49, label %_ZN7testing15AssertionResultD2Ev.exit63, label %if.else57
+  %tobool.i49.not.not = icmp eq i8 %frombool.i46, 0
+  br i1 %tobool.i49.not.not, label %_ZN7testing15AssertionResultD2Ev.exit63, label %if.else57
 
 ehcleanup38:                                      ; preds = %_ZN7testing7MessageD2Ev.exit36, %lpad26
   %.pn4.pn = phi { ptr, i32 } [ %.pn4, %_ZN7testing7MessageD2Ev.exit36 ], [ %19, %lpad26 ]
@@ -96091,8 +96091,8 @@ invoke.cont45:                                    ; preds = %invoke.cont41
   store i8 %frombool, ptr %gtest_ar_48, align 8
   %message_.i48 = getelementptr inbounds i8, ptr %gtest_ar_48, i64 8
   store ptr null, ptr %message_.i48, align 8
-  %tobool.i49 = trunc nuw i8 %frombool to i1
-  br i1 %tobool.i49, label %_ZN7testing15AssertionResultD2Ev.exit63, label %if.else54
+  %tobool.i49.not.not = icmp eq i8 %frombool.i46, 0
+  br i1 %tobool.i49.not.not, label %_ZN7testing15AssertionResultD2Ev.exit63, label %if.else54
 
 ehcleanup37:                                      ; preds = %_ZN7testing7MessageD2Ev.exit35, %lpad25
   %.pn4.pn = phi { ptr, i32 } [ %.pn4, %_ZN7testing7MessageD2Ev.exit35 ], [ %27, %lpad25 ]
@@ -96749,8 +96749,8 @@ invoke.cont48:                                    ; preds = %invoke.cont44
   store i8 %frombool, ptr %gtest_ar_51, align 8
   %message_.i48 = getelementptr inbounds i8, ptr %gtest_ar_51, i64 8
   store ptr null, ptr %message_.i48, align 8
-  %tobool.i49 = trunc nuw i8 %frombool to i1
-  br i1 %tobool.i49, label %_ZN7testing15AssertionResultD2Ev.exit63, label %if.else57
+  %tobool.i49.not.not = icmp eq i8 %frombool.i46, 0
+  br i1 %tobool.i49.not.not, label %_ZN7testing15AssertionResultD2Ev.exit63, label %if.else57
 
 ehcleanup38:                                      ; preds = %_ZN7testing7MessageD2Ev.exit36, %lpad26
   %.pn4.pn = phi { ptr, i32 } [ %.pn4, %_ZN7testing7MessageD2Ev.exit36 ], [ %19, %lpad26 ]

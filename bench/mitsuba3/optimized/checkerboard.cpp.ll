@@ -632,23 +632,24 @@ define weak_odr noundef float @_ZNK7mitsuba12CheckerboardIfN5drjit6MatrixINS_8Sp
   %22 = lshr exact i16 %.sroa.2.0.insert.shift, 8
   %23 = xor i16 %22, %.sroa.0.0.insert.insert
   %24 = trunc i16 %23 to i1
-  %25 = trunc i16 %23 to i1
-  br i1 %25, label %26, label %33
+  br i1 %24, label %25, label %32
 
-26:                                               ; preds = %.critedge
-  %27 = getelementptr inbounds i8, ptr %0, i64 40
+25:                                               ; preds = %.critedge
+  %26 = getelementptr inbounds i8, ptr %0, i64 40
+  %27 = load ptr, ptr %26, align 8
   %28 = load ptr, ptr %27, align 8
-  %29 = load ptr, ptr %28, align 8
-  %30 = getelementptr inbounds i8, ptr %29, i64 112
-  %31 = load ptr, ptr %30, align 8
-  %32 = tail call noundef float %31(ptr noundef nonnull align 8 dereferenceable(40) %28, ptr noundef nonnull align 16 dereferenceable(240) %1, i1 noundef zeroext true)
-  br label %33
+  %29 = getelementptr inbounds i8, ptr %28, i64 112
+  %30 = load ptr, ptr %29, align 8
+  %31 = tail call noundef float %30(ptr noundef nonnull align 8 dereferenceable(40) %27, ptr noundef nonnull align 16 dereferenceable(240) %1, i1 noundef zeroext true)
+  br label %32
 
-33:                                               ; preds = %26, %.critedge
-  %.0136 = phi float [ 0.000000e+00, %.critedge ], [ %32, %26 ]
-  br i1 %24, label %41, label %34
+32:                                               ; preds = %25, %.critedge
+  %.0136 = phi float [ 0.000000e+00, %.critedge ], [ %31, %25 ]
+  %33 = and i16 %23, 1
+  %.not.not = icmp eq i16 %33, 0
+  br i1 %.not.not, label %34, label %41
 
-34:                                               ; preds = %33
+34:                                               ; preds = %32
   %35 = getelementptr inbounds i8, ptr %0, i64 48
   %36 = load ptr, ptr %35, align 16
   %37 = load ptr, ptr %36, align 8
@@ -657,8 +658,8 @@ define weak_odr noundef float @_ZNK7mitsuba12CheckerboardIfN5drjit6MatrixINS_8Sp
   %40 = tail call noundef float %39(ptr noundef nonnull align 8 dereferenceable(40) %36, ptr noundef nonnull align 16 dereferenceable(240) %1, i1 noundef zeroext true)
   br label %41
 
-41:                                               ; preds = %34, %33
-  %.1 = phi float [ %.0136, %33 ], [ %40, %34 ]
+41:                                               ; preds = %34, %32
+  %.1 = phi float [ %.0136, %32 ], [ %40, %34 ]
   ret float %.1
 }
 

@@ -395,7 +395,7 @@ define noundef i64 @_ZN10serde_json5error5Error6column17h8c03cb3c75a1185cE(ptr n
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(read, inaccessiblemem: none) uwtable
-define noundef i8 @_ZN10serde_json5error5Error8classify17h110cf38616d4c2e1E(ptr noalias nocapture noundef readonly align 8 dereferenceable(8) %0) unnamed_addr #4 {
+define noundef range(i8 0, 4) i8 @_ZN10serde_json5error5Error8classify17h110cf38616d4c2e1E(ptr noalias nocapture noundef readonly align 8 dereferenceable(8) %0) unnamed_addr #4 {
 switch.lookup:
   %1 = load ptr, ptr %0, align 8, !nonnull !4, !align !34, !noundef !4
   %2 = load i64, ptr %1, align 8, !range !35, !noundef !4
@@ -448,7 +448,7 @@ _ZN10serde_json5error5Error8classify17h110cf38616d4c2e1E.exit:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(read, inaccessiblemem: write) uwtable
-define noundef i8 @_ZN10serde_json5error5Error13io_error_kind17h54e20009f791cb8dE(ptr noalias nocapture noundef readonly align 8 dereferenceable(8) %0) unnamed_addr #6 personality ptr @rust_eh_personality {
+define noundef range(i8 0, 42) i8 @_ZN10serde_json5error5Error13io_error_kind17h54e20009f791cb8dE(ptr noalias nocapture noundef readonly align 8 dereferenceable(8) %0) unnamed_addr #6 personality ptr @rust_eh_personality {
   %2 = load ptr, ptr %0, align 8, !nonnull !4, !align !34, !noundef !4
   %3 = load i64, ptr %2, align 8, !range !35, !noundef !4
   %4 = icmp eq i64 %3, 1
@@ -1227,7 +1227,7 @@ define noalias noundef nonnull align 8 ptr @_ZN10serde_json5error10make_error17h
   %.016.neg.i.i.i.i = phi i64 [ -1, %78 ], [ %..i.i.i.i, %82 ], [ -2, %80 ]
   %23 = add i64 %.016.neg.i.i.i.i, %.fr101.i.i1216.i.i
   %.fr101.i.i.i.i = freeze i64 %23
-  %24 = trunc nuw i8 %27 to i1
+  %24 = icmp ne i8 %.in.i.i, 1
   %25 = icmp eq i64 %.fr101.i.i.i.i, 0
   br i1 %25, label %"_ZN4core3str21_$LT$impl$u20$str$GT$5rfind17h37edd6da2056eb06E.exit.i", label %.lr.ph.i.i
 

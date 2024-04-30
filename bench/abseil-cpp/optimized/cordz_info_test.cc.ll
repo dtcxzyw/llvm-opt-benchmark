@@ -1491,8 +1491,8 @@ cleanup.cont:                                     ; preds = %_ZNKSt14default_del
   store i8 %frombool, ptr %gtest_ar_, align 8
   %message_.i27 = getelementptr inbounds i8, ptr %gtest_ar_, i64 8
   store ptr null, ptr %message_.i27, align 8
-  %tobool.i28 = trunc nuw i8 %frombool to i1
-  br i1 %tobool.i28, label %invoke.cont54, label %if.else29
+  %tobool.i28.not.not = icmp eq i8 %lnot, 0
+  br i1 %tobool.i28.not.not, label %invoke.cont54, label %if.else29
 
 ehcleanup20:                                      ; preds = %_ZN7testing7MessageD2Ev.exit21, %lpad8
   %.pn.pn = phi { ptr, i32 } [ %.pn, %_ZN7testing7MessageD2Ev.exit21 ], [ %4, %lpad8 ]

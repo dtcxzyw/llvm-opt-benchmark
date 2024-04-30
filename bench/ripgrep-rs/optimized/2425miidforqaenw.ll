@@ -1905,40 +1905,35 @@ define noundef zeroext i1 @"_ZN60_$LT$globset..glob..Glob$u20$as$u20$core..cmp..
   tail call void @llvm.experimental.noalias.scope.decl(metadata !289)
   %11 = load i8, ptr %9, align 8, !range !97, !alias.scope !286, !noalias !289, !noundef !8
   %12 = load i8, ptr %10, align 8, !range !97, !alias.scope !289, !noalias !286, !noundef !8
-  %13 = xor i8 %12, %11
-  %14 = trunc nuw i8 %13 to i1
-  br i1 %14, label %"_ZN67_$LT$globset..glob..GlobOptions$u20$as$u20$core..cmp..PartialEq$GT$2eq17h6ceb7f7a95e9155bE.exit", label %15
+  %.not.i = icmp eq i8 %11, %12
+  br i1 %.not.i, label %13, label %"_ZN67_$LT$globset..glob..GlobOptions$u20$as$u20$core..cmp..PartialEq$GT$2eq17h6ceb7f7a95e9155bE.exit"
 
-15:                                               ; preds = %8
-  %16 = getelementptr inbounds i8, ptr %0, i64 73
-  %17 = load i8, ptr %16, align 1, !range !97, !alias.scope !286, !noalias !289, !noundef !8
-  %18 = getelementptr inbounds i8, ptr %1, i64 73
-  %19 = load i8, ptr %18, align 1, !range !97, !alias.scope !289, !noalias !286, !noundef !8
-  %20 = xor i8 %19, %17
-  %21 = trunc nuw i8 %20 to i1
-  br i1 %21, label %"_ZN67_$LT$globset..glob..GlobOptions$u20$as$u20$core..cmp..PartialEq$GT$2eq17h6ceb7f7a95e9155bE.exit", label %22
+13:                                               ; preds = %8
+  %14 = getelementptr inbounds i8, ptr %0, i64 73
+  %15 = load i8, ptr %14, align 1, !range !97, !alias.scope !286, !noalias !289, !noundef !8
+  %16 = getelementptr inbounds i8, ptr %1, i64 73
+  %17 = load i8, ptr %16, align 1, !range !97, !alias.scope !289, !noalias !286, !noundef !8
+  %.not1.i = icmp eq i8 %15, %17
+  br i1 %.not1.i, label %18, label %"_ZN67_$LT$globset..glob..GlobOptions$u20$as$u20$core..cmp..PartialEq$GT$2eq17h6ceb7f7a95e9155bE.exit"
 
-22:                                               ; preds = %15
-  %23 = getelementptr inbounds i8, ptr %0, i64 74
-  %24 = load i8, ptr %23, align 2, !range !97, !alias.scope !286, !noalias !289, !noundef !8
-  %25 = getelementptr inbounds i8, ptr %1, i64 74
-  %26 = load i8, ptr %25, align 2, !range !97, !alias.scope !289, !noalias !286, !noundef !8
-  %27 = xor i8 %26, %24
-  %28 = trunc nuw i8 %27 to i1
-  br i1 %28, label %"_ZN67_$LT$globset..glob..GlobOptions$u20$as$u20$core..cmp..PartialEq$GT$2eq17h6ceb7f7a95e9155bE.exit", label %29
+18:                                               ; preds = %13
+  %19 = getelementptr inbounds i8, ptr %0, i64 74
+  %20 = load i8, ptr %19, align 2, !range !97, !alias.scope !286, !noalias !289, !noundef !8
+  %21 = getelementptr inbounds i8, ptr %1, i64 74
+  %22 = load i8, ptr %21, align 2, !range !97, !alias.scope !289, !noalias !286, !noundef !8
+  %.not2.i = icmp eq i8 %20, %22
+  br i1 %.not2.i, label %23, label %"_ZN67_$LT$globset..glob..GlobOptions$u20$as$u20$core..cmp..PartialEq$GT$2eq17h6ceb7f7a95e9155bE.exit"
 
-29:                                               ; preds = %22
-  %30 = getelementptr inbounds i8, ptr %0, i64 75
-  %31 = load i8, ptr %30, align 1, !range !97, !alias.scope !286, !noalias !289, !noundef !8
-  %32 = getelementptr inbounds i8, ptr %1, i64 75
-  %33 = load i8, ptr %32, align 1, !range !97, !alias.scope !289, !noalias !286, !noundef !8
-  %34 = xor i8 %33, %31
-  %35 = trunc nuw i8 %34 to i1
-  %36 = xor i1 %35, true
+23:                                               ; preds = %18
+  %24 = getelementptr inbounds i8, ptr %0, i64 75
+  %25 = load i8, ptr %24, align 1, !range !97, !alias.scope !286, !noalias !289, !noundef !8
+  %26 = getelementptr inbounds i8, ptr %1, i64 75
+  %27 = load i8, ptr %26, align 1, !range !97, !alias.scope !289, !noalias !286, !noundef !8
+  %.not3.i = icmp eq i8 %25, %27
   br label %"_ZN67_$LT$globset..glob..GlobOptions$u20$as$u20$core..cmp..PartialEq$GT$2eq17h6ceb7f7a95e9155bE.exit"
 
-"_ZN67_$LT$globset..glob..GlobOptions$u20$as$u20$core..cmp..PartialEq$GT$2eq17h6ceb7f7a95e9155bE.exit": ; preds = %2, %29, %22, %15, %8, %"_ZN5alloc3vec10partial_eq117_$LT$impl$u20$core..cmp..PartialEq$LT$alloc..vec..Vec$LT$U$C$A2$GT$$GT$$u20$for$u20$alloc..vec..Vec$LT$T$C$A1$GT$$GT$2eq17h66b5f2af20e0fffdE.exit"
-  %.0 = phi i1 [ false, %"_ZN5alloc3vec10partial_eq117_$LT$impl$u20$core..cmp..PartialEq$LT$alloc..vec..Vec$LT$U$C$A2$GT$$GT$$u20$for$u20$alloc..vec..Vec$LT$T$C$A1$GT$$GT$2eq17h66b5f2af20e0fffdE.exit" ], [ %36, %29 ], [ false, %22 ], [ false, %15 ], [ false, %8 ], [ false, %2 ]
+"_ZN67_$LT$globset..glob..GlobOptions$u20$as$u20$core..cmp..PartialEq$GT$2eq17h6ceb7f7a95e9155bE.exit": ; preds = %2, %23, %18, %13, %8, %"_ZN5alloc3vec10partial_eq117_$LT$impl$u20$core..cmp..PartialEq$LT$alloc..vec..Vec$LT$U$C$A2$GT$$GT$$u20$for$u20$alloc..vec..Vec$LT$T$C$A1$GT$$GT$2eq17h66b5f2af20e0fffdE.exit"
+  %.0 = phi i1 [ false, %"_ZN5alloc3vec10partial_eq117_$LT$impl$u20$core..cmp..PartialEq$LT$alloc..vec..Vec$LT$U$C$A2$GT$$GT$$u20$for$u20$alloc..vec..Vec$LT$T$C$A1$GT$$GT$2eq17h66b5f2af20e0fffdE.exit" ], [ %.not3.i, %23 ], [ false, %18 ], [ false, %13 ], [ false, %8 ], [ false, %2 ]
   ret i1 %.0
 }
 

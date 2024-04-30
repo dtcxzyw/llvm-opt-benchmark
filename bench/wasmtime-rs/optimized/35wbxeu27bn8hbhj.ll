@@ -283,31 +283,30 @@ define hidden zeroext i1 @"_ZN95_$LT$cranelift_codegen_meta..cdsl..formats..Form
   %5 = getelementptr inbounds i8, ptr %1, i64 24
   %6 = load i64, ptr %5, align 8, !noundef !3
   %7 = icmp eq i64 %4, %6
-  br i1 %7, label %8, label %23
+  br i1 %7, label %8, label %21
 
 8:                                                ; preds = %2
   %9 = getelementptr inbounds i8, ptr %0, i64 40
   %10 = load i8, ptr %9, align 8, !range !4, !noundef !3
   %11 = getelementptr inbounds i8, ptr %1, i64 40
   %12 = load i8, ptr %11, align 8, !range !4, !noundef !3
-  %13 = xor i8 %12, %10
-  %14 = trunc nuw i8 %13 to i1
-  br i1 %14, label %23, label %15
+  %.not = icmp eq i8 %10, %12
+  br i1 %.not, label %13, label %21
 
-15:                                               ; preds = %8
-  %16 = getelementptr inbounds i8, ptr %0, i64 32
+13:                                               ; preds = %8
+  %14 = getelementptr inbounds i8, ptr %0, i64 32
+  %15 = load i64, ptr %14, align 8, !noundef !3
+  %16 = getelementptr inbounds i8, ptr %1, i64 32
   %17 = load i64, ptr %16, align 8, !noundef !3
-  %18 = getelementptr inbounds i8, ptr %1, i64 32
-  %19 = load i64, ptr %18, align 8, !noundef !3
-  %20 = icmp eq i64 %17, %19
-  br i1 %20, label %21, label %23
+  %18 = icmp eq i64 %15, %17
+  br i1 %18, label %19, label %21
 
-21:                                               ; preds = %15
-  %22 = tail call zeroext i1 @"_ZN5alloc3vec10partial_eq117_$LT$impl$u20$core..cmp..PartialEq$LT$alloc..vec..Vec$LT$U$C$A2$GT$$GT$$u20$for$u20$alloc..vec..Vec$LT$T$C$A1$GT$$GT$2eq17hf59e638ddb86eb1fE"(ptr nonnull align 8 %0, ptr nonnull align 8 %1)
-  br label %23
+19:                                               ; preds = %13
+  %20 = tail call zeroext i1 @"_ZN5alloc3vec10partial_eq117_$LT$impl$u20$core..cmp..PartialEq$LT$alloc..vec..Vec$LT$U$C$A2$GT$$GT$$u20$for$u20$alloc..vec..Vec$LT$T$C$A1$GT$$GT$2eq17hf59e638ddb86eb1fE"(ptr nonnull align 8 %0, ptr nonnull align 8 %1)
+  br label %21
 
-23:                                               ; preds = %2, %8, %15, %21
-  %.0 = phi i1 [ %22, %21 ], [ false, %15 ], [ false, %8 ], [ false, %2 ]
+21:                                               ; preds = %2, %8, %13, %19
+  %.0 = phi i1 [ %20, %19 ], [ false, %13 ], [ false, %8 ], [ false, %2 ]
   ret i1 %.0
 }
 

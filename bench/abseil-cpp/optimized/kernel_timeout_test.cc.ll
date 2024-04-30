@@ -643,8 +643,8 @@ _ZN7testing15AssertionResultD2Ev.exit:            ; preds = %invoke.cont, %if.en
   %frombool31 = xor i8 %12, 1
   store i8 %frombool31, ptr %gtest_ar_27, align 8
   store ptr null, ptr %message_.i46, align 8
-  %tobool.i47 = trunc i8 %frombool31 to i1
-  br i1 %tobool.i47, label %_ZN7testing15AssertionResultD2Ev.exit61, label %if.else37
+  %tobool.i47.not.not = icmp eq i8 %12, 0
+  br i1 %tobool.i47.not.not, label %_ZN7testing15AssertionResultD2Ev.exit61, label %if.else37
 
 ehcleanup26:                                      ; preds = %_ZN7testing7MessageD2Ev.exit41, %lpad11
   %.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn, %_ZN7testing7MessageD2Ev.exit41 ], [ %2, %lpad11 ]
@@ -744,8 +744,8 @@ _ZN7testing15AssertionResultD2Ev.exit61:          ; preds = %_ZN7testing15Assert
   %frombool58 = xor i8 %23, 1
   store i8 %frombool58, ptr %gtest_ar_54, align 8
   store ptr null, ptr %message_.i65, align 8
-  %tobool.i66 = trunc i8 %frombool58 to i1
-  br i1 %tobool.i66, label %_ZN7testing15AssertionResultD2Ev.exit80, label %if.else64
+  %tobool.i66.not.not = icmp eq i8 %23, 0
+  br i1 %tobool.i66.not.not, label %_ZN7testing15AssertionResultD2Ev.exit80, label %if.else64
 
 ehcleanup53:                                      ; preds = %_ZN7testing7MessageD2Ev.exit57, %lpad33
   %.pn7.pn.pn = phi { ptr, i32 } [ %.pn7.pn, %_ZN7testing7MessageD2Ev.exit57 ], [ %13, %lpad33 ]
@@ -1349,7 +1349,7 @@ invoke.cont193:                                   ; preds = %_ZN7testing15Assert
   %div.i.i.i = sdiv i64 %call194, 1000000000
   %rem.i.i.i = srem i64 %call194, 1000000000
   %cmp.i.i.i.i210 = icmp slt i64 %rem.i.i.i, 0
-  %rem.tr.i.i.i = trunc i64 %rem.i.i.i to i32
+  %rem.tr.i.i.i = trunc nsw i64 %rem.i.i.i to i32
   %69 = shl i32 %rem.tr.i.i.i, 2
   %conv.i.i.i.i.i = add i32 %69, -294967296
   %ticks.lobit.i.i.i.i = ashr i64 %rem.i.i.i, 61
@@ -1852,7 +1852,7 @@ invoke.cont301:                                   ; preds = %_ZN7testing15Assert
   %div.i.i.i417 = sdiv i64 %call302, 1000000000
   %rem.i.i.i418 = srem i64 %call302, 1000000000
   %cmp.i.i.i.i419 = icmp slt i64 %rem.i.i.i418, 0
-  %rem.tr.i.i.i420 = trunc i64 %rem.i.i.i418 to i32
+  %rem.tr.i.i.i420 = trunc nsw i64 %rem.i.i.i418 to i32
   %102 = shl i32 %rem.tr.i.i.i420, 2
   %conv.i.i.i.i.i421 = add i32 %102, -294967296
   %ticks.lobit.i.i.i.i422 = ashr i64 %rem.i.i.i418, 61
@@ -3518,7 +3518,7 @@ _ZN7testing15AssertionResultD2Ev.exit124:         ; preds = %if.end109, %_ZNKSt1
   %div.i.i.i = sdiv i64 %call113, 1000000000
   %rem.i.i.i = srem i64 %call113, 1000000000
   %cmp.i.i.i.i = icmp slt i64 %rem.i.i.i, 0
-  %rem.tr.i.i.i = trunc i64 %rem.i.i.i to i32
+  %rem.tr.i.i.i = trunc nsw i64 %rem.i.i.i to i32
   %45 = shl i32 %rem.tr.i.i.i, 2
   %conv.i.i.i.i.i = add i32 %45, -294967296
   %ticks.lobit.i.i.i.i = ashr i64 %rem.i.i.i, 61
@@ -5689,7 +5689,7 @@ _ZN7testing15AssertionResultD2Ev.exit124:         ; preds = %if.end105, %_ZNKSt1
   %div.i.i.i = sdiv i64 %call109, 1000000000
   %rem.i.i.i = srem i64 %call109, 1000000000
   %cmp.i.i.i.i = icmp slt i64 %rem.i.i.i, 0
-  %rem.tr.i.i.i = trunc i64 %rem.i.i.i to i32
+  %rem.tr.i.i.i = trunc nsw i64 %rem.i.i.i to i32
   %36 = shl i32 %rem.tr.i.i.i, 2
   %conv.i.i.i.i.i = add i32 %36, -294967296
   %ticks.lobit.i.i.i.i = ashr i64 %rem.i.i.i, 61
@@ -6761,7 +6761,7 @@ _ZN7testing15AssertionResultD2Ev.exit124:         ; preds = %if.end110, %_ZNKSt1
   %div.i.i.i = sdiv i64 %call114, 1000000000
   %rem.i.i.i = srem i64 %call114, 1000000000
   %cmp.i.i.i.i = icmp slt i64 %rem.i.i.i, 0
-  %rem.tr.i.i.i = trunc i64 %rem.i.i.i to i32
+  %rem.tr.i.i.i = trunc nsw i64 %rem.i.i.i to i32
   %45 = shl i32 %rem.tr.i.i.i, 2
   %conv.i.i.i.i.i = add i32 %45, -294967296
   %ticks.lobit.i.i.i.i = ashr i64 %rem.i.i.i, 61
@@ -7732,7 +7732,7 @@ _ZN7testing15AssertionResultD2Ev.exit124:         ; preds = %if.end107, %_ZNKSt1
   %div.i.i.i = sdiv i64 %call111, 1000000000
   %rem.i.i.i = srem i64 %call111, 1000000000
   %cmp.i.i.i.i = icmp slt i64 %rem.i.i.i, 0
-  %rem.tr.i.i.i = trunc i64 %rem.i.i.i to i32
+  %rem.tr.i.i.i = trunc nsw i64 %rem.i.i.i to i32
   %36 = shl i32 %rem.tr.i.i.i, 2
   %conv.i.i.i.i.i = add i32 %36, -294967296
   %ticks.lobit.i.i.i.i = ashr i64 %rem.i.i.i, 61
@@ -8400,8 +8400,8 @@ _ZN7testing15AssertionResultD2Ev.exit:            ; preds = %entry, %if.end, %_Z
   store i8 %frombool19, ptr %gtest_ar_16, align 8
   %message_.i43 = getelementptr inbounds i8, ptr %gtest_ar_16, i64 8
   store ptr null, ptr %message_.i43, align 8
-  %tobool.i44 = trunc i8 %frombool19 to i1
-  br i1 %tobool.i44, label %_ZN7testing15AssertionResultD2Ev.exit58, label %if.else22
+  %tobool.i44.not.not = icmp eq i8 %11, 0
+  br i1 %tobool.i44.not.not, label %_ZN7testing15AssertionResultD2Ev.exit58, label %if.else22
 
 if.else22:                                        ; preds = %_ZN7testing15AssertionResultD2Ev.exit
   invoke void @_ZN7testing7MessageC1Ev(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp23)
@@ -8497,8 +8497,8 @@ _ZN7testing15AssertionResultD2Ev.exit58:          ; preds = %_ZN7testing15Assert
   store i8 %frombool43, ptr %gtest_ar_40, align 8
   %message_.i62 = getelementptr inbounds i8, ptr %gtest_ar_40, i64 8
   store ptr null, ptr %message_.i62, align 8
-  %tobool.i63 = trunc i8 %frombool43 to i1
-  br i1 %tobool.i63, label %_ZN7testing15AssertionResultD2Ev.exit77, label %if.else46
+  %tobool.i63.not.not = icmp eq i8 %22, 0
+  br i1 %tobool.i63.not.not, label %_ZN7testing15AssertionResultD2Ev.exit77, label %if.else46
 
 if.else46:                                        ; preds = %_ZN7testing15AssertionResultD2Ev.exit58
   invoke void @_ZN7testing7MessageC1Ev(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp47)
@@ -8951,7 +8951,7 @@ _ZN7testing15AssertionResultD2Ev.exit154:         ; preds = %if.end143, %_ZNKSt1
   %div.i.i.i = sdiv i64 %call147, 1000000000
   %rem.i.i.i = srem i64 %call147, 1000000000
   %cmp.i.i.i.i = icmp slt i64 %rem.i.i.i, 0
-  %rem.tr.i.i.i = trunc i64 %rem.i.i.i to i32
+  %rem.tr.i.i.i = trunc nsw i64 %rem.i.i.i to i32
   %67 = shl i32 %rem.tr.i.i.i, 2
   %conv.i.i.i.i.i = add i32 %67, -294967296
   %ticks.lobit.i.i.i.i = ashr i64 %rem.i.i.i, 61
@@ -11097,7 +11097,7 @@ invoke.cont202:                                   ; preds = %invoke.cont193
   %div.i.i.i = sdiv i64 %call203, 1000000000
   %rem.i.i.i = srem i64 %call203, 1000000000
   %cmp.i.i.i.i = icmp slt i64 %rem.i.i.i, 0
-  %rem.tr.i.i.i = trunc i64 %rem.i.i.i to i32
+  %rem.tr.i.i.i = trunc nsw i64 %rem.i.i.i to i32
   %66 = shl i32 %rem.tr.i.i.i, 2
   %conv.i.i.i.i.i = add i32 %66, -294967296
   %ticks.lobit.i.i.i.i = ashr i64 %rem.i.i.i, 61
@@ -11615,7 +11615,7 @@ invoke.cont312:                                   ; preds = %_ZN7testing15Assert
   %div.i.i.i463 = sdiv i64 %call313, 1000000000
   %rem.i.i.i464 = srem i64 %call313, 1000000000
   %cmp.i.i.i.i465 = icmp slt i64 %rem.i.i.i464, 0
-  %rem.tr.i.i.i466 = trunc i64 %rem.i.i.i464 to i32
+  %rem.tr.i.i.i466 = trunc nsw i64 %rem.i.i.i464 to i32
   %98 = shl i32 %rem.tr.i.i.i466, 2
   %conv.i.i.i.i.i467 = add i32 %98, -294967296
   %ticks.lobit.i.i.i.i468 = ashr i64 %rem.i.i.i464, 61
@@ -12764,7 +12764,7 @@ invoke.cont183:                                   ; preds = %invoke.cont178
   %div.i.i.i = sdiv i64 %call184, 1000000000
   %rem.i.i.i = srem i64 %call184, 1000000000
   %cmp.i.i.i.i = icmp slt i64 %rem.i.i.i, 0
-  %rem.tr.i.i.i = trunc i64 %rem.i.i.i to i32
+  %rem.tr.i.i.i = trunc nsw i64 %rem.i.i.i to i32
   %66 = shl i32 %rem.tr.i.i.i, 2
   %conv.i.i.i.i.i = add i32 %66, -294967296
   %ticks.lobit.i.i.i.i = ashr i64 %rem.i.i.i, 61
@@ -13977,7 +13977,7 @@ _ZN7testing15AssertionResultD2Ev.exit124:         ; preds = %if.end108, %_ZNKSt1
   %div.i.i.i = sdiv i64 %call112, 1000000000
   %rem.i.i.i = srem i64 %call112, 1000000000
   %cmp.i.i.i.i = icmp slt i64 %rem.i.i.i, 0
-  %rem.tr.i.i.i = trunc i64 %rem.i.i.i to i32
+  %rem.tr.i.i.i = trunc nsw i64 %rem.i.i.i to i32
   %45 = shl i32 %rem.tr.i.i.i, 2
   %conv.i.i.i.i.i = add i32 %45, -294967296
   %ticks.lobit.i.i.i.i = ashr i64 %rem.i.i.i, 61
@@ -15049,7 +15049,7 @@ _ZN7testing15AssertionResultD2Ev.exit124:         ; preds = %if.end109, %_ZNKSt1
   %div.i.i.i = sdiv i64 %call113, 1000000000
   %rem.i.i.i = srem i64 %call113, 1000000000
   %cmp.i.i.i.i = icmp slt i64 %rem.i.i.i, 0
-  %rem.tr.i.i.i = trunc i64 %rem.i.i.i to i32
+  %rem.tr.i.i.i = trunc nsw i64 %rem.i.i.i to i32
   %45 = shl i32 %rem.tr.i.i.i, 2
   %conv.i.i.i.i.i = add i32 %45, -294967296
   %ticks.lobit.i.i.i.i = ashr i64 %rem.i.i.i, 61
@@ -15614,7 +15614,7 @@ entry:
   %sub = sub nsw i64 9223372036854775807, %call2
   %div.i.i264 = udiv i64 %sub, 1000000000
   %rem.i.i265 = urem i64 %sub, 1000000000
-  %rem.tr.i.i = trunc i64 %rem.i.i265 to i32
+  %rem.tr.i.i = trunc nuw nsw i64 %rem.i.i265 to i32
   %0 = shl nuw i32 %rem.tr.i.i, 2
   call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %lhs.i)
   store i64 %div.i.i264, ptr %lhs.i, align 8
@@ -16040,7 +16040,7 @@ _ZN7testing15AssertionResultD2Ev.exit112:         ; preds = %if.end98, %_ZNKSt14
   %div.i.i.i = sdiv i64 %call102, 1000000000
   %rem.i.i.i = srem i64 %call102, 1000000000
   %cmp.i.i.i.i = icmp slt i64 %rem.i.i.i, 0
-  %rem.tr.i.i.i = trunc i64 %rem.i.i.i to i32
+  %rem.tr.i.i.i = trunc nsw i64 %rem.i.i.i to i32
   %37 = shl i32 %rem.tr.i.i.i, 2
   %conv.i.i.i.i.i = add i32 %37, -294967296
   %ticks.lobit.i.i.i.i = ashr i64 %rem.i.i.i, 61

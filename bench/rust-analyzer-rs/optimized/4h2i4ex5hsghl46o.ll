@@ -15981,18 +15981,16 @@ define hidden noundef zeroext i1 @"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice.
   %63 = load i8, ptr %62, align 4, !range !393, !alias.scope !2995, !noalias !2996, !noundef !4
   %64 = getelementptr inbounds i8, ptr %8, i64 92
   %65 = load i8, ptr %64, align 4, !range !393, !alias.scope !2996, !noalias !2995, !noundef !4
-  %66 = xor i8 %65, %63
-  %67 = trunc nuw i8 %66 to i1
-  br i1 %67, label %.thread, label %_ZN4core3cmp9PartialEq2ne17h43edfbd1e9a06094E.exit
+  %.not3.i.i = icmp eq i8 %63, %65
+  br i1 %.not3.i.i, label %_ZN4core3cmp9PartialEq2ne17h43edfbd1e9a06094E.exit, label %.thread
 
 _ZN4core3cmp9PartialEq2ne17h43edfbd1e9a06094E.exit: ; preds = %61
-  %68 = getelementptr inbounds i8, ptr %7, i64 93
-  %69 = load i8, ptr %68, align 1, !range !393, !alias.scope !2995, !noalias !2996, !noundef !4
-  %70 = getelementptr inbounds i8, ptr %8, i64 93
-  %71 = load i8, ptr %70, align 1, !range !393, !alias.scope !2996, !noalias !2995, !noundef !4
-  %72 = xor i8 %71, %69
-  %73 = trunc nuw i8 %72 to i1
-  br i1 %73, label %.thread, label %.preheader.split
+  %66 = getelementptr inbounds i8, ptr %7, i64 93
+  %67 = load i8, ptr %66, align 1, !range !393, !alias.scope !2995, !noalias !2996, !noundef !4
+  %68 = getelementptr inbounds i8, ptr %8, i64 93
+  %69 = load i8, ptr %68, align 1, !range !393, !alias.scope !2996, !noalias !2995, !noundef !4
+  %.not4.i.i.not = icmp eq i8 %67, %69
+  br i1 %.not4.i.i.not, label %.preheader.split, label %.thread
 }
 
 ; Function Attrs: nonlazybind uwtable

@@ -389,8 +389,8 @@ entry:
   store i8 %frombool1, ptr %gtest_ar_, align 8
   %message_.i = getelementptr inbounds i8, ptr %gtest_ar_, i64 8
   store ptr null, ptr %message_.i, align 8
-  %tobool.i = trunc i8 %frombool1 to i1
-  br i1 %tobool.i, label %_ZN7testing15AssertionResultD2Ev.exit, label %if.else
+  %tobool.i.not.not = icmp eq i8 %lnot, 0
+  br i1 %tobool.i.not.not, label %_ZN7testing15AssertionResultD2Ev.exit, label %if.else
 
 lpad:                                             ; preds = %if.else
   %1 = landingpad { ptr, i32 }

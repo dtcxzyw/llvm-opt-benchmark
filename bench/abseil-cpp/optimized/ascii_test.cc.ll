@@ -747,8 +747,8 @@ if.else30:                                        ; preds = %for.body
   %frombool34 = xor i8 %4, 1
   store i8 %frombool34, ptr %gtest_ar_31, align 8
   store ptr null, ptr %message_.i177, align 8
-  %tobool.i178 = trunc nuw i8 %frombool34 to i1
-  br i1 %tobool.i178, label %for.inc, label %if.else39
+  %tobool.i178.not.not = icmp eq i8 %4, 0
+  br i1 %tobool.i178.not.not, label %for.inc, label %if.else39
 
 lpad35:                                           ; preds = %if.else39
   %15 = landingpad { ptr, i32 }
@@ -1203,8 +1203,8 @@ if.else176:                                       ; preds = %for.body140
   %frombool181 = xor i8 %.lobit884, 1
   store i8 %frombool181, ptr %gtest_ar_177, align 8
   store ptr null, ptr %message_.i278, align 8
-  %tobool.i279 = trunc nuw i8 %frombool181 to i1
-  br i1 %tobool.i279, label %for.inc208, label %if.else186
+  %tobool.i279.not.not = icmp eq i8 %.lobit884, 0
+  br i1 %tobool.i279.not.not, label %for.inc208, label %if.else186
 
 lpad182:                                          ; preds = %if.else186
   %65 = landingpad { ptr, i32 }
@@ -1441,8 +1441,8 @@ if.else250:                                       ; preds = %land.lhs.true218, %
   %frombool255 = xor i8 %.lobit882, 1
   store i8 %frombool255, ptr %gtest_ar_251, align 8
   store ptr null, ptr %message_.i330, align 8
-  %tobool.i331 = trunc nuw i8 %frombool255 to i1
-  br i1 %tobool.i331, label %for.inc282, label %if.else260
+  %tobool.i331.not.not = icmp eq i8 %.lobit882, 0
+  br i1 %tobool.i331.not.not, label %for.inc282, label %if.else260
 
 lpad256:                                          ; preds = %if.else260
   %91 = landingpad { ptr, i32 }
@@ -1897,8 +1897,8 @@ if.else400:                                       ; preds = %for.body362
   %frombool405 = xor i8 %.lobit879, 1
   store i8 %frombool405, ptr %gtest_ar_401, align 8
   store ptr null, ptr %message_.i434, align 8
-  %tobool.i435 = trunc nuw i8 %frombool405 to i1
-  br i1 %tobool.i435, label %for.inc432, label %if.else410
+  %tobool.i435.not.not = icmp eq i8 %.lobit879, 0
+  br i1 %tobool.i435.not.not, label %for.inc432, label %if.else410
 
 lpad406:                                          ; preds = %if.else410
   %141 = landingpad { ptr, i32 }
@@ -2129,8 +2129,8 @@ if.else474:                                       ; preds = %for.body438
   %frombool479 = xor i8 %.lobit878, 1
   store i8 %frombool479, ptr %gtest_ar_475, align 8
   store ptr null, ptr %message_.i486, align 8
-  %tobool.i487 = trunc nuw i8 %frombool479 to i1
-  br i1 %tobool.i487, label %for.inc506, label %if.else484
+  %tobool.i487.not.not = icmp eq i8 %.lobit878, 0
+  br i1 %tobool.i487.not.not, label %for.inc506, label %if.else484
 
 lpad480:                                          ; preds = %if.else484
   %165 = landingpad { ptr, i32 }
@@ -2357,8 +2357,8 @@ if.else548:                                       ; preds = %for.body512
   %frombool553 = xor i8 %.lobit875, 1
   store i8 %frombool553, ptr %gtest_ar_549, align 8
   store ptr null, ptr %message_.i538, align 8
-  %tobool.i539 = trunc nuw i8 %frombool553 to i1
-  br i1 %tobool.i539, label %for.inc580, label %if.else558
+  %tobool.i539.not.not = icmp eq i8 %.lobit875, 0
+  br i1 %tobool.i539.not.not, label %for.inc580, label %if.else558
 
 lpad554:                                          ; preds = %if.else558
   %187 = landingpad { ptr, i32 }

@@ -61048,7 +61048,7 @@ return:                                           ; preds = %invoke.cont, %invok
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal noundef i64 @_ZN4absl18container_internal12raw_hash_setINS0_12_GLOBAL__N_115DecomposePolicyENS2_13DecomposeHashENS2_11DecomposeEqESaIiEE12hash_slot_fnEPvS8_(ptr nocapture readnone %set, ptr nocapture noundef readonly %slot) #18 align 2 {
+define internal noundef range(i64 -2147483648, 2147483648) i64 @_ZN4absl18container_internal12raw_hash_setINS0_12_GLOBAL__N_115DecomposePolicyENS2_13DecomposeHashENS2_11DecomposeEqESaIiEE12hash_slot_fnEPvS8_(ptr nocapture readnone %set, ptr nocapture noundef readonly %slot) #18 align 2 {
 entry:
   %call2.val = load i32, ptr %slot, align 4
   %conv.i.i.i.i = sext i32 %call2.val to i64
@@ -61910,7 +61910,7 @@ return:                                           ; preds = %invoke.cont, %invok
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal noundef i64 @_ZN4absl18container_internal12raw_hash_setINS0_12_GLOBAL__N_115DecomposePolicyEZNS2_20Table_Decompose_Test8TestBodyEvE26TransparentHashIntOverloadNS2_11DecomposeEqESaIiEE12hash_slot_fnEPvS9_(ptr nocapture readnone %set, ptr nocapture noundef readonly %slot) #18 align 2 {
+define internal noundef range(i64 -2147483648, 2147483648) i64 @_ZN4absl18container_internal12raw_hash_setINS0_12_GLOBAL__N_115DecomposePolicyEZNS2_20Table_Decompose_Test8TestBodyEvE26TransparentHashIntOverloadNS2_11DecomposeEqESaIiEE12hash_slot_fnEPvS9_(ptr nocapture readnone %set, ptr nocapture noundef readonly %slot) #18 align 2 {
 entry:
   %call2.val = load i32, ptr %slot, align 4
   %conv.i.i.i.i = sext i32 %call2.val to i64
@@ -62212,7 +62212,7 @@ return:                                           ; preds = %invoke.cont, %invok
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal noundef i64 @_ZN4absl18container_internal12raw_hash_setINS0_12_GLOBAL__N_115DecomposePolicyEZNS2_20Table_Decompose_Test8TestBodyEvE26TransparentHashIntOverloadZNS4_8TestBodyEvE24TransparentEqIntOverloadSaIiEE12hash_slot_fnEPvS9_(ptr nocapture readnone %set, ptr nocapture noundef readonly %slot) #18 align 2 {
+define internal noundef range(i64 -2147483648, 2147483648) i64 @_ZN4absl18container_internal12raw_hash_setINS0_12_GLOBAL__N_115DecomposePolicyEZNS2_20Table_Decompose_Test8TestBodyEvE26TransparentHashIntOverloadZNS4_8TestBodyEvE24TransparentEqIntOverloadSaIiEE12hash_slot_fnEPvS9_(ptr nocapture readnone %set, ptr nocapture noundef readonly %slot) #18 align 2 {
 entry:
   %call2.val = load i32, ptr %slot, align 4
   %conv.i.i.i.i = sext i32 %call2.val to i64
@@ -62514,7 +62514,7 @@ return:                                           ; preds = %invoke.cont, %invok
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal noundef i64 @_ZN4absl18container_internal12raw_hash_setINS0_12_GLOBAL__N_115DecomposePolicyENS2_13DecomposeHashEZNS2_20Table_Decompose_Test8TestBodyEvE24TransparentEqIntOverloadSaIiEE12hash_slot_fnEPvS9_(ptr nocapture readnone %set, ptr nocapture noundef readonly %slot) #18 align 2 {
+define internal noundef range(i64 -2147483648, 2147483648) i64 @_ZN4absl18container_internal12raw_hash_setINS0_12_GLOBAL__N_115DecomposePolicyENS2_13DecomposeHashEZNS2_20Table_Decompose_Test8TestBodyEvE24TransparentEqIntOverloadSaIiEE12hash_slot_fnEPvS9_(ptr nocapture readnone %set, ptr nocapture noundef readonly %slot) #18 align 2 {
 entry:
   %call2.val = load i32, ptr %slot, align 4
   %conv.i.i.i.i = sext i32 %call2.val to i64
@@ -64338,7 +64338,7 @@ return:                                           ; preds = %invoke.cont, %invok
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal noundef i64 @_ZN4absl18container_internal12raw_hash_setINS0_12_GLOBAL__N_111ValuePolicyIlLb0EEENS2_14Modulo1000HashESt8equal_toIiESaIiEE12hash_slot_fnEPvSA_(ptr nocapture readnone %set, ptr nocapture noundef readonly %slot) #18 align 2 {
+define internal noundef range(i64 -999, 1000) i64 @_ZN4absl18container_internal12raw_hash_setINS0_12_GLOBAL__N_111ValuePolicyIlLb0EEENS2_14Modulo1000HashESt8equal_toIiESaIiEE12hash_slot_fnEPvSA_(ptr nocapture readnone %set, ptr nocapture noundef readonly %slot) #18 align 2 {
 entry:
   %call2.val = load i64, ptr %slot, align 8
   %conv.i.i.i.i = trunc i64 %call2.val to i32
@@ -112933,8 +112933,8 @@ _ZN7testing15AssertionResultD2Ev.exit195:         ; preds = %if.end179, %_ZNKSt1
   store i8 %frombool186, ptr %gtest_ar_181, align 8
   %message_.i197 = getelementptr inbounds i8, ptr %gtest_ar_181, i64 8
   store ptr null, ptr %message_.i197, align 8
-  %tobool.i198 = trunc nuw i8 %frombool186 to i1
-  br i1 %tobool.i198, label %invoke.cont216, label %if.else190
+  %tobool.i198.not.not = icmp eq i8 %lnot185, 0
+  br i1 %tobool.i198.not.not, label %invoke.cont216, label %if.else190
 
 ehcleanup180:                                     ; preds = %_ZN7testing7MessageD2Ev.exit191, %lpad168
   %.pn18.pn = phi { ptr, i32 } [ %.pn18, %_ZN7testing7MessageD2Ev.exit191 ], [ %61, %lpad168 ]
@@ -113471,8 +113471,8 @@ _ZN7testing15AssertionResultD2Ev.exit297:         ; preds = %if.end298, %_ZNKSt1
   store i8 %frombool304, ptr %gtest_ar_300, align 8
   %message_.i300 = getelementptr inbounds i8, ptr %gtest_ar_300, i64 8
   store ptr null, ptr %message_.i300, align 8
-  %tobool.i301 = trunc nuw i8 %frombool304 to i1
-  br i1 %tobool.i301, label %_ZN7testing15AssertionResultD2Ev.exit315, label %if.else308
+  %tobool.i301.not.not = icmp eq i8 %lnot303, 0
+  br i1 %tobool.i301.not.not, label %_ZN7testing15AssertionResultD2Ev.exit315, label %if.else308
 
 ehcleanup299:                                     ; preds = %_ZN7testing7MessageD2Ev.exit293, %lpad287
   %.pn31.pn = phi { ptr, i32 } [ %.pn31, %_ZN7testing7MessageD2Ev.exit293 ], [ %116, %lpad287 ]
@@ -113659,8 +113659,8 @@ _ZN4absl18container_internal16InsertReturnTypeINS0_12raw_hash_setINS0_12_GLOBAL_
   store i8 %frombool333, ptr %gtest_ar_329, align 8
   %message_.i346 = getelementptr inbounds i8, ptr %gtest_ar_329, i64 8
   store ptr null, ptr %message_.i346, align 8
-  %tobool.i347 = trunc nuw i8 %frombool333 to i1
-  br i1 %tobool.i347, label %invoke.cont358, label %if.else337
+  %tobool.i347.not.not = icmp eq i8 %lnot332, 0
+  br i1 %tobool.i347.not.not, label %invoke.cont358, label %if.else337
 
 ehcleanup325:                                     ; preds = %_ZN7testing7MessageD2Ev.exit311, %lpad310
   %.pn34.pn.pn = phi { ptr, i32 } [ %.pn34.pn, %_ZN7testing7MessageD2Ev.exit311 ], [ %124, %lpad310 ]
@@ -113938,8 +113938,8 @@ _ZN7testing15AssertionResultD2Ev.exit384:         ; preds = %if.end376, %_ZNKSt1
   store i8 %frombool383, ptr %gtest_ar_378, align 8
   %message_.i387 = getelementptr inbounds i8, ptr %gtest_ar_378, i64 8
   store ptr null, ptr %message_.i387, align 8
-  %tobool.i388 = trunc nuw i8 %frombool383 to i1
-  br i1 %tobool.i388, label %invoke.cont413, label %if.else387
+  %tobool.i388.not.not = icmp eq i8 %lnot382, 0
+  br i1 %tobool.i388.not.not, label %invoke.cont413, label %if.else387
 
 ehcleanup377:                                     ; preds = %_ZN7testing7MessageD2Ev.exit380, %lpad365
   %.pn42.pn = phi { ptr, i32 } [ %.pn42, %_ZN7testing7MessageD2Ev.exit380 ], [ %151, %lpad365 ]
@@ -114284,8 +114284,8 @@ _ZN4absl18container_internal16InsertReturnTypeINS0_12raw_hash_setINS0_12_GLOBAL_
   store i8 %frombool444, ptr %gtest_ar_439, align 8
   %message_.i480 = getelementptr inbounds i8, ptr %gtest_ar_439, i64 8
   store ptr null, ptr %message_.i480, align 8
-  %tobool.i481 = trunc nuw i8 %frombool444 to i1
-  br i1 %tobool.i481, label %invoke.cont476, label %if.else448
+  %tobool.i481.not.not = icmp eq i8 %lnot443, 0
+  br i1 %tobool.i481.not.not, label %invoke.cont476, label %if.else448
 
 ehcleanup431:                                     ; preds = %_ZN7testing7MessageD2Ev.exit422, %lpad419
   %.pn49.pn = phi { ptr, i32 } [ %.pn49, %_ZN7testing7MessageD2Ev.exit422 ], [ %169, %lpad419 ]
@@ -114588,8 +114588,8 @@ _ZN7testing15AssertionResultD2Ev.exit535:         ; preds = %_ZN7testing15Assert
   store i8 %frombool523, ptr %gtest_ar_519, align 8
   %message_.i538 = getelementptr inbounds i8, ptr %gtest_ar_519, i64 8
   store ptr null, ptr %message_.i538, align 8
-  %tobool.i539 = trunc nuw i8 %frombool523 to i1
-  br i1 %tobool.i539, label %_ZN7testing15AssertionResultD2Ev.exit553, label %if.else527
+  %tobool.i539.not.not = icmp eq i8 %lnot522, 0
+  br i1 %tobool.i539.not.not, label %_ZN7testing15AssertionResultD2Ev.exit553, label %if.else527
 
 ehcleanup518:                                     ; preds = %_ZN7testing7MessageD2Ev.exit531, %lpad503
   %.pn59.pn.pn = phi { ptr, i32 } [ %.pn59.pn, %_ZN7testing7MessageD2Ev.exit531 ], [ %206, %lpad503 ]
@@ -115991,8 +115991,8 @@ _ZN7testing15AssertionResultD2Ev.exit100:         ; preds = %if.end81, %_ZNKSt14
   store i8 %frombool, ptr %gtest_ar_, align 8
   %message_.i101 = getelementptr inbounds i8, ptr %gtest_ar_, i64 8
   store ptr null, ptr %message_.i101, align 8
-  %tobool.i102 = trunc nuw i8 %frombool to i1
-  br i1 %tobool.i102, label %_ZN7testing15AssertionResultD2Ev.exit116, label %if.else88
+  %tobool.i102.not.not = icmp eq i8 %node.sroa.0.3, 0
+  br i1 %tobool.i102.not.not, label %_ZN7testing15AssertionResultD2Ev.exit116, label %if.else88
 
 ehcleanup82:                                      ; preds = %_ZN7testing7MessageD2Ev.exit96, %lpad70
   %.pn6.pn = phi { ptr, i32 } [ %.pn6, %_ZN7testing7MessageD2Ev.exit96 ], [ %57, %lpad70 ]
@@ -122830,8 +122830,8 @@ entry:
   store i8 %frombool.i.i.i.i, ptr %gtest_ar_.i.i.i.i, align 8
   %message_.i.i.i.i.i = getelementptr inbounds i8, ptr %gtest_ar_.i.i.i.i, i64 8
   store ptr null, ptr %message_.i.i.i.i.i, align 8
-  %tobool.i.i.i.i.i = trunc nuw i8 %frombool.i.i.i.i to i1
-  br i1 %tobool.i.i.i.i.i, label %_ZN7testing15AssertionResultD2Ev.exit.i.i.i.i, label %if.else.i.i.i.i
+  %tobool.i.not.not.i.i.i.i = icmp eq i8 %lnot.i.i.i.i, 0
+  br i1 %tobool.i.not.not.i.i.i.i, label %_ZN7testing15AssertionResultD2Ev.exit.i.i.i.i, label %if.else.i.i.i.i
 
 if.else.i.i.i.i:                                  ; preds = %entry
   invoke void @_ZN7testing7MessageC1Ev(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp2.i.i.i.i)
@@ -140059,7 +140059,7 @@ return:                                           ; preds = %invoke.cont, %invok
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal noundef i64 @_ZN4absl18container_internal12raw_hash_setINS0_12_GLOBAL__N_111ValuePolicyIlLb0EEENS2_11CountedHashESt8equal_toIiESaIiEE12hash_slot_fnEPvSA_(ptr nocapture noundef %set, ptr nocapture noundef readonly %slot) #19 align 2 {
+define internal noundef range(i64 -2147483648, 2147483648) i64 @_ZN4absl18container_internal12raw_hash_setINS0_12_GLOBAL__N_111ValuePolicyIlLb0EEENS2_11CountedHashESt8equal_toIiESaIiEE12hash_slot_fnEPvSA_(ptr nocapture noundef %set, ptr nocapture noundef readonly %slot) #19 align 2 {
 entry:
   %add.ptr.i.i = getelementptr inbounds i8, ptr %set, i64 32
   %call2.val = load i64, ptr %slot, align 8

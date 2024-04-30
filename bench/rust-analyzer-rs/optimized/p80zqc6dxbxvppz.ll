@@ -88943,7 +88943,7 @@ define noundef zeroext i1 @"_ZN91_$LT$chalk_ir..Ty$LT$hir_ty..interner..Interner
   br label %"_ZN57_$LT$chalk_ir..Scalar$u20$as$u20$core..cmp..PartialEq$GT$2eq17h5ccbebe08170b16fE.exit"
 
 "_ZN57_$LT$chalk_ir..Scalar$u20$as$u20$core..cmp..PartialEq$GT$2eq17h5ccbebe08170b16fE.exit": ; preds = %78, %76, %74, %73, %67, %120, %114, %2, %8, %11, %14, %17, %26, %29, %32, %35, %44, %47, %50, %108, %102, %96, %90, %86, %80, %61, %53, %41, %38, %23, %20
-  %.0 = phi i1 [ %113, %108 ], [ %107, %102 ], [ %43, %41 ], [ %40, %38 ], [ %101, %96 ], [ %95, %90 ], [ %89, %86 ], [ %25, %23 ], [ %22, %20 ], [ %85, %80 ], [ %66, %61 ], [ %spec.select.i, %53 ], [ false, %50 ], [ false, %47 ], [ false, %44 ], [ false, %35 ], [ false, %32 ], [ false, %29 ], [ false, %26 ], [ false, %17 ], [ false, %14 ], [ false, %11 ], [ false, %8 ], [ false, %2 ], [ %.0.i, %120 ], [ false, %114 ], [ false, %67 ], [ true, %73 ], [ %75, %74 ], [ %77, %76 ], [ %79, %78 ]
+  %.0 = phi i1 [ %113, %108 ], [ %107, %102 ], [ %43, %41 ], [ %40, %38 ], [ %101, %96 ], [ %95, %90 ], [ %89, %86 ], [ %25, %23 ], [ %22, %20 ], [ %85, %80 ], [ %66, %61 ], [ %spec.select.i, %53 ], [ false, %50 ], [ false, %47 ], [ false, %44 ], [ false, %35 ], [ false, %32 ], [ false, %29 ], [ false, %26 ], [ false, %17 ], [ false, %14 ], [ false, %11 ], [ false, %8 ], [ false, %2 ], [ %spec.select.i35, %120 ], [ false, %114 ], [ false, %67 ], [ true, %73 ], [ %75, %74 ], [ %77, %76 ], [ %79, %78 ]
   ret i1 %.0
 
 61:                                               ; preds = %11
@@ -89051,10 +89051,8 @@ define noundef zeroext i1 @"_ZN91_$LT$chalk_ir..Ty$LT$hir_ty..interner..Interner
   %124 = getelementptr i8, ptr %5, i64 33
   %.val34 = load i8, ptr %124, align 1
   %125 = icmp eq i8 %.val31, %.val33
-  %126 = xor i8 %.val34, %.val32
-  %127 = trunc nuw i8 %126 to i1
-  %128 = xor i1 %127, true
-  %.0.i = select i1 %125, i1 %128, i1 false
+  %.not.i = icmp eq i8 %.val32, %.val34
+  %spec.select.i35 = select i1 %125, i1 %.not.i, i1 false
   br label %"_ZN57_$LT$chalk_ir..Scalar$u20$as$u20$core..cmp..PartialEq$GT$2eq17h5ccbebe08170b16fE.exit"
 }
 

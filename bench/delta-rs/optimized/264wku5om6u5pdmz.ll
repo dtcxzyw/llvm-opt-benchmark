@@ -143331,8 +143331,8 @@ define internal fastcc noundef zeroext i1 @"_ZN73_$LT$arrow_schema..datatype..Da
 
 .lr.ph:                                           ; preds = %2, %tailrecurse
   %6 = phi i8 [ %121, %tailrecurse ], [ %3, %2 ]
-  %.tr3466 = phi ptr [ %120, %tailrecurse ], [ %1, %2 ]
-  %.tr65 = phi ptr [ %118, %tailrecurse ], [ %0, %2 ]
+  %.tr3567 = phi ptr [ %120, %tailrecurse ], [ %1, %2 ]
+  %.tr66 = phi ptr [ %118, %tailrecurse ], [ %0, %2 ]
   switch i8 %6, label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h9e5a190f8ac42aaaE.exit" [
     i8 13, label %13
     i8 16, label %35
@@ -143349,34 +143349,34 @@ define internal fastcc noundef zeroext i1 @"_ZN73_$LT$arrow_schema..datatype..Da
     i8 31, label %124
     i8 32, label %136
     i8 33, label %148
-    i8 34, label %162
+    i8 34, label %159
   ]
 
-"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h9e5a190f8ac42aaaE.exit": ; preds = %tailrecurse, %.lr.ph, %7, %19, %2, %172, %"_ZN86_$LT$alloc..sync..Arc$LT$T$C$A$GT$$u20$as$u20$alloc..sync..ArcEqIdent$LT$T$C$A$GT$$GT$2eq17h0dbf4bad724c0e35E.exit28.thread", %89, %85, %69, %65, %31, %26, %"_ZN86_$LT$alloc..sync..Arc$LT$T$C$A$GT$$u20$as$u20$alloc..sync..ArcEqIdent$LT$T$C$A$GT$$GT$2eq17h0dbf4bad724c0e35E.exit28", %"_ZN86_$LT$alloc..sync..Arc$LT$T$C$A$GT$$u20$as$u20$alloc..sync..ArcEqIdent$LT$T$C$A$GT$$GT$2eq17h0dbf4bad724c0e35E.exit26", %136, %124, %105, %"_ZN86_$LT$alloc..sync..Arc$LT$T$C$A$GT$$u20$as$u20$alloc..sync..ArcEqIdent$LT$T$C$A$GT$$GT$2eq17h0dbf4bad724c0e35E.exit22", %13, %"_ZN86_$LT$alloc..sync..Arc$LT$T$C$A$GT$$u20$as$u20$alloc..sync..ArcEqIdent$LT$T$C$A$GT$$GT$2eq17h0dbf4bad724c0e35E.exit26.thread", %142, %130, %111, %"_ZN86_$LT$alloc..sync..Arc$LT$T$C$A$GT$$u20$as$u20$alloc..sync..ArcEqIdent$LT$T$C$A$GT$$GT$2eq17h0dbf4bad724c0e35E.exit22.thread", %93, %59, %53, %47, %41, %35
-  %.0 = phi i1 [ %161, %"_ZN86_$LT$alloc..sync..Arc$LT$T$C$A$GT$$u20$as$u20$alloc..sync..ArcEqIdent$LT$T$C$A$GT$$GT$2eq17h0dbf4bad724c0e35E.exit26.thread" ], [ %147, %142 ], [ %135, %130 ], [ %116, %111 ], [ %104, %93 ], [ %84, %"_ZN86_$LT$alloc..sync..Arc$LT$T$C$A$GT$$u20$as$u20$alloc..sync..ArcEqIdent$LT$T$C$A$GT$$GT$2eq17h0dbf4bad724c0e35E.exit22.thread" ], [ %64, %59 ], [ %58, %53 ], [ %52, %47 ], [ %46, %41 ], [ %40, %35 ], [ false, %13 ], [ false, %"_ZN86_$LT$alloc..sync..Arc$LT$T$C$A$GT$$u20$as$u20$alloc..sync..ArcEqIdent$LT$T$C$A$GT$$GT$2eq17h0dbf4bad724c0e35E.exit22" ], [ false, %105 ], [ false, %124 ], [ false, %136 ], [ false, %"_ZN86_$LT$alloc..sync..Arc$LT$T$C$A$GT$$u20$as$u20$alloc..sync..ArcEqIdent$LT$T$C$A$GT$$GT$2eq17h0dbf4bad724c0e35E.exit26" ], [ false, %"_ZN86_$LT$alloc..sync..Arc$LT$T$C$A$GT$$u20$as$u20$alloc..sync..ArcEqIdent$LT$T$C$A$GT$$GT$2eq17h0dbf4bad724c0e35E.exit28" ], [ %34, %31 ], [ false, %26 ], [ %72, %69 ], [ true, %65 ], [ %92, %89 ], [ true, %85 ], [ %175, %172 ], [ true, %"_ZN86_$LT$alloc..sync..Arc$LT$T$C$A$GT$$u20$as$u20$alloc..sync..ArcEqIdent$LT$T$C$A$GT$$GT$2eq17h0dbf4bad724c0e35E.exit28.thread" ], [ false, %2 ], [ %.mux, %19 ], [ false, %tailrecurse ], [ true, %.lr.ph ], [ false, %7 ]
-  ret i1 %.0
+"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h9e5a190f8ac42aaaE.exit": ; preds = %tailrecurse, %.lr.ph, %7, %19, %2, %169, %"_ZN86_$LT$alloc..sync..Arc$LT$T$C$A$GT$$u20$as$u20$alloc..sync..ArcEqIdent$LT$T$C$A$GT$$GT$2eq17h0dbf4bad724c0e35E.exit29.thread", %89, %85, %69, %65, %31, %26, %"_ZN86_$LT$alloc..sync..Arc$LT$T$C$A$GT$$u20$as$u20$alloc..sync..ArcEqIdent$LT$T$C$A$GT$$GT$2eq17h0dbf4bad724c0e35E.exit29", %"_ZN86_$LT$alloc..sync..Arc$LT$T$C$A$GT$$u20$as$u20$alloc..sync..ArcEqIdent$LT$T$C$A$GT$$GT$2eq17h0dbf4bad724c0e35E.exit27", %136, %124, %105, %"_ZN86_$LT$alloc..sync..Arc$LT$T$C$A$GT$$u20$as$u20$alloc..sync..ArcEqIdent$LT$T$C$A$GT$$GT$2eq17h0dbf4bad724c0e35E.exit23", %13, %"_ZN86_$LT$alloc..sync..Arc$LT$T$C$A$GT$$u20$as$u20$alloc..sync..ArcEqIdent$LT$T$C$A$GT$$GT$2eq17h0dbf4bad724c0e35E.exit27.thread", %142, %130, %111, %"_ZN86_$LT$alloc..sync..Arc$LT$T$C$A$GT$$u20$as$u20$alloc..sync..ArcEqIdent$LT$T$C$A$GT$$GT$2eq17h0dbf4bad724c0e35E.exit23.thread", %93, %59, %53, %47, %41, %35
+  %.0.shrunk = phi i1 [ %.not, %"_ZN86_$LT$alloc..sync..Arc$LT$T$C$A$GT$$u20$as$u20$alloc..sync..ArcEqIdent$LT$T$C$A$GT$$GT$2eq17h0dbf4bad724c0e35E.exit27.thread" ], [ %147, %142 ], [ %135, %130 ], [ %116, %111 ], [ %104, %93 ], [ %84, %"_ZN86_$LT$alloc..sync..Arc$LT$T$C$A$GT$$u20$as$u20$alloc..sync..ArcEqIdent$LT$T$C$A$GT$$GT$2eq17h0dbf4bad724c0e35E.exit23.thread" ], [ %64, %59 ], [ %58, %53 ], [ %52, %47 ], [ %46, %41 ], [ %40, %35 ], [ false, %13 ], [ false, %"_ZN86_$LT$alloc..sync..Arc$LT$T$C$A$GT$$u20$as$u20$alloc..sync..ArcEqIdent$LT$T$C$A$GT$$GT$2eq17h0dbf4bad724c0e35E.exit23" ], [ false, %105 ], [ false, %124 ], [ false, %136 ], [ false, %"_ZN86_$LT$alloc..sync..Arc$LT$T$C$A$GT$$u20$as$u20$alloc..sync..ArcEqIdent$LT$T$C$A$GT$$GT$2eq17h0dbf4bad724c0e35E.exit27" ], [ false, %"_ZN86_$LT$alloc..sync..Arc$LT$T$C$A$GT$$u20$as$u20$alloc..sync..ArcEqIdent$LT$T$C$A$GT$$GT$2eq17h0dbf4bad724c0e35E.exit29" ], [ %34, %31 ], [ false, %26 ], [ %72, %69 ], [ true, %65 ], [ %92, %89 ], [ true, %85 ], [ %172, %169 ], [ true, %"_ZN86_$LT$alloc..sync..Arc$LT$T$C$A$GT$$u20$as$u20$alloc..sync..ArcEqIdent$LT$T$C$A$GT$$GT$2eq17h0dbf4bad724c0e35E.exit29.thread" ], [ false, %2 ], [ %.mux, %19 ], [ false, %tailrecurse ], [ true, %.lr.ph ], [ false, %7 ]
+  ret i1 %.0.shrunk
 
 7:                                                ; preds = %.lr.ph
-  %8 = getelementptr inbounds i8, ptr %.tr65, i64 8
+  %8 = getelementptr inbounds i8, ptr %.tr66, i64 8
   %9 = load ptr, ptr %8, align 8, !nonnull !5, !noundef !5
-  %10 = getelementptr inbounds i8, ptr %.tr3466, i64 8
+  %10 = getelementptr inbounds i8, ptr %.tr3567, i64 8
   %11 = load ptr, ptr %10, align 8, !nonnull !5, !noundef !5
   %12 = tail call fastcc noundef zeroext i1 @"_ZN73_$LT$arrow_schema..datatype..DataType$u20$as$u20$core..cmp..PartialEq$GT$2eq17h4e128c649d04aee7E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %9, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %11)
   br i1 %12, label %tailrecurse, label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h9e5a190f8ac42aaaE.exit"
 
 13:                                               ; preds = %.lr.ph
-  %14 = getelementptr inbounds i8, ptr %.tr65, i64 1
+  %14 = getelementptr inbounds i8, ptr %.tr66, i64 1
   %15 = load i8, ptr %14, align 1, !range !2112, !noundef !5
-  %16 = getelementptr inbounds i8, ptr %.tr3466, i64 1
+  %16 = getelementptr inbounds i8, ptr %.tr3567, i64 1
   %17 = load i8, ptr %16, align 1, !range !2112, !noundef !5
   %18 = icmp eq i8 %15, %17
   br i1 %18, label %19, label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h9e5a190f8ac42aaaE.exit"
 
 19:                                               ; preds = %13
-  %20 = getelementptr inbounds i8, ptr %.tr65, i64 8
+  %20 = getelementptr inbounds i8, ptr %.tr66, i64 8
   %21 = load ptr, ptr %20, align 8, !noundef !5
   %22 = icmp eq ptr %21, null
-  %23 = getelementptr inbounds i8, ptr %.tr3466, i64 8
+  %23 = getelementptr inbounds i8, ptr %.tr3567, i64 8
   %24 = load ptr, ptr %23, align 8, !noundef !5
   %25 = icmp eq ptr %24, null
   %brmerge = or i1 %22, %25
@@ -143384,9 +143384,9 @@ define internal fastcc noundef zeroext i1 @"_ZN73_$LT$arrow_schema..datatype..Da
   br i1 %brmerge, label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h9e5a190f8ac42aaaE.exit", label %26
 
 26:                                               ; preds = %19
-  %27 = getelementptr inbounds i8, ptr %.tr65, i64 16
+  %27 = getelementptr inbounds i8, ptr %.tr66, i64 16
   %28 = load i64, ptr %27, align 8, !noundef !5
-  %29 = getelementptr inbounds i8, ptr %.tr3466, i64 16
+  %29 = getelementptr inbounds i8, ptr %.tr3567, i64 16
   %30 = load i64, ptr %29, align 8, !noundef !5
   %.not.i = icmp eq i64 %28, %30
   br i1 %.not.i, label %31, label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h9e5a190f8ac42aaaE.exit"
@@ -143399,133 +143399,133 @@ define internal fastcc noundef zeroext i1 @"_ZN73_$LT$arrow_schema..datatype..Da
   br label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h9e5a190f8ac42aaaE.exit"
 
 35:                                               ; preds = %.lr.ph
-  %36 = getelementptr inbounds i8, ptr %.tr65, i64 1
+  %36 = getelementptr inbounds i8, ptr %.tr66, i64 1
   %37 = load i8, ptr %36, align 1, !range !2112, !noundef !5
-  %38 = getelementptr inbounds i8, ptr %.tr3466, i64 1
+  %38 = getelementptr inbounds i8, ptr %.tr3567, i64 1
   %39 = load i8, ptr %38, align 1, !range !2112, !noundef !5
   %40 = icmp eq i8 %37, %39
   br label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h9e5a190f8ac42aaaE.exit"
 
 41:                                               ; preds = %.lr.ph
-  %42 = getelementptr inbounds i8, ptr %.tr65, i64 1
+  %42 = getelementptr inbounds i8, ptr %.tr66, i64 1
   %43 = load i8, ptr %42, align 1, !range !2112, !noundef !5
-  %44 = getelementptr inbounds i8, ptr %.tr3466, i64 1
+  %44 = getelementptr inbounds i8, ptr %.tr3567, i64 1
   %45 = load i8, ptr %44, align 1, !range !2112, !noundef !5
   %46 = icmp eq i8 %43, %45
   br label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h9e5a190f8ac42aaaE.exit"
 
 47:                                               ; preds = %.lr.ph
-  %48 = getelementptr inbounds i8, ptr %.tr65, i64 1
+  %48 = getelementptr inbounds i8, ptr %.tr66, i64 1
   %49 = load i8, ptr %48, align 1, !range !2112, !noundef !5
-  %50 = getelementptr inbounds i8, ptr %.tr3466, i64 1
+  %50 = getelementptr inbounds i8, ptr %.tr3567, i64 1
   %51 = load i8, ptr %50, align 1, !range !2112, !noundef !5
   %52 = icmp eq i8 %49, %51
   br label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h9e5a190f8ac42aaaE.exit"
 
 53:                                               ; preds = %.lr.ph
-  %54 = getelementptr inbounds i8, ptr %.tr65, i64 1
+  %54 = getelementptr inbounds i8, ptr %.tr66, i64 1
   %55 = load i8, ptr %54, align 1, !range !2524, !noundef !5
-  %56 = getelementptr inbounds i8, ptr %.tr3466, i64 1
+  %56 = getelementptr inbounds i8, ptr %.tr3567, i64 1
   %57 = load i8, ptr %56, align 1, !range !2524, !noundef !5
   %58 = icmp eq i8 %55, %57
   br label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h9e5a190f8ac42aaaE.exit"
 
 59:                                               ; preds = %.lr.ph
-  %60 = getelementptr inbounds i8, ptr %.tr65, i64 4
+  %60 = getelementptr inbounds i8, ptr %.tr66, i64 4
   %61 = load i32, ptr %60, align 4, !noundef !5
-  %62 = getelementptr inbounds i8, ptr %.tr3466, i64 4
+  %62 = getelementptr inbounds i8, ptr %.tr3567, i64 4
   %63 = load i32, ptr %62, align 4, !noundef !5
   %64 = icmp eq i32 %61, %63
   br label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h9e5a190f8ac42aaaE.exit"
 
 65:                                               ; preds = %.lr.ph
-  %66 = getelementptr inbounds i8, ptr %.tr65, i64 8
-  %67 = getelementptr inbounds i8, ptr %.tr3466, i64 8
+  %66 = getelementptr inbounds i8, ptr %.tr66, i64 8
+  %67 = getelementptr inbounds i8, ptr %.tr3567, i64 8
   %.val = load ptr, ptr %66, align 8, !nonnull !5, !noundef !5
-  %.val5 = load ptr, ptr %67, align 8, !nonnull !5, !noundef !5
-  %68 = icmp eq ptr %.val, %.val5
+  %.val6 = load ptr, ptr %67, align 8, !nonnull !5, !noundef !5
+  %68 = icmp eq ptr %.val, %.val6
   br i1 %68, label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h9e5a190f8ac42aaaE.exit", label %69
 
 69:                                               ; preds = %65
   %70 = getelementptr inbounds i8, ptr %.val, i64 16
-  %71 = getelementptr inbounds i8, ptr %.val5, i64 16
+  %71 = getelementptr inbounds i8, ptr %.val6, i64 16
   %72 = tail call noundef zeroext i1 @"_ZN67_$LT$arrow_schema..field..Field$u20$as$u20$core..cmp..PartialEq$GT$2eq17h8ce66b4a1d4949a5E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(112) %70, ptr noalias noundef nonnull readonly align 8 dereferenceable(112) %71)
   br label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h9e5a190f8ac42aaaE.exit"
 
 73:                                               ; preds = %.lr.ph
-  %74 = getelementptr inbounds i8, ptr %.tr65, i64 8
-  %75 = getelementptr inbounds i8, ptr %.tr3466, i64 8
-  %.val6 = load ptr, ptr %74, align 8, !nonnull !5, !noundef !5
-  %.val7 = load ptr, ptr %75, align 8, !nonnull !5, !noundef !5
-  %76 = icmp eq ptr %.val6, %.val7
-  br i1 %76, label %"_ZN86_$LT$alloc..sync..Arc$LT$T$C$A$GT$$u20$as$u20$alloc..sync..ArcEqIdent$LT$T$C$A$GT$$GT$2eq17h0dbf4bad724c0e35E.exit22.thread", label %"_ZN86_$LT$alloc..sync..Arc$LT$T$C$A$GT$$u20$as$u20$alloc..sync..ArcEqIdent$LT$T$C$A$GT$$GT$2eq17h0dbf4bad724c0e35E.exit22"
+  %74 = getelementptr inbounds i8, ptr %.tr66, i64 8
+  %75 = getelementptr inbounds i8, ptr %.tr3567, i64 8
+  %.val7 = load ptr, ptr %74, align 8, !nonnull !5, !noundef !5
+  %.val8 = load ptr, ptr %75, align 8, !nonnull !5, !noundef !5
+  %76 = icmp eq ptr %.val7, %.val8
+  br i1 %76, label %"_ZN86_$LT$alloc..sync..Arc$LT$T$C$A$GT$$u20$as$u20$alloc..sync..ArcEqIdent$LT$T$C$A$GT$$GT$2eq17h0dbf4bad724c0e35E.exit23.thread", label %"_ZN86_$LT$alloc..sync..Arc$LT$T$C$A$GT$$u20$as$u20$alloc..sync..ArcEqIdent$LT$T$C$A$GT$$GT$2eq17h0dbf4bad724c0e35E.exit23"
 
-"_ZN86_$LT$alloc..sync..Arc$LT$T$C$A$GT$$u20$as$u20$alloc..sync..ArcEqIdent$LT$T$C$A$GT$$GT$2eq17h0dbf4bad724c0e35E.exit22": ; preds = %73
-  %77 = getelementptr inbounds i8, ptr %.val6, i64 16
-  %78 = getelementptr inbounds i8, ptr %.val7, i64 16
+"_ZN86_$LT$alloc..sync..Arc$LT$T$C$A$GT$$u20$as$u20$alloc..sync..ArcEqIdent$LT$T$C$A$GT$$GT$2eq17h0dbf4bad724c0e35E.exit23": ; preds = %73
+  %77 = getelementptr inbounds i8, ptr %.val7, i64 16
+  %78 = getelementptr inbounds i8, ptr %.val8, i64 16
   %79 = tail call noundef zeroext i1 @"_ZN67_$LT$arrow_schema..field..Field$u20$as$u20$core..cmp..PartialEq$GT$2eq17h8ce66b4a1d4949a5E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(112) %77, ptr noalias noundef nonnull readonly align 8 dereferenceable(112) %78)
-  br i1 %79, label %"_ZN86_$LT$alloc..sync..Arc$LT$T$C$A$GT$$u20$as$u20$alloc..sync..ArcEqIdent$LT$T$C$A$GT$$GT$2eq17h0dbf4bad724c0e35E.exit22.thread", label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h9e5a190f8ac42aaaE.exit"
+  br i1 %79, label %"_ZN86_$LT$alloc..sync..Arc$LT$T$C$A$GT$$u20$as$u20$alloc..sync..ArcEqIdent$LT$T$C$A$GT$$GT$2eq17h0dbf4bad724c0e35E.exit23.thread", label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h9e5a190f8ac42aaaE.exit"
 
-"_ZN86_$LT$alloc..sync..Arc$LT$T$C$A$GT$$u20$as$u20$alloc..sync..ArcEqIdent$LT$T$C$A$GT$$GT$2eq17h0dbf4bad724c0e35E.exit22.thread": ; preds = %73, %"_ZN86_$LT$alloc..sync..Arc$LT$T$C$A$GT$$u20$as$u20$alloc..sync..ArcEqIdent$LT$T$C$A$GT$$GT$2eq17h0dbf4bad724c0e35E.exit22"
-  %80 = getelementptr inbounds i8, ptr %.tr65, i64 4
+"_ZN86_$LT$alloc..sync..Arc$LT$T$C$A$GT$$u20$as$u20$alloc..sync..ArcEqIdent$LT$T$C$A$GT$$GT$2eq17h0dbf4bad724c0e35E.exit23.thread": ; preds = %73, %"_ZN86_$LT$alloc..sync..Arc$LT$T$C$A$GT$$u20$as$u20$alloc..sync..ArcEqIdent$LT$T$C$A$GT$$GT$2eq17h0dbf4bad724c0e35E.exit23"
+  %80 = getelementptr inbounds i8, ptr %.tr66, i64 4
   %81 = load i32, ptr %80, align 4, !noundef !5
-  %82 = getelementptr inbounds i8, ptr %.tr3466, i64 4
+  %82 = getelementptr inbounds i8, ptr %.tr3567, i64 4
   %83 = load i32, ptr %82, align 4, !noundef !5
   %84 = icmp eq i32 %81, %83
   br label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h9e5a190f8ac42aaaE.exit"
 
 85:                                               ; preds = %.lr.ph
-  %86 = getelementptr inbounds i8, ptr %.tr65, i64 8
-  %87 = getelementptr inbounds i8, ptr %.tr3466, i64 8
-  %.val8 = load ptr, ptr %86, align 8, !nonnull !5, !noundef !5
-  %.val9 = load ptr, ptr %87, align 8, !nonnull !5, !noundef !5
-  %88 = icmp eq ptr %.val8, %.val9
+  %86 = getelementptr inbounds i8, ptr %.tr66, i64 8
+  %87 = getelementptr inbounds i8, ptr %.tr3567, i64 8
+  %.val9 = load ptr, ptr %86, align 8, !nonnull !5, !noundef !5
+  %.val10 = load ptr, ptr %87, align 8, !nonnull !5, !noundef !5
+  %88 = icmp eq ptr %.val9, %.val10
   br i1 %88, label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h9e5a190f8ac42aaaE.exit", label %89
 
 89:                                               ; preds = %85
-  %90 = getelementptr inbounds i8, ptr %.val8, i64 16
-  %91 = getelementptr inbounds i8, ptr %.val9, i64 16
+  %90 = getelementptr inbounds i8, ptr %.val9, i64 16
+  %91 = getelementptr inbounds i8, ptr %.val10, i64 16
   %92 = tail call noundef zeroext i1 @"_ZN67_$LT$arrow_schema..field..Field$u20$as$u20$core..cmp..PartialEq$GT$2eq17h8ce66b4a1d4949a5E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(112) %90, ptr noalias noundef nonnull readonly align 8 dereferenceable(112) %91)
   br label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h9e5a190f8ac42aaaE.exit"
 
 93:                                               ; preds = %.lr.ph
-  %94 = getelementptr inbounds i8, ptr %.tr65, i64 8
+  %94 = getelementptr inbounds i8, ptr %.tr66, i64 8
   %95 = load ptr, ptr %94, align 8, !nonnull !5, !noundef !5
-  %96 = getelementptr inbounds i8, ptr %.tr65, i64 16
+  %96 = getelementptr inbounds i8, ptr %.tr66, i64 16
   %97 = load i64, ptr %96, align 8, !noundef !5
   %98 = getelementptr inbounds i8, ptr %95, i64 16
-  %99 = getelementptr inbounds i8, ptr %.tr3466, i64 8
+  %99 = getelementptr inbounds i8, ptr %.tr3567, i64 8
   %100 = load ptr, ptr %99, align 8, !nonnull !5, !noundef !5
-  %101 = getelementptr inbounds i8, ptr %.tr3466, i64 16
+  %101 = getelementptr inbounds i8, ptr %.tr3567, i64 16
   %102 = load i64, ptr %101, align 8, !noundef !5
   %103 = getelementptr inbounds i8, ptr %100, i64 16
   %104 = tail call noundef zeroext i1 @"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h7d3c8be4b96d9dd7E"(ptr noalias noundef nonnull readonly align 8 %98, i64 noundef %97, ptr noalias noundef nonnull readonly align 8 %103, i64 noundef %102)
   br label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h9e5a190f8ac42aaaE.exit"
 
 105:                                              ; preds = %.lr.ph
-  %106 = getelementptr inbounds i8, ptr %.tr65, i64 8
-  %107 = getelementptr inbounds i8, ptr %.tr3466, i64 8
-  %.val16 = load ptr, ptr %106, align 8, !nonnull !5, !noundef !5
-  %108 = getelementptr inbounds i8, ptr %.tr65, i64 16
-  %.val17 = load i64, ptr %108, align 8, !noundef !5
-  %.val18 = load ptr, ptr %107, align 8, !nonnull !5, !noundef !5
-  %109 = getelementptr inbounds i8, ptr %.tr3466, i64 16
-  %.val19 = load i64, ptr %109, align 8, !noundef !5
-  %110 = tail call fastcc noundef zeroext i1 @"_ZN74_$LT$arrow_schema..fields..UnionFields$u20$as$u20$core..cmp..PartialEq$GT$2eq17h6716f2988beb1fdcE"(ptr nonnull %.val16, i64 %.val17, ptr nonnull %.val18, i64 %.val19)
+  %106 = getelementptr inbounds i8, ptr %.tr66, i64 8
+  %107 = getelementptr inbounds i8, ptr %.tr3567, i64 8
+  %.val17 = load ptr, ptr %106, align 8, !nonnull !5, !noundef !5
+  %108 = getelementptr inbounds i8, ptr %.tr66, i64 16
+  %.val18 = load i64, ptr %108, align 8, !noundef !5
+  %.val19 = load ptr, ptr %107, align 8, !nonnull !5, !noundef !5
+  %109 = getelementptr inbounds i8, ptr %.tr3567, i64 16
+  %.val20 = load i64, ptr %109, align 8, !noundef !5
+  %110 = tail call fastcc noundef zeroext i1 @"_ZN74_$LT$arrow_schema..fields..UnionFields$u20$as$u20$core..cmp..PartialEq$GT$2eq17h6716f2988beb1fdcE"(ptr nonnull %.val17, i64 %.val18, ptr nonnull %.val19, i64 %.val20)
   br i1 %110, label %111, label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h9e5a190f8ac42aaaE.exit"
 
 111:                                              ; preds = %105
-  %112 = getelementptr inbounds i8, ptr %.tr65, i64 1
+  %112 = getelementptr inbounds i8, ptr %.tr66, i64 1
   %113 = load i8, ptr %112, align 1, !range !31, !noundef !5
-  %114 = getelementptr inbounds i8, ptr %.tr3466, i64 1
+  %114 = getelementptr inbounds i8, ptr %.tr3567, i64 1
   %115 = load i8, ptr %114, align 1, !range !31, !noundef !5
   %116 = icmp eq i8 %113, %115
   br label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h9e5a190f8ac42aaaE.exit"
 
 tailrecurse:                                      ; preds = %7
-  %117 = getelementptr inbounds i8, ptr %.tr65, i64 16
+  %117 = getelementptr inbounds i8, ptr %.tr66, i64 16
   %118 = load ptr, ptr %117, align 8, !nonnull !5, !noundef !5
-  %119 = getelementptr inbounds i8, ptr %.tr3466, i64 16
+  %119 = getelementptr inbounds i8, ptr %.tr3567, i64 16
   %120 = load ptr, ptr %119, align 8, !nonnull !5, !noundef !5
   %121 = load i8, ptr %118, align 8, !range !2097, !noundef !5
   %122 = load i8, ptr %120, align 8, !range !2097, !noundef !5
@@ -143533,87 +143533,85 @@ tailrecurse:                                      ; preds = %7
   br i1 %123, label %.lr.ph, label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h9e5a190f8ac42aaaE.exit"
 
 124:                                              ; preds = %.lr.ph
-  %125 = getelementptr inbounds i8, ptr %.tr65, i64 1
+  %125 = getelementptr inbounds i8, ptr %.tr66, i64 1
   %126 = load i8, ptr %125, align 1, !noundef !5
-  %127 = getelementptr inbounds i8, ptr %.tr3466, i64 1
+  %127 = getelementptr inbounds i8, ptr %.tr3567, i64 1
   %128 = load i8, ptr %127, align 1, !noundef !5
   %129 = icmp eq i8 %126, %128
   br i1 %129, label %130, label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h9e5a190f8ac42aaaE.exit"
 
 130:                                              ; preds = %124
-  %131 = getelementptr inbounds i8, ptr %.tr65, i64 2
+  %131 = getelementptr inbounds i8, ptr %.tr66, i64 2
   %132 = load i8, ptr %131, align 2, !noundef !5
-  %133 = getelementptr inbounds i8, ptr %.tr3466, i64 2
+  %133 = getelementptr inbounds i8, ptr %.tr3567, i64 2
   %134 = load i8, ptr %133, align 2, !noundef !5
   %135 = icmp eq i8 %132, %134
   br label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h9e5a190f8ac42aaaE.exit"
 
 136:                                              ; preds = %.lr.ph
-  %137 = getelementptr inbounds i8, ptr %.tr65, i64 1
+  %137 = getelementptr inbounds i8, ptr %.tr66, i64 1
   %138 = load i8, ptr %137, align 1, !noundef !5
-  %139 = getelementptr inbounds i8, ptr %.tr3466, i64 1
+  %139 = getelementptr inbounds i8, ptr %.tr3567, i64 1
   %140 = load i8, ptr %139, align 1, !noundef !5
   %141 = icmp eq i8 %138, %140
   br i1 %141, label %142, label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h9e5a190f8ac42aaaE.exit"
 
 142:                                              ; preds = %136
-  %143 = getelementptr inbounds i8, ptr %.tr65, i64 2
+  %143 = getelementptr inbounds i8, ptr %.tr66, i64 2
   %144 = load i8, ptr %143, align 2, !noundef !5
-  %145 = getelementptr inbounds i8, ptr %.tr3466, i64 2
+  %145 = getelementptr inbounds i8, ptr %.tr3567, i64 2
   %146 = load i8, ptr %145, align 2, !noundef !5
   %147 = icmp eq i8 %144, %146
   br label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h9e5a190f8ac42aaaE.exit"
 
 148:                                              ; preds = %.lr.ph
-  %149 = getelementptr inbounds i8, ptr %.tr65, i64 8
-  %150 = getelementptr inbounds i8, ptr %.tr3466, i64 8
-  %.val10 = load ptr, ptr %149, align 8, !nonnull !5, !noundef !5
-  %.val11 = load ptr, ptr %150, align 8, !nonnull !5, !noundef !5
-  %151 = icmp eq ptr %.val10, %.val11
-  br i1 %151, label %"_ZN86_$LT$alloc..sync..Arc$LT$T$C$A$GT$$u20$as$u20$alloc..sync..ArcEqIdent$LT$T$C$A$GT$$GT$2eq17h0dbf4bad724c0e35E.exit26.thread", label %"_ZN86_$LT$alloc..sync..Arc$LT$T$C$A$GT$$u20$as$u20$alloc..sync..ArcEqIdent$LT$T$C$A$GT$$GT$2eq17h0dbf4bad724c0e35E.exit26"
+  %149 = getelementptr inbounds i8, ptr %.tr66, i64 8
+  %150 = getelementptr inbounds i8, ptr %.tr3567, i64 8
+  %.val11 = load ptr, ptr %149, align 8, !nonnull !5, !noundef !5
+  %.val12 = load ptr, ptr %150, align 8, !nonnull !5, !noundef !5
+  %151 = icmp eq ptr %.val11, %.val12
+  br i1 %151, label %"_ZN86_$LT$alloc..sync..Arc$LT$T$C$A$GT$$u20$as$u20$alloc..sync..ArcEqIdent$LT$T$C$A$GT$$GT$2eq17h0dbf4bad724c0e35E.exit27.thread", label %"_ZN86_$LT$alloc..sync..Arc$LT$T$C$A$GT$$u20$as$u20$alloc..sync..ArcEqIdent$LT$T$C$A$GT$$GT$2eq17h0dbf4bad724c0e35E.exit27"
 
-"_ZN86_$LT$alloc..sync..Arc$LT$T$C$A$GT$$u20$as$u20$alloc..sync..ArcEqIdent$LT$T$C$A$GT$$GT$2eq17h0dbf4bad724c0e35E.exit26": ; preds = %148
-  %152 = getelementptr inbounds i8, ptr %.val10, i64 16
-  %153 = getelementptr inbounds i8, ptr %.val11, i64 16
+"_ZN86_$LT$alloc..sync..Arc$LT$T$C$A$GT$$u20$as$u20$alloc..sync..ArcEqIdent$LT$T$C$A$GT$$GT$2eq17h0dbf4bad724c0e35E.exit27": ; preds = %148
+  %152 = getelementptr inbounds i8, ptr %.val11, i64 16
+  %153 = getelementptr inbounds i8, ptr %.val12, i64 16
   %154 = tail call noundef zeroext i1 @"_ZN67_$LT$arrow_schema..field..Field$u20$as$u20$core..cmp..PartialEq$GT$2eq17h8ce66b4a1d4949a5E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(112) %152, ptr noalias noundef nonnull readonly align 8 dereferenceable(112) %153)
-  br i1 %154, label %"_ZN86_$LT$alloc..sync..Arc$LT$T$C$A$GT$$u20$as$u20$alloc..sync..ArcEqIdent$LT$T$C$A$GT$$GT$2eq17h0dbf4bad724c0e35E.exit26.thread", label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h9e5a190f8ac42aaaE.exit"
+  br i1 %154, label %"_ZN86_$LT$alloc..sync..Arc$LT$T$C$A$GT$$u20$as$u20$alloc..sync..ArcEqIdent$LT$T$C$A$GT$$GT$2eq17h0dbf4bad724c0e35E.exit27.thread", label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h9e5a190f8ac42aaaE.exit"
 
-"_ZN86_$LT$alloc..sync..Arc$LT$T$C$A$GT$$u20$as$u20$alloc..sync..ArcEqIdent$LT$T$C$A$GT$$GT$2eq17h0dbf4bad724c0e35E.exit26.thread": ; preds = %148, %"_ZN86_$LT$alloc..sync..Arc$LT$T$C$A$GT$$u20$as$u20$alloc..sync..ArcEqIdent$LT$T$C$A$GT$$GT$2eq17h0dbf4bad724c0e35E.exit26"
-  %155 = getelementptr inbounds i8, ptr %.tr65, i64 1
+"_ZN86_$LT$alloc..sync..Arc$LT$T$C$A$GT$$u20$as$u20$alloc..sync..ArcEqIdent$LT$T$C$A$GT$$GT$2eq17h0dbf4bad724c0e35E.exit27.thread": ; preds = %148, %"_ZN86_$LT$alloc..sync..Arc$LT$T$C$A$GT$$u20$as$u20$alloc..sync..ArcEqIdent$LT$T$C$A$GT$$GT$2eq17h0dbf4bad724c0e35E.exit27"
+  %155 = getelementptr inbounds i8, ptr %.tr66, i64 1
   %156 = load i8, ptr %155, align 1, !range !31, !noundef !5
-  %157 = getelementptr inbounds i8, ptr %.tr3466, i64 1
+  %157 = getelementptr inbounds i8, ptr %.tr3567, i64 1
   %158 = load i8, ptr %157, align 1, !range !31, !noundef !5
-  %159 = xor i8 %158, %156
-  %160 = trunc nuw i8 %159 to i1
-  %161 = xor i1 %160, true
+  %.not = icmp eq i8 %156, %158
   br label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h9e5a190f8ac42aaaE.exit"
 
-162:                                              ; preds = %.lr.ph
-  %163 = getelementptr inbounds i8, ptr %.tr65, i64 8
-  %164 = getelementptr inbounds i8, ptr %.tr3466, i64 8
-  %.val12 = load ptr, ptr %163, align 8, !nonnull !5, !noundef !5
-  %.val13 = load ptr, ptr %164, align 8, !nonnull !5, !noundef !5
-  %165 = icmp eq ptr %.val12, %.val13
-  br i1 %165, label %"_ZN86_$LT$alloc..sync..Arc$LT$T$C$A$GT$$u20$as$u20$alloc..sync..ArcEqIdent$LT$T$C$A$GT$$GT$2eq17h0dbf4bad724c0e35E.exit28.thread", label %"_ZN86_$LT$alloc..sync..Arc$LT$T$C$A$GT$$u20$as$u20$alloc..sync..ArcEqIdent$LT$T$C$A$GT$$GT$2eq17h0dbf4bad724c0e35E.exit28"
+159:                                              ; preds = %.lr.ph
+  %160 = getelementptr inbounds i8, ptr %.tr66, i64 8
+  %161 = getelementptr inbounds i8, ptr %.tr3567, i64 8
+  %.val13 = load ptr, ptr %160, align 8, !nonnull !5, !noundef !5
+  %.val14 = load ptr, ptr %161, align 8, !nonnull !5, !noundef !5
+  %162 = icmp eq ptr %.val13, %.val14
+  br i1 %162, label %"_ZN86_$LT$alloc..sync..Arc$LT$T$C$A$GT$$u20$as$u20$alloc..sync..ArcEqIdent$LT$T$C$A$GT$$GT$2eq17h0dbf4bad724c0e35E.exit29.thread", label %"_ZN86_$LT$alloc..sync..Arc$LT$T$C$A$GT$$u20$as$u20$alloc..sync..ArcEqIdent$LT$T$C$A$GT$$GT$2eq17h0dbf4bad724c0e35E.exit29"
 
-"_ZN86_$LT$alloc..sync..Arc$LT$T$C$A$GT$$u20$as$u20$alloc..sync..ArcEqIdent$LT$T$C$A$GT$$GT$2eq17h0dbf4bad724c0e35E.exit28": ; preds = %162
-  %166 = getelementptr inbounds i8, ptr %.val12, i64 16
-  %167 = getelementptr inbounds i8, ptr %.val13, i64 16
-  %168 = tail call noundef zeroext i1 @"_ZN67_$LT$arrow_schema..field..Field$u20$as$u20$core..cmp..PartialEq$GT$2eq17h8ce66b4a1d4949a5E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(112) %166, ptr noalias noundef nonnull readonly align 8 dereferenceable(112) %167)
-  br i1 %168, label %"_ZN86_$LT$alloc..sync..Arc$LT$T$C$A$GT$$u20$as$u20$alloc..sync..ArcEqIdent$LT$T$C$A$GT$$GT$2eq17h0dbf4bad724c0e35E.exit28.thread", label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h9e5a190f8ac42aaaE.exit"
+"_ZN86_$LT$alloc..sync..Arc$LT$T$C$A$GT$$u20$as$u20$alloc..sync..ArcEqIdent$LT$T$C$A$GT$$GT$2eq17h0dbf4bad724c0e35E.exit29": ; preds = %159
+  %163 = getelementptr inbounds i8, ptr %.val13, i64 16
+  %164 = getelementptr inbounds i8, ptr %.val14, i64 16
+  %165 = tail call noundef zeroext i1 @"_ZN67_$LT$arrow_schema..field..Field$u20$as$u20$core..cmp..PartialEq$GT$2eq17h8ce66b4a1d4949a5E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(112) %163, ptr noalias noundef nonnull readonly align 8 dereferenceable(112) %164)
+  br i1 %165, label %"_ZN86_$LT$alloc..sync..Arc$LT$T$C$A$GT$$u20$as$u20$alloc..sync..ArcEqIdent$LT$T$C$A$GT$$GT$2eq17h0dbf4bad724c0e35E.exit29.thread", label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h9e5a190f8ac42aaaE.exit"
 
-"_ZN86_$LT$alloc..sync..Arc$LT$T$C$A$GT$$u20$as$u20$alloc..sync..ArcEqIdent$LT$T$C$A$GT$$GT$2eq17h0dbf4bad724c0e35E.exit28.thread": ; preds = %162, %"_ZN86_$LT$alloc..sync..Arc$LT$T$C$A$GT$$u20$as$u20$alloc..sync..ArcEqIdent$LT$T$C$A$GT$$GT$2eq17h0dbf4bad724c0e35E.exit28"
-  %169 = getelementptr inbounds i8, ptr %.tr65, i64 16
-  %170 = getelementptr inbounds i8, ptr %.tr3466, i64 16
-  %.val14 = load ptr, ptr %169, align 8, !nonnull !5, !noundef !5
-  %.val15 = load ptr, ptr %170, align 8, !nonnull !5, !noundef !5
-  %171 = icmp eq ptr %.val14, %.val15
-  br i1 %171, label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h9e5a190f8ac42aaaE.exit", label %172
+"_ZN86_$LT$alloc..sync..Arc$LT$T$C$A$GT$$u20$as$u20$alloc..sync..ArcEqIdent$LT$T$C$A$GT$$GT$2eq17h0dbf4bad724c0e35E.exit29.thread": ; preds = %159, %"_ZN86_$LT$alloc..sync..Arc$LT$T$C$A$GT$$u20$as$u20$alloc..sync..ArcEqIdent$LT$T$C$A$GT$$GT$2eq17h0dbf4bad724c0e35E.exit29"
+  %166 = getelementptr inbounds i8, ptr %.tr66, i64 16
+  %167 = getelementptr inbounds i8, ptr %.tr3567, i64 16
+  %.val15 = load ptr, ptr %166, align 8, !nonnull !5, !noundef !5
+  %.val16 = load ptr, ptr %167, align 8, !nonnull !5, !noundef !5
+  %168 = icmp eq ptr %.val15, %.val16
+  br i1 %168, label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h9e5a190f8ac42aaaE.exit", label %169
 
-172:                                              ; preds = %"_ZN86_$LT$alloc..sync..Arc$LT$T$C$A$GT$$u20$as$u20$alloc..sync..ArcEqIdent$LT$T$C$A$GT$$GT$2eq17h0dbf4bad724c0e35E.exit28.thread"
-  %173 = getelementptr inbounds i8, ptr %.val14, i64 16
-  %174 = getelementptr inbounds i8, ptr %.val15, i64 16
-  %175 = tail call noundef zeroext i1 @"_ZN67_$LT$arrow_schema..field..Field$u20$as$u20$core..cmp..PartialEq$GT$2eq17h8ce66b4a1d4949a5E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(112) %173, ptr noalias noundef nonnull readonly align 8 dereferenceable(112) %174)
+169:                                              ; preds = %"_ZN86_$LT$alloc..sync..Arc$LT$T$C$A$GT$$u20$as$u20$alloc..sync..ArcEqIdent$LT$T$C$A$GT$$GT$2eq17h0dbf4bad724c0e35E.exit29.thread"
+  %170 = getelementptr inbounds i8, ptr %.val15, i64 16
+  %171 = getelementptr inbounds i8, ptr %.val16, i64 16
+  %172 = tail call noundef zeroext i1 @"_ZN67_$LT$arrow_schema..field..Field$u20$as$u20$core..cmp..PartialEq$GT$2eq17h8ce66b4a1d4949a5E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(112) %170, ptr noalias noundef nonnull readonly align 8 dereferenceable(112) %171)
   br label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h9e5a190f8ac42aaaE.exit"
 }
 
@@ -152126,7 +152124,7 @@ define hidden noundef align 16 dereferenceable_or_null(272) ptr @"_ZN91_$LT$core
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define internal fastcc noundef i8 @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8find_map17h9ce17cd9420a6145E"(ptr noalias nocapture noundef align 8 dereferenceable(16) %0, ptr noalias noundef readonly align 8 dereferenceable(96) %1, ptr noalias nocapture noundef readonly align 8 dereferenceable(24) %2) unnamed_addr #0 personality ptr @rust_eh_personality {
+define internal fastcc noundef range(i8 0, 3) i8 @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8find_map17h9ce17cd9420a6145E"(ptr noalias nocapture noundef align 8 dereferenceable(16) %0, ptr noalias noundef readonly align 8 dereferenceable(96) %1, ptr noalias nocapture noundef readonly align 8 dereferenceable(24) %2) unnamed_addr #0 personality ptr @rust_eh_personality {
   %4 = alloca { [1 x i64], i64, [1 x i64] }, align 8
   %5 = alloca { [1 x i64], i64, [1 x i64] }, align 8
   %6 = alloca { { i64, ptr, {} }, i64 }, align 8
@@ -152288,7 +152286,7 @@ _ZN5alloc5alloc15exchange_malloc17he27dc27497df8aaaE.exit.i.i.i: ; preds = %46
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define internal fastcc noundef i8 @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8find_map17he4d309710333cd0fE"(ptr noalias nocapture noundef align 8 dereferenceable(16) %0, ptr noalias noundef readonly align 8 dereferenceable(96) %1, ptr noalias nocapture noundef readonly align 8 dereferenceable(24) %2) unnamed_addr #0 personality ptr @rust_eh_personality {
+define internal fastcc noundef range(i8 0, 3) i8 @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8find_map17he4d309710333cd0fE"(ptr noalias nocapture noundef align 8 dereferenceable(16) %0, ptr noalias noundef readonly align 8 dereferenceable(96) %1, ptr noalias nocapture noundef readonly align 8 dereferenceable(24) %2) unnamed_addr #0 personality ptr @rust_eh_personality {
   %4 = alloca { [1 x i64], i64, [1 x i64] }, align 8
   %5 = alloca { [1 x i64], i64, [1 x i64] }, align 8
   %6 = alloca { { i64, ptr, {} }, i64 }, align 8

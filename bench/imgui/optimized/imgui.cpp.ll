@@ -20232,14 +20232,14 @@ for.body.preheader.i78:                           ; preds = %lor.lhs.false.i75
 for.body.i80:                                     ; preds = %for.inc.i82, %for.body.preheader.i78
   %i.030.i = phi i32 [ %dec.i83, %for.inc.i82 ], [ %sub.i79, %for.body.preheader.i78 ]
   %idxprom.i.i81 = zext nneg i32 %i.030.i to i64
-  %arrayidx.i18.i = getelementptr ptr, ptr %82, i64 %idxprom.i.i81
+  %arrayidx.i18.i = getelementptr inbounds ptr, ptr %82, i64 %idxprom.i.i81
   %88 = load ptr, ptr %arrayidx.i18.i, align 8
   %cmp6.i = icmp eq ptr %88, %cond55
   br i1 %cmp6.i, label %if.then7.i, label %for.inc.i82
 
 if.then7.i:                                       ; preds = %for.body.i80
-  %arrayidx.i18.i.le = getelementptr ptr, ptr %82, i64 %idxprom.i.i81
-  %arrayidx.i24.i = getelementptr i8, ptr %arrayidx.i18.i.le, i64 8
+  %arrayidx.i18.i.le = getelementptr inbounds ptr, ptr %82, i64 %idxprom.i.i81
+  %arrayidx.i24.i = getelementptr inbounds i8, ptr %arrayidx.i18.i.le, i64 8
   %89 = xor i32 %i.030.i, -1
   %sub15.i = add i32 %83, %89
   %conv.i84 = sext i32 %sub15.i to i64
@@ -31971,8 +31971,8 @@ if.then441:                                       ; preds = %if.end438
   %lnot = and i8 %241, 1
   %frombool444 = xor i8 %lnot, 1
   store i8 %frombool444, ptr %Collapsed, align 1
-  %tobool446 = trunc nuw i8 %frombool444 to i1
-  %spec.select250 = select i1 %tobool446, i8 %frombool1434, i8 1
+  %tobool446.not.not = icmp eq i8 %lnot, 0
+  %spec.select250 = select i1 %tobool446.not.not, i8 %frombool1434, i8 1
   %and.i453 = and i32 %223, 256
   %tobool.not.i454 = icmp eq i32 %and.i453, 0
   br i1 %tobool.not.i454, label %if.then.i455, label %if.end452
@@ -43811,14 +43811,14 @@ for.body.preheader:                               ; preds = %lor.lhs.false
 for.body:                                         ; preds = %for.body.preheader, %for.inc
   %i.030 = phi i32 [ %dec, %for.inc ], [ %sub, %for.body.preheader ]
   %idxprom.i = zext nneg i32 %i.030 to i64
-  %arrayidx.i18 = getelementptr ptr, ptr %1, i64 %idxprom.i
+  %arrayidx.i18 = getelementptr inbounds ptr, ptr %1, i64 %idxprom.i
   %7 = load ptr, ptr %arrayidx.i18, align 8
   %cmp6 = icmp eq ptr %7, %window
   br i1 %cmp6, label %if.then7, label %for.inc
 
 if.then7:                                         ; preds = %for.body
-  %arrayidx.i18.le = getelementptr ptr, ptr %1, i64 %idxprom.i
-  %arrayidx.i24 = getelementptr i8, ptr %arrayidx.i18.le, i64 8
+  %arrayidx.i18.le = getelementptr inbounds ptr, ptr %1, i64 %idxprom.i
+  %arrayidx.i24 = getelementptr inbounds i8, ptr %arrayidx.i18.le, i64 8
   %8 = xor i32 %i.030, -1
   %sub15 = add i32 %2, %8
   %conv = sext i32 %sub15 to i64

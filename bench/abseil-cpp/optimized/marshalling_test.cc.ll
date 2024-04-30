@@ -3580,8 +3580,8 @@ _ZN7testing15AssertionResultD2Ev.exit666:         ; preds = %invoke.cont555, %if
   store i8 %frombool582, ptr %gtest_ar_580, align 8
   %message_.i668 = getelementptr inbounds i8, ptr %gtest_ar_580, i64 8
   store ptr null, ptr %message_.i668, align 8
-  %tobool.i669 = trunc i8 %frombool582 to i1
-  br i1 %tobool.i669, label %_ZN7testing15AssertionResultD2Ev.exit683, label %if.else588
+  %tobool.i669.not.not = icmp eq i8 %lnot, 0
+  br i1 %tobool.i669.not.not, label %_ZN7testing15AssertionResultD2Ev.exit683, label %if.else588
 
 ehcleanup579:                                     ; preds = %_ZN7testing7MessageD2Ev.exit662, %lpad559
   %.pn88.pn.pn = phi { ptr, i32 } [ %.pn88.pn, %_ZN7testing7MessageD2Ev.exit662 ], [ %188, %lpad559 ]
@@ -3783,8 +3783,8 @@ _ZN7testing15AssertionResultD2Ev.exit705:         ; preds = %invoke.cont608, %if
   store i8 %frombool637, ptr %gtest_ar_633, align 8
   %message_.i707 = getelementptr inbounds i8, ptr %gtest_ar_633, i64 8
   store ptr null, ptr %message_.i707, align 8
-  %tobool.i708 = trunc i8 %frombool637 to i1
-  br i1 %tobool.i708, label %_ZN7testing15AssertionResultD2Ev.exit722, label %if.else643
+  %tobool.i708.not.not = icmp eq i8 %lnot636, 0
+  br i1 %tobool.i708.not.not, label %_ZN7testing15AssertionResultD2Ev.exit722, label %if.else643
 
 ehcleanup632:                                     ; preds = %_ZN7testing7MessageD2Ev.exit701, %lpad612
   %.pn96.pn.pn = phi { ptr, i32 } [ %.pn96.pn, %_ZN7testing7MessageD2Ev.exit701 ], [ %205, %lpad612 ]
@@ -3986,8 +3986,8 @@ _ZN7testing15AssertionResultD2Ev.exit744:         ; preds = %invoke.cont663, %if
   store i8 %frombool692, ptr %gtest_ar_688, align 8
   %message_.i746 = getelementptr inbounds i8, ptr %gtest_ar_688, i64 8
   store ptr null, ptr %message_.i746, align 8
-  %tobool.i747 = trunc i8 %frombool692 to i1
-  br i1 %tobool.i747, label %_ZN7testing15AssertionResultD2Ev.exit761, label %if.else698
+  %tobool.i747.not.not = icmp eq i8 %lnot691, 0
+  br i1 %tobool.i747.not.not, label %_ZN7testing15AssertionResultD2Ev.exit761, label %if.else698
 
 ehcleanup687:                                     ; preds = %_ZN7testing7MessageD2Ev.exit740, %lpad667
   %.pn104.pn.pn = phi { ptr, i32 } [ %.pn104.pn, %_ZN7testing7MessageD2Ev.exit740 ], [ %222, %lpad667 ]
@@ -4189,8 +4189,8 @@ _ZN7testing15AssertionResultD2Ev.exit783:         ; preds = %invoke.cont718, %if
   store i8 %frombool747, ptr %gtest_ar_743, align 8
   %message_.i785 = getelementptr inbounds i8, ptr %gtest_ar_743, i64 8
   store ptr null, ptr %message_.i785, align 8
-  %tobool.i786 = trunc i8 %frombool747 to i1
-  br i1 %tobool.i786, label %_ZN7testing15AssertionResultD2Ev.exit800, label %if.else753
+  %tobool.i786.not.not = icmp eq i8 %lnot746, 0
+  br i1 %tobool.i786.not.not, label %_ZN7testing15AssertionResultD2Ev.exit800, label %if.else753
 
 ehcleanup742:                                     ; preds = %_ZN7testing7MessageD2Ev.exit779, %lpad722
   %.pn112.pn.pn = phi { ptr, i32 } [ %.pn112.pn, %_ZN7testing7MessageD2Ev.exit779 ], [ %239, %lpad722 ]
@@ -4392,8 +4392,8 @@ _ZN7testing15AssertionResultD2Ev.exit822:         ; preds = %invoke.cont773, %if
   store i8 %frombool802, ptr %gtest_ar_798, align 8
   %message_.i824 = getelementptr inbounds i8, ptr %gtest_ar_798, i64 8
   store ptr null, ptr %message_.i824, align 8
-  %tobool.i825 = trunc i8 %frombool802 to i1
-  br i1 %tobool.i825, label %_ZN7testing15AssertionResultD2Ev.exit839, label %if.else808
+  %tobool.i825.not.not = icmp eq i8 %lnot801, 0
+  br i1 %tobool.i825.not.not, label %_ZN7testing15AssertionResultD2Ev.exit839, label %if.else808
 
 ehcleanup797:                                     ; preds = %_ZN7testing7MessageD2Ev.exit818, %lpad777
   %.pn120.pn.pn = phi { ptr, i32 } [ %.pn120.pn, %_ZN7testing7MessageD2Ev.exit818 ], [ %256, %lpad777 ]
@@ -4595,8 +4595,8 @@ _ZN7testing15AssertionResultD2Ev.exit861:         ; preds = %invoke.cont828, %if
   store i8 %frombool857, ptr %gtest_ar_853, align 8
   %message_.i863 = getelementptr inbounds i8, ptr %gtest_ar_853, i64 8
   store ptr null, ptr %message_.i863, align 8
-  %tobool.i864 = trunc i8 %frombool857 to i1
-  br i1 %tobool.i864, label %_ZN7testing15AssertionResultD2Ev.exit878, label %if.else863
+  %tobool.i864.not.not = icmp eq i8 %lnot856, 0
+  br i1 %tobool.i864.not.not, label %_ZN7testing15AssertionResultD2Ev.exit878, label %if.else863
 
 ehcleanup852:                                     ; preds = %_ZN7testing7MessageD2Ev.exit857, %lpad832
   %.pn128.pn.pn = phi { ptr, i32 } [ %.pn128.pn, %_ZN7testing7MessageD2Ev.exit857 ], [ %273, %lpad832 ]
@@ -4798,8 +4798,8 @@ _ZN7testing15AssertionResultD2Ev.exit900:         ; preds = %invoke.cont883, %if
   store i8 %frombool912, ptr %gtest_ar_908, align 8
   %message_.i902 = getelementptr inbounds i8, ptr %gtest_ar_908, i64 8
   store ptr null, ptr %message_.i902, align 8
-  %tobool.i903 = trunc i8 %frombool912 to i1
-  br i1 %tobool.i903, label %_ZN7testing15AssertionResultD2Ev.exit917, label %if.else918
+  %tobool.i903.not.not = icmp eq i8 %lnot911, 0
+  br i1 %tobool.i903.not.not, label %_ZN7testing15AssertionResultD2Ev.exit917, label %if.else918
 
 ehcleanup907:                                     ; preds = %_ZN7testing7MessageD2Ev.exit896, %lpad887
   %.pn136.pn.pn = phi { ptr, i32 } [ %.pn136.pn, %_ZN7testing7MessageD2Ev.exit896 ], [ %290, %lpad887 ]
@@ -5001,8 +5001,8 @@ _ZN7testing15AssertionResultD2Ev.exit939:         ; preds = %invoke.cont938, %if
   store i8 %frombool967, ptr %gtest_ar_963, align 8
   %message_.i941 = getelementptr inbounds i8, ptr %gtest_ar_963, i64 8
   store ptr null, ptr %message_.i941, align 8
-  %tobool.i942 = trunc i8 %frombool967 to i1
-  br i1 %tobool.i942, label %_ZN7testing15AssertionResultD2Ev.exit956, label %if.else973
+  %tobool.i942.not.not = icmp eq i8 %lnot966, 0
+  br i1 %tobool.i942.not.not, label %_ZN7testing15AssertionResultD2Ev.exit956, label %if.else973
 
 ehcleanup962:                                     ; preds = %_ZN7testing7MessageD2Ev.exit935, %lpad942
   %.pn144.pn.pn = phi { ptr, i32 } [ %.pn144.pn, %_ZN7testing7MessageD2Ev.exit935 ], [ %307, %lpad942 ]
@@ -5204,8 +5204,8 @@ _ZN7testing15AssertionResultD2Ev.exit978:         ; preds = %invoke.cont993, %if
   store i8 %frombool1022, ptr %gtest_ar_1018, align 8
   %message_.i980 = getelementptr inbounds i8, ptr %gtest_ar_1018, i64 8
   store ptr null, ptr %message_.i980, align 8
-  %tobool.i981 = trunc i8 %frombool1022 to i1
-  br i1 %tobool.i981, label %_ZN7testing15AssertionResultD2Ev.exit995, label %if.else1028
+  %tobool.i981.not.not = icmp eq i8 %lnot1021, 0
+  br i1 %tobool.i981.not.not, label %_ZN7testing15AssertionResultD2Ev.exit995, label %if.else1028
 
 ehcleanup1017:                                    ; preds = %_ZN7testing7MessageD2Ev.exit974, %lpad997
   %.pn152.pn.pn = phi { ptr, i32 } [ %.pn152.pn, %_ZN7testing7MessageD2Ev.exit974 ], [ %324, %lpad997 ]
@@ -5407,8 +5407,8 @@ _ZN7testing15AssertionResultD2Ev.exit1017:        ; preds = %invoke.cont1048, %i
   store i8 %frombool1077, ptr %gtest_ar_1073, align 8
   %message_.i1019 = getelementptr inbounds i8, ptr %gtest_ar_1073, i64 8
   store ptr null, ptr %message_.i1019, align 8
-  %tobool.i1020 = trunc i8 %frombool1077 to i1
-  br i1 %tobool.i1020, label %_ZN7testing15AssertionResultD2Ev.exit1034, label %if.else1083
+  %tobool.i1020.not.not = icmp eq i8 %lnot1076, 0
+  br i1 %tobool.i1020.not.not, label %_ZN7testing15AssertionResultD2Ev.exit1034, label %if.else1083
 
 ehcleanup1072:                                    ; preds = %_ZN7testing7MessageD2Ev.exit1013, %lpad1052
   %.pn160.pn.pn = phi { ptr, i32 } [ %.pn160.pn, %_ZN7testing7MessageD2Ev.exit1013 ], [ %341, %lpad1052 ]
@@ -5610,8 +5610,8 @@ _ZN7testing15AssertionResultD2Ev.exit1056:        ; preds = %invoke.cont1103, %i
   store i8 %frombool1132, ptr %gtest_ar_1128, align 8
   %message_.i1058 = getelementptr inbounds i8, ptr %gtest_ar_1128, i64 8
   store ptr null, ptr %message_.i1058, align 8
-  %tobool.i1059 = trunc i8 %frombool1132 to i1
-  br i1 %tobool.i1059, label %_ZN7testing15AssertionResultD2Ev.exit1073, label %if.else1138
+  %tobool.i1059.not.not = icmp eq i8 %lnot1131, 0
+  br i1 %tobool.i1059.not.not, label %_ZN7testing15AssertionResultD2Ev.exit1073, label %if.else1138
 
 ehcleanup1127:                                    ; preds = %_ZN7testing7MessageD2Ev.exit1052, %lpad1107
   %.pn168.pn.pn = phi { ptr, i32 } [ %.pn168.pn, %_ZN7testing7MessageD2Ev.exit1052 ], [ %358, %lpad1107 ]
@@ -62603,7 +62603,7 @@ _ZN7testing15AssertionResultD2Ev.exit165:         ; preds = %if.end143, %_ZNKSt1
   store i8 %value.sroa.6.1300308357367, ptr %gtest_ar_145, align 8
   %message_.i169 = getelementptr inbounds i8, ptr %gtest_ar_145, i64 8
   store ptr null, ptr %message_.i169, align 8
-  %tobool.i170 = trunc i8 %value.sroa.6.1300308357367 to i1
+  %tobool.i170 = trunc nuw i8 %value.sroa.6.1300308357367 to i1
   br i1 %tobool.i170, label %_ZN7testing15AssertionResultD2Ev.exit184, label %if.else152
 
 ehcleanup144:                                     ; preds = %_ZN7testing7MessageD2Ev.exit161, %lpad129
@@ -62705,8 +62705,8 @@ _ZN7testing15AssertionResultD2Ev.exit184:         ; preds = %_ZN7testing15Assert
   store i8 %frombool174, ptr %gtest_ar_170, align 8
   %message_.i186 = getelementptr inbounds i8, ptr %gtest_ar_170, i64 8
   store ptr null, ptr %message_.i186, align 8
-  %tobool.i187 = trunc i8 %frombool174 to i1
-  br i1 %tobool.i187, label %_ZN7testing15AssertionResultD2Ev.exit201, label %if.else178
+  %tobool.i187.not.not = icmp eq i8 %lnot173, 0
+  br i1 %tobool.i187.not.not, label %_ZN7testing15AssertionResultD2Ev.exit201, label %if.else178
 
 ehcleanup169:                                     ; preds = %_ZN7testing7MessageD2Ev.exit180, %lpad154
   %.pn24.pn.pn = phi { ptr, i32 } [ %.pn24.pn, %_ZN7testing7MessageD2Ev.exit180 ], [ %37, %lpad154 ]
@@ -65044,8 +65044,8 @@ _ZN7testing15AssertionResultD2Ev.exit:            ; preds = %invoke.cont, %if.en
   store i8 %frombool21, ptr %gtest_ar_18, align 8
   %message_.i52 = getelementptr inbounds i8, ptr %gtest_ar_18, i64 8
   store ptr null, ptr %message_.i52, align 8
-  %tobool.i53 = trunc i8 %frombool21 to i1
-  br i1 %tobool.i53, label %_ZN7testing15AssertionResultD2Ev.exit67, label %if.else25
+  %tobool.i53.not.not = icmp eq i8 %lnot, 0
+  br i1 %tobool.i53.not.not, label %_ZN7testing15AssertionResultD2Ev.exit67, label %if.else25
 
 ehcleanup17:                                      ; preds = %_ZN7testing7MessageD2Ev.exit48, %lpad5
   %.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn, %_ZN7testing7MessageD2Ev.exit48 ], [ %3, %lpad5 ]
