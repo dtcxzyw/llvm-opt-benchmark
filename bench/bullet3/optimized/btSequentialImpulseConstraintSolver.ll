@@ -1222,7 +1222,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local noundef i64 @_ZN35btSequentialImpulseConstraintSolver7btRand2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(408) %this) local_unnamed_addr #6 align 2 {
+define dso_local noundef range(i64 0, 4294967296) i64 @_ZN35btSequentialImpulseConstraintSolver7btRand2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(408) %this) local_unnamed_addr #6 align 2 {
 entry:
   %m_btSeed2 = getelementptr inbounds i8, ptr %this, i64 368
   %0 = load i64, ptr %m_btSeed2, align 8
@@ -1278,7 +1278,7 @@ if.end21:                                         ; preds = %if.then, %if.then7,
   %r.0 = phi i64 [ %xor17, %if.then15 ], [ %xor13, %if.then11 ], [ %xor9, %if.then7 ], [ %xor5, %if.then3 ], [ %xor, %if.then ], [ %and.i, %entry ]
   %conv = sext i32 %n to i64
   %rem = urem i64 %r.0, %conv
-  %conv22 = trunc i64 %rem to i32
+  %conv22 = trunc nuw i64 %rem to i32
   ret i32 %conv22
 }
 
@@ -6358,7 +6358,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   %indvars.iv = phi i64 [ 0, %for.body.lr.ph ], [ %indvars.iv.next, %for.body ]
   %39 = load ptr, ptr %m_data.i, align 8
   %arrayidx.i = getelementptr inbounds i32, ptr %39, i64 %indvars.iv
-  %40 = trunc i64 %indvars.iv to i32
+  %40 = trunc nuw nsw i64 %indvars.iv to i32
   store i32 %40, ptr %arrayidx.i, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -6377,7 +6377,7 @@ for.body34:                                       ; preds = %for.body34.lr.ph, %
   %indvars.iv146 = phi i64 [ 0, %for.body34.lr.ph ], [ %indvars.iv.next147, %for.body34 ]
   %41 = load ptr, ptr %m_data.i133, align 8
   %arrayidx.i135 = getelementptr inbounds i32, ptr %41, i64 %indvars.iv146
-  %42 = trunc i64 %indvars.iv146 to i32
+  %42 = trunc nuw nsw i64 %indvars.iv146 to i32
   store i32 %42, ptr %arrayidx.i135, align 4
   %indvars.iv.next147 = add nuw nsw i64 %indvars.iv146, 1
   %exitcond150.not = icmp eq i64 %indvars.iv.next147, %wide.trip.count149
@@ -6387,7 +6387,7 @@ for.body43:                                       ; preds = %for.body43.lr.ph, %
   %indvars.iv151 = phi i64 [ 0, %for.body43.lr.ph ], [ %indvars.iv.next152, %for.body43 ]
   %43 = load ptr, ptr %m_data.i136, align 8
   %arrayidx.i138 = getelementptr inbounds i32, ptr %43, i64 %indvars.iv151
-  %44 = trunc i64 %indvars.iv151 to i32
+  %44 = trunc nuw nsw i64 %indvars.iv151 to i32
   store i32 %44, ptr %arrayidx.i138, align 4
   %indvars.iv.next152 = add nuw nsw i64 %indvars.iv151, 1
   %exitcond155.not = icmp eq i64 %indvars.iv.next152, %wide.trip.count154
@@ -6819,7 +6819,7 @@ invoke.cont162:                                   ; preds = %for.body146
   %.sroa.speculated333 = select i1 %cmp.i231, float %leastSquaresResidual.2375, float %mul165
   %m_appliedImpulse = getelementptr inbounds i8, ptr %arrayidx.i223, i64 100
   %58 = load float, ptr %m_appliedImpulse, align 4
-  %59 = trunc i64 %indvars.iv410 to i32
+  %59 = trunc nuw nsw i64 %indvars.iv410 to i32
   %mul173 = shl nuw i32 %59, %and142.lobit
   %cmp178 = fcmp ule float %58, 0.000000e+00
   br i1 %cmp178, label %for.inc239, label %if.then179
@@ -8202,17 +8202,17 @@ if.end30:                                         ; preds = %if.else, %if.then11
   %33 = call <2 x float> @llvm.fmuladd.v2f32(<2 x float> %32, <2 x float> %.fca.0.load.i, <2 x float> %30)
   %34 = shufflevector <2 x float> %.fca.1.load.i, <2 x float> %.fca.0.load.i, <2 x i32> <i32 0, i32 2>
   %35 = call <2 x float> @llvm.fmuladd.v2f32(<2 x float> %25, <2 x float> %34, <2 x float> %33)
-  %36 = shufflevector <2 x float> %.fca.0.load.i, <2 x float> poison, <2 x i32> <i32 1, i32 1>
+  %36 = shufflevector <2 x float> %26, <2 x float> poison, <2 x i32> <i32 1, i32 0>
   %37 = insertelement <2 x float> %36, float %neg19.i, i64 1
-  %38 = shufflevector <2 x float> %26, <2 x float> %.fca.1.load.i, <2 x i32> <i32 1, i32 2>
+  %38 = shufflevector <2 x float> %.fca.0.load.i, <2 x float> %.fca.1.load.i, <2 x i32> <i32 1, i32 2>
   %39 = call <2 x float> @llvm.fmuladd.v2f32(<2 x float> %37, <2 x float> %38, <2 x float> %35)
   %40 = insertelement <2 x float> %27, float %neg19.i, i64 1
   %41 = shufflevector <2 x float> %.fca.1.load.i, <2 x float> %.fca.0.load.i, <2 x i32> <i32 1, i32 2>
   %42 = fmul <2 x float> %40, %41
   %43 = call <2 x float> @llvm.fmuladd.v2f32(<2 x float> %32, <2 x float> %.fca.1.load.i, <2 x float> %42)
-  %44 = shufflevector <2 x float> %26, <2 x float> poison, <2 x i32> <i32 poison, i32 0>
-  %45 = insertelement <2 x float> %44, float %mul.i32.sink, i64 0
-  %46 = call <2 x float> @llvm.fmuladd.v2f32(<2 x float> %45, <2 x float> %36, <2 x float> %43)
+  %44 = insertelement <2 x float> %36, float %mul.i32.sink, i64 0
+  %45 = shufflevector <2 x float> %.fca.0.load.i, <2 x float> poison, <2 x i32> <i32 1, i32 1>
+  %46 = call <2 x float> @llvm.fmuladd.v2f32(<2 x float> %44, <2 x float> %45, <2 x float> %43)
   %47 = shufflevector <2 x float> %.fca.0.load.i, <2 x float> %.fca.1.load.i, <2 x i32> <i32 0, i32 2>
   %48 = call <2 x float> @llvm.fmuladd.v2f32(<2 x float> %26, <2 x float> %47, <2 x float> %46)
   %49 = fmul <2 x float> %39, %39

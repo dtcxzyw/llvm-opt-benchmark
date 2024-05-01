@@ -3754,14 +3754,14 @@ define linkonce_odr hidden noundef double @_ZN6cephes6incbetEddd(double noundef 
 
 .preheader.preheader:                             ; preds = %33
   %40 = insertelement <2 x double> poison, double %25, i64 0
-  %41 = insertelement <2 x double> %40, double %.107, i64 1
+  %41 = insertelement <2 x double> %40, double %39, i64 1
   %42 = insertelement <2 x double> <double 1.000000e+00, double poison>, double %39, i64 1
   %43 = insertelement <2 x double> poison, double %.104, i64 0
   br label %.preheader
 
 .preheader:                                       ; preds = %.preheader.preheader, %.thread.i
   %.080.i = phi double [ %78, %.thread.i ], [ %.107, %.preheader.preheader ]
-  %.077.i = phi double [ %80, %.thread.i ], [ %39, %.preheader.preheader ]
+  %.078.i = phi double [ %79, %.thread.i ], [ %.107, %.preheader.preheader ]
   %.075.in.i = phi double [ %.075.i, %.thread.i ], [ %., %.preheader.preheader ]
   %.073.in.i = phi double [ %.073.i, %.thread.i ], [ %.107, %.preheader.preheader ]
   %.071.i = phi double [ %.172.i, %.thread.i ], [ 1.000000e+00, %.preheader.preheader ]
@@ -3770,13 +3770,13 @@ define linkonce_odr hidden noundef double @_ZN6cephes6incbetEddd(double noundef 
   %44 = phi <2 x double> [ %94, %.thread.i ], [ <double 1.000000e+00, double 1.000000e+00>, %.preheader.preheader ]
   %45 = phi <2 x double> [ %95, %.thread.i ], [ <double 1.000000e+00, double 0.000000e+00>, %.preheader.preheader ]
   %46 = phi <2 x double> [ %81, %.thread.i ], [ %42, %.preheader.preheader ]
-  %47 = phi <2 x double> [ %79, %.thread.i ], [ %41, %.preheader.preheader ]
+  %47 = phi <2 x double> [ %80, %.thread.i ], [ %41, %.preheader.preheader ]
   %.075.i = fadd double %.075.in.i, -1.000000e+00
   %.073.i = fadd double %.073.in.i, 2.000000e+00
   %48 = fneg double %.080.i
   %49 = fmul double %.104, %48
   %50 = insertelement <2 x double> poison, double %49, i64 0
-  %51 = insertelement <2 x double> %50, double %.077.i, i64 1
+  %51 = insertelement <2 x double> %50, double %.078.i, i64 1
   %52 = fmul <2 x double> %51, %47
   %53 = extractelement <2 x double> %52, i64 0
   %54 = extractelement <2 x double> %52, i64 1
@@ -3811,8 +3811,8 @@ define linkonce_odr hidden noundef double @_ZN6cephes6incbetEddd(double noundef 
 .thread.i:                                        ; preds = %73, %.preheader
   %.196.i = phi double [ %.172.i, %73 ], [ %.069.i, %.preheader ]
   %78 = fadd double %.080.i, 1.000000e+00
-  %79 = fadd <2 x double> %47, <double 1.000000e+00, double 2.000000e+00>
-  %80 = fadd double %.077.i, 2.000000e+00
+  %79 = fadd double %.078.i, 2.000000e+00
+  %80 = fadd <2 x double> %47, <double 1.000000e+00, double 2.000000e+00>
   %81 = fadd <2 x double> %46, <double 1.000000e+00, double 2.000000e+00>
   %82 = tail call <2 x double> @llvm.fabs.v2f64(<2 x double> %67)
   %shift = shufflevector <2 x double> %82, <2 x double> poison, <2 x i32> <i32 1, i32 poison>

@@ -94,17 +94,17 @@ while.body4:                                      ; preds = %while.cond2.prehead
   %bits.163 = phi i64 [ %add89, %while.body4 ], [ %bits.0.lcssa, %while.cond2.preheader ]
   %p4.062 = phi ptr [ %incdec.ptr11, %while.body4 ], [ %p.0.lcssa, %while.cond2.preheader ]
   %incdec.ptr8 = getelementptr inbounds i8, ptr %p4.062, i64 16
-  %incdec.ptr10 = getelementptr inbounds i8, ptr %p4.062, i64 24
+  %incdec.ptr9 = getelementptr inbounds i8, ptr %p4.062, i64 20
+  %6 = load i32, ptr %incdec.ptr8, align 4
   %incdec.ptr11 = getelementptr inbounds i8, ptr %p4.062, i64 28
-  %6 = load i32, ptr %incdec.ptr10, align 4
   %sub = add nsw i64 %count.addr.164, -28
-  %shr53 = lshr i32 %6, 1
-  %and54 = and i32 %shr53, 1431655765
-  %sub55 = sub i32 %6, %and54
-  %and56 = and i32 %sub55, 858993459
-  %shr57 = lshr i32 %sub55, 2
-  %and58 = and i32 %shr57, 858993459
-  %add59 = add nuw nsw i32 %and58, %and56
+  %shr39 = lshr i32 %6, 1
+  %and40 = and i32 %shr39, 1431655765
+  %sub41 = sub i32 %6, %and40
+  %and42 = and i32 %sub41, 858993459
+  %shr43 = lshr i32 %sub41, 2
+  %and44 = and i32 %shr43, 858993459
+  %add45 = add nuw nsw i32 %and44, %and42
   %7 = load <4 x i32>, ptr %p4.062, align 4
   %8 = lshr <4 x i32> %7, <i32 1, i32 1, i32 1, i32 1>
   %9 = and <4 x i32> %8, <i32 1431655765, i32 1431655765, i32 1431655765, i32 1431655765>
@@ -116,27 +116,26 @@ while.body4:                                      ; preds = %while.cond2.prehead
   %15 = lshr <4 x i32> %14, <i32 4, i32 4, i32 4, i32 4>
   %16 = add nuw nsw <4 x i32> %15, %14
   %17 = and <4 x i32> %16, <i32 252645135, i32 252645135, i32 252645135, i32 252645135>
-  %shr83 = lshr i32 %add59, 4
-  %add84 = add nuw nsw i32 %shr83, %add59
-  %and85 = and i32 %add84, 252645135
-  %18 = tail call i32 @llvm.vector.reduce.add.v4i32(<4 x i32> %17)
-  %19 = load <2 x i32>, ptr %incdec.ptr8, align 4
-  %20 = lshr <2 x i32> %19, <i32 1, i32 1>
-  %21 = and <2 x i32> %20, <i32 1431655765, i32 1431655765>
-  %22 = sub <2 x i32> %19, %21
-  %23 = and <2 x i32> %22, <i32 858993459, i32 858993459>
-  %24 = lshr <2 x i32> %22, <i32 2, i32 2>
-  %25 = and <2 x i32> %24, <i32 858993459, i32 858993459>
-  %26 = add nuw nsw <2 x i32> %25, %23
-  %27 = lshr <2 x i32> %26, <i32 4, i32 4>
-  %28 = add nuw nsw <2 x i32> %27, %26
-  %29 = and <2 x i32> %28, <i32 252645135, i32 252645135>
-  %30 = insertelement <2 x i32> poison, i32 %18, i64 0
-  %31 = insertelement <2 x i32> %30, i32 %and85, i64 1
-  %32 = add <2 x i32> %31, %29
-  %shift = shufflevector <2 x i32> %32, <2 x i32> poison, <2 x i32> <i32 1, i32 poison>
-  %33 = add <2 x i32> %32, %shift
-  %op.rdx74 = extractelement <2 x i32> %33, i64 0
+  %shr75 = lshr i32 %add45, 4
+  %add76 = add nuw nsw i32 %shr75, %add45
+  %and77 = and i32 %add76, 252645135
+  %18 = load <2 x i32>, ptr %incdec.ptr9, align 4
+  %19 = lshr <2 x i32> %18, <i32 1, i32 1>
+  %20 = and <2 x i32> %19, <i32 1431655765, i32 1431655765>
+  %21 = sub <2 x i32> %18, %20
+  %22 = and <2 x i32> %21, <i32 858993459, i32 858993459>
+  %23 = lshr <2 x i32> %21, <i32 2, i32 2>
+  %24 = and <2 x i32> %23, <i32 858993459, i32 858993459>
+  %25 = add nuw nsw <2 x i32> %24, %22
+  %26 = lshr <2 x i32> %25, <i32 4, i32 4>
+  %27 = add nuw nsw <2 x i32> %26, %25
+  %28 = and <2 x i32> %27, <i32 252645135, i32 252645135>
+  %29 = tail call i32 @llvm.vector.reduce.add.v4i32(<4 x i32> %17)
+  %op.rdx = add i32 %29, %and77
+  %shift = shufflevector <2 x i32> %28, <2 x i32> poison, <2 x i32> <i32 1, i32 poison>
+  %30 = add <2 x i32> %28, %shift
+  %op.rdx73 = extractelement <2 x i32> %30, i64 0
+  %op.rdx74 = add i32 %op.rdx, %op.rdx73
   %mul = mul i32 %op.rdx74, 16843009
   %shr87 = lshr i32 %mul, 24
   %conv88 = zext nneg i32 %shr87 to i64
@@ -150,11 +149,11 @@ while.body94:                                     ; preds = %while.cond91.prehea
   %p.169 = phi ptr [ %incdec.ptr95, %while.body94 ], [ %p4.0.lcssa, %while.cond91.preheader ]
   %dec92 = add nsw i64 %count.addr.271, -1
   %incdec.ptr95 = getelementptr inbounds i8, ptr %p.169, i64 1
-  %34 = load i8, ptr %p.169, align 1
-  %idxprom96 = zext i8 %34 to i64
+  %31 = load i8, ptr %p.169, align 1
+  %idxprom96 = zext i8 %31 to i64
   %arrayidx97 = getelementptr inbounds [256 x i8], ptr @redisPopcount.bitsinbyte, i64 0, i64 %idxprom96
-  %35 = load i8, ptr %arrayidx97, align 1
-  %conv98 = zext i8 %35 to i64
+  %32 = load i8, ptr %arrayidx97, align 1
+  %conv98 = zext i8 %32 to i64
   %add99 = add nuw nsw i64 %bits.270, %conv98
   %tobool93.not = icmp eq i64 %dec92, 0
   br i1 %tobool93.not, label %while.end100, label %while.body94, !llvm.loop !8
@@ -444,7 +443,7 @@ if.end:                                           ; preds = %if.then, %land.lhs.
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local noundef i32 @checkUnsignedBitfieldOverflow(i64 noundef %value, i64 noundef %incr, i64 noundef %bits, i32 noundef %owtype, ptr noundef writeonly %limit) local_unnamed_addr #6 {
+define dso_local range(i32 -1, 2) i32 @checkUnsignedBitfieldOverflow(i64 noundef %value, i64 noundef %incr, i64 noundef %bits, i32 noundef %owtype, ptr noundef writeonly %limit) local_unnamed_addr #6 {
 entry:
   %cmp = icmp eq i64 %bits, 64
   %notmask = shl nsw i64 -1, %bits
@@ -504,7 +503,7 @@ return:                                           ; preds = %return.sink.split, 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local noundef i32 @checkSignedBitfieldOverflow(i64 noundef %value, i64 noundef %incr, i64 noundef %bits, i32 noundef %owtype, ptr noundef writeonly %limit) local_unnamed_addr #6 {
+define dso_local range(i32 -1, 2) i32 @checkSignedBitfieldOverflow(i64 noundef %value, i64 noundef %incr, i64 noundef %bits, i32 noundef %owtype, ptr noundef writeonly %limit) local_unnamed_addr #6 {
 entry:
   %cmp = icmp ne i64 %bits, 64
   %sub = add i64 %bits, -1
@@ -630,7 +629,7 @@ for.end7:                                         ; preds = %for.end, %entry
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @getBitOffsetFromArgument(ptr noundef %c, ptr nocapture noundef readonly %o, ptr nocapture noundef writeonly %offset, i32 noundef %hash, i32 noundef %bits) local_unnamed_addr #1 {
+define dso_local range(i32 -1, 1) i32 @getBitOffsetFromArgument(ptr noundef %c, ptr nocapture noundef readonly %o, ptr nocapture noundef writeonly %offset, i32 noundef %hash, i32 noundef %bits) local_unnamed_addr #1 {
 entry:
   %loffset = alloca i64, align 8
   %ptr = getelementptr inbounds i8, ptr %o, i64 8
@@ -745,7 +744,7 @@ declare void @addReplyError(ptr noundef, ptr noundef) local_unnamed_addr #2
 declare i32 @mustObeyClient(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @getBitfieldTypeFromArgument(ptr noundef %c, ptr nocapture noundef readonly %o, ptr nocapture noundef %sign, ptr nocapture noundef writeonly %bits) local_unnamed_addr #1 {
+define dso_local range(i32 -1, 1) i32 @getBitfieldTypeFromArgument(ptr noundef %c, ptr nocapture noundef readonly %o, ptr nocapture noundef %sign, ptr nocapture noundef writeonly %bits) local_unnamed_addr #1 {
 entry:
   %llbits = alloca i64, align 8
   %ptr = getelementptr inbounds i8, ptr %o, i64 8
@@ -1078,7 +1077,7 @@ entry:
   %0 = load ptr, ptr %argv, align 8
   %arrayidx = getelementptr inbounds i8, ptr %0, i64 16
   %1 = load ptr, ptr %arrayidx, align 8
-  %call = call i32 @getBitOffsetFromArgument(ptr noundef %c, ptr noundef %1, ptr noundef nonnull %bitoffset, i32 noundef 0, i32 noundef 0), !range !17
+  %call = call i32 @getBitOffsetFromArgument(ptr noundef %c, ptr noundef %1, ptr noundef nonnull %bitoffset, i32 noundef 0, i32 noundef 0)
   %cmp.not = icmp eq i32 %call, 0
   br i1 %cmp.not, label %if.end, label %return
 
@@ -1184,7 +1183,7 @@ entry:
   %0 = load ptr, ptr %argv, align 8
   %arrayidx = getelementptr inbounds i8, ptr %0, i64 16
   %1 = load ptr, ptr %arrayidx, align 8
-  %call = call i32 @getBitOffsetFromArgument(ptr noundef %c, ptr noundef %1, ptr noundef nonnull %bitoffset, i32 noundef 0, i32 noundef 0), !range !17
+  %call = call i32 @getBitOffsetFromArgument(ptr noundef %c, ptr noundef %1, ptr noundef nonnull %bitoffset, i32 noundef 0, i32 noundef 0)
   %cmp.not = icmp eq i32 %call, 0
   br i1 %cmp.not, label %if.end, label %return
 
@@ -1451,7 +1450,7 @@ if.then89:                                        ; preds = %for.body86
 for.inc:                                          ; preds = %for.body86, %if.then89
   %inc = add nuw i64 %i.0291, 1
   %exitcond305.not = icmp eq i64 %inc, %j.0213
-  br i1 %exitcond305.not, label %for.end, label %for.body86, !llvm.loop !18
+  br i1 %exitcond305.not, label %for.end, label %for.body86, !llvm.loop !17
 
 for.end:                                          ; preds = %for.inc, %for.cond83.preheader
   tail call void @zfree(ptr noundef %call63) #17
@@ -1522,7 +1521,7 @@ for.inc117:                                       ; preds = %sdslen.exit, %if.th
   %minlen.1 = phi i64 [ 0, %if.then75 ], [ %spec.select205, %sdslen.exit ]
   %inc118 = add nuw i64 %j.0213, 1
   %exitcond.not = icmp eq i64 %inc118, %conv62
-  br i1 %exitcond.not, label %for.end119, label %for.body, !llvm.loop !19
+  br i1 %exitcond.not, label %for.end119, label %for.body, !llvm.loop !18
 
 for.end119:                                       ; preds = %for.inc117
   %tobool120.not = icmp eq i64 %maxlen.2, 0
@@ -1589,14 +1588,14 @@ for.body140.us:                                   ; preds = %for.cond137.prehead
   store ptr %add.ptr.us, ptr %arrayidx141.us, align 8
   %inc158.us = add nuw nsw i64 %i123.0233.us, 1
   %exitcond311.not = icmp eq i64 %inc158.us, %conv62
-  br i1 %exitcond311.not, label %for.cond137.for.end159_crit_edge.us, label %for.body140.us, !llvm.loop !20
+  br i1 %exitcond311.not, label %for.cond137.for.end159_crit_edge.us, label %for.body140.us, !llvm.loop !19
 
 for.cond137.for.end159_crit_edge.us:              ; preds = %for.body140.us
   %add.ptr160.us = getelementptr inbounds i8, ptr %lres.0237.us, i64 32
   %add161.us = add i64 %j.1235.us, 32
   %sub162.us = add i64 %minlen.2236.us, -32
   %cmp135.us = icmp ugt i64 %sub162.us, 31
-  br i1 %cmp135.us, label %for.cond137.preheader.us, label %if.end262, !llvm.loop !21
+  br i1 %cmp135.us, label %for.cond137.preheader.us, label %if.end262, !llvm.loop !20
 
 if.else163:                                       ; preds = %if.then129
   br i1 %cmp164198, label %for.cond171.preheader.lr.ph, label %if.else199
@@ -1649,14 +1648,14 @@ for.body174.us:                                   ; preds = %for.cond171.prehead
   store ptr %add.ptr191.us, ptr %arrayidx175.us, align 8
   %inc193.us = add nuw nsw i64 %i123.1225.us, 1
   %exitcond309.not = icmp eq i64 %inc193.us, %conv62
-  br i1 %exitcond309.not, label %for.cond171.for.end194_crit_edge.us, label %for.body174.us, !llvm.loop !22
+  br i1 %exitcond309.not, label %for.cond171.for.end194_crit_edge.us, label %for.body174.us, !llvm.loop !21
 
 for.cond171.for.end194_crit_edge.us:              ; preds = %for.body174.us
   %add.ptr195.us = getelementptr inbounds i8, ptr %lres.1229.us, i64 32
   %add196.us = add i64 %j.2227.us, 32
   %sub197.us = add i64 %minlen.3228.us, -32
   %cmp168.us = icmp ugt i64 %sub197.us, 31
-  br i1 %cmp168.us, label %for.cond171.preheader.us, label %if.end262, !llvm.loop !23
+  br i1 %cmp168.us, label %for.cond171.preheader.us, label %if.end262, !llvm.loop !22
 
 if.else199:                                       ; preds = %if.else163
   br i1 %cmp200199, label %for.cond207.preheader.lr.ph, label %if.else235
@@ -1709,14 +1708,14 @@ for.body210.us:                                   ; preds = %for.cond207.prehead
   store ptr %add.ptr227.us, ptr %arrayidx211.us, align 8
   %inc229.us = add nuw nsw i64 %i123.2218.us, 1
   %exitcond307.not = icmp eq i64 %inc229.us, %conv62
-  br i1 %exitcond307.not, label %for.cond207.for.end230_crit_edge.us, label %for.body210.us, !llvm.loop !24
+  br i1 %exitcond307.not, label %for.cond207.for.end230_crit_edge.us, label %for.body210.us, !llvm.loop !23
 
 for.cond207.for.end230_crit_edge.us:              ; preds = %for.body210.us
   %add.ptr231.us = getelementptr inbounds i8, ptr %lres.2222.us, i64 32
   %add232.us = add i64 %j.3220.us, 32
   %sub233.us = add i64 %minlen.4221.us, -32
   %cmp204.us = icmp ugt i64 %sub233.us, 31
-  br i1 %cmp204.us, label %for.cond207.preheader.us, label %if.end262, !llvm.loop !25
+  br i1 %cmp204.us, label %for.cond207.preheader.us, label %if.end262, !llvm.loop !24
 
 if.else235:                                       ; preds = %if.else199
   br i1 %cmp54196, label %while.body242, label %if.end262
@@ -1797,7 +1796,7 @@ cond.end293.us:                                   ; preds = %cond.false289.us, %
 for.inc319.us:                                    ; preds = %cond.end293.us
   %inc320.us = add nuw i64 %i123.3242.us, 1
   %exitcond317.not = icmp eq i64 %inc320.us, %umax312
-  br i1 %exitcond317.not, label %for.end321, label %for.body284.us, !llvm.loop !26
+  br i1 %exitcond317.not, label %for.end321, label %for.body284.us, !llvm.loop !25
 
 for.body284.us249:                                ; preds = %for.body284.lr.ph, %for.inc319.us259
   %i123.3242.us250 = phi i64 [ %inc320.us261, %for.inc319.us259 ], [ %op.0200, %for.body284.lr.ph ]
@@ -1823,7 +1822,7 @@ cond.end293.us257:                                ; preds = %cond.false289.us254
 for.inc319.us259:                                 ; preds = %cond.end293.us257
   %inc320.us261 = add nuw i64 %i123.3242.us250, 1
   %exitcond315.not = icmp eq i64 %inc320.us261, %umax312
-  br i1 %exitcond315.not, label %for.end321, label %for.body284.us249, !llvm.loop !26
+  br i1 %exitcond315.not, label %for.end321, label %for.body284.us249, !llvm.loop !25
 
 for.body284.us267:                                ; preds = %for.body284.lr.ph, %cond.end293.us275
   %i123.3242.us268 = phi i64 [ %inc320.us279, %cond.end293.us275 ], [ 1, %for.body284.lr.ph ]
@@ -1845,7 +1844,7 @@ cond.end293.us275:                                ; preds = %cond.false289.us272
   %xor314187.us = xor i8 %cond294.us276, %output.1241.us269
   %inc320.us279 = add nuw i64 %i123.3242.us268, 1
   %exitcond313.not = icmp eq i64 %inc320.us279, %umax312
-  br i1 %exitcond313.not, label %for.end321, label %for.body284.us267, !llvm.loop !26
+  br i1 %exitcond313.not, label %for.end321, label %for.body284.us267, !llvm.loop !25
 
 for.end321:                                       ; preds = %cond.end293.us275, %for.inc319.us259, %cond.end293.us257, %for.inc319.us, %cond.end293.us, %for.body284.lr.ph, %cond.end
   %output.3 = phi i8 [ %spec.select190, %cond.end ], [ %spec.select190, %for.body284.lr.ph ], [ 0, %cond.end293.us ], [ %and298189.us, %for.inc319.us ], [ -1, %cond.end293.us257 ], [ %or306188.us, %for.inc319.us259 ], [ %xor314187.us, %cond.end293.us275 ]
@@ -1853,7 +1852,7 @@ for.end321:                                       ; preds = %cond.end293.us275, 
   store i8 %output.3, ptr %arrayidx322, align 1
   %inc324 = add nuw i64 %j.6284, 1
   %exitcond318.not = icmp eq i64 %inc324, %maxlen.2
-  br i1 %exitcond318.not, label %if.end326, label %for.body266, !llvm.loop !27
+  br i1 %exitcond318.not, label %if.end326, label %for.body266, !llvm.loop !26
 
 if.end326:                                        ; preds = %for.end321, %if.end262, %for.end119
   %tobool120.not325 = phi i1 [ true, %for.end119 ], [ %tobool120.not, %if.end262 ], [ %tobool120.not, %for.end321 ]
@@ -1875,7 +1874,7 @@ if.then333:                                       ; preds = %for.body330
 for.inc336:                                       ; preds = %for.body330, %if.then333
   %inc337 = add nuw i64 %j.7289, 1
   %exitcond320.not = icmp eq i64 %inc337, %conv62
-  br i1 %exitcond320.not, label %for.end338, label %for.body330, !llvm.loop !28
+  br i1 %exitcond320.not, label %for.end338, label %for.body330, !llvm.loop !27
 
 for.end338:                                       ; preds = %for.inc336, %if.end60, %if.end326
   %res.0331 = phi ptr [ %res.0, %if.end326 ], [ null, %if.end60 ], [ %res.0, %for.inc336 ]
@@ -2881,7 +2880,7 @@ if.end50:                                         ; preds = %if.end8.i
   %16 = getelementptr ptr, ptr %15, i64 %idxprom
   %arrayidx54 = getelementptr i8, ptr %16, i64 16
   %17 = load ptr, ptr %arrayidx54, align 8
-  %call55 = call i32 @getBitOffsetFromArgument(ptr noundef nonnull %c, ptr noundef %17, ptr noundef nonnull %bitoffset, i32 noundef 1, i32 noundef %conv28.i), !range !17
+  %call55 = call i32 @getBitOffsetFromArgument(ptr noundef nonnull %c, ptr noundef %17, ptr noundef nonnull %bitoffset, i32 noundef 1, i32 noundef %conv28.i)
   %cmp56.not = icmp eq i32 %call55, 0
   br i1 %cmp56.not, label %if.end58, label %if.then57
 
@@ -2948,7 +2947,7 @@ for.inc:                                          ; preds = %if.else32, %if.else
   %j.1 = phi i32 [ %add104, %if.end79 ], [ %add, %if.then20 ], [ %add, %if.else28 ], [ %add, %if.else32 ]
   %inc105 = add nsw i32 %j.1, 1
   %cmp = icmp slt i32 %inc105, %24
-  br i1 %cmp, label %for.body, label %for.end, !llvm.loop !29
+  br i1 %cmp, label %for.body, label %for.end, !llvm.loop !28
 
 for.end:                                          ; preds = %for.inc
   %25 = icmp eq i32 %readonly.2, 0
@@ -3511,7 +3510,7 @@ if.end264:                                        ; preds = %lor.lhs.false258
   store i8 %72, ptr %arrayidx269, align 1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond = icmp eq i64 %indvars.iv.next, 9
-  br i1 %exitcond, label %for.end272, label %lor.lhs.false258, !llvm.loop !30
+  br i1 %exitcond, label %for.end272, label %lor.lhs.false258, !llvm.loop !29
 
 for.end272:                                       ; preds = %if.end264, %lor.lhs.false258, %if.end249
   %73 = phi i64 [ %70, %if.end249 ], [ %71, %lor.lhs.false258 ], [ %71, %if.end264 ]
@@ -3612,7 +3611,7 @@ for.inc294:                                       ; preds = %setUnsignedBitfield
   %changes.1 = phi i32 [ %spec.select156, %setUnsignedBitfield.exit ], [ %changes.0405, %if.else241 ], [ %spec.select155, %setSignedBitfield.exit ], [ %changes.0405, %if.else187 ], [ %changes.0405, %getUnsignedBitfield.exit317 ], [ %changes.0405, %getSignedBitfield.exit298 ]
   %indvars.iv.next417 = add nuw nsw i64 %indvars.iv416, 1
   %exitcond419.not = icmp eq i64 %indvars.iv.next417, %wide.trip.count
-  br i1 %exitcond419.not, label %for.end296, label %for.body132, !llvm.loop !31
+  br i1 %exitcond419.not, label %for.end296, label %for.body132, !llvm.loop !30
 
 for.end296:                                       ; preds = %for.inc294
   %tobool297.not = icmp eq i32 %changes.1, 0
@@ -3731,7 +3730,7 @@ attributes #21 = { nounwind allocsize(1) }
 !14 = distinct !{!14, !6}
 !15 = distinct !{!15, !6}
 !16 = distinct !{!16, !6}
-!17 = !{i32 -1, i32 1}
+!17 = distinct !{!17, !6}
 !18 = distinct !{!18, !6}
 !19 = distinct !{!19, !6}
 !20 = distinct !{!20, !6}
@@ -3745,4 +3744,3 @@ attributes #21 = { nounwind allocsize(1) }
 !28 = distinct !{!28, !6}
 !29 = distinct !{!29, !6}
 !30 = distinct !{!30, !6}
-!31 = distinct !{!31, !6}

@@ -40882,7 +40882,7 @@ define internal void @_ZNK6OctreeIfE25_densifyInterpolationInfoILb0EEE14SparseNo
   %15 = sdiv exact i64 %14, 24
   %16 = trunc i64 %15 to i32
   %17 = icmp sgt i32 %16, 0
-  br i1 %17, label %18, label %43
+  br i1 %17, label %18, label %52
 
 18:                                               ; preds = %3
   %19 = add nsw i32 %16, -1
@@ -40909,32 +40909,41 @@ define internal void @_ZNK6OctreeIfE25_densifyInterpolationInfoILb0EEE14SparseNo
   %26 = getelementptr inbounds %struct.SinglePointData, ptr %25, i64 %indvars.iv
   %27 = load float, ptr %26, align 4
   %28 = getelementptr inbounds i8, ptr %26, i64 4
-  %29 = load <4 x float>, ptr %28, align 4
-  %30 = extractelement <4 x float> %29, i64 2
-  %31 = fdiv float 1.000000e+00, %30
-  %32 = fmul float %31, %27
-  store float %32, ptr %26, align 4
-  %33 = shufflevector <4 x float> %29, <4 x float> poison, <2 x i32> <i32 poison, i32 2>
-  %34 = insertelement <2 x float> %33, float %31, i64 0
-  %35 = shufflevector <2 x float> %34, <2 x float> poison, <4 x i32> <i32 0, i32 0, i32 1, i32 1>
-  %36 = fmul <4 x float> %29, %35
-  %37 = fdiv <4 x float> %29, %35
-  %38 = shufflevector <4 x float> %36, <4 x float> %37, <4 x i32> <i32 0, i32 1, i32 6, i32 7>
-  store <4 x float> %38, ptr %28, align 4
-  %39 = load ptr, ptr %8, align 8
-  %40 = getelementptr inbounds %struct.SinglePointData, ptr %39, i64 %indvars.iv, i32 1
-  store float %30, ptr %40, align 4
+  %29 = load float, ptr %28, align 4
+  %30 = getelementptr inbounds i8, ptr %26, i64 8
+  %31 = load <2 x float>, ptr %30, align 4
+  %32 = extractelement <2 x float> %31, i64 1
+  %33 = fdiv float 1.000000e+00, %32
+  %34 = fmul float %33, %27
+  store float %34, ptr %26, align 4
+  %35 = getelementptr inbounds i8, ptr %26, i64 16
+  %36 = load float, ptr %35, align 4
+  %37 = insertelement <4 x float> poison, float %33, i64 0
+  %38 = shufflevector <2 x float> %31, <2 x float> poison, <4 x i32> <i32 0, i32 1, i32 poison, i32 poison>
+  %39 = shufflevector <4 x float> %37, <4 x float> %38, <4 x i32> <i32 0, i32 poison, i32 5, i32 poison>
+  %40 = insertelement <4 x float> %39, float %36, i64 3
+  %41 = shufflevector <4 x float> %40, <4 x float> poison, <4 x i32> <i32 0, i32 0, i32 2, i32 3>
+  %42 = insertelement <4 x float> poison, float %29, i64 0
+  %43 = shufflevector <4 x float> %42, <4 x float> %38, <4 x i32> <i32 0, i32 4, i32 5, i32 poison>
+  %44 = shufflevector <4 x float> %43, <4 x float> poison, <4 x i32> <i32 0, i32 1, i32 2, i32 2>
+  %45 = fmul <4 x float> %41, %44
+  %46 = fdiv <4 x float> %41, %44
+  %47 = shufflevector <4 x float> %45, <4 x float> %46, <4 x i32> <i32 0, i32 1, i32 6, i32 7>
+  store <4 x float> %47, ptr %28, align 4
+  %48 = load ptr, ptr %8, align 8
+  %49 = getelementptr inbounds %struct.SinglePointData, ptr %48, i64 %indvars.iv, i32 1
+  store float %32, ptr %49, align 4
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
-  %41 = load i32, ptr %5, align 4
-  %42 = sext i32 %41 to i64
-  %.not.not = icmp slt i64 %indvars.iv, %42
+  %50 = load i32, ptr %5, align 4
+  %51 = sext i32 %50 to i64
+  %.not.not = icmp slt i64 %indvars.iv, %51
   br i1 %.not.not, label %.lr.ph, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %.lr.ph, %18
   call void @__kmpc_for_static_fini(ptr nonnull @1, i32 %20)
-  br label %43
+  br label %52
 
-43:                                               ; preds = %._crit_edge, %3
+52:                                               ; preds = %._crit_edge, %3
   ret void
 }
 

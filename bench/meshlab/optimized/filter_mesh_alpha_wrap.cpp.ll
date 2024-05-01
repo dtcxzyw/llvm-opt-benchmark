@@ -93574,10 +93574,10 @@ _ZNK4CGAL8internal25Static_filters_predicates15Is_degenerate_3INS_20Filtered_ker
   %240 = shufflevector <2 x double> %16, <2 x double> %40, <2 x i32> <i32 1, i32 3>
   %241 = insertelement <2 x double> %239, double %233, i64 0
   %242 = fmul <2 x double> %240, %241
-  %243 = shufflevector <2 x double> %239, <2 x double> poison, <2 x i32> <i32 poison, i32 0>
+  %243 = shufflevector <2 x double> %40, <2 x double> poison, <2 x i32> <i32 poison, i32 0>
   %244 = fneg <2 x double> %40
   %245 = shufflevector <2 x double> %244, <2 x double> %243, <2 x i32> <i32 0, i32 3>
-  %246 = shufflevector <2 x double> %16, <2 x double> %40, <2 x i32> <i32 0, i32 2>
+  %246 = shufflevector <2 x double> %16, <2 x double> %239, <2 x i32> <i32 0, i32 2>
   %247 = tail call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %245, <2 x double> %246, <2 x double> %242)
   %248 = insertelement <2 x double> poison, double %232, i64 0
   %249 = insertelement <2 x double> %248, double %45, i64 1

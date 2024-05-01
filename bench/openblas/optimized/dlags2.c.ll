@@ -119,39 +119,40 @@ define void @dlags2_(ptr nocapture noundef readonly %0, ptr nocapture noundef re
   br i1 %87, label %88, label %125
 
 88:                                               ; preds = %67
-  %89 = fcmp ult double %77, 0.000000e+00
-  %90 = fneg double %77
-  %91 = select i1 %89, double %90, double %77
-  %92 = fcmp oge double %.pre12, 0.000000e+00
-  %93 = fneg double %.pre12
-  %94 = select i1 %92, double %.pre12, double %93
-  %95 = fcmp ult double %76, 0.000000e+00
-  %96 = fneg double %76
-  %97 = select i1 %95, double %96, double %76
-  %98 = fcmp oge double %.pre, 0.000000e+00
-  %99 = fneg double %.pre
-  %100 = select i1 %98, double %.pre, double %99
-  %101 = fcmp ult double %70, 0.000000e+00
-  %102 = fneg double %70
-  %103 = select i1 %101, double %102, double %70
-  %104 = fcmp ult double %71, 0.000000e+00
-  %105 = fneg double %71
-  %106 = select i1 %104, double %105, double %71
-  %107 = fmul double %57, %106
-  %108 = call double @llvm.fmuladd.f64(double %53, double %103, double %107)
-  %109 = fmul double %94, %91
-  %110 = call double @llvm.fmuladd.f64(double %100, double %97, double %109)
-  %111 = fdiv double %108, %86
-  %112 = insertelement <2 x double> poison, double %75, i64 0
-  %113 = insertelement <2 x double> %112, double %79, i64 1
-  %114 = fcmp oge <2 x double> %113, zeroinitializer
-  %115 = fneg <2 x double> %113
-  %116 = select <2 x i1> %114, <2 x double> %113, <2 x double> %115
-  %shift16 = shufflevector <2 x double> %116, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
-  %117 = fadd <2 x double> %116, %shift16
-  %118 = extractelement <2 x double> %117, i64 0
-  %119 = fdiv double %110, %118
-  %120 = fcmp ugt double %111, %119
+  %89 = insertelement <2 x double> poison, double %71, i64 0
+  %90 = insertelement <2 x double> %89, double %77, i64 1
+  %91 = fcmp ult <2 x double> %90, zeroinitializer
+  %92 = fneg <2 x double> %90
+  %93 = fcmp oge double %.pre12, 0.000000e+00
+  %94 = fneg double %.pre12
+  %95 = select i1 %93, double %.pre12, double %94
+  %96 = insertelement <2 x double> poison, double %70, i64 0
+  %97 = insertelement <2 x double> %96, double %76, i64 1
+  %98 = fcmp ult <2 x double> %97, zeroinitializer
+  %99 = fneg <2 x double> %97
+  %100 = fcmp oge double %.pre, 0.000000e+00
+  %101 = fneg double %.pre
+  %102 = select i1 %100, double %.pre, double %101
+  %103 = insertelement <2 x double> poison, double %75, i64 0
+  %104 = insertelement <2 x double> %103, double %79, i64 1
+  %105 = fcmp oge <2 x double> %104, zeroinitializer
+  %106 = fneg <2 x double> %104
+  %107 = select <2 x i1> %105, <2 x double> %104, <2 x double> %106
+  %shift16 = shufflevector <2 x double> %107, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
+  %108 = fadd <2 x double> %107, %shift16
+  %109 = select <2 x i1> %98, <2 x double> %99, <2 x double> %97
+  %110 = select <2 x i1> %91, <2 x double> %92, <2 x double> %90
+  %111 = insertelement <2 x double> poison, double %57, i64 0
+  %112 = insertelement <2 x double> %111, double %95, i64 1
+  %113 = fmul <2 x double> %112, %110
+  %114 = insertelement <2 x double> poison, double %53, i64 0
+  %115 = insertelement <2 x double> %114, double %102, i64 1
+  %116 = call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %115, <2 x double> %109, <2 x double> %113)
+  %117 = shufflevector <2 x double> %85, <2 x double> %108, <2 x i32> <i32 0, i32 2>
+  %118 = fdiv <2 x double> %116, %117
+  %shift17 = shufflevector <2 x double> %118, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
+  %119 = fcmp ugt <2 x double> %118, %shift17
+  %120 = extractelement <2 x i1> %119, i64 0
   br i1 %120, label %123, label %121
 
 121:                                              ; preds = %88
@@ -160,7 +161,7 @@ define void @dlags2_(ptr nocapture noundef readonly %0, ptr nocapture noundef re
   br label %127
 
 123:                                              ; preds = %88
-  %124 = extractelement <2 x double> %115, i64 0
+  %124 = extractelement <2 x double> %106, i64 0
   store double %124, ptr %14, align 8, !tbaa !7
   br label %127
 
@@ -203,8 +204,8 @@ define void @dlags2_(ptr nocapture noundef readonly %0, ptr nocapture noundef re
   %150 = fcmp oge <2 x double> %149, zeroinitializer
   %151 = fneg <2 x double> %149
   %152 = select <2 x i1> %150, <2 x double> %149, <2 x double> %151
-  %shift17 = shufflevector <2 x double> %152, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
-  %153 = fadd <2 x double> %152, %shift17
+  %shift18 = shufflevector <2 x double> %152, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
+  %153 = fadd <2 x double> %152, %shift18
   %154 = extractelement <2 x double> %153, i64 0
   %155 = fcmp une double %154, 0.000000e+00
   br i1 %155, label %156, label %187
@@ -223,8 +224,8 @@ define void @dlags2_(ptr nocapture noundef readonly %0, ptr nocapture noundef re
   %167 = fcmp oge <2 x double> %166, zeroinitializer
   %168 = fneg <2 x double> %166
   %169 = select <2 x i1> %167, <2 x double> %166, <2 x double> %168
-  %shift18 = shufflevector <2 x double> %169, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
-  %170 = fadd <2 x double> %169, %shift18
+  %shift19 = shufflevector <2 x double> %169, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
+  %170 = fadd <2 x double> %169, %shift19
   %171 = select <2 x i1> %163, <2 x double> %164, <2 x double> %162
   %172 = select <2 x i1> %159, <2 x double> %160, <2 x double> %158
   %173 = insertelement <2 x double> poison, double %53, i64 0
@@ -235,8 +236,8 @@ define void @dlags2_(ptr nocapture noundef readonly %0, ptr nocapture noundef re
   %178 = call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %177, <2 x double> %171, <2 x double> %175)
   %179 = shufflevector <2 x double> %153, <2 x double> %170, <2 x i32> <i32 0, i32 2>
   %180 = fdiv <2 x double> %178, %179
-  %shift19 = shufflevector <2 x double> %180, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
-  %181 = fcmp ugt <2 x double> %180, %shift19
+  %shift20 = shufflevector <2 x double> %180, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
+  %181 = fcmp ugt <2 x double> %180, %shift20
   %182 = extractelement <2 x i1> %181, i64 0
   br i1 %182, label %185, label %183
 
@@ -323,45 +324,46 @@ define void @dlags2_(ptr nocapture noundef readonly %0, ptr nocapture noundef re
   %231 = fcmp oge <2 x double> %230, zeroinitializer
   %232 = fneg <2 x double> %230
   %233 = select <2 x i1> %231, <2 x double> %230, <2 x double> %232
-  %shift20 = shufflevector <2 x double> %233, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
-  %234 = fadd <2 x double> %233, %shift20
+  %shift21 = shufflevector <2 x double> %233, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
+  %234 = fadd <2 x double> %233, %shift21
   %235 = extractelement <2 x double> %234, i64 0
   %236 = fcmp une double %235, 0.000000e+00
   br i1 %236, label %237, label %271
 
 237:                                              ; preds = %216
-  %238 = fcmp ult double %224, 0.000000e+00
-  %239 = fneg double %224
-  %240 = select i1 %238, double %239, double %224
-  %241 = fcmp oge double %.pre14, 0.000000e+00
-  %242 = fneg double %.pre14
-  %243 = select i1 %241, double %.pre14, double %242
-  %244 = fcmp ult double %223, 0.000000e+00
-  %245 = fneg double %223
-  %246 = select i1 %244, double %245, double %223
-  %247 = fcmp oge double %.pre13, 0.000000e+00
-  %248 = select i1 %247, double %.pre13, double %.pre-phi
-  %249 = fcmp ult double %217, 0.000000e+00
-  %250 = fneg double %217
-  %251 = select i1 %249, double %250, double %217
-  %252 = fcmp ult double %218, 0.000000e+00
-  %253 = fneg double %218
-  %254 = select i1 %252, double %253, double %218
-  %255 = fmul double %202, %254
-  %256 = call double @llvm.fmuladd.f64(double %206, double %251, double %255)
-  %257 = fmul double %243, %240
-  %258 = call double @llvm.fmuladd.f64(double %248, double %246, double %257)
-  %259 = fdiv double %256, %235
-  %260 = insertelement <2 x double> poison, double %226, i64 0
-  %261 = insertelement <2 x double> %260, double %228, i64 1
-  %262 = fcmp oge <2 x double> %261, zeroinitializer
-  %263 = fneg <2 x double> %261
-  %264 = select <2 x i1> %262, <2 x double> %261, <2 x double> %263
-  %shift21 = shufflevector <2 x double> %264, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
-  %265 = fadd <2 x double> %264, %shift21
-  %266 = extractelement <2 x double> %265, i64 0
-  %267 = fdiv double %258, %266
-  %268 = fcmp ugt double %259, %267
+  %238 = insertelement <2 x double> poison, double %218, i64 0
+  %239 = insertelement <2 x double> %238, double %224, i64 1
+  %240 = fcmp ult <2 x double> %239, zeroinitializer
+  %241 = fneg <2 x double> %239
+  %242 = fcmp oge double %.pre14, 0.000000e+00
+  %243 = fneg double %.pre14
+  %244 = select i1 %242, double %.pre14, double %243
+  %245 = insertelement <2 x double> poison, double %217, i64 0
+  %246 = insertelement <2 x double> %245, double %223, i64 1
+  %247 = fcmp ult <2 x double> %246, zeroinitializer
+  %248 = fneg <2 x double> %246
+  %249 = fcmp oge double %.pre13, 0.000000e+00
+  %250 = select i1 %249, double %.pre13, double %.pre-phi
+  %251 = insertelement <2 x double> poison, double %226, i64 0
+  %252 = insertelement <2 x double> %251, double %228, i64 1
+  %253 = fcmp oge <2 x double> %252, zeroinitializer
+  %254 = fneg <2 x double> %252
+  %255 = select <2 x i1> %253, <2 x double> %252, <2 x double> %254
+  %shift22 = shufflevector <2 x double> %255, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
+  %256 = fadd <2 x double> %255, %shift22
+  %257 = select <2 x i1> %247, <2 x double> %248, <2 x double> %246
+  %258 = select <2 x i1> %240, <2 x double> %241, <2 x double> %239
+  %259 = insertelement <2 x double> poison, double %202, i64 0
+  %260 = insertelement <2 x double> %259, double %244, i64 1
+  %261 = fmul <2 x double> %260, %258
+  %262 = insertelement <2 x double> poison, double %206, i64 0
+  %263 = insertelement <2 x double> %262, double %250, i64 1
+  %264 = call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %263, <2 x double> %257, <2 x double> %261)
+  %265 = shufflevector <2 x double> %234, <2 x double> %256, <2 x i32> <i32 0, i32 2>
+  %266 = fdiv <2 x double> %264, %265
+  %shift23 = shufflevector <2 x double> %266, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
+  %267 = fcmp ugt <2 x double> %266, %shift23
+  %268 = extractelement <2 x i1> %267, i64 0
   br i1 %268, label %270, label %269
 
 269:                                              ; preds = %237
@@ -410,8 +412,8 @@ define void @dlags2_(ptr nocapture noundef readonly %0, ptr nocapture noundef re
   %294 = fcmp oge <2 x double> %293, zeroinitializer
   %295 = fneg <2 x double> %293
   %296 = select <2 x i1> %294, <2 x double> %293, <2 x double> %295
-  %shift22 = shufflevector <2 x double> %296, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
-  %297 = fadd <2 x double> %296, %shift22
+  %shift24 = shufflevector <2 x double> %296, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
+  %297 = fadd <2 x double> %296, %shift24
   %298 = extractelement <2 x double> %297, i64 0
   %299 = fcmp une double %298, 0.000000e+00
   br i1 %299, label %300, label %329
@@ -430,8 +432,8 @@ define void @dlags2_(ptr nocapture noundef readonly %0, ptr nocapture noundef re
   %311 = fcmp oge <2 x double> %310, zeroinitializer
   %312 = fneg <2 x double> %310
   %313 = select <2 x i1> %311, <2 x double> %310, <2 x double> %312
-  %shift23 = shufflevector <2 x double> %313, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
-  %314 = fadd <2 x double> %313, %shift23
+  %shift25 = shufflevector <2 x double> %313, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
+  %314 = fadd <2 x double> %313, %shift25
   %315 = select <2 x i1> %307, <2 x double> %308, <2 x double> %306
   %316 = select <2 x i1> %303, <2 x double> %304, <2 x double> %302
   %317 = insertelement <2 x double> poison, double %206, i64 0
@@ -442,8 +444,8 @@ define void @dlags2_(ptr nocapture noundef readonly %0, ptr nocapture noundef re
   %322 = call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %321, <2 x double> %315, <2 x double> %319)
   %323 = shufflevector <2 x double> %297, <2 x double> %314, <2 x i32> <i32 0, i32 2>
   %324 = fdiv <2 x double> %322, %323
-  %shift24 = shufflevector <2 x double> %324, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
-  %325 = fcmp ugt <2 x double> %324, %shift24
+  %shift26 = shufflevector <2 x double> %324, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
+  %325 = fcmp ugt <2 x double> %324, %shift26
   %326 = extractelement <2 x i1> %325, i64 0
   br i1 %326, label %328, label %327
 
