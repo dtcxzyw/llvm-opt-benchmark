@@ -1171,7 +1171,7 @@ declare zeroext i16 @tvb_get_ntohs(ptr noundef, i32 noundef) local_unnamed_addr 
 declare void @proto_item_append_text(ptr noundef, ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @wimax_decode_dlmapc(ptr noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 {
+define hidden range(i32 0, 2048) i32 @wimax_decode_dlmapc(ptr noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
   store ptr null, ptr %4, align 8
@@ -1344,9 +1344,9 @@ define internal fastcc i32 @dissect_dlmap_ie(ptr noundef %0, ptr noundef %1, i32
 15:                                               ; preds = %11, %7
   %.in = phi i8 [ %10, %7 ], [ %14, %11 ]
   %16 = zext nneg i8 %.in to i32
-  switch i8 %.in, label %2643 [
+  switch i8 %.in, label %2641 [
     i8 14, label %17
-    i8 15, label %1735
+    i8 15, label %1733
   ]
 
 17:                                               ; preds = %15
@@ -1393,14 +1393,14 @@ define internal fastcc i32 @dissect_dlmap_ie(ptr noundef %0, ptr noundef %1, i32
   %44 = sdiv i32 %2, 2
   %45 = shl nuw nsw i32 %42, 1
   %46 = add nuw nsw i32 %6, 5
-  %47 = add nuw nsw i32 %46, %45
-  %48 = lshr i32 %47, 1
+  %47 = lshr i32 %46, 1
+  %48 = add nuw nsw i32 %47, %42
   %49 = tail call ptr @proto_tree_add_uint(ptr noundef %0, i32 noundef %43, ptr noundef %4, i32 noundef %44, i32 noundef %48, i32 noundef 14) #2
   tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %49, ptr noundef nonnull @.str.533) #2
   %50 = load i32, ptr @ett_277b, align 4
   %51 = tail call ptr @proto_item_add_subtree(ptr noundef %49, i32 noundef %50) #2
   %52 = add nuw nsw i32 %45, 3
-  switch i8 %.in307, label %1727 [
+  switch i8 %.in307, label %1725 [
     i8 0, label %53
     i8 1, label %188
     i8 2, label %222
@@ -1413,8 +1413,8 @@ define internal fastcc i32 @dissect_dlmap_ie(ptr noundef %0, ptr noundef %1, i32
     i8 9, label %1332
     i8 10, label %1400
     i8 11, label %1434
-    i8 12, label %1467
-    i8 14, label %1500
+    i8 12, label %1466
+    i8 14, label %1498
   ]
 
 53:                                               ; preds = %41
@@ -1563,7 +1563,7 @@ define internal fastcc i32 @dissect_dlmap_ie(ptr noundef %0, ptr noundef %1, i32
   %179 = sdiv i32 %.0.i, 8
   %180 = srem i32 %.0.i, 8
   %181 = add nsw i32 %177, %180
-  %182 = trunc i32 %181 to i8
+  %182 = trunc nsw i32 %181 to i8
   %.lhs.trunc.i = add nsw i8 %182, -1
   %183 = sdiv i8 %.lhs.trunc.i, 8
   %narrow.i = add nuw nsw i8 %183, 1
@@ -1617,8 +1617,8 @@ HO_Anchor_Active_DL_MAP_IE.exit:                  ; preds = %201, %207
   %216 = add i32 %2, 4
   %217 = sdiv i32 %216, 2
   %218 = add nuw nsw i32 %6, 1
-  %219 = add nuw nsw i32 %218, %45
-  %220 = lshr i32 %219, 1
+  %219 = lshr i32 %218, 1
+  %220 = add nuw nsw i32 %219, %42
   %221 = tail call ptr @proto_tree_add_expert(ptr noundef %51, ptr noundef %1, ptr noundef nonnull @ei_dlmap_not_implemented, ptr noundef %4, i32 noundef %217, i32 noundef %220) #2
   br label %UL_interference_and_noise_level_IE.exit
 
@@ -1662,8 +1662,8 @@ HO_Active_Anchor_DL_MAP_IE.exit:                  ; preds = %235, %241
   %250 = add i32 %2, 4
   %251 = sdiv i32 %250, 2
   %252 = add nuw nsw i32 %6, 1
-  %253 = add nuw nsw i32 %252, %45
-  %254 = lshr i32 %253, 1
+  %253 = lshr i32 %252, 1
+  %254 = add nuw nsw i32 %253, %42
   %255 = tail call ptr @proto_tree_add_expert(ptr noundef %51, ptr noundef %1, ptr noundef nonnull @ei_dlmap_not_implemented, ptr noundef %4, i32 noundef %251, i32 noundef %254) #2
   br label %UL_interference_and_noise_level_IE.exit
 
@@ -1707,8 +1707,8 @@ HO_CID_Translation_MAP_IE.exit:                   ; preds = %269, %275
   %284 = add i32 %2, 4
   %285 = sdiv i32 %284, 2
   %286 = add nuw nsw i32 %6, 1
-  %287 = add nuw nsw i32 %286, %45
-  %288 = lshr i32 %287, 1
+  %287 = lshr i32 %286, 1
+  %288 = add nuw nsw i32 %287, %42
   %289 = tail call ptr @proto_tree_add_expert(ptr noundef %51, ptr noundef %1, ptr noundef nonnull @ei_dlmap_not_implemented, ptr noundef %4, i32 noundef %285, i32 noundef %288) #2
   br label %UL_interference_and_noise_level_IE.exit
 
@@ -1752,8 +1752,8 @@ MIMO_in_another_BS_IE.exit:                       ; preds = %303, %309
   %318 = add i32 %2, 4
   %319 = sdiv i32 %318, 2
   %320 = add nuw nsw i32 %6, 1
-  %321 = add nuw nsw i32 %320, %45
-  %322 = lshr i32 %321, 1
+  %321 = lshr i32 %320, 1
+  %322 = add nuw nsw i32 %321, %42
   %323 = tail call ptr @proto_tree_add_expert(ptr noundef %51, ptr noundef %1, ptr noundef nonnull @ei_dlmap_not_implemented, ptr noundef %4, i32 noundef %319, i32 noundef %322) #2
   br label %UL_interference_and_noise_level_IE.exit
 
@@ -1797,8 +1797,8 @@ Macro_MIMO_DL_Basic_IE.exit:                      ; preds = %337, %343
   %352 = add i32 %2, 4
   %353 = sdiv i32 %352, 2
   %354 = add nuw nsw i32 %6, 1
-  %355 = add nuw nsw i32 %354, %45
-  %356 = lshr i32 %355, 1
+  %355 = lshr i32 %354, 1
+  %356 = add nuw nsw i32 %355, %42
   %357 = tail call ptr @proto_tree_add_expert(ptr noundef %51, ptr noundef %1, ptr noundef nonnull @ei_dlmap_not_implemented, ptr noundef %4, i32 noundef %353, i32 noundef %356) #2
   br label %UL_interference_and_noise_level_IE.exit
 
@@ -2544,7 +2544,7 @@ Macro_MIMO_DL_Basic_IE.exit:                      ; preds = %337, %343
   %923 = sdiv i32 %.3.lcssa.i.i, 8
   %924 = srem i32 %.3.lcssa.i.i, 8
   %925 = add nsw i32 %921, %924
-  %926 = trunc i32 %925 to i8
+  %926 = trunc nsw i32 %925 to i8
   %.lhs.trunc.i.i = add nsw i8 %926, -1
   %927 = sdiv i8 %.lhs.trunc.i.i, 8
   %narrow.i.i = add nuw nsw i8 %927, 1
@@ -3126,8 +3126,8 @@ HARQ_ACK_IE.exit:                                 ; preds = %1310, %1316
   %1326 = load i32, ptr @hf_dlmap_harq_ack_bitmap_data, align 4
   %1327 = sdiv i32 %1325, 2
   %1328 = add nuw nsw i32 %6, 1
-  %1329 = add nuw nsw i32 %1328, %45
-  %1330 = lshr i32 %1329, 1
+  %1329 = lshr i32 %1328, 1
+  %1330 = add nuw nsw i32 %1329, %42
   %1331 = tail call ptr @proto_tree_add_item(ptr noundef %51, i32 noundef %1326, ptr noundef %4, i32 noundef %1327, i32 noundef %1330, i32 noundef 0) #2
   br label %UL_interference_and_noise_level_IE.exit
 
@@ -3265,8 +3265,8 @@ Closed_loop_MIMO_DL_Enhanced_IE.exit:             ; preds = %1413, %1419
   %1428 = add i32 %2, 4
   %1429 = sdiv i32 %1428, 2
   %1430 = add nuw nsw i32 %6, 1
-  %1431 = add nuw nsw i32 %1430, %45
-  %1432 = lshr i32 %1431, 1
+  %1431 = lshr i32 %1430, 1
+  %1432 = add nuw nsw i32 %1431, %42
   %1433 = tail call ptr @proto_tree_add_expert(ptr noundef %51, ptr noundef %1, ptr noundef nonnull @ei_dlmap_not_implemented, ptr noundef %4, i32 noundef %1429, i32 noundef %1432) #2
   br label %UL_interference_and_noise_level_IE.exit
 
@@ -3309,1713 +3309,1711 @@ MIMO_DL_Basic_IE.exit:                            ; preds = %1447, %1453
   %1461 = tail call ptr @proto_tree_add_uint(ptr noundef %1440, i32 noundef %1458, ptr noundef %4, i32 noundef %.pre-phi.i348, i32 noundef %1460, i32 noundef %1457) #2
   %1462 = add i32 %2, 4
   %1463 = sdiv i32 %1462, 2
-  %1464 = add nuw nsw i32 %45, 2
-  %1465 = lshr exact i32 %1464, 1
-  %1466 = tail call ptr @proto_tree_add_expert(ptr noundef %51, ptr noundef %1, ptr noundef nonnull @ei_dlmap_not_implemented, ptr noundef %4, i32 noundef %1463, i32 noundef %1465) #2
+  %1464 = add nuw nsw i32 %42, 1
+  %1465 = tail call ptr @proto_tree_add_expert(ptr noundef %51, ptr noundef %1, ptr noundef nonnull @ei_dlmap_not_implemented, ptr noundef %4, i32 noundef %1463, i32 noundef %1464) #2
   br label %UL_interference_and_noise_level_IE.exit
 
-1467:                                             ; preds = %41
-  %1468 = sdiv i32 %18, 2
-  %1469 = add nuw nsw i32 %19, 1
-  %1470 = add nuw nsw i32 %1469, %52
-  %1471 = lshr i32 %1470, 1
-  %1472 = load i32, ptr @ett_284, align 4
-  %1473 = tail call ptr @proto_tree_add_subtree(ptr noundef %51, ptr noundef %4, i32 noundef %1468, i32 noundef %1471, i32 noundef %1472, ptr noundef null, ptr noundef nonnull @.str.560) #2
-  %1474 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %4, i32 noundef %1468) #2
-  %1475 = and i8 %1474, 15
-  %1476 = lshr i8 %1474, 4
-  %.in.i351 = select i1 %.not306, i8 %1476, i8 %1475
-  %1477 = zext nneg i8 %.in.i351 to i32
-  %1478 = load i32, ptr @hf_dlmap_ie_diuc_ext2, align 4
-  %1479 = tail call ptr @proto_tree_add_uint(ptr noundef %1473, i32 noundef %1478, ptr noundef %4, i32 noundef %1468, i32 noundef 1, i32 noundef %1477) #2
-  br i1 %.not, label %1486, label %1480
+1466:                                             ; preds = %41
+  %1467 = sdiv i32 %18, 2
+  %1468 = add nuw nsw i32 %19, 1
+  %1469 = add nuw nsw i32 %1468, %52
+  %1470 = lshr i32 %1469, 1
+  %1471 = load i32, ptr @ett_284, align 4
+  %1472 = tail call ptr @proto_tree_add_subtree(ptr noundef %51, ptr noundef %4, i32 noundef %1467, i32 noundef %1470, i32 noundef %1471, ptr noundef null, ptr noundef nonnull @.str.560) #2
+  %1473 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %4, i32 noundef %1467) #2
+  %1474 = and i8 %1473, 15
+  %1475 = lshr i8 %1473, 4
+  %.in.i351 = select i1 %.not306, i8 %1475, i8 %1474
+  %1476 = zext nneg i8 %.in.i351 to i32
+  %1477 = load i32, ptr @hf_dlmap_ie_diuc_ext2, align 4
+  %1478 = tail call ptr @proto_tree_add_uint(ptr noundef %1472, i32 noundef %1477, ptr noundef %4, i32 noundef %1467, i32 noundef 1, i32 noundef %1476) #2
+  br i1 %.not, label %1485, label %1479
 
-1480:                                             ; preds = %1467
-  %1481 = sdiv i32 %30, 2
-  %1482 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %4, i32 noundef %1481) #2
-  %1483 = lshr i16 %1482, 4
-  %1484 = and i16 %1483, 255
-  %1485 = zext nneg i16 %1484 to i32
+1479:                                             ; preds = %1466
+  %1480 = sdiv i32 %30, 2
+  %1481 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %4, i32 noundef %1480) #2
+  %1482 = lshr i16 %1481, 4
+  %1483 = and i16 %1482, 255
+  %1484 = zext nneg i16 %1483 to i32
   br label %MIMO_DL_Enhanced_IE.exit
 
-1486:                                             ; preds = %1467
-  %1487 = ashr exact i32 %30, 1
-  %1488 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %4, i32 noundef %1487) #2
-  %1489 = zext i8 %1488 to i32
+1485:                                             ; preds = %1466
+  %1486 = ashr exact i32 %30, 1
+  %1487 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %4, i32 noundef %1486) #2
+  %1488 = zext i8 %1487 to i32
   br label %MIMO_DL_Enhanced_IE.exit
 
-MIMO_DL_Enhanced_IE.exit:                         ; preds = %1480, %1486
-  %.pre-phi.i353 = phi i32 [ %1487, %1486 ], [ %1481, %1480 ]
-  %1490 = phi i32 [ %1489, %1486 ], [ %1485, %1480 ]
-  %1491 = load i32, ptr @hf_dlmap_ie_length, align 4
-  %1492 = add nuw nsw i32 %6, 3
-  %1493 = lshr i32 %1492, 1
-  %1494 = tail call ptr @proto_tree_add_uint(ptr noundef %1473, i32 noundef %1491, ptr noundef %4, i32 noundef %.pre-phi.i353, i32 noundef %1493, i32 noundef %1490) #2
-  %1495 = add i32 %2, 4
-  %1496 = sdiv i32 %1495, 2
-  %1497 = add nuw nsw i32 %45, 2
-  %1498 = lshr exact i32 %1497, 1
-  %1499 = tail call ptr @proto_tree_add_expert(ptr noundef %51, ptr noundef %1, ptr noundef nonnull @ei_dlmap_not_implemented, ptr noundef %4, i32 noundef %1496, i32 noundef %1498) #2
+MIMO_DL_Enhanced_IE.exit:                         ; preds = %1479, %1485
+  %.pre-phi.i353 = phi i32 [ %1486, %1485 ], [ %1480, %1479 ]
+  %1489 = phi i32 [ %1488, %1485 ], [ %1484, %1479 ]
+  %1490 = load i32, ptr @hf_dlmap_ie_length, align 4
+  %1491 = add nuw nsw i32 %6, 3
+  %1492 = lshr i32 %1491, 1
+  %1493 = tail call ptr @proto_tree_add_uint(ptr noundef %1472, i32 noundef %1490, ptr noundef %4, i32 noundef %.pre-phi.i353, i32 noundef %1492, i32 noundef %1489) #2
+  %1494 = add i32 %2, 4
+  %1495 = sdiv i32 %1494, 2
+  %1496 = add nuw nsw i32 %42, 1
+  %1497 = tail call ptr @proto_tree_add_expert(ptr noundef %51, ptr noundef %1, ptr noundef nonnull @ei_dlmap_not_implemented, ptr noundef %4, i32 noundef %1495, i32 noundef %1496) #2
   br label %UL_interference_and_noise_level_IE.exit
 
-1500:                                             ; preds = %41
-  %1501 = shl i32 %18, 2
-  %1502 = sdiv i32 %18, 2
-  %1503 = add nuw nsw i32 %19, 1
-  %1504 = add nuw nsw i32 %1503, %52
-  %1505 = lshr i32 %1504, 1
-  %1506 = load i32, ptr @ett_286y, align 4
-  %1507 = tail call ptr @proto_tree_add_subtree(ptr noundef %51, ptr noundef %4, i32 noundef %1502, i32 noundef %1505, i32 noundef %1506, ptr noundef null, ptr noundef nonnull @.str.561) #2
-  %1508 = load i32, ptr @hf_dlmap_aas_sdma_dl_extended_2_diuc, align 4
-  %1509 = tail call ptr @proto_tree_add_bits_item(ptr noundef %1507, i32 noundef %1508, ptr noundef %4, i32 noundef %1501, i32 noundef 4, i32 noundef 0) #2
-  %1510 = add i32 %1501, 4
-  %1511 = sdiv i32 %1510, 8
-  %1512 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %4, i32 noundef %1511) #2
-  %1513 = zext i16 %1512 to i32
-  %1514 = srem i32 %1510, 8
-  %1515 = sub nsw i32 8, %1514
-  %1516 = lshr i32 %1513, %1515
-  %1517 = and i32 %1516, 255
-  %1518 = load i32, ptr @hf_dlmap_ie_length, align 4
-  %1519 = add nsw i32 %1514, 7
-  %1520 = lshr i32 %1519, 3
-  %1521 = add nuw nsw i32 %1520, 1
-  %1522 = tail call ptr @proto_tree_add_uint(ptr noundef %1507, i32 noundef %1518, ptr noundef %4, i32 noundef %1511, i32 noundef %1521, i32 noundef %1517) #2
-  %1523 = add i32 %1501, 12
-  %1524 = sdiv i32 %1523, 8
-  %1525 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %4, i32 noundef %1524) #2
-  %1526 = zext i16 %1525 to i32
-  %1527 = srem i32 %1523, 8
-  %1528 = sub nsw i32 14, %1527
-  %1529 = lshr i32 %1526, %1528
-  %1530 = and i32 %1529, 3
-  store i32 %1530, ptr @RCID_Type, align 4
-  %1531 = load i32, ptr @hf_dlmap_aas_sdma_dl_rcid_type, align 4
-  %1532 = tail call ptr @proto_tree_add_bits_item(ptr noundef %1507, i32 noundef %1531, ptr noundef %4, i32 noundef %1523, i32 noundef 2, i32 noundef 0) #2
-  %1533 = add i32 %1501, 14
-  %1534 = sdiv i32 %1533, 8
-  %1535 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %4, i32 noundef %1534) #2
-  %1536 = zext i16 %1535 to i32
-  %1537 = srem i32 %1533, 8
-  %1538 = sub nsw i32 12, %1537
-  %1539 = lshr i32 %1536, %1538
-  %1540 = and i32 %1539, 15
-  %1541 = load i32, ptr @hf_dlmap_aas_sdma_dl_num_burst_region, align 4
-  %1542 = tail call ptr @proto_tree_add_bits_item(ptr noundef %1507, i32 noundef %1541, ptr noundef %4, i32 noundef %1533, i32 noundef 4, i32 noundef 0) #2
-  %1543 = add i32 %1501, 18
-  %1544 = load i32, ptr @hf_dlmap_reserved_uint, align 4
-  %1545 = tail call ptr @proto_tree_add_bits_item(ptr noundef %1507, i32 noundef %1544, ptr noundef %4, i32 noundef %1543, i32 noundef 2, i32 noundef 0) #2
-  %1546 = add i32 %1501, 20
-  %.not286.i = icmp eq i32 %1540, 0
+1498:                                             ; preds = %41
+  %1499 = shl i32 %18, 2
+  %1500 = sdiv i32 %18, 2
+  %1501 = add nuw nsw i32 %19, 1
+  %1502 = add nuw nsw i32 %1501, %52
+  %1503 = lshr i32 %1502, 1
+  %1504 = load i32, ptr @ett_286y, align 4
+  %1505 = tail call ptr @proto_tree_add_subtree(ptr noundef %51, ptr noundef %4, i32 noundef %1500, i32 noundef %1503, i32 noundef %1504, ptr noundef null, ptr noundef nonnull @.str.561) #2
+  %1506 = load i32, ptr @hf_dlmap_aas_sdma_dl_extended_2_diuc, align 4
+  %1507 = tail call ptr @proto_tree_add_bits_item(ptr noundef %1505, i32 noundef %1506, ptr noundef %4, i32 noundef %1499, i32 noundef 4, i32 noundef 0) #2
+  %1508 = add i32 %1499, 4
+  %1509 = sdiv i32 %1508, 8
+  %1510 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %4, i32 noundef %1509) #2
+  %1511 = zext i16 %1510 to i32
+  %1512 = srem i32 %1508, 8
+  %1513 = sub nsw i32 8, %1512
+  %1514 = lshr i32 %1511, %1513
+  %1515 = and i32 %1514, 255
+  %1516 = load i32, ptr @hf_dlmap_ie_length, align 4
+  %1517 = add nsw i32 %1512, 7
+  %1518 = lshr i32 %1517, 3
+  %1519 = add nuw nsw i32 %1518, 1
+  %1520 = tail call ptr @proto_tree_add_uint(ptr noundef %1505, i32 noundef %1516, ptr noundef %4, i32 noundef %1509, i32 noundef %1519, i32 noundef %1515) #2
+  %1521 = add i32 %1499, 12
+  %1522 = sdiv i32 %1521, 8
+  %1523 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %4, i32 noundef %1522) #2
+  %1524 = zext i16 %1523 to i32
+  %1525 = srem i32 %1521, 8
+  %1526 = sub nsw i32 14, %1525
+  %1527 = lshr i32 %1524, %1526
+  %1528 = and i32 %1527, 3
+  store i32 %1528, ptr @RCID_Type, align 4
+  %1529 = load i32, ptr @hf_dlmap_aas_sdma_dl_rcid_type, align 4
+  %1530 = tail call ptr @proto_tree_add_bits_item(ptr noundef %1505, i32 noundef %1529, ptr noundef %4, i32 noundef %1521, i32 noundef 2, i32 noundef 0) #2
+  %1531 = add i32 %1499, 14
+  %1532 = sdiv i32 %1531, 8
+  %1533 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %4, i32 noundef %1532) #2
+  %1534 = zext i16 %1533 to i32
+  %1535 = srem i32 %1531, 8
+  %1536 = sub nsw i32 12, %1535
+  %1537 = lshr i32 %1534, %1536
+  %1538 = and i32 %1537, 15
+  %1539 = load i32, ptr @hf_dlmap_aas_sdma_dl_num_burst_region, align 4
+  %1540 = tail call ptr @proto_tree_add_bits_item(ptr noundef %1505, i32 noundef %1539, ptr noundef %4, i32 noundef %1531, i32 noundef 4, i32 noundef 0) #2
+  %1541 = add i32 %1499, 18
+  %1542 = load i32, ptr @hf_dlmap_reserved_uint, align 4
+  %1543 = tail call ptr @proto_tree_add_bits_item(ptr noundef %1505, i32 noundef %1542, ptr noundef %4, i32 noundef %1541, i32 noundef 2, i32 noundef 0) #2
+  %1544 = add i32 %1499, 20
+  %.not286.i = icmp eq i32 %1538, 0
   br i1 %.not286.i, label %AAS_SDMA_DL_IE.exit, label %.lr.ph283.i
 
-.lr.ph283.i:                                      ; preds = %1500, %._crit_edge.i
-  %.0264281.i = phi i32 [ %1714, %._crit_edge.i ], [ 0, %1500 ]
-  %.0265280.i = phi i32 [ %.2.lcssa.i, %._crit_edge.i ], [ %1546, %1500 ]
-  %1547 = load i32, ptr @hf_dlmap_aas_sdma_dl_ofdma_symbol_offset, align 4
-  %1548 = tail call ptr @proto_tree_add_bits_item(ptr noundef %1507, i32 noundef %1547, ptr noundef %4, i32 noundef %.0265280.i, i32 noundef 8, i32 noundef 0) #2
-  %1549 = add i32 %.0265280.i, 8
-  %1550 = load i32, ptr @hf_dlmap_aas_sdma_dl_subchannel_offset, align 4
-  %1551 = tail call ptr @proto_tree_add_bits_item(ptr noundef %1507, i32 noundef %1550, ptr noundef %4, i32 noundef %1549, i32 noundef 8, i32 noundef 0) #2
-  %1552 = add i32 %.0265280.i, 16
-  %1553 = load i32, ptr @hf_dlmap_aas_sdma_dl_num_ofdma_triple_symbols, align 4
-  %1554 = tail call ptr @proto_tree_add_bits_item(ptr noundef %1507, i32 noundef %1553, ptr noundef %4, i32 noundef %1552, i32 noundef 5, i32 noundef 0) #2
-  %1555 = add i32 %.0265280.i, 21
-  %1556 = load i32, ptr @hf_dlmap_aas_sdma_dl_num_subchannels, align 4
-  %1557 = tail call ptr @proto_tree_add_bits_item(ptr noundef %1507, i32 noundef %1556, ptr noundef %4, i32 noundef %1555, i32 noundef 6, i32 noundef 0) #2
-  %1558 = add i32 %.0265280.i, 27
-  %1559 = sdiv i32 %1558, 8
-  %1560 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %4, i32 noundef %1559) #2
-  %1561 = zext i16 %1560 to i32
-  %1562 = srem i32 %1558, 8
-  %1563 = sub nsw i32 13, %1562
-  %1564 = lshr i32 %1561, %1563
-  %1565 = and i32 %1564, 7
-  %1566 = load i32, ptr @hf_dlmap_aas_sdma_dl_number_of_users, align 4
-  %1567 = tail call ptr @proto_tree_add_bits_item(ptr noundef %1507, i32 noundef %1566, ptr noundef %4, i32 noundef %1558, i32 noundef 3, i32 noundef 0) #2
-  %1568 = add i32 %.0265280.i, 30
-  %1569 = load i32, ptr @hf_dlmap_reserved_uint, align 4
-  %1570 = tail call ptr @proto_tree_add_bits_item(ptr noundef %1507, i32 noundef %1569, ptr noundef %4, i32 noundef %1568, i32 noundef 2, i32 noundef 0) #2
-  %1571 = add i32 %.0265280.i, 32
-  %.not287.i = icmp eq i32 %1565, 0
+.lr.ph283.i:                                      ; preds = %1498, %._crit_edge.i
+  %.0264281.i = phi i32 [ %1712, %._crit_edge.i ], [ 0, %1498 ]
+  %.0265280.i = phi i32 [ %.2.lcssa.i, %._crit_edge.i ], [ %1544, %1498 ]
+  %1545 = load i32, ptr @hf_dlmap_aas_sdma_dl_ofdma_symbol_offset, align 4
+  %1546 = tail call ptr @proto_tree_add_bits_item(ptr noundef %1505, i32 noundef %1545, ptr noundef %4, i32 noundef %.0265280.i, i32 noundef 8, i32 noundef 0) #2
+  %1547 = add i32 %.0265280.i, 8
+  %1548 = load i32, ptr @hf_dlmap_aas_sdma_dl_subchannel_offset, align 4
+  %1549 = tail call ptr @proto_tree_add_bits_item(ptr noundef %1505, i32 noundef %1548, ptr noundef %4, i32 noundef %1547, i32 noundef 8, i32 noundef 0) #2
+  %1550 = add i32 %.0265280.i, 16
+  %1551 = load i32, ptr @hf_dlmap_aas_sdma_dl_num_ofdma_triple_symbols, align 4
+  %1552 = tail call ptr @proto_tree_add_bits_item(ptr noundef %1505, i32 noundef %1551, ptr noundef %4, i32 noundef %1550, i32 noundef 5, i32 noundef 0) #2
+  %1553 = add i32 %.0265280.i, 21
+  %1554 = load i32, ptr @hf_dlmap_aas_sdma_dl_num_subchannels, align 4
+  %1555 = tail call ptr @proto_tree_add_bits_item(ptr noundef %1505, i32 noundef %1554, ptr noundef %4, i32 noundef %1553, i32 noundef 6, i32 noundef 0) #2
+  %1556 = add i32 %.0265280.i, 27
+  %1557 = sdiv i32 %1556, 8
+  %1558 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %4, i32 noundef %1557) #2
+  %1559 = zext i16 %1558 to i32
+  %1560 = srem i32 %1556, 8
+  %1561 = sub nsw i32 13, %1560
+  %1562 = lshr i32 %1559, %1561
+  %1563 = and i32 %1562, 7
+  %1564 = load i32, ptr @hf_dlmap_aas_sdma_dl_number_of_users, align 4
+  %1565 = tail call ptr @proto_tree_add_bits_item(ptr noundef %1505, i32 noundef %1564, ptr noundef %4, i32 noundef %1556, i32 noundef 3, i32 noundef 0) #2
+  %1566 = add i32 %.0265280.i, 30
+  %1567 = load i32, ptr @hf_dlmap_reserved_uint, align 4
+  %1568 = tail call ptr @proto_tree_add_bits_item(ptr noundef %1505, i32 noundef %1567, ptr noundef %4, i32 noundef %1566, i32 noundef 2, i32 noundef 0) #2
+  %1569 = add i32 %.0265280.i, 32
+  %.not287.i = icmp eq i32 %1563, 0
   br i1 %.not287.i, label %._crit_edge.i, label %.lr.ph.i355
 
-.lr.ph.i355:                                      ; preds = %.lr.ph283.i, %1712
-  %.0279.i = phi i32 [ %1713, %1712 ], [ 0, %.lr.ph283.i ]
-  %.2278.i = phi i32 [ %.12.i, %1712 ], [ %1571, %.lr.ph283.i ]
-  %1572 = load i32, ptr @RCID_Type, align 4
-  %1573 = tail call i32 @RCID_IE(ptr noundef %1507, i32 noundef %.2278.i, i32 noundef %52, ptr noundef %4, i32 noundef %1572)
-  %1574 = add i32 %1573, %.2278.i
-  %1575 = sdiv i32 %1574, 8
-  %1576 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %4, i32 noundef %1575) #2
-  %1577 = zext i16 %1576 to i32
-  %1578 = srem i32 %1574, 8
-  %1579 = sub nsw i32 14, %1578
-  %1580 = lshr i32 %1577, %1579
-  %1581 = and i32 %1580, 3
-  %1582 = load i32, ptr @hf_dlmap_aas_sdma_dl_encoding_mode, align 4
-  %1583 = tail call ptr @proto_tree_add_bits_item(ptr noundef %1507, i32 noundef %1582, ptr noundef %4, i32 noundef %1574, i32 noundef 2, i32 noundef 0) #2
-  %1584 = add i32 %1574, 2
-  %1585 = sdiv i32 %1584, 8
-  %1586 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %4, i32 noundef %1585) #2
-  %1587 = zext i8 %1586 to i32
-  %1588 = srem i32 %1584, 8
-  %1589 = sub nsw i32 7, %1588
-  %1590 = load i32, ptr @hf_dlmap_aas_sdma_dl_cqich_allocation, align 4
-  %1591 = tail call ptr @proto_tree_add_bits_item(ptr noundef %1507, i32 noundef %1590, ptr noundef %4, i32 noundef %1584, i32 noundef 1, i32 noundef 0) #2
-  %1592 = add i32 %1574, 3
-  %1593 = sdiv i32 %1592, 8
-  %1594 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %4, i32 noundef %1593) #2
-  %1595 = zext i8 %1594 to i32
-  %1596 = srem i32 %1592, 8
-  %1597 = sub nsw i32 7, %1596
-  %1598 = lshr i32 %1595, %1597
-  %1599 = and i32 %1598, 1
-  %1600 = load i32, ptr @hf_dlmap_aas_sdma_dl_ackch_allocation, align 4
-  %1601 = tail call ptr @proto_tree_add_bits_item(ptr noundef %1507, i32 noundef %1600, ptr noundef %4, i32 noundef %1592, i32 noundef 1, i32 noundef 0) #2
-  %1602 = add i32 %1574, 4
-  %1603 = sdiv i32 %1602, 8
-  %1604 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %4, i32 noundef %1603) #2
-  %1605 = zext i8 %1604 to i32
-  %1606 = srem i32 %1602, 8
-  %1607 = sub nsw i32 7, %1606
-  %1608 = load i32, ptr @hf_dlmap_aas_sdma_dl_pilot_pattern_modifier, align 4
-  %1609 = tail call ptr @proto_tree_add_bits_item(ptr noundef %1507, i32 noundef %1608, ptr noundef %4, i32 noundef %1602, i32 noundef 1, i32 noundef 0) #2
-  %1610 = add i32 %1574, 5
-  %1611 = load i32, ptr @hf_dlmap_aas_sdma_dl_preamble_modifier_index, align 4
-  %1612 = tail call ptr @proto_tree_add_bits_item(ptr noundef %1507, i32 noundef %1611, ptr noundef %4, i32 noundef %1610, i32 noundef 4, i32 noundef 0) #2
-  %1613 = add i32 %1574, 9
-  %1614 = shl nuw nsw i32 1, %1607
-  %1615 = and i32 %1614, %1605
-  %.not267.i = icmp eq i32 %1615, 0
-  br i1 %.not267.i, label %1622, label %1616
+.lr.ph.i355:                                      ; preds = %.lr.ph283.i, %1710
+  %.0279.i = phi i32 [ %1711, %1710 ], [ 0, %.lr.ph283.i ]
+  %.2278.i = phi i32 [ %.12.i, %1710 ], [ %1569, %.lr.ph283.i ]
+  %1570 = load i32, ptr @RCID_Type, align 4
+  %1571 = tail call i32 @RCID_IE(ptr noundef %1505, i32 noundef %.2278.i, i32 noundef %52, ptr noundef %4, i32 noundef %1570)
+  %1572 = add i32 %1571, %.2278.i
+  %1573 = sdiv i32 %1572, 8
+  %1574 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %4, i32 noundef %1573) #2
+  %1575 = zext i16 %1574 to i32
+  %1576 = srem i32 %1572, 8
+  %1577 = sub nsw i32 14, %1576
+  %1578 = lshr i32 %1575, %1577
+  %1579 = and i32 %1578, 3
+  %1580 = load i32, ptr @hf_dlmap_aas_sdma_dl_encoding_mode, align 4
+  %1581 = tail call ptr @proto_tree_add_bits_item(ptr noundef %1505, i32 noundef %1580, ptr noundef %4, i32 noundef %1572, i32 noundef 2, i32 noundef 0) #2
+  %1582 = add i32 %1572, 2
+  %1583 = sdiv i32 %1582, 8
+  %1584 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %4, i32 noundef %1583) #2
+  %1585 = zext i8 %1584 to i32
+  %1586 = srem i32 %1582, 8
+  %1587 = sub nsw i32 7, %1586
+  %1588 = load i32, ptr @hf_dlmap_aas_sdma_dl_cqich_allocation, align 4
+  %1589 = tail call ptr @proto_tree_add_bits_item(ptr noundef %1505, i32 noundef %1588, ptr noundef %4, i32 noundef %1582, i32 noundef 1, i32 noundef 0) #2
+  %1590 = add i32 %1572, 3
+  %1591 = sdiv i32 %1590, 8
+  %1592 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %4, i32 noundef %1591) #2
+  %1593 = zext i8 %1592 to i32
+  %1594 = srem i32 %1590, 8
+  %1595 = sub nsw i32 7, %1594
+  %1596 = lshr i32 %1593, %1595
+  %1597 = and i32 %1596, 1
+  %1598 = load i32, ptr @hf_dlmap_aas_sdma_dl_ackch_allocation, align 4
+  %1599 = tail call ptr @proto_tree_add_bits_item(ptr noundef %1505, i32 noundef %1598, ptr noundef %4, i32 noundef %1590, i32 noundef 1, i32 noundef 0) #2
+  %1600 = add i32 %1572, 4
+  %1601 = sdiv i32 %1600, 8
+  %1602 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %4, i32 noundef %1601) #2
+  %1603 = zext i8 %1602 to i32
+  %1604 = srem i32 %1600, 8
+  %1605 = sub nsw i32 7, %1604
+  %1606 = load i32, ptr @hf_dlmap_aas_sdma_dl_pilot_pattern_modifier, align 4
+  %1607 = tail call ptr @proto_tree_add_bits_item(ptr noundef %1505, i32 noundef %1606, ptr noundef %4, i32 noundef %1600, i32 noundef 1, i32 noundef 0) #2
+  %1608 = add i32 %1572, 5
+  %1609 = load i32, ptr @hf_dlmap_aas_sdma_dl_preamble_modifier_index, align 4
+  %1610 = tail call ptr @proto_tree_add_bits_item(ptr noundef %1505, i32 noundef %1609, ptr noundef %4, i32 noundef %1608, i32 noundef 4, i32 noundef 0) #2
+  %1611 = add i32 %1572, 9
+  %1612 = shl nuw nsw i32 1, %1605
+  %1613 = and i32 %1612, %1603
+  %.not267.i = icmp eq i32 %1613, 0
+  br i1 %.not267.i, label %1620, label %1614
 
-1616:                                             ; preds = %.lr.ph.i355
-  %1617 = load i32, ptr @hf_dlmap_aas_sdma_dl_pilot_pattern, align 4
-  %1618 = tail call ptr @proto_tree_add_bits_item(ptr noundef %1507, i32 noundef %1617, ptr noundef %4, i32 noundef %1613, i32 noundef 2, i32 noundef 0) #2
-  %1619 = add i32 %1574, 11
-  %1620 = load i32, ptr @hf_dlmap_reserved_uint, align 4
-  %1621 = tail call ptr @proto_tree_add_bits_item(ptr noundef %1507, i32 noundef %1620, ptr noundef %4, i32 noundef %1619, i32 noundef 1, i32 noundef 0) #2
-  br label %1625
+1614:                                             ; preds = %.lr.ph.i355
+  %1615 = load i32, ptr @hf_dlmap_aas_sdma_dl_pilot_pattern, align 4
+  %1616 = tail call ptr @proto_tree_add_bits_item(ptr noundef %1505, i32 noundef %1615, ptr noundef %4, i32 noundef %1611, i32 noundef 2, i32 noundef 0) #2
+  %1617 = add i32 %1572, 11
+  %1618 = load i32, ptr @hf_dlmap_reserved_uint, align 4
+  %1619 = tail call ptr @proto_tree_add_bits_item(ptr noundef %1505, i32 noundef %1618, ptr noundef %4, i32 noundef %1617, i32 noundef 1, i32 noundef 0) #2
+  br label %1623
 
-1622:                                             ; preds = %.lr.ph.i355
-  %1623 = load i32, ptr @hf_dlmap_reserved_uint, align 4
-  %1624 = tail call ptr @proto_tree_add_bits_item(ptr noundef %1507, i32 noundef %1623, ptr noundef %4, i32 noundef %1613, i32 noundef 3, i32 noundef 0) #2
-  br label %1625
+1620:                                             ; preds = %.lr.ph.i355
+  %1621 = load i32, ptr @hf_dlmap_reserved_uint, align 4
+  %1622 = tail call ptr @proto_tree_add_bits_item(ptr noundef %1505, i32 noundef %1621, ptr noundef %4, i32 noundef %1611, i32 noundef 3, i32 noundef 0) #2
+  br label %1623
 
-1625:                                             ; preds = %1622, %1616
-  %.4.i = add i32 %1574, 12
-  switch i32 %1581, label %1670 [
+1623:                                             ; preds = %1620, %1614
+  %.4.i = add i32 %1572, 12
+  switch i32 %1579, label %1668 [
     i32 0, label %.thread.i
-    i32 1, label %1635
-    i32 2, label %1651
+    i32 1, label %1633
+    i32 2, label %1649
   ]
 
-.thread.i:                                        ; preds = %1625
-  %1626 = load i32, ptr @hf_dlmap_aas_sdma_dl_diuc, align 4
-  %1627 = tail call ptr @proto_tree_add_bits_item(ptr noundef %1507, i32 noundef %1626, ptr noundef %4, i32 noundef %.4.i, i32 noundef 4, i32 noundef 0) #2
-  %1628 = add i32 %1574, 16
-  %1629 = load i32, ptr @hf_dlmap_aas_sdma_dl_repetition_coding_indication, align 4
-  %1630 = tail call ptr @proto_tree_add_bits_item(ptr noundef %1507, i32 noundef %1629, ptr noundef %4, i32 noundef %1628, i32 noundef 2, i32 noundef 0) #2
-  %1631 = add i32 %1574, 18
-  %1632 = load i32, ptr @hf_dlmap_reserved_uint, align 4
-  %1633 = tail call ptr @proto_tree_add_bits_item(ptr noundef %1507, i32 noundef %1632, ptr noundef %4, i32 noundef %1631, i32 noundef 2, i32 noundef 0) #2
-  %1634 = add i32 %1574, 20
+.thread.i:                                        ; preds = %1623
+  %1624 = load i32, ptr @hf_dlmap_aas_sdma_dl_diuc, align 4
+  %1625 = tail call ptr @proto_tree_add_bits_item(ptr noundef %1505, i32 noundef %1624, ptr noundef %4, i32 noundef %.4.i, i32 noundef 4, i32 noundef 0) #2
+  %1626 = add i32 %1572, 16
+  %1627 = load i32, ptr @hf_dlmap_aas_sdma_dl_repetition_coding_indication, align 4
+  %1628 = tail call ptr @proto_tree_add_bits_item(ptr noundef %1505, i32 noundef %1627, ptr noundef %4, i32 noundef %1626, i32 noundef 2, i32 noundef 0) #2
+  %1629 = add i32 %1572, 18
+  %1630 = load i32, ptr @hf_dlmap_reserved_uint, align 4
+  %1631 = tail call ptr @proto_tree_add_bits_item(ptr noundef %1505, i32 noundef %1630, ptr noundef %4, i32 noundef %1629, i32 noundef 2, i32 noundef 0) #2
+  %1632 = add i32 %1572, 20
   br label %.thread276.i
 
-1635:                                             ; preds = %1625
-  %.not268.i = icmp eq i32 %1599, 0
+1633:                                             ; preds = %1623
+  %.not268.i = icmp eq i32 %1597, 0
   %..i = select i1 %.not268.i, i32 1, i32 5
   %.296.i = select i1 %.not268.i, i32 13, i32 17
   %hf_dlmap_reserved_uint.val300.i = load i32, ptr @hf_dlmap_reserved_uint, align 4
   %hf_dlmap_aas_sdma_dl_ack_ch_index.val301.i = load i32, ptr @hf_dlmap_aas_sdma_dl_ack_ch_index, align 4
-  %1636 = select i1 %.not268.i, i32 %hf_dlmap_reserved_uint.val300.i, i32 %hf_dlmap_aas_sdma_dl_ack_ch_index.val301.i
-  %1637 = tail call ptr @proto_tree_add_bits_item(ptr noundef %1507, i32 noundef %1636, ptr noundef %4, i32 noundef %.4.i, i32 noundef %..i, i32 noundef 0) #2
-  %1638 = add i32 %.296.i, %1574
-  %1639 = load i32, ptr @hf_dlmap_aas_sdma_dl_diuc, align 4
-  %1640 = tail call ptr @proto_tree_add_bits_item(ptr noundef %1507, i32 noundef %1639, ptr noundef %4, i32 noundef %1638, i32 noundef 4, i32 noundef 0) #2
-  %1641 = add i32 %1638, 4
-  %1642 = load i32, ptr @hf_dlmap_aas_sdma_dl_repetition_coding_indication, align 4
-  %1643 = tail call ptr @proto_tree_add_bits_item(ptr noundef %1507, i32 noundef %1642, ptr noundef %4, i32 noundef %1641, i32 noundef 2, i32 noundef 0) #2
-  %1644 = add i32 %1638, 6
-  %1645 = load i32, ptr @hf_dlmap_aas_sdma_dl_acid, align 4
-  %1646 = tail call ptr @proto_tree_add_bits_item(ptr noundef %1507, i32 noundef %1645, ptr noundef %4, i32 noundef %1644, i32 noundef 4, i32 noundef 0) #2
-  %1647 = add i32 %1638, 10
-  %1648 = load i32, ptr @hf_dlmap_aas_sdma_dl_ai_sn, align 4
-  %1649 = tail call ptr @proto_tree_add_bits_item(ptr noundef %1507, i32 noundef %1648, ptr noundef %4, i32 noundef %1647, i32 noundef 1, i32 noundef 0) #2
-  %1650 = add i32 %1638, 11
+  %1634 = select i1 %.not268.i, i32 %hf_dlmap_reserved_uint.val300.i, i32 %hf_dlmap_aas_sdma_dl_ack_ch_index.val301.i
+  %1635 = tail call ptr @proto_tree_add_bits_item(ptr noundef %1505, i32 noundef %1634, ptr noundef %4, i32 noundef %.4.i, i32 noundef %..i, i32 noundef 0) #2
+  %1636 = add i32 %.296.i, %1572
+  %1637 = load i32, ptr @hf_dlmap_aas_sdma_dl_diuc, align 4
+  %1638 = tail call ptr @proto_tree_add_bits_item(ptr noundef %1505, i32 noundef %1637, ptr noundef %4, i32 noundef %1636, i32 noundef 4, i32 noundef 0) #2
+  %1639 = add i32 %1636, 4
+  %1640 = load i32, ptr @hf_dlmap_aas_sdma_dl_repetition_coding_indication, align 4
+  %1641 = tail call ptr @proto_tree_add_bits_item(ptr noundef %1505, i32 noundef %1640, ptr noundef %4, i32 noundef %1639, i32 noundef 2, i32 noundef 0) #2
+  %1642 = add i32 %1636, 6
+  %1643 = load i32, ptr @hf_dlmap_aas_sdma_dl_acid, align 4
+  %1644 = tail call ptr @proto_tree_add_bits_item(ptr noundef %1505, i32 noundef %1643, ptr noundef %4, i32 noundef %1642, i32 noundef 4, i32 noundef 0) #2
+  %1645 = add i32 %1636, 10
+  %1646 = load i32, ptr @hf_dlmap_aas_sdma_dl_ai_sn, align 4
+  %1647 = tail call ptr @proto_tree_add_bits_item(ptr noundef %1505, i32 noundef %1646, ptr noundef %4, i32 noundef %1645, i32 noundef 1, i32 noundef 0) #2
+  %1648 = add i32 %1636, 11
   br label %.thread276.i
 
-1651:                                             ; preds = %1625
-  %.not269.i = icmp eq i32 %1599, 0
+1649:                                             ; preds = %1623
+  %.not269.i = icmp eq i32 %1597, 0
   %.298.i = select i1 %.not269.i, i32 1, i32 5
   %.299.i = select i1 %.not269.i, i32 13, i32 17
   %hf_dlmap_reserved_uint.val.i = load i32, ptr @hf_dlmap_reserved_uint, align 4
   %hf_dlmap_aas_sdma_dl_ack_ch_index.val.i = load i32, ptr @hf_dlmap_aas_sdma_dl_ack_ch_index, align 4
-  %1652 = select i1 %.not269.i, i32 %hf_dlmap_reserved_uint.val.i, i32 %hf_dlmap_aas_sdma_dl_ack_ch_index.val.i
-  %1653 = tail call ptr @proto_tree_add_bits_item(ptr noundef %1507, i32 noundef %1652, ptr noundef %4, i32 noundef %.4.i, i32 noundef %.298.i, i32 noundef 0) #2
-  %1654 = add i32 %.299.i, %1574
-  %1655 = load i32, ptr @hf_dlmap_aas_sdma_dl_nep, align 4
-  %1656 = tail call ptr @proto_tree_add_bits_item(ptr noundef %1507, i32 noundef %1655, ptr noundef %4, i32 noundef %1654, i32 noundef 4, i32 noundef 0) #2
-  %1657 = add i32 %1654, 4
-  %1658 = load i32, ptr @hf_dlmap_aas_sdma_dl_nsch, align 4
-  %1659 = tail call ptr @proto_tree_add_bits_item(ptr noundef %1507, i32 noundef %1658, ptr noundef %4, i32 noundef %1657, i32 noundef 4, i32 noundef 0) #2
-  %1660 = add i32 %1654, 8
-  %1661 = load i32, ptr @hf_dlmap_aas_sdma_dl_spid, align 4
-  %1662 = tail call ptr @proto_tree_add_bits_item(ptr noundef %1507, i32 noundef %1661, ptr noundef %4, i32 noundef %1660, i32 noundef 2, i32 noundef 0) #2
-  %1663 = add i32 %1654, 10
-  %1664 = load i32, ptr @hf_dlmap_aas_sdma_dl_acid, align 4
-  %1665 = tail call ptr @proto_tree_add_bits_item(ptr noundef %1507, i32 noundef %1664, ptr noundef %4, i32 noundef %1663, i32 noundef 4, i32 noundef 0) #2
-  %1666 = add i32 %1654, 14
-  %1667 = load i32, ptr @hf_dlmap_aas_sdma_dl_ai_sn, align 4
-  %1668 = tail call ptr @proto_tree_add_bits_item(ptr noundef %1507, i32 noundef %1667, ptr noundef %4, i32 noundef %1666, i32 noundef 1, i32 noundef 0) #2
-  %1669 = add i32 %1654, 15
+  %1650 = select i1 %.not269.i, i32 %hf_dlmap_reserved_uint.val.i, i32 %hf_dlmap_aas_sdma_dl_ack_ch_index.val.i
+  %1651 = tail call ptr @proto_tree_add_bits_item(ptr noundef %1505, i32 noundef %1650, ptr noundef %4, i32 noundef %.4.i, i32 noundef %.298.i, i32 noundef 0) #2
+  %1652 = add i32 %.299.i, %1572
+  %1653 = load i32, ptr @hf_dlmap_aas_sdma_dl_nep, align 4
+  %1654 = tail call ptr @proto_tree_add_bits_item(ptr noundef %1505, i32 noundef %1653, ptr noundef %4, i32 noundef %1652, i32 noundef 4, i32 noundef 0) #2
+  %1655 = add i32 %1652, 4
+  %1656 = load i32, ptr @hf_dlmap_aas_sdma_dl_nsch, align 4
+  %1657 = tail call ptr @proto_tree_add_bits_item(ptr noundef %1505, i32 noundef %1656, ptr noundef %4, i32 noundef %1655, i32 noundef 4, i32 noundef 0) #2
+  %1658 = add i32 %1652, 8
+  %1659 = load i32, ptr @hf_dlmap_aas_sdma_dl_spid, align 4
+  %1660 = tail call ptr @proto_tree_add_bits_item(ptr noundef %1505, i32 noundef %1659, ptr noundef %4, i32 noundef %1658, i32 noundef 2, i32 noundef 0) #2
+  %1661 = add i32 %1652, 10
+  %1662 = load i32, ptr @hf_dlmap_aas_sdma_dl_acid, align 4
+  %1663 = tail call ptr @proto_tree_add_bits_item(ptr noundef %1505, i32 noundef %1662, ptr noundef %4, i32 noundef %1661, i32 noundef 4, i32 noundef 0) #2
+  %1664 = add i32 %1652, 14
+  %1665 = load i32, ptr @hf_dlmap_aas_sdma_dl_ai_sn, align 4
+  %1666 = tail call ptr @proto_tree_add_bits_item(ptr noundef %1505, i32 noundef %1665, ptr noundef %4, i32 noundef %1664, i32 noundef 1, i32 noundef 0) #2
+  %1667 = add i32 %1652, 15
   br label %.thread276.i
 
-1670:                                             ; preds = %1625
-  %.not270.i = icmp eq i32 %1599, 0
-  br i1 %.not270.i, label %1677, label %1671
+1668:                                             ; preds = %1623
+  %.not270.i = icmp eq i32 %1597, 0
+  br i1 %.not270.i, label %1675, label %1669
 
-1671:                                             ; preds = %1670
-  %1672 = load i32, ptr @hf_dlmap_aas_sdma_dl_ack_ch_index, align 4
-  %1673 = tail call ptr @proto_tree_add_bits_item(ptr noundef %1507, i32 noundef %1672, ptr noundef %4, i32 noundef %.4.i, i32 noundef 5, i32 noundef 0) #2
-  %1674 = add i32 %1574, 17
-  %1675 = load i32, ptr @hf_dlmap_reserved_uint, align 4
-  %1676 = tail call ptr @proto_tree_add_bits_item(ptr noundef %1507, i32 noundef %1675, ptr noundef %4, i32 noundef %1674, i32 noundef 2, i32 noundef 0) #2
-  br label %1680
+1669:                                             ; preds = %1668
+  %1670 = load i32, ptr @hf_dlmap_aas_sdma_dl_ack_ch_index, align 4
+  %1671 = tail call ptr @proto_tree_add_bits_item(ptr noundef %1505, i32 noundef %1670, ptr noundef %4, i32 noundef %.4.i, i32 noundef 5, i32 noundef 0) #2
+  %1672 = add i32 %1572, 17
+  %1673 = load i32, ptr @hf_dlmap_reserved_uint, align 4
+  %1674 = tail call ptr @proto_tree_add_bits_item(ptr noundef %1505, i32 noundef %1673, ptr noundef %4, i32 noundef %1672, i32 noundef 2, i32 noundef 0) #2
+  br label %1678
 
-1677:                                             ; preds = %1670
-  %1678 = load i32, ptr @hf_dlmap_reserved_uint, align 4
-  %1679 = tail call ptr @proto_tree_add_bits_item(ptr noundef %1507, i32 noundef %1678, ptr noundef %4, i32 noundef %.4.i, i32 noundef 3, i32 noundef 0) #2
-  br label %1680
+1675:                                             ; preds = %1668
+  %1676 = load i32, ptr @hf_dlmap_reserved_uint, align 4
+  %1677 = tail call ptr @proto_tree_add_bits_item(ptr noundef %1505, i32 noundef %1676, ptr noundef %4, i32 noundef %.4.i, i32 noundef 3, i32 noundef 0) #2
+  br label %1678
 
-1680:                                             ; preds = %1677, %1671
-  %.sink295.i = phi i32 [ 15, %1677 ], [ 19, %1671 ]
-  %1681 = add i32 %.sink295.i, %1574
-  %1682 = load i32, ptr @hf_dlmap_aas_sdma_dl_diuc, align 4
-  %1683 = tail call ptr @proto_tree_add_bits_item(ptr noundef %1507, i32 noundef %1682, ptr noundef %4, i32 noundef %1681, i32 noundef 4, i32 noundef 0) #2
-  %1684 = add i32 %1681, 4
-  %1685 = load i32, ptr @hf_dlmap_aas_sdma_dl_repetition_coding_indication, align 4
-  %1686 = tail call ptr @proto_tree_add_bits_item(ptr noundef %1507, i32 noundef %1685, ptr noundef %4, i32 noundef %1684, i32 noundef 2, i32 noundef 0) #2
-  %1687 = add i32 %1681, 6
-  %1688 = load i32, ptr @hf_dlmap_aas_sdma_dl_spid, align 4
-  %1689 = tail call ptr @proto_tree_add_bits_item(ptr noundef %1507, i32 noundef %1688, ptr noundef %4, i32 noundef %1687, i32 noundef 2, i32 noundef 0) #2
-  %1690 = add i32 %1681, 8
-  %1691 = load i32, ptr @hf_dlmap_aas_sdma_dl_acid, align 4
-  %1692 = tail call ptr @proto_tree_add_bits_item(ptr noundef %1507, i32 noundef %1691, ptr noundef %4, i32 noundef %1690, i32 noundef 4, i32 noundef 0) #2
-  %1693 = add i32 %1681, 12
-  %1694 = load i32, ptr @hf_dlmap_aas_sdma_dl_ai_sn, align 4
-  %1695 = tail call ptr @proto_tree_add_bits_item(ptr noundef %1507, i32 noundef %1694, ptr noundef %4, i32 noundef %1693, i32 noundef 1, i32 noundef 0) #2
-  %1696 = add i32 %1681, 13
+1678:                                             ; preds = %1675, %1669
+  %.sink295.i = phi i32 [ 15, %1675 ], [ 19, %1669 ]
+  %1679 = add i32 %.sink295.i, %1572
+  %1680 = load i32, ptr @hf_dlmap_aas_sdma_dl_diuc, align 4
+  %1681 = tail call ptr @proto_tree_add_bits_item(ptr noundef %1505, i32 noundef %1680, ptr noundef %4, i32 noundef %1679, i32 noundef 4, i32 noundef 0) #2
+  %1682 = add i32 %1679, 4
+  %1683 = load i32, ptr @hf_dlmap_aas_sdma_dl_repetition_coding_indication, align 4
+  %1684 = tail call ptr @proto_tree_add_bits_item(ptr noundef %1505, i32 noundef %1683, ptr noundef %4, i32 noundef %1682, i32 noundef 2, i32 noundef 0) #2
+  %1685 = add i32 %1679, 6
+  %1686 = load i32, ptr @hf_dlmap_aas_sdma_dl_spid, align 4
+  %1687 = tail call ptr @proto_tree_add_bits_item(ptr noundef %1505, i32 noundef %1686, ptr noundef %4, i32 noundef %1685, i32 noundef 2, i32 noundef 0) #2
+  %1688 = add i32 %1679, 8
+  %1689 = load i32, ptr @hf_dlmap_aas_sdma_dl_acid, align 4
+  %1690 = tail call ptr @proto_tree_add_bits_item(ptr noundef %1505, i32 noundef %1689, ptr noundef %4, i32 noundef %1688, i32 noundef 4, i32 noundef 0) #2
+  %1691 = add i32 %1679, 12
+  %1692 = load i32, ptr @hf_dlmap_aas_sdma_dl_ai_sn, align 4
+  %1693 = tail call ptr @proto_tree_add_bits_item(ptr noundef %1505, i32 noundef %1692, ptr noundef %4, i32 noundef %1691, i32 noundef 1, i32 noundef 0) #2
+  %1694 = add i32 %1679, 13
   br label %.thread276.i
 
-.thread276.i:                                     ; preds = %1680, %1651, %1635, %.thread.i
-  %.11.i = phi i32 [ %1696, %1680 ], [ %1669, %1651 ], [ %1634, %.thread.i ], [ %1650, %1635 ]
-  %1697 = shl nuw nsw i32 1, %1589
-  %1698 = and i32 %1697, %1587
-  %.not271.i = icmp eq i32 %1698, 0
-  br i1 %.not271.i, label %1712, label %1699
+.thread276.i:                                     ; preds = %1678, %1649, %1633, %.thread.i
+  %.11.i = phi i32 [ %1694, %1678 ], [ %1667, %1649 ], [ %1632, %.thread.i ], [ %1648, %1633 ]
+  %1695 = shl nuw nsw i32 1, %1587
+  %1696 = and i32 %1695, %1585
+  %.not271.i = icmp eq i32 %1696, 0
+  br i1 %.not271.i, label %1710, label %1697
 
-1699:                                             ; preds = %.thread276.i
-  %1700 = load i32, ptr @hf_dlmap_aas_sdma_dl_allocation_index, align 4
-  %1701 = tail call ptr @proto_tree_add_bits_item(ptr noundef %1507, i32 noundef %1700, ptr noundef %4, i32 noundef %.11.i, i32 noundef 6, i32 noundef 0) #2
-  %1702 = add i32 %.11.i, 6
-  %1703 = load i32, ptr @hf_dlmap_aas_sdma_dl_period, align 4
-  %1704 = tail call ptr @proto_tree_add_bits_item(ptr noundef %1507, i32 noundef %1703, ptr noundef %4, i32 noundef %1702, i32 noundef 3, i32 noundef 0) #2
-  %1705 = add i32 %.11.i, 9
-  %1706 = load i32, ptr @hf_dlmap_aas_sdma_dl_frame_offset, align 4
-  %1707 = tail call ptr @proto_tree_add_bits_item(ptr noundef %1507, i32 noundef %1706, ptr noundef %4, i32 noundef %1705, i32 noundef 3, i32 noundef 0) #2
-  %1708 = add i32 %.11.i, 12
-  %1709 = load i32, ptr @hf_dlmap_aas_sdma_dl_duration, align 4
-  %1710 = tail call ptr @proto_tree_add_bits_item(ptr noundef %1507, i32 noundef %1709, ptr noundef %4, i32 noundef %1708, i32 noundef 4, i32 noundef 0) #2
-  %1711 = add i32 %.11.i, 16
-  br label %1712
+1697:                                             ; preds = %.thread276.i
+  %1698 = load i32, ptr @hf_dlmap_aas_sdma_dl_allocation_index, align 4
+  %1699 = tail call ptr @proto_tree_add_bits_item(ptr noundef %1505, i32 noundef %1698, ptr noundef %4, i32 noundef %.11.i, i32 noundef 6, i32 noundef 0) #2
+  %1700 = add i32 %.11.i, 6
+  %1701 = load i32, ptr @hf_dlmap_aas_sdma_dl_period, align 4
+  %1702 = tail call ptr @proto_tree_add_bits_item(ptr noundef %1505, i32 noundef %1701, ptr noundef %4, i32 noundef %1700, i32 noundef 3, i32 noundef 0) #2
+  %1703 = add i32 %.11.i, 9
+  %1704 = load i32, ptr @hf_dlmap_aas_sdma_dl_frame_offset, align 4
+  %1705 = tail call ptr @proto_tree_add_bits_item(ptr noundef %1505, i32 noundef %1704, ptr noundef %4, i32 noundef %1703, i32 noundef 3, i32 noundef 0) #2
+  %1706 = add i32 %.11.i, 12
+  %1707 = load i32, ptr @hf_dlmap_aas_sdma_dl_duration, align 4
+  %1708 = tail call ptr @proto_tree_add_bits_item(ptr noundef %1505, i32 noundef %1707, ptr noundef %4, i32 noundef %1706, i32 noundef 4, i32 noundef 0) #2
+  %1709 = add i32 %.11.i, 16
+  br label %1710
 
-1712:                                             ; preds = %1699, %.thread276.i
-  %.12.i = phi i32 [ %1711, %1699 ], [ %.11.i, %.thread276.i ]
-  %1713 = add nuw nsw i32 %.0279.i, 1
-  %exitcond.not.i356 = icmp eq i32 %1713, %1565
+1710:                                             ; preds = %1697, %.thread276.i
+  %.12.i = phi i32 [ %1709, %1697 ], [ %.11.i, %.thread276.i ]
+  %1711 = add nuw nsw i32 %.0279.i, 1
+  %exitcond.not.i356 = icmp eq i32 %1711, %1563
   br i1 %exitcond.not.i356, label %._crit_edge.i, label %.lr.ph.i355, !llvm.loop !19
 
-._crit_edge.i:                                    ; preds = %1712, %.lr.ph283.i
-  %.2.lcssa.i = phi i32 [ %1571, %.lr.ph283.i ], [ %.12.i, %1712 ]
-  %1714 = add nuw nsw i32 %.0264281.i, 1
-  %exitcond288.not.i = icmp eq i32 %1714, %1540
+._crit_edge.i:                                    ; preds = %1710, %.lr.ph283.i
+  %.2.lcssa.i = phi i32 [ %1569, %.lr.ph283.i ], [ %.12.i, %1710 ]
+  %1712 = add nuw nsw i32 %.0264281.i, 1
+  %exitcond288.not.i = icmp eq i32 %1712, %1538
   br i1 %exitcond288.not.i, label %AAS_SDMA_DL_IE.exit, label %.lr.ph283.i, !llvm.loop !20
 
-AAS_SDMA_DL_IE.exit:                              ; preds = %._crit_edge.i, %1500
-  %.0265.lcssa.i = phi i32 [ %1546, %1500 ], [ %.2.lcssa.i, %._crit_edge.i ]
-  %1715 = srem i32 %.0265.lcssa.i, 4
-  %.not.i357 = icmp eq i32 %1715, 0
-  %1716 = sub nsw i32 4, %1715
-  %spec.select.i = select i1 %.not.i357, i32 0, i32 %1716
-  %1717 = load i32, ptr @hf_padding, align 4
-  %1718 = sdiv i32 %.0265.lcssa.i, 8
-  %1719 = srem i32 %.0265.lcssa.i, 8
-  %1720 = add nsw i32 %spec.select.i, %1719
-  %1721 = trunc i32 %1720 to i8
-  %.lhs.trunc.i358 = add nsw i8 %1721, -1
-  %1722 = sdiv i8 %.lhs.trunc.i358, 8
-  %narrow.i359 = add nsw i8 %1722, 1
-  %1723 = zext nneg i8 %narrow.i359 to i32
-  %1724 = tail call ptr (ptr, i32, ptr, i32, i32, ptr, ptr, ...) @proto_tree_add_bytes_format_value(ptr noundef %1507, i32 noundef %1717, ptr noundef %4, i32 noundef %1718, i32 noundef %1723, ptr noundef null, ptr noundef nonnull @.str.12, i32 noundef %spec.select.i) #2
-  %1725 = add i32 %spec.select.i, %.0265.lcssa.i
-  %1726 = sdiv i32 %1725, 4
+AAS_SDMA_DL_IE.exit:                              ; preds = %._crit_edge.i, %1498
+  %.0265.lcssa.i = phi i32 [ %1544, %1498 ], [ %.2.lcssa.i, %._crit_edge.i ]
+  %1713 = srem i32 %.0265.lcssa.i, 4
+  %.not.i357 = icmp eq i32 %1713, 0
+  %1714 = sub nsw i32 4, %1713
+  %spec.select.i = select i1 %.not.i357, i32 0, i32 %1714
+  %1715 = load i32, ptr @hf_padding, align 4
+  %1716 = sdiv i32 %.0265.lcssa.i, 8
+  %1717 = srem i32 %.0265.lcssa.i, 8
+  %1718 = add nsw i32 %spec.select.i, %1717
+  %1719 = trunc nsw i32 %1718 to i8
+  %.lhs.trunc.i358 = add nsw i8 %1719, -1
+  %1720 = sdiv i8 %.lhs.trunc.i358, 8
+  %narrow.i359 = add nsw i8 %1720, 1
+  %1721 = zext nneg i8 %narrow.i359 to i32
+  %1722 = tail call ptr (ptr, i32, ptr, i32, i32, ptr, ptr, ...) @proto_tree_add_bytes_format_value(ptr noundef %1505, i32 noundef %1715, ptr noundef %4, i32 noundef %1716, i32 noundef %1721, ptr noundef null, ptr noundef nonnull @.str.12, i32 noundef %spec.select.i) #2
+  %1723 = add i32 %spec.select.i, %.0265.lcssa.i
+  %1724 = sdiv i32 %1723, 4
   br label %UL_interference_and_noise_level_IE.exit
 
-1727:                                             ; preds = %41
-  %1728 = load i32, ptr @hf_dlmap_ie_reserved_extended2_duic, align 4
-  %1729 = sdiv i32 %18, 2
-  %1730 = add nuw nsw i32 %19, 1
-  %1731 = add nuw nsw i32 %1730, %52
-  %1732 = lshr i32 %1731, 1
-  %1733 = tail call ptr (ptr, i32, ptr, i32, i32, ptr, ptr, ...) @proto_tree_add_bytes_format(ptr noundef %51, i32 noundef %1728, ptr noundef %4, i32 noundef %1729, i32 noundef %1732, ptr noundef null, ptr noundef nonnull @.str.534, i32 noundef %29) #2
-  %1734 = add i32 %52, %18
+1725:                                             ; preds = %41
+  %1726 = load i32, ptr @hf_dlmap_ie_reserved_extended2_duic, align 4
+  %1727 = sdiv i32 %18, 2
+  %1728 = add nuw nsw i32 %19, 1
+  %1729 = add nuw nsw i32 %1728, %52
+  %1730 = lshr i32 %1729, 1
+  %1731 = tail call ptr (ptr, i32, ptr, i32, i32, ptr, ptr, ...) @proto_tree_add_bytes_format(ptr noundef %51, i32 noundef %1726, ptr noundef %4, i32 noundef %1727, i32 noundef %1730, ptr noundef null, ptr noundef nonnull @.str.534, i32 noundef %29) #2
+  %1732 = add i32 %52, %18
   br label %UL_interference_and_noise_level_IE.exit
 
-1735:                                             ; preds = %15
-  %1736 = add i32 %2, 1
-  %1737 = and i32 %1736, 1
-  %.not302 = icmp eq i32 %1737, 0
-  br i1 %.not302, label %1742, label %1738
+1733:                                             ; preds = %15
+  %1734 = add i32 %2, 1
+  %1735 = and i32 %1734, 1
+  %.not302 = icmp eq i32 %1735, 0
+  br i1 %.not302, label %1740, label %1736
 
-1738:                                             ; preds = %1735
-  %1739 = sdiv i32 %1736, 2
-  %1740 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %4, i32 noundef %1739) #2
-  %1741 = and i8 %1740, 15
-  br label %1746
+1736:                                             ; preds = %1733
+  %1737 = sdiv i32 %1734, 2
+  %1738 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %4, i32 noundef %1737) #2
+  %1739 = and i8 %1738, 15
+  br label %1744
 
-1742:                                             ; preds = %1735
-  %1743 = ashr exact i32 %1736, 1
-  %1744 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %4, i32 noundef %1743) #2
-  %1745 = lshr i8 %1744, 4
-  br label %1746
+1740:                                             ; preds = %1733
+  %1741 = ashr exact i32 %1734, 1
+  %1742 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %4, i32 noundef %1741) #2
+  %1743 = lshr i8 %1742, 4
+  br label %1744
 
-1746:                                             ; preds = %1742, %1738
-  %.in303 = phi i8 [ %1741, %1738 ], [ %1745, %1742 ]
-  %1747 = zext nneg i8 %.in303 to i32
-  %1748 = add i32 %2, 2
-  br i1 %.not, label %1753, label %1749
+1744:                                             ; preds = %1740, %1736
+  %.in303 = phi i8 [ %1739, %1736 ], [ %1743, %1740 ]
+  %1745 = zext nneg i8 %.in303 to i32
+  %1746 = add i32 %2, 2
+  br i1 %.not, label %1751, label %1747
 
-1749:                                             ; preds = %1746
-  %1750 = sdiv i32 %1748, 2
-  %1751 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %4, i32 noundef %1750) #2
-  %1752 = and i8 %1751, 15
-  br label %1757
+1747:                                             ; preds = %1744
+  %1748 = sdiv i32 %1746, 2
+  %1749 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %4, i32 noundef %1748) #2
+  %1750 = and i8 %1749, 15
+  br label %1755
 
-1753:                                             ; preds = %1746
-  %1754 = ashr exact i32 %1748, 1
-  %1755 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %4, i32 noundef %1754) #2
-  %1756 = lshr i8 %1755, 4
-  br label %1757
+1751:                                             ; preds = %1744
+  %1752 = ashr exact i32 %1746, 1
+  %1753 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %4, i32 noundef %1752) #2
+  %1754 = lshr i8 %1753, 4
+  br label %1755
 
-1757:                                             ; preds = %1753, %1749
-  %.in305 = phi i8 [ %1752, %1749 ], [ %1756, %1753 ]
-  %1758 = load i32, ptr @hf_dlmap_ie_diuc, align 4
-  %1759 = sdiv i32 %2, 2
-  %1760 = shl nuw nsw i8 %.in305, 1
-  %1761 = zext nneg i8 %1760 to i32
-  %1762 = add nuw nsw i32 %1761, 4
-  %1763 = lshr exact i32 %1762, 1
-  %1764 = tail call ptr @proto_tree_add_uint(ptr noundef %0, i32 noundef %1758, ptr noundef %4, i32 noundef %1759, i32 noundef %1763, i32 noundef 15) #2
-  tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %1764, ptr noundef nonnull @.str.535) #2
-  %1765 = load i32, ptr @ett_277, align 4
-  %1766 = tail call ptr @proto_item_add_subtree(ptr noundef %1764, i32 noundef %1765) #2
-  %1767 = add nuw nsw i32 %1761, 2
-  switch i8 %.in303, label %2635 [
-    i8 0, label %1768
-    i8 1, label %1840
-    i8 2, label %1928
-    i8 3, label %1987
-    i8 4, label %2061
-    i8 7, label %2088
-    i8 8, label %2176
-    i8 10, label %2230
-    i8 11, label %2286
-    i8 12, label %2366
-    i8 15, label %2428
+1755:                                             ; preds = %1751, %1747
+  %.in305 = phi i8 [ %1750, %1747 ], [ %1754, %1751 ]
+  %1756 = load i32, ptr @hf_dlmap_ie_diuc, align 4
+  %1757 = sdiv i32 %2, 2
+  %1758 = shl nuw nsw i8 %.in305, 1
+  %1759 = zext nneg i8 %1758 to i32
+  %1760 = add nuw nsw i32 %1759, 4
+  %1761 = lshr exact i32 %1760, 1
+  %1762 = tail call ptr @proto_tree_add_uint(ptr noundef %0, i32 noundef %1756, ptr noundef %4, i32 noundef %1757, i32 noundef %1761, i32 noundef 15) #2
+  tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %1762, ptr noundef nonnull @.str.535) #2
+  %1763 = load i32, ptr @ett_277, align 4
+  %1764 = tail call ptr @proto_item_add_subtree(ptr noundef %1762, i32 noundef %1763) #2
+  %1765 = add nuw nsw i32 %1759, 2
+  switch i8 %.in303, label %2633 [
+    i8 0, label %1766
+    i8 1, label %1838
+    i8 2, label %1926
+    i8 3, label %1985
+    i8 4, label %2059
+    i8 7, label %2086
+    i8 8, label %2174
+    i8 10, label %2228
+    i8 11, label %2284
+    i8 12, label %2364
+    i8 15, label %2426
   ]
 
-1768:                                             ; preds = %1757
-  %1769 = sdiv i32 %1736, 2
-  %1770 = add nuw nsw i32 %1737, 1
-  %1771 = add nuw nsw i32 %1770, %1767
-  %1772 = lshr i32 %1771, 1
-  %1773 = load i32, ptr @ett_280, align 4
-  %1774 = tail call ptr @proto_tree_add_subtree(ptr noundef %1766, ptr noundef %4, i32 noundef %1769, i32 noundef %1772, i32 noundef %1773, ptr noundef null, ptr noundef nonnull @.str.562) #2
-  %1775 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %4, i32 noundef %1769) #2
-  %1776 = and i8 %1775, 15
-  %1777 = lshr i8 %1775, 4
-  %.in.i361 = select i1 %.not302, i8 %1777, i8 %1776
-  %1778 = zext nneg i8 %.in.i361 to i32
-  %1779 = load i32, ptr @hf_dlmap_ie_diuc_ext, align 4
-  %1780 = tail call ptr @proto_tree_add_uint(ptr noundef %1774, i32 noundef %1779, ptr noundef %4, i32 noundef %1769, i32 noundef 1, i32 noundef %1778) #2
-  br i1 %.not302, label %1781, label %1785
+1766:                                             ; preds = %1755
+  %1767 = sdiv i32 %1734, 2
+  %1768 = add nuw nsw i32 %1735, 1
+  %1769 = add nuw nsw i32 %1768, %1765
+  %1770 = lshr i32 %1769, 1
+  %1771 = load i32, ptr @ett_280, align 4
+  %1772 = tail call ptr @proto_tree_add_subtree(ptr noundef %1764, ptr noundef %4, i32 noundef %1767, i32 noundef %1770, i32 noundef %1771, ptr noundef null, ptr noundef nonnull @.str.562) #2
+  %1773 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %4, i32 noundef %1767) #2
+  %1774 = and i8 %1773, 15
+  %1775 = lshr i8 %1773, 4
+  %.in.i361 = select i1 %.not302, i8 %1775, i8 %1774
+  %1776 = zext nneg i8 %.in.i361 to i32
+  %1777 = load i32, ptr @hf_dlmap_ie_diuc_ext, align 4
+  %1778 = tail call ptr @proto_tree_add_uint(ptr noundef %1772, i32 noundef %1777, ptr noundef %4, i32 noundef %1767, i32 noundef 1, i32 noundef %1776) #2
+  br i1 %.not302, label %1779, label %1783
 
-1781:                                             ; preds = %1768
-  %1782 = sdiv i32 %1748, 2
-  %1783 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %4, i32 noundef %1782) #2
-  %1784 = and i8 %1783, 15
-  br label %1789
+1779:                                             ; preds = %1766
+  %1780 = sdiv i32 %1746, 2
+  %1781 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %4, i32 noundef %1780) #2
+  %1782 = and i8 %1781, 15
+  br label %1787
 
-1785:                                             ; preds = %1768
-  %1786 = ashr exact i32 %1748, 1
-  %1787 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %4, i32 noundef %1786) #2
-  %1788 = lshr i8 %1787, 4
-  br label %1789
+1783:                                             ; preds = %1766
+  %1784 = ashr exact i32 %1746, 1
+  %1785 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %4, i32 noundef %1784) #2
+  %1786 = lshr i8 %1785, 4
+  br label %1787
 
-1789:                                             ; preds = %1785, %1781
-  %.pre-phi.i363 = phi i32 [ %1786, %1785 ], [ %1782, %1781 ]
-  %.in62.i = phi i8 [ %1788, %1785 ], [ %1784, %1781 ]
-  %1790 = zext nneg i8 %.in62.i to i32
-  %1791 = load i32, ptr @hf_dlmap_ie_length, align 4
-  %1792 = tail call ptr @proto_tree_add_uint(ptr noundef %1774, i32 noundef %1791, ptr noundef %4, i32 noundef %.pre-phi.i363, i32 noundef 1, i32 noundef %1790) #2
-  %1793 = add i32 %2, 3
-  br i1 %.not302, label %1800, label %1794
+1787:                                             ; preds = %1783, %1779
+  %.pre-phi.i363 = phi i32 [ %1784, %1783 ], [ %1780, %1779 ]
+  %.in62.i = phi i8 [ %1786, %1783 ], [ %1782, %1779 ]
+  %1788 = zext nneg i8 %.in62.i to i32
+  %1789 = load i32, ptr @hf_dlmap_ie_length, align 4
+  %1790 = tail call ptr @proto_tree_add_uint(ptr noundef %1772, i32 noundef %1789, ptr noundef %4, i32 noundef %.pre-phi.i363, i32 noundef 1, i32 noundef %1788) #2
+  %1791 = add i32 %2, 3
+  br i1 %.not302, label %1798, label %1792
 
-1794:                                             ; preds = %1789
-  %1795 = sdiv i32 %1793, 2
-  %1796 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %4, i32 noundef %1795) #2
-  %1797 = lshr i16 %1796, 4
-  %1798 = and i16 %1797, 255
-  %1799 = zext nneg i16 %1798 to i32
-  br label %1804
+1792:                                             ; preds = %1787
+  %1793 = sdiv i32 %1791, 2
+  %1794 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %4, i32 noundef %1793) #2
+  %1795 = lshr i16 %1794, 4
+  %1796 = and i16 %1795, 255
+  %1797 = zext nneg i16 %1796 to i32
+  br label %1802
 
-1800:                                             ; preds = %1789
-  %1801 = ashr exact i32 %1793, 1
-  %1802 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %4, i32 noundef %1801) #2
-  %1803 = zext i8 %1802 to i32
-  br label %1804
+1798:                                             ; preds = %1787
+  %1799 = ashr exact i32 %1791, 1
+  %1800 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %4, i32 noundef %1799) #2
+  %1801 = zext i8 %1800 to i32
+  br label %1802
 
-1804:                                             ; preds = %1800, %1794
-  %.pre-phi67.i = phi i32 [ %1801, %1800 ], [ %1795, %1794 ]
-  %1805 = phi i32 [ %1803, %1800 ], [ %1799, %1794 ]
-  %1806 = load i32, ptr @hf_dlmap_channel_measurement_channel_nr, align 4
-  %1807 = add nuw nsw i32 %1737, 3
-  %1808 = lshr i32 %1807, 1
-  %1809 = tail call ptr @proto_tree_add_uint(ptr noundef %1774, i32 noundef %1806, ptr noundef %4, i32 noundef %.pre-phi67.i, i32 noundef %1808, i32 noundef %1805) #2
-  %1810 = add i32 %2, 5
-  br i1 %.not302, label %1824, label %1811
+1802:                                             ; preds = %1798, %1792
+  %.pre-phi67.i = phi i32 [ %1799, %1798 ], [ %1793, %1792 ]
+  %1803 = phi i32 [ %1801, %1798 ], [ %1797, %1792 ]
+  %1804 = load i32, ptr @hf_dlmap_channel_measurement_channel_nr, align 4
+  %1805 = add nuw nsw i32 %1735, 3
+  %1806 = lshr i32 %1805, 1
+  %1807 = tail call ptr @proto_tree_add_uint(ptr noundef %1772, i32 noundef %1804, ptr noundef %4, i32 noundef %.pre-phi67.i, i32 noundef %1806, i32 noundef %1803) #2
+  %1808 = add i32 %2, 5
+  br i1 %.not302, label %1822, label %1809
 
-1811:                                             ; preds = %1804
-  %1812 = sdiv i32 %1810, 2
-  %1813 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %4, i32 noundef %1812) #2
-  %1814 = lshr i16 %1813, 4
-  %1815 = and i16 %1814, 255
-  %1816 = zext nneg i16 %1815 to i32
-  %1817 = load i32, ptr @hf_dlmap_channel_measurement_ofdma_symbol_offset, align 4
-  %1818 = tail call ptr @proto_tree_add_uint(ptr noundef %1774, i32 noundef %1817, ptr noundef %4, i32 noundef %1812, i32 noundef %1808, i32 noundef %1816) #2
-  %1819 = add i32 %2, 7
-  %1820 = sdiv i32 %1819, 2
-  %1821 = tail call i32 @tvb_get_ntohl(ptr noundef %4, i32 noundef %1820) #2
-  %1822 = lshr i32 %1821, 12
-  %1823 = and i32 %1822, 65535
+1809:                                             ; preds = %1802
+  %1810 = sdiv i32 %1808, 2
+  %1811 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %4, i32 noundef %1810) #2
+  %1812 = lshr i16 %1811, 4
+  %1813 = and i16 %1812, 255
+  %1814 = zext nneg i16 %1813 to i32
+  %1815 = load i32, ptr @hf_dlmap_channel_measurement_ofdma_symbol_offset, align 4
+  %1816 = tail call ptr @proto_tree_add_uint(ptr noundef %1772, i32 noundef %1815, ptr noundef %4, i32 noundef %1810, i32 noundef %1806, i32 noundef %1814) #2
+  %1817 = add i32 %2, 7
+  %1818 = sdiv i32 %1817, 2
+  %1819 = tail call i32 @tvb_get_ntohl(ptr noundef %4, i32 noundef %1818) #2
+  %1820 = lshr i32 %1819, 12
+  %1821 = and i32 %1820, 65535
   br label %Channel_Measurement_IE.exit
 
-1824:                                             ; preds = %1804
-  %1825 = ashr exact i32 %1810, 1
-  %1826 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %4, i32 noundef %1825) #2
-  %1827 = zext i8 %1826 to i32
-  %1828 = load i32, ptr @hf_dlmap_channel_measurement_ofdma_symbol_offset, align 4
-  %1829 = tail call ptr @proto_tree_add_uint(ptr noundef %1774, i32 noundef %1828, ptr noundef %4, i32 noundef %1825, i32 noundef %1808, i32 noundef %1827) #2
-  %1830 = add i32 %2, 7
-  %1831 = ashr exact i32 %1830, 1
-  %1832 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %4, i32 noundef %1831) #2
-  %1833 = zext i16 %1832 to i32
+1822:                                             ; preds = %1802
+  %1823 = ashr exact i32 %1808, 1
+  %1824 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %4, i32 noundef %1823) #2
+  %1825 = zext i8 %1824 to i32
+  %1826 = load i32, ptr @hf_dlmap_channel_measurement_ofdma_symbol_offset, align 4
+  %1827 = tail call ptr @proto_tree_add_uint(ptr noundef %1772, i32 noundef %1826, ptr noundef %4, i32 noundef %1823, i32 noundef %1806, i32 noundef %1825) #2
+  %1828 = add i32 %2, 7
+  %1829 = ashr exact i32 %1828, 1
+  %1830 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %4, i32 noundef %1829) #2
+  %1831 = zext i16 %1830 to i32
   br label %Channel_Measurement_IE.exit
 
-Channel_Measurement_IE.exit:                      ; preds = %1811, %1824
-  %.pre-phi71.i = phi i32 [ %1831, %1824 ], [ %1820, %1811 ]
-  %1834 = phi i32 [ %1833, %1824 ], [ %1823, %1811 ]
-  %1835 = load i32, ptr @hf_dlmap_channel_measurement_cid, align 4
-  %1836 = add nuw nsw i32 %1737, 5
-  %1837 = lshr i32 %1836, 1
-  %1838 = tail call ptr @proto_tree_add_uint(ptr noundef %1774, i32 noundef %1835, ptr noundef %4, i32 noundef %.pre-phi71.i, i32 noundef %1837, i32 noundef %1834) #2
-  %1839 = add i32 %2, 11
+Channel_Measurement_IE.exit:                      ; preds = %1809, %1822
+  %.pre-phi71.i = phi i32 [ %1829, %1822 ], [ %1818, %1809 ]
+  %1832 = phi i32 [ %1831, %1822 ], [ %1821, %1809 ]
+  %1833 = load i32, ptr @hf_dlmap_channel_measurement_cid, align 4
+  %1834 = add nuw nsw i32 %1735, 5
+  %1835 = lshr i32 %1834, 1
+  %1836 = tail call ptr @proto_tree_add_uint(ptr noundef %1772, i32 noundef %1833, ptr noundef %4, i32 noundef %.pre-phi71.i, i32 noundef %1835, i32 noundef %1832) #2
+  %1837 = add i32 %2, 11
   br label %UL_interference_and_noise_level_IE.exit
 
-1840:                                             ; preds = %1757
-  %1841 = shl i32 %1736, 2
-  %1842 = sdiv i32 %1736, 2
-  %1843 = add nuw nsw i32 %1737, 1
-  %1844 = add nuw nsw i32 %1843, %1767
-  %1845 = lshr i32 %1844, 1
-  %1846 = load i32, ptr @ett_279, align 4
-  %1847 = tail call ptr @proto_tree_add_subtree(ptr noundef %1766, ptr noundef %4, i32 noundef %1842, i32 noundef %1845, i32 noundef %1846, ptr noundef null, ptr noundef nonnull @.str.563) #2
-  %1848 = sdiv i32 %1841, 8
-  %1849 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %4, i32 noundef %1848) #2
-  %1850 = zext i16 %1849 to i32
-  %1851 = srem i32 %1841, 8
-  %1852 = sub nsw i32 12, %1851
-  %1853 = lshr i32 %1850, %1852
-  %1854 = and i32 %1853, 15
-  %1855 = load i32, ptr @hf_dlmap_ie_diuc_ext, align 4
-  %1856 = or disjoint i32 %1851, 3
-  %1857 = sdiv i32 %1856, 8
-  %1858 = add nuw nsw i32 %1857, 1
-  %1859 = tail call ptr @proto_tree_add_uint(ptr noundef %1847, i32 noundef %1855, ptr noundef %4, i32 noundef %1848, i32 noundef %1858, i32 noundef %1854) #2
-  %1860 = add i32 %1841, 4
-  %1861 = sdiv i32 %1860, 8
-  %1862 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %4, i32 noundef %1861) #2
-  %1863 = zext i16 %1862 to i32
-  %1864 = srem i32 %1860, 8
-  %1865 = sub nsw i32 12, %1864
-  %1866 = lshr i32 %1863, %1865
-  %1867 = and i32 %1866, 15
-  %1868 = load i32, ptr @hf_dlmap_ie_length, align 4
-  %1869 = or disjoint i32 %1864, 3
-  %1870 = sdiv i32 %1869, 8
-  %1871 = add nuw nsw i32 %1870, 1
-  %1872 = tail call ptr @proto_tree_add_uint(ptr noundef %1847, i32 noundef %1868, ptr noundef %4, i32 noundef %1861, i32 noundef %1871, i32 noundef %1867) #2
-  %1873 = add i32 %1841, 8
-  %1874 = load i32, ptr @hf_dlmap_stc_zone_ofdma_symbol_offset, align 4
-  %1875 = tail call ptr @proto_tree_add_bits_item(ptr noundef %1847, i32 noundef %1874, ptr noundef %4, i32 noundef %1873, i32 noundef 8, i32 noundef 0) #2
-  %1876 = add i32 %1841, 16
-  %1877 = load i32, ptr @hf_dlmap_stc_zone_permutations, align 4
-  %1878 = tail call ptr @proto_tree_add_bits_item(ptr noundef %1847, i32 noundef %1877, ptr noundef %4, i32 noundef %1876, i32 noundef 2, i32 noundef 0) #2
-  %1879 = add i32 %1841, 18
-  %1880 = load i32, ptr @hf_dlmap_stc_zone_use_all_sc_indicator, align 4
-  %1881 = tail call ptr @proto_tree_add_bits_item(ptr noundef %1847, i32 noundef %1880, ptr noundef %4, i32 noundef %1879, i32 noundef 1, i32 noundef 0) #2
-  %1882 = add i32 %1841, 19
-  %1883 = load i32, ptr @hf_dlmap_stc_zone_stc, align 4
-  %1884 = tail call ptr @proto_tree_add_bits_item(ptr noundef %1847, i32 noundef %1883, ptr noundef %4, i32 noundef %1882, i32 noundef 2, i32 noundef 0) #2
-  %1885 = add i32 %1841, 21
-  %1886 = sdiv i32 %1885, 8
-  %1887 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %4, i32 noundef %1886) #2
-  %1888 = zext i16 %1887 to i32
-  %1889 = srem i32 %1885, 8
-  %1890 = sub nsw i32 14, %1889
-  %1891 = lshr i32 %1888, %1890
-  %1892 = and i32 %1891, 3
-  store i32 %1892, ptr @STC_Zone_Matrix, align 4
-  %1893 = load i32, ptr @hf_dlmap_stc_zone_matrix_indicator, align 4
-  %1894 = tail call ptr @proto_tree_add_bits_item(ptr noundef %1847, i32 noundef %1893, ptr noundef %4, i32 noundef %1885, i32 noundef 2, i32 noundef 0) #2
-  %1895 = add i32 %1841, 23
-  %1896 = load i32, ptr @hf_dlmap_stc_zone_dl_permbase, align 4
-  %1897 = tail call ptr @proto_tree_add_bits_item(ptr noundef %1847, i32 noundef %1896, ptr noundef %4, i32 noundef %1895, i32 noundef 5, i32 noundef 0) #2
-  %1898 = add i32 %1841, 28
-  %1899 = load i32, ptr @hf_dlmap_stc_zone_prbs_id, align 4
-  %1900 = tail call ptr @proto_tree_add_bits_item(ptr noundef %1847, i32 noundef %1899, ptr noundef %4, i32 noundef %1898, i32 noundef 2, i32 noundef 0) #2
-  %1901 = add i32 %1841, 30
-  %1902 = load i32, ptr @hf_dlmap_stc_zone_amc_type, align 4
-  %1903 = tail call ptr @proto_tree_add_bits_item(ptr noundef %1847, i32 noundef %1902, ptr noundef %4, i32 noundef %1901, i32 noundef 2, i32 noundef 0) #2
-  %1904 = add i32 %1841, 32
-  %1905 = load i32, ptr @hf_dlmap_stc_zone_midamble_presence, align 4
-  %1906 = tail call ptr @proto_tree_add_bits_item(ptr noundef %1847, i32 noundef %1905, ptr noundef %4, i32 noundef %1904, i32 noundef 1, i32 noundef 0) #2
-  %1907 = add i32 %1841, 33
-  %1908 = load i32, ptr @hf_dlmap_stc_zone_midamble_boosting, align 4
-  %1909 = tail call ptr @proto_tree_add_bits_item(ptr noundef %1847, i32 noundef %1908, ptr noundef %4, i32 noundef %1907, i32 noundef 1, i32 noundef 0) #2
-  %1910 = add i32 %1841, 34
-  %1911 = load i32, ptr @hf_dlmap_stc_zone_2_3_antenna_select, align 4
-  %1912 = tail call ptr @proto_tree_add_bits_item(ptr noundef %1847, i32 noundef %1911, ptr noundef %4, i32 noundef %1910, i32 noundef 1, i32 noundef 0) #2
-  %1913 = add i32 %1841, 35
-  %1914 = sdiv i32 %1913, 8
-  %1915 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %4, i32 noundef %1914) #2
-  %1916 = zext i8 %1915 to i32
-  %1917 = srem i32 %1913, 8
-  %1918 = sub nsw i32 7, %1917
-  %1919 = lshr i32 %1916, %1918
-  %1920 = and i32 %1919, 1
-  store i32 %1920, ptr @STC_Zone_Dedicated_Pilots, align 4
-  %1921 = load i32, ptr @hf_dlmap_stc_zone_dedicated_pilots, align 4
-  %1922 = tail call ptr @proto_tree_add_bits_item(ptr noundef %1847, i32 noundef %1921, ptr noundef %4, i32 noundef %1913, i32 noundef 1, i32 noundef 0) #2
-  %1923 = add i32 %1841, 36
-  %1924 = load i32, ptr @hf_dlmap_reserved_uint, align 4
-  %1925 = tail call ptr @proto_tree_add_bits_item(ptr noundef %1847, i32 noundef %1924, ptr noundef %4, i32 noundef %1923, i32 noundef 4, i32 noundef 0) #2
-  %1926 = add i32 %1841, 40
-  %1927 = ashr exact i32 %1926, 2
+1838:                                             ; preds = %1755
+  %1839 = shl i32 %1734, 2
+  %1840 = sdiv i32 %1734, 2
+  %1841 = add nuw nsw i32 %1735, 1
+  %1842 = add nuw nsw i32 %1841, %1765
+  %1843 = lshr i32 %1842, 1
+  %1844 = load i32, ptr @ett_279, align 4
+  %1845 = tail call ptr @proto_tree_add_subtree(ptr noundef %1764, ptr noundef %4, i32 noundef %1840, i32 noundef %1843, i32 noundef %1844, ptr noundef null, ptr noundef nonnull @.str.563) #2
+  %1846 = sdiv i32 %1839, 8
+  %1847 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %4, i32 noundef %1846) #2
+  %1848 = zext i16 %1847 to i32
+  %1849 = srem i32 %1839, 8
+  %1850 = sub nsw i32 12, %1849
+  %1851 = lshr i32 %1848, %1850
+  %1852 = and i32 %1851, 15
+  %1853 = load i32, ptr @hf_dlmap_ie_diuc_ext, align 4
+  %1854 = or disjoint i32 %1849, 3
+  %1855 = sdiv i32 %1854, 8
+  %1856 = add nuw nsw i32 %1855, 1
+  %1857 = tail call ptr @proto_tree_add_uint(ptr noundef %1845, i32 noundef %1853, ptr noundef %4, i32 noundef %1846, i32 noundef %1856, i32 noundef %1852) #2
+  %1858 = add i32 %1839, 4
+  %1859 = sdiv i32 %1858, 8
+  %1860 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %4, i32 noundef %1859) #2
+  %1861 = zext i16 %1860 to i32
+  %1862 = srem i32 %1858, 8
+  %1863 = sub nsw i32 12, %1862
+  %1864 = lshr i32 %1861, %1863
+  %1865 = and i32 %1864, 15
+  %1866 = load i32, ptr @hf_dlmap_ie_length, align 4
+  %1867 = or disjoint i32 %1862, 3
+  %1868 = sdiv i32 %1867, 8
+  %1869 = add nuw nsw i32 %1868, 1
+  %1870 = tail call ptr @proto_tree_add_uint(ptr noundef %1845, i32 noundef %1866, ptr noundef %4, i32 noundef %1859, i32 noundef %1869, i32 noundef %1865) #2
+  %1871 = add i32 %1839, 8
+  %1872 = load i32, ptr @hf_dlmap_stc_zone_ofdma_symbol_offset, align 4
+  %1873 = tail call ptr @proto_tree_add_bits_item(ptr noundef %1845, i32 noundef %1872, ptr noundef %4, i32 noundef %1871, i32 noundef 8, i32 noundef 0) #2
+  %1874 = add i32 %1839, 16
+  %1875 = load i32, ptr @hf_dlmap_stc_zone_permutations, align 4
+  %1876 = tail call ptr @proto_tree_add_bits_item(ptr noundef %1845, i32 noundef %1875, ptr noundef %4, i32 noundef %1874, i32 noundef 2, i32 noundef 0) #2
+  %1877 = add i32 %1839, 18
+  %1878 = load i32, ptr @hf_dlmap_stc_zone_use_all_sc_indicator, align 4
+  %1879 = tail call ptr @proto_tree_add_bits_item(ptr noundef %1845, i32 noundef %1878, ptr noundef %4, i32 noundef %1877, i32 noundef 1, i32 noundef 0) #2
+  %1880 = add i32 %1839, 19
+  %1881 = load i32, ptr @hf_dlmap_stc_zone_stc, align 4
+  %1882 = tail call ptr @proto_tree_add_bits_item(ptr noundef %1845, i32 noundef %1881, ptr noundef %4, i32 noundef %1880, i32 noundef 2, i32 noundef 0) #2
+  %1883 = add i32 %1839, 21
+  %1884 = sdiv i32 %1883, 8
+  %1885 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %4, i32 noundef %1884) #2
+  %1886 = zext i16 %1885 to i32
+  %1887 = srem i32 %1883, 8
+  %1888 = sub nsw i32 14, %1887
+  %1889 = lshr i32 %1886, %1888
+  %1890 = and i32 %1889, 3
+  store i32 %1890, ptr @STC_Zone_Matrix, align 4
+  %1891 = load i32, ptr @hf_dlmap_stc_zone_matrix_indicator, align 4
+  %1892 = tail call ptr @proto_tree_add_bits_item(ptr noundef %1845, i32 noundef %1891, ptr noundef %4, i32 noundef %1883, i32 noundef 2, i32 noundef 0) #2
+  %1893 = add i32 %1839, 23
+  %1894 = load i32, ptr @hf_dlmap_stc_zone_dl_permbase, align 4
+  %1895 = tail call ptr @proto_tree_add_bits_item(ptr noundef %1845, i32 noundef %1894, ptr noundef %4, i32 noundef %1893, i32 noundef 5, i32 noundef 0) #2
+  %1896 = add i32 %1839, 28
+  %1897 = load i32, ptr @hf_dlmap_stc_zone_prbs_id, align 4
+  %1898 = tail call ptr @proto_tree_add_bits_item(ptr noundef %1845, i32 noundef %1897, ptr noundef %4, i32 noundef %1896, i32 noundef 2, i32 noundef 0) #2
+  %1899 = add i32 %1839, 30
+  %1900 = load i32, ptr @hf_dlmap_stc_zone_amc_type, align 4
+  %1901 = tail call ptr @proto_tree_add_bits_item(ptr noundef %1845, i32 noundef %1900, ptr noundef %4, i32 noundef %1899, i32 noundef 2, i32 noundef 0) #2
+  %1902 = add i32 %1839, 32
+  %1903 = load i32, ptr @hf_dlmap_stc_zone_midamble_presence, align 4
+  %1904 = tail call ptr @proto_tree_add_bits_item(ptr noundef %1845, i32 noundef %1903, ptr noundef %4, i32 noundef %1902, i32 noundef 1, i32 noundef 0) #2
+  %1905 = add i32 %1839, 33
+  %1906 = load i32, ptr @hf_dlmap_stc_zone_midamble_boosting, align 4
+  %1907 = tail call ptr @proto_tree_add_bits_item(ptr noundef %1845, i32 noundef %1906, ptr noundef %4, i32 noundef %1905, i32 noundef 1, i32 noundef 0) #2
+  %1908 = add i32 %1839, 34
+  %1909 = load i32, ptr @hf_dlmap_stc_zone_2_3_antenna_select, align 4
+  %1910 = tail call ptr @proto_tree_add_bits_item(ptr noundef %1845, i32 noundef %1909, ptr noundef %4, i32 noundef %1908, i32 noundef 1, i32 noundef 0) #2
+  %1911 = add i32 %1839, 35
+  %1912 = sdiv i32 %1911, 8
+  %1913 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %4, i32 noundef %1912) #2
+  %1914 = zext i8 %1913 to i32
+  %1915 = srem i32 %1911, 8
+  %1916 = sub nsw i32 7, %1915
+  %1917 = lshr i32 %1914, %1916
+  %1918 = and i32 %1917, 1
+  store i32 %1918, ptr @STC_Zone_Dedicated_Pilots, align 4
+  %1919 = load i32, ptr @hf_dlmap_stc_zone_dedicated_pilots, align 4
+  %1920 = tail call ptr @proto_tree_add_bits_item(ptr noundef %1845, i32 noundef %1919, ptr noundef %4, i32 noundef %1911, i32 noundef 1, i32 noundef 0) #2
+  %1921 = add i32 %1839, 36
+  %1922 = load i32, ptr @hf_dlmap_reserved_uint, align 4
+  %1923 = tail call ptr @proto_tree_add_bits_item(ptr noundef %1845, i32 noundef %1922, ptr noundef %4, i32 noundef %1921, i32 noundef 4, i32 noundef 0) #2
+  %1924 = add i32 %1839, 40
+  %1925 = ashr exact i32 %1924, 2
   br label %UL_interference_and_noise_level_IE.exit
 
-1928:                                             ; preds = %1757
-  %1929 = shl i32 %1736, 2
-  %1930 = sdiv i32 %1736, 2
-  %1931 = add nuw nsw i32 %1737, 1
-  %1932 = add nuw nsw i32 %1931, %1767
-  %1933 = lshr i32 %1932, 1
-  %1934 = load i32, ptr @ett_278, align 4
-  %1935 = tail call ptr @proto_tree_add_subtree(ptr noundef %1766, ptr noundef %4, i32 noundef %1930, i32 noundef %1933, i32 noundef %1934, ptr noundef null, ptr noundef nonnull @.str.564) #2
-  %1936 = sdiv i32 %1929, 8
-  %1937 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %4, i32 noundef %1936) #2
-  %1938 = zext i16 %1937 to i32
-  %1939 = srem i32 %1929, 8
-  %1940 = sub nsw i32 12, %1939
-  %1941 = lshr i32 %1938, %1940
-  %1942 = and i32 %1941, 15
-  %1943 = load i32, ptr @hf_dlmap_ie_diuc_ext, align 4
-  %1944 = or disjoint i32 %1939, 3
-  %1945 = sdiv i32 %1944, 8
-  %1946 = add nuw nsw i32 %1945, 1
-  %1947 = tail call ptr @proto_tree_add_uint(ptr noundef %1935, i32 noundef %1943, ptr noundef %4, i32 noundef %1936, i32 noundef %1946, i32 noundef %1942) #2
-  %1948 = add i32 %1929, 4
-  %1949 = sdiv i32 %1948, 8
-  %1950 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %4, i32 noundef %1949) #2
-  %1951 = zext i16 %1950 to i32
-  %1952 = srem i32 %1948, 8
-  %1953 = sub nsw i32 12, %1952
-  %1954 = lshr i32 %1951, %1953
-  %1955 = and i32 %1954, 15
-  %1956 = load i32, ptr @hf_dlmap_ie_length, align 4
-  %1957 = or disjoint i32 %1952, 3
-  %1958 = sdiv i32 %1957, 8
-  %1959 = add nuw nsw i32 %1958, 1
-  %1960 = tail call ptr @proto_tree_add_uint(ptr noundef %1935, i32 noundef %1956, ptr noundef %4, i32 noundef %1949, i32 noundef %1959, i32 noundef %1955) #2
-  %1961 = add i32 %1929, 8
-  %1962 = load i32, ptr @hf_dlmap_aas_dl_ofdma_symbol_offset, align 4
-  %1963 = tail call ptr @proto_tree_add_bits_item(ptr noundef %1935, i32 noundef %1962, ptr noundef %4, i32 noundef %1961, i32 noundef 8, i32 noundef 0) #2
-  %1964 = add i32 %1929, 16
-  %1965 = load i32, ptr @hf_dlmap_aas_dl_permutation, align 4
-  %1966 = tail call ptr @proto_tree_add_bits_item(ptr noundef %1935, i32 noundef %1965, ptr noundef %4, i32 noundef %1964, i32 noundef 3, i32 noundef 0) #2
-  %1967 = add i32 %1929, 19
-  %1968 = load i32, ptr @hf_dlmap_aas_dl_dl_permbase, align 4
-  %1969 = tail call ptr @proto_tree_add_bits_item(ptr noundef %1935, i32 noundef %1968, ptr noundef %4, i32 noundef %1967, i32 noundef 6, i32 noundef 0) #2
-  %1970 = add i32 %1929, 25
-  %1971 = load i32, ptr @hf_dlmap_aas_dl_downlink_preamble_config, align 4
-  %1972 = tail call ptr @proto_tree_add_bits_item(ptr noundef %1935, i32 noundef %1971, ptr noundef %4, i32 noundef %1970, i32 noundef 2, i32 noundef 0) #2
-  %1973 = add i32 %1929, 27
-  %1974 = load i32, ptr @hf_dlmap_aas_dl_preamble_type, align 4
-  %1975 = tail call ptr @proto_tree_add_bits_item(ptr noundef %1935, i32 noundef %1974, ptr noundef %4, i32 noundef %1973, i32 noundef 1, i32 noundef 0) #2
-  %1976 = add i32 %1929, 28
-  %1977 = load i32, ptr @hf_dlmap_aas_dl_prbs_id, align 4
-  %1978 = tail call ptr @proto_tree_add_bits_item(ptr noundef %1935, i32 noundef %1977, ptr noundef %4, i32 noundef %1976, i32 noundef 2, i32 noundef 0) #2
-  %1979 = add i32 %1929, 30
-  %1980 = load i32, ptr @hf_dlmap_aas_dl_diversity_map, align 4
-  %1981 = tail call ptr @proto_tree_add_bits_item(ptr noundef %1935, i32 noundef %1980, ptr noundef %4, i32 noundef %1979, i32 noundef 1, i32 noundef 0) #2
-  %1982 = add i32 %1929, 31
-  %1983 = load i32, ptr @hf_dlmap_reserved_uint, align 4
-  %1984 = tail call ptr @proto_tree_add_bits_item(ptr noundef %1935, i32 noundef %1983, ptr noundef %4, i32 noundef %1982, i32 noundef 1, i32 noundef 0) #2
-  %1985 = add i32 %1929, 32
-  %1986 = ashr exact i32 %1985, 2
+1926:                                             ; preds = %1755
+  %1927 = shl i32 %1734, 2
+  %1928 = sdiv i32 %1734, 2
+  %1929 = add nuw nsw i32 %1735, 1
+  %1930 = add nuw nsw i32 %1929, %1765
+  %1931 = lshr i32 %1930, 1
+  %1932 = load i32, ptr @ett_278, align 4
+  %1933 = tail call ptr @proto_tree_add_subtree(ptr noundef %1764, ptr noundef %4, i32 noundef %1928, i32 noundef %1931, i32 noundef %1932, ptr noundef null, ptr noundef nonnull @.str.564) #2
+  %1934 = sdiv i32 %1927, 8
+  %1935 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %4, i32 noundef %1934) #2
+  %1936 = zext i16 %1935 to i32
+  %1937 = srem i32 %1927, 8
+  %1938 = sub nsw i32 12, %1937
+  %1939 = lshr i32 %1936, %1938
+  %1940 = and i32 %1939, 15
+  %1941 = load i32, ptr @hf_dlmap_ie_diuc_ext, align 4
+  %1942 = or disjoint i32 %1937, 3
+  %1943 = sdiv i32 %1942, 8
+  %1944 = add nuw nsw i32 %1943, 1
+  %1945 = tail call ptr @proto_tree_add_uint(ptr noundef %1933, i32 noundef %1941, ptr noundef %4, i32 noundef %1934, i32 noundef %1944, i32 noundef %1940) #2
+  %1946 = add i32 %1927, 4
+  %1947 = sdiv i32 %1946, 8
+  %1948 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %4, i32 noundef %1947) #2
+  %1949 = zext i16 %1948 to i32
+  %1950 = srem i32 %1946, 8
+  %1951 = sub nsw i32 12, %1950
+  %1952 = lshr i32 %1949, %1951
+  %1953 = and i32 %1952, 15
+  %1954 = load i32, ptr @hf_dlmap_ie_length, align 4
+  %1955 = or disjoint i32 %1950, 3
+  %1956 = sdiv i32 %1955, 8
+  %1957 = add nuw nsw i32 %1956, 1
+  %1958 = tail call ptr @proto_tree_add_uint(ptr noundef %1933, i32 noundef %1954, ptr noundef %4, i32 noundef %1947, i32 noundef %1957, i32 noundef %1953) #2
+  %1959 = add i32 %1927, 8
+  %1960 = load i32, ptr @hf_dlmap_aas_dl_ofdma_symbol_offset, align 4
+  %1961 = tail call ptr @proto_tree_add_bits_item(ptr noundef %1933, i32 noundef %1960, ptr noundef %4, i32 noundef %1959, i32 noundef 8, i32 noundef 0) #2
+  %1962 = add i32 %1927, 16
+  %1963 = load i32, ptr @hf_dlmap_aas_dl_permutation, align 4
+  %1964 = tail call ptr @proto_tree_add_bits_item(ptr noundef %1933, i32 noundef %1963, ptr noundef %4, i32 noundef %1962, i32 noundef 3, i32 noundef 0) #2
+  %1965 = add i32 %1927, 19
+  %1966 = load i32, ptr @hf_dlmap_aas_dl_dl_permbase, align 4
+  %1967 = tail call ptr @proto_tree_add_bits_item(ptr noundef %1933, i32 noundef %1966, ptr noundef %4, i32 noundef %1965, i32 noundef 6, i32 noundef 0) #2
+  %1968 = add i32 %1927, 25
+  %1969 = load i32, ptr @hf_dlmap_aas_dl_downlink_preamble_config, align 4
+  %1970 = tail call ptr @proto_tree_add_bits_item(ptr noundef %1933, i32 noundef %1969, ptr noundef %4, i32 noundef %1968, i32 noundef 2, i32 noundef 0) #2
+  %1971 = add i32 %1927, 27
+  %1972 = load i32, ptr @hf_dlmap_aas_dl_preamble_type, align 4
+  %1973 = tail call ptr @proto_tree_add_bits_item(ptr noundef %1933, i32 noundef %1972, ptr noundef %4, i32 noundef %1971, i32 noundef 1, i32 noundef 0) #2
+  %1974 = add i32 %1927, 28
+  %1975 = load i32, ptr @hf_dlmap_aas_dl_prbs_id, align 4
+  %1976 = tail call ptr @proto_tree_add_bits_item(ptr noundef %1933, i32 noundef %1975, ptr noundef %4, i32 noundef %1974, i32 noundef 2, i32 noundef 0) #2
+  %1977 = add i32 %1927, 30
+  %1978 = load i32, ptr @hf_dlmap_aas_dl_diversity_map, align 4
+  %1979 = tail call ptr @proto_tree_add_bits_item(ptr noundef %1933, i32 noundef %1978, ptr noundef %4, i32 noundef %1977, i32 noundef 1, i32 noundef 0) #2
+  %1980 = add i32 %1927, 31
+  %1981 = load i32, ptr @hf_dlmap_reserved_uint, align 4
+  %1982 = tail call ptr @proto_tree_add_bits_item(ptr noundef %1933, i32 noundef %1981, ptr noundef %4, i32 noundef %1980, i32 noundef 1, i32 noundef 0) #2
+  %1983 = add i32 %1927, 32
+  %1984 = ashr exact i32 %1983, 2
   br label %UL_interference_and_noise_level_IE.exit
 
-1987:                                             ; preds = %1757
-  %1988 = shl i32 %1736, 2
-  %1989 = sdiv i32 %1736, 2
-  %1990 = add nuw nsw i32 %1737, 1
-  %1991 = add nuw nsw i32 %1990, %1767
-  %1992 = lshr i32 %1991, 1
-  %1993 = load i32, ptr @ett_281, align 4
-  %1994 = tail call ptr @proto_tree_add_subtree(ptr noundef %1766, ptr noundef %4, i32 noundef %1989, i32 noundef %1992, i32 noundef %1993, ptr noundef null, ptr noundef nonnull @.str.565) #2
-  %1995 = sdiv i32 %1988, 8
-  %1996 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %4, i32 noundef %1995) #2
-  %1997 = zext i16 %1996 to i32
-  %1998 = srem i32 %1988, 8
-  %1999 = sub nsw i32 12, %1998
-  %2000 = lshr i32 %1997, %1999
-  %2001 = and i32 %2000, 15
-  %2002 = load i32, ptr @hf_dlmap_ie_diuc_ext, align 4
-  %2003 = or disjoint i32 %1998, 3
-  %2004 = sdiv i32 %2003, 8
-  %2005 = add nuw nsw i32 %2004, 1
-  %2006 = tail call ptr @proto_tree_add_uint(ptr noundef %1994, i32 noundef %2002, ptr noundef %4, i32 noundef %1995, i32 noundef %2005, i32 noundef %2001) #2
-  %2007 = add i32 %1988, 4
-  %2008 = sdiv i32 %2007, 8
-  %2009 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %4, i32 noundef %2008) #2
-  %2010 = zext i16 %2009 to i32
-  %2011 = srem i32 %2007, 8
-  %2012 = sub nsw i32 12, %2011
-  %2013 = lshr i32 %2010, %2012
-  %2014 = and i32 %2013, 15
-  %2015 = load i32, ptr @hf_dlmap_ie_length, align 4
-  %2016 = or disjoint i32 %2011, 3
-  %2017 = sdiv i32 %2016, 8
-  %2018 = add nuw nsw i32 %2017, 1
-  %2019 = tail call ptr @proto_tree_add_uint(ptr noundef %1994, i32 noundef %2015, ptr noundef %4, i32 noundef %2008, i32 noundef %2018, i32 noundef %2014) #2
-  %2020 = add i32 %1988, 8
-  %2021 = load i32, ptr @hf_dlmap_data_location_another_bs_segment, align 4
-  %2022 = tail call ptr @proto_tree_add_bits_item(ptr noundef %1994, i32 noundef %2021, ptr noundef %4, i32 noundef %2020, i32 noundef 2, i32 noundef 0) #2
-  %2023 = add i32 %1988, 10
-  %2024 = load i32, ptr @hf_dlmap_data_location_another_bs_used_subchannels, align 4
-  %2025 = tail call ptr @proto_tree_add_bits_item(ptr noundef %1994, i32 noundef %2024, ptr noundef %4, i32 noundef %2023, i32 noundef 6, i32 noundef 0) #2
-  %2026 = add i32 %1988, 16
-  %2027 = load i32, ptr @hf_dlmap_data_location_another_bs_diuc, align 4
-  %2028 = tail call ptr @proto_tree_add_bits_item(ptr noundef %1994, i32 noundef %2027, ptr noundef %4, i32 noundef %2026, i32 noundef 4, i32 noundef 0) #2
-  %2029 = add i32 %1988, 20
-  %2030 = load i32, ptr @hf_dlmap_data_location_another_bs_frame_advance, align 4
-  %2031 = tail call ptr @proto_tree_add_bits_item(ptr noundef %1994, i32 noundef %2030, ptr noundef %4, i32 noundef %2029, i32 noundef 3, i32 noundef 0) #2
-  %2032 = add i32 %1988, 23
-  %2033 = load i32, ptr @hf_dlmap_reserved_uint, align 4
-  %2034 = tail call ptr @proto_tree_add_bits_item(ptr noundef %1994, i32 noundef %2033, ptr noundef %4, i32 noundef %2032, i32 noundef 1, i32 noundef 0) #2
-  %2035 = add i32 %1988, 24
-  %2036 = load i32, ptr @hf_dlmap_data_location_another_bs_ofdma_symbol_offset, align 4
-  %2037 = tail call ptr @proto_tree_add_bits_item(ptr noundef %1994, i32 noundef %2036, ptr noundef %4, i32 noundef %2035, i32 noundef 8, i32 noundef 0) #2
-  %2038 = add i32 %1988, 32
-  %2039 = load i32, ptr @hf_dlmap_data_location_another_bs_subchannel_offset, align 4
-  %2040 = tail call ptr @proto_tree_add_bits_item(ptr noundef %1994, i32 noundef %2039, ptr noundef %4, i32 noundef %2038, i32 noundef 6, i32 noundef 0) #2
-  %2041 = add i32 %1988, 38
-  %2042 = load i32, ptr @hf_dlmap_data_location_another_bs_boosting, align 4
-  %2043 = tail call ptr @proto_tree_add_bits_item(ptr noundef %1994, i32 noundef %2042, ptr noundef %4, i32 noundef %2041, i32 noundef 3, i32 noundef 0) #2
-  %2044 = add i32 %1988, 41
-  %2045 = load i32, ptr @hf_dlmap_data_location_another_bs_preamble_index, align 4
-  %2046 = tail call ptr @proto_tree_add_bits_item(ptr noundef %1994, i32 noundef %2045, ptr noundef %4, i32 noundef %2044, i32 noundef 7, i32 noundef 0) #2
-  %2047 = add i32 %1988, 48
-  %2048 = load i32, ptr @hf_dlmap_data_location_another_bs_num_ofdma_symbols, align 4
-  %2049 = tail call ptr @proto_tree_add_bits_item(ptr noundef %1994, i32 noundef %2048, ptr noundef %4, i32 noundef %2047, i32 noundef 8, i32 noundef 0) #2
-  %2050 = add i32 %1988, 56
-  %2051 = load i32, ptr @hf_dlmap_data_location_another_bs_num_subchannels, align 4
-  %2052 = tail call ptr @proto_tree_add_bits_item(ptr noundef %1994, i32 noundef %2051, ptr noundef %4, i32 noundef %2050, i32 noundef 6, i32 noundef 0) #2
-  %2053 = add i32 %1988, 62
-  %2054 = load i32, ptr @hf_dlmap_data_location_another_bs_repetition_coding_indication, align 4
-  %2055 = tail call ptr @proto_tree_add_bits_item(ptr noundef %1994, i32 noundef %2054, ptr noundef %4, i32 noundef %2053, i32 noundef 2, i32 noundef 0) #2
-  %2056 = add i32 %1988, 64
-  %2057 = load i32, ptr @hf_dlmap_data_location_another_bs_cid, align 4
-  %2058 = tail call ptr @proto_tree_add_bits_item(ptr noundef %1994, i32 noundef %2057, ptr noundef %4, i32 noundef %2056, i32 noundef 16, i32 noundef 0) #2
-  %2059 = add i32 %1988, 80
-  %2060 = ashr exact i32 %2059, 2
+1985:                                             ; preds = %1755
+  %1986 = shl i32 %1734, 2
+  %1987 = sdiv i32 %1734, 2
+  %1988 = add nuw nsw i32 %1735, 1
+  %1989 = add nuw nsw i32 %1988, %1765
+  %1990 = lshr i32 %1989, 1
+  %1991 = load i32, ptr @ett_281, align 4
+  %1992 = tail call ptr @proto_tree_add_subtree(ptr noundef %1764, ptr noundef %4, i32 noundef %1987, i32 noundef %1990, i32 noundef %1991, ptr noundef null, ptr noundef nonnull @.str.565) #2
+  %1993 = sdiv i32 %1986, 8
+  %1994 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %4, i32 noundef %1993) #2
+  %1995 = zext i16 %1994 to i32
+  %1996 = srem i32 %1986, 8
+  %1997 = sub nsw i32 12, %1996
+  %1998 = lshr i32 %1995, %1997
+  %1999 = and i32 %1998, 15
+  %2000 = load i32, ptr @hf_dlmap_ie_diuc_ext, align 4
+  %2001 = or disjoint i32 %1996, 3
+  %2002 = sdiv i32 %2001, 8
+  %2003 = add nuw nsw i32 %2002, 1
+  %2004 = tail call ptr @proto_tree_add_uint(ptr noundef %1992, i32 noundef %2000, ptr noundef %4, i32 noundef %1993, i32 noundef %2003, i32 noundef %1999) #2
+  %2005 = add i32 %1986, 4
+  %2006 = sdiv i32 %2005, 8
+  %2007 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %4, i32 noundef %2006) #2
+  %2008 = zext i16 %2007 to i32
+  %2009 = srem i32 %2005, 8
+  %2010 = sub nsw i32 12, %2009
+  %2011 = lshr i32 %2008, %2010
+  %2012 = and i32 %2011, 15
+  %2013 = load i32, ptr @hf_dlmap_ie_length, align 4
+  %2014 = or disjoint i32 %2009, 3
+  %2015 = sdiv i32 %2014, 8
+  %2016 = add nuw nsw i32 %2015, 1
+  %2017 = tail call ptr @proto_tree_add_uint(ptr noundef %1992, i32 noundef %2013, ptr noundef %4, i32 noundef %2006, i32 noundef %2016, i32 noundef %2012) #2
+  %2018 = add i32 %1986, 8
+  %2019 = load i32, ptr @hf_dlmap_data_location_another_bs_segment, align 4
+  %2020 = tail call ptr @proto_tree_add_bits_item(ptr noundef %1992, i32 noundef %2019, ptr noundef %4, i32 noundef %2018, i32 noundef 2, i32 noundef 0) #2
+  %2021 = add i32 %1986, 10
+  %2022 = load i32, ptr @hf_dlmap_data_location_another_bs_used_subchannels, align 4
+  %2023 = tail call ptr @proto_tree_add_bits_item(ptr noundef %1992, i32 noundef %2022, ptr noundef %4, i32 noundef %2021, i32 noundef 6, i32 noundef 0) #2
+  %2024 = add i32 %1986, 16
+  %2025 = load i32, ptr @hf_dlmap_data_location_another_bs_diuc, align 4
+  %2026 = tail call ptr @proto_tree_add_bits_item(ptr noundef %1992, i32 noundef %2025, ptr noundef %4, i32 noundef %2024, i32 noundef 4, i32 noundef 0) #2
+  %2027 = add i32 %1986, 20
+  %2028 = load i32, ptr @hf_dlmap_data_location_another_bs_frame_advance, align 4
+  %2029 = tail call ptr @proto_tree_add_bits_item(ptr noundef %1992, i32 noundef %2028, ptr noundef %4, i32 noundef %2027, i32 noundef 3, i32 noundef 0) #2
+  %2030 = add i32 %1986, 23
+  %2031 = load i32, ptr @hf_dlmap_reserved_uint, align 4
+  %2032 = tail call ptr @proto_tree_add_bits_item(ptr noundef %1992, i32 noundef %2031, ptr noundef %4, i32 noundef %2030, i32 noundef 1, i32 noundef 0) #2
+  %2033 = add i32 %1986, 24
+  %2034 = load i32, ptr @hf_dlmap_data_location_another_bs_ofdma_symbol_offset, align 4
+  %2035 = tail call ptr @proto_tree_add_bits_item(ptr noundef %1992, i32 noundef %2034, ptr noundef %4, i32 noundef %2033, i32 noundef 8, i32 noundef 0) #2
+  %2036 = add i32 %1986, 32
+  %2037 = load i32, ptr @hf_dlmap_data_location_another_bs_subchannel_offset, align 4
+  %2038 = tail call ptr @proto_tree_add_bits_item(ptr noundef %1992, i32 noundef %2037, ptr noundef %4, i32 noundef %2036, i32 noundef 6, i32 noundef 0) #2
+  %2039 = add i32 %1986, 38
+  %2040 = load i32, ptr @hf_dlmap_data_location_another_bs_boosting, align 4
+  %2041 = tail call ptr @proto_tree_add_bits_item(ptr noundef %1992, i32 noundef %2040, ptr noundef %4, i32 noundef %2039, i32 noundef 3, i32 noundef 0) #2
+  %2042 = add i32 %1986, 41
+  %2043 = load i32, ptr @hf_dlmap_data_location_another_bs_preamble_index, align 4
+  %2044 = tail call ptr @proto_tree_add_bits_item(ptr noundef %1992, i32 noundef %2043, ptr noundef %4, i32 noundef %2042, i32 noundef 7, i32 noundef 0) #2
+  %2045 = add i32 %1986, 48
+  %2046 = load i32, ptr @hf_dlmap_data_location_another_bs_num_ofdma_symbols, align 4
+  %2047 = tail call ptr @proto_tree_add_bits_item(ptr noundef %1992, i32 noundef %2046, ptr noundef %4, i32 noundef %2045, i32 noundef 8, i32 noundef 0) #2
+  %2048 = add i32 %1986, 56
+  %2049 = load i32, ptr @hf_dlmap_data_location_another_bs_num_subchannels, align 4
+  %2050 = tail call ptr @proto_tree_add_bits_item(ptr noundef %1992, i32 noundef %2049, ptr noundef %4, i32 noundef %2048, i32 noundef 6, i32 noundef 0) #2
+  %2051 = add i32 %1986, 62
+  %2052 = load i32, ptr @hf_dlmap_data_location_another_bs_repetition_coding_indication, align 4
+  %2053 = tail call ptr @proto_tree_add_bits_item(ptr noundef %1992, i32 noundef %2052, ptr noundef %4, i32 noundef %2051, i32 noundef 2, i32 noundef 0) #2
+  %2054 = add i32 %1986, 64
+  %2055 = load i32, ptr @hf_dlmap_data_location_another_bs_cid, align 4
+  %2056 = tail call ptr @proto_tree_add_bits_item(ptr noundef %1992, i32 noundef %2055, ptr noundef %4, i32 noundef %2054, i32 noundef 16, i32 noundef 0) #2
+  %2057 = add i32 %1986, 80
+  %2058 = ashr exact i32 %2057, 2
   br label %UL_interference_and_noise_level_IE.exit
 
-2061:                                             ; preds = %1757
-  %2062 = load i32, ptr @INC_CID, align 4
-  %.not.i364 = icmp eq i32 %2062, 0
-  %2063 = zext i1 %.not.i364 to i32
-  store i32 %2063, ptr @INC_CID, align 4
-  %2064 = sdiv i32 %1736, 2
-  %2065 = add nuw nsw i32 %1737, 1
-  %2066 = add nuw nsw i32 %2065, %1767
-  %2067 = lshr i32 %2066, 1
-  %2068 = load i32, ptr @ett_282, align 4
-  %2069 = tail call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %1766, ptr noundef %4, i32 noundef %2064, i32 noundef %2067, i32 noundef %2068, ptr noundef null, ptr noundef nonnull @.str.566, i32 noundef %2063) #2
-  %2070 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %4, i32 noundef %2064) #2
-  %2071 = and i8 %2070, 15
-  %2072 = lshr i8 %2070, 4
-  %.in.i365 = select i1 %.not302, i8 %2072, i8 %2071
-  %2073 = zext nneg i8 %.in.i365 to i32
-  %2074 = load i32, ptr @hf_dlmap_ie_diuc_ext, align 4
-  %2075 = tail call ptr @proto_tree_add_uint(ptr noundef %2069, i32 noundef %2074, ptr noundef %4, i32 noundef %2064, i32 noundef 1, i32 noundef %2073) #2
-  br i1 %.not302, label %2076, label %2080
+2059:                                             ; preds = %1755
+  %2060 = load i32, ptr @INC_CID, align 4
+  %.not.i364 = icmp eq i32 %2060, 0
+  %2061 = zext i1 %.not.i364 to i32
+  store i32 %2061, ptr @INC_CID, align 4
+  %2062 = sdiv i32 %1734, 2
+  %2063 = add nuw nsw i32 %1735, 1
+  %2064 = add nuw nsw i32 %2063, %1765
+  %2065 = lshr i32 %2064, 1
+  %2066 = load i32, ptr @ett_282, align 4
+  %2067 = tail call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %1764, ptr noundef %4, i32 noundef %2062, i32 noundef %2065, i32 noundef %2066, ptr noundef null, ptr noundef nonnull @.str.566, i32 noundef %2061) #2
+  %2068 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %4, i32 noundef %2062) #2
+  %2069 = and i8 %2068, 15
+  %2070 = lshr i8 %2068, 4
+  %.in.i365 = select i1 %.not302, i8 %2070, i8 %2069
+  %2071 = zext nneg i8 %.in.i365 to i32
+  %2072 = load i32, ptr @hf_dlmap_ie_diuc_ext, align 4
+  %2073 = tail call ptr @proto_tree_add_uint(ptr noundef %2067, i32 noundef %2072, ptr noundef %4, i32 noundef %2062, i32 noundef 1, i32 noundef %2071) #2
+  br i1 %.not302, label %2074, label %2078
 
-2076:                                             ; preds = %2061
-  %2077 = sdiv i32 %1748, 2
-  %2078 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %4, i32 noundef %2077) #2
-  %2079 = and i8 %2078, 15
+2074:                                             ; preds = %2059
+  %2075 = sdiv i32 %1746, 2
+  %2076 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %4, i32 noundef %2075) #2
+  %2077 = and i8 %2076, 15
   br label %CID_Switch_IE.exit
 
-2080:                                             ; preds = %2061
-  %2081 = ashr exact i32 %1748, 1
-  %2082 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %4, i32 noundef %2081) #2
-  %2083 = lshr i8 %2082, 4
+2078:                                             ; preds = %2059
+  %2079 = ashr exact i32 %1746, 1
+  %2080 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %4, i32 noundef %2079) #2
+  %2081 = lshr i8 %2080, 4
   br label %CID_Switch_IE.exit
 
-CID_Switch_IE.exit:                               ; preds = %2076, %2080
-  %.pre-phi.i367 = phi i32 [ %2081, %2080 ], [ %2077, %2076 ]
-  %.in30.i = phi i8 [ %2083, %2080 ], [ %2079, %2076 ]
-  %2084 = zext nneg i8 %.in30.i to i32
-  %2085 = load i32, ptr @hf_dlmap_ie_length, align 4
-  %2086 = tail call ptr @proto_tree_add_uint(ptr noundef %2069, i32 noundef %2085, ptr noundef %4, i32 noundef %.pre-phi.i367, i32 noundef 1, i32 noundef %2084) #2
-  %2087 = add i32 %2, 3
+CID_Switch_IE.exit:                               ; preds = %2074, %2078
+  %.pre-phi.i367 = phi i32 [ %2079, %2078 ], [ %2075, %2074 ]
+  %.in30.i = phi i8 [ %2081, %2078 ], [ %2077, %2074 ]
+  %2082 = zext nneg i8 %.in30.i to i32
+  %2083 = load i32, ptr @hf_dlmap_ie_length, align 4
+  %2084 = tail call ptr @proto_tree_add_uint(ptr noundef %2067, i32 noundef %2083, ptr noundef %4, i32 noundef %.pre-phi.i367, i32 noundef 1, i32 noundef %2082) #2
+  %2085 = add i32 %2, 3
   br label %UL_interference_and_noise_level_IE.exit
 
-2088:                                             ; preds = %1757
-  %2089 = shl i32 %1736, 2
-  %2090 = sdiv i32 %1736, 2
-  %2091 = add nuw nsw i32 %1737, 1
-  %2092 = add nuw nsw i32 %2091, %1767
-  %2093 = lshr i32 %2092, 1
-  %2094 = load i32, ptr @ett_285, align 4
-  %2095 = tail call ptr @proto_tree_add_subtree(ptr noundef %1766, ptr noundef %4, i32 noundef %2090, i32 noundef %2093, i32 noundef %2094, ptr noundef null, ptr noundef nonnull @.str.567) #2
-  %2096 = sdiv i32 %2089, 8
-  %2097 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %4, i32 noundef %2096) #2
-  %2098 = zext i16 %2097 to i32
-  %2099 = srem i32 %2089, 8
-  %2100 = sub nsw i32 12, %2099
-  %2101 = lshr i32 %2098, %2100
-  %2102 = and i32 %2101, 15
-  %2103 = load i32, ptr @hf_dlmap_ie_diuc_ext, align 4
-  %2104 = or disjoint i32 %2099, 3
-  %2105 = sdiv i32 %2104, 8
-  %2106 = add nuw nsw i32 %2105, 1
-  %2107 = tail call ptr @proto_tree_add_uint(ptr noundef %2095, i32 noundef %2103, ptr noundef %4, i32 noundef %2096, i32 noundef %2106, i32 noundef %2102) #2
-  %2108 = add i32 %2089, 4
-  %2109 = sdiv i32 %2108, 8
-  %2110 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %4, i32 noundef %2109) #2
-  %2111 = zext i16 %2110 to i32
-  %2112 = srem i32 %2108, 8
-  %2113 = sub nsw i32 12, %2112
-  %2114 = lshr i32 %2111, %2113
-  %2115 = and i32 %2114, 15
-  %2116 = load i32, ptr @hf_dlmap_ie_length, align 4
-  %2117 = or disjoint i32 %2112, 3
-  %2118 = sdiv i32 %2117, 8
-  %2119 = add nuw nsw i32 %2118, 1
-  %2120 = tail call ptr @proto_tree_add_uint(ptr noundef %2095, i32 noundef %2116, ptr noundef %4, i32 noundef %2109, i32 noundef %2119, i32 noundef %2115) #2
-  %2121 = add i32 %2089, 8
-  %2122 = shl nuw nsw i32 %1767, 2
-  %2123 = add nsw i32 %2122, -4
-  %2124 = icmp slt i32 %2121, %2123
-  br i1 %2124, label %.lr.ph.i369, label %HARQ_Map_Pointer_IE.exit
+2086:                                             ; preds = %1755
+  %2087 = shl i32 %1734, 2
+  %2088 = sdiv i32 %1734, 2
+  %2089 = add nuw nsw i32 %1735, 1
+  %2090 = add nuw nsw i32 %2089, %1765
+  %2091 = lshr i32 %2090, 1
+  %2092 = load i32, ptr @ett_285, align 4
+  %2093 = tail call ptr @proto_tree_add_subtree(ptr noundef %1764, ptr noundef %4, i32 noundef %2088, i32 noundef %2091, i32 noundef %2092, ptr noundef null, ptr noundef nonnull @.str.567) #2
+  %2094 = sdiv i32 %2087, 8
+  %2095 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %4, i32 noundef %2094) #2
+  %2096 = zext i16 %2095 to i32
+  %2097 = srem i32 %2087, 8
+  %2098 = sub nsw i32 12, %2097
+  %2099 = lshr i32 %2096, %2098
+  %2100 = and i32 %2099, 15
+  %2101 = load i32, ptr @hf_dlmap_ie_diuc_ext, align 4
+  %2102 = or disjoint i32 %2097, 3
+  %2103 = sdiv i32 %2102, 8
+  %2104 = add nuw nsw i32 %2103, 1
+  %2105 = tail call ptr @proto_tree_add_uint(ptr noundef %2093, i32 noundef %2101, ptr noundef %4, i32 noundef %2094, i32 noundef %2104, i32 noundef %2100) #2
+  %2106 = add i32 %2087, 4
+  %2107 = sdiv i32 %2106, 8
+  %2108 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %4, i32 noundef %2107) #2
+  %2109 = zext i16 %2108 to i32
+  %2110 = srem i32 %2106, 8
+  %2111 = sub nsw i32 12, %2110
+  %2112 = lshr i32 %2109, %2111
+  %2113 = and i32 %2112, 15
+  %2114 = load i32, ptr @hf_dlmap_ie_length, align 4
+  %2115 = or disjoint i32 %2110, 3
+  %2116 = sdiv i32 %2115, 8
+  %2117 = add nuw nsw i32 %2116, 1
+  %2118 = tail call ptr @proto_tree_add_uint(ptr noundef %2093, i32 noundef %2114, ptr noundef %4, i32 noundef %2107, i32 noundef %2117, i32 noundef %2113) #2
+  %2119 = add i32 %2087, 8
+  %2120 = shl nuw nsw i32 %1765, 2
+  %2121 = add nsw i32 %2120, -4
+  %2122 = icmp slt i32 %2119, %2121
+  br i1 %2122, label %.lr.ph.i369, label %HARQ_Map_Pointer_IE.exit
 
-.lr.ph.i369:                                      ; preds = %2088, %2173
-  %.087.i = phi i32 [ %.1.i370, %2173 ], [ %2121, %2088 ]
-  %2125 = load i32, ptr @hf_dlmap_harq_map_pointer_diuc, align 4
-  %2126 = tail call ptr @proto_tree_add_bits_item(ptr noundef %2095, i32 noundef %2125, ptr noundef %4, i32 noundef %.087.i, i32 noundef 4, i32 noundef 0) #2
-  %2127 = add nsw i32 %.087.i, 4
-  %2128 = load i32, ptr @hf_dlmap_harq_map_pointer_num_slots, align 4
-  %2129 = tail call ptr @proto_tree_add_bits_item(ptr noundef %2095, i32 noundef %2128, ptr noundef %4, i32 noundef %2127, i32 noundef 8, i32 noundef 0) #2
-  %2130 = add nsw i32 %.087.i, 12
-  %2131 = load i32, ptr @hf_dlmap_harq_map_pointer_repetition_coding_indication, align 4
-  %2132 = tail call ptr @proto_tree_add_bits_item(ptr noundef %2095, i32 noundef %2131, ptr noundef %4, i32 noundef %2130, i32 noundef 2, i32 noundef 0) #2
-  %2133 = add nsw i32 %.087.i, 14
-  %2134 = sdiv i32 %2133, 8
-  %2135 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %4, i32 noundef %2134) #2
-  %2136 = zext i16 %2135 to i32
-  %2137 = srem i32 %2133, 8
-  %2138 = sub nsw i32 14, %2137
-  %2139 = lshr i32 %2136, %2138
-  %2140 = and i32 %2139, 3
-  %2141 = load i32, ptr @hf_dlmap_harq_map_pointer_map_version, align 4
-  %2142 = tail call ptr @proto_tree_add_bits_item(ptr noundef %2095, i32 noundef %2141, ptr noundef %4, i32 noundef %2133, i32 noundef 2, i32 noundef 0) #2
-  %2143 = add nsw i32 %.087.i, 16
-  %2144 = icmp eq i32 %2140, 2
-  br i1 %2144, label %2145, label %2173
+.lr.ph.i369:                                      ; preds = %2086, %2171
+  %.087.i = phi i32 [ %.1.i370, %2171 ], [ %2119, %2086 ]
+  %2123 = load i32, ptr @hf_dlmap_harq_map_pointer_diuc, align 4
+  %2124 = tail call ptr @proto_tree_add_bits_item(ptr noundef %2093, i32 noundef %2123, ptr noundef %4, i32 noundef %.087.i, i32 noundef 4, i32 noundef 0) #2
+  %2125 = add nsw i32 %.087.i, 4
+  %2126 = load i32, ptr @hf_dlmap_harq_map_pointer_num_slots, align 4
+  %2127 = tail call ptr @proto_tree_add_bits_item(ptr noundef %2093, i32 noundef %2126, ptr noundef %4, i32 noundef %2125, i32 noundef 8, i32 noundef 0) #2
+  %2128 = add nsw i32 %.087.i, 12
+  %2129 = load i32, ptr @hf_dlmap_harq_map_pointer_repetition_coding_indication, align 4
+  %2130 = tail call ptr @proto_tree_add_bits_item(ptr noundef %2093, i32 noundef %2129, ptr noundef %4, i32 noundef %2128, i32 noundef 2, i32 noundef 0) #2
+  %2131 = add nsw i32 %.087.i, 14
+  %2132 = sdiv i32 %2131, 8
+  %2133 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %4, i32 noundef %2132) #2
+  %2134 = zext i16 %2133 to i32
+  %2135 = srem i32 %2131, 8
+  %2136 = sub nsw i32 14, %2135
+  %2137 = lshr i32 %2134, %2136
+  %2138 = and i32 %2137, 3
+  %2139 = load i32, ptr @hf_dlmap_harq_map_pointer_map_version, align 4
+  %2140 = tail call ptr @proto_tree_add_bits_item(ptr noundef %2093, i32 noundef %2139, ptr noundef %4, i32 noundef %2131, i32 noundef 2, i32 noundef 0) #2
+  %2141 = add nsw i32 %.087.i, 16
+  %2142 = icmp eq i32 %2138, 2
+  br i1 %2142, label %2143, label %2171
 
-2145:                                             ; preds = %.lr.ph.i369
-  %2146 = load i32, ptr @hf_dlmap_harq_map_pointer_idle_users, align 4
-  %2147 = tail call ptr @proto_tree_add_bits_item(ptr noundef %2095, i32 noundef %2146, ptr noundef %4, i32 noundef %2143, i32 noundef 1, i32 noundef 0) #2
-  %2148 = add nsw i32 %.087.i, 17
-  %2149 = load i32, ptr @hf_dlmap_harq_map_pointer_sleep_users, align 4
-  %2150 = tail call ptr @proto_tree_add_bits_item(ptr noundef %2095, i32 noundef %2149, ptr noundef %4, i32 noundef %2148, i32 noundef 1, i32 noundef 0) #2
-  %2151 = add nsw i32 %.087.i, 18
-  %2152 = sdiv i32 %2151, 8
-  %2153 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %4, i32 noundef %2152) #2
-  %2154 = zext i16 %2153 to i32
-  %2155 = srem i32 %2151, 8
-  %2156 = sub nsw i32 14, %2155
-  %2157 = lshr i32 %2154, %2156
-  %2158 = and i32 %2157, 3
-  %2159 = load i32, ptr @hf_dlmap_harq_map_pointer_cid_mask_length, align 4
-  %2160 = tail call ptr @proto_tree_add_bits_item(ptr noundef %2095, i32 noundef %2159, ptr noundef %4, i32 noundef %2151, i32 noundef 2, i32 noundef 0) #2
-  %2161 = add nsw i32 %.087.i, 20
-  %2162 = load i32, ptr @hf_cid_mask, align 4
-  %2163 = sdiv i32 %2161, 8
-  %2164 = srem i32 %2161, 8
-  %.not475 = icmp eq i32 %2158, 3
+2143:                                             ; preds = %.lr.ph.i369
+  %2144 = load i32, ptr @hf_dlmap_harq_map_pointer_idle_users, align 4
+  %2145 = tail call ptr @proto_tree_add_bits_item(ptr noundef %2093, i32 noundef %2144, ptr noundef %4, i32 noundef %2141, i32 noundef 1, i32 noundef 0) #2
+  %2146 = add nsw i32 %.087.i, 17
+  %2147 = load i32, ptr @hf_dlmap_harq_map_pointer_sleep_users, align 4
+  %2148 = tail call ptr @proto_tree_add_bits_item(ptr noundef %2093, i32 noundef %2147, ptr noundef %4, i32 noundef %2146, i32 noundef 1, i32 noundef 0) #2
+  %2149 = add nsw i32 %.087.i, 18
+  %2150 = sdiv i32 %2149, 8
+  %2151 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %4, i32 noundef %2150) #2
+  %2152 = zext i16 %2151 to i32
+  %2153 = srem i32 %2149, 8
+  %2154 = sub nsw i32 14, %2153
+  %2155 = lshr i32 %2152, %2154
+  %2156 = and i32 %2155, 3
+  %2157 = load i32, ptr @hf_dlmap_harq_map_pointer_cid_mask_length, align 4
+  %2158 = tail call ptr @proto_tree_add_bits_item(ptr noundef %2093, i32 noundef %2157, ptr noundef %4, i32 noundef %2149, i32 noundef 2, i32 noundef 0) #2
+  %2159 = add nsw i32 %.087.i, 20
+  %2160 = load i32, ptr @hf_cid_mask, align 4
+  %2161 = sdiv i32 %2159, 8
+  %2162 = srem i32 %2159, 8
+  %.not475 = icmp eq i32 %2156, 3
   br i1 %.not475, label %.sink.split.i, label %switch.lookup
 
-switch.lookup:                                    ; preds = %2145
-  %2165 = zext nneg i32 %2158 to i64
-  %switch.gep = getelementptr inbounds [3 x i32], ptr @switch.table.dissect_dlmap_ie, i64 0, i64 %2165
+switch.lookup:                                    ; preds = %2143
+  %2163 = zext nneg i32 %2156 to i64
+  %switch.gep = getelementptr inbounds [3 x i32], ptr @switch.table.dissect_dlmap_ie, i64 0, i64 %2163
   %switch.load = load i32, ptr %switch.gep, align 4
-  %2166 = zext nneg i32 %2158 to i64
-  %switch.gep471 = getelementptr inbounds [3 x ptr], ptr @switch.table.dissect_dlmap_ie.1, i64 0, i64 %2166
+  %2164 = zext nneg i32 %2156 to i64
+  %switch.gep471 = getelementptr inbounds [3 x ptr], ptr @switch.table.dissect_dlmap_ie.1, i64 0, i64 %2164
   %switch.load472 = load ptr, ptr %switch.gep471, align 8
-  %2167 = zext nneg i32 %2158 to i64
-  %switch.gep473 = getelementptr inbounds [3 x i32], ptr @switch.table.dissect_dlmap_ie.2, i64 0, i64 %2167
+  %2165 = zext nneg i32 %2156 to i64
+  %switch.gep473 = getelementptr inbounds [3 x i32], ptr @switch.table.dissect_dlmap_ie.2, i64 0, i64 %2165
   %switch.load474 = load i32, ptr %switch.gep473, align 4
   br label %.sink.split.i
 
-.sink.split.i:                                    ; preds = %2145, %switch.lookup
-  %.sink91.i = phi i32 [ %switch.load, %switch.lookup ], [ 51, %2145 ]
-  %.str.568.sink.i = phi ptr [ %switch.load472, %switch.lookup ], [ @.str.571, %2145 ]
-  %.sink.i = phi i32 [ %switch.load474, %switch.lookup ], [ 72, %2145 ]
-  %2168 = add nsw i32 %.sink91.i, %2164
-  %2169 = lshr i32 %2168, 3
-  %2170 = add nuw nsw i32 %2169, 1
-  %2171 = tail call ptr (ptr, i32, ptr, i32, i32, ptr, ptr, ...) @proto_tree_add_bytes_format_value(ptr noundef %1766, i32 noundef %2162, ptr noundef %4, i32 noundef %2163, i32 noundef %2170, ptr noundef null, ptr noundef nonnull %.str.568.sink.i) #2
-  %2172 = add nsw i32 %.sink.i, %.087.i
-  br label %2173
+.sink.split.i:                                    ; preds = %2143, %switch.lookup
+  %.sink91.i = phi i32 [ %switch.load, %switch.lookup ], [ 51, %2143 ]
+  %.str.568.sink.i = phi ptr [ %switch.load472, %switch.lookup ], [ @.str.571, %2143 ]
+  %.sink.i = phi i32 [ %switch.load474, %switch.lookup ], [ 72, %2143 ]
+  %2166 = add nsw i32 %.sink91.i, %2162
+  %2167 = lshr i32 %2166, 3
+  %2168 = add nuw nsw i32 %2167, 1
+  %2169 = tail call ptr (ptr, i32, ptr, i32, i32, ptr, ptr, ...) @proto_tree_add_bytes_format_value(ptr noundef %1764, i32 noundef %2160, ptr noundef %4, i32 noundef %2161, i32 noundef %2168, ptr noundef null, ptr noundef nonnull %.str.568.sink.i) #2
+  %2170 = add nsw i32 %.sink.i, %.087.i
+  br label %2171
 
-2173:                                             ; preds = %.sink.split.i, %.lr.ph.i369
-  %.1.i370 = phi i32 [ %2143, %.lr.ph.i369 ], [ %2172, %.sink.split.i ]
-  %2174 = icmp slt i32 %.1.i370, %2123
-  br i1 %2174, label %.lr.ph.i369, label %HARQ_Map_Pointer_IE.exit, !llvm.loop !21
+2171:                                             ; preds = %.sink.split.i, %.lr.ph.i369
+  %.1.i370 = phi i32 [ %2141, %.lr.ph.i369 ], [ %2170, %.sink.split.i ]
+  %2172 = icmp slt i32 %.1.i370, %2121
+  br i1 %2172, label %.lr.ph.i369, label %HARQ_Map_Pointer_IE.exit, !llvm.loop !21
 
-HARQ_Map_Pointer_IE.exit:                         ; preds = %2173, %2088
-  %.0.lcssa.i = phi i32 [ %2121, %2088 ], [ %.1.i370, %2173 ]
-  %2175 = lshr i32 %.0.lcssa.i, 2
+HARQ_Map_Pointer_IE.exit:                         ; preds = %2171, %2086
+  %.0.lcssa.i = phi i32 [ %2119, %2086 ], [ %.1.i370, %2171 ]
+  %2173 = lshr i32 %.0.lcssa.i, 2
   br label %UL_interference_and_noise_level_IE.exit
 
-2176:                                             ; preds = %1757
-  %2177 = shl i32 %1736, 2
-  %2178 = sdiv i32 %1736, 2
-  %2179 = add nuw nsw i32 %1737, 1
-  %2180 = add nuw nsw i32 %2179, %1767
-  %2181 = lshr i32 %2180, 1
-  %2182 = load i32, ptr @ett_286, align 4
-  %2183 = tail call ptr @proto_tree_add_subtree(ptr noundef %1766, ptr noundef %4, i32 noundef %2178, i32 noundef %2181, i32 noundef %2182, ptr noundef null, ptr noundef nonnull @.str.572) #2
-  %2184 = sdiv i32 %2177, 8
-  %2185 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %4, i32 noundef %2184) #2
-  %2186 = zext i16 %2185 to i32
-  %2187 = srem i32 %2177, 8
-  %2188 = sub nsw i32 12, %2187
-  %2189 = lshr i32 %2186, %2188
-  %2190 = and i32 %2189, 15
-  %2191 = load i32, ptr @hf_dlmap_ie_diuc_ext, align 4
-  %2192 = or disjoint i32 %2187, 3
-  %2193 = sdiv i32 %2192, 8
-  %2194 = add nuw nsw i32 %2193, 1
-  %2195 = tail call ptr @proto_tree_add_uint(ptr noundef %2183, i32 noundef %2191, ptr noundef %4, i32 noundef %2184, i32 noundef %2194, i32 noundef %2190) #2
-  %2196 = add i32 %2177, 4
-  %2197 = sdiv i32 %2196, 8
-  %2198 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %4, i32 noundef %2197) #2
-  %2199 = zext i16 %2198 to i32
-  %2200 = srem i32 %2196, 8
-  %2201 = sub nsw i32 12, %2200
-  %2202 = lshr i32 %2199, %2201
-  %2203 = and i32 %2202, 15
-  %2204 = load i32, ptr @hf_dlmap_ie_length, align 4
-  %2205 = or disjoint i32 %2200, 3
-  %2206 = sdiv i32 %2205, 8
-  %2207 = add nuw nsw i32 %2206, 1
-  %2208 = tail call ptr @proto_tree_add_uint(ptr noundef %2183, i32 noundef %2204, ptr noundef %4, i32 noundef %2197, i32 noundef %2207, i32 noundef %2203) #2
-  %2209 = add i32 %2177, 8
-  %2210 = sdiv i32 %2209, 8
-  %2211 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %4, i32 noundef %2210) #2
-  %2212 = zext i8 %2211 to i32
-  %2213 = srem i32 %2209, 8
-  %2214 = sub nsw i32 7, %2213
-  %2215 = load i32, ptr @hf_dlmap_phymod_dl_preamble_modifier_type, align 4
-  %2216 = tail call ptr @proto_tree_add_bits_item(ptr noundef %2183, i32 noundef %2215, ptr noundef %4, i32 noundef %2209, i32 noundef 1, i32 noundef 0) #2
-  %2217 = add i32 %2177, 9
-  %2218 = shl nuw nsw i32 1, %2214
-  %2219 = and i32 %2218, %2212
-  %2220 = icmp eq i32 %2219, 0
+2174:                                             ; preds = %1755
+  %2175 = shl i32 %1734, 2
+  %2176 = sdiv i32 %1734, 2
+  %2177 = add nuw nsw i32 %1735, 1
+  %2178 = add nuw nsw i32 %2177, %1765
+  %2179 = lshr i32 %2178, 1
+  %2180 = load i32, ptr @ett_286, align 4
+  %2181 = tail call ptr @proto_tree_add_subtree(ptr noundef %1764, ptr noundef %4, i32 noundef %2176, i32 noundef %2179, i32 noundef %2180, ptr noundef null, ptr noundef nonnull @.str.572) #2
+  %2182 = sdiv i32 %2175, 8
+  %2183 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %4, i32 noundef %2182) #2
+  %2184 = zext i16 %2183 to i32
+  %2185 = srem i32 %2175, 8
+  %2186 = sub nsw i32 12, %2185
+  %2187 = lshr i32 %2184, %2186
+  %2188 = and i32 %2187, 15
+  %2189 = load i32, ptr @hf_dlmap_ie_diuc_ext, align 4
+  %2190 = or disjoint i32 %2185, 3
+  %2191 = sdiv i32 %2190, 8
+  %2192 = add nuw nsw i32 %2191, 1
+  %2193 = tail call ptr @proto_tree_add_uint(ptr noundef %2181, i32 noundef %2189, ptr noundef %4, i32 noundef %2182, i32 noundef %2192, i32 noundef %2188) #2
+  %2194 = add i32 %2175, 4
+  %2195 = sdiv i32 %2194, 8
+  %2196 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %4, i32 noundef %2195) #2
+  %2197 = zext i16 %2196 to i32
+  %2198 = srem i32 %2194, 8
+  %2199 = sub nsw i32 12, %2198
+  %2200 = lshr i32 %2197, %2199
+  %2201 = and i32 %2200, 15
+  %2202 = load i32, ptr @hf_dlmap_ie_length, align 4
+  %2203 = or disjoint i32 %2198, 3
+  %2204 = sdiv i32 %2203, 8
+  %2205 = add nuw nsw i32 %2204, 1
+  %2206 = tail call ptr @proto_tree_add_uint(ptr noundef %2181, i32 noundef %2202, ptr noundef %4, i32 noundef %2195, i32 noundef %2205, i32 noundef %2201) #2
+  %2207 = add i32 %2175, 8
+  %2208 = sdiv i32 %2207, 8
+  %2209 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %4, i32 noundef %2208) #2
+  %2210 = zext i8 %2209 to i32
+  %2211 = srem i32 %2207, 8
+  %2212 = sub nsw i32 7, %2211
+  %2213 = load i32, ptr @hf_dlmap_phymod_dl_preamble_modifier_type, align 4
+  %2214 = tail call ptr @proto_tree_add_bits_item(ptr noundef %2181, i32 noundef %2213, ptr noundef %4, i32 noundef %2207, i32 noundef 1, i32 noundef 0) #2
+  %2215 = add i32 %2175, 9
+  %2216 = shl nuw nsw i32 1, %2212
+  %2217 = and i32 %2216, %2210
+  %2218 = icmp eq i32 %2217, 0
   %hf_dlmap_phymod_dl_preamble_frequency_shift_index.val.i = load i32, ptr @hf_dlmap_phymod_dl_preamble_frequency_shift_index, align 4
   %hf_dlmap_phymod_dl_preamble_time_shift_index.val.i = load i32, ptr @hf_dlmap_phymod_dl_preamble_time_shift_index, align 4
-  %2221 = select i1 %2220, i32 %hf_dlmap_phymod_dl_preamble_frequency_shift_index.val.i, i32 %hf_dlmap_phymod_dl_preamble_time_shift_index.val.i
-  %2222 = tail call ptr @proto_tree_add_bits_item(ptr noundef %2183, i32 noundef %2221, ptr noundef %4, i32 noundef %2217, i32 noundef 4, i32 noundef 0) #2
-  %.0.i371 = add i32 %2177, 13
-  %2223 = load i32, ptr @hf_dlmap_phymod_dl_pilot_pattern_modifier, align 4
-  %2224 = tail call ptr @proto_tree_add_bits_item(ptr noundef %2183, i32 noundef %2223, ptr noundef %4, i32 noundef %.0.i371, i32 noundef 1, i32 noundef 0) #2
-  %2225 = add i32 %2177, 14
-  %2226 = load i32, ptr @hf_dlmap_phymod_dl_pilot_pattern_index, align 4
-  %2227 = tail call ptr @proto_tree_add_bits_item(ptr noundef %2183, i32 noundef %2226, ptr noundef %4, i32 noundef %2225, i32 noundef 2, i32 noundef 0) #2
-  %2228 = add i32 %2177, 16
-  %2229 = ashr exact i32 %2228, 2
+  %2219 = select i1 %2218, i32 %hf_dlmap_phymod_dl_preamble_frequency_shift_index.val.i, i32 %hf_dlmap_phymod_dl_preamble_time_shift_index.val.i
+  %2220 = tail call ptr @proto_tree_add_bits_item(ptr noundef %2181, i32 noundef %2219, ptr noundef %4, i32 noundef %2215, i32 noundef 4, i32 noundef 0) #2
+  %.0.i371 = add i32 %2175, 13
+  %2221 = load i32, ptr @hf_dlmap_phymod_dl_pilot_pattern_modifier, align 4
+  %2222 = tail call ptr @proto_tree_add_bits_item(ptr noundef %2181, i32 noundef %2221, ptr noundef %4, i32 noundef %.0.i371, i32 noundef 1, i32 noundef 0) #2
+  %2223 = add i32 %2175, 14
+  %2224 = load i32, ptr @hf_dlmap_phymod_dl_pilot_pattern_index, align 4
+  %2225 = tail call ptr @proto_tree_add_bits_item(ptr noundef %2181, i32 noundef %2224, ptr noundef %4, i32 noundef %2223, i32 noundef 2, i32 noundef 0) #2
+  %2226 = add i32 %2175, 16
+  %2227 = ashr exact i32 %2226, 2
   br label %UL_interference_and_noise_level_IE.exit
 
-2230:                                             ; preds = %1757
-  %2231 = shl i32 %1736, 2
-  %2232 = sdiv i32 %1736, 2
-  %2233 = add nuw nsw i32 %1737, 1
-  %2234 = add nuw nsw i32 %2233, %1767
-  %2235 = lshr i32 %2234, 1
-  %2236 = load i32, ptr @ett_286x, align 4
-  %2237 = tail call ptr @proto_tree_add_subtree(ptr noundef %1766, ptr noundef %4, i32 noundef %2232, i32 noundef %2235, i32 noundef %2236, ptr noundef null, ptr noundef nonnull @.str.573) #2
-  %2238 = sdiv i32 %2231, 8
-  %2239 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %4, i32 noundef %2238) #2
-  %2240 = zext i16 %2239 to i32
-  %2241 = srem i32 %2231, 8
-  %2242 = sub nsw i32 12, %2241
-  %2243 = lshr i32 %2240, %2242
-  %2244 = and i32 %2243, 15
-  %2245 = load i32, ptr @hf_dlmap_ie_diuc_ext, align 4
-  %2246 = or disjoint i32 %2241, 3
-  %2247 = sdiv i32 %2246, 8
-  %2248 = add nuw nsw i32 %2247, 1
-  %2249 = tail call ptr @proto_tree_add_uint(ptr noundef %2237, i32 noundef %2245, ptr noundef %4, i32 noundef %2238, i32 noundef %2248, i32 noundef %2244) #2
-  %2250 = add i32 %2231, 4
-  %2251 = sdiv i32 %2250, 8
-  %2252 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %4, i32 noundef %2251) #2
-  %2253 = zext i16 %2252 to i32
-  %2254 = srem i32 %2250, 8
-  %2255 = sub nsw i32 12, %2254
-  %2256 = lshr i32 %2253, %2255
-  %2257 = and i32 %2256, 15
-  %2258 = load i32, ptr @hf_dlmap_ie_length, align 4
-  %2259 = or disjoint i32 %2254, 3
-  %2260 = sdiv i32 %2259, 8
-  %2261 = add nuw nsw i32 %2260, 1
-  %2262 = tail call ptr @proto_tree_add_uint(ptr noundef %2237, i32 noundef %2258, ptr noundef %4, i32 noundef %2251, i32 noundef %2261, i32 noundef %2257) #2
-  %2263 = add i32 %2231, 8
-  %2264 = load i32, ptr @hf_dlmap_broadcast_ctrl_ptr_dcd_ucd_transmission_frame, align 4
-  %2265 = tail call ptr @proto_tree_add_bits_item(ptr noundef %2237, i32 noundef %2264, ptr noundef %4, i32 noundef %2263, i32 noundef 7, i32 noundef 0) #2
-  %2266 = add i32 %2231, 15
-  %2267 = sdiv i32 %2266, 8
-  %2268 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %4, i32 noundef %2267) #2
-  %2269 = zext i8 %2268 to i32
-  %2270 = srem i32 %2266, 8
-  %2271 = sub nsw i32 7, %2270
-  %2272 = load i32, ptr @hf_dlmap_broadcast_ctrl_ptr_skip_broadcast_system_update, align 4
-  %2273 = tail call ptr @proto_tree_add_bits_item(ptr noundef %2237, i32 noundef %2272, ptr noundef %4, i32 noundef %2266, i32 noundef 1, i32 noundef 0) #2
-  %2274 = add i32 %2231, 16
-  %2275 = shl nuw nsw i32 1, %2271
-  %2276 = and i32 %2275, %2269
-  %2277 = icmp eq i32 %2276, 0
-  br i1 %2277, label %2278, label %Broadcast_Control_Pointer_IE.exit
+2228:                                             ; preds = %1755
+  %2229 = shl i32 %1734, 2
+  %2230 = sdiv i32 %1734, 2
+  %2231 = add nuw nsw i32 %1735, 1
+  %2232 = add nuw nsw i32 %2231, %1765
+  %2233 = lshr i32 %2232, 1
+  %2234 = load i32, ptr @ett_286x, align 4
+  %2235 = tail call ptr @proto_tree_add_subtree(ptr noundef %1764, ptr noundef %4, i32 noundef %2230, i32 noundef %2233, i32 noundef %2234, ptr noundef null, ptr noundef nonnull @.str.573) #2
+  %2236 = sdiv i32 %2229, 8
+  %2237 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %4, i32 noundef %2236) #2
+  %2238 = zext i16 %2237 to i32
+  %2239 = srem i32 %2229, 8
+  %2240 = sub nsw i32 12, %2239
+  %2241 = lshr i32 %2238, %2240
+  %2242 = and i32 %2241, 15
+  %2243 = load i32, ptr @hf_dlmap_ie_diuc_ext, align 4
+  %2244 = or disjoint i32 %2239, 3
+  %2245 = sdiv i32 %2244, 8
+  %2246 = add nuw nsw i32 %2245, 1
+  %2247 = tail call ptr @proto_tree_add_uint(ptr noundef %2235, i32 noundef %2243, ptr noundef %4, i32 noundef %2236, i32 noundef %2246, i32 noundef %2242) #2
+  %2248 = add i32 %2229, 4
+  %2249 = sdiv i32 %2248, 8
+  %2250 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %4, i32 noundef %2249) #2
+  %2251 = zext i16 %2250 to i32
+  %2252 = srem i32 %2248, 8
+  %2253 = sub nsw i32 12, %2252
+  %2254 = lshr i32 %2251, %2253
+  %2255 = and i32 %2254, 15
+  %2256 = load i32, ptr @hf_dlmap_ie_length, align 4
+  %2257 = or disjoint i32 %2252, 3
+  %2258 = sdiv i32 %2257, 8
+  %2259 = add nuw nsw i32 %2258, 1
+  %2260 = tail call ptr @proto_tree_add_uint(ptr noundef %2235, i32 noundef %2256, ptr noundef %4, i32 noundef %2249, i32 noundef %2259, i32 noundef %2255) #2
+  %2261 = add i32 %2229, 8
+  %2262 = load i32, ptr @hf_dlmap_broadcast_ctrl_ptr_dcd_ucd_transmission_frame, align 4
+  %2263 = tail call ptr @proto_tree_add_bits_item(ptr noundef %2235, i32 noundef %2262, ptr noundef %4, i32 noundef %2261, i32 noundef 7, i32 noundef 0) #2
+  %2264 = add i32 %2229, 15
+  %2265 = sdiv i32 %2264, 8
+  %2266 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %4, i32 noundef %2265) #2
+  %2267 = zext i8 %2266 to i32
+  %2268 = srem i32 %2264, 8
+  %2269 = sub nsw i32 7, %2268
+  %2270 = load i32, ptr @hf_dlmap_broadcast_ctrl_ptr_skip_broadcast_system_update, align 4
+  %2271 = tail call ptr @proto_tree_add_bits_item(ptr noundef %2235, i32 noundef %2270, ptr noundef %4, i32 noundef %2264, i32 noundef 1, i32 noundef 0) #2
+  %2272 = add i32 %2229, 16
+  %2273 = shl nuw nsw i32 1, %2269
+  %2274 = and i32 %2273, %2267
+  %2275 = icmp eq i32 %2274, 0
+  br i1 %2275, label %2276, label %Broadcast_Control_Pointer_IE.exit
 
-2278:                                             ; preds = %2230
-  %2279 = load i32, ptr @hf_dlmap_broadcast_ctrl_ptr_broadcast_system_update_type, align 4
-  %2280 = tail call ptr @proto_tree_add_bits_item(ptr noundef %2237, i32 noundef %2279, ptr noundef %4, i32 noundef %2274, i32 noundef 1, i32 noundef 0) #2
-  %2281 = add i32 %2231, 17
-  %2282 = load i32, ptr @hf_dlmap_broadcast_ctrl_ptr_broadcast_system_update_transmission_frame, align 4
-  %2283 = tail call ptr @proto_tree_add_bits_item(ptr noundef %2237, i32 noundef %2282, ptr noundef %4, i32 noundef %2281, i32 noundef 7, i32 noundef 0) #2
-  %2284 = add i32 %2231, 24
+2276:                                             ; preds = %2228
+  %2277 = load i32, ptr @hf_dlmap_broadcast_ctrl_ptr_broadcast_system_update_type, align 4
+  %2278 = tail call ptr @proto_tree_add_bits_item(ptr noundef %2235, i32 noundef %2277, ptr noundef %4, i32 noundef %2272, i32 noundef 1, i32 noundef 0) #2
+  %2279 = add i32 %2229, 17
+  %2280 = load i32, ptr @hf_dlmap_broadcast_ctrl_ptr_broadcast_system_update_transmission_frame, align 4
+  %2281 = tail call ptr @proto_tree_add_bits_item(ptr noundef %2235, i32 noundef %2280, ptr noundef %4, i32 noundef %2279, i32 noundef 7, i32 noundef 0) #2
+  %2282 = add i32 %2229, 24
   br label %Broadcast_Control_Pointer_IE.exit
 
-Broadcast_Control_Pointer_IE.exit:                ; preds = %2230, %2278
-  %.0.i372 = phi i32 [ %2284, %2278 ], [ %2274, %2230 ]
-  %2285 = sdiv i32 %.0.i372, 4
+Broadcast_Control_Pointer_IE.exit:                ; preds = %2228, %2276
+  %.0.i372 = phi i32 [ %2282, %2276 ], [ %2272, %2228 ]
+  %2283 = sdiv i32 %.0.i372, 4
   br label %UL_interference_and_noise_level_IE.exit
 
-2286:                                             ; preds = %1757
-  %2287 = shl i32 %1736, 2
-  %2288 = sdiv i32 %1736, 2
-  %2289 = add nuw nsw i32 %1737, 1
-  %2290 = add nuw nsw i32 %2289, %1767
-  %2291 = lshr i32 %2290, 1
-  %2292 = load i32, ptr @ett_286b, align 4
-  %2293 = tail call ptr @proto_tree_add_subtree(ptr noundef %1766, ptr noundef %4, i32 noundef %2288, i32 noundef %2291, i32 noundef %2292, ptr noundef null, ptr noundef nonnull @.str.574) #2
-  %2294 = sdiv i32 %2287, 8
-  %2295 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %4, i32 noundef %2294) #2
-  %2296 = zext i16 %2295 to i32
-  %2297 = srem i32 %2287, 8
-  %2298 = sub nsw i32 12, %2297
-  %2299 = lshr i32 %2296, %2298
-  %2300 = and i32 %2299, 15
-  %2301 = load i32, ptr @hf_dlmap_ie_diuc_ext, align 4
-  %2302 = or disjoint i32 %2297, 3
-  %2303 = sdiv i32 %2302, 8
-  %2304 = add nuw nsw i32 %2303, 1
-  %2305 = tail call ptr @proto_tree_add_uint(ptr noundef %2293, i32 noundef %2301, ptr noundef %4, i32 noundef %2294, i32 noundef %2304, i32 noundef %2300) #2
-  %2306 = add i32 %2287, 4
-  %2307 = sdiv i32 %2306, 8
-  %2308 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %4, i32 noundef %2307) #2
-  %2309 = zext i16 %2308 to i32
-  %2310 = srem i32 %2306, 8
-  %2311 = sub nsw i32 12, %2310
-  %2312 = lshr i32 %2309, %2311
-  %2313 = and i32 %2312, 15
-  %2314 = load i32, ptr @hf_dlmap_ie_length, align 4
-  %2315 = or disjoint i32 %2310, 3
-  %2316 = sdiv i32 %2315, 8
-  %2317 = add nuw nsw i32 %2316, 1
-  %2318 = tail call ptr @proto_tree_add_uint(ptr noundef %2293, i32 noundef %2314, ptr noundef %4, i32 noundef %2307, i32 noundef %2317, i32 noundef %2313) #2
-  %2319 = add i32 %2287, 8
-  %2320 = load i32, ptr @hf_dlmap_dl_pusc_burst_allocation_cid, align 4
-  %2321 = tail call ptr @proto_tree_add_bits_item(ptr noundef %2293, i32 noundef %2320, ptr noundef %4, i32 noundef %2319, i32 noundef 16, i32 noundef 0) #2
-  %2322 = add i32 %2287, 24
-  %2323 = load i32, ptr @hf_dlmap_dl_pusc_burst_allocation_diuc, align 4
-  %2324 = tail call ptr @proto_tree_add_bits_item(ptr noundef %2293, i32 noundef %2323, ptr noundef %4, i32 noundef %2322, i32 noundef 4, i32 noundef 0) #2
-  %2325 = add i32 %2287, 28
-  %2326 = load i32, ptr @hf_dlmap_dl_pusc_burst_allocation_segment, align 4
-  %2327 = tail call ptr @proto_tree_add_bits_item(ptr noundef %2293, i32 noundef %2326, ptr noundef %4, i32 noundef %2325, i32 noundef 2, i32 noundef 0) #2
-  %2328 = add i32 %2287, 30
-  %2329 = load i32, ptr @hf_dlmap_dl_pusc_burst_allocation_boosting, align 4
-  %2330 = tail call ptr @proto_tree_add_bits_item(ptr noundef %2293, i32 noundef %2329, ptr noundef %4, i32 noundef %2328, i32 noundef 3, i32 noundef 0) #2
-  %2331 = add i32 %2287, 33
-  %2332 = load i32, ptr @hf_dlmap_dl_pusc_burst_allocation_idcell, align 4
-  %2333 = tail call ptr @proto_tree_add_bits_item(ptr noundef %2293, i32 noundef %2332, ptr noundef %4, i32 noundef %2331, i32 noundef 5, i32 noundef 0) #2
-  %2334 = add i32 %2287, 38
-  %2335 = load i32, ptr @hf_dlmap_dl_pusc_burst_allocation_dl_permbase, align 4
-  %2336 = tail call ptr @proto_tree_add_bits_item(ptr noundef %2293, i32 noundef %2335, ptr noundef %4, i32 noundef %2334, i32 noundef 5, i32 noundef 0) #2
-  %2337 = add i32 %2287, 43
-  %2338 = load i32, ptr @hf_dlmap_dl_pusc_burst_allocation_prbs_id, align 4
-  %2339 = tail call ptr @proto_tree_add_bits_item(ptr noundef %2293, i32 noundef %2338, ptr noundef %4, i32 noundef %2337, i32 noundef 2, i32 noundef 0) #2
-  %2340 = add i32 %2287, 45
-  %2341 = load i32, ptr @hf_dlmap_dl_pusc_burst_allocation_repetition_coding_indication, align 4
-  %2342 = tail call ptr @proto_tree_add_bits_item(ptr noundef %2293, i32 noundef %2341, ptr noundef %4, i32 noundef %2340, i32 noundef 2, i32 noundef 0) #2
-  %2343 = add i32 %2287, 47
-  %2344 = load i32, ptr @hf_dlmap_dl_pusc_burst_allocation_used_subchannels, align 4
-  %2345 = tail call ptr @proto_tree_add_bits_item(ptr noundef %2293, i32 noundef %2344, ptr noundef %4, i32 noundef %2343, i32 noundef 6, i32 noundef 0) #2
-  %2346 = add i32 %2287, 53
-  %2347 = load i32, ptr @hf_dlmap_dl_pusc_burst_allocation_ofdma_symbol_offset, align 4
-  %2348 = tail call ptr @proto_tree_add_bits_item(ptr noundef %2293, i32 noundef %2347, ptr noundef %4, i32 noundef %2346, i32 noundef 8, i32 noundef 0) #2
-  %2349 = add i32 %2287, 61
-  %2350 = load i32, ptr @hf_dlmap_reserved_uint, align 4
-  %2351 = tail call ptr @proto_tree_add_bits_item(ptr noundef %2293, i32 noundef %2350, ptr noundef %4, i32 noundef %2349, i32 noundef 1, i32 noundef 0) #2
-  %2352 = add i32 %2287, 62
-  %2353 = load i32, ptr @hf_dlmap_dl_pusc_burst_allocation_num_ofdma_symbols, align 4
-  %2354 = tail call ptr @proto_tree_add_bits_item(ptr noundef %2293, i32 noundef %2353, ptr noundef %4, i32 noundef %2352, i32 noundef 7, i32 noundef 0) #2
-  %2355 = add i32 %2287, 69
-  %2356 = load i32, ptr @hf_dlmap_dl_pusc_burst_allocation_subchannel_offset, align 4
-  %2357 = tail call ptr @proto_tree_add_bits_item(ptr noundef %2293, i32 noundef %2356, ptr noundef %4, i32 noundef %2355, i32 noundef 6, i32 noundef 0) #2
-  %2358 = add i32 %2287, 75
-  %2359 = load i32, ptr @hf_dlmap_dl_pusc_burst_allocation_num_subchannels, align 4
-  %2360 = tail call ptr @proto_tree_add_bits_item(ptr noundef %2293, i32 noundef %2359, ptr noundef %4, i32 noundef %2358, i32 noundef 6, i32 noundef 0) #2
-  %2361 = add i32 %2287, 81
-  %2362 = load i32, ptr @hf_dlmap_reserved_uint, align 4
-  %2363 = tail call ptr @proto_tree_add_bits_item(ptr noundef %2293, i32 noundef %2362, ptr noundef %4, i32 noundef %2361, i32 noundef 7, i32 noundef 0) #2
-  %2364 = add i32 %2287, 88
-  %2365 = ashr exact i32 %2364, 2
+2284:                                             ; preds = %1755
+  %2285 = shl i32 %1734, 2
+  %2286 = sdiv i32 %1734, 2
+  %2287 = add nuw nsw i32 %1735, 1
+  %2288 = add nuw nsw i32 %2287, %1765
+  %2289 = lshr i32 %2288, 1
+  %2290 = load i32, ptr @ett_286b, align 4
+  %2291 = tail call ptr @proto_tree_add_subtree(ptr noundef %1764, ptr noundef %4, i32 noundef %2286, i32 noundef %2289, i32 noundef %2290, ptr noundef null, ptr noundef nonnull @.str.574) #2
+  %2292 = sdiv i32 %2285, 8
+  %2293 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %4, i32 noundef %2292) #2
+  %2294 = zext i16 %2293 to i32
+  %2295 = srem i32 %2285, 8
+  %2296 = sub nsw i32 12, %2295
+  %2297 = lshr i32 %2294, %2296
+  %2298 = and i32 %2297, 15
+  %2299 = load i32, ptr @hf_dlmap_ie_diuc_ext, align 4
+  %2300 = or disjoint i32 %2295, 3
+  %2301 = sdiv i32 %2300, 8
+  %2302 = add nuw nsw i32 %2301, 1
+  %2303 = tail call ptr @proto_tree_add_uint(ptr noundef %2291, i32 noundef %2299, ptr noundef %4, i32 noundef %2292, i32 noundef %2302, i32 noundef %2298) #2
+  %2304 = add i32 %2285, 4
+  %2305 = sdiv i32 %2304, 8
+  %2306 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %4, i32 noundef %2305) #2
+  %2307 = zext i16 %2306 to i32
+  %2308 = srem i32 %2304, 8
+  %2309 = sub nsw i32 12, %2308
+  %2310 = lshr i32 %2307, %2309
+  %2311 = and i32 %2310, 15
+  %2312 = load i32, ptr @hf_dlmap_ie_length, align 4
+  %2313 = or disjoint i32 %2308, 3
+  %2314 = sdiv i32 %2313, 8
+  %2315 = add nuw nsw i32 %2314, 1
+  %2316 = tail call ptr @proto_tree_add_uint(ptr noundef %2291, i32 noundef %2312, ptr noundef %4, i32 noundef %2305, i32 noundef %2315, i32 noundef %2311) #2
+  %2317 = add i32 %2285, 8
+  %2318 = load i32, ptr @hf_dlmap_dl_pusc_burst_allocation_cid, align 4
+  %2319 = tail call ptr @proto_tree_add_bits_item(ptr noundef %2291, i32 noundef %2318, ptr noundef %4, i32 noundef %2317, i32 noundef 16, i32 noundef 0) #2
+  %2320 = add i32 %2285, 24
+  %2321 = load i32, ptr @hf_dlmap_dl_pusc_burst_allocation_diuc, align 4
+  %2322 = tail call ptr @proto_tree_add_bits_item(ptr noundef %2291, i32 noundef %2321, ptr noundef %4, i32 noundef %2320, i32 noundef 4, i32 noundef 0) #2
+  %2323 = add i32 %2285, 28
+  %2324 = load i32, ptr @hf_dlmap_dl_pusc_burst_allocation_segment, align 4
+  %2325 = tail call ptr @proto_tree_add_bits_item(ptr noundef %2291, i32 noundef %2324, ptr noundef %4, i32 noundef %2323, i32 noundef 2, i32 noundef 0) #2
+  %2326 = add i32 %2285, 30
+  %2327 = load i32, ptr @hf_dlmap_dl_pusc_burst_allocation_boosting, align 4
+  %2328 = tail call ptr @proto_tree_add_bits_item(ptr noundef %2291, i32 noundef %2327, ptr noundef %4, i32 noundef %2326, i32 noundef 3, i32 noundef 0) #2
+  %2329 = add i32 %2285, 33
+  %2330 = load i32, ptr @hf_dlmap_dl_pusc_burst_allocation_idcell, align 4
+  %2331 = tail call ptr @proto_tree_add_bits_item(ptr noundef %2291, i32 noundef %2330, ptr noundef %4, i32 noundef %2329, i32 noundef 5, i32 noundef 0) #2
+  %2332 = add i32 %2285, 38
+  %2333 = load i32, ptr @hf_dlmap_dl_pusc_burst_allocation_dl_permbase, align 4
+  %2334 = tail call ptr @proto_tree_add_bits_item(ptr noundef %2291, i32 noundef %2333, ptr noundef %4, i32 noundef %2332, i32 noundef 5, i32 noundef 0) #2
+  %2335 = add i32 %2285, 43
+  %2336 = load i32, ptr @hf_dlmap_dl_pusc_burst_allocation_prbs_id, align 4
+  %2337 = tail call ptr @proto_tree_add_bits_item(ptr noundef %2291, i32 noundef %2336, ptr noundef %4, i32 noundef %2335, i32 noundef 2, i32 noundef 0) #2
+  %2338 = add i32 %2285, 45
+  %2339 = load i32, ptr @hf_dlmap_dl_pusc_burst_allocation_repetition_coding_indication, align 4
+  %2340 = tail call ptr @proto_tree_add_bits_item(ptr noundef %2291, i32 noundef %2339, ptr noundef %4, i32 noundef %2338, i32 noundef 2, i32 noundef 0) #2
+  %2341 = add i32 %2285, 47
+  %2342 = load i32, ptr @hf_dlmap_dl_pusc_burst_allocation_used_subchannels, align 4
+  %2343 = tail call ptr @proto_tree_add_bits_item(ptr noundef %2291, i32 noundef %2342, ptr noundef %4, i32 noundef %2341, i32 noundef 6, i32 noundef 0) #2
+  %2344 = add i32 %2285, 53
+  %2345 = load i32, ptr @hf_dlmap_dl_pusc_burst_allocation_ofdma_symbol_offset, align 4
+  %2346 = tail call ptr @proto_tree_add_bits_item(ptr noundef %2291, i32 noundef %2345, ptr noundef %4, i32 noundef %2344, i32 noundef 8, i32 noundef 0) #2
+  %2347 = add i32 %2285, 61
+  %2348 = load i32, ptr @hf_dlmap_reserved_uint, align 4
+  %2349 = tail call ptr @proto_tree_add_bits_item(ptr noundef %2291, i32 noundef %2348, ptr noundef %4, i32 noundef %2347, i32 noundef 1, i32 noundef 0) #2
+  %2350 = add i32 %2285, 62
+  %2351 = load i32, ptr @hf_dlmap_dl_pusc_burst_allocation_num_ofdma_symbols, align 4
+  %2352 = tail call ptr @proto_tree_add_bits_item(ptr noundef %2291, i32 noundef %2351, ptr noundef %4, i32 noundef %2350, i32 noundef 7, i32 noundef 0) #2
+  %2353 = add i32 %2285, 69
+  %2354 = load i32, ptr @hf_dlmap_dl_pusc_burst_allocation_subchannel_offset, align 4
+  %2355 = tail call ptr @proto_tree_add_bits_item(ptr noundef %2291, i32 noundef %2354, ptr noundef %4, i32 noundef %2353, i32 noundef 6, i32 noundef 0) #2
+  %2356 = add i32 %2285, 75
+  %2357 = load i32, ptr @hf_dlmap_dl_pusc_burst_allocation_num_subchannels, align 4
+  %2358 = tail call ptr @proto_tree_add_bits_item(ptr noundef %2291, i32 noundef %2357, ptr noundef %4, i32 noundef %2356, i32 noundef 6, i32 noundef 0) #2
+  %2359 = add i32 %2285, 81
+  %2360 = load i32, ptr @hf_dlmap_reserved_uint, align 4
+  %2361 = tail call ptr @proto_tree_add_bits_item(ptr noundef %2291, i32 noundef %2360, ptr noundef %4, i32 noundef %2359, i32 noundef 7, i32 noundef 0) #2
+  %2362 = add i32 %2285, 88
+  %2363 = ashr exact i32 %2362, 2
   br label %UL_interference_and_noise_level_IE.exit
 
-2366:                                             ; preds = %1757
-  %2367 = shl i32 %1736, 2
-  %2368 = sdiv i32 %1736, 2
-  %2369 = add nuw nsw i32 %1737, 1
-  %2370 = add nuw nsw i32 %2369, %1767
-  %2371 = lshr i32 %2370, 1
-  %2372 = load i32, ptr @ett_286z, align 4
-  %2373 = tail call ptr @proto_tree_add_subtree(ptr noundef %1766, ptr noundef %4, i32 noundef %2368, i32 noundef %2371, i32 noundef %2372, ptr noundef null, ptr noundef nonnull @.str.575) #2
-  %2374 = sdiv i32 %2367, 8
-  %2375 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %4, i32 noundef %2374) #2
-  %2376 = zext i16 %2375 to i32
-  %2377 = srem i32 %2367, 8
-  %2378 = sub nsw i32 12, %2377
-  %2379 = lshr i32 %2376, %2378
-  %2380 = and i32 %2379, 15
-  %2381 = load i32, ptr @hf_dlmap_ie_diuc_ext, align 4
-  %2382 = or disjoint i32 %2377, 3
-  %2383 = sdiv i32 %2382, 8
-  %2384 = add nuw nsw i32 %2383, 1
-  %2385 = tail call ptr @proto_tree_add_uint(ptr noundef %2373, i32 noundef %2381, ptr noundef %4, i32 noundef %2374, i32 noundef %2384, i32 noundef %2380) #2
-  %2386 = add i32 %2367, 4
-  %2387 = sdiv i32 %2386, 8
-  %2388 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %4, i32 noundef %2387) #2
-  %2389 = zext i16 %2388 to i32
-  %2390 = srem i32 %2386, 8
-  %2391 = sub nsw i32 12, %2390
-  %2392 = lshr i32 %2389, %2391
-  %2393 = and i32 %2392, 15
-  %2394 = load i32, ptr @hf_dlmap_ie_length, align 4
-  %2395 = or disjoint i32 %2390, 3
-  %2396 = sdiv i32 %2395, 8
-  %2397 = add nuw nsw i32 %2396, 1
-  %2398 = tail call ptr @proto_tree_add_uint(ptr noundef %2373, i32 noundef %2394, ptr noundef %4, i32 noundef %2387, i32 noundef %2397, i32 noundef %2393) #2
-  %2399 = add i32 %2367, 8
-  %2400 = load i32, ptr @hf_dlmap_pusc_asca_alloc_diuc, align 4
-  %2401 = tail call ptr @proto_tree_add_bits_item(ptr noundef %2373, i32 noundef %2400, ptr noundef %4, i32 noundef %2399, i32 noundef 4, i32 noundef 0) #2
-  %2402 = add i32 %2367, 12
-  %2403 = load i32, ptr @hf_dlmap_pusc_asca_alloc_short_basic_cid, align 4
-  %2404 = tail call ptr @proto_tree_add_bits_item(ptr noundef %2373, i32 noundef %2403, ptr noundef %4, i32 noundef %2402, i32 noundef 12, i32 noundef 0) #2
-  %2405 = add i32 %2367, 24
-  %2406 = load i32, ptr @hf_dlmap_pusc_asca_alloc_ofdma_symbol_offset, align 4
-  %2407 = tail call ptr @proto_tree_add_bits_item(ptr noundef %2373, i32 noundef %2406, ptr noundef %4, i32 noundef %2405, i32 noundef 8, i32 noundef 0) #2
-  %2408 = add i32 %2367, 32
-  %2409 = load i32, ptr @hf_dlmap_pusc_asca_alloc_subchannel_offset, align 4
-  %2410 = tail call ptr @proto_tree_add_bits_item(ptr noundef %2373, i32 noundef %2409, ptr noundef %4, i32 noundef %2408, i32 noundef 6, i32 noundef 0) #2
-  %2411 = add i32 %2367, 38
-  %2412 = load i32, ptr @hf_dlmap_pusc_asca_alloc_num_ofdma_symbols, align 4
-  %2413 = tail call ptr @proto_tree_add_bits_item(ptr noundef %2373, i32 noundef %2412, ptr noundef %4, i32 noundef %2411, i32 noundef 7, i32 noundef 0) #2
-  %2414 = add i32 %2367, 45
-  %2415 = load i32, ptr @hf_dlmap_pusc_asca_alloc_num_symbols, align 4
-  %2416 = tail call ptr @proto_tree_add_bits_item(ptr noundef %2373, i32 noundef %2415, ptr noundef %4, i32 noundef %2414, i32 noundef 6, i32 noundef 0) #2
-  %2417 = add i32 %2367, 51
-  %2418 = load i32, ptr @hf_dlmap_pusc_asca_alloc_repetition_coding_information, align 4
-  %2419 = tail call ptr @proto_tree_add_bits_item(ptr noundef %2373, i32 noundef %2418, ptr noundef %4, i32 noundef %2417, i32 noundef 2, i32 noundef 0) #2
-  %2420 = add i32 %2367, 53
-  %2421 = load i32, ptr @hf_dlmap_pusc_asca_alloc_permutation_id, align 4
-  %2422 = tail call ptr @proto_tree_add_bits_item(ptr noundef %2373, i32 noundef %2421, ptr noundef %4, i32 noundef %2420, i32 noundef 4, i32 noundef 0) #2
-  %2423 = add i32 %2367, 57
-  %2424 = load i32, ptr @hf_dlmap_reserved_uint, align 4
-  %2425 = tail call ptr @proto_tree_add_bits_item(ptr noundef %2373, i32 noundef %2424, ptr noundef %4, i32 noundef %2423, i32 noundef 7, i32 noundef 0) #2
-  %2426 = add i32 %2367, 64
-  %2427 = ashr exact i32 %2426, 2
+2364:                                             ; preds = %1755
+  %2365 = shl i32 %1734, 2
+  %2366 = sdiv i32 %1734, 2
+  %2367 = add nuw nsw i32 %1735, 1
+  %2368 = add nuw nsw i32 %2367, %1765
+  %2369 = lshr i32 %2368, 1
+  %2370 = load i32, ptr @ett_286z, align 4
+  %2371 = tail call ptr @proto_tree_add_subtree(ptr noundef %1764, ptr noundef %4, i32 noundef %2366, i32 noundef %2369, i32 noundef %2370, ptr noundef null, ptr noundef nonnull @.str.575) #2
+  %2372 = sdiv i32 %2365, 8
+  %2373 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %4, i32 noundef %2372) #2
+  %2374 = zext i16 %2373 to i32
+  %2375 = srem i32 %2365, 8
+  %2376 = sub nsw i32 12, %2375
+  %2377 = lshr i32 %2374, %2376
+  %2378 = and i32 %2377, 15
+  %2379 = load i32, ptr @hf_dlmap_ie_diuc_ext, align 4
+  %2380 = or disjoint i32 %2375, 3
+  %2381 = sdiv i32 %2380, 8
+  %2382 = add nuw nsw i32 %2381, 1
+  %2383 = tail call ptr @proto_tree_add_uint(ptr noundef %2371, i32 noundef %2379, ptr noundef %4, i32 noundef %2372, i32 noundef %2382, i32 noundef %2378) #2
+  %2384 = add i32 %2365, 4
+  %2385 = sdiv i32 %2384, 8
+  %2386 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %4, i32 noundef %2385) #2
+  %2387 = zext i16 %2386 to i32
+  %2388 = srem i32 %2384, 8
+  %2389 = sub nsw i32 12, %2388
+  %2390 = lshr i32 %2387, %2389
+  %2391 = and i32 %2390, 15
+  %2392 = load i32, ptr @hf_dlmap_ie_length, align 4
+  %2393 = or disjoint i32 %2388, 3
+  %2394 = sdiv i32 %2393, 8
+  %2395 = add nuw nsw i32 %2394, 1
+  %2396 = tail call ptr @proto_tree_add_uint(ptr noundef %2371, i32 noundef %2392, ptr noundef %4, i32 noundef %2385, i32 noundef %2395, i32 noundef %2391) #2
+  %2397 = add i32 %2365, 8
+  %2398 = load i32, ptr @hf_dlmap_pusc_asca_alloc_diuc, align 4
+  %2399 = tail call ptr @proto_tree_add_bits_item(ptr noundef %2371, i32 noundef %2398, ptr noundef %4, i32 noundef %2397, i32 noundef 4, i32 noundef 0) #2
+  %2400 = add i32 %2365, 12
+  %2401 = load i32, ptr @hf_dlmap_pusc_asca_alloc_short_basic_cid, align 4
+  %2402 = tail call ptr @proto_tree_add_bits_item(ptr noundef %2371, i32 noundef %2401, ptr noundef %4, i32 noundef %2400, i32 noundef 12, i32 noundef 0) #2
+  %2403 = add i32 %2365, 24
+  %2404 = load i32, ptr @hf_dlmap_pusc_asca_alloc_ofdma_symbol_offset, align 4
+  %2405 = tail call ptr @proto_tree_add_bits_item(ptr noundef %2371, i32 noundef %2404, ptr noundef %4, i32 noundef %2403, i32 noundef 8, i32 noundef 0) #2
+  %2406 = add i32 %2365, 32
+  %2407 = load i32, ptr @hf_dlmap_pusc_asca_alloc_subchannel_offset, align 4
+  %2408 = tail call ptr @proto_tree_add_bits_item(ptr noundef %2371, i32 noundef %2407, ptr noundef %4, i32 noundef %2406, i32 noundef 6, i32 noundef 0) #2
+  %2409 = add i32 %2365, 38
+  %2410 = load i32, ptr @hf_dlmap_pusc_asca_alloc_num_ofdma_symbols, align 4
+  %2411 = tail call ptr @proto_tree_add_bits_item(ptr noundef %2371, i32 noundef %2410, ptr noundef %4, i32 noundef %2409, i32 noundef 7, i32 noundef 0) #2
+  %2412 = add i32 %2365, 45
+  %2413 = load i32, ptr @hf_dlmap_pusc_asca_alloc_num_symbols, align 4
+  %2414 = tail call ptr @proto_tree_add_bits_item(ptr noundef %2371, i32 noundef %2413, ptr noundef %4, i32 noundef %2412, i32 noundef 6, i32 noundef 0) #2
+  %2415 = add i32 %2365, 51
+  %2416 = load i32, ptr @hf_dlmap_pusc_asca_alloc_repetition_coding_information, align 4
+  %2417 = tail call ptr @proto_tree_add_bits_item(ptr noundef %2371, i32 noundef %2416, ptr noundef %4, i32 noundef %2415, i32 noundef 2, i32 noundef 0) #2
+  %2418 = add i32 %2365, 53
+  %2419 = load i32, ptr @hf_dlmap_pusc_asca_alloc_permutation_id, align 4
+  %2420 = tail call ptr @proto_tree_add_bits_item(ptr noundef %2371, i32 noundef %2419, ptr noundef %4, i32 noundef %2418, i32 noundef 4, i32 noundef 0) #2
+  %2421 = add i32 %2365, 57
+  %2422 = load i32, ptr @hf_dlmap_reserved_uint, align 4
+  %2423 = tail call ptr @proto_tree_add_bits_item(ptr noundef %2371, i32 noundef %2422, ptr noundef %4, i32 noundef %2421, i32 noundef 7, i32 noundef 0) #2
+  %2424 = add i32 %2365, 64
+  %2425 = ashr exact i32 %2424, 2
   br label %UL_interference_and_noise_level_IE.exit
 
-2428:                                             ; preds = %1757
-  %2429 = sdiv i32 %1736, 2
-  %2430 = add nuw nsw i32 %1737, 1
-  %2431 = add nuw nsw i32 %2430, %1767
-  %2432 = lshr i32 %2431, 1
-  %2433 = load i32, ptr @ett_286h, align 4
-  %2434 = tail call ptr @proto_tree_add_subtree(ptr noundef %1766, ptr noundef %4, i32 noundef %2429, i32 noundef %2432, i32 noundef %2433, ptr noundef null, ptr noundef nonnull @.str.576) #2
-  %2435 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %4, i32 noundef %2429) #2
-  %2436 = and i8 %2435, 15
-  %2437 = lshr i8 %2435, 4
-  %.in.i374 = select i1 %.not302, i8 %2437, i8 %2436
-  %2438 = zext nneg i8 %.in.i374 to i32
-  %2439 = load i32, ptr @hf_dlmap_ie_diuc_ext, align 4
-  %2440 = tail call ptr @proto_tree_add_uint(ptr noundef %2434, i32 noundef %2439, ptr noundef %4, i32 noundef %2429, i32 noundef 1, i32 noundef %2438) #2
-  br i1 %.not302, label %2441, label %2445
+2426:                                             ; preds = %1755
+  %2427 = sdiv i32 %1734, 2
+  %2428 = add nuw nsw i32 %1735, 1
+  %2429 = add nuw nsw i32 %2428, %1765
+  %2430 = lshr i32 %2429, 1
+  %2431 = load i32, ptr @ett_286h, align 4
+  %2432 = tail call ptr @proto_tree_add_subtree(ptr noundef %1764, ptr noundef %4, i32 noundef %2427, i32 noundef %2430, i32 noundef %2431, ptr noundef null, ptr noundef nonnull @.str.576) #2
+  %2433 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %4, i32 noundef %2427) #2
+  %2434 = and i8 %2433, 15
+  %2435 = lshr i8 %2433, 4
+  %.in.i374 = select i1 %.not302, i8 %2435, i8 %2434
+  %2436 = zext nneg i8 %.in.i374 to i32
+  %2437 = load i32, ptr @hf_dlmap_ie_diuc_ext, align 4
+  %2438 = tail call ptr @proto_tree_add_uint(ptr noundef %2432, i32 noundef %2437, ptr noundef %4, i32 noundef %2427, i32 noundef 1, i32 noundef %2436) #2
+  br i1 %.not302, label %2439, label %2443
 
-2441:                                             ; preds = %2428
-  %2442 = sdiv i32 %1748, 2
-  %2443 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %4, i32 noundef %2442) #2
-  %2444 = and i8 %2443, 15
-  br label %2449
+2439:                                             ; preds = %2426
+  %2440 = sdiv i32 %1746, 2
+  %2441 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %4, i32 noundef %2440) #2
+  %2442 = and i8 %2441, 15
+  br label %2447
 
-2445:                                             ; preds = %2428
-  %2446 = ashr exact i32 %1748, 1
-  %2447 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %4, i32 noundef %2446) #2
-  %2448 = lshr i8 %2447, 4
-  br label %2449
+2443:                                             ; preds = %2426
+  %2444 = ashr exact i32 %1746, 1
+  %2445 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %4, i32 noundef %2444) #2
+  %2446 = lshr i8 %2445, 4
+  br label %2447
 
-2449:                                             ; preds = %2445, %2441
-  %.pre-phi.i376 = phi i32 [ %2446, %2445 ], [ %2442, %2441 ]
-  %.in136.i = phi i8 [ %2448, %2445 ], [ %2444, %2441 ]
-  %2450 = zext nneg i8 %.in136.i to i32
-  %2451 = load i32, ptr @hf_dlmap_ie_length, align 4
-  %2452 = tail call ptr @proto_tree_add_uint(ptr noundef %2434, i32 noundef %2451, ptr noundef %4, i32 noundef %.pre-phi.i376, i32 noundef 1, i32 noundef %2450) #2
-  %2453 = add i32 %2, 3
-  br i1 %.not302, label %2460, label %2454
+2447:                                             ; preds = %2443, %2439
+  %.pre-phi.i376 = phi i32 [ %2444, %2443 ], [ %2440, %2439 ]
+  %.in136.i = phi i8 [ %2446, %2443 ], [ %2442, %2439 ]
+  %2448 = zext nneg i8 %.in136.i to i32
+  %2449 = load i32, ptr @hf_dlmap_ie_length, align 4
+  %2450 = tail call ptr @proto_tree_add_uint(ptr noundef %2432, i32 noundef %2449, ptr noundef %4, i32 noundef %.pre-phi.i376, i32 noundef 1, i32 noundef %2448) #2
+  %2451 = add i32 %2, 3
+  br i1 %.not302, label %2458, label %2452
 
-2454:                                             ; preds = %2449
-  %2455 = sdiv i32 %2453, 2
-  %2456 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %4, i32 noundef %2455) #2
-  %2457 = lshr i16 %2456, 4
-  %2458 = and i16 %2457, 255
-  %2459 = zext nneg i16 %2458 to i32
-  br label %2464
+2452:                                             ; preds = %2447
+  %2453 = sdiv i32 %2451, 2
+  %2454 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %4, i32 noundef %2453) #2
+  %2455 = lshr i16 %2454, 4
+  %2456 = and i16 %2455, 255
+  %2457 = zext nneg i16 %2456 to i32
+  br label %2462
 
-2460:                                             ; preds = %2449
-  %2461 = ashr exact i32 %2453, 1
-  %2462 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %4, i32 noundef %2461) #2
-  %2463 = zext i8 %2462 to i32
-  br label %2464
+2458:                                             ; preds = %2447
+  %2459 = ashr exact i32 %2451, 1
+  %2460 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %4, i32 noundef %2459) #2
+  %2461 = zext i8 %2460 to i32
+  br label %2462
 
-2464:                                             ; preds = %2460, %2454
-  %.pre-phi155.i = phi i32 [ %2461, %2460 ], [ %2455, %2454 ]
-  %2465 = phi i32 [ %2463, %2460 ], [ %2459, %2454 ]
-  %2466 = load i32, ptr @hf_dlmap_ie_bitmap, align 4
-  %2467 = add nuw nsw i32 %1737, 3
-  %2468 = lshr i32 %2467, 1
-  %2469 = tail call ptr @proto_tree_add_uint(ptr noundef %2434, i32 noundef %2466, ptr noundef %4, i32 noundef %.pre-phi155.i, i32 noundef %2468, i32 noundef %2465) #2
-  %2470 = add i32 %2, 5
-  %2471 = and i32 %2465, 1
-  %.not138.i = icmp eq i32 %2471, 0
-  br i1 %.not138.i, label %2488, label %2472
+2462:                                             ; preds = %2458, %2452
+  %.pre-phi155.i = phi i32 [ %2459, %2458 ], [ %2453, %2452 ]
+  %2463 = phi i32 [ %2461, %2458 ], [ %2457, %2452 ]
+  %2464 = load i32, ptr @hf_dlmap_ie_bitmap, align 4
+  %2465 = add nuw nsw i32 %1735, 3
+  %2466 = lshr i32 %2465, 1
+  %2467 = tail call ptr @proto_tree_add_uint(ptr noundef %2432, i32 noundef %2464, ptr noundef %4, i32 noundef %.pre-phi155.i, i32 noundef %2466, i32 noundef %2463) #2
+  %2468 = add i32 %2, 5
+  %2469 = and i32 %2463, 1
+  %.not138.i = icmp eq i32 %2469, 0
+  br i1 %.not138.i, label %2486, label %2470
 
-2472:                                             ; preds = %2464
-  br i1 %.not302, label %2479, label %2473
+2470:                                             ; preds = %2462
+  br i1 %.not302, label %2477, label %2471
 
-2473:                                             ; preds = %2472
-  %2474 = sdiv i32 %2470, 2
-  %2475 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %4, i32 noundef %2474) #2
-  %2476 = lshr i16 %2475, 4
-  %2477 = and i16 %2476, 255
-  %2478 = zext nneg i16 %2477 to i32
-  br label %2483
+2471:                                             ; preds = %2470
+  %2472 = sdiv i32 %2468, 2
+  %2473 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %4, i32 noundef %2472) #2
+  %2474 = lshr i16 %2473, 4
+  %2475 = and i16 %2474, 255
+  %2476 = zext nneg i16 %2475 to i32
+  br label %2481
 
-2479:                                             ; preds = %2472
-  %2480 = ashr exact i32 %2470, 1
-  %2481 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %4, i32 noundef %2480) #2
-  %2482 = zext i8 %2481 to i32
-  br label %2483
+2477:                                             ; preds = %2470
+  %2478 = ashr exact i32 %2468, 1
+  %2479 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %4, i32 noundef %2478) #2
+  %2480 = zext i8 %2479 to i32
+  br label %2481
 
-2483:                                             ; preds = %2479, %2473
-  %.pre-phi171.i = phi i32 [ %2480, %2479 ], [ %2474, %2473 ]
-  %2484 = phi i32 [ %2482, %2479 ], [ %2478, %2473 ]
-  %2485 = load i32, ptr @hf_dlmap_ie_bitmap_cqi, align 4
-  %2486 = tail call ptr @proto_tree_add_uint(ptr noundef %2434, i32 noundef %2485, ptr noundef %4, i32 noundef %.pre-phi171.i, i32 noundef %2468, i32 noundef %2484) #2
-  %2487 = add i32 %2, 7
-  br label %2488
+2481:                                             ; preds = %2477, %2471
+  %.pre-phi171.i = phi i32 [ %2478, %2477 ], [ %2472, %2471 ]
+  %2482 = phi i32 [ %2480, %2477 ], [ %2476, %2471 ]
+  %2483 = load i32, ptr @hf_dlmap_ie_bitmap_cqi, align 4
+  %2484 = tail call ptr @proto_tree_add_uint(ptr noundef %2432, i32 noundef %2483, ptr noundef %4, i32 noundef %.pre-phi171.i, i32 noundef %2466, i32 noundef %2482) #2
+  %2485 = add i32 %2, 7
+  br label %2486
 
-2488:                                             ; preds = %2483, %2464
-  %.0.i377 = phi i32 [ %2487, %2483 ], [ %2470, %2464 ]
-  %2489 = and i32 %2465, 2
-  %.not140.i378 = icmp eq i32 %2489, 0
-  br i1 %.not140.i378, label %2509, label %2490
+2486:                                             ; preds = %2481, %2462
+  %.0.i377 = phi i32 [ %2485, %2481 ], [ %2468, %2462 ]
+  %2487 = and i32 %2463, 2
+  %.not140.i378 = icmp eq i32 %2487, 0
+  br i1 %.not140.i378, label %2507, label %2488
+
+2488:                                             ; preds = %2486
+  %2489 = and i32 %.0.i377, 1
+  %.not141.i379 = icmp eq i32 %2489, 0
+  br i1 %.not141.i379, label %2496, label %2490
 
 2490:                                             ; preds = %2488
-  %2491 = and i32 %.0.i377, 1
-  %.not141.i379 = icmp eq i32 %2491, 0
-  br i1 %.not141.i379, label %2498, label %2492
+  %2491 = sdiv i32 %.0.i377, 2
+  %2492 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %4, i32 noundef %2491) #2
+  %2493 = lshr i16 %2492, 4
+  %2494 = and i16 %2493, 255
+  %2495 = zext nneg i16 %2494 to i32
+  br label %2500
 
-2492:                                             ; preds = %2490
-  %2493 = sdiv i32 %.0.i377, 2
-  %2494 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %4, i32 noundef %2493) #2
-  %2495 = lshr i16 %2494, 4
-  %2496 = and i16 %2495, 255
-  %2497 = zext nneg i16 %2496 to i32
-  br label %2502
+2496:                                             ; preds = %2488
+  %2497 = ashr exact i32 %.0.i377, 1
+  %2498 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %4, i32 noundef %2497) #2
+  %2499 = zext i8 %2498 to i32
+  br label %2500
 
-2498:                                             ; preds = %2490
-  %2499 = ashr exact i32 %.0.i377, 1
-  %2500 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %4, i32 noundef %2499) #2
-  %2501 = zext i8 %2500 to i32
-  br label %2502
+2500:                                             ; preds = %2496, %2490
+  %.pre-phi169.i = phi i32 [ %2497, %2496 ], [ %2491, %2490 ]
+  %2501 = phi i32 [ %2499, %2496 ], [ %2495, %2490 ]
+  %2502 = load i32, ptr @hf_dlmap_ie_bitmap_pusc, align 4
+  %2503 = add nuw nsw i32 %2489, 3
+  %2504 = lshr i32 %2503, 1
+  %2505 = tail call ptr @proto_tree_add_uint(ptr noundef %2432, i32 noundef %2502, ptr noundef %4, i32 noundef %.pre-phi169.i, i32 noundef %2504, i32 noundef %2501) #2
+  %2506 = add i32 %.0.i377, 2
+  br label %2507
 
-2502:                                             ; preds = %2498, %2492
-  %.pre-phi169.i = phi i32 [ %2499, %2498 ], [ %2493, %2492 ]
-  %2503 = phi i32 [ %2501, %2498 ], [ %2497, %2492 ]
-  %2504 = load i32, ptr @hf_dlmap_ie_bitmap_pusc, align 4
-  %2505 = add nuw nsw i32 %2491, 3
-  %2506 = lshr i32 %2505, 1
-  %2507 = tail call ptr @proto_tree_add_uint(ptr noundef %2434, i32 noundef %2504, ptr noundef %4, i32 noundef %.pre-phi169.i, i32 noundef %2506, i32 noundef %2503) #2
-  %2508 = add i32 %.0.i377, 2
-  br label %2509
+2507:                                             ; preds = %2500, %2486
+  %.1.i380 = phi i32 [ %2506, %2500 ], [ %.0.i377, %2486 ]
+  %2508 = and i32 %2463, 4
+  %.not142.i381 = icmp eq i32 %2508, 0
+  br i1 %.not142.i381, label %2528, label %2509
 
-2509:                                             ; preds = %2502, %2488
-  %.1.i380 = phi i32 [ %2508, %2502 ], [ %.0.i377, %2488 ]
-  %2510 = and i32 %2465, 4
-  %.not142.i381 = icmp eq i32 %2510, 0
-  br i1 %.not142.i381, label %2530, label %2511
+2509:                                             ; preds = %2507
+  %2510 = and i32 %.1.i380, 1
+  %.not143.i = icmp eq i32 %2510, 0
+  br i1 %.not143.i, label %2517, label %2511
 
 2511:                                             ; preds = %2509
-  %2512 = and i32 %.1.i380, 1
-  %.not143.i = icmp eq i32 %2512, 0
-  br i1 %.not143.i, label %2519, label %2513
+  %2512 = sdiv i32 %.1.i380, 2
+  %2513 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %4, i32 noundef %2512) #2
+  %2514 = lshr i16 %2513, 4
+  %2515 = and i16 %2514, 255
+  %2516 = zext nneg i16 %2515 to i32
+  br label %2521
 
-2513:                                             ; preds = %2511
-  %2514 = sdiv i32 %.1.i380, 2
-  %2515 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %4, i32 noundef %2514) #2
-  %2516 = lshr i16 %2515, 4
-  %2517 = and i16 %2516, 255
-  %2518 = zext nneg i16 %2517 to i32
-  br label %2523
+2517:                                             ; preds = %2509
+  %2518 = ashr exact i32 %.1.i380, 1
+  %2519 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %4, i32 noundef %2518) #2
+  %2520 = zext i8 %2519 to i32
+  br label %2521
 
-2519:                                             ; preds = %2511
-  %2520 = ashr exact i32 %.1.i380, 1
-  %2521 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %4, i32 noundef %2520) #2
-  %2522 = zext i8 %2521 to i32
-  br label %2523
+2521:                                             ; preds = %2517, %2511
+  %.pre-phi167.i = phi i32 [ %2518, %2517 ], [ %2512, %2511 ]
+  %2522 = phi i32 [ %2520, %2517 ], [ %2516, %2511 ]
+  %2523 = load i32, ptr @hf_dlmap_ie_bitmap_opt_pusc, align 4
+  %2524 = add nuw nsw i32 %2510, 3
+  %2525 = lshr i32 %2524, 1
+  %2526 = tail call ptr @proto_tree_add_uint(ptr noundef %2432, i32 noundef %2523, ptr noundef %4, i32 noundef %.pre-phi167.i, i32 noundef %2525, i32 noundef %2522) #2
+  %2527 = add i32 %.1.i380, 2
+  br label %2528
 
-2523:                                             ; preds = %2519, %2513
-  %.pre-phi167.i = phi i32 [ %2520, %2519 ], [ %2514, %2513 ]
-  %2524 = phi i32 [ %2522, %2519 ], [ %2518, %2513 ]
-  %2525 = load i32, ptr @hf_dlmap_ie_bitmap_opt_pusc, align 4
-  %2526 = add nuw nsw i32 %2512, 3
-  %2527 = lshr i32 %2526, 1
-  %2528 = tail call ptr @proto_tree_add_uint(ptr noundef %2434, i32 noundef %2525, ptr noundef %4, i32 noundef %.pre-phi167.i, i32 noundef %2527, i32 noundef %2524) #2
-  %2529 = add i32 %.1.i380, 2
-  br label %2530
+2528:                                             ; preds = %2521, %2507
+  %.2.i382 = phi i32 [ %2527, %2521 ], [ %.1.i380, %2507 ]
+  %2529 = and i32 %2463, 8
+  %.not144.i = icmp eq i32 %2529, 0
+  br i1 %.not144.i, label %2549, label %2530
 
-2530:                                             ; preds = %2523, %2509
-  %.2.i382 = phi i32 [ %2529, %2523 ], [ %.1.i380, %2509 ]
-  %2531 = and i32 %2465, 8
-  %.not144.i = icmp eq i32 %2531, 0
-  br i1 %.not144.i, label %2551, label %2532
+2530:                                             ; preds = %2528
+  %2531 = and i32 %.2.i382, 1
+  %.not145.i = icmp eq i32 %2531, 0
+  br i1 %.not145.i, label %2538, label %2532
 
 2532:                                             ; preds = %2530
-  %2533 = and i32 %.2.i382, 1
-  %.not145.i = icmp eq i32 %2533, 0
-  br i1 %.not145.i, label %2540, label %2534
+  %2533 = sdiv i32 %.2.i382, 2
+  %2534 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %4, i32 noundef %2533) #2
+  %2535 = lshr i16 %2534, 4
+  %2536 = and i16 %2535, 255
+  %2537 = zext nneg i16 %2536 to i32
+  br label %2542
 
-2534:                                             ; preds = %2532
-  %2535 = sdiv i32 %.2.i382, 2
-  %2536 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %4, i32 noundef %2535) #2
-  %2537 = lshr i16 %2536, 4
-  %2538 = and i16 %2537, 255
-  %2539 = zext nneg i16 %2538 to i32
-  br label %2544
+2538:                                             ; preds = %2530
+  %2539 = ashr exact i32 %.2.i382, 1
+  %2540 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %4, i32 noundef %2539) #2
+  %2541 = zext i8 %2540 to i32
+  br label %2542
 
-2540:                                             ; preds = %2532
-  %2541 = ashr exact i32 %.2.i382, 1
-  %2542 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %4, i32 noundef %2541) #2
-  %2543 = zext i8 %2542 to i32
-  br label %2544
+2542:                                             ; preds = %2538, %2532
+  %.pre-phi165.i = phi i32 [ %2539, %2538 ], [ %2533, %2532 ]
+  %2543 = phi i32 [ %2541, %2538 ], [ %2537, %2532 ]
+  %2544 = load i32, ptr @hf_dlmap_ie_bitmap_amc, align 4
+  %2545 = add nuw nsw i32 %2531, 3
+  %2546 = lshr i32 %2545, 1
+  %2547 = tail call ptr @proto_tree_add_uint(ptr noundef %2432, i32 noundef %2544, ptr noundef %4, i32 noundef %.pre-phi165.i, i32 noundef %2546, i32 noundef %2543) #2
+  %2548 = add i32 %.2.i382, 2
+  br label %2549
 
-2544:                                             ; preds = %2540, %2534
-  %.pre-phi165.i = phi i32 [ %2541, %2540 ], [ %2535, %2534 ]
-  %2545 = phi i32 [ %2543, %2540 ], [ %2539, %2534 ]
-  %2546 = load i32, ptr @hf_dlmap_ie_bitmap_amc, align 4
-  %2547 = add nuw nsw i32 %2533, 3
-  %2548 = lshr i32 %2547, 1
-  %2549 = tail call ptr @proto_tree_add_uint(ptr noundef %2434, i32 noundef %2546, ptr noundef %4, i32 noundef %.pre-phi165.i, i32 noundef %2548, i32 noundef %2545) #2
-  %2550 = add i32 %.2.i382, 2
-  br label %2551
+2549:                                             ; preds = %2542, %2528
+  %.3.i383 = phi i32 [ %2548, %2542 ], [ %.2.i382, %2528 ]
+  %2550 = and i32 %2463, 16
+  %.not146.i = icmp eq i32 %2550, 0
+  br i1 %.not146.i, label %2570, label %2551
 
-2551:                                             ; preds = %2544, %2530
-  %.3.i383 = phi i32 [ %2550, %2544 ], [ %.2.i382, %2530 ]
-  %2552 = and i32 %2465, 16
-  %.not146.i = icmp eq i32 %2552, 0
-  br i1 %.not146.i, label %2572, label %2553
+2551:                                             ; preds = %2549
+  %2552 = and i32 %.3.i383, 1
+  %.not147.i = icmp eq i32 %2552, 0
+  br i1 %.not147.i, label %2559, label %2553
 
 2553:                                             ; preds = %2551
-  %2554 = and i32 %.3.i383, 1
-  %.not147.i = icmp eq i32 %2554, 0
-  br i1 %.not147.i, label %2561, label %2555
+  %2554 = sdiv i32 %.3.i383, 2
+  %2555 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %4, i32 noundef %2554) #2
+  %2556 = lshr i16 %2555, 4
+  %2557 = and i16 %2556, 255
+  %2558 = zext nneg i16 %2557 to i32
+  br label %2563
 
-2555:                                             ; preds = %2553
-  %2556 = sdiv i32 %.3.i383, 2
-  %2557 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %4, i32 noundef %2556) #2
-  %2558 = lshr i16 %2557, 4
-  %2559 = and i16 %2558, 255
-  %2560 = zext nneg i16 %2559 to i32
-  br label %2565
+2559:                                             ; preds = %2551
+  %2560 = ashr exact i32 %.3.i383, 1
+  %2561 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %4, i32 noundef %2560) #2
+  %2562 = zext i8 %2561 to i32
+  br label %2563
 
-2561:                                             ; preds = %2553
-  %2562 = ashr exact i32 %.3.i383, 1
-  %2563 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %4, i32 noundef %2562) #2
-  %2564 = zext i8 %2563 to i32
-  br label %2565
+2563:                                             ; preds = %2559, %2553
+  %.pre-phi163.i = phi i32 [ %2560, %2559 ], [ %2554, %2553 ]
+  %2564 = phi i32 [ %2562, %2559 ], [ %2558, %2553 ]
+  %2565 = load i32, ptr @hf_dlmap_ie_bitmap_aas, align 4
+  %2566 = add nuw nsw i32 %2552, 3
+  %2567 = lshr i32 %2566, 1
+  %2568 = tail call ptr @proto_tree_add_uint(ptr noundef %2432, i32 noundef %2565, ptr noundef %4, i32 noundef %.pre-phi163.i, i32 noundef %2567, i32 noundef %2564) #2
+  %2569 = add i32 %.3.i383, 2
+  br label %2570
 
-2565:                                             ; preds = %2561, %2555
-  %.pre-phi163.i = phi i32 [ %2562, %2561 ], [ %2556, %2555 ]
-  %2566 = phi i32 [ %2564, %2561 ], [ %2560, %2555 ]
-  %2567 = load i32, ptr @hf_dlmap_ie_bitmap_aas, align 4
-  %2568 = add nuw nsw i32 %2554, 3
-  %2569 = lshr i32 %2568, 1
-  %2570 = tail call ptr @proto_tree_add_uint(ptr noundef %2434, i32 noundef %2567, ptr noundef %4, i32 noundef %.pre-phi163.i, i32 noundef %2569, i32 noundef %2566) #2
-  %2571 = add i32 %.3.i383, 2
-  br label %2572
+2570:                                             ; preds = %2563, %2549
+  %.4.i384 = phi i32 [ %2569, %2563 ], [ %.3.i383, %2549 ]
+  %2571 = and i32 %2463, 32
+  %.not148.i = icmp eq i32 %2571, 0
+  br i1 %.not148.i, label %2591, label %2572
 
-2572:                                             ; preds = %2565, %2551
-  %.4.i384 = phi i32 [ %2571, %2565 ], [ %.3.i383, %2551 ]
-  %2573 = and i32 %2465, 32
-  %.not148.i = icmp eq i32 %2573, 0
-  br i1 %.not148.i, label %2593, label %2574
+2572:                                             ; preds = %2570
+  %2573 = and i32 %.4.i384, 1
+  %.not149.i = icmp eq i32 %2573, 0
+  br i1 %.not149.i, label %2580, label %2574
 
 2574:                                             ; preds = %2572
-  %2575 = and i32 %.4.i384, 1
-  %.not149.i = icmp eq i32 %2575, 0
-  br i1 %.not149.i, label %2582, label %2576
+  %2575 = sdiv i32 %.4.i384, 2
+  %2576 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %4, i32 noundef %2575) #2
+  %2577 = lshr i16 %2576, 4
+  %2578 = and i16 %2577, 255
+  %2579 = zext nneg i16 %2578 to i32
+  br label %2584
 
-2576:                                             ; preds = %2574
-  %2577 = sdiv i32 %.4.i384, 2
-  %2578 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %4, i32 noundef %2577) #2
-  %2579 = lshr i16 %2578, 4
-  %2580 = and i16 %2579, 255
-  %2581 = zext nneg i16 %2580 to i32
-  br label %2586
+2580:                                             ; preds = %2572
+  %2581 = ashr exact i32 %.4.i384, 1
+  %2582 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %4, i32 noundef %2581) #2
+  %2583 = zext i8 %2582 to i32
+  br label %2584
 
-2582:                                             ; preds = %2574
-  %2583 = ashr exact i32 %.4.i384, 1
-  %2584 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %4, i32 noundef %2583) #2
-  %2585 = zext i8 %2584 to i32
-  br label %2586
+2584:                                             ; preds = %2580, %2574
+  %.pre-phi161.i = phi i32 [ %2581, %2580 ], [ %2575, %2574 ]
+  %2585 = phi i32 [ %2583, %2580 ], [ %2579, %2574 ]
+  %2586 = load i32, ptr @hf_dlmap_ie_bitmap_periodic_ranging, align 4
+  %2587 = add nuw nsw i32 %2573, 3
+  %2588 = lshr i32 %2587, 1
+  %2589 = tail call ptr @proto_tree_add_uint(ptr noundef %2432, i32 noundef %2586, ptr noundef %4, i32 noundef %.pre-phi161.i, i32 noundef %2588, i32 noundef %2585) #2
+  %2590 = add i32 %.4.i384, 2
+  br label %2591
 
-2586:                                             ; preds = %2582, %2576
-  %.pre-phi161.i = phi i32 [ %2583, %2582 ], [ %2577, %2576 ]
-  %2587 = phi i32 [ %2585, %2582 ], [ %2581, %2576 ]
-  %2588 = load i32, ptr @hf_dlmap_ie_bitmap_periodic_ranging, align 4
-  %2589 = add nuw nsw i32 %2575, 3
-  %2590 = lshr i32 %2589, 1
-  %2591 = tail call ptr @proto_tree_add_uint(ptr noundef %2434, i32 noundef %2588, ptr noundef %4, i32 noundef %.pre-phi161.i, i32 noundef %2590, i32 noundef %2587) #2
-  %2592 = add i32 %.4.i384, 2
-  br label %2593
+2591:                                             ; preds = %2584, %2570
+  %.5.i = phi i32 [ %2590, %2584 ], [ %.4.i384, %2570 ]
+  %2592 = and i32 %2463, 64
+  %.not150.i = icmp eq i32 %2592, 0
+  br i1 %.not150.i, label %2612, label %2593
 
-2593:                                             ; preds = %2586, %2572
-  %.5.i = phi i32 [ %2592, %2586 ], [ %.4.i384, %2572 ]
-  %2594 = and i32 %2465, 64
-  %.not150.i = icmp eq i32 %2594, 0
-  br i1 %.not150.i, label %2614, label %2595
+2593:                                             ; preds = %2591
+  %2594 = and i32 %.5.i, 1
+  %.not151.i = icmp eq i32 %2594, 0
+  br i1 %.not151.i, label %2601, label %2595
 
 2595:                                             ; preds = %2593
-  %2596 = and i32 %.5.i, 1
-  %.not151.i = icmp eq i32 %2596, 0
-  br i1 %.not151.i, label %2603, label %2597
+  %2596 = sdiv i32 %.5.i, 2
+  %2597 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %4, i32 noundef %2596) #2
+  %2598 = lshr i16 %2597, 4
+  %2599 = and i16 %2598, 255
+  %2600 = zext nneg i16 %2599 to i32
+  br label %2605
 
-2597:                                             ; preds = %2595
-  %2598 = sdiv i32 %.5.i, 2
-  %2599 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %4, i32 noundef %2598) #2
-  %2600 = lshr i16 %2599, 4
-  %2601 = and i16 %2600, 255
-  %2602 = zext nneg i16 %2601 to i32
-  br label %2607
+2601:                                             ; preds = %2593
+  %2602 = ashr exact i32 %.5.i, 1
+  %2603 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %4, i32 noundef %2602) #2
+  %2604 = zext i8 %2603 to i32
+  br label %2605
 
-2603:                                             ; preds = %2595
-  %2604 = ashr exact i32 %.5.i, 1
-  %2605 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %4, i32 noundef %2604) #2
-  %2606 = zext i8 %2605 to i32
-  br label %2607
+2605:                                             ; preds = %2601, %2595
+  %.pre-phi159.i = phi i32 [ %2602, %2601 ], [ %2596, %2595 ]
+  %2606 = phi i32 [ %2604, %2601 ], [ %2600, %2595 ]
+  %2607 = load i32, ptr @hf_dlmap_ie_bitmap_sounding, align 4
+  %2608 = add nuw nsw i32 %2594, 3
+  %2609 = lshr i32 %2608, 1
+  %2610 = tail call ptr @proto_tree_add_uint(ptr noundef %2432, i32 noundef %2607, ptr noundef %4, i32 noundef %.pre-phi159.i, i32 noundef %2609, i32 noundef %2606) #2
+  %2611 = add i32 %.5.i, 2
+  br label %2612
 
-2607:                                             ; preds = %2603, %2597
-  %.pre-phi159.i = phi i32 [ %2604, %2603 ], [ %2598, %2597 ]
-  %2608 = phi i32 [ %2606, %2603 ], [ %2602, %2597 ]
-  %2609 = load i32, ptr @hf_dlmap_ie_bitmap_sounding, align 4
-  %2610 = add nuw nsw i32 %2596, 3
-  %2611 = lshr i32 %2610, 1
-  %2612 = tail call ptr @proto_tree_add_uint(ptr noundef %2434, i32 noundef %2609, ptr noundef %4, i32 noundef %.pre-phi159.i, i32 noundef %2611, i32 noundef %2608) #2
-  %2613 = add i32 %.5.i, 2
-  br label %2614
+2612:                                             ; preds = %2605, %2591
+  %.6.i = phi i32 [ %2611, %2605 ], [ %.5.i, %2591 ]
+  %2613 = and i32 %2463, 128
+  %.not152.i = icmp eq i32 %2613, 0
+  br i1 %.not152.i, label %UL_interference_and_noise_level_IE.exit, label %2614
 
-2614:                                             ; preds = %2607, %2593
-  %.6.i = phi i32 [ %2613, %2607 ], [ %.5.i, %2593 ]
-  %2615 = and i32 %2465, 128
-  %.not152.i = icmp eq i32 %2615, 0
-  br i1 %.not152.i, label %UL_interference_and_noise_level_IE.exit, label %2616
+2614:                                             ; preds = %2612
+  %2615 = and i32 %.6.i, 1
+  %.not153.i385 = icmp eq i32 %2615, 0
+  br i1 %.not153.i385, label %2622, label %2616
 
 2616:                                             ; preds = %2614
-  %2617 = and i32 %.6.i, 1
-  %.not153.i385 = icmp eq i32 %2617, 0
-  br i1 %.not153.i385, label %2624, label %2618
+  %2617 = sdiv i32 %.6.i, 2
+  %2618 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %4, i32 noundef %2617) #2
+  %2619 = lshr i16 %2618, 4
+  %2620 = and i16 %2619, 255
+  %2621 = zext nneg i16 %2620 to i32
+  br label %2626
 
-2618:                                             ; preds = %2616
-  %2619 = sdiv i32 %.6.i, 2
-  %2620 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %4, i32 noundef %2619) #2
-  %2621 = lshr i16 %2620, 4
-  %2622 = and i16 %2621, 255
-  %2623 = zext nneg i16 %2622 to i32
-  br label %2628
+2622:                                             ; preds = %2614
+  %2623 = ashr exact i32 %.6.i, 1
+  %2624 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %4, i32 noundef %2623) #2
+  %2625 = zext i8 %2624 to i32
+  br label %2626
 
-2624:                                             ; preds = %2616
-  %2625 = ashr exact i32 %.6.i, 1
-  %2626 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %4, i32 noundef %2625) #2
-  %2627 = zext i8 %2626 to i32
-  br label %2628
-
-2628:                                             ; preds = %2624, %2618
-  %.pre-phi157.i = phi i32 [ %2625, %2624 ], [ %2619, %2618 ]
-  %2629 = phi i32 [ %2627, %2624 ], [ %2623, %2618 ]
-  %2630 = load i32, ptr @hf_dlmap_ie_bitmap_mimo, align 4
-  %2631 = add nuw nsw i32 %2617, 3
-  %2632 = lshr i32 %2631, 1
-  %2633 = tail call ptr @proto_tree_add_uint(ptr noundef %2434, i32 noundef %2630, ptr noundef %4, i32 noundef %.pre-phi157.i, i32 noundef %2632, i32 noundef %2629) #2
-  %2634 = add i32 %.6.i, 2
+2626:                                             ; preds = %2622, %2616
+  %.pre-phi157.i = phi i32 [ %2623, %2622 ], [ %2617, %2616 ]
+  %2627 = phi i32 [ %2625, %2622 ], [ %2621, %2616 ]
+  %2628 = load i32, ptr @hf_dlmap_ie_bitmap_mimo, align 4
+  %2629 = add nuw nsw i32 %2615, 3
+  %2630 = lshr i32 %2629, 1
+  %2631 = tail call ptr @proto_tree_add_uint(ptr noundef %2432, i32 noundef %2628, ptr noundef %4, i32 noundef %.pre-phi157.i, i32 noundef %2630, i32 noundef %2627) #2
+  %2632 = add i32 %.6.i, 2
   br label %UL_interference_and_noise_level_IE.exit
 
-2635:                                             ; preds = %1757
-  %2636 = load i32, ptr @hf_dlmap_ie_reserved_extended_duic, align 4
-  %2637 = sdiv i32 %1736, 2
-  %2638 = add nuw nsw i32 %1737, 1
-  %2639 = add nuw nsw i32 %2638, %1767
-  %2640 = lshr i32 %2639, 1
-  %2641 = tail call ptr (ptr, i32, ptr, i32, i32, ptr, ptr, ...) @proto_tree_add_bytes_format(ptr noundef %1766, i32 noundef %2636, ptr noundef %4, i32 noundef %2637, i32 noundef %2640, ptr noundef null, ptr noundef nonnull @.str.536, i32 noundef %1747) #2
-  %2642 = add i32 %1767, %1736
+2633:                                             ; preds = %1755
+  %2634 = load i32, ptr @hf_dlmap_ie_reserved_extended_duic, align 4
+  %2635 = sdiv i32 %1734, 2
+  %2636 = add nuw nsw i32 %1735, 1
+  %2637 = add nuw nsw i32 %2636, %1765
+  %2638 = lshr i32 %2637, 1
+  %2639 = tail call ptr (ptr, i32, ptr, i32, i32, ptr, ptr, ...) @proto_tree_add_bytes_format(ptr noundef %1764, i32 noundef %2634, ptr noundef %4, i32 noundef %2635, i32 noundef %2638, ptr noundef null, ptr noundef nonnull @.str.536, i32 noundef %1745) #2
+  %2640 = add i32 %1765, %1734
   br label %UL_interference_and_noise_level_IE.exit
 
-2643:                                             ; preds = %15
-  %2644 = load i32, ptr @INC_CID, align 4
-  %2645 = icmp eq i32 %2644, 0
-  %2646 = load i32, ptr @sub_dl_ul_map, align 4
-  %2647 = icmp ne i32 %2646, 0
-  %or.cond = select i1 %2645, i1 true, i1 %2647
+2641:                                             ; preds = %15
+  %2642 = load i32, ptr @INC_CID, align 4
+  %2643 = icmp eq i32 %2642, 0
+  %2644 = load i32, ptr @sub_dl_ul_map, align 4
+  %2645 = icmp ne i32 %2644, 0
+  %or.cond = select i1 %2643, i1 true, i1 %2645
   %.pre431 = add i32 %2, 1
-  br i1 %or.cond, label %._crit_edge, label %2648
+  br i1 %or.cond, label %._crit_edge, label %2646
 
-2648:                                             ; preds = %2643
-  br i1 %.not, label %2649, label %2655
+2646:                                             ; preds = %2641
+  br i1 %.not, label %2647, label %2653
 
-2649:                                             ; preds = %2648
-  %2650 = sdiv i32 %.pre431, 2
-  %2651 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %4, i32 noundef %2650) #2
-  %2652 = lshr i16 %2651, 4
-  %2653 = and i16 %2652, 255
-  %2654 = zext nneg i16 %2653 to i32
-  br label %2660
+2647:                                             ; preds = %2646
+  %2648 = sdiv i32 %.pre431, 2
+  %2649 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %4, i32 noundef %2648) #2
+  %2650 = lshr i16 %2649, 4
+  %2651 = and i16 %2650, 255
+  %2652 = zext nneg i16 %2651 to i32
+  br label %2658
 
-2655:                                             ; preds = %2648
-  %2656 = ashr exact i32 %.pre431, 1
-  %2657 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %4, i32 noundef %2656) #2
-  %2658 = zext i8 %2657 to i32
-  %2659 = shl nuw nsw i32 %2658, 2
-  br label %2660
+2653:                                             ; preds = %2646
+  %2654 = ashr exact i32 %.pre431, 1
+  %2655 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %4, i32 noundef %2654) #2
+  %2656 = zext i8 %2655 to i32
+  %2657 = shl nuw nsw i32 %2656, 2
+  br label %2658
 
-2660:                                             ; preds = %2655, %2649
-  %2661 = phi i32 [ %2654, %2649 ], [ %2659, %2655 ]
-  %2662 = add nuw nsw i32 %2661, 11
+2658:                                             ; preds = %2653, %2647
+  %2659 = phi i32 [ %2652, %2647 ], [ %2657, %2653 ]
+  %2660 = add nuw nsw i32 %2659, 11
   br label %._crit_edge
 
-._crit_edge:                                      ; preds = %2643, %2660
-  %.0 = phi i32 [ %2662, %2660 ], [ 9, %2643 ]
-  %2663 = load i32, ptr @hf_dlmap_ie_diuc, align 4
-  %2664 = sdiv i32 %2, 2
-  %2665 = add nuw nsw i32 %6, 1
-  %2666 = add nuw nsw i32 %2665, %.0
-  %2667 = lshr i32 %2666, 1
-  %2668 = tail call ptr @proto_tree_add_uint(ptr noundef %0, i32 noundef %2663, ptr noundef %4, i32 noundef %2664, i32 noundef %2667, i32 noundef %16) #2
-  %2669 = load i32, ptr @ett_275_1, align 4
-  %2670 = tail call ptr @proto_item_add_subtree(ptr noundef %2668, i32 noundef %2669) #2
-  %2671 = icmp eq i8 %.in, 13
-  br i1 %2671, label %2672, label %2673
+._crit_edge:                                      ; preds = %2641, %2658
+  %.0 = phi i32 [ %2660, %2658 ], [ 9, %2641 ]
+  %2661 = load i32, ptr @hf_dlmap_ie_diuc, align 4
+  %2662 = sdiv i32 %2, 2
+  %2663 = add nuw nsw i32 %6, 1
+  %2664 = add nuw nsw i32 %2663, %.0
+  %2665 = lshr i32 %2664, 1
+  %2666 = tail call ptr @proto_tree_add_uint(ptr noundef %0, i32 noundef %2661, ptr noundef %4, i32 noundef %2662, i32 noundef %2665, i32 noundef %16) #2
+  %2667 = load i32, ptr @ett_275_1, align 4
+  %2668 = tail call ptr @proto_item_add_subtree(ptr noundef %2666, i32 noundef %2667) #2
+  %2669 = icmp eq i8 %.in, 13
+  br i1 %2669, label %2670, label %2671
 
-2672:                                             ; preds = %._crit_edge
-  tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %2668, ptr noundef nonnull @.str.537) #2
-  br label %2673
+2670:                                             ; preds = %._crit_edge
+  tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %2666, ptr noundef nonnull @.str.537) #2
+  br label %2671
 
-2673:                                             ; preds = %2672, %._crit_edge
-  %2674 = load i32, ptr @INC_CID, align 4
-  %.not297 = icmp eq i32 %2674, 0
-  br i1 %.not297, label %.loopexit, label %2675
+2671:                                             ; preds = %2670, %._crit_edge
+  %2672 = load i32, ptr @INC_CID, align 4
+  %.not297 = icmp eq i32 %2672, 0
+  br i1 %.not297, label %.loopexit, label %2673
+
+2673:                                             ; preds = %2671
+  %2674 = and i32 %.pre431, 1
+  %.not298 = icmp eq i32 %2674, 0
+  br i1 %.not298, label %2681, label %2675
 
 2675:                                             ; preds = %2673
-  %2676 = and i32 %.pre431, 1
-  %.not298 = icmp eq i32 %2676, 0
-  br i1 %.not298, label %2683, label %2677
+  %2676 = sdiv i32 %.pre431, 2
+  %2677 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %4, i32 noundef %2676) #2
+  %2678 = lshr i16 %2677, 4
+  %2679 = and i16 %2678, 255
+  %2680 = zext nneg i16 %2679 to i32
+  br label %2685
 
-2677:                                             ; preds = %2675
-  %2678 = sdiv i32 %.pre431, 2
-  %2679 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %4, i32 noundef %2678) #2
-  %2680 = lshr i16 %2679, 4
-  %2681 = and i16 %2680, 255
-  %2682 = zext nneg i16 %2681 to i32
-  br label %2687
-
-2683:                                             ; preds = %2675
-  %2684 = ashr exact i32 %.pre431, 1
-  %2685 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %4, i32 noundef %2684) #2
-  %2686 = zext i8 %2685 to i32
+2681:                                             ; preds = %2673
+  %2682 = ashr exact i32 %.pre431, 1
+  %2683 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %4, i32 noundef %2682) #2
+  %2684 = zext i8 %2683 to i32
   %.pre427 = ashr exact i32 %.pre431, 1
-  br label %2687
+  br label %2685
 
-2687:                                             ; preds = %2683, %2677
-  %.pre-phi428 = phi i32 [ %.pre427, %2683 ], [ %2678, %2677 ]
-  %2688 = phi i32 [ %2686, %2683 ], [ %2682, %2677 ]
-  %2689 = load i32, ptr @hf_dlmap_ie_ncid, align 4
-  %2690 = add nuw nsw i32 %2676, 3
-  %2691 = lshr i32 %2690, 1
-  %2692 = tail call ptr @proto_tree_add_uint(ptr noundef %2670, i32 noundef %2689, ptr noundef %4, i32 noundef %.pre-phi428, i32 noundef %2691, i32 noundef %2688) #2
-  %2693 = add i32 %2, 3
-  %.not407 = icmp eq i32 %2688, 0
+2685:                                             ; preds = %2681, %2675
+  %.pre-phi428 = phi i32 [ %.pre427, %2681 ], [ %2676, %2675 ]
+  %2686 = phi i32 [ %2684, %2681 ], [ %2680, %2675 ]
+  %2687 = load i32, ptr @hf_dlmap_ie_ncid, align 4
+  %2688 = add nuw nsw i32 %2674, 3
+  %2689 = lshr i32 %2688, 1
+  %2690 = tail call ptr @proto_tree_add_uint(ptr noundef %2668, i32 noundef %2687, ptr noundef %4, i32 noundef %.pre-phi428, i32 noundef %2689, i32 noundef %2686) #2
+  %2691 = add i32 %2, 3
+  %.not407 = icmp eq i32 %2686, 0
   br i1 %.not407, label %.loopexit, label %.lr.ph
 
-.lr.ph:                                           ; preds = %2687, %2717
-  %.0292406 = phi i32 [ %2718, %2717 ], [ 0, %2687 ]
-  %.0293405 = phi i32 [ %.1, %2717 ], [ %2693, %2687 ]
-  %2694 = load i32, ptr @sub_dl_ul_map, align 4
-  %.not300 = icmp eq i32 %2694, 0
-  br i1 %.not300, label %2700, label %2695
+.lr.ph:                                           ; preds = %2685, %2715
+  %.0292406 = phi i32 [ %2716, %2715 ], [ 0, %2685 ]
+  %.0293405 = phi i32 [ %.1, %2715 ], [ %2691, %2685 ]
+  %2692 = load i32, ptr @sub_dl_ul_map, align 4
+  %.not300 = icmp eq i32 %2692, 0
+  br i1 %.not300, label %2698, label %2693
 
-2695:                                             ; preds = %.lr.ph
-  %2696 = shl i32 %.0293405, 2
-  %2697 = load i32, ptr @RCID_Type, align 4
-  %2698 = tail call i32 @RCID_IE(ptr noundef %2670, i32 noundef %2696, i32 noundef %3, ptr noundef %4, i32 noundef %2697)
-  %2699 = sdiv i32 %2698, 4
-  br label %2717
+2693:                                             ; preds = %.lr.ph
+  %2694 = shl i32 %.0293405, 2
+  %2695 = load i32, ptr @RCID_Type, align 4
+  %2696 = tail call i32 @RCID_IE(ptr noundef %2668, i32 noundef %2694, i32 noundef %3, ptr noundef %4, i32 noundef %2695)
+  %2697 = sdiv i32 %2696, 4
+  br label %2715
 
-2700:                                             ; preds = %.lr.ph
-  %2701 = and i32 %.0293405, 1
-  %.not301 = icmp eq i32 %2701, 0
-  br i1 %.not301, label %2707, label %2702
+2698:                                             ; preds = %.lr.ph
+  %2699 = and i32 %.0293405, 1
+  %.not301 = icmp eq i32 %2699, 0
+  br i1 %.not301, label %2705, label %2700
 
-2702:                                             ; preds = %2700
-  %2703 = sdiv i32 %.0293405, 2
-  %2704 = tail call i32 @tvb_get_ntohl(ptr noundef %4, i32 noundef %2703) #2
-  %2705 = lshr i32 %2704, 12
-  %2706 = and i32 %2705, 65535
-  br label %2711
+2700:                                             ; preds = %2698
+  %2701 = sdiv i32 %.0293405, 2
+  %2702 = tail call i32 @tvb_get_ntohl(ptr noundef %4, i32 noundef %2701) #2
+  %2703 = lshr i32 %2702, 12
+  %2704 = and i32 %2703, 65535
+  br label %2709
 
-2707:                                             ; preds = %2700
-  %2708 = ashr exact i32 %.0293405, 1
-  %2709 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %4, i32 noundef %2708) #2
-  %2710 = zext i16 %2709 to i32
+2705:                                             ; preds = %2698
+  %2706 = ashr exact i32 %.0293405, 1
+  %2707 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %4, i32 noundef %2706) #2
+  %2708 = zext i16 %2707 to i32
   %.pre429 = ashr exact i32 %.0293405, 1
-  br label %2711
+  br label %2709
 
-2711:                                             ; preds = %2707, %2702
-  %.pre-phi430 = phi i32 [ %.pre429, %2707 ], [ %2703, %2702 ]
-  %2712 = phi i32 [ %2710, %2707 ], [ %2706, %2702 ]
-  %2713 = load i32, ptr @hf_dlmap_ie_cid, align 4
-  %2714 = add nuw nsw i32 %2701, 5
-  %2715 = lshr i32 %2714, 1
-  %2716 = tail call ptr @proto_tree_add_uint(ptr noundef %2670, i32 noundef %2713, ptr noundef %4, i32 noundef %.pre-phi430, i32 noundef %2715, i32 noundef %2712) #2
-  br label %2717
+2709:                                             ; preds = %2705, %2700
+  %.pre-phi430 = phi i32 [ %.pre429, %2705 ], [ %2701, %2700 ]
+  %2710 = phi i32 [ %2708, %2705 ], [ %2704, %2700 ]
+  %2711 = load i32, ptr @hf_dlmap_ie_cid, align 4
+  %2712 = add nuw nsw i32 %2699, 5
+  %2713 = lshr i32 %2712, 1
+  %2714 = tail call ptr @proto_tree_add_uint(ptr noundef %2668, i32 noundef %2711, ptr noundef %4, i32 noundef %.pre-phi430, i32 noundef %2713, i32 noundef %2710) #2
+  br label %2715
 
-2717:                                             ; preds = %2695, %2711
-  %.pn = phi i32 [ %2699, %2695 ], [ 4, %2711 ]
+2715:                                             ; preds = %2693, %2709
+  %.pn = phi i32 [ %2697, %2693 ], [ 4, %2709 ]
   %.1 = add i32 %.pn, %.0293405
-  %2718 = add nuw nsw i32 %.0292406, 1
-  %exitcond.not = icmp eq i32 %2718, %2688
+  %2716 = add nuw nsw i32 %.0292406, 1
+  %exitcond.not = icmp eq i32 %2716, %2686
   br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !22
 
-.loopexit:                                        ; preds = %2717, %2687, %2673
-  %.2 = phi i32 [ %.pre431, %2673 ], [ %2693, %2687 ], [ %.1, %2717 ]
-  %2719 = and i32 %.2, 1
-  %.not299 = icmp eq i32 %2719, 0
-  br i1 %.not299, label %2729, label %2720
+.loopexit:                                        ; preds = %2715, %2685, %2671
+  %.2 = phi i32 [ %.pre431, %2671 ], [ %2691, %2685 ], [ %.1, %2715 ]
+  %2717 = and i32 %.2, 1
+  %.not299 = icmp eq i32 %2717, 0
+  br i1 %.not299, label %2727, label %2718
 
-2720:                                             ; preds = %.loopexit
-  %2721 = sdiv i32 %.2, 2
-  %2722 = tail call i32 @tvb_get_ntohl(ptr noundef %4, i32 noundef %2721) #2
-  %2723 = shl i32 %2722, 4
-  %2724 = add nsw i32 %2721, 4
-  %2725 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %4, i32 noundef %2724) #2
-  %2726 = lshr i8 %2725, 4
-  %2727 = zext nneg i8 %2726 to i32
-  %2728 = or disjoint i32 %2723, %2727
-  br label %2732
+2718:                                             ; preds = %.loopexit
+  %2719 = sdiv i32 %.2, 2
+  %2720 = tail call i32 @tvb_get_ntohl(ptr noundef %4, i32 noundef %2719) #2
+  %2721 = shl i32 %2720, 4
+  %2722 = add nsw i32 %2719, 4
+  %2723 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %4, i32 noundef %2722) #2
+  %2724 = lshr i8 %2723, 4
+  %2725 = zext nneg i8 %2724 to i32
+  %2726 = or disjoint i32 %2721, %2725
+  br label %2730
 
-2729:                                             ; preds = %.loopexit
-  %2730 = ashr exact i32 %.2, 1
-  %2731 = tail call i32 @tvb_get_ntohl(ptr noundef %4, i32 noundef %2730) #2
+2727:                                             ; preds = %.loopexit
+  %2728 = ashr exact i32 %.2, 1
+  %2729 = tail call i32 @tvb_get_ntohl(ptr noundef %4, i32 noundef %2728) #2
   %.pre = ashr exact i32 %.2, 1
-  br label %2732
+  br label %2730
 
-2732:                                             ; preds = %2720, %2729
-  %.pre-phi = phi i32 [ %2721, %2720 ], [ %.pre, %2729 ]
-  %2733 = phi i32 [ %2728, %2720 ], [ %2731, %2729 ]
-  %2734 = load i32, ptr @hf_dlmap_ie_offsym, align 4
-  %2735 = add nuw nsw i32 %2719, 9
-  %2736 = lshr i32 %2735, 1
-  %2737 = tail call ptr @proto_tree_add_uint(ptr noundef %2670, i32 noundef %2734, ptr noundef %4, i32 noundef %.pre-phi, i32 noundef %2736, i32 noundef %2733) #2
-  %2738 = load i32, ptr @hf_dlmap_ie_offsub, align 4
-  %2739 = tail call ptr @proto_tree_add_uint(ptr noundef %2670, i32 noundef %2738, ptr noundef %4, i32 noundef %.pre-phi, i32 noundef %2736, i32 noundef %2733) #2
-  %2740 = load i32, ptr @hf_dlmap_ie_boosting, align 4
-  %2741 = tail call ptr @proto_tree_add_uint(ptr noundef %2670, i32 noundef %2740, ptr noundef %4, i32 noundef %.pre-phi, i32 noundef %2736, i32 noundef %2733) #2
-  %2742 = load i32, ptr @hf_dlmap_ie_numsym, align 4
-  %2743 = tail call ptr @proto_tree_add_uint(ptr noundef %2670, i32 noundef %2742, ptr noundef %4, i32 noundef %.pre-phi, i32 noundef %2736, i32 noundef %2733) #2
-  %2744 = load i32, ptr @hf_dlmap_ie_numsub, align 4
-  %2745 = tail call ptr @proto_tree_add_uint(ptr noundef %2670, i32 noundef %2744, ptr noundef %4, i32 noundef %.pre-phi, i32 noundef %2736, i32 noundef %2733) #2
-  %2746 = load i32, ptr @hf_dlmap_ie_rep, align 4
-  %2747 = tail call ptr @proto_tree_add_uint(ptr noundef %2670, i32 noundef %2746, ptr noundef %4, i32 noundef %.pre-phi, i32 noundef %2736, i32 noundef %2733) #2
-  %2748 = add i32 %.2, 8
+2730:                                             ; preds = %2718, %2727
+  %.pre-phi = phi i32 [ %2719, %2718 ], [ %.pre, %2727 ]
+  %2731 = phi i32 [ %2726, %2718 ], [ %2729, %2727 ]
+  %2732 = load i32, ptr @hf_dlmap_ie_offsym, align 4
+  %2733 = add nuw nsw i32 %2717, 9
+  %2734 = lshr i32 %2733, 1
+  %2735 = tail call ptr @proto_tree_add_uint(ptr noundef %2668, i32 noundef %2732, ptr noundef %4, i32 noundef %.pre-phi, i32 noundef %2734, i32 noundef %2731) #2
+  %2736 = load i32, ptr @hf_dlmap_ie_offsub, align 4
+  %2737 = tail call ptr @proto_tree_add_uint(ptr noundef %2668, i32 noundef %2736, ptr noundef %4, i32 noundef %.pre-phi, i32 noundef %2734, i32 noundef %2731) #2
+  %2738 = load i32, ptr @hf_dlmap_ie_boosting, align 4
+  %2739 = tail call ptr @proto_tree_add_uint(ptr noundef %2668, i32 noundef %2738, ptr noundef %4, i32 noundef %.pre-phi, i32 noundef %2734, i32 noundef %2731) #2
+  %2740 = load i32, ptr @hf_dlmap_ie_numsym, align 4
+  %2741 = tail call ptr @proto_tree_add_uint(ptr noundef %2668, i32 noundef %2740, ptr noundef %4, i32 noundef %.pre-phi, i32 noundef %2734, i32 noundef %2731) #2
+  %2742 = load i32, ptr @hf_dlmap_ie_numsub, align 4
+  %2743 = tail call ptr @proto_tree_add_uint(ptr noundef %2668, i32 noundef %2742, ptr noundef %4, i32 noundef %.pre-phi, i32 noundef %2734, i32 noundef %2731) #2
+  %2744 = load i32, ptr @hf_dlmap_ie_rep, align 4
+  %2745 = tail call ptr @proto_tree_add_uint(ptr noundef %2668, i32 noundef %2744, ptr noundef %4, i32 noundef %.pre-phi, i32 noundef %2734, i32 noundef %2731) #2
+  %2746 = add i32 %.2, 8
   br label %UL_interference_and_noise_level_IE.exit
 
-UL_interference_and_noise_level_IE.exit:          ; preds = %2628, %2614, %2732, %2635, %2366, %2286, %Broadcast_Control_Pointer_IE.exit, %2176, %HARQ_Map_Pointer_IE.exit, %CID_Switch_IE.exit, %1987, %1928, %1840, %Channel_Measurement_IE.exit, %MBS_MAP_IE.exit, %HO_Anchor_Active_DL_MAP_IE.exit, %HO_Active_Anchor_DL_MAP_IE.exit, %HO_CID_Translation_MAP_IE.exit, %MIMO_in_another_BS_IE.exit, %Macro_MIMO_DL_Basic_IE.exit, %358, %HARQ_DL_MAP_IE.exit, %HARQ_ACK_IE.exit, %Enhanced_DL_MAP_IE.exit, %Closed_loop_MIMO_DL_Enhanced_IE.exit, %MIMO_DL_Basic_IE.exit, %MIMO_DL_Enhanced_IE.exit, %AAS_SDMA_DL_IE.exit, %1727
-  %.3 = phi i32 [ %1734, %1727 ], [ %1726, %AAS_SDMA_DL_IE.exit ], [ %1495, %MIMO_DL_Enhanced_IE.exit ], [ %1462, %MIMO_DL_Basic_IE.exit ], [ %1428, %Closed_loop_MIMO_DL_Enhanced_IE.exit ], [ %1399, %Enhanced_DL_MAP_IE.exit ], [ %1325, %HARQ_ACK_IE.exit ], [ %1296, %HARQ_DL_MAP_IE.exit ], [ %388, %358 ], [ %352, %Macro_MIMO_DL_Basic_IE.exit ], [ %318, %MIMO_in_another_BS_IE.exit ], [ %284, %HO_CID_Translation_MAP_IE.exit ], [ %250, %HO_Active_Anchor_DL_MAP_IE.exit ], [ %216, %HO_Anchor_Active_DL_MAP_IE.exit ], [ %187, %MBS_MAP_IE.exit ], [ %2642, %2635 ], [ %2427, %2366 ], [ %2365, %2286 ], [ %2285, %Broadcast_Control_Pointer_IE.exit ], [ %2229, %2176 ], [ %2175, %HARQ_Map_Pointer_IE.exit ], [ %2087, %CID_Switch_IE.exit ], [ %2060, %1987 ], [ %1986, %1928 ], [ %1927, %1840 ], [ %1839, %Channel_Measurement_IE.exit ], [ %2748, %2732 ], [ %2634, %2628 ], [ %.6.i, %2614 ]
-  %2749 = sub i32 %.3, %2
-  ret i32 %2749
+UL_interference_and_noise_level_IE.exit:          ; preds = %2626, %2612, %2730, %2633, %2364, %2284, %Broadcast_Control_Pointer_IE.exit, %2174, %HARQ_Map_Pointer_IE.exit, %CID_Switch_IE.exit, %1985, %1926, %1838, %Channel_Measurement_IE.exit, %MBS_MAP_IE.exit, %HO_Anchor_Active_DL_MAP_IE.exit, %HO_Active_Anchor_DL_MAP_IE.exit, %HO_CID_Translation_MAP_IE.exit, %MIMO_in_another_BS_IE.exit, %Macro_MIMO_DL_Basic_IE.exit, %358, %HARQ_DL_MAP_IE.exit, %HARQ_ACK_IE.exit, %Enhanced_DL_MAP_IE.exit, %Closed_loop_MIMO_DL_Enhanced_IE.exit, %MIMO_DL_Basic_IE.exit, %MIMO_DL_Enhanced_IE.exit, %AAS_SDMA_DL_IE.exit, %1725
+  %.3 = phi i32 [ %1732, %1725 ], [ %1724, %AAS_SDMA_DL_IE.exit ], [ %1494, %MIMO_DL_Enhanced_IE.exit ], [ %1462, %MIMO_DL_Basic_IE.exit ], [ %1428, %Closed_loop_MIMO_DL_Enhanced_IE.exit ], [ %1399, %Enhanced_DL_MAP_IE.exit ], [ %1325, %HARQ_ACK_IE.exit ], [ %1296, %HARQ_DL_MAP_IE.exit ], [ %388, %358 ], [ %352, %Macro_MIMO_DL_Basic_IE.exit ], [ %318, %MIMO_in_another_BS_IE.exit ], [ %284, %HO_CID_Translation_MAP_IE.exit ], [ %250, %HO_Active_Anchor_DL_MAP_IE.exit ], [ %216, %HO_Anchor_Active_DL_MAP_IE.exit ], [ %187, %MBS_MAP_IE.exit ], [ %2640, %2633 ], [ %2425, %2364 ], [ %2363, %2284 ], [ %2283, %Broadcast_Control_Pointer_IE.exit ], [ %2227, %2174 ], [ %2173, %HARQ_Map_Pointer_IE.exit ], [ %2085, %CID_Switch_IE.exit ], [ %2058, %1985 ], [ %1984, %1926 ], [ %1925, %1838 ], [ %1837, %Channel_Measurement_IE.exit ], [ %2746, %2730 ], [ %2632, %2626 ], [ %.6.i, %2612 ]
+  %2747 = sub i32 %.3, %2
+  ret i32 %2747
 }
 
 declare ptr @proto_tree_add_bytes_format(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef, ptr noundef, ...) local_unnamed_addr #1
@@ -5035,7 +5033,7 @@ declare ptr @tvb_get_ptr(ptr noundef, i32 noundef, i32 noundef) local_unnamed_ad
 declare ptr @proto_tree_add_checksum(ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @wimax_decode_dlmap_reduced_aas(ptr noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 {
+define hidden noundef range(i32 -268435456, 268435456) i32 @wimax_decode_dlmap_reduced_aas(ptr noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = tail call i32 @tvb_reported_length(ptr noundef %0) #2
   %5 = load i32, ptr @proto_mac_mgmt_msg_dlmap_decoder, align 4
   %6 = tail call ptr (ptr, i32, ptr, i32, i32, ptr, ...) @proto_tree_add_protocol_format(ptr noundef %2, i32 noundef %5, ptr noundef %0, i32 noundef 0, i32 noundef %4, ptr noundef nonnull @.str.11) #2
@@ -5452,7 +5450,7 @@ declare void @dissector_add_uint(ptr noundef, i32 noundef, ptr noundef) local_un
 declare ptr @proto_tree_add_expert(ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @Dedicated_DL_Control_IE(ptr noundef %0, i32 noundef %1, ptr noundef %2) unnamed_addr #0 {
+define internal fastcc range(i32 1, 17) i32 @Dedicated_DL_Control_IE(ptr noundef %0, i32 noundef %1, ptr noundef %2) unnamed_addr #0 {
   %4 = and i32 %1, 1
   %.not = icmp eq i32 %4, 0
   br i1 %.not, label %9, label %5
@@ -5566,7 +5564,7 @@ define internal fastcc i32 @Dedicated_DL_Control_IE(ptr noundef %0, i32 noundef 
 73:                                               ; preds = %71
   %74 = load i32, ptr @hf_reserved, align 4
   %75 = sdiv i32 %39, 2
-  %76 = trunc i32 %4 to i8
+  %76 = trunc nuw nsw i32 %4 to i8
   %77 = add nsw i8 %76, -1
   %.lhs.trunc = add nsw i8 %77, %.in67
   %78 = lshr i8 %.lhs.trunc, 1
@@ -5765,7 +5763,7 @@ define internal fastcc i32 @Dedicated_MIMO_DL_Control_IE(ptr noundef %0, i32 nou
   %130 = sdiv i32 %.4, 8
   %131 = srem i32 %.4, 8
   %132 = add nsw i32 %128, %131
-  %133 = trunc i32 %132 to i8
+  %133 = trunc nsw i32 %132 to i8
   %.lhs.trunc = add nsw i8 %133, -1
   %134 = sdiv i8 %.lhs.trunc, 8
   %narrow = add nuw nsw i8 %134, 1
