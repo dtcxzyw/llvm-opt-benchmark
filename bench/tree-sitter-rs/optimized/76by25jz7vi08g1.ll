@@ -48603,13 +48603,13 @@ define hidden noundef zeroext i1 @_ZN15tree_sitter_cli8generate5rules8TokenSet8i
   %2 = getelementptr inbounds i8, ptr %0, i64 16
   %3 = load i8, ptr %2, align 8, !range !6, !noundef !4
   %4 = trunc nuw i8 %3 to i1
-  br i1 %4, label %"_ZN90_$LT$core..ops..control_flow..ControlFlow$LT$B$C$C$GT$$u20$as$u20$core..cmp..PartialEq$GT$2eq17h8700cd6c4ab2a691E.llvm.16258808753110442553.exit13", label %5
+  br i1 %4, label %"_ZN90_$LT$core..ops..control_flow..ControlFlow$LT$B$C$C$GT$$u20$as$u20$core..cmp..PartialEq$GT$2eq17h8700cd6c4ab2a691E.llvm.16258808753110442553.exit12", label %5
 
 5:                                                ; preds = %1
   %6 = getelementptr inbounds i8, ptr %0, i64 17
   %7 = load i8, ptr %6, align 1, !range !6, !noundef !4
   %8 = trunc nuw i8 %7 to i1
-  br i1 %8, label %"_ZN90_$LT$core..ops..control_flow..ControlFlow$LT$B$C$C$GT$$u20$as$u20$core..cmp..PartialEq$GT$2eq17h8700cd6c4ab2a691E.llvm.16258808753110442553.exit13", label %9
+  br i1 %8, label %"_ZN90_$LT$core..ops..control_flow..ControlFlow$LT$B$C$C$GT$$u20$as$u20$core..cmp..PartialEq$GT$2eq17h8700cd6c4ab2a691E.llvm.16258808753110442553.exit12", label %9
 
 9:                                                ; preds = %5
   %10 = load i64, ptr %0, align 8, !noundef !4
@@ -48632,8 +48632,8 @@ _ZN11smallbitvec11SmallBitVec3len17hd19085f87d1dfa85E.llvm.16258808753110442553.
 
 _ZN11smallbitvec11SmallBitVec3len17hd19085f87d1dfa85E.llvm.16258808753110442553.exit.split.us: ; preds = %_ZN11smallbitvec11SmallBitVec3len17hd19085f87d1dfa85E.llvm.16258808753110442553.exit.split.us.preheader, %21
   %20 = phi i64 [ %22, %21 ], [ 0, %_ZN11smallbitvec11SmallBitVec3len17hd19085f87d1dfa85E.llvm.16258808753110442553.exit.split.us.preheader ]
-  %exitcond22.not = icmp eq i64 %20, %19
-  br i1 %exitcond22.not, label %.split.us, label %21
+  %exitcond33.not = icmp eq i64 %20, %19
+  br i1 %exitcond33.not, label %.split.us, label %21
 
 21:                                               ; preds = %_ZN11smallbitvec11SmallBitVec3len17hd19085f87d1dfa85E.llvm.16258808753110442553.exit.split.us
   %22 = add i64 %20, 1
@@ -48642,7 +48642,7 @@ _ZN11smallbitvec11SmallBitVec3len17hd19085f87d1dfa85E.llvm.16258808753110442553.
   %24 = shl nuw i64 1, %.sink5.i.i.i.us
   %25 = and i64 %24, %10
   %.0.in.i.i.not.i.us = icmp eq i64 %25, 0
-  br i1 %.0.in.i.i.not.i.us, label %_ZN11smallbitvec11SmallBitVec3len17hd19085f87d1dfa85E.llvm.16258808753110442553.exit.split.us, label %"_ZN90_$LT$core..ops..control_flow..ControlFlow$LT$B$C$C$GT$$u20$as$u20$core..cmp..PartialEq$GT$2eq17h8700cd6c4ab2a691E.llvm.16258808753110442553.exit13"
+  br i1 %.0.in.i.i.not.i.us, label %_ZN11smallbitvec11SmallBitVec3len17hd19085f87d1dfa85E.llvm.16258808753110442553.exit.split.us, label %.split19.us
 
 _ZN11smallbitvec11SmallBitVec3len17hd19085f87d1dfa85E.llvm.16258808753110442553.exit.split: ; preds = %_ZN11smallbitvec11SmallBitVec3len17hd19085f87d1dfa85E.llvm.16258808753110442553.exit.split.preheader, %27
   %26 = phi i64 [ %28, %27 ], [ 0, %_ZN11smallbitvec11SmallBitVec3len17hd19085f87d1dfa85E.llvm.16258808753110442553.exit.split.preheader ]
@@ -48661,7 +48661,7 @@ _ZN11smallbitvec11SmallBitVec3len17hd19085f87d1dfa85E.llvm.16258808753110442553.
   %34 = shl nuw i64 1, %.sink5.i.i.i
   %35 = and i64 %34, %33
   %.0.in.i.i.not.i = icmp eq i64 %35, 0
-  br i1 %.0.in.i.i.not.i, label %_ZN11smallbitvec11SmallBitVec3len17hd19085f87d1dfa85E.llvm.16258808753110442553.exit.split, label %"_ZN90_$LT$core..ops..control_flow..ControlFlow$LT$B$C$C$GT$$u20$as$u20$core..cmp..PartialEq$GT$2eq17h8700cd6c4ab2a691E.llvm.16258808753110442553.exit13"
+  br i1 %.0.in.i.i.not.i, label %_ZN11smallbitvec11SmallBitVec3len17hd19085f87d1dfa85E.llvm.16258808753110442553.exit.split, label %.split19.us
 
 .split.us:                                        ; preds = %_ZN11smallbitvec11SmallBitVec3len17hd19085f87d1dfa85E.llvm.16258808753110442553.exit.split, %_ZN11smallbitvec11SmallBitVec3len17hd19085f87d1dfa85E.llvm.16258808753110442553.exit.split.us
   %36 = getelementptr inbounds i8, ptr %0, i64 8
@@ -48685,8 +48685,8 @@ _ZN11smallbitvec11SmallBitVec3len17hd19085f87d1dfa85E.llvm.16258808753110442553.
 
 _ZN11smallbitvec11SmallBitVec3len17hd19085f87d1dfa85E.llvm.16258808753110442553.exit4.split.us: ; preds = %_ZN11smallbitvec11SmallBitVec3len17hd19085f87d1dfa85E.llvm.16258808753110442553.exit4.split.us.preheader, %48
   %47 = phi i64 [ %49, %48 ], [ 0, %_ZN11smallbitvec11SmallBitVec3len17hd19085f87d1dfa85E.llvm.16258808753110442553.exit4.split.us.preheader ]
-  %exitcond24 = icmp eq i64 %47, %46
-  br i1 %exitcond24, label %"_ZN90_$LT$core..ops..control_flow..ControlFlow$LT$B$C$C$GT$$u20$as$u20$core..cmp..PartialEq$GT$2eq17h8700cd6c4ab2a691E.llvm.16258808753110442553.exit13", label %48
+  %exitcond35.not = icmp eq i64 %47, %46
+  br i1 %exitcond35.not, label %"_ZN90_$LT$core..ops..control_flow..ControlFlow$LT$B$C$C$GT$$u20$as$u20$core..cmp..PartialEq$GT$2eq17h8700cd6c4ab2a691E.llvm.16258808753110442553.exit12", label %48
 
 48:                                               ; preds = %_ZN11smallbitvec11SmallBitVec3len17hd19085f87d1dfa85E.llvm.16258808753110442553.exit4.split.us
   %49 = add i64 %47, 1
@@ -48695,12 +48695,12 @@ _ZN11smallbitvec11SmallBitVec3len17hd19085f87d1dfa85E.llvm.16258808753110442553.
   %51 = shl nuw i64 1, %.sink5.i.i.i8.us
   %52 = and i64 %51, %37
   %.0.in.i.i.not.i9.us = icmp eq i64 %52, 0
-  br i1 %.0.in.i.i.not.i9.us, label %_ZN11smallbitvec11SmallBitVec3len17hd19085f87d1dfa85E.llvm.16258808753110442553.exit4.split.us, label %"_ZN90_$LT$core..ops..control_flow..ControlFlow$LT$B$C$C$GT$$u20$as$u20$core..cmp..PartialEq$GT$2eq17h8700cd6c4ab2a691E.llvm.16258808753110442553.exit13"
+  br i1 %.0.in.i.i.not.i9.us, label %_ZN11smallbitvec11SmallBitVec3len17hd19085f87d1dfa85E.llvm.16258808753110442553.exit4.split.us, label %.sink.split.i10.loopexit
 
 _ZN11smallbitvec11SmallBitVec3len17hd19085f87d1dfa85E.llvm.16258808753110442553.exit4.split: ; preds = %_ZN11smallbitvec11SmallBitVec3len17hd19085f87d1dfa85E.llvm.16258808753110442553.exit4.split.preheader, %54
   %53 = phi i64 [ %55, %54 ], [ 0, %_ZN11smallbitvec11SmallBitVec3len17hd19085f87d1dfa85E.llvm.16258808753110442553.exit4.split.preheader ]
-  %exitcond23 = icmp eq i64 %53, %42
-  br i1 %exitcond23, label %"_ZN90_$LT$core..ops..control_flow..ControlFlow$LT$B$C$C$GT$$u20$as$u20$core..cmp..PartialEq$GT$2eq17h8700cd6c4ab2a691E.llvm.16258808753110442553.exit13", label %54
+  %exitcond34.not = icmp eq i64 %53, %42
+  br i1 %exitcond34.not, label %"_ZN90_$LT$core..ops..control_flow..ControlFlow$LT$B$C$C$GT$$u20$as$u20$core..cmp..PartialEq$GT$2eq17h8700cd6c4ab2a691E.llvm.16258808753110442553.exit12", label %54
 
 54:                                               ; preds = %_ZN11smallbitvec11SmallBitVec3len17hd19085f87d1dfa85E.llvm.16258808753110442553.exit4.split
   %55 = add i64 %53, 1
@@ -48714,10 +48714,29 @@ _ZN11smallbitvec11SmallBitVec3len17hd19085f87d1dfa85E.llvm.16258808753110442553.
   %61 = shl nuw i64 1, %.sink5.i.i.i8
   %62 = and i64 %61, %60
   %.0.in.i.i.not.i9 = icmp eq i64 %62, 0
-  br i1 %.0.in.i.i.not.i9, label %_ZN11smallbitvec11SmallBitVec3len17hd19085f87d1dfa85E.llvm.16258808753110442553.exit4.split, label %"_ZN90_$LT$core..ops..control_flow..ControlFlow$LT$B$C$C$GT$$u20$as$u20$core..cmp..PartialEq$GT$2eq17h8700cd6c4ab2a691E.llvm.16258808753110442553.exit13"
+  br i1 %.0.in.i.i.not.i9, label %_ZN11smallbitvec11SmallBitVec3len17hd19085f87d1dfa85E.llvm.16258808753110442553.exit4.split, label %.sink.split.i10.loopexit50
 
-"_ZN90_$LT$core..ops..control_flow..ControlFlow$LT$B$C$C$GT$$u20$as$u20$core..cmp..PartialEq$GT$2eq17h8700cd6c4ab2a691E.llvm.16258808753110442553.exit13": ; preds = %27, %21, %54, %_ZN11smallbitvec11SmallBitVec3len17hd19085f87d1dfa85E.llvm.16258808753110442553.exit4.split, %48, %_ZN11smallbitvec11SmallBitVec3len17hd19085f87d1dfa85E.llvm.16258808753110442553.exit4.split.us, %1, %5
-  %.0 = phi i1 [ false, %5 ], [ false, %1 ], [ %exitcond24, %_ZN11smallbitvec11SmallBitVec3len17hd19085f87d1dfa85E.llvm.16258808753110442553.exit4.split.us ], [ %exitcond24, %48 ], [ %exitcond23, %_ZN11smallbitvec11SmallBitVec3len17hd19085f87d1dfa85E.llvm.16258808753110442553.exit4.split ], [ %exitcond23, %54 ], [ false, %21 ], [ false, %27 ]
+.sink.split.i10.loopexit:                         ; preds = %48
+  %63 = icmp ult i64 %47, %46
+  br label %"_ZN90_$LT$core..ops..control_flow..ControlFlow$LT$B$C$C$GT$$u20$as$u20$core..cmp..PartialEq$GT$2eq17h8700cd6c4ab2a691E.llvm.16258808753110442553.exit12.sink.split"
+
+.sink.split.i10.loopexit50:                       ; preds = %54
+  %64 = icmp ult i64 %53, %42
+  br label %"_ZN90_$LT$core..ops..control_flow..ControlFlow$LT$B$C$C$GT$$u20$as$u20$core..cmp..PartialEq$GT$2eq17h8700cd6c4ab2a691E.llvm.16258808753110442553.exit12.sink.split"
+
+.split19.us:                                      ; preds = %27, %21
+  %.0.i45 = phi i64 [ %19, %21 ], [ %15, %27 ]
+  %.pn = phi i64 [ %20, %21 ], [ %26, %27 ]
+  %.us-phi = icmp ult i64 %.pn, %.0.i45
+  br label %"_ZN90_$LT$core..ops..control_flow..ControlFlow$LT$B$C$C$GT$$u20$as$u20$core..cmp..PartialEq$GT$2eq17h8700cd6c4ab2a691E.llvm.16258808753110442553.exit12.sink.split"
+
+"_ZN90_$LT$core..ops..control_flow..ControlFlow$LT$B$C$C$GT$$u20$as$u20$core..cmp..PartialEq$GT$2eq17h8700cd6c4ab2a691E.llvm.16258808753110442553.exit12.sink.split": ; preds = %.sink.split.i10.loopexit, %.sink.split.i10.loopexit50, %.split19.us
+  %.us-phi21.sink = phi i1 [ %.us-phi, %.split19.us ], [ %63, %.sink.split.i10.loopexit ], [ %64, %.sink.split.i10.loopexit50 ]
+  tail call void @llvm.assume(i1 %.us-phi21.sink)
+  br label %"_ZN90_$LT$core..ops..control_flow..ControlFlow$LT$B$C$C$GT$$u20$as$u20$core..cmp..PartialEq$GT$2eq17h8700cd6c4ab2a691E.llvm.16258808753110442553.exit12"
+
+"_ZN90_$LT$core..ops..control_flow..ControlFlow$LT$B$C$C$GT$$u20$as$u20$core..cmp..PartialEq$GT$2eq17h8700cd6c4ab2a691E.llvm.16258808753110442553.exit12": ; preds = %_ZN11smallbitvec11SmallBitVec3len17hd19085f87d1dfa85E.llvm.16258808753110442553.exit4.split, %_ZN11smallbitvec11SmallBitVec3len17hd19085f87d1dfa85E.llvm.16258808753110442553.exit4.split.us, %"_ZN90_$LT$core..ops..control_flow..ControlFlow$LT$B$C$C$GT$$u20$as$u20$core..cmp..PartialEq$GT$2eq17h8700cd6c4ab2a691E.llvm.16258808753110442553.exit12.sink.split", %1, %5
+  %.0 = phi i1 [ false, %5 ], [ false, %1 ], [ false, %"_ZN90_$LT$core..ops..control_flow..ControlFlow$LT$B$C$C$GT$$u20$as$u20$core..cmp..PartialEq$GT$2eq17h8700cd6c4ab2a691E.llvm.16258808753110442553.exit12.sink.split" ], [ true, %_ZN11smallbitvec11SmallBitVec3len17hd19085f87d1dfa85E.llvm.16258808753110442553.exit4.split.us ], [ true, %_ZN11smallbitvec11SmallBitVec3len17hd19085f87d1dfa85E.llvm.16258808753110442553.exit4.split ]
   ret i1 %.0
 }
 

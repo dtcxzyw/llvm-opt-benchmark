@@ -10,7 +10,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @modes = internal unnamed_addr constant [22 x %struct.edid_mode] [%struct.edid_mode { i32 5120, i32 2160, i32 0, i32 0, i32 0, i32 125 }, %struct.edid_mode { i32 4096, i32 2160, i32 0, i32 0, i32 0, i32 101 }, %struct.edid_mode { i32 3840, i32 2160, i32 0, i32 0, i32 0, i32 96 }, %struct.edid_mode { i32 2560, i32 1080, i32 0, i32 0, i32 0, i32 89 }, %struct.edid_mode { i32 2048, i32 1152, i32 0, i32 0, i32 0, i32 0 }, %struct.edid_mode { i32 1920, i32 1080, i32 0, i32 0, i32 0, i32 31 }, %struct.edid_mode { i32 3840, i32 2160, i32 0, i32 0, i32 0, i32 97 }, %struct.edid_mode { i32 1920, i32 1200, i32 0, i32 10, i32 0, i32 0 }, %struct.edid_mode { i32 1600, i32 1200, i32 0, i32 9, i32 2, i32 0 }, %struct.edid_mode { i32 1680, i32 1050, i32 0, i32 9, i32 5, i32 0 }, %struct.edid_mode { i32 1440, i32 900, i32 0, i32 8, i32 5, i32 0 }, %struct.edid_mode { i32 1280, i32 1024, i32 0, i32 7, i32 1, i32 0 }, %struct.edid_mode { i32 1280, i32 960, i32 0, i32 7, i32 3, i32 0 }, %struct.edid_mode { i32 1280, i32 768, i32 0, i32 7, i32 6, i32 0 }, %struct.edid_mode { i32 1920, i32 1440, i32 0, i32 11, i32 5, i32 0 }, %struct.edid_mode { i32 1856, i32 1392, i32 0, i32 10, i32 3, i32 0 }, %struct.edid_mode { i32 1792, i32 1344, i32 0, i32 10, i32 5, i32 0 }, %struct.edid_mode { i32 1440, i32 1050, i32 0, i32 8, i32 1, i32 0 }, %struct.edid_mode { i32 1360, i32 768, i32 0, i32 8, i32 7, i32 0 }, %struct.edid_mode { i32 1024, i32 768, i32 36, i32 0, i32 3, i32 0 }, %struct.edid_mode { i32 800, i32 600, i32 35, i32 0, i32 0, i32 0 }, %struct.edid_mode { i32 640, i32 480, i32 35, i32 0, i32 5, i32 0 }], align 16
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable
-define dso_local noundef i32 @qemu_edid_dpi_to_mm(i32 noundef %dpi, i32 noundef %res) local_unnamed_addr #0 {
+define dso_local range(i32 0, 429496730) i32 @qemu_edid_dpi_to_mm(i32 noundef %dpi, i32 noundef %res) local_unnamed_addr #0 {
 entry:
   %mul = mul i32 %res, 254
   %div = udiv i32 %mul, 10
@@ -781,8 +781,8 @@ if.then139:                                       ; preds = %while.end
   br label %for.body.i.i298
 
 for.body.i.i298:                                  ; preds = %for.body.i.i298, %if.then139
-  %indvars.iv.i299 = phi i64 [ %indvars.iv.next.i304, %for.body.i.i298 ], [ 0, %if.then139 ]
-  %sum.09.i.i300 = phi i32 [ %add.i.i303, %for.body.i.i298 ], [ 0, %if.then139 ]
+  %indvars.iv.i299 = phi i64 [ 0, %if.then139 ], [ %indvars.iv.next.i304, %for.body.i.i298 ]
+  %sum.09.i.i300 = phi i32 [ 0, %if.then139 ], [ %add.i.i303, %for.body.i.i298 ]
   %arrayidx.i.i301 = getelementptr i8, ptr %arrayidx1.i279, i64 %indvars.iv.i299
   %67 = load i8, ptr %arrayidx.i.i301, align 1
   %conv2.i.i302 = zext i8 %67 to i32
@@ -891,7 +891,7 @@ declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #2
 declare i32 @atoi(ptr nocapture noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: read) uwtable
-define dso_local i64 @qemu_edid_size(ptr nocapture noundef readonly %edid) local_unnamed_addr #4 {
+define dso_local range(i64 0, 32769) i64 @qemu_edid_size(ptr nocapture noundef readonly %edid) local_unnamed_addr #4 {
 entry:
   %0 = load i8, ptr %edid, align 1
   %cmp.not = icmp eq i8 %0, 0

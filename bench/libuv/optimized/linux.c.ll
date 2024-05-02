@@ -229,7 +229,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @uv__platform_loop_init(ptr nocapture noundef %loop) local_unnamed_addr #0 {
+define hidden range(i32 -2147483647, -2147483648) i32 @uv__platform_loop_init(ptr nocapture noundef %loop) local_unnamed_addr #0 {
 entry:
   %internal_fields = getelementptr inbounds i8, ptr %loop, i64 40
   %0 = load ptr, ptr %internal_fields, align 8
@@ -961,7 +961,7 @@ if.then29.i:                                      ; preds = %if.else.i
   tail call fastcc void @uv__epoll_ctl_flush(i32 noundef %9, ptr noundef nonnull %ctl, ptr noundef nonnull %10)
   br label %if.end13
 
-if.end13:                                         ; preds = %if.then29.i, %if.else.i, %if.then.i, %if.then11
+if.end13:                                         ; preds = %if.then.i, %if.then29.i, %if.else.i, %if.then11
   ret void
 }
 
@@ -1065,7 +1065,7 @@ if.end31:                                         ; preds = %if.else, %if.then29
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @uv__io_check_fd(ptr nocapture noundef readonly %loop, i32 noundef %fd) local_unnamed_addr #0 {
+define hidden range(i32 -2147483647, -2147483648) i32 @uv__io_check_fd(ptr nocapture noundef readonly %loop, i32 noundef %fd) local_unnamed_addr #0 {
 entry:
   %e = alloca %struct.epoll_event, align 4
   %0 = getelementptr inbounds i8, ptr %e, i64 8
@@ -1107,7 +1107,7 @@ if.end12:                                         ; preds = %if.then, %if.then6
 declare void @abort() local_unnamed_addr #7
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @uv__iou_fs_close(ptr noundef %loop, ptr noundef %req) local_unnamed_addr #0 {
+define hidden range(i32 0, 2) i32 @uv__iou_fs_close(ptr noundef %loop, ptr noundef %req) local_unnamed_addr #0 {
 entry:
   %call = tail call i32 @uv__kernel_version()
   %cmp2 = icmp slt i32 %call, 393472
@@ -1201,7 +1201,7 @@ return:                                           ; preds = %if.end.i, %if.end4,
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @uv__iou_fs_fsync_or_fdatasync(ptr noundef %loop, ptr noundef %req, i32 noundef %fsync_flags) local_unnamed_addr #0 {
+define hidden range(i32 0, 2) i32 @uv__iou_fs_fsync_or_fdatasync(ptr noundef %loop, ptr noundef %req, i32 noundef %fsync_flags) local_unnamed_addr #0 {
 entry:
   %internal_fields = getelementptr inbounds i8, ptr %loop, i64 40
   %0 = load ptr, ptr %internal_fields, align 8
@@ -1292,7 +1292,7 @@ return:                                           ; preds = %if.end.i, %entry, %
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @uv__iou_fs_link(ptr noundef %loop, ptr noundef %req) local_unnamed_addr #0 {
+define hidden range(i32 0, 2) i32 @uv__iou_fs_link(ptr noundef %loop, ptr noundef %req) local_unnamed_addr #0 {
 entry:
   %internal_fields = getelementptr inbounds i8, ptr %loop, i64 40
   %0 = load ptr, ptr %internal_fields, align 8
@@ -1398,7 +1398,7 @@ return:                                           ; preds = %if.end.i, %if.end, 
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @uv__iou_fs_mkdir(ptr noundef %loop, ptr noundef %req) local_unnamed_addr #0 {
+define hidden range(i32 0, 2) i32 @uv__iou_fs_mkdir(ptr noundef %loop, ptr noundef %req) local_unnamed_addr #0 {
 entry:
   %internal_fields = getelementptr inbounds i8, ptr %loop, i64 40
   %0 = load ptr, ptr %internal_fields, align 8
@@ -1501,7 +1501,7 @@ return:                                           ; preds = %if.end.i, %if.end, 
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @uv__iou_fs_open(ptr noundef %loop, ptr noundef %req) local_unnamed_addr #0 {
+define hidden range(i32 0, 2) i32 @uv__iou_fs_open(ptr noundef %loop, ptr noundef %req) local_unnamed_addr #0 {
 entry:
   %internal_fields = getelementptr inbounds i8, ptr %loop, i64 40
   %0 = load ptr, ptr %internal_fields, align 8
@@ -1602,7 +1602,7 @@ return:                                           ; preds = %if.end.i, %entry, %
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @uv__iou_fs_rename(ptr noundef %loop, ptr noundef %req) local_unnamed_addr #0 {
+define hidden range(i32 0, 2) i32 @uv__iou_fs_rename(ptr noundef %loop, ptr noundef %req) local_unnamed_addr #0 {
 entry:
   %internal_fields = getelementptr inbounds i8, ptr %loop, i64 40
   %0 = load ptr, ptr %internal_fields, align 8
@@ -1701,7 +1701,7 @@ return:                                           ; preds = %if.end.i, %entry, %
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @uv__iou_fs_symlink(ptr noundef %loop, ptr noundef %req) local_unnamed_addr #0 {
+define hidden range(i32 0, 2) i32 @uv__iou_fs_symlink(ptr noundef %loop, ptr noundef %req) local_unnamed_addr #0 {
 entry:
   %internal_fields = getelementptr inbounds i8, ptr %loop, i64 40
   %0 = load ptr, ptr %internal_fields, align 8
@@ -1805,7 +1805,7 @@ return:                                           ; preds = %if.end.i, %if.end, 
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @uv__iou_fs_unlink(ptr noundef %loop, ptr noundef %req) local_unnamed_addr #0 {
+define hidden range(i32 0, 2) i32 @uv__iou_fs_unlink(ptr noundef %loop, ptr noundef %req) local_unnamed_addr #0 {
 entry:
   %internal_fields = getelementptr inbounds i8, ptr %loop, i64 40
   %0 = load ptr, ptr %internal_fields, align 8
@@ -1897,7 +1897,7 @@ return:                                           ; preds = %if.end.i, %entry, %
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @uv__iou_fs_read_or_write(ptr noundef %loop, ptr noundef %req, i32 noundef %is_read) local_unnamed_addr #0 {
+define hidden range(i32 0, 2) i32 @uv__iou_fs_read_or_write(ptr noundef %loop, ptr noundef %req, i32 noundef %is_read) local_unnamed_addr #0 {
 entry:
   %nbufs = getelementptr inbounds i8, ptr %req, i64 292
   %0 = load i32, ptr %nbufs, align 4
@@ -2015,7 +2015,7 @@ return:                                           ; preds = %if.end.i, %if.end3,
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @uv__iou_fs_statx(ptr noundef %loop, ptr noundef %req, i32 noundef %is_fstat, i32 noundef %is_lstat) local_unnamed_addr #0 {
+define hidden range(i32 0, 2) i32 @uv__iou_fs_statx(ptr noundef %loop, ptr noundef %req, i32 noundef %is_fstat, i32 noundef %is_lstat) local_unnamed_addr #0 {
 entry:
   %call = tail call ptr @uv__malloc(i64 noundef 256) #18
   %cmp = icmp eq ptr %call, null
@@ -2775,10 +2775,10 @@ if.end104:                                        ; preds = %if.then99, %if.else
   %inc = add nsw i32 %nevents.0118, 1
   br label %for.inc
 
-for.inc:                                          ; preds = %if.end81, %if.then29.i, %if.else.i, %if.then.i, %do.body26.i, %do.body18.i, %if.end104, %for.body
-  %have_signals.2 = phi i32 [ %have_signals.0117, %for.body ], [ %have_signals.1, %if.end104 ], [ %have_signals.0117, %do.body18.i ], [ %have_signals.0117, %do.body26.i ], [ %have_signals.0117, %if.then.i ], [ %have_signals.0117, %if.else.i ], [ %have_signals.0117, %if.then29.i ], [ %have_signals.0117, %if.end81 ]
-  %nevents.1 = phi i32 [ %nevents.0118, %for.body ], [ %inc, %if.end104 ], [ %nevents.0118, %do.body18.i ], [ %nevents.0118, %do.body26.i ], [ %nevents.0118, %if.then.i ], [ %nevents.0118, %if.else.i ], [ %nevents.0118, %if.then29.i ], [ %nevents.0118, %if.end81 ]
-  %have_iou_events.1 = phi i32 [ %have_iou_events.0119, %for.body ], [ %have_iou_events.0119, %if.end104 ], [ 1, %do.body18.i ], [ 1, %do.body26.i ], [ %have_iou_events.0119, %if.then.i ], [ %have_iou_events.0119, %if.else.i ], [ %have_iou_events.0119, %if.then29.i ], [ %have_iou_events.0119, %if.end81 ]
+for.inc:                                          ; preds = %if.end81, %if.then.i, %if.then29.i, %if.else.i, %do.body26.i, %do.body18.i, %if.end104, %for.body
+  %have_signals.2 = phi i32 [ %have_signals.0117, %for.body ], [ %have_signals.1, %if.end104 ], [ %have_signals.0117, %do.body18.i ], [ %have_signals.0117, %do.body26.i ], [ %have_signals.0117, %if.else.i ], [ %have_signals.0117, %if.then29.i ], [ %have_signals.0117, %if.then.i ], [ %have_signals.0117, %if.end81 ]
+  %nevents.1 = phi i32 [ %nevents.0118, %for.body ], [ %inc, %if.end104 ], [ %nevents.0118, %do.body18.i ], [ %nevents.0118, %do.body26.i ], [ %nevents.0118, %if.else.i ], [ %nevents.0118, %if.then29.i ], [ %nevents.0118, %if.then.i ], [ %nevents.0118, %if.end81 ]
+  %have_iou_events.1 = phi i32 [ %have_iou_events.0119, %for.body ], [ %have_iou_events.0119, %if.end104 ], [ 1, %do.body18.i ], [ 1, %do.body26.i ], [ %have_iou_events.0119, %if.else.i ], [ %have_iou_events.0119, %if.then29.i ], [ %have_iou_events.0119, %if.then.i ], [ %have_iou_events.0119, %if.end81 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %do.body107, label %for.body
@@ -3106,7 +3106,7 @@ declare i32 @clock_getres(i32 noundef, ptr noundef) local_unnamed_addr #4
 declare i32 @clock_gettime(i32 noundef, ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define i32 @uv_resident_set_memory(ptr nocapture noundef writeonly %rss) local_unnamed_addr #0 {
+define range(i32 -2147483647, -2147483648) i32 @uv_resident_set_memory(ptr nocapture noundef writeonly %rss) local_unnamed_addr #0 {
 entry:
   %buf = alloca [1024 x i8], align 16
   br label %do.body
@@ -3213,7 +3213,7 @@ declare i64 @strtol(ptr noundef readonly, ptr nocapture noundef, i32 noundef) lo
 declare i32 @getpagesize() local_unnamed_addr #5
 
 ; Function Attrs: nounwind uwtable
-define i32 @uv_uptime(ptr noundef %uptime) local_unnamed_addr #0 {
+define range(i32 -2147483647, -2147483648) i32 @uv_uptime(ptr noundef %uptime) local_unnamed_addr #0 {
 entry:
   %now = alloca %struct.timespec, align 8
   %buf = alloca [128 x i8], align 16
@@ -3249,7 +3249,7 @@ return:                                           ; preds = %if.then, %if.end9, 
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @uv_cpu_info(ptr nocapture noundef %ci, ptr nocapture noundef writeonly %count) local_unnamed_addr #0 {
+define range(i32 -2147483647, -2147483648) i32 @uv_cpu_info(ptr nocapture noundef %ci, ptr nocapture noundef writeonly %count) local_unnamed_addr #0 {
 entry:
   %cpu = alloca i32, align 4
   %skip = alloca i64, align 8
@@ -3607,7 +3607,7 @@ declare i64 @strcspn(ptr nocapture noundef, ptr nocapture noundef) local_unnamed
 declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define i32 @uv_interface_addresses(ptr nocapture noundef %addresses, ptr nocapture noundef %count) local_unnamed_addr #0 {
+define range(i32 -2147483647, -2147483648) i32 @uv_interface_addresses(ptr nocapture noundef %addresses, ptr nocapture noundef %count) local_unnamed_addr #0 {
 entry:
   %addrs = alloca ptr, align 8
   store i32 0, ptr %count, align 4

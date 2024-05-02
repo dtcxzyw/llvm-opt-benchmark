@@ -49729,13 +49729,13 @@ define hidden void @"_ZN5alloc3str21_$LT$impl$u20$str$GT$7replace17h73d924695c45
 
 .lr.ph.split.split.i.i:                           ; preds = %.lr.ph.i.i, %50
   %33 = phi i64 [ %48, %50 ], [ %.051, %.lr.ph.i.i ]
-  %.sroa.3.0.i46.i.i = sub nuw i64 %2, %33
-  %.48.i.i = getelementptr inbounds i8, ptr %1, i64 %33
-  %34 = icmp ult i64 %.sroa.3.0.i46.i.i, 16
+  %.sroa.3.0.i47.i.i = sub nuw i64 %2, %33
+  %.49.i.i = getelementptr inbounds i8, ptr %1, i64 %33
+  %34 = icmp ult i64 %.sroa.3.0.i47.i.i, 16
   br i1 %34, label %37, label %35
 
 35:                                               ; preds = %.lr.ph.split.split.i.i
-  %36 = invoke { i64, i64 } @_ZN4core5slice6memchr14memchr_aligned17h70c951369894823fE(i8 noundef %.pre.pre, ptr noalias noundef nonnull readonly align 1 %.48.i.i, i64 noundef %.sroa.3.0.i46.i.i)
+  %36 = invoke { i64, i64 } @_ZN4core5slice6memchr14memchr_aligned17h70c951369894823fE(i8 noundef %.pre.pre, ptr noalias noundef nonnull readonly align 1 %.49.i.i, i64 noundef %.sroa.3.0.i47.i.i)
           to label %.noexc14 unwind label %.loopexit
 
 37:                                               ; preds = %.lr.ph.split.split.i.i
@@ -49744,18 +49744,18 @@ define hidden void @"_ZN5alloc3str21_$LT$impl$u20$str$GT$7replace17h73d924695c45
 
 .lr.ph.i.i.i:                                     ; preds = %37, %41
   %.05.i.i.i = phi i64 [ %42, %41 ], [ 0, %37 ]
-  %38 = getelementptr inbounds [0 x i8], ptr %.48.i.i, i64 0, i64 %.05.i.i.i
+  %38 = getelementptr inbounds [0 x i8], ptr %.49.i.i, i64 0, i64 %.05.i.i.i
   %39 = load i8, ptr %38, align 1, !alias.scope !11068, !noalias !11071, !noundef !4
   %40 = icmp eq i8 %39, %.pre.pre
   br i1 %40, label %_ZN4core5slice6memchr12memchr_naive17hc161699a4e4d4b77E.exit.i.i, label %41
 
 41:                                               ; preds = %.lr.ph.i.i.i
   %42 = add nuw i64 %.05.i.i.i, 1
-  %exitcond.not.i.i.i = icmp eq i64 %42, %.sroa.3.0.i46.i.i
+  %exitcond.not.i.i.i = icmp eq i64 %42, %.sroa.3.0.i47.i.i
   br i1 %exitcond.not.i.i.i, label %_ZN4core5slice6memchr12memchr_naive17hc161699a4e4d4b77E.exit.i.i, label %.lr.ph.i.i.i
 
 _ZN4core5slice6memchr12memchr_naive17hc161699a4e4d4b77E.exit.i.i: ; preds = %41, %.lr.ph.i.i.i, %37
-  %.0.lcssa.i.i.i = phi i64 [ 0, %37 ], [ %.sroa.3.0.i46.i.i, %41 ], [ %.05.i.i.i, %.lr.ph.i.i.i ]
+  %.0.lcssa.i.i.i = phi i64 [ 0, %37 ], [ %.sroa.3.0.i47.i.i, %41 ], [ %.05.i.i.i, %.lr.ph.i.i.i ]
   %.sroa.0.0.i25.i.i = phi i64 [ 0, %37 ], [ 0, %41 ], [ 1, %.lr.ph.i.i.i ]
   %43 = insertvalue { i64, i64 } poison, i64 %.sroa.0.0.i25.i.i, 0
   %44 = insertvalue { i64, i64 } %43, i64 %.0.lcssa.i.i.i, 1

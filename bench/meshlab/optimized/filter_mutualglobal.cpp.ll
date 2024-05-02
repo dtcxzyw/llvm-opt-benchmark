@@ -1485,7 +1485,7 @@ _ZNK18FilterMutualGlobal10filterInfoEi.exit:      ; preds = %4, %6
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @_ZNK18FilterMutualGlobal8getClassEPK7QAction(ptr noundef nonnull align 8 dereferenceable(80) %0, ptr noundef %1) unnamed_addr #9 align 2 {
+define noundef range(i32 0, 262145) i32 @_ZNK18FilterMutualGlobal8getClassEPK7QAction(ptr noundef nonnull align 8 dereferenceable(80) %0, ptr noundef %1) unnamed_addr #9 align 2 {
   %3 = getelementptr inbounds i8, ptr %0, i64 16
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %4, i64 144
@@ -1497,7 +1497,7 @@ define noundef i32 @_ZNK18FilterMutualGlobal8getClassEPK7QAction(ptr noundef non
 }
 
 ; Function Attrs: uwtable
-define noundef i32 @_ZThn16_NK18FilterMutualGlobal8getClassEPK7QAction(ptr noundef %0, ptr noundef %1) unnamed_addr #12 align 2 {
+define noundef range(i32 0, 262145) i32 @_ZThn16_NK18FilterMutualGlobal8getClassEPK7QAction(ptr noundef %0, ptr noundef %1) unnamed_addr #12 align 2 {
   %3 = load ptr, ptr %0, align 8
   %4 = getelementptr inbounds i8, ptr %3, i64 144
   %5 = load ptr, ptr %4, align 8
@@ -5156,7 +5156,7 @@ _ZN7QStringD2Ev.exit82:                           ; preds = %50, %_ZN9QtPrivate8
 .preheader:                                       ; preds = %.preheader.lr.ph, %124
   %indvars.iv125 = phi i64 [ 0, %.preheader.lr.ph ], [ %indvars.iv.next126, %124 ]
   %113 = mul nuw nsw i64 %indvars.iv125, 3
-  %invariant.gep128 = getelementptr i32, ptr %91, i64 %113
+  %invariant.gep128 = getelementptr inbounds i32, ptr %91, i64 %113
   br label %114
 
 114:                                              ; preds = %.preheader, %114
@@ -5170,7 +5170,7 @@ _ZN7QStringD2Ev.exit82:                           ; preds = %50, %_ZN9QtPrivate8
   %121 = sub i64 %119, %120
   %122 = sdiv exact i64 %121, 48
   %123 = trunc i64 %122 to i32
-  %gep129 = getelementptr i32, ptr %invariant.gep128, i64 %indvars.iv122
+  %gep129 = getelementptr inbounds i32, ptr %invariant.gep128, i64 %indvars.iv122
   store i32 %123, ptr %gep129, align 4
   %indvars.iv.next123 = add nuw nsw i64 %indvars.iv122, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next123, 3
@@ -5315,10 +5315,10 @@ _ZN12MeshDocument19RasterRangeIterator3endEv.exit.preheader: ; preds = %_ZN12Mes
   %196 = sitofp i32 %191 to double
   %197 = fdiv double %195, %196
   %198 = fptosi double %197 to i32
-  store i32 %198, ptr getelementptr inbounds (%class.AlignSet, ptr @alignset, i64 0, i32 5, i32 0, i32 1), align 4
+  store i32 %198, ptr getelementptr inbounds (%class.AlignSet, ptr @alignset, i64 0, i32 5, i32 0, i32 1, i32 0, i64 0), align 4
   %199 = sdiv i32 %198, 2
   %200 = sitofp i32 %199 to float
-  store float %200, ptr getelementptr inbounds (%class.AlignSet, ptr @alignset, i64 0, i32 5, i32 0, i32 3), align 4
+  store float %200, ptr getelementptr inbounds (%class.AlignSet, ptr @alignset, i64 0, i32 5, i32 0, i32 3, i32 0, i64 0), align 4
   %201 = load i8, ptr %41, align 1
   %202 = trunc i8 %201 to i1
   br i1 %202, label %203, label %205
@@ -7851,7 +7851,7 @@ define void @_ZN18FilterMutualGlobal9CalcPairsER12MeshDocumentb(ptr dead_on_unwi
 .preheader316:                                    ; preds = %.preheader316.lr.ph, %84
   %indvars.iv454 = phi i64 [ 0, %.preheader316.lr.ph ], [ %indvars.iv.next455, %84 ]
   %73 = mul nuw nsw i64 %indvars.iv454, 3
-  %invariant.gep = getelementptr i32, ptr %47, i64 %73
+  %invariant.gep = getelementptr inbounds i32, ptr %47, i64 %73
   br label %74
 
 74:                                               ; preds = %.preheader316, %74
@@ -7865,7 +7865,7 @@ define void @_ZN18FilterMutualGlobal9CalcPairsER12MeshDocumentb(ptr dead_on_unwi
   %81 = sub i64 %79, %80
   %82 = sdiv exact i64 %81, 48
   %83 = trunc i64 %82 to i32
-  %gep486 = getelementptr i32, ptr %invariant.gep, i64 %indvars.iv451
+  %gep486 = getelementptr inbounds i32, ptr %invariant.gep, i64 %indvars.iv451
   store i32 %83, ptr %gep486, align 4
   %indvars.iv.next452 = add nuw nsw i64 %indvars.iv451, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next452, 3
@@ -8019,10 +8019,10 @@ _ZN12MeshDocument19RasterRangeIterator3endEv.exit.preheader: ; preds = %_ZN12Mes
   %163 = sitofp i32 %158 to double
   %164 = fdiv double %162, %163
   %165 = fptosi double %164 to i32
-  store i32 %165, ptr getelementptr inbounds (%class.AlignSet, ptr @alignset, i64 0, i32 5, i32 0, i32 1), align 4
+  store i32 %165, ptr getelementptr inbounds (%class.AlignSet, ptr @alignset, i64 0, i32 5, i32 0, i32 1, i32 0, i64 0), align 4
   %166 = sdiv i32 %165, 2
   %167 = sitofp i32 %166 to float
-  store float %167, ptr getelementptr inbounds (%class.AlignSet, ptr @alignset, i64 0, i32 5, i32 0, i32 3), align 4
+  store float %167, ptr getelementptr inbounds (%class.AlignSet, ptr @alignset, i64 0, i32 5, i32 0, i32 3, i32 0, i64 0), align 4
   store i32 0, ptr getelementptr inbounds (%class.AlignSet, ptr @alignset, i64 0, i32 22), align 8
   invoke void @_ZN8AlignSet11renderSceneERN3vcg4ShotIfNS0_8Matrix44IfEEEEib(ptr noundef nonnull align 8 dereferenceable(688) @alignset, ptr noundef nonnull align 4 dereferenceable(132) getelementptr inbounds (%class.AlignSet, ptr @alignset, i64 0, i32 5), i32 noundef 3, i1 noundef zeroext true)
           to label %168 unwind label %208
@@ -13207,7 +13207,7 @@ _ZNSt6vectorIfSaIfEE9push_backERKf.exit179:       ; preds = %._crit_edge, %_ZNSt
 .preheader:                                       ; preds = %.preheader.lr.ph, %496
   %indvars.iv301 = phi i64 [ 0, %.preheader.lr.ph ], [ %indvars.iv.next302, %496 ]
   %488 = mul nuw nsw i64 %indvars.iv301, 3
-  %invariant.gep = getelementptr i32, ptr %471, i64 %488
+  %invariant.gep = getelementptr inbounds i32, ptr %471, i64 %488
   br label %489
 
 489:                                              ; preds = %.preheader, %489
@@ -13218,7 +13218,7 @@ _ZNSt6vectorIfSaIfEE9push_backERKf.exit179:       ; preds = %._crit_edge, %_ZNSt
   %493 = sub i64 %492, %477
   %494 = sdiv exact i64 %493, 48
   %495 = trunc i64 %494 to i32
-  %gep = getelementptr i32, ptr %invariant.gep, i64 %indvars.iv298
+  %gep = getelementptr inbounds i32, ptr %invariant.gep, i64 %indvars.iv298
   store i32 %495, ptr %gep, align 4
   %indvars.iv.next299 = add nuw nsw i64 %indvars.iv298, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next299, 3
@@ -13326,10 +13326,10 @@ _ZNSt6vectorIfSaIfEE9push_backERKf.exit179:       ; preds = %._crit_edge, %_ZNSt
   %553 = sitofp i32 %548 to double
   %554 = fdiv double %552, %553
   %555 = fptosi double %554 to i32
-  store i32 %555, ptr getelementptr inbounds (%class.AlignSet, ptr @alignset, i64 0, i32 5, i32 0, i32 1), align 4
+  store i32 %555, ptr getelementptr inbounds (%class.AlignSet, ptr @alignset, i64 0, i32 5, i32 0, i32 1, i32 0, i64 0), align 4
   %556 = sdiv i32 %555, 2
   %557 = sitofp i32 %556 to float
-  store float %557, ptr getelementptr inbounds (%class.AlignSet, ptr @alignset, i64 0, i32 5, i32 0, i32 3), align 4
+  store float %557, ptr getelementptr inbounds (%class.AlignSet, ptr @alignset, i64 0, i32 5, i32 0, i32 3, i32 0, i64 0), align 4
   %558 = getelementptr inbounds i8, ptr %4, i64 305
   %559 = load i8, ptr %558, align 1
   %560 = trunc i8 %559 to i1
@@ -13540,7 +13540,7 @@ define noundef zeroext i1 @_ZN18FilterMutualGlobal11UpdateGraphER12MeshDocument8
 .preheader71:                                     ; preds = %.preheader71.lr.ph, %74
   %indvars.iv93 = phi i64 [ 0, %.preheader71.lr.ph ], [ %indvars.iv.next94, %74 ]
   %63 = mul nuw nsw i64 %indvars.iv93, 3
-  %invariant.gep = getelementptr i32, ptr %38, i64 %63
+  %invariant.gep = getelementptr inbounds i32, ptr %38, i64 %63
   br label %64
 
 64:                                               ; preds = %.preheader71, %64
@@ -13554,7 +13554,7 @@ define noundef zeroext i1 @_ZN18FilterMutualGlobal11UpdateGraphER12MeshDocument8
   %71 = sub i64 %69, %70
   %72 = sdiv exact i64 %71, 48
   %73 = trunc i64 %72 to i32
-  %gep = getelementptr i32, ptr %invariant.gep, i64 %indvars.iv90
+  %gep = getelementptr inbounds i32, ptr %invariant.gep, i64 %indvars.iv90
   store i32 %73, ptr %gep, align 4
   %indvars.iv.next91 = add nuw nsw i64 %indvars.iv90, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next91, 3
@@ -13742,10 +13742,10 @@ _ZSt7advanceISt14_List_iteratorI11RasterModelEiEvRT_T0_.exit: ; preds = %.lr.ph.
   %172 = sitofp i32 %167 to double
   %173 = fdiv double %171, %172
   %174 = fptosi double %173 to i32
-  store i32 %174, ptr getelementptr inbounds (%class.AlignSet, ptr @alignset, i64 0, i32 5, i32 0, i32 1), align 4
+  store i32 %174, ptr getelementptr inbounds (%class.AlignSet, ptr @alignset, i64 0, i32 5, i32 0, i32 1, i32 0, i64 0), align 4
   %175 = sdiv i32 %174, 2
   %176 = sitofp i32 %175 to float
-  store float %176, ptr getelementptr inbounds (%class.AlignSet, ptr @alignset, i64 0, i32 5, i32 0, i32 3), align 4
+  store float %176, ptr getelementptr inbounds (%class.AlignSet, ptr @alignset, i64 0, i32 5, i32 0, i32 3, i32 0, i64 0), align 4
   store i32 6, ptr getelementptr inbounds (%class.AlignSet, ptr @alignset, i64 0, i32 22), align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(132) getelementptr inbounds (%class.AlignSet, ptr @alignset, i64 0, i32 7), ptr noundef nonnull align 8 dereferenceable(132) %157, i64 132, i1 false)
   %177 = load ptr, ptr %158, align 8
