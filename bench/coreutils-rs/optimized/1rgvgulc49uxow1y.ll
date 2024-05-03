@@ -285,7 +285,7 @@ define void @"_ZN65_$LT$uu_df..table..Row$u20$as$u20$core..ops..arith..AddAssign
 27:                                               ; preds = %35, %28
   %.pn.pn = phi { ptr, i32 } [ %.pn, %35 ], [ %29, %28 ]
   invoke fastcc void @"_ZN4core3ptr70drop_in_place$LT$core..option..Option$LT$alloc..string..String$GT$$GT$17hb846eb921d0bab40E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %5) #16
-          to label %68 unwind label %69
+          to label %70 unwind label %71
 
 28:                                               ; preds = %2
   %29 = landingpad { ptr, i32 }
@@ -310,7 +310,7 @@ define void @"_ZN65_$LT$uu_df..table..Row$u20$as$u20$core..ops..arith..AddAssign
 35:                                               ; preds = %43, %36
   %.pn = phi { ptr, i32 } [ %44, %43 ], [ %37, %36 ]
   invoke void @"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h27bae8316ba48c7dE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %4) #16
-          to label %27 unwind label %69
+          to label %27 unwind label %71
 
 36:                                               ; preds = %30
   %37 = landingpad { ptr, i32 }
@@ -335,7 +335,7 @@ define void @"_ZN65_$LT$uu_df..table..Row$u20$as$u20$core..ops..arith..AddAssign
   %44 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h27bae8316ba48c7dE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %3) #16
-          to label %35 unwind label %69
+          to label %35 unwind label %71
 
 45:                                               ; preds = %38
   %46 = extractvalue { i64, ptr } %42, 0
@@ -356,11 +356,18 @@ define void @"_ZN65_$LT$uu_df..table..Row$u20$as$u20$core..ops..arith..AddAssign
   %58 = getelementptr inbounds i8, ptr %1, i64 64
   %59 = load i128, ptr %58, align 16, !noundef !5
   %60 = add i128 %59, %57
-  %61 = icmp ne i128 %20, 0
-  %62 = uitofp i128 %25 to double
-  %63 = uitofp i128 %20 to double
-  %64 = fdiv double %62, %63
-  %.sroa.029.0 = zext i1 %61 to i64
+  %61 = icmp eq i128 %20, 0
+  br i1 %61, label %66, label %62
+
+62:                                               ; preds = %45
+  %63 = uitofp i128 %25 to double
+  %64 = uitofp i128 %20 to double
+  %65 = fdiv double %63, %64
+  br label %66
+
+66:                                               ; preds = %45, %62
+  %.sroa.029.0 = phi i64 [ 1, %62 ], [ 0, %45 ]
+  %.sroa.530.0 = phi double [ %65, %62 ], [ undef, %45 ]
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.14, ptr noundef nonnull align 8 dereferenceable(24) %5, i64 24, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %.sroa.11, ptr noundef nonnull align 8 dereferenceable(24) %4, i64 24, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.12, ptr noundef nonnull align 8 dereferenceable(24) %3, i64 24, i1 false)
@@ -368,10 +375,10 @@ define void @"_ZN65_$LT$uu_df..table..Row$u20$as$u20$core..ops..arith..AddAssign
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5)
   invoke void @"_ZN4core3ptr38drop_in_place$LT$uu_df..table..Row$GT$17h3482ee77780c445bE"(ptr noalias noundef nonnull align 16 dereferenceable(208) %0)
-          to label %67 unwind label %65
+          to label %69 unwind label %67
 
-65:                                               ; preds = %45
-  %66 = landingpad { ptr, i32 }
+67:                                               ; preds = %66
+  %68 = landingpad { ptr, i32 }
           cleanup
   store i64 %.sroa.027.0, ptr %0, align 16
   %.sroa.5.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 8
@@ -379,7 +386,7 @@ define void @"_ZN65_$LT$uu_df..table..Row$u20$as$u20$core..ops..arith..AddAssign
   %.sroa.6.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 16
   store i64 %.sroa.029.0, ptr %.sroa.6.0..sroa_idx, align 16
   %.sroa.7.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 24
-  store double %64, ptr %.sroa.7.0..sroa_idx, align 8
+  store double %.sroa.530.0, ptr %.sroa.7.0..sroa_idx, align 8
   store i128 %20, ptr %16, align 16
   store i128 %25, ptr %21, align 16
   store i128 %60, ptr %56, align 16
@@ -397,16 +404,16 @@ define void @"_ZN65_$LT$uu_df..table..Row$u20$as$u20$core..ops..arith..AddAssign
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.14.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(24) %.sroa.14, i64 24, i1 false)
   store <2 x i64> %10, ptr %6, align 16
   store i64 %15, ptr %11, align 16
-  br label %68
+  br label %70
 
-67:                                               ; preds = %45
+69:                                               ; preds = %66
   store i64 %.sroa.027.0, ptr %0, align 16
   %.sroa.5.0..sroa_idx2 = getelementptr inbounds i8, ptr %0, i64 8
   store double %55, ptr %.sroa.5.0..sroa_idx2, align 8
   %.sroa.6.0..sroa_idx4 = getelementptr inbounds i8, ptr %0, i64 16
   store i64 %.sroa.029.0, ptr %.sroa.6.0..sroa_idx4, align 16
   %.sroa.7.0..sroa_idx6 = getelementptr inbounds i8, ptr %0, i64 24
-  store double %64, ptr %.sroa.7.0..sroa_idx6, align 8
+  store double %.sroa.530.0, ptr %.sroa.7.0..sroa_idx6, align 8
   store i128 %20, ptr %16, align 16
   store i128 %25, ptr %21, align 16
   store i128 %60, ptr %56, align 16
@@ -430,18 +437,18 @@ define void @"_ZN65_$LT$uu_df..table..Row$u20$as$u20$core..ops..arith..AddAssign
   tail call void @"_ZN4core3ptr38drop_in_place$LT$uu_df..table..Row$GT$17h3482ee77780c445bE"(ptr noalias noundef nonnull align 16 dereferenceable(208) %1)
   ret void
 
-68:                                               ; preds = %65, %27
-  %.pn56 = phi { ptr, i32 } [ %66, %65 ], [ %.pn.pn, %27 ]
+70:                                               ; preds = %67, %27
+  %.pn56 = phi { ptr, i32 } [ %68, %67 ], [ %.pn.pn, %27 ]
   invoke void @"_ZN4core3ptr38drop_in_place$LT$uu_df..table..Row$GT$17h3482ee77780c445bE"(ptr noalias noundef nonnull align 16 dereferenceable(208) %1) #16
-          to label %71 unwind label %69
+          to label %73 unwind label %71
 
-69:                                               ; preds = %68, %43, %35, %27
-  %70 = landingpad { ptr, i32 }
+71:                                               ; preds = %70, %43, %35, %27
+  %72 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17hbacfddf1bcf21a1eE() #17
   unreachable
 
-71:                                               ; preds = %68
+73:                                               ; preds = %70
   resume { ptr, i32 } %.pn56
 }
 
